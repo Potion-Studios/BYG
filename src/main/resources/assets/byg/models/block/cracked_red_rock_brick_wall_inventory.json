@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:blocks/cracked_red_rock_bricks",
+    "particle": "byg:blocks/cracked_red_rock_bricks"
+  }
+}

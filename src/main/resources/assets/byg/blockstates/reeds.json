@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=lower": { "model": "byg:block/reeds_bottom" },
+    "half=upper":    { "model": "byg:block/reeds_top" }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/stripped_pine_log_top",
+    "up": "byg:blocks/stripped_pine_log_top",
+    "north": "byg:blocks/stripped_pine_log",
+    "east": "byg:blocks/stripped_pine_log",
+    "south": "byg:blocks/stripped_pine_log",
+    "west": "byg:blocks/stripped_pine_log",
+    "particle": "byg:blocks/stripped_pine_log_top"
+  }
+}

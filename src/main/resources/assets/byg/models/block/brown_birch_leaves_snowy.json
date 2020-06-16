@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/brown_birch_leaves_snowy",
+    "up": "byg:blocks/brown_birch_leaves_snowy",
+    "north": "byg:blocks/brown_birch_leaves_snowy_side",
+    "east": "byg:blocks/brown_birch_leaves_snowy_side",
+    "south": "byg:blocks/brown_birch_leaves_snowy_side",
+    "west": "byg:blocks/brown_birch_leaves_snowy_side",
+    "particle": "byg:blocks/brown_birch_leaves_snowy_side"
+  }
+}

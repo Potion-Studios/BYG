@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/short_beach_grass",
+    "particle": "byg:blocks/short_beach_grass"
+  }
+}

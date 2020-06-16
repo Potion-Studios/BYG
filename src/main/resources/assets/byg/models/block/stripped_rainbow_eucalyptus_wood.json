@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/stripped_rainbow_eucalyptus_log",
+    "particle": "byg:blocks/stripped_rainbow_eucalyptus_log"
+  }
+}

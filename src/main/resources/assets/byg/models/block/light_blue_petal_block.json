@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/light_blue_petal",
+    "up": "byg:blocks/light_blue_petal",
+    "north": "byg:blocks/light_blue_petal",
+    "east": "byg:blocks/light_blue_petal",
+    "south": "byg:blocks/light_blue_petal",
+    "west": "byg:blocks/light_blue_petal",
+    "particle": "byg:blocks/light_blue_petal"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/soapstone_tile",
+    "particle": "byg:blocks/soapstone_tile"
+  }
+}

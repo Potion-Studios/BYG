@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:blocks/ebony_log",
+    "particle": "byg:blocks/ebony_log"
+  }
+}

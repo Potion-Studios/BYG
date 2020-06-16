@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "byg:block/rainbow_eucalyptus_log"
+    },
+    "axis=z": {
+      "model": "byg:block/rainbow_eucalyptus_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "byg:block/rainbow_eucalyptus_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
+

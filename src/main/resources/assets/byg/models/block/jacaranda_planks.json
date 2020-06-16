@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/jacaranda_planks",
+    "particle": "byg:blocks/jacaranda_planks"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/packed_black_ice",
+    "particle": "byg:blocks/packed_black_ice"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:blocks/jacaranda_log_side",
+    "particle": "byg:blocks/jacaranda_log_side"
+  }
+}

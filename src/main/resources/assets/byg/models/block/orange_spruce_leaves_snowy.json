@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/spruce_leaves_orange_snowy",
+    "up": "byg:blocks/spruce_leaves_orange_snowy",
+    "north": "byg:blocks/spruce_leaves_orange_snowy_side",
+    "east": "byg:blocks/spruce_leaves_orange_snowy_side",
+    "south": "byg:blocks/spruce_leaves_orange_snowy_side",
+    "west": "byg:blocks/spruce_leaves_orange_snowy_side",
+    "particle": "byg:blocks/spruce_leaves_orange_snowy_side"
+  }
+}

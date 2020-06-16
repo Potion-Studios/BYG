@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "byg:blocks/scoria_stonebrick",
+    "top": "byg:blocks/scoria_stonebrick",
+    "side": "byg:blocks/scoria_stonebrick"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:mossy_red_rock_bricks"
+  },
+  "result": "byg:mossy_red_rock_brick_slab",
+  "count": 2
+}

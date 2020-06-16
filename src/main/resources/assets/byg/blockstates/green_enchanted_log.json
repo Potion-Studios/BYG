@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "byg:block/green_enchanted_log"
+    },
+    "axis=z": {
+      "model": "byg:block/green_enchanted_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "byg:block/green_enchanted_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
+

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/leaf_pile" },
+      { "model": "byg:block/leaf_pile", "y": 90 },
+      { "model": "byg:block/leaf_pile", "y": 180 },
+      { "model": "byg:block/leaf_pile", "y": 270 }
+    ]
+  }
+}

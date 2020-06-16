@@ -1,0 +1,7 @@
+{
+  "parent": "block/tinted_cross",
+  "textures": {
+    "cross": "byg:blocks/nether_bristle_top",
+    "particle": "byg:blocks/nether_bristle_top"
+  }
+}

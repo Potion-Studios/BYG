@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:blocks/red_rock",
+    "particle": "byg:blocks/red_rock"
+  }
+}

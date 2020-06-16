@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "byg:blocks/mossy_stone",
+    "top": "byg:blocks/mossy_stone",
+    "side": "byg:blocks/mossy_stone"
+  }
+}

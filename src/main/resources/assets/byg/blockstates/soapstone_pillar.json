@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y":  { "model": "byg:block/soapstone_pillar" },
+    "axis=z":   { "model": "byg:block/soapstone_pillar", "x": 90 },
+    "axis=x":   { "model": "byg:block/soapstone_pillar", "x": 90, "y": 90 }
+  }
+}

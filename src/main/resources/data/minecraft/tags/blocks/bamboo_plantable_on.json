@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "byg:peat",
+    "byg:meadow_grass_block",
+    "byg:meadow_dirt",
+    "byg:overgrown_stone"
+  ]
+}

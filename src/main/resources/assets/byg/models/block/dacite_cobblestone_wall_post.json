@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_post",
+  "textures": {
+    "wall": "byg:blocks/dacite_cobblestone",
+    "particle": "byg:blocks/dacite_cobblestone"
+  }
+}

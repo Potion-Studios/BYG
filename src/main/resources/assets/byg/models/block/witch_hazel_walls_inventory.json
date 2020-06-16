@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:blocks/witch_hazel_log_side",
+    "particle": "byg:blocks/witch_hazel_log_side"
+  }
+}

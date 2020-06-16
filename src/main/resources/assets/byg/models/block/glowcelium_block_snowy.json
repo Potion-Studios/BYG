@@ -1,0 +1,9 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "particle": "block/dirt",
+    "bottom": "block/dirt",
+    "top": "byg:blocks/glowcelium_top",
+    "side": "byg:blocks/glowcelium_snow_side"
+  }
+}

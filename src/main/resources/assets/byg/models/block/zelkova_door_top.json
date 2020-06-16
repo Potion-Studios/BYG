@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top",
+  "textures": {
+    "bottom": "byg:blocks/zelkova_door_bottom",
+    "top": "byg:blocks/zelkova_door_top"
+  }
+}

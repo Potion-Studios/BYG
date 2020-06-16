@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/azalea",
+    "particle": "byg:blocks/azalea"
+  }
+}

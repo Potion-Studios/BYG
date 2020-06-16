@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "byg:block/dead_leaf_pile"
+    },
+    "facing=east": {
+      "model": "byg:block/dead_leaf_pile",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "byg:block/dead_leaf_pile",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "byg:block/dead_leaf_pile",
+      "y": 270
+    }
+  }
+}

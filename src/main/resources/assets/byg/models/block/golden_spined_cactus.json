@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/golden_spined_cactus",
+    "particle": "byg:blocks/golden_spined_cactus"
+  }
+}

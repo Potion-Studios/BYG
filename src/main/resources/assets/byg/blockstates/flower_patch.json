@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/flower_patch" },
+      { "model": "byg:block/flower_patch", "y": 90 },
+      { "model": "byg:block/flower_patch", "y": 180 },
+      { "model": "byg:block/flower_patch", "y": 270 }
+    ]
+  }
+}

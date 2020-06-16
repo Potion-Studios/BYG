@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=lower": { "model": "byg:block/tall_prairie_grass_bottom" },
+    "half=upper":    { "model": "byg:block/tall_prairie_grass_top" }
+  }
+}

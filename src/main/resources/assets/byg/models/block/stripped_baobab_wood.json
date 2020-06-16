@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/stripped_baobab_log",
+    "up": "byg:blocks/stripped_baobab_log",
+    "north": "byg:blocks/stripped_baobab_log",
+    "east": "byg:blocks/stripped_baobab_log",
+    "south": "byg:blocks/stripped_baobab_log",
+    "west": "byg:blocks/stripped_baobab_log",
+    "particle": "byg:blocks/stripped_baobab_log"
+  }
+}

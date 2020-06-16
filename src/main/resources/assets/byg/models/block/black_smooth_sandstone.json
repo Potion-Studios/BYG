@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/black_sandstone_top",
+    "particle": "byg:blocks/black_sandstone_top"
+  }
+}

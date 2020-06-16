@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "byg:pendorite_ore"
+  },
+  "result": "byg:pendorite_scraps",
+  "experience": 0.7,
+  "cookingtime": 150
+}

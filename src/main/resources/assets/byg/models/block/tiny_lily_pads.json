@@ -1,0 +1,8 @@
+{
+  "parent": "byg:custom/ground_block_template",
+  "textures": {
+    "all": "byg:blocks/plant_lilypad",
+    "particle": "byg:blocks/plant_lilypad",
+    "plant_ivy": "byg:blocks/plant_lilypad"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:baobab_planks"
+    }
+  },
+  "result": {
+    "item": "byg:baobab_trapdoor",
+    "count": 2
+  }
+}

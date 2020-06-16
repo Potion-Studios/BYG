@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/cattail_top",
+    "particle": "byg:blocks/cattail_top"
+  }
+}

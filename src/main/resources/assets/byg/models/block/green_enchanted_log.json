@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "byg:blocks/green_enchanted_log_top",
+    "side": "byg:blocks/green_enchanted_log"
+  }
+}

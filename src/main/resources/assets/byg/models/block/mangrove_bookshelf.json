@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/mangrove_planks",
+    "up": "byg:blocks/mangrove_planks",
+    "north": "byg:blocks/mangrove_bookshelf",
+    "east": "byg:blocks/mangrove_bookshelf",
+    "south": "byg:blocks/mangrove_bookshelf",
+    "west": "byg:blocks/mangrove_bookshelf",
+    "particle": "byg:blocks/mangrove_planks"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/cracked_red_rock_bricks",
+    "particle": "byg:blocks/cracked_red_rock_bricks"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/fence_inventory",
+  "textures": {
+    "texture": "byg:blocks/baobab_planks",
+    "particle": "byg:blocks/baobab_planks"
+  }
+}

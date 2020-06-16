@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/mahogany_log",
+    "particle": "byg:blocks/mahogany_log"
+  }
+}

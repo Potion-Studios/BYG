@@ -1,0 +1,10 @@
+{
+  "parent": "byg:custom/sonora_cactus",
+  "textures": {
+    "all": "byg:blocks/sonora_cactus_side",
+    "particle": "byg:blocks/sonora_cactus_side",
+    "sonora_cactus_bottom": "byg:blocks/sonora_cactus_bottom",
+    "sonora_cactus_side": "byg:blocks/sonora_cactus_side",
+    "sonora_cactus_top": "byg:blocks/sonora_cactus_top"
+  }
+}

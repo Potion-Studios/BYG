@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/pendorite_ore",
+    "particle": "byg:blocks/pendorite_ore"
+  }
+}

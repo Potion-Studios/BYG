@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "byg:sythian_stalk_block"
+  },
+  "result": "minecraft:gold_nugget",
+  "experience": 1.0,
+  "cookingtime": 300
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top",
+  "textures": {
+    "bottom": "byg:blocks/maple_door_bottom",
+    "top": "byg:blocks/maple_door_top"
+  }
+}

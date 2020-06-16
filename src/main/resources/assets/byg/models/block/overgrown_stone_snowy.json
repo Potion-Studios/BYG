@@ -1,0 +1,9 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "particle": "byg:blocks/overgrown_stone_bottom",
+    "bottom": "byg:blocks/overgrown_stone_bottom",
+    "top": "byg:blocks/overgrown_stone_top",
+    "side": "byg:blocks/overgrown_stone_snow_side"
+  }
+}

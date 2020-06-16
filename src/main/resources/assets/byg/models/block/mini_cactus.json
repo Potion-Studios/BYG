@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/plant_cactus_mini",
+    "particle": "byg:blocks/plant_cactus_mini"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "byg:mahogany_logs"
+    }
+  ],
+  "result": {
+    "item": "byg:mahogany_planks",
+    "count": 4
+  }
+}

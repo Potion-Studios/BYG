@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "byg:blocks/dacite",
+    "top": "block/podzol_top",
+    "side": "byg:blocks/podzol_dacite_side"
+  }
+}

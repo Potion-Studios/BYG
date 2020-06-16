@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "byg:joshua_fruit"
+  },
+  "result": "byg:cooked_joshua_fruit",
+  "experience": 0.35,
+  "cookingtime": 200
+}

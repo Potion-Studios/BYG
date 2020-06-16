@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:blocks/palo_verde_log_side",
+    "particle": "byg:blocks/palo_verde_log_side"
+  }
+}

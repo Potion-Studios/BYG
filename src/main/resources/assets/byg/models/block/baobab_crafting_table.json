@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "byg:blocks/baobab_crafting_table_front",
+    "down": "byg:blocks/baobab_planks",
+    "up": "byg:blocks/baobab_crafting_table_top",
+    "north": "byg:blocks/baobab_crafting_table_front",
+    "east": "byg:blocks/baobab_crafting_table_side",
+    "south": "byg:blocks/baobab_crafting_table_side",
+    "west": "byg:blocks/baobab_crafting_table_front"
+  }
+}

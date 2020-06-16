@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/stripped_palo_verde_top",
+    "up": "byg:blocks/stripped_palo_verde_top",
+    "north": "byg:blocks/stripped_palo_verde_log",
+    "east": "byg:blocks/stripped_palo_verde_log",
+    "south": "byg:blocks/stripped_palo_verde_log",
+    "west": "byg:blocks/stripped_palo_verde_log",
+    "particle": "byg:blocks/stripped_palo_verde_top"
+  }
+}

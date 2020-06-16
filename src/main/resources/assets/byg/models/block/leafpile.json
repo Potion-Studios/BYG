@@ -1,0 +1,8 @@
+{
+  "parent": "byg:custom/ground_block_template",
+  "textures": {
+    "all": "byg:blocks/plant_leaf_pile1",
+    "particle": "byg:blocks/plant_leaf_pile1",
+    "plant_ivy": "byg:blocks/plant_leaf_pile1"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_slab",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:cherry_planks"
+    }
+  },
+  "result": {
+    "item": "byg:cherry_slab",
+    "count": 6
+  }
+}

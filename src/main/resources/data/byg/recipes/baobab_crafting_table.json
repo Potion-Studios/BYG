@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:baobab_planks"
+    }
+  },
+  "result": {
+    "item": "byg:baobab_crafting_table"
+  }
+}

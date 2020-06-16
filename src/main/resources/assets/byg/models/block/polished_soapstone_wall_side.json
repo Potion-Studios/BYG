@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side",
+  "textures": {
+    "wall": "byg:blocks/soapstone_polished",
+    "particle": "byg:blocks/soapstone_polished"
+  }
+}

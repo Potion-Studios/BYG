@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "byg:block/baobab_log"
+    },
+    "axis=z": {
+      "model": "byg:block/baobab_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "byg:block/baobab_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/fence_side",
+  "textures": {
+    "texture": "byg:blocks/blue_enchanted_planks",
+    "particle": "byg:blocks/blue_enchanted_planks"
+  }
+}

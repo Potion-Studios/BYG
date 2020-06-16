@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/winter_succulent",
+    "particle": "byg:blocks/winter_succulent"
+  }
+}

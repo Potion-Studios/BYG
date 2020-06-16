@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/weeping_milk_cap",
+    "particle": "byg:blocks/weeping_milk_cap"
+  }
+}

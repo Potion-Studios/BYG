@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "byg:blocks/purple_sandstone_bottom",
+    "top": "byg:blocks/purple_sandstone_top",
+    "side": "byg:blocks/purple_sandstone"
+  }
+}

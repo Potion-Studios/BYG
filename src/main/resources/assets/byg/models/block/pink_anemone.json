@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/pink_anemone",
+    "particle": "byg:blocks/pink_anemone"
+  }
+}

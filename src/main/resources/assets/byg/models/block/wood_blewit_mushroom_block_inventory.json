@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/blewit_mushroom_block"
+  }
+}

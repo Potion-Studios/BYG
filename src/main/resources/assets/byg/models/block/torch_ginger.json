@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/torch_ginger",
+    "particle": "byg:blocks/torch_ginger"
+  }
+}

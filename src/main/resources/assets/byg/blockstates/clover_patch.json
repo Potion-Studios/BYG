@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/clover_patch" },
+      { "model": "byg:block/clover_patch", "y": 90 },
+      { "model": "byg:block/clover_patch", "y": 180 },
+      { "model": "byg:block/clover_patch", "y": 270 }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "voronoiaoc.byg.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "byg.refmap.json",
+  "mixins": [
+    "common.world.layers.MixinIslandLayer",
+    "common.world.layers.MixinShoreLayer"
+  ],
+  "client": [
+    "client.MixinGameRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
