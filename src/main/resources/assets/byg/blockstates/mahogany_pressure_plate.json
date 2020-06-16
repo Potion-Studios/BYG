@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": { "model": "byg:block/mahogany_pressure_plate" },
+    "powered=true": { "model": "byg:block/mahogany_pressure_plate_down" }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "byg:custom/sonora_flowering_cactus",
+  "textures": {
+    "all": "byg:blocks/sonora_cactus_flowering_side",
+    "particle": "byg:blocks/sonora_cactus_flowering_side",
+    "sonora_cactus_flowering_top": "byg:blocks/sonora_cactus_flowering_top",
+    "sonora_cactus_bottom": "byg:blocks/sonora_cactus_bottom",
+    "sonora_cactus_overlay_flowering_side": "byg:blocks/sonora_cactus_overlay_flowering_side",
+    "sonora_cactus_overlay_flowering_top": "byg:blocks/sonora_cactus_overlay_flowering_top",
+    "sonora_cactus_flowering_side": "byg:blocks/sonora_cactus_flowering_side"
+  }
+}

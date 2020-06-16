@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/purple_sand" },
+      { "model": "byg:block/purple_sand", "y": 90 },
+      { "model": "byg:block/purple_sand", "y": 180 },
+      { "model": "byg:block/purple_sand", "y": 270 }
+    ]
+  }
+}

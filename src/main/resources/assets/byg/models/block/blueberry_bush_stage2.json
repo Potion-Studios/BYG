@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/bush_blueberry_stage2"
+  }
+}

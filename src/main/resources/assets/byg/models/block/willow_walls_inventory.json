@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:blocks/willow_log_side",
+    "particle": "byg:blocks/willow_log_side"
+  }
+}

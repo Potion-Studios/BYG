@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/lollipop_plant",
+    "particle": "byg:blocks/lollipop_plant"
+  }
+}

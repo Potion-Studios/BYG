@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab_top",
+  "textures": {
+    "bottom": "byg:blocks/maple_planks",
+    "top": "byg:blocks/maple_planks",
+    "side": "byg:blocks/maple_planks"
+  }
+}

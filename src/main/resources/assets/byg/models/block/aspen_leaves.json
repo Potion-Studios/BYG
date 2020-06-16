@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/aspen_leaves",
+    "up": "byg:blocks/aspen_leaves",
+    "north": "byg:blocks/aspen_leaves",
+    "east": "byg:blocks/aspen_leaves",
+    "south": "byg:blocks/aspen_leaves",
+    "west": "byg:blocks/aspen_leaves",
+    "particle": "byg:blocks/aspen_leaves"
+  }
+}

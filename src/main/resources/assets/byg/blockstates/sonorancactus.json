@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=1": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=2": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=3": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=4": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=5": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=6": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=7": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=8": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=9": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=10": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=11": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=12": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=13": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=14": {
+      "model": "byg:block/sonorancactus"
+    },
+    "age=15": {
+      "model": "byg:block/sonorancactus"
+    }
+  }
+}

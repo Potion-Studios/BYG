@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/skyris_leaves_snowy",
+    "up": "byg:blocks/skyris_leaves_snowy",
+    "north": "byg:blocks/skyris_leaves_snowy_side",
+    "east": "byg:blocks/skyris_leaves_snowy_side",
+    "south": "byg:blocks/skyris_leaves_snowy_side",
+    "west": "byg:blocks/skyris_leaves_snowy_side",
+    "particle": "byg:blocks/skyris_leaves_snowy_side"
+  }
+}

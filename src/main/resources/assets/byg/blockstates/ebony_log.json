@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "byg:block/ebony_log"
+    },
+    "axis=z": {
+      "model": "byg:block/ebony_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "byg:block/ebony_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
+

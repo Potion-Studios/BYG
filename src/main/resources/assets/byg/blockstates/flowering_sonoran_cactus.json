@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=1": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=2": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=3": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=4": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=5": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=6": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=7": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=8": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=9": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=10": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=11": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=12": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=13": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=14": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    },
+    "age=15": {
+      "model": "byg:block/flowering_sonoran_cactus"
+    }
+  }
+}

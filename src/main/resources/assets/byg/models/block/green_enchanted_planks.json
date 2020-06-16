@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/green_enchanted_planks_top",
+    "up": "byg:blocks/green_enchanted_planks_top",
+    "north": "byg:blocks/green_enchanted_planks",
+    "east": "byg:blocks/green_enchanted_planks",
+    "south": "byg:blocks/green_enchanted_planks",
+    "west": "byg:blocks/green_enchanted_planks",
+    "particle": "byg:blocks/green_enchanted_planks_top"
+  }
+}

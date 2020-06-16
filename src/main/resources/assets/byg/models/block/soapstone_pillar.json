@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "byg:blocks/soapstone_pillar_top",
+    "side": "byg:blocks/soapstone_pillar_side"
+  }
+}

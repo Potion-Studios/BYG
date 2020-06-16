@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "snowy=false": [
+      { "model": "byg:block/overgrown_dacite" },
+      { "model": "byg:block/overgrown_dacite", "y": 90 },
+      { "model": "byg:block/overgrown_dacite", "y": 180 },
+      { "model": "byg:block/overgrown_dacite", "y": 270 }
+    ],
+    "snowy=true":  { "model": "byg:block/overgrown_dacite_snowy" }
+  }
+}

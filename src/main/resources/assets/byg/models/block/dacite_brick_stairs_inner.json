@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "byg:blocks/dacite_bricks",
+    "top": "byg:blocks/dacite_bricks",
+    "side": "byg:blocks/dacite_bricks"
+  }
+}

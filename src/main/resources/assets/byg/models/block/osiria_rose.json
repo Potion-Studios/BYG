@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/osiria_rose",
+    "particle": "byg:blocks/osiria_rose"
+  }
+}

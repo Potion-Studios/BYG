@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=lower": { "model": "byg:block/cattail_bottom" },
+    "half=upper":    { "model": "byg:block/cattail_top" }
+  }
+}

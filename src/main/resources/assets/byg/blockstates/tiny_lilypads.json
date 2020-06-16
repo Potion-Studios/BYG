@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/tiny_lilypads" },
+      { "model": "byg:block/tiny_lilypads", "y": 90 },
+      { "model": "byg:block/tiny_lilypads", "y": 180 },
+      { "model": "byg:block/tiny_lilypads", "y": 270 }
+    ]
+  }
+}

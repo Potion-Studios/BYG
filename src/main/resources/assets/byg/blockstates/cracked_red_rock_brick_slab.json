@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "byg:block/cracked_red_rock_brick_slab" },
+    "type=top": { "model": "byg:block/cracked_red_rock_brick_slab_top" },
+    "type=double": { "model": "byg:block/cracked_red_rock_bricks" }
+  }
+}

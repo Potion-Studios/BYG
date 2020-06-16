@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "byg:blocks/mahogany_log_top",
+    "side": "byg:blocks/mahogany_log"
+  }
+}

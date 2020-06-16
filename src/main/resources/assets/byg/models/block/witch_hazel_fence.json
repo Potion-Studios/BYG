@@ -1,0 +1,7 @@
+{
+  "parent": "block/fence_side",
+  "textures": {
+    "texture": "byg:blocks/witch_hazel_planks",
+    "particle": "byg:blocks/witch_hazel_planks"
+  }
+}

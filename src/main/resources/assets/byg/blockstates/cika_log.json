@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "byg:block/cika_log"
+    },
+    "axis=z": {
+      "model": "byg:block/cika_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "byg:block/cika_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
+

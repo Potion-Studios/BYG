@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/guzmania",
+    "particle": "byg:blocks/guzmania"
+  }
+}

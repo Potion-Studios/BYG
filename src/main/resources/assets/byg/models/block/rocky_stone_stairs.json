@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "byg:blocks/rocky_stone",
+    "top": "byg:blocks/rocky_stone",
+    "side": "byg:blocks/rocky_stone"
+  }
+}

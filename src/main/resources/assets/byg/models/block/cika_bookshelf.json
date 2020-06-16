@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/cika_planks",
+    "up": "byg:blocks/cika_planks",
+    "north": "byg:blocks/cika_bookshelf",
+    "east": "byg:blocks/cika_bookshelf",
+    "south": "byg:blocks/cika_bookshelf",
+    "west": "byg:blocks/cika_bookshelf",
+    "particle": "byg:blocks/cika_planks"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "byg:blocks/dacite_pillar_top",
+    "side": "byg:blocks/dacite_pillar_side"
+  }
+}

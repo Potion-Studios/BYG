@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/skyris_planks",
+    "up": "byg:blocks/skyris_planks",
+    "north": "byg:blocks/skyris_bookshelf",
+    "east": "byg:blocks/skyris_bookshelf",
+    "south": "byg:blocks/skyris_bookshelf",
+    "west": "byg:blocks/skyris_bookshelf",
+    "particle": "byg:blocks/skyris_planks"
+  }
+}

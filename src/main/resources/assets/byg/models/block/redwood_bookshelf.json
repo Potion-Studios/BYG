@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/redwood_planks",
+    "up": "byg:blocks/redwood_planks",
+    "north": "byg:blocks/redwood_bookshelf",
+    "east": "byg:blocks/redwood_bookshelf",
+    "south": "byg:blocks/redwood_bookshelf",
+    "west": "byg:blocks/redwood_bookshelf",
+    "particle": "byg:blocks/redwood_planks"
+  }
+}
