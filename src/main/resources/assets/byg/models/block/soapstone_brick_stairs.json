@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "byg:blocks/soapstone_bricks",
+    "top": "byg:blocks/soapstone_bricks",
+    "side": "byg:blocks/soapstone_bricks"
+  }
+}

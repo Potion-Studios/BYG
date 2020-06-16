@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:blocks/soapstone_polished",
+    "particle": "byg:blocks/soapstone_polished"
+  }
+}

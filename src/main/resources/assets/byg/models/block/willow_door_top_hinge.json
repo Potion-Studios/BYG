@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top_rh",
+  "textures": {
+    "bottom": "byg:blocks/willow_door_bottom",
+    "top": "byg:blocks/willow_door_top"
+  }
+}

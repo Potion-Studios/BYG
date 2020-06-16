@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/oak_leaves_dry_brown",
+    "particle": "byg:blocks/oak_leaves_dry_brown"
+  }
+}

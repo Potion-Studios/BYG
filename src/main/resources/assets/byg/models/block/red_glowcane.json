@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/glowcane_red",
+    "particle": "byg:blocks/glowcane_red"
+  }
+}

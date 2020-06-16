@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/frost_magma",
+    "particle": "byg:blocks/frost_magma"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/rainbow_eucalyptus_planks",
+    "particle": "byg:blocks/rainbow_eucalyptus_planks"
+  }
+}

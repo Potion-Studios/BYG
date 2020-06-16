@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/tall_prairie_grass_top",
+    "particle": "byg:blocks/tall_prairie_grass_top"
+  }
+}

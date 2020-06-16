@@ -1,0 +1,6 @@
+{
+  "parent": "block/button",
+  "textures": {
+    "texture": "byg:blocks/mangrove_planks"
+  }
+}

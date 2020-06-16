@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/latharium_ore",
+    "particle": "byg:blocks/latharium_ore"
+  }
+}

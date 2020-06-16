@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/purple_petal",
+    "up": "byg:blocks/purple_petal",
+    "north": "byg:blocks/purple_petal",
+    "east": "byg:blocks/purple_petal",
+    "south": "byg:blocks/purple_petal",
+    "west": "byg:blocks/purple_petal",
+    "particle": "byg:blocks/purple_petal"
+  }
+}

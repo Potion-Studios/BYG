@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/ametrine_ore",
+    "particle": "byg:blocks/ametrine_ore"
+  }
+}

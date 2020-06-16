@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/california_poppy",
+    "particle": "byg:blocks/california_poppy"
+  }
+}

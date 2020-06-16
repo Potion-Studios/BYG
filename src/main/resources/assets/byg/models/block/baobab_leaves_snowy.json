@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/baobab_leaves_snowy",
+    "up": "byg:blocks/baobab_leaves_snowy",
+    "north": "byg:blocks/baobab_leaves_snowy_side",
+    "east": "byg:blocks/baobab_leaves_snowy_side",
+    "south": "byg:blocks/baobab_leaves_snowy_side",
+    "west": "byg:blocks/baobab_leaves_snowy_side",
+    "particle": "byg:blocks/baobab_leaves_snowy_side"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/mossy_stone",
+    "particle": "byg:blocks/mossy_stone"
+  }
+}

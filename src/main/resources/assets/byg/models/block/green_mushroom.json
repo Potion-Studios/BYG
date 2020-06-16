@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/green_mushroom",
+    "particle": "byg:blocks/green_mushroom"
+  }
+}

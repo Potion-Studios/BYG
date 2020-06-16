@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/mahogany_planks",
+    "up": "byg:blocks/mahogany_planks",
+    "north": "byg:blocks/mahogany_bookshelf",
+    "east": "byg:blocks/mahogany_bookshelf",
+    "south": "byg:blocks/mahogany_bookshelf",
+    "west": "byg:blocks/mahogany_bookshelf",
+    "particle": "byg:blocks/mahogany_planks"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:blocks/cypress_log",
+    "particle": "byg:blocks/cypress_log"
+  }
+}

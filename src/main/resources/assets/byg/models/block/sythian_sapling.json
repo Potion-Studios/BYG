@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/sythian_stalk_stage0",
+    "particle": "byg:blocks/sythian_stalk_stage0"
+  }
+}

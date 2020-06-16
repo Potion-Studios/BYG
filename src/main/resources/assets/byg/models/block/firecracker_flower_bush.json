@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/firecracker_flower_bush",
+    "particle": "byg:blocks/firecracker_flower_bush"
+  }
+}

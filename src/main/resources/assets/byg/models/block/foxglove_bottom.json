@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/foxglove_bottom",
+    "particle": "byg:blocks/foxglove_bottom"
+  }
+}

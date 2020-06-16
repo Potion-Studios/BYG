@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:blocks/jacaranda_leaves_snowy",
+    "up": "byg:blocks/jacaranda_leaves_snowy",
+    "north": "byg:blocks/jacaranda_leaves_snowy_side",
+    "east": "byg:blocks/jacaranda_leaves_snowy_side",
+    "south": "byg:blocks/jacaranda_leaves_snowy_side",
+    "west": "byg:blocks/jacaranda_leaves_snowy_side",
+    "particle": "byg:blocks/jacaranda_leaves_snowy_side"
+  }
+}
