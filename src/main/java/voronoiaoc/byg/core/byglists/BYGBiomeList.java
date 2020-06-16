@@ -86,7 +86,6 @@ public class BYGBiomeList {
     public static final Biome TROPICALISLAND = new TropicalIslands();
     public static final Biome TROPICALRAINFOREST = new TropicalRainForest();
     public static final Biome VIBRANTSWAMPLANDS = new VibrantSwamplands();
-    public static final Biome VOLCANO = new Volcano();
     public static final Biome WEEPINGWITCHFOREST = new WeepingWitchForest();
     public static final Biome WOODLANDS = new WoodLands();
     public static final Biome ZELKOVAFOREST = new ZelkovaForest();

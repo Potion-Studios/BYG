@@ -25,7 +25,6 @@ public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> QUAGMIRE_SB = new QuagmireSB(SurfaceBuilderConfig::deserialize);
     public static final SurfaceBuilder<SurfaceBuilderConfig> CANYONS = new CanyonSB(SurfaceBuilderConfig::deserialize);
     public static final SurfaceBuilder<SurfaceBuilderConfig> MOJAVE = new MojaveSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO = new VolcanoSB(SurfaceBuilderConfig::deserialize);
 
     //Beaches
     public static final SurfaceBuilder<SurfaceBuilderConfig> ROCKYBLACKBEACH_SB = new RockyBlackBeachSB(SurfaceBuilderConfig::deserialize);
