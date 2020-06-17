@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.biomefeatures;
+package voronoiaoc.byg.common.world.feature.features.overworld;
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;

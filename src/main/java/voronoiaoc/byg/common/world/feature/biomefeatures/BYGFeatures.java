@@ -10,9 +10,9 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
+import voronoiaoc.byg.common.world.feature.placements.AnyWaterOrSolidSurfaceSurface;
 import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 import voronoiaoc.byg.common.world.feature.placements.UnderGroundPlacement;
-import voronoiaoc.byg.common.world.feature.placements.AnyWaterOrSolidSurfaceSurface;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGFeatureList;
 
@@ -78,6 +78,15 @@ public class BYGFeatures {
     }
     public static void addLargeLake(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGFeatureList.LAKE_WIDE_SHALLOW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AnyWaterOrSolidSurfaceSurface.WWATERORSOLIDSURFACE.configure(new FrequencyConfig(4))));
+    }
+
+    public static void addLargeLavaLake(Biome biome) {
+        biome.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGFeatureList.LAVA_LAKE_WIDE_SHALLOW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AnyWaterOrSolidSurfaceSurface.WWATERORSOLIDSURFACE.configure(new FrequencyConfig(3))));
+    }
+
+    public static void addVolcanicCarvers(Biome biome) {
+        biome.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(BYGFeatureList.VOLCANIC_CARVER, new ProbabilityConfig(0.02F)));
+
     }
     
     public static void addAzalea(Biome biome) {

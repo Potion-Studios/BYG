@@ -1,13 +1,14 @@
 package voronoiaoc.byg.core.byglists;
 
+import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
-import voronoiaoc.byg.common.world.feature.biomefeatures.FrostMagmaLakeFeature;
-import voronoiaoc.byg.common.world.feature.biomefeatures.LakeWideShallow;
+import voronoiaoc.byg.common.world.carver.VolcanicCarver;
+import voronoiaoc.byg.common.world.feature.features.overworld.*;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
@@ -17,9 +18,6 @@ import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedBu
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoral;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFan;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFeature;
-import voronoiaoc.byg.common.world.feature.features.overworld.BlackIceAndSnowFeature;
-import voronoiaoc.byg.common.world.feature.features.overworld.CanyonCactus;
-import voronoiaoc.byg.common.world.feature.features.overworld.VinePlacer;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.DeadSeaSpikes;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.TallDeadSeaSpikes;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.HugeBlackPuff;
@@ -231,6 +229,7 @@ public class BYGFeatureList {
     public static final Feature<BlockStateFeatureConfig> FROST_LAKE = new FrostMagmaLakeFeature(BlockStateFeatureConfig::deserialize);
     public static final Feature<NoFeatureConfig> BYGFOSSIL = new BYGFossilFeature(NoFeatureConfig::deserialize);
     public static final Feature<NoFeatureConfig> LAKE_WIDE_SHALLOW = new LakeWideShallow(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> LAVA_LAKE_WIDE_SHALLOW = new LavaLakeWideShallow(NoFeatureConfig::deserialize);
 
     //Structures
     public static final Structure<VillageConfig> BYGVILLAGE = new BYGVillageStructure(VillageConfig::deserialize);
@@ -280,6 +279,10 @@ public class BYGFeatureList {
 
     //PineTree
     public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE1 = new PineTree1(NoFeatureConfig::deserialize, false, 0);
+
+    //Carver
+    public static final WorldCarver<ProbabilityConfig> VOLCANIC_CARVER = new VolcanicCarver(ProbabilityConfig::deserialize, 256);
+
 }
 
 

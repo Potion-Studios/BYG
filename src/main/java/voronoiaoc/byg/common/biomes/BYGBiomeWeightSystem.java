@@ -73,6 +73,7 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.SIERRAVALLEY, ConfigWeightManager.SIERRAVALLEY.getWeight(), BiomeManager.BiomeType.DESERT);
 //        addBiomeEntry(BYGBiomeList.WEEPINGWITCHFOREST, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
 //        addBiomeEntry(BYGBiomeList.WOODLANDS, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomeList.VOLCANO, 1, BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.ZELKOVAFOREST, ConfigWeightManager.ZELKOVAFOREST.getWeight(), BiomeManager.BiomeType.COOL);
 
         BYG.LOGGER.debug("BYG: Added biome entries with their respective weights!");

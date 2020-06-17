@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.biomes.subbiomes.lakes;
+package voronoiaoc.byg.common.biomes.subbiomes;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
