@@ -49,6 +49,7 @@ public class BYGBiomeRegistry {
         registerBiome(registry, BYGBiomeList.GLOWSHROOMBAYOU, "glowshroombayou",  true, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET,BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.GRASSLANDPLATEAU, "grasslandplateau",  true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.GREATLAKES, "greatlakes",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WATER, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        registerBiome(registry, BYGBiomeList.GROVE, "grove",  true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.GUIANASHIELD, "guianashield",  true, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.JACARANDAFOREST, "jacarandaforest",  true, BiomeDictionary.Type.FOREST);
         //registerBiome(registry, BYGBiomeList.MANGROVEMARSHES, "mangrovemarshes", ConfigWeightManager.mangrovemarshes.getWeight(), true, BiomeManager.BiomeType.WARM, BiomeDictionary.BYGType.SWAMP, BiomeDictionary.BYGType.FOREST, BiomeDictionary.BYGType.WET, BiomeDictionary.BYGType.DENSE, BiomeDictionary.BYGType.OVERWORLD);

@@ -41,6 +41,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight GRASSLANDPLATEAU = new ConfigWeight("Grassland_Plateau", 5);
     public static final ConfigWeight GREATLAKES = new ConfigWeight("Great_Lake", 6);
     public static final ConfigWeight GUIANASHIELD = new ConfigWeight("Guiana_Shield", 5);
+    public static final ConfigWeight GROVE = new ConfigWeight("Grove", 5);
     public static final ConfigWeight JACARANDAFOREST = new ConfigWeight("Jacaranda_Forest", 6);
 //    public static final ConfigWeight mangrovemarshes = new ConfigWeight("mangrovemarshes", 10);
 //    public static final ConfigWeight mapletaiga = new ConfigWeight("mapletaiga", 10);

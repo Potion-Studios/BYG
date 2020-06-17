@@ -39,6 +39,7 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.GRASSLANDPLATEAU, ConfigWeightManager.GRASSLANDPLATEAU.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.GREATLAKES, ConfigWeightManager.GREATLAKES.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomeList.GUIANASHIELD, ConfigWeightManager.GUIANASHIELD.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomeList.GROVE, ConfigWeightManager.GROVE.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.JACARANDAFOREST, ConfigWeightManager.JACARANDAFOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.CRAGGARDENS, ConfigWeightManager.CRAGGARDENS.getWeight(), BiomeManager.BiomeType.WARM);
 //        addBiomeEntry(BYGBiomeList.MANGROVEMARSHES, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
