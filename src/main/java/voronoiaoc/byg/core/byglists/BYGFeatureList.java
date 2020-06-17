@@ -42,6 +42,8 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.W
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.HugeCypressTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.dead.DeadTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.*;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted_grove.BlueEnchantedGroveTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted_grove.GreenEnchantedGroveTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.JacarandaTree1;
@@ -57,6 +59,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.palm.PalmTre
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.prairie.PrairieShrub;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.prairie.PrairieShrub2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.PumpkinPatch1;
@@ -142,6 +145,11 @@ public class BYGFeatureList {
     //Boreal Trees
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE = new BorealForestTree1(NoFeatureConfig::deserialize, false, 0);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE2 = new BorealForestTree2(NoFeatureConfig::deserialize, false, 0);
+
+    //Enchanted Grove Trees
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_ENCHANTED_GROVE_TREE = new BlueEnchantedGroveTree(NoFeatureConfig::deserialize, false, 0);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> GREEN_ENCHANTED_GROVE_TREE = new GreenEnchantedGroveTree(NoFeatureConfig::deserialize, false, 0);
+
 
     //Tropical Trees
     public static final BYGAbstractTreeFeature<NoFeatureConfig> TROPICALRAINFOREST_TREE = new TropicalRainForestTree(NoFeatureConfig::deserialize, false, 0);
@@ -279,6 +287,7 @@ public class BYGFeatureList {
 
     //PineTree
     public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE1 = new PineTree1(NoFeatureConfig::deserialize, false, 0);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE2 = new PineTree2(NoFeatureConfig::deserialize, false, 0);
 
     //Carver
     public static final WorldCarver<ProbabilityConfig> VOLCANIC_CARVER = new VolcanicCarver(ProbabilityConfig::deserialize, 256);

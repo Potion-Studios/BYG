@@ -40,6 +40,7 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.GREATLAKES, ConfigWeightManager.GREATLAKES.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomeList.GUIANASHIELD, ConfigWeightManager.GUIANASHIELD.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.GROVE, ConfigWeightManager.GROVE.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomeList.ENCHANTED_GROVE, ConfigWeightManager.ENCHANTED_GROVE.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.JACARANDAFOREST, ConfigWeightManager.JACARANDAFOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.CRAGGARDENS, ConfigWeightManager.CRAGGARDENS.getWeight(), BiomeManager.BiomeType.WARM);
 //        addBiomeEntry(BYGBiomeList.MANGROVEMARSHES, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
@@ -74,7 +75,7 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.SIERRAVALLEY, ConfigWeightManager.SIERRAVALLEY.getWeight(), BiomeManager.BiomeType.DESERT);
 //        addBiomeEntry(BYGBiomeList.WEEPINGWITCHFOREST, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
 //        addBiomeEntry(BYGBiomeList.WOODLANDS, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(BYGBiomeList.VOLCANO, 1, BiomeManager.BiomeType.WARM);
+//        addBiomeEntry(BYGBiomeList.VOLCANO, 1, BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.ZELKOVAFOREST, ConfigWeightManager.ZELKOVAFOREST.getWeight(), BiomeManager.BiomeType.COOL);
 
         BYG.LOGGER.debug("BYG: Added biome entries with their respective weights!");

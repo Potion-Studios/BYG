@@ -42,6 +42,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight GREATLAKES = new ConfigWeight("Great_Lake", 6);
     public static final ConfigWeight GUIANASHIELD = new ConfigWeight("Guiana_Shield", 5);
     public static final ConfigWeight GROVE = new ConfigWeight("Grove", 5);
+    public static final ConfigWeight ENCHANTED_GROVE = new ConfigWeight("Enchanted_Grove", 1);
     public static final ConfigWeight JACARANDAFOREST = new ConfigWeight("Jacaranda_Forest", 6);
 //    public static final ConfigWeight mangrovemarshes = new ConfigWeight("mangrovemarshes", 10);
 //    public static final ConfigWeight mapletaiga = new ConfigWeight("mapletaiga", 10);
@@ -79,7 +80,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight TROPICALRAINFOREST = new ConfigWeight("Tropical_Rain_Forest", 6);
     public static final ConfigWeight CRAGGARDENS = new ConfigWeight("Crag_Gardens", 1);
     public static final ConfigWeight VIBRANTSWAMPLANDS = new ConfigWeight("Vibrant_Swamplands", 6);
-    public static final ConfigWeight VOLCANO = new ConfigWeight("Volcano", 1);
+//    public static final ConfigWeight VOLCANO = new ConfigWeight("Volcano", 1);
 //    public static final ConfigWeight weepingwitchforest = new ConfigWeight("weepingwitchforest", 10);
 //    public static final ConfigWeight woodlands = new ConfigWeight("woodlands", 10);
     public static final ConfigWeight ZELKOVAFOREST = new ConfigWeight("Zelkova_Forest", 6);

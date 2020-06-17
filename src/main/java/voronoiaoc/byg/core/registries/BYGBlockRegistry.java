@@ -286,7 +286,7 @@ public class BYGBlockRegistry {
                 //Sapling Blocks
                 BYGBlockList.ASPEN_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.AspenSaplingToTree(),"aspen_sapling"),
                 BYGBlockList.BAOBAB_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BaobabSaplingToTree(), "baobab_sapling"),
-                BYGBlockList.BLUE_ENCHANTED_SAPLING = new BYGBlockProperties.BYGFlower("blue_enchanted_sapling"),
+                BYGBlockList.BLUE_ENCHANTED_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BlueEnchantedSaplingToTree(),"blue_enchanted_sapling"),
                 BYGBlockList.BLUE_SPRUCE_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BlueSpruceSaplingToTree(), "blue_spruce_sapling"),
                 BYGBlockList.BROWN_BIRCH_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BrownBirchSaplingToTree(), "brown_birch_sapling"),
                 BYGBlockList.BROWN_OAK_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BrownOakSaplingToTree(), "brown_oak_sapling"),
@@ -294,7 +294,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.CYPRESS_SAPLING = new BYGBlockProperties.BYGFlower("cypress_sapling"),
                 BYGBlockList.EBONY_SAPLING = new BYGBlockProperties.BYGFlower("ebony_sapling"),
                 BYGBlockList.FIR_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.FirSaplingToTree(), "fir_sapling"),
-                BYGBlockList.GREEN_ENCHANTED_SAPLING = new BYGBlockProperties.BYGFlower("green_enchanted_sapling"),
+                BYGBlockList.GREEN_ENCHANTED_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.GreenEnchantedSaplingToTree(),"green_enchanted_sapling"),
                 BYGBlockList.HOLLY_SAPLING = new BYGBlockProperties.BYGFlower("holly_sapling"),
                 BYGBlockList.JACARANDA_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.JacarandaSaplingToTree(), "jacaranda_sapling"),
                 BYGBlockList.INDIGO_JACARANDA_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.IndigoJacarandaSaplingToTree(), "indigo_jacaranda_sapling"),

@@ -47,6 +47,7 @@ public class BYGBiomeList {
     public static final Biome GLOWSHROOMBAYOU = new GlowShroomBayou();
     public static final Biome GRASSLANDPLATEAU = new GrassLandPlateau();
     public static final Biome GREATLAKES = new GreatLakes();
+    public static final Biome ENCHANTED_GROVE = new EnchantedGrove();
     public static final Biome GROVE = new Grove();
     public static final Biome GUIANASHIELD = new GuianaShield();
     public static final Biome JACARANDAFOREST = new JacarandaForest();
@@ -128,6 +129,8 @@ public class BYGBiomeList {
 
     public static final Biome WOODEDMEADOW = new WoodedMeadow();
     public static final Biome FLOWERINGMEADOW = new FloweringMeadow();
+    public static final Biome FLOWERING_GROVE = new FloweringGrove();
+    public static final Biome FLOWERING_ENCHANTED_GROVE = new FloweringEnchantedGrove();
 
     public static final Biome OASIS = new Oasis();
     public static final Biome POLLUTEDLAKE = new PollutedLake();
@@ -145,7 +148,7 @@ public class BYGBiomeList {
     public static final Biome SNOWYDECIDUOUSFORESTHILLS = new SnowyDeciduousForestHills();
     public static final Biome TROPICALFUNGALRAINFORESTHILLS = new TropicalFungalRainForestHills();
     public static final Biome TROPICALRAINFORESTHILLS = new TropicalRainForestHills();
-    public static final Biome VOLCANO = new Volcano();
+//    public static final Biome VOLCANO = new Volcano();
     public static final Biome ZELKOVAFORESTHILLS = new ZelkovaForestHills();
 
     //Nether

@@ -11,6 +11,8 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.RedBir
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.YellowBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.SmallFirTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.WideFirTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted_grove.BlueEnchantedGroveTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted_grove.GreenEnchantedGroveTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.JacarandaTree1;
@@ -279,6 +281,22 @@ public class BYGSaplingToTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
             return random.nextInt(2) == 0 ? new SilverMapleTree(NoFeatureConfig::deserialize, true, 0) : new SilverMapleTree(NoFeatureConfig::deserialize, true, 0);
+        }
+
+    }
+
+    public static class BlueEnchantedSaplingToTree extends BYGTree {
+        @Nullable
+        public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? new BlueEnchantedGroveTree(NoFeatureConfig::deserialize, true, 0) : new BlueEnchantedGroveTree(NoFeatureConfig::deserialize, true, 0);
+        }
+
+    }
+
+    public static class GreenEnchantedSaplingToTree extends BYGTree {
+        @Nullable
+        public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? new GreenEnchantedGroveTree(NoFeatureConfig::deserialize, true, 0) : new GreenEnchantedGroveTree(NoFeatureConfig::deserialize, true, 0);
         }
 
     }
