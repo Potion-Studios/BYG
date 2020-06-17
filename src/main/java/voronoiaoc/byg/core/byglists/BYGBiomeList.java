@@ -47,6 +47,7 @@ public class BYGBiomeList {
     public static final Biome GLOWSHROOMBAYOU = new GlowShroomBayou();
     public static final Biome GRASSLANDPLATEAU = new GrassLandPlateau();
     public static final Biome GREATLAKES = new GreatLakes();
+    public static final Biome GROVE = new Grove();
     public static final Biome GUIANASHIELD = new GuianaShield();
     public static final Biome JACARANDAFOREST = new JacarandaForest();
     public static final Biome MANGROVEMARSHES = new MangroveMarshes();
@@ -151,7 +152,6 @@ public class BYGBiomeList {
     public static final Biome WARPEDDESERT = new WarpedDesert();
     public static final Biome SYTHIANTORRIDS = new SythianTorrids();
     public static final Biome GLOWSTONEGARDENS = new GlowstoneGardens();
-
 
     //End
     public static final Biome IVISFIELDS = new IvisFields();
