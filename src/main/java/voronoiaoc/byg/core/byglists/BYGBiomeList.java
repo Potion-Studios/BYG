@@ -84,6 +84,7 @@ public class BYGBiomeList {
     public static final Biome SONORANDESERT = new SonoranDesert();
     public static final Biome STONEBRUSHLANDS = new StoneBrushlands();
     public static final Biome STONEFOREST = new StoneForest();
+    public static final Biome THE_BLACK_FOREST = new TheBlackForest();
     public static final Biome TROPICALFUNGALRAINFOREST = new TropicalFungalRainForest();
     public static final Biome TROPICALISLAND = new TropicalIslands();
     public static final Biome TROPICALRAINFOREST = new TropicalRainForest();
@@ -115,7 +116,10 @@ public class BYGBiomeList {
     public static final Biome WOODEDGRASSLANDPLATEAU = new WoodedGrassLandPlateau();
     public static final Biome JACARANDAFORESTHILLS = new JacarandaForestHills();
     public static final Biome NORTHERN_FOREST = new NorthernForest();
+    public static final Biome FOREST_FAULT = new ForestFault();
+    public static final Biome BLACK_FOREST_HILLS = new BlackForestHills();
 
+    public static final Biome BLACK_FOREST_CLEARING = new BlackForestClearing();
     public static final Biome CONIFEROUS_CLEARING = new ConiferousClearing();
     public static final Biome ZELKOVA_CLEARING = new ZelkovaClearing();
     public static final Biome ASPEN_CLEARING = new AspenClearing();

@@ -276,7 +276,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.ZELKOVA_FENCE = new BYGBlockProperties.BYGFence("zelkova_fence"),
 
                 //Ground Blocks
-                BYGBlockList.PEAT = new BYGBlockProperties.BYGGrassBlock("peat"),
+                BYGBlockList.PEAT = new BYGBlockProperties.BYGDirt("peat"),
                 BYGBlockList.MEADOW_GRASSBLOCK = new BYGBlockProperties.BYGMeadowGrass("meadow_grass_block"),
                 BYGBlockList.GLOWCELIUM = new BYGBlockProperties.BYGGlowcelium("glowcelium_block"),
                 BYGBlockList.MEADOW_DIRT = new BYGBlockProperties.BYGDirt("meadow_dirt"),

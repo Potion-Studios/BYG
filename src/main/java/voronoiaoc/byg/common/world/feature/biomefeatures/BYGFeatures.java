@@ -8,6 +8,7 @@ import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.dimension.EndDimension;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.Heightmap;
+import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
 import voronoiaoc.byg.common.world.feature.placements.AnyWaterOrSolidSurfaceSurface;
@@ -371,5 +372,9 @@ public class BYGFeatures {
     public static void addivisPlants(Biome biomeIn) {
         biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.IVIS_ROOTS).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
         biomeIn.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.IVIS_SPROUT).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
+    }
+
+    public static void addExtraCanyons(Biome biomeIn) {
+        biomeIn.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(WorldCarver.CANYON, new ProbabilityConfig(0.8F)));
     }
 }

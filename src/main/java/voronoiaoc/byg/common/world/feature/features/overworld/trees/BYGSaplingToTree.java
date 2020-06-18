@@ -29,6 +29,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.P
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTreeLarge1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree2;
@@ -253,7 +254,12 @@ public class BYGSaplingToTree {
 
     }
 
-    public static class PineSaplingToTree extends BYGTree {
+    public static class PineSaplingToTree extends BYGHugeTree {
+        @Nullable
+        public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
+            return new PineTreeLarge1(NoFeatureConfig::deserialize, false, 0);
+        }
+
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
             return random.nextInt(2) == 0 ? new PineTree1(NoFeatureConfig::deserialize, true, 0) : new PineTree2(NoFeatureConfig::deserialize, true, 0);

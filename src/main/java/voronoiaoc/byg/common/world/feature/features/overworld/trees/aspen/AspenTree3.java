@@ -41,7 +41,7 @@ public class AspenTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int minHeight = 9;
         if (worldIn instanceof IWorld) {
             Biome biome = ((IWorld) worldIn).getBiome(position);
-            if (biome == BYGBiomeList.ASPENFORESTHILLS || biome == BYGBiomeList.SEASONALTAIGA || biome == BYGBiomeList.SEASONALTAIGAHILLS || biome == BYGBiomeList.SEASONALGIANTTAIGA)
+            if (biome == BYGBiomeList.ASPENFORESTHILLS || biome == BYGBiomeList.SEASONALTAIGA || biome == BYGBiomeList.SEASONALTAIGAHILLS || biome == BYGBiomeList.SEASONALGIANTTAIGA || biome == BYGBiomeList.THE_BLACK_FOREST || biome == BYGBiomeList.BLACK_FOREST_HILLS || biome == BYGBiomeList.BLACK_FOREST_CLEARING || biome == BYGBiomeList.FOREST_FAULT)
                 minHeight = 13;
         }
         int randTreeHeight = rand.nextInt(3) + minHeight;

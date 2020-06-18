@@ -262,17 +262,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGGrassBlock extends GrassBlock {
-        public BYGGrassBlock(String registryName) {
-            super(Block.Properties.create(Material.EARTH)
-                    .sound(SoundType.GROUND)
-                    .hardnessAndResistance(0.2f)
-                    .tickRandomly()
-            );
-            setRegistryName(registryName);
-        }
-    }
-
     public static class BYGIceBlock extends IceBlock {
         public BYGIceBlock(String registryName) {
             super(Block.Properties.create(Material.ICE)
