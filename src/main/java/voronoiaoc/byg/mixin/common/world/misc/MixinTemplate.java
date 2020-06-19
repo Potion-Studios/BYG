@@ -187,15 +187,16 @@ public class MixinTemplate {
                     BlockPos pos = new BlockPos(featureX, realY, realZ);
 
                     //|| pos.getX() == -1 && pos.getZ() == 0 || pos.getX() == -1 && pos.getZ() == -1 || pos.getX() == -1 && pos.getZ() == -1
-                    if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("log") && pos.getX() == 0 && pos.getZ() == 0 || pos.getX() == -1 && pos.getZ() == 0 || pos.getX() == 1 && pos.getZ() == 0 || pos.getX() == 0 && pos.getZ() == 1 || pos.getX() == 0 && pos.getZ() == -1) {
+                    //|| pos.getX() == -1 && pos.getZ() == 0 || pos.getX() == 1 && pos.getZ() == 0 || pos.getX() == 0 && pos.getZ() == 1 || pos.getX() == 0 && pos.getZ() == -1
+                    if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("log") && pos.getX() == 0 && pos.getZ() == 0) {
                         trunkLogList.add("this.treeLog(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
-                    if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("log")) {
+                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("log")) {
                         treeBranchList.add("this.treeBranch(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
-                    if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("leaves")) {
+                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("leaves")) {
                         treeLeaveList.add("this.leafs(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
                 });
