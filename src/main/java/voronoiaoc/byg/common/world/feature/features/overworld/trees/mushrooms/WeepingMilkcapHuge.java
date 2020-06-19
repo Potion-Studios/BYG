@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.mushrooms;
 
 import com.mojang.datafixers.Dynamic;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
@@ -13,9 +14,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class BlueGlowshroom extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class WeepingMilkcapHuge extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public BlueGlowshroom(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public WeepingMilkcapHuge(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 
@@ -36,50 +37,53 @@ public class BlueGlowshroom extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 4, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 4, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 4, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 4, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 5, -4), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 5, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 5, -3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 5, -3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 5, -2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, -2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 5, -2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(3, 5, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 5, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 5, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 5, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 5, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 5, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 5, 0), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 5, 2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, 2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 5, 2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(3, 5, 2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 5, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 5, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 5, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 5, 4), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, -3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, -2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, -2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, -2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, -1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 6, -1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 6, 0), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, 0), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 6, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 6, 0), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, 1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 6, 1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, 2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, 2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, 2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 0), boundsIn);
             }
         }
         return true;
@@ -88,14 +92,14 @@ public class BlueGlowshroom extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Log Placement
     private void treeLog(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canTreePlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.PINE_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, Blocks.MUSHROOM_STEM.getDefaultState(), boundingBox);
         }
     }
 
     //Log Placement
     private void treeBranch(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canTreePlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.PINE_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, Blocks.MUSHROOM_STEM.getDefaultState(), boundingBox);
         }
     }
 
@@ -103,7 +107,7 @@ public class BlueGlowshroom extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.MILKCAP_MUSHROOM_BLOCK.getDefaultState(), boundingBox);
         }
     }
 

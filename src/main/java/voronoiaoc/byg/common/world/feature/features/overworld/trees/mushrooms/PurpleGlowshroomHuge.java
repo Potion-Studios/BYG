@@ -13,9 +13,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class PurpleGlowshroom extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class PurpleGlowshroomHuge extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public PurpleGlowshroom(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public PurpleGlowshroomHuge(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 

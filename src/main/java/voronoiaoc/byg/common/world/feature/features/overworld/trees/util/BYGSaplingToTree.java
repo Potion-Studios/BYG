@@ -21,6 +21,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.Joshu
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.JoshuaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.MapleTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.RedMapleTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.RedMapleTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.SilverMapleTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.oak.BrownOakTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.oak.OrangeOakTree;
@@ -269,7 +270,7 @@ public class BYGSaplingToTree {
     public static class MapleSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new MapleTree(NoFeatureConfig::deserialize, true, 0) : new MapleTree(NoFeatureConfig::deserialize, true, 0);
+            return random.nextInt(2) == 0 ? new MapleTree(NoFeatureConfig::deserialize) : new MapleTree(NoFeatureConfig::deserialize);
         }
 
     }
@@ -277,7 +278,7 @@ public class BYGSaplingToTree {
     public static class RedMapleSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new RedMapleTree(NoFeatureConfig::deserialize, true, 0) : new RedMapleTree(NoFeatureConfig::deserialize, true, 0);
+            return random.nextInt(2) == 0 ? new RedMapleTree(NoFeatureConfig::deserialize) : new RedMapleTree2(NoFeatureConfig::deserialize);
         }
 
     }
@@ -285,7 +286,7 @@ public class BYGSaplingToTree {
     public static class SilverMapleSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new SilverMapleTree(NoFeatureConfig::deserialize, true, 0) : new SilverMapleTree(NoFeatureConfig::deserialize, true, 0);
+            return random.nextInt(2) == 0 ? new SilverMapleTree(NoFeatureConfig::deserialize) : new SilverMapleTree(NoFeatureConfig::deserialize);
         }
 
     }

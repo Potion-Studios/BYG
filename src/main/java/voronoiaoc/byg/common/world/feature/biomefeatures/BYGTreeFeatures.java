@@ -211,12 +211,12 @@ public class BYGTreeFeatures {
 
     public static void addSimpleMapleTrees(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                Feature.NORMAL_TREE.withConfiguration(SPRUCE_TREE_CONFIG).withChance(0.06F),
-                Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.RED_MAPLE_TREE_CONFIG).withChance(0.5F),
-                Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.FANCY_SILVER_MAPLE_WITH_MORE_BEEHIVES_CONFIG).withChance(0.04F),
-                Feature.FANCY_TREE.withConfiguration(BYGFeatureConfigs.FANCY_RED_MAPLE_WITH_MORE_BEEHIVES_CONFIG).withChance(0.2F),
-                Feature.FANCY_TREE.withConfiguration(BYGFeatureConfigs.FANCY_MAPLE_WITH_MORE_BEEHIVES_CONFIG).withChance(0.1F)),
-                Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.MAPLE_TREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
+                BYGFeatureList.MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.06F),
+                BYGFeatureList.RED_MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
+                BYGFeatureList.SILVER_MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.04F),
+                BYGFeatureList.MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
+                BYGFeatureList.MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F)),
+                BYGFeatureList.RED_MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(5, 0.4F, 2))));
     }
 

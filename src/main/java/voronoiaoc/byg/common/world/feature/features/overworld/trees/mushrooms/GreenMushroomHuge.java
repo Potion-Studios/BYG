@@ -13,9 +13,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class GreenMushroom extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class GreenMushroomHuge extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public GreenMushroom(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public GreenMushroomHuge(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 
@@ -149,14 +149,14 @@ public class GreenMushroom extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Log Placement
     private void treeLog(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canTreePlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.PINE_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.WHITE_MUSHROOM_STEM.getDefaultState(), boundingBox);
         }
     }
 
     //Log Placement
     private void treeBranch(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canTreePlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.PINE_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.WHITE_MUSHROOM_STEM.getDefaultState(), boundingBox);
         }
     }
 
@@ -164,7 +164,7 @@ public class GreenMushroom extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.GREEN_MUSHROOM_BLOCK.getDefaultState(), boundingBox);
         }
     }
 

@@ -50,8 +50,12 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.Ja
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.JacarandaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.JoshuaTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.JoshuaTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.MapleTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.RedMapleTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.SilverMapleTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.meadow.MeadowShrub;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.meadow.MeadowShrub2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.mushrooms.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.oak.BrownOakTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.oak.OrangeOakTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.oak.RedOakTree;
@@ -296,6 +300,18 @@ public class BYGFeatureList {
 
     public static final Feature<NoFeatureConfig> DUMMY_TREE = new SmallPineTree(NoFeatureConfig::deserialize);
 
+    //Maple
+    public static final Feature<NoFeatureConfig> MAPLE_TREE = new MapleTree(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> RED_MAPLE_TREE = new RedMapleTree(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> SILVER_MAPLE_TREE = new SilverMapleTree(NoFeatureConfig::deserialize);
+
+    //Mushrooms
+    public static final Feature<NoFeatureConfig> GREEN_MUSHROOM_HUGE = new GreenMushroomHuge(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> WOOD_BLEWIT_HUGE = new WoodBlewitHuge(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> WEEPING_MILKCAP_HUGE = new WeepingMilkcapHuge(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> BLACK_PUFF_HUGE = new BlackPuffHuge(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> BLUE_GLOWSHROOM_HUGE = new BlueGlowshroomHuge(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> PURPLE_GLOWSHROOM_HUGE = new PurpleGlowshroomHuge(NoFeatureConfig::deserialize);
 }
 
 

@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.mushrooms;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.holly;
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.util.math.BlockPos;
@@ -13,9 +13,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class PurpleGlowshroom2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class HollyTree4 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public PurpleGlowshroom2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public HollyTree4(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 
