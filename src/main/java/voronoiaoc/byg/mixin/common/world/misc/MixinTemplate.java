@@ -185,25 +185,23 @@ public class MixinTemplate {
                     int realY = o.getFirst().getY();
                     int realZ = o.getFirst().getZ();
                     BlockPos pos = new BlockPos(featureX, realY, realZ);
-
-                    //|| pos.getX() == -1 && pos.getZ() == 0 || pos.getX() == -1 && pos.getZ() == -1 || pos.getX() == -1 && pos.getZ() == -1
-                    //|| pos.getX() == -1 && pos.getZ() == 0 || pos.getX() == 1 && pos.getZ() == 0 || pos.getX() == 0 && pos.getZ() == 1 || pos.getX() == 0 && pos.getZ() == -1
-                    if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("log") && pos.getX() == 0 && pos.getZ() == 0) {
+                    if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("stem") && pos.getX() == 0 && pos.getZ() == 0) {
                         trunkLogList.add("this.treeLog(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
-                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("log")) {
+                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("stem")) {
                         treeBranchList.add("this.treeBranch(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
-                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("leaves")) {
+                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("purple_glowshroom")) {
                         treeLeaveList.add("this.leafs(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
-                });
 
-                trunkLogList.forEach(System.out::println);
-                treeBranchList.forEach(System.out::println);
-                treeLeaveList.forEach(System.out::println);
+                    trunkLogList.forEach(System.out::println);
+                    treeBranchList.forEach(System.out::println);
+                    treeLeaveList.forEach(System.out::println);
+
+                });
                 return true;
             } else {
                 return false;
