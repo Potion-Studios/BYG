@@ -6,6 +6,8 @@
   "mixins": [
     "common.world.layers.MixinIslandLayer",
     "common.world.layers.MixinShoreLayer",
+    "common.world.misc.MixinTemplate",
+    "common.world.misc.TemplateInvoker"
   ],
   "client": [
     "client.MixinGameRenderer"
