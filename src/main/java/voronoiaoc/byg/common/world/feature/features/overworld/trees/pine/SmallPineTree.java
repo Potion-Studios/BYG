@@ -27,7 +27,8 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
     }
 
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        if (pos.getX() == -6 && pos.getZ() == -6) {
+        //if negative coord, make negative number smaller by the offset.
+        if (pos.getX() == -5 && pos.getZ() == -5) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() +  16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
                     for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() +  16; checkZ++) {
@@ -38,7 +39,7 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
             }
 
             TemplateManager templatemanager = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager();
-            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/dead_hazel_tree1"));
+            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/green_enchanted_tree3"));
 
             if (template == null) {
                 BYG.LOGGER.warn("NBT does not exist!");

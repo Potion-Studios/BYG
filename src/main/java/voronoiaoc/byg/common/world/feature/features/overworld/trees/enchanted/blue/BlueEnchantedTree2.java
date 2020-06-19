@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted_grove;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue;
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.util.math.BlockPos;

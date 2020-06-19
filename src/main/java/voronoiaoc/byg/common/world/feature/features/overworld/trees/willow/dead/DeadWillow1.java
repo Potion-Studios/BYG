@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.dead;
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.util.math.BlockPos;
@@ -13,9 +13,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class DeadHazel4 extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class DeadWillow1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public DeadHazel4(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public DeadWillow1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 

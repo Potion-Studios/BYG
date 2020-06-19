@@ -24,9 +24,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.HugeBlac
 import voronoiaoc.byg.common.world.feature.features.overworld.structure.DoverQuarry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.bayou.BayouTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.bayou.BayouTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.bayou.BayouTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.OrangeBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.RedBirchTree;
@@ -42,8 +42,8 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.W
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.HugeCypressTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.dead.DeadTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.*;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted_grove.BlueEnchantedGroveTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted_grove.GreenEnchantedGroveTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedGroveTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedGroveTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.JacarandaTree1;

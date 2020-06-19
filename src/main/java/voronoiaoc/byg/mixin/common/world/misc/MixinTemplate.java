@@ -202,7 +202,8 @@ public class MixinTemplate {
                         trunkLogList.add("this.treeLog(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     } else if (blockCheck.getRegistryName().toString().contains("log")) {
                         treeBranchList.add("this.treeBranch(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
-                    } else if (blockCheck.getRegistryName().toString().contains("leave")) {
+                    }
+                    if (blockCheck.getRegistryName().toString().contains("leave")) {
                         treeLeaveList.add("this.leafs(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 

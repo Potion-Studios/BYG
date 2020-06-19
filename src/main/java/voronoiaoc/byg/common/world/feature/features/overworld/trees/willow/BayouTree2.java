@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.bayou;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.willow;
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.BlockState;
