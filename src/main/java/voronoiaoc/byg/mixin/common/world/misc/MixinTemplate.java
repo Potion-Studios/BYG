@@ -177,24 +177,24 @@ public class MixinTemplate {
                 List<String> treeLeaveList = new ArrayList<>();
                 List<String> trunkLogList = new ArrayList<>();
                 List<String> treeBranchList = new ArrayList<>();
-                int stopppp = 0;
-
+                final int stopppp = 1;
                 list2.forEach(o -> {
                     int featureX = o.getFirst().getX();
                     int featureY = o.getFirst().getY() - featurePos.getY();
                     int realY = o.getFirst().getY();
                     int realZ = o.getFirst().getZ();
                     BlockPos pos = new BlockPos(featureX, realY, realZ);
+                    Block blockCheck = worldIn.getBlockState(pos).getBlock();
                     //|| pos.getX() == 0 && pos.getZ() == 1 || pos.getX() == 0 && pos.getZ() == -1 || pos.getX() == 1 && pos.getZ() == 0 || pos.getX() == -1 && pos.getZ() == 0
-                    if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("log") && pos.getX() == 0 && pos.getZ() == 0) {
+                    if (blockCheck.getRegistryName().toString().contains("log") && pos.getX() == 0 && pos.getZ() == 0) {
                         trunkLogList.add("this.treeLog(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
-                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("log")) {
+                    else if (blockCheck.getRegistryName().toString().contains("log")) {
                         treeBranchList.add("this.treeBranch(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
-                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("leaves")) {
+                    else if (blockCheck.getRegistryName().toString().contains("leave")) {
                         treeLeaveList.add("this.leafs(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
