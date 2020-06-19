@@ -39,9 +39,12 @@ public class MixinTemplate {
 
     @Shadow
     private BlockPos size;
+
+    private int yeet = 0;
     /**
      * @author CorgiTaco
      * @Reason Don't worry about it.
+     *
      */
     @Overwrite
     public boolean addBlocksToWorld(IWorld worldIn, BlockPos featurePos, PlacementSettings placementIn, int flags) {
@@ -177,30 +180,29 @@ public class MixinTemplate {
                 List<String> treeLeaveList = new ArrayList<>();
                 List<String> trunkLogList = new ArrayList<>();
                 List<String> treeBranchList = new ArrayList<>();
-                int stopppp = 0;
-
+                final int stopppp = 1;
                 list2.forEach(o -> {
                     int featureX = o.getFirst().getX();
                     int featureY = o.getFirst().getY() - featurePos.getY();
                     int realY = o.getFirst().getY();
                     int realZ = o.getFirst().getZ();
                     BlockPos pos = new BlockPos(featureX, realY, realZ);
-                    if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("stem") && pos.getX() == 0 && pos.getZ() == 0) {
+
+                    //|| pos.getX() == 0 && pos.getZ() == 1 || pos.getX() == 0 && pos.getZ() == -1 || pos.getX() == 1 && pos.getZ() == 0 || pos.getX() == -1 && pos.getZ() == 0
+                    if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("log") && pos.getX() == 0 && pos.getZ() == 0) {
                         trunkLogList.add("this.treeLog(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
-                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("stem")) {
+                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("log")) {
                         treeBranchList.add("this.treeBranch(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
-                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("purple_glowshroom")) {
+                    else if (worldIn.getBlockState(pos).getBlock().getRegistryName().toString().contains("leave")) {
                         treeLeaveList.add("this.leafs(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
-
-                    trunkLogList.forEach(System.out::println);
-                    treeBranchList.forEach(System.out::println);
-                    treeLeaveList.forEach(System.out::println);
-
+                        trunkLogList.forEach(System.out::println);
+                        treeBranchList.forEach(System.out::println);
+                        treeLeaveList.forEach(System.out::println);
                 });
                 return true;
             } else {
