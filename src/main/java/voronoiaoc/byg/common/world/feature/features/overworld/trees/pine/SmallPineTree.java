@@ -20,15 +20,15 @@ import voronoiaoc.byg.BYG;
 import java.util.Random;
 import java.util.function.Function;
 
-public class LargePine extends Feature<NoFeatureConfig> {
+public class SmallPineTree extends Feature<NoFeatureConfig> {
 
-    public LargePine(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public SmallPineTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 
-        if (pos.getX() == -7 && pos.getZ() == -5) {
+        if (pos.getX() == -7 && pos.getZ() == -10) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() +  16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
                     for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() +  16; checkZ++) {
@@ -39,7 +39,7 @@ public class LargePine extends Feature<NoFeatureConfig> {
             }
 
             TemplateManager templatemanager = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager();
-            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/large_pine1"));
+            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/eucalyptus_tree1"));
 
             if (template == null) {
                 BYG.LOGGER.warn("NBT does not exist!");

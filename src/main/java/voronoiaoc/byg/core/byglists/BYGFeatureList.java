@@ -294,6 +294,8 @@ public class BYGFeatureList {
 
     public static final Feature<NoFeatureConfig> LARGE_PINE_TREE1 = new LargePineTree1(NoFeatureConfig::deserialize);
 
+    public static final Feature<NoFeatureConfig> DUMMY_TREE = new SmallPineTree(NoFeatureConfig::deserialize);
+
 }
 
 
