@@ -99,20 +99,20 @@ public class BYGTreeFeatures {
                 BYGFeatureList.ASPEN_TREE2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
                 BYGFeatureList.TALLCONIFEROUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
                 BYGFeatureList.SMALLCONIFEROUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
-                BYGFeatureList.PINE_TREE_LAGRE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
+                BYGFeatureList.LARGE_PINE_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
                 BYGFeatureList.PINE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F)),
                 BYGFeatureList.PINE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(45, 0.4F, 5))));
 
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.PINE_TREE_LAGRE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F)),
+                BYGFeatureList.PINE_TREE_LARGE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F)),
                 BYGFeatureList.WIDECONIFEROUS_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
     }
 
     public static void addSparseBlackForestTrees(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.PINE_TREE_LAGRE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.45F),
+                BYGFeatureList.PINE_TREE_LARGE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.45F),
                 BYGFeatureList.PINE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.4F)),
                 BYGFeatureList.PINE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(0, 0.3F, 2))));

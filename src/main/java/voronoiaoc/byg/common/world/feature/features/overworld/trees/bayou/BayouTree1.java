@@ -19,7 +19,6 @@ import java.util.function.Function;
 import static net.minecraft.util.Direction.*;
 
 public class BayouTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    public static boolean doBlockNotify;
 
     public BayouTree1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);

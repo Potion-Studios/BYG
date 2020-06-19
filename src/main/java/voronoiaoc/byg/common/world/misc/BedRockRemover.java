@@ -24,7 +24,7 @@ public class BedRockRemover extends WorldCarver<ProbabilityConfig> {
     }
 
     //Carver
-    public boolean func_225555_a_(IChunk chunk, Function<BlockPos, Biome> whatTheFUckISThIs, Random rand, int sealevel, int cX, int cZ, int chunkX, int chunkZ, BitSet carvingMask, ProbabilityConfig config) {
+    public boolean carveRegion(IChunk chunk, Function<BlockPos, Biome> whatTheFUckISThIs, Random rand, int sealevel, int cX, int cZ, int chunkX, int chunkZ, BitSet carvingMask, ProbabilityConfig config) {
         for (int localX = 0; localX < 16; localX++) {
             for (int localZ = 0; localZ < 16; localZ++) {
                 for (int y = 0; y <= 4; y++) {

@@ -58,9 +58,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.oak.RedOakTr
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palm.PalmTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTreeLarge1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.prairie.PrairieShrub;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.prairie.PrairieShrub2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.PumpkinPatch1;
@@ -289,10 +287,12 @@ public class BYGFeatureList {
     //PineTree
     public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE1 = new PineTree1(NoFeatureConfig::deserialize, false, 0);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE2 = new PineTree2(NoFeatureConfig::deserialize, false, 0);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE_LAGRE1 = new PineTreeLarge1(NoFeatureConfig::deserialize, false, 0);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE_LARGE1 = new PineTreeLarge1(NoFeatureConfig::deserialize, false, 0);
 
     //Carver
     public static final WorldCarver<ProbabilityConfig> VOLCANIC_CARVER = new VolcanicCarver(ProbabilityConfig::deserialize, 256);
+
+    public static final Feature<NoFeatureConfig> LARGE_PINE_TREE1 = new LargePineTree1(NoFeatureConfig::deserialize);
 
 }
 

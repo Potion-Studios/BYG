@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.util;
 
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.AspenTree;
@@ -43,7 +43,6 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.taiga.spruce
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.taiga.spruce.YellowSpruceTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical.ShortTropicalRainForestTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical.TropicalRainForestTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
 

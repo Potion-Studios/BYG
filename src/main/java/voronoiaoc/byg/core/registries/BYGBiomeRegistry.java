@@ -21,6 +21,8 @@ public class BYGBiomeRegistry {
     public static void registerBYGBiomes(RegistryEvent.Register<Biome> event) {
         BYG.LOGGER.debug("BYG: Registering Biomes...");
         IForgeRegistry<Biome> registry = event.getRegistry();
+        registerBiome(registry, BYGBiomeList.DUMMYBIOME, "dummy", true, BiomeDictionary.Type.PLAINS);
+
         registerBiome(registry, BYGBiomeList.ALLIUMFIELDS, "alliumfields", true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.RARE, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.ALPS, "alps", true, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.AMARANTHFIELDS, "amaranthfields", true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.RARE, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
@@ -34,7 +36,7 @@ public class BYGBiomeRegistry {
         registerBiome(registry, BYGBiomeList.BOREALFOREST, "borealforest",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.COLDSWAMPLANDS, "coldswamplands", true, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.CRAGGARDENS, "crag_gardens",  true, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.WET, BiomeDictionary.Type.PLATEAU, BiomeDictionary.Type.RARE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
-//        registerBiome(registry, BYGBiomeList.REDROCKCANYON, "red_rock_canyon", false,  BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.PLATEAU);
+        registerBiome(registry, BYGBiomeList.REDROCKCANYON, "red_rock_canyon", false,  BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.PLATEAU);
 //        registerBiome(registry, BYGBiomeList.CHERRYBLOSSOMFOREST, "cherryblossomforest", ConfigWeightManager.cherryblossomforest.getWeight(), true, BiomeManager.BiomeType.WARM, BiomeDictionary.BYGType.FOREST, BiomeDictionary.BYGType.OVERWORLD);
 //        registerBiome(registry, BYGBiomeList.COASTALREDWOODTROPICS, "coastalredwoodtropics", ConfigWeightManager.coastalredwoodtropics.getWeight(), true, BiomeManager.BiomeType.WARM, BiomeDictionary.BYGType.FOREST, BiomeDictionary.BYGType.JUNGLE, BiomeDictionary.BYGType.DENSE, BiomeDictionary.BYGType.OVERWORLD);
         registerBiome(registry, BYGBiomeList.CONIFEROUSFOREST, "coniferousforest",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);

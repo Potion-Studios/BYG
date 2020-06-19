@@ -7,8 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.properties.BYGBlockProperties;
 import voronoiaoc.byg.common.properties.blocks.BYGSaplingProperties;
-import voronoiaoc.byg.common.properties.blocks.SonoranCactusBlock;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.BYGSaplingToTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGSaplingToTree;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 

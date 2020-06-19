@@ -23,7 +23,6 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
     protected long seed;
     protected ChunkFastSimplexStyleNoise simplex;
-    protected ChunkFastSimplexStyleNoise simplex2;
 
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         BlockPos.Mutable block = new BlockPos.Mutable();
@@ -110,11 +109,6 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
             this.simplex = new ChunkFastSimplexStyleNoise(sharedseedrandom);
         }
-        if (this.seed != seed || this.simplex2 == null) {
-            SharedSeedRandom sharedseedrandom = new SharedSeedRandom(1999L + seed);
-            this.simplex2 = new ChunkFastSimplexStyleNoise(sharedseedrandom);
-        }
-
         this.seed = seed;
     }
 

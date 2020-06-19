@@ -5,6 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
@@ -23,13 +24,7 @@ public class VolcanicCarver extends WorldCarver<ProbabilityConfig> {
     }
 
 
-
-    @Override
-    public boolean func_225555_a_(IChunk chunk, Function<BlockPos, Biome> biomeFunction, Random rand, int seaLevel, int chunkX, int p_225555_6_, int p_225555_7_, int p_225555_8_, BitSet p_225555_9_, ProbabilityConfig p_225555_10_) {
-        return carve(chunk, biomeFunction, rand, seaLevel, chunkX, p_225555_6_, p_225555_7_, p_225555_8_, p_225555_9_, p_225555_10_);
-    }
-
-    public boolean carve(IChunk chunkIn, Function<BlockPos, Biome> getBiomeFunction, Random rand, int seaLevel, int chunkXOff, int chunkZOff, int chunkX, int chunkZ, BitSet carvingMask, ProbabilityConfig config) {
+    public boolean carveRegion(IChunk chunkIn, Function<BlockPos, Biome> getBiomeFunction, Random rand, int seaLevel, int chunkXOff, int chunkZOff, int chunkX, int chunkZ, BitSet carvingMask, ProbabilityConfig config) {
         int xPos = chunkX * 16;
         int zPos = chunkZ * 16;
         FastNoise noiseGen = new FastNoise();
@@ -38,17 +33,16 @@ public class VolcanicCarver extends WorldCarver<ProbabilityConfig> {
         noiseGen.SetNoiseType(FastNoise.NoiseType.SimplexFractal);
         noiseGen.SetFractalOctaves(1);
         noiseGen.SetFractalGain(0.3f);
-        noiseGen.SetFrequency(0.01f);
+        noiseGen.SetFrequency(0.003f);
 
         for(int x = xPos; x <= xPos + 15; x++) {
             for(int z = zPos; z <= zPos + 15; z++) {
-                double rawSimplexNoiseSample = noiseGen.GetNoise(x, z);
-//                double simplexNoiseSample = rawSimplexNoiseSample * 65;
-//                double ridgedNoiseSample = 1 - (2 * Math.abs(simplexNoiseSample));
-                    for (int y = 45; y >= 35; y--) {
-                    BlockPos.Mutable mutable1 = new BlockPos.Mutable(x, y, z);
-                        if (rawSimplexNoiseSample > .8) {
-                            chunkIn.setBlockState(mutable1, Blocks.AIR.getDefaultState(), false);
+                int topBlockY = chunkIn.getTopBlockY(Heightmap.Type.WORLD_SURFACE_WG, x, z);
+                double rawSimplexNoiseSample = noiseGen.GetNoise(x, z) * 10;
+                if (rawSimplexNoiseSample > 8.75) {
+                    for (int y = topBlockY; y >=  63; y--) {
+                        BlockPos.Mutable mutable1 = new BlockPos.Mutable(x, y, z);
+                        chunkIn.setBlockState(mutable1, Blocks.AIR.getDefaultState(), false);
                     }
                 }
             }
