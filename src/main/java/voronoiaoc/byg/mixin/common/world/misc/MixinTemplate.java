@@ -198,14 +198,6 @@ public class MixinTemplate {
                         treeLeaveList.add("this.leafs(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
-                    if (blockCheck.getRegistryName().toString().contains("stem")) {
-                        treeLeaveList.add("this.stem(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
-                    }
-
-                    if (blockCheck.getRegistryName().toString().contains("glowshroom_block")) {
-                        treeLeaveList.add("this.glowshroom(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
-                    }
-
                 });
                 trunkLogList.forEach(System.out::println);
                 treeBranchList.forEach(System.out::println);
