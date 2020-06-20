@@ -1,166 +1,550 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.willow;
 
 import com.mojang.datafixers.Dynamic;
-import net.minecraft.block.BlockState;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.world.gen.IWorldGenerationBaseReader;
+import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import java.util.Set;
 import java.util.function.Function;
 
-import static net.minecraft.util.Direction.*;
+public class BayouTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-public class BayouTree2 extends Feature<NoFeatureConfig> {
-    public static boolean doBlockNotify;
-
-    public BayouTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> function) {
-        super(function);
+    public BayouTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+        super(configIn);
     }
 
+    protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
+        int randTreeHeight = 23 + rand.nextInt(5);
+        BlockPos.Mutable mainmutable = new BlockPos.Mutable(pos);
 
-    public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        int randChance = rand.nextInt(2);
-        int randChance2 = (-4 + rand.nextInt(9));
-        int randTreeHeight = rand.nextInt(6) + 14;
-        BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
-        BlockPos.Mutable block = new BlockPos.Mutable(blockPos);
-        BlockPos.Mutable mainMutable = new BlockPos.Mutable(block);
-
-        if (!this.checkArea(worldIn, pos, randTreeHeight) /*||  (IWorld)worldIn.getBlockState(pos.down()).getBlock() != Blocks.DIRT && worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.MUD_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != Blocks.CLAY && worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK*/) {
-            return false;
-        } else {
-            //Trunk
-            for (int i = 0; i <= randTreeHeight; i++) {
-                int branch = 1;
-                BlockPos.Mutable mutable = new BlockPos.Mutable(block);
-                for (Direction direction : Plane.HORIZONTAL) {
-                    if (i >= 4) {
-                        if (i >= randTreeHeight - 2)
-                            branch = 2;
-                        if (i >= randTreeHeight - 1)
-                            branch = 3;
-
-                        mutable.setPos(block.offset(direction, branch));
-                        this.setWillowLog(worldIn, mutable.move(UP, i));
-                    }
-                }
-                if (i >= 3) {
-                    mutable.setPos(block);
-                    this.setWillowLog(worldIn, mutable.move(UP, i));
-                }
-            }
-
-            for (int buildOuterTrunk = 0; buildOuterTrunk <= 10; buildOuterTrunk++) {
-                BlockPos.Mutable mutable = new BlockPos.Mutable(block.up(4));
-                for (Direction direction : Plane.HORIZONTAL) {
-                    if (buildOuterTrunk <= 4 && buildOuterTrunk >= 2) {
-                        mutable.setPos(block.up(6).offset(direction, buildOuterTrunk));
-                        this.setWillowLog(worldIn, mutable.move(DOWN, buildOuterTrunk));
-                    }
-                    this.setWillowLog(worldIn, mutable.setPos(block.offset(direction, 4).offset(UP, 2)));
-                    this.setWillowLog(worldIn, mutable.move(DOWN, buildOuterTrunk));
-                }
-            }
-            mainMutable.setPos(block.offset(UP, randTreeHeight));
-//            //X is E, -X is W, Z is S, -Z is N.
-            this.setWillowLog(worldIn, mainMutable.add(-1, -1, 2));
-            this.setWillowLog(worldIn, mainMutable.add(-2, -1, 3));
-            this.setWillowLog(worldIn, mainMutable.add(-2, -1, 1));
-            mainMutable.setPos(block);
-
-            //Leaves
-            this.setWillowLeaves(worldIn, mainMutable.move(UP, randTreeHeight));
-            for (int placeX = -5; placeX <= 5; placeX++) {
-                for (int placeZ = -5; placeZ <= 5; placeZ++) {
-                    if (placeX <= 1 && placeX >= -1 && placeZ <= 1 && placeZ >= -1) {
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 1, 4));
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 1, -4));
-                        this.setWillowLeaves(worldIn, mainMutable.add(4, 1, placeZ));
-                        this.setWillowLeaves(worldIn, mainMutable.add(-4, 1, placeZ));
-                    }
-
-                    if (placeX <= 2 && placeX >= -2 && placeZ <= 2 && placeZ >= -2) {
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 1, placeZ));
-
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 1, 3));
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 1, -3));
-                        this.setWillowLeaves(worldIn, mainMutable.add(3, 1, placeZ));
-                        this.setWillowLeaves(worldIn, mainMutable.add(-3, 1, placeZ));
-                    }
-
-                    if (placeX <= 3 && placeX >= -3 && placeZ <= 3 && placeZ >= -3) {
-                        this.setWillowLeaves(worldIn, mainMutable.add(5, 0, placeZ));
-                        this.setWillowLeaves(worldIn, mainMutable.add(-5, 0, placeZ));
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 0, 5));
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 0, -5));
-                    }
-
-                    if (placeX <= 4 && placeX >= -4 && placeZ <= 4 && placeZ >= -4) {
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 0, placeZ));
-
-                        for (int placeY = -1; placeY >= -(rand.nextInt(9) + 2); placeY--) {
-
-                            this.setWillowLeaves(worldIn, mainMutable.add(6, placeY, placeZ));
-                            this.setWillowLeaves(worldIn, mainMutable.add(-6, placeY, placeZ));
-                            this.setWillowLeaves(worldIn, mainMutable.add(placeX, placeY, 6));
-                            this.setWillowLeaves(worldIn, mainMutable.add(placeX, placeY, -6));
-
-                            this.setWillowLeaves(worldIn, mainMutable.add(5, placeY, 4));
-                            this.setWillowLeaves(worldIn, mainMutable.add(-5, placeY, -4));
-                            this.setWillowLeaves(worldIn, mainMutable.add(5, placeY, -4));
-                            this.setWillowLeaves(worldIn, mainMutable.add(-5, placeY, 4));
-
-                            this.setWillowLeaves(worldIn, mainMutable.add(4, placeY, 5));
-                            this.setWillowLeaves(worldIn, mainMutable.add(-4, placeY, -5));
-                            this.setWillowLeaves(worldIn, mainMutable.add(-4, placeY, 5));
-                            this.setWillowLeaves(worldIn, mainMutable.add(4, placeY, -5));
-
-                            this.setWillowLeaves(worldIn, mainMutable.add(5, placeY, 5));
-                            this.setWillowLeaves(worldIn, mainMutable.add(-5, placeY, -5));
-                            this.setWillowLeaves(worldIn, mainMutable.add(-5, placeY, 5));
-                            this.setWillowLeaves(worldIn, mainMutable.add(5, placeY, -5));
-                        }
-                    }
-                }
+        if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < 256) {
+            BlockPos blockpos = pos.down();
+            if (!isSoil(worldIn, blockpos, getSapling())) {
+                return false;
+            } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
+                return false;
+            } else {
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, 0, 0), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 0, 0), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, 2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 1, -2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, 1, 0), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 1, 0), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 1, 2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 2, -1), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 2, 0), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 2, 0), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 2, 1), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 6, -1), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(4, 6, 0), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 7, -6), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 7, -5), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 7, -4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(5, 7, -4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 7, -2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 7, -2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 7, -1), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 7, -1), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(3, 7, -1), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 7, 1), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-3, 7, 2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-3, 7, 4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, 7, 4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-3, 7, 5), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(3, 8, -5), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 8, -4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(3, 8, -4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(4, 8, -4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 8, -3), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 8, -3), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, 8, 2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 8, 2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 8, 2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 8, 2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 8, 3), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 8, 4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(3, 8, 4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, 8, 6), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 8, 7), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(3, 9, 3), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 9, 4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 9, 4), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 9, 5), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 9, 5), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 9, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 3, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 4, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 4, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 4, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 4, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 4, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 4, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 5, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 5, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 5, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 5, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 5, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 5, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 5, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 5, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 5, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 5, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 5, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 5, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 5, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 5, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 5, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 5, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 5, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 6, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 6, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 6, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 6, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 6, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 6, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 6, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 6, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 6, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 6, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 6, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 6, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 6, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 6, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 6, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 6, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 6, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 6, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 6, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 6, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 6, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 6, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 6, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 6, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 7, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 7, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 7, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 7, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 7, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 7, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 7, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 7, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 7, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 7, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 7, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 7, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 7, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 7, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 7, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 7, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 7, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 7, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 7, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 7, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 7, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 7, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 7, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 7, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 7, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 7, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 7, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 7, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 7, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 7, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 7, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, 9), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, -7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 8, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 8, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 8, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 8, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 8, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 8, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 8, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 8, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 8, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 8, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 8, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 8, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 8, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 8, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 8, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 8, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 8, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 8, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 8, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 8, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 8, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 8, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 8, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 8, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 8, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, 9), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 9), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, -6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, -5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 9, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 9, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 9, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 9, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 9, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 9, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 9, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 9, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 9, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 9, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 9, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 9, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 9, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 9, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 9, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 9, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 9, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 9, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 9, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 8), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 9), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 10, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 10, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 10, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 10, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 10, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 10, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 10, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 10, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, 7), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 11, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 11, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 11, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 11, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 11, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 11, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 11, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 11, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 11, 6), boundsIn);
             }
         }
         return true;
     }
 
-    protected void setWillowLog(IWorldWriter worldIn, BlockPos pos) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LOG.getDefaultState());
-    }
-
-    protected void setWillowLeaves(IWorldWriter worldIn, BlockPos pos) {
-        if ((worldIn instanceof IWorld)) {
-            if (((IWorld) worldIn).getBlockState(pos).getBlock() != BYGBlockList.WILLOW_LOG)
-                this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, Integer.valueOf(1)));
+    //Log Placement
+    private void treeLog(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        if (canTreePlaceHere(reader, pos)) {
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.PINE_LOG.getDefaultState(), boundingBox);
         }
     }
 
-    private void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState) {
-        worldWriter.setBlockState(blockPos, blockState, 19);
+    //Log Placement
+    private void treeBranch(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        if (canTreePlaceHere(reader, pos)) {
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.PINE_LOG.getDefaultState(), boundingBox);
+        }
     }
 
-    private boolean checkArea(IWorld world, BlockPos pos, int radius) {
-        int posX = pos.getX();
-        int posY = pos.getY();
-        int posZ = pos.getZ();
+    //Leaves Placement
+    private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
+        if (isAir(reader, blockpos)) {
+            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
+        }
+    }
 
-        for (int checkX = -radius; checkX <= radius; checkX++) {
-            for (int checkZ = -radius; checkZ <= radius; checkZ++) {
-                BlockPos checkArea = new BlockPos(posX + checkX, posY, posZ + checkZ);
 
-                if (world.getBlockState(checkArea).getBlock() == BYGBlockList.WILLOW_LOG) return false;
 
+    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
+        int x = blockPos.getX();
+        int y = blockPos.getY();
+        int z = blockPos.getZ();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
+
+        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
+            //Distance/Density of trees. Positive Values ONLY
+            int distance = 2;
+
+            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
+                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
+                    if (!canTreePlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                        return false;
+                    }
+                }
             }
         }
         return true;

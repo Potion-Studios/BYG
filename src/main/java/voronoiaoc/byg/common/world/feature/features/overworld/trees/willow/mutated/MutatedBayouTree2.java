@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.willow;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.mutated;
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.util.math.BlockPos;
@@ -13,9 +13,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class BayouTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class MutatedBayouTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public BayouTree3(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public MutatedBayouTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 
@@ -401,6 +401,7 @@ public class BayouTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 8, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 8, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 8, 3), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-2, 8, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, 3), boundsIn);
@@ -450,12 +451,15 @@ public class BayouTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, 9), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, 9), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(4, 8, 9), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-2, 9, 1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-7, 9, 2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-6, 9, 2), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-3, 9, 2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-8, 9, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-7, 9, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-6, 9, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 9, 3), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-2, 9, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-7, 9, 4), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-6, 9, 4), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 9, 4), boundsIn);
@@ -465,6 +469,60 @@ public class BayouTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, 6), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 7), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, 7), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-2, 10, 1), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-2, 10, 2), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-2, 10, 3), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-2, 11, 2), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-2, 12, 2), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-2, 13, 2), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-1, 13, 2), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-1, 14, 2), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-1, 15, 2), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-3, 16, -1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-2, 16, -1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(0, 16, -1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(1, 16, -1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-4, 16, 0), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-3, 16, 0), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(1, 16, 0), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(2, 16, 0), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-4, 16, 1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(2, 16, 1), boundsIn);
+                this.stem(changedBlocks, worldIn, mainmutable.add(-1, 16, 2), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-4, 16, 3), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(2, 16, 3), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-4, 16, 4), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-3, 16, 4), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(1, 16, 4), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(2, 16, 4), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-3, 16, 5), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-2, 16, 5), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(0, 16, 5), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(1, 16, 5), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-1, 17, -1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-2, 17, 0), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-1, 17, 0), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(0, 17, 0), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-3, 17, 1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-2, 17, 1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-1, 17, 1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(0, 17, 1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(1, 17, 1), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-4, 17, 2), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-3, 17, 2), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-2, 17, 2), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-1, 17, 2), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(0, 17, 2), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(1, 17, 2), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-3, 17, 3), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-2, 17, 3), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-1, 17, 3), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(0, 17, 3), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(1, 17, 3), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-2, 17, 4), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-1, 17, 4), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(0, 17, 4), boundsIn);
+                this.glowshroom(changedBlocks, worldIn, mainmutable.add(-1, 17, 5), boundsIn);
             }
         }
         return true;
@@ -492,6 +550,21 @@ public class BayouTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         }
     }
 
+    //Leaves Placement
+    private void stem(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
+        if (isAir(reader, blockpos)) {
+            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
+        }
+    }
+
+    //Leaves Placement
+    private void glowshroom(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
+        if (isAir(reader, blockpos)) {
+            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
+        }
+    }
 
 
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
