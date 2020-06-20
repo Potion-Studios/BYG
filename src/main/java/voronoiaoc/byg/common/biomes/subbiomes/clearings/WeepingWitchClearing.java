@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.biomes.biomes;
+package voronoiaoc.byg.common.biomes.subbiomes.clearings;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -24,7 +24,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
 
-public class WeepingWitchForest extends Biome implements BiomeFog {
+public class WeepingWitchClearing extends Biome implements BiomeFog {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.PODZOL.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;
@@ -36,12 +36,11 @@ public class WeepingWitchForest extends Biome implements BiomeFog {
     static final int WATER_FOG_COLOR = 329011;
     static final String PARENT = null;
 
-    public WeepingWitchForest() {
+    public WeepingWitchClearing() {
         super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).waterColor(WATER_COLOR).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).waterFogColor(WATER_FOG_COLOR).parent(PARENT));
         this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-        BYGTreeFeatures.addDeadHazelTrees(this);
-        BYGTreeFeatures.addSmallSpruceTrees(this);
+        BYGTreeFeatures.addSparseDeadHazelTrees(this);
         DefaultBiomeFeatures.addCarvers(this);
         DefaultBiomeFeatures.addStructures(this);
         DefaultBiomeFeatures.addMonsterRooms(this);
@@ -73,7 +72,7 @@ public class WeepingWitchForest extends Biome implements BiomeFog {
     @Nullable
     @Override
     public Biome getHill(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomeList.PUMPKIN_FOREST : BYGBiomeList.WEEPING_WTICH_CLEARING;
+        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FRESHWATERLAKE;
     }
 
     @Override

@@ -123,7 +123,13 @@ public class BYGBiomeList {
     public static final Biome BLACK_FOREST_HILLS = new BlackForestHills();
     public static final Biome BAMBOO_FOREST = new BambooForest();
     public static final Biome MAPLE_HILLS = new MapleHills();
+    public static final Biome PUMPKIN_FOREST = new PumpkinForest();
+    public static final Biome EBONY_HILLS = new EbonyHills();
+    public static final Biome EVERGREEN_HILLS = new EvergreenHills();
+    public static final Biome EVERGREEN_CLEARING = new EvergreenClearing();
+    public static final Biome ENCHANTED_FOREST_HILLS = new EnchantedForestHills();
 
+    public static final Biome WEEPING_WTICH_CLEARING = new WeepingWitchClearing();
     public static final Biome CHERRY_BLOSSOM_CLEARING = new CherryBlossomClearing();
     public static final Biome BLACK_FOREST_CLEARING = new BlackForestClearing();
     public static final Biome CONIFEROUS_CLEARING = new ConiferousClearing();

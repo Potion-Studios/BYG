@@ -96,6 +96,14 @@ public class BYGBiomeRegistry {
         registerBiome(registry, BYGBiomeList.ZELKOVAFOREST, "zelkovaforest",  true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
 
         //Sub Biomes
+        registerBYGSubBiome(registry, BYGBiomeList.ENCHANTED_FOREST_HILLS, "enchanted_forest_hills", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.RARE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
+
+        registerBYGSubBiome(registry, BYGBiomeList.EBONY_HILLS, "ebony_hills", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE);
+        registerBYGSubBiome(registry, BYGBiomeList.EVERGREEN_CLEARING, "evergreen_clearing", true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.EVERGREEN_HILLS, "evergreen_hills", true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+
+        registerBYGSubBiome(registry, BYGBiomeList.WEEPING_WTICH_CLEARING, "weeping_witch_clearing", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.PUMPKIN_FOREST, "pumpkin_forest", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.BAMBOO_FOREST, "bamboo_forest", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.CHERRY_BLOSSOM_CLEARING, "cherry_blossom_clearing", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.CONIFEROUS_CLEARING, "coniferous_clearing",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
@@ -109,10 +117,10 @@ public class BYGBiomeRegistry {
         registerBYGSubBiome(registry, BYGBiomeList.SNOWY_CONIFEROUS_CLEARING, "snowy_coniferous_clearing", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.SNOWY_DECIDUOUS_CLEARING, "snowy_deciduous_clearing", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
 
-        registerBiome(registry, BYGBiomeList.MAPLE_HILLS, "maple_hills", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
-        registerBiome(registry, BYGBiomeList.BLACK_FOREST_CLEARING, "black_forest_clearing",  true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
-        registerBiome(registry, BYGBiomeList.BLACK_FOREST_HILLS, "black_forest_hills",  true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
-        registerBiome(registry, BYGBiomeList.FOREST_FAULT, "forest_fault",  true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.MAPLE_HILLS, "maple_hills", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.BLACK_FOREST_CLEARING, "black_forest_clearing",  true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.BLACK_FOREST_HILLS, "black_forest_hills",  true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.FOREST_FAULT, "forest_fault",  true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.FLOWERING_GROVE, "flowering_grove",  true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.FLOWERING_ENCHANTED_GROVE, "flowering_enchanted_grove",  true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.NORTHERN_FOREST, "northern_forest",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);

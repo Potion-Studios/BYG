@@ -55,9 +55,11 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ebony.EbonyBush1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ebony.EbonyTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ebony.EbonyTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedGroveTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedGroveTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree3;
@@ -302,6 +304,9 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_GREEN_TREE1 = new GreenEnchantedTree1(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_GREEN_TREE2 = new GreenEnchantedTree2(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_GREEN_TREE3 = new GreenEnchantedTree3(NoFeatureConfig::deserialize);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_GREEN_GROVE_TREE1 = new GreenEnchantedGroveTree(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_BLUE_GROVE_TREE1 = new BlueEnchantedGroveTree(NoFeatureConfig::deserialize);
 
     //Holly
     public static final BYGAbstractTreeFeature<NoFeatureConfig> HOLLY_TREE1 = new HollyTree1(NoFeatureConfig::deserialize);

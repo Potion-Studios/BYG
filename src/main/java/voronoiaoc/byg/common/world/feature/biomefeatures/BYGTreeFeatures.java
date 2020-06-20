@@ -461,15 +461,33 @@ public class BYGTreeFeatures {
     }
 
     public static void addEnchantedGroveTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.ENCHANTED_BLUE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.ENCHANTED_BLUE_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.ENCHANTED_BLUE_GROVE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.ENCHANTED_GREEN_GROVE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
 
+    }
+
+    public static void addEnchantedTrees(Biome biome) {
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+                BYGFeatureList.ENCHANTED_BLUE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.4F),
+                BYGFeatureList.ENCHANTED_BLUE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.4F),
+                BYGFeatureList.ENCHANTED_BLUE_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.4F),
+                BYGFeatureList.ENCHANTED_GREEN_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
+                BYGFeatureList.ENCHANTED_GREEN_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F)),
+                BYGFeatureList.ENCHANTED_GREEN_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
+                new AtSurfaceWithExtraConfig(12, 0.3F, 5))));
     }
 
     public static void addPumpkinPatches(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.5F, -2))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+
+    }
+
+    public static void addWitchPumpkinPatches(Biome biome) {
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.5F, -2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.5F, 1))));
 
     }
 
@@ -571,23 +589,33 @@ public class BYGTreeFeatures {
     }
 
     public static void addDeadHazelTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_HAZEL_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_HAZEL_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_HAZEL_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_HAZEL_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_HAZEL_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(8, 0.3F, 5))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_HAZEL_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(8, 0.3F, 5))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_HAZEL_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 4))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_HAZEL_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 4))));
+    }
+
+    public static void addSparseDeadHazelTrees(Biome biome) {
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_HAZEL_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_HAZEL_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
     }
 
     public static void addEbonyTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EBONY_BUSH1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EBONY_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EBONY_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EBONY_BUSH1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, -1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EBONY_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(4, 0.3F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EBONY_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(4, 0.3F, 1))));
     }
 
     public static void addHollyTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.3F, 4))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.3F, 4))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.3F, 4))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.3F, 4))));
+    }
+
+    public static void addSparseHollyTrees(Biome biome) {
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
     }
 
     public static void addMangroveMarshes(Biome biome) {
