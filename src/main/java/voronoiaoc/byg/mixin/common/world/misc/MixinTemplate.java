@@ -194,7 +194,7 @@ public class MixinTemplate {
                         treeBranchList.add("this.treeBranch(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
-                    else if (blockCheck.getRegistryName().toString().contains("leave")) {
+                     if (blockCheck.getRegistryName().toString().contains("leaves")) {
                         treeLeaveList.add("this.leafs(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
