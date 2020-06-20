@@ -24,7 +24,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight BOREALFOREST = new ConfigWeight("Boreal_Forest", 6);
     public static final ConfigWeight COLDSWAMPLANDS = new ConfigWeight("Cold_Swamplands", 6);
 //    public static final ConfigWeight CANYONS = new ConfigWeight("canyons", 10);
-//    public static final ConfigWeight cherryblossomforest = new ConfigWeight("cherryblossomforest", 10);
+public static final ConfigWeight CHERRY_BLOSSOM_FOREST = new ConfigWeight("Cherry_Blossom_Forest", 6);
 //    public static final ConfigWeight chapparalcoastals = new ConfigWeight("chapparalcoastals", 10);
 //    public static final ConfigWeight coastalredwoodtropics = new ConfigWeight("coastalredwoodtropics", 5);
     public static final ConfigWeight CONIFEROUSFOREST = new ConfigWeight("Coniferous_Forest", 5);
@@ -45,7 +45,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight ENCHANTED_GROVE = new ConfigWeight("Enchanted_Grove", 1);
     public static final ConfigWeight JACARANDAFOREST = new ConfigWeight("Jacaranda_Forest", 6);
 //    public static final ConfigWeight mangrovemarshes = new ConfigWeight("mangrovemarshes", 10);
-//    public static final ConfigWeight mapletaiga = new ConfigWeight("mapletaiga", 10);
+    public static final ConfigWeight MAPLE_TAIGA = new ConfigWeight("Maple_Taiga", 6);
     public static final ConfigWeight MEADOW = new ConfigWeight("Meadow", 6);
     public static final ConfigWeight MOJAVEDESERT = new ConfigWeight("Mojave_Desert", 6);
     public static final ConfigWeight LUSH_TUNDRA = new ConfigWeight("Lush_Tundra", 6);
@@ -82,7 +82,7 @@ public static final ConfigWeight THE_BLACK_FOREST = new ConfigWeight("The_Black_
     public static final ConfigWeight CRAGGARDENS = new ConfigWeight("Crag_Gardens", 1);
     public static final ConfigWeight VIBRANTSWAMPLANDS = new ConfigWeight("Vibrant_Swamplands", 6);
 //    public static final ConfigWeight VOLCANO = new ConfigWeight("Volcano", 1);
-//    public static final ConfigWeight weepingwitchforest = new ConfigWeight("weepingwitchforest", 10);
+    public static final ConfigWeight WEEPING_WITCH_FOREST = new ConfigWeight("Weeping_Witch_Forest", 1);
 //    public static final ConfigWeight woodlands = new ConfigWeight("woodlands", 10);
     public static final ConfigWeight ZELKOVAFOREST = new ConfigWeight("Zelkova_Forest", 6);
 

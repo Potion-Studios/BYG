@@ -41,7 +41,7 @@ public class AutumnalValley extends Biome  {
         this.addStructure(Feature.PILLAGER_OUTPOST.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
         this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-        BYGTreeFeatures.addMeadowTrees(this);
+        BYGTreeFeatures.addMeadowShrubs(this);
         BYGTreeFeatures.addPumpkinPatches(this);
         DefaultBiomeFeatures.addCarvers(this);
         DefaultBiomeFeatures.addStructures(this);

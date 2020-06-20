@@ -47,7 +47,6 @@ public class WoodedMeadow extends Biome  {
         DefaultBiomeFeatures.addMushrooms(this);
         DefaultBiomeFeatures.addReedsAndPumpkins(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
-        DefaultBiomeFeatures.addOakAndSpruceTrees(this);
         BYGFeatures.addGrass( this);
         BYGFeatures.addBYGMushrooms( this);
         BYGFeatures.addCloverFlowerPatch( this);

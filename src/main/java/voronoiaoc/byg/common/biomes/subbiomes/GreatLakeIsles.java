@@ -51,8 +51,9 @@ public class GreatLakeIsles extends Biome {
         DefaultBiomeFeatures.addSprings(this);
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.withConfiguration(new SeaGrassConfig(48, 0.4D)).withPlacement(Placement.TOP_SOLID_HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
         DefaultBiomeFeatures.addFreezeTopLayer(this);
-        BYGTreeFeatures.addSimpleMapleTrees(this);
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PINE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.4F, -1))));
+        DefaultBiomeFeatures.addOakAndSpruceTrees(this);
+        BYGTreeFeatures.addSparseMapleTrees(this);
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PINE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.5F, 2))));
         BYGFeatures.addBlueberries(this);
         BYGFeatures.addCrocus(this);
         BYGFeatures.addOsiria(this);

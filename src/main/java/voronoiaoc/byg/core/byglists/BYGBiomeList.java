@@ -121,7 +121,10 @@ public class BYGBiomeList {
     public static final Biome NORTHERN_FOREST = new NorthernForest();
     public static final Biome FOREST_FAULT = new ForestFault();
     public static final Biome BLACK_FOREST_HILLS = new BlackForestHills();
+    public static final Biome BAMBOO_FOREST = new BambooForest();
+    public static final Biome MAPLE_HILLS = new MapleHills();
 
+    public static final Biome CHERRY_BLOSSOM_CLEARING = new CherryBlossomClearing();
     public static final Biome BLACK_FOREST_CLEARING = new BlackForestClearing();
     public static final Biome CONIFEROUS_CLEARING = new ConiferousClearing();
     public static final Biome ZELKOVA_CLEARING = new ZelkovaClearing();
