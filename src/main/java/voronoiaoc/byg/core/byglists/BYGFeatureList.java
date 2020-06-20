@@ -24,6 +24,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.HugeBlac
 import voronoiaoc.byg.common.world.feature.features.overworld.structure.DoverQuarry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree3;
@@ -39,7 +40,6 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.boreal.Borea
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.SmallFirTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.TallFirTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.WideFirTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.HugeCypressTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.dead.DeadTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedGroveTree;
@@ -113,7 +113,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOWBIRCH_TREE = new YellowBirchTree(NoFeatureConfig::deserialize, false, 0);
 
     //Cypress
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> HUGECYPRESS_TREE = new HugeCypressTree(NoFeatureConfig::deserialize, false, 0);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> HUGECYPRESS_TREE = new CypressTree1(NoFeatureConfig::deserialize);
 
     //Seasonal Deciduous and Deciduous
     public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_TREE = new DeciduousTree(NoFeatureConfig::deserialize, false, 0);
