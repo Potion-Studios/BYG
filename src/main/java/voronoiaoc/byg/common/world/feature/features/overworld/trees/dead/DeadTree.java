@@ -23,7 +23,7 @@ public class DeadTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public DeadTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public DeadTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 

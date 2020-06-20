@@ -26,7 +26,7 @@ public class PineTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
     Random random = new Random();
 
-    public PineTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public PineTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.PINE_SAPLING);
     }

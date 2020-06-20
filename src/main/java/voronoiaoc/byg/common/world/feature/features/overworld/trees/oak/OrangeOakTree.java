@@ -23,7 +23,7 @@ public class OrangeOakTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState LEAVES = BYGBlockList.ORANGE_OAK_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public OrangeOakTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public OrangeOakTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ORANGE_OAK_SAPLING);
     }

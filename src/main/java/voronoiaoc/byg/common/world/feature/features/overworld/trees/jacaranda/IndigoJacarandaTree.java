@@ -22,7 +22,7 @@ public class IndigoJacarandaTree extends BYGAbstractTreeFeature<NoFeatureConfig>
     private static final BlockState LEAVES = BYGBlockList.INDIGO_JACARANDA_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public IndigoJacarandaTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public IndigoJacarandaTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.JACARANDA_SAPLING);
     }

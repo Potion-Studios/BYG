@@ -24,7 +24,7 @@ public class ZelkovaTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
     Random random = new Random();
 
-    public ZelkovaTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public ZelkovaTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((IPlantable) BYGBlockList.ZELKOVA_SAPLING);
     }

@@ -26,7 +26,7 @@ public class BorealForestTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState LEAVES = Blocks.SPRUCE_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public BorealForestTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public BorealForestTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 

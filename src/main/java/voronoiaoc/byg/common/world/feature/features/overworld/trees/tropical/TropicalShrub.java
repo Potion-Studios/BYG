@@ -17,14 +17,14 @@ import java.util.Set;
 import java.util.function.Function;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
-public class BYGTropShrub extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class TropicalShrub extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Blocks used for the tree.
     private static final BlockState LOG = BYGBlockList.MAHOGANY_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.MAHOGANY_LEAVES.getDefaultState();
 
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public BYGTropShrub(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public TropicalShrub(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 

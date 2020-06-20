@@ -21,7 +21,7 @@ public class DeciduousTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public DeciduousTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public DeciduousTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 

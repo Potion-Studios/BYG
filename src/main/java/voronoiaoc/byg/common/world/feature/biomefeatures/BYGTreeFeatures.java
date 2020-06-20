@@ -67,7 +67,7 @@ public class BYGTreeFeatures {
 //        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.WIDECONIFEROUS_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(35, 0.1F, 1))));
 //        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.TALLCONIFEROUS_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(15, 0.1F, 1))));
 //        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SMALLCONIFEROUS_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(25, 0.1F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(25, 0.1F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CHERRY_PINK_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(25, 0.1F, 1))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(25, 0.1F, 1))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(25, 0.1F, 1))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(25, 0.1F, 1))));
@@ -76,12 +76,12 @@ public class BYGTreeFeatures {
     }
 
     public static void addSparseConiferousTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SMALLCONIFEROUS_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE6.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
 
     }
 
     public static void addCypressTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CYPRESS_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.ENCHANTED_BLUE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
 //        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CYPRESS_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(3, 0.1F, 1))));
 //        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CYPRESS_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1))));
     }
@@ -104,22 +104,22 @@ public class BYGTreeFeatures {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
                 BYGFeatureList.ASPEN_TREE3.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
                 BYGFeatureList.ASPEN_TREE2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
-                BYGFeatureList.TALLCONIFEROUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
-                BYGFeatureList.SMALLCONIFEROUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
-                BYGFeatureList.LARGE_PINE_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
+                BYGFeatureList.CONIFER_TREE7.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
+                BYGFeatureList.CONIFER_TREE6.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
+                BYGFeatureList.PINE_LARGE_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
                 BYGFeatureList.PINE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F)),
                 BYGFeatureList.PINE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(45, 0.4F, 5))));
 
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.PINE_TREE_LARGE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F)),
-                BYGFeatureList.WIDECONIFEROUS_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
+                BYGFeatureList.PINE_LARGE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F)),
+                BYGFeatureList.CONIFER_TREE8.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
     }
 
     public static void addSparseBlackForestTrees(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.PINE_TREE_LARGE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.45F),
+                BYGFeatureList.PINE_LARGE_TREE2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.45F),
                 BYGFeatureList.PINE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.4F)),
                 BYGFeatureList.PINE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(0, 0.3F, 2))));
@@ -204,7 +204,7 @@ public class BYGTreeFeatures {
                 Feature.NORMAL_TREE.withConfiguration(BIRCH_TREE_CONFIG).withChance(0.06F),
                 Feature.NORMAL_TREE.withConfiguration(OAK_TREE_WITH_MORE_BEEHIVES_CONFIG).withChance(0.06F),
                 Feature.FANCY_TREE.withConfiguration(BYGFeatureConfigs.FANCY_RED_OAK_WITH_MORE_BEEHIVES_CONFIG).withChance(0.1F)),
-                BYGFeatureList.REDOAK_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
+                BYGFeatureList.OAK_RED_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(5, 0.5F, 3))));
     }
 
@@ -212,71 +212,71 @@ public class BYGTreeFeatures {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
                 Feature.NORMAL_TREE.withConfiguration(OAK_TREE_WITH_MORE_BEEHIVES_CONFIG).withChance(0.06F),
                 Feature.FANCY_TREE.withConfiguration(BYGFeatureConfigs.FANCY_RED_OAK_WITH_MORE_BEEHIVES_CONFIG).withChance(0.1F)),
-                BYGFeatureList.REDOAK_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
+                BYGFeatureList.OAK_RED_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(1, 0.5F, 2))));
     }
 
     public static void addSimpleMapleTrees(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
                 BYGFeatureList.MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.06F),
-                BYGFeatureList.RED_MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
-                BYGFeatureList.SILVER_MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.04F),
+                BYGFeatureList.MAPLE_RED_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
+                BYGFeatureList.MAPLE_SILVER_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.04F),
                 BYGFeatureList.MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
                 BYGFeatureList.MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F)),
-                BYGFeatureList.RED_MAPLE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
+                BYGFeatureList.MAPLE_RED_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(5, 0.4F, 2))));
     }
 
     public static void addSeasonalBirchForestTrees(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.BROWNBIRCH_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F),
+                BYGFeatureList.BIRCH_BROWN_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.TALLBROWNBIRCHTREE_CONFIG).withChance(0.1F),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.BROWNBIRCHTREE_CONFIG).withChance(0.1F),
-                BYGFeatureList.ORANGEBIRCH_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F),
+                BYGFeatureList.BIRCH_ORANGE_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.TALLORANGEBIRCHTREE_CONFIG).withChance(0.1F),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.ORANGEBIRCHTREE_CONFIG).withChance(0.1F),
-                BYGFeatureList.REDBIRCH_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F),
+                BYGFeatureList.BIRCH_RED_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.TALLREDBIRCHTREE_CONFIG).withChance(0.1F),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.REDBIRCHTREE_CONFIG).withChance(0.1F),
-                BYGFeatureList.YELLOWBIRCH_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F),
+                BYGFeatureList.BIRCH_YELLOW_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.TALLYELLOWBIRCHTREE_CONFIG).withChance(0.1F)),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.YELLOWBIRCHTREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(20, 0.4F, -8))));
     }
 
     public static void addSeasonalDeciduousTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SEASONAL_SHRUBS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(4, 0.3F, -3))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DECIDUOUS_SEASONAL_SHRUBS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(4, 0.3F, -3))));
 
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.REDDECIDUOUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
-                BYGFeatureList.ORANGEDECIDUOUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
+                BYGFeatureList.DECIDUOUS_RED_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
+                BYGFeatureList.DECIDUOUS_ORANGE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
                 BYGFeatureList.DECIDUOUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
-                BYGFeatureList.BROWNDECIDUOUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F)),
-                BYGFeatureList.YELLOWDECIDUOUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
+                BYGFeatureList.DECIDUOUS_BROWN_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F)),
+                BYGFeatureList.DECIDUOUS_YELLOW_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(20, 0.5F, -15))));
     }
 
     public static void addSparseSeasonalDeciduousTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SEASONAL_SHRUBS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.08F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DECIDUOUS_SEASONAL_SHRUBS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.08F, 1))));
 
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.REDDECIDUOUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
-                BYGFeatureList.ORANGEDECIDUOUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
+                BYGFeatureList.DECIDUOUS_RED_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
+                BYGFeatureList.DECIDUOUS_ORANGE_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
                 BYGFeatureList.DECIDUOUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
-                BYGFeatureList.BROWNDECIDUOUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F)),
-                BYGFeatureList.YELLOWDECIDUOUS_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
+                BYGFeatureList.DECIDUOUS_BROWN_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F)),
+                BYGFeatureList.DECIDUOUS_YELLOW_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
     }
 
     public static void addSeasonalForestTrees(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.BROWNOAK_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F),
+                BYGFeatureList.OAK_BROWN_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.1F),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.BROWNOAKTREE_CONFIG).withChance(0.1F),
-                BYGFeatureList.REDOAK_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
-                BYGFeatureList.YELLOWBIRCH_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
+                BYGFeatureList.OAK_RED_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
+                BYGFeatureList.BIRCH_YELLOW_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.REDOAKTREE_CONFIG).withChance(0.2F),
                 Feature.FANCY_TREE.withConfiguration(FANCY_TREE_CONFIG).withChance(0.01F),
-                BYGFeatureList.ORANGEOAK_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.05F)),
+                BYGFeatureList.OAK_ORANGE_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.05F)),
                 Feature.NORMAL_TREE.withConfiguration(BYGFeatureConfigs.ORANGEOAKTREE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(20, 0.4F, -8))));
     }
@@ -320,10 +320,10 @@ public class BYGTreeFeatures {
     public static void addTropJungleTrees(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.MEGA_JUNGLE_TREE.withConfiguration(BYGFeatureConfigs.MEGATROPJUNGLETREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.0F, 0))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.TROPICALRAINFOREST_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
+                BYGFeatureList.TROPICAL_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
                 BYGFeatureList.RAINBOW_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
                 Feature.JUNGLE_GROUND_BUSH.withConfiguration(BYGFeatureConfigs.TROPGROUNDBUSH_CONFIG).withChance(0.15F)),
-                BYGFeatureList.SHORTTROPICALRAINFOREST_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
+                BYGFeatureList.TROPICAL_SHORT_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(65, 0.1F, 10))));
 
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.VINES.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHT_64.configure(new FrequencyConfig(50))));
@@ -332,10 +332,10 @@ public class BYGTreeFeatures {
     public static void addSparseTropJungleTrees(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.MEGA_JUNGLE_TREE.withConfiguration(BYGFeatureConfigs.MEGATROPJUNGLETREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.0F, 0))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.TROPICALRAINFOREST_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
+                BYGFeatureList.TROPICAL_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F),
                 BYGFeatureList.RAINBOW_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.15F),
                 Feature.JUNGLE_GROUND_BUSH.withConfiguration(BYGFeatureConfigs.TROPGROUNDBUSH_CONFIG).withChance(0.15F)),
-                BYGFeatureList.SHORTTROPICALRAINFOREST_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
+                BYGFeatureList.TROPICAL_SHORT_TREE1.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
                 new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
 
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.VINES.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHT_64.configure(new FrequencyConfig(50))));
@@ -363,8 +363,8 @@ public class BYGTreeFeatures {
 
     public static void addSparseTree(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.FANCY_TREE.withConfiguration(FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG).withChance(0.33333334F)), Feature.NORMAL_TREE.withConfiguration(OAK_TREE_WITH_MORE_BEEHIVES_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.05F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PRAIRIE_SHRUB1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PRAIRIE_SHRUB2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_PRAIRIE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_PRAIRIE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
 
     }
 
@@ -377,7 +377,7 @@ public class BYGTreeFeatures {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.BLUFF_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(7, 0.3F, -5))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.BLUFF_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(7, 0.3F, -5))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.BLUFF_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(7, 0.3F, -5))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SMALLCONIFEROUS_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE6.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
                 BYGFeatureList.PINE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.5F)),
                 BYGFeatureList.PINE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(
@@ -392,8 +392,8 @@ public class BYGTreeFeatures {
     }
 
     public static void addNorthernForestTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.WIDECONIFEROUS_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(5, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SMALLCONIFEROUS_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(5, 0.3F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE8.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(5, 0.3F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE6.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(5, 0.3F, 1))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.MEGA_SPRUCE_TREE.withConfiguration(BYGFeatureConfigs.DOVERMEGASPRUCETREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(15, 0.5F, 5))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.MEGA_SPRUCE_TREE.withConfiguration(BYGFeatureConfigs.DOVERMEGASPRUCETREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(15, 0.5F, 5))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.NORMAL_TREE.withConfiguration(PINE_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.3F, -5))));
@@ -426,8 +426,8 @@ public class BYGTreeFeatures {
     }
 
     public static void addMeadowTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.MEADOW_SHRUB1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.MEADOW_SHRUB2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_MEADOW1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_MEADOW2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
     }
 
     public static void addGroveTrees(Biome biome) {
@@ -436,8 +436,8 @@ public class BYGTreeFeatures {
     }
 
     public static void addEnchantedGroveTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.BLUE_ENCHANTED_GROVE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.GREEN_ENCHANTED_GROVE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.ENCHANTED_BLUE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.ENCHANTED_BLUE_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
 
     }
 
@@ -449,15 +449,15 @@ public class BYGTreeFeatures {
     }
 
     public static void addMarshTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PRAIRIE_SHRUB1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 8))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PRAIRIE_SHRUB2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 8))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_PRAIRIE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 8))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_PRAIRIE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 8))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.NORMAL_TREE.withConfiguration(SWAMP_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
 
     }
     public static void addBayouVegetation(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.BAYOU_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(9, 0.8F, -1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.BAYOU_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(3, 0.8F, -1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.BAYOU_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(4, 0.8F, -1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.WILLOW_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(9, 0.8F, -1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.WILLOW_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(3, 0.8F, -1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.WILLOW_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(4, 0.8F, -1))));
     }
 
     public static void addAspenTrees(Biome biome) {
@@ -505,19 +505,19 @@ public class BYGTreeFeatures {
     public static void addJoshuaTrees(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.JOSHUA_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.JOSHUA_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PRAIRIE_SHRUB1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PRAIRIE_SHRUB2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_PRAIRIE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_PRAIRIE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
     }
 
     public static void addBushes(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PRAIRIE_SHRUB1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 2))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PRAIRIE_SHRUB2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_PRAIRIE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_PRAIRIE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 2))));
     }
 
     public static void addRedRockCanyonVegetation(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.JOSHUA_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.JOSHUA_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HEIGHTCHECKEDCACTUS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(8))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CACTUS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(8))));
 
     }
 

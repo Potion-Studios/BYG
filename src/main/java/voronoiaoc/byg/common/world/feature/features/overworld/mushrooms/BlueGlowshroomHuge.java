@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.mushrooms;
+package voronoiaoc.byg.common.world.feature.features.overworld.mushrooms;
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.util.math.BlockPos;

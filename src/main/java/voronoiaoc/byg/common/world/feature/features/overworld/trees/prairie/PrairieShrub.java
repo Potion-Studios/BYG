@@ -23,7 +23,7 @@ public class PrairieShrub extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public PrairieShrub(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public PrairieShrub(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RAINBOW_EUCALYPTUS_SAPLING);
     }

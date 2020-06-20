@@ -22,7 +22,7 @@ public class OrangeDeciduousTree extends BYGAbstractTreeFeature<NoFeatureConfig>
     private static final BlockState LEAVES = BYGBlockList.ORANGE_OAK_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public OrangeDeciduousTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public OrangeDeciduousTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         //setSapling((net.minecraftforge.common.IPlantable) Blocks.DARK_OAK_SAPLING);
     }

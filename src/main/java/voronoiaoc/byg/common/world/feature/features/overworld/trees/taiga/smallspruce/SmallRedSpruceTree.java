@@ -24,7 +24,7 @@ public class SmallRedSpruceTree extends BYGAbstractTreeFeature<NoFeatureConfig> 
     private static final BlockState LEAVES3 = BYGBlockList.RED_SPRUCE_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public SmallRedSpruceTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public SmallRedSpruceTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RED_SPRUCE_SAPLING);
     }

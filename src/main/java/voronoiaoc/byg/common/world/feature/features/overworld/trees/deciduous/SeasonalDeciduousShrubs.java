@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.function.Function;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
-public class ColorfulDeciduousShrubs extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Blocks used for the tree.
     private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
     private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
@@ -27,7 +27,7 @@ public class ColorfulDeciduousShrubs extends BYGAbstractTreeFeature<NoFeatureCon
     private static final BlockState LEAVES5 = BYGBlockList.YELLOW_BIRCH_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public ColorfulDeciduousShrubs(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public SeasonalDeciduousShrubs(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 

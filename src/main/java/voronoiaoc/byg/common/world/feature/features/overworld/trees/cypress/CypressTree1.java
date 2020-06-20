@@ -142,6 +142,8 @@ public class CypressTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 19, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 19, 1), boundsIn);
 
+
+                //Bottom Roots
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -5), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-4, 0, -4), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 0, -4), boundsIn);
@@ -202,6 +204,9 @@ public class CypressTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-3, 2, 3), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(3, 2, 3), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 2, 4), boundsIn);
+
+
+
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 3, -4), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-3, 3, -3), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, 3, -3), boundsIn);
@@ -286,6 +291,8 @@ public class CypressTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, 9, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 9, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 9, 2), boundsIn);
+
+                //Top Branches
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 16, -2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, 16, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 16, 0), boundsIn);

@@ -24,7 +24,7 @@ public class SkyrisTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
     Random random = new Random();
 
-    public SkyrisTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public SkyrisTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.SKYRIS_SAPLING);
     }

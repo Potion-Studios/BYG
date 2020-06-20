@@ -22,7 +22,7 @@ public class RainbowEucalyptusTree extends BYGAbstractTreeFeature<NoFeatureConfi
     private static final BlockState LEAVES = BYGBlockList.RAINBOW_EUCALYPTUS_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public RainbowEucalyptusTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public RainbowEucalyptusTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RAINBOW_EUCALYPTUS_SAPLING);
     }

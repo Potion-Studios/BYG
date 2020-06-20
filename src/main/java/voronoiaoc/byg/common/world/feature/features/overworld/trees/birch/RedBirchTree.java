@@ -23,7 +23,7 @@ public class RedBirchTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState LEAVES = BYGBlockList.RED_BIRCH_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public RedBirchTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public RedBirchTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RED_BIRCH_SAPLING);
     }

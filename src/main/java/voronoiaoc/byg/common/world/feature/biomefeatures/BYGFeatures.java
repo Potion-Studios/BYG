@@ -82,7 +82,7 @@ public class BYGFeatures {
     }
 
     public static void addLargeLavaLake(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGFeatureList.LAVA_LAKE_WIDE_SHALLOW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AnyWaterOrSolidSurfaceSurface.WWATERORSOLIDSURFACE.configure(new FrequencyConfig(3))));
+        biome.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGFeatureList.LAKE_LAVA_WIDE_SHALLOW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AnyWaterOrSolidSurfaceSurface.WWATERORSOLIDSURFACE.configure(new FrequencyConfig(3))));
     }
 
     public static void addVolcanicCarvers(Biome biome) {
@@ -308,7 +308,7 @@ public class BYGFeatures {
     }
 
     public static void addFrostMagmaLakes(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, BYGFeatureList.FROST_LAKE.withConfiguration(new BlockStateFeatureConfig(BYGBlockList.FROST_MAGMA.getDefaultState())).withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(4))));
+        biome.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, BYGFeatureList.LAKE_FROST.withConfiguration(new BlockStateFeatureConfig(BYGBlockList.FROST_MAGMA.getDefaultState())).withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(4))));
 
     }
 

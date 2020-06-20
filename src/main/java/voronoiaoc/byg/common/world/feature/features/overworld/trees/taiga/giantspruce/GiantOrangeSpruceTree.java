@@ -24,7 +24,7 @@ public class GiantOrangeSpruceTree extends BYGAbstractTreeFeature<NoFeatureConfi
     private static final BlockState LEAVES2 = BYGBlockList.ORANGE_SPRUCE_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public GiantOrangeSpruceTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public GiantOrangeSpruceTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ORANGE_SPRUCE_SAPLING);
     }

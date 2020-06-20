@@ -22,7 +22,7 @@ public class PumpkinPatch1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState LEAVES = Blocks.PUMPKIN.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public PumpkinPatch1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public PumpkinPatch1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RAINBOW_EUCALYPTUS_SAPLING);
     }

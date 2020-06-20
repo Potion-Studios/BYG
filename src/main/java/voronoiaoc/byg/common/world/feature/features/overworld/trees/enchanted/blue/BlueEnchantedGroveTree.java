@@ -27,7 +27,7 @@ public class BlueEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureConf
     private static final BlockState LEAVES2 = BYGBlockList.BLUE_ENCHANTED_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public BlueEnchantedGroveTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public BlueEnchantedGroveTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 

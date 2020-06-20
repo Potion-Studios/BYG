@@ -24,7 +24,7 @@ public class GiantYellowSpruceTree extends BYGAbstractTreeFeature<NoFeatureConfi
     private static final BlockState LEAVES2 = BYGBlockList.YELLOW_SPRUCE_LEAVES.getDefaultState();
     private static final BlockState BEEHIVE = Blocks.BEEHIVE.getDefaultState();
 
-    public GiantYellowSpruceTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public GiantYellowSpruceTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.YELLOW_SPRUCE_SAPLING);
     }

@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.cherry;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry;
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.util.math.BlockPos;

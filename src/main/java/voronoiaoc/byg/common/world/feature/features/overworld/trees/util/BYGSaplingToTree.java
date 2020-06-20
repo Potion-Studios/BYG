@@ -4,13 +4,13 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.AspenTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.AspenTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.WillowTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.OrangeBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.RedBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.YellowBirchTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.SmallFirTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.WideFirTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.ConiferTree6;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.ConiferTree8;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedGroveTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedGroveTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree;
@@ -20,9 +20,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.Ja
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.JoshuaTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.JoshuaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.MapleTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.RedMapleTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.RedMapleTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.RedMapleTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.SilverMapleTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.SilverMapleTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.oak.BrownOakTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.oak.OrangeOakTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.oak.RedOakTree;
@@ -192,12 +192,12 @@ public class BYGSaplingToTree {
     public static class FirSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return new WideFirTree(NoFeatureConfig::deserialize, false, 0);
+            return new ConiferTree8(NoFeatureConfig::deserialize, false, 0);
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new SmallFirTree(NoFeatureConfig::deserialize, false, 0);
+            return new ConiferTree6(NoFeatureConfig::deserialize, false, 0);
         }
     }
 
@@ -241,7 +241,7 @@ public class BYGSaplingToTree {
     public static class WillowSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new BayouTree1(NoFeatureConfig::deserialize) : new BayouTree1(NoFeatureConfig::deserialize);
+            return random.nextInt(2) == 0 ? new WillowTree1(NoFeatureConfig::deserialize) : new WillowTree1(NoFeatureConfig::deserialize);
         }
 
     }
@@ -278,7 +278,7 @@ public class BYGSaplingToTree {
     public static class RedMapleSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new RedMapleTree(NoFeatureConfig::deserialize) : new RedMapleTree2(NoFeatureConfig::deserialize);
+            return random.nextInt(2) == 0 ? new RedMapleTree1(NoFeatureConfig::deserialize) : new RedMapleTree2(NoFeatureConfig::deserialize);
         }
 
     }
@@ -286,7 +286,7 @@ public class BYGSaplingToTree {
     public static class SilverMapleSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new SilverMapleTree(NoFeatureConfig::deserialize) : new SilverMapleTree(NoFeatureConfig::deserialize);
+            return random.nextInt(2) == 0 ? new SilverMapleTree1(NoFeatureConfig::deserialize) : new SilverMapleTree1(NoFeatureConfig::deserialize);
         }
 
     }

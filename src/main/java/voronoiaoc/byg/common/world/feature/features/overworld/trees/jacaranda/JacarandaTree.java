@@ -22,7 +22,7 @@
 //    private static final BlockState LEAVES = BYGBlockList.JACARANDA_LEAVES.getDefaultState();
 //    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 //
-//    public JacarandaTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+//    public JacarandaTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
 //        super(configIn, doBlockNotifyIn, beeHiveChance);
 //        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.JACARANDA_SAPLING);
 //    }

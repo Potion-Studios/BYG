@@ -24,7 +24,7 @@ public class SmallYellowTaigaTree extends BYGAbstractTreeFeature<NoFeatureConfig
     private static final BlockState LEAVES3 = BYGBlockList.YELLOW_SPRUCE_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public SmallYellowTaigaTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public SmallYellowTaigaTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.YELLOW_SPRUCE_SAPLING);
     }

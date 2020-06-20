@@ -13,9 +13,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class DeadWillow1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class WillowDeadTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public DeadWillow1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public WillowDeadTree1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 

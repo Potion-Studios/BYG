@@ -16,13 +16,13 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class WideFirTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class ConiferTree8 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Blocks used for the tree.
     private static final BlockState LOG = BYGBlockList.FIR_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.FIR_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public WideFirTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public ConiferTree8(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.FIR_SAPLING);
 

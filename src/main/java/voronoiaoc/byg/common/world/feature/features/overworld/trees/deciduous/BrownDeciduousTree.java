@@ -22,7 +22,7 @@ public class BrownDeciduousTree extends BYGAbstractTreeFeature<NoFeatureConfig> 
     private static final BlockState LEAVES = BYGBlockList.BROWN_OAK_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public BrownDeciduousTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public BrownDeciduousTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 

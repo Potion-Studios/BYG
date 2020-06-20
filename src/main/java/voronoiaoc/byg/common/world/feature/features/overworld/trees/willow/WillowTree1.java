@@ -18,9 +18,9 @@ import java.util.function.Function;
 
 import static net.minecraft.util.Direction.*;
 
-public class BayouTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public BayouTree1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public WillowTree1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
         setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.BLUE_SPRUCE_SAPLING);
     }

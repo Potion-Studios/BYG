@@ -13,9 +13,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class RedMapleTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class SilverMapleTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public RedMapleTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public SilverMapleTree1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 
