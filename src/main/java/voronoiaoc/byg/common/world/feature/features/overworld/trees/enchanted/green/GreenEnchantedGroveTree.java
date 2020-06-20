@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted_grove;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green;
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.Block;
@@ -20,14 +20,14 @@ import java.util.Set;
 import java.util.function.Function;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
-public class BlueEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Blocks used for the tree.
-    private static final BlockState LOG = BYGBlockList.BLUE_ENCHANTED_LOG.getDefaultState();
-    private static final BlockState LEAVES = BYGBlockList.BLUE_ENCHANTED_LEAVES.getDefaultState();
-    private static final BlockState LEAVES2 = BYGBlockList.BLUE_ENCHANTED_LEAVES.getDefaultState();
+    private static final BlockState LOG = BYGBlockList.GREEN_ENCHANTED_LOG.getDefaultState();
+    private static final BlockState LEAVES = BYGBlockList.GREEN_ENCHANTED_LEAVES.getDefaultState();
+    private static final BlockState LEAVES2 = BYGBlockList.GREEN_ENCHANTED_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public BlueEnchantedGroveTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
+    public GreenEnchantedGroveTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, boolean doBlockNotifyIn, int beeHiveChance) {
         super(configIn);
     }
 
