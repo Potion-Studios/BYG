@@ -106,18 +106,21 @@ public class HollyTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 18, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 18, 1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 18, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 19, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 19, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 19, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 20, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 20, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 20, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 21, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 21, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 21, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 22, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 22, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 22, 1), boundsIn);
+
+
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 19, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 19, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 19, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 20, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 20, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 20, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 21, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 21, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 21, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 22, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 22, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 22, 1), boundsIn);
+
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 3, -2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 3, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 3, 0), boundsIn);

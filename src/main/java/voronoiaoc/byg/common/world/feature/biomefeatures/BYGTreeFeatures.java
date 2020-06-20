@@ -544,4 +544,11 @@ public class BYGTreeFeatures {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EBONY_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EBONY_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
     }
+
+    public static void addHollyTrees(Biome biome) {
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.HOLLY_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+    }
 }
