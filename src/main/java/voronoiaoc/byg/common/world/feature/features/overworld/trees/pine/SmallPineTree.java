@@ -27,8 +27,7 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
     }
 
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        //if negative coord, make negative number smaller by the offset.
-        if (pos.getX() == -7 && pos.getZ() == -8) {
+        if (pos.getX() == -10 && pos.getZ() == -2) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() +  16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
                     for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() +  16; checkZ++) {
@@ -39,7 +38,7 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
             }
 
             TemplateManager templatemanager = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager();
-            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/large_cypress_tree3"));
+            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/mutated_bayou_tree2"));
 
             if (template == null) {
                 BYG.LOGGER.warn("NBT does not exist!");
