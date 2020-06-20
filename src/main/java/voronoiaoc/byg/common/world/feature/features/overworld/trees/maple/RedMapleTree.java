@@ -60,6 +60,7 @@ public class RedMapleTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 8, 2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 9, -3), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-4, 9, -2), boundsIn);
+                this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 9, 2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, -5), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 6, -5), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, -4), boundsIn);
@@ -87,7 +88,6 @@ public class RedMapleTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, -6), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, -5), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, 7, -5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, -5), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, -5), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(4, 7, -5), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 7, -4), boundsIn);
@@ -225,7 +225,6 @@ public class RedMapleTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 8, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(3, 8, 3), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 8, 4), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 4), boundsIn);
@@ -258,6 +257,35 @@ public class RedMapleTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, -1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, -1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 9, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 9, 3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 9, 4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, -4), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, -3), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 10, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 10, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, -2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, 2), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, 3), boundsIn);
             }
         }
         return true;

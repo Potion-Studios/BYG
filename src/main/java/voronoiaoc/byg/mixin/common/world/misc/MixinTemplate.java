@@ -1,11 +1,3 @@
-/*
- * Copyright (C) 2020 CorgiTaco
- *
- * This file is part of the minecraft mod Oh The Biomes You'll Go.
- *
- * This class can not be copied and/or distributed without the express
- * permission of CorgiTaco.
- */
 package voronoiaoc.byg.mixin.common.world.misc;
 
 import com.google.common.collect.Lists;
@@ -35,7 +27,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
 @Mixin(Template.class)
 public class MixinTemplate {
 
@@ -48,13 +39,10 @@ public class MixinTemplate {
 
     @Shadow
     private BlockPos size;
-
     /**
      * @author CorgiTaco
      * @Reason Don't worry about it.
      */
-
-
     @Overwrite
     public boolean addBlocksToWorld(IWorld worldIn, BlockPos featurePos, PlacementSettings placementIn, int flags) {
         if (this.blocks.isEmpty()) {
@@ -72,7 +60,7 @@ public class MixinTemplate {
                 int i1 = Integer.MIN_VALUE;
                 int j1 = Integer.MIN_VALUE;
 
-                for (Template.BlockInfo template$blockinfo : Template.processBlockInfos((Template) (Object) this, worldIn, featurePos, placementIn, list)) {
+                for(Template.BlockInfo template$blockinfo : Template.processBlockInfos((Template)(Object)this, worldIn, featurePos, placementIn, list)) {
                     BlockPos templateBlockInfoPos = template$blockinfo.pos;
                     if (mutableboundingbox == null || mutableboundingbox.isVecInside(templateBlockInfoPos)) {
                         IFluidState ifluidstate = placementIn.func_204763_l() ? worldIn.getFluidState(templateBlockInfoPos) : null;
@@ -104,7 +92,7 @@ public class MixinTemplate {
                             }
 
                             if (ifluidstate != null && blockstate.getBlock() instanceof ILiquidContainer) {
-                                ((ILiquidContainer) blockstate.getBlock()).receiveFluid(worldIn, templateBlockInfoPos, blockstate, ifluidstate);
+                                ((ILiquidContainer)blockstate.getBlock()).receiveFluid(worldIn, templateBlockInfoPos, blockstate, ifluidstate);
                                 if (!ifluidstate.isSource()) {
                                     list1.add(templateBlockInfoPos);
                                 }
@@ -116,16 +104,16 @@ public class MixinTemplate {
                 boolean flag = true;
                 Direction[] adirection = new Direction[]{Direction.UP, Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
 
-                while (flag && !list1.isEmpty()) {
+                while(flag && !list1.isEmpty()) {
                     flag = false;
                     Iterator<BlockPos> iterator = list1.iterator();
 
-                    while (iterator.hasNext()) {
+                    while(iterator.hasNext()) {
                         BlockPos blockpos2 = iterator.next();
                         BlockPos blockpos3 = blockpos2;
                         IFluidState ifluidstate2 = worldIn.getFluidState(blockpos2);
 
-                        for (int k1 = 0; k1 < adirection.length && !ifluidstate2.isSource(); ++k1) {
+                        for(int k1 = 0; k1 < adirection.length && !ifluidstate2.isSource(); ++k1) {
                             BlockPos blockpos1 = blockpos3.offset(adirection[k1]);
                             IFluidState ifluidstate1 = worldIn.getFluidState(blockpos1);
                             if (ifluidstate1.getActualHeight(worldIn, blockpos1) > ifluidstate2.getActualHeight(worldIn, blockpos3) || ifluidstate1.isSource() && !ifluidstate2.isSource()) {
@@ -138,7 +126,7 @@ public class MixinTemplate {
                             BlockState blockstate2 = worldIn.getBlockState(blockpos2);
                             Block block = blockstate2.getBlock();
                             if (block instanceof ILiquidContainer) {
-                                ((ILiquidContainer) block).receiveFluid(worldIn, blockpos2, blockstate2, ifluidstate2);
+                                ((ILiquidContainer)block).receiveFluid(worldIn, blockpos2, blockstate2, ifluidstate2);
                                 flag = true;
                                 iterator.remove();
                             }
@@ -153,7 +141,7 @@ public class MixinTemplate {
                         int i2 = j;
                         int j2 = k;
 
-                        for (Pair<BlockPos, CompoundNBT> pair1 : list2) {
+                        for(Pair<BlockPos, CompoundNBT> pair1 : list2) {
                             BlockPos blockpos5 = pair1.getFirst();
                             voxelshapepart.setFilled(blockpos5.getX() - l1, blockpos5.getY() - i2, blockpos5.getZ() - j2, true, true);
                         }
@@ -161,7 +149,7 @@ public class MixinTemplate {
                         Template.func_222857_a(worldIn, flags, voxelshapepart, l1, i2, j2);
                     }
 
-                    for (Pair<BlockPos, CompoundNBT> pair : list2) {
+                    for(Pair<BlockPos, CompoundNBT> pair : list2) {
                         BlockPos blockpos4 = pair.getFirst();
                         if (!placementIn.func_215218_i()) {
                             BlockState blockstate1 = worldIn.getBlockState(blockpos4);
@@ -183,7 +171,7 @@ public class MixinTemplate {
                 }
 
                 if (!placementIn.getIgnoreEntities()) {
-                    ((TemplateInvoker) this).addEntitiesWorld(worldIn, featurePos, placementIn, placementIn.getMirror(), placementIn.getRotation(), placementIn.getCenterOffset(), placementIn.getBoundingBox());
+                    ((TemplateInvoker)this).addEntitiesWorld(worldIn, featurePos, placementIn, placementIn.getMirror(), placementIn.getRotation(), placementIn.getCenterOffset(), placementIn.getBoundingBox());
                 }
 
                 List<String> treeLeaveList = new ArrayList<>();
@@ -200,10 +188,13 @@ public class MixinTemplate {
                     //|| pos.getX() == 0 && pos.getZ() == 1 || pos.getX() == 0 && pos.getZ() == -1 || pos.getX() == 1 && pos.getZ() == 0 || pos.getX() == -1 && pos.getZ() == 0
                     if (blockCheck.getRegistryName().toString().contains("log") && pos.getX() == 0 && pos.getZ() == 0) {
                         trunkLogList.add("this.treeLog(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
-                    } else if (blockCheck.getRegistryName().toString().contains("log")) {
+                    }
+
+                    else if (blockCheck.getRegistryName().toString().contains("log")) {
                         treeBranchList.add("this.treeBranch(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
-                    if (blockCheck.getRegistryName().toString().contains("leave")) {
+
+                     if (blockCheck.getRegistryName().toString().contains("leaves")) {
                         treeLeaveList.add("this.leafs(changedBlocks, worldIn, mainmutable.add(" + featureX + ", " + featureY + ", " + realZ + "), boundsIn);");
                     }
 
