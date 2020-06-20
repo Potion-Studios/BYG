@@ -20,10 +20,13 @@ import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCo
 import voronoiaoc.byg.common.world.feature.features.overworld.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.DeadSeaSpikes;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.TallDeadSeaSpikes;
+import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.AngelicaGiant;
+import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.DandelionGiant;
+import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.IrisGiant;
+import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.RoseGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.structure.DoverQuarry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.acacia.AcaciaTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.acacia.AcaciaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownBirchTree;
@@ -58,10 +61,6 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.bl
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree3;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.flowers.AngelicaGiant;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.flowers.DandelionGiant;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.flowers.IrisGiant;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.flowers.RoseGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.holly.HollyTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.holly.HollyTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.holly.HollyTree3;
@@ -139,8 +138,6 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> DUMMY_TREE = new SmallPineTree(NoFeatureConfig::deserialize);
 
     /********************************************************************Features*************************************************************************/
-
-
     //DeadSea
     public static final Feature<NoFeatureConfig> DEADSEASPIKES = new DeadSeaSpikes(NoFeatureConfig::deserialize);
     public static final Feature<NoFeatureConfig> TALLDEADSEASPIKES = new TallDeadSeaSpikes(NoFeatureConfig::deserialize);
@@ -228,7 +225,7 @@ public class BYGFeatureList {
     /********************************************************************Tree Features********************************************************************/
     //Acacia
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE1 = new AcaciaTree1(NoFeatureConfig::deserialize);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE2 = new AcaciaTree2(NoFeatureConfig::deserialize);
+//    public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE2 = new AcaciaTree2(NoFeatureConfig::deserialize);
 
     //Aspen
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_SHRUB1 = new AspenShrub(NoFeatureConfig::deserialize);
@@ -236,7 +233,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_TREE1 = new AspenTree(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_TREE2 = new AspenTree2(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_TREE3 = new AspenTree3(NoFeatureConfig::deserialize);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_TREE4 = new AspenTree4(NoFeatureConfig::deserialize);
+//    public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_TREE4 = new AspenTree4(NoFeatureConfig::deserialize);
 
     //Baobab Tree
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BAOBAB_TREE1 = new BaobabTree1(NoFeatureConfig::deserialize);
@@ -261,7 +258,6 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_PINK_TREE2 = new PinkCherry2(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_WHITE_TREE1 = new WhiteCherry1(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_WHITE_TREE2 = new WhiteCherry2(NoFeatureConfig::deserialize);
-
 
     //Coniferous
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE1 = new ConiferTree1(NoFeatureConfig::deserialize);
@@ -414,14 +410,10 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> WILLOW_TREE3 = new WillowTree3(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> WILLOW_TREE4 = new WillowTree4(NoFeatureConfig::deserialize);
 
-
     //Zelkova
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE1 = new ZelkovaTree(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE2 = new ZelkovaTree2(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE3 = new ZelkovaTree3(NoFeatureConfig::deserialize, 0);
-
-    /********************************************************************Vegetation Features**************************************************************/
-
 }
 
 

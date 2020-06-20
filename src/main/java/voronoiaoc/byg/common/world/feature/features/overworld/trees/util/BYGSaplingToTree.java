@@ -54,31 +54,31 @@ public class BYGSaplingToTree {
     public static class BlueSpruceSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return new GiantBlueSpruceTree(NoFeatureConfig::deserialize, false, 0);
+            return new GiantBlueSpruceTree(NoFeatureConfig::deserialize);
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new BlueSpruceTree(NoFeatureConfig::deserialize, false, 0);
+            return new BlueSpruceTree(NoFeatureConfig::deserialize);
         }
     }
 
     public static class RedSpruceSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return new GiantRedSpruceTree(NoFeatureConfig::deserialize, false, 0);
+            return new GiantRedSpruceTree(NoFeatureConfig::deserialize);
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new RedSpruceTree(NoFeatureConfig::deserialize, false, 0);
+            return new RedSpruceTree(NoFeatureConfig::deserialize);
         }
     }
 
     public static class BaobabSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return new BaobabTree1(NoFeatureConfig::deserialize, false, 0);
+            return new BaobabTree1(NoFeatureConfig::deserialize);
         }
 
         @Nullable
@@ -90,12 +90,12 @@ public class BYGSaplingToTree {
     public static class OrangeSpruceSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return new GiantOrangeSpruceTree(NoFeatureConfig::deserialize, false, 0);
+            return new GiantOrangeSpruceTree(NoFeatureConfig::deserialize);
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new OrangeSpruceTree(NoFeatureConfig::deserialize, false, 0);
+            return new OrangeSpruceTree(NoFeatureConfig::deserialize);
         }
     }
 
@@ -103,12 +103,12 @@ public class BYGSaplingToTree {
     public static class YellowSpruceSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return new GiantYellowSpruceTree(NoFeatureConfig::deserialize, false, 0);
+            return new GiantYellowSpruceTree(NoFeatureConfig::deserialize);
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new YellowSpruceTree(NoFeatureConfig::deserialize, false, 0);
+            return new YellowSpruceTree(NoFeatureConfig::deserialize);
         }
     }
 
@@ -116,14 +116,14 @@ public class BYGSaplingToTree {
     public static class BrownOakSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new BrownOakTree(NoFeatureConfig::deserialize, false, 0);
+            return new BrownOakTree(NoFeatureConfig::deserialize);
         }
     }
 
     public static class RainbowEucalyptusSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new RainbowEucalyptusTree(NoFeatureConfig::deserialize, false, 0);
+            return new RainbowEucalyptusTree(NoFeatureConfig::deserialize);
         }
     }
 
@@ -131,7 +131,7 @@ public class BYGSaplingToTree {
     public static class OrangeOakSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new OrangeOakTree(NoFeatureConfig::deserialize, false, 0);
+            return new OrangeOakTree(NoFeatureConfig::deserialize);
         }
     }
 
@@ -139,7 +139,7 @@ public class BYGSaplingToTree {
     public static class RedOakSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new RedOakTree(NoFeatureConfig::deserialize, false, 0);
+            return new RedOakTree(NoFeatureConfig::deserialize);
         }
     }
 
@@ -147,7 +147,7 @@ public class BYGSaplingToTree {
     public static class OrangeBirchSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new OrangeBirchTree(NoFeatureConfig::deserialize, false, 0);
+            return new OrangeBirchTree(NoFeatureConfig::deserialize);
         }
     }
 
@@ -155,7 +155,7 @@ public class BYGSaplingToTree {
     public static class BrownBirchSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new BrownBirchTree(NoFeatureConfig::deserialize, false, 0);
+            return new BrownBirchTree(NoFeatureConfig::deserialize);
         }
     }
 
@@ -163,7 +163,7 @@ public class BYGSaplingToTree {
     public static class RedBirchSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new RedBirchTree(NoFeatureConfig::deserialize, false, 0);
+            return new RedBirchTree(NoFeatureConfig::deserialize);
         }
     }
 
@@ -171,61 +171,61 @@ public class BYGSaplingToTree {
     public static class YellowBirchSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new YellowBirchTree(NoFeatureConfig::deserialize, false, 0);
+            return new YellowBirchTree(NoFeatureConfig::deserialize);
         }
     }
 
     public static class JacarandaSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(3) == 0 ? new JacarandaTree1(NoFeatureConfig::deserialize, false, 0) : new JacarandaTree2(NoFeatureConfig::deserialize, false, 0);
+            return random.nextInt(3) == 0 ? new JacarandaTree1(NoFeatureConfig::deserialize) : new JacarandaTree2(NoFeatureConfig::deserialize);
         }
     }
 
     public static class IndigoJacarandaSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(3) == 0 ? new IndigoJacarandaTree(NoFeatureConfig::deserialize, false, 0) : new IndigoJacarandaTree2(NoFeatureConfig::deserialize, false, 0);
+            return random.nextInt(3) == 0 ? new IndigoJacarandaTree(NoFeatureConfig::deserialize) : new IndigoJacarandaTree2(NoFeatureConfig::deserialize);
         }
     }
 
     public static class FirSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return new ConiferTree8(NoFeatureConfig::deserialize, false, 0);
+            return new ConiferTree8(NoFeatureConfig::deserialize);
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return new ConiferTree6(NoFeatureConfig::deserialize, false, 0);
+            return new ConiferTree6(NoFeatureConfig::deserialize);
         }
     }
 
     public static class MahogonySaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new TropicalRainForestTree(NoFeatureConfig::deserialize, true, 0) : new ShortTropicalRainForestTree(NoFeatureConfig::deserialize, true, 0);
+            return random.nextInt(2) == 0 ? new TropicalRainForestTree(NoFeatureConfig::deserialize) : new ShortTropicalRainForestTree(NoFeatureConfig::deserialize);
         }
     }
 
     public static class SkyrisSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new SkyrisTree(NoFeatureConfig::deserialize, true, 0) : new SkyrisTree2(NoFeatureConfig::deserialize, true, 0);
+            return random.nextInt(2) == 0 ? new SkyrisTree(NoFeatureConfig::deserialize) : new SkyrisTree2(NoFeatureConfig::deserialize);
         }
     }
 
     public static class AspenSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new AspenTree(NoFeatureConfig::deserialize, true, 0) : new AspenTree2(NoFeatureConfig::deserialize, true, 0);
+            return random.nextInt(2) == 0 ? new AspenTree(NoFeatureConfig::deserialize) : new AspenTree2(NoFeatureConfig::deserialize);
         }
     }
 
     public static class ZelkovaSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new ZelkovaTree(NoFeatureConfig::deserialize, true, 0) : new ZelkovaTree3(NoFeatureConfig::deserialize, 0);
+            return random.nextInt(2) == 0 ? new ZelkovaTree(NoFeatureConfig::deserialize) : new ZelkovaTree3(NoFeatureConfig::deserialize, 0);
         }
 
     }
@@ -249,7 +249,7 @@ public class BYGSaplingToTree {
     public static class JoshuaSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new JoshuaTree1(NoFeatureConfig::deserialize, true, 0) : new JoshuaTree2(NoFeatureConfig::deserialize, true, 0);
+            return random.nextInt(2) == 0 ? new JoshuaTree1(NoFeatureConfig::deserialize) : new JoshuaTree2(NoFeatureConfig::deserialize);
         }
 
     }
@@ -257,12 +257,12 @@ public class BYGSaplingToTree {
     public static class PineSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return new PineTreeLarge1(NoFeatureConfig::deserialize, false, 0);
+            return new PineTreeLarge1(NoFeatureConfig::deserialize);
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new PineTree1(NoFeatureConfig::deserialize, true, 0) : new PineTree2(NoFeatureConfig::deserialize, true, 0);
+            return random.nextInt(2) == 0 ? new PineTree1(NoFeatureConfig::deserialize) : new PineTree2(NoFeatureConfig::deserialize);
         }
 
     }
@@ -294,7 +294,7 @@ public class BYGSaplingToTree {
     public static class BlueEnchantedSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new BlueEnchantedGroveTree(NoFeatureConfig::deserialize, true, 0) : new BlueEnchantedGroveTree(NoFeatureConfig::deserialize, true, 0);
+            return random.nextInt(2) == 0 ? new BlueEnchantedGroveTree(NoFeatureConfig::deserialize) : new BlueEnchantedGroveTree(NoFeatureConfig::deserialize);
         }
 
     }
@@ -302,7 +302,7 @@ public class BYGSaplingToTree {
     public static class GreenEnchantedSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new GreenEnchantedGroveTree(NoFeatureConfig::deserialize, true, 0) : new GreenEnchantedGroveTree(NoFeatureConfig::deserialize, true, 0);
+            return random.nextInt(2) == 0 ? new GreenEnchantedGroveTree(NoFeatureConfig::deserialize) : new GreenEnchantedGroveTree(NoFeatureConfig::deserialize);
         }
 
     }

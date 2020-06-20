@@ -83,19 +83,7 @@ public class EbonyTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 15, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 15, 1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 15, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 16, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 16, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 16, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 16, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 17, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 17, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 17, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 18, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 18, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 18, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 19, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 19, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 19, 1), boundsIn);
+
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 0, -2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, 0, -2), boundsIn);
