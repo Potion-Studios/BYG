@@ -32,6 +32,7 @@ public class BYGBiomeList {
     public static final Biome CRAGGARDENS = new CragGardens();
     public static final Biome REDROCKCANYON = new Canyons();
     public static final Biome CANYONCORRIDORS = new CanyonCorridors();
+    public static final Biome CYPRESSSWAMPLANDS = new CypressSwampland();
     public static final Biome DUMMYBIOME = new DummyBiome();
     public static final Biome CHAPPARALCOASTALS = new ChapparalCoastals();
     public static final Biome CHERRYBLOSSOMFOREST = new CherryBlossomForest();
@@ -67,6 +68,7 @@ public class BYGBiomeList {
     public static final Biome REDDESERTDUNES = new RedDesertDunes();
     public static final Biome REDOAKFOREST = new RedOakForest();
     public static final Biome RED_ROCK_MOUNTAINS = new RedRockMountains();
+    public static final Biome SAVANNACANOPY = new SavannaCanopy();
     public static final Biome SEASONALBIRCHFOREST = new SeasonalBirchForest();
     public static final Biome SEASONALDECIDUOUSFOREST = new SeasonalDeciduousForest();
     public static final Biome SEASONALFOREST = new SeasonalForest();

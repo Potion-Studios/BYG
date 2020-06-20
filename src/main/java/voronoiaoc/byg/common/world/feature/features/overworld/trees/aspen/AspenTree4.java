@@ -15,10 +15,15 @@ import java.util.function.Function;
 
 public class AspenTree4 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
+
+
     public AspenTree4(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 
+    /**
+    TODO: Redo.
+     */
     protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
         int randTreeHeight = 23 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable(pos);
@@ -31,52 +36,54 @@ public class AspenTree4 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 return false;
             } else {
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 8, 0), boundsIn);
+
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 0, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 0, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 1, -1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 1, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 1, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 1, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 2, -1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 2, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 2, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 2, 1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 9, 0), boundsIn);
+
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, -1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 3, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 3, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, -1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 4, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 4, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 5, -1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 5, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 5, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 5, 1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 6, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 6, -1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 6, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 6, 1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 7, -1), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 7, 1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 7, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 7, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 8, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 8, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 8, -1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 8, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 8, 1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 9, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 9, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 9, 1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 9, -1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(1, 9, 0), boundsIn);

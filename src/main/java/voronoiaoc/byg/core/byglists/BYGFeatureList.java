@@ -8,7 +8,6 @@ import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
-import voronoiaoc.byg.common.world.feature.features.overworld.*;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
@@ -18,16 +17,15 @@ import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedBu
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoral;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFan;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFeature;
+import voronoiaoc.byg.common.world.feature.features.overworld.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.DeadSeaSpikes;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.TallDeadSeaSpikes;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.HugeBlackPuff;
 import voronoiaoc.byg.common.world.feature.features.overworld.structure.DoverQuarry1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.acacia.AcaciaTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.acacia.AcaciaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.OrangeBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.RedBirchTree;
@@ -37,9 +35,10 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.bluff.BluffT
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.bluff.BluffTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.boreal.BorealForestTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.boreal.BorealForestTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.SmallFirTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.TallFirTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.WideFirTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.*;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.dead.DeadTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedGroveTree;
@@ -93,6 +92,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical.BYG
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical.ShortTropicalRainForestTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical.TropicalRainForestTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.BayouTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
@@ -113,7 +115,9 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOWBIRCH_TREE = new YellowBirchTree(NoFeatureConfig::deserialize, false, 0);
 
     //Cypress
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> HUGECYPRESS_TREE = new CypressTree1(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CYPRESS_TREE1 = new CypressTree1(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CYPRESS_TREE2 = new CypressTree2(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CYPRESS_TREE3 = new CypressTree3(NoFeatureConfig::deserialize);
 
     //Seasonal Deciduous and Deciduous
     public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_TREE = new DeciduousTree(NoFeatureConfig::deserialize, false, 0);
@@ -312,6 +316,17 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> BLACK_PUFF_HUGE = new BlackPuffHuge(NoFeatureConfig::deserialize);
     public static final Feature<NoFeatureConfig> BLUE_GLOWSHROOM_HUGE = new BlueGlowshroomHuge(NoFeatureConfig::deserialize);
     public static final Feature<NoFeatureConfig> PURPLE_GLOWSHROOM_HUGE = new PurpleGlowshroomHuge(NoFeatureConfig::deserialize);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE1 = new AcaciaTree1(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE2 = new AcaciaTree2(NoFeatureConfig::deserialize);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE1 = new ConiferTree1(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE2 = new ConiferTree2(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE3 = new ConiferTree3(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE4 = new ConiferTree4(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE5 = new ConiferTree5(NoFeatureConfig::deserialize);
+
+
 }
 
 

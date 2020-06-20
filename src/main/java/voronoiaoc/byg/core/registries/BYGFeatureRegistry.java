@@ -28,7 +28,7 @@ public class BYGFeatureRegistry {
                 BYGFeatureList.GIANTORANGESPRUCE_TREE.setRegistryName("giantorangespruce_tree"),
                 BYGFeatureList.GIANTREDSPRUCE_TREE.setRegistryName("giantredspruce_tree"),
                 BYGFeatureList.GIANTYELLOWSPRUCE_TREE.setRegistryName("giantyellowspruce_tree"),
-                BYGFeatureList.HUGECYPRESS_TREE.setRegistryName("hugecypress_tree"),
+                BYGFeatureList.CYPRESS_TREE1.setRegistryName("hugecypress_tree"),
                 BYGFeatureList.INDIGOJACARANDA_TREE.setRegistryName("jacaranda_tree"),
                 BYGFeatureList.ORANGEBIRCH_TREE.setRegistryName("orangebirch_tree"),
                 BYGFeatureList.ORANGEDECIDUOUS_TREE.setRegistryName("orangedeciduous_tree"),

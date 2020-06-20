@@ -49,6 +49,16 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
             return worldReader.hasBlockState(blockPos, state -> state.canBeReplacedByLogs((net.minecraft.world.IWorldReader) worldReader, blockPos));
     }
 
+    public static boolean canTreePlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
+        if (!(worldReader instanceof IWorldReader))
+            return worldReader.hasBlockState(blockPos, (blockPos2) -> {
+                Block block = blockPos2.getBlock();
+                return blockPos2.isAir() || blockPos2.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isDirt(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM || block == Blocks.WATER;
+            });
+        else
+            return worldReader.hasBlockState(blockPos, state -> state.canBeReplacedByLogs((net.minecraft.world.IWorldReader) worldReader, blockPos));
+    }
+
     public static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {
         if (!(worldIn instanceof net.minecraft.world.IBlockReader)) // FORGE: Redirect to state method when possible
             return worldIn.hasBlockState(pos, BlockState::isAir);
