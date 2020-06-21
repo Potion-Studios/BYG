@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry;
 
 import com.mojang.datafixers.Dynamic;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -29,11 +30,16 @@ public class WhiteCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
         if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = pos.down();
-            if (!isSoil(worldIn, blockpos, getSapling())) {
+            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;
             } else {
+                setGroundBlock(worldIn, Blocks.DIRT, mainmutable, mainmutable2, mainmutable3, mainmutable4);
+                this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable2, boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable3, boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable4, boundsIn);
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     this.treeLog(changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);

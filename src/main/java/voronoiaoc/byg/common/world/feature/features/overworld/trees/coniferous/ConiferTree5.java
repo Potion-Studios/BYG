@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous;
 
 import com.mojang.datafixers.Dynamic;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -26,7 +27,7 @@ public class ConiferTree5 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
         if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < 256) {
             BlockPos blockpos = pos.down();
-            if (!isSoil(worldIn, blockpos, getSapling())) {
+            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;

@@ -43,12 +43,12 @@ public class ConiferTree6 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int posZ = position.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
             BlockPos checkGround = position.down();
-            if (!isSoil(worldIn, checkGround, getSapling())) {
+            if (!isDesiredGround(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;
             } else {
-                this.setGroundBlockAt(worldIn, checkGround, position, Blocks.DIRT.getDefaultState());
+
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY2 = 2 - rand.nextInt(1);//Crashes on 0.

@@ -41,13 +41,13 @@ public class IndigoJacarandaTree extends BYGAbstractTreeFeature<NoFeatureConfig>
         int posZ = position.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
             BlockPos blockposdown = position.down();
-            if (!isSoil(worldIn, blockposdown, getSapling())) {
+            if (!isDesiredGround(worldIn, blockposdown, Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;
             } else {
                 //Places dirt under logs where/when necessary.
-                this.setGroundBlockAt(worldIn, blockposdown, position, Blocks.DIRT.getDefaultState());
+
 //                this.setGroundBlockAt(worldIn, blockposdown.west(), position, Blocks.DIRT.getDefaultState());
 
 //                this.setGroundBlockAt(worldIn, blockposdown.east(), position, Blocks.DIRT.getDefaultState());

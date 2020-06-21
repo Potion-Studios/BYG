@@ -46,13 +46,13 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<NoFeatureCon
         int posZ = position.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
             BlockPos blockpos = position.down();
-            if (!isSoil(worldIn, blockpos, getSapling())) {
+            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;
             } else {
                 //Places dirt under logs where/when necessary.
-                this.setGroundBlockAt(worldIn, blockpos, position, Blocks.DIRT.getDefaultState());
+
 //Uncommenting this will allow for a 2x2 dirt patch under the tree.
                 /*this.setGroundBlockAt(worldIn, blockpos.east(), position, Blocks.DIRT.getDefaultState());
 

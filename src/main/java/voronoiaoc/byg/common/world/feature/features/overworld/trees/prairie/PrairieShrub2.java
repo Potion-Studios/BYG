@@ -12,7 +12,6 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
-
 import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
@@ -43,13 +42,13 @@ public class PrairieShrub2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int posZ = position.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
             BlockPos blockpos = position.down();
-            if (!isSoil(worldIn, blockpos, getSapling())) {
+            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;
             } else {
                 //Places dirt under logs where/when necessary.
-                this.setGroundBlockAt(worldIn, blockpos, position, BYGBlockList.MEADOW_DIRT.getDefaultState());
+
 
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.

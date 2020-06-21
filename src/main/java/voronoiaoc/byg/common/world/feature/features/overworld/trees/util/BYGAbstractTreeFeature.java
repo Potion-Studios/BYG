@@ -14,7 +14,6 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.math.shapes.BitSetVoxelShapePart;
 import net.minecraft.util.math.shapes.VoxelShapePart;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
@@ -33,85 +32,72 @@ import java.util.function.Function;
 
 public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends Feature<T> {
     public static boolean doBlockNotify;
-    protected IPlantable sapling = (net.minecraftforge.common.IPlantable) net.minecraft.block.Blocks.OAK_SAPLING;
+    protected IPlantable sapling = (IPlantable) Blocks.OAK_SAPLING;
 
     public BYGAbstractTreeFeature(Function<Dynamic<?>, ? extends T> function) {
         super(function);
     }
 
     public static boolean canTreePlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        if (!(worldReader instanceof IWorldReader))
-            return worldReader.hasBlockState(blockPos, (blockPos2) -> {
-                Block block = blockPos2.getBlock();
-                return blockPos2.isAir() || blockPos2.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isDirt(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM;
-            });
-        else
-            return worldReader.hasBlockState(blockPos, state -> state.canBeReplacedByLogs((net.minecraft.world.IWorldReader) worldReader, blockPos));
-    }
-
-    public static boolean canTreePlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        if (!(worldReader instanceof IWorldReader))
-            return worldReader.hasBlockState(blockPos, (blockPos2) -> {
-                Block block = blockPos2.getBlock();
-                return blockPos2.isAir() || blockPos2.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isDirt(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM || block == Blocks.WATER;
-            });
-        else
-            return worldReader.hasBlockState(blockPos, state -> state.canBeReplacedByLogs((net.minecraft.world.IWorldReader) worldReader, blockPos));
-    }
-
-    public static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {
-        if (!(worldIn instanceof net.minecraft.world.IBlockReader)) // FORGE: Redirect to state method when possible
-            return worldIn.hasBlockState(pos, BlockState::isAir);
-        else return worldIn.hasBlockState(pos, state -> state.isAir((net.minecraft.world.IBlockReader) worldIn, pos));
-    }
-
-    protected static boolean isDirt(IWorldGenerationBaseReader worldIn, BlockPos pos) {
-        return worldIn.hasBlockState(pos, (p_214590_0_) -> Feature.isDirt(p_214590_0_.getBlock()));
-    }
-
-    protected static boolean isAirOrLeaves(IWorldGenerationBaseReader worldIn, BlockPos pos) {
-        if (!(worldIn instanceof net.minecraft.world.IWorldReader)) // FORGE: Redirect to state method when possible
-            return worldIn.hasBlockState(pos, (p_214581_0_) -> {
-                return p_214581_0_.isAir() || p_214581_0_.isIn(BlockTags.LEAVES);
-            });
-        else
-            return worldIn.hasBlockState(pos, state -> state.canBeReplacedByLeaves((net.minecraft.world.IWorldReader) worldIn, pos));
-    }
-
-    protected static boolean isDirtOrGrassBlock(IWorldGenerationBaseReader worldIn, BlockPos pos) {
-        return worldIn.hasBlockState(pos, (p_214582_0_) -> {
-            Block block = p_214582_0_.getBlock();
-            return Feature.isDirt(block) || block == Blocks.GRASS_BLOCK || block == BYGBlockList.OVERGROWN_STONE;
+        return worldReader.hasBlockState(blockPos, (state) -> {
+            Block block = state.getBlock();
+            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isDirt(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM;
         });
     }
 
-    protected static boolean isSoil(IWorldGenerationBaseReader reader, BlockPos pos, net.minecraftforge.common.IPlantable sapling) {
-        if (!(reader instanceof net.minecraft.world.IBlockReader) || sapling == null)
-            return isDirtOrGrassBlock(reader, pos);
-        return reader.hasBlockState(pos, state -> state.canSustainPlant((net.minecraft.world.IBlockReader) reader, pos, Direction.UP, sapling));
+    public static boolean canTreePlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
+        return worldReader.hasBlockState(blockPos, (state) -> {
+            Block block = state.getBlock();
+            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isDirt(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM;
+        });
     }
 
-    @Deprecated //Forge: moved to setGroundBlockAt
-    protected void setDirt(IWorldGenerationReader worldGenReader, BlockPos blockPos, BlockState blockState) {
-        if (!isDirt(worldGenReader, blockPos)) {
-            this.setBlockState(worldGenReader, blockPos, blockState);
-
+    public static void setGroundBlock(IWorldGenerationReader reader, Block block, BlockPos... positions) {
+        for (BlockPos pos : positions) {
+            reader.setBlockState(pos.offset(Direction.DOWN), block.getDefaultState(), 2);
         }
     }
 
-    protected void setGroundBlockAt(IWorldGenerationReader reader, BlockPos pos, BlockPos origin, BlockState blockState) {
-        if (!(reader instanceof IWorld)) {
-            setDirt(reader, pos, blockState);
-            return;
-        }
-        ((IWorld) reader).getBlockState(pos).onPlantGrow((IWorld) reader, pos, origin);
+    public static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+        return worldIn.hasBlockState(pos, BlockState::isAir);
     }
 
-    protected void setBlockState(IWorldWriter worldIn, BlockPos pos, BlockState state) {
+    protected static boolean isAirOrLeaves(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+        return worldIn.hasBlockState(pos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES));
+    }
+
+    public static boolean isDesiredGround(IWorldGenerationBaseReader worldIn, BlockPos pos, Block desiredGroundBlock) {
+        return worldIn.hasBlockState(pos, (state) -> {
+            Block block = state.getBlock();
+            return Feature.isDirt(block) || block == desiredGroundBlock;
+        });
+    }
+
+    @Override
+    public void setBlockState(IWorldWriter worldIn, BlockPos pos, BlockState state) {
         this.setBlockStateWithoutUpdates(worldIn, pos, state);
     }
 
-    protected final void setFinalBlockState(Set<BlockPos> changedBlocks, IWorldWriter worldIn, BlockPos pos, BlockState blockState, MutableBoundingBox boundingBox) {
+    public boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height, int distance) {
+        int x = blockPos.getX();
+        int y = blockPos.getY();
+        int z = blockPos.getZ();
+        BlockPos.Mutable position = new BlockPos.Mutable();
+
+        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
+            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
+                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
+                    if (!canTreePlaceHere(reader, position.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+
+    public final void setFinalBlockState(Set<BlockPos> changedBlocks, IWorldWriter worldIn, BlockPos pos, BlockState blockState, MutableBoundingBox boundingBox) {
         this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
         boundingBox.expandTo(new MutableBoundingBox(pos, pos));
         if (BlockTags.LOGS.contains(blockState.getBlock())) {
@@ -119,7 +105,7 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
         }
     }
 
-    private void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState) {
+    public void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState) {
         if (doBlockNotify) {
             worldWriter.setBlockState(blockPos, blockState, 19);
         } else {
@@ -128,6 +114,7 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
 
     }
 
+    @Override
     public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, T config) {
         Set<BlockPos> set = Sets.newHashSet();
         MutableBoundingBox mutableboundingbox = MutableBoundingBox.getNewBoundingBox();
@@ -205,7 +192,7 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
 
     protected abstract boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn);
 
-    protected net.minecraftforge.common.IPlantable getSapling() {
+    public IPlantable getSapling() {
         return sapling;
     }
 
@@ -213,5 +200,4 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
         this.sapling = sapling;
         return this;
     }
-
 }

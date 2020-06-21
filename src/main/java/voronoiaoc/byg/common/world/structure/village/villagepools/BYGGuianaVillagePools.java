@@ -9,7 +9,6 @@ import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.jigsaw.*;
 import net.minecraft.world.gen.feature.template.*;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
 
 @SuppressWarnings("deprecation")
 public class BYGGuianaVillagePools {

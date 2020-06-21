@@ -10,7 +10,6 @@ import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.server.ServerWorld;
 import voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks.SpreadableOvergrownNetherrack;
-import voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks.SpreadableSythianBlock;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.List;

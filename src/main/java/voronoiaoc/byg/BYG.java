@@ -2,7 +2,6 @@ package voronoiaoc.byg;
 
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -23,7 +22,6 @@ import org.apache.logging.log4j.Logger;
 import voronoiaoc.byg.client.gui.MainMenuBYG;
 import voronoiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import voronoiaoc.byg.common.biomes.BYGBiomeWeightSystem;
-import voronoiaoc.byg.common.entity.boat.BYGBoatDispenseRegister;
 import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
 import voronoiaoc.byg.common.entity.boat.BYGBoatRenderer;
 import voronoiaoc.byg.common.properties.BYGCreativeTab;
@@ -34,7 +32,6 @@ import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
 import voronoiaoc.byg.common.world.dimension.DimensionOverride;
 import voronoiaoc.byg.common.world.dimension.end.biome.BYGEndBiomeCatch;
 import voronoiaoc.byg.common.world.dimension.nether.biome.BYGNetherBiomeCatch;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
 import voronoiaoc.byg.config.BYGConfig;
 import voronoiaoc.byg.config.BYGWorldConfig;

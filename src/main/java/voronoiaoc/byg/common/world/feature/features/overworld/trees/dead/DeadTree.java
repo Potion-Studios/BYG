@@ -52,7 +52,7 @@ public class DeadTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
             } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;
             } else {
-                this.setGroundBlockAt(worldIn, blockpos, position, Blocks.DIRT.getDefaultState());
+
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY1 = 2 - rand.nextInt(1);//Crashes on 0.

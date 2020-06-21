@@ -8,7 +8,6 @@ import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -26,7 +25,7 @@ public class MeadowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
         if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < 256) {
             BlockPos blockpos = pos.down();
-            if (!isSoil(worldIn, blockpos, getSapling())) {
+            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;

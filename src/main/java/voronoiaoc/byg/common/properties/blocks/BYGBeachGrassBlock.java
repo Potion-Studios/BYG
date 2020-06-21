@@ -2,15 +2,10 @@ package voronoiaoc.byg.common.properties.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
-
-import java.util.Random;
 
 public class BYGBeachGrassBlock extends TallGrassBlock implements IGrowable {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);

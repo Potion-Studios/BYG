@@ -1,17 +1,15 @@
 package voronoiaoc.byg.core.registries;
 
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import voronoiaoc.byg.BYG;
+import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
 import voronoiaoc.byg.common.properties.BYGCreativeTab;
 import voronoiaoc.byg.common.properties.items.*;
-import voronoiaoc.byg.common.properties.items.itemtiers.BYGArmorTiers;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGItemTiers;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGWaterSilkItem;
-import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 

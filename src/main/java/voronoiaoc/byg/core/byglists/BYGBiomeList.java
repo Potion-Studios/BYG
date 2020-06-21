@@ -8,10 +8,12 @@ import voronoiaoc.byg.common.biomes.netherbiome.GlowstoneGardens;
 import voronoiaoc.byg.common.biomes.netherbiome.SythianTorrids;
 import voronoiaoc.byg.common.biomes.netherbiome.WarpedDesert;
 import voronoiaoc.byg.common.biomes.subbiomes.*;
-import voronoiaoc.byg.common.biomes.subbiomes.BluffPeaks;
 import voronoiaoc.byg.common.biomes.subbiomes.clearings.*;
 import voronoiaoc.byg.common.biomes.subbiomes.hills.*;
-import voronoiaoc.byg.common.biomes.subbiomes.lakes.*;
+import voronoiaoc.byg.common.biomes.subbiomes.lakes.FreshWaterLake;
+import voronoiaoc.byg.common.biomes.subbiomes.lakes.FrozenLake;
+import voronoiaoc.byg.common.biomes.subbiomes.lakes.Oasis;
+import voronoiaoc.byg.common.biomes.subbiomes.lakes.PollutedLake;
 
 public class BYGBiomeList {
 

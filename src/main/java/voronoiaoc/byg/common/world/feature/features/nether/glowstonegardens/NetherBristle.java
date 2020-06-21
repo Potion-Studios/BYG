@@ -1,7 +1,6 @@
 package voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens;
 
 import com.mojang.datafixers.Dynamic;
-import net.minecraft.block.BlockState;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;

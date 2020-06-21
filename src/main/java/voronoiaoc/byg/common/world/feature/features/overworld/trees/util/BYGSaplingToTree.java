@@ -4,7 +4,6 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.AspenTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.AspenTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.WillowTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.OrangeBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.RedBirchTree;
@@ -44,6 +43,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.taiga.spruce
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.taiga.spruce.YellowSpruceTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical.ShortTropicalRainForestTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical.TropicalRainForestTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.WillowTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
 
