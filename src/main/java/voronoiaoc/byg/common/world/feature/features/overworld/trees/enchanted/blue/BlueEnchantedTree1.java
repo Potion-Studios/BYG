@@ -34,10 +34,7 @@ public class BlueEnchantedTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> 
             } else {
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    if (buildTrunk == randTreeHeight - 6 || buildTrunk == randTreeHeight - 4)
-                        this.leafs(changedBlocks, worldIn, mainmutable, boundsIn);
-                    else
-                        this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
+                    this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
 
                     mainmutable.move(Direction.UP);
                 }
