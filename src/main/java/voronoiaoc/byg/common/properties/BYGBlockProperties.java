@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.properties;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.item.DyeColor;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.Direction;
 import net.minecraftforge.api.distmarker.Dist;
@@ -392,6 +393,20 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .lightValue(10)
 
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+
+    public static class BYGLeafFoilage extends LeafFoliageBlock {
+        public BYGLeafFoilage(String registryName) {
+            super(DyeColor.GREEN, Block.Properties.create(Material.LEAVES, MaterialColor.GRASS)
+                    .hardnessAndResistance(0.0F)
+                    .tickRandomly()
+                    .sound(SoundType.PLANT)
+                    .notSolid()
+                    .doesNotBlockMovement()
             );
             setRegistryName(registryName);
         }

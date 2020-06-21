@@ -22,7 +22,7 @@ public class SilverMapleTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
-        int randTreeHeight = 23 + rand.nextInt(5);
+        int randTreeHeight = 4 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable(pos);
 
         if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {

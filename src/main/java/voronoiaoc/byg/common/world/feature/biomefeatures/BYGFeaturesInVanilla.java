@@ -57,6 +57,11 @@ public class BYGFeaturesInVanilla {
 
             }
 
+            if (biome == Biomes.RIVER) {
+                biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.CATTAIL_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(25))));
+
+            }
+
             if (biome == Biomes.DESERT || biome == Biomes.DESERT_HILLS) {
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SHORT_GRASS_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.MINI_CACTUS_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
@@ -85,19 +90,4 @@ public class BYGFeaturesInVanilla {
         }
     }
 
-    public static void overwriteBiome() {
-        for (Biome biome : ForgeRegistries.BIOMES) {
-            if (biome == BYGBiomeList.ALPS) {
-                biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).clear();
-                DefaultBiomeFeatures.addBamboo(biome);
-                DefaultBiomeFeatures.addBirchTrees(biome);
-
-            }
-            if (biome == Biomes.SWAMP) {
-                biome.getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).clear();
-                DefaultBiomeFeatures.addBamboo(biome);
-                DefaultBiomeFeatures.addGiantSpruceTaigaTrees(biome);
-            }
-        }
-    }
 }

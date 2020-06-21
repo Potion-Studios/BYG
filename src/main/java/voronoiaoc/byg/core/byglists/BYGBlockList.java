@@ -534,6 +534,8 @@ public class BYGBlockList {
     //Decorations
     public static Block GLOWSTONE_LAMP;
     public static Block GLOWSTONE_LANTERN;
+    public static Block PINK_CHERRY_FOLIAGE;
+    public static Block WHITE_CHERRY_FOLIAGE;
 
     //SaplingBlocks
     public static Block ASPEN_SAPLING;

@@ -53,6 +53,7 @@ public class CherryBlossomForest extends Biome  {
         BYGFeatures.addBYGMushrooms(this);
         BYGFeatures.addGrass(this);
         BYGFeatures.addLeafPile(this);
+        BYGFeatures.addCherryFoliage(this);
         BYGFeatures.addCloverFlowerPatch(this);
 
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SHEEP, 12, 4, 4));

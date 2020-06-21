@@ -253,8 +253,10 @@ public class BYGItemRegistry {
 
                 //Cherry Woodtype
                 BYGItemList.PINK_CHERRY_SAPLING = new BlockItem(BYGBlockList.PINK_CHERRY_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINK_CHERRY_SAPLING.getRegistryName()),
+                BYGItemList.PINK_CHERRY_FOLIAGE = new BlockItem(BYGBlockList.PINK_CHERRY_FOLIAGE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINK_CHERRY_FOLIAGE.getRegistryName()),
                 BYGItemList.PINK_CHERRY_LEAVES = new BlockItem(BYGBlockList.PINK_CHERRY_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINK_CHERRY_LEAVES.getRegistryName()),
                 BYGItemList.WHITE_CHERRY_SAPLING = new BlockItem(BYGBlockList.WHITE_CHERRY_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WHITE_CHERRY_SAPLING.getRegistryName()),
+                BYGItemList.WHITE_CHERRY_FOLIAGE = new BlockItem(BYGBlockList.WHITE_CHERRY_FOLIAGE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WHITE_CHERRY_FOLIAGE.getRegistryName()),
                 BYGItemList.WHITE_CHERRY_LEAVES = new BlockItem(BYGBlockList.WHITE_CHERRY_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WHITE_CHERRY_LEAVES.getRegistryName()),
                 BYGItemList.CHERRY_LOG = new BlockItem(BYGBlockList.CHERRY_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_LOG.getRegistryName()),
                 BYGItemList.CHERRY_WOOD = new BlockItem(BYGBlockList.CHERRY_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_WOOD.getRegistryName()),
