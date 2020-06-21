@@ -73,10 +73,13 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
         return worldIn.hasBlockState(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
     }
 
-    public static boolean isDesiredGround(IWorldGenerationBaseReader worldIn, BlockPos pos, Block desiredGroundBlock) {
+    public static boolean isDesiredGround(IWorldGenerationBaseReader worldIn, BlockPos pos, Block... desiredGroundBlock) {
         return worldIn.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
-            return Feature.isDirt(block) || block == desiredGroundBlock;
+            for (Block block1 : desiredGroundBlock) {
+                return Feature.isDirt(block) || block == block1;
+            }
+            return false;
         });
     }
 
