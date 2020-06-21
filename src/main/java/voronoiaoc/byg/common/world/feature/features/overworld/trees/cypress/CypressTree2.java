@@ -473,7 +473,7 @@ public class CypressTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Leaves Placement
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
-        if (isAirLeavesOrWater(reader, blockpos)) {
+        if (isAirOrWater(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.CYPRESS_LEAVES.getDefaultState(), boundingBox);
         }
     }

@@ -140,7 +140,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Leaves Placement
     private void setWillowLeaves(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
-        if (isAirLeavesOrWater(reader, blockpos)) {
+        if (isAirOrWater(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.WILLOW_LEAVES.getDefaultState(), boundingBox);
         }
     }

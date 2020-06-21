@@ -22,7 +22,6 @@ import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.template.Template;
-import net.minecraftforge.common.IPlantable;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.List;
@@ -32,7 +31,6 @@ import java.util.function.Function;
 
 public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends Feature<T> {
     public static boolean doBlockNotify;
-    protected IPlantable sapling = (IPlantable) Blocks.OAK_SAPLING;
 
     public BYGAbstractTreeFeature(Function<Dynamic<?>, ? extends T> function) {
         super(function);
@@ -59,20 +57,12 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
         }
     }
 
-    public static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+    protected static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {
         return worldIn.hasBlockState(pos, BlockState::isAir);
     }
 
-    public static boolean isAirOrWater(IWorldGenerationBaseReader worldIn, BlockPos pos) {
-        return worldIn.hasBlockState(pos, (state -> state.isAir() || state.getBlock() == Blocks.WATER));
-    }
-
-    protected static boolean isAirOrLeaves(IWorldGenerationBaseReader worldIn, BlockPos pos) {
-        return worldIn.hasBlockState(pos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES));
-    }
-
-    protected static boolean isAirLeavesOrWater(IWorldGenerationBaseReader worldIn, BlockPos pos) {
-        return worldIn.hasBlockState(pos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.WATER);
+    protected static boolean isAirOrWater(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+        return worldIn.hasBlockState(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
     }
 
     public static boolean isDesiredGround(IWorldGenerationBaseReader worldIn, BlockPos pos, Block desiredGroundBlock) {
