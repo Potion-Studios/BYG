@@ -27,7 +27,7 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public PaloVerdeTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, int beeHiveChance) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.PALO_VERDE_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.PALO_VERDE_SAPLING);
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {

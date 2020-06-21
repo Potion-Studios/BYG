@@ -26,7 +26,7 @@ public class SmallOrangeSpruceTree extends BYGAbstractTreeFeature<NoFeatureConfi
 
     public SmallOrangeSpruceTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ORANGE_SPRUCE_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ORANGE_SPRUCE_SAPLING);
     }
 
 

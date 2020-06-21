@@ -25,7 +25,7 @@ public class TallRedSpruceTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public TallRedSpruceTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RED_SPRUCE_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RED_SPRUCE_SAPLING);
     }
 
 

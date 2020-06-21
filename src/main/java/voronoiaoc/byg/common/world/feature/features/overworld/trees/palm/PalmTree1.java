@@ -26,7 +26,7 @@ public class PalmTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public PalmTree1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) Blocks.JUNGLE_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) Blocks.JUNGLE_SAPLING);
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {

@@ -25,7 +25,7 @@ public class BluffTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public BluffTree3(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ASPEN_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ASPEN_SAPLING);
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {

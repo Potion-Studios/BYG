@@ -25,7 +25,7 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public ZelkovaTree3(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn, int beeHiveChance) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ZELKOVA_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ZELKOVA_SAPLING);
     }
 
 

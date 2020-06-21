@@ -25,7 +25,7 @@ public class YellowBirchTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public YellowBirchTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.YELLOW_BIRCH_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.YELLOW_BIRCH_SAPLING);
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {

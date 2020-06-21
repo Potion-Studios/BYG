@@ -26,7 +26,7 @@ public class ZelkovaTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public ZelkovaTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((IPlantable) BYGBlockList.ZELKOVA_SAPLING);
+        //setSapling((IPlantable) BYGBlockList.ZELKOVA_SAPLING);
     }
 
 

@@ -28,7 +28,7 @@ public class AspenTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public AspenTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ASPEN_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ASPEN_SAPLING);
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {

@@ -28,7 +28,7 @@ public class PineTreeLarge1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public PineTreeLarge1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.PINE_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.PINE_SAPLING);
     }
 
 

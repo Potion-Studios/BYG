@@ -25,7 +25,7 @@ public class RedBirchTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public RedBirchTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RED_BIRCH_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RED_BIRCH_SAPLING);
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {

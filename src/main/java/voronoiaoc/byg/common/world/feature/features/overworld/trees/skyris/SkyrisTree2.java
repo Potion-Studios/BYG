@@ -26,7 +26,7 @@ public class SkyrisTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public SkyrisTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.SKYRIS_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.SKYRIS_SAPLING);
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {

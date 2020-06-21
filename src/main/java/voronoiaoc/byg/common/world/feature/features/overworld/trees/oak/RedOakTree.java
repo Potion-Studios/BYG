@@ -25,7 +25,7 @@ public class RedOakTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public RedOakTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RED_OAK_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RED_OAK_SAPLING);
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {

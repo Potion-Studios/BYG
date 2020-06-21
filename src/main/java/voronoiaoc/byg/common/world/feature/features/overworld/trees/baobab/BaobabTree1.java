@@ -23,7 +23,7 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public BaobabTree1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.BAOBAB_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.BAOBAB_SAPLING);
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {

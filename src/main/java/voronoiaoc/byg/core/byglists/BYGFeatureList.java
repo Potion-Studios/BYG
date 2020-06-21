@@ -73,10 +73,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.Ja
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.JacarandaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.JoshuaTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.JoshuaTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.mangrove.MangroveTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.mangrove.MangroveTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.mangrove.MangroveTree3;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.mangrove.MangroveTree4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.mangrove.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.meadow.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.oak.BrownOakTree;
@@ -332,6 +329,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> MANGROVE_TREE2 = new MangroveTree2(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> MANGROVE_TREE3 = new MangroveTree3(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> MANGROVE_TREE4 = new MangroveTree4(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> MANGROVE_TREE5 = new MangroveTree5(NoFeatureConfig::deserialize);
 
     //Maple
     public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_RED_TREE = new RedMapleTree1(NoFeatureConfig::deserialize);

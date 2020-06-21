@@ -25,7 +25,7 @@ public class BrownOakTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public BrownOakTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.BROWN_OAK_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.BROWN_OAK_SAPLING);
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {

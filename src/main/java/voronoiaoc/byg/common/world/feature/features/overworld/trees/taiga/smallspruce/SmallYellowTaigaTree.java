@@ -26,7 +26,7 @@ public class SmallYellowTaigaTree extends BYGAbstractTreeFeature<NoFeatureConfig
 
     public SmallYellowTaigaTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.YELLOW_SPRUCE_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.YELLOW_SPRUCE_SAPLING);
     }
 
 

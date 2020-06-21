@@ -24,7 +24,7 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public ConiferTree7(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
-        setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.FIR_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.FIR_SAPLING);
 
     }
 
