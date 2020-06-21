@@ -19,11 +19,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
+import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
 
 public class EbonyWoods extends Biome  {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.PODZOL.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER =  new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final double DEPTH = 0.2F;
@@ -39,6 +40,7 @@ public class EbonyWoods extends Biome  {
         this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
         BYGTreeFeatures.addEbonyTrees(this);
+        BYGTreeFeatures.addHugeMushrooms(this);
         DefaultBiomeFeatures.addCarvers(this);
         DefaultBiomeFeatures.addStructures(this);
         DefaultBiomeFeatures.addMonsterRooms(this);
@@ -51,7 +53,8 @@ public class EbonyWoods extends Biome  {
         BYGFeatures.addGrass( this);
         BYGFeatures.addBYGMushrooms( this);
         BYGFeatures.addAnemones( this);
-        BYGFeatures.addAzalea( this);
+        BYGFeatures.addHorseweed( this);
+        BYGFeatures.addLeafPile( this);
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));

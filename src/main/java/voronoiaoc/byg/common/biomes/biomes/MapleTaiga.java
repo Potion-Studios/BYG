@@ -52,7 +52,8 @@ public class MapleTaiga extends Biome  {
         BYGFeatures.addGrass( this);
         BYGFeatures.addBYGMushrooms( this);
         BYGFeatures.addAnemones( this);
-        BYGFeatures.addAzalea( this);
+        BYGFeatures.addSages( this);
+        BYGFeatures.addRose( this);
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));

@@ -22,7 +22,7 @@ public class Bayou extends Biome  {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.SWAMP;
-    static final double DEPTH = -0.2F;
+    static final double DEPTH = -0.25F;
     static final double SCALE = 0.01F;
     static final float TEMPERATURE = 0.8F;
     static final float DOWNFALL = 0.8F;
@@ -46,6 +46,11 @@ public class Bayou extends Biome  {
         BYGFeatures.addBYGSwampVegetation(this);
         BYGFeatures.addMarshGrass(this);
         BYGFeatures.addCattails(this);
+        BYGFeatures.addPeachleatherflower(this);
+        BYGFeatures.addVioletleatherflower(this);
+        BYGFeatures.addRedorchid(this);
+        BYGFeatures.addPurpleOrchid(this);
+        BYGFeatures.addPinkOrchid(this);
         BYGFeatures.addMudDisks(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
 

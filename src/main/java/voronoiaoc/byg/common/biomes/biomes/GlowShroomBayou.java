@@ -21,7 +21,7 @@ public class GlowShroomBayou extends Biome  {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.GLOWSHROOM_BAYOU_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.SWAMP;
-    static final double DEPTH = -0.2F;
+    static final double DEPTH = -0.25F;
     static final double SCALE = 0.01F;
     static final float TEMPERATURE = 0.8F;
     static final float DOWNFALL = 0.8F;
@@ -31,7 +31,7 @@ public class GlowShroomBayou extends Biome  {
 
     public GlowShroomBayou() {
         super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).waterColor(WATER_COLOR).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).waterFogColor(WATER_FOG_COLOR).parent(PARENT));
-        BYGTreeFeatures.addBayouVegetation(this);
+        BYGTreeFeatures.addGlowshroomBayouVegetation(this);
         DefaultBiomeFeatures.addCarvers(this);
         DefaultBiomeFeatures.addStructures(this);
         DefaultBiomeFeatures.addMonsterRooms(this);
@@ -48,6 +48,13 @@ public class GlowShroomBayou extends Biome  {
         BYGFeatures.addCattails(this);
         BYGFeatures.addMudDisks(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
+        BYGFeatures.addPeachleatherflower(this);
+        BYGFeatures.addVioletleatherflower(this);
+        BYGFeatures.addRedorchid(this);
+        BYGFeatures.addPurpleOrchid(this);
+        BYGFeatures.addPinkOrchid(this);
+        BYGFeatures.addGlowshrooms(this);
+        BYGTreeFeatures.addHugeGlowshrooms(this);
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));

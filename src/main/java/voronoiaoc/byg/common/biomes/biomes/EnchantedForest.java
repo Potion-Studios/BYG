@@ -23,7 +23,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import javax.annotation.Nullable;
 
 public class EnchantedForest extends Biome  {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.PODZOL.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final double DEPTH = 0.25F;
@@ -39,6 +39,7 @@ public class EnchantedForest extends Biome  {
         this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
         BYGTreeFeatures.addEnchantedTrees(this);
+        BYGTreeFeatures.addHugeMushrooms(this);
         DefaultBiomeFeatures.addCarvers(this);
         DefaultBiomeFeatures.addStructures(this);
         DefaultBiomeFeatures.addMonsterRooms(this);
@@ -51,8 +52,8 @@ public class EnchantedForest extends Biome  {
         BYGFeatures.addGrass( this);
         BYGFeatures.addBYGMushrooms( this);
         BYGFeatures.addCloverFlowerPatch( this);
-        BYGFeatures.addAnemones( this);
-        BYGFeatures.addSages( this);
+        BYGFeatures.addFairyslipper( this);
+        BYGFeatures.addCyanRose( this);
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));

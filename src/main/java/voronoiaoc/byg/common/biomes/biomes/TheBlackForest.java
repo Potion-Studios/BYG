@@ -54,11 +54,12 @@ public class TheBlackForest extends Biome  {
         BYGFeatures.addLushBlueberries(this);
         BYGFeatures.addMossyStoneBoulder(this);
         BYGFeatures.addRockyStoneBoulder(this);
-        BYGFeatures.addCrocus(this);
-        BYGFeatures.addIris(this);
+        BYGFeatures.addAnemones(this);
+        BYGFeatures.addSages(this);
         BYGFeatures.addBYGMushrooms(this);
         BYGFeatures.addGrass(this);
         BYGFeatures.addWinterSucculent(this);
+        BYGFeatures.addBlackRose(this);
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));
