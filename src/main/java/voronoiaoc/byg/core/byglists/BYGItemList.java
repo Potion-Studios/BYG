@@ -594,6 +594,8 @@ public class BYGItemList {
     //Decorations
     public static Item GLOWSTONE_LAMP;
     public static Item GLOWSTONE_LANTERN;
+    public static Item PINK_CHERRY_FOLIAGE;
+    public static Item WHITE_CHERRY_FOLIAGE;
 
     //SaplingItems
     public static Item ASPEN_SAPLING;

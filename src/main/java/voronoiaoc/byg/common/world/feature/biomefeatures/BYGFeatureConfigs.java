@@ -74,6 +74,10 @@ public class BYGFeatureConfigs {
     public static final BlockClusterFeatureConfig GOLDEN_SPINED_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.GOLDEN_SPINED_CACTUS.getDefaultState()), new SimpleBlockPlacer())).tries(5).build();
 
 
+    public static final BlockClusterFeatureConfig PINK_CHERRY_FOLIAGE = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.PINK_CHERRY_FOLIAGE.getDefaultState()), new SimpleBlockPlacer())).tries(24).build();
+    public static final BlockClusterFeatureConfig WHITE_CHERRY_FOLIAGE = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.WHITE_CHERRY_FOLIAGE.getDefaultState()), new SimpleBlockPlacer())).tries(24).build();
+
+
     public static final BlockClusterFeatureConfig CLOVER_PATCH = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.CLOVER_PATCH.getDefaultState()), new SimpleBlockPlacer())).tries(14).build();
     public static final BlockClusterFeatureConfig FLOWER_PATCH = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.FLOWER_PATCH.getDefaultState()), new SimpleBlockPlacer())).tries(14).build();
 
