@@ -57,11 +57,11 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
         }
     }
 
-    protected static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+    public static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {
         return worldIn.hasBlockState(pos, BlockState::isAir);
     }
 
-    protected static boolean isAirOrWater(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+    public static boolean isAirOrWater(IWorldGenerationBaseReader worldIn, BlockPos pos) {
         return worldIn.hasBlockState(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
     }
 
