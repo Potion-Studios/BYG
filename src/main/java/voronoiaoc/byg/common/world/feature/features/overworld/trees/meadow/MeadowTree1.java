@@ -35,6 +35,8 @@ public class MeadowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
+
+                
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 5, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 5, 1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 6, -2), boundsIn);
