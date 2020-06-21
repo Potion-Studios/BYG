@@ -524,15 +524,10 @@ public class BYGItemList {
     public static Item PRICKLY_PEAR_CACTUS;
     public static Item WINTER_SUCCULENT;
     public static Item SHORT_GRASS;
-    public static Item BLUE_GLOWCANE_STALK;
-    public static Item RED_GLOWCANE_STALK;
     public static Item POISON_IVY;
     public static Item PRAIRIE_GRASS;
     public static Item TALL_PRAIRIE_GRASS;
-    public static Item PINK_GLOWCANE_STALK;
-    public static Item PURPLE_GLOWCANE_STALK;
     public static Item SKYRIS_VINE;
-    public static Item WEEPING_ROOTS;
     public static Item WEEPING_ROOTS_PLANT;
     public static Item TINY_LILYPADS;
     public static Item WINTER_GRASS;
@@ -578,6 +573,11 @@ public class BYGItemList {
 
 
     //Glowcane Block
+
+    public static Item BLUE_GLOWCANE;
+    public static Item RED_GLOWCANE;
+    public static Item PINK_GLOWCANE;
+    public static Item PURPLE_GLOWCANE;
 
     public static Item BLUE_GLOWCANE_DUST;
     public static Item RED_GLOWCANE_DUST;

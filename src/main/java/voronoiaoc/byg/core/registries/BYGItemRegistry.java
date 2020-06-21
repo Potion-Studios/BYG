@@ -684,19 +684,19 @@ public class BYGItemRegistry {
 
                 //Glowcane
                 BYGItemList.BLUE_GLOWCANE_DUST = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("blue_glowcane_dust"),
-                BYGItemList.BLUE_GLOWCANE_STALK = (new BYGBlueGlowcaneItem(BYGBlockList.BLUE_GLOWCANE, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("blue_glowcane_stalk")),
+                BYGItemList.BLUE_GLOWCANE = new BlockItem(BYGBlockList.BLUE_GLOWCANE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_GLOWCANE.getRegistryName()),
                 BYGItemList.BLUE_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.BLUE_GLOWCANE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_GLOWCANE_BLOCK.getRegistryName()),
 
                 BYGItemList.PINK_GLOWCANE_DUST = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("pink_glowcane_dust"),
-                BYGItemList.PINK_GLOWCANE_STALK = (new BYGPinkGlowcaneItem(BYGBlockList.PINK_GLOWCANE, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pink_glowcane_stalk")),
+                BYGItemList.PINK_GLOWCANE = new BlockItem(BYGBlockList.PINK_GLOWCANE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINK_GLOWCANE.getRegistryName()),
                 BYGItemList.PINK_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.PINK_GLOWCANE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINK_GLOWCANE_BLOCK.getRegistryName()),
 
                 BYGItemList.PURPLE_GLOWCANE_DUST = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("purple_glowcane_dust"),
-                BYGItemList.PURPLE_GLOWCANE_STALK = (new BYGPurpleGlowcaneItem(BYGBlockList.PURPLE_GLOWCANE, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("purple_glowcane_stalk")),
+                BYGItemList.PURPLE_GLOWCANE = new BlockItem(BYGBlockList.PURPLE_GLOWCANE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PURPLE_GLOWCANE.getRegistryName()),
                 BYGItemList.PURPLE_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.PURPLE_GLOWCANE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PURPLE_GLOWCANE_BLOCK.getRegistryName()),
 
                 BYGItemList.RED_GLOWCANE_DUST = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("red_glowcane_dust"),
-                BYGItemList.RED_GLOWCANE_STALK = (new BYGRedGlowcaneItem(BYGBlockList.RED_GLOWCANE, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("red_glowcane_stalk")),
+                BYGItemList.RED_GLOWCANE = new BlockItem(BYGBlockList.RED_GLOWCANE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RED_GLOWCANE.getRegistryName()),
                 BYGItemList.RED_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.RED_GLOWCANE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RED_GLOWCANE_BLOCK.getRegistryName()),
 
                 //Glowshroom
