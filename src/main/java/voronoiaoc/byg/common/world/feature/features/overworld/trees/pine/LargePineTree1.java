@@ -32,14 +32,14 @@ public class LargePineTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;
             } else {
-                setGroundBlock(worldIn, Blocks.DIRT, mainmutable);
+                for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
+                    this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
 
-                //Sets Trunk
-                for (int trunkHeight = 0; trunkHeight <= randTreeHeight; trunkHeight++) {
-                    this.treeLog(changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);
+                    mainmutable.move(Direction.UP);
                 }
-
                 mainmutable.setPos(pos);
+
+                //Stump
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 0, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 0, 0), boundsIn);

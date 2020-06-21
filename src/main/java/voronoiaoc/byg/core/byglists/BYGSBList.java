@@ -16,7 +16,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> ERODED_SIERRA_SB = new ErodedSierraSB(SurfaceBuilderConfig::deserialize);
     public static final SurfaceBuilder<SurfaceBuilderConfig> SIERRA_VALLEY_SB = new SierraValleySB(SurfaceBuilderConfig::deserialize);
     public static final SurfaceBuilder<SurfaceBuilderConfig> GLOWSHROOM_BAYOU_SB = new GlowShroomBayouSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> SLUICE_SB = new CragGardens(SurfaceBuilderConfig::deserialize);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> SLUICE_SB = new CragGardensSB(SurfaceBuilderConfig::deserialize);
     public static final SurfaceBuilder<SurfaceBuilderConfig> RED_ROCK_SB = new RedRockSB(SurfaceBuilderConfig::deserialize);
     public static final SurfaceBuilder<SurfaceBuilderConfig> RED_ROCKLOWLAND_SB = new RedRockLowlandsSB(SurfaceBuilderConfig::deserialize);
     public static final SurfaceBuilder<SurfaceBuilderConfig> REDDUNES_SB = new RedDunesSB(SurfaceBuilderConfig::deserialize);

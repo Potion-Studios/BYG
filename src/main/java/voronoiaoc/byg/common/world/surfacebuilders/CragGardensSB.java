@@ -14,9 +14,9 @@ import java.util.Random;
 import java.util.function.Function;
 
 
-public class CragGardens extends SurfaceBuilder<SurfaceBuilderConfig>
+public class CragGardensSB extends SurfaceBuilder<SurfaceBuilderConfig>
 {
-    public CragGardens(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> p_i51310_1_) {
+    public CragGardensSB(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> p_i51310_1_) {
 	super(p_i51310_1_);
     }
 
