@@ -100,6 +100,7 @@ public class BYGBiomeList {
     public static final Biome ROCKYBEACH = new RockyBeach();
 
     //Sub Biomes
+    public static final Biome FUNGAL_PATCH = new FungalPatch();
     public static final Biome LUSHREDDESERT = new LushRedDesert();
     public static final Biome SIERRARANGE = new SierraRange();
     public static final Biome ALPINEFOOTHILLS = new AlpineFoothills();
@@ -124,6 +125,8 @@ public class BYGBiomeList {
     public static final Biome EVERGREEN_HILLS = new EvergreenHills();
     public static final Biome EVERGREEN_CLEARING = new EvergreenClearing();
     public static final Biome ENCHANTED_FOREST_HILLS = new EnchantedForestHills();
+    public static final Biome SNOWY_EVERGREEN_CLEARING = new SnowyEvergreenClearing();
+    public static final Biome SNOWY_EVERGREEN_HILLS = new SnowyEvergreenHills();
 
     public static final Biome WEEPING_WTICH_CLEARING = new WeepingWitchClearing();
     public static final Biome CHERRY_BLOSSOM_CLEARING = new CherryBlossomClearing();

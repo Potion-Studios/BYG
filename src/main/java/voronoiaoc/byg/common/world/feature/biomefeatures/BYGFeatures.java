@@ -424,9 +424,8 @@ public class BYGFeatures {
     }
 
     public static void addTropFungalMushrooms(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_BOOLEAN_SELECTOR.withConfiguration(new TwoFeatureChoiceConfig(Feature.HUGE_RED_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_RED_MUSHROOM), Feature.HUGE_BROWN_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_BROWN_MUSHROOM))).withPlacement(Placement.DARK_OAK_TREE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.GREEN_MUSHROOM_HUGE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.4F),
+                BYGFeatureList.GREEN_MUSHROOM_HUGE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.2F),
                 BYGFeatureList.WOOD_BLEWIT_HUGE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.4F),
                 BYGFeatureList.WEEPING_MILKCAP_HUGE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withChance(0.4F)),
                 BYGFeatureList.BLACK_PUFF_HUGE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(

@@ -30,7 +30,7 @@ public class PumpkinForest extends Biome implements BiomeFog {
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final double DEPTH = 0.2F;
-    static final double SCALE = 0.2F;
+    static final double SCALE = 0.1F;
     static final float TEMPERATURE = 0.25F;
     static final float DOWNFALL = 0.8F;
     static final int WATER_COLOR = 4159204;

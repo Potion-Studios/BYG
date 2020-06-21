@@ -84,8 +84,8 @@ public class BYGWorldConfig {
         COMMON_BUILDER.push("Ore_Settings");
         COMMON_BUILDER.comment("Pendorite is exclusive to Forest Fault!").push("Pendorite");
         pendoriteOreSize = COMMON_BUILDER.defineInRange("PendoriteSize", 4, 0, 16);
-        pendoriteOreChance = COMMON_BUILDER.defineInRange("PendoriteChance", 8, 0, 100);
-        pendoriteOreMaxY = COMMON_BUILDER.defineInRange("PendoriteMaxY", 26, 0, 256);
+        pendoriteOreChance = COMMON_BUILDER.defineInRange("PendoriteChance", 10, 0, 100);
+        pendoriteOreMaxY = COMMON_BUILDER.defineInRange("PendoriteMaxY", 56, 0, 256);
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.comment("Ametrine is exclusive to Guiana Shield!").push("Ametrine");
