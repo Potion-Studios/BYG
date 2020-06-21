@@ -33,9 +33,9 @@ public class DeadTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
         );
     }
 
-    public static boolean isQuagmireSB(IWorldGenerationBaseReader worldIn, BlockPos pos, net.minecraftforge.common.IPlantable sapling) {
-        return worldIn.hasBlockState(pos, (p_214582_0_) -> {
-            Block block = p_214582_0_.getBlock();
+    public static boolean isQuagmireSB(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+        return worldIn.hasBlockState(pos, (state) -> {
+            Block block = state.getBlock();
             return block == BYGBlockList.MUD_BLOCK || block == BYGBlockList.PEAT;
         });
     }
@@ -47,7 +47,7 @@ public class DeadTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int posZ = position.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
             BlockPos blockpos = position.down();
-            if (!isQuagmireSB(worldIn, blockpos, getSapling())) {
+            if (!isQuagmireSB(worldIn, blockpos)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;

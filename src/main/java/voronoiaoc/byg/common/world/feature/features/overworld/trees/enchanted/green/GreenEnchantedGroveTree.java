@@ -37,9 +37,9 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureCon
         );
     }
 
-    protected static boolean isDirtOrPeatBlock(IWorldGenerationBaseReader worldIn, BlockPos pos, IPlantable sapling) {
-        return worldIn.hasBlockState(pos, (p_214582_0_) -> {
-            Block block = p_214582_0_.getBlock();
+    protected static boolean isDirtOrPeatBlock(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+        return worldIn.hasBlockState(pos, (state) -> {
+            Block block = state.getBlock();
             return Feature.isDirt(block) || block == BYGBlockList.PEAT;
         });
     }
@@ -53,7 +53,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureCon
         int posZ = position.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
             BlockPos blockpos = position.down();
-            if (!isDirtOrPeatBlock(worldIn, blockpos, getSapling())) {
+            if (!isDirtOrPeatBlock(worldIn, blockpos)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;
