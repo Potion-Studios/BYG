@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.b
 
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
@@ -32,19 +33,29 @@ public class BlueEnchantedTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> 
                 return false;
             } else {
 
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 8, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 10, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 11, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 12, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 13, 0), boundsIn);
+                for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
+                    if (buildTrunk == randTreeHeight - 6 || buildTrunk == randTreeHeight - 4)
+                        this.leafs(changedBlocks, worldIn, mainmutable, boundsIn);
+                    else
+                        this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
+
+                    mainmutable.move(Direction.UP);
+                }
+                mainmutable.setPos(pos);
+
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
+//                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 8, 0), boundsIn);
+//                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 9, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 10, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 11, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 12, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 13, 0), boundsIn);
 
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 0, 0), boundsIn);

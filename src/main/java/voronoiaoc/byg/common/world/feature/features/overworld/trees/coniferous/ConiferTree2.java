@@ -33,7 +33,8 @@ public class ConiferTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 return false;
             } else {
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    this.treeLog(changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);
+                    this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
+                    mainmutable.move(Direction.UP);
                 }
                 mainmutable.setPos(pos);
 

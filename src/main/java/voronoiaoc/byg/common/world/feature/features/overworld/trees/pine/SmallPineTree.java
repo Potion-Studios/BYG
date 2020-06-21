@@ -38,7 +38,7 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
             }
 
             TemplateManager templatemanager = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager();
-            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/ebony_tree3"));
+            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/blue_enchanted_tree1"));
 
             if (template == null) {
                 BYG.LOGGER.warn("NBT does not exist!");

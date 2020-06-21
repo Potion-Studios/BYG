@@ -36,19 +36,16 @@ public class PinkCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 return false;
             } else {
                 setGroundBlock(worldIn, Blocks.DIRT, mainmutable, mainmutable2, mainmutable3, mainmutable4);
-
-                this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable2, boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable3, boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable4, boundsIn);
-
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    this.treeLog(changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);
-                    this.treeLog(changedBlocks, worldIn, mainmutable2.move(Direction.UP), boundsIn);
-                    this.treeLog(changedBlocks, worldIn, mainmutable3.move(Direction.UP), boundsIn);
-                    this.treeLog(changedBlocks, worldIn, mainmutable4.move(Direction.UP), boundsIn);
+                    this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
+                    this.treeLog(changedBlocks, worldIn, mainmutable2, boundsIn);
+                    this.treeLog(changedBlocks, worldIn, mainmutable3, boundsIn);
+                    this.treeLog(changedBlocks, worldIn, mainmutable4, boundsIn);
+                    mainmutable.move(Direction.UP);
+                    mainmutable2.move(Direction.UP);
+                    mainmutable3.move(Direction.UP);
+                    mainmutable4.move(Direction.UP);
                 }
-
                 mainmutable.setPos(pos);
             
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, -3), boundsIn);
