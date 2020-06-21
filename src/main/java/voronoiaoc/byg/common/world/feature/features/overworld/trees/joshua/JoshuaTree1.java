@@ -45,7 +45,7 @@ public class JoshuaTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int posX = position.getX();
         int posY = position.getY();
         int posZ = position.getZ();
-        if (posY >= this.redRockHeight(worldIn, position) && posY + randTreeHeight + 1 < 256) {
+        if (posY >= this.redRockHeight(worldIn, position) && posY + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = position.down();
             if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;

@@ -43,7 +43,7 @@ public class TropicalRainForestTree extends BYGAbstractTreeFeature<NoFeatureConf
         int posX = position.getX();
         int posY = position.getY();
         int posZ = position.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos checkGround = position.down();
             if (!isDesiredGround(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
                 return false;

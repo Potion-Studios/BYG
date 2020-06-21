@@ -32,7 +32,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         BlockPos.Mutable block = new BlockPos.Mutable(blockPos);
         BlockPos.Mutable mainMutable = new BlockPos.Mutable(block);
 
-        if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < 256) {
+        if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = pos.down();
             if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;

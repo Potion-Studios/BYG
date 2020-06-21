@@ -43,7 +43,7 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int posX = position.getX();
         int posY = position.getY();
         int posZ = position.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = position.down();
             if (((IWorld)worldIn).getBlockState(position.down()).getBlock() != Blocks.GRASS_BLOCK && ((IWorld)worldIn).getBlockState(position.down()).getBlock() != Blocks.RED_SAND && ((IWorld)worldIn).getBlockState(position.down()).getBlock() != Blocks.COARSE_DIRT ) {
                 return false;

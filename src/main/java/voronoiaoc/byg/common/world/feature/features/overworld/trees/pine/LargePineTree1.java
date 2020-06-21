@@ -25,13 +25,15 @@ public class LargePineTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int randTreeHeight = 23 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable(pos);
 
-        if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < 256) {
+        if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = pos.down();
             if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;
             } else {
+                setGroundBlock(worldIn, Blocks.DIRT, mainmutable);
+
                 //Sets Trunk
                 for (int trunkHeight = 0; trunkHeight <= randTreeHeight; trunkHeight++) {
                     this.treeLog(changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);

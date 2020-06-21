@@ -42,7 +42,7 @@ public class PalmTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int posX = position.getX();
         int posY = position.getY();
         int posZ = position.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = position.down();
             if (((IWorld)worldIn).getBlockState(position.down()).getBlock() != Blocks.GRASS_BLOCK && ((IWorld)worldIn).getBlockState(position.down()).getBlock() != Blocks.SAND && ((IWorld)worldIn).getBlockState(position.down()).getBlock() != BYGBlockList.WHITE_SAND && ((IWorld)worldIn).getBlockState(position.down()).getBlock() != BYGBlockList.BLACK_SAND && ((IWorld)worldIn).getBlockState(position.down()).getBlock() != BYGBlockList.PURPLE_SAND && ((IWorld)worldIn).getBlockState(position.down()).getBlock() != BYGBlockList.PINK_SAND && ((IWorld)worldIn).getBlockState(position.down()).getBlock() != BYGBlockList.BLUE_SAND) {
                 return false;

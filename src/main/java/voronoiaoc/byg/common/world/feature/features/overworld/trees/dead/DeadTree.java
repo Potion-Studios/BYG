@@ -45,7 +45,7 @@ public class DeadTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int posX = position.getX();
         int posY = position.getY();
         int posZ = position.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = position.down();
             if (!isQuagmireSB(worldIn, blockpos)) {
                 return false;

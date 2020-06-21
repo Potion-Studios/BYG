@@ -44,7 +44,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<NoFeatureCon
         int posX = position.getX();
         int posY = position.getY();
         int posZ = position.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = position.down();
             if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;

@@ -24,7 +24,7 @@ public class LargePineTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int randTreeHeight = 23 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable(pos);
 
-        if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < 256) {
+        if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = pos.down();
             if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
@@ -58,7 +58,7 @@ public class LargePineTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 24, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 25, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 26, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 27, 0), boundsIn);
+//                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 27, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(3, 3, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 4, -3), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-3, 4, 0), boundsIn);
