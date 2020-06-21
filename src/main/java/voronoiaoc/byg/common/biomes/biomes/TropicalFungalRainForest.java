@@ -17,11 +17,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
+import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
 
 public class TropicalFungalRainForest extends Biome  {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.FUNGAL_RAINFOREST_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
     static final double DEPTH = 0.2F;
@@ -49,16 +50,13 @@ public class TropicalFungalRainForest extends Biome  {
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addJunglePlants(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
-        BYGTreeFeatures.addTropJungleTrees(this);
+        BYGTreeFeatures.addFungalTropJungleTrees(this);
         DefaultBiomeFeatures.addMushrooms(this);
         DefaultBiomeFeatures.addMushrooms(this);
         BYGFeatures.addTropFungalMushrooms(this);
-        BYGFeatures.addWeedGrass(this);
+        BYGFeatures.addGrass(this);
         BYGFeatures.addBYGTropicFlowers(this);
         BYGFeatures.addBYGMushrooms(this);
-        BYGFeatures.addBYGMushrooms(this);
-        BYGFeatures.addBYGMushrooms(this);
-
 
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.PIG, 10, 4, 4));

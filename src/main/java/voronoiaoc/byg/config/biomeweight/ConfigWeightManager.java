@@ -26,6 +26,7 @@ public class ConfigWeightManager {
 //    public static final ConfigWeight CANYONS = new ConfigWeight("canyons", 10);
 public static final ConfigWeight CHERRY_BLOSSOM_FOREST = new ConfigWeight("Cherry_Blossom_Forest", 6);
 //    public static final ConfigWeight coastalredwoodtropics = new ConfigWeight("coastalredwoodtropics", 5);
+public static final ConfigWeight CYPRESS_SWAMPLAND = new ConfigWeight("Cypress_Swampland", 5);
     public static final ConfigWeight CONIFEROUSFOREST = new ConfigWeight("Coniferous_Forest", 5);
     public static final ConfigWeight DEADSEA = new ConfigWeight("Dead_Sea", 2);
     public static final ConfigWeight DECIDUOUSFOREST = new ConfigWeight("Deciduous_Forest", 6);

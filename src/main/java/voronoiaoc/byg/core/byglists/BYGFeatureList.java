@@ -85,10 +85,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.orchard.Orch
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palm.PalmTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.LargePineTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.SmallPineTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.prairie.PrairieShrub;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.prairie.PrairieShrub2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.PumpkinPatch1;
@@ -353,7 +350,7 @@ public class BYGFeatureList {
 
     //Pine
     public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_LARGE_TREE1 = new LargePineTree1(NoFeatureConfig::deserialize);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_LARGE_TREE2 = new LargePineTree1(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_LARGE_TREE2 = new LargePineTree2(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE1 = new PineTree1(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE2 = new PineTree2(NoFeatureConfig::deserialize);
 

@@ -79,4 +79,9 @@ public class MangroveMarshes extends Biome  {
     public int getFoliageColor() {
         return 6337104;
     }
+
+    @Override
+    public Biome getRiver() {
+        return this;
+    }
 }

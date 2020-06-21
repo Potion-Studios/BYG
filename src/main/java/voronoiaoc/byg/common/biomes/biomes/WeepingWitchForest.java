@@ -42,6 +42,7 @@ public class WeepingWitchForest extends Biome implements BiomeFog {
         this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
         BYGTreeFeatures.addDeadHazelTrees(this);
+        BYGTreeFeatures.addHugeMushrooms(this);
         BYGTreeFeatures.addSmallSpruceTrees(this);
         DefaultBiomeFeatures.addCarvers(this);
         DefaultBiomeFeatures.addStructures(this);

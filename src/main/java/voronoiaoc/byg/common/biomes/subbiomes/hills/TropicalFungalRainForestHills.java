@@ -15,13 +15,14 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class TropicalFungalRainForestHills extends Biome  {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.FUNGAL_RAINFOREST_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
-    static final double DEPTH = 0.4F;
-    static final double SCALE = 0.3F;
+    static final double DEPTH = 0.2F;
+    static final double SCALE = 0.25F;
     static final float TEMPERATURE = 0.95F;
     static final float DOWNFALL = 0.9F;
     static final int WATER_COLOR = 4159204;
@@ -45,15 +46,12 @@ public class TropicalFungalRainForestHills extends Biome  {
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addJunglePlants(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
-        BYGTreeFeatures.addTropJungleTrees(this);
-        DefaultBiomeFeatures.addVeryDenseGrass(this);
+        BYGTreeFeatures.addFungalTropJungleTrees(this);
+        DefaultBiomeFeatures.addMushrooms(this);
+        DefaultBiomeFeatures.addMushrooms(this);
         BYGFeatures.addTropFungalMushrooms(this);
-        DefaultBiomeFeatures.addMushrooms(this);
-        DefaultBiomeFeatures.addMushrooms(this);
-        BYGFeatures.addWeedGrass(this);
+        BYGFeatures.addGrass(this);
         BYGFeatures.addBYGTropicFlowers(this);
-        BYGFeatures.addBYGMushrooms(this);
-        BYGFeatures.addBYGMushrooms(this);
         BYGFeatures.addBYGMushrooms(this);
 
 
