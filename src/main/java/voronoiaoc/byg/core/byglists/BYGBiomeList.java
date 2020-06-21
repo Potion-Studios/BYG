@@ -36,9 +36,8 @@ public class BYGBiomeList {
     public static final Biome CANYONCORRIDORS = new CanyonCorridors();
     public static final Biome CYPRESSSWAMPLANDS = new CypressSwampland();
     public static final Biome DUMMYBIOME = new DummyBiome();
-    public static final Biome CHAPPARALCOASTALS = new ChapparalCoastals();
     public static final Biome CHERRYBLOSSOMFOREST = new CherryBlossomForest();
-    public static final Biome COASTALREDWOODTROPICS = new CoastalRedwoodTropics();
+    public static final Biome REDWOOD_TROPICS = new RedwoodTropics();
     public static final Biome CONIFEROUSFOREST = new ConiferousForest();
     public static final Biome DEADSEA = new DeadSea();
     public static final Biome DECIDUOUSFOREST = new DeciduousForest();
@@ -47,7 +46,6 @@ public class BYGBiomeList {
     public static final Biome EBONYWOODS = new EbonyWoods();
     public static final Biome ENCHANTEDFOREST = new EnchantedForest();
     public static final Biome EVERGREENTAIGA = new EvergreenTaiga();
-    public static final Biome FLOWERINGPLAINS = new FloweringPlains();
     public static final Biome GLOWSHROOMBAYOU = new GlowShroomBayou();
     public static final Biome GRASSLANDPLATEAU = new GrassLandPlateau();
     public static final Biome GREATLAKES = new GreatLakes();
@@ -62,10 +60,7 @@ public class BYGBiomeList {
     public static final Biome MOJAVE_DESERT = new MojaveDesert();
     public static final Biome LUSH_TUNDRA = new LushTundra();
     public static final Biome ORCHARD = new Orchard();
-    public static final Biome PINELOWANDS = new PineLowlands();
-    public static final Biome PINEMOUNTAINS = new PineMountains();
     public static final Biome PRAIRIE = new Prairie();
-    public static final Biome QUAGMIRE = new Quagmire();
     public static final Biome REDDESERT = new RedDesert();
     public static final Biome REDDESERTDUNES = new RedDesertDunes();
     public static final Biome REDOAKFOREST = new RedOakForest();
@@ -85,7 +80,6 @@ public class BYGBiomeList {
     public static final Biome SNOWYCONIFEROUSFOREST = new SnowyConiferousForest();
     public static final Biome SNOWYDECIDUOUSFOREST = new SnowyDeciduousForest();
     public static final Biome SNOWYEVERGREENTAIGA = new SnowyEvergreenTaiga();
-    public static final Biome SNOWYPINEMOUNTAINS = new SnowyPineMountains();
     public static final Biome SONORANDESERT = new SonoranDesert();
     public static final Biome STONEBRUSHLANDS = new StoneBrushlands();
     public static final Biome STONEFOREST = new StoneForest();

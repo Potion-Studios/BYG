@@ -32,7 +32,9 @@ public class BYGSurfaceBuilderRegistry {
                 BYGSBList.GLOWSHROOM_BAYOU_SB.setRegistryName("glowshroom_bayou_sb"),
                 BYGSBList.RED_ROCK_SB.setRegistryName("red_rock_sb"),
                 BYGSBList.RED_ROCKLOWLAND_SB.setRegistryName("red_rock_lowland_sb"),
-                BYGSBList.LUSH_TUNDRA_SB.setRegistryName("lush_tundra_sb")
+                BYGSBList.LUSH_TUNDRA_SB.setRegistryName("lush_tundra_sb"),
+                BYGSBList.EBONY_SB.setRegistryName("ebony_woods_sb")
+
 
 
 

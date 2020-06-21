@@ -52,7 +52,7 @@ public class FloweringEnchantedGrove extends Biome  {
         BYGFeatures.addSages( this);
         BYGFeatures.addTulips( this);
         BYGFeatures.addTulips( this);
-        BYGFeatures.addTulips( this);
+        BYGFeatures.addGiantFlowerFeatures( this);
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));

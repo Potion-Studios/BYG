@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.orchard;
 
 import com.mojang.datafixers.Dynamic;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -1069,14 +1070,14 @@ public class OrchardTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Log Placement
     private void treeLog(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canTreePlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.PINE_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, Blocks.OAK_LOG.getDefaultState(), boundingBox);
         }
     }
 
     //Log Placement
     private void treeBranch(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canTreePlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.PINE_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, Blocks.OAK_LOG.getDefaultState(), boundingBox);
         }
     }
 
@@ -1084,8 +1085,19 @@ public class OrchardTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos,  randomLeaves(), boundingBox);
         }
+    }
+
+    public BlockState randomLeaves() {
+        Random random = new Random();
+        int randomizer = random.nextInt(25);
+        if (randomizer == 1)
+            return BYGBlockList.FLOWERING_ORCHARD_LEAVES.getDefaultState();
+        else if (randomizer == 0)
+            return BYGBlockList.RIPE_ORCHARD_LEAVES.getDefaultState();
+        else
+            return BYGBlockList.ORCHARD_LEAVES.getDefaultState();
     }
 
 
