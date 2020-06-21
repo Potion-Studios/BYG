@@ -55,7 +55,7 @@ public class DeadSeaSB extends SurfaceBuilder<TernarySurfaceConfig> {
 
                 mutable.move(Direction.UP, maximumHeight);
                 for (int y = maximumHeight; y >= 0; y--) {
-                    if (chunk.getBlockState(mutable).isAir() || chunk.getBlockState(mutable).getFluidState().matches(FluidTags.WATER) || chunk.getBlockState(mutable).getBlock() == Blocks.WATER) {
+                    if (chunk.getBlockState(mutable).isAir() || chunk.getBlockState(mutable).getFluidState().isIn(FluidTags.WATER) || chunk.getBlockState(mutable).getBlock() == Blocks.WATER) {
                         chunk.setBlockState(mutable, BYGBlockList.ROCKY_STONE.getDefaultState(), false);
                     }
                     mutable.move(Direction.DOWN);

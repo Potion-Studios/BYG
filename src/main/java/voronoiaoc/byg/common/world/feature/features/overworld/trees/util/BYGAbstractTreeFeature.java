@@ -40,7 +40,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
     }
 
     public static boolean isAir(TestableWorld worldIn, BlockPos pos) {
-            return worldIn.testBlockState(pos, BlockState::isAir);
+        return worldIn.testBlockState(pos, BlockState::isAir);
     }
 
     protected static boolean isAirOrLeaves(TestableWorld worldIn, BlockPos pos) {
@@ -73,7 +73,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         return true;
     }
 
-
+    @Override
     protected void setBlockState(ModifiableWorld worldIn, BlockPos pos, BlockState state) {
         this.setBlockStateWithoutUpdates(worldIn, pos, state);
     }
@@ -96,10 +96,9 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         } else {
             worldWriter.setBlockState(blockPos, blockState, 18);
         }
-
     }
 
-
+    @Override
     public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
         Set<BlockPos> set = Sets.newHashSet();
         BlockBox mutableboundingbox = BlockBox.empty();

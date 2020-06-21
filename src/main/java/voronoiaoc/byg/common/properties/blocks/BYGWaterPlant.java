@@ -37,7 +37,7 @@ package voronoiaoc.byg.common.properties.blocks;//package voronoiaoc.byg.common.
 //        BlockState blockstate = super.getStateForDecorator(context);
 //        if (blockstate != null) {
 //            IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos().up());
-//            if (ifluidstate.matches(FluidTags.WATER) && ifluidstate.getLevel() == 8) {
+//            if (ifluidstate.isIn(FluidTags.WATER) && ifluidstate.getLevel() == 8) {
 //                return blockstate;
 //            }
 //        }
@@ -51,7 +51,7 @@ package voronoiaoc.byg.common.properties.blocks;//package voronoiaoc.byg.common.
 //            return blockstate.getBlock() == this && blockstate.get(field_208065_c) == DoubleBlockHalf.LOWER;
 //        } else {
 //            IFluidState ifluidstate = worldIn.getFluidState(pos);
-//            return super.canPlaceAt(state, worldIn, pos) && ifluidstate.matches(FluidTags.WATER) && ifluidstate.getLevel() == 8;
+//            return super.canPlaceAt(state, worldIn, pos) && ifluidstate.isIn(FluidTags.WATER) && ifluidstate.getLevel() == 8;
 //        }
 //    }
 //

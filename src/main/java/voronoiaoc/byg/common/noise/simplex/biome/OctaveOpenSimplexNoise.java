@@ -19,7 +19,7 @@ public final class OctaveOpenSimplexNoise {
     }
 
     private void setSpread(double stretch) {
-        // scale spread up so a visual 1 octave octave-open-simplex sample3D matches that of OpenSimplexNoise
+        // scale spread up so a visual 1 octave octave-open-simplex sample3D isIn that of OpenSimplexNoise
         this.inverseFrequency = stretch * 2;
     }
 

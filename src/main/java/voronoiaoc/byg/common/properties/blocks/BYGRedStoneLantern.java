@@ -1,6 +1,6 @@
 package voronoiaoc.byg.common.properties.blocks;//package voronoiaoc.byg.common.properties.blocks;
 //
-//import com.sun.istack.internal.Nullable;
+//import javax.annotation.Nullable;
 //import net.minecraft.block.Block;
 //import net.minecraft.block.BlockState;
 //import net.minecraft.block.RedstoneTorchBlock;

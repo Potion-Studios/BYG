@@ -31,7 +31,7 @@ public class SpreadableSnowyOvergrownStoneBlock extends SnowyBlock {
 
     private static boolean canSpread(BlockState state, WorldView worldReader, BlockPos blockPos) {
         BlockPos blockpos = blockPos.up();
-        return canSurvive(state, worldReader, blockPos) && !worldReader.getFluidState(blockpos).matches(FluidTags.WATER);
+        return canSurvive(state, worldReader, blockPos) && !worldReader.getFluidState(blockpos).isIn(FluidTags.WATER);
     }
 
     public void randomDisplayTick(BlockState state, World worldIn, BlockPos pos, Random rand) {

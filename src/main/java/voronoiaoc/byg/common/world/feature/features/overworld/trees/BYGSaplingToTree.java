@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees;
 
+import javax.annotation.Nullable;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.AspenTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.AspenTree2;
@@ -41,7 +42,6 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGTree
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BYGSaplingToTree {

@@ -28,7 +28,7 @@ public class SpreadableSythianBlock extends Block {
 
     private static boolean canSpread(BlockState state, WorldView worldReader, BlockPos blockPos) {
         BlockPos blockpos = blockPos.up();
-        return canSurvive(state, worldReader, blockPos) && !worldReader.getFluidState(blockpos).matches(FluidTags.LAVA);
+        return canSurvive(state, worldReader, blockPos) && !worldReader.getFluidState(blockpos).isIn(FluidTags.LAVA);
     }
 
     @Override

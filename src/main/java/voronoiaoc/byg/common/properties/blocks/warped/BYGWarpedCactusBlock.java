@@ -71,7 +71,7 @@ public class BYGWarpedCactusBlock extends CactusBlock {
             direction = (Direction) var4.next();
             BlockState blockState = world.getBlockState(pos.offset(direction));
             material = blockState.getMaterial();
-        } while (!material.isSolid() && !world.getFluidState(pos.offset(direction)).matches(FluidTags.LAVA));
+        } while (!material.isSolid() && !world.getFluidState(pos.offset(direction)).isIn(FluidTags.LAVA));
 
         return false;
     }

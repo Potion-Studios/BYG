@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.properties.sythian;
 
+import javax.annotation.Nullable;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.Block;
@@ -8,7 +9,6 @@ import net.minecraft.block.enums.BambooLeaves;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
@@ -17,7 +17,6 @@ import net.minecraft.world.WorldView;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
 public class SythianStalkBlock extends BambooBlock {

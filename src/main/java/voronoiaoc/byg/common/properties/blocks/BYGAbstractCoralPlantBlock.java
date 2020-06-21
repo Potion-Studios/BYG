@@ -36,7 +36,7 @@ public class BYGAbstractCoralPlantBlock extends Block implements Waterloggable {
             return true;
         } else {
             for (Direction direction : Direction.values()) {
-                if (worldIn.getFluidState(pos.offset(direction)).matches(FluidTags.WATER)) {
+                if (worldIn.getFluidState(pos.offset(direction)).isIn(FluidTags.WATER)) {
                     return true;
                 }
             }
@@ -48,7 +48,7 @@ public class BYGAbstractCoralPlantBlock extends Block implements Waterloggable {
     //@Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-        return this.getDefaultState().with(WATERLOGGED, fluidState.matches(FluidTags.WATER) && fluidState.getLevel() == 8);
+        return this.getDefaultState().with(WATERLOGGED, fluidState.isIn(FluidTags.WATER) && fluidState.getLevel() == 8);
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

@@ -39,7 +39,7 @@ package voronoiaoc.byg.common.properties.blocks.grassblocks;//package voronoiaoc
 //            }
 //
 //            blockPos = (BlockPos)var2.next();
-//        } while(!worldView.getFluidState(blockPos).matches(FluidTags.WATER));
+//        } while(!worldView.getFluidState(blockPos).isIn(FluidTags.WATER));
 //
 //        return true;
 //    }

@@ -28,7 +28,7 @@ package voronoiaoc.byg.common.properties.blocks.grassblocks;//package voronoiaoc
 //
 //    private static boolean hasWater(WorldView worldIn, BlockPos pos) {
 //        for (BlockPos blockpos : BlockPos.iterate(pos.add(-4, 0, -4), pos.add(4, 1, 4))) {
-//            if (worldIn.getFluidState(blockpos).matches(FluidTags.WATER)) {
+//            if (worldIn.getFluidState(blockpos).isIn(FluidTags.WATER)) {
 //                return true;
 //            }
 //        }

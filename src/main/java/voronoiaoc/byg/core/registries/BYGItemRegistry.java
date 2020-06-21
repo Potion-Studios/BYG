@@ -4,7 +4,6 @@ import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import voronoiaoc.byg.BYG;
-import voronoiaoc.byg.common.properties.items.glowcane.GlowcaneItem;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 
@@ -36,7 +35,7 @@ public class BYGItemRegistry {
 //                registerItem(BYGItemList.AMETRINE_CHEST = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.CHEST, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("ametrine_chestplate");
 //                registerItem(BYGItemList.AMETRINE_LEGGINGS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.LEGS, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("ametrine_leggings");
 //                registerItem(BYGItemList.AMETRINE_BOOTS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.FEET, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("ametrine_boots");
-                //registerItem(BYGItemList.AMETRINE_SHIELD = new ShieldItem(new Item.Settings().maxDamage(1000).group(BYGItemGroup.COMBAT)), Registry.BLOCK.getId("ametrine_blue_shields");
+//                registerItem(BYGItemList.AMETRINE_SHIELD = new ShieldItem(new Item.Settings().maxDamage(1000).group(BYGItemGroup.COMBAT)), Registry.BLOCK.getId("ametrine_blue_shields");
 //                registerItem(BYGItemList.AMETRINE_HORSE_ARMOR = new BYGHorseArmor(7, "ametrine", (new Item.Settings()).maxStackSize(1).group(BYG.BYG_TAB)), Registry.BLOCK.getId("ametrine_horse_armor");
 
                 registerItem(BYGItemList.PENDORITE_SCRAPS = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "pendorite_scraps"));
@@ -673,31 +672,32 @@ public class BYGItemRegistry {
 //                registerItem(BYGItemList.YELLOW_SPRUCE_SAPLING = new BlockItem(BYGBlockList.YELLOW_SPRUCE_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.YELLOW_SPRUCE_SAPLING));
                 registerItem(BYGItemList.YELLOW_SPRUCE_LEAVES = new BlockItem(BYGBlockList.YELLOW_SPRUCE_LEAVES, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.YELLOW_SPRUCE_LEAVES));
 //
-//                //GlowcaneItem
-                registerItem(BYGItemList.BLUE_GLOWCANE_DUST = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"blue_glowcane_dust"));
-                registerItem(BYGItemList.BLUE_GLOWCANE_STALK = (new GlowcaneItem(BYGBlockList.BLUE_GLOWCANE, (new Item.Settings()).group(BYG.BYG_TAB))), new Identifier(BYG.MODID,"blue_glowcane_stalk"));
-                registerItem(BYGItemList.BLUE_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.BLUE_GLOWCANE_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_GLOWCANE_BLOCK));
-
-                registerItem(BYGItemList.PINK_GLOWCANE_DUST = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"pink_glowcane_dust"));
-                registerItem(BYGItemList.PINK_GLOWCANE_STALK = (new GlowcaneItem(BYGBlockList.PINK_GLOWCANE, (new Item.Settings()).group(BYG.BYG_TAB))), new Identifier(BYG.MODID,"pink_glowcane_stalk"));
-                registerItem(BYGItemList.PINK_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.PINK_GLOWCANE_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PINK_GLOWCANE_BLOCK));
-
-                registerItem(BYGItemList.PURPLE_GLOWCANE_DUST = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"purple_glowcane_dust"));
-                registerItem(BYGItemList.PURPLE_GLOWCANE_STALK = (new GlowcaneItem(BYGBlockList.PURPLE_GLOWCANE, (new Item.Settings()).group(BYG.BYG_TAB))), new Identifier(BYG.MODID,"purple_glowcane_stalk"));
-                registerItem(BYGItemList.PURPLE_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.PURPLE_GLOWCANE_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PURPLE_GLOWCANE_BLOCK));
-
-                registerItem(BYGItemList.RED_GLOWCANE_DUST = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "red_glowcane_dust"));
-                registerItem(BYGItemList.RED_GLOWCANE_STALK = (new GlowcaneItem(BYGBlockList.RED_GLOWCANE, (new Item.Settings()).group(BYG.BYG_TAB))), new Identifier(BYG.MODID,"red_glowcane_stalk"));
-                registerItem(BYGItemList.RED_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.RED_GLOWCANE_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.RED_GLOWCANE_BLOCK));
 //
-//                //Glowshroom
-//                registerItem(BYGItemList.BLUE_GLOWSHROOM = new BlockItem(BYGBlockList.BLUE_GLOWSHROOM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_GLOWSHROOM));
-//                registerItem(BYGItemList.BLUE_GLOWSHROOM_BLOCK = new BlockItem(BYGBlockList.BLUE_GLOWSHROOM_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_GLOWSHROOM_BLOCK));
-//                registerItem(BYGItemList.PURPLE_GLOWSHROOM = new BlockItem(BYGBlockList.PURPLE_GLOWSHROOM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PURPLE_GLOWSHROOM));
-//                registerItem(BYGItemList.PURPLE_GLOWSHROOM_BLOCK = new BlockItem(BYGBlockList.PURPLE_GLOWSHROOM_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PURPLE_GLOWSHROOM_BLOCK));
-//                registerItem(BYGItemList.RED_GLOWSHROOM_STEM = new BlockItem(BYGBlockList.RED_GLOWSHROOM_STEM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.RED_GLOWSHROOM_STEM));
-//                registerItem(BYGItemList.YELLOW_GLOWSHROOM_STEM = new BlockItem(BYGBlockList.YELLOW_GLOWSHROOM_STEM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.YELLOW_GLOWSHROOM_STEM));
+//                  GlowcaneItem
+//                registerItem(BYGItemList.BLUE_GLOWCANE_DUST = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"blue_glowcane_dust"));
+//                registerItem(BYGItemList.BLUE_GLOWCANE_STALK = (new GlowcaneItem(BYGBlockList.BLUE_GLOWCANE, (new Item.Settings()).group(BYG.BYG_TAB))), new Identifier(BYG.MODID,"blue_glowcane_stalk"));
+//                registerItem(BYGItemList.BLUE_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.BLUE_GLOWCANE_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_GLOWCANE_BLOCK));
 //
+//                registerItem(BYGItemList.PINK_GLOWCANE_DUST = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"pink_glowcane_dust"));
+//                registerItem(BYGItemList.PINK_GLOWCANE_STALK = (new GlowcaneItem(BYGBlockList.PINK_GLOWCANE, (new Item.Settings()).group(BYG.BYG_TAB))), new Identifier(BYG.MODID,"pink_glowcane_stalk"));
+//                registerItem(BYGItemList.PINK_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.PINK_GLOWCANE_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PINK_GLOWCANE_BLOCK));
+//
+//                registerItem(BYGItemList.PURPLE_GLOWCANE_DUST = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"purple_glowcane_dust"));
+//                registerItem(BYGItemList.PURPLE_GLOWCANE_STALK = (new GlowcaneItem(BYGBlockList.PURPLE_GLOWCANE, (new Item.Settings()).group(BYG.BYG_TAB))), new Identifier(BYG.MODID,"purple_glowcane_stalk"));
+//                registerItem(BYGItemList.PURPLE_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.PURPLE_GLOWCANE_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PURPLE_GLOWCANE_BLOCK));
+//
+//                registerItem(BYGItemList.RED_GLOWCANE_DUST = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "red_glowcane_dust"));
+//                registerItem(BYGItemList.RED_GLOWCANE_STALK = (new GlowcaneItem(BYGBlockList.RED_GLOWCANE, (new Item.Settings()).group(BYG.BYG_TAB))), new Identifier(BYG.MODID,"red_glowcane_stalk"));
+//                registerItem(BYGItemList.RED_GLOWCANE_BLOCK = new BlockItem(BYGBlockList.RED_GLOWCANE_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.RED_GLOWCANE_BLOCK));
+
+                //Glowshroom
+                registerItem(BYGItemList.BLUE_GLOWSHROOM = new BlockItem(BYGBlockList.BLUE_GLOWSHROOM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_GLOWSHROOM));
+                registerItem(BYGItemList.BLUE_GLOWSHROOM_BLOCK = new BlockItem(BYGBlockList.BLUE_GLOWSHROOM_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_GLOWSHROOM_BLOCK));
+                registerItem(BYGItemList.PURPLE_GLOWSHROOM = new BlockItem(BYGBlockList.PURPLE_GLOWSHROOM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PURPLE_GLOWSHROOM));
+                registerItem(BYGItemList.PURPLE_GLOWSHROOM_BLOCK = new BlockItem(BYGBlockList.PURPLE_GLOWSHROOM_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PURPLE_GLOWSHROOM_BLOCK));
+                registerItem(BYGItemList.RED_GLOWSHROOM_STEM = new BlockItem(BYGBlockList.RED_GLOWSHROOM_STEM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.RED_GLOWSHROOM_STEM));
+                registerItem(BYGItemList.YELLOW_GLOWSHROOM_STEM = new BlockItem(BYGBlockList.YELLOW_GLOWSHROOM_STEM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.YELLOW_GLOWSHROOM_STEM));
+
                 //Nether
                 registerItem(BYGItemList.WARPED_CACTUS = new BlockItem(BYGBlockList.WARPED_CACTUS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WARPED_CACTUS));
                 registerItem(BYGItemList.WARPED_BUSH = new BlockItem(BYGBlockList.WARPED_BUSH, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WARPED_BUSH));
