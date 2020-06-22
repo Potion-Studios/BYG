@@ -30,7 +30,7 @@ public class OrchardTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         BlockPos.Mutable mainmutable4 = new BlockPos.Mutable(pos.offset(Direction.WEST));
         BlockPos.Mutable mainmutable5 = new BlockPos.Mutable(pos.offset(Direction.EAST));
 
-        if (pos.getY() >= 1 && pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = pos.down();
             if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
