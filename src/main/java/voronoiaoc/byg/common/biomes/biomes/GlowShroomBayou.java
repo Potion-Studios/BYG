@@ -18,7 +18,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class GlowShroomBayou extends Biome  {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.GLOWSHROOM_BAYOU_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.GLOWSHROOM_BAYOU_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.SWAMP;
     static final double DEPTH = -0.25F;
