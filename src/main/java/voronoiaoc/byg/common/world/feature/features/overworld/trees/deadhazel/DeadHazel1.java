@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel;
 
 import com.mojang.datafixers.Dynamic;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -554,8 +555,19 @@ public class DeadHazel1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.WITCH_HAZEL_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos,  randomLeaves(), boundingBox);
         }
+    }
+
+    public BlockState randomLeaves() {
+        Random random = new Random();
+        int randomizer = random.nextInt(25);
+        if (randomizer == 1)
+            return BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES.getDefaultState();
+        else if (randomizer == 0)
+            return BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES.getDefaultState();
+        else
+            return BYGBlockList.WITCH_HAZEL_LEAVES.getDefaultState();
     }
 
 

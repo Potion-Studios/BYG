@@ -61,6 +61,8 @@ public class EvergreenTaiga extends Biome  {
         BYGFeatures.addBYGMushrooms(this);
         BYGFeatures.addGrass(this);
         BYGFeatures.addWinterSucculent(this);
+        DefaultBiomeFeatures.addFreezeTopLayer(this);
+
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));
@@ -110,7 +112,7 @@ public class EvergreenTaiga extends Biome  {
         else if (randomPicker == 1)
             return BYGBiomeList.EVERGREEN_CLEARING;
         else if (randomPicker == 2)
-            return BYGBiomeList.EVERGREEN_HILLS;
+            return BYGBiomeList.EVERGREEN_CLEARING;
         else
             return BYGBiomeList.FRESHWATERLAKE;
     }

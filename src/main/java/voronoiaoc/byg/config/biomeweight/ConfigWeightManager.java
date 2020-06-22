@@ -11,10 +11,10 @@ import java.util.List;
 public class ConfigWeightManager {
 
     public static final List<ConfigWeight> biomeWeights = new ArrayList<>();
-    public static final ConfigWeight ALLIUMFIELDS = new ConfigWeight("Allium_Fields", 4);
+    public static final ConfigWeight ALLIUMFIELDS = new ConfigWeight("Allium_Fields", 2);
     public static final ConfigWeight ALPS = new ConfigWeight("Alps", 5);
 //    public static final ConfigWeight ancientForest = new ConfigWeight("ancientForest", 10);
-    public static final ConfigWeight AMARANTHFIELDS = new ConfigWeight("Amaranth_Fields", 4);
+    public static final ConfigWeight AMARANTHFIELDS = new ConfigWeight("Amaranth_Fields", 2);
     public static final ConfigWeight ASPENFOREST = new ConfigWeight("Aspen_Forest", 6);
     public static final ConfigWeight AUTUMNALVALLEY = new ConfigWeight("Alps", 5);
     public static final ConfigWeight BAOBABSAVANNA = new ConfigWeight("Baobab_Savanna", 6);
@@ -43,7 +43,7 @@ public static final ConfigWeight CYPRESS_SWAMPLAND = new ConfigWeight("Cypress_S
     public static final ConfigWeight GROVE = new ConfigWeight("Grove", 5);
     public static final ConfigWeight ENCHANTED_GROVE = new ConfigWeight("Enchanted_Grove", 1);
     public static final ConfigWeight JACARANDAFOREST = new ConfigWeight("Jacaranda_Forest", 6);
-    public static final ConfigWeight MANGROVE_MARSHES = new ConfigWeight("Mangrove_Marshes", 10);
+    public static final ConfigWeight MANGROVE_MARSHES = new ConfigWeight("Mangrove_Marshes", 5);
     public static final ConfigWeight MAPLE_TAIGA = new ConfigWeight("Maple_Taiga", 6);
     public static final ConfigWeight MEADOW = new ConfigWeight("Meadow", 6);
     public static final ConfigWeight MOJAVEDESERT = new ConfigWeight("Mojave_Desert", 6);
@@ -64,7 +64,7 @@ public static final ConfigWeight CYPRESS_SWAMPLAND = new ConfigWeight("Cypress_S
     public static final ConfigWeight SIERRAVALLEY = new ConfigWeight("Sierra_Valley", 6);
     public static final ConfigWeight SNOWYCONIFEROUSFOREST = new ConfigWeight("Snowy_Coniferous_Forest", 6);
     public static final ConfigWeight SNOWYDECIDUOUSFOREST = new ConfigWeight("Snowy_Deciduous_Forest", 6);
-//    public static final ConfigWeight snowyevergreentaiga = new ConfigWeight("snowyevergreentaiga", 10);
+    public static final ConfigWeight SNOWY_EVERGREEN_TAIGA = new ConfigWeight("Snowy_Evergreen_Taiga", 6);
     public static final ConfigWeight SNOWYBLUETAIGA = new ConfigWeight("Snowy_Blue_Taiga", 6);
     public static final ConfigWeight SNOWYGIANTBLUETAIGA = new ConfigWeight("Snowy_Blue_Giant_Taiga", 6);
 //    public static final ConfigWeight sonorandesert = new ConfigWeight("sonorandesert", 10);
@@ -77,7 +77,7 @@ public static final ConfigWeight THE_BLACK_FOREST = new ConfigWeight("The_Black_
     public static final ConfigWeight VIBRANTSWAMPLANDS = new ConfigWeight("Vibrant_Swamplands", 6);
 //    public static final ConfigWeight VOLCANO = new ConfigWeight("Volcano", 1);
     public static final ConfigWeight WEEPING_WITCH_FOREST = new ConfigWeight("Weeping_Witch_Forest", 1);
-//    public static final ConfigWeight woodlands = new ConfigWeight("woodlands", 10);
+    public static final ConfigWeight WOODLANDS = new ConfigWeight("Woodlands", 4);
     public static final ConfigWeight ZELKOVAFOREST = new ConfigWeight("Zelkova_Forest", 6);
 
 

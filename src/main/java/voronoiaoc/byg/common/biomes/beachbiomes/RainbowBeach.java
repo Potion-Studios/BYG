@@ -11,6 +11,7 @@ import net.minecraft.world.gen.feature.structure.MineshaftStructure;
 import net.minecraft.world.gen.feature.structure.ShipwreckConfig;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class RainbowBeach extends Biome  {
@@ -39,6 +40,7 @@ public class RainbowBeach extends Biome  {
         DefaultBiomeFeatures.addSparseGrass(this);
         DefaultBiomeFeatures.addSprings(this);
         BYGFeatures.addBeachGrass(this);
+        BYGTreeFeatures.addPalmTree(this);
 
         this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.BAT, 10, 8, 8));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SPIDER, 100, 4, 4));

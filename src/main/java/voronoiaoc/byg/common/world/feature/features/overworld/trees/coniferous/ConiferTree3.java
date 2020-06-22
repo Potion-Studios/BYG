@@ -505,7 +505,7 @@ public class ConiferTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Log Placement
     private void treeLog(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canTreePlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.PINE_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.FIR_LOG.getDefaultState(), boundingBox);
         }
     }
 
@@ -513,7 +513,7 @@ public class ConiferTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.FIR_LEAVES.getDefaultState(), boundingBox);
         }
     }
 

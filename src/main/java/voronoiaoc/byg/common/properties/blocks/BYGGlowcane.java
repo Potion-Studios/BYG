@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.properties.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -32,12 +33,14 @@ public class BYGGlowcane extends Block implements IPlantable {
     }
 
 
+    @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         if (!state.isValidPosition(worldIn, pos)) {
             worldIn.destroyBlock(pos, true);
         } else if (worldIn.isAirBlock(pos.up())) {
             int i;
-            for (i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) {
+            for(i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) {
+                ;
             }
 
             if (i < 3) {
@@ -45,9 +48,9 @@ public class BYGGlowcane extends Block implements IPlantable {
                 if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
                     if (j == 15) {
                         worldIn.setBlockState(pos.up(), this.getDefaultState());
-                        worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(0)), 4);
+                        worldIn.setBlockState(pos, state.with(AGE, 0), 4);
                     } else {
-                        worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(j + 1)), 4);
+                        worldIn.setBlockState(pos, state.with(AGE, j + 1), 4);
                     }
                     net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
                 }
@@ -62,6 +65,7 @@ public class BYGGlowcane extends Block implements IPlantable {
      * returns its solidified counterpart.
      * Note that this method should ideally consider only the specific face passed in.
      */
+    @Override
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         if (!stateIn.isValidPosition(worldIn, currentPos)) {
             worldIn.getPendingBlockTicks().scheduleTick(currentPos, this, 1);
@@ -70,19 +74,12 @@ public class BYGGlowcane extends Block implements IPlantable {
         return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
+    @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockState soil = worldIn.getBlockState(pos.down());
-        if (soil.canSustainPlant(worldIn, pos.down(), Direction.UP, this)) return true;
-        Block block = worldIn.getBlockState(pos.down()).getBlock();
-        if (block == this) {
-            return true;
-        } else {
-            if (block == BYGBlockList.GLOWCELIUM) {
-
-            }
-
+        if (isAir(worldIn.getBlockState(pos.down())))
             return false;
-        }
+        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.GLOWCELIUM || worldIn.getBlockState(pos.down()).getBlock() == this;
+
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

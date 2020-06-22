@@ -61,7 +61,11 @@ public abstract class MixinShoreLayer {
 
             if (biome == BYGBiomeList.GUIANASHIELD)
                 if (ClimateBooleans.isOcean(idx))
-                    cir.setReturnValue(BYGBiomeGetter.RAINBOWBEACH);
+                    cir.setReturnValue(BYGBiomeGetter.ROCKYBEACH);
+
+            if (biome == BYGBiomeList.SKYRISHIGHLANDS)
+                if (ClimateBooleans.isOcean(idx))
+                    cir.setReturnValue(BYGBiomeGetter.ROCKYBEACH);
 
             if (biome == BYGBiomeList.THE_BLACK_FOREST || biome == BYGBiomeList.BLACK_FOREST_CLEARING || biome == BYGBiomeList.BLACK_FOREST_HILLS || biome == BYGBiomeList.FOREST_FAULT)
                 if (ClimateBooleans.isOcean(idx))

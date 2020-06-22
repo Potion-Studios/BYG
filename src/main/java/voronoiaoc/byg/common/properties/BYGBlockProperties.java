@@ -444,7 +444,6 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.LEAVES)
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.2f)
-                    .tickRandomly()
                     .notSolid()
             );
             setRegistryName(registryName);
@@ -743,6 +742,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
+                    .tickRandomly()
             );
             setRegistryName(registryName);
         }
@@ -762,6 +762,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
                     .lightValue(8)
+                    .tickRandomly()
             );
             setRegistryName(registryName);
         }
@@ -808,6 +809,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
                     .lightValue(10)
+                    .tickRandomly()
             );
             setRegistryName(registryName);
         }
@@ -820,6 +822,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
                     .lightValue(10)
+                    .tickRandomly()
             );
             setRegistryName(registryName);
         }
@@ -832,6 +835,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
                     .lightValue(10)
+                    .tickRandomly()
             );
             setRegistryName(registryName);
         }
@@ -844,6 +848,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
                     .lightValue(10)
+                    .tickRandomly()
             );
             setRegistryName(registryName);
         }
