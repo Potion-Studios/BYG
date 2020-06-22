@@ -20,9 +20,7 @@ public class CypressTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     public CypressTree2(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
-
-    //TODO: Root builder.
-
+    //TODO: Root Builder
     protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
         int randTreeHeight = 18 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable(pos);
@@ -40,23 +38,6 @@ public class CypressTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                     mainmutable.move(Direction.UP);
                 }
                 mainmutable.setPos(pos);
-
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0,randTreeHeight - 7, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0,randTreeHeight - 6, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0,randTreeHeight - 5, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0,randTreeHeight - 4, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 11, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 12, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0,randTreeHeight - 1, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0,randTreeHeight, 0), boundsIn);
-
 
                 //Stump
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -5), boundsIn);

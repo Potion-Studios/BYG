@@ -56,6 +56,13 @@ public class MangroveTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                     this.treeBranch(changedBlocks, worldIn, rootMutable4, boundsIn);
                     this.treeBranch(changedBlocks, worldIn, rootMutable5, boundsIn);
                     this.treeBranch(changedBlocks, worldIn, rootMutable6, boundsIn);
+
+                    rootMutable.move(Direction.DOWN);
+                    rootMutable2.move(Direction.DOWN);
+                    rootMutable3.move(Direction.DOWN);
+                    rootMutable4.move(Direction.DOWN);
+                    rootMutable5.move(Direction.DOWN);
+                    rootMutable6.move(Direction.DOWN);
                 }
 
                 //Stump
