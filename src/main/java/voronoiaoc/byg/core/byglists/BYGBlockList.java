@@ -170,8 +170,10 @@ public class BYGBlockList {
 
     //FlowerBlocks
     public static Block ALPINE_BELLFLOWER;
+    public static Block TALL_ALLIUM;
     public static Block ALLIUM_FLOWER_BUSH;
     public static Block PINK_ALLIUM_FLOWER_BUSH;
+    public static Block TALL_PINK_ALLIUM;
     public static Block ANGELICA;
     public static Block AZALEA;
     public static Block BEGONIA;

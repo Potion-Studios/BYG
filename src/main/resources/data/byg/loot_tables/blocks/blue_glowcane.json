@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "byg:blue_glowcane_stalk"
+          "name": "byg:blue_glowcane"
         }
       ],
       "conditions": [

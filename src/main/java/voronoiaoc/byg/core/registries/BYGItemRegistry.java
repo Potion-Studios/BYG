@@ -793,6 +793,7 @@ public class BYGItemRegistry {
 
                 //FlowerItems
                 BYGItemList.ALLIUM_FLOWER_BUSH = new BlockItem(BYGBlockList.ALLIUM_FLOWER_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ALLIUM_FLOWER_BUSH.getRegistryName()),
+                BYGItemList.TALL_ALLIUM = new BlockItem(BYGBlockList.TALL_ALLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.TALL_ALLIUM.getRegistryName()),
                 BYGItemList.ALPINE_BELLFLOWER = new BlockItem(BYGBlockList.ALPINE_BELLFLOWER, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ALPINE_BELLFLOWER.getRegistryName()),
                 BYGItemList.AMARANTH = new BlockItem(BYGBlockList.AMARANTH, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.AMARANTH.getRegistryName()),
                 BYGItemList.ANGELICA = new BlockItem(BYGBlockList.ANGELICA, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ANGELICA.getRegistryName()),
@@ -827,6 +828,7 @@ public class BYGItemRegistry {
                 BYGItemList.PEACH_LEATHER_FLOWER = new BlockItem(BYGBlockList.PEACH_LEATHER_FLOWER, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PEACH_LEATHER_FLOWER.getRegistryName()),
                 BYGItemList.PINK_ALLIUM = new BlockItem(BYGBlockList.PINK_ALLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINK_ALLIUM.getRegistryName()),
                 BYGItemList.PINK_ALLIUM_FLOWER_BUSH = new BlockItem(BYGBlockList.PINK_ALLIUM_FLOWER_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINK_ALLIUM_FLOWER_BUSH.getRegistryName()),
+                BYGItemList.TALL_PINK_ALLIUM = new BlockItem(BYGBlockList.TALL_PINK_ALLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.TALL_PINK_ALLIUM.getRegistryName()),
                 BYGItemList.PINK_ANEMONE = new BlockItem(BYGBlockList.PINK_ANEMONE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINK_ANEMONE.getRegistryName()),
                 BYGItemList.PINK_DAFFODIL = new BlockItem(BYGBlockList.PINK_DAFFODIL, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINK_DAFFODIL.getRegistryName()),
                 BYGItemList.PINK_ORCHID = new BlockItem(BYGBlockList.PINK_ORCHID, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINK_ORCHID.getRegistryName()),

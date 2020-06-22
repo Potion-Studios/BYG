@@ -22,7 +22,13 @@ public class BYGFeatures {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
                 Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.ALLIUMBUSH_CONFIG).withChance(0.6F)),
                 Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.PINKALLIUMBUSH_CONFIG))).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(
+                new FrequencyConfig(200))));
+
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+                Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.TALL_ALLIUM_CONFIG).withChance(0.6F)),
+                Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.TALL_PINK_ALLIUM_CONFIG))).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(
                 new FrequencyConfig(25))));
+
     }
 
     public static void addAmaranthFieldFlowers(Biome biome) {
@@ -32,7 +38,7 @@ public class BYGFeatures {
                 Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.MAGENTAAMARANTH_CONFIG).withChance(0.3F),
                 Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.ORANGEAMARANTH_CONFIG).withChance(0.3F)),
                 Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.PURPLEAMARANTH_CONFIG))).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(
-                new FrequencyConfig(25))));
+                new FrequencyConfig(200))));
     }
 
     public static void addBYGGlowcane(Biome biome) {

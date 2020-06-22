@@ -46,7 +46,6 @@ public class CragGardens extends Biome implements BiomeFog {
         BYGFeatures.addMarshGrass(this);
         BYGFeatures.addTallGrass(this);
         BYGFeatures.addBYGMushrooms(this);
-        BYGFeatures.addBYGGlowcane(this);
         DefaultBiomeFeatures.addCarvers(this);
         DefaultBiomeFeatures.addStructures(this);
         DefaultBiomeFeatures.addMonsterRooms(this);
@@ -56,7 +55,6 @@ public class CragGardens extends Biome implements BiomeFog {
         DefaultBiomeFeatures.addMushrooms(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
         BYGTreeFeatures.addCragRainbowTrees(this);
-//        BYGTreeFeatures.addSparseMangroveMarshes(this);
         BYGFeatures.addBYGTropicFlowers(this);
         DefaultBiomeFeatures.addJunglePlants(this);
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.withConfiguration(new SeaGrassConfig(64, 0.6D)).withPlacement(Placement.TOP_SOLID_HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
