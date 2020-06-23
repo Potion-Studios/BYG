@@ -21,7 +21,7 @@ public class BYGAbstractCoralPlantBlock extends Block implements Waterloggable {
 
     protected BYGAbstractCoralPlantBlock(Settings properties) {
         super(properties);
-        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, true));
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false));
     }
 
     protected void checkLivingConditions(BlockState state, WorldAccess worldIn, BlockPos pos) {

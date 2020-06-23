@@ -30,7 +30,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class GlowstoneGardens extends Biome implements BiomeFog {
+public class GlowstoneGardens extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSBList.BYGSBConfigList.GLOWSTONEGARDENS);
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.NETHER;
@@ -51,7 +51,7 @@ public class GlowstoneGardens extends Biome implements BiomeFog {
                         .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                         .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
                         .music(MusicType.method_27283(SoundEvents.MUSIC_NETHER_BASALT_DELTAS)).build())
-                .noises(ImmutableList.of(new MixedNoisePoint(0.65F, 0.0F, 0.0F, 0.0F, 0.56F))));
+                .noises(ImmutableList.of(new MixedNoisePoint(0.65F, 0.0F, -0.43F, 0.0F, 0.0F))));
 
         this.addCarver(GenerationStep.Carver.AIR, configureCarver(Carver.NETHER_CAVE, new ProbabilityConfig(0.2F)));
         this.addStructureFeature(DefaultBiomeFeatures.NETHER_RUINED_PORTAL);
