@@ -143,19 +143,19 @@ public class BYGBiomeRegistry {
         Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
         if (spawn)
             FabricBiomes.addSpawnBiome(biome);
-
-        OverworldBiomes.addContinentalBiome(biome, climate, weight);
+        if (weight > 0)
+            OverworldBiomes.addContinentalBiome(biome, climate, weight);
 
         if (((BiomeTools) biome).getEdge() != null)
-            OverworldBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), weight);
+            OverworldBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), 1);
         if (((BiomeTools) biome).getBeach() != null)
-            OverworldBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), weight);
+            OverworldBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), 1);
         if (((BiomeTools) biome).getHill() != null)
-            OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), weight);
+            OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 1);
         if (((BiomeTools) biome).getMutation() != null)
-            OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), weight);
+            OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), 1);
         if (((BiomeTools) biome).getRiver() != null)
-            OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getRiver(), weight);
+            OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getRiver(), 1);
     }
 
     private static void registerSubBiome(Biome biome, String id, boolean spawn) {
