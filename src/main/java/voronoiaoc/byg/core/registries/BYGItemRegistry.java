@@ -700,6 +700,11 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.YELLOW_GLOWSHROOM_STEM = new BlockItem(BYGBlockList.YELLOW_GLOWSHROOM_STEM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.YELLOW_GLOWSHROOM_STEM));
 
                 //Nether
+                registerItem(BYGItemList.GLOWSTONE_LANTERN = new BlockItem(BYGBlockList.GLOWSTONE_LANTERN, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.GLOWSTONE_LANTERN));
+                registerItem(BYGItemList.GLOWSTONE_LAMP = new BlockItem(BYGBlockList.GLOWSTONE_LAMP, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.GLOWSTONE_LAMP));
+
+                registerItem(BYGItemList.WEEPING_ROOTS_PLANT = new BlockItem(BYGBlockList.WEEPING_ROOTS_PLANT, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WEEPING_ROOTS_PLANT));
+
                 registerItem(BYGItemList.NETHER_BRISTLE = new BlockItem(BYGBlockList.NETHER_BRISTLE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.NETHER_BRISTLE));
                 registerItem(BYGItemList.OVERGROWN_NETHERRACK = new BlockItem(BYGBlockList.OVERGROWN_NETHERRACK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.OVERGROWN_NETHERRACK));
                 registerItem(BYGItemList.WARPED_CACTUS = new BlockItem(BYGBlockList.WARPED_CACTUS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WARPED_CACTUS));
@@ -708,7 +713,8 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.WARPED_CORAL = new BlockItem(BYGBlockList.WARPED_CORAL, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WARPED_CORAL));
                 registerItem(BYGItemList.WARPED_CORAL_FAN = new BlockItem(BYGBlockList.WARPED_CORAL_FAN, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WARPED_CORAL_FAN));
                 registerItem(BYGItemList.NYLIUM_SOUL_SAND = new BlockItem(BYGBlockList.NYLIUM_SOUL_SAND, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.NYLIUM_SOUL_SAND));
-//
+                registerItem(BYGItemList.NYLIUM_SOUL_SOIL = new BlockItem(BYGBlockList.NYLIUM_SOUL_SOIL, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.NYLIUM_SOUL_SOIL));
+
                 registerItem(BYGItemList.SYTHIAN_NYLIUM = new BlockItem(BYGBlockList.SYTHIAN_NYLIUM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SYTHIAN_NYLIUM));
                 registerItem(BYGItemList.SYTHIAN_ROOTS = new BlockItem(BYGBlockList.SYTHIAN_ROOTS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SYTHIAN_ROOTS));
                 registerItem(BYGItemList.SYTHIAN_SPROUT = new BlockItem(BYGBlockList.SYTHIAN_SPROUT, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SYTHIAN_SPROUT));
