@@ -19,7 +19,7 @@ public class SpreadableSnowyOvergrownDaciteBlock extends SnowyDirtBlock {
         super(properties);
     }
 
-    private static boolean func_220257_b(BlockState state, IWorldReader worldReader, BlockPos blockPos) {
+    private static boolean canSurvive(BlockState state, IWorldReader worldReader, BlockPos blockPos) {
         BlockPos blockpos = blockPos.up();
         BlockState blockstate = worldReader.getBlockState(blockpos);
         if (blockstate.getBlock() == Blocks.SNOW && blockstate.get(SnowBlock.LAYERS) == 1) {
@@ -30,13 +30,13 @@ public class SpreadableSnowyOvergrownDaciteBlock extends SnowyDirtBlock {
         }
     }
 
-    private static boolean func_220256_c(BlockState state, IWorldReader worldReader, BlockPos blockPos) {
+    private static boolean canSpread(BlockState state, IWorldReader worldReader, BlockPos blockPos) {
         BlockPos blockpos = blockPos.up();
-        return func_220257_b(state, worldReader, blockPos) && !worldReader.getFluidState(blockpos).isTagged(FluidTags.WATER);
+        return canSurvive(state, worldReader, blockPos) && !worldReader.getFluidState(blockpos).isTagged(FluidTags.WATER);
     }
 
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        if (!func_220257_b(state, worldIn, pos)) {
+        if (!canSurvive(state, worldIn, pos)) {
             if (!worldIn.isAreaLoaded(pos, 3)) return;
             worldIn.setBlockState(pos, BYGBlockList.DACITE.getDefaultState());
         } else {
@@ -45,7 +45,7 @@ public class SpreadableSnowyOvergrownDaciteBlock extends SnowyDirtBlock {
 
                 for (int i = 0; i < 4; ++i) {
                     BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
-                    if (worldIn.getBlockState(blockpos).getBlock() == BYGBlockList.DACITE && func_220256_c(blockstate, worldIn, blockpos)) {
+                    if (worldIn.getBlockState(blockpos).getBlock() == BYGBlockList.DACITE && canSpread(blockstate, worldIn, blockpos)) {
                         worldIn.setBlockState(blockpos, blockstate.with(SNOWY, Boolean.valueOf(worldIn.getBlockState(blockpos.up()).getBlock() == Blocks.SNOW)));
                     }
                 }

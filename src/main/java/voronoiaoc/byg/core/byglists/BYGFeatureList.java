@@ -176,7 +176,6 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> BLACK_PUFF_HUGE = new BlackPuffHuge(NoFeatureConfig::deserialize);
     public static final Feature<NoFeatureConfig> BLUE_GLOWSHROOM_HUGE = new BlueGlowshroomHuge(NoFeatureConfig::deserialize);
     public static final Feature<NoFeatureConfig> PURPLE_GLOWSHROOM_HUGE = new PurpleGlowshroomHuge(NoFeatureConfig::deserialize);
-    public static final Feature<NoFeatureConfig> BLACKPUFF = new HugeBlackPuff(NoFeatureConfig::deserialize);
 
 
 

@@ -6,7 +6,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.properties.BYGBlockProperties;
+import voronoiaoc.byg.common.properties.blocks.BYGMushroomProperties;
 import voronoiaoc.byg.common.properties.blocks.BYGSaplingProperties;
+import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGSaplingToTree;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -546,12 +548,12 @@ public class BYGBlockRegistry {
                 BYGBlockList.ZELKOVA_WOOD = new BYGBlockProperties.BYGWood("zelkova_wood"),
 
                 //Mushroom Blocks
-                BYGBlockList.BLACK_PUFF = new BYGBlockProperties.BlockMushroom("black_puff"),
-                BYGBlockList.WEEPING_MILKCAP = new BYGBlockProperties.BlockMushroom("weeping_milkcap"),
-                BYGBlockList.WOOD_BLEWIT = new BYGBlockProperties.BlockMushroom("wood_blewit"),
-                BYGBlockList.GREEN_MUSHSHROOM = new BYGBlockProperties.BlockMushroom("green_mushroom"),
-                BYGBlockList.BLUE_GLOWSHROOM = new BYGBlockProperties.BlockGlowshroom("blue_glowshroom"),
-                BYGBlockList.PURPLE_GLOWSHROOM = new BYGBlockProperties.BlockGlowshroom("purple_glowshroom"),
+                BYGBlockList.BLACK_PUFF = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.BlackPuff(),"black_puff"),
+                BYGBlockList.WEEPING_MILKCAP = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.WeepingMilkCap(),"weeping_milkcap"),
+                BYGBlockList.WOOD_BLEWIT = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.WoodBlewit(),"wood_blewit"),
+                BYGBlockList.GREEN_MUSHSHROOM = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.GreenMushroom(),"green_mushroom"),
+                BYGBlockList.BLUE_GLOWSHROOM = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.BlueGlowshroom(),"blue_glowshroom"),
+                BYGBlockList.PURPLE_GLOWSHROOM = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.PurpleGlowshroom(),"purple_glowshroom"),
 
                 //Ore Blocks
                 BYGBlockList.PENDORITE_ORE = new BYGBlockProperties.BYGOrePendorite("pendorite_ore"),
