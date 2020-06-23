@@ -471,7 +471,7 @@ public class BYGBlockProperties {
                     .lightValue(12)
             );
             setRegistryName(registryName);
-//            this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)));
+            this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)));
         }
     }
 
@@ -485,7 +485,6 @@ public class BYGBlockProperties {
             setRegistryName(registryName);
         }
     }
-    @SuppressWarnings("deprecation")
     public static class BYGNyliumSoulSand extends Block {
 
         public BYGNyliumSoulSand(String registryName) {

@@ -5,9 +5,7 @@
   "refmap": "byg.refmap.json",
   "mixins": [
     "common.world.layers.MixinIslandLayer",
-    "common.world.layers.MixinShoreLayer",
-    "common.world.misc.MixinTemplate",
-    "common.world.misc.TemplateInvoker"
+    "common.world.layers.MixinShoreLayer"
   ],
   "client": [
     "client.MixinGameRenderer"
