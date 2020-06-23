@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:pink_sandstone"
+  },
+  "result": "byg:pink_smooth_sandstone",
+  "count": 1
+}

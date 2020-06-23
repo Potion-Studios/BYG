@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "byg:blue_glowcane_stalk"
+    }
+  ],
+  "result": {
+    "item": "byg:blue_glowcane_dust"
+  }
+}

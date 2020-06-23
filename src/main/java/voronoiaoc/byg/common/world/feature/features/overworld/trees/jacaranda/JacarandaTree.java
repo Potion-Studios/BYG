@@ -5,8 +5,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda;/
 //import net.minecraft.block.BYGBlockRenders;
 ////import net.minecraft.util.math.BlockPos;
 //import net.minecraft.util.math.BlockBox;
-////import net.minecraft.world.gen.IWorldGenerationReader;
-//import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+//////import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 //import sporeaoc.byg.core.byglists.BYGBlockList;
 //import sporeaoc.byg.common.world.feature.tree.util.BYGAbstractTreeFeature;
 //
@@ -67,7 +66,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda;/
 //                    BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
 //
 //                    //Sets Logs
-//                    if (isAirOrLeaves(worldIn, blockpos1)) {
+//                    if (isAir(worldIn, blockpos1)) {
 //                        this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
 //
 //                    }

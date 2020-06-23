@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:red_glowcane_dust"
+    }
+  },
+  "result": {
+    "item": "byg:red_glowcane_block"
+  }
+}

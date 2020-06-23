@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:zelkova_planks"
+    }
+  },
+  "result": {
+    "item": "byg:zelkova_crafting_table"
+  }
+}

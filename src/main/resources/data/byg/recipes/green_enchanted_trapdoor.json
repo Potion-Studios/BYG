@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:green_enchanted_planks"
+    }
+  },
+  "result": {
+    "item": "byg:green_enchanted_trapdoor",
+    "count": 2
+  }
+}

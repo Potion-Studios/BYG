@@ -119,7 +119,7 @@ package voronoiaoc.byg.common.properties.blocks;//package voronoiaoc.byg.common.
 //    }
 //
 //    public static int func_220117_a(BlockView p_220117_0_, BlockPos p_220117_1_) {
-//        BlockPos.Mutable blockpos$mutable = (new BlockPos.Mutable(p_220117_1_)).move(Direction.DOWN);
+//        BlockPos.Mutable blockpos$mutable = (new BlockPos.Mutable().set(p_220117_1_)).move(Direction.DOWN);
 //        BlockState blockstate = p_220117_0_.getBlockState(blockpos$mutable);
 //        int i = 7;
 //        if (blockstate.getBlock() == BYGBlockList.SYTHIAN_SCAFFOLDING) {

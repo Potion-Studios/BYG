@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:pink_glowcane_dust"
+    }
+  },
+  "result": {
+    "item": "byg:pink_glowcane_block"
+  }
+}

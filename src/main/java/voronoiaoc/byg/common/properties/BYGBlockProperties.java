@@ -6,6 +6,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
@@ -330,7 +331,7 @@ public class BYGBlockProperties {
 
     public static class BlockOvergrownStoneBlock extends BYGOverGrownStoneBlock {
         public BlockOvergrownStoneBlock(String registryName) {
-            super(Settings.of(Material.STONE)
+            super(Settings.of(Material.SOIL)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(1.5f, 6.0f)
                     .ticksRandomly()
@@ -341,7 +342,7 @@ public class BYGBlockProperties {
 
     public static class BlockOvergrownDaciteBlock extends BYGOverGrownDaciteBlock {
         public BlockOvergrownDaciteBlock(String registryName) {
-            super(Settings.of(Material.STONE)
+            super(Settings.of(Material.SOIL)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(1.5f, 6.0f)
                     .ticksRandomly()
@@ -392,6 +393,19 @@ public class BYGBlockProperties {
                     .strength(0.2f)
                     .ticksRandomly()
                     .lightLevel((blockStatex) -> 10)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGLeafFoilage extends LeafFoliageBlock {
+        public BYGLeafFoilage(String registryName) {
+            super(DyeColor.GREEN, Settings.of(Material.LEAVES, MaterialColor.GRASS)
+                    .strength(0.0F)
+                    .ticksRandomly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .nonOpaque()
+                    .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
@@ -462,6 +476,17 @@ public class BYGBlockProperties {
 //            }
 //
 //        }
+    }
+
+    public static class BYGNyliumSoulSoil extends Block {
+
+        public BYGNyliumSoulSoil(String registryName) {
+            super(Settings.of(Material.AGGREGATE)
+                    .sounds(BlockSoundGroup.SOUL_SOIL)
+                    .strength(0.2f)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
     }
 
     public static class BYGWarpedCacti extends BYGWarpedCactusBlock {
@@ -738,6 +763,18 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGPervadedNetherrack extends OreBlock {
+        public BYGPervadedNetherrack(String registryName) {
+            super(Settings.of(Material.STONE)
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(3.0f, 3.0f)
+                    .strength(4)
+                    .lightLevel((blockStatex) -> 8)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
     public static class BYGREDGlowCane extends Glowcane {
         public BYGREDGlowCane(Material material, String registryName) {
             super(AbstractBlock.Settings.of(material)
@@ -810,16 +847,16 @@ public class BYGBlockProperties {
         }
     }
 
-//    public static class BYGBerryBush extends BlueBerryBush {
-//        public BYGBerryBush(String registryName) {
-//            super(Settings.of(Material.PLANT)
-//                    .sounds(BlockSoundGroup.GRASS)
-//                    .strength(1.5f, 6.0f)
-//                    .noCollision()
-//            );
-//            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
-//        }
-//    }
+    public static class BYGBerryBush extends BlueBerryBush {
+        public BYGBerryBush(String registryName) {
+            super(Settings.of(Material.PLANT)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .strength(1.5f, 6.0f)
+                    .noCollision()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
 
 
     public static class BlockHugeMushroom extends MushroomBlock {
@@ -976,6 +1013,18 @@ public class BYGBlockProperties {
                     AbstractBlock.Settings.of(Material.WOOD, MaterialColor.WOOD)
                             .sounds(BlockSoundGroup.WOOD)
                             .strength(2.0f)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGLantern extends LanternBlock {
+        public BYGLantern(String registryName) {
+            super(Settings.of(Material.METAL)
+                    .sounds(BlockSoundGroup.LANTERN)
+                    .strength(3.5F)
+                    .nonOpaque()
+                    .lightLevel((blockStatex) -> 15)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }

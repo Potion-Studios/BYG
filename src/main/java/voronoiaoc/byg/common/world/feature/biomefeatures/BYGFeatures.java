@@ -7,6 +7,7 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.ProbabilityConfig;
+import net.minecraft.world.gen.carver.Carver;
 import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
 import voronoiaoc.byg.common.world.feature.placements.AnyWaterOrSolidSurfaceSurface;
@@ -19,8 +20,14 @@ public class BYGFeatures {
     public static void addAlliumFieldFlowers(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
                 Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.ALLIUMBUSH_CONFIG).withChance(0.6F)),
-                Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PINKALLIUMBUSH_CONFIG))).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(
+                Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PINKALLIUMBUSH_CONFIG))).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(
                 new CountDecoratorConfig(200))));
+
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+                Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.TALL_ALLIUM_CONFIG).withChance(0.6F)),
+                Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.TALL_PINK_ALLIUM_CONFIG))).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(
+                new CountDecoratorConfig(25))));
+
     }
 
     public static void addAmaranthFieldFlowers(Biome biome) {
@@ -29,8 +36,8 @@ public class BYGFeatures {
                 Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.CYANAMARANTH_CONFIG).withChance(0.3F),
                 Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.MAGENTAAMARANTH_CONFIG).withChance(0.3F),
                 Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.ORANGEAMARANTH_CONFIG).withChance(0.3F)),
-                Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PURPLEAMARANTH_CONFIG))).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(
-                new CountDecoratorConfig(300))));
+                Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PURPLEAMARANTH_CONFIG))).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(
+                new CountDecoratorConfig(200))));
     }
 
     public static void addBYGGlowcane(Biome biome) {
@@ -67,13 +74,25 @@ public class BYGFeatures {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BLUEBERRY_BUSH_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
     }
 
+    public static void addLushBlueberries(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BLUEBERRY_BUSH_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(5))));
+    }
+
     public static void addBeachGrass(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BEACH_GRASS_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_BEACH_GRASS_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
     }
-
     public static void addLargeLake(Biome biome) {
         biome.addFeature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.LAKE_WIDE_SHALLOW.configure(FeatureConfig.DEFAULT).createDecoratedFeature(AnyWaterOrSolidSurfaceSurface.WWATERORSOLIDSURFACE.configure(new CountDecoratorConfig(4))));
+    }
+
+    public static void addLargeLavaLake(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.LAKE_LAVA_WIDE_SHALLOW.configure(FeatureConfig.DEFAULT).createDecoratedFeature(AnyWaterOrSolidSurfaceSurface.WWATERORSOLIDSURFACE.configure(new CountDecoratorConfig(3))));
+    }
+
+    public static void addVolcanicCarvers(Biome biome) {
+        biome.addCarver(GenerationStep.Carver.AIR, Biome.configureCarver(BYGFeatureList.VOLCANIC_CARVER, new ProbabilityConfig(0.02F)));
+
     }
 
     public static void addAzalea(Biome biome) {
@@ -85,7 +104,7 @@ public class BYGFeatures {
     }
 
     public static void addJapaneseOrchid(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.JAPANESEORCHID_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.JAPANESEORCHID_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(3))));
     }
 
     public static void addWiltedGrass(Biome biome) {
@@ -107,6 +126,11 @@ public class BYGFeatures {
     public static void addCloverFlowerPatch(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.CLOVER_PATCH).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.FLOWER_PATCH).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
+    }
+
+    public static void addCherryFoliage(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PINK_CHERRY_FOLIAGE).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(3))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WHITE_CHERRY_FOLIAGE).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(3))));
     }
 
     public static void addBYGSwampVegetation(Biome biome) {
@@ -168,8 +192,24 @@ public class BYGFeatures {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.YELLOW_DAFFODIL_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
     }
 
+    public static void addDaffodil(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.DAFFODIL_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
+    public static void addPinkDaffodil(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PINK_DAFFODIL_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
+    public static void addLolliPop(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.LOLLI_POP_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
     public static void addRose(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.ROSE_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
+    public static void addBlackRose(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BLACK_ROSE_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
     }
 
     public static void addOsiria(Biome biome) {
@@ -178,6 +218,10 @@ public class BYGFeatures {
 
     public static void addWinterRose(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WINTER_ROSE_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
+    public static void addSnowdrops(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SNOWDROPS_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
     }
 
     public static void addMudDisks(Biome biomeIn) {
@@ -189,6 +233,11 @@ public class BYGFeatures {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BLACK_PUFF_CONFIG).createDecoratedFeature(Decorator.COUNT_CHANCE_HEIGHTMAP_DOUBLE.configure(new CountChanceDecoratorConfig(3, 0.125F))));
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WOOD_BLEWIT_CONFIG).createDecoratedFeature(Decorator.COUNT_CHANCE_HEIGHTMAP_DOUBLE.configure(new CountChanceDecoratorConfig(3, 0.125F))));
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.GREEN_MUSHROOM_CONFIG).createDecoratedFeature(Decorator.COUNT_CHANCE_HEIGHTMAP_DOUBLE.configure(new CountChanceDecoratorConfig(3, 0.125F))));
+    }
+
+    public static void addGlowshrooms(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BLUE_GLOWSHROOM_CONFIG).createDecoratedFeature(Decorator.COUNT_CHANCE_HEIGHTMAP_DOUBLE.configure(new CountChanceDecoratorConfig(3, 0.125F))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PURPLE_GLOWSHROOM_CONFIG).createDecoratedFeature(Decorator.COUNT_CHANCE_HEIGHTMAP_DOUBLE.configure(new CountChanceDecoratorConfig(3, 0.125F))));
     }
 
     public static void addAnemones(Biome biome) {
@@ -214,11 +263,35 @@ public class BYGFeatures {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.FAIRYSLIPPER_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
     }
 
+    public static void addCyanRose(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.CYAN_ROSE_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
+    public static void addRedorchid(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.RED_ORCHID_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
+    public static void addPurpleOrchid(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PURPLE_ORCHID_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
+    public static void addPinkOrchid(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PINK_ORCHID_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
+    public static void addPeachleatherflower(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PEACH_LEATHER_FLOWER_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
+    public static void addVioletleatherflower(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.VIOLET_LEATHER_FLOWER_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+    }
+
     public static void addKovanFlower(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.KOVAN_FLOWER_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
     }
 
-    public static void addForestGrass(Biome biome) {
+    public static void addGrass(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_GRASS_CONFIG).createDecoratedFeature(Decorator.NOISE_HEIGHTMAP_DOUBLE.configure(new NoiseHeightmapDecoratorConfig(-0.8D, 5, 10))));
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(DefaultBiomeFeatures.GRASS_CONFIG).createDecoratedFeature(Decorator.NOISE_HEIGHTMAP_DOUBLE.configure(new NoiseHeightmapDecoratorConfig(-0.8D, 5, 10))));
     }
@@ -230,7 +303,7 @@ public class BYGFeatures {
 
     }
 
-    public static void addSavannaTallGrass(Biome biome) {
+    public static void addTallGrass(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.TALL_GRASS_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(10))));
 
     }
@@ -290,21 +363,21 @@ public class BYGFeatures {
     }
 
     public static void addFrostMagmaLakes(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, BYGFeatureList.FROST_LAKE.configure(new SingleStateFeatureConfig(BYGBlockList.FROST_MAGMA.getDefaultState())).createDecoratedFeature(Decorator.WATER_LAKE.configure(new ChanceDecoratorConfig(4))));
+        biome.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, BYGFeatureList.LAKE_FROST.configure(new SingleStateFeatureConfig(BYGBlockList.FROST_MAGMA.getDefaultState())).createDecoratedFeature(Decorator.WATER_LAKE.configure(new ChanceDecoratorConfig(4))));
 
     }
 
 
-    public static void addNetherFortress(Biome biome) {
-//        biome.addStructureFeature(Feature.NETHER_BRIDGE.configure(FeatureConfig.DEFAULT));
-//        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.NETHER_BRIDGE.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
-    }
+//    public static void addNetherFortress(Biome biome) {
+//        biome.addStructure(Feature.NETHER_BRIDGE.configure(FeatureConfig.DEFAULT));
+//        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.NETHER_BRIDGE.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.NOPE.configure(IDecoratorConfig.NO_Decorator_CONFIG)));
+//    }
 
     public static void addWarpedVegetation(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WARPED_CACTUS_CONFIG).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(2, 0.4F, -1))));
-        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_BUSH.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(150, 0, 0, 256))));
-        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_CORAL.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(300, 0, 0, 256))));
-        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_CORALFAN.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(300, 0, 0, 256))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_BUSH.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(400, 0, 0, 256))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_CORAL.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(600, 0, 0, 256))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_CORALFAN.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(600, 0, 0, 256))));
         biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_CORALPLANT.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(300, 0, 0, 256))));
     }
 
@@ -314,11 +387,23 @@ public class BYGFeatures {
         biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.SYTHIAN_SPROUT.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(10, 0.5F, 8))));
     }
 
-    public static void addEndCity(Biome biome) {
-//        biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Feature.END_CITY.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
-//        biome.addStructureFeature(Feature.END_CITY.configure(FeatureConfig.DEFAULT));
-//        biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Feature.END_GATEWAY.configure(EndGatewayConfig.func_214702_a(EndDimension.SPAWN, true)).createDecoratedFeature(Decorator.END_GATEWAY.configure(DecoratorConfig.DEFAULT)));
+    public static void addGlowstoneGardenVegetation(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WEED_GRASS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(10, 0.5F, 8))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WEEPING_MILKCAP.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(10, 0.5F, 8))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WOOD_BLEWIT.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(10, 0.5F, 8))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.BLACK_PUFF.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(10, 0.5F, 8))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.GREEN_MUSHROOM.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(10, 0.5F, 8))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.NETHER_BRISTLE.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(2, 0.4F, 1))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WEEPING_ROOTS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.LIGHT_GEM_CHANCE.configure(new CountDecoratorConfig(150))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WEEPING_ROOTS_PLANT.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.LIGHT_GEM_CHANCE.configure(new CountDecoratorConfig(200))));
+
     }
+
+//    public static void addEndCity(Biome biome) {
+//        biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Feature.END_CITY.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.NOPE.configure(IDecoratorConfig.NO_Decorator_CONFIG)));
+//        biome.addStructure(Feature.END_CITY.configure(FeatureConfig.DEFAULT));
+//        biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Feature.END_GATEWAY.configure(EndGatewayConfig.func_214702_a(EndDimension.SPAWN, true)).createDecoratedFeature(Decorator.END_GATEWAY.configure(IDecoratorConfig.NO_Decorator_CONFIG)));
+//    }
 
     public static void addDeadSeaSpires(Biome biome) {
         biome.addFeature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.TALLDEADSEASPIKES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(2, 0.1F, 1))));
@@ -326,20 +411,45 @@ public class BYGFeatures {
     }
 
 //    public static void addSkyrisFortress(Biome biome) {
-//        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.SKYRISFORTRESS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
-//        biome.addStructureFeature(BYGFeatureList.SKYRISFORTRESS.configure(FeatureConfig.DEFAULT));
+//        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.SKYRISFORTRESS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.NOPE.configure(IDecoratorConfig.NO_Decorator_CONFIG)));
+//        biome.addStructure(BYGFeatureList.SKYRISFORTRESS.configure(FeatureConfig.DEFAULT));
 //    }
 
-    public static void addVines(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(250, 0, 0, 256))));
+    public static void addHugeNetherMushrooms(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.RANDOM_BOOLEAN_SELECTOR.configure(new RandomBooleanFeatureConfig(Feature.HUGE_RED_MUSHROOM.configure(DefaultBiomeFeatures.HUGE_RED_MUSHROOM_CONFIG), Feature.HUGE_BROWN_MUSHROOM.configure(DefaultBiomeFeatures.HUGE_BROWN_MUSHROOM_CONFIG))).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(2, 0.5F, 2))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+                BYGFeatureList.BLUE_GLOWSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F),
+                BYGFeatureList.PURPLE_GLOWSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F),
+                BYGFeatureList.GREEN_MUSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F),
+                BYGFeatureList.WOOD_BLEWIT_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F),
+                BYGFeatureList.WEEPING_MILKCAP_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F)),
+                BYGFeatureList.BLACK_PUFF_HUGE.configure(DecoratedFeatureConfig.DEFAULT))).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(
+                new CountExtraChanceDecoratorConfig(5, 0.5F, 2))));
+
     }
 
     public static void addTropFungalMushrooms(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.BLACKPUFF.configure(DecoratedFeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(5, 0.1F, 1))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+                BYGFeatureList.GREEN_MUSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.2F),
+                BYGFeatureList.WOOD_BLEWIT_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.4F),
+                BYGFeatureList.WEEPING_MILKCAP_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.4F)),
+                BYGFeatureList.BLACK_PUFF_HUGE.configure(DecoratedFeatureConfig.DEFAULT))).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(
+                new CountExtraChanceDecoratorConfig(15, 0.5F, 5))));
     }
 
-    public static void addivisPlants(Biome biomeIn) {
-        biomeIn.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.IVIS_ROOTS).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
-        biomeIn.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.IVIS_SPROUT).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
+    public static void addIvisPlants(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.IVIS_ROOTS).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.IVIS_SPROUT).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(2))));
+    }
+
+    public static void addExtraCanyons(Biome biome) {
+        biome.addCarver(GenerationStep.Carver.AIR, Biome.configureCarver(Carver.CANYON, new ProbabilityConfig(0.8F)));
+    }
+
+    public static void addGiantFlowerFeatures(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.GIANT_ANGELICA_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(1, 0.3F, -1))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.GIANT_DANDELION_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(1, 0.3F, -1))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.GIANT_IRIS_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(1, 0.3F, -1))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.GIANT_ROSE_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(1, 0.3F, -1))));
     }
 }

@@ -264,7 +264,6 @@ public class BYGBlockRegistry {
 
                 //Ground BYGBlockRenders
                 BYGBlockList.PEAT = new BYGBlockProperties.BYGGrassBlock("peat");
-                BYGBlockList.PEAT_GRASSBLOCK = new BYGBlockProperties.BYGGrassBlock("peat_grass_block");
                 BYGBlockList.MEADOW_GRASSBLOCK = new BYGBlockProperties.BYGMeadowGrass("meadow_grass_block");
                 BYGBlockList.GLOWCELIUM = new BYGBlockProperties.BYGGlowcelium("glowcelium_block");
                 BYGBlockList.MEADOW_DIRT = new BYGBlockProperties.BYGDirt("meadow_dirt");
@@ -385,9 +384,9 @@ public class BYGBlockRegistry {
 //                BYGBlockList.RED_GLOWCANE = new BYGBlockProperties.BYGREDGlowCane("red_glowcane");
 //                BYGBlockList.PURPLE_GLOWCANE = new BYGBlockProperties.BYGPURPLEGlowCane("purple_glowcane");
 //                BYGBlockList.PINK_GLOWCANE = new BYGBlockProperties.BYGPINKGlowCane("pink_glowcane");
-//                BYGBlockList.POISON_IVY = new BYGBlockProperties.BYGPoisonIvy("poison_ivy");
+                BYGBlockList.POISON_IVY = new BYGBlockProperties.BYGPoisonIvy("poison_ivy");
                 BYGBlockList.SKYRIS_VINE = new BYGBlockProperties.BYGSkyrisVine("skyris_vine");
-//                BYGBlockList.BLUEBERRY_BUSH = new BYGBlockProperties.BYGBerryBush("blueberry_bush");
+                BYGBlockList.BLUEBERRY_BUSH = new BYGBlockProperties.BYGBerryBush("blueberry_bush");
                 BYGBlockList.TINY_LILYPADS = new BYGBlockProperties.BYGLily("tiny_lilypads");
                 BYGBlockList.WATER_SILK = new BYGBlockProperties.BYGWaterSilk("water_silk");
 
@@ -409,6 +408,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WARPED_CORAL_FAN = new BYGBlockProperties.BYGWarpedFanCoral("warped_coral_fan");
                 BYGBlockList.WARPED_CORAL_WALL_FAN = new BYGBlockProperties.BYGWarpedWallFanCoral("warped_coral_wall_fan");
                 BYGBlockList.NYLIUM_SOUL_SAND = new BYGBlockProperties.BYGNyliumSoulSand("nylium_soul_sand");
+                BYGBlockList.NYLIUM_SOUL_SOIL = new BYGBlockProperties.BYGNyliumSoulSoil("nylium_soul_soil");
 
                 BYGBlockList.SYTHIAN_NYLIUM = new BYGBlockProperties.BYGSythianNylium("sythian_nylium");
                 BYGBlockList.SYTHIAN_ROOTS = new BYGBlockProperties.SythianPlant("sythian_roots");
@@ -429,11 +429,15 @@ public class BYGBlockRegistry {
                 BYGBlockList.PINK_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("pink_glowcane_block");
                 BYGBlockList.PURPLE_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("purple_glowcane_block");
 
-                //Decoration BYGBlockRenders
-                //BYGBlockList.REDSTONE_LANTERN = new BYGRedStoneLantern("redstone_lantern_block");
+                //Decoration Blocks
+                BYGBlockList.GLOWSTONE_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("glowstone_lamp");
+                BYGBlockList.PERVADED_NETHERRACK = new BYGBlockProperties.BYGPervadedNetherrack("pervaded_netherrack");
+                BYGBlockList.GLOWSTONE_LANTERN = new BYGBlockProperties.BYGLantern("glowstone_lantern");
                 BYGBlockList.PACKED_BLACK_ICE = new BYGBlockProperties.BYGPackedIceBlock("packed_black_ice");
                 BYGBlockList.BLACK_ICE = new BYGBlockProperties.BYGIceBlock("black_ice");
                 BYGBlockList.FROST_MAGMA = new BYGBlockProperties.BYGFrostMagma("frost_magma");
+                BYGBlockList.PINK_CHERRY_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("pink_cherry_foliage");
+                BYGBlockList.WHITE_CHERRY_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("white_cherry_foliage");
 
 
                 //Petal BYGBlockRenders

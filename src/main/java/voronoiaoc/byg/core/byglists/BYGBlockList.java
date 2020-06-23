@@ -229,18 +229,17 @@ public class BYGBlockList {
     public static Block MAGENTA_AMARANTH;
     public static Block PURPLE_AMARANTH;
 
-    //Grass BYGBlockRenders
+    //Grass Blocks
     public static Block MEADOW_GRASSBLOCK;
     public static Block GLOWCELIUM;
-    public static Block PEAT_GRASSBLOCK;
 
-    //Dirt BYGBlockRenders
+    //Dirt Blocks
     public static Block PEAT;
     public static Block MEADOW_DIRT;
     public static Block MUD_BLOCK;
     public static Block MUD_BRICKS;
 
-    //Sand BYGBlockRenders
+    //Sand Blocks
     public static Block BLUE_SAND;
     public static Block BLACK_SAND;
     public static Block WHITE_SAND;
@@ -404,6 +403,7 @@ public class BYGBlockList {
     //OreBlocks
     public static Block PENDORITE_ORE;
     public static Block AMETRINE_ORE;
+    public static Block PERVADED_NETHERRACK;
 
 
     //BookshelvesBlocks
@@ -479,6 +479,8 @@ public class BYGBlockList {
     public static Block PINK_GLOWCANE;
     public static Block PURPLE_GLOWCANE;
     public static Block SKYRIS_VINE;
+    public static Block WEEPING_ROOTS;
+    public static Block WEEPING_ROOTS_PLANT;
     public static Block TINY_LILYPADS;
     public static Block WINTER_GRASS;
     public static Block WATER_SILK;
@@ -496,6 +498,10 @@ public class BYGBlockList {
     public static Block CLOVER_PATCH;
     public static Block FLOWER_PATCH;
 
+    public static Block OVERGROWN_NETHERRACK;
+    public static Block NETHER_BRISTLE;
+
+
     public static Block WARPED_CACTUS;
     public static Block WARPED_BUSH;
     public static Block WARPED_CORAL_BLOCK;
@@ -503,6 +509,8 @@ public class BYGBlockList {
     public static Block WARPED_CORAL_FAN;
     public static Block WARPED_CORAL_WALL_FAN;
     public static Block NYLIUM_SOUL_SAND;
+    public static Block NYLIUM_SOUL_SOIL;
+
 
     public static Block SYTHIAN_SPROUT;
     public static Block SYTHIAN_ROOTS;
@@ -516,7 +524,7 @@ public class BYGBlockList {
     public static Block IVIS_SPROUT;
 
 
-    //GlowcaneItem BLocks
+    //Glowcane BLocks
 
     public static Block BLUE_GLOWCANE_BLOCK;
     public static Block RED_GLOWCANE_BLOCK;
@@ -524,8 +532,10 @@ public class BYGBlockList {
     public static Block PURPLE_GLOWCANE_BLOCK;
 
     //Decorations
-
-    public static Block REDSTONE_LANTERN;
+    public static Block GLOWSTONE_LAMP;
+    public static Block GLOWSTONE_LANTERN;
+    public static Block PINK_CHERRY_FOLIAGE;
+    public static Block WHITE_CHERRY_FOLIAGE;
 
     //SaplingBlocks
     public static Block ASPEN_SAPLING;

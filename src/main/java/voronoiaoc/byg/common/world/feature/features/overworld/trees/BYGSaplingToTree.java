@@ -1,6 +1,5 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees;
 
-import javax.annotation.Nullable;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.AspenTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.AspenTree2;
@@ -10,8 +9,8 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownB
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.OrangeBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.RedBirchTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.YellowBirchTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.SmallFirTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.WideFirTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.ConiferTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.ConiferTree7;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.JacarandaTree1;
@@ -42,6 +41,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGTree
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BYGSaplingToTree {
@@ -186,12 +186,12 @@ public class BYGSaplingToTree {
     public static class FirSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<DefaultFeatureConfig> getBigTreeFeature(Random random) {
-            return new WideFirTree(DefaultFeatureConfig.CODEC);
+            return new ConiferTree7(DefaultFeatureConfig.CODEC);
         }
 
         @Nullable
         public BYGAbstractTreeFeature<DefaultFeatureConfig> getTreeFeature(Random random) {
-            return new SmallFirTree(DefaultFeatureConfig.CODEC);
+            return new ConiferTree1(DefaultFeatureConfig.CODEC);
         }
     }
 

@@ -4,8 +4,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //import net.minecraft.block.BYGBlockRenders;
 ////import net.minecraft.util.math.BlockPos;
 //import net.minecraft.util.math.BlockBox;
-////import net.minecraft.world.gen.IWorldGenerationReader;
-//import net.minecraft.world.gen.feature.AbstractTreeFeature;
+//////import net.minecraft.world.gen.feature.AbstractTreeFeature;
 //import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 //
 //import java.util.Random;
@@ -106,7 +105,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //
 //                    //Sets Logs
-//                    if (isAirOrLeaves(worldIn, blockpos1)) {
+//                    if (isAir(worldIn, blockpos1)) {
 //                        this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
 //                        //Uncommenting this will create a 2x2 tree trunk.
 //                        /*this.treelog(changedBlocks, worldIn, blockpos1.south(), boundsIn);

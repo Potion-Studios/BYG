@@ -70,7 +70,7 @@ public class GiantYellowSpruceTree extends BYGAbstractTreeFeature<DefaultFeature
                     int logplacer = posY + buildTrunk;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
 
-                    if (isAirOrLeaves(worldIn, blockpos1)) {
+                    if (isAir(worldIn, blockpos1)) {
                         this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
                         this.treelog(changedBlocks, worldIn, blockpos1.south(), boundsIn);
                         this.treelog(changedBlocks, worldIn, blockpos1.east(), boundsIn);

@@ -3,15 +3,14 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.util;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.structure.Structure;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.*;
 import net.minecraft.util.shape.BitSetVoxelSet;
 import net.minecraft.util.shape.VoxelSet;
+import net.minecraft.world.ModifiableTestableWorld;
 import net.minecraft.world.ModifiableWorld;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.TestableWorld;
@@ -35,22 +34,47 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
     public static boolean canTreePlaceHere(TestableWorld worldReader, BlockPos blockPos) {
             return worldReader.testBlockState(blockPos, (state) -> {
                 Block block = state.getBlock();
-                return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isDirt(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM;
+                return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || state.getMaterial() == Material.SOIL || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM;
             });
     }
 
-    public static boolean isAir(TestableWorld worldIn, BlockPos pos) {
-        return worldIn.testBlockState(pos, BlockState::isAir);
+    //Qualifies Tree Placement in Water
+    public static boolean canTreePlaceHereWater(TestableWorld worldReader, BlockPos blockPos) {
+        return worldReader.testBlockState(blockPos, (state) -> {
+            Block block = state.getBlock();
+            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isDirt(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.GLOWCELIUM || block == Blocks.WATER;
+        });
     }
 
-    protected static boolean isAirOrLeaves(TestableWorld worldIn, BlockPos pos) {
-            return worldIn.testBlockState(pos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES));
+    public static void setGroundBlock(ModifiableTestableWorld reader, Block block, BlockPos... positions) {
+        for (BlockPos pos : positions) {
+            reader.setBlockState(pos.offset(Direction.DOWN), block.getDefaultState(), 2);
+        }
     }
 
-    protected static boolean isDesiredGround(TestableWorld worldIn, BlockPos pos, Block desiredGroundBlock) {
+    public static boolean isQualifiedForLog(TestableWorld worldReader, BlockPos blockPos) {
+        return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES));
+    }
+
+    public static boolean isQualifiedForLogWater(TestableWorld worldReader, BlockPos blockPos) {
+        return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.WATER);
+    }
+    
+    protected static boolean isAir(TestableWorld worldIn, BlockPos pos) {
+            return worldIn.testBlockState(pos, AbstractBlock.AbstractBlockState::isAir);
+    }
+
+    public static boolean isAirOrWater(TestableWorld worldIn, BlockPos pos) {
+        return worldIn.testBlockState(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
+    }
+
+    public static boolean isDesiredGround(TestableWorld worldIn, BlockPos pos, Block... desiredGroundBlock) {
         return worldIn.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
-            return Feature.isDirt(block) || block == desiredGroundBlock;
+            for (Block block1 : desiredGroundBlock) {
+                return state.getMaterial() == Material.SOIL || block == block1 ;
+            }
+            return false;
         });
     }
 

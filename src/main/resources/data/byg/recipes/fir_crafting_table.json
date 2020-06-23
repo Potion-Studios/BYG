@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:fir_planks"
+    }
+  },
+  "result": {
+    "item": "byg:fir_crafting_table"
+  }
+}

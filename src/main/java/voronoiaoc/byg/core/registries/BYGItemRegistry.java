@@ -16,7 +16,6 @@ public class BYGItemRegistry {
 //                registerItem(BYGItemList.SONORAN_CACTUS = new BlockItem(BYGBlockList.SONORAN_CACTUS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SONORAN_CACTUS));
 
                 registerItem(BYGItemList.PEAT = new BlockItem(BYGBlockList.PEAT, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PEAT));
-                registerItem(BYGItemList.PEAT_GRASSBLOCK = new BlockItem(BYGBlockList.PEAT_GRASSBLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PEAT_GRASSBLOCK));
                 registerItem(BYGItemList.MEADOW_GRASSBLOCK = new BlockItem(BYGBlockList.MEADOW_GRASSBLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MEADOW_GRASSBLOCK));
                 registerItem(BYGItemList.GLOWCELIUM = new BlockItem(BYGBlockList.GLOWCELIUM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.GLOWCELIUM));
                 registerItem(BYGItemList.MEADOW_DIRT = new BlockItem(BYGBlockList.MEADOW_DIRT, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MEADOW_DIRT));
@@ -737,12 +736,12 @@ public class BYGItemRegistry {
 //
 //
 //                //Plants
-//                registerItem(BYGItemList.BLUE_BERRY = new AliasedBlockItem(BYGBlockList.BLUEBERRY_BUSH, new Item.Settings().group(BYG.BYG_TAB).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.1f).build())), new Identifier(BYG.MODID, "blueberries"));
+                registerItem(BYGItemList.BLUE_BERRY = new AliasedBlockItem(BYGBlockList.BLUEBERRY_BUSH, new Item.Settings().group(BYG.BYG_TAB).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.1f).build())), new Identifier(BYG.MODID, "blueberries"));
                 registerItem(BYGItemList.CATTAIL = new BlockItem(BYGBlockList.CATTAIL, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CATTAIL));
                 registerItem(BYGItemList.GOLDEN_SPINED_CACTUS = new BlockItem(BYGBlockList.GOLDEN_SPINED_CACTUS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.GOLDEN_SPINED_CACTUS));
                 registerItem(BYGItemList.HORSEWEED = new BlockItem(BYGBlockList.HORSEWEED, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.HORSEWEED));
                 registerItem(BYGItemList.MINI_CACTUS = new BlockItem(BYGBlockList.MINI_CACTUS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MINI_CACTUS));
-//                registerItem(BYGItemList.POISON_IVY = new BlockItem(BYGBlockList.POISON_IVY, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.POISON_IVY));
+                registerItem(BYGItemList.POISON_IVY = new BlockItem(BYGBlockList.POISON_IVY, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.POISON_IVY));
                 registerItem(BYGItemList.PRICKLY_PEAR_CACTUS = new BlockItem(BYGBlockList.PRICKLY_PEAR_CACTUS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PRICKLY_PEAR_CACTUS));
                 registerItem(BYGItemList.PRAIRIE_GRASS = new BlockItem(BYGBlockList.PRAIRIE_GRASS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PRAIRIE_GRASS));
                 registerItem(BYGItemList.REEDS = new BlockItem(BYGBlockList.REEDS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.REEDS));

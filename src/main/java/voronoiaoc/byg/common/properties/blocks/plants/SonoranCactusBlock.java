@@ -109,8 +109,8 @@ package voronoiaoc.byg.common.properties.blocks.plants;//package voronoiaoc.byg.
 //        return (
 //                worldIn.getBlockState(pos.offset(Direction.NORTH)).getBlock() == this
 //                        || worldIn.getBlockState(pos.offset(Direction.WEST)).getBlock() == this
-//                        || worldIn.getBlockState(pos.offset(Direction.SOUTH)).getBlock() == this
-//                        || worldIn.getBlockState(pos.offset(Direction.EAST)).getBlock() == this
+//                        || worldIn.getBlockState().set(pos.offset(Direction.SOUTH)).getBlock() == this
+//                        || worldIn.getBlockState().set(pos.offset(Direction.EAST)).getBlock() == this
 //                        || worldIn.getBlockState(pos.offset(Direction.DOWN)).getBlock() == this
 //                        || worldIn.getBlockState(pos.offset(Direction.WEST).offset(Direction.DOWN)).getBlock() == this
 //                        || worldIn.getBlockState(pos.offset(Direction.SOUTH).offset(Direction.DOWN)).getBlock() == this

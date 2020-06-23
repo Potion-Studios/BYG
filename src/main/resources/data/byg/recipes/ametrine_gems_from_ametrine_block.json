@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "byg:ametrine_block"
+    }
+  ],
+  "result": {
+    "item": "byg:ametrine_gems",
+    "count": 9
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "byg:jacaranda_planks"
+    }
+  ],
+  "result": {
+    "item": "byg:jacaranda_button"
+  }
+}

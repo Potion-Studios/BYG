@@ -89,7 +89,7 @@ public class BYGShrub extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
 
                     //Sets Logs
-                    if (isAirOrLeaves(worldIn, blockpos1)) {
+                    if (isAir(worldIn, blockpos1)) {
                         this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
                     }
                 }
