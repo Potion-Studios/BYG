@@ -56,6 +56,7 @@ public class GlowstoneGardens extends Biome implements BiomeFog {
     public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
         return WARPEDDESERTVEC3D;
     }
+
     private static final Vec3d WARPEDDESERTVEC3D = new Vec3d(0.724F, 0.69F, 0.47F);
 
 
@@ -67,7 +68,6 @@ public class GlowstoneGardens extends Biome implements BiomeFog {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public int getFoliageColor() {
         return 10855786;
     }

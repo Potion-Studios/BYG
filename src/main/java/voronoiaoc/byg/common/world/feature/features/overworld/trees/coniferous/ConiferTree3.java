@@ -36,7 +36,7 @@ public class ConiferTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
                     mainmutable.move(Direction.UP);
                 }
                 mainmutable.set(pos);
-                
+
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 15, -1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight - 15, 0), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 15, 0), boundsIn);
@@ -512,10 +512,9 @@ public class ConiferTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     private void leafs(Set<BlockPos> blockPos, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.FIR_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.FIR_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(TestableWorld reader, BlockPos blockPos, int height) {

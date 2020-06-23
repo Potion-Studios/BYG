@@ -26,7 +26,7 @@ public class MangroveTree5 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getDimensionHeight()) {
             BlockPos blockpos = pos.down();
-            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK) || !isDesiredGround(worldIn, blockpos, BYGBlockList.MOSSY_STONE) ) {
+            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK) || !isDesiredGround(worldIn, blockpos, BYGBlockList.MOSSY_STONE)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;
@@ -41,10 +41,10 @@ public class MangroveTree5 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
                 mainmutable.set(pos);
 
                 //Roots
-                BlockPos.Mutable rootMutable   = new BlockPos.Mutable().set(mainmutable.add(0, 0, -3));
-                BlockPos.Mutable rootMutable2  = new BlockPos.Mutable().set(mainmutable.add(-3, 0, 0));
-                BlockPos.Mutable rootMutable3  = new BlockPos.Mutable().set(mainmutable.add(3, 0, 0));
-                BlockPos.Mutable rootMutable4  = new BlockPos.Mutable().set(mainmutable.add(0, 0, 3));
+                BlockPos.Mutable rootMutable = new BlockPos.Mutable().set(mainmutable.add(0, 0, -3));
+                BlockPos.Mutable rootMutable2 = new BlockPos.Mutable().set(mainmutable.add(-3, 0, 0));
+                BlockPos.Mutable rootMutable3 = new BlockPos.Mutable().set(mainmutable.add(3, 0, 0));
+                BlockPos.Mutable rootMutable4 = new BlockPos.Mutable().set(mainmutable.add(0, 0, 3));
 
                 for (int buildRoot = 0; buildRoot <= 5; buildRoot++) {
                     this.treeBranch(changedBlocks, worldIn, rootMutable, boundsIn);
@@ -70,8 +70,8 @@ public class MangroveTree5 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 3, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 3, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 3, 1), boundsIn);
-                
-                
+
+
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight + 1, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight + 1, 1), boundsIn);
@@ -188,10 +188,9 @@ public class MangroveTree5 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
     private void leafs(Set<BlockPos> blockPos, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
         if (isAirOrWater(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.MANGROVE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.MANGROVE_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(ModifiableTestableWorld reader, BlockPos blockPos, int height) {

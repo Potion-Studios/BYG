@@ -1,7 +1,10 @@
 package voronoiaoc.byg.common.world.structure.village;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.structure.*;
+import net.minecraft.structure.PoolStructurePiece;
+import net.minecraft.structure.StructureManager;
+import net.minecraft.structure.StructurePiece;
+import net.minecraft.structure.StructurePieceType;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.structure.pool.StructurePoolElement;
 import net.minecraft.util.BlockRotation;

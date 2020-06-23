@@ -139,10 +139,9 @@ public class WillowTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     private void setWillowLeaves(Set<BlockPos> blockPos, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
         if (isAirOrWater(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.WILLOW_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.WILLOW_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(ModifiableTestableWorld reader, BlockPos blockPos, int height) {

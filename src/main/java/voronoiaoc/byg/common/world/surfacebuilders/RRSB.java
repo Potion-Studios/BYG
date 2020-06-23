@@ -128,7 +128,7 @@ public class RRSB extends SurfaceBuilder<TernarySurfaceConfig> {
         this.field_215432_a = new BlockState[64];
         Arrays.fill(this.field_215432_a, TERRACOTTA);
         ChunkRandom sharedseedrandom = new ChunkRandom(p_215430_1_);
-        this.noiseSampler3 = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.of(0));;
+        this.noiseSampler3 = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.of(0));
 
         for (int l1 = 0; l1 < 64; ++l1) {
             l1 += sharedseedrandom.nextInt(5) + 1;

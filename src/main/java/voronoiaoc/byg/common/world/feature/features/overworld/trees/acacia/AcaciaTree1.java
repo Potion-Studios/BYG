@@ -21,7 +21,7 @@ public class AcaciaTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
     /**
-     *TODO: Redo.
+     * TODO: Redo.
      */
     protected boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn) {
         int randTreeHeight = 8;
@@ -336,10 +336,9 @@ public class AcaciaTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     private void leafs(Set<BlockPos> blockPos, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(ModifiableTestableWorld reader, BlockPos blockPos, int height) {

@@ -50,7 +50,6 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<DefaultF
                 //this.setGroundBlockAt(worldIn, checkGround, position, Blocks.STONE.getDefaultState());
 
 
-
                 Direction direction = Direction.Type.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY1 = 2 - rand.nextInt(1);//Crashes on 0.

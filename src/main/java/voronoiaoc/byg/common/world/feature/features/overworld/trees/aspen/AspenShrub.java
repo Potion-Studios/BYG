@@ -39,7 +39,7 @@ public class AspenShrub extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight +randTreeHeight - 1;
+                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
                     if (buildTrunk >= randTreeHeight2 && posY1 < 0) {

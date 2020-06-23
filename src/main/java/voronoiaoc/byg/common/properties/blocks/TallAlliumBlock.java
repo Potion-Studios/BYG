@@ -1,6 +1,8 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FernBlock;
+import net.minecraft.block.TallPlantBlock;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
@@ -15,7 +17,7 @@ public class TallAlliumBlock extends FernBlock {
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        TallPlantBlock tallPlantBlock = (TallPlantBlock)(this == BYGBlockList.TALL_ALLIUM ? BYGBlockList.TALL_ALLIUM : BYGBlockList.TALL_ALLIUM);
+        TallPlantBlock tallPlantBlock = (TallPlantBlock) (this == BYGBlockList.TALL_ALLIUM ? BYGBlockList.TALL_ALLIUM : BYGBlockList.TALL_ALLIUM);
         if (tallPlantBlock.getDefaultState().canPlaceAt(world, pos) && world.isAir(pos.up())) {
             tallPlantBlock.placeAt(world, pos, 2);
         }

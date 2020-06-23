@@ -3,7 +3,6 @@ package voronoiaoc.byg.common.biomes.biomes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.GenerationStep;
@@ -14,10 +13,12 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SeagrassFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeFog;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class CragGardens extends Biome implements BiomeTools implements BiomeFog {
+public class CragGardens extends Biome implements BiomeTools, BiomeFog {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.SLUICE_SB, BYGSBList.BYGSBConfigList.GREEN_CONCRETE_POWDER_CF);
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
@@ -31,19 +32,15 @@ public class CragGardens extends Biome implements BiomeTools implements BiomeFog
 
     public CragGardens() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(Feature.OCEAN_RUIN.configure(new OceanRuinConfig(OceanRuinStructure.Type.WARM, 0.9F, 0.9F)));
-        ////this.addStructureFeature(Feature.JUNGLE_TEMPLE.configure(FeatureConfig.DEFAULT));
-        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        ////this.addStructureFeature(Feature.STRONGHOLD.configure(FeatureConfig.DEFAULT));
-        //BYGFeatures.addLargeLake(this);
-        //BYGFeatures.addCattails(this);
-        //BYGFeatures.addBYGLilyPad(this);
-        //BYGFeatures.addMarshGrass(this);
-        //BYGFeatures.addSavannaTallGrass(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addBYGGlowcane(this);
+        this.addStructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
+        this.addStructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);        DefaultBiomeFeatures.method_28440(this);
+        BYGFeatures.addLargeLake(this);
+        BYGFeatures.addCattails(this);
+        BYGFeatures.addBYGLilyPad(this);
+        BYGFeatures.addMarshGrass(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addBYGGlowcane(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructureFeatures(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
@@ -52,10 +49,9 @@ public class CragGardens extends Biome implements BiomeTools implements BiomeFog
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         BYGTreeFeatures.addTropJungleTrees(this);
         BYGTreeFeatures.addCragRainbowTrees(this);
-        //BYGFeatures.addBYGTropicFlowers(this);
+        BYGFeatures.addBYGTropicFlowers(this);
         DefaultBiomeFeatures.addJungleVegetation(this);
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
-
 
         this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.COD, 2, 1, 4));
         this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.SALMON, 5, 1, 5));
@@ -78,29 +74,38 @@ public class CragGardens extends Biome implements BiomeTools implements BiomeFog
     }
 
     @Override
-    public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
-        return color;
-    }
-
-    Vec3d color = new Vec3d(192, 192, 192);
-
-    @Override
     public int getSkyColor() {
         return 12632256;
-    }
-
-    @Override
-    public Boolean doesBiomeXZShowFog(int x, int z) {
-        return false;
-    }
-
-    @Override
-    public double getBiomeVoidFogYFactor(int x, int y, double originalValue) {
-        return 0.6;
     }
 
     @Override
     public float fogDistance(int x, int z, float originalDistanceChunks) {
         return 10;
     }
+
+    @Override
+    public Biome getRiver() {
+        return this;
+    }
+
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
+    }
+
 }

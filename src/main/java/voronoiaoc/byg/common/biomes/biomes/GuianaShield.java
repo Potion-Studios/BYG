@@ -6,12 +6,22 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
+
+import javax.annotation.Nullable;
 
 public class GuianaShield extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState()));
@@ -27,12 +37,10 @@ public class GuianaShield extends Biome implements BiomeTools {
 
     public GuianaShield() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/guiana/town_centers", 6)));
-        ////this.addStructureFeature(Feature.JUNGLE_TEMPLE.configure(FeatureConfig.DEFAULT));
-        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        ////this.addStructureFeature(Feature.STRONGHOLD.configure(FeatureConfig.DEFAULT));
+        DefaultBiomeFeatures.method_28440(this);
+        this.addStructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
+        this.addStructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructureFeatures(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
@@ -42,13 +50,12 @@ public class GuianaShield extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
         BYGTreeFeatures.addTropJungleTrees(this);
-        //BYGFeatures.addWeedGrass(this);
-        //BYGFeatures.addForestGrass(this);
-        //BYGFeatures.addBYGTropicFlowers(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //this.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/guiana/town_centers", 6)).createDecoratedFeature(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
+        BYGFeatures.addWeedGrass(this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGTropicFlowers(this);
+        BYGFeatures.addBYGMushrooms(this);
 
-//        this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, BYGBlockList.AMETRINE_ORE.getDefaultState(), BYGWorldConfig.ametrineOreSize.get())).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(BYGWorldConfig.ametrineOreChance.get(), 0, 0, BYGWorldConfig.ametrineOreMaxY.get()))));
+        this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, BYGBlockList.AMETRINE_ORE.getDefaultState(), 4)).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(10, 0, 0, 56))));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.CHICKEN, 10, 4, 4));
@@ -65,5 +72,45 @@ public class GuianaShield extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.OCELOT, 2, 1, 1));
+    }
+
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        return 6208527;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 6208527;
+    }
+
+    @Nullable
+    @Override
+    public Biome getRiver() {
+        return this;
+    }
+
+    @Nullable
+    @Override
+    public Biome getHill() {
+        return BYGBiomeList.GUIANA_CLEARING;
+    }
+
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

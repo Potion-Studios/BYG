@@ -25,6 +25,6 @@ public class FNVector2f {
     }
 
     public final float lengthSquared() {
-        return (this.x*this.x + this.y*this.y);
+        return (this.x * this.x + this.y * this.y);
     }
 }

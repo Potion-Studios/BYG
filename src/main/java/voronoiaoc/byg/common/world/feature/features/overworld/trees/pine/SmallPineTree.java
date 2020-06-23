@@ -28,9 +28,9 @@ public class SmallPineTree extends Feature<DefaultFeatureConfig> {
     @Override
     public boolean generate(ServerWorldAccess serverWorldAccess, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
         if (pos.getX() == -8 && pos.getZ() == -9) {
-            for (int checkX = pos.getX() + -16; checkX <= pos.getX() +  16; checkX++) {
+            for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
-                    for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() +  16; checkZ++) {
+                    for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() + 16; checkZ++) {
                         BlockPos.Mutable block = new BlockPos.Mutable(checkX, checkY, checkZ);
                         serverWorldAccess.setBlockState(block, Blocks.AIR.getDefaultState(), 2);
                     }
@@ -38,7 +38,7 @@ public class SmallPineTree extends Feature<DefaultFeatureConfig> {
             }
 
             StructureManager templatemanager = ((ServerWorld) serverWorldAccess.getWorld()).getStructureManager();
-            Structure template = templatemanager.getStructure(new Identifier(BYG.MODID , ":features/trees/redwood_treexl_piece1"));
+            Structure template = templatemanager.getStructure(new Identifier(BYG.MODID, ":features/trees/redwood_treexl_piece1"));
             Structure template2 = templatemanager.getStructure(new Identifier(BYG.MODID + ":features/trees/redwood_treexl_piece2"));
 
             if (template == null || template2 == null) {

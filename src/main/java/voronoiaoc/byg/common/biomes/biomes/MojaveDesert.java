@@ -4,13 +4,21 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
+
+import javax.annotation.Nullable;
 
 public class MojaveDesert extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.MOJAVE, new TernarySurfaceConfig(Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState(), Blocks.SANDSTONE.getDefaultState()));
@@ -26,10 +34,9 @@ public class MojaveDesert extends Biome implements BiomeTools {
 
     public MojaveDesert() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(Feature.VILLAGE.configure(new VillageConfig("village/desert/town_centers", 6)));
-        ////this.addStructureFeature(Feature.PILLAGER_OUTPOST.configure(FeatureConfig.DEFAULT));
-        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        ////this.addStructureFeature(Feature.STRONGHOLD.configure(FeatureConfig.DEFAULT));
+        StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/desert/town_centers"), 6));
+        this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
@@ -43,14 +50,14 @@ public class MojaveDesert extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addDesertFeatures(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        //BYGFeatures.addMiniCactus(this);
+        BYGFeatures.addMiniCactus(this);
         BYGTreeFeatures.addJoshuaTrees(this);
-        //BYGFeatures.addBYGDesertPlants(this);
-        //BYGFeatures.addFirecracker(this);
+        BYGFeatures.addBYGDesertPlants(this);
+        BYGFeatures.addFirecracker(this);
         DefaultBiomeFeatures.addDesertVegetation(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addForestGrass(this);
-//        DefaultBiomeFeatures.addForestGrassAndDeadBushes(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addGrass(this);
+        DefaultBiomeFeatures.addBadlandsGrass(this);
         BYGTreeFeatures.addBushes(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.RABBIT, 4, 2, 3));
@@ -64,5 +71,35 @@ public class MojaveDesert extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ZOMBIE, 19, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ZOMBIE_VILLAGER, 1, 1, 1));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.HUSK, 80, 4, 4));
+    }
+
+    @Nullable
+    @Override
+    public Biome getRiver() {
+        return Biomes.RIVER;
+    }
+
+    @Nullable
+    @Override
+    public Biome getHill() {
+        return Biomes.DESERT;
+    }
+
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

@@ -1,23 +1,19 @@
 package voronoiaoc.byg.common.properties.blocks;//package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.ScaffoldingBlock;
+import net.minecraft.block.Waterloggable;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Iterator;
 import java.util.Random;
@@ -27,6 +23,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements Waterloggab
     protected BYGScaffoldingBlock(Settings properties) {
         super(properties);
     }
+
     public static int calculateDistance(BlockView world, BlockPos pos) {
         BlockPos.Mutable mutable = pos.mutableCopy().move(Direction.DOWN);
         BlockState blockState = world.getBlockState(mutable);
@@ -39,8 +36,8 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements Waterloggab
 
         Iterator var5 = Direction.Type.HORIZONTAL.iterator();
 
-        while(var5.hasNext()) {
-            Direction direction = (Direction)var5.next();
+        while (var5.hasNext()) {
+            Direction direction = (Direction) var5.next();
             BlockState blockState2 = world.getBlockState(mutable.set(pos, direction));
             if (blockState2.isOf(Blocks.SCAFFOLDING)) {
                 i = Math.min(i, blockState2.get(DISTANCE) + 1);
@@ -67,7 +64,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements Waterloggab
         BlockState blockState = state.with(DISTANCE, i).with(BOTTOM, this.shouldBeBottom(world, pos, i));
         if (blockState.get(DISTANCE) == 7) {
             if (state.get(DISTANCE) == 7) {
-                world.spawnEntity(new FallingBlockEntity(world, (double)pos.getX() + 0.5D, pos.getY(), (double)pos.getZ() + 0.5D, blockState.with(WATERLOGGED, false)));
+                world.spawnEntity(new FallingBlockEntity(world, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, blockState.with(WATERLOGGED, false)));
             } else {
                 world.breakBlock(pos, true);
             }

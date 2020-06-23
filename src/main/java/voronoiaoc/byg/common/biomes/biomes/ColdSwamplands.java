@@ -14,6 +14,9 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SeagrassFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -31,25 +34,24 @@ public class ColdSwamplands extends Biome implements BiomeTools {
 
     public ColdSwamplands() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(Feature.SWAMP_HUT.configure(FeatureConfig.DEFAULT));
-        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+        this.addStructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
+        DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructureFeatures(this);
         DefaultBiomeFeatures.addDefaultLakes(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addClay(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
-        //DefaultBiomeFeatures.addSwampVegetation(this);
+        DefaultBiomeFeatures.addSwampVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
-        //DefaultBiomeFeatures.addSwampVegetation(this);
-        //BYGFeatures.addMarshGrass(this);
-        //BYGFeatures.addWiltedGrass(this);
-        //BYGFeatures.addWiltedGrass(this);
-        //BYGFeatures.addReeds(this);
-        //BYGFeatures.addMudDisks(this);
+        DefaultBiomeFeatures.addSwampVegetation(this);
+        BYGFeatures.addMarshGrass(this);
+        BYGFeatures.addWiltedGrass(this);
+        BYGFeatures.addWiltedGrass(this);
+        BYGFeatures.addReeds(this);
+        BYGFeatures.addMudDisks(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
@@ -66,5 +68,41 @@ public class ColdSwamplands extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 1, 1, 1));
+    }
+
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        double d0 = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
+        return d0 < -0.1D ? 7365696 : 7365696;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 7365696;
+    }
+
+    @Override
+    public Biome getRiver() {
+        return this;
+    }
+
+    @Override
+    public Biome getHill() {
+        return BYGBiomeList.BOG;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return this;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

@@ -27,7 +27,6 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig>
     }
 
 
-
     public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
 
         int randTreeHeight = rand.nextInt(3) + rand.nextInt(5) + 9;

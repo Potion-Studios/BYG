@@ -17,7 +17,8 @@ public class RedDesertTempleStructure extends StructureFeature<DefaultFeatureCon
 
     @Override
     public String getName() {
-        return BYG.MODID + ":red_desert_temple";    }
+        return BYG.MODID + ":red_desert_temple";
+    }
 
 //    public int getSize() {
 //        return 3;
@@ -26,7 +27,6 @@ public class RedDesertTempleStructure extends StructureFeature<DefaultFeatureCon
     public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
         return Start::new;
     }
-
 
 
 //    protected int getSeedModifier() {

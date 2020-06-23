@@ -127,7 +127,7 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
         this.field_215432_a = new BlockState[64];
         Arrays.fill(this.field_215432_a, TERRACOTTA);
         ChunkRandom sharedseedrandom = new ChunkRandom(p_215430_1_);
-        this.field_215439_e =  new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.of(0));
+        this.field_215439_e = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.of(0));
 
         for (int l1 = 0; l1 < 64; ++l1) {
             l1 += sharedseedrandom.nextInt(5) + 1;
@@ -191,7 +191,7 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
     }
 
     protected BlockState func_215431_a(int p_215431_1_, int p_215431_2_, int p_215431_3_) {
-        int i = (int) Math.round(this.field_215439_e.sample ((double) p_215431_1_ / 512.0D, (double) p_215431_3_ / 512.0D, false) * 2.0D);
+        int i = (int) Math.round(this.field_215439_e.sample((double) p_215431_1_ / 512.0D, (double) p_215431_3_ / 512.0D, false) * 2.0D);
         return this.field_215432_a[(p_215431_2_ + i + 64) % 64];
     }
 }

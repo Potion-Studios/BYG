@@ -16,8 +16,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 
-;
-
 @SuppressWarnings("deprecation")
 public class BYGSkyrisVillagePools {
     public static void init() {

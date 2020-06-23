@@ -16,7 +16,11 @@ import net.minecraft.world.gen.feature.RandomRandomFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+
+import javax.annotation.Nullable;
 
 public class TropicalIslands extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
@@ -33,11 +37,10 @@ public class TropicalIslands extends Biome implements BiomeTools {
     public TropicalIslands() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
         ////this.addStructureFeature(Feature.JUNGLE_TEMPLE.configure(FeatureConfig.DEFAULT));
-        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        ////this.addStructureFeature(Feature.STRONGHOLD.configure(FeatureConfig.DEFAULT));
+        DefaultBiomeFeatures.method_28440(this);
         BYGTreeFeatures.addIslandRainbowTrees(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructureFeatures(this);
+
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addDefaultDisks(this);
@@ -49,8 +52,8 @@ public class TropicalIslands extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         DefaultBiomeFeatures.addSavannaGrass(this);
         DefaultBiomeFeatures.addForestGrass(this);
-        //BYGFeatures.addBYGTropicFlowers(this);
-        //BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addBYGTropicFlowers(this);
+        BYGFeatures.addBYGMushrooms(this);
 //        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(Feature.TREE.configure(DefaultBiomeFeatures.field_230135_r_).withChance(0.2F), Feature.FANCY_TREE.configure(DefaultBiomeFeatures.field_230134_q_).withChance(0.1F)), Feature.TREE.configure(DefaultBiomeFeatures.field_230133_p_))).createDecoratedFeature(Decorator.COUNT_EXTRA_HEIGHTMAP.configure(new CountExtraChanceDecoratorConfig(6, 0.1F, 1))));
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.FLOWER.configure(DefaultBiomeFeatures.FOREST_FLOWER_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(100))));
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_RANDOM_SELECTOR.configure(new RandomRandomFeatureConfig(ImmutableList.of(Feature.RANDOM_PATCH.configure(DefaultBiomeFeatures.LILAC_CONFIG), Feature.RANDOM_PATCH.configure(DefaultBiomeFeatures.ROSE_BUSH_CONFIG), Feature.RANDOM_PATCH.configure(DefaultBiomeFeatures.PEONY_CONFIG), Feature.FLOWER.configure(DefaultBiomeFeatures.LILY_OF_THE_VALLEY_CONFIG)), 2)).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(5))));
@@ -65,5 +68,35 @@ public class TropicalIslands extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
 
 
+    }
+
+    @Nullable
+    @Override
+    public Biome getRiver() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

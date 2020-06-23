@@ -23,7 +23,7 @@ public class AspenTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
     public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
         int minHeight = 9;
-        Biome biome =  worldIn.getBiome(position);
+        Biome biome = worldIn.getBiome(position);
         if (biome == BYGBiomeList.ASPENFORESTHILLS)
             minHeight = 13;
 
@@ -127,7 +127,7 @@ public class AspenTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
                         this.leafs(worldIn, posX2 - 1, topTrunkHeight + 4, posZ2, boundsIn, changedBlocks);
                         this.leafs(worldIn, posX2 + 1, topTrunkHeight + 4, posZ2, boundsIn, changedBlocks);
                         this.leafs(worldIn, posX2, topTrunkHeight + 4, posZ2 - 1, boundsIn, changedBlocks);
-                                
+
                         //Right Leaves
                         this.leafs(worldIn, posX3 + 1, topTrunkHeight + 1, posZ3, boundsIn, changedBlocks);
                         this.leafs(worldIn, posX3 + 2, topTrunkHeight + 1, posZ3, boundsIn, changedBlocks);
@@ -189,9 +189,7 @@ public class AspenTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
             }
 
             return true;
-        }
-
-        else {
+        } else {
             return false;
         }
     }

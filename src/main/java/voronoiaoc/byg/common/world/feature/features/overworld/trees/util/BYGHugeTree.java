@@ -1,6 +1,5 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.util;
 
-import javax.annotation.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -10,6 +9,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public abstract class BYGHugeTree extends BYGTree {

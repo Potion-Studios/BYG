@@ -4,6 +4,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.GenerationStep;
@@ -11,10 +12,16 @@ import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+
+import javax.annotation.Nullable;
 
 public class SkyrisHighlands extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
@@ -30,13 +37,13 @@ public class SkyrisHighlands extends Biome implements BiomeTools {
 
     public SkyrisHighlands() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(Feature.VILLAGE.configure(new VillageConfig("village/plains/town_centers", 6)));
-        ////this.addStructureFeature(Feature.PILLAGER_OUTPOST.configure(FeatureConfig.DEFAULT));
+        StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
+        this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.MESA)));
-        ////this.addStructureFeature(Feature.STRONGHOLD.configure(FeatureConfig.DEFAULT));
+        DefaultBiomeFeatures.method_28440(this);
         BYGTreeFeatures.addSkyrisTrees(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructureFeatures(this);
+
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
@@ -44,14 +51,12 @@ public class SkyrisHighlands extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addEmeraldOre(this);
-        //BYGFeatures.addRockyStoneBoulder(this);
-        //BYGFeatures.addMossyStoneBoulder(this);
-        //BYGFeatures.addFoxgloves(this);
-        //BYGFeatures.addCrocus(this);
-        //BYGFeatures.addFairyslipper(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addForestGrass(this);
-//        //BYGFeatures.addSkyrisFortress(this);
+        BYGFeatures.addRockyStoneBoulder(this);
+        BYGFeatures.addMossyStoneBoulder(this);
+        BYGFeatures.addFoxgloves(this);
+        BYGFeatures.addCrocus(this);
+        BYGFeatures.addFairyslipper(this);
+        BYGFeatures.addBYGMushrooms(this);
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SPRING_FEATURE.configure(DefaultBiomeFeatures.WATER_SPRING_CONFIG).createDecoratedFeature(Decorator.COUNT_BIASED_RANGE.configure(new RangeDecoratorConfig(50, 8, 8, 256))));
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
@@ -66,5 +71,35 @@ public class SkyrisHighlands extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
+    }
+
+    @Nullable
+    @Override
+    public Biome getRiver() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

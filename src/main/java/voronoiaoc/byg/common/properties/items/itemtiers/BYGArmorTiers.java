@@ -56,8 +56,7 @@ package voronoiaoc.byg.common.properties.items.itemtiers;//package voronoiaoc.by
 //        return this.repairMaterial.getValue();
 //    }
 //
-//    @OnlyIn(Dist.CLIENT)
-//    public String getName() {
+////    public String getName() {
 //        return this.name;
 //    }
 //

@@ -9,7 +9,10 @@ import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.core.byglists.BYGSBList;
+
+import javax.annotation.Nullable;
 
 public class ShatteredGlacier extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.SHATTEREDGLACIER_SB2, new TernarySurfaceConfig(Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState()));
@@ -25,12 +28,11 @@ public class ShatteredGlacier extends Biome implements BiomeTools {
 
     public ShatteredGlacier() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(Feature.IGLOO.configure(FeatureConfig.DEFAULT));
-        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        ////this.addStructureFeature(Feature.STRONGHOLD.configure(FeatureConfig.DEFAULT));
-        ////this.addStructureFeature(Feature.PILLAGER_OUTPOST.configure(FeatureConfig.DEFAULT));
+        this.addStructureFeature(DefaultBiomeFeatures.IGLOO);
+        DefaultBiomeFeatures.method_28440(this);
+        this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructureFeatures(this);
+
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addLargeFerns(this);
         DefaultBiomeFeatures.addMineables(this);
@@ -40,9 +42,9 @@ public class ShatteredGlacier extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addTaigaGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
-        //BYGFeatures.addWinterGrass(this);
-        //BYGFeatures.addWinterRose(this);
-        //BYGFeatures.addFrostMagmaLakes(this);
+        BYGFeatures.addWinterGrass(this);
+        BYGFeatures.addWinterRose(this);
+        BYGFeatures.addFrostMagmaLakes(this);
 //        this.addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, BYGFeatureList.BLACKICESNOW.configure(FeatureConfig.DEFAULT));
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.RABBIT, 10, 2, 3));
@@ -59,5 +61,35 @@ public class ShatteredGlacier extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SKELETON, 20, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.STRAY, 80, 4, 4));
 
+    }
+
+    @Nullable
+    @Override
+    public Biome getRiver() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

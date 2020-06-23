@@ -15,8 +15,6 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
-import static net.minecraft.util.math.Direction.UP;
-
 public class WarpedCoralFeature extends Feature<DefaultFeatureConfig> {
     public static boolean doBlockNotify;
 

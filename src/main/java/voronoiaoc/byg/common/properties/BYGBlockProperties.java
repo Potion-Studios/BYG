@@ -268,7 +268,6 @@ public class BYGBlockProperties {
     }
 
 
-
     public static class BYGWinterTallGrass extends BYGSnowyPlants {
         public BYGWinterTallGrass(String registryName) {
             super(Settings.of(Material.PLANT)
@@ -500,8 +499,7 @@ public class BYGBlockProperties {
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
-//        @OnlyIn(Dist.CLIENT)
-//        public void randomDisplayTick(BlockState blockstate, World world, BlockPos pos, Random rand) {
+//    //        public void randomDisplayTick(BlockState blockstate, World world, BlockPos pos, Random rand) {
 //            VoxelShape shape = this.getShape(blockstate, world, pos, ISelectionContext.dummy());
 //            Vec3d vec3d = shape.getBoundingBox().getCenter();
 //            double getX = (double) pos.getX() + vec3d.x;
@@ -761,8 +759,7 @@ public class BYGBlockProperties {
     }
 
 //Saving this for later do not touch
-//    @OnlyIn(Dist.CLIENT)
-//    public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
+////    public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
 //        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
 //    }
 
@@ -923,7 +920,7 @@ public class BYGBlockProperties {
 
         @Environment(EnvType.CLIENT)
         public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
-            return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
+            return adjacentBlockState.getBlock() == this || super.isSideInvisible(state, adjacentBlockState, side);
         }
     }
 

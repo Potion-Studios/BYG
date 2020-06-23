@@ -14,6 +14,9 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SeagrassFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class GreatLakes extends Biome implements BiomeTools {
@@ -30,9 +33,8 @@ public class GreatLakes extends Biome implements BiomeTools {
 
     public GreatLakes() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+        DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructureFeatures(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
@@ -46,8 +48,8 @@ public class GreatLakes extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         DefaultBiomeFeatures.addExtraMountainTrees(this);
         DefaultBiomeFeatures.addExtraMountainTrees(this);
-        //BYGFeatures.addBYGLilyPad(this);
-        //BYGFeatures.addCattails(this);
+        BYGFeatures.addBYGLilyPad(this);
+        BYGFeatures.addCattails(this);
 
         this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.COD, 2, 1, 4));
         this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.SALMON, 5, 1, 5));
@@ -61,5 +63,36 @@ public class GreatLakes extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
+    }
+
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        double d0 = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
+        return d0 < -0.1D ? 10662752 : 10662752;
+    }
+
+    @Override
+    public Biome getRiver() {
+        return BYGBiomeList.GREATLAKEISLES;
+    }
+
+    @Override
+    public Biome getHill() {
+        return BYGBiomeList.GREATLAKEISLES;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return this;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

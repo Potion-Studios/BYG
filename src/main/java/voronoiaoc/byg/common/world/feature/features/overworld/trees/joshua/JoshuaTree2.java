@@ -31,7 +31,6 @@ public class JoshuaTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
 
-
     public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
 
         int randTreeHeight = rand.nextInt(3) + 3;
@@ -48,14 +47,13 @@ public class JoshuaTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
             } else {
 
 
-
                 Direction direction = Direction.Type.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY1 = 2 - rand.nextInt(1);//Crashes on 0.
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight +randTreeHeight - 1;
+                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
 
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
@@ -66,7 +64,7 @@ public class JoshuaTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
                     }
 
                     int logplacer = posY + buildTrunk;
-                    int logplacer2 = posY +randTreeHeight;
+                    int logplacer2 = posY + randTreeHeight;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
@@ -105,7 +103,6 @@ public class JoshuaTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
                     for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
 
 
-
 //                        //Top Leaves
                         this.leafs(worldIn, posX1 - 4, topTrunkHeight + 2, posZ1, boundsIn, changedBlocks);
                         this.leafs(worldIn, posX1 - 3, topTrunkHeight + 2, posZ1 - 1, boundsIn, changedBlocks);
@@ -136,9 +133,6 @@ public class JoshuaTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
                         this.leafs(worldIn, posX1, topTrunkHeight + 4, posZ1 + 2, boundsIn, changedBlocks);
                         this.leafs(worldIn, posX1, topTrunkHeight + 4, posZ1 + 1, boundsIn, changedBlocks);
                         this.leafs(worldIn, posX1 - 1, topTrunkHeight + 4, posZ1 + 3, boundsIn, changedBlocks);
-
-
-
 
 
                     }
@@ -192,10 +186,10 @@ public class JoshuaTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
     public int redRockHeight(ServerWorldAccess worldIn, BlockPos position) {
         int minYHeight = 1;
-            Biome biome = worldIn.getBiome(position);
-            if (biome == BYGBiomeList.REDROCKCANYON)
-                minYHeight = 140;
-            return minYHeight;
+        Biome biome = worldIn.getBiome(position);
+        if (biome == BYGBiomeList.REDROCKCANYON)
+            minYHeight = 140;
+        return minYHeight;
     }
 
     private BlockState randomizer() {

@@ -1,6 +1,5 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -18,7 +17,7 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
-public class Glowcane extends Block  {
+public class Glowcane extends Block {
     public static final IntProperty AGE = Properties.AGE_15;
     protected static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 
@@ -35,7 +34,7 @@ public class Glowcane extends Block  {
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random rand) {
         if (world.isAir(pos.up())) {
             int i;
-            for(i = 1; world.getBlockState(pos.down(i)).isOf(this); ++i) {
+            for (i = 1; world.getBlockState(pos.down(i)).isOf(this); ++i) {
             }
 
             if (i < 3) {

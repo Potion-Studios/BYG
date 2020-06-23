@@ -543,7 +543,7 @@ public class RedDeciduousTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
         }
     }
 
-   //BYGTree Height Maybe?
+    //BYGTree Height Maybe?
     private boolean doesTreeFit(TestableWorld reader, BlockPos blockPos, int height) {
         int x = blockPos.getX();
         int y = blockPos.getY();

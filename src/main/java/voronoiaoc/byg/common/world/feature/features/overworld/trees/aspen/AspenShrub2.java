@@ -65,8 +65,7 @@ public class AspenShrub2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
             }
 
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

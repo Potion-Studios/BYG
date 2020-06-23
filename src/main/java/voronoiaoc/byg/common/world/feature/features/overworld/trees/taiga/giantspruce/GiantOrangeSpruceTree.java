@@ -29,8 +29,6 @@ public class GiantOrangeSpruceTree extends BYGAbstractTreeFeature<DefaultFeature
     }
 
 
-
-
     public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
 
         int randTreeHeight = rand.nextInt(5) + rand.nextInt(5) + 20;
@@ -51,7 +49,6 @@ public class GiantOrangeSpruceTree extends BYGAbstractTreeFeature<DefaultFeature
 
 
                 //this.setGroundBlockAt(worldIn, blockpos.east(), position, Blocks.DIRT.getDefaultState());
-
 
 
                 Direction direction = Direction.Type.HORIZONTAL.random(rand);

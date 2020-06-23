@@ -109,8 +109,7 @@ package voronoiaoc.byg.common.properties.blocks.grassblocks;//package voronoiaoc
 //        return false;
 //    }
 //
-//    @OnlyIn(Dist.CLIENT)
-//    public boolean isViewBlocking(BlockState state, BlockView worldIn, BlockPos pos) {
+////    public boolean isViewBlocking(BlockState state, BlockView worldIn, BlockPos pos) {
 //        return true;
 //    }
 //}

@@ -43,8 +43,8 @@ public class SilverMapleTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfi
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 1 , 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight , 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 1, 0), boundsIn);
+                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight, 0), boundsIn);
 
 
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);
@@ -55,18 +55,18 @@ public class SilverMapleTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfi
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 1, 0), boundsIn);
 
 
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 1 , -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight - 1 , 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 1 , 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 1 , 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight , -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight , -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight , -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight , 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight , 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight , 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight , 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight , 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 1, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight - 1, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 1, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 1, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight, -1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight, 1), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight, 1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight + 1, -2), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight + 1, -1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight + 1, -1), boundsIn);
@@ -123,10 +123,9 @@ public class SilverMapleTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfi
     private void leafs(Set<BlockPos> blockPos, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.SILVER_MAPLE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.SILVER_MAPLE_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(ModifiableTestableWorld reader, BlockPos blockPos, int height) {

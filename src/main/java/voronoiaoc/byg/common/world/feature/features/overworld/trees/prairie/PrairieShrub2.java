@@ -26,7 +26,6 @@ public class PrairieShrub2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
     }
 
 
-
     public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
 
         int randTreeHeight = rand.nextInt(1) + 1;
@@ -50,7 +49,7 @@ public class PrairieShrub2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight +randTreeHeight - 1;
+                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
 
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
@@ -61,7 +60,7 @@ public class PrairieShrub2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
                     }
 
                     int logplacer = posY + buildTrunk;
-                    int logplacer2 = posY +randTreeHeight;
+                    int logplacer2 = posY + randTreeHeight;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 

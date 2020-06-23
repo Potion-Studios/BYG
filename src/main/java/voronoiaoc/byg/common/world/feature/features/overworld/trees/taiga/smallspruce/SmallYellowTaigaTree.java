@@ -29,8 +29,6 @@ public class SmallYellowTaigaTree extends BYGAbstractTreeFeature<DefaultFeatureC
     }
 
 
-
-
     public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
 
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(1) + 5;

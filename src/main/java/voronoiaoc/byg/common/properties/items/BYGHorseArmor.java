@@ -15,8 +15,7 @@ package voronoiaoc.byg.common.properties.items;
 //    }
 //
 //
-//    @OnlyIn(Dist.CLIENT)
-//    public Identifier func_219976_d() {
+////    public Identifier func_219976_d() {
 //        return texture;
 //    }
 //

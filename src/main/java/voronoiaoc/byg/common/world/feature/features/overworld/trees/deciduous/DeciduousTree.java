@@ -538,7 +538,7 @@ public class DeciduousTree extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
         }
     }
 
-   //BYGTree Height Maybe?
+    //BYGTree Height Maybe?
     private boolean doesTreeFit(TestableWorld reader, BlockPos blockPos, int height) {
         int x = blockPos.getX();
         int y = blockPos.getY();

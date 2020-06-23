@@ -17,7 +17,7 @@ public class TallPinkAlliumBlock extends FernBlock {
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        TallPlantBlock tallPlantBlock = (TallPlantBlock)(this == BYGBlockList.TALL_PINK_ALLIUM ? BYGBlockList.TALL_PINK_ALLIUM : BYGBlockList.TALL_PINK_ALLIUM);
+        TallPlantBlock tallPlantBlock = (TallPlantBlock) (this == BYGBlockList.TALL_PINK_ALLIUM ? BYGBlockList.TALL_PINK_ALLIUM : BYGBlockList.TALL_PINK_ALLIUM);
         if (tallPlantBlock.getDefaultState().canPlaceAt(world, pos) && world.isAir(pos.up())) {
             tallPlantBlock.placeAt(world, pos, 2);
         }

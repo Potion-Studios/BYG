@@ -82,6 +82,7 @@ public class BYGFeatures {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BEACH_GRASS_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_BEACH_GRASS_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
     }
+
     public static void addLargeLake(Biome biome) {
         biome.addFeature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.LAKE_WIDE_SHALLOW.configure(FeatureConfig.DEFAULT).createDecoratedFeature(AnyWaterOrSolidSurfaceSurface.WWATERORSOLIDSURFACE.configure(new CountDecoratorConfig(4))));
     }

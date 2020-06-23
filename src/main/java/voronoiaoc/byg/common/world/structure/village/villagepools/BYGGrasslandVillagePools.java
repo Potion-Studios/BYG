@@ -43,6 +43,6 @@ public class BYGGrasslandVillagePools {
 //        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier("village/common/iron_golem"), new Identifier("empty"), ImmutableList.of(new Pair(new SinglePoolElement("village/common/iron_golem"), 1)), StructurePool.Projection.RIGID));
 //        StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(new Identifier("village/common/well_bottoms"), new Identifier("empty"), ImmutableList.of(new Pair(new SinglePoolElement("village/common/well_bottom"), 1)), StructurePool.Projection.RIGID));
 
-        }
     }
+}
 

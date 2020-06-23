@@ -28,7 +28,6 @@ public class TropicalShrub extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
     }
 
 
-
     public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
         int randTreeHeight = 1;
         //Positions

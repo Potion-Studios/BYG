@@ -41,7 +41,7 @@ public class MangroveTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
                 mainmutable.set(pos);
 
                 //Roots
-                BlockPos.Mutable rootMutable = new BlockPos.Mutable().set(mainmutable.add (1, 0, -2));
+                BlockPos.Mutable rootMutable = new BlockPos.Mutable().set(mainmutable.add(1, 0, -2));
                 BlockPos.Mutable rootMutable2 = new BlockPos.Mutable().set(mainmutable.add(-1, 0, -1));
                 BlockPos.Mutable rootMutable3 = new BlockPos.Mutable().set(mainmutable.add(1, 0, -1));
                 BlockPos.Mutable rootMutable4 = new BlockPos.Mutable().set(mainmutable.add(2, 0, -1));
@@ -72,7 +72,7 @@ public class MangroveTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
                     rootMutable8.move(Direction.DOWN);
                     rootMutable9.move(Direction.DOWN);
                 }
-                
+
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 1, -2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 1, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 1, 0), boundsIn);
@@ -202,10 +202,9 @@ public class MangroveTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
     private void leafs(Set<BlockPos> blockPos, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
         if (isAirOrWater(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.MANGROVE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.MANGROVE_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(ModifiableTestableWorld reader, BlockPos blockPos, int height) {

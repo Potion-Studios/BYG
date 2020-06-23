@@ -604,7 +604,7 @@ public class YellowDeciduousTree extends BYGAbstractTreeFeature<DefaultFeatureCo
         }
     }
 
-   //BYGTree Height Maybe?
+    //BYGTree Height Maybe?
     private boolean doesTreeFit(TestableWorld reader, BlockPos blockPos, int height) {
         int x = blockPos.getX();
         int y = blockPos.getY();

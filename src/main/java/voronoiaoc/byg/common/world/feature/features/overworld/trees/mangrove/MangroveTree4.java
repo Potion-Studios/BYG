@@ -41,15 +41,15 @@ public class MangroveTree4 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
                 mainmutable.set(pos);
 
                 //Roots
-                BlockPos.Mutable rootMutable   = new BlockPos.Mutable().set(mainmutable.add (1, 0, -3));
-                BlockPos.Mutable rootMutable2  = new BlockPos.Mutable().set(mainmutable.add(-2, 0, -2));
-                BlockPos.Mutable rootMutable3  = new BlockPos.Mutable().set(mainmutable.add(2, 0, -2));
-                BlockPos.Mutable rootMutable4  = new BlockPos.Mutable().set(mainmutable.add(-3, 0, -1));
-                BlockPos.Mutable rootMutable5  = new BlockPos.Mutable().set(mainmutable.add(3, 0, 1));
-                BlockPos.Mutable rootMutable6  = new BlockPos.Mutable().set(mainmutable.add(-2, 0, 2));
-                BlockPos.Mutable rootMutable7  = new BlockPos.Mutable().set(mainmutable.add(2, 0, 2));
-                BlockPos.Mutable rootMutable8  = new BlockPos.Mutable().set(mainmutable.add(-1, 0, 3));
-                BlockPos.Mutable rootMutable9  = new BlockPos.Mutable().set(mainmutable.add(-1, 0, 3));
+                BlockPos.Mutable rootMutable = new BlockPos.Mutable().set(mainmutable.add(1, 0, -3));
+                BlockPos.Mutable rootMutable2 = new BlockPos.Mutable().set(mainmutable.add(-2, 0, -2));
+                BlockPos.Mutable rootMutable3 = new BlockPos.Mutable().set(mainmutable.add(2, 0, -2));
+                BlockPos.Mutable rootMutable4 = new BlockPos.Mutable().set(mainmutable.add(-3, 0, -1));
+                BlockPos.Mutable rootMutable5 = new BlockPos.Mutable().set(mainmutable.add(3, 0, 1));
+                BlockPos.Mutable rootMutable6 = new BlockPos.Mutable().set(mainmutable.add(-2, 0, 2));
+                BlockPos.Mutable rootMutable7 = new BlockPos.Mutable().set(mainmutable.add(2, 0, 2));
+                BlockPos.Mutable rootMutable8 = new BlockPos.Mutable().set(mainmutable.add(-1, 0, 3));
+                BlockPos.Mutable rootMutable9 = new BlockPos.Mutable().set(mainmutable.add(-1, 0, 3));
                 BlockPos.Mutable rootMutable10 = new BlockPos.Mutable().set(mainmutable.add(-1, 0, 3));
                 BlockPos.Mutable rootMutable11 = new BlockPos.Mutable().set(mainmutable.add(-1, 0, 3));
                 BlockPos.Mutable rootMutable12 = new BlockPos.Mutable().set(mainmutable.add(-1, 0, 3));
@@ -245,10 +245,9 @@ public class MangroveTree4 extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
     private void leafs(Set<BlockPos> blockPos, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
         if (isAirOrWater(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.MANGROVE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.MANGROVE_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(ModifiableTestableWorld reader, BlockPos blockPos, int height) {

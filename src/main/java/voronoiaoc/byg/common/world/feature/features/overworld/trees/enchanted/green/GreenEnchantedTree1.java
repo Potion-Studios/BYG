@@ -32,12 +32,12 @@ public class GreenEnchantedTree1 extends BYGAbstractTreeFeature<DefaultFeatureCo
                 return false;
             } else {
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                        this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
+                    this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
 
                     mainmutable.move(Direction.UP);
                 }
                 mainmutable.set(pos);
-                
+
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 16, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 15, -3), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 15, 0), boundsIn);
@@ -388,10 +388,9 @@ public class GreenEnchantedTree1 extends BYGAbstractTreeFeature<DefaultFeatureCo
     private void leafs(Set<BlockPos> blockPos, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.GREEN_ENCHANTED_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.GREEN_ENCHANTED_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(ModifiableTestableWorld reader, BlockPos blockPos, int height) {

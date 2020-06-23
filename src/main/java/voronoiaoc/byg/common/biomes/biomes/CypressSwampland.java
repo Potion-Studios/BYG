@@ -14,6 +14,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SeagrassFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
@@ -35,7 +36,6 @@ public class CypressSwampland extends Biome implements BiomeTools {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
         BYGTreeFeatures.addCypressTrees(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructures(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
@@ -69,20 +69,38 @@ public class CypressSwampland extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
-//
-//    @OnlyIn(Dist.CLIENT)
-//    public int getGrassColorAt(double posX, double posZ) {
-//        double d0 = INFO_NOISE.noiseAt(posX * 0.0225D, posZ * 0.0225D, false);
-//        return d0 < -0.1D ? 6337104 : 6337104;
-//    }
-//
-//    @OnlyIn(Dist.CLIENT)
-//    public int getFoliageColor() {
-//        return 6337104;
-//    }
-//
-//    @Override
-//    public Biome getRiver() {
-//        return this;
-//    }
+
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return this;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
+    }
+
+    public int getGrassColorAt(double posX, double posZ) {
+        double d0 = FOLIAGE_NOISE.sample(posX * 0.0225D, posZ * 0.0225D, false);
+        return d0 < -0.1D ? 6337104 : 6337104;
+    }
+
+    public int getFoliageColor() {
+        return 6337104;
+    }
+
+    @Override
+    public Biome getRiver() {
+        return this;
+    }
 }

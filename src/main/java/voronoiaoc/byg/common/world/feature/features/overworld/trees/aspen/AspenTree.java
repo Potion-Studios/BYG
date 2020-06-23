@@ -30,12 +30,11 @@ public class AspenTree extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
 
-
     public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
         int minHeight = 8;
-            Biome biome =  worldIn.getBiome(position);
-            if (biome == BYGBiomeList.ASPENFORESTHILLS)
-                minHeight = 8;
+        Biome biome = worldIn.getBiome(position);
+        if (biome == BYGBiomeList.ASPENFORESTHILLS)
+            minHeight = 8;
 
         int randTreeHeight = rand.nextInt(3) + minHeight;
         //Positions

@@ -12,18 +12,17 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import java.util.Random;
 
 public class GreenMushroom extends Feature<DefaultFeatureConfig> {
-   public GreenMushroom(Codec<DefaultFeatureConfig> config) {
-      super(config);
-   }
+    public GreenMushroom(Codec<DefaultFeatureConfig> config) {
+        super(config);
+    }
 
-   public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
 
-      if (!worldIn.isAir(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_NETHERRACK) {
-         return false;
-      }
-      else {
-         worldIn.setBlockState(pos, BYGBlockList.GREEN_MUSHSHROOM.getDefaultState(), 10);
-         return true;
-      }
-   }
+        if (!worldIn.isAir(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_NETHERRACK) {
+            return false;
+        } else {
+            worldIn.setBlockState(pos, BYGBlockList.GREEN_MUSHSHROOM.getDefaultState(), 10);
+            return true;
+        }
+    }
 }

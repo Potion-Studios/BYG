@@ -20,7 +20,7 @@ public class BYGColorManager {
 
         //Grass
         ColorProviderRegistry.BLOCK.register(
-                (state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getGrassColor(view, pos) : FoliageColors.getDefaultColor(),
+                (state, view, pos, tintIndex) -> view != null && pos != null ? BiomeColors.getGrassColorAt(view, pos) : FoliageColors.getDefaultColor(),
                 BYGBlockList.OVERGROWN_STONE
         );
 

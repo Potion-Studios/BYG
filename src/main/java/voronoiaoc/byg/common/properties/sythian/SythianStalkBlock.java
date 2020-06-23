@@ -1,7 +1,5 @@
 package voronoiaoc.byg.common.properties.sythian;
 
-import javax.annotation.Nullable;
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,6 +15,7 @@ import net.minecraft.world.WorldView;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public class SythianStalkBlock extends BambooBlock {
@@ -92,9 +91,7 @@ public class SythianStalkBlock extends BambooBlock {
                         world.setBlockState(posDOWN2, blockStateDOWN2.with(LEAVES, BambooLeaves.NONE), 3);
                     }
                 }
-            }
-
-            else {
+            } else {
                 bambooLeavesNONE = BambooLeaves.SMALL;
             }
         }

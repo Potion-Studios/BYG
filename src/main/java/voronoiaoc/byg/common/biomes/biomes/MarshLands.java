@@ -14,8 +14,12 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SeagrassFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
+
+import javax.annotation.Nullable;
 
 public class MarshLands extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.MARSHLAND_SB, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState()));
@@ -31,25 +35,24 @@ public class MarshLands extends Biome implements BiomeTools {
 
     public MarshLands() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(Feature.SWAMP_HUT.configure(FeatureConfig.DEFAULT));
-        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-//       BYGTreeFeatures.addMarshTrees(this);
+        DefaultBiomeFeatures.method_28440(this);
+        this.addStructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
+
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructureFeatures(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addClay(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
-        //DefaultBiomeFeatures.addSwampVegetation(this);
+        DefaultBiomeFeatures.addSwampVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
         DefaultBiomeFeatures.addFossils(this);
-        //BYGFeatures.addBYGSwampVegetation(this);
-        //BYGFeatures.addMarshGrass(this);
-        //BYGFeatures.addWiltedGrass(this);
-        //BYGFeatures.addWiltedGrass(this);
-        //BYGFeatures.addCattails(this);
+        BYGFeatures.addBYGSwampVegetation(this);
+        BYGFeatures.addMarshGrass(this);
+        BYGFeatures.addWiltedGrass(this);
+        BYGFeatures.addWiltedGrass(this);
+        BYGFeatures.addCattails(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
@@ -66,5 +69,46 @@ public class MarshLands extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 1, 1, 1));
+    }
+
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        double d0 = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
+        return d0 < -0.1D ? 6337104 : 6337104;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 6337104;
+    }
+
+    @Nullable
+    @Override
+    public Biome getRiver() {
+        return this;
+    }
+
+    @Nullable
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return this;
+    }
+
+    @Nullable
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

@@ -11,6 +11,8 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SeagrassFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -28,22 +30,65 @@ public class GlowShroomBayou extends Biome implements BiomeTools {
 
     public GlowShroomBayou() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        BYGTreeFeatures.addBayouVegetation(this);
+        BYGTreeFeatures.addGlowshroomBayouVegetation(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructureFeatures(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addClay(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
-        //DefaultBiomeFeatures.addSwampVegetation(this);
+        DefaultBiomeFeatures.addSwampVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
-        //BYGFeatures.addBYGSwampVegetation(this);
-        //BYGFeatures.addMarshGrass(this);
-        //BYGFeatures.addBYGGlowcane(this);
-        //BYGFeatures.addCattails(this);
-        //BYGFeatures.addMudDisks(this);
+        BYGFeatures.addBYGSwampVegetation(this);
+        BYGFeatures.addMarshGrass(this);
+        BYGFeatures.addBYGGlowcane(this);
+        BYGFeatures.addCattails(this);
+        BYGFeatures.addMudDisks(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
+        BYGFeatures.addPeachleatherflower(this);
+        BYGFeatures.addVioletleatherflower(this);
+        BYGFeatures.addRedorchid(this);
+        BYGFeatures.addPurpleOrchid(this);
+        BYGFeatures.addPinkOrchid(this);
+        BYGFeatures.addGlowshrooms(this);
+        BYGTreeFeatures.addHugeGlowshrooms(this);
+
+    }
+
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        double d0 = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
+        return d0 < -0.1D ? 7375928 : 6981433;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 6337104;
+    }
+
+    @Override
+    public Biome getRiver() {
+        return this;
+    }
+
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

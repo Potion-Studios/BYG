@@ -194,7 +194,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<TernarySurfaceConfig> {
     }
 
     protected BlockState noiseBlockState(int x, int y, int z) {
-        int i = (int) Math.round(this.perlin3.sample ((double) x / 512.0D, (double) z / 512.0D, false) * 2.0D);
+        int i = (int) Math.round(this.perlin3.sample((double) x / 512.0D, (double) z / 512.0D, false) * 2.0D);
         return this.blockState[(y + i + 64) % 64];
     }
 }

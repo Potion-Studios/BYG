@@ -44,8 +44,8 @@ public class BayouTree3 extends Feature<DefaultFeatureConfig> {
                 BlockPos.Mutable mutable = new BlockPos.Mutable().set(block.up(3));
                 for (Direction direction : Direction.Type.HORIZONTAL) {
                     mutable.set(block.up(3).offset(direction, baseSize));
-                if (worldIn.getBlockState(mutable).getBlock() != Blocks.DIRT)
-                    this.setWillowLog(worldIn, mutable.move(Direction.DOWN, baseSize));
+                    if (worldIn.getBlockState(mutable).getBlock() != Blocks.DIRT)
+                        this.setWillowLog(worldIn, mutable.move(Direction.DOWN, baseSize));
                 }
             }
             this.setWillowLog(worldIn, mainMutable.move(Direction.UP, randTreeHeight - 1).move(Direction.SOUTH).move(Direction.EAST));
@@ -101,7 +101,7 @@ public class BayouTree3 extends Feature<DefaultFeatureConfig> {
     }
 
     protected void setWillowLog(ModifiableWorld worldIn, BlockPos pos) {
-            this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LOG.getDefaultState());
+        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LOG.getDefaultState());
     }
 
     protected void setWillowLeaves(ModifiableWorld worldIn, BlockPos pos) {

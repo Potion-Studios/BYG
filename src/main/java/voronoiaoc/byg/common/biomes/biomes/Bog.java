@@ -34,12 +34,11 @@ public class Bog extends Biome implements BiomeTools {
 
     public Bog() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(Feature.SWAMP_HUT.configure(FeatureConfig.DEFAULT));
-        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+        this.addStructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
+        DefaultBiomeFeatures.method_28440(this);
         BYGTreeFeatures.addMarshTrees(this);
         BYGTreeFeatures.addMarshTrees(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-        //DefaultBiomeFeatures.addStructureFeatures(this);
         DefaultBiomeFeatures.addDefaultLakes(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
@@ -73,6 +72,17 @@ public class Bog extends Biome implements BiomeTools {
     }
 
     @Override
+    public int getGrassColorAt(double x, double z) {
+        double d0 = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
+        return d0 < -0.1D ? 7365696 : 7365696;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 7365696;
+    }
+
+    @Override
     public Biome getRiver() {
         return null;
     }
@@ -89,7 +99,7 @@ public class Bog extends Biome implements BiomeTools {
 
     @Override
     public Biome getBeach() {
-        return null;
+        return this;
     }
 
     @Override

@@ -22,10 +22,10 @@ public class ErodedSierraSB extends SierraSB {
 
     public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
         double d0 = 0.0D;
-        double d1 = Math.min(Math.abs(noise), this.field_215435_c.sample ((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
+        double d1 = Math.min(Math.abs(noise), this.field_215435_c.sample((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
         if (d1 > 0.0D) {
             double d2 = 0.001953125D;
-            double d3 = Math.abs(this.field_215437_d.sample ((double) x * 0.001953125D, (double) z * 0.001953125D, false));
+            double d3 = Math.abs(this.field_215437_d.sample((double) x * 0.001953125D, (double) z * 0.001953125D, false));
             d0 = d1 * d1 * 2.5D;
             double d4 = Math.ceil(d3 * 50.0D) + 14.0D;
             if (d0 > d4) {

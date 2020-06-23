@@ -50,7 +50,7 @@ package voronoiaoc.byg.common.world.feature.biomefeatures;//package voronoiaoc.b
 //            }
 //
 //            if (biome == Biomes.JUNGLE) {
-//                biome.addStructureFeature(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/jungle/town_centers", 6)));
+//                biome.addStructureFeature(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/jungle/town_centers"), 6));
 //                biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/jungle/town_centers", 6)).createDecoratedFeature(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
 //
 //            }

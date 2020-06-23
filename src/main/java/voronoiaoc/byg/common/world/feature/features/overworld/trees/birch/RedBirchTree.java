@@ -202,6 +202,7 @@ public class RedBirchTree extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
             return false;
         }
     }
+
     //Log Placement
     private void treelog(Set<BlockPos> setlogblock, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         if (canTreePlaceHere(reader, pos)) {

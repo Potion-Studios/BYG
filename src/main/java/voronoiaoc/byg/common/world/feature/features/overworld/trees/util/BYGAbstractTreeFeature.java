@@ -32,10 +32,10 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
     }
 
     public static boolean canTreePlaceHere(TestableWorld worldReader, BlockPos blockPos) {
-            return worldReader.testBlockState(blockPos, (state) -> {
-                Block block = state.getBlock();
-                return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || state.getMaterial() == Material.SOIL || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM;
-            });
+        return worldReader.testBlockState(blockPos, (state) -> {
+            Block block = state.getBlock();
+            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || state.getMaterial() == Material.SOIL || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM;
+        });
     }
 
     //Qualifies Tree Placement in Water
@@ -59,9 +59,9 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
     public static boolean isQualifiedForLogWater(TestableWorld worldReader, BlockPos blockPos) {
         return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.WATER);
     }
-    
+
     protected static boolean isAir(TestableWorld worldIn, BlockPos pos) {
-            return worldIn.testBlockState(pos, AbstractBlock.AbstractBlockState::isAir);
+        return worldIn.testBlockState(pos, AbstractBlock.AbstractBlockState::isAir);
     }
 
     public static boolean isAirOrWater(TestableWorld worldIn, BlockPos pos) {
@@ -72,7 +72,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         return worldIn.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return state.getMaterial() == Material.SOIL || block == block1 ;
+                return state.getMaterial() == Material.SOIL || block == block1;
             }
             return false;
         });
@@ -105,11 +105,11 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
     protected final void setFinalBlockState(Set<BlockPos> changedBlocks, ModifiableWorld worldIn, BlockPos pos, BlockState blockState, BlockBox boundingBox) {
         if (blockState == null)
             throw new NullPointerException(blockState + " is missing!");
-        else{
+        else {
             this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
             boundingBox.encompass(new BlockBox(pos, pos));
-                if (BlockTags.LOGS.contains(blockState.getBlock())) {
-                    changedBlocks.add(pos.toImmutable());
+            if (BlockTags.LOGS.contains(blockState.getBlock())) {
+                changedBlocks.add(pos.toImmutable());
             }
         }
     }

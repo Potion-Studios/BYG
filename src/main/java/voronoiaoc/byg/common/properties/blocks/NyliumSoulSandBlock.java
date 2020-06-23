@@ -37,8 +37,7 @@ package voronoiaoc.byg.common.properties.blocks;//package voronoiaoc.byg.common.
 //        return true;
 //    }
 //
-//    @OnlyIn(Dist.CLIENT)
-//    public boolean isViewBlocking(BlockState p_229870_1_, BlockView p_229870_2_, BlockPos p_229870_3_) {
+////    public boolean isViewBlocking(BlockState p_229870_1_, BlockView p_229870_2_, BlockPos p_229870_3_) {
 //        return true;
 //    }
 //}

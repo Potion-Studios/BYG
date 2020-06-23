@@ -35,12 +35,12 @@ public class VolcanicCarver extends Carver<ProbabilityConfig> {
         noiseGen.SetFractalGain(0.3f);
         noiseGen.SetFrequency(0.003f);
 
-        for(int x = xPos; x <= xPos + 15; x++) {
-            for(int z = zPos; z <= zPos + 15; z++) {
+        for (int x = xPos; x <= xPos + 15; x++) {
+            for (int z = zPos; z <= zPos + 15; z++) {
                 int topBlockY = chunkIn.getHeightmap(Heightmap.Type.WORLD_SURFACE_WG).get(x, z);
                 double rawSimplexNoiseSample = noiseGen.GetNoise(x, z) * 10;
                 if (rawSimplexNoiseSample > 8.75) {
-                    for (int y = topBlockY; y >=  63; y--) {
+                    for (int y = topBlockY; y >= 63; y--) {
                         BlockPos.Mutable mutable1 = new BlockPos.Mutable(x, y, z);
                         chunkIn.setBlockState(mutable1, Blocks.AIR.getDefaultState(), false);
                     }

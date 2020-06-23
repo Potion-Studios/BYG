@@ -28,8 +28,6 @@ public class TallBlueSpruceTree extends BYGAbstractTreeFeature<DefaultFeatureCon
     }
 
 
-
-
     public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
 
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(3) + 12;

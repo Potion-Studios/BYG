@@ -14,24 +14,24 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import java.util.Random;
 
 public class WeepingRootsPlant extends Feature<DefaultFeatureConfig> {
-   public WeepingRootsPlant(Codec<DefaultFeatureConfig> config) {
-      super(config);
-   }
+    public WeepingRootsPlant(Codec<DefaultFeatureConfig> config) {
+        super(config);
+    }
 
-   public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
-      int randLength = random.nextInt(7) + 3;
+    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+        int randLength = random.nextInt(7) + 3;
 
-      if (!worldIn.isAir(pos)) {
-         return false;
-      } else if (!worldIn.getBlockState(pos.up()).isIn(BlockTags.INFINIBURN_NETHER) || !(worldIn.getBlockState(pos.up()).getMaterial() == Material.STONE) && !worldIn.getDimension().isUltrawarm()) {
-         return false;
-      } else {
-         for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++){
-            BlockPos.Mutable mutable = new BlockPos.Mutable(pos.getX(), pos.getY() - WeepingRootPlantLength, pos.getZ());
+        if (!worldIn.isAir(pos)) {
+            return false;
+        } else if (!worldIn.getBlockState(pos.up()).isIn(BlockTags.INFINIBURN_NETHER) || !(worldIn.getBlockState(pos.up()).getMaterial() == Material.STONE) && !worldIn.getDimension().isUltrawarm()) {
+            return false;
+        } else {
+            for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {
+                BlockPos.Mutable mutable = new BlockPos.Mutable(pos.getX(), pos.getY() - WeepingRootPlantLength, pos.getZ());
 //            if (worldIn.getBlockState(mutable).getBlock() == Blocks.AIR)
-            worldIn.setBlockState(mutable, BYGBlockList.WEEPING_ROOTS_PLANT.getDefaultState(), 10);
-         }
-         return true;
-      }
-   }
+                worldIn.setBlockState(mutable, BYGBlockList.WEEPING_ROOTS_PLANT.getDefaultState(), 10);
+            }
+            return true;
+        }
+    }
 }
