@@ -544,7 +544,7 @@ public class BYGItemRegistry {
 //                registerItem(BYGItemList.REDWOOD_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.REDWOOD, new Item.Settings().group(BYG.BYG_TAB).maxStackSize(1)), Registry.BLOCK.getId("redwood_boat");
 
                 //Skyris Woodtype
-//                registerItem(BYGItemList.SKYRIS_LEAVES_GREEN_APPLE = new BlockItem(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE));
+                registerItem(BYGItemList.SKYRIS_LEAVES_GREEN_APPLE = new BlockItem(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE));
                 registerItem(BYGItemList.GREEN_APPLE = new Item(new Item.Settings().group(BYG.BYG_TAB).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.35f).build())), new Identifier(BYG.MODID, "green_apple"));
                 registerItem(BYGItemList.SKYRIS_SAPLING = new BlockItem(BYGBlockList.SKYRIS_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SKYRIS_SAPLING));
                 registerItem(BYGItemList.SKYRIS_VINE = new BlockItem(BYGBlockList.SKYRIS_VINE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SKYRIS_VINE));
@@ -777,6 +777,8 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.POLLEN_DUST = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier( BYG.MODID, "pollen_dust"));
 
                 //FlowerItems
+                registerItem(BYGItemList.TALL_ALLIUM = new BlockItem(BYGBlockList.TALL_ALLIUM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.TALL_ALLIUM));
+                registerItem(BYGItemList.TALL_PINK_ALLIUM = new BlockItem(BYGBlockList.TALL_PINK_ALLIUM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.TALL_PINK_ALLIUM));
                 registerItem(BYGItemList.ALLIUM_FLOWER_BUSH = new BlockItem(BYGBlockList.ALLIUM_FLOWER_BUSH, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.ALLIUM_FLOWER_BUSH));
                 registerItem(BYGItemList.ALPINE_BELLFLOWER = new BlockItem(BYGBlockList.ALPINE_BELLFLOWER, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.ALPINE_BELLFLOWER));
                 registerItem(BYGItemList.AMARANTH = new BlockItem(BYGBlockList.AMARANTH, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.AMARANTH));

@@ -991,7 +991,7 @@ public class BYGBlockProperties {
                     .noCollision()
                     .lightLevel((blockStatex) -> 12)
             );
-
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
     }
 
