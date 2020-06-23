@@ -1,0 +1,19 @@
+{
+  "BYGType": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    " #",
+    " #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "byg:ametrine_gems"
+    }
+  },
+  "result": {
+    "item": "byg:ametrine_hoe"
+  }
+}

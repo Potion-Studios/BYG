@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "byg:aspen_slab",
+    "byg:baobab_slab",
+    "byg:blue_enchanted_slab",
+    "byg:cherry_slab",
+    "byg:cika_slab",
+    "byg:cypress_slab",
+    "byg:ebony_slab",
+    "byg:fir_slab",
+    "byg:green_enchanted_slab",
+    "byg:holly_slab",
+    "byg:jacaranda_slab",
+    "byg:mahogany_slab",
+    "byg:mangrove_slab",
+    "byg:maple_slab",
+    "byg:pine_slab",
+    "byg:rainbow_eucalyptus_slab",
+    "byg:redwood_slab",
+    "byg:skyris_slab",
+    "byg:willow_slab",
+    "byg:witch_hazel_slab",
+    "byg:zelkova_slab"
+  ]
+}

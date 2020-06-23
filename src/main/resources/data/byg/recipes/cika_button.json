@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "byg:cika_planks"
+    }
+  ],
+  "result": {
+    "item": "byg:cika_button"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:baobab_planks"
+    }
+  },
+  "result": {
+    "item": "byg:baobab_boat"
+  }
+}

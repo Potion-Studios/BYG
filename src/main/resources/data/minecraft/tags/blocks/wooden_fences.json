@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "byg:aspen_fence",
+    "byg:baobab_fence",
+    "byg:blue_enchanted_fence",
+    "byg:cherry_fence",
+    "byg:cika_fence",
+    "byg:cypress_fence",
+    "byg:ebony_fence",
+    "byg:fir_fence",
+    "byg:green_enchanted_fence",
+    "byg:holly_fence",
+    "byg:jacaranda_fence",
+    "byg:mahogany_fence",
+    "byg:mangrove_fence",
+    "byg:maple_fence",
+    "byg:pine_fence",
+    "byg:rainbow_eucalyptus_fence",
+    "byg:redwood_fence",
+    "byg:skyris_fence",
+    "byg:willow_fence",
+    "byg:witch_hazel_fence",
+    "byg:zelkova_fence"
+  ]
+}

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "byg:red_glowcane_stalk"
+      "item": "byg:red_glowcane"
     }
   ],
   "result": {
