@@ -206,9 +206,9 @@ public class BYGItemRegistry {
                 BYGItemList.ASPEN_FENCE = new BlockItem(BYGBlockList.ASPEN_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ASPEN_FENCE.getRegistryName()),
                 BYGItemList.ASPEN_FENCE_GATE = new BlockItem(BYGBlockList.ASPEN_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ASPEN_FENCE_GATE.getRegistryName()),
                 BYGItemList.ASPEN_DOOR = new TallBlockItem(BYGBlockList.ASPEN_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ASPEN_DOOR.getRegistryName()),
-                BYGItemList.ASPEN_TRAPDOOR = new TallBlockItem(BYGBlockList.ASPEN_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ASPEN_TRAPDOOR.getRegistryName()),
-                BYGItemList.ASPEN_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.ASPEN_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ASPEN_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.ASPEN_BUTTON = new TallBlockItem(BYGBlockList.ASPEN_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ASPEN_BUTTON.getRegistryName()),
+                BYGItemList.ASPEN_TRAPDOOR = new BlockItem(BYGBlockList.ASPEN_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ASPEN_TRAPDOOR.getRegistryName()),
+                BYGItemList.ASPEN_PRESSURE_PLATE = new BlockItem(BYGBlockList.ASPEN_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ASPEN_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.ASPEN_BUTTON = new BlockItem(BYGBlockList.ASPEN_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ASPEN_BUTTON.getRegistryName()),
                 BYGItemList.ASPEN_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.ASPEN, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("aspen_boat"),
 
                 //Baobab Woodtype
@@ -226,9 +226,9 @@ public class BYGItemRegistry {
                 BYGItemList.BAOBAB_FENCE = new BlockItem(BYGBlockList.BAOBAB_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BAOBAB_FENCE.getRegistryName()),
                 BYGItemList.BAOBAB_FENCE_GATE = new BlockItem(BYGBlockList.BAOBAB_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BAOBAB_FENCE_GATE.getRegistryName()),
                 BYGItemList.BAOBAB_DOOR = new TallBlockItem(BYGBlockList.BAOBAB_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BAOBAB_DOOR.getRegistryName()),
-                BYGItemList.BAOBAB_TRAPDOOR = new TallBlockItem(BYGBlockList.BAOBAB_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BAOBAB_TRAPDOOR.getRegistryName()),
-                BYGItemList.BAOBAB_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.BAOBAB_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BAOBAB_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.BAOBAB_BUTTON = new TallBlockItem(BYGBlockList.BAOBAB_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BAOBAB_BUTTON.getRegistryName()),
+                BYGItemList.BAOBAB_TRAPDOOR = new BlockItem(BYGBlockList.BAOBAB_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BAOBAB_TRAPDOOR.getRegistryName()),
+                BYGItemList.BAOBAB_PRESSURE_PLATE = new BlockItem(BYGBlockList.BAOBAB_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BAOBAB_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.BAOBAB_BUTTON = new BlockItem(BYGBlockList.BAOBAB_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BAOBAB_BUTTON.getRegistryName()),
                 BYGItemList.BAOBAB_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.BAOBAB, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("baobab_boat"),
 
                 //Blue Enchanted Woodtype
@@ -246,9 +246,9 @@ public class BYGItemRegistry {
                 BYGItemList.BLUE_ENCHANTED_FENCE = new BlockItem(BYGBlockList.BLUE_ENCHANTED_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_ENCHANTED_FENCE.getRegistryName()),
                 BYGItemList.BLUE_ENCHANTED_FENCE_GATE = new BlockItem(BYGBlockList.BLUE_ENCHANTED_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_ENCHANTED_FENCE_GATE.getRegistryName()),
                 BYGItemList.BLUE_ENCHANTED_DOOR = new TallBlockItem(BYGBlockList.BLUE_ENCHANTED_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_ENCHANTED_DOOR.getRegistryName()),
-                BYGItemList.BLUE_ENCHANTED_TRAPDOOR = new TallBlockItem(BYGBlockList.BLUE_ENCHANTED_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_ENCHANTED_TRAPDOOR.getRegistryName()),
-                BYGItemList.BLUE_ENCHANTED_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.BLUE_ENCHANTED_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_ENCHANTED_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.BLUE_ENCHANTED_BUTTON = new TallBlockItem(BYGBlockList.BLUE_ENCHANTED_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_ENCHANTED_BUTTON.getRegistryName()),
+                BYGItemList.BLUE_ENCHANTED_TRAPDOOR = new BlockItem(BYGBlockList.BLUE_ENCHANTED_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_ENCHANTED_TRAPDOOR.getRegistryName()),
+                BYGItemList.BLUE_ENCHANTED_PRESSURE_PLATE = new BlockItem(BYGBlockList.BLUE_ENCHANTED_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_ENCHANTED_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.BLUE_ENCHANTED_BUTTON = new BlockItem(BYGBlockList.BLUE_ENCHANTED_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_ENCHANTED_BUTTON.getRegistryName()),
                 BYGItemList.BLUE_ENCHANTED_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.BLUE_ENCHANTED, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("blue_enchanted_boat"),
 
                 //Cherry Woodtype
@@ -270,9 +270,9 @@ public class BYGItemRegistry {
                 BYGItemList.CHERRY_FENCE = new BlockItem(BYGBlockList.CHERRY_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_FENCE.getRegistryName()),
                 BYGItemList.CHERRY_FENCE_GATE = new BlockItem(BYGBlockList.CHERRY_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_FENCE_GATE.getRegistryName()),
                 BYGItemList.CHERRY_DOOR = new TallBlockItem(BYGBlockList.CHERRY_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_DOOR.getRegistryName()),
-                BYGItemList.CHERRY_TRAPDOOR = new TallBlockItem(BYGBlockList.CHERRY_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_TRAPDOOR.getRegistryName()),
-                BYGItemList.CHERRY_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.CHERRY_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.CHERRY_BUTTON = new TallBlockItem(BYGBlockList.CHERRY_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_BUTTON.getRegistryName()),
+                BYGItemList.CHERRY_TRAPDOOR = new BlockItem(BYGBlockList.CHERRY_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_TRAPDOOR.getRegistryName()),
+                BYGItemList.CHERRY_PRESSURE_PLATE = new BlockItem(BYGBlockList.CHERRY_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.CHERRY_BUTTON = new BlockItem(BYGBlockList.CHERRY_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CHERRY_BUTTON.getRegistryName()),
                 BYGItemList.CHERRY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.CHERRY, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("cherry_boat"),
 
                 //Cika Woodtype
@@ -290,9 +290,9 @@ public class BYGItemRegistry {
                 BYGItemList.CIKA_FENCE = new BlockItem(BYGBlockList.CIKA_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CIKA_FENCE.getRegistryName()),
                 BYGItemList.CIKA_FENCE_GATE = new BlockItem(BYGBlockList.CIKA_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CIKA_FENCE_GATE.getRegistryName()),
                 BYGItemList.CIKA_DOOR = new TallBlockItem(BYGBlockList.CIKA_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CIKA_DOOR.getRegistryName()),
-                BYGItemList.CIKA_TRAPDOOR = new TallBlockItem(BYGBlockList.CIKA_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CIKA_TRAPDOOR.getRegistryName()),
-                BYGItemList.CIKA_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.CIKA_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CIKA_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.CIKA_BUTTON = new TallBlockItem(BYGBlockList.CIKA_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CIKA_BUTTON.getRegistryName()),
+                BYGItemList.CIKA_TRAPDOOR = new BlockItem(BYGBlockList.CIKA_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CIKA_TRAPDOOR.getRegistryName()),
+                BYGItemList.CIKA_PRESSURE_PLATE = new BlockItem(BYGBlockList.CIKA_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CIKA_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.CIKA_BUTTON = new BlockItem(BYGBlockList.CIKA_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CIKA_BUTTON.getRegistryName()),
                 BYGItemList.CIKA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.CIKA, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("cika_boat"),
 
                 //Cypress Woodtype
@@ -310,9 +310,9 @@ public class BYGItemRegistry {
                 BYGItemList.CYPRESS_FENCE = new BlockItem(BYGBlockList.CYPRESS_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CYPRESS_FENCE.getRegistryName()),
                 BYGItemList.CYPRESS_FENCE_GATE = new BlockItem(BYGBlockList.CYPRESS_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CYPRESS_FENCE_GATE.getRegistryName()),
                 BYGItemList.CYPRESS_DOOR = new TallBlockItem(BYGBlockList.CYPRESS_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CYPRESS_DOOR.getRegistryName()),
-                BYGItemList.CYPRESS_TRAPDOOR = new TallBlockItem(BYGBlockList.CYPRESS_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CYPRESS_TRAPDOOR.getRegistryName()),
-                BYGItemList.CYPRESS_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.CYPRESS_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CYPRESS_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.CYPRESS_BUTTON = new TallBlockItem(BYGBlockList.CYPRESS_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CYPRESS_BUTTON.getRegistryName()),
+                BYGItemList.CYPRESS_TRAPDOOR = new BlockItem(BYGBlockList.CYPRESS_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CYPRESS_TRAPDOOR.getRegistryName()),
+                BYGItemList.CYPRESS_PRESSURE_PLATE = new BlockItem(BYGBlockList.CYPRESS_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CYPRESS_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.CYPRESS_BUTTON = new BlockItem(BYGBlockList.CYPRESS_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.CYPRESS_BUTTON.getRegistryName()),
                 BYGItemList.CYPRESS_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.CYPRESS, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("cypress_boat"),
 
                 //Ebony Woodtype
@@ -330,9 +330,9 @@ public class BYGItemRegistry {
                 BYGItemList.EBONY_FENCE = new BlockItem(BYGBlockList.EBONY_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EBONY_FENCE.getRegistryName()),
                 BYGItemList.EBONY_FENCE_GATE = new BlockItem(BYGBlockList.EBONY_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EBONY_FENCE_GATE.getRegistryName()),
                 BYGItemList.EBONY_DOOR = new TallBlockItem(BYGBlockList.EBONY_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EBONY_DOOR.getRegistryName()),
-                BYGItemList.EBONY_TRAPDOOR = new TallBlockItem(BYGBlockList.EBONY_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EBONY_TRAPDOOR.getRegistryName()),
-                BYGItemList.EBONY_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.EBONY_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EBONY_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.EBONY_BUTTON = new TallBlockItem(BYGBlockList.EBONY_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EBONY_BUTTON.getRegistryName()),
+                BYGItemList.EBONY_TRAPDOOR = new BlockItem(BYGBlockList.EBONY_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EBONY_TRAPDOOR.getRegistryName()),
+                BYGItemList.EBONY_PRESSURE_PLATE = new BlockItem(BYGBlockList.EBONY_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EBONY_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.EBONY_BUTTON = new BlockItem(BYGBlockList.EBONY_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EBONY_BUTTON.getRegistryName()),
                 BYGItemList.EBONY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("ebony_boat"),
 
                 //Fir Woodtype
@@ -350,9 +350,9 @@ public class BYGItemRegistry {
                 BYGItemList.FIR_FENCE = new BlockItem(BYGBlockList.FIR_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FIR_FENCE.getRegistryName()),
                 BYGItemList.FIR_FENCE_GATE = new BlockItem(BYGBlockList.FIR_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FIR_FENCE_GATE.getRegistryName()),
                 BYGItemList.FIR_DOOR = new TallBlockItem(BYGBlockList.FIR_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FIR_DOOR.getRegistryName()),
-                BYGItemList.FIR_TRAPDOOR = new TallBlockItem(BYGBlockList.FIR_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FIR_TRAPDOOR.getRegistryName()),
-                BYGItemList.FIR_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.FIR_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FIR_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.FIR_BUTTON = new TallBlockItem(BYGBlockList.FIR_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FIR_BUTTON.getRegistryName()),
+                BYGItemList.FIR_TRAPDOOR = new BlockItem(BYGBlockList.FIR_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FIR_TRAPDOOR.getRegistryName()),
+                BYGItemList.FIR_PRESSURE_PLATE = new BlockItem(BYGBlockList.FIR_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FIR_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.FIR_BUTTON = new BlockItem(BYGBlockList.FIR_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FIR_BUTTON.getRegistryName()),
                 BYGItemList.FIR_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.FIR, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("fir_boat"),
 
                 //Green Enchanted Woodtype
@@ -370,9 +370,9 @@ public class BYGItemRegistry {
                 BYGItemList.GREEN_ENCHANTED_FENCE = new BlockItem(BYGBlockList.GREEN_ENCHANTED_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GREEN_ENCHANTED_FENCE.getRegistryName()),
                 BYGItemList.GREEN_ENCHANTED_FENCE_GATE = new BlockItem(BYGBlockList.GREEN_ENCHANTED_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GREEN_ENCHANTED_FENCE_GATE.getRegistryName()),
                 BYGItemList.GREEN_ENCHANTED_DOOR = new TallBlockItem(BYGBlockList.GREEN_ENCHANTED_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GREEN_ENCHANTED_DOOR.getRegistryName()),
-                BYGItemList.GREEN_ENCHANTED_TRAPDOOR = new TallBlockItem(BYGBlockList.GREEN_ENCHANTED_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GREEN_ENCHANTED_TRAPDOOR.getRegistryName()),
-                BYGItemList.GREEN_ENCHANTED_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.GREEN_ENCHANTED_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GREEN_ENCHANTED_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.GREEN_ENCHANTED_BUTTON = new TallBlockItem(BYGBlockList.GREEN_ENCHANTED_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GREEN_ENCHANTED_BUTTON.getRegistryName()),
+                BYGItemList.GREEN_ENCHANTED_TRAPDOOR = new BlockItem(BYGBlockList.GREEN_ENCHANTED_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GREEN_ENCHANTED_TRAPDOOR.getRegistryName()),
+                BYGItemList.GREEN_ENCHANTED_PRESSURE_PLATE = new BlockItem(BYGBlockList.GREEN_ENCHANTED_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GREEN_ENCHANTED_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.GREEN_ENCHANTED_BUTTON = new BlockItem(BYGBlockList.GREEN_ENCHANTED_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GREEN_ENCHANTED_BUTTON.getRegistryName()),
                 BYGItemList.GREEN_ENCHANTED_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.GREEN_ENCHANTED, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("green_enchanted_boat"),
 
                 //Holly Woodtype
@@ -392,9 +392,9 @@ public class BYGItemRegistry {
                 BYGItemList.HOLLY_FENCE = new BlockItem(BYGBlockList.HOLLY_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HOLLY_FENCE.getRegistryName()),
                 BYGItemList.HOLLY_FENCE_GATE = new BlockItem(BYGBlockList.HOLLY_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HOLLY_FENCE_GATE.getRegistryName()),
                 BYGItemList.HOLLY_DOOR = new TallBlockItem(BYGBlockList.HOLLY_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HOLLY_DOOR.getRegistryName()),
-                BYGItemList.HOLLY_TRAPDOOR = new TallBlockItem(BYGBlockList.HOLLY_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HOLLY_TRAPDOOR.getRegistryName()),
-                BYGItemList.HOLLY_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.HOLLY_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HOLLY_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.HOLLY_BUTTON = new TallBlockItem(BYGBlockList.HOLLY_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HOLLY_BUTTON.getRegistryName()),
+                BYGItemList.HOLLY_TRAPDOOR = new BlockItem(BYGBlockList.HOLLY_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HOLLY_TRAPDOOR.getRegistryName()),
+                BYGItemList.HOLLY_PRESSURE_PLATE = new BlockItem(BYGBlockList.HOLLY_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HOLLY_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.HOLLY_BUTTON = new BlockItem(BYGBlockList.HOLLY_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HOLLY_BUTTON.getRegistryName()),
                 BYGItemList.HOLLY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.HOLLY, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("holly_boat"),
 
                 //Jacaranda Woodtype
@@ -414,9 +414,9 @@ public class BYGItemRegistry {
                 BYGItemList.JACARANDA_FENCE = new BlockItem(BYGBlockList.JACARANDA_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JACARANDA_FENCE.getRegistryName()),
                 BYGItemList.JACARANDA_FENCE_GATE = new BlockItem(BYGBlockList.JACARANDA_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JACARANDA_FENCE_GATE.getRegistryName()),
                 BYGItemList.JACARANDA_DOOR = new TallBlockItem(BYGBlockList.JACARANDA_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JACARANDA_DOOR.getRegistryName()),
-                BYGItemList.JACARANDA_TRAPDOOR = new TallBlockItem(BYGBlockList.JACARANDA_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JACARANDA_TRAPDOOR.getRegistryName()),
-                BYGItemList.JACARANDA_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.JACARANDA_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JACARANDA_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.JACARANDA_BUTTON = new TallBlockItem(BYGBlockList.JACARANDA_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JACARANDA_BUTTON.getRegistryName()),
+                BYGItemList.JACARANDA_TRAPDOOR = new BlockItem(BYGBlockList.JACARANDA_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JACARANDA_TRAPDOOR.getRegistryName()),
+                BYGItemList.JACARANDA_PRESSURE_PLATE = new BlockItem(BYGBlockList.JACARANDA_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JACARANDA_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.JACARANDA_BUTTON = new BlockItem(BYGBlockList.JACARANDA_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JACARANDA_BUTTON.getRegistryName()),
                 BYGItemList.JACARANDA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("jacaranda_boat"),
 
                 //Mahogany Woodtype
@@ -434,9 +434,9 @@ public class BYGItemRegistry {
                 BYGItemList.MAHOGANY_FENCE = new BlockItem(BYGBlockList.MAHOGANY_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_FENCE.getRegistryName()),
                 BYGItemList.MAHOGANY_FENCE_GATE = new BlockItem(BYGBlockList.MAHOGANY_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_FENCE_GATE.getRegistryName()),
                 BYGItemList.MAHOGANY_DOOR = new TallBlockItem(BYGBlockList.MAHOGANY_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_DOOR.getRegistryName()),
-                BYGItemList.MAHOGANY_TRAPDOOR = new TallBlockItem(BYGBlockList.MAHOGANY_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_TRAPDOOR.getRegistryName()),
-                BYGItemList.MAHOGANY_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.MAHOGANY_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.MAHOGANY_BUTTON = new TallBlockItem(BYGBlockList.MAHOGANY_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_BUTTON.getRegistryName()),
+                BYGItemList.MAHOGANY_TRAPDOOR = new BlockItem(BYGBlockList.MAHOGANY_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_TRAPDOOR.getRegistryName()),
+                BYGItemList.MAHOGANY_PRESSURE_PLATE = new BlockItem(BYGBlockList.MAHOGANY_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.MAHOGANY_BUTTON = new BlockItem(BYGBlockList.MAHOGANY_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_BUTTON.getRegistryName()),
                 BYGItemList.MAHOGANY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.MAHOGANY, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("mahogany_boat"),
 
                 //Mangrove Woodtype
@@ -454,9 +454,9 @@ public class BYGItemRegistry {
                 BYGItemList.MANGROVE_FENCE = new BlockItem(BYGBlockList.MANGROVE_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MANGROVE_FENCE.getRegistryName()),
                 BYGItemList.MANGROVE_FENCE_GATE = new BlockItem(BYGBlockList.MANGROVE_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MANGROVE_FENCE_GATE.getRegistryName()),
                 BYGItemList.MANGROVE_DOOR = new TallBlockItem(BYGBlockList.MANGROVE_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MANGROVE_DOOR.getRegistryName()),
-                BYGItemList.MANGROVE_TRAPDOOR = new TallBlockItem(BYGBlockList.MANGROVE_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MANGROVE_TRAPDOOR.getRegistryName()),
-                BYGItemList.MANGROVE_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.MANGROVE_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MANGROVE_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.MANGROVE_BUTTON = new TallBlockItem(BYGBlockList.MANGROVE_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MANGROVE_BUTTON.getRegistryName()),
+                BYGItemList.MANGROVE_TRAPDOOR = new BlockItem(BYGBlockList.MANGROVE_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MANGROVE_TRAPDOOR.getRegistryName()),
+                BYGItemList.MANGROVE_PRESSURE_PLATE = new BlockItem(BYGBlockList.MANGROVE_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MANGROVE_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.MANGROVE_BUTTON = new BlockItem(BYGBlockList.MANGROVE_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MANGROVE_BUTTON.getRegistryName()),
                 BYGItemList.MANGROVE_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.MANGROVE, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("mangrove_boat"),
 
                 //Maple Woodtype
@@ -478,9 +478,9 @@ public class BYGItemRegistry {
                 BYGItemList.MAPLE_FENCE = new BlockItem(BYGBlockList.MAPLE_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAPLE_FENCE.getRegistryName()),
                 BYGItemList.MAPLE_FENCE_GATE = new BlockItem(BYGBlockList.MAPLE_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAPLE_FENCE_GATE.getRegistryName()),
                 BYGItemList.MAPLE_DOOR = new TallBlockItem(BYGBlockList.MAPLE_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAPLE_DOOR.getRegistryName()),
-                BYGItemList.MAPLE_TRAPDOOR = new TallBlockItem(BYGBlockList.MAPLE_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAPLE_TRAPDOOR.getRegistryName()),
-                BYGItemList.MAPLE_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.MAPLE_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAPLE_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.MAPLE_BUTTON = new TallBlockItem(BYGBlockList.MAPLE_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAPLE_BUTTON.getRegistryName()),
+                BYGItemList.MAPLE_TRAPDOOR = new BlockItem(BYGBlockList.MAPLE_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAPLE_TRAPDOOR.getRegistryName()),
+                BYGItemList.MAPLE_PRESSURE_PLATE = new BlockItem(BYGBlockList.MAPLE_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAPLE_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.MAPLE_BUTTON = new BlockItem(BYGBlockList.MAPLE_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAPLE_BUTTON.getRegistryName()),
                 BYGItemList.MAPLE_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("maple_boat"),
 
                 //Palo Verde Woodtype
@@ -507,9 +507,9 @@ public class BYGItemRegistry {
                 BYGItemList.PINE_FENCE = new BlockItem(BYGBlockList.PINE_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINE_FENCE.getRegistryName()),
                 BYGItemList.PINE_FENCE_GATE = new BlockItem(BYGBlockList.PINE_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINE_FENCE_GATE.getRegistryName()),
                 BYGItemList.PINE_DOOR = new TallBlockItem(BYGBlockList.PINE_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINE_DOOR.getRegistryName()),
-                BYGItemList.PINE_TRAPDOOR = new TallBlockItem(BYGBlockList.PINE_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINE_TRAPDOOR.getRegistryName()),
-                BYGItemList.PINE_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.PINE_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINE_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.PINE_BUTTON = new TallBlockItem(BYGBlockList.PINE_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINE_BUTTON.getRegistryName()),
+                BYGItemList.PINE_TRAPDOOR = new BlockItem(BYGBlockList.PINE_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINE_TRAPDOOR.getRegistryName()),
+                BYGItemList.PINE_PRESSURE_PLATE = new BlockItem(BYGBlockList.PINE_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINE_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.PINE_BUTTON = new BlockItem(BYGBlockList.PINE_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PINE_BUTTON.getRegistryName()),
                 BYGItemList.PINE_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.PINE, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("pine_boat"),
 
                 //Rainbow Eucalyptus Woodtype
@@ -527,9 +527,9 @@ public class BYGItemRegistry {
                 BYGItemList.RAINBOW_EUCALYPTUS_FENCE = new BlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RAINBOW_EUCALYPTUS_FENCE.getRegistryName()),
                 BYGItemList.RAINBOW_EUCALYPTUS_FENCE_GATE = new BlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RAINBOW_EUCALYPTUS_FENCE_GATE.getRegistryName()),
                 BYGItemList.RAINBOW_EUCALYPTUS_DOOR = new TallBlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RAINBOW_EUCALYPTUS_DOOR.getRegistryName()),
-                BYGItemList.RAINBOW_EUCALYPTUS_TRAPDOOR = new TallBlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RAINBOW_EUCALYPTUS_TRAPDOOR.getRegistryName()),
-                BYGItemList.RAINBOW_EUCALYPTUS_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RAINBOW_EUCALYPTUS_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.RAINBOW_EUCALYPTUS_BUTTON = new TallBlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RAINBOW_EUCALYPTUS_BUTTON.getRegistryName()),
+                BYGItemList.RAINBOW_EUCALYPTUS_TRAPDOOR = new BlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RAINBOW_EUCALYPTUS_TRAPDOOR.getRegistryName()),
+                BYGItemList.RAINBOW_EUCALYPTUS_PRESSURE_PLATE = new BlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RAINBOW_EUCALYPTUS_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.RAINBOW_EUCALYPTUS_BUTTON = new BlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RAINBOW_EUCALYPTUS_BUTTON.getRegistryName()),
                 BYGItemList.RAINBOW_EUCALYPTUS_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.RAINBOW_EUCALYPTUS, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("rainbow_eucalyptus_boat"),
 
                 //Redwood Woodtype
@@ -547,9 +547,9 @@ public class BYGItemRegistry {
                 BYGItemList.REDWOOD_FENCE = new BlockItem(BYGBlockList.REDWOOD_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REDWOOD_FENCE.getRegistryName()),
                 BYGItemList.REDWOOD_FENCE_GATE = new BlockItem(BYGBlockList.REDWOOD_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REDWOOD_FENCE_GATE.getRegistryName()),
                 BYGItemList.REDWOOD_DOOR = new TallBlockItem(BYGBlockList.REDWOOD_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REDWOOD_DOOR.getRegistryName()),
-                BYGItemList.REDWOOD_TRAPDOOR = new TallBlockItem(BYGBlockList.REDWOOD_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REDWOOD_TRAPDOOR.getRegistryName()),
-                BYGItemList.REDWOOD_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.REDWOOD_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REDWOOD_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.REDWOOD_BUTTON = new TallBlockItem(BYGBlockList.REDWOOD_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REDWOOD_BUTTON.getRegistryName()),
+                BYGItemList.REDWOOD_TRAPDOOR = new BlockItem(BYGBlockList.REDWOOD_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REDWOOD_TRAPDOOR.getRegistryName()),
+                BYGItemList.REDWOOD_PRESSURE_PLATE = new BlockItem(BYGBlockList.REDWOOD_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REDWOOD_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.REDWOOD_BUTTON = new BlockItem(BYGBlockList.REDWOOD_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REDWOOD_BUTTON.getRegistryName()),
                 BYGItemList.REDWOOD_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.REDWOOD, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("redwood_boat"),
 
                 //Skyris Woodtype
@@ -570,9 +570,9 @@ public class BYGItemRegistry {
                 BYGItemList.SKYRIS_FENCE = new BlockItem(BYGBlockList.SKYRIS_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SKYRIS_FENCE.getRegistryName()),
                 BYGItemList.SKYRIS_FENCE_GATE = new BlockItem(BYGBlockList.SKYRIS_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SKYRIS_FENCE_GATE.getRegistryName()),
                 BYGItemList.SKYRIS_DOOR = new TallBlockItem(BYGBlockList.SKYRIS_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SKYRIS_DOOR.getRegistryName()),
-                BYGItemList.SKYRIS_TRAPDOOR = new TallBlockItem(BYGBlockList.SKYRIS_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SKYRIS_TRAPDOOR.getRegistryName()),
-                BYGItemList.SKYRIS_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.SKYRIS_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SKYRIS_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.SKYRIS_BUTTON = new TallBlockItem(BYGBlockList.SKYRIS_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SKYRIS_BUTTON.getRegistryName()),
+                BYGItemList.SKYRIS_TRAPDOOR = new BlockItem(BYGBlockList.SKYRIS_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SKYRIS_TRAPDOOR.getRegistryName()),
+                BYGItemList.SKYRIS_PRESSURE_PLATE = new BlockItem(BYGBlockList.SKYRIS_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SKYRIS_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.SKYRIS_BUTTON = new BlockItem(BYGBlockList.SKYRIS_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SKYRIS_BUTTON.getRegistryName()),
                 BYGItemList.SKYRIS_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("skyris_boat"),
 
                 //Willow Woodtype
@@ -590,9 +590,9 @@ public class BYGItemRegistry {
                 BYGItemList.WILLOW_FENCE = new BlockItem(BYGBlockList.WILLOW_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WILLOW_FENCE.getRegistryName()),
                 BYGItemList.WILLOW_FENCE_GATE = new BlockItem(BYGBlockList.WILLOW_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WILLOW_FENCE_GATE.getRegistryName()),
                 BYGItemList.WILLOW_DOOR = new TallBlockItem(BYGBlockList.WILLOW_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WILLOW_DOOR.getRegistryName()),
-                BYGItemList.WILLOW_TRAPDOOR = new TallBlockItem(BYGBlockList.WILLOW_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WILLOW_TRAPDOOR.getRegistryName()),
-                BYGItemList.WILLOW_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.WILLOW_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WILLOW_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.WILLOW_BUTTON = new TallBlockItem(BYGBlockList.WILLOW_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WILLOW_BUTTON.getRegistryName()),
+                BYGItemList.WILLOW_TRAPDOOR = new BlockItem(BYGBlockList.WILLOW_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WILLOW_TRAPDOOR.getRegistryName()),
+                BYGItemList.WILLOW_PRESSURE_PLATE = new BlockItem(BYGBlockList.WILLOW_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WILLOW_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.WILLOW_BUTTON = new BlockItem(BYGBlockList.WILLOW_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WILLOW_BUTTON.getRegistryName()),
                 BYGItemList.WILLOW_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.WILLOW, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("willow_boat"),
 
                 //Witch-Hazel Woodtype
@@ -611,9 +611,9 @@ public class BYGItemRegistry {
                 BYGItemList.WITCH_HAZEL_FENCE = new BlockItem(BYGBlockList.WITCH_HAZEL_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITCH_HAZEL_FENCE.getRegistryName()),
                 BYGItemList.WITCH_HAZEL_FENCE_GATE = new BlockItem(BYGBlockList.WITCH_HAZEL_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITCH_HAZEL_FENCE_GATE.getRegistryName()),
                 BYGItemList.WITCH_HAZEL_DOOR = new TallBlockItem(BYGBlockList.WITCH_HAZEL_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITCH_HAZEL_DOOR.getRegistryName()),
-                BYGItemList.WITCH_HAZEL_TRAPDOOR = new TallBlockItem(BYGBlockList.WITCH_HAZEL_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITCH_HAZEL_TRAPDOOR.getRegistryName()),
-                BYGItemList.WITCH_HAZEL_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.WITCH_HAZEL_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITCH_HAZEL_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.WITCH_HAZEL_BUTTON = new TallBlockItem(BYGBlockList.WITCH_HAZEL_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITCH_HAZEL_BUTTON.getRegistryName()),
+                BYGItemList.WITCH_HAZEL_TRAPDOOR = new BlockItem(BYGBlockList.WITCH_HAZEL_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITCH_HAZEL_TRAPDOOR.getRegistryName()),
+                BYGItemList.WITCH_HAZEL_PRESSURE_PLATE = new BlockItem(BYGBlockList.WITCH_HAZEL_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITCH_HAZEL_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.WITCH_HAZEL_BUTTON = new BlockItem(BYGBlockList.WITCH_HAZEL_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITCH_HAZEL_BUTTON.getRegistryName()),
                 BYGItemList.WITCH_HAZEL_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.WITCH_HAZEL, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("witch_hazel_boat"),
 
                 //Zelkova Woodtype
@@ -631,9 +631,9 @@ public class BYGItemRegistry {
                 BYGItemList.ZELKOVA_FENCE = new BlockItem(BYGBlockList.ZELKOVA_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ZELKOVA_FENCE.getRegistryName()),
                 BYGItemList.ZELKOVA_FENCE_GATE = new BlockItem(BYGBlockList.ZELKOVA_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ZELKOVA_FENCE_GATE.getRegistryName()),
                 BYGItemList.ZELKOVA_DOOR = new TallBlockItem(BYGBlockList.ZELKOVA_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ZELKOVA_DOOR.getRegistryName()),
-                BYGItemList.ZELKOVA_TRAPDOOR = new TallBlockItem(BYGBlockList.ZELKOVA_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ZELKOVA_TRAPDOOR.getRegistryName()),
-                BYGItemList.ZELKOVA_PRESSURE_PLATE = new TallBlockItem(BYGBlockList.ZELKOVA_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ZELKOVA_PRESSURE_PLATE.getRegistryName()),
-                BYGItemList.ZELKOVA_BUTTON = new TallBlockItem(BYGBlockList.ZELKOVA_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ZELKOVA_BUTTON.getRegistryName()),
+                BYGItemList.ZELKOVA_TRAPDOOR = new BlockItem(BYGBlockList.ZELKOVA_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ZELKOVA_TRAPDOOR.getRegistryName()),
+                BYGItemList.ZELKOVA_PRESSURE_PLATE = new BlockItem(BYGBlockList.ZELKOVA_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ZELKOVA_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.ZELKOVA_BUTTON = new BlockItem(BYGBlockList.ZELKOVA_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ZELKOVA_BUTTON.getRegistryName()),
                 BYGItemList.ZELKOVA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.ZELKOVA, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("zelkova_boat"),
 
                 //SaplingItems
