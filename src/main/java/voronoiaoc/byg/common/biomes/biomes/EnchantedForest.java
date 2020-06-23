@@ -43,11 +43,11 @@ public class EnchantedForest extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        BYGFeatures.addGrass( this);
-        BYGFeatures.addBYGMushrooms( this);
-        BYGFeatures.addCloverFlowerPatch( this);
-        BYGFeatures.addFairyslipper( this);
-        BYGFeatures.addCyanRose( this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addCloverFlowerPatch(this);
+        BYGFeatures.addFairyslipper(this);
+        BYGFeatures.addCyanRose(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));

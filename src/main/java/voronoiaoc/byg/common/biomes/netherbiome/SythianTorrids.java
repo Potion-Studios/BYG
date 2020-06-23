@@ -9,7 +9,6 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.BiomeAdditionsSound;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.BiomeParticleConfig;
@@ -26,7 +25,6 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -51,7 +49,7 @@ public class SythianTorrids extends Biome {
                         .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D))
                         .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))
                         .music(MusicType.method_27283(SoundEvents.MUSIC_NETHER_CRIMSON_FOREST)).build())
-                        .noises(ImmutableList.of(new MixedNoisePoint(0.4F, 0.0F, 0.0F, 0.0F, 0.8F))));
+                .noises(ImmutableList.of(new MixedNoisePoint(0.4F, 0.0F, 0.0F, 0.0F, 0.8F))));
 
         this.addCarver(GenerationStep.Carver.AIR, configureCarver(Carver.NETHER_CAVE, new ProbabilityConfig(0.2F)));
         this.addStructureFeature(DefaultBiomeFeatures.NETHER_RUINED_PORTAL);

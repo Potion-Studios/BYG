@@ -3,11 +3,15 @@ package voronoiaoc.byg.common.biomes.subbiomes.hills;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class RedOakForestHills extends Biome {
@@ -41,11 +45,11 @@ public class RedOakForestHills extends Biome {
         BYGTreeFeatures.addRedOakForestTrees(this);
         DefaultBiomeFeatures.addForestTrees(this);
         DefaultBiomeFeatures.addForestTrees(this);
-        //BYGFeatures.addShortGrass(this);
-        //BYGFeatures.addLeafPile(this);
-        //BYGFeatures.addAzalea(this);
-        //BYGFeatures.addHorseweed(this);
-        //BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addShortGrass(this);
+        BYGFeatures.addLeafPile(this);
+        BYGFeatures.addAzalea(this);
+        BYGFeatures.addHorseweed(this);
+        BYGFeatures.addBYGMushrooms(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));

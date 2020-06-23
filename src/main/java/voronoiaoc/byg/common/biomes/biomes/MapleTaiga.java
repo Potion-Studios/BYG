@@ -42,11 +42,11 @@ public class MapleTaiga extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        BYGFeatures.addGrass( this);
-        BYGFeatures.addBYGMushrooms( this);
-        BYGFeatures.addAnemones( this);
-        BYGFeatures.addSages( this);
-        BYGFeatures.addRose( this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addAnemones(this);
+        BYGFeatures.addSages(this);
+        BYGFeatures.addRose(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));

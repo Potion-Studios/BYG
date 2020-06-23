@@ -33,7 +33,8 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
     public CragGardens() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
         this.addStructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
-        this.addStructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);        DefaultBiomeFeatures.method_28440(this);
+        this.addStructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
+        DefaultBiomeFeatures.method_28440(this);
         BYGFeatures.addLargeLake(this);
         BYGFeatures.addCattails(this);
         BYGFeatures.addBYGLilyPad(this);

@@ -101,7 +101,7 @@ public class BlueTaiga extends Biome implements BiomeTools {
         return null;
     }
 
-    public Biome pickRandomSubBiome(Random rand){
+    public Biome pickRandomSubBiome(Random rand) {
         return (rand.nextInt(2) == 0) ? BYGBiomeList.BLUEGIANTTAIGA : BYGBiomeList.BLUETAIGAHILLS;
     }
 }

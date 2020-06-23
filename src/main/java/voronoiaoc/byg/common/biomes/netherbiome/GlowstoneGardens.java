@@ -9,7 +9,6 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.BiomeAdditionsSound;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.BiomeParticleConfig;
@@ -52,7 +51,7 @@ public class GlowstoneGardens extends Biome implements BiomeFog {
                         .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                         .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
                         .music(MusicType.method_27283(SoundEvents.MUSIC_NETHER_BASALT_DELTAS)).build())
-                        .noises(ImmutableList.of(new MixedNoisePoint(0.4F, 0.0F, 0.0F, 0.0F, 0.8F))));
+                .noises(ImmutableList.of(new MixedNoisePoint(0.4F, 0.0F, 0.0F, 0.0F, 0.8F))));
 
         this.addCarver(GenerationStep.Carver.AIR, configureCarver(Carver.NETHER_CAVE, new ProbabilityConfig(0.2F)));
         this.addStructureFeature(DefaultBiomeFeatures.NETHER_RUINED_PORTAL);
@@ -79,7 +78,7 @@ public class GlowstoneGardens extends Biome implements BiomeFog {
         this.addSpawn(SpawnGroup.MONSTER, new Biome.SpawnEntry(EntityType.PIGLIN, 15, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new Biome.SpawnEntry(EntityType.STRIDER, 60, 1, 2));
     }
-    
+
     @Override
     public int getGrassColorAt(double posX, double posZ) {
         return 10855786;

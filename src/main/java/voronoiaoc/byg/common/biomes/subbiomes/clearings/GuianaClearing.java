@@ -3,24 +3,22 @@ package voronoiaoc.byg.common.biomes.subbiomes.clearings;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.structure.VillageConfig;
-import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.IPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.TernarySurfaceConfig;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
-import voronoiaoc.byg.core.byglists.BYGFeatureList;
 
 public class GuianaClearing extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState()));
@@ -36,10 +34,8 @@ public class GuianaClearing extends Biome {
 
     public GuianaClearing() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        //this.addStructure(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/guiana/town_centers", 5)));
-        //this.addStructure(Feature.JUNGLE_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG));
-        //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
+        this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
@@ -54,9 +50,8 @@ public class GuianaClearing extends Biome {
         BYGFeatures.addGrass(this);
         BYGFeatures.addBYGTropicFlowers(this);
         BYGFeatures.addBYGMushrooms(this);
-        this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/guiana/town_centers", 5)).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlockList.AMETRINE_ORE.getDefaultState(), BYGWorldConfig.ametrineOreSize.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(BYGWorldConfig.ametrineOreChance.get(), 0, 0, BYGWorldConfig.ametrineOreMaxY.get()))));
+        this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, BYGBlockList.AMETRINE_ORE.getDefaultState(), 4)).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(10, 0, 0, 56))));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.CHICKEN, 10, 4, 4));
@@ -75,14 +70,12 @@ public class GuianaClearing extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.OCELOT, 2, 1, 1));
     }
 
-    @Override
-    public Biome getRiver() {
-        return this;
-    }
+//    @Override
+//    public Biome getRiver() {
+//        return this;
+//    }
 
-    @OnlyIn(Dist.CLIENT)
     public int getGrassColorAt(BlockPos pos) {
-
         return 6208527;
     }
 

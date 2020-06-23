@@ -4,9 +4,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -69,7 +67,6 @@ public class FungalPatch extends Biome {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public int getGrassColorAt(double posX, double posZ) {
         return 10145074;
 

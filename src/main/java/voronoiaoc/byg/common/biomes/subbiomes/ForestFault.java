@@ -39,17 +39,17 @@ public class ForestFault extends Biome {
         //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
-        DefaultBiomeFeatures.addTaigaRocks(this);
-        DefaultBiomeFeatures.addTaigaLargeFerns(this);
+        DefaultBiomeFeatures.addMossyRocks(this);
+        DefaultBiomeFeatures.addLargeFerns(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addDefaultDisks(this);
         DefaultBiomeFeatures.addDefaultFlowers(this);
-        DefaultBiomeFeatures.addTaigaGrassDeadBushesMushrooms(this);
+        DefaultBiomeFeatures.addGiantTaigaGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.addBerryBushes(this);
+        DefaultBiomeFeatures.addSweetBerryBushes(this);
         BYGTreeFeatures.addSparseBlackForestTrees(this);
         BYGFeatures.addExtraCanyons(this);
         BYGFeatures.addLushBlueberries(this);
@@ -86,7 +86,6 @@ public class ForestFault extends Biome {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public int getGrassColorAt(double posX, double posZ) {
         return 5011004;
 

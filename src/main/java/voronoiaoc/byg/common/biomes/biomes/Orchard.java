@@ -42,12 +42,12 @@ public class Orchard extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        BYGFeatures.addGrass( this);
-        BYGFeatures.addBYGMushrooms( this);
-        BYGFeatures.addCloverFlowerPatch( this);
-        BYGFeatures.addLolliPop( this);
-        BYGFeatures.addYellowDaffodil( this);
-        BYGFeatures.addPinkAllium( this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addCloverFlowerPatch(this);
+        BYGFeatures.addLolliPop(this);
+        BYGFeatures.addYellowDaffodil(this);
+        BYGFeatures.addPinkAllium(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));

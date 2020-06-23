@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class AlpineFoothills extends Biome {
@@ -26,15 +27,12 @@ public class AlpineFoothills extends Biome {
 
     public AlpineFoothills() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/snowy/town_centers"), 6));
-        this.addStructureFeature(DefaultBiomeFeatures.IGLOO);
-        DefaultBiomeFeatures.method_28440(this);
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         BYGTreeFeatures.addBluffTrees(this);
-        //BYGFeatures.addAlpineBellflower(this);
+        BYGFeatures.addAlpineBellflower(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addLargeFerns(this);
         DefaultBiomeFeatures.addMineables(this);
@@ -44,13 +42,12 @@ public class AlpineFoothills extends Biome {
         DefaultBiomeFeatures.addTaigaGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
-        //BYGFeatures.addForestGrass(this);
-        //BYGFeatures.addWinterSucculent(this);
-        //BYGFeatures.addWinterSucculent(this);
-        //BYGFeatures.addWinterScilla(this);
-        //BYGFeatures.addWinterRose(this);
-        //BYGFeatures.addBYGMushrooms(this);
-
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addWinterSucculent(this);
+        BYGFeatures.addWinterSucculent(this);
+        BYGFeatures.addWinterScilla(this);
+        BYGFeatures.addWinterRose(this);
+        BYGFeatures.addBYGMushrooms(this);
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.RABBIT, 10, 2, 3));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.POLAR_BEAR, 1, 1, 2));
         this.addSpawn(SpawnGroup.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
@@ -65,11 +62,9 @@ public class AlpineFoothills extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.STRAY, 80, 4, 4));
     }
 
-
-////    public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
-//        double lvt_5_1_ = INFO_NOISE.sample (p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
-//        return lvt_5_1_ < -0.1D ? 11909994 : 12499549;
-//    }
-
+    @Override
+    public int getFoliageColor() {
+        return 13417297;
+    }
 }
 

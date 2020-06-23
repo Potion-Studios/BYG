@@ -3,12 +3,13 @@ package voronoiaoc.byg.common.biomes.subbiomes.clearings;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.TernarySurfaceConfig;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
@@ -33,12 +34,12 @@ public class ZelkovaClearing extends Biome {
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
-        DefaultBiomeFeatures.addTaigaLargeFerns(this);
+        DefaultBiomeFeatures.addLargeFerns(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addDefaultDisks(this);
         DefaultBiomeFeatures.addDefaultFlowers(this);
-        DefaultBiomeFeatures.addTaigaGrassAndMushrooms(this);
+        DefaultBiomeFeatures.addTaigaGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         BYGFeatures.addGrass(this);
@@ -64,14 +65,13 @@ public class ZelkovaClearing extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
 
-    @OnlyIn(Dist.CLIENT)
     public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
-        double lvt_5_1_ = INFO_NOISE.noiseAt(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
+        double lvt_5_1_ = FOLIAGE_NOISE.sample(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
         return lvt_5_1_ < -0.1D ? 5416309 : 5416309;
     }
 

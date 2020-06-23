@@ -2,17 +2,14 @@ package voronoiaoc.byg.common.biomes.subbiomes.hills;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
-
-import javax.annotation.Nullable;
 
 public class BlackForestHills extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF);
@@ -32,17 +29,17 @@ public class BlackForestHills extends Biome {
         //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
-        DefaultBiomeFeatures.addTaigaRocks(this);
-        DefaultBiomeFeatures.addTaigaLargeFerns(this);
+        DefaultBiomeFeatures.addMossyRocks(this);
+        DefaultBiomeFeatures.addLargeFerns(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addDefaultDisks(this);
         DefaultBiomeFeatures.addDefaultFlowers(this);
-        DefaultBiomeFeatures.addTaigaGrassDeadBushesMushrooms(this);
+        DefaultBiomeFeatures.addGiantTaigaGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.addBerryBushes(this);
+        DefaultBiomeFeatures.addSweetBerryBushes(this);
         BYGTreeFeatures.addBlackForestTrees(this);
         BYGFeatures.addLushBlueberries(this);
         BYGFeatures.addMossyStoneBoulder(this);
@@ -72,13 +69,12 @@ public class BlackForestHills extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public int getGrassColorAt(double posX, double posZ) {
         return 5011004;
 
@@ -89,21 +85,21 @@ public class BlackForestHills extends Biome {
         return 2263842;
     }
 
-    @Nullable
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return randomSubBiome(rand);
-    }
-
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
-        if (randomPicker == 0)
-            return BYGBiomeList.CONIFEROUSFORESTHILLS;
-        else if (randomPicker == 1)
-            return BYGBiomeList.CONIFEROUS_CLEARING;
-        else if (randomPicker == 2)
-            return BYGBiomeList.CONIFEROUS_CLEARING;
-        else
-            return BYGBiomeList.FRESHWATERLAKE;
-    }
+//    @Nullable
+//    @Override
+//    public Biome getHill(INoiseRandom rand) {
+//        return randomSubBiome(rand);
+//    }
+//
+//    public Biome randomSubBiome(INoiseRandom random) {
+//        int randomPicker = random.random(4);
+//        if (randomPicker == 0)
+//            return BYGBiomeList.CONIFEROUSFORESTHILLS;
+//        else if (randomPicker == 1)
+//            return BYGBiomeList.CONIFEROUS_CLEARING;
+//        else if (randomPicker == 2)
+//            return BYGBiomeList.CONIFEROUS_CLEARING;
+//        else
+//            return BYGBiomeList.FRESHWATERLAKE;
+//    }
 }

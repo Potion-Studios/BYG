@@ -8,6 +8,7 @@ import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class TropicalRainForestHills extends Biome {
@@ -40,9 +41,9 @@ public class TropicalRainForestHills extends Biome {
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         BYGTreeFeatures.addTropJungleTrees(this);
         DefaultBiomeFeatures.addSavannaGrass(this);
-        //BYGFeatures.addWeedGrass(this);
-        //BYGFeatures.addBYGTropicFlowers(this);
-        //BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addWeedGrass(this);
+        BYGFeatures.addBYGTropicFlowers(this);
+        BYGFeatures.addBYGMushrooms(this);
 
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
@@ -62,5 +63,16 @@ public class TropicalRainForestHills extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.OCELOT, 2, 1, 1));
 
+    }
+
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 10145074;
+
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 10145074;
     }
 }

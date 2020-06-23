@@ -2,21 +2,17 @@ package voronoiaoc.byg.common.biomes.subbiomes.clearings;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
-
-import javax.annotation.Nullable;
 
 public class BorealisClearing extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG);
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final double DEPTH = 0.2F;
@@ -29,18 +25,16 @@ public class BorealisClearing extends Biome {
 
     public BorealisClearing() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        //this.addStructure(Feature.VILLAGE.configure(new VillageConfig("village/taiga/town_centers"), 6));
-        //this.addStructure(Feature.PILLAGER_OUTPOST.configure(IFeatureConfig.NO_FEATURE_CONFIG));
-        //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
+        this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
-        DefaultBiomeFeatures.addDoubleFlowers(this);
+        DefaultBiomeFeatures.addForestFlowers(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addDefaultDisks(this);
         DefaultBiomeFeatures.addDefaultFlowers(this);
-        DefaultBiomeFeatures.addGrass(this);
+        DefaultBiomeFeatures.addForestGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         BYGTreeFeatures.addSparseBorealTrees(this);
@@ -66,26 +60,25 @@ public class BorealisClearing extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
 
-    public int getFoliageColor(BlockPos pos) {
+    public int getFoliageColor() {
         return 6589494;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public int getGrassColorAt(double posX, double posY) {
-        double lvt_5_1_ = INFO_NOISE.noiseAt(posX * 0.0225D, posY * 0.0225D, false);
+        double lvt_5_1_ = FOLIAGE_NOISE.sample(posX * 0.0225D, posY * 0.0225D, false);
         return lvt_5_1_ < -0.1D ? 5011004 : 6190652;
     }
 
-    @Nullable
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.BOREALFORESTHILLS;
-    }
+//    @Nullable
+//    @Override
+//    public Biome getHill(INoiseRandom rand) {
+//        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.BOREALFORESTHILLS;
+//    }
 }
 
 

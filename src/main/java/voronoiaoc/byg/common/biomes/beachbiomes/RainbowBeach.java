@@ -6,7 +6,6 @@ import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
@@ -26,16 +25,15 @@ public class RainbowBeach extends Biome {
 
     public RainbowBeach() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        this.addStructure(Feature.BURIED_TREASURE.withConfiguration(new BuriedTreasureConfig(0.01F)));
-        this.addStructure(Feature.SHIPWRECK.withConfiguration(new ShipwreckConfig(true)));
+        this.addStructureFeature(DefaultBiomeFeatures.NORMAL_MINESHAFT);
+        this.addStructureFeature(DefaultBiomeFeatures.BURIED_TREASURE);
+        this.addStructureFeature(DefaultBiomeFeatures.BEACHED_SHIPWRECK);
         DefaultBiomeFeatures.addCarvers(this);
-        DefaultBiomeFeatures.addStructures(this);
-        DefaultBiomeFeatures.addMonsterRooms(this);
-        DefaultBiomeFeatures.addStoneVariants(this);
-        DefaultBiomeFeatures.addOres(this);
-        DefaultBiomeFeatures.addSedimentDisks(this);
-        DefaultBiomeFeatures.addSparseGrass(this);
+        DefaultBiomeFeatures.addDungeons(this);
+        DefaultBiomeFeatures.addMineables(this);
+        DefaultBiomeFeatures.addDefaultOres(this);
+        DefaultBiomeFeatures.addDefaultDisks(this);
+        DefaultBiomeFeatures.addDefaultGrass(this);
         DefaultBiomeFeatures.addSprings(this);
         BYGFeatures.addBeachGrass(this);
         BYGTreeFeatures.addPalmTree(this);

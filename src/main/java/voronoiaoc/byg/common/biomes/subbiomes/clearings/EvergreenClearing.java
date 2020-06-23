@@ -3,12 +3,13 @@ package voronoiaoc.byg.common.biomes.subbiomes.clearings;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.TernarySurfaceConfig;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
@@ -30,17 +31,17 @@ public class EvergreenClearing extends Biome {
         //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
-        DefaultBiomeFeatures.addTaigaRocks(this);
-        DefaultBiomeFeatures.addTaigaLargeFerns(this);
+        DefaultBiomeFeatures.addMossyRocks(this);
+        DefaultBiomeFeatures.addLargeFerns(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addDefaultDisks(this);
         DefaultBiomeFeatures.addDefaultFlowers(this);
-        DefaultBiomeFeatures.addTaigaGrassDeadBushesMushrooms(this);
+        DefaultBiomeFeatures.addGiantTaigaGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.addBerryBushes(this);
+        DefaultBiomeFeatures.addSweetBerryBushes(this);
         BYGTreeFeatures.addSparseHollyTrees(this);
         BYGFeatures.addLushBlueberries(this);
         BYGFeatures.addMossyStoneBoulder(this);
@@ -69,13 +70,12 @@ public class EvergreenClearing extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public int getGrassColorAt(double posX, double posZ) {
         return 5011004;
 

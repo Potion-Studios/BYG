@@ -73,7 +73,8 @@ public class VibrantSwamplands extends Biome implements BiomeTools {
     @Override
     public int getGrassColorAt(double x, double z) {
         double d0 = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
-        return d0 < -0.1D ? 6337104 : 6337104;    }
+        return d0 < -0.1D ? 6337104 : 6337104;
+    }
 
     @Override
     public int getFoliageColor() {

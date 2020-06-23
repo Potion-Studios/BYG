@@ -3,11 +3,15 @@ package voronoiaoc.byg.common.biomes.subbiomes.hills;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -29,7 +33,6 @@ public class BorealForestHills extends Biome {
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addForestFlowers(this);
         DefaultBiomeFeatures.addMineables(this);
@@ -40,11 +43,11 @@ public class BorealForestHills extends Biome {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         BYGTreeFeatures.addBorealTrees(this);
-        //BYGFeatures.addBlueberries(this);
-        //BYGFeatures.addCrocus(this);
-        //BYGFeatures.addIris(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addShortGrass(this);
+        BYGFeatures.addBlueberries(this);
+        BYGFeatures.addCrocus(this);
+        BYGFeatures.addIris(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addShortGrass(this);
 
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
@@ -61,6 +64,16 @@ public class BorealForestHills extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
+    }
+
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        double lvt_5_1_ = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
+        return lvt_5_1_ < -0.1D ? 5011004 : 5406525;    }
+
+    @Override
+    public int getFoliageColor() {
+        return 6589494;
     }
 }
 

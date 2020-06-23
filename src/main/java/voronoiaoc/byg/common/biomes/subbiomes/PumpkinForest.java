@@ -70,7 +70,6 @@ public class PumpkinForest extends Biome implements BiomeFog {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public int getGrassColorAt(double posX, double posZ) {
         return 5406551;
     }

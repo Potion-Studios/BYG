@@ -3,20 +3,16 @@ package voronoiaoc.byg.common.biomes.subbiomes.clearings;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.TernarySurfaceConfig;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
-
-import javax.annotation.Nullable;
 
 public class WeepingWitchClearing extends Biome implements BiomeFog {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
@@ -63,14 +59,13 @@ public class WeepingWitchClearing extends Biome implements BiomeFog {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
-    @Nullable
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FRESHWATERLAKE;
-    }
+//    @Nullable
+//    @Override
+//    public Biome getHill() {
+//        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FRESHWATERLAKE;
+//    }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public int getGrassColorAt(double posX, double posZ) {
         return 5406551;
     }
@@ -80,31 +75,14 @@ public class WeepingWitchClearing extends Biome implements BiomeFog {
         return 6589494;
     }
 
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Override
-    public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
-        return color;
-    }
-
-    Vec3d color = new Vec3d(192, 192, 192);
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
 
     @Override
     public int getSkyColor() {
         return 12632256;
-    }
-
-    @Override
-    public Boolean doesBiomeXZShowFog(int x, int z) {
-        return false;
-    }
-
-    @Override
-    public double getBiomeVoidFogYFactor(int x, int y, double originalValue) {
-        return 0.6;
     }
 
     @Override

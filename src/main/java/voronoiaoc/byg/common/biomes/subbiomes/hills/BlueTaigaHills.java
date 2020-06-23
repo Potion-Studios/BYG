@@ -3,11 +3,15 @@ package voronoiaoc.byg.common.biomes.subbiomes.hills;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class BlueTaigaHills extends Biome {
@@ -42,11 +46,11 @@ public class BlueTaigaHills extends Biome {
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addSweetBerryBushes(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        //BYGFeatures.addBlueberries(this);
-        //BYGFeatures.addCrocus(this);
-        //BYGFeatures.addIris(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addShortGrass(this);
+        BYGFeatures.addBlueberries(this);
+        BYGFeatures.addCrocus(this);
+        BYGFeatures.addIris(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addShortGrass(this);
 //        this.addCarver(GenerationStep.Carving.AIR, Biome.createCarver(BYGFeatureList.CAVE, new ProbabilityConfig(0.25F)));
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));

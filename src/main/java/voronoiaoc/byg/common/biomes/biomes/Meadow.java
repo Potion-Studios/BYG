@@ -48,7 +48,7 @@ public class Meadow extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        BYGFeatures.addGrass( this);
+        BYGFeatures.addGrass(this);
         BYGFeatures.addBYGMushrooms(this);
         BYGFeatures.addCloverFlowerPatch(this);
         BYGFeatures.addAnemones(this);

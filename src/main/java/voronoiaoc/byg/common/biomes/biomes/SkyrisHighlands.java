@@ -70,7 +70,8 @@ public class SkyrisHighlands extends Biome implements BiomeTools {
     @Override
     public int getGrassColorAt(double x, double z) {
         double lvt_5_1_ = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
-        return lvt_5_1_ < -0.1D ? 7135854 : 6409356;    }
+        return lvt_5_1_ < -0.1D ? 7135854 : 6409356;
+    }
 
     @Nullable
     @Override

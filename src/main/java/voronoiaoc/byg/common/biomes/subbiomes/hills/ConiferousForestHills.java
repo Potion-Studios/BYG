@@ -7,6 +7,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -40,12 +41,12 @@ public class ConiferousForestHills extends Biome {
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addSweetBerryBushes(this);
         BYGTreeFeatures.addConiferousTrees(this);
-        //BYGFeatures.addBlueberries(this);
-        //BYGFeatures.addCrocus(this);
-        //BYGFeatures.addIris(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addForestGrass(this);
-        //BYGFeatures.addWinterSucculent(this);
+        BYGFeatures.addBlueberries(this);
+        BYGFeatures.addCrocus(this);
+        BYGFeatures.addIris(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addWinterSucculent(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));
@@ -64,5 +65,15 @@ public class ConiferousForestHills extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
 
+    }
+
+    @Override
+    public int getGrassColorAt(double x, double z) {
+       return  5011004;
+    }
+
+    @Override
+    public int getFoliageColor() {
+      return   2263842;
     }
 }

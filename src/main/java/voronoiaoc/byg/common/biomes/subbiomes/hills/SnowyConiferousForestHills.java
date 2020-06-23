@@ -7,6 +7,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -39,13 +40,13 @@ public class SnowyConiferousForestHills extends Biome {
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         BYGTreeFeatures.addConiferousTrees(this);
-        //BYGFeatures.addBlueberries(this);
-        //BYGFeatures.addShortGrass(this);
-        //BYGFeatures.addWinterSucculent(this);
-        //BYGFeatures.addWinterSucculent(this);
-        //BYGFeatures.addAnemones(this);
-        //BYGFeatures.addCrocus(this);
-        //BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addBlueberries(this);
+        BYGFeatures.addShortGrass(this);
+        BYGFeatures.addWinterSucculent(this);
+        BYGFeatures.addWinterSucculent(this);
+        BYGFeatures.addAnemones(this);
+        BYGFeatures.addCrocus(this);
+        BYGFeatures.addBYGMushrooms(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));
@@ -65,5 +66,15 @@ public class SnowyConiferousForestHills extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.STRAY, 80, 4, 4));
 
+    }
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 5011004;
+
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 2263842;
     }
 }

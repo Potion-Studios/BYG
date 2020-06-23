@@ -65,7 +65,7 @@ public class GrassLandPlateau extends Biome implements BiomeTools {
 
     @Override
     public Biome getRiver() {
-       return Biomes.RIVER;
+        return Biomes.RIVER;
     }
 
     @Override
