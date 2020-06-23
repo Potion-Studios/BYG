@@ -24,6 +24,9 @@ public class BYGSBList {
     public static final SurfaceBuilder<TernarySurfaceConfig> QUAGMIRE_SB = new QuagmireSB(TernarySurfaceConfig.CODEC);
     public static final SurfaceBuilder<TernarySurfaceConfig> CANYONS = new CanyonSB(TernarySurfaceConfig.CODEC);
     public static final SurfaceBuilder<TernarySurfaceConfig> MOJAVE = new MojaveSB(TernarySurfaceConfig.CODEC);
+    public static final SurfaceBuilder<TernarySurfaceConfig> LUSH_TUNDRA_SB = new LushTundraSB(TernarySurfaceConfig.CODEC);
+    public static final SurfaceBuilder<TernarySurfaceConfig> FUNGAL_RAINFOREST_SB = new FungalRainforestSB(TernarySurfaceConfig.CODEC);
+    public static final SurfaceBuilder<TernarySurfaceConfig> EBONY_SB = new EbonyWoodsSB(TernarySurfaceConfig.CODEC);
 
     //Beaches
     public static final SurfaceBuilder<TernarySurfaceConfig> ROCKYBLACKBEACH_SB = new RockyBlackBeachSB(TernarySurfaceConfig.CODEC);
@@ -84,5 +87,7 @@ public class BYGSBList {
 
         public static final TernarySurfaceConfig IVIS_CF = new TernarySurfaceConfig(BYGBlockList.IVIS_PHYLIUM.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
         public static final TernarySurfaceConfig END = new TernarySurfaceConfig(Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
+        public static final TernarySurfaceConfig MYCELIUM = new TernarySurfaceConfig(Blocks.MYCELIUM.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState());
+
     }
 }

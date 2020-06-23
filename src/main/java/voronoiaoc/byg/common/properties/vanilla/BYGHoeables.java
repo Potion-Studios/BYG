@@ -21,7 +21,7 @@ package voronoiaoc.byg.common.properties.vanilla;//package voronoiaoc.byg.common
 //        hoeableBlock(BYGBlockList.PODZOL_DACITE, Blocks.FARMLAND.getDefaultState());
 //        hoeableBlock(BYGBlockList.MEADOW_GRASSBLOCK, Blocks.FARMLAND.getDefaultState());
 //        hoeableBlock(BYGBlockList.MEADOW_DIRT, Blocks.FARMLAND.getDefaultState());
-//        hoeableBlock(BYGBlockList.PEAT_GRASSBLOCK, Blocks.FARMLAND.getDefaultState());
+//        hoeableBlock(BYGBlockList.PEAT, Blocks.FARMLAND.getDefaultState());
 //
 //        BYG.LOGGER.info("BYG: Added Hoeable BYGBlockRenders!");
 //    }

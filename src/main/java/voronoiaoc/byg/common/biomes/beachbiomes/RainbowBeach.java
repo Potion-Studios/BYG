@@ -28,7 +28,7 @@ public class RainbowBeach extends Biome {
         this.addStructureFeature(DefaultBiomeFeatures.NORMAL_MINESHAFT);
         this.addStructureFeature(DefaultBiomeFeatures.BURIED_TREASURE);
         this.addStructureFeature(DefaultBiomeFeatures.BEACHED_SHIPWRECK);
-        DefaultBiomeFeatures.addCarvers(this);
+        DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
