@@ -53,17 +53,14 @@ public abstract class MixinGameRenderer {
                     float fogStrength = ((BiomeFog) biome).fogDistance(sampleX, sampleZ, originalFogStrength);
 
                     accumulatedFogStrength += fogStrength * fogStrength;
-                }
-                else
+                } else
                     accumulatedFogStrength += defaultFogStrength;
             }
 
             if (modified) {
                 float transitionSmoothness = 33 * 33;
                 cir.setReturnValue((float) Math.sqrt(accumulatedFogStrength / transitionSmoothness));
-            }
-
-            else
+            } else
                 cir.setReturnValue(cir.getReturnValueF());
         }
     }

@@ -71,6 +71,7 @@ public class SeasonalTaigaHills extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
+
     @Override
     public int getGrassColorAt(double posX, double posZ) {
         return 11513689;

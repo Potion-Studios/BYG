@@ -389,6 +389,8 @@ public class BYGBlockRegistry {
                 BYGBlockList.BLUEBERRY_BUSH = new BYGBlockProperties.BYGBerryBush("blueberry_bush");
                 BYGBlockList.TINY_LILYPADS = new BYGBlockProperties.BYGLily("tiny_lilypads");
                 BYGBlockList.WATER_SILK = new BYGBlockProperties.BYGWaterSilk("water_silk");
+                BYGBlockList.WEEPING_ROOTS = new BYGBlockProperties.BYGHangingVine("weeping_roots");
+                BYGBlockList.WEEPING_ROOTS_PLANT = new BYGBlockProperties.BYGHangingVinePlant("weeping_roots_plant");
 
                 BYGBlockList.WINTER_GRASS = new BYGBlockProperties.BYGWinterTallGrass("winter_grass");
                 BYGBlockList.WEED_GRASS = new BYGBlockProperties.BYGTallGrass("weed_grass");

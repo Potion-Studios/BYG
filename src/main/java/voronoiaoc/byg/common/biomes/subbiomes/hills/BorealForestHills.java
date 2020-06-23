@@ -69,7 +69,8 @@ public class BorealForestHills extends Biome {
     @Override
     public int getGrassColorAt(double x, double z) {
         double lvt_5_1_ = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
-        return lvt_5_1_ < -0.1D ? 5011004 : 5406525;    }
+        return lvt_5_1_ < -0.1D ? 5011004 : 5406525;
+    }
 
     @Override
     public int getFoliageColor() {

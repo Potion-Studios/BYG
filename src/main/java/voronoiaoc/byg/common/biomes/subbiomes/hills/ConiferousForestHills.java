@@ -69,11 +69,11 @@ public class ConiferousForestHills extends Biome {
 
     @Override
     public int getGrassColorAt(double x, double z) {
-       return  5011004;
+        return 5011004;
     }
 
     @Override
     public int getFoliageColor() {
-      return   2263842;
+        return 2263842;
     }
 }

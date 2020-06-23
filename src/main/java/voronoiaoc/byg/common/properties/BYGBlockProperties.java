@@ -736,6 +736,30 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGHangingVine extends HangingVinesBlock {
+        public BYGHangingVine(String registryName) {
+            super(Settings.of(Material.LEAVES)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .strength(0.2f)
+                    .ticksRandomly()
+                    .noCollision()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGHangingVinePlant extends HangingVinesPlantBlock {
+        public BYGHangingVinePlant(String registryName) {
+            super(Settings.of(Material.LEAVES)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .strength(0.2f)
+                    .ticksRandomly()
+                    .noCollision()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
     public static class LogBlock extends PillarBlock {
         private final MaterialColor verticalColor;
 

@@ -159,13 +159,11 @@ public class BYGFeatureList {
     public static final Carver<ProbabilityConfig> VOLCANIC_CARVER = new VolcanicCarver(ProbabilityConfig.CODEC, 256);
 
 
-
     /*********************************************************************Large Flower Features***********************************************************/
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> GIANT_ANGELICA_FLOWER = new AngelicaGiant(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> GIANT_DANDELION_FLOWER = new DandelionGiant(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> GIANT_IRIS_FLOWER = new IrisGiant(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> GIANT_ROSE_FLOWER = new RoseGiant(DefaultFeatureConfig.CODEC);
-
 
 
     /*********************************************************************Large Mushroom Features*********************************************************/
@@ -175,7 +173,6 @@ public class BYGFeatureList {
     public static final Feature<DefaultFeatureConfig> BLACK_PUFF_HUGE = new BlackPuffHuge(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> BLUE_GLOWSHROOM_HUGE = new BlueGlowshroomHuge(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> PURPLE_GLOWSHROOM_HUGE = new PurpleGlowshroomHuge(DefaultFeatureConfig.CODEC);
-
 
 
     /********************************************************************Nether Features********************************************************************/
@@ -209,12 +206,10 @@ public class BYGFeatureList {
     public static final Feature<DefaultFeatureConfig> WEEPING_ROOTS_PLANT = new WeepingRootsPlant(DefaultFeatureConfig.CODEC);
 
 
-
     /********************************************************************Structures***********************************************************************/
     public static final StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillageStructureFeature(StructurePoolFeatureConfig.CODEC);
 //    public static final StructureFeature<DefaultFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(DefaultFeatureConfig.CODEC);
 //    public static final Feature<DefaultFeatureConfig> DOVERQUARRY = new DoverQuarry1(DefaultFeatureConfig.CODEC);
-
 
 
     /********************************************************************Tree Features********************************************************************/
@@ -352,8 +347,8 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> PINE_TREE2 = new PineTree2(DefaultFeatureConfig.CODEC);
 
     //Palo Verde
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> PALO_VERDE_TREE1 = new PaloVerdeTree(DefaultFeatureConfig.CODEC,  0);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> PALO_VERDE_TREE2 = new PaloVerdeTree2(DefaultFeatureConfig.CODEC,  0);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> PALO_VERDE_TREE1 = new PaloVerdeTree(DefaultFeatureConfig.CODEC, 0);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> PALO_VERDE_TREE2 = new PaloVerdeTree2(DefaultFeatureConfig.CODEC, 0);
 
     //Rainbow Eucalyptus
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> RAINBOW_TREE1 = new RainbowEucalyptusTree(DefaultFeatureConfig.CODEC);

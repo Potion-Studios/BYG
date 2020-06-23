@@ -67,6 +67,7 @@ public class SnowyConiferousForestHills extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.STRAY, 80, 4, 4));
 
     }
+
     @Override
     public int getGrassColorAt(double posX, double posZ) {
         return 5011004;
