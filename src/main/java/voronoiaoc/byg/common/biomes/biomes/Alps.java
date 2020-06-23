@@ -4,12 +4,18 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
+
+import java.util.Random;
 
 public class Alps extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState()));
@@ -25,9 +31,9 @@ public class Alps extends Biome implements BiomeTools {
 
     public Alps() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(Feature.VILLAGE.configure(new VillageConfig("village/snowy/town_centers", 6)));
-        ////this.addStructureFeature(Feature.IGLOO.configure(FeatureConfig.DEFAULT));
-        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+        this.addStructureFeature(StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6)));
+        this.addStructureFeature(StructureFeature.IGLOO.configure(FeatureConfig.DEFAULT));
+        //this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         ////this.addStructureFeature(Feature.STRONGHOLD.configure(FeatureConfig.DEFAULT));
         ////this.addStructureFeature(Feature.PILLAGER_OUTPOST.configure(FeatureConfig.DEFAULT));
         DefaultBiomeFeatures.addFrozenTopLayer(this);
@@ -44,5 +50,39 @@ public class Alps extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SKELETON, 20, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.STRAY, 80, 4, 4));
+    }
+
+    @Override
+    public Biome getRiver() {
+        return null;
+    }
+
+    @Override
+    public Biome getHill() {
+        Random random = new Random ();
+        int randomPicker = random.nextInt(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.ALPINEFOOTHILLS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.ALPINEFOOTHILLS;
+        else if (randomPicker == 2)
+            return BYGBiomeList.ALPINEFOOTHILLS;
+        else
+            return BYGBiomeList.ALPINEFOOTHILLS;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

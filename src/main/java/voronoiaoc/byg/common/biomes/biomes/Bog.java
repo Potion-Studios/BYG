@@ -14,6 +14,8 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SeagrassFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
@@ -44,14 +46,14 @@ public class Bog extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addClay(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
-        //DefaultBiomeFeatures.addSwampVegetation(this);
+        DefaultBiomeFeatures.addSwampVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
-        //BYGFeatures.addBYGSwampVegetation(this);
-        //BYGFeatures.addMarshGrass(this);
-        //BYGFeatures.addWiltedGrass(this);
-        //BYGFeatures.addWiltedGrass(this);
-        //BYGFeatures.addReeds(this);
+        BYGFeatures.addBYGSwampVegetation(this);
+        BYGFeatures.addMarshGrass(this);
+        BYGFeatures.addWiltedGrass(this);
+        BYGFeatures.addWiltedGrass(this);
+        BYGFeatures.addReeds(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
@@ -68,5 +70,30 @@ public class Bog extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 1, 1, 1));
+    }
+
+    @Override
+    public Biome getRiver() {
+        return null;
+    }
+
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

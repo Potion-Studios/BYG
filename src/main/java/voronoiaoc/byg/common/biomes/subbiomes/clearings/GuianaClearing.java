@@ -87,7 +87,7 @@ public class GuianaClearing extends Biome {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public int getGrassColor(BlockPos pos) {
+    public int getGrassColorAt(BlockPos pos) {
 
         return 6208527;
     }

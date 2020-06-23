@@ -7,6 +7,7 @@ import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 
 public class AncientForest extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.PODZOL.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
@@ -25,4 +26,28 @@ public class AncientForest extends Biome implements BiomeTools {
 
     }
 
+    @Override
+    public Biome getRiver() {
+        return null;
+    }
+
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
+    }
 }

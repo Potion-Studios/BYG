@@ -85,7 +85,7 @@ public class BorealisClearing extends Biome {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public int getGrassColor(double posX, double posY) {
+    public int getGrassColorAt(double posX, double posY) {
         double lvt_5_1_ = INFO_NOISE.noiseAt(posX * 0.0225D, posY * 0.0225D, false);
         return lvt_5_1_ < -0.1D ? 5011004 : 6190652;
     }

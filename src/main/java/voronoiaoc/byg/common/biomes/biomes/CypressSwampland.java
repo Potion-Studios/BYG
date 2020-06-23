@@ -71,7 +71,7 @@ public class CypressSwampland extends Biome implements BiomeTools {
     }
 //
 //    @OnlyIn(Dist.CLIENT)
-//    public int getGrassColor(double posX, double posZ) {
+//    public int getGrassColorAt(double posX, double posZ) {
 //        double d0 = INFO_NOISE.noiseAt(posX * 0.0225D, posZ * 0.0225D, false);
 //        return d0 < -0.1D ? 6337104 : 6337104;
 //    }

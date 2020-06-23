@@ -73,7 +73,7 @@ public class DeciduousClearing extends Biome {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public int getGrassColor(double p_225528_1_, double p_225528_3_) {
+    public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
         double lvt_5_1_ = INFO_NOISE.noiseAt(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
         return lvt_5_1_ < -0.1D ? 7185745 : 8627537;
     }

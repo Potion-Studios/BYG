@@ -7,6 +7,7 @@ import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 
 public class CherryBlossomForest extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.PODZOL.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
@@ -23,5 +24,30 @@ public class CherryBlossomForest extends Biome implements BiomeTools {
     public CherryBlossomForest() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
 
+    }
+
+    @Override
+    public Biome getRiver() {
+        return null;
+    }
+
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }

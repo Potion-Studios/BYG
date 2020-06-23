@@ -5,10 +5,17 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
+
+import javax.annotation.Nullable;
+import java.util.Random;
 
 public class AlliumFields extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG);
@@ -28,9 +35,10 @@ public class AlliumFields extends Biome implements BiomeTools {
         ////this.addStructureFeature(Feature.PILLAGER_OUTPOST.configure(FeatureConfig.DEFAULT));
         ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         ////this.addStructureFeature(Feature.STRONGHOLD.configure(FeatureConfig.DEFAULT));
-//        BYGFeatures.addAlliumFieldFlowers(this);
+        BYGFeatures.addAlliumFieldFlowers(this);
+        BYGFeatures.addGrass(this);
+        BYGTreeFeatures.addSparseRedOakForestTrees(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-//        DefaultBiomeFeatures.addStructureFeatures(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
@@ -59,12 +67,14 @@ public class AlliumFields extends Biome implements BiomeTools {
 
     @Override
     public Biome getRiver() {
-        return null;
+        return Biomes.RIVER;
     }
 
     @Override
     public Biome getHill() {
-        return null;
+        Random random = new Random ();
+        return (random.nextInt(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.REDOAKFOREST;
+
     }
 
     @Override
@@ -74,6 +84,11 @@ public class AlliumFields extends Biome implements BiomeTools {
 
     @Override
     public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
         return null;
     }
 }

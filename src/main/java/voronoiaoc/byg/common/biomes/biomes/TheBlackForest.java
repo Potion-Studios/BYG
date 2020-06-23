@@ -6,6 +6,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
@@ -86,7 +87,7 @@ public class TheBlackForest extends Biome implements BiomeTools {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public int getGrassColor(double posX, double posZ) {
+    public int getGrassColorAt(double posX, double posZ) {
         return 5011004;
 
     }

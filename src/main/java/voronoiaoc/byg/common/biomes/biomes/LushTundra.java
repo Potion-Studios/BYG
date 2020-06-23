@@ -75,7 +75,7 @@ public class LushTundra extends Biome implements BiomeTools {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public int getGrassColor(double posX, double posZ) {
+    public int getGrassColorAt(double posX, double posZ) {
         return 10044989;
     }
 

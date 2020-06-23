@@ -8,6 +8,8 @@ import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -41,11 +43,11 @@ public class BorealForest extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         BYGTreeFeatures.addBorealTrees(this);
-        //BYGFeatures.addBlueberries(this);
-        //BYGFeatures.addCrocus(this);
-        //BYGFeatures.addIris(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addForestGrass(this);
+        BYGFeatures.addBlueberries(this);
+        BYGFeatures.addCrocus(this);
+        BYGFeatures.addIris(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addGrass(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));
@@ -61,6 +63,31 @@ public class BorealForest extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
+    }
+
+    @Override
+    public Biome getRiver() {
+        return null;
+    }
+
+    @Override
+    public Biome getHill() {
+        return null;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
     }
 }
 

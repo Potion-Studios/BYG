@@ -66,19 +66,21 @@ public class AutumnalValley extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
-//    @Override
-//    @OnlyIn(Dist.CLIENT)
-//    public int getGrassColor(double posX, double posZ) {
-//        return 11513689;
-//    }
-//
-//    @Override
-//    @OnlyIn(Dist.CLIENT)
-//    public int getFoliageColor() {
-//        return 12435265;
-//    }
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 11513689;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 12435265;
+    }
 
 
+    @Override
+    public Biome getRiver() {
+        return null;
+    }
 
     @Override
     public Biome getHill() {
@@ -92,6 +94,11 @@ public class AutumnalValley extends Biome implements BiomeTools {
 
     @Override
     public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
         return null;
     }
 }

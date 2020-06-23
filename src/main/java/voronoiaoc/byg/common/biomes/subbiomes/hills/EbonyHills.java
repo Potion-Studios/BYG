@@ -65,7 +65,7 @@ public class EbonyHills extends Biome {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public int getGrassColor(double posX, double posZ) {
+    public int getGrassColorAt(double posX, double posZ) {
         return 5406551;
     }
 
