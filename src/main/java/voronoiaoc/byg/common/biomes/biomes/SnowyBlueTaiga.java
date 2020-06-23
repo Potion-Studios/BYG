@@ -84,7 +84,7 @@ public class SnowyBlueTaiga extends Biome  {
 
     @Override
     public Biome getRiver() {
-        return Biomes.RIVER;
+        return Biomes.FROZEN_RIVER;
     }
 
     @Nullable
