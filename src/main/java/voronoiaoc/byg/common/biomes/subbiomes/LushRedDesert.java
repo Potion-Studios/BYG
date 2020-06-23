@@ -4,12 +4,16 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class LushRedDesert extends Biome {
@@ -43,11 +47,8 @@ public class LushRedDesert extends Biome {
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addDesertFeatures(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        //BYGFeatures.addMiniCactus(this);
+        BYGFeatures.addMiniCactus(this);
         BYGTreeFeatures.addPaloVerdeTrees(this);
-//        this.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, BYGStructureList.RED_DESERT_PYRAMID.configure(FeatureConfig.DEFAULT).createDecoratedFeature(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
-        ////this.addStructureFeature(BYGStructureList.RED_DESERT_PYRAMID.configure(FeatureConfig.DEFAULT));
-
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.RABBIT, 4, 2, 3));
         this.addSpawn(SpawnGroup.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));

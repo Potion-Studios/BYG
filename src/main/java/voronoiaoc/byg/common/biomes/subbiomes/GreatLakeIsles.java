@@ -13,6 +13,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SeagrassFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class GreatLakeIsles extends Biome {
@@ -45,14 +46,14 @@ public class GreatLakeIsles extends Biome {
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         DefaultBiomeFeatures.addExtraMountainTrees(this);
         DefaultBiomeFeatures.addExtraMountainTrees(this);
-        //BYGFeatures.addBlueberries(this);
-        //BYGFeatures.addCrocus(this);
-        //BYGFeatures.addOsiria(this);
-        //BYGFeatures.addIris(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addForestGrass(this);
-        //BYGFeatures.addCattails(this);
-        //BYGFeatures.addCattails(this);
+        BYGFeatures.addBlueberries(this);
+        BYGFeatures.addCrocus(this);
+        BYGFeatures.addOsiria(this);
+        BYGFeatures.addIris(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addCattails(this);
+        BYGFeatures.addCattails(this);
 
 
         this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.SQUID, 2, 1, 4));
@@ -67,6 +68,11 @@ public class GreatLakeIsles extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
+    }
+
+    public int getGrassColorAt(double posX, double posZ) {
+        double d0 = FOLIAGE_NOISE.sample(posX * 0.0225D, posZ * 0.0225D, false);
+        return d0 < -0.1D ? 10662752 : 10662752;
     }
 }
 

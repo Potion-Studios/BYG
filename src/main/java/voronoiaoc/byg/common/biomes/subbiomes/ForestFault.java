@@ -2,24 +2,20 @@ package voronoiaoc.byg.common.biomes.subbiomes;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.config.BYGWorldConfig;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
-
-import javax.annotation.Nullable;
 
 public class ForestFault extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF);
@@ -35,8 +31,7 @@ public class ForestFault extends Biome {
 
     public ForestFault() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
+        DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMossyRocks(this);
@@ -61,7 +56,7 @@ public class ForestFault extends Biome {
         BYGFeatures.addGrass(this);
         BYGFeatures.addWinterSucculent(this);
 
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlockList.PENDORITE_ORE.getDefaultState(), BYGWorldConfig.pendoriteOreSize.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(BYGWorldConfig.pendoriteOreChance.get(), 0, 0, BYGWorldConfig.pendoriteOreMaxY.get()))));
+        this.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, BYGBlockList.PENDORITE_ORE.getDefaultState(), 4)).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(10, 0, 0, 56))));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.CHICKEN, 10, 4, 4));
@@ -80,10 +75,10 @@ public class ForestFault extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
 
     @Override
     public int getGrassColorAt(double posX, double posZ) {
@@ -96,21 +91,21 @@ public class ForestFault extends Biome {
         return 2263842;
     }
 
-    @Nullable
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return randomSubBiome(rand);
-    }
+//    @Nullable
+//    @Override
+//    public Biome getHill(INoiseRandom rand) {
+//        return randomSubBiome(rand);
+//    }
 
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
-        if (randomPicker == 0)
-            return BYGBiomeList.CONIFEROUSFORESTHILLS;
-        else if (randomPicker == 1)
-            return BYGBiomeList.CONIFEROUS_CLEARING;
-        else if (randomPicker == 2)
-            return BYGBiomeList.CONIFEROUS_CLEARING;
-        else
-            return BYGBiomeList.FRESHWATERLAKE;
-    }
+//    public Biome randomSubBiome(INoiseRandom random) {
+//        int randomPicker = random.random(4);
+//        if (randomPicker == 0)
+//            return BYGBiomeList.CONIFEROUSFORESTHILLS;
+//        else if (randomPicker == 1)
+//            return BYGBiomeList.CONIFEROUS_CLEARING;
+//        else if (randomPicker == 2)
+//            return BYGBiomeList.CONIFEROUS_CLEARING;
+//        else
+//            return BYGBiomeList.FRESHWATERLAKE;
+//    }
 }

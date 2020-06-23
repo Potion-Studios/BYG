@@ -3,11 +3,15 @@ package voronoiaoc.byg.common.biomes.subbiomes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -39,12 +43,12 @@ public class SierraRange extends Biome {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-//        DefaultBiomeFeatures.addForestGrassAndDeadBushes(this);
+        DefaultBiomeFeatures.addForestGrass(this);
         BYGTreeFeatures.addPaloVerdeTrees(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addTerracottaBoulder(this);
-        //BYGFeatures.addForestGrass(this);
-        //BYGFeatures.addBYGDesertPlants(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addTerracottaBoulder(this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGDesertPlants(this);
 
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.RABBIT, 4, 2, 3));
@@ -57,6 +61,17 @@ public class SierraRange extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
+    }
+
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 10855786;
+
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 10855786;
     }
 }
 

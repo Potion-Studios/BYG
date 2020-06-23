@@ -2,20 +2,16 @@ package voronoiaoc.byg.common.biomes.subbiomes;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
-
-import javax.annotation.Nullable;
 
 public class PumpkinForest extends Biome implements BiomeFog {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
@@ -31,8 +27,7 @@ public class PumpkinForest extends Biome implements BiomeFog {
 
     public PumpkinForest() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
+        DefaultBiomeFeatures.method_28440(this);
         BYGTreeFeatures.addDeadHazelTrees(this);
         BYGTreeFeatures.addWitchPumpkinPatches(this);
         DefaultBiomeFeatures.addLandCarvers(this);
@@ -63,11 +58,11 @@ public class PumpkinForest extends Biome implements BiomeFog {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
-    @Nullable
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FRESHWATERLAKE;
-    }
+//    @Nullable
+//    @Override
+//    public Biome getHill(INoiseRandom rand) {
+//        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FRESHWATERLAKE;
+//    }
 
     @Override
     public int getGrassColorAt(double posX, double posZ) {
@@ -79,32 +74,16 @@ public class PumpkinForest extends Biome implements BiomeFog {
         return 6589494;
     }
 
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Override
-    public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
-        return color;
-    }
-
-    Vec3d color = new Vec3d(192, 192, 192);
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
 
     @Override
     public int getSkyColor() {
         return 12632256;
     }
 
-    @Override
-    public Boolean doesBiomeXZShowFog(int x, int z) {
-        return false;
-    }
-
-    @Override
-    public double getBiomeVoidFogYFactor(int x, int y, double originalValue) {
-        return 0.6;
-    }
 
     @Override
     public float fogDistance(int x, int z, float originalDistanceChunks) {

@@ -4,12 +4,16 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -47,10 +51,10 @@ public class BluffPeaks extends Biome {
         BYGTreeFeatures.addBluffTrees(this);
         BYGTreeFeatures.addSpruceTrees(this);
         BYGTreeFeatures.addSparseAspenTrees(this);
-        //BYGFeatures.addAnemones(this);
-        //BYGFeatures.addSages(this);
-        //BYGFeatures.addBlueberries(this);
-        //BYGFeatures.addForestGrass(this);
+        BYGFeatures.addAnemones(this);
+        BYGFeatures.addSages(this);
+        BYGFeatures.addBlueberries(this);
+        BYGFeatures.addGrass(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));

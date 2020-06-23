@@ -2,9 +2,13 @@ package voronoiaoc.byg.common.biomes.subbiomes;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.Biomes;
-
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -34,7 +38,7 @@ public class FungalPatch extends Biome {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.addJunglePlants(this);
+        DefaultBiomeFeatures.addJungleVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         BYGFeatures.addTropFungalMushrooms(this);
@@ -60,11 +64,11 @@ public class FungalPatch extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.OCELOT, 2, 1, 1));
 
     }
-
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
+//
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
 
     @Override
     public int getGrassColorAt(double posX, double posZ) {

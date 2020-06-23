@@ -8,6 +8,7 @@ import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -39,13 +40,12 @@ public class RedRockHighlands extends Biome {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        //BYGFeatures.addTerracottaBoulder(this);
-//        DefaultBiomeFeatures.addForestGrassAndDeadBushes(this);
+        BYGFeatures.addTerracottaBoulder(this);
+        DefaultBiomeFeatures.addForestGrass(this);
         BYGTreeFeatures.addPaloVerdeTrees(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addForestGrass(this);
-        //BYGFeatures.addFirecracker(this);
-        //this.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/adobe/town_centers", 6)).createDecoratedFeature(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addFirecracker(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.RABBIT, 4, 2, 3));
         this.addSpawn(SpawnGroup.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
@@ -57,5 +57,16 @@ public class RedRockHighlands extends Biome {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
+    }
+
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 10855786;
+
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 10855786;
     }
 }

@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.biomes.subbiomes.lakes;
+package voronoiaoc.byg.common.biomes.subbiomes;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -8,6 +8,7 @@ import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 
 public class WoodedGrassLandPlateau extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, SurfaceBuilder.GRASS_CONFIG);
@@ -26,8 +27,8 @@ public class WoodedGrassLandPlateau extends Biome {
         ////this.addStructureFeature(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/grassland/town_centers"), 6));
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.method_28440(this);
-        //BYGFeatures.addRockyStoneBoulder(this);
-        //BYGFeatures.addMossyStoneBoulder(this);
+        BYGFeatures.addRockyStoneBoulder(this);
+        BYGFeatures.addMossyStoneBoulder(this);
         DefaultBiomeFeatures.addShatteredSavannaGrass(this);
         DefaultBiomeFeatures.addLandCarvers(this);
 
@@ -38,11 +39,10 @@ public class WoodedGrassLandPlateau extends Biome {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         DefaultBiomeFeatures.addExtraMountainTrees(this);
-        //BYGFeatures.addBYGMushrooms(this);
-        //BYGFeatures.addForestGrass(this);
-        //BYGFeatures.addAnemones(this);
-        //BYGFeatures.addSages(this);
-        //this.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/grassland/town_centers", 6)).createDecoratedFeature(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addAnemones(this);
+        BYGFeatures.addSages(this);
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.CHICKEN, 10, 4, 4));
