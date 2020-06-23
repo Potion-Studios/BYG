@@ -119,6 +119,8 @@ public class BYGBiomeRegistry {
                 OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), weight);
             if (((BiomeTools)biome).getMutation() != null)
                 OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), weight);
+            if (((BiomeTools)biome).getRiver() != null)
+                OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getRiver(), weight);
     }
 
     private static void registerSubBiome(Biome biome, String id, boolean spawn) {
