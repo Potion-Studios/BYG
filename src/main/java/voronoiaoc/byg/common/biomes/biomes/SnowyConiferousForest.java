@@ -5,14 +5,17 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class SnowyConiferousForest extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF);
@@ -31,7 +34,6 @@ public class SnowyConiferousForest extends Biome implements BiomeTools {
         this.addStructureFeature(DefaultBiomeFeatures.IGLOO);
         DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addLargeFerns(this);
         DefaultBiomeFeatures.addMineables(this);
@@ -44,7 +46,7 @@ public class SnowyConiferousForest extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         BYGTreeFeatures.addConiferousTrees(this);
         BYGFeatures.addBlueberries(this);
-
+        BYGFeatures.addGrass(this);
         BYGFeatures.addWinterSucculent(this);
         BYGFeatures.addWinterSucculent(this);
         BYGFeatures.addAnemones(this);
@@ -71,16 +73,27 @@ public class SnowyConiferousForest extends Biome implements BiomeTools {
 
     }
 
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        return 5011004;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 2263842;
+    }
+
     @Nullable
     @Override
     public Biome getRiver() {
-        return null;
+        return Biomes.FROZEN_RIVER;
     }
 
     @Nullable
     @Override
     public Biome getHill() {
-        return null;
+        Random random = new Random();
+        return randomSubBiome(random);
     }
 
     @Nullable
@@ -99,5 +112,17 @@ public class SnowyConiferousForest extends Biome implements BiomeTools {
     @Override
     public Biome getMutation() {
         return null;
+    }
+
+    public Biome randomSubBiome(Random random) {
+        int randomPicker = random.nextInt(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.SNOWYCONIFERFORESTHILLS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.SNOWY_CONIFEROUS_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomeList.SNOWY_CONIFEROUS_CLEARING;
+        else
+            return BYGBiomeList.FROZENLAKE;
     }
 }

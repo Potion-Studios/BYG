@@ -9,10 +9,13 @@ import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class RedRockMountains extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.RED_ROCK_SB, SurfaceBuilder.GRASS_CONFIG);
@@ -28,11 +31,9 @@ public class RedRockMountains extends Biome implements BiomeTools {
 
     public RedRockMountains() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/adobe/town_centers"), 6));
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
@@ -43,12 +44,10 @@ public class RedRockMountains extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         BYGFeatures.addTerracottaBoulder(this);
-//        DefaultBiomeFeatures.addForestGrassAndDeadBushes(this);
         BYGTreeFeatures.addPaloVerdeTrees(this);
         BYGFeatures.addBYGMushrooms(this);
-
+        BYGFeatures.addGrass(this);
         BYGFeatures.addFirecracker(this);
-        //this.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/adobe/town_centers", 6)).createDecoratedFeature(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.RABBIT, 4, 2, 3));
         this.addSpawn(SpawnGroup.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SPIDER, 100, 4, 4));
@@ -61,16 +60,27 @@ public class RedRockMountains extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        return 10855786;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 10855786;
+    }
+
     @Nullable
     @Override
     public Biome getRiver() {
-        return null;
+        return this;
     }
 
     @Nullable
     @Override
     public Biome getHill() {
-        return null;
+        Random random = new Random();
+        return randomSubBiome(random);
     }
 
     @Nullable
@@ -89,5 +99,17 @@ public class RedRockMountains extends Biome implements BiomeTools {
     @Override
     public Biome getMutation() {
         return null;
+    }
+
+    public Biome randomSubBiome(Random random) {
+        int randomPicker = random.nextInt(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.RED_ROCK_LOWLANDS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.RED_ROCK_HIGHLANDS;
+        else if (randomPicker == 2)
+            return BYGBiomeList.RED_ROCK_HIGHLANDS;
+        else
+            return BYGBiomeList.WOODEDREDROCKMOUNTAINS;
     }
 }

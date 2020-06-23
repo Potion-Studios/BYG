@@ -35,9 +35,8 @@ public class VibrantSwamplands extends Biome implements BiomeTools {
 
     public VibrantSwamplands() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        ////this.addStructureFeature(Feature.SWAMP_HUT.configure(FeatureConfig.DEFAULT));
+        this.addStructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
         DefaultBiomeFeatures.addLandCarvers(this);
-
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
@@ -71,10 +70,20 @@ public class VibrantSwamplands extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 1, 1, 1));
     }
 
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        double d0 = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
+        return d0 < -0.1D ? 6337104 : 6337104;    }
+
+    @Override
+    public int getFoliageColor() {
+        return 6337104;
+    }
+
     @Nullable
     @Override
     public Biome getRiver() {
-        return null;
+        return this;
     }
 
     @Nullable
@@ -92,7 +101,7 @@ public class VibrantSwamplands extends Biome implements BiomeTools {
     @Nullable
     @Override
     public Biome getBeach() {
-        return null;
+        return this;
     }
 
     @Nullable

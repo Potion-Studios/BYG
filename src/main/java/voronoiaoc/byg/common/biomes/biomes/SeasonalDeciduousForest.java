@@ -6,15 +6,19 @@ import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class SeasonalDeciduousForest extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG);
@@ -34,18 +38,16 @@ public class SeasonalDeciduousForest extends Biome implements BiomeTools {
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
         DefaultBiomeFeatures.addDefaultDisks(this);
         DefaultBiomeFeatures.addDefaultFlowers(this);
-
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         BYGTreeFeatures.addSeasonalDeciduousTrees(this);
         BYGTreeFeatures.addDeciduousTrees(this);
-
+        BYGFeatures.addGrass(this);
         BYGFeatures.addLeafPile(this);
         BYGFeatures.addAnemones(this);
         BYGFeatures.addCrocus(this);
@@ -70,13 +72,14 @@ public class SeasonalDeciduousForest extends Biome implements BiomeTools {
     @Nullable
     @Override
     public Biome getRiver() {
-        return null;
+        return Biomes.RIVER;
     }
 
     @Nullable
     @Override
     public Biome getHill() {
-        return null;
+        Random random = new Random();
+        return randomSubBiome(random);
     }
 
     @Nullable
@@ -95,5 +98,17 @@ public class SeasonalDeciduousForest extends Biome implements BiomeTools {
     @Override
     public Biome getMutation() {
         return null;
+    }
+
+    public Biome randomSubBiome(Random random) {
+        int randomPicker = random.nextInt(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.SEASONALDECIDUOUSFORESTHILLS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.SEASONAL_DECIDUOUS_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomeList.SEASONAL_DECIDUOUS_CLEARING;
+        else
+            return BYGBiomeList.FRESHWATERLAKE;
     }
 }

@@ -14,6 +14,7 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
 
@@ -61,10 +62,17 @@ public class Orchard extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
-
     }
 
-    
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        return 10210365;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 10210365;
+    }
 
     @Nullable
     @Override
@@ -75,7 +83,7 @@ public class Orchard extends Biome implements BiomeTools {
     @Nullable
     @Override
     public Biome getHill() {
-        return null;
+        return BYGBiomeList.FRESHWATERLAKE;
     }
 
     @Nullable

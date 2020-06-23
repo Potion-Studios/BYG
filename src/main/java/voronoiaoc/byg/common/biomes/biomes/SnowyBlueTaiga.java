@@ -6,6 +6,7 @@ import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
@@ -14,8 +15,10 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class SnowyBlueTaiga extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG);
@@ -39,7 +42,6 @@ public class SnowyBlueTaiga extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         DefaultBiomeFeatures.addLargeFerns(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);
@@ -51,9 +53,8 @@ public class SnowyBlueTaiga extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addSweetBerryBushes(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
+        BYGFeatures.addGrass(this);
         BYGFeatures.addBlueberries(this);
-
-
         BYGFeatures.addWinterSucculent(this);
         BYGFeatures.addWinterSucculent(this);
         BYGFeatures.addAnemones(this);
@@ -82,13 +83,14 @@ public class SnowyBlueTaiga extends Biome implements BiomeTools {
     @Nullable
     @Override
     public Biome getRiver() {
-        return null;
+        return Biomes.FROZEN_RIVER;
     }
 
     @Nullable
     @Override
     public Biome getHill() {
-        return null;
+        Random rand = new Random();
+        return (rand.nextInt(2) == 0) ? BYGBiomeList.SNOWYBLUETAIGAHILLS : BYGBiomeList.SNOWYBLUEGIANTTAIGA;
     }
 
     @Nullable

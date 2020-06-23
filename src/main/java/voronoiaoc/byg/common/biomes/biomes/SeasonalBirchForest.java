@@ -6,15 +6,19 @@ import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class SeasonalBirchForest extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG);
@@ -34,7 +38,6 @@ public class SeasonalBirchForest extends Biome implements BiomeTools {
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.method_28440(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addForestFlowers(this);
         DefaultBiomeFeatures.addMineables(this);
@@ -45,8 +48,7 @@ public class SeasonalBirchForest extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         BYGTreeFeatures.addSeasonalBirchForestTrees(this);
-
-
+        BYGFeatures.addGrass(this);
         BYGFeatures.addLeafPile(this);
         BYGFeatures.addAnemones(this);
         BYGFeatures.addCrocus(this);
@@ -68,16 +70,27 @@ public class SeasonalBirchForest extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        return 11697214;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 11697214;
+    }
+
     @Nullable
     @Override
     public Biome getRiver() {
-        return null;
+        return Biomes.RIVER;
     }
 
     @Nullable
     @Override
     public Biome getHill() {
-        return null;
+        Random rand = new Random();
+        return (rand.nextInt(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.SEASONALBIRCHFORESTHILLS;
     }
 
     @Nullable

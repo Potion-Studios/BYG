@@ -6,6 +6,7 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
@@ -13,8 +14,10 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class ZelkovaForest extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
@@ -35,7 +38,6 @@ public class ZelkovaForest extends Biome implements BiomeTools {
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         DefaultBiomeFeatures.addLandCarvers(this);
-
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addLargeFerns(this);
         DefaultBiomeFeatures.addMineables(this);
@@ -45,7 +47,6 @@ public class ZelkovaForest extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addTaigaGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
-
         BYGFeatures.addKovanFlower(this);
         BYGFeatures.addAnemones(this);
         BYGFeatures.addCrocus(this);
@@ -68,16 +69,28 @@ public class ZelkovaForest extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        double lvt_5_1_ = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
+        return lvt_5_1_ < -0.1D ? 5416309 : 5416309;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 5416309;
+    }
+
     @Nullable
     @Override
     public Biome getRiver() {
-        return null;
+        return Biomes.RIVER;
     }
 
     @Nullable
     @Override
     public Biome getHill() {
-        return null;
+        Random random = new Random();
+        return randomSubBiome(random);
     }
 
     @Nullable
@@ -96,6 +109,19 @@ public class ZelkovaForest extends Biome implements BiomeTools {
     @Override
     public Biome getMutation() {
         return null;
+    }
+
+    public Biome randomSubBiome(Random random) {
+        int randomPicker = random.nextInt(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.ZELKOVAFORESTHILLS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.ZELKOVA_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomeList.ZELKOVA_CLEARING;
+        else
+            return BYGBiomeList.FRESHWATERLAKE;
+
     }
 }
 

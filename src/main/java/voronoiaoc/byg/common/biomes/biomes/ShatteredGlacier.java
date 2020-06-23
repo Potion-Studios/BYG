@@ -6,10 +6,14 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.core.byglists.BYGFeatureList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
@@ -45,7 +49,7 @@ public class ShatteredGlacier extends Biome implements BiomeTools {
         BYGFeatures.addWinterGrass(this);
         BYGFeatures.addWinterRose(this);
         BYGFeatures.addFrostMagmaLakes(this);
-//        this.addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, BYGFeatureList.BLACKICESNOW.configure(FeatureConfig.DEFAULT));
+        this.addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, BYGFeatureList.BLACKICESNOW.configure(FeatureConfig.DEFAULT));
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.RABBIT, 10, 2, 3));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.POLAR_BEAR, 1, 1, 2));
@@ -66,7 +70,7 @@ public class ShatteredGlacier extends Biome implements BiomeTools {
     @Nullable
     @Override
     public Biome getRiver() {
-        return null;
+        return this;
     }
 
     @Nullable
