@@ -83,12 +83,9 @@ public class BYGMushroomProperties extends BushBlock implements IGrowable {
 
     }
 
-    public void grow(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
-        if (rand.nextInt(1500) == 0) {
-            if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
-            this.mushroom.spawn(world, world.getChunkProvider().getChunkGenerator(), pos, state, rand);
-        }
-
+    public void grow(ServerWorld worldIn, BlockPos pos, BlockState state, Random rand) {
+        worldIn.removeBlock(pos, false);
+        this.mushroom.spawn(worldIn, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
     }
 
     @Override
@@ -98,7 +95,7 @@ public class BYGMushroomProperties extends BushBlock implements IGrowable {
 
     @Override
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
-        return (double) worldIn.rand.nextFloat() < 0.25D;
+            return (double) worldIn.rand.nextFloat() < 0.25D;
     }
 
     @Override

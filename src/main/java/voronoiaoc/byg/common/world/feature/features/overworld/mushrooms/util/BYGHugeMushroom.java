@@ -9,6 +9,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
 import javax.annotation.Nullable;
@@ -20,18 +21,19 @@ public abstract class BYGHugeMushroom {
 
     public boolean spawn(IWorld worldIn, ChunkGenerator<?> chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
         BYGAbstractTreeFeature<NoFeatureConfig> abstracttreefeature = this.getHugeMushroomFeature(random);
-        if (abstracttreefeature != null) {
+        if (abstracttreefeature == null) {
+            return false;
+        } else {
+            BYG.LOGGER.info("NOTNULL");
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-            if (worldIn.getWorld().isNightTime() || worldIn.getWorld().getDimension().isNether()) {
                 if (abstracttreefeature.place(worldIn, chunkGenerator, random, pos, IFeatureConfig.NO_FEATURE_CONFIG)) {
                     return true;
-                } else {
+                }
+                else {
                     worldIn.setBlockState(pos, blockUnder, 4);
                     return false;
-                }
             }
         }
-        return false;
     }
 
 
