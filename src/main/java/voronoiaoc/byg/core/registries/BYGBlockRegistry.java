@@ -359,7 +359,6 @@ public class BYGBlockRegistry {
                 BYGBlockList.YELLOW_SPRUCE_LEAVES = new BYGBlockProperties.BYGLeaves("yellow_spruce_leaves");
                 BYGBlockList.ZELKOVA_LEAVES = new BYGBlockProperties.BYGLeaves("zelkova_leaves");
 
-
                 //Plant BYGBlockRenders
                 BYGBlockList.GREEN_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("green_mushroom_block");
                 BYGBlockList.MILKCAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("weeping_milkcap_mushroom_block");

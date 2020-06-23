@@ -288,7 +288,7 @@ public class BYGBlockProperties {
                     .strength(0.0f)
                     .nonOpaque()
             );
-
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
     }
 
