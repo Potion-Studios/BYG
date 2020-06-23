@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:small_flowers",
     "byg:meadow_dirt",
     "byg:mud_bricks",
     "byg:mud_block",
