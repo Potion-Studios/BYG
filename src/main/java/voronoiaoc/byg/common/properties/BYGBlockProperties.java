@@ -811,8 +811,8 @@ public class BYGBlockProperties {
     }
 
     public static class BYGREDGlowCane extends Glowcane {
-        public BYGREDGlowCane(Material material, String registryName) {
-            super(Settings.of(material)
+        public BYGREDGlowCane(String registryName) {
+            super(AbstractBlock.Settings.of(BYGMaterials.RED_GLOWCANE)
                     .sounds(BlockSoundGroup.GRASS)
                     .strength(0.0f, 0.0f)
                     .noCollision()
@@ -821,42 +821,43 @@ public class BYGBlockProperties {
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
     }
-//
-//    public static class BYGPINKGlowCane extends GlowcaneItem {
-//        public BYGPINKGlowCane(String registryName) {
-//            super(AbstractBlock.Settings.of(BYGMaterials.PINK_GLOWCANE)
-//                    .sounds(BlockSoundGroup.GRASS)
-//                    .strength(0.0f, 0.0f)
-//                    .noCollision()
-//                    .lightLevel((blockStatex) -> 10)
-//            );
-//            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
-//        }
-//    }
-//
-//    public static class BYGPURPLEGlowCane extends GlowcaneItem {
-//        public BYGPURPLEGlowCane(String registryName) {
-//            super(AbstractBlock.Settings.of(BYGMaterials.PURPLE_GLOWCANE)
-//                    .sounds(BlockSoundGroup.GRASS)
-//                    .strength(0.0f, 0.0f)
-//                    .noCollision()
-//                    .lightLevel((blockStatex) -> 10)
-//            );
-//            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
-//        }
-//    }
-//
-//    public static class BYGBLUEGlowCane extends GlowcaneItem {
-//        public BYGBLUEGlowCane(String registryName) {
-//            super(AbstractBlock.Settings.of(BYGMaterials.BLUE_GLOWCANE)
-//                    .sounds(BlockSoundGroup.GRASS)
-//                    .strength(0.0f, 0.0f)
-//                    .noCollision()
-//                    .lightLevel((blockStatex) -> 10)
-//            );
-//            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
-//        }
-//    }
+
+    public static class BYGPINKGlowCane extends Glowcane {
+        public BYGPINKGlowCane(String registryName) {
+            super(AbstractBlock.Settings.of(BYGMaterials.PINK_GLOWCANE)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .strength(0.0f, 0.0f)
+                    .noCollision()
+                    .lightLevel((blockStatex) -> 10)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGPURPLEGlowCane extends Glowcane {
+        public BYGPURPLEGlowCane(String registryName) {
+            super(AbstractBlock.Settings.of(BYGMaterials.PURPLE_GLOWCANE)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .strength(0.0f, 0.0f)
+                    .noCollision()
+                    .lightLevel((blockStatex) -> 10)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGBLUEGlowCane extends Glowcane {
+        public BYGBLUEGlowCane(String registryName) {
+            super(AbstractBlock.Settings.of(BYGMaterials.BLUE_GLOWCANE)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .strength(0.0f, 0.0f)
+                    .noCollision()
+                    .lightLevel((blockStatex) -> 10)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
 //
 //    public static class BYGCrop extends CropsBlock {
 //        public BYGCrop(String registryName) {

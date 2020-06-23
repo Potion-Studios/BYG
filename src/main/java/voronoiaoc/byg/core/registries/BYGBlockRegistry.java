@@ -380,10 +380,10 @@ public class BYGBlockRegistry {
                 BYGBlockList.WINTER_SUCCULENT = new BYGBlockProperties.BYGFlower("winter_succulent");
                 BYGBlockList.SHORT_GRASS = new BYGBlockProperties.BYGTallGrass("short_grass");
                 BYGBlockList.TALL_PRAIRIE_GRASS = new BYGBlockProperties.BYGDoublePlant("tall_prairie_grass");
-//                BYGBlockList.BLUE_GLOWCANE = new BYGBlockProperties.BYGBLUEGlowCane("blue_glowcane");
-//                BYGBlockList.RED_GLOWCANE = new BYGBlockProperties.BYGREDGlowCane("red_glowcane");
-//                BYGBlockList.PURPLE_GLOWCANE = new BYGBlockProperties.BYGPURPLEGlowCane("purple_glowcane");
-//                BYGBlockList.PINK_GLOWCANE = new BYGBlockProperties.BYGPINKGlowCane("pink_glowcane");
+                BYGBlockList.BLUE_GLOWCANE = new BYGBlockProperties.BYGBLUEGlowCane("blue_glowcane");
+                BYGBlockList.RED_GLOWCANE = new BYGBlockProperties.BYGREDGlowCane("red_glowcane");
+                BYGBlockList.PURPLE_GLOWCANE = new BYGBlockProperties.BYGPURPLEGlowCane("purple_glowcane");
+                BYGBlockList.PINK_GLOWCANE = new BYGBlockProperties.BYGPINKGlowCane("pink_glowcane");
                 BYGBlockList.POISON_IVY = new BYGBlockProperties.BYGPoisonIvy("poison_ivy");
                 BYGBlockList.SKYRIS_VINE = new BYGBlockProperties.BYGSkyrisVine("skyris_vine");
                 BYGBlockList.BLUEBERRY_BUSH = new BYGBlockProperties.BYGBerryBush("blueberry_bush");
