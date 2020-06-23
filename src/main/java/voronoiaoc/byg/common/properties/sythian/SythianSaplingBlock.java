@@ -16,7 +16,7 @@ import voronoiaoc.byg.core.byglists.BYGItemList;
 import java.util.Random;
 
 public class SythianSaplingBlock extends BambooSaplingBlock {
-    public SythianSaplingBlock(AbstractBlock.Settings properties) {
+    public SythianSaplingBlock(Settings properties) {
         super(properties);
     }
 

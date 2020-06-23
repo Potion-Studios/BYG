@@ -21,7 +21,7 @@ import java.util.Random;
 
 public class SythianStalkBlock extends BambooBlock {
 
-    public SythianStalkBlock(AbstractBlock.Settings properties) {
+    public SythianStalkBlock(Settings properties) {
         super(properties);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(LEAVES, BambooLeaves.NONE).with(STAGE, 0));
     }

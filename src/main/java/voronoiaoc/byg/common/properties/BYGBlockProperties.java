@@ -693,7 +693,7 @@ public class BYGBlockProperties {
 
     public static class BYGPoisonIvy extends PoisonIvyBlock {
         public BYGPoisonIvy(String registryName) {
-            super(AbstractBlock.Settings.of(Material.LEAVES)
+            super(Settings.of(Material.LEAVES)
                     .sounds(BlockSoundGroup.GRASS)
                     .strength(0.2f)
                     .ticksRandomly()
@@ -815,7 +815,7 @@ public class BYGBlockProperties {
 
     public static class BYGREDGlowCane extends Glowcane {
         public BYGREDGlowCane(Material material, String registryName) {
-            super(AbstractBlock.Settings.of(material)
+            super(Settings.of(material)
                     .sounds(BlockSoundGroup.GRASS)
                     .strength(0.0f, 0.0f)
                     .noCollision()
@@ -939,7 +939,7 @@ public class BYGBlockProperties {
 
     public static class BYGScaffolding extends BYGScaffoldingBlock {
         public BYGScaffolding(String registryName) {
-            super(AbstractBlock.Settings.of(Material.SUPPORTED, MaterialColor.SAND)
+            super(Settings.of(Material.SUPPORTED, MaterialColor.SAND)
                     .sounds(BlockSoundGroup.SCAFFOLDING)
                     .strength(2.0f, 3.0f)
                     .noCollision()
@@ -1047,7 +1047,7 @@ public class BYGBlockProperties {
     public static class BYGStrippedLog extends LogBlock {
         public BYGStrippedLog(String registryName) {
             super(MaterialColor.WOOD,
-                    AbstractBlock.Settings.of(Material.WOOD, MaterialColor.WOOD)
+                    Settings.of(Material.WOOD, MaterialColor.WOOD)
                             .sounds(BlockSoundGroup.WOOD)
                             .strength(2.0f)
             );

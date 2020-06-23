@@ -250,7 +250,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
             return this.set(this.getX() + direction.getOffsetX() * distance, this.getY() + direction.getOffsetY() * distance, this.getZ() + direction.getOffsetZ() * distance);
         }
 
-        public BlockPos.Mutable setOffset(int x, int y, int z) {
+        public Mutable setOffset(int x, int y, int z) {
             return this.set(this.getX() + x, this.getY() + y, this.getZ() + z);
         }
 

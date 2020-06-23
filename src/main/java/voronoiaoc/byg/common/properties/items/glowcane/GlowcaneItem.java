@@ -15,7 +15,7 @@ import net.minecraft.world.RayTraceContext;
 import net.minecraft.world.World;
 
 public class GlowcaneItem extends BlockItem {
-    public GlowcaneItem(Block blockIn, Item.Settings builder) {
+    public GlowcaneItem(Block blockIn, Settings builder) {
         super(blockIn, builder);
 
     }

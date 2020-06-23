@@ -16,8 +16,8 @@ public class AmaranthBlock extends PlantBlock {
         return SHAPE;
     }
 
-    public AbstractBlock.OffsetType getOffsetType() {
-        return AbstractBlock.OffsetType.XYZ;
+    public OffsetType getOffsetType() {
+        return OffsetType.XYZ;
     }
 
 }

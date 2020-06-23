@@ -45,7 +45,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
                 for (int baseSize = 0; baseSize < 4; baseSize++) {
                     BlockPos.Mutable mutable = new BlockPos.Mutable().set(block.up(3));
-                    for (Direction direction : Direction.Type.HORIZONTAL) {
+                    for (Direction direction : Type.HORIZONTAL) {
                         mutable.set(block.up(3).offset(direction, baseSize));
                         if (worldIn.getBlockState(mutable).getBlock() != Blocks.DIRT)
                             this.setWillowLog(changedBlocks, worldIn, mutable.move(DOWN, baseSize), boundsIn);

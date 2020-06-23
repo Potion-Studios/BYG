@@ -17,7 +17,7 @@ import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class CragGardens extends Biome implements BiomeFog {
+public class CragGardens extends Biome implements BiomeTools implements BiomeFog {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.SLUICE_SB, BYGSBList.BYGSBConfigList.GREEN_CONCRETE_POWDER_CF);
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
@@ -31,10 +31,10 @@ public class CragGardens extends Biome implements BiomeFog {
 
     public CragGardens() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        //this.addStructureFeature(Feature.OCEAN_RUIN.configure(new OceanRuinConfig(OceanRuinStructure.Type.WARM, 0.9F, 0.9F)));
-        //this.addStructureFeature(Feature.JUNGLE_TEMPLE.configure(FeatureConfig.DEFAULT));
-        //this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        //this.addStructureFeature(Feature.STRONGHOLD.configure(FeatureConfig.DEFAULT));
+        ////this.addStructureFeature(Feature.OCEAN_RUIN.configure(new OceanRuinConfig(OceanRuinStructure.Type.WARM, 0.9F, 0.9F)));
+        ////this.addStructureFeature(Feature.JUNGLE_TEMPLE.configure(FeatureConfig.DEFAULT));
+        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+        ////this.addStructureFeature(Feature.STRONGHOLD.configure(FeatureConfig.DEFAULT));
         //BYGFeatures.addLargeLake(this);
         //BYGFeatures.addCattails(this);
         //BYGFeatures.addBYGLilyPad(this);

@@ -10,7 +10,7 @@ public class LeafFoliageBlock extends PlantBlock {
     protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
     private final DyeColor color;
 
-    protected LeafFoliageBlock(DyeColor colorIn, AbstractBlock.Settings properties) {
+    protected LeafFoliageBlock(DyeColor colorIn, Settings properties) {
         super(properties);
         this.color = colorIn;
     }

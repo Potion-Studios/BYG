@@ -22,7 +22,7 @@ public class Glowcane extends Block  {
     public static final IntProperty AGE = Properties.AGE_15;
     protected static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 
-    protected Glowcane(AbstractBlock.Settings properties) {
+    protected Glowcane(Settings properties) {
         super(properties);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, Integer.valueOf(0)));
     }

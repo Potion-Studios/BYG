@@ -1,4 +1,4 @@
-//package voronoiaoc.byg.common.world.structure.misc.reddesert;
+package voronoiaoc.byg.common.world.structure.misc.reddesert;//package voronoiaoc.byg.common.world.structure.misc.reddesert;
 //
 //import com.mojang.datafixers.Dynamic;
 //import net.minecraft.util.Mirror;

@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import voronoiaoc.byg.BYG;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 public class BYGBiomeRegistry {
@@ -105,10 +106,19 @@ public class BYGBiomeRegistry {
 
     private static void registerBiome(Biome biome, String id, boolean spawn, int weight, OverworldClimate climate) {
         Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
-        if (spawn) {
+        if (spawn)
             FabricBiomes.addSpawnBiome(biome);
-        }
-        OverworldBiomes.addContinentalBiome(biome, climate, weight);
+
+            OverworldBiomes.addContinentalBiome(biome, climate, weight);
+
+            if (((BiomeTools)biome).getEdge() != null)
+                OverworldBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), weight);
+            if (((BiomeTools)biome).getBeach() != null)
+                OverworldBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), weight);
+            if (((BiomeTools)biome).getHill() != null)
+                OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), weight);
+            if (((BiomeTools)biome).getMutation() != null)
+                OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), weight);
     }
 
     private static void registerSubBiome(Biome biome, String id, boolean spawn) {

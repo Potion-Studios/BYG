@@ -1,4 +1,4 @@
-//package voronoiaoc.byg.common.world.feature.features.overworld.trees.dead;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.dead;//package voronoiaoc.byg.common.world.feature.features.overworld.trees.dead;
 //
 //import com.mojang.serialization.Codec;
 //import net.minecraft.block.Block;

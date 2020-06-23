@@ -23,7 +23,7 @@ public class RedDesertTempleStructure extends StructureFeature<DefaultFeatureCon
 //        return 3;
 //    }
 
-    public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
         return Start::new;
     }
 

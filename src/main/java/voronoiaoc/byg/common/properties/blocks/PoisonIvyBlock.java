@@ -12,7 +12,7 @@ import net.minecraft.world.*;
 
 
 public class PoisonIvyBlock extends VineBlock {
-    public PoisonIvyBlock(AbstractBlock.Settings properties) {
+    public PoisonIvyBlock(Settings properties) {
         super(properties);
     }
 

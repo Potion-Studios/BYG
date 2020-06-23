@@ -22,7 +22,7 @@ import voronoiaoc.byg.core.byglists.BYGItemList;
 public class BlueBerryBush extends SweetBerryBushBlock implements Fertilizable {
     public static final IntProperty AGE = Properties.AGE_3;
 
-    public BlueBerryBush(AbstractBlock.Settings properties) {
+    public BlueBerryBush(Settings properties) {
         super(properties);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
     }

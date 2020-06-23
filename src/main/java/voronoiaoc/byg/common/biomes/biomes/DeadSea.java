@@ -18,7 +18,7 @@ import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class DeadSea extends Biome implements BiomeFog {
+public class DeadSea extends Biome implements BiomeTools implements BiomeFog {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSBList.BYGSBConfigList.BLACKSAND);
     static final Precipitation PRECIPATATION = Precipitation.NONE;
     static final Category CATEGORY = Category.OCEAN;
@@ -32,11 +32,11 @@ public class DeadSea extends Biome implements BiomeFog {
 
     public DeadSea() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        //this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        //this.addStructureFeature(Feature.SHIPWRECK.configure(new ShipwreckConfig(false)));
-        //this.addStructureFeature(Feature.SHIPWRECK.configure(new ShipwreckConfig(false)));
-        //this.addStructureFeature(Feature.SHIPWRECK.configure(new ShipwreckConfig(false)));
-        //this.addStructureFeature(Feature.OCEAN_RUIN.configure(new OceanRuinConfig(OceanRuinStructure.Type.COLD, 1.3F, 1.9F)));
+        ////this.addStructureFeature(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+        ////this.addStructureFeature(Feature.SHIPWRECK.configure(new ShipwreckConfig(false)));
+        ////this.addStructureFeature(Feature.SHIPWRECK.configure(new ShipwreckConfig(false)));
+        ////this.addStructureFeature(Feature.SHIPWRECK.configure(new ShipwreckConfig(false)));
+        ////this.addStructureFeature(Feature.OCEAN_RUIN.configure(new OceanRuinConfig(OceanRuinStructure.Type.COLD, 1.3F, 1.9F)));
         BYGFeatures.addDeadSeaSpires(this);
         DefaultBiomeFeatures.addMineables(this);
         DefaultBiomeFeatures.addDefaultOres(this);

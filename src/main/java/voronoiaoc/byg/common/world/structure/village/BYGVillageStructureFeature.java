@@ -16,7 +16,7 @@ public class BYGVillageStructureFeature extends StructureFeature<StructurePoolFe
         super(codec);
     }
 
-    public StructureFeature.StructureStartFactory<StructurePoolFeatureConfig> getStructureStartFactory() {
+    public StructureStartFactory<StructurePoolFeatureConfig> getStructureStartFactory() {
         return VillageFeature.Start::new;
     }
 

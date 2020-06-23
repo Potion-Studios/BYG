@@ -24,7 +24,7 @@ import java.util.Random;
 
 public class BYGScaffoldingBlock extends ScaffoldingBlock implements Waterloggable {
 
-    protected BYGScaffoldingBlock(AbstractBlock.Settings properties) {
+    protected BYGScaffoldingBlock(Settings properties) {
         super(properties);
     }
     public static int calculateDistance(BlockView world, BlockPos pos) {

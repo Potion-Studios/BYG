@@ -1,4 +1,4 @@
-//package voronoiaoc.byg.common.world.structure.fortress.skyrishighlands;
+package voronoiaoc.byg.common.world.structure.fortress.skyrishighlands;//package voronoiaoc.byg.common.world.structure.fortress.skyrishighlands;
 //
 //import com.google.common.collect.Lists;
 //import net.minecraft.block.BlockState;
