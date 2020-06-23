@@ -54,11 +54,15 @@ public class BYGSBList {
         public static final TernarySurfaceConfig ROCKY = new TernarySurfaceConfig(BYGBlockList.ROCKY_STONE.getDefaultState(), BYGBlockList.ROCKY_STONE.getDefaultState(), BYGBlockList.ROCKY_STONE.getDefaultState());
         public static final TernarySurfaceConfig STONE = new TernarySurfaceConfig(Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState());
         public static final TernarySurfaceConfig COARSE = new TernarySurfaceConfig(Blocks.COARSE_DIRT.getDefaultState(), Blocks.COARSE_DIRT.getDefaultState(), Blocks.COARSE_DIRT.getDefaultState());
+        public static final TernarySurfaceConfig GLOWSTONEGARDENS = new TernarySurfaceConfig(BYGBlockList.OVERGROWN_NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
+
 
         public static final TernarySurfaceConfig SAND_CF = new TernarySurfaceConfig(Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState());
         public static final TernarySurfaceConfig REDSAND_CF = new TernarySurfaceConfig(Blocks.RED_SAND.getDefaultState(), Blocks.RED_SAND.getDefaultState(), Blocks.RED_SAND.getDefaultState());
         public static final TernarySurfaceConfig WARPEDDESERT = new TernarySurfaceConfig(BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState());
         public static final TernarySurfaceConfig SYTHIANTORRIDS = new TernarySurfaceConfig(BYGBlockList.SYTHIAN_NYLIUM.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
+        public static final TernarySurfaceConfig WARPEDDESERT_SOIL = new TernarySurfaceConfig(BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState());
+
 
         public static final TernarySurfaceConfig PODZOLDOVERMOUNTAIN_CF = new TernarySurfaceConfig(BYGBlockList.OVERGROWN_DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());
         public static final TernarySurfaceConfig COARSEDIRTDOVERMOUNTAIN_CF = new TernarySurfaceConfig(Blocks.COARSE_DIRT.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());
@@ -66,10 +70,10 @@ public class BYGSBList {
 
         public static final TernarySurfaceConfig AIR_CF = new TernarySurfaceConfig(Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState());
 
-        public static final TernarySurfaceConfig QUAGMIREPEAT_SB = new TernarySurfaceConfig(BYGBlockList.PEAT_GRASSBLOCK.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState());
+        public static final TernarySurfaceConfig QUAGMIREPEAT_SB = new TernarySurfaceConfig(BYGBlockList.PEAT.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState());
         public static final TernarySurfaceConfig QUAGMIREMUD_CF = new TernarySurfaceConfig(BYGBlockList.MUD_BLOCK.getDefaultState(), BYGBlockList.MUD_BRICKS.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState());
         public static final TernarySurfaceConfig GRASSMOUNTAIN_CF = new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState());
-        public static final TernarySurfaceConfig PEATGRASS_CF = new TernarySurfaceConfig(BYGBlockList.PEAT_GRASSBLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState());
+        public static final TernarySurfaceConfig PEATGRASS_CF = new TernarySurfaceConfig(BYGBlockList.PEAT.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState());
         public static final TernarySurfaceConfig MUD_CF = new TernarySurfaceConfig(BYGBlockList.MUD_BLOCK.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState());
         public static final TernarySurfaceConfig TERRACOTTA_CF = new TernarySurfaceConfig(Blocks.TERRACOTTA.getDefaultState(), Blocks.TERRACOTTA.getDefaultState(), Blocks.TERRACOTTA.getDefaultState());
         public static final TernarySurfaceConfig GLOWCELIUM_CF = new TernarySurfaceConfig(BYGBlockList.GLOWCELIUM.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState());

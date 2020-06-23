@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:jacaranda_planks"
+    }
+  },
+  "result": {
+    "item": "byg:jacaranda_boat"
+  }
+}

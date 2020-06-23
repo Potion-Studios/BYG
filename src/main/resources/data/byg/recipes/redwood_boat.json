@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:redwood_planks"
+    }
+  },
+  "result": {
+    "item": "byg:redwood_boat"
+  }
+}

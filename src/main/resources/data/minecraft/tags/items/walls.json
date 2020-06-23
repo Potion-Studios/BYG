@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "byg:dacite_cobblestone_wall",
+    "byg:mossy_stone_wall",
+    "byg:rocky_stone_wall",
+    "byg:scoria_stone_wall",
+    "byg:scoria_cobblestone_wall",
+    "byg:scoria_stonebrick_wall",
+    "byg:soapstone_wall",
+    "byg:polished_soapstone_wall",
+    "byg:soapstone_brick_wall",
+    "byg:soapstone_tile_wall",
+    "byg:red_rock_wall",
+    "byg:red_rock_brick_wall",
+    "byg:mossy_red_rock_brick_wall",
+    "byg:cracked_red_rock_brick_wall",
+    "byg:chiseled_red_rock_brick_wall"
+  ]
+}

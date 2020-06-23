@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "lime_dye",
+  "ingredients": [
+    {
+      "tag": "byg:lime_dye"
+    }
+  ],
+  "result": {
+    "item": "minecraft:lime_dye"
+  }
+}

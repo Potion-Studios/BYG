@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "cyan_dye",
+  "ingredients": [
+    {
+      "tag": "byg:cyan_dye"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cyan_dye"
+  }
+}

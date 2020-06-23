@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "brown_dye",
+  "ingredients": [
+    {
+      "tag": "byg:brown_dye"
+    }
+  ],
+  "result": {
+    "item": "minecraft:brown_dye"
+  }
+}

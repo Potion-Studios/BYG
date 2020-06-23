@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "byg:aspen_door",
+    "byg:baobab_door",
+    "byg:blue_enchanted_door",
+    "byg:cherry_door",
+    "byg:cika_door",
+    "byg:cypress_door",
+    "byg:ebony_door",
+    "byg:fir_door",
+    "byg:green_enchanted_door",
+    "byg:holly_door",
+    "byg:jacaranda_door",
+    "byg:mahogany_door",
+    "byg:mangrove_door",
+    "byg:maple_door",
+    "byg:pine_door",
+    "byg:rainbow_eucalyptus_door",
+    "byg:redwood_door",
+    "byg:skyris_door",
+    "byg:willow_door",
+    "byg:witch_hazel_door",
+    "byg:zelkova_door"
+  ]
+}

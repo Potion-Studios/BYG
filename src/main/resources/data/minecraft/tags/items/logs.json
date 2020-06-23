@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "#byg:aspen_logs",
+    "#byg:baobab_logs",
+    "#byg:blue_enchanted_logs",
+    "#byg:cherry_logs",
+    "#byg:cypress_logs",
+    "#byg:ebony_logs",
+    "#byg:fir_logs",
+    "#byg:green_enchanted_logs",
+    "#byg:holly_logs",
+    "#byg:jacaranda_logs",
+    "#byg:mahogany_logs",
+    "#byg:mangrove_logs",
+    "#byg:maple_logs",
+    "#byg:palo_verde_logs",
+    "#byg:pine_logs",
+    "#byg:rainbow_eucalyptus_logs",
+    "#byg:redwood_logs",
+    "#byg:skyris_logs",
+    "#byg:willow_logs",
+    "#byg:witch_hazel_logs",
+    "#byg:zelkova_logs"
+  ]
+}
