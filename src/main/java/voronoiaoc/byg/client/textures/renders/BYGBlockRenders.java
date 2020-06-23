@@ -23,6 +23,9 @@ public class BYGBlockRenders {
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.TALL_PINK_ALLIUM, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.PINK_CHERRY_FOLIAGE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.WHITE_CHERRY_FOLIAGE, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.WEEPING_ROOTS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.WEEPING_ROOTS_PLANT, RenderLayer.getCutout());
         //Nether
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.OVERGROWN_NETHERRACK, RenderLayer.getCutout());
 

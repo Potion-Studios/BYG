@@ -49,7 +49,7 @@ public class SythianTorrids extends Biome {
                         .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D))
                         .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))
                         .music(MusicType.method_27283(SoundEvents.MUSIC_NETHER_CRIMSON_FOREST)).build())
-                .noises(ImmutableList.of(new MixedNoisePoint(0.4F, 0.0F, 0.0F, 0.0F, 0.8F))));
+                .noises(ImmutableList.of(new MixedNoisePoint(-0.13F, 0.0F, 0.0F, 0.0F, 0.0F))));
 
         this.addCarver(GenerationStep.Carver.AIR, configureCarver(Carver.NETHER_CAVE, new ProbabilityConfig(0.2F)));
         this.addStructureFeature(DefaultBiomeFeatures.NETHER_RUINED_PORTAL);

@@ -246,8 +246,10 @@ public class BYGItemRegistry {
 
                 //Cherry Woodtype
                 registerItem(BYGItemList.PINK_CHERRY_SAPLING = new BlockItem(BYGBlockList.PINK_CHERRY_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PINK_CHERRY_SAPLING));
+                registerItem(BYGItemList.PINK_CHERRY_FOLIAGE = new BlockItem(BYGBlockList.PINK_CHERRY_FOLIAGE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PINK_CHERRY_FOLIAGE));
                 registerItem(BYGItemList.PINK_CHERRY_LEAVES = new BlockItem(BYGBlockList.PINK_CHERRY_LEAVES, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PINK_CHERRY_LEAVES));
                 registerItem(BYGItemList.WHITE_CHERRY_SAPLING = new BlockItem(BYGBlockList.WHITE_CHERRY_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WHITE_CHERRY_SAPLING));
+                registerItem(BYGItemList.WHITE_CHERRY_FOLIAGE = new BlockItem(BYGBlockList.WHITE_CHERRY_FOLIAGE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WHITE_CHERRY_FOLIAGE));
                 registerItem(BYGItemList.WHITE_CHERRY_LEAVES = new BlockItem(BYGBlockList.WHITE_CHERRY_LEAVES, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WHITE_CHERRY_LEAVES));
                 registerItem(BYGItemList.CHERRY_LOG = new BlockItem(BYGBlockList.CHERRY_LOG, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CHERRY_LOG));
                 registerItem(BYGItemList.CHERRY_WOOD = new BlockItem(BYGBlockList.CHERRY_WOOD, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CHERRY_WOOD));
@@ -700,6 +702,8 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.YELLOW_GLOWSHROOM_STEM = new BlockItem(BYGBlockList.YELLOW_GLOWSHROOM_STEM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.YELLOW_GLOWSHROOM_STEM));
 
                 //Nether
+                registerItem(BYGItemList.PERVADED_NETHERRACK = new BlockItem(BYGBlockList.PERVADED_NETHERRACK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PERVADED_NETHERRACK));
+
                 registerItem(BYGItemList.GLOWSTONE_LANTERN = new BlockItem(BYGBlockList.GLOWSTONE_LANTERN, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.GLOWSTONE_LANTERN));
                 registerItem(BYGItemList.GLOWSTONE_LAMP = new BlockItem(BYGBlockList.GLOWSTONE_LAMP, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.GLOWSTONE_LAMP));
 
