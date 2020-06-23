@@ -20,10 +20,10 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
-import voronoiaoc.byg.common.biomes.BiomeFog;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class WarpedDesert extends Biome implements BiomeFog {
+public class WarpedDesert extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.WARPEDDESERT_SB, BYGSBList.BYGSBConfigList.WARPEDDESERT);
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.NETHER;
@@ -48,18 +48,11 @@ public class WarpedDesert extends Biome implements BiomeFog {
         this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Blocks.NETHER_QUARTZ_ORE.getDefaultState(), 14)).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(16, 10, 20, 128))));
         this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NETHERRACK, Blocks.MAGMA_BLOCK.getDefaultState(), 33)).createDecoratedFeature(Decorator.MAGMA.configure(new CountDecoratorConfig(4))));
         this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.SPRING_FEATURE.configure(DefaultBiomeFeatures.ENCLOSED_NETHER_SPRING_CONFIG).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(16, 10, 20, 128))));
-        //BYGFeatures.addNetherFortress(this);
-        //BYGFeatures.addWarpedVegetation(this);
+        BYGFeatures.addWarpedVegetation(this);
 
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.GHAST, 60, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.MAGMA_CUBE, 2, 4, 4));
     }
 
-    @Override
-    public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
-        return WARPEDDESERTVEC3D;
-    }
-
-    private static final Vec3d WARPEDDESERTVEC3D = new Vec3d(0.53F, 0.812F, 0.941F);
 }

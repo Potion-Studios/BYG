@@ -899,18 +899,17 @@ public class BYGBlockProperties {
         }
     }
 
-//    public static class BYGScaffolding extends BYGScaffoldingBlock {
-//        public BYGScaffolding(String registryName) {
-//            super(AbstractBlock.Settings.of(Material.MISCELLANEOUS, MaterialColor.SAND)
-//                    .sounds(BlockSoundGroup.SCAFFOLDING)
-//                    .strength(2.0f, 3.0f)
-//                    .noCollision()
-//                    .variableOpacity()
-//                    .lightLevel((blockStatex) -> 12)
-//            );
-//
-//        }
-//    }
+    public static class BYGScaffolding extends BYGScaffoldingBlock {
+        public BYGScaffolding(String registryName) {
+            super(AbstractBlock.Settings.of(Material.SUPPORTED, MaterialColor.SAND)
+                    .sounds(BlockSoundGroup.SCAFFOLDING)
+                    .strength(2.0f, 3.0f)
+                    .noCollision()
+                    .lightLevel((blockStatex) -> 12)
+            );
+
+        }
+    }
 
     public static class BYGCraftingTable extends BYGCraftingTableBlock {
         public BYGCraftingTable(String registryName) {

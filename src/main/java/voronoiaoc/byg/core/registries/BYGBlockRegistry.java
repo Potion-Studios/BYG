@@ -414,7 +414,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.SYTHIAN_ROOTS = new BYGBlockProperties.SythianPlant("sythian_roots");
                 BYGBlockList.SYTHIAN_SPROUT = new BYGBlockProperties.SythianPlant("sythian_sprout");
                 BYGBlockList.SYTHIAN_STALK_BLOCK = new BYGBlockProperties.SythianStalk("sythian_stalk_block");
-//                BYGBlockList.SYTHIAN_SCAFFOLDING = new BYGBlockProperties.BYGScaffolding("sythian_scaffolding");
+                BYGBlockList.SYTHIAN_SCAFFOLDING = new BYGBlockProperties.BYGScaffolding("sythian_scaffolding");
                 BYGBlockList.SYTHIAN_SAPLING = new BYGBlockProperties.SythianSapling("sythian_sapling");
 
                 //End BYGBlockRenders
