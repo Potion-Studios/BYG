@@ -795,7 +795,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BlockMushroom extends MushroomBlock {
+    public static class BlockMushroom extends MushroomPlantBlock {
         public BlockMushroom(String registryName) {
             super(Settings.of(Material.PLANT, MaterialColor.DIRT)
                     .sounds(BlockSoundGroup.GRASS)
@@ -811,7 +811,7 @@ public class BYGBlockProperties {
 //        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
 //    }
 
-    public static class BlockGlowshroom extends MushroomBlock {
+    public static class BlockGlowshroom extends MushroomPlantBlock {
         public BlockGlowshroom(String registryName) {
             super(Settings.of(Material.PLANT, MaterialColor.DIRT)
                     .sounds(BlockSoundGroup.GRASS)
