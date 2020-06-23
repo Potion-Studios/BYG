@@ -470,6 +470,7 @@ public class BYGBlockProperties {
             );
 
             this.setDefaultState(this.stateManager.getDefaultState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)));
+
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
     }
