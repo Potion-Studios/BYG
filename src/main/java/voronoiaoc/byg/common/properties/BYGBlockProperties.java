@@ -231,6 +231,44 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGAmaranth extends AmaranthBlock {
+        public BYGAmaranth(String registryName) {
+            super(Settings.of(Material.PLANT)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .noCollision()
+                    .strength(0.0f)
+                    .nonOpaque()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGTallAllium extends TallAlliumBlock {
+        public BYGTallAllium(String registryName) {
+            super(Settings.of(Material.PLANT)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .noCollision()
+                    .strength(0.0f)
+                    .nonOpaque()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGPinkTallAllium extends TallPinkAlliumBlock {
+        public BYGPinkTallAllium(String registryName) {
+            super(Settings.of(Material.PLANT)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .noCollision()
+                    .strength(0.0f)
+                    .nonOpaque()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+
+
     public static class BYGWinterTallGrass extends BYGSnowyPlants {
         public BYGWinterTallGrass(String registryName) {
             super(Settings.of(Material.PLANT)

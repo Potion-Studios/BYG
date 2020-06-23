@@ -678,9 +678,11 @@ public class BYGBlockRegistry {
                 BYGBlockList.STRIPPED_ZELKOVA_WOOD = new BYGBlockProperties.BYGWood("stripped_zelkova_wood");
 
                 //Flower BYGBlockRenders
-                BYGBlockList.ALLIUM_FLOWER_BUSH = new BYGBlockProperties.BYGFlower("allium_flower_bush");
+                BYGBlockList.TALL_PINK_ALLIUM = new BYGBlockProperties.BYGDoublePlant("tall_pink_allium");
+                BYGBlockList.TALL_ALLIUM = new BYGBlockProperties.BYGDoublePlant("tall_allium");
+                BYGBlockList.ALLIUM_FLOWER_BUSH = new BYGBlockProperties.BYGTallAllium("allium_flower_bush");
                 BYGBlockList.ALPINE_BELLFLOWER = new BYGBlockProperties.BYGFlower("alpine_bellflower");
-                BYGBlockList.AMARANTH = new BYGBlockProperties.BYGFlower("amaranth");
+                BYGBlockList.AMARANTH = new BYGBlockProperties.BYGAmaranth("amaranth");
                 BYGBlockList.ANGELICA = new BYGBlockProperties.BYGFlower("angelica");
                 BYGBlockList.AZALEA = new BYGBlockProperties.BYGDoublePlant("azalea");
                 BYGBlockList.BEGONIA = new BYGBlockProperties.BYGFlower("begonia");
@@ -689,7 +691,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.CALIFORNIA_POPPY = new BYGBlockProperties.BYGFlower("california_poppy");
                 BYGBlockList.CROCUS = new BYGBlockProperties.BYGFlower("crocus");
                 BYGBlockList.BLACK_ROSE = new BYGBlockProperties.BYGFlower("black_rose");
-                BYGBlockList.CYAN_AMARANTH = new BYGBlockProperties.BYGFlower("cyan_amaranth");
+                BYGBlockList.CYAN_AMARANTH = new BYGBlockProperties.BYGAmaranth("cyan_amaranth");
                 BYGBlockList.CYAN_ROSE = new BYGBlockProperties.BYGFlower("cyan_rose");
                 BYGBlockList.CYAN_TULIP = new BYGBlockProperties.BYGFlower("cyan_tulip");
                 BYGBlockList.DAFFODIL = new BYGBlockProperties.BYGFlower("daffodil");
@@ -706,20 +708,20 @@ public class BYGBlockRegistry {
                 BYGBlockList.KOVAN_FLOWER = new BYGBlockProperties.BYGFlower("kovan_flower");
                 BYGBlockList.LAZARUS_BELLFLOWER = new BYGBlockProperties.BYGFlower("lazarus_bellflower");
                 BYGBlockList.LOLIPOP_FLOWER = new BYGBlockProperties.BYGFlower("lolipop_flower");
-                BYGBlockList.MAGENTA_AMARANTH = new BYGBlockProperties.BYGFlower("magenta_amaranth");
+                BYGBlockList.MAGENTA_AMARANTH = new BYGBlockProperties.BYGAmaranth("magenta_amaranth");
                 BYGBlockList.MAGENTA_TULIP = new BYGBlockProperties.BYGFlower("magenta_tulip");
                 BYGBlockList.ORANGE_AMARANTH = new BYGBlockProperties.BYGFlower("orange_amaranth");
                 BYGBlockList.ORANGE_DAISY = new BYGBlockProperties.BYGFlower("orange_daisy");
                 BYGBlockList.ORSIRIA_ROSE = new BYGBlockProperties.BYGFlower("osiria_rose");
                 BYGBlockList.PEACH_LEATHER_FLOWER = new BYGBlockProperties.BYGFlower("peach_leather_flower");
                 BYGBlockList.PINK_ALLIUM = new BYGBlockProperties.BYGFlower("pink_allium");
-                BYGBlockList.PINK_ALLIUM_FLOWER_BUSH = new BYGBlockProperties.BYGFlower("pink_allium_flower_bush");
+                BYGBlockList.PINK_ALLIUM_FLOWER_BUSH = new BYGBlockProperties.BYGPinkTallAllium("pink_allium_flower_bush");
                 BYGBlockList.PINK_ANEMONE = new BYGBlockProperties.BYGFlower("pink_anemone");
                 BYGBlockList.PINK_DAFFODIL = new BYGBlockProperties.BYGFlower("pink_daffodil");
                 BYGBlockList.PINK_ORCHID = new BYGBlockProperties.BYGFlower("pink_orchid");
                 BYGBlockList.PRAIRIE_GRASS = new BYGBlockProperties.BYGPrairieGrass("prairie_grass");
                 BYGBlockList.PROTEA_FLOWER = new BYGBlockProperties.BYGFlower("protea_flower");
-                BYGBlockList.PURPLE_AMARANTH = new BYGBlockProperties.BYGFlower("purple_amaranth");
+                BYGBlockList.PURPLE_AMARANTH = new BYGBlockProperties.BYGAmaranth("purple_amaranth");
                 BYGBlockList.PURPLE_ORCHID = new BYGBlockProperties.BYGFlower("purple_orchid");
                 BYGBlockList.PURPLE_SAGE = new BYGBlockProperties.BYGFlower("purple_sage");
                 BYGBlockList.PURPLE_TULIP = new BYGBlockProperties.BYGFlower("purple_tulip");

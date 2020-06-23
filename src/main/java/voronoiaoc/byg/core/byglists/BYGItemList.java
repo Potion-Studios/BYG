@@ -4,7 +4,7 @@ import net.minecraft.item.Item;
 
 public class BYGItemList {
 
-    //BYG BYGBlockRenders
+    //BYG Blocks
     public static Item SONORAN_CACTUS;
 
     //BYG LOGO
@@ -201,8 +201,10 @@ public class BYGItemList {
 
     //Flowers
     public static Item ALPINE_BELLFLOWER;
+    public static Item TALL_ALLIUM;
     public static Item ALLIUM_FLOWER_BUSH;
     public static Item PINK_ALLIUM_FLOWER_BUSH;
+    public static Item TALL_PINK_ALLIUM;
     public static Item ANGELICA;
     public static Item AZALEA;
     public static Item BEGONIA;
@@ -263,7 +265,6 @@ public class BYGItemList {
     //Grass Items
     public static Item MEADOW_GRASSBLOCK;
     public static Item GLOWCELIUM;
-    public static Item PEAT_GRASSBLOCK;
 
     //Dirt Items
     public static Item PEAT;
@@ -456,6 +457,7 @@ public class BYGItemList {
     //OreItems
     public static Item PENDORITE_ORE;
     public static Item AMETRINE_ORE;
+    public static Item PERVADED_NETHERRACK;
 
 
     //BookshelvesItems
@@ -524,14 +526,11 @@ public class BYGItemList {
     public static Item PRICKLY_PEAR_CACTUS;
     public static Item WINTER_SUCCULENT;
     public static Item SHORT_GRASS;
-    public static Item BLUE_GLOWCANE_STALK;
-    public static Item RED_GLOWCANE_STALK;
     public static Item POISON_IVY;
     public static Item PRAIRIE_GRASS;
     public static Item TALL_PRAIRIE_GRASS;
-    public static Item PINK_GLOWCANE_STALK;
-    public static Item PURPLE_GLOWCANE_STALK;
     public static Item SKYRIS_VINE;
+    public static Item WEEPING_ROOTS_PLANT;
     public static Item TINY_LILYPADS;
     public static Item WINTER_GRASS;
     public static Item WATER_SILK;
@@ -550,6 +549,9 @@ public class BYGItemList {
     public static Item CLOVER_PATCH;
     public static Item FLOWER_PATCH;
 
+    public static Item OVERGROWN_NETHERRACK;
+    public static Item NETHER_BRISTLE;
+
     public static Item WARPED_CACTUS;
     public static Item WARPED_BUSH;
     public static Item WARPED_CORAL_BLOCK;
@@ -557,6 +559,7 @@ public class BYGItemList {
     public static Item WARPED_CORAL_FAN;
     public static Item WARPED_CORAL_WALL_FAN;
     public static Item NYLIUM_SOUL_SAND;
+    public static Item NYLIUM_SOUL_SOIL;
 
     public static Item SYTHIAN_SPROUT;
     public static Item SYTHIAN_ROOTS;
@@ -571,14 +574,19 @@ public class BYGItemList {
     public static Item IVIS_SPROUT;
 
 
-    //GlowcaneItem Block
+    //Glowcane Block
+
+    public static Item BLUE_GLOWCANE;
+    public static Item RED_GLOWCANE;
+    public static Item PINK_GLOWCANE;
+    public static Item PURPLE_GLOWCANE;
 
     public static Item BLUE_GLOWCANE_DUST;
     public static Item RED_GLOWCANE_DUST;
     public static Item PINK_GLOWCANE_DUST;
     public static Item PURPLE_GLOWCANE_DUST;
 
-    //GlowcaneItem Block
+    //Glowcane Block
 
     public static Item BLUE_GLOWCANE_BLOCK;
     public static Item RED_GLOWCANE_BLOCK;
@@ -586,8 +594,10 @@ public class BYGItemList {
     public static Item PURPLE_GLOWCANE_BLOCK;
 
     //Decorations
-
-    public static Item REDSTONE_LANTERN;
+    public static Item GLOWSTONE_LAMP;
+    public static Item GLOWSTONE_LANTERN;
+    public static Item PINK_CHERRY_FOLIAGE;
+    public static Item WHITE_CHERRY_FOLIAGE;
 
     //SaplingItems
     public static Item ASPEN_SAPLING;

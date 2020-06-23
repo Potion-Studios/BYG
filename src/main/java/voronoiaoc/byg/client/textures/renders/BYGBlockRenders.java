@@ -17,11 +17,14 @@ public class BYGBlockRenders {
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.MINI_CACTUS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.PRICKLY_PEAR_CACTUS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.WINTER_SUCCULENT, RenderLayer.getCutout());
-//        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.GLOWSTONE_LANTERN, RenderLayer.getCutout());
-//        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.NETHER_BRISTLE, RenderLayer.getCutout());
-
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.GLOWSTONE_LANTERN, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.NETHER_BRISTLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.TALL_ALLIUM, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.TALL_PINK_ALLIUM, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.PINK_CHERRY_FOLIAGE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.WHITE_CHERRY_FOLIAGE, RenderLayer.getCutout());
         //Nether
-//        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.OVERGROWN_NETHERRACK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.OVERGROWN_NETHERRACK, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.WARPED_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.WARPED_CACTUS, RenderLayer.getCutout());
@@ -47,10 +50,10 @@ public class BYGBlockRenders {
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.WATER_SILK, RenderLayer.getTranslucent());
 
         //GlowCane
-//        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.BLUE_GLOWCANE, RenderLayer.getCutout());
-//        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.PINK_GLOWCANE, RenderLayer.getCutout());
-//        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.PURPLE_GLOWCANE, RenderLayer.getCutout());
-//        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.RED_GLOWCANE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.BLUE_GLOWCANE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.PINK_GLOWCANE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.PURPLE_GLOWCANE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.RED_GLOWCANE, RenderLayer.getCutout());
 
         //Doors
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.ASPEN_DOOR, RenderLayer.getTranslucent());
@@ -232,14 +235,14 @@ public class BYGBlockRenders {
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.YELLOW_GLOWSHROOM_STEM, RenderLayer.getTranslucent());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.BLACK_ICE, RenderLayer.getTranslucent());
-//        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.BLUEBERRY_BUSH, RenderLayer.getCutout());
-//        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.SYTHIAN_SCAFFOLDING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.BLUEBERRY_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.SYTHIAN_SCAFFOLDING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.OVERGROWN_STONE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.OVERGROWN_DACITE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.PRAIRIE_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.MEADOW_GRASSBLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.GLOWCELIUM, RenderLayer.getCutout());
-//        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.POISON_IVY, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.POISON_IVY, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.SKYRIS_VINE, RenderLayer.getCutout());
 
         BYG.LOGGER.debug("BYG: Texture Cutouts Rendered!");
