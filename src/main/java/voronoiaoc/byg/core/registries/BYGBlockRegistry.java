@@ -401,6 +401,9 @@ public class BYGBlockRegistry {
 
 
                 //Nether BYGBlockRenders
+                BYGBlockList.OVERGROWN_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("overgrown_netherrack");
+                BYGBlockList.NETHER_BRISTLE = new BYGBlockProperties.BYGDoubleDamagePlant("nether_bristle");
+
                 BYGBlockList.WARPED_CACTUS = new BYGBlockProperties.BYGWarpedCacti("warped_cactus");
                 BYGBlockList.WARPED_BUSH = new BYGBlockProperties.BYGWarpedBush("warped_bush");
                 BYGBlockList.WARPED_CORAL_BLOCK = new BYGBlockProperties.BYGWarpedCoralBlock("warped_coral_block");

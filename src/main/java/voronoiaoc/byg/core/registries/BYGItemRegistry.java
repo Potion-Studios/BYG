@@ -700,6 +700,8 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.YELLOW_GLOWSHROOM_STEM = new BlockItem(BYGBlockList.YELLOW_GLOWSHROOM_STEM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.YELLOW_GLOWSHROOM_STEM));
 
                 //Nether
+                registerItem(BYGItemList.NETHER_BRISTLE = new BlockItem(BYGBlockList.NETHER_BRISTLE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.NETHER_BRISTLE));
+                registerItem(BYGItemList.OVERGROWN_NETHERRACK = new BlockItem(BYGBlockList.OVERGROWN_NETHERRACK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.OVERGROWN_NETHERRACK));
                 registerItem(BYGItemList.WARPED_CACTUS = new BlockItem(BYGBlockList.WARPED_CACTUS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WARPED_CACTUS));
                 registerItem(BYGItemList.WARPED_BUSH = new BlockItem(BYGBlockList.WARPED_BUSH, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WARPED_BUSH));
                 registerItem(BYGItemList.WARPED_CORAL_BLOCK = new BlockItem(BYGBlockList.WARPED_CORAL_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WARPED_CORAL_BLOCK));

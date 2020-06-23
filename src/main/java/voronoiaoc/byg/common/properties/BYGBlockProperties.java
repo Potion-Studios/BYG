@@ -147,6 +147,18 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGDoubleDamagePlant extends DoubleDamagePlantBlock {
+        public BYGDoubleDamagePlant(String registryName) {
+            super(Settings.of(Material.PLANT)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .strength(0.0f)
+                    .noCollision()
+                    .nonOpaque()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
     public static class BYGDesertPlant extends BYGDesertPlants {
         public BYGDesertPlant(String registryName) {
             super(Settings.of(Material.PLANT)
@@ -632,6 +644,17 @@ public class BYGBlockProperties {
 
     public static class BYGSythianNylium extends BYGSythianNyliumBlock {
         public BYGSythianNylium(String registryName) {
+            super(Settings.of(Material.STONE)
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(0.2f)
+                    .ticksRandomly()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class OvergrownNetherrack extends OvergrownNetherrackBlock {
+        public OvergrownNetherrack(String registryName) {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(0.2f)
