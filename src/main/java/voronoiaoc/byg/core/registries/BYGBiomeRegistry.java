@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.biomes.v1.OverworldClimate;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
@@ -76,7 +77,10 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.WOODLANDS, "woodlands", true, 10, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.ZELKOVAFOREST, "zelkova_forest", true, 10, OverworldClimate.COOL);
 
+        //Islands
+        registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, Biomes.DEEP_WARM_OCEAN, Biomes.WARM_OCEAN);
 
+        //Sub Biomes
         registerSubBiome(BYGBiomeList.SNOWY_EVERGREEN_CLEARING, "snowy_evergreen_clearing", true);
         registerSubBiome(BYGBiomeList.SNOWY_EVERGREEN_HILLS, "snowy_evergreen_hills", true);
         registerSubBiome(BYGBiomeList.ENCHANTED_FOREST_HILLS, "enchanted_forest_hills", true);
@@ -143,17 +147,14 @@ public class BYGBiomeRegistry {
         registerSubBiome(BYGBiomeList.ZELKOVAFORESTHILLS, "zelkova_forest_hills", true);
         registerSubBiome(BYGBiomeList.FLOWERINGMEADOW, "flowering_meadow",  true);
         registerSubBiome(BYGBiomeList.WOODEDMEADOW, "wooded_meadow", true);
-
         registerSubBiome(BYGBiomeList.RAINBOWBEACH, "rainbow_beach", true);
         registerSubBiome(BYGBiomeList.ROCKYBEACH, "rocky_beach", true);
         registerSubBiome(BYGBiomeList.SNOWYBLACKBEACH, "snowy_black_beach", true);
         registerSubBiome(BYGBiomeList.SNOWYROCKYBLACKBEACH, "snowy_rocky_black_beach", true);
         registerSubBiome(BYGBiomeList.WHITEBEACH, "white_beach", true);
-
         registerNetherBiome(BYGBiomeList.GLOWSTONEGARDENS, "glowstone_gardens");
         registerNetherBiome(BYGBiomeList.WARPEDDESERT, "warped_desert");
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
-
         registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
     }
 
@@ -203,6 +204,15 @@ public class BYGBiomeRegistry {
         Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
         if (spawn) {
             FabricBiomes.addSpawnBiome(biome);
+        }
+    }
+
+    private static void registerIsland(Biome island, String id, boolean spawn, Biome... oceanClimates) {
+        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), island);
+        if (spawn)
+            FabricBiomes.addSpawnBiome(island);
+        for (Biome oceanBiomeIdx : oceanClimates) {
+            OverworldBiomes.addBiomeVariant(oceanBiomeIdx, island, 0.1F);
         }
     }
 }
