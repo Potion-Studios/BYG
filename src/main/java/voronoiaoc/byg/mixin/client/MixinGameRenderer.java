@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import voronoiaoc.byg.common.biomes.BiomeFog;
+import voronoiaoc.byg.config.BYGConfig;
 
 @Mixin(GameRenderer.class)
 public abstract class MixinGameRenderer {
@@ -20,6 +21,7 @@ public abstract class MixinGameRenderer {
 
     @Inject(at = @At("RETURN"), method = "getFarPlaneDistance", cancellable = true)
     private void strengthenFog(CallbackInfoReturnable<Float> cir) {
+
         World world = mc.world;
         BlockPos playerPos = mc.player.getPosition();
 
@@ -54,11 +56,10 @@ public abstract class MixinGameRenderer {
                     accumulatedFogStrength += defaultFogStrength;
             }
 
-            if (modified) {
+            if (modified && BYGConfig.biomeFogEffects.get() == BYGConfig.BiomeFogSettings.DENSEFOG || BYGConfig.biomeFogEffects.get() == BYGConfig.BiomeFogSettings.DENSEFOGCOLOR) {
                 float transitionSmoothness = 33 * 33;
                 cir.setReturnValue((float) Math.sqrt(accumulatedFogStrength / transitionSmoothness));
             }
-
             else
                 cir.setReturnValue(cir.getReturnValueF());
         }
