@@ -66,6 +66,7 @@ public class DeadSea extends Biome implements BiomeFog {
     public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
         return color;
     }
+
     Vec3d color = new Vec3d(192, 192, 192);
 
     @Override

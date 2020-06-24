@@ -17,7 +17,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
-public class SeasonalGiantTaiga extends Biome  {
+public class SeasonalGiantTaiga extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.TAIGA;

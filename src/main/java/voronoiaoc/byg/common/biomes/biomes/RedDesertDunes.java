@@ -15,7 +15,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 import voronoiaoc.byg.core.byglists.BYGStructureList;
 
-public class RedDesertDunes extends Biome  {
+public class RedDesertDunes extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.REDDUNES_SB, BYGSBList.BYGSBConfigList.REDSAND_CF);
     static final RainType PRECIPATATION = RainType.NONE;
     static final Category CATEGORY = Category.DESERT;

@@ -16,7 +16,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class ConiferousForestHills extends Biome  {
+public class ConiferousForestHills extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.TAIGA;

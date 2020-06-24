@@ -20,7 +20,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
 
-public class MojaveDesert extends Biome  {
+public class MojaveDesert extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.MOJAVE, new SurfaceBuilderConfig(Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState(), Blocks.SANDSTONE.getDefaultState()));
     static final RainType PRECIPATATION = RainType.NONE;
     static final Category CATEGORY = Category.DESERT;

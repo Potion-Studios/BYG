@@ -299,9 +299,8 @@ public class HollyTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     //Leaves Placement
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  randomLeaves(), boundingBox);
+        if (isAir(reader, pos)) {
+            this.setFinalBlockState(blockPos, reader, pos, randomLeaves(), boundingBox);
         }
     }
 
@@ -315,7 +314,6 @@ public class HollyTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         else
             return BYGBlockList.HOLLY_LEAVES.getDefaultState();
     }
-
 
 
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {

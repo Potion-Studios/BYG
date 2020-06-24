@@ -45,9 +45,9 @@ public class DeadSeaSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         for (int xCoord = 0; xCoord < 16; xCoord++) {
             for (int zCoord = 0; zCoord < 16; zCoord++) {
-                mutable.setPos(blockPos.getX() + (xCoord) , blockPos.getY(), blockPos.getZ() + (zCoord));
+                mutable.setPos(blockPos.getX() + (xCoord), blockPos.getY(), blockPos.getZ() + (zCoord));
                 noise3D = noiseGen.sample2D(mutable.getX() * 0.009D, mutable.getZ() * 0.009D);
-                noise2D = 1 - Math.sqrt(noise3D * noise3D)*0.707;
+                noise2D = 1 - Math.sqrt(noise3D * noise3D) * 0.707;
                 noise2D = noise3D * noise3D;
                 noise2D += noiseGen.sample2D(x * 0.004 + 2398408, z * 0.004) * 0.003;
                 maximumHeight = (int) (noise2D * 75D);

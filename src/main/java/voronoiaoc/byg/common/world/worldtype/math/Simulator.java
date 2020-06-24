@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class Simulator extends Application {
     public static void main(String[] args) {
-        launch(new String[0]);
+        launch();
     }
 
     @Override

@@ -163,7 +163,7 @@ public class AspenTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                         this.leafs(worldIn, posX2 - 1, topTrunkHeight + 4, posZ2, boundsIn, changedBlocks);
                         this.leafs(worldIn, posX2 + 1, topTrunkHeight + 4, posZ2, boundsIn, changedBlocks);
                         this.leafs(worldIn, posX2, topTrunkHeight + 4, posZ2 - 1, boundsIn, changedBlocks);
-                                
+
                         //Right Leaves
                         this.leafs(worldIn, posX3 + 1, topTrunkHeight + 1, posZ3, boundsIn, changedBlocks);
                         this.leafs(worldIn, posX3 + 2, topTrunkHeight + 1, posZ3, boundsIn, changedBlocks);

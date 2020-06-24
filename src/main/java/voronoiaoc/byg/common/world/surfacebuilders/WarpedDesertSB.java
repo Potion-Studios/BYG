@@ -44,8 +44,7 @@ public class WarpedDesertSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 }
             }
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.WARPEDDESERT);
-        }
-        else {
+        } else {
             for (int yPos = 256; yPos >= seaLevel; --yPos) {
                 block.setPos(xPos, yPos, zPos);
                 BlockState currentBlockToReplace = chunkIn.getBlockState(block);

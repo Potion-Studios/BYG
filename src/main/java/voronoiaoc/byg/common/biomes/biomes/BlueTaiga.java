@@ -19,7 +19,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
 
-public class BlueTaiga extends Biome  {
+public class BlueTaiga extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.TAIGA;
@@ -87,7 +87,8 @@ public class BlueTaiga extends Biome  {
     public Biome getHill(INoiseRandom rand) {
         return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : pickRandomSubBiome(rand);
     }
-    public Biome pickRandomSubBiome(INoiseRandom rand){
-       return (rand.random(2) == 0) ? BYGBiomeList.BLUEGIANTTAIGA : BYGBiomeList.BLUETAIGAHILLS;
+
+    public Biome pickRandomSubBiome(INoiseRandom rand) {
+        return (rand.random(2) == 0) ? BYGBiomeList.BLUEGIANTTAIGA : BYGBiomeList.BLUETAIGAHILLS;
     }
 }

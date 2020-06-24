@@ -56,7 +56,7 @@ public class AspenShrub extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight +randTreeHeight - 1;
+                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
 
                 //Raising the 'groundUpLogRemover'  will remove all log blocks from the ground up no matter how thick the trunk is based on the value given. 5 would destroy all trunks from 5 up off the ground.
                 for (int groundUpLogRemover = 0; groundUpLogRemover < randTreeHeight; ++groundUpLogRemover) {
@@ -67,7 +67,7 @@ public class AspenShrub extends BYGAbstractTreeFeature<NoFeatureConfig> {
                     }
                     //This Int is responsible for the Y coordinate of the trunk BlockPos'.
                     int logplacer = posY + groundUpLogRemover;
-                    int logplacer2 = posY +randTreeHeight;
+                    int logplacer2 = posY + randTreeHeight;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
@@ -80,7 +80,6 @@ public class AspenShrub extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 int leavessquarespos = 2;
                 for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
                     for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
-
 
 
 //                        //Top Leaves

@@ -42,7 +42,7 @@ public class BYGBoatItem extends Item {
                 Vec3d vec3d1 = playerIn.getEyePosition(1.0F);
 
                 for (Entity entity : list) {
-                    AxisAlignedBB axisalignedbb = entity.getBoundingBox().grow((double) entity.getCollisionBorderSize());
+                    AxisAlignedBB axisalignedbb = entity.getBoundingBox().grow(entity.getCollisionBorderSize());
                     if (axisalignedbb.contains(vec3d1)) {
                         return ActionResult.resultPass(itemstack);
                     }

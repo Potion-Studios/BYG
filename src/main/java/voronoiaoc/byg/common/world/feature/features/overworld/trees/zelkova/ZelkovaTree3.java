@@ -29,7 +29,6 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     }
 
 
-
     public boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
         //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = rand.nextInt(5) + 22;

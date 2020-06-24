@@ -22,7 +22,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
 
-public class SierraValley extends Biome  {
+public class SierraValley extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.SIERRA_VALLEY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.PLAINS;

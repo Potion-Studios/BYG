@@ -12,7 +12,7 @@ public interface Merge1Layer extends IDimTransformer {
         return () -> {
             R r = areaFactory.make();
             return context.func_212859_a_((x, z) -> {
-                context.setPosition((long) x, (long) z);
+                context.setPosition(x, z);
                 return this.apply(context, r, x, z);
             }, r);
         };

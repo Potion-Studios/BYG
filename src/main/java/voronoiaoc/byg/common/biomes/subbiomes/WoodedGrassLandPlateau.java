@@ -18,7 +18,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGFeatureList;
 
-public class WoodedGrassLandPlateau extends Biome  {
+public class WoodedGrassLandPlateau extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.PLAINS;

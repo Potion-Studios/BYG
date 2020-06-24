@@ -52,11 +52,11 @@ public class SkyrisHighlands extends Biome {
         DefaultBiomeFeatures.addExtraEmeraldOre(this);
         BYGFeatures.addRockyStoneBoulder(this);
         BYGFeatures.addMossyStoneBoulder(this);
-        BYGFeatures.addFoxgloves( this);
-        BYGFeatures.addCrocus( this);
-        BYGFeatures.addFairyslipper( this);
-        BYGFeatures.addBYGMushrooms( this);
-        BYGFeatures.addGrass( this);
+        BYGFeatures.addFoxgloves(this);
+        BYGFeatures.addCrocus(this);
+        BYGFeatures.addFairyslipper(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addGrass(this);
 //        BYGFeatures.addSkyrisFortress(this);
         this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.withConfiguration(new VillageConfig("byg:village/skyris/town_centers", 5)).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 

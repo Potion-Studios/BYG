@@ -19,7 +19,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
-public class ZelkovaForestHills extends Biome  {
+public class ZelkovaForestHills extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.TAIGA;

@@ -7,7 +7,7 @@ import voronoiaoc.byg.common.world.worldtype.ClimateBooleans;
 import voronoiaoc.byg.common.world.worldtype.math.BYGBiomeGroup;
 
 @SuppressWarnings("deprecation")
-public enum  OceanIslandsLayer implements ICastleTransformer {
+public enum OceanIslandsLayer implements ICastleTransformer {
     INSTANCE;
 
     static int islandChance = 14;

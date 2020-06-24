@@ -5,7 +5,7 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class CanyonCorridors extends Biome  {
+public class CanyonCorridors extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.BADLANDS, SurfaceBuilder.RED_SAND_WHITE_TERRACOTTA_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.ICY;

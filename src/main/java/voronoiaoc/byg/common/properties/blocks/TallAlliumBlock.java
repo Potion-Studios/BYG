@@ -16,9 +16,10 @@ public class TallAlliumBlock extends TallGrassBlock implements IGrowable, net.mi
         super(builder);
 
     }
+
     @Override
     public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-        DoublePlantBlock doubleplantblock = (DoublePlantBlock)(this == BYGBlockList.TALL_ALLIUM ? BYGBlockList.TALL_ALLIUM : BYGBlockList.TALL_ALLIUM);
+        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlockList.TALL_ALLIUM ? BYGBlockList.TALL_ALLIUM : BYGBlockList.TALL_ALLIUM);
         if (doubleplantblock.getDefaultState().isValidPosition(worldIn, pos) && worldIn.isAirBlock(pos.up())) {
             doubleplantblock.placeAt(worldIn, pos, 2);
         }

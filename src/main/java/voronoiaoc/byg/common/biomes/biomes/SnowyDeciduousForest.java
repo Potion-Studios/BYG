@@ -21,7 +21,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
 
-public class SnowyDeciduousForest extends Biome  {
+public class SnowyDeciduousForest extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.ICY;

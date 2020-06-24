@@ -2,7 +2,6 @@ package voronoiaoc.byg.mixin.common.world.layers;
 
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.layer.ShoreLayer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -37,7 +36,7 @@ public abstract class MixinShoreLayer {
 
             if (biome != null && biome.getCategory() == Biome.Category.SWAMP)
                 if (ClimateBooleans.isOcean(idx))
-                    cir.setReturnValue(Registry.BIOME.getId(Biomes.RIVER));
+                    cir.setReturnValue(centre);
 
             if (biome != null && biome.getPrecipitation() == Biome.RainType.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH)
                 if (ClimateBooleans.isOcean(idx))

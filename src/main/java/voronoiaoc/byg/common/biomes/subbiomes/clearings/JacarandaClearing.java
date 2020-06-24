@@ -17,7 +17,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
-public class JacarandaClearing extends Biome  {
+public class JacarandaClearing extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
@@ -54,7 +54,6 @@ public class JacarandaClearing extends Biome  {
         BYGFeatures.addBYGMushrooms(this);
         BYGFeatures.addDelphinium(this);
         BYGFeatures.addDelphinium(this);
-
 
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));

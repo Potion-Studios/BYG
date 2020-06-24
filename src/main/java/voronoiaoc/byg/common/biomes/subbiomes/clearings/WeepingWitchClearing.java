@@ -50,10 +50,10 @@ public class WeepingWitchClearing extends Biome implements BiomeFog {
         DefaultBiomeFeatures.addMushrooms(this);
         DefaultBiomeFeatures.addReedsAndPumpkins(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
-        BYGFeatures.addGrass( this);
-        BYGFeatures.addBYGMushrooms( this);
-        BYGFeatures.addAnemones( this);
-        BYGFeatures.addAzalea( this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addAnemones(this);
+        BYGFeatures.addAzalea(this);
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));
@@ -69,6 +69,7 @@ public class WeepingWitchClearing extends Biome implements BiomeFog {
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
     }
+
     @Nullable
     @Override
     public Biome getHill(INoiseRandom rand) {
@@ -96,6 +97,7 @@ public class WeepingWitchClearing extends Biome implements BiomeFog {
     public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
         return color;
     }
+
     Vec3d color = new Vec3d(192, 192, 192);
 
     @Override

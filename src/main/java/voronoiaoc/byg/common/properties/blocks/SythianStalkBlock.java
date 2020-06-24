@@ -76,7 +76,7 @@ public class SythianStalkBlock extends BambooBlock {
 
         return super.updatePostPlacement(state, direction, state2, world, pos, posFrom);
     }
-    
+
     @Override
     protected void grow(BlockState state, World world, BlockPos pos, Random rand, int i) {
         BlockState stateDOWN = world.getBlockState(pos.down());
@@ -92,9 +92,7 @@ public class SythianStalkBlock extends BambooBlock {
                         world.setBlockState(posDOWN2, blockStateDOWN2.with(PROPERTY_BAMBOO_LEAVES, BambooLeaves.NONE), 3);
                     }
                 }
-            }
-
-            else {
+            } else {
                 bambooLeavesNONE = BambooLeaves.SMALL;
             }
         }

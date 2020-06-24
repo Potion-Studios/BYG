@@ -14,19 +14,19 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class BoulderPlacer extends Placement<FrequencyConfig> {
-   public static final Placement<FrequencyConfig> BOULDER =  new BoulderPlacer(FrequencyConfig::deserialize);
+    public static final Placement<FrequencyConfig> BOULDER = new BoulderPlacer(FrequencyConfig::deserialize);
 
-   public BoulderPlacer(Function<Dynamic<?>, ? extends FrequencyConfig> config) {
-      super(config);
-   }
+    public BoulderPlacer(Function<Dynamic<?>, ? extends FrequencyConfig> config) {
+        super(config);
+    }
 
-   public Stream<BlockPos> getPositions(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generatorIn, Random random, FrequencyConfig configIn, BlockPos pos) {
-      int i = random.nextInt(configIn.count);
-      return IntStream.range(0, i).mapToObj((idx) -> {
-         int j = random.nextInt(16) + pos.getX();
-         int k = random.nextInt(16) + pos.getZ();
-         int l = random.nextInt(75) + 100;
-         return new BlockPos(j, l, k);
-      });
-   }
+    public Stream<BlockPos> getPositions(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generatorIn, Random random, FrequencyConfig configIn, BlockPos pos) {
+        int i = random.nextInt(configIn.count);
+        return IntStream.range(0, i).mapToObj((idx) -> {
+            int j = random.nextInt(16) + pos.getX();
+            int k = random.nextInt(16) + pos.getZ();
+            int l = random.nextInt(75) + 100;
+            return new BlockPos(j, l, k);
+        });
+    }
 }

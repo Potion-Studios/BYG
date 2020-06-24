@@ -5,7 +5,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
@@ -15,13 +14,9 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-import javax.annotation.Nullable;
-
-public class FungalPatch extends Biome  {
+public class FungalPatch extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.FUNGAL_RAINFOREST_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.JUNGLE;

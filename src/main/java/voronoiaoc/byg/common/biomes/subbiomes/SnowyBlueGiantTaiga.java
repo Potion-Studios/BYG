@@ -15,7 +15,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
-public class SnowyBlueGiantTaiga extends Biome  {
+public class SnowyBlueGiantTaiga extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.TAIGA;

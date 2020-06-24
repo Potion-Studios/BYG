@@ -15,19 +15,19 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class DeadSeaSpikePlacer extends Placement<FrequencyConfig> {
-   public static final Placement<FrequencyConfig> DEADSEASPIKE =  new DeadSeaSpikePlacer(FrequencyConfig::deserialize);
+    public static final Placement<FrequencyConfig> DEADSEASPIKE = new DeadSeaSpikePlacer(FrequencyConfig::deserialize);
 
-   public DeadSeaSpikePlacer(Function<Dynamic<?>, ? extends FrequencyConfig> config) {
-      super(config);
-   }
+    public DeadSeaSpikePlacer(Function<Dynamic<?>, ? extends FrequencyConfig> config) {
+        super(config);
+    }
 
-   public Stream<BlockPos> getPositions(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generatorIn, Random random, FrequencyConfig configIn, BlockPos pos) {
-      int i = random.nextInt(configIn.count);
-      return IntStream.range(0, i).mapToObj((idx) -> {
-         int j = random.nextInt(16) + pos.getX();
-         int k = random.nextInt(16) + pos.getZ();
-         int l = worldIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, j, k);
-         return new BlockPos(j, l, k);
-      });
-   }
+    public Stream<BlockPos> getPositions(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generatorIn, Random random, FrequencyConfig configIn, BlockPos pos) {
+        int i = random.nextInt(configIn.count);
+        return IntStream.range(0, i).mapToObj((idx) -> {
+            int j = random.nextInt(16) + pos.getX();
+            int k = random.nextInt(16) + pos.getZ();
+            int l = worldIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, j, k);
+            return new BlockPos(j, l, k);
+        });
+    }
 }

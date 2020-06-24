@@ -127,6 +127,7 @@ public class ClimateBooleans {
     public static boolean isDeepBaseOcean(int biome) {
         return biome == DEEP_OCEAN;
     }
+
     public static boolean isIslandBiome(int biome, INoiseRandom random) {
         return biome == Registry.BIOME.getId(getTropIslandBiome().pickBiome(random)) || biome == Registry.BIOME.getId(getTemperateIslandBiome().pickBiome(random)) || biome == Registry.BIOME.getId(getSnowyIslandBiome().pickBiome(random));
     }

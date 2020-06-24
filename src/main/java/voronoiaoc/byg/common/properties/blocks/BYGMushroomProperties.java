@@ -95,7 +95,7 @@ public class BYGMushroomProperties extends BushBlock implements IGrowable {
 
     @Override
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
-            return (double) worldIn.rand.nextFloat() < 0.25D;
+        return (double) worldIn.rand.nextFloat() < 0.25D;
     }
 
     @Override

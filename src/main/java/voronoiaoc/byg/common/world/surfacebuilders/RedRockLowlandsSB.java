@@ -23,10 +23,10 @@ public class RedRockLowlandsSB extends RRSB {
 
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         double d0 = 0.0D;
-        double d1 = Math.min(Math.abs(noise), this.field_215435_c.noiseAt((double)x * 0.25D, (double)z * 0.25D, false) * 15.0D);
+        double d1 = Math.min(Math.abs(noise), this.field_215435_c.noiseAt((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
         if (d1 > 0.0D) {
             double d2 = 0.001953125D;
-            double d3 = Math.abs(this.field_215437_d.noiseAt((double)x * 0.001953125D, (double)z * 0.001953125D, false));
+            double d3 = Math.abs(this.field_215437_d.noiseAt((double) x * 0.001953125D, (double) z * 0.001953125D, false));
             d0 = d1 * d1 * 2.5D;
             double d4 = Math.ceil(d3 * 50.0D) + 14.0D;
             if (d0 > d4) {
@@ -40,15 +40,15 @@ public class RedRockLowlandsSB extends RRSB {
         int i = z & 15;
         BlockState blockstate2 = TERRACOTTA;
         BlockState blockstate = biomeIn.getSurfaceBuilderConfig().getUnder();
-        int i1 = (int)(noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
+        int i1 = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int j = -1;
         boolean flag1 = false;
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 
-        for(int k = Math.max(startHeight, (int)d0 + 1); k >= 0; --k) {
+        for (int k = Math.max(startHeight, (int) d0 + 1); k >= 0; --k) {
             blockpos$mutable.setPos(l, k, i);
-            if (chunkIn.getBlockState(blockpos$mutable).isAir() && k < (int)d0) {
+            if (chunkIn.getBlockState(blockpos$mutable).isAir() && k < (int) d0) {
                 chunkIn.setBlockState(blockpos$mutable, defaultBlock, false);
             }
 

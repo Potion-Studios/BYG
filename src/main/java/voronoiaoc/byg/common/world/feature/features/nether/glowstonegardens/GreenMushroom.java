@@ -13,17 +13,16 @@ import java.util.Random;
 import java.util.function.Function;
 
 public class GreenMushroom extends Feature<NoFeatureConfig> {
-   public GreenMushroom(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
-      super(config);
-   }
+    public GreenMushroom(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+        super(config);
+    }
 
-   public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-      if (!worldIn.isAirBlock(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_NETHERRACK) {
-         return false;
-      }
-      else {
-         worldIn.setBlockState(pos, BYGBlockList.GREEN_MUSHSHROOM.getDefaultState(), 10);
-         return true;
-      }
-   }
+    public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+        if (!worldIn.isAirBlock(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_NETHERRACK) {
+            return false;
+        } else {
+            worldIn.setBlockState(pos, BYGBlockList.GREEN_MUSHSHROOM.getDefaultState(), 10);
+            return true;
+        }
+    }
 }

@@ -74,32 +74,32 @@ public class BYGBiomeLayers {
 
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> repeatContinentSize(long seed, IAreaTransformer1 parent, IAreaFactory<T> layer, int count, LongFunction<C> contextFactory) {
         IAreaFactory<T> layer1 = layer;
-        for(int i = 0; i < count; ++i) {
-            layer1 = parent.apply(contextFactory.apply(seed + (long)i), layer1);
+        for (int i = 0; i < count; ++i) {
+            layer1 = parent.apply(contextFactory.apply(seed + (long) i), layer1);
         }
         return layer1;
     }
 
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> repeatOceanSize(long seed, IAreaTransformer1 parent, IAreaFactory<T> layer, int count, LongFunction<C> contextFactory) {
         IAreaFactory<T> layer1 = layer;
-        for(int i = 0; i < count; ++i) {
-            layer1 = parent.apply(contextFactory.apply(seed + (long)i), layer1);
+        for (int i = 0; i < count; ++i) {
+            layer1 = parent.apply(contextFactory.apply(seed + (long) i), layer1);
         }
         return layer1;
     }
 
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> repeatContinentBiomeSize(long seed, IAreaTransformer1 parent, IAreaFactory<T> layer, int count, LongFunction<C> contextFactory) {
         IAreaFactory<T> layer1 = layer;
-        for(int i = 0; i < count; ++i) {
-            layer1 = parent.apply(contextFactory.apply(seed + (long)i), layer1);
+        for (int i = 0; i < count; ++i) {
+            layer1 = parent.apply(contextFactory.apply(seed + (long) i), layer1);
         }
         return layer1;
     }
 
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> repeatOceanBiomeSize(long seed, IAreaTransformer1 parent, IAreaFactory<T> layer, int count, LongFunction<C> contextFactory) {
         IAreaFactory<T> layer1 = layer;
-        for(int i = 0; i < count; ++i) {
-            layer1 = parent.apply(contextFactory.apply(seed + (long)i), layer1);
+        for (int i = 0; i < count; ++i) {
+            layer1 = parent.apply(contextFactory.apply(seed + (long) i), layer1);
         }
         return layer1;
     }

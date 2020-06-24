@@ -1,6 +1,5 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.Vec3d;
@@ -14,7 +13,6 @@ import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.biomes.BiomeFog;
@@ -26,7 +24,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 import javax.annotation.Nullable;
 
 public class WeepingWitchForest extends Biome implements BiomeFog {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER =  new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final double DEPTH = 0.2F;
@@ -53,10 +51,10 @@ public class WeepingWitchForest extends Biome implements BiomeFog {
         DefaultBiomeFeatures.addMushrooms(this);
         DefaultBiomeFeatures.addReedsAndPumpkins(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
-        BYGFeatures.addGrass( this);
-        BYGFeatures.addBYGMushrooms( this);
-        BYGFeatures.addAnemones( this);
-        BYGFeatures.addAzalea( this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addAnemones(this);
+        BYGFeatures.addAzalea(this);
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));
@@ -72,6 +70,7 @@ public class WeepingWitchForest extends Biome implements BiomeFog {
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
     }
+
     @Nullable
     @Override
     public Biome getHill(INoiseRandom rand) {
@@ -99,6 +98,7 @@ public class WeepingWitchForest extends Biome implements BiomeFog {
     public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
         return color;
     }
+
     Vec3d color = new Vec3d(192, 192, 192);
 
     @Override

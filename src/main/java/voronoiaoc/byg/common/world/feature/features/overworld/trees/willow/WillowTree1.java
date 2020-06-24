@@ -49,7 +49,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                     BlockPos.Mutable mutable = new BlockPos.Mutable(block.up(3));
                     for (Direction direction : Direction.Plane.HORIZONTAL) {
                         mutable.setPos(block.up(3).offset(direction, baseSize));
-                        if (((IWorld)worldIn).getBlockState(mutable).getBlock() != Blocks.DIRT)
+                        if (((IWorld) worldIn).getBlockState(mutable).getBlock() != Blocks.DIRT)
                             this.setWillowLog(changedBlocks, worldIn, mutable.move(DOWN, baseSize), boundsIn);
                     }
                 }
@@ -139,12 +139,10 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     //Leaves Placement
     private void setWillowLeaves(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
-        if (isAirOrWater(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.WILLOW_LEAVES.getDefaultState(), boundingBox);
+        if (isAirOrWater(reader, pos)) {
+            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.WILLOW_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {

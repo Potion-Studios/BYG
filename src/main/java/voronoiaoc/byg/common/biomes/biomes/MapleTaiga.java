@@ -22,7 +22,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
 
-public class MapleTaiga extends Biome  {
+public class MapleTaiga extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.TAIGA;
@@ -49,11 +49,11 @@ public class MapleTaiga extends Biome  {
         DefaultBiomeFeatures.addMushrooms(this);
         DefaultBiomeFeatures.addReedsAndPumpkins(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
-        BYGFeatures.addGrass( this);
-        BYGFeatures.addBYGMushrooms( this);
-        BYGFeatures.addAnemones( this);
-        BYGFeatures.addSages( this);
-        BYGFeatures.addRose( this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addAnemones(this);
+        BYGFeatures.addSages(this);
+        BYGFeatures.addRose(this);
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));
@@ -69,6 +69,7 @@ public class MapleTaiga extends Biome  {
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
     }
+
     @Nullable
     @Override
     public Biome getHill(INoiseRandom rand) {

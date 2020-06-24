@@ -2,7 +2,6 @@ package voronoiaoc.byg.common.world.feature.biomefeatures;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -13,7 +12,6 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.config.BYGWorldConfig;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGFeatureList;
 

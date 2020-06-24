@@ -23,7 +23,7 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import javax.annotation.Nullable;
 
-public class AutumnalValley extends Biome  {
+public class AutumnalValley extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.MEADOW_GRASSBLOCK.getDefaultState(), BYGBlockList.MEADOW_DIRT.getDefaultState(), BYGBlockList.MEADOW_DIRT.getDefaultState()));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.PLAINS;
@@ -52,11 +52,11 @@ public class AutumnalValley extends Biome  {
         DefaultBiomeFeatures.addMushrooms(this);
         DefaultBiomeFeatures.addReedsAndPumpkins(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
-        BYGFeatures.addGrass( this);
-        BYGFeatures.addBYGMushrooms( this);
-        BYGFeatures.addCloverFlowerPatch( this);
-        BYGFeatures.addAnemones( this);
-        BYGFeatures.addCrocus( this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addCloverFlowerPatch(this);
+        BYGFeatures.addAnemones(this);
+        BYGFeatures.addCrocus(this);
 
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));

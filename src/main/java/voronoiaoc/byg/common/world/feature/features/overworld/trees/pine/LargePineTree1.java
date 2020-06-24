@@ -46,7 +46,7 @@ public class LargePineTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, 1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 1, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 1, 0), boundsIn);
-                
+
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 19, 1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 18, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight - 18, -1), boundsIn);
@@ -474,12 +474,10 @@ public class LargePineTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     //Leaves Placement
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
+        if (isAir(reader, pos)) {
+            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {

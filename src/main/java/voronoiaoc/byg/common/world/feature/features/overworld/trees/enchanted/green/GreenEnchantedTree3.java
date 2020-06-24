@@ -38,7 +38,7 @@ public class GreenEnchantedTree3 extends BYGAbstractTreeFeature<NoFeatureConfig>
                     mainmutable.move(Direction.UP);
                 }
                 mainmutable.setPos(pos);
-                
+
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 14, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 14, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 14, 0), boundsIn);
@@ -361,12 +361,10 @@ public class GreenEnchantedTree3 extends BYGAbstractTreeFeature<NoFeatureConfig>
 
     //Leaves Placement
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.GREEN_ENCHANTED_LEAVES.getDefaultState(), boundingBox);
+        if (isAir(reader, pos)) {
+            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.GREEN_ENCHANTED_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {

@@ -26,12 +26,11 @@ public abstract class BYGHugeMushroom {
         } else {
             BYG.LOGGER.info("NOTNULL");
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-                if (abstracttreefeature.place(worldIn, chunkGenerator, random, pos, IFeatureConfig.NO_FEATURE_CONFIG)) {
-                    return true;
-                }
-                else {
-                    worldIn.setBlockState(pos, blockUnder, 4);
-                    return false;
+            if (abstracttreefeature.place(worldIn, chunkGenerator, random, pos, IFeatureConfig.NO_FEATURE_CONFIG)) {
+                return true;
+            } else {
+                worldIn.setBlockState(pos, blockUnder, 4);
+                return false;
             }
         }
     }

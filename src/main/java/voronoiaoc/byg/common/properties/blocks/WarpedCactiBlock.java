@@ -13,7 +13,7 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
-public class WarpedCactiBlock extends CactusBlock  {
+public class WarpedCactiBlock extends CactusBlock {
     protected WarpedCactiBlock(Properties properties) {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)));
@@ -52,7 +52,7 @@ public class WarpedCactiBlock extends CactusBlock  {
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        for(Direction direction : Direction.Plane.HORIZONTAL) {
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
             BlockState blockstate = worldIn.getBlockState(pos.offset(direction));
             Material material = blockstate.getMaterial();
             if (material.isSolid() || worldIn.getFluidState(pos.offset(direction)).isTagged(FluidTags.LAVA)) {

@@ -26,7 +26,7 @@ public class AddContinentLayer extends InitMerge1 implements IDimOffset1Transfor
     @Override
     public int apply(INoiseRandom context, IArea iArea, int x, int z) {
         if (x == 0 & z == 0) {
-           return PLAINS;
+            return PLAINS;
         }
 
         int area1Value = iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 1));

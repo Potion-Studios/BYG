@@ -41,7 +41,7 @@ public class WhiteCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeLog(changedBlocks, worldIn, mainmutable3, boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable4, boundsIn);
 
-                for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
+                for (int buildTrunk = 0; buildTrunk <= randTreeHeight + 1; buildTrunk++) {
                     this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
                     this.treeLog(changedBlocks, worldIn, mainmutable2, boundsIn);
                     this.treeLog(changedBlocks, worldIn, mainmutable3, boundsIn);
@@ -90,7 +90,6 @@ public class WhiteCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 2, 1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, 2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, 3), boundsIn);
-
 
 
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 10, -4), boundsIn);
@@ -823,12 +822,10 @@ public class WhiteCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     //Leaves Placement
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.WHITE_CHERRY_LEAVES.getDefaultState(), boundingBox);
+        if (isAir(reader, pos)) {
+            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.WHITE_CHERRY_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {

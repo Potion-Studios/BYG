@@ -40,7 +40,7 @@ public class HangingVinesBlock extends Block implements IGrowable {
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        return  worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.NETHERRACK) || worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.STONE);
+        return worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.NETHERRACK) || worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.STONE);
     }
 
     @Override

@@ -18,6 +18,7 @@ public class BYGNetherChunkGenerator extends Simplex3DNoiseChunkGenerator<BYGNet
     public static int netherHeight() {
         return (BYGWorldConfig.tallNether.get() ? 256 : 128);
     }
+
     public BYGNetherChunkGenerator(World world, BiomeProvider provider, BYGNetherGenSettings settings) {
         super(world, provider, 4, netherHeight(), settings, 4, 2, 684.412, 2053.236, 8.555150000000001, 34.2206);
     }

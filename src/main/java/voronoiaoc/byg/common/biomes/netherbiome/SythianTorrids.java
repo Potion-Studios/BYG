@@ -59,6 +59,7 @@ public class SythianTorrids extends Biome implements BiomeFog {
     public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
         return WARPEDDESERTVEC3D;
     }
+
     private static final Vec3d WARPEDDESERTVEC3D = new Vec3d(0.252F, 0.224F, 0.130F);
 
 }

@@ -20,7 +20,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
 
-public class Prairie extends Biome  {
+public class Prairie extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.PLAINS;

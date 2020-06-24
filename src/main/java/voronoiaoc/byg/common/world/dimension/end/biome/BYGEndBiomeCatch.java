@@ -37,19 +37,16 @@ public class BYGEndBiomeCatch {
         BYG.LOGGER.debug("BYG: End Biome Config Collection starting...");
 
         if (biomeList.size() > 0) {
-           int[] getConfigArray = new int[biomeList.size()];
+            int[] getConfigArray = new int[biomeList.size()];
             for (int index = 0; index < biomeList.size(); ++index) {
                 final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeList.get(index)));
                 if (configResource == null) {
                     BYG.LOGGER.warn("Illegal registry name! You put: " + configResource);
-                }
-
-               else if (configResource != null) {
+                } else if (configResource != null) {
                     getConfigArray[index] = BiomeRegistry.getID(configResource);
                     Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
                     if (biome == null) {
-                    }
-                    else {
+                    } else {
                         endBiomeIDs.add(Registry.BIOME.getId(biome));
                     }
                 }

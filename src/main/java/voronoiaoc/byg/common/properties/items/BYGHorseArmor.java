@@ -7,26 +7,26 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class BYGHorseArmor extends HorseArmorItem {
-   private final int bonus;
-   private final ResourceLocation texture;
+    private final int bonus;
+    private final ResourceLocation texture;
 
-   public BYGHorseArmor(int bonus, String armorMaterial, Item.Properties properties) {
-      this(bonus, new ResourceLocation("byg:textures/entity/horse/armor/horse_armor_" + armorMaterial + ".png"), properties);
-   }
+    public BYGHorseArmor(int bonus, String armorMaterial, Item.Properties properties) {
+        this(bonus, new ResourceLocation("byg:textures/entity/horse/armor/horse_armor_" + armorMaterial + ".png"), properties);
+    }
 
-   public BYGHorseArmor(int bonus, ResourceLocation texture, Properties properties) {
-      super(bonus, texture, properties);
-      this.bonus = bonus;
-      this.texture = texture;
-   }
+    public BYGHorseArmor(int bonus, ResourceLocation texture, Properties properties) {
+        super(bonus, texture, properties);
+        this.bonus = bonus;
+        this.texture = texture;
+    }
 
 
-   @OnlyIn(Dist.CLIENT)
-   public ResourceLocation func_219976_d() {
-      return texture;
-   }
+    @OnlyIn(Dist.CLIENT)
+    public ResourceLocation func_219976_d() {
+        return texture;
+    }
 
-   public int func_219977_e() {
-      return this.bonus;
-   }
+    public int func_219977_e() {
+        return this.bonus;
+    }
 }

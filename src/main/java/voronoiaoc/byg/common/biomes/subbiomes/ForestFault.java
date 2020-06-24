@@ -26,7 +26,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
 
-public class ForestFault extends Biome  {
+public class ForestFault extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.TAIGA;

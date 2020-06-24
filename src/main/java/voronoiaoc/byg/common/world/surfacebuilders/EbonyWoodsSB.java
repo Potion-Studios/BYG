@@ -6,7 +6,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
 import java.util.function.Function;

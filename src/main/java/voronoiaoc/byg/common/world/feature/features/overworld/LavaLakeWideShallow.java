@@ -141,7 +141,7 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
 
 
         // places lava on tips
-		if ((noise < 2D && world.getBlockState(blockpos$Mutable.up()).isAir())) {
+        if ((noise < 2D && world.getBlockState(blockpos$Mutable.up()).isAir())) {
             int open = 0;
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 if (world.getBlockState(blockpos$Mutable.offset(direction)).isAir()) open++;

@@ -21,7 +21,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
 
-public class LushTundra extends Biome  {
+public class LushTundra extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.LUSH_TUNDRA_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.ICY;
@@ -47,10 +47,10 @@ public class LushTundra extends Biome  {
         DefaultBiomeFeatures.addSedimentDisks(this);
         DefaultBiomeFeatures.addMushrooms(this);
         DefaultBiomeFeatures.addReedsAndPumpkins(this);
-        BYGFeatures.addGrass( this);
-        BYGFeatures.addBYGMushrooms( this);
-        BYGFeatures.addWinterScilla( this);
-        BYGFeatures.addRockyStoneBoulder( this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addWinterScilla(this);
+        BYGFeatures.addRockyStoneBoulder(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
 
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.RABBIT, 10, 2, 3));
