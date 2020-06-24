@@ -23,6 +23,7 @@ public class BYG implements ModInitializer {
         BYGBlockRegistry.registerBlocks();
         BYGItemRegistry.registerItems();
         BYGBiomeRegistry.registerBiomes();
+        BYGBiomeRegistry.addBeachesCategorically();
         LOGGER.info("Initialized BYG!");
 
     }
