@@ -36,7 +36,7 @@ public class PinkCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 return false;
             } else {
                 setGroundBlock(worldIn, Blocks.DIRT, mainmutable, mainmutable2, mainmutable3, mainmutable4);
-                for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
+                for (int buildTrunk = 0; buildTrunk <= randTreeHeight + 1; buildTrunk++) {
                     this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
                     this.treeLog(changedBlocks, worldIn, mainmutable2, boundsIn);
                     this.treeLog(changedBlocks, worldIn, mainmutable3, boundsIn);
