@@ -73,13 +73,12 @@ public class ImprovedCanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     }
 
     public static SurfaceBuilderConfig randomSurfaceConfig(Random random) {
-       int randomizer =  random.nextInt(3);
+        int randomizer = random.nextInt(3);
 
-       if (randomizer == 1) {
-           return SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG;
-       }
-       else
-           return BYGSBList.BYGSBConfigList.COARSE;
+        if (randomizer == 1) {
+            return SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG;
+        } else
+            return BYGSBList.BYGSBConfigList.COARSE;
 
     }
 }

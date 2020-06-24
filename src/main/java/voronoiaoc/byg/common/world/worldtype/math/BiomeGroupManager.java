@@ -65,7 +65,7 @@ public class BiomeGroupManager {
                 return BYGBiomeGroup.COLD;
         }
     }
-    
+
     public BYGBiomeGroup getCoastalBiomeGroup(int layerX, int layerZ) {
         TempSection tempCategory = this.getTempCategory(layerX, layerZ);
         double humidity = this.getHumidity(layerX, layerZ);

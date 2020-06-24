@@ -42,7 +42,7 @@ public class MangroveTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 mainmutable.setPos(pos);
 
                 //Roots
-                BlockPos.Mutable rootMutable = new BlockPos.Mutable(mainmutable.add (1, 0, -2));
+                BlockPos.Mutable rootMutable = new BlockPos.Mutable(mainmutable.add(1, 0, -2));
                 BlockPos.Mutable rootMutable2 = new BlockPos.Mutable(mainmutable.add(-1, 0, -1));
                 BlockPos.Mutable rootMutable3 = new BlockPos.Mutable(mainmutable.add(1, 0, -1));
                 BlockPos.Mutable rootMutable4 = new BlockPos.Mutable(mainmutable.add(2, 0, -1));
@@ -73,7 +73,7 @@ public class MangroveTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                     rootMutable8.move(Direction.DOWN);
                     rootMutable9.move(Direction.DOWN);
                 }
-                
+
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 1, -2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 1, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 1, 0), boundsIn);
@@ -201,12 +201,10 @@ public class MangroveTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     //Leaves Placement
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
-        if (isAirOrWater(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.MANGROVE_LEAVES.getDefaultState(), boundingBox);
+        if (isAirOrWater(reader, pos)) {
+            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.MANGROVE_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {

@@ -52,6 +52,7 @@ public class Alps extends Biome {
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SKELETON, 20, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.STRAY, 80, 4, 4));
     }
+
     @Nullable
     @Override
     public Biome getHill(INoiseRandom rand) {

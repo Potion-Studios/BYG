@@ -29,7 +29,7 @@ public class BedRockRemover extends WorldCarver<ProbabilityConfig> {
             for (int localZ = 0; localZ < 16; localZ++) {
                 for (int y = 0; y <= 4; y++) {
                     BlockPos blockPos = new BlockPos(localX, y, localZ);
-                    if (chunk.getBlockState(blockPos) == Blocks.WATER.getDefaultState() || chunk.getBlockState(blockPos) ==  Blocks.LAVA.getDefaultState()) {
+                    if (chunk.getBlockState(blockPos) == Blocks.WATER.getDefaultState() || chunk.getBlockState(blockPos) == Blocks.LAVA.getDefaultState()) {
                         chunk.setBlockState(blockPos, Blocks.AIR.getDefaultState(), false);
                     }
                 }

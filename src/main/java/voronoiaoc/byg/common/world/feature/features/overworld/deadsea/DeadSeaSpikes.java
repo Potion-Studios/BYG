@@ -54,24 +54,24 @@ public class DeadSeaSpikes extends Feature<NoFeatureConfig> {
 //        }
 
 //        if (world.getBlockState(position.down()).getBlock() == BYGBlockList.BLACK_SAND) {
-            for (int x = 0; x < 16; x++) {
-                for (int z = 0; z < 16; z++) {
-                    mutable.setPos(position.getX() + x, 0, position.getZ() + z);
+        for (int x = 0; x < 16; x++) {
+            for (int z = 0; z < 16; z++) {
+                mutable.setPos(position.getX() + x, 0, position.getZ() + z);
 
-                    noise2 = (noiseGen.noise3_Classic(mutable.getX() * 0.04D, mutable.getY() * 0.04D, mutable.getZ() * 0.04D) + 1D) * 5D;
-                    noise = Math.pow(Math.abs(noiseGen.sample2D(mutable.getX() * 0.013D, mutable.getZ() * 0.013D)) + noise2 * 0.005D, 7); //0.70990733195111407153665966708847
+                noise2 = (noiseGen.noise3_Classic(mutable.getX() * 0.04D, mutable.getY() * 0.04D, mutable.getZ() * 0.04D) + 1D) * 5D;
+                noise = Math.pow(Math.abs(noiseGen.sample2D(mutable.getX() * 0.013D, mutable.getZ() * 0.013D)) + noise2 * 0.005D, 7); //0.70990733195111407153665966708847
 
-                    maximumHeight = (int) (noise * 65D);
-                    terrainHeight = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ());
+                maximumHeight = (int) (noise * 65D);
+                terrainHeight = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ());
 
-                    mutable.move(Direction.UP, maximumHeight);
-                    for (int y = maximumHeight; y >= terrainHeight; y--) {
-                        world.setBlockState(mutable, blockStateArray[rand.nextInt(blockStateArray.length)], 2);
+                mutable.move(Direction.UP, maximumHeight);
+                for (int y = maximumHeight; y >= terrainHeight; y--) {
+                    world.setBlockState(mutable, blockStateArray[rand.nextInt(blockStateArray.length)], 2);
 
-                        mutable.move(Direction.DOWN);
-                    }
+                    mutable.move(Direction.DOWN);
                 }
             }
+        }
 //        }
         return true;
     }

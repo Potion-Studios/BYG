@@ -94,7 +94,6 @@ public class ClientNetherDimensionHook extends NetherDimension {
         if (modified) { // set return value if modified
             final double divisor = 17 * 17;
             return new Vec3d(Math.sqrt(accumulatedR / divisor), Math.sqrt(accumulatedG / divisor), Math.sqrt(accumulatedB / divisor));
-        }
-        else return NETHERDEFAULTVEC3D;
+        } else return NETHERDEFAULTVEC3D;
     }
 }

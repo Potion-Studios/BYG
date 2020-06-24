@@ -22,9 +22,9 @@ public class BYGDispenseBoatBehavior extends DefaultDispenseItemBehavior {
     protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
         Direction direction = source.getBlockState().get(DispenserBlock.FACING);
         World world = source.getWorld();
-        double d0 = source.getX() + (double)((float)direction.getXOffset() * 1.125F);
-        double d1 = source.getY() + (double)((float)direction.getYOffset() * 1.125F);
-        double d2 = source.getZ() + (double)((float)direction.getZOffset() * 1.125F);
+        double d0 = source.getX() + (double) ((float) direction.getXOffset() * 1.125F);
+        double d1 = source.getY() + (double) ((float) direction.getYOffset() * 1.125F);
+        double d2 = source.getZ() + (double) ((float) direction.getZOffset() * 1.125F);
         BlockPos blockpos = source.getBlockPos().offset(direction);
         double d3;
         if (world.getFluidState(blockpos).isTagged(FluidTags.WATER)) {

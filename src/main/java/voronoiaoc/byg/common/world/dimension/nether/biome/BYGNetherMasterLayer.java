@@ -5,6 +5,7 @@ import net.minecraft.world.gen.layer.traits.IAreaTransformer0;
 
 public enum BYGNetherMasterLayer implements IAreaTransformer0 {
     INSTANCE;
+
     //Higher Values make islands less common.
     @Override
     public int apply(INoiseRandom rand, int genX, int genZ) {

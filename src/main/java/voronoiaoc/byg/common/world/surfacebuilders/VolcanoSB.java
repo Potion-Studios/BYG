@@ -39,7 +39,7 @@ public class VolcanoSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 if (chunkIn.getBlockState(block).getBlock() != Blocks.AIR) {
                     if (yPos >= 175)
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
-                    else if (ridgedNoiseSample > -2.0F && -ridgedNoiseSample < 3.0F){
+                    else if (ridgedNoiseSample > -2.0F && -ridgedNoiseSample < 3.0F) {
                         chunkIn.setBlockState(block, Blocks.LAVA.getDefaultState(), false);
                         chunkIn.getFluidsToBeTicked().scheduleTick(block, Fluids.LAVA, 0);
                     }

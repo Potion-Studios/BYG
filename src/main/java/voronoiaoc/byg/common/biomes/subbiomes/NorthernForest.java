@@ -18,7 +18,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class NorthernForest extends Biome  {
+public class NorthernForest extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.BOREAL_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.ICY;
@@ -44,13 +44,13 @@ public class NorthernForest extends Biome  {
         DefaultBiomeFeatures.addSedimentDisks(this);
         DefaultBiomeFeatures.addMushrooms(this);
         DefaultBiomeFeatures.addReedsAndPumpkins(this);
-        BYGFeatures.addGrass( this);
-        BYGFeatures.addBYGMushrooms( this);
-        BYGFeatures.addWinterScilla( this);
-        BYGFeatures.addWinterRose( this);
-        BYGFeatures.addSnowdrops( this);
-        BYGFeatures.addRockyStoneBoulder( this);
-        BYGTreeFeatures.addNorthernForestTrees( this);
+        BYGFeatures.addGrass(this);
+        BYGFeatures.addBYGMushrooms(this);
+        BYGFeatures.addWinterScilla(this);
+        BYGFeatures.addWinterRose(this);
+        BYGFeatures.addSnowdrops(this);
+        BYGFeatures.addRockyStoneBoulder(this);
+        BYGTreeFeatures.addNorthernForestTrees(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
 
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SNOW_GOLEM, 1, 1, 2));

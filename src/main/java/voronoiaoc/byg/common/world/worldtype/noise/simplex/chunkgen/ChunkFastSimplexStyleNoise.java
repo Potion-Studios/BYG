@@ -193,6 +193,7 @@ public class ChunkFastSimplexStyleNoise {
      * Definitions
      */
     private final Grad3[] permGrad3;
+
     public ChunkFastSimplexStyleNoise(long seed) {
         perm = new short[PSIZE];
         permGrad2 = new Grad2[PSIZE];

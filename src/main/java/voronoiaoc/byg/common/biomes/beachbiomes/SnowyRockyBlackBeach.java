@@ -13,7 +13,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class SnowyRockyBlackBeach extends Biome  {
+public class SnowyRockyBlackBeach extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.ROCKYBLACKBEACH_SB, BYGSBList.BYGSBConfigList.BLACKSAND);
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Biome.Category CATEGORY = Category.BEACH;

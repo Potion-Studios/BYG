@@ -23,16 +23,15 @@ import java.util.List;
 
 public class Worley2DOverworldChunkGenerator extends Worley2DNoiseChunkGenerator<OverworldGenSettings> {
     private final double[] constHeightThresholdModifiers = this.generateConstHeightThresholdModifiers();
-    private static final float[] field_222576_h = (float[]) Util.make(new float[25], (p_222575_0_) -> {
-        for(int i = -2; i <= 2; ++i) {
-            for(int j = -2; j <= 2; ++j) {
-                float f = 10.0F / MathHelper.sqrt((float)(i * i + j * j) + 0.2F);
+    private static final float[] field_222576_h = Util.make(new float[25], (p_222575_0_) -> {
+        for (int i = -2; i <= 2; ++i) {
+            for (int j = -2; j <= 2; ++j) {
+                float f = 10.0F / MathHelper.sqrt((float) (i * i + j * j) + 0.2F);
                 p_222575_0_[i + 2 + (j + 2) * 5] = f;
             }
         }
 
     });
-
 
 
     //private final OctavesNoiseGenerator depthNoise;
@@ -42,7 +41,7 @@ public class Worley2DOverworldChunkGenerator extends Worley2DNoiseChunkGenerator
     private final VillageSiege field_225495_n = new VillageSiege();
 
     public Worley2DOverworldChunkGenerator(IWorld world, BiomeProvider provider, OverworldGenSettings settings) {
-        super(world, provider, 4,256, settings, 5, 2, 684.4119873046875D, 684.4119873046875D * 1.414218, 8.555149841308594D, 4.277574920654297D * 1.414218);
+        super(world, provider, 4, 256, settings, 5, 2, 684.4119873046875D, 684.4119873046875D * 1.414218, 8.555149841308594D, 4.277574920654297D * 1.414218);
         this.randomSeed.skip(2620);
         //this.depthNoise = new OctavesNoiseGenerator(this.randomSeed, 15, 0); // See commented-out method below, modulateBiomeParameter
     }
@@ -58,8 +57,8 @@ public class Worley2DOverworldChunkGenerator extends Worley2DNoiseChunkGenerator
 
     protected double getHeightThreshold(double biomeParam1, double biomeParam2, int y) {
         double d0 = 8.5D;
-        double d1 = ((double)(y / 8.0) - (8.5D + biomeParam1 * 8.5D / 8.0D * 4.0D)) * 12.0D * 128.0D / 256.0D / biomeParam2;
-        if(d1 < 0.0D) {
+        double d1 = ((y / 8.0) - (8.5D + biomeParam1 * 8.5D / 8.0D * 4.0D)) * 12.0D * 128.0D / 256.0D / biomeParam2;
+        if (d1 < 0.0D) {
             d1 *= 4.0D;
         }
 
@@ -85,9 +84,8 @@ public class Worley2DOverworldChunkGenerator extends Worley2DNoiseChunkGenerator
                 if (t > 1) t = 1; // clamp
                     //else t = t * t * (3 - 2 * t); // Not from Vanilla originally. But might as well make it smooth.
                 else t = t * t; // Only the beginning matters to be smooth, actually.
-                thresholds[y] = - (t * gg) / (1 - t);
-            }
-            else thresholds[y] = 0;
+                thresholds[y] = -(t * gg) / (1 - t);
+            } else thresholds[y] = 0;
 
         }
 
@@ -157,20 +155,20 @@ public class Worley2DOverworldChunkGenerator extends Worley2DNoiseChunkGenerator
     }*/
 
     public List<Biome.SpawnListEntry> getPossibleCreatures(EntityClassification creatureType, BlockPos pos) {
-        if(Feature.SWAMP_HUT.func_202383_b(this.world, pos)) {
-            if(creatureType == EntityClassification.MONSTER) {
+        if (Feature.SWAMP_HUT.func_202383_b(this.world, pos)) {
+            if (creatureType == EntityClassification.MONSTER) {
                 return Feature.SWAMP_HUT.getSpawnList();
             }
 
-            if(creatureType == EntityClassification.CREATURE) {
+            if (creatureType == EntityClassification.CREATURE) {
                 return Feature.SWAMP_HUT.getCreatureSpawnList();
             }
-        } else if(creatureType == EntityClassification.MONSTER) {
-            if(Feature.PILLAGER_OUTPOST.isPositionInStructure(this.world, pos)) {
+        } else if (creatureType == EntityClassification.MONSTER) {
+            if (Feature.PILLAGER_OUTPOST.isPositionInStructure(this.world, pos)) {
                 return Feature.PILLAGER_OUTPOST.getSpawnList();
             }
 
-            if(Feature.OCEAN_MONUMENT.isPositionInStructure(this.world, pos)) {
+            if (Feature.OCEAN_MONUMENT.isPositionInStructure(this.world, pos)) {
                 return Feature.OCEAN_MONUMENT.getSpawnList();
             }
         }

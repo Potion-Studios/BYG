@@ -11,7 +11,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
 
-public class Canyons extends Biome  {
+public class Canyons extends Biome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.CANYONS, SurfaceBuilder.RED_SAND_WHITE_TERRACOTTA_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.NONE;
     static final Biome.Category CATEGORY = Category.DESERT;

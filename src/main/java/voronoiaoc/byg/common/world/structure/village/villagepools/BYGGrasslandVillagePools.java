@@ -39,6 +39,6 @@ public class BYGGrasslandVillagePools {
 //        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation("village/common/iron_golem"), new ResourceLocation("empty"), ImmutableList.of(new Pair(new SingleJigsawPiece("village/common/iron_golem"), 1)), JigsawPattern.PlacementBehaviour.RIGID));
 //        JigsawManager.REGISTRY.register(new JigsawPattern(new ResourceLocation("village/common/well_bottoms"), new ResourceLocation("empty"), ImmutableList.of(new Pair(new SingleJigsawPiece("village/common/well_bottom"), 1)), JigsawPattern.PlacementBehaviour.RIGID));
 
-        }
     }
+}
 

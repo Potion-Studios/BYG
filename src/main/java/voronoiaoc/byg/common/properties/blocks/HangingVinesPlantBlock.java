@@ -124,6 +124,8 @@ public class HangingVinesPlantBlock extends Block implements IGrowable {
     }
 
     @Override
-    public boolean isLadder(BlockState state, IWorldReader world, BlockPos pos, net.minecraft.entity.LivingEntity entity) { return true; }
+    public boolean isLadder(BlockState state, IWorldReader world, BlockPos pos, net.minecraft.entity.LivingEntity entity) {
+        return true;
+    }
 
 }

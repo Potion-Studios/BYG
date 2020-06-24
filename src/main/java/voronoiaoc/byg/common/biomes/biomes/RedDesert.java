@@ -24,7 +24,7 @@ import voronoiaoc.byg.core.byglists.BYGStructureList;
 
 import javax.annotation.Nullable;
 
-public class RedDesert extends Biome  {
+public class RedDesert extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.RED_SAND.getDefaultState(), Blocks.RED_SAND.getDefaultState(), Blocks.RED_SANDSTONE.getDefaultState()));
     static final RainType PRECIPATATION = RainType.NONE;
     static final Category CATEGORY = Category.DESERT;

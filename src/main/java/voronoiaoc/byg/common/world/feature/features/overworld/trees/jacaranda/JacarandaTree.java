@@ -252,8 +252,8 @@
 //    //Leaves Placement
 //    private void leafs(IWorldGenerationReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
 //        BlockPos blockpos = new BlockPos(x, y, z);
-//        if (isAir(reader, blockpos)) {
-//            this.setFinalBlockState(blockPos, reader, blockpos, LEAVES, boundingBox);
+//        if (isAir(reader, pos)) {
+//            this.setFinalBlockState(blockPos, reader, pos, LEAVES, boundingBox);
 //        }
 //
 //    }

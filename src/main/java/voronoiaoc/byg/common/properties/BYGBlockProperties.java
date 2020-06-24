@@ -485,6 +485,7 @@ public class BYGBlockProperties {
             setRegistryName(registryName);
         }
     }
+
     public static class BYGNyliumSoulSand extends Block {
 
         public BYGNyliumSoulSand(String registryName) {
@@ -629,7 +630,8 @@ public class BYGBlockProperties {
             );
             setRegistryName(registryName);
 
-        }    }
+        }
+    }
 
     public static class BYGSythianNylium extends BYGSythianNyliumBlock {
         public BYGSythianNylium(String registryName) {
@@ -948,6 +950,7 @@ public class BYGBlockProperties {
             setRegistryName(registryName);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
         }
+
         @OnlyIn(Dist.CLIENT)
         public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
             return adjacentBlockState.getBlock() == this || super.isSideInvisible(state, adjacentBlockState, side);

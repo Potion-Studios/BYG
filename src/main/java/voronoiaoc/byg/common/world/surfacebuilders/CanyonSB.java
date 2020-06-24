@@ -34,7 +34,7 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         if (ridgedNoiseSample > -24) {
             if (ridgedNoiseSample > -10) {
-                for (int yPos = (int) (startHeight); yPos >= startHeight - 80; --yPos) {
+                for (int yPos = startHeight; yPos >= startHeight - 80; --yPos) {
                     block.setPos(xPos, yPos, zPos);
                     if (yPos > seaLevel) {
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
@@ -49,7 +49,7 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             int noiseAdded = 135;
 
             if (ridgedNoiseSample > -24 && ridgedNoiseSample < -20) {
-                for (int yPos = (int) (startHeight); yPos >= noiseAdded; --yPos) {
+                for (int yPos = startHeight; yPos >= noiseAdded; --yPos) {
                     block.setPos(xPos, yPos, zPos);
                     if (yPos > seaLevel) {
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
@@ -62,7 +62,7 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             }
             //Edge 2(Middle Edge)
             if (ridgedNoiseSample > -20 && ridgedNoiseSample < -16) {
-                for (int yPos = (int) (startHeight); yPos >= noiseAdded - 9; --yPos) {
+                for (int yPos = startHeight; yPos >= noiseAdded - 9; --yPos) {
                     block.setPos(xPos, yPos, zPos);
                     if (yPos > seaLevel) {
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
@@ -75,7 +75,7 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             }
             //Edge 3(Inner Edge)
             if (ridgedNoiseSample > -16 && ridgedNoiseSample < -10) {
-                for (int yPos = (int) (startHeight); yPos >= noiseAdded - 18; --yPos) {
+                for (int yPos = startHeight; yPos >= noiseAdded - 18; --yPos) {
                     block.setPos(xPos, yPos, zPos);
                     if (yPos > seaLevel) {
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
@@ -88,14 +88,14 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             }
         }
 
-            for (int yPos = startHeight - 3; yPos >= seaLevel; --yPos) {
-                block.setPos(xPos, yPos, zPos);
-                BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-                if (currentBlockToReplace == STONE) {
-                        chunkIn.setBlockState(block, BYGBlockList.RED_ROCK.getDefaultState(), false);
+        for (int yPos = startHeight - 3; yPos >= seaLevel; --yPos) {
+            block.setPos(xPos, yPos, zPos);
+            BlockState currentBlockToReplace = chunkIn.getBlockState(block);
+            if (currentBlockToReplace == STONE) {
+                chunkIn.setBlockState(block, BYGBlockList.RED_ROCK.getDefaultState(), false);
 
-                }
             }
+        }
 
         if (noise < 1)
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.REDSAND_CF);
@@ -123,13 +123,12 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     }
 
     public static SurfaceBuilderConfig randomSurfaceConfig(Random random) {
-       int randomizer =  random.nextInt(3);
+        int randomizer = random.nextInt(3);
 
-       if (randomizer == 1) {
-           return SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG;
-       }
-       else
-           return BYGSBList.BYGSBConfigList.COARSE;
+        if (randomizer == 1) {
+            return SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG;
+        } else
+            return BYGSBList.BYGSBConfigList.COARSE;
 
     }
 }

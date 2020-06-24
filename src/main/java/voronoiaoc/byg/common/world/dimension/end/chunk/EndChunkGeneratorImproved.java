@@ -13,7 +13,7 @@ public class EndChunkGeneratorImproved extends Simplex3DNoiseChunkGenerator<EndG
     private final BlockPos spawnPoint;
 
     public EndChunkGeneratorImproved(IWorld world, BiomeProvider provider, EndGenerationSettings settings) {
-        super(world, provider, 8,256, settings, 3, 2, 1368.824D, 684.412 * 2, 17.110300000000002D, 4.277575000000001D * 2);
+        super(world, provider, 8, 256, settings, 3, 2, 1368.824D, 684.412 * 2, 17.110300000000002D, 4.277575000000001D * 2);
         this.spawnPoint = settings.getSpawnPos();
     }
 
@@ -23,7 +23,7 @@ public class EndChunkGeneratorImproved extends Simplex3DNoiseChunkGenerator<EndG
     }
 
     protected double[] getColumnBiomeParams(int xc, int yc) {
-        return new double[]{(double)this.biomeProvider.func_222365_c(xc, yc), 0};
+        return new double[]{(double) this.biomeProvider.func_222365_c(xc, yc), 0};
     }
 
     protected double getHeightThreshold(double biomeParam1, double biomeParam2, int y) {
@@ -47,14 +47,16 @@ public class EndChunkGeneratorImproved extends Simplex3DNoiseChunkGenerator<EndG
         for (int y = 0; y < 256; y++) {
             double yc = y / 8.0;
             if (yc > g) {
-                double t = (yc - g) / gd; if (t > 1) t = 1;
+                double t = (yc - g) / gd;
+                if (t > 1) t = 1;
                 //else t = t * t * (3 - 2 * t);
-                thresholds[y] = - (t * gg) / (1 - t);
+                thresholds[y] = -(t * gg) / (1 - t);
             } else if (yc < h) {
-                double t = (h - yc) / hd; if (t > 1) t = 1;
-                //else t = t * t * (3 - 2 * t);
+                double t = (h - yc) / hd;
+                if (t > 1) t = 1;
+                    //else t = t * t * (3 - 2 * t);
                 else t = t * t; // At least do this smoothing.
-                thresholds[y] = - (t * hg) / (1 - t);
+                thresholds[y] = -(t * hg) / (1 - t);
             } else
                 thresholds[y] = 0;
         }

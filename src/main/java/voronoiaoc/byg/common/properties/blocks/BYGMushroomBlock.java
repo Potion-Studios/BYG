@@ -3,19 +3,13 @@ package voronoiaoc.byg.common.properties.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.MushroomBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.server.ServerWorld;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGTree;
-import voronoiaoc.byg.core.byglists.BYGFeatureList;
 
 import java.util.Random;
 
@@ -39,7 +33,7 @@ public class BYGMushroomBlock extends BYGSaplingProperties {
             int i = 5;
             int j = 4;
 
-            for(BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-4, -1, -4), pos.add(4, 1, 4))) {
+            for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-4, -1, -4), pos.add(4, 1, 4))) {
                 if (worldIn.getBlockState(blockpos).getBlock() == this) {
                     --i;
                     if (i <= 0) {
@@ -50,7 +44,7 @@ public class BYGMushroomBlock extends BYGSaplingProperties {
 
             BlockPos blockpos1 = pos.add(rand.nextInt(3) - 1, rand.nextInt(2) - rand.nextInt(2), rand.nextInt(3) - 1);
 
-            for(int k = 0; k < 4; ++k) {
+            for (int k = 0; k < 4; ++k) {
                 if (worldIn.isAirBlock(blockpos1) && state.isValidPosition(worldIn, blockpos1)) {
                     pos = blockpos1;
                 }

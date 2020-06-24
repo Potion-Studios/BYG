@@ -20,10 +20,8 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel.De
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel.DeadHazel2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ebony.EbonyTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ebony.EbonyTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedGroveTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedGroveTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.holly.HollyTree1;
@@ -45,7 +43,10 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.orchard.Orch
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.orchard.OrchardTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.*;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.LargePineTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.LargePineTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.LargeRainbowEucalyptus;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree;
@@ -138,18 +139,18 @@ public class BYGSaplingToTree {
         }
     }
 
-        public static class RainbowEucalyptusSaplingToTree extends BYGHugeTree {
-            @Nullable
-            public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-                return random.nextInt(2) == 0 ? new LargeRainbowEucalyptus(NoFeatureConfig::deserialize) : new LargeRainbowEucalyptus(NoFeatureConfig::deserialize);
-            }
-
-            @Nullable
-            public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-                return random.nextInt(2) == 0 ? new RainbowEucalyptusTree(NoFeatureConfig::deserialize) : new RainbowEucalyptusTree(NoFeatureConfig::deserialize);
-            }
-
+    public static class RainbowEucalyptusSaplingToTree extends BYGHugeTree {
+        @Nullable
+        public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? new LargeRainbowEucalyptus(NoFeatureConfig::deserialize) : new LargeRainbowEucalyptus(NoFeatureConfig::deserialize);
         }
+
+        @Nullable
+        public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? new RainbowEucalyptusTree(NoFeatureConfig::deserialize) : new RainbowEucalyptusTree(NoFeatureConfig::deserialize);
+        }
+
+    }
 
 
     public static class OrangeOakSaplingToTree extends BYGTree {

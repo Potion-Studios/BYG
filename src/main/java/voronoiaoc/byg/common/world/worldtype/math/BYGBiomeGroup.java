@@ -58,8 +58,6 @@ public class BYGBiomeGroup {
     public static final BYGBiomeGroup COLD = new BYGBiomeGroup();
 
 
-
-
     private final List<BiomeEntry> entries = new ArrayList<>();
     private double weightTotal = 0.0;
 
@@ -79,7 +77,7 @@ public class BYGBiomeGroup {
         TROPICAL_RAINFOREST.addBiome(BYGBiomeList.TROPICALRAINFOREST, ConfigWeightManager.TROPICALRAINFOREST.getWeight());
         TROPICAL_RAINFOREST.addBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, ConfigWeightManager.TROPICALFUNGALFOREST.getWeight());
         TROPICAL_RAINFOREST.addBiome(BYGBiomeList.JACARANDAFOREST, ConfigWeightManager.JACARANDAFOREST.getWeight());
-        
+
         // inland temperate
         TEMPERATE_DRY.addBiome(BYGBiomeList.PRAIRIE, ConfigWeightManager.PRAIRIE.getWeight());
         TEMPERATE_DRY.addBiome(BYGBiomeList.DECIDUOUSFOREST, ConfigWeightManager.DECIDUOUSFOREST.getWeight());
@@ -200,6 +198,7 @@ public class BYGBiomeGroup {
     private static class BiomeEntry {
         Biome biome;
         double weight;
+
         BiomeEntry(Biome biome, double weight) {
             this.biome = biome;
             this.weight = weight;

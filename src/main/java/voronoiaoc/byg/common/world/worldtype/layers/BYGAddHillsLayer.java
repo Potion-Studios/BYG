@@ -12,7 +12,7 @@ import voronoiaoc.byg.common.world.worldtype.math.BYGBiomeGroup;
 import voronoiaoc.byg.common.world.worldtype.math.BiomeGroupManager;
 
 @SuppressWarnings("deprecation")
-public class  BYGAddHillsLayer extends InitMerge1 implements IDimOffset1Transformer {
+public class BYGAddHillsLayer extends InitMerge1 implements IDimOffset1Transformer {
 
     public static final int DEEP_WARM_OCEAN = Registry.BIOME.getId(Biomes.DEEP_WARM_OCEAN);
     public static final int DEEP_LUKEWARM_OCEAN = Registry.BIOME.getId(Biomes.DEEP_LUKEWARM_OCEAN);
@@ -47,29 +47,29 @@ public class  BYGAddHillsLayer extends InitMerge1 implements IDimOffset1Transfor
             Biome hill = biome == null ? null : biome.getHill(context);
             if (hill != null) l = Registry.BIOME.getId(hill);
 
-                if (l != area1Value) {
-                    int i1 = 0;
-                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z)), area1Value)) {
-                        ++i1;
-                    }
+            if (l != area1Value) {
+                int i1 = 0;
+                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z)), area1Value)) {
+                    ++i1;
+                }
 
-                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 2), this.getOffsetZ(z + 1)), area1Value)) {
-                        ++i1;
-                    }
+                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 2), this.getOffsetZ(z + 1)), area1Value)) {
+                    ++i1;
+                }
 
-                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 0), this.getOffsetZ(z + 1)), area1Value)) {
-                        ++i1;
-                    }
+                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 0), this.getOffsetZ(z + 1)), area1Value)) {
+                    ++i1;
+                }
 
-                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 2)), area1Value)) {
-                        ++i1;
-                    }
+                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 2)), area1Value)) {
+                    ++i1;
+                }
 
-                    if (i1 >= 3) {
-                        return l;
-                    }
+                if (i1 >= 3) {
+                    return l;
                 }
             }
+        }
         return area1Value;
     }
 }

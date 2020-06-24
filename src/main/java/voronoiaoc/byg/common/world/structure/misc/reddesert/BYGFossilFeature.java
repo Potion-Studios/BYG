@@ -39,7 +39,7 @@ public class BYGFossilFeature extends Feature<NoFeatureConfig> {
         Rotation[] arotation = Rotation.values();
         Rotation rotation = arotation[random.nextInt(arotation.length)];
         int i = random.nextInt(FOSSILS.length);
-        TemplateManager templatemanager = ((ServerWorld)worldIn.getWorld()).getSaveHandler().getStructureTemplateManager();
+        TemplateManager templatemanager = ((ServerWorld) worldIn.getWorld()).getSaveHandler().getStructureTemplateManager();
         Template template = templatemanager.getTemplateDefaulted(FOSSILS[i]);
         ChunkPos chunkpos = new ChunkPos(pos);
         MutableBoundingBox mutableboundingbox = new MutableBoundingBox(chunkpos.getXStart(), 0, chunkpos.getZStart(), chunkpos.getXEnd(), 256, chunkpos.getZEnd());
@@ -49,8 +49,8 @@ public class BYGFossilFeature extends Feature<NoFeatureConfig> {
         int k = random.nextInt(16 - blockpos.getZ());
         int l = 256;
 
-        for(int i1 = 0; i1 < blockpos.getX(); ++i1) {
-            for(int j1 = 0; j1 < blockpos.getZ(); ++j1) {
+        for (int i1 = 0; i1 < blockpos.getX(); ++i1) {
+            for (int j1 = 0; j1 < blockpos.getZ(); ++j1) {
                 l = Math.min(l, worldIn.getHeight(Heightmap.Type.WORLD_SURFACE_WG, pos.getX() + i1 + j, pos.getZ() + j1 + k));
             }
         }

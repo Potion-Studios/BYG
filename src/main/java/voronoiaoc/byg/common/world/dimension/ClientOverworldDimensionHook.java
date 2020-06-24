@@ -144,9 +144,7 @@ public class ClientOverworldDimensionHook extends OverworldDimension {
             if (modified) { // set return value if modified
                 final double divisor = 17 * 17;
                 return new Vec3d(Math.sqrt(accumulatedR / divisor), Math.sqrt(accumulatedG / divisor), Math.sqrt(accumulatedB / divisor));
-            }
-            else return super.getFogColor(celestialAngle, partialTicks);
-        }
-        else return super.getFogColor(celestialAngle, partialTicks);
+            } else return super.getFogColor(celestialAngle, partialTicks);
+        } else return super.getFogColor(celestialAngle, partialTicks);
     }
 }

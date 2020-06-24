@@ -2,7 +2,6 @@ package voronoiaoc.byg.common.properties.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -39,8 +38,7 @@ public class BYGGlowcane extends Block implements IPlantable {
             worldIn.destroyBlock(pos, true);
         } else if (worldIn.isAirBlock(pos.up())) {
             int i;
-            for(i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) {
-                ;
+            for (i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) {
             }
 
             if (i < 3) {

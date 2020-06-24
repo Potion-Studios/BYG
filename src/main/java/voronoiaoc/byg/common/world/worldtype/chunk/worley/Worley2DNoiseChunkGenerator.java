@@ -45,10 +45,10 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
     private static final double OUTPUT_NOISE_MAIN_AMPLITUDE = 64.0 * 0.87890625;
 
     private static final float[] field_222561_h = Util.make(new float[13824], (p_222557_0_) -> {
-        for(int i = 0; i < 24; ++i) {
-            for(int j = 0; j < 24; ++j) {
-                for(int k = 0; k < 24; ++k) {
-                    p_222557_0_[i * 24 * 24 + j * 24 + k] = (float)func_222554_b(j - 12, k - 12, i - 12);
+        for (int i = 0; i < 24; ++i) {
+            for (int j = 0; j < 24; ++j) {
+                for (int k = 0; k < 24; ++k) {
+                    p_222557_0_[i * 24 * 24 + j * 24 + k] = (float) func_222554_b(j - 12, k - 12, i - 12);
                 }
             }
         }
@@ -58,17 +58,18 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
     private final int worldHeight;
     protected final SharedSeedRandom randomSeed;
 
-    private int nOctavesOutput, nOctavesBlend;
-    private WorleyNoise[] fssnOctaves1;
-    private WorleyNoise[] fssnOctaves2;
-    private WorleyNoise[] fssnOctavesBlend;
-    private double[] outputUncertaintyBounds;
+    private final int nOctavesOutput;
+    private final int nOctavesBlend;
+    private final WorleyNoise[] fssnOctaves1;
+    private final WorleyNoise[] fssnOctaves2;
+    private final WorleyNoise[] fssnOctavesBlend;
+    private final double[] outputUncertaintyBounds;
     private double[] blendUncertaintyBounds;
 
-    private int horizontalBiomeGranularity;
-    private int horizontalBiomeSourceSections;
-    private int horizontalBiomeSourceArraySize;
-    private SplerpBaseSimplex biomeSplerpBaseSimplex;
+    private final int horizontalBiomeGranularity;
+    private final int horizontalBiomeSourceSections;
+    private final int horizontalBiomeSourceArraySize;
+    private final SplerpBaseSimplex biomeSplerpBaseSimplex;
 
     private final INoiseGenerator surfaceDepthNoise;
     protected final BlockState defaultBlock;
@@ -164,17 +165,17 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
 
         // Start with some structure generation related tasks
         label175:
-        while(structureIterator.hasNext()) {
-            Structure<?> structure = (Structure)structureIterator.next();
+        while (structureIterator.hasNext()) {
+            Structure<?> structure = (Structure) structureIterator.next();
             String s = structure.getStructureName();
             LongIterator longiterator = chunkIn.getStructureReferences(s).iterator();
 
             label173:
-            while(true) {
+            while (true) {
                 StructureStart structurestart;
                 do {
                     do {
-                        if(!longiterator.hasNext()) {
+                        if (!longiterator.hasNext()) {
                             continue label175;
                         }
 
@@ -182,36 +183,36 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
                         ChunkPos chunkpos1 = new ChunkPos(j1);
                         IChunk ichunk = worldIn.getChunk(chunkpos1.x, chunkpos1.z);
                         structurestart = ichunk.getStructureStart(s);
-                    } while(structurestart == null);
-                } while(!structurestart.isValid());
+                    } while (structurestart == null);
+                } while (!structurestart.isValid());
 
                 Iterator var20 = structurestart.getComponents().iterator();
 
-                while(true) {
+                while (true) {
                     StructurePiece structurepiece;
                     do {
                         do {
-                            if(!var20.hasNext()) {
+                            if (!var20.hasNext()) {
                                 continue label173;
                             }
 
-                            structurepiece = (StructurePiece)var20.next();
-                        } while(!structurepiece.func_214810_a(chunkpos, 12));
-                    } while(!(structurepiece instanceof AbstractVillagePiece));
+                            structurepiece = (StructurePiece) var20.next();
+                        } while (!structurepiece.func_214810_a(chunkpos, 12));
+                    } while (!(structurepiece instanceof AbstractVillagePiece));
 
-                    AbstractVillagePiece abstractvillagepiece = (AbstractVillagePiece)structurepiece;
+                    AbstractVillagePiece abstractvillagepiece = (AbstractVillagePiece) structurepiece;
                     JigsawPattern.PlacementBehaviour jigsawpattern$placementbehaviour = abstractvillagepiece.getJigsawPiece().getPlacementBehaviour();
-                    if(jigsawpattern$placementbehaviour == JigsawPattern.PlacementBehaviour.RIGID) {
+                    if (jigsawpattern$placementbehaviour == JigsawPattern.PlacementBehaviour.RIGID) {
                         villagePieceList.add(abstractvillagepiece);
                     }
 
                     Iterator var24 = abstractvillagepiece.getJunctions().iterator();
 
-                    while(var24.hasNext()) {
-                        JigsawJunction jigsawjunction = (JigsawJunction)var24.next();
+                    while (var24.hasNext()) {
+                        JigsawJunction jigsawjunction = (JigsawJunction) var24.next();
                         int k1 = jigsawjunction.getSourceX();
                         int l1 = jigsawjunction.getSourceZ();
-                        if(k1 > worldChunkX - 12 && l1 > worldChunkZ - 12 && k1 < worldChunkX + 15 + 12 && l1 < worldChunkZ + 15 + 12) {
+                        if (k1 > worldChunkX - 12 && l1 > worldChunkZ - 12 && k1 < worldChunkX + 15 + 12 && l1 < worldChunkZ + 15 + 12) {
                             jigsawJunctionList.add(jigsawjunction);
                         }
                     }
@@ -220,8 +221,8 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
         }
 
         // Generate all the biome data we need.
-        int xcb = worldChunkX/horizontalBiomeGranularity;
-        int zcb = worldChunkZ/horizontalBiomeGranularity;
+        int xcb = worldChunkX / horizontalBiomeGranularity;
+        int zcb = worldChunkZ / horizontalBiomeGranularity;
         double[][] biomeBlendMap1 = new double[horizontalBiomeSourceArraySize][horizontalBiomeSourceArraySize];
         double[][] biomeBlendMap2 = new double[horizontalBiomeSourceArraySize][horizontalBiomeSourceArraySize];
         for (int z = 0; z < horizontalBiomeSourceArraySize; z++) {
@@ -261,7 +262,7 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
             }
         }
 
-        ChunkPrimer chunkprimer = (ChunkPrimer)chunkIn;
+        ChunkPrimer chunkprimer = (ChunkPrimer) chunkIn;
         Heightmap oceanFloorHeightmap = chunkprimer.getHeightmap(Heightmap.Type.OCEAN_FLOOR_WG);
         Heightmap worldSurfaceHeightmap = chunkprimer.getHeightmap(Heightmap.Type.WORLD_SURFACE_WG);
         BlockPos.Mutable blockPosMutable = new BlockPos.Mutable();
@@ -276,7 +277,7 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
             int chunkSectionIndex = y >> 4;
             int chunkSectionY = y & 15;
 
-            if(chunksection.getYLocation() >> 4 != chunkSectionIndex) {
+            if (chunksection.getYLocation() >> 4 != chunkSectionIndex) {
                 chunksection.unlock();
                 chunksection = chunkprimer.getSection(chunkSectionIndex);
                 chunksection.lock();
@@ -298,7 +299,7 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
                         // Structure-related
                         int vXBound, vYBound, vZBound;
                         for (noiseValue = noiseValue / 2.0D - noiseValue * noiseValue * noiseValue / 24.0D; villagePieceIterator.hasNext(); noiseValue += func_222556_a(vXBound, vYBound, vZBound) * 0.8D) {
-                            AbstractVillagePiece abstractvillagepiece1 = (AbstractVillagePiece) villagePieceIterator.next();
+                            AbstractVillagePiece abstractvillagepiece1 = villagePieceIterator.next();
                             MutableBoundingBox mutableboundingbox = abstractvillagepiece1.getBoundingBox();
                             vXBound = Math.max(0, Math.max(mutableboundingbox.minX - worldX, worldX - mutableboundingbox.maxX));
                             vYBound = y - (mutableboundingbox.minY + abstractvillagepiece1.getGroundLevelDelta());
@@ -306,7 +307,7 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
                         }
                         villagePieceIterator.back(villagePieceList.size());
                         while (jigsawJunctionIterator.hasNext()) {
-                            JigsawJunction jigsawjunction1 = (JigsawJunction) jigsawJunctionIterator.next();
+                            JigsawJunction jigsawjunction1 = jigsawJunctionIterator.next();
                             vXBound = worldX - jigsawjunction1.getSourceX();
                             vYBound = y - jigsawjunction1.getSourceGroundY();
                             vZBound = worldZ - jigsawjunction1.getSourceZ();
@@ -327,7 +328,7 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
 
                     // Update heightmaps
                     if (blockstate != AIR) {
-                        if(blockstate.getLightValue() != 0) {
+                        if (blockstate.getLightValue() != 0) {
                             blockPosMutable.setPos(worldX, y, worldZ);
                             chunkprimer.addLightPosition(blockPosMutable);
                         }
@@ -385,7 +386,7 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
                     blockstate = this.defaultFluid;
                 }
 
-                if(heightMapType.getHeightLimitPredicate().test(blockstate)) {
+                if (heightMapType.getHeightLimitPredicate().test(blockstate)) {
                     return y + 1;
                 }
             }
@@ -432,8 +433,10 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
             double freq = 1.0 / 131072.0 * 0.7937005259840998;
             double amp = OUTPUT_NOISE_MAIN_AMPLITUDE;
             do {
-                if (blendingValue < 1) actualValue += (1 - blendingValue) * fssnOctaves1[octave].sample2D(worldX * hScale * freq, worldZ * hScale * freq) * amp;
-                if (blendingValue > 0) actualValue += blendingValue * fssnOctaves2[octave].sample2D(worldX * hScale * freq, worldZ * hScale * freq) * amp;
+                if (blendingValue < 1)
+                    actualValue += (1 - blendingValue) * fssnOctaves1[octave].sample2D(worldX * hScale * freq, worldZ * hScale * freq) * amp;
+                if (blendingValue > 0)
+                    actualValue += blendingValue * fssnOctaves2[octave].sample2D(worldX * hScale * freq, worldZ * hScale * freq) * amp;
                 freq *= 2.0;
                 amp /= 2.0;
                 octave++;
@@ -461,7 +464,7 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
         GenerationStage.Decoration[] var11 = GenerationStage.Decoration.values();
         int var12 = var11.length;
 
-        for(int var13 = 0; var13 < var12; ++var13) {
+        for (int var13 = 0; var13 < var12; ++var13) {
             GenerationStage.Decoration stage = var11[var13];
 
             try {
@@ -511,8 +514,8 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
         int l = chunkpos1.getZStart();
         BlockPos.Mutable blockposMutable = new BlockPos.Mutable();
 
-        for(int i1 = 0; i1 < 16; ++i1) {
-            for(int j1 = 0; j1 < 16; ++j1) {
+        for (int i1 = 0; i1 < 16; ++i1) {
+            for (int j1 = 0; j1 < 16; ++j1) {
                 int k1 = k + i1;
                 int l1 = l + j1;
                 int i2 = chunk.getTopBlockY(Heightmap.Type.WORLD_SURFACE_WG, i1, j1) + 1;
@@ -524,7 +527,7 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
                 // This, combined with using 3D noise to pick surface textures, will enable overhangs
                 // to not either block or copy the surface below them.
 
-                double d1 = this.surfaceDepthNoise.noiseAt((double)k1 * 0.0625D, (double)l1 * 0.0625D, 0.0625D, (double)i1 * 0.0625D) * 15.0D; // This is Simplex
+                double d1 = this.surfaceDepthNoise.noiseAt((double) k1 * 0.0625D, (double) l1 * 0.0625D, 0.0625D, (double) i1 * 0.0625D) * 15.0D; // This is Simplex
                 blockposMutable = blockposMutable.setPos(k + i1, i2, l + j1);
                 Biome biome = region.getBiome(blockposMutable);
                 biome.buildSurface(sharedseedrandom, chunk, k1, l1, i2, d1, this.getSettings().getDefaultBlock(), this.getSettings().getDefaultFluid(), this.getSeaLevel(), this.world.getSeed());
@@ -558,26 +561,26 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
         int l = t.getBedrockRoofHeight();
         Iterator var9 = BlockPos.getAllInBoxMutable(i, 0, j, i + 15, 0, j + 15).iterator();
 
-        while(true) {
+        while (true) {
             BlockPos blockpos;
             int j1;
             do {
-                if(!var9.hasNext()) {
+                if (!var9.hasNext()) {
                     return;
                 }
 
-                blockpos = (BlockPos)var9.next();
-                if(l > 0) {
-                    for(j1 = l; j1 >= l - 4; --j1) {
-                        if(j1 >= l - rand.nextInt(5)) {
+                blockpos = (BlockPos) var9.next();
+                if (l > 0) {
+                    for (j1 = l; j1 >= l - 4; --j1) {
+                        if (j1 >= l - rand.nextInt(5)) {
                             chunkIn.setBlockState(blockpos$mutable.setPos(blockpos.getX(), j1, blockpos.getZ()), Blocks.BEDROCK.getDefaultState(), false);
                         }
                     }
                 }
-            } while(k >= 256);
+            } while (k >= 256);
 
-            for(j1 = k + 4; j1 >= k; --j1) {
-                if(j1 <= k + rand.nextInt(5)) {
+            for (j1 = k + 4; j1 >= k; --j1) {
+                if (j1 <= k + rand.nextInt(5)) {
                     chunkIn.setBlockState(blockpos$mutable.setPos(blockpos.getX(), j1, blockpos.getZ()), Blocks.BEDROCK.getDefaultState(), false);
                 }
             }
@@ -589,13 +592,13 @@ public abstract class Worley2DNoiseChunkGenerator<T extends GenerationSettings> 
         int i = p_222556_0_ + 12;
         int j = p_222556_1_ + 12;
         int k = p_222556_2_ + 12;
-        return i >= 0 && i < 24?(j >= 0 && j < 24?(k >= 0 && k < 24?(double)field_222561_h[k * 24 * 24 + i * 24 + j]:0.0D):0.0D):0.0D;
+        return i >= 0 && i < 24 ? (j >= 0 && j < 24 ? (k >= 0 && k < 24 ? (double) field_222561_h[k * 24 * 24 + i * 24 + j] : 0.0D) : 0.0D) : 0.0D;
     }
 
     // Used in pregenerating a table for the above, which is used in structure generation
     private static double func_222554_b(int p_222554_0_, int p_222554_1_, int p_222554_2_) {
-        double d0 = (double)(p_222554_0_ * p_222554_0_ + p_222554_2_ * p_222554_2_);
-        double d1 = (double)p_222554_1_ + 0.5D;
+        double d0 = p_222554_0_ * p_222554_0_ + p_222554_2_ * p_222554_2_;
+        double d1 = (double) p_222554_1_ + 0.5D;
         double d2 = d1 * d1;
         double d3 = Math.pow(2.718281828459045D, -(d2 / 16.0D + d0 / 16.0D));
         double d4 = -d1 * MathHelper.fastInvSqrt(d2 / 2.0D + d0 / 2.0D) / 2.0D;

@@ -21,7 +21,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
 
-public class TropicalFungalRainForest extends Biome  {
+public class TropicalFungalRainForest extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.FUNGAL_RAINFOREST_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
@@ -100,6 +100,7 @@ public class TropicalFungalRainForest extends Biome  {
     public Biome getHill(INoiseRandom rand) {
         return randomSubBiome(rand);
     }
+
     public Biome randomSubBiome(INoiseRandom random) {
         int randomPicker = random.random(4);
         if (randomPicker == 0)

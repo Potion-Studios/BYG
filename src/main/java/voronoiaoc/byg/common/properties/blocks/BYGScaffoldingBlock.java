@@ -1,6 +1,9 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.IWaterLoggable;
+import net.minecraft.block.ScaffoldingBlock;
 import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
@@ -35,7 +38,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
             return 0;
         }
 
-        for(Direction direction : Direction.Plane.HORIZONTAL) {
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
             BlockState blockstate1 = blockReader.getBlockState(blockpos$mutable.setPos(pos).move(direction));
             if (blockstate1.getBlock() == BYGBlockList.SYTHIAN_SCAFFOLDING) {
                 i = Math.min(i, blockstate1.get(DISTANCE) + 1);
@@ -62,7 +65,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
         BlockState blockstate = state.with(DISTANCE, Integer.valueOf(i)).with(BOTTOM, Boolean.valueOf(this.shouldBeBottom(worldIn, pos, i)));
         if (blockstate.get(DISTANCE) == 7) {
             if (state.get(DISTANCE) == 7) {
-                worldIn.addEntity(new FallingBlockEntity(worldIn, (double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, blockstate.with(WATERLOGGED, Boolean.valueOf(false))));
+                worldIn.addEntity(new FallingBlockEntity(worldIn, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, blockstate.with(WATERLOGGED, Boolean.valueOf(false))));
             } else {
                 worldIn.destroyBlock(pos, true);
             }

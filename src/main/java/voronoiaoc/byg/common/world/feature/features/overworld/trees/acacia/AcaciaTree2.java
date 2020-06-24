@@ -43,7 +43,7 @@ public class AcaciaTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, 1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 1, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 1, 1), boundsIn);
-                
+
                 //Branches
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 3, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 3, 1), boundsIn);
@@ -332,12 +332,10 @@ public class AcaciaTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     //Leaves Placement
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
+        if (isAir(reader, pos)) {
+            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.PINE_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {

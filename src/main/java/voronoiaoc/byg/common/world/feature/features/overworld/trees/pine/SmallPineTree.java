@@ -28,9 +28,9 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
 
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         if (pos.getX() == -8 && pos.getZ() == -9) {
-            for (int checkX = pos.getX() + -16; checkX <= pos.getX() +  16; checkX++) {
+            for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
-                    for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() +  16; checkZ++) {
+                    for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() + 16; checkZ++) {
                         BlockPos.Mutable block = new BlockPos.Mutable(checkX, checkY, checkZ);
                         world.setBlockState(block, Blocks.AIR.getDefaultState(), 2);
                     }

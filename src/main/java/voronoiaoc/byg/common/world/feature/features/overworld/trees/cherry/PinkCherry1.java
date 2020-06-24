@@ -47,7 +47,7 @@ public class PinkCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                     mainmutable4.move(Direction.UP);
                 }
                 mainmutable.setPos(pos);
-            
+
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, -3), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, -3), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(4, randTreeHeight - 7, -3), boundsIn);
@@ -85,7 +85,6 @@ public class PinkCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 2, 1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, 2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, 3), boundsIn);
-
 
 
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 10, -4), boundsIn);
@@ -819,12 +818,10 @@ public class PinkCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     //Leaves Placement
     private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos,  BYGBlockList.PINK_CHERRY_LEAVES.getDefaultState(), boundingBox);
+        if (isAir(reader, pos)) {
+            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.PINK_CHERRY_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {

@@ -83,6 +83,7 @@ public class BYGFeatures {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.BEACH_GRASS_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SHORT_BEACH_GRASS_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
     }
+
     public static void addLargeLake(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGFeatureList.LAKE_WIDE_SHALLOW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AnyWaterOrSolidSurfaceSurface.WWATERORSOLIDSURFACE.configure(new FrequencyConfig(4))));
     }
@@ -95,7 +96,7 @@ public class BYGFeatures {
         biome.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(BYGFeatureList.VOLCANIC_CARVER, new ProbabilityConfig(0.02F)));
 
     }
-    
+
     public static void addAzalea(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.AZALEA_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(2))));
     }
