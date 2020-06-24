@@ -125,7 +125,6 @@ public class BYGBiomeList {
     public static final Biome ENCHANTED_FOREST_HILLS = new EnchantedForestHills();
     public static final Biome SNOWY_EVERGREEN_CLEARING = new SnowyEvergreenClearing();
     public static final Biome SNOWY_EVERGREEN_HILLS = new SnowyEvergreenHills();
-
     public static final Biome WEEPING_WTICH_CLEARING = new WeepingWitchClearing();
     public static final Biome CHERRY_BLOSSOM_CLEARING = new CherryBlossomClearing();
     public static final Biome BLACK_FOREST_CLEARING = new BlackForestClearing();
@@ -139,12 +138,10 @@ public class BYGBiomeList {
     public static final Biome JACARANDA_CLEARING = new JacarandaClearing();
     public static final Biome SNOWY_CONIFEROUS_CLEARING = new SnowyConiferousClearing();
     public static final Biome SNOWY_DECIDUOUS_CLEARING = new SnowyDeciduousClearing();
-
     public static final Biome WOODEDMEADOW = new WoodedMeadow();
     public static final Biome FLOWERINGMEADOW = new FloweringMeadow();
     public static final Biome FLOWERING_GROVE = new FloweringGrove();
     public static final Biome FLOWERING_ENCHANTED_GROVE = new FloweringEnchantedGrove();
-
     public static final Biome OASIS = new Oasis();
     public static final Biome POLLUTEDLAKE = new PollutedLake();
     public static final Biome PRAIRIECLEARING = new PrairieClearing();

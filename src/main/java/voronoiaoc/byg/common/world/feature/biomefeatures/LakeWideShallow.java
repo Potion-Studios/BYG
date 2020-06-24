@@ -78,7 +78,6 @@ public class LakeWideShallow extends Feature<DefaultFeatureConfig> {
                         // Is spot within the mask (sorta a roundish area) and is contained
                         if (containedFlag) {
                             // check below without moving down
-                            blockState = world.getBlockState(blockpos$Mutable.down());
 
                             // sets the water
                             world.setBlockState(blockpos$Mutable, Blocks.WATER.getDefaultState(), 3);

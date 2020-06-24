@@ -66,6 +66,16 @@ public class ConiferousForest extends Biome implements BiomeTools {
     }
 
     @Override
+    public int getGrassColorAt(double x, double z) {
+        return 5011004;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 2263842;
+    }
+
+    @Override
     public Biome getRiver() {
         return null;
     }

@@ -65,10 +65,4 @@ public class EbonyHills extends Biome {
     public int getFoliageColor() {
         return 6589494;
     }
-
-//    @Override
-//    public Biome getRiver() {
-//        return Biomes.RIVER;
-//    }
-
 }

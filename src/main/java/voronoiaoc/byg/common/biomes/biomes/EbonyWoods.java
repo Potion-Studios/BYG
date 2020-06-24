@@ -64,6 +64,16 @@ public class EbonyWoods extends Biome implements BiomeTools {
     }
 
     @Override
+    public int getGrassColorAt(double x, double z) {
+        return 5406551;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 6589494;
+    }
+
+    @Override
     public Biome getRiver() {
         return null;
     }

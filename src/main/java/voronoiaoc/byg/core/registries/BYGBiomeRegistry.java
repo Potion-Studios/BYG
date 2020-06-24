@@ -25,7 +25,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.BOREALFOREST, "boreal_forest", true, 10, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.COLDSWAMPLANDS, "cold_swamplands", true, 10, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.CRAGGARDENS, "crag_gardens", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.REDROCKCANYON, "red_rock_canyon", false, 10, OverworldClimate.DRY);
+//        registerBiome(BYGBiomeList.REDROCKCANYON, "red_rock_canyon", false, 10, OverworldClimate.DRY);
         registerBiome(BYGBiomeList.CONIFEROUSFOREST, "coniferous_forest", true, 10, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.DOVERMOUNTAINS, "dover_mountains", true, 10, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.DEADSEA, "deadsea", true, 10, OverworldClimate.DRY);
@@ -86,9 +86,11 @@ public class BYGBiomeRegistry {
         registerSubBiome(BYGBiomeList.BOREALFORESTHILLS, "boreal_forest_hills", true);
         registerSubBiome(BYGBiomeList.BOG, "bog", true);
         registerSubBiome(BYGBiomeList.DECIDUOUSFORESTHILLS, "deciduous_forest_hills", true);
-        registerSubBiome(BYGBiomeList.CONIFEROUSFORESTHILLS, "coniferousforesthills", true);
+        registerSubBiome(BYGBiomeList.CONIFEROUSFORESTHILLS, "coniferous_forest_hills", true);
         registerSubBiome(BYGBiomeList.FRESHWATERLAKE, "fresh_water_lake", true);
         registerSubBiome(BYGBiomeList.FROZENLAKE, "frozen_lake", true);
+        registerSubBiome(BYGBiomeList.FLOWERING_ENCHANTED_GROVE, "flowering_enchanted_grove", true);
+        registerSubBiome(BYGBiomeList.FLOWERING_GROVE, "flowering_grove", true);
         registerSubBiome(BYGBiomeList.GREATLAKEISLES, "great_lake_isles", true);
         registerSubBiome(BYGBiomeList.JACARANDAFORESTHILLS, "jacaranda_forest_hills", true);
         registerSubBiome(BYGBiomeList.MARSHLANDS, "marshlands", true);
@@ -140,7 +142,9 @@ public class BYGBiomeRegistry {
     }
 
     private static void registerBiome(Biome biome, String id, boolean spawn, int weight, OverworldClimate climate) {
+
         Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
+
         if (spawn)
             FabricBiomes.addSpawnBiome(biome);
         if (weight > 0)
@@ -150,6 +154,14 @@ public class BYGBiomeRegistry {
             OverworldBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), 1);
         if (((BiomeTools) biome).getBeach() != null)
             OverworldBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), 1);
+        else {
+            for (Biome biome2 : Registry.BIOME) {
+                if (biome2.getCategory() == Biome.Category.SWAMP)
+                    OverworldBiomes.addShoreBiome(biome, biome2, 1);
+                else if (biome2.getPrecipitation() == Biome.Precipitation.SNOW && biome2.getCategory() != Biome.Category.OCEAN && biome2.getCategory() != Biome.Category.BEACH)
+                    OverworldBiomes.addShoreBiome(biome, BYGBiomeList.SNOWYBLACKBEACH, 1);
+            }
+        }
         if (((BiomeTools) biome).getHill() != null)
             OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 1);
         if (((BiomeTools) biome).getMutation() != null)

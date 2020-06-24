@@ -16,6 +16,7 @@ import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class CragGardens extends Biome implements BiomeTools, BiomeFog {
@@ -91,17 +92,17 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
 
     @Override
     public Biome getHill() {
-        return null;
+        return BYGBiomeList.CRAGGARDENS;
     }
 
     @Override
     public Biome getEdge() {
-        return null;
+        return BYGBiomeList.CRAGGARDENS;
     }
 
     @Override
     public Biome getBeach() {
-        return null;
+        return BYGBiomeList.CRAGGARDENS;
     }
 
     @Override

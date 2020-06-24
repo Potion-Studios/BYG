@@ -306,7 +306,7 @@ public class BYGBlockProperties {
 
     public static class BYGGrassBlock extends GrassBlock {
         public BYGGrassBlock(String registryName) {
-            super(Settings.of(Material.SOLID_ORGANIC)
+            super(Settings.of(Material.SOIL)
                     .sounds(BlockSoundGroup.GRASS)
                     .strength(0.2f)
                     .ticksRandomly()
