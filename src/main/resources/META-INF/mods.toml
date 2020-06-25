@@ -1,6 +1,6 @@
 
 modLoader="javafml" #mandatory
-loaderVersion="[31,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion="[32,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 issueTrackerURL="https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId="byg"
@@ -16,12 +16,12 @@ An Adventure and Exploration mod with over 60 new biomes!
 [[dependencies.examplemod]]
     modId="forge"
     mandatory=true
-    versionRange="[31,)"
+    versionRange="[32,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.examplemod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.2]"
+    versionRange="[1.16.1]"
     ordering="NONE"
     side="BOTH"
