@@ -4,7 +4,7 @@
   "package": "voronoiaoc.byg.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "client.render.MixinGameRenderer",
+    "client.render.MixinGameRenderer"
   ],
   "client": [
   ],
