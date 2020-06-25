@@ -20,8 +20,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
+import voronoiaoc.byg.core.byglists.BYGEntityList;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 
 @SuppressWarnings("EntityConstructor")
@@ -29,7 +29,7 @@ public class BYGBoatEntity extends BoatEntity {
     private static final TrackedData<Integer> BYG_BOAT_TYPE = DataTracker.registerData(BYGBoatEntity.class, TrackedDataHandlerRegistry.INTEGER);;
 
     public BYGBoatEntity(World world, double x, double y, double z) {
-        this(BYG.BYGBOAT ,world);
+        this(BYGEntityList.BYGBOAT ,world);
         this.updatePosition(x, y, z);
         this.setVelocity(Vec3d.ZERO);
         this.prevX = x;
