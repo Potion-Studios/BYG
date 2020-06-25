@@ -32,7 +32,7 @@ public class BayouTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         BlockPos.Mutable block = new BlockPos.Mutable().set(blockPos);
         BlockPos.Mutable mainMutable = new BlockPos.Mutable().set(block);
 
-        if (!this.checkArea(worldIn, pos, 5) || worldIn.getBlockState(pos.down()).getBlock() != Blocks.DIRT && worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.MUD_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK) {
+        if (!this.checkArea(worldIn, pos, 5) || worldIn.getBlockState(pos.down()).getBlock() != Blocks.DIRT && worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.MUD_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.GLOWCELIUM) {
             return false;
         } else {
             //Trunk

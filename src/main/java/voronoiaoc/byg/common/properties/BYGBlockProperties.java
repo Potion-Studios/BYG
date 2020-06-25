@@ -437,7 +437,7 @@ public class BYGBlockProperties {
 
     public static class BYGGlowcelium extends BYGGlowCeliumBlock {
         public BYGGlowcelium(String registryName) {
-            super(Settings.of(BYGMaterials.GLOWCELIUM)
+            super(Settings.of(Material.SOIL)
                     .sounds(BlockSoundGroup.GRAVEL)
                     .strength(0.2f)
                     .ticksRandomly()

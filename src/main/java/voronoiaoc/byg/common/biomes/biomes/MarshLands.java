@@ -35,7 +35,7 @@ public class MarshLands extends Biome implements BiomeTools {
 
     public MarshLands() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        DefaultBiomeFeatures.method_28440(this);
+        DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
         this.addStructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
 
         DefaultBiomeFeatures.addLandCarvers(this);

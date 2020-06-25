@@ -72,7 +72,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         return worldIn.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return state.getMaterial() == Material.SOIL || block == block1;
+                return state.getMaterial() == Material.SOIL || block == block1 || Feature.isSoil(block);
             }
             return false;
         });

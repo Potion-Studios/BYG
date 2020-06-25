@@ -26,7 +26,7 @@ public class PrairieClearing extends Biome {
     public PrairieClearing() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
-        DefaultBiomeFeatures.method_28440(this);
+        DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
         BYGTreeFeatures.addSparseTree(this);
         BYGFeatures.addGrass(this);
         DefaultBiomeFeatures.addLandCarvers(this);

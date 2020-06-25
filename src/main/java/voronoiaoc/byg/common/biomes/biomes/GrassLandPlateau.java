@@ -29,7 +29,7 @@ public class GrassLandPlateau extends Biome implements BiomeTools {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
         ////this.addStructureFeature(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/grassland/town_centers"), 6));
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
-        DefaultBiomeFeatures.method_28440(this);
+        DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
         BYGFeatures.addRockyStoneBoulder(this);
         BYGFeatures.addMossyStoneBoulder(this);
         DefaultBiomeFeatures.addShatteredSavannaGrass(this);

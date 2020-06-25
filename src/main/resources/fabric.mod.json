@@ -4,17 +4,18 @@
   "version": "${version}",
 
   "name": "BYG",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "An Adventure and Exploration mod with over 60 new biomes!",
   "authors": [
-    "Me!"
+    "Corgi Taco",
+    "AOCAWOL"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://biomesyougo.weebly.com/",
+    "sources": "https://github.com/CorgiTaco/BYG"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "LGPLv3",
+  "icon": "assets/byg/logo_text.png",
 
   "environment": "*",
   "entrypoints": {
@@ -31,7 +32,8 @@
 
   "depends": {
     "fabricloader": ">=0.7.4",
-    "fabric": "*"
+    "fabric": "*",
+    "minecraft": "1.16.x"
   },
   "suggests": {
     "flamingo": "*"

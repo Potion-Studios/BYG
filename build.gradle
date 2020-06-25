@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.2.7-SNAPSHOT'
+	id 'fabric-loom' version '0.4-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -11,14 +11,19 @@ version = project.mod_version
 group = project.maven_group
 
 dependencies {
-	minecraft "com.mojang:minecraft:1.16.1"
-	mappings "net.fabricmc:yarn:1.16.1+build.4:v2"
-	modImplementation "net.fabricmc:fabric-loader:0.8.8+build.202"
+	//to change the versions see the gradle.properties file
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	//Fabric api
-	modImplementation "net.fabricmc.fabric-api:fabric-api:0.13.1+build.370-1.16"
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
 	compileOnly "com.google.code.findbugs:jsr305:3.0.2"
+}
 
+minecraft {
+	accessWidener = file("src/main/resources/byg.aw")
 }
 
 processResources {
@@ -51,10 +56,6 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 
 jar {
 	from "LICENSE"
-}
-
-minecraft {
-	accessWidener = file("src/main/resources/byg.aw")
 }
 
 // configure the maven publication

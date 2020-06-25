@@ -34,7 +34,7 @@ public class BaobabSavanna extends Biome implements BiomeTools {
         BYGTreeFeatures.addBaobabTrees(this);
         StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/savanna/town_centers"), 6));
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
-        DefaultBiomeFeatures.method_28440(this);
+        DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addSavannaTallGrass(this);
