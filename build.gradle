@@ -53,6 +53,10 @@ jar {
 	from "LICENSE"
 }
 
+minecraft {
+	accessWidener = file("src/main/resources/byg.aw")
+}
+
 // configure the maven publication
 publishing {
 	publications {

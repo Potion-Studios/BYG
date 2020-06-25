@@ -35,5 +35,6 @@
   },
   "suggests": {
     "flamingo": "*"
-  }
+  },
+  "accessWidener" : "byg.aw"
 }

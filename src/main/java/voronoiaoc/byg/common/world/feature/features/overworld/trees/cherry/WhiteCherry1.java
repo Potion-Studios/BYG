@@ -40,7 +40,7 @@ public class WhiteCherry1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
                 this.treeLog(changedBlocks, worldIn, mainmutable3, boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable4, boundsIn);
 
-                for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
+                for (int buildTrunk = 0; buildTrunk <= randTreeHeight + 1; buildTrunk++) {
                     this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
                     this.treeLog(changedBlocks, worldIn, mainmutable2, boundsIn);
                     this.treeLog(changedBlocks, worldIn, mainmutable3, boundsIn);

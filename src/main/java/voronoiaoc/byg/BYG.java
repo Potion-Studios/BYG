@@ -8,6 +8,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
+import voronoiaoc.byg.common.properties.vanilla.BYGFlammables;
+import voronoiaoc.byg.common.properties.vanilla.BYGHoeables;
+import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 import voronoiaoc.byg.core.registries.BYGBlockRegistry;
 import voronoiaoc.byg.core.registries.BYGItemRegistry;
@@ -20,9 +24,22 @@ public class BYG implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Initializing BYG...");
+        //Registries
         BYGBlockRegistry.registerBlocks();
         BYGItemRegistry.registerItems();
         BYGBiomeRegistry.registerBiomes();
+
+        //Misc
+        BYGBiomeRegistry.addBeachesCategorically();
+
+        //Block Settings
+        BYGFlammables.flammablesBYG();
+        BYGHoeables.effectiveBlocksBYG();
+        BYGHoeables.tillablesBYG();
+        BYGStrippables.strippableLogsBYG();
+        BYGCompostables.compostablesBYG();
+
+        //Misc
         BYGBiomeRegistry.addBeachesCategorically();
         LOGGER.info("Initialized BYG!");
 
