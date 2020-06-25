@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side_tall",
+  "textures": {
+    "wall": "byg:blocks/scoria_stone",
+    "particle": "byg:blocks/scoria_stone"
+  }
+}
