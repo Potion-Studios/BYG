@@ -19,7 +19,6 @@ public class BYGStrippables {
 
     public static void strippableLogsBYG() {
         BYG.LOGGER.debug("BYG: Adding strippable Blocks...");
-
         strippableBlock(BYGBlockList.ASPEN_LOG, BYGBlockList.STRIPPED_ASPEN_LOG);
         strippableBlock(BYGBlockList.BAOBAB_LOG, BYGBlockList.STRIPPED_BAOBAB_LOG);
         strippableBlock(BYGBlockList.BLUE_ENCHANTED_LOG, BYGBlockList.STRIPPED_BLUE_ENCHANTED_LOG);
@@ -42,7 +41,6 @@ public class BYGStrippables {
         strippableBlock(BYGBlockList.WILLOW_LOG, BYGBlockList.STRIPPED_WILLOW_LOG);
         strippableBlock(BYGBlockList.WITCH_HAZEL_LOG, BYGBlockList.STRIPPED_WITCH_HAZEL_LOG);
         strippableBlock(BYGBlockList.ZELKOVA_LOG, BYGBlockList.STRIPPED_ZELKOVA_LOG);
-
         strippableBlock(BYGBlockList.ASPEN_WOOD, BYGBlockList.STRIPPED_ASPEN_WOOD);
         strippableBlock(BYGBlockList.BAOBAB_WOOD, BYGBlockList.STRIPPED_BAOBAB_WOOD);
         strippableBlock(BYGBlockList.BLUE_ENCHANTED_WOOD, BYGBlockList.STRIPPED_BLUE_ENCHANTED_WOOD);

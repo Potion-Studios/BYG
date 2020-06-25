@@ -15,18 +15,17 @@ import java.util.Set;
 public class BYGHoeables {
     public static void tillablesBYG() {
         BYG.LOGGER.debug("BYG: Adding Hoe Tillables...");
-
         addTillable(BYGBlockList.OVERGROWN_STONE, Blocks.FARMLAND.getDefaultState());
         addTillable(BYGBlockList.OVERGROWN_DACITE, Blocks.FARMLAND.getDefaultState());
         addTillable(BYGBlockList.PODZOL_DACITE, Blocks.FARMLAND.getDefaultState());
         addTillable(BYGBlockList.MEADOW_GRASSBLOCK, Blocks.FARMLAND.getDefaultState());
         addTillable(BYGBlockList.MEADOW_DIRT, Blocks.FARMLAND.getDefaultState());
         addTillable(BYGBlockList.PEAT, Blocks.FARMLAND.getDefaultState());
-
-        BYG.LOGGER.info("BYG: Added Hoe Tillables!!");
+        BYG.LOGGER.debug("BYG: Added Hoe Tillables!!");
     }
 
     public static void effectiveBlocksBYG() {
+        BYG.LOGGER.debug("BYG: Adding Hoe Effective Blocks...");
         addEffectiveBlocks(BYGBlockList.ASPEN_LEAVES);
         addEffectiveBlocks(BYGBlockList.BAOBAB_LEAVES);
         addEffectiveBlocks(BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES);
@@ -72,6 +71,8 @@ public class BYGHoeables {
         addEffectiveBlocks(BYGBlockList.YELLOW_SPRUCE_LEAVES);
         addEffectiveBlocks(BYGBlockList.ZELKOVA_LEAVES);
         addEffectiveBlocks(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE);
+        BYG.LOGGER.debug("BYG: Added Hoe Effective Blocks!");
+
     }
 
     public static void addTillable(Block block, BlockState state) {
