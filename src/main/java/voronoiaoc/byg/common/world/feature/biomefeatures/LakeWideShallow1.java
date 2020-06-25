@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.stream.IntStream;
 
 
-public class LakeWideShallow extends Feature<DefaultFeatureConfig> {
+public class LakeWideShallow1 extends Feature<DefaultFeatureConfig> {
 
     protected static final Set<Material> unacceptableSolidMaterials = ImmutableSet.of(Material.BAMBOO, Material.BAMBOO_SAPLING, Material.LEAVES, Material.COBWEB, Material.CACTUS, Material.METAL, Material.GOURD, Material.CAKE, Material.EGG, Material.BARRIER, Material.CAKE);
 
@@ -40,7 +40,7 @@ public class LakeWideShallow extends Feature<DefaultFeatureConfig> {
     }
 
 
-    public LakeWideShallow(Codec<DefaultFeatureConfig> configFactory) {
+    public LakeWideShallow1(Codec<DefaultFeatureConfig> configFactory) {
         super(configFactory);
     }
 
