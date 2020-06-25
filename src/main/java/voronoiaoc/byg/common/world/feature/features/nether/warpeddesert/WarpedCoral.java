@@ -18,7 +18,7 @@ public class WarpedCoral extends Feature<NoFeatureConfig> {
     }
 
     public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        if (!worldIn.isAirBlock(pos) || !(worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND) || !(worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL)) {
+        if (!worldIn.isAirBlock(pos)) {
             return false;
         } else if ((worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND) || (worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL)) {
             worldIn.setBlockState(pos, BYGBlockList.WARPED_CORAL.getDefaultState(), 2);
