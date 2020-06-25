@@ -38,7 +38,7 @@ public class BlueEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatur
     protected static boolean isDirtOrPeatBlock(ModifiableTestableWorld worldIn, BlockPos pos) {
         return worldIn.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
-            return Feature.isDirt(block) || block == BYGBlockList.PEAT;
+            return Feature.isSoil(block) || block == BYGBlockList.PEAT;
         });
     }
 

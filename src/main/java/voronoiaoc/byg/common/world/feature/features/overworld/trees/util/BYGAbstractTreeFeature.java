@@ -42,7 +42,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
     public static boolean canTreePlaceHereWater(TestableWorld worldReader, BlockPos blockPos) {
         return worldReader.testBlockState(blockPos, (state) -> {
             Block block = state.getBlock();
-            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isDirt(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.GLOWCELIUM || block == Blocks.WATER;
+            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isSoil(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.GLOWCELIUM || block == Blocks.WATER;
         });
     }
 
@@ -60,7 +60,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.WATER);
     }
 
-    protected static boolean isAir(TestableWorld worldIn, BlockPos pos) {
+    public static boolean isAir(TestableWorld worldIn, BlockPos pos) {
         return worldIn.testBlockState(pos, AbstractBlock.AbstractBlockState::isAir);
     }
 

@@ -43,7 +43,7 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
                             int lvt_14_1_ = z - pos.getZ();
                             if (lvt_13_1_ * lvt_13_1_ + lvt_14_1_ * lvt_14_1_ <= randNextInt * randNextInt) {
                                 pos2.set(x, world.getTopY(Heightmap.Type.WORLD_SURFACE, x, z) - 1, z);
-                                if (isDirt(world.getBlockState(pos2).getBlock())) {
+                                if (isSoil(world.getBlockState(pos2).getBlock())) {
                                     world.setBlockState(pos2, BYGBlockList.SYTHIAN_NYLIUM.getDefaultState(), 2);
                                 }
                             }
