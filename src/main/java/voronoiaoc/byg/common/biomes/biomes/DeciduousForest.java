@@ -81,6 +81,11 @@ public class DeciduousForest extends Biome {
         return 6589494;
     }
 
+    @Override
+    public int func_235080_i_() {
+        return super.func_235080_i_();
+    }
+
     @Nullable
     @Override
     public Biome getHill(INoiseRandom rand) {
