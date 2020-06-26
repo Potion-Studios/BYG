@@ -6,8 +6,10 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.structure.VillageConfig;
-import net.minecraft.world.gen.placement.*;
+import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.CountRangeConfig;
+import net.minecraft.world.gen.placement.FrequencyConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
 import voronoiaoc.byg.BYG;
@@ -49,11 +51,11 @@ public class BYGFeaturesInVanilla {
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.RICHEA_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
             }
 
-            if (biome == Biomes.JUNGLE) {
-                biome.addStructure(BYGFeatureList.BYGVILLAGE.withConfiguration(new VillageConfig("byg:village/jungle/town_centers", 6)));
-                biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.withConfiguration(new VillageConfig("byg:village/jungle/town_centers", 6)).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-
-            }
+//            if (biome == Biomes.JUNGLE) {
+//                biome.addStructure(BYGFeatureList.BYGVILLAGE.withConfiguration(new VillageConfig("byg:village/jungle/town_centers", 6)));
+//                biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.withConfiguration(new VillageConfig("byg:village/jungle/town_centers", 6)).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+//
+//            }
 
             if (biome == Biomes.RIVER) {
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.CATTAIL_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(25))));

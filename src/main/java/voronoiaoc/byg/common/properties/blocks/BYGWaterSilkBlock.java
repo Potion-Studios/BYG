@@ -8,12 +8,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -28,7 +28,7 @@ public class BYGWaterSilkBlock extends BushBlock {
     @Override
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.COD && entityIn.getType() != EntityType.SQUID) {
-            entityIn.setMotionMultiplier(state, new Vec3d(0.8F, 0.75D, 0.8F));
+            entityIn.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
             double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
             double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);
         }
@@ -50,7 +50,7 @@ public class BYGWaterSilkBlock extends BushBlock {
 
     @Override
     protected boolean isValidGround(BlockState p_200014_1_, IBlockReader p_200014_2_, BlockPos p_200014_3_) {
-        IFluidState lvt_4_1_ = p_200014_2_.getFluidState(p_200014_3_);
+        FluidState lvt_4_1_ = p_200014_2_.getFluidState(p_200014_3_);
         return lvt_4_1_.getFluid() == Fluids.WATER || p_200014_1_.getMaterial() == Material.ICE;
     }
 }

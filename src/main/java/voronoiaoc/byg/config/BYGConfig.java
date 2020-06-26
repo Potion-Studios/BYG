@@ -18,6 +18,7 @@ public class BYGConfig {
     public static ForgeConfigSpec.BooleanValue mainMenuPanorama;
     public static ForgeConfigSpec.BooleanValue bygWorldType;
     public static ForgeConfigSpec.EnumValue<BiomeFogSettings> biomeFogEffects;
+
     public enum BiomeFogSettings {DENSEFOGCOLOR, DENSEFOG, FOGCOLOR, OFF}
 
     static {

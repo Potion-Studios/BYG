@@ -11,9 +11,9 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
@@ -29,13 +29,13 @@ public class BYGFrostMagmaBlock extends Block {
     }
 
     public void onEntityWalk(World block, BlockPos pos, Entity entity) {
-        if (!entity.isImmuneToFire() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+        if (!entity.func_230279_az_() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
             entity.attackEntityFrom(DamageSource.HOT_FLOOR, 1.0F);
         }
 
         if (entity instanceof LivingEntity) {
             LivingEntity livingentity = (LivingEntity) entity;
-            if (!entity.isImmuneToFire() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+            if (!entity.func_230279_az_() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
                 livingentity.addPotionEffect(new EffectInstance(Effects.LEVITATION, 20, 30));
             }
         }
@@ -47,9 +47,9 @@ public class BYGFrostMagmaBlock extends Block {
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState blockstate, World world, BlockPos pos, Random rand) {
         VoxelShape shape = this.getShape(blockstate, world, pos, ISelectionContext.dummy());
-        Vec3d vec3d = shape.getBoundingBox().getCenter();
-        double getX = (double) pos.getX() + vec3d.x;
-        double getZ = (double) pos.getZ() + vec3d.z;
+        Vector3d Vector3d = shape.getBoundingBox().getCenter();
+        double getX = (double) pos.getX() + Vector3d.x;
+        double getZ = (double) pos.getZ() + Vector3d.z;
 
         for (int idx = 0; idx < 3; ++idx) {
             if (rand.nextBoolean()) {

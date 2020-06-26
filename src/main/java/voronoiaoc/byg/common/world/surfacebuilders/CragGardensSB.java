@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
-import com.mojang.datafixers.Dynamic;
+import com.google.common.collect.ImmutableList;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
@@ -11,11 +12,10 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
-import java.util.function.Function;
 
 
 public class CragGardensSB extends SurfaceBuilder<SurfaceBuilderConfig> {
-    public CragGardensSB(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> p_i51310_1_) {
+    public CragGardensSB(Codec<SurfaceBuilderConfig> p_i51310_1_) {
         super(p_i51310_1_);
     }
 
@@ -26,7 +26,7 @@ public class CragGardensSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     public void setSeed(long seed) {
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         if (this.noiseSeed != seed || this.noiseGen == null) {
-            this.noiseGen = new PerlinNoiseGenerator(sharedseedrandom, 2, 0);
+            this.noiseGen = new PerlinNoiseGenerator (sharedseedrandom, ImmutableList.of(0));
         }
 
         this.noiseSeed = seed;

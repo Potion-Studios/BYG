@@ -1,6 +1,6 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
@@ -9,10 +9,9 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class RockyBlackBeachSB extends SurfaceBuilder<SurfaceBuilderConfig> {
-    public RockyBlackBeachSB(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> p_i51312_1_) {
+    public RockyBlackBeachSB(Codec<SurfaceBuilderConfig> p_i51312_1_) {
         super(p_i51312_1_);
     }
 

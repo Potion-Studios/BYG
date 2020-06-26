@@ -1,11 +1,14 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:small_flowers",
     "byg:meadow_dirt",
     "byg:mud_bricks",
     "byg:mud_block",
     "byg:meadow_grass_block",
-    "byg:peat"
+    "byg:peat",
+    "byg:sythian_nylium",
+    "byg:overgrown_netherrack",
+    "byg:nylium_soul_sand",
+    "byg:nylium_soul_soil"
   ]
 }

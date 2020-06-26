@@ -1,10 +1,10 @@
 package voronoiaoc.byg.common.biomes;
 
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 
 public interface BiomeFog {
 
-    default Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
+    default Vector3d getBiomeFogColor(int x, int z, Vector3d originalValue) {
         return originalValue;
     }
 

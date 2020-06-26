@@ -1,34 +1,33 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
-import java.util.function.Function;
 
 public class PinkCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public PinkCherry1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public PinkCherry1(Codec<NoFeatureConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
         int randTreeHeight = 14 + rand.nextInt(7);
-        BlockPos.Mutable mainmutable = new BlockPos.Mutable(pos);
-        BlockPos.Mutable mainmutable2 = new BlockPos.Mutable(pos.offset(Direction.SOUTH));
-        BlockPos.Mutable mainmutable3 = new BlockPos.Mutable(pos.offset(Direction.EAST));
-        BlockPos.Mutable mainmutable4 = new BlockPos.Mutable(pos.offset(Direction.EAST).offset(Direction.SOUTH));
+        BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
+        BlockPos.Mutable mainmutable2 = new BlockPos.Mutable().setPos(pos.offset(Direction.SOUTH));
+        BlockPos.Mutable mainmutable3 = new BlockPos.Mutable().setPos(pos.offset(Direction.EAST));
+        BlockPos.Mutable mainmutable4 = new BlockPos.Mutable().setPos(pos.offset(Direction.EAST).offset(Direction.SOUTH));
 
-        if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
             if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
@@ -803,21 +802,21 @@ public class PinkCherry1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     }
 
     //Log Placement
-    private void treeLog(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canTreePlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.CHERRY_LOG.getDefaultState(), boundingBox);
         }
     }
 
     //Log Placement
-    private void treeBranch(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canTreePlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.CHERRY_LOG.getDefaultState(), boundingBox);
         }
     }
 
     //Leaves Placement
-    private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.PINK_CHERRY_LEAVES.getDefaultState(), boundingBox);
         }

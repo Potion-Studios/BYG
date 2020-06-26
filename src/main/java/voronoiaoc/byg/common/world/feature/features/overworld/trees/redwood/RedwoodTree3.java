@@ -16,15 +16,15 @@
 //
 //public class RedwoodTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 //
-//    public RedwoodTree3(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+//    public RedwoodTree3(Codec<NoFeatureConfig> configIn) {
 //        super(configIn);
 //    }
 //
-//    protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
+//    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
 //        int randTreeHeight = 23 + rand.nextInt(5);
-//        BlockPos.Mutable mainmutable = new BlockPos.Mutable(pos);
+//        BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 //
-//        if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
+//        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
 //            BlockPos blockpos = pos.down();
 //            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
 //                return false;
@@ -38,21 +38,21 @@
 //    }
 //
 //    //Log Placement
-//    private void treeLog(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+//    private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
 //        if (canTreePlaceHere(reader, pos)) {
 //            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.REDWOOD_LOG.getDefaultState(), boundingBox);
 //        }
 //    }
 //
 //    //Log Placement
-//    private void treeBranch(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+//    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
 //        if (canTreePlaceHere(reader, pos)) {
 //            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.REDWOOD_LOG.getDefaultState(), boundingBox);
 //        }
 //    }
 //
 //    //Leaves Placement
-//    private void leafs(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+//    private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
 ////        if (isAir(reader, pos)) {
 //            this.setFinalBlockState(blockPos, reader, pos,  BYGBlockList.REDWOOD_LEAVES.getDefaultState(), boundingBox);
 //        }

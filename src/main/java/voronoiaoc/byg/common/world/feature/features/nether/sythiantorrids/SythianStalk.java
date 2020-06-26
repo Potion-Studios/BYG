@@ -1,21 +1,20 @@
 package voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.properties.BambooLeaves;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class SythianStalk extends Feature<ProbabilityConfig> {
     private static final BlockState BAMBOO_BASE;
@@ -23,14 +22,14 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
     private static final BlockState BAMBOO_LARGE_LEAVES;
     private static final BlockState BAMBOO_SMALL_LEAVES;
 
-    public SythianStalk(Function<Dynamic<?>, ? extends ProbabilityConfig> config) {
+    public SythianStalk(Codec<ProbabilityConfig> config) {
         super(config);
     }
 
-    public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, ProbabilityConfig config) {
+    public boolean func_230362_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
         int lvt_6_1_ = 0;
-        BlockPos.Mutable mutable = new BlockPos.Mutable(pos);
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable(pos);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
+        BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(pos);
         if (world.isAirBlock(mutable)) {
             if (BYGBlockList.SYTHIAN_STALK_BLOCK.getDefaultState().isValidPosition(world, mutable)) {
                 int randSpawnHeight = rand.nextInt(12) + 5;

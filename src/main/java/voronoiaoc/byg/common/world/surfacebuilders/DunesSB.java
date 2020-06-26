@@ -1,6 +1,6 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -11,12 +11,11 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class DunesSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     public static final BlockState SAND = Blocks.SAND.getDefaultState();
 
-    public DunesSB(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> p_i51312_1_) {
+    public DunesSB(Codec<SurfaceBuilderConfig> p_i51312_1_) {
         super(p_i51312_1_);
     }
 

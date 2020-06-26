@@ -1,19 +1,19 @@
 package voronoiaoc.byg.common.world.feature.features.nether.warpeddesert;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 import static net.minecraft.util.Direction.Plane;
 import static net.minecraft.util.Direction.UP;
@@ -21,23 +21,23 @@ import static net.minecraft.util.Direction.UP;
 public class WarpedCoralFeature extends Feature<NoFeatureConfig> {
     public static boolean doBlockNotify;
 
-    public WarpedCoralFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+    public WarpedCoralFeature(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
-    public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_230362_a_(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
         int randCoralHeight = rand.nextInt(7) + 16 / 2;
         BlockPos blockPos = new BlockPos(posX, posY, posZ);
-        BlockPos.Mutable block = new BlockPos.Mutable(blockPos);
+        BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);
 
         if (!checkArea(worldIn, pos)) {
             return false;
         } else if ((worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND) || (worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL)) {
             for (int i = 0; i <= randCoralHeight; i++) {
-                BlockPos.Mutable mutable = new BlockPos.Mutable(block);
+                BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(block);
 
                 this.setCoralBlock(worldIn, mutable);
                 this.setCoralBlock(worldIn, mutable.move(UP, i));

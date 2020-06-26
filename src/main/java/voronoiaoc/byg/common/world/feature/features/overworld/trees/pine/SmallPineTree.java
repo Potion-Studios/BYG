@@ -1,16 +1,16 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.pine;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
@@ -18,15 +18,14 @@ import net.minecraft.world.server.ServerWorld;
 import voronoiaoc.byg.BYG;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class SmallPineTree extends Feature<NoFeatureConfig> {
 
-    public SmallPineTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public SmallPineTree(Codec<NoFeatureConfig> configIn) {
         super(configIn);
     }
 
-    public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_230362_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         if (pos.getX() == -8 && pos.getZ() == -9) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
@@ -37,7 +36,7 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
                 }
             }
 
-            TemplateManager templatemanager = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager();
+            TemplateManager templatemanager = ((ServerWorld) world.getWorld()).getStructureTemplateManager();
             Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/redwood_treexl_piece1"));
             Template template2 = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/redwood_treexl_piece2"));
 
@@ -47,8 +46,8 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
             }
 
             PlacementSettings placementsettings = (new PlacementSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunk(null);
-            template.addBlocksToWorld(world, pos, placementsettings);
-            template2.addBlocksToWorld(world, pos.up(32), placementsettings);
+            template.func_237144_a_(world, pos, placementsettings, rand);
+            template2.func_237144_a_(world, pos.up(32), placementsettings, rand);
             return true;
         }
         return false;

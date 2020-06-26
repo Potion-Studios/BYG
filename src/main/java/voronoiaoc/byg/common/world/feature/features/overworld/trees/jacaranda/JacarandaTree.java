@@ -22,7 +22,7 @@
 //    private static final BlockState LEAVES = BYGBlockList.JACARANDA_LEAVES.getDefaultState();
 //    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 //
-//    public JacarandaTree(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+//    public JacarandaTree(Codec<NoFeatureConfig> configIn) {
 //        super(configIn, doBlockNotifyIn, beeHiveChance);
 //        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.JACARANDA_SAPLING);
 //    }
@@ -33,14 +33,14 @@
 //        );
 //    }
 //
-//    public boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
+//    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
 //        //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
 //        int randTreeHeight = rand.nextInt(3) + rand.nextInt(2) + 8;
 //        //Positions
 //        int posX = position.getX();
 //        int posY = position.getY();
 //        int posZ = position.getZ();
-//        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxHeight()) {
+//        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
 //            BlockPos blockpos = position.down();
 //            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
 //                return false;
@@ -242,7 +242,7 @@
 //    }
 //
 //    //Log Placement
-//    private void treelog(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+//    private void treelog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
 //        if (canTreeReplace(reader, pos)) {
 //            this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
 //        }
@@ -250,7 +250,7 @@
 //    }
 //
 //    //Leaves Placement
-//    private void leafs(IWorldGenerationReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
+//    private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
 //        BlockPos blockpos = new BlockPos(x, y, z);
 //        if (isAir(reader, pos)) {
 //            this.setFinalBlockState(blockPos, reader, pos, LEAVES, boundingBox);

@@ -5,7 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
@@ -31,12 +31,12 @@ public class WaterLogLeavesBlock extends LeavesBlock implements IWaterLoggable {
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         BlockPos blockpos = context.getPos();
-        IFluidState ifluidstate = context.getWorld().getFluidState(blockpos);
-        return updateDistance(this.getDefaultState().with(PERSISTENT, Boolean.valueOf(true)).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER)), context.getWorld(), context.getPos());
+        FluidState FluidState = context.getWorld().getFluidState(blockpos);
+        return updateDistance(this.getDefaultState().with(PERSISTENT, Boolean.valueOf(true)).with(WATERLOGGED, Boolean.valueOf(FluidState.getFluid() == Fluids.WATER)), context.getWorld(), context.getPos());
     }
 
     @Override
-    public IFluidState getFluidState(BlockState state) {
+    public FluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
     }
 

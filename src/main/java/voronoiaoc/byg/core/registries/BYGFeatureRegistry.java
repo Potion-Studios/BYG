@@ -1,14 +1,11 @@
 package voronoiaoc.byg.core.registries;
 
-import net.minecraft.world.biome.provider.BiomeProviderType;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import voronoiaoc.byg.BYG;
-import voronoiaoc.byg.common.world.dimension.end.EndDimensionHook;
 import voronoiaoc.byg.core.byglists.BYGFeatureList;
-import voronoiaoc.byg.core.byglists.BYGStructureList;
 
 @Mod.EventBusSubscriber(modid = BYG.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BYGFeatureRegistry {
@@ -53,21 +50,21 @@ public class BYGFeatureRegistry {
                 BYGFeatureList.CONIFER_TREE8.setRegistryName("wideconiferous_tree"),
                 BYGFeatureList.BIRCH_YELLOW_TREE1.setRegistryName("yellowbirch_tree"),
                 BYGFeatureList.DECIDUOUS_YELLOW_TREE.setRegistryName("yellowdeciduous_tree"),
-                BYGFeatureList.YELLOWSPRUCE_TREE.setRegistryName("yellowspruce_tree"),
-                BYGFeatureList.BYGVILLAGE.setRegistryName("village"),
-                BYGStructureList.RED_DESERT_PYRAMID.setRegistryName("red_desert_temple"),
-                BYGFeatureList.SKYRISFORTRESS.setRegistryName("skyris_fortress")
+                BYGFeatureList.YELLOWSPRUCE_TREE.setRegistryName("yellowspruce_tree")
+//                BYGFeatureList.BYGVILLAGE.setRegistryName("village"),
+//                BYGStructureList.RED_DESERT_PYRAMID.setRegistryName("red_desert_temple"),
+//                BYGFeatureList.SKYRISFORTRESS.setRegistryName("skyris_fortress")
         );
-        BYGStructureList.structurePieces();
+//        BYGStructureList.structurePieces();
 
         BYG.LOGGER.info("BYG: Features Registered!");
 
     }
 
-    @SubscribeEvent
-    public static void bygRegisterBiomeProviderTypes(RegistryEvent.Register<BiomeProviderType<?, ?>> event) {
-        event.getRegistry().registerAll(
-                EndDimensionHook.BYG_END.setRegistryName("end_byg")
-        );
-    }
+//    @SubscribeEvent
+//    public static void bygRegisterBiomeProviderTypes(RegistryEvent.Register<BiomeProviderType<?, ?>> event) {
+//        event.getRegistry().registerAll(
+//                EndDimensionHook.BYG_END.setRegistryName("end_byg")
+//        );
+//    }
 }

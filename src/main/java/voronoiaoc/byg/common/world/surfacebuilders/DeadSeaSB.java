@@ -1,6 +1,6 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.tags.FluidTags;
@@ -15,7 +15,6 @@ import voronoiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSim
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class DeadSeaSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     protected ChunkFastSimplexStyleNoise noiseGen;
@@ -23,7 +22,7 @@ public class DeadSeaSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     protected PerlinNoiseGenerator perlin1;
     BlockState[] blockStateArray = {BYGBlockList.ROCKY_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), BYGBlockList.MOSSY_STONE.getDefaultState()};
 
-    public DeadSeaSB(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> config) {
+    public DeadSeaSB(Codec<SurfaceBuilderConfig> config) {
         super(config);
     }
 

@@ -3,7 +3,7 @@ package voronoiaoc.byg.common.properties.blocks;
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.properties.BambooLeaves;
 import net.minecraft.util.Direction;
@@ -27,7 +27,7 @@ public class SythianStalkBlock extends BambooBlock {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext ctx) {
-        IFluidState fluidState = ctx.getWorld().getFluidState(ctx.getPos());
+        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getPos());
         if (!fluidState.isEmpty()) {
             return null;
         } else {
@@ -71,7 +71,7 @@ public class SythianStalkBlock extends BambooBlock {
         }
 
         if (direction == Direction.UP && state2.getBlock() == this && state2.get(PROPERTY_AGE) > state.get(PROPERTY_AGE)) {
-            world.setBlockState(pos, state.cycle(PROPERTY_AGE), 2);
+            world.setBlockState(pos, state.func_235896_a_(PROPERTY_AGE), 2);
         }
 
         return super.updatePostPlacement(state, direction, state2, world, pos, posFrom);

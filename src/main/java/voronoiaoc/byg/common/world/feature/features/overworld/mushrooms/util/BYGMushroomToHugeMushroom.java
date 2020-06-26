@@ -12,14 +12,14 @@ public class BYGMushroomToHugeMushroom {
     public static class BlackPuff extends BYGHugeMushroom {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random) {
-            return new BlackPuffHuge(NoFeatureConfig::deserialize);
+            return new BlackPuffHuge(NoFeatureConfig.field_236558_a_);
         }
     }
 
     public static class BlueGlowshroom extends BYGHugeMushroom.Massive {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random) {
-            return new BlueGlowshroomHuge(NoFeatureConfig::deserialize);
+            return new BlueGlowshroomHuge(NoFeatureConfig.field_236558_a_);
         }
 
         @Nullable
@@ -32,14 +32,14 @@ public class BYGMushroomToHugeMushroom {
     public static class GreenMushroom extends BYGHugeMushroom {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random) {
-            return new GreenMushroomHuge(NoFeatureConfig::deserialize);
+            return new GreenMushroomHuge(NoFeatureConfig.field_236558_a_);
         }
     }
 
     public static class PurpleGlowshroom extends BYGHugeMushroom.Massive {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random) {
-            return new PurpleGlowshroomHuge(NoFeatureConfig::deserialize);
+            return new PurpleGlowshroomHuge(NoFeatureConfig.field_236558_a_);
         }
 
         @Nullable
@@ -53,14 +53,14 @@ public class BYGMushroomToHugeMushroom {
     public static class WeepingMilkCap extends BYGHugeMushroom {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random) {
-            return new WeepingMilkcapHuge(NoFeatureConfig::deserialize);
+            return new WeepingMilkcapHuge(NoFeatureConfig.field_236558_a_);
         }
     }
 
     public static class WoodBlewit extends BYGHugeMushroom {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random) {
-            return new WoodBlewitHuge(NoFeatureConfig::deserialize);
+            return new WoodBlewitHuge(NoFeatureConfig.field_236558_a_);
         }
     }
 }

@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
-import com.mojang.datafixers.Dynamic;
+import com.google.common.collect.ImmutableList;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,7 +16,6 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.function.Function;
 
 public class RRSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.getDefaultState();
@@ -31,7 +31,7 @@ public class RRSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     protected PerlinNoiseGenerator field_215437_d;
     protected PerlinNoiseGenerator field_215439_e;
 
-    public RRSB(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> p_i51317_1_) {
+    public RRSB(Codec<SurfaceBuilderConfig> p_i51317_1_) {
         super(p_i51317_1_);
     }
 
@@ -117,8 +117,8 @@ public class RRSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         if (this.field_215433_b != seed || this.field_215435_c == null || this.field_215437_d == null) {
             SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
-            this.field_215435_c = new PerlinNoiseGenerator(sharedseedrandom, 3, 0);
-            this.field_215437_d = new PerlinNoiseGenerator(sharedseedrandom, 0, 0);
+            this.field_215435_c = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
+            this.field_215437_d = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
         }
 
         this.field_215433_b = seed;
@@ -128,7 +128,7 @@ public class RRSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         this.field_215432_a = new BlockState[64];
         Arrays.fill(this.field_215432_a, TERRACOTTA);
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(p_215430_1_);
-        this.field_215439_e = new PerlinNoiseGenerator(sharedseedrandom, 0, 0);
+        this.field_215439_e = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
 
         for (int l1 = 0; l1 < 64; ++l1) {
             l1 += sharedseedrandom.nextInt(5) + 1;

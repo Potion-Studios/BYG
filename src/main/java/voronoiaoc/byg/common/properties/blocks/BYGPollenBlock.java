@@ -7,10 +7,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -26,7 +25,7 @@ public class BYGPollenBlock extends Block {
 
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != EntityType.BAT) {
-            entityIn.setMotionMultiplier(state, new Vec3d(0.8F, 0.75D, 0.8F));
+            entityIn.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
             double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
             double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);
         }
@@ -35,7 +34,7 @@ public class BYGPollenBlock extends Block {
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState p_180655_1_, World p_180655_2_, BlockPos p_180655_3_, Random p_180655_4_) {
         VoxelShape lvt_5_1_ = this.getShape(p_180655_1_, p_180655_2_, p_180655_3_, ISelectionContext.dummy());
-        Vec3d lvt_6_1_ = lvt_5_1_.getBoundingBox().getCenter();
+        Vector3d lvt_6_1_ = lvt_5_1_.getBoundingBox().getCenter();
         double lvt_7_1_ = (double) p_180655_3_.getX() + lvt_6_1_.x;
         double lvt_9_1_ = (double) p_180655_3_.getZ() + lvt_6_1_.z;
 
@@ -47,9 +46,8 @@ public class BYGPollenBlock extends Block {
 
     }
 
-    public boolean canEntitySpawn(BlockState p_220067_1_, IBlockReader p_220067_2_, BlockPos p_220067_3_, EntityType<?> p_220067_4_) {
+    @Override
+    public boolean canSpawnInBlock() {
         return true;
     }
-
-
 }

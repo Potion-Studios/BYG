@@ -1,6 +1,6 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -11,7 +11,6 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 @SuppressWarnings("deprecation")
 public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
@@ -19,7 +18,7 @@ public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
     private static final BlockState BLUE_ICE = BYGBlockList.BLACK_ICE.getDefaultState();
     private static final BlockState BLUE_ICE2 = Blocks.SNOW_BLOCK.getDefaultState();
 
-    public ShatteredGlacierSB2(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> config) {
+    public ShatteredGlacierSB2(Codec<SurfaceBuilderConfig> config) {
         super(config);
     }
 

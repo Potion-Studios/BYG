@@ -24,7 +24,7 @@ public class MixinIslandLayer {
 
     @Inject(at = @At("HEAD"), method = "apply", cancellable = true)
     private void apply(INoiseRandom context, int sw, int se, int ne, int nw, int center, CallbackInfoReturnable<Integer> cir) {
-       cir.setReturnValue(this.isShallowOcean(sw) && this.isShallowOcean(se) && this.isShallowOcean(ne) && this.isShallowOcean(nw) && this.isShallowOcean(center) && context.random(50) == 0 ? TROPISLAND : center);
+        cir.setReturnValue(this.isShallowOcean(sw) && this.isShallowOcean(se) && this.isShallowOcean(ne) && this.isShallowOcean(nw) && this.isShallowOcean(center) && context.random(50) == 0 ? TROPISLAND : center);
     }
 
     private boolean isShallowOcean(int biomeIn) {

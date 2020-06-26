@@ -1,29 +1,28 @@
 package voronoiaoc.byg.common.world.feature.features.overworld;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class VinePlacer extends Feature<NoFeatureConfig> {
-    public VinePlacer(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+    public VinePlacer(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
-    public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_230362_a_(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
-        BlockPos.Mutable block = new BlockPos.Mutable(blockPos);
-        BlockPos.Mutable mainMutable = new BlockPos.Mutable(block);
+        BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);
+        BlockPos.Mutable mainMutable = new BlockPos.Mutable().setPos(block);
         BlockState currentBlockToReplace = worldIn.getBlockState(mainMutable);
 
         for (Direction direction : Direction.Plane.HORIZONTAL) {

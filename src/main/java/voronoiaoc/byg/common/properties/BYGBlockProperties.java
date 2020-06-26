@@ -118,7 +118,7 @@ public class BYGBlockProperties {
                             .hardnessAndResistance(0.0f)
                             .doesNotBlockMovement()
                             .notSolid()
-                            .lightValue(8)
+                            .func_235838_a_((state) -> 8)
             );
             setRegistryName(registryName);
 
@@ -333,7 +333,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .notSolid()
                     .slipperiness(0.98F)
-                    .lightValue(10)
+                    .func_235838_a_((state) -> 10)
             );
             setRegistryName(registryName);
         }
@@ -427,7 +427,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.GROUND)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
-                    .lightValue(10)
+                    .func_235838_a_((state) -> 10)
 
             );
             setRegistryName(registryName);
@@ -468,7 +468,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .sound(SoundType.PLANT)
                     .notSolid()
-                    .lightValue(12)
+                    .func_235838_a_((state) -> 12)
             );
             setRegistryName(registryName);
             this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)));
@@ -499,9 +499,9 @@ public class BYGBlockProperties {
 //        @OnlyIn(Dist.CLIENT)
 //        public void animateTick(BlockState blockstate, World world, BlockPos pos, Random rand) {
 //            VoxelShape shape = this.getShape(blockstate, world, pos, ISelectionContext.dummy());
-//            Vec3d vec3d = shape.getBoundingBox().getCenter();
-//            double getX = (double) pos.getX() + vec3d.x;
-//            double getZ = (double) pos.getZ() + vec3d.z;
+//            Vector3d Vector3d = shape.getBoundingBox().getCenter();
+//            double getX = (double) pos.getX() + Vector3d.x;
+//            double getZ = (double) pos.getZ() + Vector3d.z;
 //
 //            for (int idx = 0; idx < 15; ++idx) {
 //                if (rand.nextBoolean()) {
@@ -531,7 +531,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
                     .notSolid()
-                    .lightValue(8)
+                    .func_235838_a_((state) -> 8)
             );
             setRegistryName(registryName);
         }
@@ -544,7 +544,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
                     .notSolid()
-                    .lightValue(8)
+                    .func_235838_a_((state) -> 8)
             );
             setRegistryName(registryName);
         }
@@ -558,7 +558,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
                     .lootFrom(BYGBlockList.WARPED_CORAL)
-                    .lightValue(8)
+                    .func_235838_a_((state) -> 8)
             );
             setRegistryName(registryName);
         }
@@ -572,7 +572,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
                     .lootFrom(BYGBlockList.WARPED_CORAL)
-                    .lightValue(8)
+                    .func_235838_a_((state) -> 8)
             );
             setRegistryName(registryName);
         }
@@ -585,7 +585,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
                     .notSolid()
-                    .lightValue(8)
+                    .func_235838_a_((state) -> 8)
             );
             setRegistryName(registryName);
 
@@ -599,7 +599,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .notSolid()
                     .tickRandomly()
-                    .lightValue(8)
+                    .func_235838_a_((state) -> 8)
             );
             setRegistryName(registryName);
 
@@ -684,7 +684,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.CORAL)
                     .hardnessAndResistance(0.2f)
-                    .lightValue(8)
+                    .func_235838_a_((state) -> 8)
             );
             setRegistryName(registryName);
         }
@@ -698,7 +698,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .notSolid()
                     .doesNotBlockMovement()
-                    .lightValue(9)
+                    .func_235838_a_((state) -> 9)
             );
             setRegistryName(registryName);
         }
@@ -752,6 +752,15 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class LogBlock extends RotatedPillarBlock {
+        private final MaterialColor verticalColor;
+
+        public LogBlock(MaterialColor verticalColorIn, AbstractBlock.Properties properties) {
+            super(properties);
+            this.verticalColor = verticalColorIn;
+        }
+    }
+
     public static class BYGLog extends LogBlock {
         public BYGLog(String registryName) {
             super(MaterialColor.WOOD,
@@ -798,7 +807,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
                     .notSolid()
-                    .lightValue(8)
+                    .func_235838_a_((state) -> 8)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -810,7 +819,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(3.0f, 3.0f)
-                    .harvestLevel(3)
+                    //.harvestLevel(3)
             );
             setRegistryName(registryName);
         }
@@ -821,7 +830,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(3.0f, 3.0f)
-                    .harvestLevel(4)
+                    //.harvestLevel(4)
             );
             setRegistryName(registryName);
         }
@@ -832,8 +841,8 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(3.0f, 3.0f)
-                    .harvestLevel(4)
-                    .lightValue(13)
+                    //.harvestLevel(4)
+                    .func_235838_a_((state) -> 13)
             );
             setRegistryName(registryName);
         }
@@ -845,7 +854,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
-                    .lightValue(10)
+                    .func_235838_a_((state) -> 10)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -858,7 +867,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
-                    .lightValue(10)
+                    .func_235838_a_((state) -> 10)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -871,7 +880,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
-                    .lightValue(10)
+                    .func_235838_a_((state) -> 10)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -884,7 +893,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
-                    .lightValue(10)
+                    .func_235838_a_((state) -> 10)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -945,7 +954,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.WOOD)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .notSolid()
-                    .lightValue(12)
+                    .func_235838_a_((state) -> 12)
             );
             setRegistryName(registryName);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
@@ -974,7 +983,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
                     .variableOpacity()
-                    .lightValue(12)
+                    .func_235838_a_((state) -> 12)
             );
             setRegistryName(registryName);
         }
@@ -1047,7 +1056,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.GLASS)
                     .sound(SoundType.GLASS)
                     .hardnessAndResistance(0.3F)
-                    .lightValue(15)
+                    .func_235838_a_((state) -> 15)
             );
             setRegistryName(registryName);
         }
@@ -1090,7 +1099,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.IRON)
                     .sound(SoundType.LANTERN)
                     .hardnessAndResistance(3.5F)
-                    .lightValue(15)
+                    .func_235838_a_((state) -> 15)
                     .notSolid()
             );
             setRegistryName(registryName);

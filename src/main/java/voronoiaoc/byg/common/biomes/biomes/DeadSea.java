@@ -2,13 +2,14 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SeaGrassConfig;
-import net.minecraft.world.gen.feature.structure.*;
 import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
@@ -30,12 +31,11 @@ public class DeadSea extends Biome implements BiomeFog {
     static final String PARENT = null;
 
     public DeadSea() {
-        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).waterColor(WATER_COLOR).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).waterFogColor(WATER_FOG_COLOR).parent(PARENT));
-        this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        this.addStructure(Feature.SHIPWRECK.withConfiguration(new ShipwreckConfig(false)));
-        this.addStructure(Feature.SHIPWRECK.withConfiguration(new ShipwreckConfig(false)));
-        this.addStructure(Feature.SHIPWRECK.withConfiguration(new ShipwreckConfig(false)));
-        this.addStructure(Feature.OCEAN_RUIN.withConfiguration(new OceanRuinConfig(OceanRuinStructure.Type.COLD, 1.3F, 1.9F)));
+        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));//this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+        //this.addStructure(Feature.SHIPWRECK.withConfiguration(new ShipwreckConfig(false)));
+        //this.addStructure(Feature.SHIPWRECK.withConfiguration(new ShipwreckConfig(false)));
+        //this.addStructure(Feature.SHIPWRECK.withConfiguration(new ShipwreckConfig(false)));
+        //this.addStructure(Feature.OCEAN_RUIN.withConfiguration(new OceanRuinConfig(OceanRuinStructure.Type.COLD, 1.3F, 1.9F)));
         BYGFeatures.addDeadSeaSpires(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);
@@ -63,11 +63,11 @@ public class DeadSea extends Biome implements BiomeFog {
     }
 
     @Override
-    public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
+    public Vector3d getBiomeFogColor(int x, int z, Vector3d originalValue) {
         return color;
     }
 
-    Vec3d color = new Vec3d(192, 192, 192);
+    Vector3d color = new Vector3d(192, 192, 192);
 
     @Override
     public int getSkyColor() {

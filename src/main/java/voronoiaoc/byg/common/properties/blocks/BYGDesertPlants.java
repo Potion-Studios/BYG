@@ -9,14 +9,14 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
-public class BYGDesertPlants extends BushBlock implements net.minecraftforge.common.IShearable {
+public class BYGDesertPlants extends BushBlock  {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     protected BYGDesertPlants(Block.Properties builder) {
@@ -29,13 +29,13 @@ public class BYGDesertPlants extends BushBlock implements net.minecraftforge.com
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext ctx) {
-        Vec3d vec3D = state.getOffset(reader, pos);
-        return SHAPE.withOffset(vec3D.x, vec3D.y, vec3D.z);
+        Vector3d Vector3d = state.getOffset(reader, pos);
+        return SHAPE.withOffset(Vector3d.x, Vector3d.y, Vector3d.z);
     }
 
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.CAT && entityIn.getType() != EntityType.RABBIT) {
-            entityIn.setMotionMultiplier(state, new Vec3d(0.8F, 0.75D, 0.8F));
+            entityIn.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
             double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
             double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {

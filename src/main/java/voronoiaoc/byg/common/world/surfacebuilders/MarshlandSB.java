@@ -1,6 +1,6 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -9,10 +9,9 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class MarshlandSB extends SurfaceBuilder<SurfaceBuilderConfig> {
-    public MarshlandSB(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> p_i51304_1_) {
+    public MarshlandSB(Codec<SurfaceBuilderConfig> p_i51304_1_) {
         super(p_i51304_1_);
     }
 

@@ -37,13 +37,6 @@ public class BYGSurfaceBuilderRegistry {
                 BYGSBList.FUNGAL_RAINFOREST_SB.setRegistryName("fungal_rainforest_sb")
 
 
-
-
-
-
-
-
-
         );
         BYG.LOGGER.info("BYG: Surface Builders Registered!");
     }

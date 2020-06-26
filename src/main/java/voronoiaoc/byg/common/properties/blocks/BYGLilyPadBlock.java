@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -47,7 +47,7 @@ public class BYGLilyPadBlock extends BushBlock {
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader reader, BlockPos p_200014_3_) {
-        IFluidState fluidState = reader.getFluidState(p_200014_3_);
+        FluidState fluidState = reader.getFluidState(p_200014_3_);
         return fluidState.getFluid() == Fluids.WATER || state.getMaterial() == Material.ICE;
     }
 }

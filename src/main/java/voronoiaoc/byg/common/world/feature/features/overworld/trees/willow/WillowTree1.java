@@ -1,38 +1,37 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.willow;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
-import java.util.function.Function;
 
 import static net.minecraft.util.Direction.*;
 
 public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public WillowTree1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public WillowTree1(Codec<NoFeatureConfig> configIn) {
         super(configIn);
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.BLUE_SPRUCE_SAPLING);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
         int randChance = rand.nextInt(2);
         int randTreeHeight = rand.nextInt(6) + 8;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
-        BlockPos.Mutable block = new BlockPos.Mutable(blockPos);
-        BlockPos.Mutable mainMutable = new BlockPos.Mutable(block);
+        BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);
+        BlockPos.Mutable mainMutable = new BlockPos.Mutable().setPos(block);
 
-        if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
             if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
@@ -41,12 +40,12 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
             } else {
                 //Trunk
                 for (int i = 3; i <= randTreeHeight; i++) {
-                    BlockPos.Mutable mutable = new BlockPos.Mutable(block);
+                    BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(block);
                     this.setWillowLog(changedBlocks, worldIn, mutable.move(UP, i), boundsIn);
                 }
 
                 for (int baseSize = 0; baseSize < 4; baseSize++) {
-                    BlockPos.Mutable mutable = new BlockPos.Mutable(block.up(3));
+                    BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(block.up(3));
                     for (Direction direction : Direction.Plane.HORIZONTAL) {
                         mutable.setPos(block.up(3).offset(direction, baseSize));
                         if (((IWorld) worldIn).getBlockState(mutable).getBlock() != Blocks.DIRT)
@@ -130,7 +129,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     }
 
     //Log Placement
-    private void setWillowLog(Set<BlockPos> setlogblock, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void setWillowLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canTreePlaceHereWater(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.WILLOW_LOG.getDefaultState(), boundingBox);
         }
@@ -138,7 +137,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     }
 
     //Leaves Placement
-    private void setWillowLeaves(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void setWillowLeaves(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAirOrWater(reader, pos)) {
             this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.WILLOW_LEAVES.getDefaultState(), boundingBox);
         }

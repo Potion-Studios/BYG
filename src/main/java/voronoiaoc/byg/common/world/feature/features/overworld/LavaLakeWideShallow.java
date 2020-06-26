@@ -1,7 +1,8 @@
 package voronoiaoc.byg.common.world.feature.features.overworld;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
@@ -10,16 +11,16 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 import java.util.Set;
-import java.util.function.Function;
 
 
 public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
@@ -32,22 +33,22 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
     public void setSeed(long seed) {
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         if (this.noiseSeed != seed || this.noiseGen == null) {
-            this.noiseGen = new PerlinNoiseGenerator(sharedseedrandom, 2, 0);
+            this.noiseGen = new PerlinNoiseGenerator (sharedseedrandom, ImmutableList.of(0));
         }
 
         this.noiseSeed = seed;
     }
 
 
-    public LavaLakeWideShallow(Function<Dynamic<?>, ? extends NoFeatureConfig> configFactory) {
+    public LavaLakeWideShallow(Codec<NoFeatureConfig> configFactory) {
         super(configFactory);
     }
 
 
     @Override
-    public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> chunkSettings, Random random, BlockPos position, NoFeatureConfig configBlock) {
+    public boolean func_230362_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkSettings, Random random, BlockPos position, NoFeatureConfig configBlock) {
         setSeed(world.getSeed());
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable(position.down(2));
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position.down(2));
 
         // creates the actual lakes
         boolean containedFlag;
@@ -90,7 +91,7 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
                                 world.setBlockState(blockpos$Mutable, Blocks.AIR.getDefaultState(), 2);
 
                                 // recursively moves up and breaks floating sugar cane
-                                while (blockpos$Mutable.getY() < world.getMaxHeight() && world.getBlockState(blockpos$Mutable.move(Direction.UP)) == Blocks.SUGAR_CANE.getDefaultState()) {
+                                while (blockpos$Mutable.getY() < world.getHeight() && world.getBlockState(blockpos$Mutable.move(Direction.UP)) == Blocks.SUGAR_CANE.getDefaultState()) {
                                     world.setBlockState(blockpos$Mutable, Blocks.AIR.getDefaultState(), 2);
                                 }
                             }
@@ -119,7 +120,7 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
         BlockState blockState;
 
         //cannot be under ledge
-        BlockPos.Mutable temp = new BlockPos.Mutable(blockpos$Mutable);
+        BlockPos.Mutable temp = new BlockPos.Mutable().setPos(blockpos$Mutable);
         blockState = world.getBlockState(temp.up());
         while (!blockState.getFluidState().isEmpty() && temp.getY() < 255) {
             temp.move(Direction.UP);
@@ -133,9 +134,9 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
         blockState = world.getBlockState(blockpos$Mutable.down());
         material = blockState.getMaterial();
         if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) ||
-                BlockTags.PLANKS.contains(blockState.getBlock())) &&
+                BlockTags.PLANKS.func_230235_a_(blockState.getBlock())) &&
                 blockState.getFluidState().isEmpty() &&
-                blockState.getFluidState() != Fluids.LAVA) {
+                blockState.getFluidState() != Fluids.LAVA.getStillFluidState(false)) {
             return false;
         }
 
@@ -156,7 +157,7 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
                 blockState = world.getBlockState(blockpos$Mutable.add(x2, 0, z2));
                 material = blockState.getMaterial();
 
-                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.LAVA) {
+                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.func_230235_a_(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.LAVA.getStillFluidState(false)) {
                     return false;
                 }
             }

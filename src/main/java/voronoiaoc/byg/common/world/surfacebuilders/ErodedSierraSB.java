@@ -1,6 +1,6 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -10,14 +10,13 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class ErodedSierraSB extends SierraSB {
     private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.getDefaultState();
     private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.getDefaultState();
     private static final BlockState TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
 
-    public ErodedSierraSB(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> p_i51314_1_) {
+    public ErodedSierraSB(Codec<SurfaceBuilderConfig> p_i51314_1_) {
         super(p_i51314_1_);
     }
 

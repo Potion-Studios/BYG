@@ -10,7 +10,7 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
-public class TallAlliumBlock extends TallGrassBlock implements IGrowable, net.minecraftforge.common.IShearable {
+public class TallAlliumBlock extends TallGrassBlock implements IGrowable {
 
     protected TallAlliumBlock(Properties builder) {
         super(builder);

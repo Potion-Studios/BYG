@@ -28,12 +28,12 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
         return useContext.getItem().getItem() == this.asItem();
     }
 
-    public static int calculateDistance(IBlockReader blockReader, BlockPos pos) {
-        BlockPos.Mutable blockpos$mutable = (new BlockPos.Mutable(pos)).move(Direction.DOWN);
+    public static int calculatefield_220118_a(IBlockReader blockReader, BlockPos pos) {
+        BlockPos.Mutable blockpos$mutable = (new BlockPos.Mutable().setPos(pos)).move(Direction.DOWN);
         BlockState blockstate = blockReader.getBlockState(blockpos$mutable);
         int i = 7;
         if (blockstate.getBlock() == BYGBlockList.SYTHIAN_SCAFFOLDING) {
-            i = blockstate.get(DISTANCE);
+            i = blockstate.get(field_220118_a);
         } else if (blockstate.isSolidSide(blockReader, blockpos$mutable, Direction.UP)) {
             return 0;
         }
@@ -41,7 +41,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
         for (Direction direction : Direction.Plane.HORIZONTAL) {
             BlockState blockstate1 = blockReader.getBlockState(blockpos$mutable.setPos(pos).move(direction));
             if (blockstate1.getBlock() == BYGBlockList.SYTHIAN_SCAFFOLDING) {
-                i = Math.min(i, blockstate1.get(DISTANCE) + 1);
+                i = Math.min(i, blockstate1.get(field_220118_a) + 1);
                 if (i == 1) {
                     break;
                 }
@@ -55,16 +55,16 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         BlockPos blockpos = context.getPos();
         World world = context.getWorld();
-        int i = calculateDistance(world, blockpos);
-        return this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(world.getFluidState(blockpos).getFluid() == Fluids.WATER)).with(DISTANCE, Integer.valueOf(i)).with(BOTTOM, Boolean.valueOf(this.shouldBeBottom(world, blockpos, i)));
+        int i = calculatefield_220118_a(world, blockpos);
+        return this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(world.getFluidState(blockpos).getFluid() == Fluids.WATER)).with(field_220118_a, Integer.valueOf(i)).with(field_220120_c, Boolean.valueOf(this.shouldBefield_220120_c(world, blockpos, i)));
     }
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        int i = calculateDistance(worldIn, pos);
-        BlockState blockstate = state.with(DISTANCE, Integer.valueOf(i)).with(BOTTOM, Boolean.valueOf(this.shouldBeBottom(worldIn, pos, i)));
-        if (blockstate.get(DISTANCE) == 7) {
-            if (state.get(DISTANCE) == 7) {
+        int i = calculatefield_220118_a(worldIn, pos);
+        BlockState blockstate = state.with(field_220118_a, Integer.valueOf(i)).with(field_220120_c, Boolean.valueOf(this.shouldBefield_220120_c(worldIn, pos, i)));
+        if (blockstate.get(field_220118_a) == 7) {
+            if (state.get(field_220118_a) == 7) {
                 worldIn.addEntity(new FallingBlockEntity(worldIn, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, blockstate.with(WATERLOGGED, Boolean.valueOf(false))));
             } else {
                 worldIn.destroyBlock(pos, true);
@@ -77,11 +77,11 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        return calculateDistance(worldIn, pos) < 7;
+        return calculatefield_220118_a(worldIn, pos) < 7;
     }
 
-    private boolean shouldBeBottom(IBlockReader blockReader, BlockPos pos, int distance) {
-        return distance > 0 && blockReader.getBlockState(pos.down()).getBlock() != this;
+    private boolean shouldBefield_220120_c(IBlockReader blockReader, BlockPos pos, int field_220118_a) {
+        return field_220118_a > 0 && blockReader.getBlockState(pos.down()).getBlock() != this;
     }
 
     @Override

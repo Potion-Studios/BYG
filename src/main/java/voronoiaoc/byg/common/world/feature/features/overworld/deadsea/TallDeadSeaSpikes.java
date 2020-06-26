@@ -1,22 +1,22 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.deadsea;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class TallDeadSeaSpikes extends Feature<NoFeatureConfig> {
     public static boolean doBlockNotify;
@@ -25,7 +25,7 @@ public class TallDeadSeaSpikes extends Feature<NoFeatureConfig> {
     protected ChunkFastSimplexStyleNoise noiseGen;
     protected ChunkFastSimplexStyleNoise noiseGen2;
 
-    public TallDeadSeaSpikes(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+    public TallDeadSeaSpikes(Codec<NoFeatureConfig> config) {
         super(config);
     }
 
@@ -38,7 +38,7 @@ public class TallDeadSeaSpikes extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> changedBlock, Random rand, BlockPos position, NoFeatureConfig config) {
+    public boolean func_230362_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig config) {
         long randomLong = rand.nextLong();
         setSeed(world.getSeed() + 122424235 + randomLong);
         double noise;

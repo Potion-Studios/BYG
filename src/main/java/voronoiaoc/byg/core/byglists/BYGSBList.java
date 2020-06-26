@@ -6,40 +6,40 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.world.surfacebuilders.*;
 
 public class BYGSBList {
-    public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL_SB = new BorealForestSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> CONIFEROUS_SB = new ConiferousForestSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> SHATTEREDGLACIER_SB2 = new ShatteredGlacierSB2(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> MARSHLAND_SB = new MarshlandSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> GREAT_LAKES_SB = new GreatLakeSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> GREAT_LAKE_ISLE_SB = new GreatLakeIsleSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> LUSH_TUNDRA_SB = new LushTundraSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> ERODED_SIERRA_SB = new ErodedSierraSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> SIERRA_VALLEY_SB = new SierraValleySB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> GLOWSHROOM_BAYOU_SB = new GlowShroomBayouSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> SLUICE_SB = new CragGardensSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> RED_ROCK_SB = new RedRockSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> RED_ROCKLOWLAND_SB = new RedRockLowlandsSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> REDDUNES_SB = new RedDunesSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> DUNES_SB = new DunesSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> DOVER_SB = new DoverMountainSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> QUAGMIRE_SB = new QuagmireSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> CANYONS = new CanyonSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> MOJAVE = new MojaveSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> SUB = new SubterraneanCave(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO = new VolcanoSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> EBONY_SB = new EbonyWoodsSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> FUNGAL_RAINFOREST_SB = new FungalRainforestSB(SurfaceBuilderConfig::deserialize);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL_SB = new BorealForestSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> CONIFEROUS_SB = new ConiferousForestSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> SHATTEREDGLACIER_SB2 = new ShatteredGlacierSB2(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> MARSHLAND_SB = new MarshlandSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> GREAT_LAKES_SB = new GreatLakeSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> GREAT_LAKE_ISLE_SB = new GreatLakeIsleSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> LUSH_TUNDRA_SB = new LushTundraSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> ERODED_SIERRA_SB = new ErodedSierraSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> SIERRA_VALLEY_SB = new SierraValleySB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> GLOWSHROOM_BAYOU_SB = new GlowShroomBayouSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> SLUICE_SB = new CragGardensSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> RED_ROCK_SB = new RedRockSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> RED_ROCKLOWLAND_SB = new RedRockLowlandsSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> REDDUNES_SB = new RedDunesSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> DUNES_SB = new DunesSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> DOVER_SB = new DoverMountainSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> QUAGMIRE_SB = new QuagmireSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> CANYONS = new CanyonSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> MOJAVE = new MojaveSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> SUB = new SubterraneanCave(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO = new VolcanoSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> EBONY_SB = new EbonyWoodsSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> FUNGAL_RAINFOREST_SB = new FungalRainforestSB(SurfaceBuilderConfig.field_237203_a_);
 
     //Beaches
-    public static final SurfaceBuilder<SurfaceBuilderConfig> ROCKYBLACKBEACH_SB = new RockyBlackBeachSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> RAINBOWBEACH_SB = new RainbowBeachSB(SurfaceBuilderConfig::deserialize);
-    public static final SurfaceBuilder<SurfaceBuilderConfig> ROCKYBEACH_SB = new RockyBeachSB(SurfaceBuilderConfig::deserialize);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> ROCKYBLACKBEACH_SB = new RockyBlackBeachSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> RAINBOWBEACH_SB = new RainbowBeachSB(SurfaceBuilderConfig.field_237203_a_);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> ROCKYBEACH_SB = new RockyBeachSB(SurfaceBuilderConfig.field_237203_a_);
 
     //Nether
-    public static final SurfaceBuilder<SurfaceBuilderConfig> WARPEDDESERT_SB = new WarpedDesertSB(SurfaceBuilderConfig::deserialize);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> WARPEDDESERT_SB = new WarpedDesertSB(SurfaceBuilderConfig.field_237203_a_);
 
     //End
-    public static final SurfaceBuilder<SurfaceBuilderConfig> IVISFIELDS_SB = new IvisFieldsSB(SurfaceBuilderConfig::deserialize);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> IVISFIELDS_SB = new IvisFieldsSB(SurfaceBuilderConfig.field_237203_a_);
 
     public static class BYGSBConfigList {
         public static final SurfaceBuilderConfig BLACKSAND = new SurfaceBuilderConfig(BYGBlockList.BLACK_SAND.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState());

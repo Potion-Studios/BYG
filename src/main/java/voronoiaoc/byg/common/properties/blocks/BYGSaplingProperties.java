@@ -57,10 +57,10 @@ public class BYGSaplingProperties extends BushBlock implements IGrowable {
 
     public void grow(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
         if (state.get(STAGE) == 0) {
-            world.setBlockState(pos, state.cycle(STAGE), 4);
+            world.setBlockState(pos, state.func_235896_a_(STAGE), 4);
         } else {
             if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
-            this.tree.spawn(world, world.getChunkProvider().getChunkGenerator(), pos, state, rand);
+            this.tree.spawn(world, world.func_241112_a_(), world.getChunkProvider().getChunkGenerator(), pos, state, rand);
         }
 
     }

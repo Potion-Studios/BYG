@@ -11,7 +11,7 @@ import voronoiaoc.byg.core.byglists.BYGEntityList;
 public class BYGEntityRegistry {
 
     @SubscribeEvent
-    public static void registerEntities(RegistryEvent.Register<EntityType<?>> event){
+    public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
         BYG.LOGGER.debug("BYG: Registering blocks...");
         event.getRegistry().registerAll(
                 BYGEntityList.BYGBOAT.setRegistryName("boat")

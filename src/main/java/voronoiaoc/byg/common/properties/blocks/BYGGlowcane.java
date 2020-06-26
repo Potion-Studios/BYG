@@ -74,7 +74,7 @@ public class BYGGlowcane extends Block implements IPlantable {
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        if (isAir(worldIn.getBlockState(pos.down())))
+        if (isAir(state, worldIn, pos.down()))
             return false;
         return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.GLOWCELIUM || worldIn.getBlockState(pos.down()).getBlock() == this;
 

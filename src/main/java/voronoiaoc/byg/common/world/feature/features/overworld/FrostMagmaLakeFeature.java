@@ -1,23 +1,23 @@
 package voronoiaoc.byg.common.world.feature.features.overworld;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.world.IWorld;
+import net.minecraft.util.math.SectionPos;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.LightType;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.ChunkStatus;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
     private static final BlockState AIR;
@@ -26,11 +26,11 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
         AIR = Blocks.CAVE_AIR.getDefaultState();
     }
 
-    public FrostMagmaLakeFeature(Function<Dynamic<?>, ? extends BlockStateFeatureConfig> config) {
+    public FrostMagmaLakeFeature(Codec<BlockStateFeatureConfig> config) {
         super(config);
     }
 
-    public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> genSettings, Random rand, BlockPos blockPos, BlockStateFeatureConfig blockStateFeatureConfig) {
+    public boolean func_230362_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator genSettings, Random rand, BlockPos blockPos, BlockStateFeatureConfig blockStateFeatureConfig) {
         while (blockPos.getY() > 5 && world.isAirBlock(blockPos)) {
             blockPos = blockPos.down();
         }
@@ -40,7 +40,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
         } else {
             blockPos = blockPos.down(4);
             ChunkPos chunkPos = new ChunkPos(blockPos);
-            if (!world.getChunk(chunkPos.x, chunkPos.z, ChunkStatus.STRUCTURE_REFERENCES).getStructureReferences(Feature.VILLAGE.getStructureName()).isEmpty()) {
+            if (structureManager.func_235011_a_(SectionPos.from(blockPos), Structure.field_236381_q_).findAny().isPresent()) {
                 return false;
             } else {
                 boolean[] flagArray = new boolean[2048];

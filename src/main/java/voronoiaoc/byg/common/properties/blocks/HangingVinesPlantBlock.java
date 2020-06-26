@@ -5,7 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.IGrowable;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.SwordItem;
 import net.minecraft.state.IntegerProperty;
@@ -13,9 +13,9 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
@@ -47,20 +47,20 @@ public class HangingVinesPlantBlock extends Block implements IGrowable {
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        Vec3d vec3d = state.getOffset(worldIn, pos);
-        return SHAPE.withOffset(vec3d.x, vec3d.y, vec3d.z);
+        Vector3d Vector3d = state.getOffset(worldIn, pos);
+        return SHAPE.withOffset(Vector3d.x, Vector3d.y, Vector3d.z);
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext ctx) {
-        IFluidState fluidState = ctx.getWorld().getFluidState(ctx.getPos());
+        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getPos());
         if (!fluidState.isEmpty()) {
             return null;
         } else {
             BlockState blockStateUP = ctx.getWorld().getBlockState(ctx.getPos().up());
-            if (blockStateUP.isIn(Tags.Blocks.NETHERRACK) || blockStateUP.isIn(Tags.Blocks.STONE)) {
-                Block blockUP = blockStateUP.getBlock();
+            Block blockUP = ctx.getWorld().getBlockState(ctx.getPos().up()).getBlock();
+            if (blockUP.isIn(Tags.Blocks.NETHERRACK) || blockUP.isIn(Tags.Blocks.STONE)) {
                 if (blockUP == BYGBlockList.WEEPING_ROOTS) {
                     return this.getDefaultState().with(PROPERTY_AGE, 0);
                 } else if (blockUP == this) {
@@ -117,7 +117,7 @@ public class HangingVinesPlantBlock extends Block implements IGrowable {
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        if (isAir(worldIn.getBlockState(pos.up())))
+        if (isAir(state, worldIn, pos.up()))
             return false;
         return worldIn.getBlockState(pos.up()).getBlock() == BYGBlockList.WEEPING_ROOTS || worldIn.getBlockState(pos.up()).getBlock() == BYGBlockList.WEEPING_ROOTS_PLANT;
 

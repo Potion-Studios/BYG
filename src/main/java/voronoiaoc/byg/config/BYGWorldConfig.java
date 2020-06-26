@@ -80,7 +80,6 @@ public class BYGWorldConfig {
         COMMON_BUILDER.pop();
 
 
-
         COMMON_BUILDER.push("Ore_Settings");
         COMMON_BUILDER.comment("Pendorite is exclusive to Forest Fault!").push("Pendorite");
         pendoriteOreSize = COMMON_BUILDER.defineInRange("PendoriteSize", 4, 0, 16);

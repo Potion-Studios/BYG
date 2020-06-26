@@ -17,7 +17,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IndirectEntityDamageSource;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,7 +36,7 @@ public class BYGBoatEntity extends BoatEntity {
     public BYGBoatEntity(World worldIn, double x, double y, double z) {
         this(BYGEntityList.BYGBOAT, worldIn);
         this.setPosition(x, y, z);
-        this.setMotion(Vec3d.ZERO);
+        this.setMotion(Vector3d.ZERO);
         this.prevPosX = x;
         this.prevPosY = y;
         this.prevPosZ = z;
@@ -211,7 +211,7 @@ public class BYGBoatEntity extends BoatEntity {
                 }
 
                 this.fallDistance = 0.0F;
-            } else if (!this.world.getFluidState((new BlockPos(this)).down()).isTagged(FluidTags.WATER) && y < 0.0D) {
+            } else if (!this.world.getFluidState((new BlockPos(this.getPosX(), this.getPosY(), this.getPosZ()).down())).isTagged(FluidTags.WATER) && y < 0.0D) {
                 this.fallDistance = (float) ((double) this.fallDistance - y);
             }
 

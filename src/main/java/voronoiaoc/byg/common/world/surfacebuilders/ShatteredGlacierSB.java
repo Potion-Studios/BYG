@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
-import com.mojang.datafixers.Dynamic;
+import com.google.common.collect.ImmutableList;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,7 +16,6 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.function.Function;
 
 @SuppressWarnings("deprecation")
 public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
@@ -32,7 +32,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     protected PerlinNoiseGenerator perlin2;
     protected PerlinNoiseGenerator perlin3;
 
-    public ShatteredGlacierSB(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> config) {
+    public ShatteredGlacierSB(Codec<SurfaceBuilderConfig> config) {
         super(config);
     }
 
@@ -118,8 +118,8 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         if (this.seed != seed || this.perlin1 == null || this.perlin2 == null) {
             SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
-            this.perlin1 = new PerlinNoiseGenerator(sharedseedrandom, 3, 0);
-            this.perlin2 = new PerlinNoiseGenerator(sharedseedrandom, 0, 0);
+            this.perlin1 = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
+            this.perlin2 = new PerlinNoiseGenerator(sharedseedrandom,ImmutableList.of(0));
         }
 
         this.seed = seed;
@@ -129,7 +129,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         this.blockState = new BlockState[64];
         Arrays.fill(this.blockState, PACKED_ICE2);
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
-        this.perlin3 = new PerlinNoiseGenerator(sharedseedrandom, 0, 0);
+        this.perlin3 = new PerlinNoiseGenerator(sharedseedrandom,ImmutableList.of(0));
 
         for (int l1 = 0; l1 < 64; ++l1) {
             l1 += sharedseedrandom.nextInt(5) + 1;

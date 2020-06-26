@@ -3,7 +3,7 @@ package voronoiaoc.byg.common.properties.blocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
@@ -115,11 +115,11 @@ public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggab
     @Override
     @Nullable
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+        FluidState FluidState = context.getWorld().getFluidState(context.getPos());
 
         BlockState state = super.getStateForPlacement(context);
         if (state != null) {
-            return state.with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
+            return state.with(WATERLOGGED, Boolean.valueOf(FluidState.getFluid() == Fluids.WATER));
         } else {
             return null;
         }
@@ -131,7 +131,7 @@ public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggab
     }
 
     @Override
-    public IFluidState getFluidState(BlockState state) {
+    public FluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
     }
 

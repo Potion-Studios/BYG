@@ -1,7 +1,9 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
@@ -18,12 +20,11 @@ public class CanyonCorridors extends Biome {
     static final String PARENT = null;
 
     public CanyonCorridors() {
-        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).waterColor(WATER_COLOR).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).waterFogColor(WATER_FOG_COLOR).parent(PARENT));
-//        this.addStructure(Feature.VILLAGE, new VillageConfig("village/snowy/town_centers", 60));
-//        this.addStructure(Feature.IGLOO, IFeatureConfig.NO_FEATURE_CONFIG);
-//        this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.008D, MineshaftStructure.BYGType.NORMAL));
-//        this.addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
-//        this.addStructure(Feature.PILLAGER_OUTPOST, new PillagerOutpostConfig(0.004D));
+        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));//        //this.addStructure(Feature.VILLAGE, new VillageConfig("village/snowy/town_centers", 60));
+//        //this.addStructure(Feature.IGLOO, IFeatureConfig.NO_FEATURE_CONFIG);
+//        //this.addStructure(Feature.MINESHAFT, new MineshaftConfig(0.008D, MineshaftStructure.BYGType.NORMAL));
+//        //this.addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
+//        //this.addStructure(Feature.PILLAGER_OUTPOST, new PillagerOutpostConfig(0.004D));
 //        DefaultBiomeFeatures.addIcebergs(this);
 //        DefaultBiomeFeatures.addIcebergs(this);
 //        DefaultBiomeFeatures.addIcebergs(this);

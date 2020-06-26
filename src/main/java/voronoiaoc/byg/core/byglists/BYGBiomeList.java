@@ -163,7 +163,7 @@ public class BYGBiomeList {
     public static final Biome SNOWYDECIDUOUSFORESTHILLS = new SnowyDeciduousForestHills();
     public static final Biome TROPICALFUNGALRAINFORESTHILLS = new TropicalFungalRainForestHills();
     public static final Biome TROPICALRAINFORESTHILLS = new TropicalRainForestHills();
-//    public static final Biome VOLCANO = new Volcano();
+    //    public static final Biome VOLCANO = new Volcano();
     public static final Biome ZELKOVAFORESTHILLS = new ZelkovaForestHills();
 
     //Nether

@@ -1,11 +1,10 @@
 package voronoiaoc.byg.common.world.feature.placements;//package sporeaoc.byg.modsupport;
 
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
@@ -13,19 +12,18 @@ import net.minecraft.world.gen.placement.Placement;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
-import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class UnderGroundPlacement extends Placement<AtSurfaceWithExtraConfig> {
 
-    public static final Placement<AtSurfaceWithExtraConfig> UGPLACER = new UnderGroundPlacement(AtSurfaceWithExtraConfig::deserialize);
+    public static final Placement<AtSurfaceWithExtraConfig> UGPLACER = new UnderGroundPlacement(AtSurfaceWithExtraConfig.field_236973_a_);
 
-    public UnderGroundPlacement(Function<Dynamic<?>, ? extends AtSurfaceWithExtraConfig> configFactoryIn) {
+    public UnderGroundPlacement(Codec<AtSurfaceWithExtraConfig> configFactoryIn) {
         super(configFactoryIn);
     }
 
-    public Stream<BlockPos> getPositions(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> chunkGenerator, Random random, AtSurfaceWithExtraConfig chancesConfig, BlockPos pos) {
+    public Stream<BlockPos> getPositions(IWorld worldIn, ChunkGenerator chunkGenerator, Random random, AtSurfaceWithExtraConfig chancesConfig, BlockPos pos) {
         int c = chancesConfig.count;
         if (random.nextFloat() < chancesConfig.extraChance) {
             c += chancesConfig.extraCount;

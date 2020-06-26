@@ -1,6 +1,6 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -13,12 +13,11 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class WarpedDesertSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     public static final BlockState SAND = Blocks.SAND.getDefaultState();
 
-    public WarpedDesertSB(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> config) {
+    public WarpedDesertSB(Codec<SurfaceBuilderConfig> config) {
         super(config);
     }
 

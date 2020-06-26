@@ -5,7 +5,6 @@ import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
 import net.minecraft.world.gen.feature.structure.AbstractVillagePiece;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
@@ -18,13 +17,13 @@ import java.util.List;
 
 public class BYGVillagePieces {
 
-    public static void addPieces(ChunkGenerator<?> chunkGen, TemplateManager template, BlockPos blockPos, List<StructurePiece> list, SharedSeedRandom seed, VillageConfig villageConfig) {
+    public static void addPieces(ChunkGenerator chunkGen, TemplateManager template, BlockPos blockPos, List<StructurePiece> list, SharedSeedRandom seed, VillageConfig villageConfig) {
         BYGGuianaVillagePools.init();
         BYGGrasslandVillagePools.init();
         BYGJungleVillagePools.init();
         BYGAdobeVillagePools.init();
         BYGSkyrisVillagePools.init();
-        JigsawManager.addPieces(villageConfig.startPool, villageConfig.size, BYGVillagePieces.BYGVillage::new, chunkGen, template, blockPos, list, seed);
+//        JigsawManager.f(villageConfig.startPool, villageConfig.size, BYGVillagePieces.BYGVillage::new, chunkGen, template, blockPos, list, seed);
     }
 
     public static class BYGVillage extends AbstractVillagePiece {

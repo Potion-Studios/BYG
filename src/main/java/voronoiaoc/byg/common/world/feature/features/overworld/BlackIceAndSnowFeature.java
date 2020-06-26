@@ -1,29 +1,28 @@
 package voronoiaoc.byg.common.world.feature.features.overworld;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SnowyDirtBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class BlackIceAndSnowFeature extends Feature<NoFeatureConfig> {
-    public BlackIceAndSnowFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> p_i51435_1_) {
+    public BlackIceAndSnowFeature(Codec<NoFeatureConfig> p_i51435_1_) {
         super(p_i51435_1_);
     }
 
-    public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_230362_a_(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
         BlockPos.Mutable blockpos$mutable1 = new BlockPos.Mutable();
 
@@ -42,7 +41,7 @@ public class BlackIceAndSnowFeature extends Feature<NoFeatureConfig> {
                 if (biome.doesSnowGenerate(worldIn, blockpos$mutable)) {
                     worldIn.setBlockState(blockpos$mutable, Blocks.SNOW.getDefaultState(), 2);
                     BlockState blockstate = worldIn.getBlockState(blockpos$mutable1);
-                    if (blockstate.has(SnowyDirtBlock.SNOWY)) {
+                    if (blockstate.func_235901_b_(SnowyDirtBlock.SNOWY)) {
                         worldIn.setBlockState(blockpos$mutable1, blockstate.with(SnowyDirtBlock.SNOWY, Boolean.valueOf(true)), 2);
                     }
                 }
