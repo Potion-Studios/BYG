@@ -44,19 +44,19 @@ public class BYGWorldConfig {
     public static ForgeConfigSpec.IntValue pendoriteOreMaxY;
 
     static {
-        COMMON_BUILDER.comment("BYG WorldType Settings").push("World_Settings");
-        vanillaBiomes = COMMON_BUILDER.comment("Vanilla BiomeSounds. Default is true").define("VanillaBiomes", true);
-        biomeSize = COMMON_BUILDER.comment("Biome Size, Default 1.").defineInRange("BiomeSize", 1, 0, 25);
-        COMMON_BUILDER.pop();
-
-        COMMON_BUILDER.comment("External BiomeSounds").push("Dimension_Settings");
-        externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry names in a commented list.").define("ExternalEndBiomes", "");
-        externalNetherBiomes = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").define("ExternalNetherBiomes", "");
-        COMMON_BUILDER.pop();
-
-        COMMON_BUILDER.comment("Nether Settings").push("Nether_Settings");
-        tallNether = COMMON_BUILDER.comment("256 Height. Default is false").define("TallNether", false);
-        COMMON_BUILDER.pop();
+//        COMMON_BUILDER.comment("BYG WorldType Settings").push("World_Settings");
+//        vanillaBiomes = COMMON_BUILDER.comment("Vanilla BiomeSounds. Default is true").define("VanillaBiomes", true);
+//        biomeSize = COMMON_BUILDER.comment("Biome Size, Default 1.").defineInRange("BiomeSize", 1, 0, 25);
+//        COMMON_BUILDER.pop();
+//
+//        COMMON_BUILDER.comment("External BiomeSounds").push("Dimension_Settings");
+//        externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry names in a commented list.").define("ExternalEndBiomes", "");
+//        externalNetherBiomes = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").define("ExternalNetherBiomes", "");
+//        COMMON_BUILDER.pop();
+//
+//        COMMON_BUILDER.comment("Nether Settings").push("Nether_Settings");
+//        tallNether = COMMON_BUILDER.comment("256 Height. Default is false").define("TallNether", false);
+//        COMMON_BUILDER.pop();
 
 
         COMMON_BUILDER.push("Stone_Settings");

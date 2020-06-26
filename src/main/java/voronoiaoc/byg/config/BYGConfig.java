@@ -24,7 +24,7 @@ public class BYGConfig {
     static {
         COMMON_BUILDER.comment("Client Settings").push("Client_Settings");
         mainMenuPanorama = COMMON_BUILDER.comment("BYG Main Menu Panorama.").define("Panorama", true);
-        biomeFogEffects = COMMON_BUILDER.comment("BYG's Biome Fog Settings.\nApplies to \"Overworld\" ONLY.").defineEnum("BiomeFog", BiomeFogSettings.DENSEFOGCOLOR);
+        biomeFogEffects = COMMON_BUILDER.comment("BYG's Biome Fog Settings.\nApplies to \"Overworld\" ONLY. Color no longer works.").defineEnum("BiomeFog", BiomeFogSettings.DENSEFOGCOLOR);
         COMMON_BUILDER.pop();
         COMMON_CONFIG = COMMON_BUILDER.build();
     }
