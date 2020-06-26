@@ -19,24 +19,18 @@ import java.util.Optional;
 
 @Mixin(NetherBiomeProvider.class)
 public class MixinNetherBiomeProvider {
-    static ForgeRegistry<Biome> BiomeRegistry = ((ForgeRegistry<Biome>) ForgeRegistries.BIOMES);
-    static final Biome ASHENINFERNO = BiomeRegistry.getRaw(new ResourceLocation("biomesoplenty:ashen_inferno"));
-    static final Biome UNDERGARDEN = BiomeRegistry.getRaw(new ResourceLocation("biomesoplenty:undergarden"));
-    static final Biome VISCERALHEAP = BiomeRegistry.getRaw(new ResourceLocation("biomesoplenty:visceral_heap"));
-
 
     @Inject(at = @At("RETURN"), method = "func_235285_d_", cancellable = true)
     private static void addBYGNetherBiomes(long seed, CallbackInfoReturnable<NetherBiomeProvider> cir) {
+        ForgeRegistry<Biome> biomeForgeRegistry = ((ForgeRegistry<Biome>) ForgeRegistries.BIOMES);
         ArrayList<Biome> biomes = new ArrayList<>(cir.getReturnValue().func_235203_c_());
-
         biomes.add(BYGBiomeList.SYTHIANTORRIDS);
         biomes.add(BYGBiomeList.WARPEDDESERT);
         biomes.add(BYGBiomeList.GLOWSTONEGARDENS);
         if (ModList.get().isLoaded("biomesoplenty")) {
-            biomes.add(ASHENINFERNO);
-            biomes.add(UNDERGARDEN);
-            biomes.add(VISCERALHEAP);
-
+            biomes.add(biomeForgeRegistry.getValue(new ResourceLocation("biomesoplenty:ashen_inferno")));
+            biomes.add(biomeForgeRegistry.getValue(new ResourceLocation("biomesoplenty:undergarden")));
+            biomes.add(biomeForgeRegistry.getValue(new ResourceLocation("biomesoplenty:visceral_heap")));
         }
         cir.setReturnValue(new NetherBiomeProvider(seed, biomes.stream().flatMap((biome) ->
                 biome.func_235055_B_().map((mapper) ->

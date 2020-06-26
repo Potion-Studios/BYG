@@ -122,7 +122,7 @@ public class BYGBiomeRegistry {
         registerBYGSubBiome(registry, BYGBiomeList.LUSHREDDESERT, "lush_red_desert", true, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.SIERRARANGE, "sierra_range", true, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.ALPINEFOOTHILLS, "alpine_foothills", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
-        registerBYGSubBiome(registry, BYGBiomeList.ASPENFORESTHILLS, "aspen_foresthills", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.ASPENFORESTHILLS, "aspen_forest_hills", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.BLUETAIGAHILLS, "blue_taiga_hills", true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.BLUEGIANTTAIGA, "blue_giant_taiga", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.BLUFFPEAKS, "bluff_peaks", true, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
@@ -130,7 +130,7 @@ public class BYGBiomeRegistry {
         registerBYGSubBiome(registry, BYGBiomeList.BOG, "bog", true, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.DECIDUOUSFORESTHILLS, "deciduous_forest_hills", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.CONIFEROUSFORESTHILLS, "coniferous_forest_hills", true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
-        registerBYGSubBiome(registry, BYGBiomeList.FRESHWATERLAKE, "freshwater_lake", true, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.FRESHWATERLAKE, "fresh_water_lake", true, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.FROZENLAKE, "frozen_lake", true, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.GREATLAKEISLES, "great_lake_isles", true, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.JACARANDAFORESTHILLS, "jacaranda_forest_hills", true, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
@@ -161,7 +161,7 @@ public class BYGBiomeRegistry {
 
         //NonDefault Biomes.
         registerBYGBiome(registry, BYGBiomeList.ROCKYBEACH, "rocky_beach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.OVERWORLD);
-        registerBYGBiome(registry, BYGBiomeList.SNOWYROCKYBLACKBEACH, "snowy_rocky_blackbeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
+        registerBYGBiome(registry, BYGBiomeList.SNOWYROCKYBLACKBEACH, "snowy_rocky_black_beach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
         registerBYGBiome(registry, BYGBiomeList.SNOWYBLACKBEACH, "snowy_black_beach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
         registerBYGBiome(registry, BYGBiomeList.WHITEBEACH, "white_beach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.OVERWORLD);
         registerBYGBiome(registry, BYGBiomeList.RAINBOWBEACH, "rainbow_beach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.WET, BiomeDictionary.Type.OVERWORLD);
