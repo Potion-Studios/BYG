@@ -27,7 +27,7 @@
 //        this.random = new SharedSeedRandom(settings.getSeed());
 //        this.random.skip(17292);
 //        this.generator = new SimplexNoiseGenerator(this.random);
-//        biomeLayer = BYGEndLayerProvider.build(settings.getSeed());
+//        biomeLayer = BYGWorldLayerProvider.build(settings.getSeed());
 //
 //    }
 //

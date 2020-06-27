@@ -23,6 +23,7 @@ import voronoiaoc.byg.common.properties.vanilla.BYGHoeables;
 import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
 import voronoiaoc.byg.common.world.dimension.end.biome.BYGEndBiomeCatch;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
+import voronoiaoc.byg.common.world.worldtype116.WorldType116;
 import voronoiaoc.byg.config.BYGConfig;
 import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
@@ -55,6 +56,8 @@ public class BYG {
 //        List<Structure<?>> tempList = new ArrayList<>(Feature.ILLAGER_STRUCTURES);
 //        tempList.add(BYGFeatureList.BYGVILLAGE);
 //        Feature.ILLAGER_STRUCTURES = ImmutableList.copyOf(tempList);
+//        BYGBiomeLayer.addVanillaBiomes();
+        WorldType116.addGenerator();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

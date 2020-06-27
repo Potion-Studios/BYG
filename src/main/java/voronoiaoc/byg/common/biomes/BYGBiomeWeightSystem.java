@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes;
 
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -7,7 +8,14 @@ import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BYGBiomeWeightSystem {
+    public static List<Integer> HOT = new ArrayList<>();
+    public static List<Integer> COOL = new ArrayList<>();
+    public static List<Integer> WARM = new ArrayList<>();
+    public static List<Integer> ICY = new ArrayList<>();
 
     public static void addBiomesToWeightSystem() {
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
@@ -85,5 +93,13 @@ public class BYGBiomeWeightSystem {
         if (weight > 0) {
             BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(biome, weight));
         }
+        if (type == BiomeManager.BiomeType.WARM)
+            WARM.add(Registry.BIOME.getId(biome));
+        if (type == BiomeManager.BiomeType.COOL)
+            COOL.add(Registry.BIOME.getId(biome));
+        if (type == BiomeManager.BiomeType.DESERT)
+            HOT.add(Registry.BIOME.getId(biome));
+        if (type == BiomeManager.BiomeType.ICY)
+            ICY.add(Registry.BIOME.getId(biome));
     }
 }
