@@ -21,7 +21,10 @@ public class BYGWorldConfig {
     public static ForgeConfigSpec.IntValue seaLevel;
     public static ForgeConfigSpec.ConfigValue<String> externalEndBiomes;
     public static ForgeConfigSpec.ConfigValue<String> externalNetherBiomes;
-    public static ForgeConfigSpec.BooleanValue tallNether;
+    public static ForgeConfigSpec.ConfigValue<String> externalICYBiomes;
+    public static ForgeConfigSpec.ConfigValue<String> externalWARMBiomes;
+    public static ForgeConfigSpec.ConfigValue<String> externalHOTBiomes;
+    public static ForgeConfigSpec.ConfigValue<String> externalCOOLBiomes;
 
     public static ForgeConfigSpec.IntValue rockyStoneSize;
     public static ForgeConfigSpec.IntValue rockyStoneChance;
@@ -47,15 +50,14 @@ public class BYGWorldConfig {
         COMMON_BUILDER.comment("BYG WorldType Settings").push("World_Settings");
         vanillaBiomes = COMMON_BUILDER.comment("Vanilla BiomeSounds. Default is true").define("VanillaBiomes", true);
         biomeSize = COMMON_BUILDER.comment("Biome Size, Default 1.").defineInRange("BiomeSize", 1, 0, 25);
-        COMMON_BUILDER.pop();
+        externalICYBiomes = COMMON_BUILDER.comment("Add external ICY biomes by their registry names in a commented list.").define("ExternalICYBiomes", "");
+        externalCOOLBiomes = COMMON_BUILDER.comment("Add external COOL biomes by their registry names in a commented list.").define("ExternalCOOLBiomes", "");
+        externalWARMBiomes = COMMON_BUILDER.comment("Add external WARM biomes by their registry names in a commented list.").define("ExternalWARMBiomes", "");
+        externalHOTBiomes = COMMON_BUILDER.comment("Add external HOT biomes by their registry names in a commented list.").define("ExternalHOTBiomes", "");
 
-        COMMON_BUILDER.comment("External BiomeSounds").push("Dimension_Settings");
+        COMMON_BUILDER.comment("External Biomes").push("Dimension_Settings");
         externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry names in a commented list.").define("ExternalEndBiomes", "");
         externalNetherBiomes = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").define("ExternalNetherBiomes", "");
-        COMMON_BUILDER.pop();
-
-        COMMON_BUILDER.comment("Nether Settings").push("Nether_Settings");
-        tallNether = COMMON_BUILDER.comment("256 Height. Default is false").define("TallNether", false);
         COMMON_BUILDER.pop();
 
 
