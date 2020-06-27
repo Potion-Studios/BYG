@@ -25,7 +25,7 @@ public class DoubleDamagePlantBlock extends DoublePlantBlock {
             double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
             double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
-                entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);
+                entityIn.attackEntityFrom(DamageSource.SWEET_BERRY_BUSH, 1.0F);
             }
         }
 

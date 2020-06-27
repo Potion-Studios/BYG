@@ -10,7 +10,14 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.client.textures.BYGMaterials;
 import voronoiaoc.byg.common.properties.blocks.*;
+import voronoiaoc.byg.common.properties.blocks.embur.EmburPlantBlock;
+import voronoiaoc.byg.common.properties.blocks.embur.EmburVinesPlantBlock;
+import voronoiaoc.byg.common.properties.blocks.flowers.*;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
+import voronoiaoc.byg.common.properties.blocks.sythian.BYGSythianPlantBlock;
+import voronoiaoc.byg.common.properties.blocks.sythian.SythianSaplingBlock;
+import voronoiaoc.byg.common.properties.blocks.sythian.SythianStalkBlock;
+import voronoiaoc.byg.common.properties.blocks.warped.*;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 public class BYGBlockProperties {
@@ -390,7 +397,7 @@ public class BYGBlockProperties {
         public BYGDirt(String registryName) {
             super(Block.Properties.create(Material.EARTH)
                     .sound(SoundType.GROUND)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.2F)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -402,7 +409,7 @@ public class BYGBlockProperties {
         public BYGMud(String registryName) {
             super(Block.Properties.create(Material.EARTH)
                     .sound(SoundType.GROUND)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.2F)
                     .tickRandomly()
                     .speedFactor(0.4F)
             );
@@ -414,7 +421,7 @@ public class BYGBlockProperties {
         public BYGMeadowGrass(String registryName) {
             super(Block.Properties.create(Material.ORGANIC)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.2F)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -425,7 +432,7 @@ public class BYGBlockProperties {
         public BYGGlowcelium(String registryName) {
             super(Block.Properties.create(BYGMaterials.GLOWCELIUM)
                     .sound(SoundType.GROUND)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.2F)
                     .tickRandomly()
                     .lightValue(10)
 
@@ -479,7 +486,7 @@ public class BYGBlockProperties {
         public BYGPetal(String registryName) {
             super(Block.Properties.create(Material.LEAVES)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.2F)
                     .notSolid()
             );
             setRegistryName(registryName);
@@ -491,7 +498,7 @@ public class BYGBlockProperties {
         public BYGNyliumSoulSand(String registryName) {
             super(Block.Properties.create(Material.SAND)
                     .sound(SoundType.SAND)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.4F)
                     .speedFactor(0.6F)
             );
             setRegistryName(registryName);
@@ -517,7 +524,7 @@ public class BYGBlockProperties {
         public BYGNyliumSoulSoil(String registryName) {
             super(Block.Properties.create(Material.SAND)
                     .sound(SoundType.SAND)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.4F)
             );
             setRegistryName(registryName);
         }
@@ -582,7 +589,7 @@ public class BYGBlockProperties {
         public BYGWarpedBush(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f)
+                    .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
                     .notSolid()
                     .lightValue(8)
@@ -606,11 +613,59 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGEmburGelBlock extends HoneyBlock {
+        public BYGEmburGelBlock(String registryName) {
+            super(Block.Properties.create(Material.CLAY)
+                    .sound(SoundType.field_226947_m_)
+                    .notSolid()
+                    .speedFactor(2.0F)
+                    .slipperiness(0.6F)
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGEmburGelVine extends EmburVinesPlantBlock {
+        public BYGEmburGelVine(String registryName) {
+            super(Block.Properties.create(Material.LEAVES)
+                    .sound(SoundType.PLANT)
+                    .hardnessAndResistance(0.0F)
+                    .tickRandomly()
+                    .doesNotBlockMovement()
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGEmburPlant extends EmburPlantBlock {
+        public BYGEmburPlant(String registryName) {
+            super(Block.Properties.create(Material.PLANTS)
+                    .sound(SoundType.PLANT)
+                    .hardnessAndResistance(0.0F)
+                    .doesNotBlockMovement()
+                    .notSolid()
+            );
+            setRegistryName(registryName);
+
+        }
+    }
+
+    public static class BYGEmberNylium extends EmburNyliumBlock {
+        public BYGEmberNylium(String registryName) {
+            super(Block.Properties.create(Material.ROCK)
+                    .sound(SoundType.STONE)
+                    .hardnessAndResistance(0.4F)
+                    .tickRandomly()
+            );
+            setRegistryName(registryName);
+        }
+    }
+
     public static class BYGSythianSapling extends SythianSaplingBlock {
         public BYGSythianSapling(String registryName) {
             super(Block.Properties.create(Material.BAMBOO_SAPLING)
                     .sound(SoundType.BAMBOO_SAPLING)
-                    .hardnessAndResistance(0.0f)
+                    .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
                     .notSolid()
                     .tickRandomly()
@@ -624,7 +679,7 @@ public class BYGBlockProperties {
         public BYGSythianPlant(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f)
+                    .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
                     .notSolid()
             );
@@ -637,7 +692,7 @@ public class BYGBlockProperties {
         public BYGSythianNylium(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.4F)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -648,7 +703,7 @@ public class BYGBlockProperties {
         public BYGOvergrownNetherrack(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.4F)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -672,7 +727,7 @@ public class BYGBlockProperties {
         public BYGIvisPhylium(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.4F)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -708,7 +763,7 @@ public class BYGBlockProperties {
         public BYGPoisonIvy(String registryName) {
             super(Block.Properties.create(Material.LEAVES)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.0F)
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
@@ -720,7 +775,7 @@ public class BYGBlockProperties {
         public BYGSkyrisVine(String registryName) {
             super(Block.Properties.create(Material.LEAVES)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.0F)
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
@@ -732,7 +787,7 @@ public class BYGBlockProperties {
         public BYGHangingVine(String registryName) {
             super(Block.Properties.create(Material.LEAVES)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.0F)
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
@@ -744,7 +799,7 @@ public class BYGBlockProperties {
         public BYGHangingVinePlant(String registryName) {
             super(Block.Properties.create(Material.LEAVES)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.0F)
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
@@ -773,37 +828,11 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BlockMushroom extends MushroomBlock {
-        public BlockMushroom(String registryName) {
-            super(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT)
-                    .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f)
-                    .doesNotBlockMovement()
-                    .tickRandomly()
-            );
-            setRegistryName(registryName);
-        }
-    }
-
     //Saving this for later do not touch
 //    @OnlyIn(Dist.CLIENT)
 //    public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
 //        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
 //    }
-
-    public static class BlockGlowshroom extends MushroomBlock {
-        public BlockGlowshroom(String registryName) {
-            super(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT)
-                    .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f)
-                    .doesNotBlockMovement()
-                    .notSolid()
-                    .lightValue(8)
-                    .tickRandomly()
-            );
-            setRegistryName(registryName);
-        }
-    }
 
     public static class BYGOreAmetrine extends BYGOreBlock {
         public BYGOreAmetrine(String registryName) {
@@ -831,7 +860,7 @@ public class BYGBlockProperties {
         public BYGPervadedNetherrack(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
-                    .hardnessAndResistance(3.0f, 3.0f)
+                    .hardnessAndResistance(0.4F, 0.4F)
                     .harvestLevel(4)
                     .lightValue(13)
             );
@@ -843,7 +872,7 @@ public class BYGBlockProperties {
         public BYGREDGlowCane(String registryName) {
             super(Block.Properties.create(BYGMaterials.RED_GLOWCANE)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f, 0.0f)
+                    .hardnessAndResistance(0.0F, 0.0F)
                     .doesNotBlockMovement()
                     .lightValue(10)
                     .tickRandomly()
@@ -856,7 +885,7 @@ public class BYGBlockProperties {
         public BYGPINKGlowCane(String registryName) {
             super(Block.Properties.create(BYGMaterials.PINK_GLOWCANE)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f, 0.0f)
+                    .hardnessAndResistance(0.0F, 0.0F)
                     .doesNotBlockMovement()
                     .lightValue(10)
                     .tickRandomly()
@@ -869,7 +898,7 @@ public class BYGBlockProperties {
         public BYGPURPLEGlowCane(String registryName) {
             super(Block.Properties.create(BYGMaterials.PURPLE_GLOWCANE)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f, 0.0f)
+                    .hardnessAndResistance(0.0F, 0.0F)
                     .doesNotBlockMovement()
                     .lightValue(10)
                     .tickRandomly()
@@ -882,21 +911,10 @@ public class BYGBlockProperties {
         public BYGBLUEGlowCane(String registryName) {
             super(Block.Properties.create(BYGMaterials.BLUE_GLOWCANE)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f, 0.0f)
+                    .hardnessAndResistance(0.0F, 0.0F)
                     .doesNotBlockMovement()
                     .lightValue(10)
                     .tickRandomly()
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGCrop extends CropsBlock {
-        public BYGCrop(String registryName) {
-            super(Block.Properties.create(Material.PLANTS)
-                    .sound(SoundType.PLANT)
-                    .hardnessAndResistance(1.5f, 6.0f)
-                    .notSolid()
             );
             setRegistryName(registryName);
         }
@@ -906,7 +924,7 @@ public class BYGBlockProperties {
         public BlockCattail(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(1.5f, 6.0f)
+                    .hardnessAndResistance(0.0F, 0.0F)
                     .notSolid()
                     .doesNotBlockMovement()
                     .tickRandomly()
@@ -919,7 +937,7 @@ public class BYGBlockProperties {
         public BYGBerryBush(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(1.5f, 6.0f)
+                    .hardnessAndResistance(0.0F, 0.0F)
                     .doesNotBlockMovement()
             );
             setRegistryName(registryName);
@@ -971,7 +989,7 @@ public class BYGBlockProperties {
         public BYGScaffolding(String registryName) {
             super(Block.Properties.create(Material.MISCELLANEOUS, MaterialColor.SAND)
                     .sound(SoundType.SCAFFOLDING)
-                    .hardnessAndResistance(0.0f, 0.0f)
+                    .hardnessAndResistance(0.0F, 0.0F)
                     .doesNotBlockMovement()
                     .variableOpacity()
                     .lightValue(12)
@@ -1057,7 +1075,17 @@ public class BYGBlockProperties {
         public BYGStone(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
-                    .hardnessAndResistance(1.5f, 6.0f)
+                    .hardnessAndResistance(1.5F, 6.0F)
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGNetherrack extends Block {
+        public BYGNetherrack(String registryName) {
+            super(Block.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
+                    .sound(SoundType.STONE)
+                    .hardnessAndResistance(0.4F, 0.4F)
             );
             setRegistryName(registryName);
         }
@@ -1067,7 +1095,7 @@ public class BYGBlockProperties {
         public BYGPillar(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
-                    .hardnessAndResistance(1.5f, 6.0f)
+                    .hardnessAndResistance(1.5F, 6.0F)
             );
             setRegistryName(registryName);
         }
@@ -1078,7 +1106,7 @@ public class BYGBlockProperties {
             super(MaterialColor.WOOD,
                     Block.Properties.create(Material.WOOD, MaterialColor.WOOD)
                             .sound(SoundType.WOOD)
-                            .hardnessAndResistance(2.0f)
+                            .hardnessAndResistance(2.0F)
             );
             setRegistryName(registryName);
 

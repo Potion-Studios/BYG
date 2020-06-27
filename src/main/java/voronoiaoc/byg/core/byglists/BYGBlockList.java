@@ -513,6 +513,16 @@ public class BYGBlockList {
     public static Block NYLIUM_SOUL_SAND;
     public static Block NYLIUM_SOUL_SOIL;
 
+    public static Block EMBUR_NYLIUM;
+    public static Block EMBUR_PEDU;
+    public static Block EMBUR_ROOTS;
+    public static Block TALL_EMBUR_ROOTS;
+    public static Block EMBUR_WART;
+    public static Block EMBUR_GEL_BLOCK;
+    public static Block EMBUR_GEL_VINES;
+
+    public static Block BLUE_NETHERRACK;
+    public static Block BLUE_NETHERRACK_BRICKS;
 
     public static Block SYTHIAN_SPROUT;
     public static Block SYTHIAN_ROOTS;

@@ -437,6 +437,17 @@ public class BYGBlockRegistry {
                 BYGBlockList.SYTHIAN_SCAFFOLDING = new BYGBlockProperties.BYGScaffolding("sythian_scaffolding"),
                 BYGBlockList.SYTHIAN_SAPLING = new BYGBlockProperties.BYGSythianSapling("sythian_sapling"),
 
+                BYGBlockList.EMBUR_GEL_BLOCK = new BYGBlockProperties.BYGEmburGelBlock("embur_gel_block"),
+                BYGBlockList.EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines"),
+                BYGBlockList.EMBUR_NYLIUM = new BYGBlockProperties.BYGEmberNylium("embur_nylium"),
+                BYGBlockList.EMBUR_PEDU = new BYGBlockProperties.BYGLog("embur_pedu"),
+                BYGBlockList.EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots"),
+                BYGBlockList.EMBUR_WART = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.EmburWart(),"embur_wart"),
+                BYGBlockList.TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoubleDamagePlant("tall_embur_roots"),
+
+                BYGBlockList.BLUE_NETHERRACK = new BYGBlockProperties.BYGNetherrack("blue_netherrack"),
+                BYGBlockList.BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGNetherrack("blue_nether_bricks"),
+
                 //End Blocks
                 BYGBlockList.IVIS_PHYLIUM = new BYGBlockProperties.BYGIvisPhylium("ivis_phylium"),
                 BYGBlockList.IVIS_ROOTS = new BYGBlockProperties.BYGIvisPlant("ivis_roots"),

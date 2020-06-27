@@ -729,6 +729,20 @@ public class BYGItemRegistry {
                 BYGItemList.SYTHIAN_STALK_BLOCK = new BlockItem(BYGBlockList.SYTHIAN_STALK_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_STALK_BLOCK.getRegistryName()),
                 BYGItemList.SYTHIAN_SCAFFOLDING = new ScaffoldingItem(BYGBlockList.SYTHIAN_SCAFFOLDING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_SCAFFOLDING.getRegistryName()),
 
+                BYGItemList.EMBUR_GEL_BALL = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("embur_gel_ball"),
+                BYGItemList.EMBUR_GEL_BLOCK = new BlockItem(BYGBlockList.EMBUR_GEL_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_GEL_BLOCK.getRegistryName()),
+                BYGItemList.EMBUR_GEL_VINES = new BlockItem(BYGBlockList.EMBUR_GEL_VINES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_GEL_VINES.getRegistryName()),
+                BYGItemList.EMBUR_NYLIUM = new BlockItem(BYGBlockList.EMBUR_NYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_NYLIUM.getRegistryName()),
+                BYGItemList.EMBUR_PEDU = new BlockItem(BYGBlockList.EMBUR_PEDU, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_PEDU.getRegistryName()),
+                BYGItemList.EMBUR_ROOTS = new BlockItem(BYGBlockList.EMBUR_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_ROOTS.getRegistryName()),
+                BYGItemList.EMBUR_WART = new BlockItem(BYGBlockList.EMBUR_WART, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_WART.getRegistryName()),
+                BYGItemList.TALL_EMBUR_ROOTS = new BlockItem(BYGBlockList.TALL_EMBUR_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.TALL_EMBUR_ROOTS.getRegistryName()),
+
+                BYGItemList.BLUE_NETHERRACK_BRICK = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("blue_nether_brick"),
+                BYGItemList.BLUE_NETHERRACK = new BlockItem(BYGBlockList.BLUE_NETHERRACK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_NETHERRACK.getRegistryName()),
+                BYGItemList.BLUE_NETHERRACK_BRICKS = new BlockItem(BYGBlockList.BLUE_NETHERRACK_BRICKS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_NETHERRACK_BRICKS.getRegistryName()),
+
+
                 //End
                 BYGItemList.IVIS_PHYLIUM = new BlockItem(BYGBlockList.IVIS_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.IVIS_PHYLIUM.getRegistryName()),
                 BYGItemList.IVIS_ROOTS = new BlockItem(BYGBlockList.IVIS_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.IVIS_ROOTS.getRegistryName()),

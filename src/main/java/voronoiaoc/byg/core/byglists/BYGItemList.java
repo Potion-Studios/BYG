@@ -570,6 +570,19 @@ public class BYGItemList {
     public static Item SYTHIAN_STALK;
     public static Item SYTHIAN_NYLIUM;
 
+    public static Item EMBUR_NYLIUM;
+    public static Item EMBUR_PEDU;
+    public static Item EMBUR_ROOTS;
+    public static Item TALL_EMBUR_ROOTS;
+    public static Item EMBUR_WART;
+    public static Item EMBUR_GEL_BLOCK;
+    public static Item EMBUR_GEL_BALL;
+    public static Item EMBUR_GEL_VINES;
+
+    public static Item BLUE_NETHERRACK;
+    public static Item BLUE_NETHERRACK_BRICKS;
+    public static Item BLUE_NETHERRACK_BRICK;
+
     public static Item IVIS_PHYLIUM;
     public static Item IVIS_ROOTS;
     public static Item IVIS_SPROUT;
