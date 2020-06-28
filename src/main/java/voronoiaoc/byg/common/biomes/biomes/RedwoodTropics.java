@@ -22,7 +22,6 @@ public class RedwoodTropics extends Biome {
     public RedwoodTropics() {
         super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).waterColor(WATER_COLOR).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).waterFogColor(WATER_FOG_COLOR).parent(PARENT));
         BYGTreeFeatures.addRedwoodTrees(this);
-
     }
 
     @Override
