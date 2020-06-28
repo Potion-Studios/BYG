@@ -26,7 +26,7 @@ public class BlackPuffHuge extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
         if (pos.getY() + randTreeHeight + 1 < 256) {
             BlockPos blockpos = pos.down();
-            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;

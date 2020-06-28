@@ -215,6 +215,8 @@ public class BYGFeatureList {
 
     //Embur
     public static final Feature<NoFeatureConfig> EMBURLAKE = new EmburBogLake(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> EMBURMUSHROOM = new EmburMushroom(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> EMBURMUSHROOM2 = new EmburMushroom2(NoFeatureConfig::deserialize);
 
 
 

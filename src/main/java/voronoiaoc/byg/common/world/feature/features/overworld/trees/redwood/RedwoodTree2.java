@@ -26,7 +26,7 @@ public class RedwoodTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
             BlockPos blockpos = pos.down();
-            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;
@@ -2052,7 +2052,6 @@ public class RedwoodTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, 65, 0), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 65, 1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 66, 0), boundsIn);
-
             }
         }
         return true;

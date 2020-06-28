@@ -37,6 +37,7 @@ public class BYGSBList {
 
     //Nether
     public static final SurfaceBuilder<SurfaceBuilderConfig> WARPEDDESERT_SB = new WarpedDesertSB(SurfaceBuilderConfig::deserialize);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> EMBURBOG = new EmburBogSB(SurfaceBuilderConfig::deserialize);
 
     //End
     public static final SurfaceBuilder<SurfaceBuilderConfig> IVISFIELDS_SB = new IvisFieldsSB(SurfaceBuilderConfig::deserialize);
@@ -70,6 +71,7 @@ public class BYGSBList {
         public static final SurfaceBuilderConfig WARPEDDESERT_SOIL = new SurfaceBuilderConfig(BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState());
         public static final SurfaceBuilderConfig SYTHIANTORRIDS = new SurfaceBuilderConfig(BYGBlockList.SYTHIAN_NYLIUM.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
         public static final SurfaceBuilderConfig GLOWSTONEGARDENS = new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
+        public static final SurfaceBuilderConfig EMBURNYLIUM = new SurfaceBuilderConfig(BYGBlockList.EMBUR_NYLIUM.getDefaultState(), BYGBlockList.BLUE_NETHERRACK.getDefaultState(), BYGBlockList.BLUE_NETHERRACK.getDefaultState());
 
         public static final SurfaceBuilderConfig PODZOLDOVERMOUNTAIN_CF = new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());
         public static final SurfaceBuilderConfig COARSEDIRTDOVERMOUNTAIN_CF = new SurfaceBuilderConfig(Blocks.COARSE_DIRT.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());
