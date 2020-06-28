@@ -67,7 +67,7 @@ public class BYGMushroomToHugeMushroom {
     public static class EmburWart extends BYGHugeMushroom {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random) {
-            return new WoodBlewitHuge(NoFeatureConfig::deserialize);
+            return (random.nextInt(2) == 0) ? new EmburMushroom(NoFeatureConfig::deserialize) : new EmburMushroom2(NoFeatureConfig::deserialize);
         }
     }
 }

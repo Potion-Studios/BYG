@@ -401,8 +401,14 @@ public class BYGFeatures {
     }
 
     public static void addEmburBogVegetation(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(10, 0.5F, 8))));
-        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(10, 0.5F, 8))));
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(4, 0.5F, 3))));
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(4, 0.5F, 3))));
+
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_ROOTS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(15, 0.5F, 12))));
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.TALL_EMBUR_ROOTS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(15, 0.5F, 12))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EMBUR_GEL_VINES.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(10, 0.5F, 5))));
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_WART.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(3, 0.5F, 2))));
+
     }
 
     public static void addEndCity(Biome biome) {
@@ -414,11 +420,6 @@ public class BYGFeatures {
     public static void addDeadSeaSpires(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGFeatureList.TALLDEADSEASPIKES.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1))));
         biome.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGFeatureList.DEADSEASPIKES.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(25, 0.1F, 1))));
-    }
-
-    public static void addSkyrisFortress(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.SKYRISFORTRESS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-        biome.addStructure(BYGFeatureList.SKYRISFORTRESS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
     }
 
     public static void addHugeNetherMushrooms(Biome biome) {

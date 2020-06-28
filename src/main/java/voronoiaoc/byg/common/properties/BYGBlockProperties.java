@@ -618,7 +618,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.CLAY)
                     .sound(SoundType.field_226947_m_)
                     .notSolid()
-                    .speedFactor(2.0F)
+                    .speedFactor(1.6F)
                     .slipperiness(0.6F)
             );
             setRegistryName(registryName);

@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
-import voronoiaoc.byg.common.world.feature.features.nether.emburbog.EmburBogLake;
+import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianSprout;
@@ -217,6 +217,11 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> EMBURLAKE = new EmburBogLake(NoFeatureConfig::deserialize);
     public static final Feature<NoFeatureConfig> EMBURMUSHROOM = new EmburMushroom(NoFeatureConfig::deserialize);
     public static final Feature<NoFeatureConfig> EMBURMUSHROOM2 = new EmburMushroom2(NoFeatureConfig::deserialize);
+
+    public static final Feature<NoFeatureConfig> EMBUR_GEL_VINES = new EmburGelVines(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> EMBUR_ROOTS = new EmburRoots(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> TALL_EMBUR_ROOTS = new TallEmburRoots(NoFeatureConfig::deserialize);
+    public static final Feature<NoFeatureConfig> EMBUR_WART = new EmburWart(NoFeatureConfig::deserialize);
 
 
 
