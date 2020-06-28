@@ -30,6 +30,8 @@ public class EmburBog extends Biome implements BiomeFog {
         super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).waterColor(WATER_COLOR).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).waterFogColor(WATER_FOG_COLOR).parent(PARENT));
         this.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGFeatureList.EMBURLAKE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(75, 0, 4, 128))));
         BYGFeatures.addEmburBogVegetation(this);
+        BYGFeatures.addEmburBogVegetation(this);
+
     }
 
     @Override
