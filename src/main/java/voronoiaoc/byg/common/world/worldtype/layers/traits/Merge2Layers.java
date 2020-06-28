@@ -11,7 +11,7 @@ public interface Merge2Layers extends IDimTransformer {
         return () -> {
             R sampler0 = parent0.make();
             R sampler1 = parent1.make();
-            return context.func_212859_a_((x, z) -> {
+            return context.makeArea((x, z) -> {
                 context.setPosition(x, z);
                 return this.apply(context, sampler0, sampler1, x, z);
             }, sampler0);

@@ -11,7 +11,7 @@ public interface Merge1Layer extends IDimTransformer {
     default <R extends IArea> IAreaFactory<R> apply(IExtendedNoiseRandom<R> context, IAreaFactory<R> areaFactory) {
         return () -> {
             R r = areaFactory.make();
-            return context.func_212859_a_((x, z) -> {
+            return context.makeArea((x, z) -> {
                 context.setPosition(x, z);
                 return this.apply(context, r, x, z);
             }, r);

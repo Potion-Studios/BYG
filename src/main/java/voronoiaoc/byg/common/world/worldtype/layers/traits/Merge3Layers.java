@@ -13,7 +13,7 @@ public interface Merge3Layers extends IDimTransformer {
             R sampler1 = parent0.make();
             R sampler2 = parent1.make();
             R sampler3 = parent1.make();
-            return context.func_212859_a_((x, z) -> {
+            return context.makeArea((x, z) -> {
                 context.setPosition(x, z);
                 return this.apply(context, sampler1, sampler2, sampler3, x, z);
             }, sampler1);

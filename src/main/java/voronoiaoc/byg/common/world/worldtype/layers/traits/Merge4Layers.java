@@ -12,7 +12,7 @@ public interface Merge4Layers {
             R sampler1 = parent1.make();
             R sampler2 = parent2.make();
             R sampler3 = parent3.make();
-            return context.func_212859_a_((x, z) -> {
+            return context.makeArea((x, z) -> {
                 context.setPosition(x, z);
                 return this.apply(context, sampler0, sampler1, sampler2, sampler3, x, z);
             }, sampler0);
