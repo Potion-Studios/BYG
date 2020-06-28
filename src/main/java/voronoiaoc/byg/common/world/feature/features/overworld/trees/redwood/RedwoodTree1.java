@@ -886,6 +886,10 @@ public class RedwoodTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.leafs(changedBlocks, worldIn, mainmutable.add(1, 38, 0), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 38, 1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 39, 0), boundsIn);
+
+                if(rand.nextInt(2) == 0)
+                    this.leafs(changedBlocks, worldIn, mainmutable.add(0, 40, 0), boundsIn);
+
             }
         }
         return true;

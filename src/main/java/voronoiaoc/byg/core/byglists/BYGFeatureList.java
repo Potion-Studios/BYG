@@ -95,7 +95,8 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.Pum
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.LargeRainbowEucalyptus;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.SmallRedwoodTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree3;
@@ -369,7 +370,8 @@ public class BYGFeatureList {
 
     //RedWood
     public static final BYGAbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE1 = new RedwoodTree1(NoFeatureConfig::deserialize);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SMALL_REDWOOD_TREE = new SmallRedwoodTree1(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE2 = new RedwoodTree2(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE3 = new RedwoodTree3(NoFeatureConfig::deserialize);
 
     //Seasonal Oaks
     public static final BYGAbstractTreeFeature<NoFeatureConfig> OAK_BROWN_TREE1 = new BrownOakTree(NoFeatureConfig::deserialize);

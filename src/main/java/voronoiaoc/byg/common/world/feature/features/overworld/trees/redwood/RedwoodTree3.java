@@ -14,9 +14,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
 
-public class SmallRedwoodTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class RedwoodTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
-    public SmallRedwoodTree1(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
+    public RedwoodTree3(Function<Dynamic<?>, ? extends NoFeatureConfig> configIn) {
         super(configIn);
     }
 
