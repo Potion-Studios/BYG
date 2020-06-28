@@ -21,7 +21,7 @@ public class BYGBiomeRegistry {
     public static void registerBYGBiomes(RegistryEvent.Register<Biome> event) {
         BYG.LOGGER.debug("BYG: Registering Biomes...");
         IForgeRegistry<Biome> registry = event.getRegistry();
-//        registerBiome(registry, BYGBiomeList.DUMMYBIOME, "dummy", true, BiomeDictionary.Type.PLAINS);
+        registerBiome(registry, BYGBiomeList.DUMMYBIOME, "dummy", true, BiomeDictionary.Type.PLAINS);
 
         registerBiome(registry, BYGBiomeList.ALLIUMFIELDS, "alliumfields", true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.RARE, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.ALPS, "alps", true, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
@@ -174,6 +174,7 @@ public class BYGBiomeRegistry {
         registerBYGBiome(registry, BYGBiomeList.WARPEDDESERT, "warpeddesert", false, BiomeDictionary.Type.NETHER);
         registerBYGBiome(registry, BYGBiomeList.SYTHIANTORRIDS, "sythiantorrids", false, BiomeDictionary.Type.NETHER);
         registerBYGBiome(registry, BYGBiomeList.GLOWSTONEGARDENS, "glowstonegardens", false, BiomeDictionary.Type.NETHER);
+        registerBYGBiome(registry, BYGBiomeList.EMBURBOG, "embur_bog", false, BiomeDictionary.Type.NETHER);
 
         //End
         registerBYGEndBiome(registry, BYGBiomeList.IVISFIELDS, "ivis_fields",  BiomeDictionary.Type.END);

@@ -9,6 +9,8 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 public class BYGBiomeWeightSystem {
 
+
+
     public static void addBiomesToWeightSystem() {
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         BYG.LOGGER.debug("BYG: Adding biome entries with their respective weights...");
