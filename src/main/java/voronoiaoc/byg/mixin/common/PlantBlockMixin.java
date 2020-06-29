@@ -14,7 +14,7 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 @Mixin(PlantBlock.class)
 public class PlantBlockMixin {
     @Inject(at = @At("RETURN"), method = "canPlantOnTop(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)Z", cancellable = true)
-    private static void isBYGDirt(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    private void isBYGDirt(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         Block block = floor.getBlock();
         cir.setReturnValue(cir.getReturnValue() || block == BYGBlockList.GLOWCELIUM || block == BYGBlockList.PEAT ||
                 block == BYGBlockList.MEADOW_GRASSBLOCK || block == BYGBlockList.OVERGROWN_DACITE || block == BYGBlockList.OVERGROWN_STONE ||

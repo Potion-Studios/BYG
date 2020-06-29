@@ -28,7 +28,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.BLUFFSTEEPS, "bluff_steeps", true, 10, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.BOREALFOREST, "boreal_forest", true, 10, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.COLDSWAMPLANDS, "cold_swamplands", true, 10, OverworldClimate.COOL);
-//        registerBiome(BYGBiomeList.CRAGGARDENS, "crag_gardens", true, 10, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.CRAGGARDENS, "crag_gardens", true, 10, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.CHERRYBLOSSOMFOREST, "cherry_blossom_forest", true, 10, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.CONIFEROUSFOREST, "coniferous_forest", true, 10, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.CYPRESSSWAMPLANDS, "cypress_swamplands", true, 10, OverworldClimate.TEMPERATE);

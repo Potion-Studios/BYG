@@ -8,7 +8,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.tag.BlockTags;
-import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.noise.OctaveSimplexNoiseSampler;
@@ -44,8 +43,9 @@ public class LavaLakeWideShallow extends Feature<DefaultFeatureConfig> {
         super(configFactory);
     }
 
+
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockPos position, DefaultFeatureConfig config) {
         setSeed(world.getSeed());
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.down(2));
 
@@ -75,22 +75,24 @@ public class LavaLakeWideShallow extends Feature<DefaultFeatureConfig> {
 
                         // Is spot within the mask (sorta a roundish area) and is contained
                         if (containedFlag) {
-                            // check below without moving down
+                            for (Direction direction : Direction.Type.HORIZONTAL) {
+                                if (world.getBlockState(blockpos$Mutable.offset(direction)).getBlock() != Blocks.AIR) {
+                                    // sets the water
+                                    world.setBlockState(blockpos$Mutable, Blocks.WATER.getDefaultState(), 3);
+                                    world.getFluidTickScheduler().schedule(blockpos$Mutable, Fluids.WATER, 0);
+                                }
+                            }
 
-                            // sets the water
-                            world.setBlockState(blockpos$Mutable, Blocks.LAVA.getDefaultState(), 3);
-                            world.getFluidTickScheduler().schedule(blockpos$Mutable, Fluids.LAVA, 0);
-
-                            // remove floating plants so they aren't hovering.
-                            // check above while moving up one.
-                            blockState = world.getBlockState(blockpos$Mutable.move(Direction.UP));
-                            material = blockState.getMaterial();
+                                // remove floating plants so they aren't hovering.
+                                // check above while moving up one.
+                                blockState = world.getBlockState(blockpos$Mutable.move(Direction.UP));
+                                material = blockState.getMaterial();
 
                             if (material == Material.PLANT && blockState.getBlock() != Blocks.LILY_PAD) {
                                 world.setBlockState(blockpos$Mutable, Blocks.AIR.getDefaultState(), 2);
 
                                 // recursively moves up and breaks floating sugar cane
-                                while (blockpos$Mutable.getY() < world.getDimensionHeight() && world.getBlockState(blockpos$Mutable.move(Direction.UP)) == Blocks.SUGAR_CANE.getDefaultState()) {
+                                while (blockpos$Mutable.getY() < world.getHeight() && world.getBlockState(blockpos$Mutable.move(Direction.UP)) == Blocks.SUGAR_CANE.getDefaultState()) {
                                     world.setBlockState(blockpos$Mutable, Blocks.AIR.getDefaultState(), 2);
                                 }
                             }
@@ -135,7 +137,7 @@ public class LavaLakeWideShallow extends Feature<DefaultFeatureConfig> {
         if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) ||
                 BlockTags.PLANKS.contains(blockState.getBlock())) &&
                 blockState.getFluidState().isEmpty() &&
-                blockState.getFluidState().isIn(FluidTags.WATER)) {
+                blockState.getFluidState() != Fluids.WATER.getStill(false)) {
             return false;
         }
 
@@ -156,7 +158,7 @@ public class LavaLakeWideShallow extends Feature<DefaultFeatureConfig> {
                 blockState = world.getBlockState(blockpos$Mutable.add(x2, 0, z2));
                 material = blockState.getMaterial();
 
-                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState().isIn(FluidTags.WATER)) {
+                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.WATER.getStill(false)) {
                     return false;
                 }
             }
