@@ -208,6 +208,17 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGEmburLily extends NetherLilyBlock {
+        public BYGEmburLily(String registryName) {
+            super(Block.Properties.create(Material.PLANTS)
+                    .sound(SoundType.PLANT)
+                    .hardnessAndResistance(0.0f)
+                    .notSolid()
+            );
+            setRegistryName(registryName);
+        }
+    }
+
     public static class BYGWaterSilk extends BYGWaterSilkBlock {
         public BYGWaterSilk(String registryName) {
             super(Block.Properties.create(Material.PLANTS)

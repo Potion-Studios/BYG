@@ -737,6 +737,7 @@ public class BYGItemRegistry {
                 BYGItemList.EMBUR_ROOTS = new BlockItem(BYGBlockList.EMBUR_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_ROOTS.getRegistryName()),
                 BYGItemList.EMBUR_WART = new BlockItem(BYGBlockList.EMBUR_WART, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_WART.getRegistryName()),
                 BYGItemList.TALL_EMBUR_ROOTS = new BlockItem(BYGBlockList.TALL_EMBUR_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.TALL_EMBUR_ROOTS.getRegistryName()),
+                BYGItemList.EMBUR_LILY = (new EmburLilyItem(BYGBlockList.EMBUR_LILY, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_LILY.getRegistryName())),
 
                 BYGItemList.BLUE_NETHERRACK_BRICK = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("blue_nether_brick"),
                 BYGItemList.BLUE_NETHERRACK = new BlockItem(BYGBlockList.BLUE_NETHERRACK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_NETHERRACK.getRegistryName()),

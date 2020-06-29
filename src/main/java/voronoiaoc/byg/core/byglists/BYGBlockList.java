@@ -520,6 +520,7 @@ public class BYGBlockList {
     public static Block EMBUR_WART;
     public static Block EMBUR_GEL_BLOCK;
     public static Block EMBUR_GEL_VINES;
+    public static Block EMBUR_LILY;
 
     public static Block BLUE_NETHERRACK;
     public static Block BLUE_NETHERRACK_BRICKS;

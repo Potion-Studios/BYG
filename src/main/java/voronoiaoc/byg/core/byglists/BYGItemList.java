@@ -578,6 +578,7 @@ public class BYGItemList {
     public static Item EMBUR_GEL_BLOCK;
     public static Item EMBUR_GEL_BALL;
     public static Item EMBUR_GEL_VINES;
+    public static Item EMBUR_LILY;
 
     public static Item BLUE_NETHERRACK;
     public static Item BLUE_NETHERRACK_BRICKS;

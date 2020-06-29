@@ -63,7 +63,8 @@ public class EmburBog extends Biome implements BiomeFog {
         return WARPEDDESERTVEC3D;
     }
 
-    private static final Vec3d WARPEDDESERTVEC3D = new Vec3d(-0.200F, -0.030F, -0.03F);
+    private static final Vec3d WARPEDDESERTVEC3D = new Vec3d(0.552F, 0.324F, 0.130F);
+
 
 
     @Override

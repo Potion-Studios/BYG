@@ -437,6 +437,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.SYTHIAN_SCAFFOLDING = new BYGBlockProperties.BYGScaffolding("sythian_scaffolding"),
                 BYGBlockList.SYTHIAN_SAPLING = new BYGBlockProperties.BYGSythianSapling("sythian_sapling"),
 
+                BYGBlockList.EMBUR_LILY = new BYGBlockProperties.BYGEmburLily("embur_lily"),
                 BYGBlockList.EMBUR_GEL_BLOCK = new BYGBlockProperties.BYGEmburGelBlock("embur_gel_block"),
                 BYGBlockList.EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines"),
                 BYGBlockList.EMBUR_NYLIUM = new BYGBlockProperties.BYGEmberNylium("embur_nylium"),
