@@ -12,6 +12,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkC
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkCherry2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.ConiferTree6;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.ConiferTree8;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree2;
@@ -49,6 +50,8 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTre
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.LargeRainbowEucalyptus;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.taiga.giantspruce.GiantBlueSpruceTree;
@@ -416,7 +419,20 @@ public class BYGSaplingToTree {
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
             return random.nextInt(2) == 0 ? new OrchardTree1(NoFeatureConfig::deserialize) : new OrchardTree2(NoFeatureConfig::deserialize);
         }
+    }
 
+    public static class CikaSaplingToTree extends BYGTree {
+        @Nullable
+        public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? new CikaTree3(NoFeatureConfig::deserialize) : new CikaTree3(NoFeatureConfig::deserialize);
+        }
+    }
+
+    public static class RedwoodSaplingToTree extends BYGTree {
+        @Nullable
+        public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? new RedwoodTree1(NoFeatureConfig::deserialize) : new RedwoodTree3(NoFeatureConfig::deserialize);
+        }
     }
 }
 

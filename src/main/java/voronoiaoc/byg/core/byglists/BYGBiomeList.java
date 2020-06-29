@@ -28,6 +28,7 @@ public class BYGBiomeList {
     public static final Biome BAYOU = new Bayou();
     public static final Biome BLUEGIANTTAIGA = new BlueGiantTaiga();
     public static final Biome BLUETAIGA = new BlueTaiga();
+    public static final Biome CIKA_WOODS = new CikaWoods();
     public static final Biome BLUFFSTEEPS = new BluffSteeps();
     public static final Biome BOG = new Bog();
     public static final Biome BOREALFOREST = new BorealForest();
@@ -131,6 +132,7 @@ public class BYGBiomeList {
     public static final Biome REDWOOD_CLEARING = new RedwoodClearing();
     public static final Biome REDWOOD_MOUNTAINS = new RedwoodMountains();
     public static final Biome CORAL_MANGROVES = new CoralMangroves();
+    public static final Biome CIKA_MOUNTAINS = new CikaMountains();
 
     public static final Biome WEEPING_WTICH_CLEARING = new WeepingWitchClearing();
     public static final Biome CHERRY_BLOSSOM_CLEARING = new CherryBlossomClearing();

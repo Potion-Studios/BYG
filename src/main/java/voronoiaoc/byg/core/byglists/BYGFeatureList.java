@@ -43,6 +43,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkC
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkCherry2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree2;
@@ -261,6 +264,11 @@ public class BYGFeatureList {
     //Boreal Trees
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE = new BorealForestTree1(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE2 = new BorealForestTree2(NoFeatureConfig::deserialize);
+
+    //Cika
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE1 = new CikaTree1(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE2 = new CikaTree2(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE3 = new CikaTree3(NoFeatureConfig::deserialize);
 
     //Cherry
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_PINK_TREE1 = new PinkCherry1(NoFeatureConfig::deserialize);

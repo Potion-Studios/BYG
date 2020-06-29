@@ -27,7 +27,7 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
     }
 
     public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        if (pos.getX() == -6 && pos.getZ() == -4) {
+        if (pos.getX() == -7 && pos.getZ() == -6) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
                     for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() + 16; checkZ++) {
@@ -38,7 +38,7 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
             }
 
             TemplateManager templatemanager = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager();
-            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/fallen_redwood1"));
+            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/cika_tree3_upper"));
 
             if (template == null) {
                 BYG.LOGGER.warn("NBT does not exist!");
