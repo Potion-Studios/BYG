@@ -21,65 +21,64 @@ public class BYGBiomeRegistry {
 
 
     public static void registerBiomes() {
-        registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.ALPS, "alps", true, 10, OverworldClimate.SNOWY);
-        registerBiome(BYGBiomeList.AMARANTHFIELDS, "amaranth_fields", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.ASPENFOREST, "aspen_forest", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.AUTUMNAL_VALLEY, "autumnal_valley", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.BAOBABSAVANNA, "baobab_savanna", true, 10, OverworldClimate.DRY);
-        registerBiome(BYGBiomeList.BAYOU, "bayou", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.BLUETAIGA, "blue_taiga", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.BLUFFSTEEPS, "bluff_steeps", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.BOREALFOREST, "boreal_forest", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.COLDSWAMPLANDS, "cold_swamplands", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.CRAGGARDENS, "crag_gardens", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.CHERRYBLOSSOMFOREST, "cherry_blossom_forest", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.CONIFEROUSFOREST, "coniferous_forest", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.CYPRESSSWAMPLANDS, "cypress_swamplands", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.DOVERMOUNTAINS, "dover_mountains", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.DEADSEA, "dead_sea", true, 10, OverworldClimate.DRY);
-        registerBiome(BYGBiomeList.DECIDUOUSFOREST, "deciduous_forest", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.DUNES, "dunes", true, 10, OverworldClimate.DRY);
-        registerBiome(BYGBiomeList.EBONYWOODS, "ebony_woods", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.ENCHANTEDFOREST, "enchanted_forest", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.ENCHANTED_GROVE, "enchanted_grove", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.EVERGREENTAIGA, "evergreen_taiga", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.GLOWSHROOMBAYOU, "glowshroom_bayou", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.GRASSLANDPLATEAU, "grassland_plateau", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.GREATLAKES, "great_lakes", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.GROVE, "grove", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.GUIANASHIELD, "guiana_shield", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.JACARANDAFOREST, "jacaranda_forest", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.MANGROVEMARSHES, "mangrove_marshes", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.MAPLETAIGA, "maple_taiga", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.MEADOW, "meadow", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.MOJAVE_DESERT, "mojave_desert", true, 10, OverworldClimate.DRY);
-        registerBiome(BYGBiomeList.LUSH_TUNDRA, "lush_tundra", true, 10, OverworldClimate.SNOWY);
-        registerBiome(BYGBiomeList.ORCHARD, "orchard", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.PRAIRIE, "prairie", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.REDDESERT, "red_desert", true, 10, OverworldClimate.DRY);
-        registerBiome(BYGBiomeList.REDDESERTDUNES, "red_desert_dunes", true, 10, OverworldClimate.DRY);
-        registerBiome(BYGBiomeList.REDOAKFOREST, "red_oak_forest", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.RED_ROCK_MOUNTAINS, "red_rock_mountains", true, 10, OverworldClimate.DRY);
-        registerBiome(BYGBiomeList.SEASONALBIRCHFOREST, "seasonal_birch_forest", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.SEASONALDECIDUOUSFOREST, "seasonal_deciduous_forest", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.SEASONALFOREST, "seasonal_forest", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.SEASONALTAIGA, "seasonal_taiga", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.SHATTEREDGLACIER, "shattered_glacier", true, 10, OverworldClimate.SNOWY);
-        registerBiome(BYGBiomeList.SHRUBLANDS, "shrublands", true, 10, OverworldClimate.DRY);
-        registerBiome(BYGBiomeList.SKYRISHIGHLANDS, "skyris_highlands", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.SNOWYBLUETAIGA, "snowy_blue_taiga", true, 10, OverworldClimate.SNOWY);
-        registerBiome(BYGBiomeList.SNOWYCONIFEROUSFOREST, "snowy_coniferous_forest", true, 10, OverworldClimate.SNOWY);
-        registerBiome(BYGBiomeList.SNOWYDECIDUOUSFOREST, "snowy_deciduous_forest", true, 10, OverworldClimate.SNOWY);
-        registerBiome(BYGBiomeList.SNOWYEVERGREENTAIGA, "snowy_evergreen_taiga", true, 10, OverworldClimate.SNOWY);
-        registerBiome(BYGBiomeList.THE_BLACK_FOREST, "the_black_forest", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_forest", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.TROPICALRAINFOREST, "tropical_rainforest", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.VIBRANTSWAMPLANDS, "vibrant_swamplands", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.SIERRAVALLEY, "sierra_valley", true, 10, OverworldClimate.DRY);
-        registerBiome(BYGBiomeList.WEEPINGWITCHFOREST, "weeping_witch_forest", true, 10, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.WOODLANDS, "woodlands", true, 10, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.ZELKOVAFOREST, "zelkova_forest", true, 10, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields", true, 2, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.ALPS, "alps", true, 5, OverworldClimate.SNOWY);
+        registerBiome(BYGBiomeList.AMARANTHFIELDS, "amaranth_fields", true, 2, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.ASPENFOREST, "aspen_forest", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.AUTUMNAL_VALLEY, "autumnal_valley", true, 5, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.BAOBABSAVANNA, "baobab_savanna", true, 6, OverworldClimate.DRY);
+        registerBiome(BYGBiomeList.BAYOU, "bayou", true, 5, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.BLUETAIGA, "blue_taiga", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.BLUFFSTEEPS, "bluff_steeps", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.BOREALFOREST, "boreal_forest", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.COLDSWAMPLANDS, "cold_swamplands", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.CRAGGARDENS, "crag_gardens", true, 1, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.CHERRYBLOSSOMFOREST, "cherry_blossom_forest", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.CONIFEROUSFOREST, "coniferous_forest", true, 5, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.CYPRESSSWAMPLANDS, "cypress_swamplands", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.DOVERMOUNTAINS, "dover_mountains", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.DEADSEA, "dead_sea", true, 2, OverworldClimate.DRY);
+        registerBiome(BYGBiomeList.DECIDUOUSFOREST, "deciduous_forest", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.DUNES, "dunes", true, 6, OverworldClimate.DRY);
+        registerBiome(BYGBiomeList.EBONYWOODS, "ebony_woods", true, 5, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.ENCHANTEDFOREST, "enchanted_forest", true, 5, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.ENCHANTED_GROVE, "enchanted_grove", true, 1, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.EVERGREENTAIGA, "evergreen_taiga", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.GLOWSHROOMBAYOU, "glowshroom_bayou", true, 1, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.GRASSLANDPLATEAU, "grassland_plateau", true, 5, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.GREATLAKES, "great_lakes", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.GROVE, "grove", true, 5, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.GUIANASHIELD, "guiana_shield", true, 5, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.JACARANDAFOREST, "jacaranda_forest", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.MANGROVEMARSHES, "mangrove_marshes", true, 5, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.MAPLETAIGA, "maple_taiga", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.MEADOW, "meadow", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.MOJAVE_DESERT, "mojave_desert", true, 6, OverworldClimate.DRY);
+        registerBiome(BYGBiomeList.LUSH_TUNDRA, "lush_tundra", true, 6, OverworldClimate.SNOWY);
+        registerBiome(BYGBiomeList.ORCHARD, "orchard", true, 5, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.PRAIRIE, "prairie", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.REDDESERT, "red_desert", true, 6, OverworldClimate.DRY);
+        registerBiome(BYGBiomeList.REDOAKFOREST, "red_oak_forest", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.RED_ROCK_MOUNTAINS, "red_rock_mountains", true, 5, OverworldClimate.DRY);
+        registerBiome(BYGBiomeList.SEASONALBIRCHFOREST, "seasonal_birch_forest", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.SEASONALDECIDUOUSFOREST, "seasonal_deciduous_forest", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.SEASONALFOREST, "seasonal_forest", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.SEASONALTAIGA, "seasonal_taiga", true, 6, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.SHATTEREDGLACIER, "shattered_glacier", true, 4, OverworldClimate.SNOWY);
+        registerBiome(BYGBiomeList.SHRUBLANDS, "shrublands", true, 5, OverworldClimate.DRY);
+        registerBiome(BYGBiomeList.SKYRISHIGHLANDS, "skyris_highlands", true, 2, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.SNOWYBLUETAIGA, "snowy_blue_taiga", true, 6, OverworldClimate.SNOWY);
+        registerBiome(BYGBiomeList.SNOWYCONIFEROUSFOREST, "snowy_coniferous_forest", true, 6, OverworldClimate.SNOWY);
+        registerBiome(BYGBiomeList.SNOWYDECIDUOUSFOREST, "snowy_deciduous_forest", true, 6, OverworldClimate.SNOWY);
+        registerBiome(BYGBiomeList.SNOWYEVERGREENTAIGA, "snowy_evergreen_taiga", true, 6, OverworldClimate.SNOWY);
+        registerBiome(BYGBiomeList.THE_BLACK_FOREST, "the_black_forest", true, 5, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_forest", true, 5, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.TROPICALRAINFOREST, "tropical_rainforest", true, 1, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.VIBRANTSWAMPLANDS, "vibrant_swamplands", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.SIERRAVALLEY, "sierra_valley", true, 6, OverworldClimate.DRY);
+        registerBiome(BYGBiomeList.WEEPINGWITCHFOREST, "weeping_witch_forest", true, 1, OverworldClimate.COOL);
+        registerBiome(BYGBiomeList.WOODLANDS, "woodlands", true, 4, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.ZELKOVAFOREST, "zelkova_forest", true, 6, OverworldClimate.COOL);
 
         //Islands
         registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, Biomes.DEEP_WARM_OCEAN, Biomes.WARM_OCEAN);
@@ -117,6 +116,7 @@ public class BYGBiomeRegistry {
         registerSubBiome(BYGBiomeList.SIERRARANGE, "sierra_range", true);
         registerSubBiome(BYGBiomeList.ALPINEFOOTHILLS, "alpine_foothills",true);
         registerSubBiome(BYGBiomeList.ASPENFORESTHILLS, "aspen_forest_hills", true);
+        registerSubBiome(BYGBiomeList.REDDESERTDUNES, "red_desert_dunes", true);
         registerSubBiome(BYGBiomeList.BLUETAIGAHILLS, "blue_taiga_hills", true);
         registerSubBiome(BYGBiomeList.BLUEGIANTTAIGA, "blue_giant_taiga", true);
         registerSubBiome(BYGBiomeList.BLUFFPEAKS, "bluff_peaks", true);
@@ -165,13 +165,13 @@ public class BYGBiomeRegistry {
     static int idx = 0;
 
 
-    private static void registerBiome(Biome biome, String id, boolean spawn, int weight, OverworldClimate climate) {
+    private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate climate) {
         Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
 
         if (spawn)
             FabricBiomes.addSpawnBiome(biome);
         if (weight > 0)
-            OverworldBiomes.addContinentalBiome(biome, climate, weight);
+            OverworldBiomes.addContinentalBiome(biome, climate, weight / 10.0F);
 
         if (((BiomeTools) biome).getEdge() != null)
             OverworldBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), 1);
@@ -192,10 +192,6 @@ public class BYGBiomeRegistry {
         Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
         NetherBiomes.addNetherBiome(biome);
     }
-
-//    private static void registerEndBiome(Biome biome, String id) {
-//        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
-//    }
 
     public static void addBeachesCategorically() {
         for (Biome biome : Registry.BIOME) {
