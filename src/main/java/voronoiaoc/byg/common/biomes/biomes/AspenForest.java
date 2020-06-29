@@ -38,7 +38,6 @@ public class AspenForest extends Biome implements BiomeTools {
         StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
         this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
-
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addForestFlowers(this);

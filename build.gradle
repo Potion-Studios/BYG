@@ -1,3 +1,6 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
 plugins {
 	id 'fabric-loom' version '0.4-SNAPSHOT'
 	id 'maven-publish'
@@ -88,4 +91,27 @@ repositories {
 dependencies {
 	modImplementation 'net.earthcomputer:libstructure:1.3' // Or the latest version
 	include 'net.earthcomputer:libstructure:1.3'
+}
+
+processResources {
+
+	// Minifies all .json files when building the mod.
+	// Source files are not minified, only the jar copies.
+	doLast {
+
+		def jsonMinifyStart = System.currentTimeMillis()
+		def jsonMinified = 0
+		def jsonBytesSaved = 0
+
+		fileTree(dir: outputs.files.asPath, include: '**/*.json').each {
+
+			File file = it
+			jsonMinified++
+			def oldLength = file.length()
+			file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+			jsonBytesSaved += oldLength - file.length()
+		}
+
+		println('Minified ' + jsonMinified + ' json files. Saved ' + jsonBytesSaved + ' bytes. Took ' + (System.currentTimeMillis() - jsonMinifyStart) + 'ms.')
+	}
 }

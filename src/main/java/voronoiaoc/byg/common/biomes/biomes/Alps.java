@@ -52,7 +52,7 @@ public class Alps extends Biome implements BiomeTools {
 
     @Override
     public Biome getRiver() {
-        return this;
+        return BYGBiomeList.ALPINEFOOTHILLS;
     }
 
     @Override

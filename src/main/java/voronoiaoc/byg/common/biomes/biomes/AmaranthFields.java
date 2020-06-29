@@ -6,6 +6,7 @@ import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
@@ -63,7 +64,7 @@ public class AmaranthFields extends Biome implements BiomeTools {
 
     @Override
     public Biome getRiver() {
-        return null;
+        return Biomes.RIVER;
     }
 
     @Override
