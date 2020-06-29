@@ -16,10 +16,13 @@ import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 import voronoiaoc.byg.core.registries.BYGBlockRegistry;
 import voronoiaoc.byg.core.registries.BYGItemRegistry;
 
+import java.util.Collections;
+
 public class BYG implements ModInitializer {
     public static final String MODID = "byg";
     public static Logger LOGGER = LogManager.getLogger();
     public static final ItemGroup BYG_TAB = FabricItemGroupBuilder.build(new Identifier(MODID,"byg"), () -> new ItemStack(BYGItemList.BYG_LOGO));
+    static int idx = 0;
 
     @Override
     public void onInitialize() {
@@ -38,6 +41,13 @@ public class BYG implements ModInitializer {
         BYGHoeables.tillablesBYG();
         BYGStrippables.strippableLogsBYG();
         BYGCompostables.compostablesBYG();
+        Collections.sort(BYGBiomeRegistry.biomeList);
+
+        BYGBiomeRegistry.biomeList.forEach(e -> {
+            idx++;
+            System.out.println(idx + ". " + e);
+
+        });
         LOGGER.info("Initialized BYG!");
     }
 }

@@ -12,9 +12,13 @@ import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class BYGBiomeRegistry {
+    public static List<String> biomeList = new ArrayList<>();
+
 
     public static void registerBiomes() {
         registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields", true, 10, OverworldClimate.TEMPERATE);
@@ -152,14 +156,16 @@ public class BYGBiomeRegistry {
         registerSubBiome(BYGBiomeList.SNOWYBLACKBEACH, "snowy_black_beach", true);
         registerSubBiome(BYGBiomeList.SNOWYROCKYBLACKBEACH, "snowy_rocky_black_beach", true);
         registerSubBiome(BYGBiomeList.WHITEBEACH, "white_beach", true);
+
         registerNetherBiome(BYGBiomeList.GLOWSTONEGARDENS, "glowstone_gardens");
         registerNetherBiome(BYGBiomeList.WARPEDDESERT, "warped_desert");
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
 //        registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
     }
+    static int idx = 0;
+
 
     private static void registerBiome(Biome biome, String id, boolean spawn, int weight, OverworldClimate climate) {
-
         Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
 
         if (spawn)
@@ -172,11 +178,13 @@ public class BYGBiomeRegistry {
         if (((BiomeTools) biome).getBeach() != null)
             OverworldBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), 1);
         if (((BiomeTools) biome).getHill() != null)
-            OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 1);
+            OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 0.3);
         if (((BiomeTools) biome).getMutation() != null)
             OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), 1);
         if (((BiomeTools) biome).getRiver() != null)
             OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getRiver(), 1);
+
+        biomeList.add(id);
     }
 
 
@@ -205,6 +213,8 @@ public class BYGBiomeRegistry {
         if (spawn) {
             FabricBiomes.addSpawnBiome(biome);
         }
+        idx++;
+        biomeList.add(id);
     }
 
     private static void registerIsland(Biome island, String id, boolean spawn, Biome... oceanClimates) {
