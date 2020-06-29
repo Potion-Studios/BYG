@@ -155,7 +155,7 @@ public class BYGBiomeRegistry {
         registerNetherBiome(BYGBiomeList.GLOWSTONEGARDENS, "glowstone_gardens");
         registerNetherBiome(BYGBiomeList.WARPEDDESERT, "warped_desert");
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
-        registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
+//        registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
     }
 
     private static void registerBiome(Biome biome, String id, boolean spawn, int weight, OverworldClimate climate) {
@@ -185,9 +185,9 @@ public class BYGBiomeRegistry {
         NetherBiomes.addNetherBiome(biome);
     }
 
-    private static void registerEndBiome(Biome biome, String id) {
-        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
-    }
+//    private static void registerEndBiome(Biome biome, String id) {
+//        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
+//    }
 
     public static void addBeachesCategorically() {
         for (Biome biome : Registry.BIOME) {

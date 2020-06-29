@@ -26,7 +26,7 @@ public class WarpedCoralFeature extends Feature<DefaultFeatureConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        int randCoralHeight = rand.nextInt(7) + 16 / 2;
+        int randCoralHeight = rand.nextInt(9) + 10 / 2;
         BlockPos blockPos = new BlockPos(posX, posY, posZ);
         BlockPos.Mutable block = new BlockPos.Mutable().set(blockPos);
 
