@@ -12,6 +12,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkC
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkCherry2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.ConiferTree6;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.ConiferTree8;
@@ -424,7 +425,7 @@ public class BYGSaplingToTree {
     public static class CikaSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? new CikaTree3(NoFeatureConfig::deserialize) : new CikaTree3(NoFeatureConfig::deserialize);
+            return random.nextInt(2) == 0 ? new CikaTree2(NoFeatureConfig::deserialize) : new CikaTree3(NoFeatureConfig::deserialize);
         }
     }
 
