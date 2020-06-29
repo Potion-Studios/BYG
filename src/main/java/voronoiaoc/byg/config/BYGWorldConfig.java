@@ -61,7 +61,7 @@ public class BYGWorldConfig {
 
         COMMON_BUILDER.push("Stone_Settings");
         COMMON_BUILDER.push("Rocky_Stone");
-        rockyStoneSize = COMMON_BUILDER.defineInRange("RockyStoneSize", 0, 0, 100);
+        rockyStoneSize = COMMON_BUILDER.defineInRange("RockyStoneSize", 24, 0, 100);
         rockyStoneChance = COMMON_BUILDER.defineInRange("RockyStoneChance", 4, 0, 100);
         rockyStoneMaxY = COMMON_BUILDER.defineInRange("RockyStoneMaxY", 256, 0, 256);
         COMMON_BUILDER.pop();

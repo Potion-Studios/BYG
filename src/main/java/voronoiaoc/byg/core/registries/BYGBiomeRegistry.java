@@ -13,8 +13,12 @@ import voronoiaoc.byg.common.world.worldtype.math.BYGBiomeGroup;
 import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Mod.EventBusSubscriber(modid = BYG.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BYGBiomeRegistry {
+    public static List<String> biomeList = new ArrayList<>();
 
 
     @SubscribeEvent
@@ -163,21 +167,18 @@ public class BYGBiomeRegistry {
         registerBYGSubBiome(registry, BYGBiomeList.ZELKOVAFORESTHILLS, "zelkovaforesthills", true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.FLOWERINGMEADOW, "floweringmeadow",  true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.WOODEDMEADOW, "woodedmeadow", true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
-
-
-        //NonDefault Biomes.
-        registerBYGBiome(registry, BYGBiomeList.ROCKYBEACH, "rockybeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.OVERWORLD);
-        registerBYGBiome(registry, BYGBiomeList.SNOWYROCKYBLACKBEACH, "snowyrockyblackbeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
-        registerBYGBiome(registry, BYGBiomeList.SNOWYBLACKBEACH, "snowyblackbeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
-        registerBYGBiome(registry, BYGBiomeList.WHITEBEACH, "whitebeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.OVERWORLD);
-        registerBYGBiome(registry, BYGBiomeList.RAINBOWBEACH, "rainbowbeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.WET, BiomeDictionary.Type.OVERWORLD);
-        registerBYGBiome(registry, BYGBiomeList.TROPICALISLAND, "tropicalisland", true, BiomeDictionary.Type.WET, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.JUNGLE);
+        registerBYGSubBiome(registry, BYGBiomeList.ROCKYBEACH, "rockybeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.SNOWYROCKYBLACKBEACH, "snowyrockyblackbeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.SNOWYBLACKBEACH, "snowyblackbeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.WHITEBEACH, "whitebeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.RAINBOWBEACH, "rainbowbeach", true, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.WET, BiomeDictionary.Type.OVERWORLD);
+//        registerBYGSubBiome(registry, BYGBiomeList.TROPICALISLAND, "tropicalisland", true, BiomeDictionary.Type.WET, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.JUNGLE);
 
         //Nether
-        registerBYGBiome(registry, BYGBiomeList.WARPEDDESERT, "warpeddesert", false, BiomeDictionary.Type.NETHER);
-        registerBYGBiome(registry, BYGBiomeList.SYTHIANTORRIDS, "sythiantorrids", false, BiomeDictionary.Type.NETHER);
-        registerBYGBiome(registry, BYGBiomeList.GLOWSTONEGARDENS, "glowstonegardens", false, BiomeDictionary.Type.NETHER);
-        registerBYGBiome(registry, BYGBiomeList.EMBURBOG, "embur_bog", false, BiomeDictionary.Type.NETHER);
+        registerNetherBiome(registry, BYGBiomeList.WARPEDDESERT, "warpeddesert",  BiomeDictionary.Type.NETHER);
+        registerNetherBiome(registry, BYGBiomeList.SYTHIANTORRIDS, "sythiantorrids",  BiomeDictionary.Type.NETHER);
+        registerNetherBiome(registry, BYGBiomeList.GLOWSTONEGARDENS, "glowstonegardens",  BiomeDictionary.Type.NETHER);
+        registerNetherBiome(registry, BYGBiomeList.EMBURBOG, "embur_bog", BiomeDictionary.Type.NETHER);
 
         //End
         registerBYGEndBiome(registry, BYGBiomeList.IVISFIELDS, "ivis_fields",  BiomeDictionary.Type.END);
@@ -189,6 +190,8 @@ public class BYGBiomeRegistry {
             BYGBiomeGroup.initDefaultBiomes();
         }
     }
+    static int idx = 0;
+
 
     private static void registerBiome(IForgeRegistry<Biome> registry, Biome biome, String name, boolean spawn, BiomeDictionary.Type... types) {
         registry.register(biome.setRegistryName(BYG.MOD_ID, name));
@@ -196,19 +199,17 @@ public class BYGBiomeRegistry {
                 BiomeManager.addSpawnBiome(biome);
             }
             BiomeDictionary.addTypes(biome, types);
-        }
-
-    private static void registerBYGBiome(IForgeRegistry<Biome> registry, Biome biome, String name, boolean spawn, BiomeDictionary.Type... types) {
-        registry.register(biome.setRegistryName(BYG.MOD_ID, name));
-        if (spawn) {
-            BiomeManager.addSpawnBiome(biome);
-        }
-        BiomeDictionary.addTypes(biome, types);
+        biomeList.add(name);
     }
 
     private static void registerBYGEndBiome(IForgeRegistry<Biome> registry, Biome biome, String name, BiomeDictionary.Type... types) {
         registry.register(biome.setRegistryName(BYG.MOD_ID, name));
         BYGEndBiomeProvider.biomeList.add(biome);
+        BiomeDictionary.addTypes(biome, types);
+    }
+
+    private static void registerNetherBiome(IForgeRegistry<Biome> registry, Biome biome, String name, BiomeDictionary.Type... types) {
+        registry.register(biome.setRegistryName(BYG.MOD_ID, name));
         BiomeDictionary.addTypes(biome, types);
     }
 
@@ -219,5 +220,7 @@ public class BYGBiomeRegistry {
             BiomeManager.addSpawnBiome(biome);
         }
         BiomeDictionary.addTypes(biome, types);
+        idx++;
+        biomeList.add(name);
     }
 }

@@ -38,9 +38,11 @@ import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGEntityList;
 import voronoiaoc.byg.core.byglists.BYGFeatureList;
+import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 import voronoiaoc.byg.server.command.BYGCommand;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Mod("byg")
@@ -50,6 +52,7 @@ public class BYG {
     public static boolean isClient = false;
     public static Logger LOGGER = LogManager.getLogger();
     public static boolean isUsingMixin;
+    static int idx = 0;
 
     public BYG() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BYGConfig.COMMON_CONFIG);
@@ -71,6 +74,12 @@ public class BYG {
         List<Structure<?>> tempList = new ArrayList<>(Feature.ILLAGER_STRUCTURES);
         tempList.add(BYGFeatureList.BYGVILLAGE);
         Feature.ILLAGER_STRUCTURES = ImmutableList.copyOf(tempList);
+        Collections.sort(BYGBiomeRegistry.biomeList);
+        BYGBiomeRegistry.biomeList.forEach(e -> {
+            idx++;
+            System.out.println(idx + ". " + e);
+
+        });
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 
