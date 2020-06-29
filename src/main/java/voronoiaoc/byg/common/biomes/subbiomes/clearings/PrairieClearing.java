@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.biomes.subbiomes;
+package voronoiaoc.byg.common.biomes.subbiomes.clearings;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;

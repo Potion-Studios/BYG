@@ -1,16 +1,18 @@
-package voronoiaoc.byg.common.biomes.biomes;
+package voronoiaoc.byg.common.biomes.subbiomes;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.SeaGrassConfig;
-import net.minecraft.world.gen.placement.IPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.feature.SingleRandomFeature;
+import net.minecraft.world.gen.placement.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -18,12 +20,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
-import javax.annotation.Nullable;
-
-public class MangroveMarshes extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
+public class CoralMangroves extends Biome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, SurfaceBuilder.SAND_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.SWAMP;
     static final double DEPTH = -0.5F;
@@ -34,9 +33,9 @@ public class MangroveMarshes extends Biome {
     static final int WATER_FOG_COLOR = 329011;
     static final String PARENT = null;
 
-    public MangroveMarshes() {
+    public CoralMangroves() {
         super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).waterColor(WATER_COLOR).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).waterFogColor(WATER_FOG_COLOR).parent(PARENT));
-        BYGTreeFeatures.addMangroveTrees(this);
+        BYGTreeFeatures.addSparseMangroveMarshes(this);
         DefaultBiomeFeatures.addCarvers(this);
         DefaultBiomeFeatures.addStructures(this);
         DefaultBiomeFeatures.addMonsterRooms(this);
@@ -47,7 +46,6 @@ public class MangroveMarshes extends Biome {
         DefaultBiomeFeatures.addExtraReedsAndPumpkins(this);
         DefaultBiomeFeatures.addSprings(this);
         this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.withConfiguration(new SeaGrassConfig(64, 0.6D)).withPlacement(Placement.TOP_SOLID_HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-        BYGFeatures.addBYGSwampVegetation(this);
         BYGFeatures.addGrass(this);
         BYGFeatures.addCattails(this);
         BYGFeatures.addPeachleatherflower(this);
@@ -57,7 +55,19 @@ public class MangroveMarshes extends Biome {
         BYGFeatures.addPinkOrchid(this);
         BYGFeatures.addMudDisks(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.withConfiguration(new SingleRandomFeature(ImmutableList.of(
+                Feature.CORAL_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG),
+                Feature.CORAL_CLAW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG),
+                Feature.CORAL_MUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))))
+                .withPlacement(Placement.TOP_SOLID_HEIGHTMAP_NOISE_BIASED.configure(new TopSolidWithNoiseConfig(80, 200.0D, 0.0D, Heightmap.Type.OCEAN_FLOOR_WG))));
 
+        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+                Feature.SEA_PICKLE.withConfiguration(new CountConfig(20)).withPlacement(Placement.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceConfig(20))));
+
+        DefaultBiomeFeatures.addTallSeagrassSparse(this);
+        DefaultBiomeFeatures.addFreezeTopLayer(this);
+
+        this.addSpawn(EntityClassification.WATER_CREATURE, new Biome.SpawnListEntry(EntityType.TROPICAL_FISH, 25, 8, 8));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
@@ -71,12 +81,6 @@ public class MangroveMarshes extends Biome {
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SLIME, 100, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
-    }
-
-    @Nullable
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return BYGBiomeList.CORAL_MANGROVES;
     }
 
     @OnlyIn(Dist.CLIENT)

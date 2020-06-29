@@ -128,6 +128,9 @@ public class BYGBiomeList {
     public static final Biome ENCHANTED_FOREST_HILLS = new EnchantedForestHills();
     public static final Biome SNOWY_EVERGREEN_CLEARING = new SnowyEvergreenClearing();
     public static final Biome SNOWY_EVERGREEN_HILLS = new SnowyEvergreenHills();
+    public static final Biome REDWOOD_CLEARING = new RedwoodClearing();
+    public static final Biome REDWOOD_MOUNTAINS = new RedwoodMountains();
+    public static final Biome CORAL_MANGROVES = new CoralMangroves();
 
     public static final Biome WEEPING_WTICH_CLEARING = new WeepingWitchClearing();
     public static final Biome CHERRY_BLOSSOM_CLEARING = new CherryBlossomClearing();

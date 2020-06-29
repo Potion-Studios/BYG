@@ -454,9 +454,16 @@ public class BYGTreeFeatures {
     }
 
     public static void addRedwoodTrees(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.4F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.4F, 1))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.6F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EBONY_BUSH1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.2F, 1))));
+    }
+
+    public static void addSparseRedwoodTrees(Biome biome) {
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.2F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.2F, 1))));
     }
 
     public static void addMeadowShrubs(Biome biome) {

@@ -92,6 +92,10 @@ public class BYGBiomeRegistry {
         registerBiome(registry, BYGBiomeList.ZELKOVAFOREST, "zelkovaforest",  true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
 
         //Sub Biomes
+        registerBYGSubBiome(registry, BYGBiomeList.REDWOOD_CLEARING, "redwood_clearing", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.REDWOOD_MOUNTAINS, "redwood_mountains", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE,BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.CORAL_MANGROVES, "coral_mangroves", true,  BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD);
+
         registerBYGSubBiome(registry, BYGBiomeList.SNOWY_EVERGREEN_CLEARING, "snowy_evergreen_clearing", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.SNOWY_EVERGREEN_HILLS, "snowy_evergreen_hills", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.ENCHANTED_FOREST_HILLS, "enchanted_forest_hills", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.RARE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);

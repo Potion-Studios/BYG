@@ -2087,7 +2087,7 @@ public class RedwoodTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
-            int distance = 15;
+            int distance = 0;
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {

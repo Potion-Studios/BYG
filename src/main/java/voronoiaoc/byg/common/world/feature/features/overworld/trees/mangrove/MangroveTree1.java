@@ -22,7 +22,7 @@ public class MangroveTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
-        int randTreeHeight = 10 + rand.nextInt(5);
+        int randTreeHeight = 14 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxHeight()) {
