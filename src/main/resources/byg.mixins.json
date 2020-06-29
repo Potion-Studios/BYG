@@ -4,8 +4,6 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
-    "common.world.MixinTemplate",
-    "common.world.TemplateInvoker",
     "common.world.layers.MixinIslandLayer",
     "common.world.layers.MixinShoreLayer"
   ],

@@ -75,9 +75,6 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
 
                         // Is spot within the mask (sorta a roundish area) and is contained
                         if (containedFlag) {
-                            // check below without moving down
-
-                            // sets the lava
                             world.setBlockState(blockpos$Mutable, Blocks.LAVA.getDefaultState(), 3);
                             world.getPendingFluidTicks().scheduleTick(blockpos$Mutable, Fluids.LAVA, 0);
 
@@ -121,7 +118,7 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
         //cannot be under ledge
         BlockPos.Mutable temp = new BlockPos.Mutable(blockpos$Mutable);
         blockState = world.getBlockState(temp.up());
-        while (!blockState.getFluidState().isEmpty() && temp.getY() < 255) {
+        while (!blockState.getFluidState().isEmpty() && temp.getY() < world.getMaxHeight()) {
             temp.move(Direction.UP);
         }
         if (!blockState.isAir() && blockState.getFluidState().isEmpty())
@@ -135,7 +132,7 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
         if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) ||
                 BlockTags.PLANKS.contains(blockState.getBlock())) &&
                 blockState.getFluidState().isEmpty() &&
-                blockState.getFluidState() != Fluids.LAVA) {
+                blockState.getFluidState() != Fluids.LAVA.getStillFluidState(false)) {
             return false;
         }
 
@@ -146,7 +143,7 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 if (world.getBlockState(blockpos$Mutable.offset(direction)).isAir()) open++;
             }
-            if (open == 1) return true;
+            if (open > 0) return false;
         }
 
         // Must be solid all around even diagonally.
@@ -161,7 +158,6 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
                 }
             }
         }
-
         return true;
     }
 }

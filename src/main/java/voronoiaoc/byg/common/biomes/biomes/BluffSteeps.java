@@ -22,7 +22,7 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import javax.annotation.Nullable;
 
 public class BluffSteeps extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState()));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState()));
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.EXTREME_HILLS;
     static final double DEPTH = 2.5F;

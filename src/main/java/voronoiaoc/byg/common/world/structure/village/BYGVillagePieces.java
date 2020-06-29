@@ -17,7 +17,6 @@ import voronoiaoc.byg.common.world.structure.village.villagepools.*;
 import java.util.List;
 
 public class BYGVillagePieces {
-
     public static void addPieces(ChunkGenerator<?> chunkGen, TemplateManager template, BlockPos blockPos, List<StructurePiece> list, SharedSeedRandom seed, VillageConfig villageConfig) {
         BYGGuianaVillagePools.init();
         BYGGrasslandVillagePools.init();
