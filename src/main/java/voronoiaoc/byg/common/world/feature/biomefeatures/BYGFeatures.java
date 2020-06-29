@@ -136,14 +136,14 @@ public class BYGFeatures {
     }
 
     public static void addBYGSwampVegetation(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.TINY_LILYPADS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 2))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.WATER_SILK.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(4, 0.6F, 3))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.TINY_LILYPAD_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.WATER_SILK_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.LILY_PAD_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
 
     }
 
     public static void addBYGLilyPad(Biome biome) {
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.TINY_LILYPADS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 2))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.TINY_LILYPAD_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.LILY_PAD_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
 
     }

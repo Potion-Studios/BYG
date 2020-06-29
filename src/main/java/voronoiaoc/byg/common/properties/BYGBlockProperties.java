@@ -197,7 +197,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGLily extends BYGLilyPadBlock {
+    public static class BYGLily extends LilyPadBlock {
         public BYGLily(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.PLANT)

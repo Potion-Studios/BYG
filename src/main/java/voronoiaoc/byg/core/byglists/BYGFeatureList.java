@@ -224,9 +224,6 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> EMBUR_WART = new EmburWart(NoFeatureConfig::deserialize);
     public static final Feature<NoFeatureConfig> EMBUR_LILY = new EmburLily(NoFeatureConfig::deserialize);
 
-    public static final Feature<NoFeatureConfig> TINY_LILYPADS = new TinyLilyPads(NoFeatureConfig::deserialize);
-    public static final Feature<NoFeatureConfig> WATER_SILK = new WaterSilk(NoFeatureConfig::deserialize);
-
     /********************************************************************Structures***********************************************************************/
     public static final Structure<VillageConfig> BYGVILLAGE = new BYGVillageStructure(VillageConfig::deserialize);
     public static final Structure<NoFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(NoFeatureConfig::deserialize);
