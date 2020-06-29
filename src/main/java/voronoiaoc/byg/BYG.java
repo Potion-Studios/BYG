@@ -38,11 +38,6 @@ public class BYG implements ModInitializer {
         BYGHoeables.tillablesBYG();
         BYGStrippables.strippableLogsBYG();
         BYGCompostables.compostablesBYG();
-
-        //Entity
-        //        EntityRendererRegistry.INSTANCE.register((EntityType<? extends BYGBoatEntity>) BYGEntityList.BYGBOAT, (entityRenderDispatcher, context) -> new BoatEntityRenderer(entityRenderDispatcher));
-
         LOGGER.info("Initialized BYG!");
-
     }
 }
