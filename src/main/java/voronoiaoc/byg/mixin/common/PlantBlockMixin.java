@@ -16,10 +16,11 @@ public class PlantBlockMixin {
     @Inject(at = @At("RETURN"), method = "canPlantOnTop(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)Z", cancellable = true)
     private void isBYGDirt(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         Block block = floor.getBlock();
-        cir.setReturnValue(cir.getReturnValue() || block == BYGBlockList.GLOWCELIUM || block == BYGBlockList.PEAT ||
+        if (block == BYGBlockList.GLOWCELIUM || block == BYGBlockList.PEAT ||
                 block == BYGBlockList.MEADOW_GRASSBLOCK || block == BYGBlockList.OVERGROWN_DACITE || block == BYGBlockList.OVERGROWN_STONE ||
                 block == BYGBlockList.PODZOL_DACITE || block == BYGBlockList.OVERGROWN_NETHERRACK || block == BYGBlockList.SYTHIAN_NYLIUM ||
-                block == BYGBlockList.IVIS_PHYLIUM);
+                block == BYGBlockList.IVIS_PHYLIUM) {
+            cir.setReturnValue(true);
+        }
     }
-
 }

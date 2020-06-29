@@ -12,9 +12,11 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 public class FeatureMixin {
     @Inject(at = @At("RETURN"), method = "isSoil(Lnet/minecraft/block/Block;)Z", cancellable = true)
     private static void isDirt(Block block, CallbackInfoReturnable<Boolean> cir) {
-       cir.setReturnValue(block == BYGBlockList.GLOWCELIUM || block == BYGBlockList.PEAT ||
-               block == BYGBlockList.MEADOW_GRASSBLOCK || block == BYGBlockList.OVERGROWN_DACITE || block == BYGBlockList.OVERGROWN_STONE ||
-               block == BYGBlockList.PODZOL_DACITE || block == BYGBlockList.OVERGROWN_NETHERRACK || block == BYGBlockList.SYTHIAN_NYLIUM ||
-               block == BYGBlockList.IVIS_PHYLIUM);
+        if (block == BYGBlockList.GLOWCELIUM || block == BYGBlockList.PEAT ||
+                block == BYGBlockList.MEADOW_GRASSBLOCK || block == BYGBlockList.OVERGROWN_DACITE || block == BYGBlockList.OVERGROWN_STONE ||
+                block == BYGBlockList.PODZOL_DACITE || block == BYGBlockList.OVERGROWN_NETHERRACK || block == BYGBlockList.SYTHIAN_NYLIUM ||
+                block == BYGBlockList.IVIS_PHYLIUM) {
+            cir.setReturnValue(true);
+        }
     }
 }
