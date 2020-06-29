@@ -30,10 +30,9 @@ public class WarpedCoralFeature extends Feature<DefaultFeatureConfig> {
         BlockPos blockPos = new BlockPos(posX, posY, posZ);
         BlockPos.Mutable block = new BlockPos.Mutable().set(blockPos);
 
-        if (!checkArea(worldIn, pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.NYLIUM_SOUL_SAND) {
+        if (!checkArea(worldIn, pos)) {
             return false;
-        } else {
-
+        } else if ((worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND) || (worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL)) {
             for (int i = 0; i <= randCoralHeight; i++) {
                 BlockPos.Mutable mutable = new BlockPos.Mutable().set(block);
 

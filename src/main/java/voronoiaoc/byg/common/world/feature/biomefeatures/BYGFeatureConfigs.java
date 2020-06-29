@@ -44,6 +44,8 @@ public class BYGFeatureConfigs {
     public static final RandomPatchFeatureConfig CYANAMARANTH_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.CYAN_AMARANTH.getDefaultState()), new SimpleBlockPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).cannotProject().build();
     public static final RandomPatchFeatureConfig SHORT_GRASS_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.SHORT_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(24).build();
     public static final RandomPatchFeatureConfig TALL_GRASS_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.TALL_GRASS.getDefaultState()), new DoublePlantPlacer())).tries(64).build();
+    public static final RandomPatchFeatureConfig SOULFIREONNYLIUM = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SOUL_FIRE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.SOUL_SOIL, BYGBlockList.NYLIUM_SOUL_SOIL)).cannotProject().build();
+
 
     public static final RandomPatchFeatureConfig MINI_CACTUS_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.MINI_CACTUS.getDefaultState()), new SimpleBlockPlacer())).tries(4).build();
     public static final RandomPatchFeatureConfig HORSEWEED_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.HORSEWEED.getDefaultState()), new SimpleBlockPlacer())).tries(4).build();
