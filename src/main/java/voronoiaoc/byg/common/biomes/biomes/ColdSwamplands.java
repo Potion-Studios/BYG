@@ -46,7 +46,7 @@ public class ColdSwamplands extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addSwampVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
-        DefaultBiomeFeatures.addSwampVegetation(this);
+        DefaultBiomeFeatures.addSwampFeatures(this);
         BYGFeatures.addMarshGrass(this);
         BYGFeatures.addWiltedGrass(this);
         BYGFeatures.addWiltedGrass(this);

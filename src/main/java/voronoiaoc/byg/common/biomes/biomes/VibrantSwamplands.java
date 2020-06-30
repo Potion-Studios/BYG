@@ -46,7 +46,7 @@ public class VibrantSwamplands extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addSprings(this);
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
         DefaultBiomeFeatures.addFossils(this);
-        DefaultBiomeFeatures.addSwampVegetation(this);
+        DefaultBiomeFeatures.addSwampFeatures(this);
         BYGFeatures.addMarshGrass(this);
         BYGFeatures.addWiltedGrass(this);
         BYGFeatures.addWiltedGrass(this);
