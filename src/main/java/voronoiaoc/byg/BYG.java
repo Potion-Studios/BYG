@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
@@ -15,8 +16,6 @@ import voronoiaoc.byg.core.byglists.BYGItemList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 import voronoiaoc.byg.core.registries.BYGBlockRegistry;
 import voronoiaoc.byg.core.registries.BYGItemRegistry;
-
-import java.util.Collections;
 
 public class BYG implements ModInitializer {
     public static final String MODID = "byg";
@@ -41,11 +40,10 @@ public class BYG implements ModInitializer {
         BYGHoeables.tillablesBYG();
         BYGStrippables.strippableLogsBYG();
         BYGCompostables.compostablesBYG();
-        Collections.sort(BYGBiomeRegistry.biomeList);
 
-        BYGBiomeRegistry.biomeList.forEach(e -> {
+        BYGBiomeRegistry.biomeList.forEach(biome -> {
             idx++;
-            System.out.println(idx + ". " + e);
+            System.out.println(idx + ". " + Registry.BIOME.getId(biome).toString() + " ID #: " + Registry.BIOME.getRawId(biome));
 
         });
         LOGGER.info("Initialized BYG!");

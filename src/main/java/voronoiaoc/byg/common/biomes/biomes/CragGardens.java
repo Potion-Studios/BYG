@@ -102,7 +102,7 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
 
     @Override
     public Biome getEdge() {
-        return BYGBiomeList.CRAGGARDENS;
+        return null;
     }
 
     @Override

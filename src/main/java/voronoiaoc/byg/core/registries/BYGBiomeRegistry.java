@@ -17,9 +17,9 @@ import java.util.List;
 import java.util.Objects;
 
 public class BYGBiomeRegistry {
-    public static List<String> biomeList = new ArrayList<>();
+    public static List<Biome> biomeList = new ArrayList<>();
 
-
+    //130
     public static void registerBiomes() {
         registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields", true, 2, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.ALPS, "alps", true, 5, OverworldClimate.SNOWY);
@@ -83,84 +83,106 @@ public class BYGBiomeRegistry {
         //Islands
         registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, Biomes.DEEP_WARM_OCEAN, Biomes.WARM_OCEAN);
 
-        //Sub Biomes
-        registerSubBiome(BYGBiomeList.SNOWY_EVERGREEN_CLEARING, "snowy_evergreen_clearing", true);
-        registerSubBiome(BYGBiomeList.SNOWY_EVERGREEN_HILLS, "snowy_evergreen_hills", true);
-        registerSubBiome(BYGBiomeList.ENCHANTED_FOREST_HILLS, "enchanted_forest_hills", true);
-        registerSubBiome(BYGBiomeList.EBONY_HILLS, "ebony_hills", true);
-        registerSubBiome(BYGBiomeList.EVERGREEN_CLEARING, "evergreen_clearing", true);
-        registerSubBiome(BYGBiomeList.EVERGREEN_HILLS, "evergreen_hills", true);
-        registerSubBiome(BYGBiomeList.FUNGAL_PATCH, "fungal_patch",  true);
-        registerSubBiome(BYGBiomeList.WEEPING_WTICH_CLEARING, "weeping_witch_clearing", true);
-        registerSubBiome(BYGBiomeList.PUMPKIN_FOREST, "pumpkin_forest", true);
-        registerSubBiome(BYGBiomeList.BAMBOO_FOREST, "bamboo_forest", true);
-        registerSubBiome(BYGBiomeList.CHERRY_BLOSSOM_CLEARING, "cherry_blossom_clearing", true);
-        registerSubBiome(BYGBiomeList.CONIFEROUS_CLEARING, "coniferous_clearing",  true);
-        registerSubBiome(BYGBiomeList.ZELKOVA_CLEARING, "zelkova_clearing",  true);
-        registerSubBiome(BYGBiomeList.ASPEN_CLEARING, "aspen_clearing", true);
-        registerSubBiome(BYGBiomeList.BOREALIS_CLEARING, "boreal_clearing", true);
-        registerSubBiome(BYGBiomeList.DECIDUOUS_CLEARING, "deciduous_clearing", true);
-        registerSubBiome(BYGBiomeList.SEASONAL_DECIDUOUS_CLEARING, "seasonal_deciduous_clearing", true);
-        registerSubBiome(BYGBiomeList.GUIANA_CLEARING, "guiana_clearing", true);
-        registerSubBiome(BYGBiomeList.JACARANDA_CLEARING, "jacaranda_clearing", true);
-        registerSubBiome(BYGBiomeList.SNOWY_CONIFEROUS_CLEARING, "snowy_coniferous_clearing", true);
-        registerSubBiome(BYGBiomeList.SNOWY_DECIDUOUS_CLEARING, "snowy_deciduous_clearing", true);
-        registerSubBiome(BYGBiomeList.MAPLE_HILLS, "maple_hills", true);
-        registerSubBiome(BYGBiomeList.BLACK_FOREST_CLEARING, "black_forest_clearing",  true);
-        registerSubBiome(BYGBiomeList.BLACK_FOREST_HILLS, "black_forest_hills",  true);
-        registerSubBiome(BYGBiomeList.FOREST_FAULT, "forest_fault",  true);
-        registerSubBiome(BYGBiomeList.FLOWERING_GROVE, "flowering_grove",  true);
-        registerSubBiome(BYGBiomeList.FLOWERING_ENCHANTED_GROVE, "flowering_enchanted_grove",  true);
-        registerSubBiome(BYGBiomeList.NORTHERN_FOREST, "northern_forest",  true);
-        registerSubBiome(BYGBiomeList.LUSHREDDESERT, "lush_red_desert", true);
-        registerSubBiome(BYGBiomeList.SIERRARANGE, "sierra_range", true);
-        registerSubBiome(BYGBiomeList.ALPINEFOOTHILLS, "alpine_foothills",true);
-        registerSubBiome(BYGBiomeList.ASPENFORESTHILLS, "aspen_forest_hills", true);
-        registerSubBiome(BYGBiomeList.REDDESERTDUNES, "red_desert_dunes", true);
-        registerSubBiome(BYGBiomeList.BLUETAIGAHILLS, "blue_taiga_hills", true);
-        registerSubBiome(BYGBiomeList.BLUEGIANTTAIGA, "blue_giant_taiga", true);
-        registerSubBiome(BYGBiomeList.BLUFFPEAKS, "bluff_peaks", true);
-        registerSubBiome(BYGBiomeList.BOREALFORESTHILLS, "boreal_forest_hills", true);
-        registerSubBiome(BYGBiomeList.BOG, "bog", true);
-        registerSubBiome(BYGBiomeList.DECIDUOUSFORESTHILLS, "deciduous_forest_hills", true);
-        registerSubBiome(BYGBiomeList.CONIFEROUSFORESTHILLS, "coniferous_forest_hills", true);
-        registerSubBiome(BYGBiomeList.FRESHWATERLAKE, "fresh_water_lake", true);
-        registerSubBiome(BYGBiomeList.FROZENLAKE, "frozen_lake", true);
-        registerSubBiome(BYGBiomeList.GREATLAKEISLES, "great_lake_isles", true);
-        registerSubBiome(BYGBiomeList.JACARANDAFORESTHILLS, "jacaranda_forest_hills", true);
-        registerSubBiome(BYGBiomeList.MARSHLANDS, "marshlands", true);
-        registerSubBiome(BYGBiomeList.OASIS, "oasis", true);
-        registerSubBiome(BYGBiomeList.POLLUTEDLAKE, "polluted_lake", true);
-        registerSubBiome(BYGBiomeList.PRAIRIECLEARING, "prairie_clearing", true);
-        registerSubBiome(BYGBiomeList.REDOAKFORESTHILLS, "red_oak_forest_hills", true);
-        registerSubBiome(BYGBiomeList.RED_ROCK_LOWLANDS, "red_rock_lowlands", true);
-        registerSubBiome(BYGBiomeList.RED_ROCK_HIGHLANDS, "red_rock_highlands", true);
-        registerSubBiome(BYGBiomeList.WOODEDREDROCKMOUNTAINS, "wooded_red_rock_mountains", true);
-        registerSubBiome(BYGBiomeList.SEASONALBIRCHFORESTHILLS, "seasonal_birch_forest_hills", true);
-        registerSubBiome(BYGBiomeList.SEASONALDECIDUOUSFORESTHILLS, "seasonal_deciduous_forest_hills", true);
-        registerSubBiome(BYGBiomeList.SEASONALFORESTHILLS, "seasonal_forest_hills", true);
-        registerSubBiome(BYGBiomeList.SEASONALGIANTTAIGA, "seasonal_giant_taiga", true);
-        registerSubBiome(BYGBiomeList.SEASONALTAIGAHILLS, "seasonal_taiga_hills", true);
-        registerSubBiome(BYGBiomeList.SNOWYBLUEGIANTTAIGA, "snowy_blue_giant_taiga",true);
-        registerSubBiome(BYGBiomeList.SNOWYBLUETAIGAHILLS, "snowy_blue_taiga_hills", true);
-        registerSubBiome(BYGBiomeList.SNOWYCONIFERFORESTHILLS, "snowy_coniferous_forest_hills", true);
-        registerSubBiome(BYGBiomeList.SNOWYDECIDUOUSFORESTHILLS, "snowy_deciduous_forest_hills", true);
-        registerSubBiome(BYGBiomeList.TROPICALFUNGALRAINFORESTHILLS, "tropical_fungal_rainforest_hills", true);
-        registerSubBiome(BYGBiomeList.TROPICALRAINFORESTHILLS, "tropical_rainforest_hills", true);
-        registerSubBiome(BYGBiomeList.WOODEDGRASSLANDPLATEAU, "wooded_grassland_plateau", true);
-        registerSubBiome(BYGBiomeList.ZELKOVAFORESTHILLS, "zelkova_forest_hills", true);
-        registerSubBiome(BYGBiomeList.FLOWERINGMEADOW, "flowering_meadow",  true);
-        registerSubBiome(BYGBiomeList.WOODEDMEADOW, "wooded_meadow", true);
+        /***********************************SubBiomes***********************************/
+        //Beaches - 5
         registerSubBiome(BYGBiomeList.RAINBOWBEACH, "rainbow_beach", true);
         registerSubBiome(BYGBiomeList.ROCKYBEACH, "rocky_beach", true);
         registerSubBiome(BYGBiomeList.SNOWYBLACKBEACH, "snowy_black_beach", true);
         registerSubBiome(BYGBiomeList.SNOWYROCKYBLACKBEACH, "snowy_rocky_black_beach", true);
         registerSubBiome(BYGBiomeList.WHITEBEACH, "white_beach", true);
 
+        //Clearings - 15
+        registerSubBiome(BYGBiomeList.ASPEN_CLEARING, "aspen_clearing", true);
+        registerSubBiome(BYGBiomeList.BLACK_FOREST_CLEARING, "black_forest_clearing",  true);
+        registerSubBiome(BYGBiomeList.BOREALIS_CLEARING, "boreal_clearing", true);
+        registerSubBiome(BYGBiomeList.CHERRY_BLOSSOM_CLEARING, "cherry_blossom_clearing", true);
+        registerSubBiome(BYGBiomeList.CONIFEROUS_CLEARING, "coniferous_clearing",  true);
+        registerSubBiome(BYGBiomeList.DECIDUOUS_CLEARING, "deciduous_clearing", true);
+        registerSubBiome(BYGBiomeList.EVERGREEN_CLEARING, "evergreen_clearing", true);
+        registerSubBiome(BYGBiomeList.GUIANA_CLEARING, "guiana_clearing", true);
+        registerSubBiome(BYGBiomeList.JACARANDA_CLEARING, "jacaranda_clearing", true);
+        registerSubBiome(BYGBiomeList.PRAIRIECLEARING, "prairie_clearing", true);
+        registerSubBiome(BYGBiomeList.SNOWY_CONIFEROUS_CLEARING, "snowy_coniferous_clearing", true);
+        registerSubBiome(BYGBiomeList.SEASONAL_DECIDUOUS_CLEARING, "seasonal_deciduous_clearing", true);
+        registerSubBiome(BYGBiomeList.SNOWY_DECIDUOUS_CLEARING, "snowy_deciduous_clearing", true);
+        registerSubBiome(BYGBiomeList.SNOWY_EVERGREEN_CLEARING, "snowy_evergreen_clearing", true);
+        registerSubBiome(BYGBiomeList.WEEPING_WTICH_CLEARING, "weeping_witch_clearing", true);
+        registerSubBiome(BYGBiomeList.ZELKOVA_CLEARING, "zelkova_clearing",  true);
+
+        //Hills - 23
+        registerSubBiome(BYGBiomeList.ALPINEFOOTHILLS, "alpine_foothills",true);
+        registerSubBiome(BYGBiomeList.ASPENFORESTHILLS, "aspen_forest_hills", true);
+        registerSubBiome(BYGBiomeList.BLUETAIGAHILLS, "blue_taiga_hills", true);
+        registerSubBiome(BYGBiomeList.BOREALFORESTHILLS, "boreal_forest_hills", true);
+        registerSubBiome(BYGBiomeList.BLACK_FOREST_HILLS, "black_forest_hills",  true);
+        registerSubBiome(BYGBiomeList.CONIFEROUSFORESTHILLS, "coniferous_forest_hills", true);
+        registerSubBiome(BYGBiomeList.DECIDUOUSFORESTHILLS, "deciduous_forest_hills", true);
+        registerSubBiome(BYGBiomeList.EBONY_HILLS, "ebony_hills", true);
+        registerSubBiome(BYGBiomeList.ENCHANTED_FOREST_HILLS, "enchanted_forest_hills", true);
+        registerSubBiome(BYGBiomeList.EVERGREEN_HILLS, "evergreen_hills", true);
+        registerSubBiome(BYGBiomeList.JACARANDAFORESTHILLS, "jacaranda_forest_hills", true);
+        registerSubBiome(BYGBiomeList.MAPLE_HILLS, "maple_hills", true);
+        registerSubBiome(BYGBiomeList.SEASONALBIRCHFORESTHILLS, "seasonal_birch_forest_hills", true);
+        registerSubBiome(BYGBiomeList.SEASONALDECIDUOUSFORESTHILLS, "seasonal_deciduous_forest_hills", true);
+        registerSubBiome(BYGBiomeList.SEASONALFORESTHILLS, "seasonal_forest_hills", true);
+        registerSubBiome(BYGBiomeList.SEASONALTAIGAHILLS, "seasonal_taiga_hills", true);
+        registerSubBiome(BYGBiomeList.SNOWYBLUETAIGAHILLS, "snowy_blue_taiga_hills", true);
+        registerSubBiome(BYGBiomeList.SNOWYCONIFERFORESTHILLS, "snowy_coniferous_forest_hills", true);
+        registerSubBiome(BYGBiomeList.SNOWYDECIDUOUSFORESTHILLS, "snowy_deciduous_forest_hills", true);
+        registerSubBiome(BYGBiomeList.SNOWY_EVERGREEN_HILLS, "snowy_evergreen_hills", true);
+        registerSubBiome(BYGBiomeList.REDOAKFORESTHILLS, "red_oak_forest_hills", true);
+        registerSubBiome(BYGBiomeList.TROPICALFUNGALRAINFORESTHILLS, "tropical_fungal_rainforest_hills", true);
+        registerSubBiome(BYGBiomeList.TROPICALRAINFORESTHILLS, "tropical_rainforest_hills", true);
+        registerSubBiome(BYGBiomeList.ZELKOVAFORESTHILLS, "zelkova_forest_hills", true);
+
+        //Lakes - 4
+        registerSubBiome(BYGBiomeList.FRESHWATERLAKE, "fresh_water_lake", true);
+        registerSubBiome(BYGBiomeList.FROZENLAKE, "frozen_lake", true);
+        registerSubBiome(BYGBiomeList.OASIS, "oasis", true);
+        registerSubBiome(BYGBiomeList.POLLUTEDLAKE, "polluted_lake", true);
+
+
+        /*************Misc SubBiomes***************/
+        //Blue - 2
+        registerSubBiome(BYGBiomeList.BLUEGIANTTAIGA, "blue_giant_taiga", true);
+        registerSubBiome(BYGBiomeList.SNOWYBLUEGIANTTAIGA, "snowy_blue_giant_taiga",true);
+
+        //Bluff - 1
+        registerSubBiome(BYGBiomeList.BLUFFPEAKS, "bluff_peaks", true);
+
+        //Flowering - 3
+        registerSubBiome(BYGBiomeList.FLOWERING_ENCHANTED_GROVE, "flowering_enchanted_grove",  true);
+        registerSubBiome(BYGBiomeList.FLOWERING_GROVE, "flowering_grove",  true);
+        registerSubBiome(BYGBiomeList.FLOWERINGMEADOW, "flowering_meadow",  true);
+
+        //RedRock - 3
+        registerSubBiome(BYGBiomeList.RED_ROCK_LOWLANDS, "red_rock_lowlands", true);
+        registerSubBiome(BYGBiomeList.RED_ROCK_HIGHLANDS, "red_rock_highlands", true);
+        registerSubBiome(BYGBiomeList.WOODEDREDROCKMOUNTAINS, "wooded_red_rock_mountains", true);
+
+        //Wooded - 2
+        registerSubBiome(BYGBiomeList.WOODEDGRASSLANDPLATEAU, "wooded_grassland_plateau", true);
+        registerSubBiome(BYGBiomeList.WOODEDMEADOW, "wooded_meadow", true);
+
+        //Misc - 11
+        registerSubBiome(BYGBiomeList.BAMBOO_FOREST, "bamboo_forest", true);
+        registerSubBiome(BYGBiomeList.BOG, "bog", true);
+        registerSubBiome(BYGBiomeList.FOREST_FAULT, "forest_fault",  true);
+        registerSubBiome(BYGBiomeList.FUNGAL_PATCH, "fungal_patch",  true);
+        registerSubBiome(BYGBiomeList.GREATLAKEISLES, "great_lake_isles", true);
+        registerSubBiome(BYGBiomeList.LUSHREDDESERT, "lush_red_desert", true);
+        registerSubBiome(BYGBiomeList.MARSHLANDS, "marshlands", true);
+        registerSubBiome(BYGBiomeList.NORTHERN_FOREST, "northern_forest",  true);
+        registerSubBiome(BYGBiomeList.PUMPKIN_FOREST, "pumpkin_forest", true);
+        registerSubBiome(BYGBiomeList.SIERRARANGE, "sierra_range", true);
+        registerSubBiome(BYGBiomeList.REDDESERTDUNES, "red_desert_dunes", true);
+        registerSubBiome(BYGBiomeList.SEASONALGIANTTAIGA, "seasonal_giant_taiga", true);
+
+
+        /**********NetherBiomes - 3**********/
         registerNetherBiome(BYGBiomeList.GLOWSTONEGARDENS, "glowstone_gardens");
         registerNetherBiome(BYGBiomeList.WARPEDDESERT, "warped_desert");
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
-//        registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
     }
     static int idx = 0;
 
@@ -173,18 +195,57 @@ public class BYGBiomeRegistry {
         if (weight > 0)
             OverworldBiomes.addContinentalBiome(biome, climate, weight / 10.0F);
 
-        if (((BiomeTools) biome).getEdge() != null)
-            OverworldBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), 1);
-        if (((BiomeTools) biome).getBeach() != null)
-            OverworldBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), 1);
-        if (((BiomeTools) biome).getHill() != null)
-            OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 0.3);
-        if (((BiomeTools) biome).getMutation() != null)
-            OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), 1);
-        if (((BiomeTools) biome).getRiver() != null)
-            OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getRiver(), 1);
+        if (((BiomeTools) biome).getEdge() != null) {
+            if (Registry.BIOME.getId(((BiomeTools) biome).getEdge()) == null) {
+//                throw new NullPointerException();
+            }
+            else {
+                OverworldBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), 1);
+            }
+        }
 
-        biomeList.add(id);
+
+        if (((BiomeTools) biome).getBeach() != null) {
+            if (Registry.BIOME.getId(((BiomeTools) biome).getBeach()) == null) {
+//                throw new NullPointerException();
+            }
+            else {
+                OverworldBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), 1);
+            }
+        }
+
+
+        if (((BiomeTools) biome).getHill() != null) {
+            if (Registry.BIOME.getId(((BiomeTools) biome).getHill()) == null) {
+//                throw new NullPointerException();
+            }
+            else {
+                OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 0.3);
+            }
+        }
+
+
+        if (((BiomeTools) biome).getMutation() != null) {
+            if (Registry.BIOME.getId(((BiomeTools) biome).getMutation()) == null) {
+//                throw new NullPointerException();
+            }
+            else {
+                OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), 0.3);
+            }
+        }
+
+
+        if (((BiomeTools) biome).getRiver() != null) {
+            if (Registry.BIOME.getId(((BiomeTools) biome).getRiver()) == null) {
+//                throw new NullPointerException();
+            }
+            else {
+                OverworldBiomes.setRiverBiome(biome, ((BiomeTools) biome).getRiver());
+            }
+        }
+
+        biomeList.add(biome);
+
     }
 
 
@@ -201,6 +262,10 @@ public class BYGBiomeRegistry {
                         OverworldBiomes.addShoreBiome(biome, BYGBiomeList.SNOWYBLACKBEACH, 1);
                 }
             }
+            if (Objects.requireNonNull(Registry.BIOME.getId(biome)).toString().contains("byg")) {
+                if (biome.getCategory() == Biome.Category.JUNGLE)
+                    OverworldBiomes.addShoreBiome(biome, BYGBiomeList.RAINBOWBEACH, 1);
+            }
         }
     }
 
@@ -210,7 +275,7 @@ public class BYGBiomeRegistry {
             FabricBiomes.addSpawnBiome(biome);
         }
         idx++;
-        biomeList.add(id);
+        biomeList.add(biome);
     }
 
     private static void registerIsland(Biome island, String id, boolean spawn, Biome... oceanClimates) {

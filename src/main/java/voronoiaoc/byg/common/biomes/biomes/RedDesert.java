@@ -19,6 +19,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class RedDesert extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.RED_SAND.getDefaultState(), Blocks.RED_SAND.getDefaultState(), Blocks.RED_SANDSTONE.getDefaultState()));
@@ -75,7 +76,8 @@ public class RedDesert extends Biome implements BiomeTools {
     @Nullable
     @Override
     public Biome getHill() {
-        return BYGBiomeList.LUSHREDDESERT;
+        Random random = new Random();
+        return (random.nextInt(2) == 0) ? BYGBiomeList.LUSHREDDESERT : BYGBiomeList.REDDESERTDUNES;
     }
 
     @Nullable
