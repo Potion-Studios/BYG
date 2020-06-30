@@ -82,7 +82,9 @@ public class BYGBiomeRegistry {
 
         //Islands
         registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, Biomes.DEEP_WARM_OCEAN, Biomes.WARM_OCEAN);
+    }
 
+    public static void registerSubBiomes() {
         /***********************************SubBiomes***********************************/
         //Beaches - 5
         registerSubBiome(BYGBiomeList.RAINBOWBEACH, "rainbow_beach", true);
@@ -184,6 +186,7 @@ public class BYGBiomeRegistry {
         registerNetherBiome(BYGBiomeList.WARPEDDESERT, "warped_desert");
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
     }
+
     static int idx = 0;
 
 
@@ -220,7 +223,7 @@ public class BYGBiomeRegistry {
 //                throw new NullPointerException();
             }
             else {
-                OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 0.3);
+                OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 1);
             }
         }
 
@@ -230,7 +233,7 @@ public class BYGBiomeRegistry {
 //                throw new NullPointerException();
             }
             else {
-                OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), 0.3);
+                OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), 1);
             }
         }
 
