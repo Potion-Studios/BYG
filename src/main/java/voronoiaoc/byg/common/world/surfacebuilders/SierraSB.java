@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,181 +18,197 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
-    private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.getDefaultState();
-    private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.getDefaultState();
-    private static final BlockState TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
-    private static final BlockState YELLOW_TERRACOTTA = Blocks.YELLOW_TERRACOTTA.getDefaultState();
-    private static final BlockState BROWN_TERRACOTTA = Blocks.BROWN_TERRACOTTA.getDefaultState();
-    private static final BlockState RED_TERRACOTTA = Blocks.RED_TERRACOTTA.getDefaultState();
-    private static final BlockState LIGHT_GRAY_TERRACOTTA = Blocks.LIGHT_GRAY_TERRACOTTA.getDefaultState();
-    protected BlockState[] field_215432_a;
-    protected long field_215433_b;
-    protected OctaveSimplexNoiseSampler field_215435_c;
-    protected OctaveSimplexNoiseSampler field_215437_d;
-    protected OctaveSimplexNoiseSampler field_215439_e;
+    private static final BlockState WHITE_TERRACOTTA;
+    private static final BlockState ORANGE_TERRACOTTA;
+    private static final BlockState TERRACOTTA;
+    private static final BlockState YELLOW_TERRACOTTA;
+    private static final BlockState BROWN_TERRACOTTA;
+    private static final BlockState RED_TERRACOTTA;
+    private static final BlockState LIGHT_GRAY_TERRACOTTA;
+    protected BlockState[] layerBlocks;
+    protected long seed;
+    protected OctaveSimplexNoiseSampler heightCutoffNoise;
+    protected OctaveSimplexNoiseSampler heightNoise;
+    protected OctaveSimplexNoiseSampler layerNoise;
 
-    public SierraSB(Codec<TernarySurfaceConfig> p_i51317_1_) {
-        super(p_i51317_1_);
+    public SierraSB(Codec<TernarySurfaceConfig> codec) {
+        super(codec);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
-        int i = x & 15;
-        int j = z & 15;
-        BlockState blockstate = TERRACOTTA;
-        BlockState blockstate1 = biomeIn.getSurfaceBuilder().getConfig().getUnderMaterial();
-        int k = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
-        boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
-        int l = -1;
-        boolean flag1 = false;
-        int i1 = 0;
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+    public void generate(Random random, Chunk chunk, Biome biome, int i, int j, int k, double d, BlockState blockState, BlockState blockState2, int l, long m, TernarySurfaceConfig ternarySurfaceConfig) {
+        int n = i & 15;
+        int o = j & 15;
+        BlockState blockState3 = WHITE_TERRACOTTA;
+        BlockState blockState4 = biome.getSurfaceConfig().getUnderMaterial();
+        int p = (int)(d / 3.0D + 3.0D + random.nextDouble() * 0.25D);
+        boolean bl = Math.cos(d / 3.0D * 3.141592653589793D) > 0.0D;
+        int q = -1;
+        boolean bl2 = false;
+        int r = 0;
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        for (int j1 = startHeight; j1 >= 0; --j1) {
-            if (i1 < 15) {
-                blockpos$mutable.set(i, j1, j);
-                BlockState blockstate2 = chunkIn.getBlockState(blockpos$mutable);
-                if (blockstate2.isAir()) {
-                    l = -1;
-                } else if (blockstate2.getBlock() == defaultBlock.getBlock()) {
-                    if (l == -1) {
-                        flag1 = false;
-                        if (k <= 0) {
-                            blockstate = Blocks.AIR.getDefaultState();
-                            blockstate1 = defaultBlock;
-                        } else if (j1 >= seaLevel - 4 && j1 <= seaLevel + 1) {
-                            blockstate = TERRACOTTA;
-                            blockstate1 = biomeIn.getSurfaceBuilder().getConfig().getUnderMaterial();
+        for(int s = k; s >= 0; --s) {
+            if (r < 15) {
+                mutable.set(n, s, o);
+                BlockState blockState5 = chunk.getBlockState(mutable);
+                if (blockState5.isAir()) {
+                    q = -1;
+                } else if (blockState5.isOf(blockState.getBlock())) {
+                    if (q == -1) {
+                        bl2 = false;
+                        if (p <= 0) {
+                            blockState3 = Blocks.AIR.getDefaultState();
+                            blockState4 = blockState;
+                        } else if (s >= l - 4 && s <= l + 1) {
+                            blockState3 = WHITE_TERRACOTTA;
+                            blockState4 = biome.getSurfaceConfig().getUnderMaterial();
                         }
 
-                        if (j1 < seaLevel && (blockstate == null || blockstate.isAir())) {
-                            blockstate = defaultFluid;
+                        if (s < l && (blockState3 == null || blockState3.isAir())) {
+                            blockState3 = blockState2;
                         }
 
-                        l = k + Math.max(0, j1 - seaLevel);
-                        if (j1 >= seaLevel - 1) {
-                            if (j1 > seaLevel + 3 + k) {
-                                BlockState blockstate3;
-                                if (j1 >= 64 && j1 <= 127) {
-                                    if (flag) {
-                                        blockstate3 = TERRACOTTA;
+                        q = p + Math.max(0, s - l);
+                        if (s >= l - 1) {
+                            if (s > l + 3 + p) {
+                                BlockState blockState8;
+                                if (s >= 64 && s <= 127) {
+                                    if (bl) {
+                                        blockState8 = TERRACOTTA;
                                     } else {
-                                        blockstate3 = this.func_215431_a(x, j1, z);
+                                        blockState8 = this.calculateLayerBlockState(i, s, j);
                                     }
                                 } else {
-                                    blockstate3 = TERRACOTTA;
+                                    blockState8 = ORANGE_TERRACOTTA;
                                 }
 
-                                chunkIn.setBlockState(blockpos$mutable, blockstate3, false);
+                                chunk.setBlockState(mutable, blockState8, false);
                             } else {
-                                chunkIn.setBlockState(blockpos$mutable, biomeIn.getSurfaceBuilder().getConfig().getTopMaterial(), false);
-                                flag1 = true;
+                                chunk.setBlockState(mutable, biome.getSurfaceConfig().getTopMaterial(), false);
+                                bl2 = true;
                             }
                         } else {
-                            chunkIn.setBlockState(blockpos$mutable, blockstate1, false);
-                            Block block = blockstate1.getBlock();
-                            if (block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA || block == Blocks.TERRACOTTA) {
-                                chunkIn.setBlockState(blockpos$mutable, TERRACOTTA, false);
+                            chunk.setBlockState(mutable, blockState4, false);
+                            Block block = blockState4.getBlock();
+                            if (block == Blocks.WHITE_TERRACOTTA || block == Blocks.ORANGE_TERRACOTTA || block == Blocks.MAGENTA_TERRACOTTA || block == Blocks.LIGHT_BLUE_TERRACOTTA || block == Blocks.YELLOW_TERRACOTTA || block == Blocks.LIME_TERRACOTTA || block == Blocks.PINK_TERRACOTTA || block == Blocks.GRAY_TERRACOTTA || block == Blocks.LIGHT_GRAY_TERRACOTTA || block == Blocks.CYAN_TERRACOTTA || block == Blocks.PURPLE_TERRACOTTA || block == Blocks.BLUE_TERRACOTTA || block == Blocks.BROWN_TERRACOTTA || block == Blocks.GREEN_TERRACOTTA || block == Blocks.RED_TERRACOTTA || block == Blocks.BLACK_TERRACOTTA) {
+                                chunk.setBlockState(mutable, ORANGE_TERRACOTTA, false);
                             }
                         }
-                    } else if (l > 0) {
-                        --l;
-                        if (flag1) {
-                            chunkIn.setBlockState(blockpos$mutable, TERRACOTTA, false);
+                    } else if (q > 0) {
+                        --q;
+                        if (bl2) {
+                            chunk.setBlockState(mutable, ORANGE_TERRACOTTA, false);
                         } else {
-                            chunkIn.setBlockState(blockpos$mutable, this.func_215431_a(x, j1, z), false);
+                            chunk.setBlockState(mutable, this.calculateLayerBlockState(i, s, j), false);
                         }
                     }
 
-                    ++i1;
+                    ++r;
                 }
             }
         }
 
     }
 
-    public void setSeed(long seed) {
-        if (this.field_215433_b != seed || this.field_215432_a == null) {
-            this.func_215430_b(seed);
+    public void initSeed(long seed) {
+        if (this.seed != seed || this.layerBlocks == null) {
+            this.initLayerBlocks(seed);
         }
 
-        if (this.field_215433_b != seed || this.field_215435_c == null || this.field_215437_d == null) {
-            ChunkRandom sharedseedrandom = new ChunkRandom(seed);
-            this.field_215435_c = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.rangeClosed(-3, 0));
-            this.field_215437_d = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.of(0));
+        if (this.seed != seed || this.heightCutoffNoise == null || this.heightNoise == null) {
+            ChunkRandom chunkRandom = new ChunkRandom(seed);
+            this.heightCutoffNoise = new OctaveSimplexNoiseSampler(chunkRandom, IntStream.rangeClosed(-3, 0));
+            this.heightNoise = new OctaveSimplexNoiseSampler(chunkRandom, ImmutableList.of(0));
         }
 
-        this.field_215433_b = seed;
+        this.seed = seed;
     }
 
-    protected void func_215430_b(long p_215430_1_) {
-        this.field_215432_a = new BlockState[64];
-        Arrays.fill(this.field_215432_a, TERRACOTTA);
-        ChunkRandom sharedseedrandom = new ChunkRandom(p_215430_1_);
-        this.field_215439_e = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.of(0));
+    protected void initLayerBlocks(long seed) {
+        this.layerBlocks = new BlockState[64];
+        Arrays.fill(this.layerBlocks, TERRACOTTA);
+        ChunkRandom chunkRandom = new ChunkRandom(seed);
+        this.layerNoise = new OctaveSimplexNoiseSampler(chunkRandom, ImmutableList.of(0));
 
-        for (int l1 = 0; l1 < 64; ++l1) {
-            l1 += sharedseedrandom.nextInt(5) + 1;
-            if (l1 < 64) {
-                this.field_215432_a[l1] = TERRACOTTA;
+        int j;
+        for(j = 0; j < 64; ++j) {
+            j += chunkRandom.nextInt(5) + 1;
+            if (j < 64) {
+                this.layerBlocks[j] = ORANGE_TERRACOTTA;
             }
         }
 
-        int i2 = sharedseedrandom.nextInt(4) + 2;
+        j = chunkRandom.nextInt(4) + 2;
 
-        for (int i = 0; i < i2; ++i) {
-            int j = sharedseedrandom.nextInt(3) + 1;
-            int k = sharedseedrandom.nextInt(64);
+        int o;
+        int t;
+        int y;
+        int z;
+        for(o = 0; o < j; ++o) {
+            t = chunkRandom.nextInt(3) + 1;
+            y = chunkRandom.nextInt(64);
 
-            for (int l = 0; k + l < 64 && l < j; ++l) {
-                this.field_215432_a[k + l] = TERRACOTTA;
+            for(z = 0; y + z < 64 && z < t; ++z) {
+                this.layerBlocks[y + z] = YELLOW_TERRACOTTA;
             }
         }
 
-        int j2 = sharedseedrandom.nextInt(4) + 2;
+        o = chunkRandom.nextInt(4) + 2;
 
-        for (int k2 = 0; k2 < j2; ++k2) {
-            int i3 = sharedseedrandom.nextInt(3) + 2;
-            int l3 = sharedseedrandom.nextInt(64);
+        int w;
+        for(t = 0; t < o; ++t) {
+            y = chunkRandom.nextInt(3) + 2;
+            z = chunkRandom.nextInt(64);
 
-            for (int i1 = 0; l3 + i1 < 64 && i1 < i3; ++i1) {
-                this.field_215432_a[l3 + i1] = TERRACOTTA;
+            for(w = 0; z + w < 64 && w < y; ++w) {
+                this.layerBlocks[z + w] = BROWN_TERRACOTTA;
             }
         }
 
-        int l2 = sharedseedrandom.nextInt(4) + 2;
+        t = chunkRandom.nextInt(4) + 2;
 
-        for (int j3 = 0; j3 < l2; ++j3) {
-            int i4 = sharedseedrandom.nextInt(3) + 1;
-            int k4 = sharedseedrandom.nextInt(64);
+        for(y = 0; y < t; ++y) {
+            z = chunkRandom.nextInt(3) + 1;
+            w = chunkRandom.nextInt(64);
 
-            for (int j1 = 0; k4 + j1 < 64 && j1 < i4; ++j1) {
-                this.field_215432_a[k4 + j1] = TERRACOTTA;
+            for(int x = 0; w + x < 64 && x < z; ++x) {
+                this.layerBlocks[w + x] = RED_TERRACOTTA;
             }
         }
 
-        int k3 = sharedseedrandom.nextInt(3) + 3;
-        int j4 = 0;
+        y = chunkRandom.nextInt(3) + 3;
+        z = 0;
 
-        for (int l4 = 0; l4 < k3; ++l4) {
-            int i5 = 1;
-            j4 += sharedseedrandom.nextInt(16) + 4;
+        for(w = 0; w < y; ++w) {
+            boolean ab = true;
+            z += chunkRandom.nextInt(16) + 4;
 
-            for (int k1 = 0; j4 + k1 < 64 && k1 < 1; ++k1) {
-                this.field_215432_a[j4 + k1] = TERRACOTTA;
-                if (j4 + k1 > 1 && sharedseedrandom.nextBoolean()) {
-                    this.field_215432_a[j4 + k1 - 1] = TERRACOTTA;
+            for(int ac = 0; z + ac < 64 && ac < 1; ++ac) {
+                this.layerBlocks[z + ac] = WHITE_TERRACOTTA;
+                if (z + ac > 1 && chunkRandom.nextBoolean()) {
+                    this.layerBlocks[z + ac - 1] = LIGHT_GRAY_TERRACOTTA;
                 }
 
-                if (j4 + k1 < 63 && sharedseedrandom.nextBoolean()) {
-                    this.field_215432_a[j4 + k1 + 1] = TERRACOTTA;
+                if (z + ac < 63 && chunkRandom.nextBoolean()) {
+                    this.layerBlocks[z + ac + 1] = LIGHT_GRAY_TERRACOTTA;
                 }
             }
         }
 
     }
 
-    protected BlockState func_215431_a(int p_215431_1_, int p_215431_2_, int p_215431_3_) {
-        int i = (int) Math.round(this.field_215439_e.sample((double) p_215431_1_ / 512.0D, (double) p_215431_3_ / 512.0D, false) * 2.0D);
-        return this.field_215432_a[(p_215431_2_ + i + 64) % 64];
+    protected BlockState calculateLayerBlockState(int x, int y, int z) {
+        int i = (int)Math.round(this.layerNoise.sample((double)x / 512.0D, (double)z / 512.0D, false) * 2.0D);
+        return this.layerBlocks[(y + i + 64) % 64];
+    }
+
+    static {
+        WHITE_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
+        ORANGE_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
+        TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
+        YELLOW_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
+        BROWN_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
+        RED_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
+        LIGHT_GRAY_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
     }
 }

@@ -83,7 +83,7 @@ public class BYGBiomeList {
     public static final Biome STONEFOREST = new StoneForest();
     public static final Biome THE_BLACK_FOREST = new TheBlackForest();
     public static final Biome TROPICALFUNGALRAINFOREST = new TropicalFungalRainForest();
-    public static final Biome TROPICALISLAND = new TropicalIslands();
+//    public static final Biome TROPICALISLAND = new TropicalIslands();
     public static final Biome TROPICALRAINFOREST = new TropicalRainForest();
     public static final Biome VIBRANTSWAMPLANDS = new VibrantSwamplands();
     public static final Biome WEEPINGWITCHFOREST = new WeepingWitchForest();
