@@ -57,7 +57,7 @@ public class GreatLakeIsles extends Biome {
 
 
         this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.SQUID, 2, 1, 4));
-        this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.SALMON, 5, 1, 5));
+        this.addSpawn(SpawnGroup.WATER_AMBIENT, new SpawnEntry(EntityType.SALMON, 5, 1, 5));
         this.addSpawn(SpawnGroup.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SPIDER, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ZOMBIE, 95, 4, 4));

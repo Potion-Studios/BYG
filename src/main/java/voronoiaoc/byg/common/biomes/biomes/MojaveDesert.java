@@ -60,8 +60,8 @@ public class MojaveDesert extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addBadlandsGrass(this);
         BYGTreeFeatures.addBushes(this);
 
-        this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.RABBIT, 4, 2, 3));
-        this.addSpawn(SpawnGroup.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
+        this.addSpawn(SpawnGroup.WATER_AMBIENT, new SpawnEntry(EntityType.TROPICAL_FISH, 4, 2, 3));
+        this.addSpawn(SpawnGroup.WATER_AMBIENT, new SpawnEntry(EntityType.SALMON, 10, 8, 8));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SPIDER, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SKELETON, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.CREEPER, 100, 4, 4));

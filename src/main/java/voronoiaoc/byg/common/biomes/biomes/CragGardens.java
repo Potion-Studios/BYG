@@ -55,8 +55,8 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
         DefaultBiomeFeatures.addJungleVegetation(this);
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
 
-        this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.COD, 2, 1, 4));
-        this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.SALMON, 5, 1, 5));
+        this.addSpawn(SpawnGroup.WATER_AMBIENT, new SpawnEntry(EntityType.COD, 2, 1, 4));
+        this.addSpawn(SpawnGroup.WATER_AMBIENT, new SpawnEntry(EntityType.SALMON, 5, 1, 5));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.CHICKEN, 10, 4, 4));

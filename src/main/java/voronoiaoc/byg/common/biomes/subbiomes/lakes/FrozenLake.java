@@ -51,8 +51,8 @@ public class FrozenLake extends Biome {
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(48, 0.4D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
         DefaultBiomeFeatures.addFrozenTopLayer(this);
 
-        this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.COD, 2, 1, 4));
-        this.addSpawn(SpawnGroup.WATER_CREATURE, new SpawnEntry(EntityType.SALMON, 5, 1, 5));
+        this.addSpawn(SpawnGroup.WATER_AMBIENT, new SpawnEntry(EntityType.COD, 2, 1, 4));
+        this.addSpawn(SpawnGroup.WATER_AMBIENT, new SpawnEntry(EntityType.SALMON, 5, 1, 5));
         this.addSpawn(SpawnGroup.AMBIENT, new SpawnEntry(EntityType.BAT, 10, 8, 8));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.SPIDER, 100, 4, 4));
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.ZOMBIE, 95, 4, 4));
