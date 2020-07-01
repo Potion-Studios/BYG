@@ -34,7 +34,7 @@ package voronoiaoc.byg.common.world.structure.misc.reddesert;//package voronoiao
 //        super(p_i49873_1_);
 //    }
 //
-//    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+//    public boolean generate(ServerWorldAccess worldIn, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
 
 //        Random random = worldIn.getRandom();
 //        Rotation[] arotation = Rotation.values();

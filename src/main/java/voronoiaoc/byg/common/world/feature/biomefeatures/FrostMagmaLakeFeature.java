@@ -28,7 +28,7 @@ public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess world, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos blockPos, SingleStateFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, ChunkGenerator generator, Random rand, BlockPos blockPos, SingleStateFeatureConfig config) {
         while (blockPos.getY() > 5 && world.isAir
                 (blockPos)) {
             blockPos = blockPos.down();

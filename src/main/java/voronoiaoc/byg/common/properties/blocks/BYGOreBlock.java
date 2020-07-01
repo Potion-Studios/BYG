@@ -4,11 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.context.LootContext;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
+import java.util.List;
 import java.util.Random;
 
 public class BYGOreBlock extends Block {
@@ -32,12 +34,12 @@ public class BYGOreBlock extends Block {
     }
 
     @Override
-    public void onStacksDropped(BlockState state, World world, BlockPos pos, ItemStack stack) {
-        super.onStacksDropped(state, world, pos, stack);
+    public List<ItemStack> getDroppedStacks(BlockState state, LootContext.Builder builder) {
+        return super.getDroppedStacks(state, builder);
     }
 
     @Override
-    protected void dropExperience(World world, BlockPos pos, int size) {
-        super.dropExperience(world, pos, size);
+    protected void dropExperience(ServerWorld serverWorld, BlockPos pos, int size) {
+        super.dropExperience(serverWorld, pos, size);
     }
 }
