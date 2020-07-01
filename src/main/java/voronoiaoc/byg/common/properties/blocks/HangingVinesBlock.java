@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.IGrowable;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -43,7 +44,7 @@ public class HangingVinesBlock extends Block implements IGrowable {
         worldIn.getBlockState(pos.up());
 
         Block block = worldIn.getBlockState(pos.up()).getBlock();
-        return block.isIn(Tags.Blocks.NETHERRACK) || block.isIn(Tags.Blocks.STONE);
+        return block.isIn(Tags.Blocks.NETHERRACK) || block.isIn(Tags.Blocks.STONE) || block.isIn(BlockTags.LOGS);
     }
 
     @Override
