@@ -44,13 +44,13 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
     public BYGBoatRenderer(EntityRenderDispatcher entityRenderDispatcher) {
         super(entityRenderDispatcher);
         this.shadowRadius = 0.8F;
-        BYG.LOGGER.info("ACCESSING");
+        //BYG.LOGGER.info("ACCESSING");
 
     }
 
     @Override
     public void render(BYGBoatEntity bygBoatEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
-        BYG.LOGGER.info("RENDERED");
+        //BYG.LOGGER.info("RENDERED");
         matrixStack.push();
         matrixStack.translate(0.0D, 0.375D, 0.0D);
         matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(180.0F - f));
@@ -80,7 +80,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
         }
 
         matrixStack.pop();
-        BYG.LOGGER.info("RENDERED");
+        //BYG.LOGGER.info("RENDERED");
         super.render(bygBoatEntity, f, g, matrixStack, vertexConsumerProvider, i);
     }
 

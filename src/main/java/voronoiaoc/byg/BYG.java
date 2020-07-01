@@ -14,6 +14,7 @@ import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 import voronoiaoc.byg.core.registries.BYGBlockRegistry;
+import voronoiaoc.byg.core.registries.BYGEntityRegistry;
 import voronoiaoc.byg.core.registries.BYGItemRegistry;
 
 public class BYG implements ModInitializer {
@@ -30,6 +31,7 @@ public class BYG implements ModInitializer {
         BYGItemRegistry.registerItems();
         BYGBiomeRegistry.registerSubBiomes();
         BYGBiomeRegistry.registerBiomes();
+        BYGEntityRegistry.registerEntities();
 
         //Misc
         BYGBiomeRegistry.addBeachesCategorically();
