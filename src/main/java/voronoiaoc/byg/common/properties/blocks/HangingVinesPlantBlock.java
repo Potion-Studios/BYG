@@ -11,6 +11,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -59,7 +60,7 @@ public class HangingVinesPlantBlock extends Block implements IGrowable {
             return null;
         } else {
             BlockState blockStateUP = ctx.getWorld().getBlockState(ctx.getPos().up());
-            if (blockStateUP.isIn(Tags.Blocks.NETHERRACK) || blockStateUP.isIn(Tags.Blocks.STONE)) {
+            if (blockStateUP.isIn(Tags.Blocks.NETHERRACK) || blockStateUP.isIn(Tags.Blocks.STONE) || blockStateUP.isIn(BlockTags.LOGS)) {
                 Block blockUP = blockStateUP.getBlock();
                 if (blockUP == BYGBlockList.WEEPING_ROOTS) {
                     return this.getDefaultState().with(PROPERTY_AGE, 0);
