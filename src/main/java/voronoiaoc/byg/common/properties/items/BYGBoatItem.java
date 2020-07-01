@@ -54,7 +54,7 @@ public class BYGBoatItem extends Item {
 
             if (hitResult.getType() == HitResult.Type.BLOCK) {
                 BYGBoatEntity bygBoatEntity = new BYGBoatEntity(world, hitResult.getPos().x, hitResult.getPos().y, hitResult.getPos().z);
-                BYG.LOGGER.info("BOAT ENTITY: " + bygBoatEntity.toString());
+                //BYG.LOGGER.info("BOAT ENTITY: " + bygBoatEntity.toString());
                 bygBoatEntity.setBYGBoatType(this.type);
                 bygBoatEntity.yaw = user.yaw;
                 if (!world.doesNotCollide(bygBoatEntity, bygBoatEntity.getBoundingBox().expand(-0.1D))) {

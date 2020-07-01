@@ -4,6 +4,8 @@ import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import voronoiaoc.byg.BYG;
+import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
+import voronoiaoc.byg.common.properties.items.BYGBoatItem;
 import voronoiaoc.byg.common.properties.items.BYGLilyItem;
 import voronoiaoc.byg.common.properties.items.BYGWaterSilkItem;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGTools;
@@ -204,7 +206,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.ASPEN_TRAPDOOR = new BlockItem(BYGBlockList.ASPEN_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.ASPEN_TRAPDOOR));
                 registerItem(BYGItemList.ASPEN_PRESSURE_PLATE = new BlockItem(BYGBlockList.ASPEN_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.ASPEN_PRESSURE_PLATE));
                 registerItem(BYGItemList.ASPEN_BUTTON = new BlockItem(BYGBlockList.ASPEN_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.ASPEN_BUTTON));
-//                registerItem(BYGItemList.ASPEN_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.ASPEN, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"aspen_boat"));
+                registerItem(BYGItemList.ASPEN_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.ASPEN, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"aspen_boat"));
 
                 //Baobab Woodtype
                 registerItem(BYGItemList.BAOBAB_SAPLING = new BlockItem(BYGBlockList.BAOBAB_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BAOBAB_SAPLING));
@@ -224,7 +226,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.BAOBAB_TRAPDOOR = new BlockItem(BYGBlockList.BAOBAB_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BAOBAB_TRAPDOOR));
                 registerItem(BYGItemList.BAOBAB_PRESSURE_PLATE = new BlockItem(BYGBlockList.BAOBAB_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BAOBAB_PRESSURE_PLATE));
                 registerItem(BYGItemList.BAOBAB_BUTTON = new BlockItem(BYGBlockList.BAOBAB_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BAOBAB_BUTTON));
-//                registerItem(BYGItemList.BAOBAB_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.BAOBAB, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID, "baobab_boat"));
+                registerItem(BYGItemList.BAOBAB_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.BAOBAB, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID, "baobab_boat"));
 
                 //Blue Enchanted Woodtype
                 registerItem(BYGItemList.BLUE_ENCHANTED_SAPLING = new BlockItem(BYGBlockList.BLUE_ENCHANTED_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_ENCHANTED_SAPLING));
@@ -244,7 +246,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.BLUE_ENCHANTED_TRAPDOOR = new BlockItem(BYGBlockList.BLUE_ENCHANTED_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_ENCHANTED_TRAPDOOR));
                 registerItem(BYGItemList.BLUE_ENCHANTED_PRESSURE_PLATE = new BlockItem(BYGBlockList.BLUE_ENCHANTED_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_ENCHANTED_PRESSURE_PLATE));
                 registerItem(BYGItemList.BLUE_ENCHANTED_BUTTON = new BlockItem(BYGBlockList.BLUE_ENCHANTED_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_ENCHANTED_BUTTON));
-//                registerItem(BYGItemList.BLUE_ENCHANTED_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.BLUE_ENCHANTED, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"blue_enchanted_boat"));
+                registerItem(BYGItemList.BLUE_ENCHANTED_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.BLUE_ENCHANTED, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"blue_enchanted_boat"));
 
                 //Cherry Woodtype
                 registerItem(BYGItemList.PINK_CHERRY_SAPLING = new BlockItem(BYGBlockList.PINK_CHERRY_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PINK_CHERRY_SAPLING));
@@ -268,7 +270,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.CHERRY_TRAPDOOR = new BlockItem(BYGBlockList.CHERRY_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CHERRY_TRAPDOOR));
                 registerItem(BYGItemList.CHERRY_PRESSURE_PLATE = new BlockItem(BYGBlockList.CHERRY_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CHERRY_PRESSURE_PLATE));
                 registerItem(BYGItemList.CHERRY_BUTTON = new BlockItem(BYGBlockList.CHERRY_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CHERRY_BUTTON));
-//                registerItem(BYGItemList.CHERRY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.CHERRY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"cherry_boat"));
+                registerItem(BYGItemList.CHERRY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.CHERRY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"cherry_boat"));
 
                 //Cika Woodtype
                 registerItem(BYGItemList.CIKA_SAPLING = new BlockItem(BYGBlockList.CIKA_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CIKA_SAPLING));
@@ -288,7 +290,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.CIKA_TRAPDOOR = new BlockItem(BYGBlockList.CIKA_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CIKA_TRAPDOOR));
                 registerItem(BYGItemList.CIKA_PRESSURE_PLATE = new BlockItem(BYGBlockList.CIKA_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CIKA_PRESSURE_PLATE));
                 registerItem(BYGItemList.CIKA_BUTTON = new BlockItem(BYGBlockList.CIKA_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CIKA_BUTTON));
-//                registerItem(BYGItemList.CIKA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.CIKA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"cika_boat"));
+                registerItem(BYGItemList.CIKA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.CIKA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"cika_boat"));
 
                 //Cypress Woodtype
                 registerItem(BYGItemList.CYPRESS_SAPLING = new BlockItem(BYGBlockList.CYPRESS_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CYPRESS_SAPLING));
@@ -308,7 +310,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.CYPRESS_TRAPDOOR = new BlockItem(BYGBlockList.CYPRESS_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CYPRESS_TRAPDOOR));
                 registerItem(BYGItemList.CYPRESS_PRESSURE_PLATE = new BlockItem(BYGBlockList.CYPRESS_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CYPRESS_PRESSURE_PLATE));
                 registerItem(BYGItemList.CYPRESS_BUTTON = new BlockItem(BYGBlockList.CYPRESS_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.CYPRESS_BUTTON));
-//                registerItem(BYGItemList.CYPRESS_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.CYPRESS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"cypress_boat"));
+                registerItem(BYGItemList.CYPRESS_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.CYPRESS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"cypress_boat"));
 
                 //Ebony Woodtype
                 registerItem(BYGItemList.EBONY_SAPLING = new BlockItem(BYGBlockList.EBONY_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.EBONY_SAPLING));
@@ -328,7 +330,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.EBONY_TRAPDOOR = new BlockItem(BYGBlockList.EBONY_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.EBONY_TRAPDOOR));
                 registerItem(BYGItemList.EBONY_PRESSURE_PLATE = new BlockItem(BYGBlockList.EBONY_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.EBONY_PRESSURE_PLATE));
                 registerItem(BYGItemList.EBONY_BUTTON = new BlockItem(BYGBlockList.EBONY_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.EBONY_BUTTON));
-//                registerItem(BYGItemList.EBONY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"ebony_boat"));
+                registerItem(BYGItemList.EBONY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"ebony_boat"));
 
                 //Fir Woodtype
                 registerItem(BYGItemList.FIR_SAPLING = new BlockItem(BYGBlockList.FIR_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.FIR_SAPLING));
@@ -348,7 +350,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.FIR_TRAPDOOR = new BlockItem(BYGBlockList.FIR_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.FIR_TRAPDOOR));
                 registerItem(BYGItemList.FIR_PRESSURE_PLATE = new BlockItem(BYGBlockList.FIR_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.FIR_PRESSURE_PLATE));
                 registerItem(BYGItemList.FIR_BUTTON = new BlockItem(BYGBlockList.FIR_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.FIR_BUTTON));
-//                registerItem(BYGItemList.FIR_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.FIR, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"fir_boat"));
+                registerItem(BYGItemList.FIR_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.FIR, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"fir_boat"));
 
                 //Green Enchanted Woodtype
                 registerItem(BYGItemList.GREEN_ENCHANTED_SAPLING = new BlockItem(BYGBlockList.GREEN_ENCHANTED_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.GREEN_ENCHANTED_SAPLING));
@@ -368,7 +370,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.GREEN_ENCHANTED_TRAPDOOR = new BlockItem(BYGBlockList.GREEN_ENCHANTED_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.GREEN_ENCHANTED_TRAPDOOR));
                 registerItem(BYGItemList.GREEN_ENCHANTED_PRESSURE_PLATE = new BlockItem(BYGBlockList.GREEN_ENCHANTED_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.GREEN_ENCHANTED_PRESSURE_PLATE));
                 registerItem(BYGItemList.GREEN_ENCHANTED_BUTTON = new BlockItem(BYGBlockList.GREEN_ENCHANTED_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.GREEN_ENCHANTED_BUTTON));
-//                registerItem(BYGItemList.GREEN_ENCHANTED_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.GREEN_ENCHANTED, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"green_enchanted_boat"));
+                registerItem(BYGItemList.GREEN_ENCHANTED_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.GREEN_ENCHANTED, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"green_enchanted_boat"));
 
                 //Holly Woodtype
                 registerItem(BYGItemList.HOLLY_BERRY_LEAVES = new BlockItem(BYGBlockList.HOLLY_BERRY_LEAVES, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.HOLLY_BERRY_LEAVES));
@@ -390,7 +392,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.HOLLY_TRAPDOOR = new BlockItem(BYGBlockList.HOLLY_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.HOLLY_TRAPDOOR));
                 registerItem(BYGItemList.HOLLY_PRESSURE_PLATE = new BlockItem(BYGBlockList.HOLLY_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.HOLLY_PRESSURE_PLATE));
                 registerItem(BYGItemList.HOLLY_BUTTON = new BlockItem(BYGBlockList.HOLLY_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.HOLLY_BUTTON));
-//                registerItem(BYGItemList.HOLLY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.HOLLY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"holly_boat"));
+                registerItem(BYGItemList.HOLLY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.HOLLY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"holly_boat"));
 
                 //Jacaranda Woodtype
                 registerItem(BYGItemList.JACARANDA_SAPLING = new BlockItem(BYGBlockList.JACARANDA_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.JACARANDA_SAPLING));
@@ -412,7 +414,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.JACARANDA_TRAPDOOR = new BlockItem(BYGBlockList.JACARANDA_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.JACARANDA_TRAPDOOR));
                 registerItem(BYGItemList.JACARANDA_PRESSURE_PLATE = new BlockItem(BYGBlockList.JACARANDA_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.JACARANDA_PRESSURE_PLATE));
                 registerItem(BYGItemList.JACARANDA_BUTTON = new BlockItem(BYGBlockList.JACARANDA_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.JACARANDA_BUTTON));
-//                registerItem(BYGItemList.JACARANDA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"jacaranda_boat"));
+                registerItem(BYGItemList.JACARANDA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"jacaranda_boat"));
 
                 //Mahogany Woodtype
                 registerItem(BYGItemList.MAHOGANY_SAPLING = new BlockItem(BYGBlockList.MAHOGANY_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MAHOGANY_SAPLING));
@@ -432,7 +434,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.MAHOGANY_TRAPDOOR = new BlockItem(BYGBlockList.MAHOGANY_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MAHOGANY_TRAPDOOR));
                 registerItem(BYGItemList.MAHOGANY_PRESSURE_PLATE = new BlockItem(BYGBlockList.MAHOGANY_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MAHOGANY_PRESSURE_PLATE));
                 registerItem(BYGItemList.MAHOGANY_BUTTON = new BlockItem(BYGBlockList.MAHOGANY_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MAHOGANY_BUTTON));
-//                registerItem(BYGItemList.MAHOGANY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.MAHOGANY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"mahogany_boat"));
+                registerItem(BYGItemList.MAHOGANY_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.MAHOGANY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"mahogany_boat"));
 
                 //Mangrove Woodtype
                 registerItem(BYGItemList.MANGROVE_SAPLING = new BlockItem(BYGBlockList.MANGROVE_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MANGROVE_SAPLING));
@@ -452,7 +454,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.MANGROVE_TRAPDOOR = new BlockItem(BYGBlockList.MANGROVE_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MANGROVE_TRAPDOOR));
                 registerItem(BYGItemList.MANGROVE_PRESSURE_PLATE = new BlockItem(BYGBlockList.MANGROVE_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MANGROVE_PRESSURE_PLATE));
                 registerItem(BYGItemList.MANGROVE_BUTTON = new BlockItem(BYGBlockList.MANGROVE_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MANGROVE_BUTTON));
-//                registerItem(BYGItemList.MANGROVE_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.MANGROVE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"mangrove_boat"));
+                registerItem(BYGItemList.MANGROVE_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.MANGROVE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"mangrove_boat"));
 
                 //Maple Woodtype
                 registerItem(BYGItemList.MAPLE_SAPLING = new BlockItem(BYGBlockList.MAPLE_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MAPLE_SAPLING));
@@ -476,7 +478,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.MAPLE_TRAPDOOR = new BlockItem(BYGBlockList.MAPLE_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MAPLE_TRAPDOOR));
                 registerItem(BYGItemList.MAPLE_PRESSURE_PLATE = new BlockItem(BYGBlockList.MAPLE_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MAPLE_PRESSURE_PLATE));
                 registerItem(BYGItemList.MAPLE_BUTTON = new BlockItem(BYGBlockList.MAPLE_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MAPLE_BUTTON));
-//                registerItem(BYGItemList.MAPLE_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"maple_boat"));
+                registerItem(BYGItemList.MAPLE_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"maple_boat"));
 
                 //Palo Verde Woodtype
                 registerItem(BYGItemList.FLOWERING_PALO_VERDE_LEAVES = new BlockItem(BYGBlockList.FLOWERING_PALO_VERDE_LEAVES, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.FLOWERING_PALO_VERDE_LEAVES));
@@ -505,7 +507,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.PINE_TRAPDOOR = new BlockItem(BYGBlockList.PINE_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PINE_TRAPDOOR));
                 registerItem(BYGItemList.PINE_PRESSURE_PLATE = new BlockItem(BYGBlockList.PINE_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PINE_PRESSURE_PLATE));
                 registerItem(BYGItemList.PINE_BUTTON = new BlockItem(BYGBlockList.PINE_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PINE_BUTTON));
-//                registerItem(BYGItemList.PINE_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.PINE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"pine_boat"));
+                registerItem(BYGItemList.PINE_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.PINE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"pine_boat"));
 
                 //Rainbow Eucalyptus Woodtype
                 registerItem(BYGItemList.RAINBOW_EUCALYPTUS_SAPLING = new BlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.RAINBOW_EUCALYPTUS_SAPLING));
@@ -525,7 +527,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.RAINBOW_EUCALYPTUS_TRAPDOOR = new BlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.RAINBOW_EUCALYPTUS_TRAPDOOR));
                 registerItem(BYGItemList.RAINBOW_EUCALYPTUS_PRESSURE_PLATE = new BlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.RAINBOW_EUCALYPTUS_PRESSURE_PLATE));
                 registerItem(BYGItemList.RAINBOW_EUCALYPTUS_BUTTON = new BlockItem(BYGBlockList.RAINBOW_EUCALYPTUS_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.RAINBOW_EUCALYPTUS_BUTTON));
-//                registerItem(BYGItemList.RAINBOW_EUCALYPTUS_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.RAINBOW_EUCALYPTUS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"rainbow_eucalyptus_boat"));
+                registerItem(BYGItemList.RAINBOW_EUCALYPTUS_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.RAINBOW_EUCALYPTUS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"rainbow_eucalyptus_boat"));
 
                 //Redwood Woodtype
                 registerItem(BYGItemList.REDWOOD_SAPLING = new BlockItem(BYGBlockList.REDWOOD_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.REDWOOD_SAPLING));
@@ -545,7 +547,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.REDWOOD_TRAPDOOR = new BlockItem(BYGBlockList.REDWOOD_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.REDWOOD_TRAPDOOR));
                 registerItem(BYGItemList.REDWOOD_PRESSURE_PLATE = new BlockItem(BYGBlockList.REDWOOD_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.REDWOOD_PRESSURE_PLATE));
                 registerItem(BYGItemList.REDWOOD_BUTTON = new BlockItem(BYGBlockList.REDWOOD_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.REDWOOD_BUTTON));
-//                registerItem(BYGItemList.REDWOOD_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.REDWOOD, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"redwood_boat"));
+                registerItem(BYGItemList.REDWOOD_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.REDWOOD, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"redwood_boat"));
 
                 //Skyris Woodtype
                 registerItem(BYGItemList.SKYRIS_LEAVES_GREEN_APPLE = new BlockItem(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE));
@@ -568,7 +570,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.SKYRIS_TRAPDOOR = new BlockItem(BYGBlockList.SKYRIS_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SKYRIS_TRAPDOOR));
                 registerItem(BYGItemList.SKYRIS_PRESSURE_PLATE = new BlockItem(BYGBlockList.SKYRIS_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SKYRIS_PRESSURE_PLATE));
                 registerItem(BYGItemList.SKYRIS_BUTTON = new BlockItem(BYGBlockList.SKYRIS_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SKYRIS_BUTTON));
-//                registerItem(BYGItemList.SKYRIS_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"skyris_boat"));
+                registerItem(BYGItemList.SKYRIS_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"skyris_boat"));
 
                 //Willow Woodtype
                 registerItem(BYGItemList.WILLOW_SAPLING = new BlockItem(BYGBlockList.WILLOW_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WILLOW_SAPLING));
@@ -588,7 +590,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.WILLOW_TRAPDOOR = new BlockItem(BYGBlockList.WILLOW_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WILLOW_TRAPDOOR));
                 registerItem(BYGItemList.WILLOW_PRESSURE_PLATE = new BlockItem(BYGBlockList.WILLOW_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WILLOW_PRESSURE_PLATE));
                 registerItem(BYGItemList.WILLOW_BUTTON = new BlockItem(BYGBlockList.WILLOW_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WILLOW_BUTTON));
-//                registerItem(BYGItemList.WILLOW_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.WILLOW, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"willow_boat"));
+                registerItem(BYGItemList.WILLOW_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.WILLOW, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"willow_boat"));
 
                 //Witch-Hazel Woodtype
                 registerItem(BYGItemList.BLOOMING_WITCH_HAZEL_LEAVES = new BlockItem(BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES));
@@ -609,7 +611,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.WITCH_HAZEL_TRAPDOOR = new BlockItem(BYGBlockList.WITCH_HAZEL_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WITCH_HAZEL_TRAPDOOR));
                 registerItem(BYGItemList.WITCH_HAZEL_PRESSURE_PLATE = new BlockItem(BYGBlockList.WITCH_HAZEL_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WITCH_HAZEL_PRESSURE_PLATE));
                 registerItem(BYGItemList.WITCH_HAZEL_BUTTON = new BlockItem(BYGBlockList.WITCH_HAZEL_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.WITCH_HAZEL_BUTTON));
-//                registerItem(BYGItemList.WITCH_HAZEL_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.WITCH_HAZEL, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"witch_hazel_boat"));
+                registerItem(BYGItemList.WITCH_HAZEL_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.WITCH_HAZEL, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"witch_hazel_boat"));
 
                 //Zelkova Woodtype
                 registerItem(BYGItemList.ZELKOVA_SAPLING = new BlockItem(BYGBlockList.ZELKOVA_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.ZELKOVA_SAPLING));
@@ -629,7 +631,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.ZELKOVA_TRAPDOOR = new BlockItem(BYGBlockList.ZELKOVA_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.ZELKOVA_TRAPDOOR));
                 registerItem(BYGItemList.ZELKOVA_PRESSURE_PLATE = new BlockItem(BYGBlockList.ZELKOVA_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.ZELKOVA_PRESSURE_PLATE));
                 registerItem(BYGItemList.ZELKOVA_BUTTON = new BlockItem(BYGBlockList.ZELKOVA_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.ZELKOVA_BUTTON));
-//                registerItem(BYGItemList.ZELKOVA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.ZELKOVA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"zelkova_boat"));
+                registerItem(BYGItemList.ZELKOVA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.ZELKOVA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), new Identifier(BYG.MODID,"zelkova_boat"));
 
                 //SaplingItems
                 registerItem(BYGItemList.BLUE_SPRUCE_SAPLING = new BlockItem(BYGBlockList.BLUE_SPRUCE_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_SPRUCE_SAPLING));
