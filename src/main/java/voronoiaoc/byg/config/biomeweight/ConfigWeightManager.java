@@ -13,7 +13,7 @@ public class ConfigWeightManager {
     public static final List<ConfigWeight> biomeWeights = new ArrayList<>();
     public static final ConfigWeight ALLIUMFIELDS = new ConfigWeight("Allium_Fields", 2);
     public static final ConfigWeight ALPS = new ConfigWeight("Alps", 5);
-//    public static final ConfigWeight ancientForest = new ConfigWeight("ancientForest", 10);
+    public static final ConfigWeight ANCIENT_FOREST = new ConfigWeight("Ancient_Forest", 1);
     public static final ConfigWeight AMARANTHFIELDS = new ConfigWeight("Amaranth_Fields", 2);
     public static final ConfigWeight ASPENFOREST = new ConfigWeight("Aspen_Forest", 6);
     public static final ConfigWeight AUTUMNALVALLEY = new ConfigWeight("Alps", 5);

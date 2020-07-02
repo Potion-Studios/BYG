@@ -28,6 +28,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.RoseG
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.structure.DoverQuarry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.acacia.AcaciaTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownBirchTree;
@@ -238,6 +241,11 @@ public class BYGFeatureList {
     //Acacia
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE1 = new AcaciaTree1(NoFeatureConfig::deserialize);
 //    public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE2 = new AcaciaTree2(NoFeatureConfig::deserialize);
+
+    //Ancient
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ANCIENT_TREE1 = new AncientTree1(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ANCIENT_TREE2 = new AncientTree2(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ANCIENT_TREE3 = new AncientTree3(NoFeatureConfig::deserialize);
 
     //Aspen
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_SHRUB1 = new AspenShrub(NoFeatureConfig::deserialize);

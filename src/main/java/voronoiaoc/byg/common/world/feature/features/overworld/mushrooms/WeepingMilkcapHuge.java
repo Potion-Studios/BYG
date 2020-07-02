@@ -21,7 +21,7 @@ public class WeepingMilkcapHuge extends BYGAbstractTreeFeature<NoFeatureConfig> 
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
-        int randTreeHeight = 23 + rand.nextInt(5);
+        int randTreeHeight = 7 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable(pos);
 
         if (pos.getY() + randTreeHeight + 1 < 256) {

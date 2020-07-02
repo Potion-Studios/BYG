@@ -29,6 +29,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANO = new VolcanoSB(SurfaceBuilderConfig::deserialize);
     public static final SurfaceBuilder<SurfaceBuilderConfig> EBONY_SB = new EbonyWoodsSB(SurfaceBuilderConfig::deserialize);
     public static final SurfaceBuilder<SurfaceBuilderConfig> FUNGAL_RAINFOREST_SB = new FungalRainforestSB(SurfaceBuilderConfig::deserialize);
+    public static final SurfaceBuilder<SurfaceBuilderConfig> GLOWING_ANCIENT_FOREST_SB = new GlowingAncientForestSB(SurfaceBuilderConfig::deserialize);
 
     //Beaches
     public static final SurfaceBuilder<SurfaceBuilderConfig> ROCKYBLACKBEACH_SB = new RockyBlackBeachSB(SurfaceBuilderConfig::deserialize);

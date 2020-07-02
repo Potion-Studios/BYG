@@ -152,6 +152,8 @@ public class BYGBiomeList {
     public static final Biome FLOWERINGMEADOW = new FloweringMeadow();
     public static final Biome FLOWERING_GROVE = new FloweringGrove();
     public static final Biome FLOWERING_ENCHANTED_GROVE = new FloweringEnchantedGrove();
+    public static final Biome GLOWING_ANCIENT_FOREST = new GlowingAncientForest();
+    public static final Biome FLOWERING_ANCIENT_FOREST = new FloweringAncientForest();
 
     public static final Biome OASIS = new Oasis();
     public static final Biome POLLUTEDLAKE = new PollutedLake();
