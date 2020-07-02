@@ -18,6 +18,7 @@ public class BYGCraftingTableBlock extends CraftingTableBlock {
         super(properties);
     }
 
+    @Override
     public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
         return new SimpleNamedScreenHandlerFactory((i, playerInventory, playerEntity) -> new BYGCraftingTableScreen(i, playerInventory, ScreenHandlerContext.create(world, pos), this), TITLE);
     }
