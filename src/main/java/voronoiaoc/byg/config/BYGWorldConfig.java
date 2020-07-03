@@ -21,6 +21,7 @@ public class BYGWorldConfig {
     public static ForgeConfigSpec.IntValue seaLevel;
     public static ForgeConfigSpec.ConfigValue<String> externalEndBiomes;
     public static ForgeConfigSpec.ConfigValue<String> externalNetherBiomes;
+    public static ForgeConfigSpec.IntValue netherBiomeSize;
     public static ForgeConfigSpec.BooleanValue tallNether;
 
     public static ForgeConfigSpec.IntValue rockyStoneSize;
@@ -44,14 +45,16 @@ public class BYGWorldConfig {
     public static ForgeConfigSpec.IntValue pendoriteOreMaxY;
 
     static {
-        COMMON_BUILDER.comment("BYG WorldType Settings").push("World_Settings");
-        vanillaBiomes = COMMON_BUILDER.comment("Vanilla BiomeSounds. Default is true").define("VanillaBiomes", true);
-        biomeSize = COMMON_BUILDER.comment("Biome Size, Default 1.").defineInRange("BiomeSize", 1, 0, 25);
-        COMMON_BUILDER.pop();
+//        COMMON_BUILDER.comment("BYG WorldType Settings").push("World_Settings");
+//        vanillaBiomes = COMMON_BUILDER.comment("Vanilla BiomeSounds. Default is true").define("VanillaBiomes", true);
+//        biomeSize = COMMON_BUILDER.comment("Biome Size, Default 1.").defineInRange("BiomeSize", 1, 0, 25);
+//        COMMON_BUILDER.pop();
 
-        COMMON_BUILDER.comment("External BiomeSounds").push("Dimension_Settings");
+        COMMON_BUILDER.comment("Other Dimension Biomes").push("Dimension_Settings");
         externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry names in a commented list.").define("ExternalEndBiomes", "");
         externalNetherBiomes = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").define("ExternalNetherBiomes", "");
+        netherBiomeSize = COMMON_BUILDER.comment("Control the size of nether biomes.").defineInRange("NetherBiomeSize", 2, 1, 10);
+
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.comment("Nether Settings").push("Nether_Settings");

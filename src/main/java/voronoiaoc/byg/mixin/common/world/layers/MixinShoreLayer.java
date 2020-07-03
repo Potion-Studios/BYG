@@ -18,10 +18,10 @@ public abstract class MixinShoreLayer {
 
     @Inject(at = @At("HEAD"), method = "apply(Lnet/minecraft/world/gen/INoiseRandom;IIIII)I", cancellable = true)
     private void apply(INoiseRandom context, int n, int w, int s, int e, int centre, CallbackInfoReturnable<Integer> cir) {
-        final int[] ArrayNESW = {n, w, s, e};
+        final int[] arrayNESW = {n, w, s, e};
         Biome biome = Registry.BIOME.getByValue(centre);
 
-        for (int idx : ArrayNESW) {
+        for (int idx : arrayNESW) {
             if (biome == BYGBiomeList.ALPS)
                 if (idx != Registry.BIOME.getId(BYGBiomeList.ALPS))
                     cir.setReturnValue(Registry.BIOME.getId(BYGBiomeList.ALPINEFOOTHILLS));
@@ -42,34 +42,17 @@ public abstract class MixinShoreLayer {
                 if (ClimateBooleans.isOcean(idx))
                     cir.setReturnValue(BYGBiomeGetter.SNOWYBLACKBEACH);
 
-            if (biome == BYGBiomeList.GRASSLANDPLATEAU)
+            if (biome == BYGBiomeList.TROPICALISLAND || biome == BYGBiomeList.TROPICALFUNGALRAINFOREST || biome == BYGBiomeList.TROPICALRAINFORESTHILLS || biome == BYGBiomeList.TROPICALFUNGALRAINFORESTHILLS)
+                if (ClimateBooleans.isOcean(idx))
+                    cir.setReturnValue(centre);
+
+            if (biome == BYGBiomeList.THE_BLACK_FOREST || biome == BYGBiomeList.BLACK_FOREST_CLEARING || biome == BYGBiomeList.BLACK_FOREST_HILLS || biome == BYGBiomeList.FOREST_FAULT || biome == BYGBiomeList.SKYRISHIGHLANDS || biome == BYGBiomeList.GUIANASHIELD || biome == BYGBiomeList.GRASSLANDPLATEAU)
                 if (ClimateBooleans.isOcean(idx))
                     cir.setReturnValue(BYGBiomeGetter.ROCKYBEACH);
 
-            if (biome == BYGBiomeList.TROPICALISLAND)
+            if (biome == BYGBiomeList.GREATLAKES || biome == BYGBiomeList.GREATLAKEISLES)
                 if (ClimateBooleans.isOcean(idx))
-                    cir.setReturnValue(BYGBiomeGetter.RAINBOWBEACH);
-
-            if (biome == BYGBiomeList.TROPICALRAINFOREST)
-                if (ClimateBooleans.isOcean(idx))
-                    cir.setReturnValue(BYGBiomeGetter.RAINBOWBEACH);
-
-            if (biome == BYGBiomeList.TROPICALFUNGALRAINFOREST)
-                if (ClimateBooleans.isOcean(idx))
-                    cir.setReturnValue(BYGBiomeGetter.RAINBOWBEACH);
-
-            if (biome == BYGBiomeList.GUIANASHIELD)
-                if (ClimateBooleans.isOcean(idx))
-                    cir.setReturnValue(BYGBiomeGetter.ROCKYBEACH);
-
-            if (biome == BYGBiomeList.SKYRISHIGHLANDS)
-                if (ClimateBooleans.isOcean(idx))
-                    cir.setReturnValue(BYGBiomeGetter.ROCKYBEACH);
-
-            if (biome == BYGBiomeList.THE_BLACK_FOREST || biome == BYGBiomeList.BLACK_FOREST_CLEARING || biome == BYGBiomeList.BLACK_FOREST_HILLS || biome == BYGBiomeList.FOREST_FAULT)
-                if (ClimateBooleans.isOcean(idx))
-                    cir.setReturnValue(BYGBiomeGetter.ROCKYBEACH);
-
+                    cir.setReturnValue(centre);
         }
     }
 }
