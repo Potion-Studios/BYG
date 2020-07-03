@@ -21,7 +21,7 @@ public class BYGArmorItem extends ArmorItem {
     @Nullable
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-        return BYG.MOD_ID + "textures/models/armor/" + getBYGArmorMaterial().getName() + "_layer_" + (slot == EquipmentSlotType.LEGS ? 2 : 1) + ".png";
+        return BYG.MOD_ID + ":textures/models/armor/" + getBYGArmorMaterial().getName() + "_layer_" + (slot == EquipmentSlotType.LEGS ? 2 : 1) + ".png";
     }
 
     public BYGArmorTiers getBYGArmorMaterial() {
