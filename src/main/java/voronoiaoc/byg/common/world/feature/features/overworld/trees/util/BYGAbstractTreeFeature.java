@@ -6,6 +6,7 @@ import com.mojang.datafixers.Dynamic;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
@@ -39,7 +40,7 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
     public static boolean canTreePlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
         return worldReader.hasBlockState(blockPos, (state) -> {
             Block block = state.getBlock();
-            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isDirt(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.GLOWCELIUM;
+            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isDirt(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.GLOWCELIUM || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.TALL_PLANTS;
         });
     }
 
@@ -58,11 +59,11 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
     }
 
     public static boolean isQualifiedForLog(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES));
+        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.TALL_PLANTS);
     }
 
     public static boolean isQualifiedForLogWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.WATER);
+        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.WATER || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.TALL_PLANTS || state.getMaterial() == Material.OCEAN_PLANT);
     }
 
     public static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {
