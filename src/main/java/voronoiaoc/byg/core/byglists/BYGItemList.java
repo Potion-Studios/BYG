@@ -814,6 +814,7 @@ public class BYGItemList {
     //Gems Items
     public static Item PENDORITE_SCRAPS;
     public static Item AMETRINE_GEMS;
+    public static Item CHAIN_PLATING;
 
     //Tool Items
     public static Item AMETRINE_SWORD;
