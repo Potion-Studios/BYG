@@ -67,7 +67,6 @@ public class ForestFault extends Biome {
         BYGFeatures.addGrass(this);
         BYGFeatures.addWinterSucculent(this);
 
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlockList.PENDORITE_ORE.getDefaultState(), BYGWorldConfig.pendoriteOreSize.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(BYGWorldConfig.pendoriteOreChance.get(), 0, 0, BYGWorldConfig.pendoriteOreMaxY.get()))));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));

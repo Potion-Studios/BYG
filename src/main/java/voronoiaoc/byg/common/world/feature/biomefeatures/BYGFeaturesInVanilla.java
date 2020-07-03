@@ -12,6 +12,7 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.config.BYGWorldConfig;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGFeatureList;
 
@@ -83,6 +84,16 @@ public class BYGFeaturesInVanilla {
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.WOOD_BLEWIT_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.WEEPING_MILKCAP_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.BLACK_PUFF_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
+
+            }
+
+            if (biome == BYGBiomeList.FOREST_FAULT) {
+                biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlockList.PENDORITE_ORE.getDefaultState(), BYGWorldConfig.pendoriteOreSize.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(BYGWorldConfig.pendoriteOreChance.get(), 0, 0, BYGWorldConfig.pendoriteOreMaxY.get()))));
+
+            }
+
+            if (biome == BYGBiomeList.GUIANASHIELD || biome == BYGBiomeList.GUIANA_CLEARING) {
+                biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlockList.AMETRINE_ORE.getDefaultState(), BYGWorldConfig.ametrineOreSize.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(BYGWorldConfig.ametrineOreChance.get(), 0, 0, BYGWorldConfig.ametrineOreMaxY.get()))));
 
             }
         }

@@ -61,7 +61,6 @@ public class GuianaShield extends Biome {
         BYGFeatures.addBYGTropicFlowers(this);
         BYGFeatures.addBYGMushrooms(this);
 
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlockList.AMETRINE_ORE.getDefaultState(), BYGWorldConfig.ametrineOreSize.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(BYGWorldConfig.ametrineOreChance.get(), 0, 0, BYGWorldConfig.ametrineOreMaxY.get()))));
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
