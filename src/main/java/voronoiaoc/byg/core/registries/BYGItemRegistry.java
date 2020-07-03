@@ -43,7 +43,7 @@ public class BYGItemRegistry {
                 BYGItemList.AMETRINE_LEGGINGS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.LEGS, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_leggings"),
                 BYGItemList.AMETRINE_BOOTS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.FEET, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_boots"),
 //                BYGItemList.AMETRINE_SHIELD = new ShieldItem(new Item.Properties().maxDamage(1000).group(BYGItemGroup.COMBAT)).setRegistryName("ametrine_blue_shields"),
-                BYGItemList.AMETRINE_HORSE_ARMOR = new BYGHorseArmor(15, "ametrine", (new Item.Properties()).maxStackSize(1).group(ItemGroup.MISC)).setRegistryName("ametrine_horse_armor"),
+                BYGItemList.AMETRINE_HORSE_ARMOR = new BYGHorseArmor(15, "ametrine", (new Item.Properties()).maxStackSize(1).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_horse_armor"),
 
                 BYGItemList.PENDORITE_SCRAPS = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_scraps"),
                 BYGItemList.PENDORITE_ORE = new BlockItem(BYGBlockList.PENDORITE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PENDORITE_ORE.getRegistryName()),
