@@ -862,7 +862,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(3.0f, 3.0f)
-                    .harvestLevel(4)
+                    .harvestLevel(3)
             );
             setRegistryName(registryName);
         }

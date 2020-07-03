@@ -11,7 +11,7 @@ public enum BYGItemTiers implements IItemTier {
     AMETRINE(4, 64, 16.0F, 0.8F, 25, () -> {
         return Ingredient.fromItems(BYGItemList.AMETRINE_GEMS);
     }),
-    PENDORITE(5, 2551, 6.0F, 5.0F, 14, () -> {
+    PENDORITE(4, 2000, 8.5F, 5.0F, 14, () -> {
         return Ingredient.fromItems(BYGItemList.PENDORITE_SCRAPS);
     });
 
