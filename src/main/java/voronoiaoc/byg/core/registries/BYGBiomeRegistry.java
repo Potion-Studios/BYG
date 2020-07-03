@@ -10,8 +10,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.dimension.end.biome.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.worldtype.math.BYGBiomeGroup;
-import voronoiaoc.byg.config.BYGWorldConfig;
-import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
