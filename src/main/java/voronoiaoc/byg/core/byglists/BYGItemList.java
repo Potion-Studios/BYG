@@ -1,6 +1,5 @@
 package voronoiaoc.byg.core.byglists;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 public class BYGItemList {
@@ -816,18 +815,12 @@ public class BYGItemList {
     public static Item AMETRINE_GEMS;
     public static Item CHAIN_PLATING;
 
-    //Tool Items
-    public static Item AMETRINE_SWORD;
-    public static Item AMETRINE_AXE;
-    public static Item AMETRINE_PICK;
-    public static Item AMETRINE_BATTLEAXE;
-    public static Item AMETRINE_HOE;
-
     public static Item PENDORITE_SWORD;
     public static Item PENDORITE_AXE;
     public static Item PENDORITE_PICK;
     public static Item PENDORITE_BATTLEAXE;
     public static Item PENDORITE_HOE;
+    public static Item PENDORITE_SHOVEL;
 
     //Armor Items
     public static Item AMETRINE_HELMET;
