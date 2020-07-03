@@ -9,7 +9,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
 import javax.annotation.Nullable;
@@ -24,7 +23,6 @@ public abstract class BYGHugeMushroom {
         if (abstracttreefeature == null) {
             return false;
         } else {
-            BYG.LOGGER.info("NOTNULL");
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
             if (abstracttreefeature.place(worldIn, chunkGenerator, random, pos, IFeatureConfig.NO_FEATURE_CONFIG)) {
                 return true;
