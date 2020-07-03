@@ -16,6 +16,7 @@ import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -157,6 +158,9 @@ public class EmburBogLake extends Feature<NoFeatureConfig> {
                 material = blockState.getMaterial();
 
                 if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.LAVA) {
+                    return false;
+                }
+                if (blockState.getBlock() == BYGBlockList.EMBUR_GEL_BLOCK || blockState.getBlock() == BYGBlockList.EMBUR_PEDU) {
                     return false;
                 }
             }

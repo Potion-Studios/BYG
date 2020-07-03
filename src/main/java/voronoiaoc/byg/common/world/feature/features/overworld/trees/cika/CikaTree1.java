@@ -249,8 +249,18 @@ public class CikaTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 34, 1), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 12, -5), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 12, 0), boundsIn);
+
+
                 this.leafs(changedBlocks, worldIn, mainmutable.add(5, 12, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 13, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(7, 13, 0), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(7, 14, 0), boundsIn);
+
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 12, 5), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 13, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 14, 6), boundsIn);
+                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 13, 7), boundsIn);
+
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 13, -7), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 13, -6), boundsIn);
                 this.leafs(changedBlocks, worldIn, mainmutable.add(0, 13, -6), boundsIn);
