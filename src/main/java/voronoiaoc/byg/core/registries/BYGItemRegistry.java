@@ -1,5 +1,6 @@
 package voronoiaoc.byg.core.registries;
 
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -8,6 +9,7 @@ import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
 import voronoiaoc.byg.common.properties.BYGCreativeTab;
 import voronoiaoc.byg.common.properties.items.*;
+import voronoiaoc.byg.common.properties.items.itemtiers.BYGArmorTiers;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGItemTiers;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGWaterSilkItem;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
@@ -36,13 +38,12 @@ public class BYGItemRegistry {
                 BYGItemList.AMETRINE_GEMS = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_gems"),
                 BYGItemList.AMETRINE_ORE = new BlockItem(BYGBlockList.AMETRINE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.AMETRINE_ORE.getRegistryName()),
                 BYGItemList.AMETRINE_BLOCK = new BlockItem(BYGBlockList.AMETRINE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.AMETRINE_BLOCK.getRegistryName()),
-//                BYGItemList.AMETRINE_HOE = new HoeItem(BYGItemTiers.AMETRINE, 3, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_hoe"),
-//                BYGItemList.AMETRINE_HELMET = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.HEAD, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_helmet"),
-//                BYGItemList.AMETRINE_CHEST = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.CHEST, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_chestplate"),
-//                BYGItemList.AMETRINE_LEGGINGS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.LEGS, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_leggings"),
-//                BYGItemList.AMETRINE_BOOTS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.FEET, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_boots"),
-                //BYGItemList.AMETRINE_SHIELD = new ShieldItem(new Item.Properties().maxDamage(1000).group(BYGItemGroup.COMBAT)).setRegistryName("ametrine_blue_shields"),
-//                BYGItemList.AMETRINE_HORSE_ARMOR = new BYGHorseArmor(7, "ametrine", (new Item.Properties()).maxStackSize(1).group(ItemGroup.MISC)).setRegistryName("ametrine_horse_armor"),
+                BYGItemList.AMETRINE_HELMET = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.HEAD, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_helmet"),
+                BYGItemList.AMETRINE_CHEST = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.CHEST, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_chestplate"),
+                BYGItemList.AMETRINE_LEGGINGS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.LEGS, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_leggings"),
+                BYGItemList.AMETRINE_BOOTS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.FEET, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_boots"),
+//                BYGItemList.AMETRINE_SHIELD = new ShieldItem(new Item.Properties().maxDamage(1000).group(BYGItemGroup.COMBAT)).setRegistryName("ametrine_blue_shields"),
+                BYGItemList.AMETRINE_HORSE_ARMOR = new BYGHorseArmor(15, "ametrine", (new Item.Properties()).maxStackSize(1).group(ItemGroup.MISC)).setRegistryName("ametrine_horse_armor"),
 
                 BYGItemList.PENDORITE_SCRAPS = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_scraps"),
                 BYGItemList.PENDORITE_ORE = new BlockItem(BYGBlockList.PENDORITE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PENDORITE_ORE.getRegistryName()),
@@ -52,7 +53,7 @@ public class BYGItemRegistry {
                 BYGItemList.PENDORITE_SWORD = new SwordItem(BYGItemTiers.PENDORITE, 4, -2.4F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_sword"),
                 BYGItemList.PENDORITE_BATTLEAXE = new AxeItem(BYGItemTiers.PENDORITE, 9.0f, -3.3F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_battleaxe"),
                 //BYGItemList.PENDORITE_SHIELD = new ShieldItem(new Item.Properties().maxDamage(1000).group(BYGItemGroup.COMBAT)).setRegistryName("pendorite_shield"),
-//                BYGItemList.PENDORITE_HORSE_ARMOR = new BYGHorseArmor(7, "pendorite", (new Item.Properties()).maxStackSize(1).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_horse_armor"),
+                BYGItemList.PENDORITE_HORSE_ARMOR = new BYGHorseArmor(11, "pendorite", (new Item.Properties()).maxStackSize(1).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_horse_armor"),
 
                 BYGItemList.DACITE = new BlockItem(BYGBlockList.DACITE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.DACITE.getRegistryName()),
                 BYGItemList.DACITE_STAIRS = new BlockItem(BYGBlockList.DACITE_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.DACITE_STAIRS.getRegistryName()),

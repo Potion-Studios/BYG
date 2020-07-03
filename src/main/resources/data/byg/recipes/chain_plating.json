@@ -7,14 +7,14 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:iron_ingot"
+      "item": "minecraft:iron_nugget"
     },
     "X": {
-      "item": "minecraft:iron_nugget"
+      "item": "minecraft:iron_ingot"
     }
   },
   "result": {
-    "item": "byg:glowstone_lantern",
+    "item": "byg:chain_plating",
     "count": 4
   }
 }

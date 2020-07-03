@@ -192,9 +192,6 @@ public class BYGBiomeRegistry {
         BYGBiomeGroup.initBYGBiomes();
         BYG.LOGGER.info("BYG: Biomes Registered!");
 
-        if (BYGWorldConfig.vanillaBiomes.get()) {
-            BYGBiomeGroup.initDefaultBiomes();
-        }
     }
     static int idx = 0;
 
