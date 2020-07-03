@@ -3,8 +3,6 @@ package voronoiaoc.byg.common.properties.items;
 import net.minecraft.item.HorseArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class BYGHorseArmor extends HorseArmorItem {
     private final int bonus;
@@ -18,15 +16,5 @@ public class BYGHorseArmor extends HorseArmorItem {
         super(bonus, texture, properties);
         this.bonus = bonus;
         this.texture = texture;
-    }
-
-
-    @OnlyIn(Dist.CLIENT)
-    public ResourceLocation func_219976_d() {
-        return texture;
-    }
-
-    public int func_219977_e() {
-        return this.bonus;
     }
 }
