@@ -51,6 +51,9 @@ public class BYGItemRegistry {
                 BYGItemList.PENDORITE_AXE = new AxeItem(BYGItemTiers.PENDORITE, 6.0f, -3.0F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_axe"),
                 BYGItemList.PENDORITE_PICK = new PickaxeItem(BYGItemTiers.PENDORITE, 2, -2.8F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_pickaxe"),
                 BYGItemList.PENDORITE_SWORD = new SwordItem(BYGItemTiers.PENDORITE, 4, -2.4F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_sword"),
+                BYGItemList.PENDORITE_SHOVEL = new ShovelItem(BYGItemTiers.PENDORITE, 2, -2.8F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_shovel"),
+                BYGItemList.PENDORITE_HOE = new HoeItem(BYGItemTiers.PENDORITE,-2.8F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_hoe"),
+
                 BYGItemList.PENDORITE_BATTLEAXE = new AxeItem(BYGItemTiers.PENDORITE, 9.0f, -3.3F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_battleaxe"),
                 //BYGItemList.PENDORITE_SHIELD = new ShieldItem(new Item.Properties().maxDamage(1000).group(BYGItemGroup.COMBAT)).setRegistryName("pendorite_shield"),
                 BYGItemList.PENDORITE_HORSE_ARMOR = new BYGHorseArmor(11, "pendorite", (new Item.Properties()).maxStackSize(1).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_horse_armor"),
