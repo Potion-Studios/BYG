@@ -14,6 +14,7 @@ import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.world.dimension.nether.biome.BYGNetherBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.chunk.BYGNetherChunkGenerator;
 import voronoiaoc.byg.common.world.dimension.nether.chunk.BYGNetherGenSettings;
+import voronoiaoc.byg.config.BYGWorldConfig;
 
 public class ClientNetherDimensionHook extends NetherDimension {
 
@@ -95,5 +96,19 @@ public class ClientNetherDimensionHook extends NetherDimension {
             final double divisor = 17 * 17;
             return new Vec3d(Math.sqrt(accumulatedR / divisor), Math.sqrt(accumulatedG / divisor), Math.sqrt(accumulatedB / divisor));
         } else return NETHERDEFAULTVEC3D;
+    }
+
+    @Override
+    public int getHeight() {
+        return netherHeight();
+    }
+
+    @Override
+    public int getActualHeight() {
+        return netherHeight();
+    }
+
+    public static int netherHeight() {
+        return (BYGWorldConfig.tallNether.get() ? 256 : 128);
     }
 }
