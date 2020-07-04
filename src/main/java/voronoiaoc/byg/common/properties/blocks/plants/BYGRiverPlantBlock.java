@@ -77,7 +77,7 @@ public class BYGRiverPlantBlock extends TallPlantBlock implements Waterloggable 
     @Override
     public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
         DoubleBlockHalf doubleblockhalf = state.get(HALF);
-        BlockPos blockpos = doubleblockhalf == DoubleBlockHalf.LOWER ? pos.up() : pos.down();
+        BlockPos blockpos = doubleblockhalf != DoubleBlockHalf.LOWER ? pos.up() : pos.down();
         BlockState blockstate = world.getBlockState(blockpos);
         if (blockstate.getBlock() == this && blockstate.get(HALF) != doubleblockhalf) {
             if (blockstate.get(HALF) == DoubleBlockHalf.LOWER) {

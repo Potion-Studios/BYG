@@ -979,7 +979,7 @@ public class BYGBlockProperties {
         public BlockCattail(String registryName) {
             super(Settings.of(Material.PLANT)
                     .sounds(BlockSoundGroup.GRASS)
-                    .strength(1.5f, 6.0f)
+                    .strength(0, 0)
                     .nonOpaque()
                     .noCollision()
                     .ticksRandomly()
