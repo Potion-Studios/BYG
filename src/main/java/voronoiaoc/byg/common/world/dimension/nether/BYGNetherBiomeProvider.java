@@ -19,14 +19,13 @@ public class BYGNetherBiomeProvider extends BiomeSource {
     public static final Codec<BYGNetherBiomeProvider> BYGNETHERCODEC = BYGMAPCODEC.codec();
 
 
-    public static BiomeLayerSampler biomeLayer;
+    private final BiomeLayerSampler biomeLayer;
     private final long seed;
-
 
     public BYGNetherBiomeProvider(long seed) {
         super(biomeList);
         this.seed = seed;
-        biomeLayer = BYGNetherLayerProvider.stackLayers(seed);
+        this.biomeLayer = BYGNetherLayerProvider.stackLayers(seed);
     }
 
     @Override
