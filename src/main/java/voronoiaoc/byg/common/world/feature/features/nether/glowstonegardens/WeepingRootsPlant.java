@@ -27,7 +27,7 @@ public class WeepingRootsPlant extends Feature<DefaultFeatureConfig> {
             return false;
         } else {
             for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {
-                BlockPos.Mutable mutable = new BlockPos.Mutable(pos.getX(), pos.getY() - WeepingRootPlantLength, pos.getZ());
+                BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos.getX(), pos.getY() - WeepingRootPlantLength, pos.getZ());
 //            if (worldIn.getBlockState(mutable).getBlock() == Blocks.AIR)
                 worldIn.setBlockState(mutable, BYGBlockList.WEEPING_ROOTS_PLANT.getDefaultState(), 10);
             }

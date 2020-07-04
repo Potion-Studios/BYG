@@ -43,7 +43,7 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         int posZ = position.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
             BlockPos posDown = position.down();
-            if (!isDesiredGround(worldIn, posDown, Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, posDown, Blocks.GRASS_BLOCK)) {
                 return false;
             }
             if (!this.doesTreeFit(worldIn, position, randTreeHeight, 5)) {

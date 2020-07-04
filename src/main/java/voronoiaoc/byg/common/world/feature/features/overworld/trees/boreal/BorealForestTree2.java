@@ -34,7 +34,7 @@ public class BorealForestTree2 extends BYGAbstractTreeFeature<DefaultFeatureConf
         int posZ = position.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = position.down();
-            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK) || !isDesiredGround(worldIn, blockpos, BYGBlockList.PEAT)) {
+            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK) || !isDesiredGroundwDirtTag(worldIn, blockpos, BYGBlockList.PEAT)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, position, randTreeHeight, 2)) {
                 return false;

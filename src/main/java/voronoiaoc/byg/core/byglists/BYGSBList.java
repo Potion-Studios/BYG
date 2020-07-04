@@ -27,6 +27,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<TernarySurfaceConfig> LUSH_TUNDRA_SB = new LushTundraSB(TernarySurfaceConfig.CODEC);
     public static final SurfaceBuilder<TernarySurfaceConfig> FUNGAL_RAINFOREST_SB = new FungalRainforestSB(TernarySurfaceConfig.CODEC);
     public static final SurfaceBuilder<TernarySurfaceConfig> EBONY_SB = new EbonyWoodsSB(TernarySurfaceConfig.CODEC);
+    public static final SurfaceBuilder<TernarySurfaceConfig> GLOWING_ANCIENT_FOREST_SB = new GlowingAncientForestSB(TernarySurfaceConfig.CODEC);
 
     //Beaches
     public static final SurfaceBuilder<TernarySurfaceConfig> ROCKYBLACKBEACH_SB = new RockyBlackBeachSB(TernarySurfaceConfig.CODEC);

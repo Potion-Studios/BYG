@@ -12,8 +12,8 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 import java.util.Random;
 
 public class GlowShroomBayouSB extends SurfaceBuilder<TernarySurfaceConfig> {
-    public GlowShroomBayouSB(Codec<TernarySurfaceConfig> p_i51312_1_) {
-        super(p_i51312_1_);
+    public GlowShroomBayouSB(Codec<TernarySurfaceConfig> configIn) {
+        super(configIn);
     }
 
     public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {

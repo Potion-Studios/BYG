@@ -23,6 +23,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.IrisG
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.RoseGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.acacia.AcaciaTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownBirchTree;
@@ -38,6 +41,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkC
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkCherry2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree2;
@@ -88,6 +94,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.Pum
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.PumpkinPatch3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.LargeRainbowEucalyptus;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree3;
@@ -213,6 +222,11 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ACACIA_TREE1 = new AcaciaTree1(DefaultFeatureConfig.CODEC);
 //    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ACACIA_TREE2 = new AcaciaTree2(DefaultFeatureConfig.CODEC);
 
+    //Ancient
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ANCIENT_TREE1 = new AncientTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ANCIENT_TREE2 = new AncientTree2(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ANCIENT_TREE3 = new AncientTree3(DefaultFeatureConfig.CODEC);
+
     //Aspen
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ASPEN_SHRUB1 = new AspenShrub(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ASPEN_SHRUB2 = new AspenShrub2(DefaultFeatureConfig.CODEC);
@@ -244,6 +258,11 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CHERRY_PINK_TREE2 = new PinkCherry2(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CHERRY_WHITE_TREE1 = new WhiteCherry1(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CHERRY_WHITE_TREE2 = new WhiteCherry2(DefaultFeatureConfig.CODEC);
+
+    //Cika
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CIKA_TREE1 = new CikaTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CIKA_TREE2 = new CikaTree2(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CIKA_TREE3 = new CikaTree3(DefaultFeatureConfig.CODEC);
 
     //Coniferous
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CONIFER_TREE1 = new ConiferTree1(DefaultFeatureConfig.CODEC);
@@ -351,8 +370,9 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> RAINBOW_LARGE_TREE1 = new LargeRainbowEucalyptus(DefaultFeatureConfig.CODEC);
 
     //RedWood
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> REDWOOD_TREE1 = new EbonyTree1(DefaultFeatureConfig.CODEC);
-
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> REDWOOD_TREE1 = new RedwoodTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> REDWOOD_TREE2 = new RedwoodTree2(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> REDWOOD_TREE3 = new RedwoodTree3(DefaultFeatureConfig.CODEC);
     //Seasonal Oaks
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> OAK_BROWN_TREE1 = new BrownOakTree(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> OAK_ORANGE_TREE1 = new OrangeOakTree(DefaultFeatureConfig.CODEC);
