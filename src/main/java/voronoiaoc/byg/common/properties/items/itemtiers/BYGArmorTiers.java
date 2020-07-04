@@ -13,8 +13,6 @@ import net.minecraft.util.Lazy;
 
 import java.util.function.Supplier;
 
-//
-
 public enum BYGArmorTiers implements ArmorMaterial {
     AMETRINE("ametrine", 39, new int[]{4, 7, 9, 4}, 15, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.5F, 0.0F, () -> {
         return Ingredient.ofItems(Items.LEATHER);
@@ -64,8 +62,13 @@ public enum BYGArmorTiers implements ArmorMaterial {
         return (Ingredient)this.repairIngredientSupplier.get();
     }
 
-    @Environment(EnvType.CLIENT)
+    @Override
     public String getName() {
+        return this.name;
+    }
+
+    @Environment(EnvType.CLIENT)
+    public String getBYGName() {
         return this.name;
     }
 
