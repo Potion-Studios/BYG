@@ -12,9 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BYGNetherBiomeProvider extends BiomeSource {
-    public static final MapCodec<BYGNetherBiomeProvider> bygnether = RecordCodecBuilder.mapCodec((instance) ->
+    public static final MapCodec<BYGNetherBiomeProvider> BYGMAPCODEC = RecordCodecBuilder.mapCodec((instance) ->
             instance.group(Codec.LONG.fieldOf("seed").forGetter((bygNether) ->
                     bygNether.seed)).apply(instance, BYGNetherBiomeProvider::new));
+
+    public static final Codec<BYGNetherBiomeProvider> BYGNETHERCODEC = BYGMAPCODEC.codec();
 
 
     public static BiomeLayerSampler biomeLayer;
@@ -34,7 +36,7 @@ public class BYGNetherBiomeProvider extends BiomeSource {
 
     @Override
     protected Codec<? extends BiomeSource> method_28442() {
-        return bygnether.codec();
+        return BYGNETHERCODEC;
     }
 
     @Override
