@@ -501,15 +501,15 @@ public abstract class Simplex3DNoiseChunkGenerator<T extends GenerationSettings>
                     sharedseedrandom.setFeatureSeed(i1, iFeatures, stage.ordinal());
 
                     // Generate everything except for the disk deposits. We've put a replacement in the surface generator.
-                    if (stage != GenerationStage.Decoration.UNDERGROUND_ORES || !(((DecoratedFeatureConfig) configuredfeature.config).feature.feature instanceof SphereReplaceFeature)) {
-                        try {
-                            configuredfeature.place(region, this, sharedseedrandom, blockpos);
-                        } catch (Exception e) {
-                            CrashReport crashreport = CrashReport.makeCrashReport(e, "Feature placement");
-                            crashreport.makeCategory("Feature").addDetail("Id", Registry.FEATURE.getKey(configuredfeature.feature)).addDetail("Description", () -> {
-                                return configuredfeature.feature.toString();
-                            });
-                            throw new ReportedException(crashreport);
+                    if (configuredfeature.config instanceof DecoratedFeatureConfig) {
+                        if (stage != GenerationStage.Decoration.UNDERGROUND_ORES || !(((DecoratedFeatureConfig) configuredfeature.config).feature.feature instanceof SphereReplaceFeature)) {
+                            try {
+                                configuredfeature.place(region, this, sharedseedrandom, blockpos);
+                            } catch (Exception e) {
+                                CrashReport crashreport = CrashReport.makeCrashReport(e, "Feature placement");
+                                crashreport.makeCategory("Feature").addDetail("Id", Registry.FEATURE.getKey(configuredfeature.feature)).addDetail("Description", () -> configuredfeature.feature.toString());
+                                throw new ReportedException(crashreport);
+                            }
                         }
                     }
 
