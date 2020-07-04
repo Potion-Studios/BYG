@@ -81,11 +81,6 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
     }
 
     @Override
-    public int getFogColor() {
-        return super.getFogColor();
-    }
-
-    @Override
     public float fogDistance(int x, int z, float originalDistanceChunks) {
         return 10;
     }

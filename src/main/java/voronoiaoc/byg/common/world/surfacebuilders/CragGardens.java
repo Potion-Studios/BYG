@@ -50,7 +50,7 @@ public class CragGardens extends SurfaceBuilder<TernarySurfaceConfig> {
         int noise2 = ((int) (samplePerlin2)) * 3;
         int startHeight = noise1 + noise2 + 40;
 
-        for (int y = landHeight - 25; y <= startHeight; ++y) {
+        for (int y = landHeight - 30; y <= startHeight; ++y) {
             blockpos$Mutable.set(x, y, z);
 
             if (y <= landHeight - 3 - random.nextInt(3)) {

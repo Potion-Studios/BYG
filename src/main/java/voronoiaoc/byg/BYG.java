@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
@@ -44,11 +43,11 @@ public class BYG implements ModInitializer {
         BYGStrippables.strippableLogsBYG();
         BYGCompostables.compostablesBYG();
 
-        BYGBiomeRegistry.biomeList.forEach(biome -> {
-            idx++;
-            System.out.println(idx + ". " + Registry.BIOME.getId(biome).toString().replace("_", "").replace("byg:", ""));
-
-        });
+//        BYGBiomeRegistry.biomeList.forEach(biome -> {
+//            idx++;
+//            System.out.println(idx + ". " + Registry.BIOME.getId(biome).toString().replace("_", "").replace("byg:", ""));
+//
+//        });
         LOGGER.info("Initialized BYG!");
     }
 }
