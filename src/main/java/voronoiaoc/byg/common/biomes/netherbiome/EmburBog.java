@@ -29,7 +29,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGFeatureList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class EmburBog extends Biome implements BiomeFog {
+public class EmburBog extends Biome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.EMBURBOG, BYGSBList.BYGSBConfigList.EMBURNYLIUM);
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.NETHER;
@@ -44,8 +44,8 @@ public class EmburBog extends Biome implements BiomeFog {
     public EmburBog() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT)
                 .effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
-                        .fogColor(13162605)
-                        .particleConfig(new BiomeParticleConfig(ParticleTypes.MYCELIUM, 0.01428F))
+                        .fogColor(15110510)
+                        .particleConfig(new BiomeParticleConfig(ParticleTypes.FLAME, 0.01428F))
                         .loopSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
                         .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                         .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
