@@ -273,16 +273,16 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE = new BorealForestTree1(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE2 = new BorealForestTree2(NoFeatureConfig::deserialize);
 
-    //Cika
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE1 = new CikaTree1(NoFeatureConfig::deserialize);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE2 = new CikaTree2(NoFeatureConfig::deserialize);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE3 = new CikaTree3(NoFeatureConfig::deserialize);
-
     //Cherry
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_PINK_TREE1 = new PinkCherry1(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_PINK_TREE2 = new PinkCherry2(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_WHITE_TREE1 = new WhiteCherry1(NoFeatureConfig::deserialize);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_WHITE_TREE2 = new WhiteCherry2(NoFeatureConfig::deserialize);
+
+    //Cika
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE1 = new CikaTree1(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE2 = new CikaTree2(NoFeatureConfig::deserialize);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE3 = new CikaTree3(NoFeatureConfig::deserialize);
 
     //Coniferous
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE1 = new ConiferTree1(NoFeatureConfig::deserialize);

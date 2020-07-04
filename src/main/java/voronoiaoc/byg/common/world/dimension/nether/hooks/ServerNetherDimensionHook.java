@@ -10,6 +10,7 @@ import net.minecraft.world.gen.ChunkGeneratorType;
 import voronoiaoc.byg.common.world.dimension.nether.biome.BYGNetherBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.chunk.BYGNetherChunkGenerator;
 import voronoiaoc.byg.common.world.dimension.nether.chunk.BYGNetherGenSettings;
+import voronoiaoc.byg.config.BYGWorldConfig;
 
 public class ServerNetherDimensionHook extends NetherDimension {
 
@@ -27,5 +28,19 @@ public class ServerNetherDimensionHook extends NetherDimension {
         nethergensettings.setDefaultBlock(Blocks.NETHERRACK.getDefaultState());
         nethergensettings.setDefaultFluid(Blocks.LAVA.getDefaultState());
         return SIMPLEXTALLCAVES.create(world, new BYGNetherBiomeProvider(world.getSeed()), nethergensettings);
+    }
+
+    @Override
+    public int getHeight() {
+        return netherHeight();
+    }
+
+    @Override
+    public int getActualHeight() {
+        return netherHeight();
+    }
+
+    public static int netherHeight() {
+        return (BYGWorldConfig.tallNether.get() ? 256 : 128);
     }
 }

@@ -48,10 +48,10 @@ public class BYGItemRegistry {
                 BYGItemList.PENDORITE_SCRAPS = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_scraps"),
                 BYGItemList.PENDORITE_ORE = new BlockItem(BYGBlockList.PENDORITE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PENDORITE_ORE.getRegistryName()),
                 BYGItemList.PENDORITE_BLOCK = new BlockItem(BYGBlockList.PENDORITE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PENDORITE_BLOCK.getRegistryName()),
-                BYGItemList.PENDORITE_SWORD = new SwordItem(BYGItemTiers.PENDORITE, 4, -2.4F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_sword"),
-                BYGItemList.PENDORITE_BATTLEAXE = new AxeItem(BYGItemTiers.PENDORITE, 7.0F, -3.3F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_battleaxe"),
                 BYGItemList.PENDORITE_AXE = new AxeItem(BYGItemTiers.PENDORITE, 6.0F, -3.0F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_axe"),
                 BYGItemList.PENDORITE_PICK = new PickaxeItem(BYGItemTiers.PENDORITE, 2, -2.8F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_pickaxe"),
+                BYGItemList.PENDORITE_SWORD = new SwordItem(BYGItemTiers.PENDORITE, 4, -2.4F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_sword"),
+                BYGItemList.PENDORITE_BATTLEAXE = new AxeItem(BYGItemTiers.PENDORITE, 7.0F, -3.3F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_battleaxe"),
                 BYGItemList.PENDORITE_SHOVEL = new ShovelItem(BYGItemTiers.PENDORITE, 2.0F, -3.0F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_shovel"),
                 BYGItemList.PENDORITE_HOE = new HoeItem(BYGItemTiers.PENDORITE,0.0F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_hoe"),
 
