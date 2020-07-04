@@ -503,7 +503,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGPetal extends LeavesBlock {
+    public static class BYGPetal extends Block {
         public BYGPetal(String registryName) {
             super(Settings.of(Material.LEAVES)
                     .sounds(BlockSoundGroup.GRASS)
