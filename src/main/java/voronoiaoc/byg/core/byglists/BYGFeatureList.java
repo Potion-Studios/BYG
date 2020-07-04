@@ -210,6 +210,11 @@ public class BYGFeatureList {
     public static final Feature<DefaultFeatureConfig> WEEPING_ROOTS = new WeepingRoots(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> WEEPING_ROOTS_PLANT = new WeepingRootsPlant(DefaultFeatureConfig.CODEC);
 
+    //Embur
+    public static final Feature<DefaultFeatureConfig> EMBURLAKE = new EmburBogLake(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBURMUSHROOM = new EmburMushroom(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBURMUSHROOM2 = new EmburMushroom2(DefaultFeatureConfig.CODEC);
+
 
     /********************************************************************Structures***********************************************************************/
     public static final StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillageStructureFeature(StructurePoolFeatureConfig.CODEC);

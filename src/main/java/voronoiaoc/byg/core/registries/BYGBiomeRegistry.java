@@ -26,6 +26,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.ALPS, "alps", true, 5, OverworldClimate.SNOWY);
         registerBiome(BYGBiomeList.AMARANTHFIELDS, "amaranth_fields", true, 2, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.ASPENFOREST, "aspen_forest", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.ANCIENTFOREST, "ancient_forest", true, 1, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.AUTUMNAL_VALLEY, "autumnal_valley", true, 5, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.BAOBABSAVANNA, "baobab_savanna", true, 6, OverworldClimate.DRY);
         registerBiome(BYGBiomeList.BAYOU, "bayou", true, 5, OverworldClimate.TEMPERATE);
@@ -202,6 +203,9 @@ public class BYGBiomeRegistry {
         registerNetherBiome(BYGBiomeList.GLOWSTONEGARDENS, "glowstone_gardens");
         registerNetherBiome(BYGBiomeList.WARPEDDESERT, "warped_desert");
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
+        registerNetherBiome(BYGBiomeList.EMBURBOG, "embur_bog");
+
+
         BYG.LOGGER.info("BYG: Registered Sub Biomes!");
     }
 
@@ -300,7 +304,6 @@ public class BYGBiomeRegistry {
             }
         }
         idx++;
-        biomeList.add(biome);
     }
 
     private static void registerIsland(Biome island, String id, boolean spawn, Biome... oceanClimates) {

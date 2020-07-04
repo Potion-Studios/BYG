@@ -3,6 +3,7 @@ package voronoiaoc.byg.core.byglists;
 import net.minecraft.world.biome.Biome;
 import voronoiaoc.byg.common.biomes.beachbiomes.*;
 import voronoiaoc.byg.common.biomes.biomes.*;
+import voronoiaoc.byg.common.biomes.netherbiome.EmburBog;
 import voronoiaoc.byg.common.biomes.netherbiome.GlowstoneGardens;
 import voronoiaoc.byg.common.biomes.netherbiome.SythianTorrids;
 import voronoiaoc.byg.common.biomes.netherbiome.WarpedDesert;
@@ -188,6 +189,7 @@ public class BYGBiomeList {
     public static final Biome WARPEDDESERT = new WarpedDesert();
     public static final Biome SYTHIANTORRIDS = new SythianTorrids();
     public static final Biome GLOWSTONEGARDENS = new GlowstoneGardens();
+    public static final Biome EMBURBOG = new EmburBog();
 
     //End
 //    public static final Biome IVISFIELDS = new IvisFields();

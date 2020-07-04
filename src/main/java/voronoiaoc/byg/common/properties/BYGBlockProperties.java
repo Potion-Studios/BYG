@@ -206,6 +206,17 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGEmburLily extends NetherLilyBlock {
+        public BYGEmburLily(String registryName) {
+            super(AbstractBlock.Settings.of(Material.PLANT)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .strength(0.0f)
+                    .nonOpaque()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
     public static class BYGWaterSilk extends BYGWaterSilkBlock {
         public BYGWaterSilk(String registryName) {
             super(Settings.of(Material.PLANT)
@@ -613,6 +624,53 @@ public class BYGBlockProperties {
                     .nonOpaque()
                     .ticksRandomly()
                     .lightLevel((blockStatex) -> 8)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGEmburGelBlock extends HoneyBlock {
+        public BYGEmburGelBlock(String registryName) {
+            super(Settings.of(Material.ORGANIC_PRODUCT)
+                    .sounds(BlockSoundGroup.HONEY)
+                    .nonOpaque()
+                    .velocityMultiplier(1.6F)
+                    .slipperiness(0.6F)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGEmburGelVine extends EmburVinesPlantBlock {
+        public BYGEmburGelVine(String registryName) {
+            super(AbstractBlock.Settings.of(Material.LEAVES)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .strength(0.0F)
+                    .ticksRandomly()
+                    .noCollision()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGEmburPlant extends EmburPlantBlock {
+        public BYGEmburPlant(String registryName) {
+            super(AbstractBlock.Settings.of(Material.PLANT)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .strength(0.0F)
+                    .noCollision()
+                    .nonOpaque()
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGEmberNylium extends EmburNyliumBlock {
+        public BYGEmberNylium(String registryName) {
+            super(AbstractBlock.Settings.of(Material.STONE)
+                    .sounds(BlockSoundGroup.STONE)
+                    .strength(0.4F)
+                    .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }

@@ -1,15 +1,18 @@
 package voronoiaoc.byg.core.registries;
 
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
 import voronoiaoc.byg.common.properties.items.BYGBoatItem;
+import voronoiaoc.byg.common.properties.items.BYGHorseArmor;
 import voronoiaoc.byg.common.properties.items.BYGLilyItem;
 import voronoiaoc.byg.common.properties.items.BYGWaterSilkItem;
-import voronoiaoc.byg.common.properties.items.itemtiers.BYGTools;
+import voronoiaoc.byg.common.properties.items.itemtiers.BYGArmorTiers;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGItemTiers;
+import voronoiaoc.byg.common.properties.items.itemtiers.BYGTools;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 
@@ -28,20 +31,17 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.MUD_BLOCK = new BlockItem(BYGBlockList.MUD_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MUD_BLOCK));
                 registerItem(BYGItemList.MUD_BRICKS = new BlockItem(BYGBlockList.MUD_BRICKS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MUD_BRICKS));
 
+                registerItem(BYGItemList.CHAIN_PLATING = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "ametrine_gems"));
+
                 registerItem(BYGItemList.AMETRINE_GEMS = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "ametrine_gems"));
                 registerItem(BYGItemList.AMETRINE_ORE = new BlockItem(BYGBlockList.AMETRINE_ORE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.AMETRINE_ORE));
                 registerItem(BYGItemList.AMETRINE_BLOCK = new BlockItem(BYGBlockList.AMETRINE_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.AMETRINE_BLOCK));
-                registerItem(BYGItemList.AMETRINE_AXE = new BYGTools.AxeItemBYG(BYGItemTiers.AMETRINE, 3, -2.4F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "ametrine_axe"));
-                registerItem(BYGItemList.AMETRINE_PICK = new BYGTools.PickaxeItemBYG(BYGItemTiers.AMETRINE, 3, -2.4F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "ametrine_pickaxe"));
-                registerItem(BYGItemList.AMETRINE_SWORD = new SwordItem(BYGItemTiers.AMETRINE, 3, -2.4F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "ametrine_sword"));
-                registerItem(BYGItemList.AMETRINE_BATTLEAXE = new BYGTools.AxeItemBYG(BYGItemTiers.AMETRINE, 3, -2.4F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "ametrine_battleaxe"));
-//                registerItem(BYGItemList.AMETRINE_HOE = new BYGTools.HoeItemBYG(BYGItemTiers.AMETRINE, 0, -2.4F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "ametrine_hoe"));
-//                registerItem(BYGItemList.AMETRINE_HELMET = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.HEAD, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("ametrine_helmet");
-//                registerItem(BYGItemList.AMETRINE_CHEST = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.CHEST, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("ametrine_chestplate");
-//                registerItem(BYGItemList.AMETRINE_LEGGINGS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.LEGS, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("ametrine_leggings");
-//                registerItem(BYGItemList.AMETRINE_BOOTS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.FEET, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("ametrine_boots");
+                registerItem(BYGItemList.AMETRINE_HELMET = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlot.HEAD, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"ametrine_helmet"));
+                registerItem(BYGItemList.AMETRINE_CHEST = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlot.CHEST, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"ametrine_chestplate"));
+                registerItem(BYGItemList.AMETRINE_LEGGINGS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlot.LEGS, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"ametrine_leggings"));
+                registerItem(BYGItemList.AMETRINE_BOOTS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlot.FEET, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"ametrine_boots"));
 //                registerItem(BYGItemList.AMETRINE_SHIELD = new ShieldItem(new Item.Settings().maxDamage(1000).group(BYGItemGroup.COMBAT)), Registry.BLOCK.getId("ametrine_blue_shields");
-//                registerItem(BYGItemList.AMETRINE_HORSE_ARMOR = new BYGHorseArmor(7, "ametrine", (new Item.Settings()).maxCount(1).group(BYG.BYG_TAB)), Registry.BLOCK.getId("ametrine_horse_armor");
+                registerItem(BYGItemList.AMETRINE_HORSE_ARMOR = new BYGHorseArmor(7, "ametrine", (new Item.Settings()).maxCount(1).group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "ametrine_horse_armor"));
 
                 registerItem(BYGItemList.PENDORITE_SCRAPS = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "pendorite_scraps"));
                 registerItem(BYGItemList.PENDORITE_ORE = new BlockItem(BYGBlockList.PENDORITE_ORE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.PENDORITE_ORE));
@@ -50,13 +50,10 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.PENDORITE_PICK = new BYGTools.PickaxeItemBYG(BYGItemTiers.PENDORITE, 2, -2.8F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"pendorite_pickaxe"));
                 registerItem(BYGItemList.PENDORITE_SWORD = new SwordItem(BYGItemTiers.PENDORITE, 4, -2.4F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"pendorite_sword"));
                 registerItem(BYGItemList.PENDORITE_BATTLEAXE = new BYGTools.AxeItemBYG(BYGItemTiers.PENDORITE, 9.0f, -3.3F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"pendorite_battleaxe"));
-//                registerItem(BYGItemList.PENDORITE_HOE = new BYGTools.HoeItemBYG(BYGItemTiers.PENDORITE, 0, -2.4F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"pendorite_hoe"));
-//                registerItem(BYGItemList.PENDORITE_HELMET = new ArmorItem(BYGArmorTiers.PENDORITE, EquipmentSlotType.HEAD, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("pendorite_helmet");
-//                registerItem(BYGItemList.PENDORITE_CHEST = new ArmorItem(BYGArmorTiers.PENDORITE, EquipmentSlotType.CHEST, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("pendorite_chestplate");
-//                registerItem(BYGItemList.PENDORITE_LEGGINGS = new ArmorItem(BYGArmorTiers.PENDORITE, EquipmentSlotType.LEGS, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("pendorite_leggings");
-//                registerItem(BYGItemList.PENDORITE_BOOTS = new ArmorItem(BYGArmorTiers.PENDORITE, EquipmentSlotType.FEET, (new Item.Settings()).group(BYG.BYG_TAB)), Registry.BLOCK.getId("pendorite_boots");
-                //registerItem(BYGItemList.PENDORITE_SHIELD = new ShieldItem(new Item.Settings().maxDamage(1000).group(BYGItemGroup.COMBAT)), Registry.BLOCK.getId("pendorite_shield");
-//                registerItem(BYGItemList.PENDORITE_HORSE_ARMOR = new BYGHorseArmor(7, "pendorite", (new Item.Settings()).maxCount(1).group(BYG.BYG_TAB)), Registry.BLOCK.getId("pendorite_horse_armor");
+                registerItem(BYGItemList.PENDORITE_SHOVEL = new ShovelItem(BYGItemTiers.PENDORITE, 2.0F, -3.0F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"pendorite_shovel"));
+                registerItem(BYGItemList.PENDORITE_HOE = new BYGTools.HoeItemBYG(BYGItemTiers.PENDORITE, 0, -2.4F, (new Item.Settings()).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"pendorite_hoe"));
+//                registerItem(BYGItemList.PENDORITE_SHIELD = new ShieldItem(new Item.Settings().maxDamage(1000).group(BYGItemGroup.COMBAT)), Registry.BLOCK.getId("pendorite_shield");
+                registerItem(BYGItemList.PENDORITE_HORSE_ARMOR = new BYGHorseArmor(7, "pendorite", (new Item.Settings()).maxCount(1).group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"pendorite_horse_armor"));
 
                 registerItem(BYGItemList.DACITE = new BlockItem(BYGBlockList.DACITE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.DACITE));
                 registerItem(BYGItemList.DACITE_STAIRS = new BlockItem(BYGBlockList.DACITE_STAIRS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.DACITE_STAIRS));
