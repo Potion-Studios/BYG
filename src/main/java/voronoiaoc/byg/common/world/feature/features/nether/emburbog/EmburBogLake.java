@@ -17,6 +17,7 @@ import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -78,8 +79,8 @@ public class EmburBogLake extends Feature<DefaultFeatureConfig> {
                             for (Direction direction : Direction.Type.HORIZONTAL) {
                                 if (world.getBlockState(blockpos$Mutable.offset(direction)).getBlock() != Blocks.AIR) {
                                     // sets the water
-                                    world.setBlockState(blockpos$Mutable, Blocks.WATER.getDefaultState(), 3);
-                                    world.getFluidTickScheduler().schedule(blockpos$Mutable, Fluids.WATER, 0);
+                                    world.setBlockState(blockpos$Mutable, Blocks.LAVA.getDefaultState(), 3);
+                                    world.getFluidTickScheduler().schedule(blockpos$Mutable, Fluids.LAVA, 0);
                                 }
                             }
 
@@ -137,7 +138,7 @@ public class EmburBogLake extends Feature<DefaultFeatureConfig> {
         if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) ||
                 BlockTags.PLANKS.contains(blockState.getBlock())) &&
                 blockState.getFluidState().isEmpty() &&
-                blockState.getFluidState() != Fluids.WATER.getStill(false)) {
+                blockState.getFluidState() != Fluids.LAVA.getStill(false)) {
             return false;
         }
 
@@ -158,9 +159,12 @@ public class EmburBogLake extends Feature<DefaultFeatureConfig> {
                 blockState = world.getBlockState(blockpos$Mutable.add(x2, 0, z2));
                 material = blockState.getMaterial();
 
-                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.WATER.getStill(false)) {
+                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.LAVA.getStill(false)) {
                     return false;
                 }
+            }
+            if (blockState.getBlock() == BYGBlockList.EMBUR_GEL_BLOCK || blockState.getBlock() == BYGBlockList.EMBUR_PEDU) {
+                return false;
             }
         }
 
