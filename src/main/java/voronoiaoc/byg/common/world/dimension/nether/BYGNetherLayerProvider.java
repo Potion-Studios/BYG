@@ -16,7 +16,7 @@ public class BYGNetherLayerProvider {
 
         LayerFactory<CachingLayerSampler> netherFactory = BYGNetherMasterLayer.INSTANCE.create(randomProvider.apply(1000L));
 
-        for (int netherBiomeSize = 0; netherBiomeSize <= 4; netherBiomeSize++) {
+        for (int netherBiomeSize = 0; netherBiomeSize <= 3; netherBiomeSize++) {
             netherFactory = ScaleLayer.NORMAL.create(randomProvider.apply(1000L + netherBiomeSize), netherFactory);
         }
         netherFactory = ScaleLayer.FUZZY.create(randomProvider.apply(1000L), netherFactory);
