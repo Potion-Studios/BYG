@@ -102,6 +102,17 @@ public class BYGFeatures {
 
     }
 
+    public static void addEmburBogVegetation(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(2, 0.5F, 3))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM2.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(2, 0.5F, 3))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_ROOTS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(15, 0.5F, 12))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.TALL_EMBUR_ROOTS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(15, 0.5F, 12))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.EMBUR_GEL_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(20, 0.8F, 6))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_WART.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(3, 0.5F, 2))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_LILY.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(2, 0.5F, 2))));
+
+    }
+
     public static void addAzalea(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.AZALEA_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
     }

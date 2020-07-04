@@ -6,10 +6,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
-import voronoiaoc.byg.common.properties.items.BYGBoatItem;
-import voronoiaoc.byg.common.properties.items.BYGHorseArmor;
-import voronoiaoc.byg.common.properties.items.BYGLilyItem;
-import voronoiaoc.byg.common.properties.items.BYGWaterSilkItem;
+import voronoiaoc.byg.common.properties.items.*;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGArmorTiers;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGItemTiers;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGTools;
@@ -31,7 +28,7 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.MUD_BLOCK = new BlockItem(BYGBlockList.MUD_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MUD_BLOCK));
                 registerItem(BYGItemList.MUD_BRICKS = new BlockItem(BYGBlockList.MUD_BRICKS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.MUD_BRICKS));
 
-                registerItem(BYGItemList.CHAIN_PLATING = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "ametrine_gems"));
+                registerItem(BYGItemList.CHAIN_PLATING = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID,"chain_plating"));
 
                 registerItem(BYGItemList.AMETRINE_GEMS = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "ametrine_gems"));
                 registerItem(BYGItemList.AMETRINE_ORE = new BlockItem(BYGBlockList.AMETRINE_ORE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.AMETRINE_ORE));
@@ -725,7 +722,22 @@ public class BYGItemRegistry {
                 registerItem(BYGItemList.SYTHIAN_SPROUT = new BlockItem(BYGBlockList.SYTHIAN_SPROUT, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SYTHIAN_SPROUT));
                 registerItem(BYGItemList.SYTHIAN_STALK_BLOCK = new BlockItem(BYGBlockList.SYTHIAN_STALK_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SYTHIAN_STALK_BLOCK));
                 registerItem(BYGItemList.SYTHIAN_SCAFFOLDING = new ScaffoldingItem(BYGBlockList.SYTHIAN_SCAFFOLDING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.SYTHIAN_SCAFFOLDING));
-//
+
+                registerItem(BYGItemList.EMBUR_GEL_BALL = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "embur_gel_ball"));
+                registerItem(BYGItemList.EMBUR_GEL_BLOCK = new BlockItem(BYGBlockList.EMBUR_GEL_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.EMBUR_GEL_BLOCK));
+                registerItem(BYGItemList.EMBUR_GEL_VINES = new BlockItem(BYGBlockList.EMBUR_GEL_VINES, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.EMBUR_GEL_VINES));
+                registerItem(BYGItemList.EMBUR_NYLIUM = new BlockItem(BYGBlockList.EMBUR_NYLIUM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.EMBUR_NYLIUM));
+                registerItem(BYGItemList.EMBUR_PEDU = new BlockItem(BYGBlockList.EMBUR_PEDU, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.EMBUR_PEDU));
+                registerItem(BYGItemList.EMBUR_ROOTS = new BlockItem(BYGBlockList.EMBUR_ROOTS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.EMBUR_ROOTS));
+                registerItem(BYGItemList.EMBUR_WART = new BlockItem(BYGBlockList.EMBUR_WART, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.EMBUR_WART));
+                registerItem(BYGItemList.TALL_EMBUR_ROOTS = new BlockItem(BYGBlockList.TALL_EMBUR_ROOTS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.TALL_EMBUR_ROOTS));
+                registerItem(BYGItemList.EMBUR_LILY = (new EmburLilyItem(BYGBlockList.EMBUR_LILY, (new Item.Settings()).group(BYG.BYG_TAB))), Registry.BLOCK.getId(BYGBlockList.EMBUR_LILY));
+                registerItem(BYGItemList.BLUE_NETHERRACK_BRICK = new Item(new Item.Settings().group(BYG.BYG_TAB)), new Identifier(BYG.MODID, "blue_nether_brick"));
+                registerItem(BYGItemList.BLUE_NETHERRACK = new BlockItem(BYGBlockList.BLUE_NETHERRACK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_NETHERRACK));
+                registerItem(BYGItemList.BLUE_NETHERRACK_BRICKS = new BlockItem(BYGBlockList.BLUE_NETHERRACK_BRICKS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.BLUE_NETHERRACK_BRICKS));
+
+
+
                 //End
                 registerItem(BYGItemList.IVIS_PHYLIUM = new BlockItem(BYGBlockList.IVIS_PHYLIUM, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.IVIS_PHYLIUM));
                 registerItem(BYGItemList.IVIS_ROOTS = new BlockItem(BYGBlockList.IVIS_ROOTS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlockList.IVIS_ROOTS));

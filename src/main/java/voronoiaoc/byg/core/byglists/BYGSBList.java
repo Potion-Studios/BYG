@@ -28,6 +28,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<TernarySurfaceConfig> FUNGAL_RAINFOREST_SB = new FungalRainforestSB(TernarySurfaceConfig.CODEC);
     public static final SurfaceBuilder<TernarySurfaceConfig> EBONY_SB = new EbonyWoodsSB(TernarySurfaceConfig.CODEC);
     public static final SurfaceBuilder<TernarySurfaceConfig> GLOWING_ANCIENT_FOREST_SB = new GlowingAncientForestSB(TernarySurfaceConfig.CODEC);
+    public static final SurfaceBuilder<TernarySurfaceConfig> EMBURBOG = new EmburBogSB(TernarySurfaceConfig.CODEC);
 
     //Beaches
     public static final SurfaceBuilder<TernarySurfaceConfig> ROCKYBLACKBEACH_SB = new RockyBlackBeachSB(TernarySurfaceConfig.CODEC);
@@ -66,6 +67,7 @@ public class BYGSBList {
         public static final TernarySurfaceConfig WARPEDDESERT = new TernarySurfaceConfig(BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState());
         public static final TernarySurfaceConfig SYTHIANTORRIDS = new TernarySurfaceConfig(BYGBlockList.SYTHIAN_NYLIUM.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
         public static final TernarySurfaceConfig WARPEDDESERT_SOIL = new TernarySurfaceConfig(BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState());
+        public static final TernarySurfaceConfig EMBURNYLIUM = new TernarySurfaceConfig(BYGBlockList.EMBUR_NYLIUM.getDefaultState(), BYGBlockList.BLUE_NETHERRACK.getDefaultState(), BYGBlockList.BLUE_NETHERRACK.getDefaultState());
 
 
         public static final TernarySurfaceConfig PODZOLDOVERMOUNTAIN_CF = new TernarySurfaceConfig(BYGBlockList.OVERGROWN_DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());

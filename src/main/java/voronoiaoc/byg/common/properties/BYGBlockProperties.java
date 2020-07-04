@@ -13,6 +13,9 @@ import net.minecraft.util.registry.Registry;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.BYGMaterials;
 import voronoiaoc.byg.common.properties.blocks.*;
+import voronoiaoc.byg.common.properties.blocks.embur.EmburNyliumBlock;
+import voronoiaoc.byg.common.properties.blocks.embur.EmburPlantBlock;
+import voronoiaoc.byg.common.properties.blocks.embur.EmburVinesPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
 import voronoiaoc.byg.common.properties.blocks.plants.*;
 import voronoiaoc.byg.common.properties.blocks.warped.*;
@@ -839,10 +842,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static PillarBlock createLogBlock(MaterialColor topMaterialColor, MaterialColor sideMaterialColor) {
-        return new PillarBlock(AbstractBlock.Settings.of(Material.WOOD, (blockState) -> blockState.get(PillarBlock.AXIS) == Direction.Axis.Y ? topMaterialColor : sideMaterialColor).strength(2.0F).sounds(BlockSoundGroup.WOOD));
-    }
-
     public static class BYGWood extends PillarBlock {
         public BYGWood(String registryName) {
             super(Settings.of(Material.WOOD)
@@ -1138,6 +1137,26 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGNetherrack extends Block {
+        public BYGNetherrack(String registryName) {
+            super(AbstractBlock.Settings.of(Material.STONE, MaterialColor.BLUE_TERRACOTTA)
+                    .sounds(BlockSoundGroup.NETHERRACK)
+                    .strength(0.4F, 0.4F)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
+    public static class BYGNetherBricks extends Block {
+        public BYGNetherBricks(String registryName) {
+            super(AbstractBlock.Settings.of(Material.STONE, MaterialColor.BLUE_TERRACOTTA)
+                    .sounds(BlockSoundGroup.NETHER_BRICKS)
+                    .strength(0.4F, 0.4F)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+        }
+    }
+
     public static class BYGPillar extends PillarBlock {
         public BYGPillar(String registryName) {
             super(Settings.of(Material.STONE)
@@ -1147,6 +1166,7 @@ public class BYGBlockProperties {
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
     }
+
 
     public static class BYGStrippedLog extends LogBlock {
         public BYGStrippedLog(String registryName) {

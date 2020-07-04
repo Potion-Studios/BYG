@@ -6,6 +6,7 @@ import net.minecraft.world.gen.feature.*;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.biomefeatures.FrostMagmaLakeFeature;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
+import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianSprout;
@@ -214,6 +215,11 @@ public class BYGFeatureList {
     public static final Feature<DefaultFeatureConfig> EMBURLAKE = new EmburBogLake(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> EMBURMUSHROOM = new EmburMushroom(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> EMBURMUSHROOM2 = new EmburMushroom2(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_GEL_VINES = new EmburGelVines(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_ROOTS = new EmburRoots(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> TALL_EMBUR_ROOTS = new TallEmburRoots(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_WART = new EmburWart(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_LILY = new EmburLily(DefaultFeatureConfig.CODEC);
 
 
     /********************************************************************Structures***********************************************************************/
