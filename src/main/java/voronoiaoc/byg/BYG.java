@@ -56,6 +56,7 @@ public class BYG {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BYGConfig.COMMON_CONFIG);
         BYGWorldConfig.loadConfig(BYGWorldConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MOD_ID + "-world-common.toml"));
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
+        ConfigWeightManager.buildConfig();
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
         BYGCreativeTab.init();
         BYGEndBiomeCatch.endBiomeConfigCollection();

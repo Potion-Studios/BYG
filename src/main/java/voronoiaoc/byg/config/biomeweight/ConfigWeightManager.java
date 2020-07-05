@@ -81,10 +81,10 @@ public class ConfigWeightManager {
     public static final ConfigWeight ZELKOVAFOREST = new ConfigWeight("Zelkova_Forest", 6);
 
 
-    public static final ForgeConfigSpec COMMON_CONFIG;
+    public static ForgeConfigSpec COMMON_CONFIG;
     private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 
-    static {
+    public static void buildConfig() {
         biomeWeights.forEach(o -> o.apply(COMMON_BUILDER));
         COMMON_CONFIG = COMMON_BUILDER.build();
     }
