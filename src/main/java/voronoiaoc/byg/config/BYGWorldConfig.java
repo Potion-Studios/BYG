@@ -17,6 +17,9 @@ public class BYGWorldConfig {
     public static ForgeConfigSpec COMMON_CONFIG;
 
     public static ForgeConfigSpec.IntValue biomeSize;
+    public static ForgeConfigSpec.IntValue biomeSizeNETHER;
+    public static ForgeConfigSpec.IntValue biomeSizeEND;
+
     public static ForgeConfigSpec.BooleanValue vanillaBiomes;
     public static ForgeConfigSpec.IntValue seaLevel;
     public static ForgeConfigSpec.ConfigValue<String> externalEndBiomes;
@@ -55,9 +58,11 @@ public class BYGWorldConfig {
         externalWARMBiomes = COMMON_BUILDER.comment("Add external WARM biomes by their registry names in a commented list.").define("ExternalWARMBiomes", "");
         externalHOTBiomes = COMMON_BUILDER.comment("Add external HOT biomes by their registry names in a commented list.").define("ExternalHOTBiomes", "");
 
-        COMMON_BUILDER.comment("External Biomes. World settings for custom nether/end: https://gist.github.com/CorgiTaco/f5716864bc7b63b04aa547ccfc0e846a").push("Dimension_Settings");
+        COMMON_BUILDER.comment("External Biomes. World settings for custom nether/end/byg: https://gist.github.com/CorgiTaco/f5716864bc7b63b04aa547ccfc0e846a").push("Dimension_Settings");
         externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry names in a commented list.").define("ExternalEndBiomes", "");
+        biomeSizeEND = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").defineInRange("EndBiomeSize", 3, 0, 10);
         externalNetherBiomes = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").define("ExternalNetherBiomes", "");
+        biomeSizeNETHER = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").defineInRange("NetherBiomeSize", 3, 0, 10);
         COMMON_BUILDER.pop();
 
 
