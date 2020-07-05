@@ -4,8 +4,10 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.layer.Layer;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,5 +45,17 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
     @Override
     public Biome getNoiseBiome(int x, int y, int z) {
         return biomeLayer.func_215738_a(x, z);
+    }
+
+    static {
+        biomeList.add(BYGBiomeList.GLOWSTONEGARDENS);
+        biomeList.add(BYGBiomeList.WARPEDDESERT);
+        biomeList.add(BYGBiomeList.EMBURBOG);
+        biomeList.add(BYGBiomeList.SYTHIANTORRIDS);
+        biomeList.add(Biomes.field_235250_aA_);
+        biomeList.add(Biomes.field_235251_aB_);
+        biomeList.add(Biomes.field_235252_ay_);
+        biomeList.add(Biomes.field_235253_az_);
+        biomeList.add(Biomes.field_235254_j_);
     }
 }
