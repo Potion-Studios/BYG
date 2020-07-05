@@ -4,10 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
-    "common.world.layers.MixinIslandLayer",
-    "common.world.layers.MixinNetherBiomeProvider",
-    "common.world.layers.MixinShoreLayer",
-    "common.world.layers.MixinTheEndBiomeProvider"
+    "common.world.layers.MixinShoreLayer"
   ],
   "client": [
     "client.MixinGameRenderer"

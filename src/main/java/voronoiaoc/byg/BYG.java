@@ -1,6 +1,8 @@
 package voronoiaoc.byg;
 
 
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -21,7 +23,8 @@ import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
 import voronoiaoc.byg.common.properties.vanilla.BYGFlammables;
 import voronoiaoc.byg.common.properties.vanilla.BYGHoeables;
 import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
-import voronoiaoc.byg.common.world.dimension.end.biome.BYGEndBiomeCatch;
+import voronoiaoc.byg.common.world.dimension.BYGEndBiomeProvider;
+import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
 import voronoiaoc.byg.common.world.worldtype116.WorldType116;
 import voronoiaoc.byg.config.BYGConfig;
@@ -49,7 +52,7 @@ public class BYG {
     private void bygCommonSetup(FMLCommonSetupEvent event) {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
         BYGCreativeTab.init();
-        BYGEndBiomeCatch.endBiomeConfigCollection();
+//        BYGEndBiomeCatch.endBiomeConfigCollection();
 //        BYGNetherBiomeCatch.netherBiomeConfigCollection();
         BYGFeaturesInVanilla.addFeatures();
         BYGBiomeWeightSystem.addBiomesToWeightSystem();
@@ -57,7 +60,9 @@ public class BYG {
 //        tempList.add(BYGFeatureList.BYGVILLAGE);
 //        Feature.ILLAGER_STRUCTURES = ImmutableList.copyOf(tempList);
 //        BYGBiomeLayer.addVanillaBiomes();
-        WorldType116.addGenerator();
+
+        Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
+        Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 
@@ -68,6 +73,7 @@ public class BYG {
         MainMenuBYG.mainMenuPanorama();
 //        DimensionOverride.dimensionOverrideClient();
         RenderingRegistry.registerEntityRenderingHandler(BYGEntityList.BYGBOAT, BYGBoatRenderer::new);
+        WorldType116.addGenerator();
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
 

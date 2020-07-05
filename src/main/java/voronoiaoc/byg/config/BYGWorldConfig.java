@@ -55,7 +55,7 @@ public class BYGWorldConfig {
         externalWARMBiomes = COMMON_BUILDER.comment("Add external WARM biomes by their registry names in a commented list.").define("ExternalWARMBiomes", "");
         externalHOTBiomes = COMMON_BUILDER.comment("Add external HOT biomes by their registry names in a commented list.").define("ExternalHOTBiomes", "");
 
-        COMMON_BUILDER.comment("External Biomes").push("Dimension_Settings");
+        COMMON_BUILDER.comment("External Biomes. World settings for custom nether/end: https://gist.github.com/CorgiTaco/f5716864bc7b63b04aa547ccfc0e846a").push("Dimension_Settings");
         externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry names in a commented list.").define("ExternalEndBiomes", "");
         externalNetherBiomes = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").define("ExternalNetherBiomes", "");
         COMMON_BUILDER.pop();
