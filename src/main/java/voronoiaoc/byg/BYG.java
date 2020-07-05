@@ -23,7 +23,9 @@ import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
 import voronoiaoc.byg.common.properties.vanilla.BYGFlammables;
 import voronoiaoc.byg.common.properties.vanilla.BYGHoeables;
 import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
-import voronoiaoc.byg.common.world.dimension.BYGEndBiomeProvider;
+import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeCatch;
+import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
+import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeCatch;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
 import voronoiaoc.byg.common.world.worldtype116.BYGBiomeProvider116;
@@ -51,10 +53,13 @@ public class BYG {
     }
 
     private void bygCommonSetup(FMLCommonSetupEvent event) {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BYGConfig.COMMON_CONFIG);
+        BYGWorldConfig.loadConfig(BYGWorldConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MOD_ID + "-world-common.toml"));
+        ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
         BYGCreativeTab.init();
-//        BYGEndBiomeCatch.endBiomeConfigCollection();
-//        BYGNetherBiomeCatch.netherBiomeConfigCollection();
+        BYGEndBiomeCatch.endBiomeConfigCollection();
+        BYGNetherBiomeCatch.netherBiomeConfigCollection();
         BYGFeaturesInVanilla.addFeatures();
         BYGBiomeWeightSystem.addBiomesToWeightSystem();
 //        List<Structure<?>> tempList = new ArrayList<>(Feature.ILLAGER_STRUCTURES);

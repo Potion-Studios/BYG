@@ -8,7 +8,7 @@
 //import org.spongepowered.asm.mixin.injection.At;
 //import org.spongepowered.asm.mixin.injection.Inject;
 //import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-//import voronoiaoc.byg.common.world.dimension.BYGEndBiomeProvider;
+//import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 //import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 //
 //@Mixin(DimensionType.class)

@@ -29,6 +29,7 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
 
     public static List<Biome> biomeList = new ArrayList<>();
 
+
     @Override
     protected Codec<? extends BiomeProvider> func_230319_a_() {
         return BYGNETHERCODEC;

@@ -7,6 +7,7 @@ import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
 import net.minecraft.world.gen.layer.*;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer1;
+import voronoiaoc.byg.config.BYGWorldConfig;
 
 import java.util.function.LongFunction;
 
@@ -47,32 +48,32 @@ public class BYGWorldLayerProvider {
         primaryFactory = repeat(1000L, ZoomLayer.NORMAL, primaryFactory, 0, randomProvider);
         IAreaFactory<LazyArea> zoomFactory = repeat(1000L, ZoomLayer.NORMAL, primaryFactory, 0, randomProvider);
         zoomFactory = StartRiverLayer.INSTANCE.apply(randomProvider.apply(100L), zoomFactory);
-        IAreaFactory<LazyArea> bambooFactory = (new BYGBiomeLayer(true)).apply(randomProvider.apply(200L), primaryFactory);
-        bambooFactory = AddBambooForestLayer.INSTANCE.apply(randomProvider.apply(1001L), bambooFactory);
-        bambooFactory = repeat(1000L, ZoomLayer.NORMAL, bambooFactory, 2, randomProvider);
-        bambooFactory = EdgeBiomeLayer.INSTANCE.apply(randomProvider.apply(1000L), bambooFactory);
+        IAreaFactory<LazyArea> addBiomeFactory = (new BYGBiomeLayer(true)).apply(randomProvider.apply(200L), primaryFactory);
+        addBiomeFactory = AddBambooForestLayer.INSTANCE.apply(randomProvider.apply(1001L), addBiomeFactory);
+        addBiomeFactory = repeat(1000L, ZoomLayer.NORMAL, addBiomeFactory, 2, randomProvider);
+        addBiomeFactory = EdgeBiomeLayer.INSTANCE.apply(randomProvider.apply(1000L), addBiomeFactory);
         IAreaFactory<LazyArea> lvt_8_1_ = repeat(1000L, ZoomLayer.NORMAL, zoomFactory, 2, randomProvider);
-        bambooFactory = HillsLayer.INSTANCE.apply(randomProvider.apply(1000L), bambooFactory, lvt_8_1_);
+        addBiomeFactory = HillsLayer.INSTANCE.apply(randomProvider.apply(1000L), addBiomeFactory, lvt_8_1_);
         zoomFactory = repeat(1000L, ZoomLayer.NORMAL, zoomFactory, 2, randomProvider);
         zoomFactory = repeat(1000L, ZoomLayer.NORMAL, zoomFactory, 4, randomProvider);
         zoomFactory = RiverLayer.INSTANCE.apply(randomProvider.apply(1L), zoomFactory);
         zoomFactory = SmoothLayer.INSTANCE.apply(randomProvider.apply(1000L), zoomFactory);
-        bambooFactory = RareBiomeLayer.INSTANCE.apply(randomProvider.apply(1001L), bambooFactory);
+        addBiomeFactory = RareBiomeLayer.INSTANCE.apply(randomProvider.apply(1001L), addBiomeFactory);
 
-        for (int i = 0; i < 6; ++i) {
-            bambooFactory = ZoomLayer.NORMAL.apply(randomProvider.apply(1000 + i), bambooFactory);
+        for (int i = 0; i < BYGWorldConfig.biomeSize.get(); ++i) {
+            addBiomeFactory = ZoomLayer.NORMAL.apply(randomProvider.apply(1000 + i), addBiomeFactory);
             if (i == 0) {
-                bambooFactory = AddIslandLayer.INSTANCE.apply(randomProvider.apply(3L), bambooFactory);
+                addBiomeFactory = AddIslandLayer.INSTANCE.apply(randomProvider.apply(3L), addBiomeFactory);
             }
 
             if (i == 1) {
-                bambooFactory = ShoreLayer.INSTANCE.apply(randomProvider.apply(1000L), bambooFactory);
+                addBiomeFactory = ShoreLayer.INSTANCE.apply(randomProvider.apply(1000L), addBiomeFactory);
             }
         }
 
-        bambooFactory = SmoothLayer.INSTANCE.apply(randomProvider.apply(1000L), bambooFactory);
-        bambooFactory = MixRiverLayer.INSTANCE.apply(randomProvider.apply(100L), bambooFactory, zoomFactory);
-        IAreaFactory<LazyArea> finalFactory = MixOceansLayer.INSTANCE.apply(randomProvider.apply(100L), bambooFactory, oceanFactory);
+        addBiomeFactory = SmoothLayer.INSTANCE.apply(randomProvider.apply(1000L), addBiomeFactory);
+        addBiomeFactory = MixRiverLayer.INSTANCE.apply(randomProvider.apply(100L), addBiomeFactory, zoomFactory);
+        IAreaFactory<LazyArea> finalFactory = MixOceansLayer.INSTANCE.apply(randomProvider.apply(100L), addBiomeFactory, oceanFactory);
         return new Layer(finalFactory);
     }
 }
