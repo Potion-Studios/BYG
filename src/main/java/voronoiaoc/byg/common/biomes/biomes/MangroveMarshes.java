@@ -8,6 +8,7 @@ import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SeaGrassConfig;
 import net.minecraft.world.gen.placement.IPlacementConfig;
@@ -19,6 +20,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
+
+import javax.annotation.Nullable;
 
 public class MangroveMarshes extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
@@ -85,5 +89,11 @@ public class MangroveMarshes extends Biome {
     @Override
     public Biome getRiver() {
         return this;
+    }
+
+    @Nullable
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return BYGBiomeList.CORAL_MANGROVES;
     }
 }
