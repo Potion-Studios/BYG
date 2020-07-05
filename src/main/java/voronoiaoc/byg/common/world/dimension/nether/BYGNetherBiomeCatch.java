@@ -12,7 +12,9 @@ import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class BYGNetherBiomeCatch {
@@ -48,18 +50,20 @@ public class BYGNetherBiomeCatch {
                 if (configResource == null) {
                     BYG.LOGGER.warn("Illegal registry name! You put: " + configResource);
                 } else if (configResource != null) {
-                    BYGNetherBiomeProvider.biomeList.add(configResource);
                     getConfigArray[index] = BiomeRegistry.getID(configResource);
                     Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
 
                     if (biome == null) {
                         BYG.LOGGER.warn("Illegal registry name! You put: " + configResource);
                     } else {
+                        BYGNetherBiomeProvider.biomeList.add(biome);
                         netherBiomeIDS.add(Registry.BIOME.getId(biome));
                     }
                 }
             }
         }
+
+        BYG.LOGGER.info(biomeList.size());
         BYG.LOGGER.debug("BYG: Nether Biome Config Collection completed!");
     }
 

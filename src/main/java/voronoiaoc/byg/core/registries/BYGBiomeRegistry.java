@@ -179,6 +179,7 @@ public class BYGBiomeRegistry {
         registerBYGBiome(registry, BYGBiomeList.WARPEDDESERT, "warped_desert", false, BiomeDictionary.Type.NETHER);
         registerBYGBiome(registry, BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids", false, BiomeDictionary.Type.NETHER);
         registerBYGBiome(registry, BYGBiomeList.GLOWSTONEGARDENS, "glowstone_gardens", false, BiomeDictionary.Type.NETHER);
+        registerBYGBiome(registry, BYGBiomeList.EMBURBOG, "embur_bog", false, BiomeDictionary.Type.NETHER);
 
         //End
         registerBYGEndBiome(registry, BYGBiomeList.IVISFIELDS, "ivis_fields", BiomeDictionary.Type.END);

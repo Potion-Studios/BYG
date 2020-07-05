@@ -43,11 +43,11 @@ public class BYGEndBiomeCatch {
                 if (configResource == null) {
                     BYG.LOGGER.warn("Illegal registry name! You put: " + configResource);
                 } else if (configResource != null) {
-                    BYGEndBiomeProvider.bygEndBiomeList.add(configResource);
                     getConfigArray[index] = BiomeRegistry.getID(configResource);
                     Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
                     if (biome == null) {
                     } else {
+                        BYGEndBiomeProvider.bygEndBiomeList.add(biome);
                         endBiomeIDs.add(Registry.BIOME.getId(biome));
                     }
                 }

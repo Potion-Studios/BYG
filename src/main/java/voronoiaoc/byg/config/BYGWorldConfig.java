@@ -52,12 +52,12 @@ public class BYGWorldConfig {
     static {
         COMMON_BUILDER.comment("BYG WorldType Settings").push("World_Settings");
         vanillaBiomes = COMMON_BUILDER.comment("Vanilla BiomeSounds. Default is true").define("VanillaBiomes", true);
-        biomeSize = COMMON_BUILDER.comment("Biome Size, Default 1.").defineInRange("BiomeSize", 1, 0, 25);
+        biomeSize = COMMON_BUILDER.comment("Biome Size, Default 1.").defineInRange("BiomeSize", 4, 0, 25);
         externalICYBiomes = COMMON_BUILDER.comment("Add external ICY biomes by their registry names in a commented list.").define("ExternalICYBiomes", "");
         externalCOOLBiomes = COMMON_BUILDER.comment("Add external COOL biomes by their registry names in a commented list.").define("ExternalCOOLBiomes", "");
         externalWARMBiomes = COMMON_BUILDER.comment("Add external WARM biomes by their registry names in a commented list.").define("ExternalWARMBiomes", "");
         externalHOTBiomes = COMMON_BUILDER.comment("Add external HOT biomes by their registry names in a commented list.").define("ExternalHOTBiomes", "");
-
+        COMMON_BUILDER.pop();
         COMMON_BUILDER.comment("External Biomes. World settings for custom nether/end/byg: https://gist.github.com/CorgiTaco/f5716864bc7b63b04aa547ccfc0e846a").push("Dimension_Settings");
         externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry names in a commented list.").define("ExternalEndBiomes", "");
         biomeSizeEND = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").defineInRange("EndBiomeSize", 3, 0, 10);
