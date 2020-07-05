@@ -114,8 +114,6 @@ public class BYGBiomeWeightSystem {
 //        addBiomeEntry(BYGBiomeList.VOLCANO, 1, BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.ZELKOVAFOREST, ConfigWeightManager.ZELKOVAFOREST.getWeight(), BiomeManager.BiomeType.COOL);
 
-        BYG.LOGGER.info(ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight());
-
         BYG.LOGGER.debug("BYG: Added biome entries with their respective weights!");
     }
 
