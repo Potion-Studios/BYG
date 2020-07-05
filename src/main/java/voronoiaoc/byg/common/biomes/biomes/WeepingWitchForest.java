@@ -36,7 +36,7 @@ public class WeepingWitchForest extends Biome implements BiomeFog {
         BYGTreeFeatures.addHugeMushrooms(this);
         BYGTreeFeatures.addSmallSpruceTrees(this);
         DefaultBiomeFeatures.addCarvers(this);
-        // DefaultBiomeFeatures.addStructures(this);
+
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);

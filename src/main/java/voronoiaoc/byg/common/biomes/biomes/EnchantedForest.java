@@ -34,7 +34,7 @@ public class EnchantedForest extends Biome {
         BYGTreeFeatures.addEnchantedTrees(this);
         BYGTreeFeatures.addHugeMushrooms(this);
         DefaultBiomeFeatures.addCarvers(this);
-        // DefaultBiomeFeatures.addStructures(this);
+
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);

@@ -35,7 +35,7 @@ public class PumpkinForest extends Biome implements BiomeFog {
         BYGTreeFeatures.addDeadHazelTrees(this);
         BYGTreeFeatures.addWitchPumpkinPatches(this);
         DefaultBiomeFeatures.addCarvers(this);
-        // DefaultBiomeFeatures.addStructures(this);
+
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);

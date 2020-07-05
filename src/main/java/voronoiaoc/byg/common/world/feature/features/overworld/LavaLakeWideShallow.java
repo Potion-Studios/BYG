@@ -33,7 +33,7 @@ public class LavaLakeWideShallow extends Feature<NoFeatureConfig> {
     public void setSeed(long seed) {
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         if (this.noiseSeed != seed || this.noiseGen == null) {
-            this.noiseGen = new PerlinNoiseGenerator (sharedseedrandom, ImmutableList.of(0));
+            this.noiseGen = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
         }
 
         this.noiseSeed = seed;

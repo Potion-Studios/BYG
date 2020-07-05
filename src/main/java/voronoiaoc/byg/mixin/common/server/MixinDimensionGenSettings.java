@@ -28,7 +28,8 @@ import java.util.*;
 public class MixinDimensionGenSettings {
 
     @Final
-    @Shadow private static Logger field_236203_c_;
+    @Shadow
+    private static Logger field_236203_c_;
 
     @Inject(at = @At("HEAD"), method = "func_236219_a_(Ljava/util/Properties;)Lnet/minecraft/world/gen/settings/DimensionGeneratorSettings;", cancellable = true)
     private static void yeet(Properties p_236219_0_, CallbackInfoReturnable<DimensionGeneratorSettings> cir) {

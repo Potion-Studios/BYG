@@ -22,7 +22,7 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
     Random random = new Random();
 
-    public ZelkovaTree3(Codec<NoFeatureConfig> configIn, int beeHiveChance) {
+    public ZelkovaTree3(Codec<NoFeatureConfig> configIn) {
         super(configIn);
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.ZELKOVA_SAPLING);
     }

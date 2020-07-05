@@ -28,7 +28,7 @@ public class RainbowBeach extends Biome {
         //this.addStructure(Feature.BURIED_TREASURE.withConfiguration(new BuriedTreasureConfig(0.01F)));
         //this.addStructure(Feature.SHIPWRECK.withConfiguration(new ShipwreckConfig(true)));
         DefaultBiomeFeatures.addCarvers(this);
-        // DefaultBiomeFeatures.addStructures(this);
+
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);

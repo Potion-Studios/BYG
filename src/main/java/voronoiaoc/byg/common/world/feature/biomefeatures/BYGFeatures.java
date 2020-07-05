@@ -30,6 +30,12 @@ public class BYGFeatures {
 
     }
 
+    public static void addFernGrass(Biome biome) {
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SHORT_GRASS_CONFIG).withPlacement(Placement.NOISE_HEIGHTMAP_DOUBLE.configure(new NoiseDependant(-0.8D, 5, 10))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.TAIGA_GRASS_CONFIG).withPlacement(Placement.NOISE_HEIGHTMAP_DOUBLE.configure(new NoiseDependant(-0.8D, 5, 10))));
+
+    }
+
     public static void addAmaranthFieldFlowers(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
                 Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.AMARANTH_CONFIG).withChance(0.3F),
@@ -38,6 +44,17 @@ public class BYGFeatures {
                 Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.ORANGEAMARANTH_CONFIG).withChance(0.3F)),
                 Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.PURPLEAMARANTH_CONFIG))).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(
                 new FrequencyConfig(200))));
+    }
+
+    public static void addEmburBogVegetation(Biome biome) {
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 3))));
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM2.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 3))));
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_ROOTS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(15, 0.5F, 12))));
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.TALL_EMBUR_ROOTS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(15, 0.5F, 12))));
+        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.EMBUR_GEL_VINES.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(20, 0.8F, 6))));
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_WART.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(3, 0.5F, 2))));
+        biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_LILY.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(UnderGroundPlacement.UGPLACER.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 2))));
+
     }
 
     public static void addBYGGlowcane(Biome biome) {
@@ -343,7 +360,7 @@ public class BYGFeatures {
 
     public static void addQuagmireFeatures(Biome biome) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.QUAGMIREDEADBUSH_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(100))));
-        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.4F, -1))));
+//        biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.DEAD_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.4F, -1))));
 
     }
 

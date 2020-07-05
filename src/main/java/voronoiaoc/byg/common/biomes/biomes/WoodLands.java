@@ -33,7 +33,7 @@ public class WoodLands extends Biome {
         BYGTreeFeatures.addMeadowTrees(this);
         BYGTreeFeatures.addHugeMushrooms(this);
         DefaultBiomeFeatures.addCarvers(this);
-        // DefaultBiomeFeatures.addStructures(this);
+
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);

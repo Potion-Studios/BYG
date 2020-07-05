@@ -119,7 +119,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         if (this.seed != seed || this.perlin1 == null || this.perlin2 == null) {
             SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
             this.perlin1 = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
-            this.perlin2 = new PerlinNoiseGenerator(sharedseedrandom,ImmutableList.of(0));
+            this.perlin2 = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
         }
 
         this.seed = seed;
@@ -129,7 +129,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         this.blockState = new BlockState[64];
         Arrays.fill(this.blockState, PACKED_ICE2);
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
-        this.perlin3 = new PerlinNoiseGenerator(sharedseedrandom,ImmutableList.of(0));
+        this.perlin3 = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
 
         for (int l1 = 0; l1 < 64; ++l1) {
             l1 += sharedseedrandom.nextInt(5) + 1;

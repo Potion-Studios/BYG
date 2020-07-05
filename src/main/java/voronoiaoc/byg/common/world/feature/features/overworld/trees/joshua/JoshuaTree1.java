@@ -167,7 +167,7 @@ public class JoshuaTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     public int redRockHeight(ISeedReader worldIn, BlockPos position) {
         int minYHeight = 1;
         if (worldIn instanceof IWorld) {
-            Biome biome = ((IWorld) worldIn).getBiome(position);
+            Biome biome = worldIn.getBiome(position);
             if (biome == BYGBiomeList.REDROCKCANYON)
                 minYHeight = 140;
             return minYHeight;

@@ -6,7 +6,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.properties.BYGBlockProperties;
-import voronoiaoc.byg.common.properties.blocks.BYGMushroomProperties;
+import voronoiaoc.byg.common.properties.blocks.BYGMushroomBlock;
 import voronoiaoc.byg.common.properties.blocks.BYGSaplingProperties;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGSaplingToTree;
@@ -20,9 +20,7 @@ public class BYGBlockRegistry {
     public static void registerBlocks(final RegistryEvent.Register<Block> event) {
         BYG.LOGGER.debug("BYG: Registering blocks...");
         event.getRegistry().registerAll(
-//                BYGBlockList.SONORAN_CACTUS = new SonoranCactusBlock("sonoran_cactus"),
-
-                //Plank Blocks
+                //Plank BYGBlockRenders
                 BYGBlockList.ASPEN_PLANKS = new BYGBlockProperties.BYGPlanks("aspen_planks"),
                 BYGBlockList.BAOBAB_PLANKS = new BYGBlockProperties.BYGPlanks("baobab_planks"),
                 BYGBlockList.BLUE_ENCHANTED_PLANKS = new BYGBlockProperties.BYGPlanks("blue_enchanted_planks"),
@@ -291,7 +289,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.BLUE_SPRUCE_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BlueSpruceSaplingToTree(), "blue_spruce_sapling"),
                 BYGBlockList.BROWN_BIRCH_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BrownBirchSaplingToTree(), "brown_birch_sapling"),
                 BYGBlockList.BROWN_OAK_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BrownOakSaplingToTree(), "brown_oak_sapling"),
-                BYGBlockList.CIKA_SAPLING = new BYGBlockProperties.BYGFlower("cika_sapling"),
+                BYGBlockList.CIKA_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.CikaSaplingToTree(), "cika_sapling"),
                 BYGBlockList.CYPRESS_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.CypressSaplingToTree(), "cypress_sapling"),
                 BYGBlockList.EBONY_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.EbonySaplingToTree(), "ebony_sapling"),
                 BYGBlockList.FIR_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.FirSaplingToTree(), "fir_sapling"),
@@ -315,7 +313,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.RED_MAPLE_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.RedMapleSaplingToTree(), "red_maple_sapling"),
                 BYGBlockList.RED_OAK_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.RedOakSaplingToTree(), "red_oak_sapling"),
                 BYGBlockList.RED_SPRUCE_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.RedSpruceSaplingToTree(), "red_spruce_sapling"),
-                BYGBlockList.REDWOOD_SAPLING = new BYGBlockProperties.BYGFlower("redwood_sapling"),
+                BYGBlockList.REDWOOD_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.RedwoodSaplingToTree(), "redwood_sapling"),
                 BYGBlockList.SILVER_MAPLE_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.SilverMapleSaplingToTree(), "silver_maple_sapling"),
                 BYGBlockList.SKYRIS_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.SkyrisSaplingToTree(), "skyris_sapling"),
                 BYGBlockList.WHITE_CHERRY_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.WhiteCherrySaplingToTree(), "white_cherry_sapling"),
@@ -417,7 +415,7 @@ public class BYGBlockRegistry {
 
 
                 //Nether Blocks
-                BYGBlockList.OVERGROWN_NETHERRACK = new BYGBlockProperties.BYGOvergrownNetherrack("overgrown_netherrack"),
+                BYGBlockList.OVERGROWN_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("overgrown_netherrack"),
                 BYGBlockList.NETHER_BRISTLE = new BYGBlockProperties.BYGDoubleDamagePlant("nether_bristle"),
 
 
@@ -431,11 +429,23 @@ public class BYGBlockRegistry {
                 BYGBlockList.NYLIUM_SOUL_SOIL = new BYGBlockProperties.BYGNyliumSoulSoil("nylium_soul_soil"),
 
                 BYGBlockList.SYTHIAN_NYLIUM = new BYGBlockProperties.BYGSythianNylium("sythian_nylium"),
-                BYGBlockList.SYTHIAN_ROOTS = new BYGBlockProperties.BYGSythianPlant("sythian_roots"),
-                BYGBlockList.SYTHIAN_SPROUT = new BYGBlockProperties.BYGSythianPlant("sythian_sprout"),
-                BYGBlockList.SYTHIAN_STALK_BLOCK = new BYGBlockProperties.BYGSythianStalk("sythian_stalk_block"),
+                BYGBlockList.SYTHIAN_ROOTS = new BYGBlockProperties.SythianPlant("sythian_roots"),
+                BYGBlockList.SYTHIAN_SPROUT = new BYGBlockProperties.SythianPlant("sythian_sprout"),
+                BYGBlockList.SYTHIAN_STALK_BLOCK = new BYGBlockProperties.SythianStalk("sythian_stalk_block"),
                 BYGBlockList.SYTHIAN_SCAFFOLDING = new BYGBlockProperties.BYGScaffolding("sythian_scaffolding"),
-                BYGBlockList.SYTHIAN_SAPLING = new BYGBlockProperties.BYGSythianSapling("sythian_sapling"),
+                BYGBlockList.SYTHIAN_SAPLING = new BYGBlockProperties.SythianSapling("sythian_sapling"),
+
+                BYGBlockList.EMBUR_LILY = new BYGBlockProperties.BYGEmburLily("embur_lily"),
+                BYGBlockList.EMBUR_GEL_BLOCK = new BYGBlockProperties.BYGEmburGelBlock("embur_gel_block"),
+                BYGBlockList.EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines"),
+                BYGBlockList.EMBUR_NYLIUM = new BYGBlockProperties.BYGEmberNylium("embur_nylium"),
+                BYGBlockList.EMBUR_PEDU = new BYGBlockProperties.BYGLog("embur_pedu"),
+                BYGBlockList.EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots"),
+                BYGBlockList.EMBUR_WART = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart"),
+                BYGBlockList.TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoublePlant("tall_embur_roots"),
+
+                BYGBlockList.BLUE_NETHERRACK = new BYGBlockProperties.BYGNetherrack("blue_netherrack"),
+                BYGBlockList.BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGNetherrack("blue_nether_bricks"),
 
                 //End Blocks
                 BYGBlockList.IVIS_PHYLIUM = new BYGBlockProperties.BYGIvisPhylium("ivis_phylium"),
@@ -548,12 +558,12 @@ public class BYGBlockRegistry {
                 BYGBlockList.ZELKOVA_WOOD = new BYGBlockProperties.BYGWood("zelkova_wood"),
 
                 //Mushroom Blocks
-                BYGBlockList.BLACK_PUFF = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.BlackPuff(), "black_puff"),
-                BYGBlockList.WEEPING_MILKCAP = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.WeepingMilkCap(), "weeping_milkcap"),
-                BYGBlockList.WOOD_BLEWIT = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.WoodBlewit(), "wood_blewit"),
-                BYGBlockList.GREEN_MUSHSHROOM = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.GreenMushroom(), "green_mushroom"),
-                BYGBlockList.BLUE_GLOWSHROOM = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.BlueGlowshroom(), "blue_glowshroom"),
-                BYGBlockList.PURPLE_GLOWSHROOM = new BYGMushroomProperties(new BYGMushroomToHugeMushroom.PurpleGlowshroom(), "purple_glowshroom"),
+                BYGBlockList.BLACK_PUFF = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.BlackPuff(), "black_puff"),
+                BYGBlockList.WEEPING_MILKCAP = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.WeepingMilkCap(), "weeping_milkcap"),
+                BYGBlockList.WOOD_BLEWIT = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.WoodBlewit(), "wood_blewit"),
+                BYGBlockList.GREEN_MUSHSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.GreenMushroom(), "green_mushroom"),
+                BYGBlockList.BLUE_GLOWSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.BlueGlowshroom(), "blue_glowshroom"),
+                BYGBlockList.PURPLE_GLOWSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.PurpleGlowshroom(), "purple_glowshroom"),
 
                 //Ore Blocks
                 BYGBlockList.PENDORITE_ORE = new BYGBlockProperties.BYGOrePendorite("pendorite_ore"),

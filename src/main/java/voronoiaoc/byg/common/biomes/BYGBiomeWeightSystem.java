@@ -22,7 +22,7 @@ public class BYGBiomeWeightSystem {
 
     public static void addBiomesToWeightSystem() {
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
-        if(BYGWorldConfig.vanillaBiomes.get()) {
+        if (BYGWorldConfig.vanillaBiomes.get()) {
             HOT.add(Registry.BIOME.getId(Biomes.DESERT));
             HOT.add(Registry.BIOME.getId(Biomes.DESERT));
             HOT.add(Registry.BIOME.getId(Biomes.SAVANNA));

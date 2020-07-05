@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
-public class PoisonIvyBlock extends VineBlock  {
+public class PoisonIvyBlock extends VineBlock {
     public PoisonIvyBlock(Block.Properties properties) {
         super(properties);
     }

@@ -6,7 +6,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
@@ -48,7 +47,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                     BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(block.up(3));
                     for (Direction direction : Direction.Plane.HORIZONTAL) {
                         mutable.setPos(block.up(3).offset(direction, baseSize));
-                        if (((IWorld) worldIn).getBlockState(mutable).getBlock() != Blocks.DIRT)
+                        if (worldIn.getBlockState(mutable).getBlock() != Blocks.DIRT)
                             this.setWillowLog(changedBlocks, worldIn, mutable.move(DOWN, baseSize), boundsIn);
                     }
                 }

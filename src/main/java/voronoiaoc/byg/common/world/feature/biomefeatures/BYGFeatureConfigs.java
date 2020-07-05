@@ -128,7 +128,6 @@ public class BYGFeatureConfigs {
     public static final BaseTreeFeatureConfig FANCY_RED_OAK_WITH_MORE_BEEHIVES_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlockList.RED_OAK_LEAVES.getDefaultState()), new FancyFoliagePlacer(2, 0, 4, 0, 4), new FancyTrunkPlacer(3, 11, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).func_236700_a_().func_236702_a_(Heightmap.Type.MOTION_BLOCKING).build();
 
 
-
     private static final BlockState GRASS_BLOCK = Blocks.GRASS_BLOCK.getDefaultState();
     public static final BlockClusterFeatureConfig BLUEBERRY_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.BLUEBERRY_BUSH.getDefaultState().with(SweetBerryBushBlock.AGE, Integer.valueOf(3))), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK.getBlock(), BYGBlockList.OVERGROWN_DACITE.getBlock(), BYGBlockList.OVERGROWN_STONE.getBlock(), GRASS_BLOCK.getBlock())).func_227317_b_().build();
     public static final BlockClusterFeatureConfig ROSE_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.ROSE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK.getBlock(), BYGBlockList.OVERGROWN_DACITE.getBlock(), BYGBlockList.OVERGROWN_STONE.getBlock(), GRASS_BLOCK.getBlock())).func_227317_b_().build();

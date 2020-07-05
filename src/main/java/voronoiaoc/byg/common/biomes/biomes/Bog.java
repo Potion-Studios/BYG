@@ -39,7 +39,7 @@ public class Bog extends Biome {
         BYGTreeFeatures.addMarshTrees(this);
         BYGTreeFeatures.addMarshTrees(this);
         DefaultBiomeFeatures.addCarvers(this);
-        // DefaultBiomeFeatures.addStructures(this);
+
         DefaultBiomeFeatures.addLakes(this);
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);

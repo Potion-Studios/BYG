@@ -68,7 +68,7 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
     public static boolean isQualifiedForLogWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
         return worldReader.hasBlockState(blockPos, (state) -> {
             Block block = state.getBlock();
-            return  block == Blocks.AIR || block.isIn(BlockTags.LEAVES) ||
+            return block == Blocks.AIR || block.isIn(BlockTags.LEAVES) ||
                     state.getBlock() == Blocks.WATER;
         });
     }
@@ -89,6 +89,16 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
                 return Feature.isDirt(block) || block == block1;
+            }
+            return false;
+        });
+    }
+
+    public static boolean isDesiredGround(IWorldGenerationBaseReader worldIn, BlockPos pos, Block... desiredGroundBlock) {
+        return worldIn.hasBlockState(pos, (state) -> {
+            Block block = state.getBlock();
+            for (Block block1 : desiredGroundBlock) {
+                return block == block1;
             }
             return false;
         });

@@ -33,7 +33,7 @@ public class EbonyWoods extends Biome {
         BYGTreeFeatures.addEbonyTrees(this);
         BYGTreeFeatures.addHugeMushrooms(this);
         DefaultBiomeFeatures.addCarvers(this);
-        // DefaultBiomeFeatures.addStructures(this);
+
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);

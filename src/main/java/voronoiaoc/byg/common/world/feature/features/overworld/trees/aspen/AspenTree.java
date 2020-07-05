@@ -39,7 +39,7 @@ public class AspenTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
         int minHeight = 8;
         if (worldIn instanceof IWorld) {
-            Biome biome = ((IWorld) worldIn).getBiome(position);
+            Biome biome = worldIn.getBiome(position);
             if (biome == BYGBiomeList.ASPENFORESTHILLS || biome == BYGBiomeList.SEASONALTAIGA || biome == BYGBiomeList.SEASONALTAIGAHILLS || biome == BYGBiomeList.SEASONALGIANTTAIGA)
                 minHeight = 8;
         }

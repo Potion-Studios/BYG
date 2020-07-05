@@ -7,7 +7,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
@@ -43,7 +42,7 @@ public class PalmTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int posZ = position.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = position.down();
-            if (((IWorld) worldIn).getBlockState(position.down()).getBlock() != Blocks.GRASS_BLOCK && ((IWorld) worldIn).getBlockState(position.down()).getBlock() != Blocks.SAND && ((IWorld) worldIn).getBlockState(position.down()).getBlock() != BYGBlockList.WHITE_SAND && ((IWorld) worldIn).getBlockState(position.down()).getBlock() != BYGBlockList.BLACK_SAND && ((IWorld) worldIn).getBlockState(position.down()).getBlock() != BYGBlockList.PURPLE_SAND && ((IWorld) worldIn).getBlockState(position.down()).getBlock() != BYGBlockList.PINK_SAND && ((IWorld) worldIn).getBlockState(position.down()).getBlock() != BYGBlockList.BLUE_SAND) {
+            if (worldIn.getBlockState(position.down()).getBlock() != Blocks.GRASS_BLOCK && worldIn.getBlockState(position.down()).getBlock() != Blocks.SAND && worldIn.getBlockState(position.down()).getBlock() != BYGBlockList.WHITE_SAND && worldIn.getBlockState(position.down()).getBlock() != BYGBlockList.BLACK_SAND && worldIn.getBlockState(position.down()).getBlock() != BYGBlockList.PURPLE_SAND && worldIn.getBlockState(position.down()).getBlock() != BYGBlockList.PINK_SAND && worldIn.getBlockState(position.down()).getBlock() != BYGBlockList.BLUE_SAND) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;

@@ -12,7 +12,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
-public class BYGSythianPlantBlock extends BushBlock  {
+public class BYGSythianPlantBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     protected BYGSythianPlantBlock(Properties builder) {

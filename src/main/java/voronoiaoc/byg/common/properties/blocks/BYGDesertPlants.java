@@ -16,7 +16,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
-public class BYGDesertPlants extends BushBlock  {
+public class BYGDesertPlants extends BushBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     protected BYGDesertPlants(Block.Properties builder) {

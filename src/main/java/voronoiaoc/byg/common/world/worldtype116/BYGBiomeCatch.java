@@ -62,7 +62,7 @@ public class BYGBiomeCatch {
                     Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
                     if (biome == null) {
                     } else {
-                            BYGBiomeWeightSystem.COOL.add(Registry.BIOME.getId(biome));
+                        BYGBiomeWeightSystem.COOL.add(Registry.BIOME.getId(biome));
                     }
                 }
             }

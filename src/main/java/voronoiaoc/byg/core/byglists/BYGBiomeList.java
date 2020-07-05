@@ -4,6 +4,7 @@ import net.minecraft.world.biome.Biome;
 import voronoiaoc.byg.common.biomes.beachbiomes.*;
 import voronoiaoc.byg.common.biomes.biomes.*;
 import voronoiaoc.byg.common.biomes.endbiomes.IvisFields;
+import voronoiaoc.byg.common.biomes.netherbiome.EmburBog;
 import voronoiaoc.byg.common.biomes.netherbiome.GlowstoneGardens;
 import voronoiaoc.byg.common.biomes.netherbiome.SythianTorrids;
 import voronoiaoc.byg.common.biomes.netherbiome.WarpedDesert;
@@ -27,6 +28,7 @@ public class BYGBiomeList {
     public static final Biome BAYOU = new Bayou();
     public static final Biome BLUEGIANTTAIGA = new BlueGiantTaiga();
     public static final Biome BLUETAIGA = new BlueTaiga();
+    public static final Biome CIKA_WOODS = new CikaWoods();
     public static final Biome BLUFFSTEEPS = new BluffSteeps();
     public static final Biome BOG = new Bog();
     public static final Biome BOREALFOREST = new BorealForest();
@@ -127,6 +129,10 @@ public class BYGBiomeList {
     public static final Biome ENCHANTED_FOREST_HILLS = new EnchantedForestHills();
     public static final Biome SNOWY_EVERGREEN_CLEARING = new SnowyEvergreenClearing();
     public static final Biome SNOWY_EVERGREEN_HILLS = new SnowyEvergreenHills();
+    public static final Biome REDWOOD_CLEARING = new RedwoodClearing();
+    public static final Biome REDWOOD_MOUNTAINS = new RedwoodMountains();
+    public static final Biome CORAL_MANGROVES = new CoralMangroves();
+    public static final Biome CIKA_MOUNTAINS = new CikaMountains();
 
     public static final Biome WEEPING_WTICH_CLEARING = new WeepingWitchClearing();
     public static final Biome CHERRY_BLOSSOM_CLEARING = new CherryBlossomClearing();
@@ -146,6 +152,8 @@ public class BYGBiomeList {
     public static final Biome FLOWERINGMEADOW = new FloweringMeadow();
     public static final Biome FLOWERING_GROVE = new FloweringGrove();
     public static final Biome FLOWERING_ENCHANTED_GROVE = new FloweringEnchantedGrove();
+    public static final Biome GLOWING_ANCIENT_FOREST = new GlowingAncientForest();
+    public static final Biome FLOWERING_ANCIENT_FOREST = new FloweringAncientForest();
 
     public static final Biome OASIS = new Oasis();
     public static final Biome POLLUTEDLAKE = new PollutedLake();
@@ -170,6 +178,7 @@ public class BYGBiomeList {
     public static final Biome WARPEDDESERT = new WarpedDesert();
     public static final Biome SYTHIANTORRIDS = new SythianTorrids();
     public static final Biome GLOWSTONEGARDENS = new GlowstoneGardens();
+    public static final Biome EMBURBOG = new EmburBog();
 
     //End
     public static final Biome IVISFIELDS = new IvisFields();

@@ -1,30 +1,55 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGHugeMushroom;
+import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
-public class BYGMushroomBlock extends BYGSaplingProperties {
+public class BYGMushroomBlock extends BushBlock implements IGrowable {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
+    private final BYGHugeMushroom mushroom;
 
-    protected BYGMushroomBlock(BYGTree tree, String registryName) {
-        super(tree, registryName);
+    public BYGMushroomBlock(BYGHugeMushroom mushroom, String registryName) {
+        super(Properties.create(Material.PLANTS)
+                .sound(SoundType.PLANT)
+                .hardnessAndResistance(0.0f)
+                .doesNotBlockMovement()
+                .tickRandomly()
+        );
+        this.mushroom = mushroom;
+        setRegistryName(registryName);
+    }
 
-
+    @Override
+    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.isOpaqueCube(worldIn, pos);
     }
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;
+    }
+
+    @Override
+    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos blockpos = pos.down();
+        BlockState blockstate = worldIn.getBlockState(blockpos);
+        Block block = blockstate.getBlock();
+        if (block != Blocks.MYCELIUM && block != Blocks.PODZOL && block != BYGBlockList.GLOWCELIUM && block != BYGBlockList.OVERGROWN_NETHERRACK && block != BYGBlockList.EMBUR_NYLIUM && block != BYGBlockList.SYTHIAN_NYLIUM) {
+            return worldIn.getLightSubtracted(pos, 0) < 13 && blockstate.canSustainPlant(worldIn, blockpos, Direction.UP, this);
+        } else {
+            return true;
+        }
     }
 
     @Override
@@ -59,42 +84,23 @@ public class BYGMushroomBlock extends BYGSaplingProperties {
 
     }
 
-    @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isOpaqueCube(worldIn, pos);
+    public void grow(ServerWorld worldIn, BlockPos pos, BlockState state, Random rand) {
+        worldIn.removeBlock(pos, false);
+        this.mushroom.spawn(worldIn, worldIn.func_241112_a_(), worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockPos blockpos = pos.down();
-        BlockState blockstate = worldIn.getBlockState(blockpos);
-        Block block = blockstate.getBlock();
-        if (block != Blocks.MYCELIUM && block != Blocks.PODZOL) {
-            return worldIn.getLightSubtracted(pos, 0) < 13 && blockstate.canSustainPlant(worldIn, blockpos, net.minecraft.util.Direction.UP, this);
-        } else {
-            return true;
-        }
+    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+        return true;
     }
 
-//    public boolean grow(ServerWorld worldIn, BlockPos pos, BlockState state, Random rand) {
-//        worldIn.removeBlock(pos, false);
-//        if (this == Blocks.BROWN_MUSHROOM) {
-//        } else {
-//            if (this != Blocks.RED_MUSHROOM) {
-//                worldIn.setBlockState(pos, state, 3);
-//                return false;
-//            }
-//
-//        }
-//
-//            worldIn.setBlockState(pos, state, 3);
-//            return false;
-//        }
-//        return false
-//    }
+    @Override
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+        return (double) worldIn.rand.nextFloat() < 0.25D;
+    }
 
     @Override
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-        this.grow(worldIn, pos, state, rand);
+    public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
+        this.grow(world, pos, state, rand);
     }
 }

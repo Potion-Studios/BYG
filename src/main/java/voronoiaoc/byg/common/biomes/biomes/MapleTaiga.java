@@ -34,7 +34,7 @@ public class MapleTaiga extends Biome {
         BYGTreeFeatures.addMapleTrees(this);
         BYGTreeFeatures.addSmallSpruceTrees(this);
         DefaultBiomeFeatures.addCarvers(this);
-        // DefaultBiomeFeatures.addStructures(this);
+
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);

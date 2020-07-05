@@ -14,14 +14,14 @@ public class BYGWorldLayerProvider {
     public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> repeat(long seed, IAreaTransformer1 parent, IAreaFactory<T> factory, int count, LongFunction<C> contextFactory) {
         IAreaFactory<T> iareafactory = factory;
 
-        for(int i = 0; i < count; ++i) {
-            iareafactory = parent.apply(contextFactory.apply(seed + (long)i), iareafactory);
+        for (int i = 0; i < count; ++i) {
+            iareafactory = parent.apply(contextFactory.apply(seed + (long) i), iareafactory);
         }
 
         return iareafactory;
     }
-    
-    
+
+
     public static Layer stackLayers(long seed) {
         LongFunction<IExtendedNoiseRandom<LazyArea>> randomProvider = salt -> new LazyAreaLayerContext(1, seed, salt);
         IAreaFactory<LazyArea> primaryFactory = IslandLayer.INSTANCE.apply(randomProvider.apply(1L));
@@ -59,8 +59,8 @@ public class BYGWorldLayerProvider {
         zoomFactory = SmoothLayer.INSTANCE.apply(randomProvider.apply(1000L), zoomFactory);
         bambooFactory = RareBiomeLayer.INSTANCE.apply(randomProvider.apply(1001L), bambooFactory);
 
-        for(int i = 0; i < 6; ++i) {
-            bambooFactory = ZoomLayer.NORMAL.apply(randomProvider.apply((long)(1000 + i)), bambooFactory);
+        for (int i = 0; i < 6; ++i) {
+            bambooFactory = ZoomLayer.NORMAL.apply(randomProvider.apply(1000 + i), bambooFactory);
             if (i == 0) {
                 bambooFactory = AddIslandLayer.INSTANCE.apply(randomProvider.apply(3L), bambooFactory);
             }

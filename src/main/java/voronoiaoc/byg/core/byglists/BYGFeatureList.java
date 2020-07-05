@@ -7,6 +7,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
+import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianSprout;
@@ -23,8 +24,10 @@ import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.Dande
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.IrisGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.RoseGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.*;
-import voronoiaoc.byg.common.world.feature.features.overworld.structure.DoverQuarry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.acacia.AcaciaTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownBirchTree;
@@ -40,11 +43,13 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkC
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkCherry2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree3;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.dead.DeadTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel.DeadHazel1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel.DeadHazel2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel.DeadHazel3;
@@ -91,6 +96,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.Pum
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.PumpkinPatch3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.LargeRainbowEucalyptus;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree3;
@@ -202,17 +210,32 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> WEEPING_ROOTS = new WeepingRoots(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> WEEPING_ROOTS_PLANT = new WeepingRootsPlant(NoFeatureConfig.field_236558_a_);
 
+    //Embur
+    public static final Feature<NoFeatureConfig> EMBURLAKE = new EmburBogLake(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> EMBURMUSHROOM = new EmburMushroom(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> EMBURMUSHROOM2 = new EmburMushroom2(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> EMBUR_GEL_VINES = new EmburGelVines(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> EMBUR_ROOTS = new EmburRoots(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> TALL_EMBUR_ROOTS = new TallEmburRoots(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> EMBUR_WART = new EmburWart(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> EMBUR_LILY = new EmburLily(NoFeatureConfig.field_236558_a_);
+
 
     /********************************************************************Structures***********************************************************************/
-//    public static final Structure<VillageConfig> BYGVILLAGE = new BYGVillageStructure(VillageConfig.field_236533_a_);
-//    public static final Structure<NoFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> DOVERQUARRY = new DoverQuarry1(NoFeatureConfig.field_236558_a_);
+//    public static final StructureFeature<VillageConfig> BYGVILLAGE = new BYGVillagePieces(VillageConfig.field_236533_a_);
+//    public static final StructureFeature<NoFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(NoFeatureConfig.field_236558_a_);
+//    public static final Feature<NoFeatureConfig> DOVERQUARRY = new DoverQuarry1(NoFeatureConfig.field_236558_a_);
 
 
     /********************************************************************Tree Features********************************************************************/
     //Acacia
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE1 = new AcaciaTree1(NoFeatureConfig.field_236558_a_);
 //    public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE2 = new AcaciaTree2(NoFeatureConfig.field_236558_a_);
+
+    //Ancient
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ANCIENT_TREE1 = new AncientTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ANCIENT_TREE2 = new AncientTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ANCIENT_TREE3 = new AncientTree3(NoFeatureConfig.field_236558_a_);
 
     //Aspen
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_SHRUB1 = new AspenShrub(NoFeatureConfig.field_236558_a_);
@@ -246,6 +269,11 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_WHITE_TREE1 = new WhiteCherry1(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_WHITE_TREE2 = new WhiteCherry2(NoFeatureConfig.field_236558_a_);
 
+    //Cika
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE1 = new CikaTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE2 = new CikaTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE3 = new CikaTree3(NoFeatureConfig.field_236558_a_);
+
     //Coniferous
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE1 = new ConiferTree1(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE2 = new ConiferTree2(NoFeatureConfig.field_236558_a_);
@@ -262,7 +290,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> CYPRESS_TREE3 = new CypressTree3(NoFeatureConfig.field_236558_a_);
 
     //Dead
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DEAD_TREE = new DeadTree(NoFeatureConfig.field_236558_a_);
+//    public static final BYGAbstractTreeFeature<NoFeatureConfig> DEAD_TREE = new DeadTree(NoFeatureConfig.field_236558_a_);
 
     //Dead Hazel
     public static final BYGAbstractTreeFeature<NoFeatureConfig> DEAD_HAZEL_TREE1 = new DeadHazel1(NoFeatureConfig.field_236558_a_);
@@ -352,8 +380,9 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> RAINBOW_LARGE_TREE1 = new LargeRainbowEucalyptus(NoFeatureConfig.field_236558_a_);
 
     //RedWood
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE1 = new EbonyTree1(NoFeatureConfig.field_236558_a_);
-
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE1 = new RedwoodTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE2 = new RedwoodTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE3 = new RedwoodTree3(NoFeatureConfig.field_236558_a_);
     //Seasonal Oaks
     public static final BYGAbstractTreeFeature<NoFeatureConfig> OAK_BROWN_TREE1 = new BrownOakTree(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> OAK_ORANGE_TREE1 = new OrangeOakTree(NoFeatureConfig.field_236558_a_);
@@ -409,7 +438,7 @@ public class BYGFeatureList {
     //Zelkova
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE1 = new ZelkovaTree(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE2 = new ZelkovaTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE3 = new ZelkovaTree3(NoFeatureConfig.field_236558_a_, 0);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE3 = new ZelkovaTree3(NoFeatureConfig.field_236558_a_);
 }
 
 

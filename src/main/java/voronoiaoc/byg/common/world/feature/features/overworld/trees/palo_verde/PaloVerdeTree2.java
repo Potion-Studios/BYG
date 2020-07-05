@@ -7,7 +7,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
@@ -44,7 +43,7 @@ public class PaloVerdeTree2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int posZ = position.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = position.down();
-            if (((IWorld) worldIn).getBlockState(position.down()).getBlock() != Blocks.GRASS_BLOCK && ((IWorld) worldIn).getBlockState(position.down()).getBlock() != Blocks.RED_SAND && ((IWorld) worldIn).getBlockState(position.down()).getBlock() != Blocks.COARSE_DIRT) {
+            if (worldIn.getBlockState(position.down()).getBlock() != Blocks.GRASS_BLOCK && worldIn.getBlockState(position.down()).getBlock() != Blocks.RED_SAND && worldIn.getBlockState(position.down()).getBlock() != Blocks.COARSE_DIRT) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;

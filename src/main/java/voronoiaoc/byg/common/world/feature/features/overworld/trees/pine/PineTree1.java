@@ -33,7 +33,7 @@ public class PineTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
         int minHeight = 15;
         if (worldIn instanceof IWorld) {
-            Biome biome = ((IWorld) worldIn).getBiome(position);
+            Biome biome = worldIn.getBiome(position);
             if (biome == BYGBiomeList.ASPENFORESTHILLS || biome == BYGBiomeList.SEASONALTAIGA || biome == BYGBiomeList.SEASONALTAIGAHILLS || biome == BYGBiomeList.SEASONALGIANTTAIGA || biome == BYGBiomeList.THE_BLACK_FOREST || biome == BYGBiomeList.BLACK_FOREST_HILLS || biome == BYGBiomeList.BLACK_FOREST_CLEARING || biome == BYGBiomeList.FOREST_FAULT)
                 minHeight = 17;
         }
