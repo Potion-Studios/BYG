@@ -1,5 +1,6 @@
 package voronoiaoc.byg.core.registries;
 
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -7,8 +8,8 @@ import net.minecraftforge.fml.common.Mod;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
 import voronoiaoc.byg.common.properties.BYGCreativeTab;
-import voronoiaoc.byg.common.properties.items.BYGBoatItem;
-import voronoiaoc.byg.common.properties.items.BYGLilyItem;
+import voronoiaoc.byg.common.properties.items.*;
+import voronoiaoc.byg.common.properties.items.itemtiers.BYGArmorTiers;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGItemTiers;
 import voronoiaoc.byg.common.properties.items.itemtiers.BYGWaterSilkItem;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
@@ -32,35 +33,30 @@ public class BYGItemRegistry {
                 BYGItemList.MUD_BLOCK = new BlockItem(BYGBlockList.MUD_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MUD_BLOCK.getRegistryName()),
                 BYGItemList.MUD_BRICKS = new BlockItem(BYGBlockList.MUD_BRICKS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MUD_BRICKS.getRegistryName()),
 
+                BYGItemList.CHAIN_PLATING = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("chain_plating"),
+
                 BYGItemList.AMETRINE_GEMS = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_gems"),
                 BYGItemList.AMETRINE_ORE = new BlockItem(BYGBlockList.AMETRINE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.AMETRINE_ORE.getRegistryName()),
                 BYGItemList.AMETRINE_BLOCK = new BlockItem(BYGBlockList.AMETRINE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.AMETRINE_BLOCK.getRegistryName()),
-                BYGItemList.AMETRINE_AXE = new AxeItem(BYGItemTiers.AMETRINE, 3, -2.4F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_axe"),
-                BYGItemList.AMETRINE_PICK = new PickaxeItem(BYGItemTiers.AMETRINE, 3, -2.4F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_pickaxe"),
-                BYGItemList.AMETRINE_SWORD = new SwordItem(BYGItemTiers.AMETRINE, 3, -2.4F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_sword"),
-                BYGItemList.AMETRINE_BATTLEAXE = new AxeItem(BYGItemTiers.AMETRINE, 3, -2.4F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_battleaxe"),
-//                BYGItemList.AMETRINE_HOE = new HoeItem(BYGItemTiers.AMETRINE, 3, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_hoe"),
-//                BYGItemList.AMETRINE_HELMET = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.HEAD, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_helmet"),
-//                BYGItemList.AMETRINE_CHEST = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.CHEST, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_chestplate"),
-//                BYGItemList.AMETRINE_LEGGINGS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.LEGS, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_leggings"),
-//                BYGItemList.AMETRINE_BOOTS = new ArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.FEET, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_boots"),
-                //BYGItemList.AMETRINE_SHIELD = new ShieldItem(new Item.Properties().maxDamage(1000).group(BYGItemGroup.COMBAT)).setRegistryName("ametrine_blue_shields"),
-//                BYGItemList.AMETRINE_HORSE_ARMOR = new BYGHorseArmor(7, "ametrine", (new Item.Properties()).maxStackSize(1).group(ItemGroup.MISC)).setRegistryName("ametrine_horse_armor"),
+                BYGItemList.AMETRINE_HELMET = new BYGArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.HEAD, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_helmet"),
+                BYGItemList.AMETRINE_CHEST = new BYGArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.CHEST, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_chestplate"),
+                BYGItemList.AMETRINE_LEGGINGS = new BYGArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.LEGS, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_leggings"),
+                BYGItemList.AMETRINE_BOOTS = new BYGArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.FEET, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_boots"),
+//                BYGItemList.AMETRINE_SHIELD = new ShieldItem(new Item.Properties().maxDamage(1000).group(BYGItemGroup.COMBAT)).setRegistryName("ametrine_blue_shields"),
+                BYGItemList.AMETRINE_HORSE_ARMOR = new BYGHorseArmor(15, "ametrine", (new Item.Properties()).maxStackSize(1).group(BYGCreativeTab.creativeTab)).setRegistryName("ametrine_horse_armor"),
 
                 BYGItemList.PENDORITE_SCRAPS = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_scraps"),
                 BYGItemList.PENDORITE_ORE = new BlockItem(BYGBlockList.PENDORITE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PENDORITE_ORE.getRegistryName()),
                 BYGItemList.PENDORITE_BLOCK = new BlockItem(BYGBlockList.PENDORITE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PENDORITE_BLOCK.getRegistryName()),
-                BYGItemList.PENDORITE_AXE = new AxeItem(BYGItemTiers.PENDORITE, 6.0f, -3.0F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_axe"),
+                BYGItemList.PENDORITE_AXE = new AxeItem(BYGItemTiers.PENDORITE, 6.0F, -3.0F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_axe"),
                 BYGItemList.PENDORITE_PICK = new PickaxeItem(BYGItemTiers.PENDORITE, 2, -2.8F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_pickaxe"),
                 BYGItemList.PENDORITE_SWORD = new SwordItem(BYGItemTiers.PENDORITE, 4, -2.4F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_sword"),
-                BYGItemList.PENDORITE_BATTLEAXE = new AxeItem(BYGItemTiers.PENDORITE, 9.0f, -3.3F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_battleaxe"),
-//                BYGItemList.PENDORITE_HOE = new HoeItem(BYGItemTiers.PENDORITE, 0.5f, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_hoe"),
-//                BYGItemList.PENDORITE_HELMET = new ArmorItem(BYGArmorTiers.PENDORITE, EquipmentSlotType.HEAD, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_helmet"),
-//                BYGItemList.PENDORITE_CHEST = new ArmorItem(BYGArmorTiers.PENDORITE, EquipmentSlotType.CHEST, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_chestplate"),
-//                BYGItemList.PENDORITE_LEGGINGS = new ArmorItem(BYGArmorTiers.PENDORITE, EquipmentSlotType.LEGS, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_leggings"),
-//                BYGItemList.PENDORITE_BOOTS = new ArmorItem(BYGArmorTiers.PENDORITE, EquipmentSlotType.FEET, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_boots"),
+                BYGItemList.PENDORITE_BATTLEAXE = new AxeItem(BYGItemTiers.PENDORITE, 7.0F, -3.3F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_battleaxe"),
+                BYGItemList.PENDORITE_SHOVEL = new ShovelItem(BYGItemTiers.PENDORITE, 2.0F, -3.0F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_shovel"),
+                BYGItemList.PENDORITE_HOE = new HoeItem(BYGItemTiers.PENDORITE, 0, 0.0F, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_hoe"),
+
                 //BYGItemList.PENDORITE_SHIELD = new ShieldItem(new Item.Properties().maxDamage(1000).group(BYGItemGroup.COMBAT)).setRegistryName("pendorite_shield"),
-//                BYGItemList.PENDORITE_HORSE_ARMOR = new BYGHorseArmor(7, "pendorite", (new Item.Properties()).maxStackSize(1).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_horse_armor"),
+                BYGItemList.PENDORITE_HORSE_ARMOR = new BYGHorseArmor(11, "pendorite", (new Item.Properties()).maxStackSize(1).group(BYGCreativeTab.creativeTab)).setRegistryName("pendorite_horse_armor"),
 
                 BYGItemList.DACITE = new BlockItem(BYGBlockList.DACITE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.DACITE.getRegistryName()),
                 BYGItemList.DACITE_STAIRS = new BlockItem(BYGBlockList.DACITE_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.DACITE_STAIRS.getRegistryName()),
@@ -729,6 +725,21 @@ public class BYGItemRegistry {
                 BYGItemList.SYTHIAN_SPROUT = new BlockItem(BYGBlockList.SYTHIAN_SPROUT, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_SPROUT.getRegistryName()),
                 BYGItemList.SYTHIAN_STALK_BLOCK = new BlockItem(BYGBlockList.SYTHIAN_STALK_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_STALK_BLOCK.getRegistryName()),
                 BYGItemList.SYTHIAN_SCAFFOLDING = new ScaffoldingItem(BYGBlockList.SYTHIAN_SCAFFOLDING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_SCAFFOLDING.getRegistryName()),
+
+                BYGItemList.EMBUR_GEL_BALL = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("embur_gel_ball"),
+                BYGItemList.EMBUR_GEL_BLOCK = new BlockItem(BYGBlockList.EMBUR_GEL_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_GEL_BLOCK.getRegistryName()),
+                BYGItemList.EMBUR_GEL_VINES = new BlockItem(BYGBlockList.EMBUR_GEL_VINES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_GEL_VINES.getRegistryName()),
+                BYGItemList.EMBUR_NYLIUM = new BlockItem(BYGBlockList.EMBUR_NYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_NYLIUM.getRegistryName()),
+                BYGItemList.EMBUR_PEDU = new BlockItem(BYGBlockList.EMBUR_PEDU, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_PEDU.getRegistryName()),
+                BYGItemList.EMBUR_ROOTS = new BlockItem(BYGBlockList.EMBUR_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_ROOTS.getRegistryName()),
+                BYGItemList.EMBUR_WART = new BlockItem(BYGBlockList.EMBUR_WART, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_WART.getRegistryName()),
+                BYGItemList.TALL_EMBUR_ROOTS = new BlockItem(BYGBlockList.TALL_EMBUR_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.TALL_EMBUR_ROOTS.getRegistryName()),
+                BYGItemList.EMBUR_LILY = (new EmburLilyItem(BYGBlockList.EMBUR_LILY, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_LILY.getRegistryName())),
+
+                BYGItemList.BLUE_NETHERRACK_BRICK = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("blue_nether_brick"),
+                BYGItemList.BLUE_NETHERRACK = new BlockItem(BYGBlockList.BLUE_NETHERRACK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_NETHERRACK.getRegistryName()),
+                BYGItemList.BLUE_NETHERRACK_BRICKS = new BlockItem(BYGBlockList.BLUE_NETHERRACK_BRICKS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_NETHERRACK_BRICKS.getRegistryName()),
+
 
                 //End
                 BYGItemList.IVIS_PHYLIUM = new BlockItem(BYGBlockList.IVIS_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.IVIS_PHYLIUM.getRegistryName()),
