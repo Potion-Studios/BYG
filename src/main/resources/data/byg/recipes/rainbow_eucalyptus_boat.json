@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:rainbow_eucalyptus_planks"
+    }
+  },
+  "result": {
+    "item": "byg:rainbow_eucalyptus_boat"
+  }
+}
