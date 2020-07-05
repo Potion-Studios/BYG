@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -30,9 +31,9 @@ public class CypressTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
-//            if (!isDesiredGround(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
-//                return false;
-//            }
+            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
+                return false;
+            }
             if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;
             } else {

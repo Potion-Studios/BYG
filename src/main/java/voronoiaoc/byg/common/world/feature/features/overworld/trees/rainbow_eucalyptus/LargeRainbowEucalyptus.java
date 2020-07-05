@@ -30,7 +30,7 @@ public class LargeRainbowEucalyptus extends BYGAbstractTreeFeature<NoFeatureConf
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
-            if (!isDesiredGround(worldIn, blockpos, BYGBlockList.MOSSY_STONE)) {
+            if (!isDesiredGroundwDirtTag(worldIn, blockpos, BYGBlockList.MOSSY_STONE)) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;
