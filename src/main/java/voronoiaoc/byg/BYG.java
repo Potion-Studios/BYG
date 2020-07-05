@@ -26,6 +26,7 @@ import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
 import voronoiaoc.byg.common.world.dimension.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
+import voronoiaoc.byg.common.world.worldtype116.BYGBiomeProvider116;
 import voronoiaoc.byg.common.world.worldtype116.WorldType116;
 import voronoiaoc.byg.config.BYGConfig;
 import voronoiaoc.byg.config.BYGWorldConfig;
@@ -63,6 +64,7 @@ public class BYG {
 
         Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
+        Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygworld"), BYGBiomeProvider116.BYGBPCODEC);
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

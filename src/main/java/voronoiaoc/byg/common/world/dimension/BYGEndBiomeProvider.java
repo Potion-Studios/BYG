@@ -14,16 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BYGEndBiomeProvider extends BiomeProvider {
-   public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = Codec.LONG.fieldOf("seed").xmap(BYGEndBiomeProvider::new, (p_235316_0_) -> p_235316_0_.field_235315_h_).stable().codec();
+   public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = Codec.LONG.fieldOf("seed").xmap(BYGEndBiomeProvider::new, (p_235316_0_) -> p_235316_0_.seed).stable().codec();
    private static final List<Biome> END_BIOMES = ImmutableList.of(Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS);
-   private final long field_235315_h_;
+   private final long seed;
    private final Layer biomeLayer;
 
    public static final List<Biome> bygEndBiomeList = new ArrayList<>(END_BIOMES);
 
    public BYGEndBiomeProvider(long seed) {
       super(bygEndBiomeList);
-      this.field_235315_h_ = seed;
+      this.seed = seed;
       SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
       sharedseedrandom.skip(17292);
       this.biomeLayer = BYGEndLayerProvider.stackLayers(seed);
