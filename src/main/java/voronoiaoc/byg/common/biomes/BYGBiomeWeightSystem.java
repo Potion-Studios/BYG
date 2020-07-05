@@ -114,31 +114,23 @@ public class BYGBiomeWeightSystem {
 //        addBiomeEntry(BYGBiomeList.VOLCANO, 1, BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.ZELKOVAFOREST, ConfigWeightManager.ZELKOVAFOREST.getWeight(), BiomeManager.BiomeType.COOL);
 
+        BYG.LOGGER.info(ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight());
+
         BYG.LOGGER.debug("BYG: Added biome entries with their respective weights!");
     }
 
     public static void addBiomeEntry(Biome biome, int weight, BiomeManager.BiomeType type) {
         if (weight > 0) {
             BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(biome, weight));
-        }
-        if (type == BiomeManager.BiomeType.WARM)
-            WARM.add(Registry.BIOME.getId(biome));
-        if (type == BiomeManager.BiomeType.COOL)
-            COOL.add(Registry.BIOME.getId(biome));
-        if (type == BiomeManager.BiomeType.DESERT)
-            HOT.add(Registry.BIOME.getId(biome));
-        if (type == BiomeManager.BiomeType.ICY)
-            ICY.add(Registry.BIOME.getId(biome));
-    }
 
-    public static void addBiomesToWorldType(Biome biome, BiomeManager.BiomeType type) {
-        if (type == BiomeManager.BiomeType.WARM)
-            WARM.add(Registry.BIOME.getId(biome));
-        if (type == BiomeManager.BiomeType.COOL)
-            COOL.add(Registry.BIOME.getId(biome));
-        if (type == BiomeManager.BiomeType.DESERT)
-            HOT.add(Registry.BIOME.getId(biome));
-        if (type == BiomeManager.BiomeType.ICY)
-            ICY.add(Registry.BIOME.getId(biome));
+            if (type == BiomeManager.BiomeType.WARM)
+                WARM.add(Registry.BIOME.getId(biome));
+            if (type == BiomeManager.BiomeType.COOL)
+                COOL.add(Registry.BIOME.getId(biome));
+            if (type == BiomeManager.BiomeType.DESERT)
+                HOT.add(Registry.BIOME.getId(biome));
+            if (type == BiomeManager.BiomeType.ICY)
+                ICY.add(Registry.BIOME.getId(biome));
+        }
     }
 }

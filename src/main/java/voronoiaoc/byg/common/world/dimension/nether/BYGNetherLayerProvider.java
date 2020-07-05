@@ -7,6 +7,7 @@ import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
 import net.minecraft.world.gen.layer.Layer;
 import net.minecraft.world.gen.layer.ZoomLayer;
+import voronoiaoc.byg.config.BYGWorldConfig;
 
 import java.util.function.LongFunction;
 
@@ -17,7 +18,7 @@ public class BYGNetherLayerProvider {
 
         IAreaFactory<LazyArea> netherFactory = BYGNetherMasterLayer.INSTANCE.apply(randomProvider.apply(1000L));
 
-        for (int netherBiomeSize = 0; netherBiomeSize <= 3; netherBiomeSize++) {
+        for (int netherBiomeSize = 0; netherBiomeSize <= BYGWorldConfig.biomeSizeNETHER.get(); netherBiomeSize++) {
             netherFactory = ZoomLayer.NORMAL.apply(randomProvider.apply(1000L + netherBiomeSize), netherFactory);
         }
         netherFactory = ZoomLayer.FUZZY.apply(randomProvider.apply(1000L), netherFactory);
