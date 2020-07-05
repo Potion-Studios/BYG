@@ -60,8 +60,7 @@ public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggab
     }
 
     @Override
-    public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos,
-                                boolean isMoving) {
+    public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
         if (!isValidPosition(state, world, pos)) {
             if (state.get(WATERLOGGED)) {
                 world.setBlockState(pos, Blocks.WATER.getDefaultState());
@@ -82,7 +81,7 @@ public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggab
     @Override
     public void onBlockHarvested(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         DoubleBlockHalf doubleblockhalf = state.get(HALF);
-        BlockPos blockpos = doubleblockhalf == DoubleBlockHalf.LOWER ? pos.up() : pos.down();
+        BlockPos blockpos = doubleblockhalf != DoubleBlockHalf.LOWER ? pos.up() : pos.down();
         BlockState blockstate = world.getBlockState(blockpos);
         if (blockstate.getBlock() == this && blockstate.get(HALF) != doubleblockhalf) {
             if (blockstate.get(HALF) == DoubleBlockHalf.LOWER) {

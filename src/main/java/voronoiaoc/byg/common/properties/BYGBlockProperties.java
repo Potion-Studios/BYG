@@ -973,7 +973,7 @@ public class BYGBlockProperties {
         public BlockCattail(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(1.5f, 6.0f)
+                    .hardnessAndResistance(0.0F, 0.0F)
                     .notSolid()
                     .doesNotBlockMovement()
                     .tickRandomly()
