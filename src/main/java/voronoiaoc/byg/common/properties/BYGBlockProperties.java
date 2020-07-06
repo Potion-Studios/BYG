@@ -394,7 +394,7 @@ public class BYGBlockProperties {
 
     public static class BlockOvergrownStoneBlock extends BYGOverGrownStoneBlock {
         public BlockOvergrownStoneBlock(String registryName) {
-            super(Settings.of(Material.SOIL)
+            super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(1.5f, 6.0f)
                     .ticksRandomly()
@@ -405,7 +405,7 @@ public class BYGBlockProperties {
 
     public static class BlockOvergrownDaciteBlock extends BYGOverGrownDaciteBlock {
         public BlockOvergrownDaciteBlock(String registryName) {
-            super(Settings.of(Material.SOIL)
+            super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(1.5f, 6.0f)
                     .ticksRandomly()
