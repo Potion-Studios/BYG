@@ -71,6 +71,7 @@ public class BYGBlockProperties {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(2.0f, 6.0f)
+                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
@@ -81,6 +82,7 @@ public class BYGBlockProperties {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(2.0f, 6.0f)
+                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
 
@@ -397,6 +399,7 @@ public class BYGBlockProperties {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(1.5f, 6.0f)
+                    .requiresTool()
                     .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
@@ -408,6 +411,7 @@ public class BYGBlockProperties {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(1.5f, 6.0f)
+                    .requiresTool()
                     .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
@@ -542,7 +546,6 @@ public class BYGBlockProperties {
     }
 
     public static class BYGNyliumSoulSoil extends Block {
-
         public BYGNyliumSoulSoil(String registryName) {
             super(Settings.of(Material.AGGREGATE)
                     .sounds(BlockSoundGroup.SOUL_SOIL)
@@ -674,6 +677,7 @@ public class BYGBlockProperties {
                     .sounds(BlockSoundGroup.STONE)
                     .strength(0.4F)
                     .ticksRandomly()
+                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
@@ -708,7 +712,8 @@ public class BYGBlockProperties {
         public BYGSythianNylium(String registryName) {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
-                    .strength(0.2f)
+                    .strength(0.4f)
+                    .requiresTool()
                     .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
@@ -720,6 +725,7 @@ public class BYGBlockProperties {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.NETHERRACK)
                     .strength(0.2f)
+                    .requiresTool()
                     .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
@@ -885,8 +891,8 @@ public class BYGBlockProperties {
         public BYGOreAmetrine(String registryName) {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
-                    .strength(3.0f, 3.0f)
-                    .strength(3)
+                    .strength(30.0f, 1200F)
+                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
@@ -896,8 +902,9 @@ public class BYGBlockProperties {
         public BYGOrePendorite(String registryName) {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
-                    .strength(3.0f, 3.0f)
-                    .strength(4)
+                    .strength(30.0f, 1200f)
+                    .requiresTool()
+
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
@@ -908,7 +915,7 @@ public class BYGBlockProperties {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(3.0f, 3.0f)
-                    .strength(4)
+                    .requiresTool()
                     .lightLevel((blockStatex) -> 8)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
@@ -1086,10 +1093,7 @@ public class BYGBlockProperties {
 
     public static class BYGWoodStairs extends StairsBlock {
         public BYGWoodStairs(String registryName) {
-            super(Blocks.OAK_PLANKS.getDefaultState(), Settings.copy(Blocks.OAK_PLANKS)
-                    .sounds(BlockSoundGroup.WOOD)
-                    .strength(2.0f, 3.0f)
-            );
+            super(Blocks.OAK_PLANKS.getDefaultState(), Settings.copy(Blocks.OAK_PLANKS));
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
     }
@@ -1097,10 +1101,7 @@ public class BYGBlockProperties {
 
     public static class BYGStoneStairs extends StairsBlock {
         public BYGStoneStairs(String registryName) {
-            super(Blocks.COBBLESTONE.getDefaultState(), Settings.copy(Blocks.COBBLESTONE)
-                    .sounds(BlockSoundGroup.STONE)
-                    .strength(2.0f, 6.0f)
-            );
+            super(Blocks.COBBLESTONE.getDefaultState(), Settings.copy(Blocks.COBBLESTONE));
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
     }
@@ -1132,6 +1133,7 @@ public class BYGBlockProperties {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(1.5f, 6.0f)
+                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
@@ -1149,10 +1151,7 @@ public class BYGBlockProperties {
 
     public static class BYGNetherBricks extends Block {
         public BYGNetherBricks(String registryName) {
-            super(AbstractBlock.Settings.of(Material.STONE, MaterialColor.BLUE_TERRACOTTA)
-                    .sounds(BlockSoundGroup.NETHER_BRICKS)
-                    .strength(0.4F, 0.4F)
-            );
+            super(AbstractBlock.Settings.copy(Blocks.NETHER_BRICKS));
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
     }
@@ -1162,6 +1161,7 @@ public class BYGBlockProperties {
             super(Settings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(1.5f, 6.0f)
+                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
