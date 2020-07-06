@@ -718,7 +718,7 @@ public class BYGBlockProperties {
     public static class OvergrownNetherrack extends OvergrownNetherrackBlock {
         public OvergrownNetherrack(String registryName) {
             super(Settings.of(Material.STONE)
-                    .sounds(BlockSoundGroup.STONE)
+                    .sounds(BlockSoundGroup.NETHERRACK)
                     .strength(0.2f)
                     .ticksRandomly()
             );
