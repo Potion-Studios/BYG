@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 public class RedRockMountains extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.RED_ROCK_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
     static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.PLAINS;
+    static final Category CATEGORY = Category.MESA;
     static final double DEPTH = 2.0F;
     static final double SCALE = 0.5F;
     static final float TEMPERATURE = 1.2F;

@@ -35,7 +35,6 @@ public class ConfigWeightManager {
     public static final ConfigWeight EBONY_WOODS = new ConfigWeight("Ebony_Woods", 5);
     public static final ConfigWeight ENCHANTED_FOREST = new ConfigWeight("Enchanted_Forest", 1);
     public static final ConfigWeight EVERGREEN_TAIGA = new ConfigWeight("Evergreen_Taiga", 6);
-    public static final ConfigWeight GIANTBLUETAIGA = new ConfigWeight("Blue_Giant_Taiga", 6);
     public static final ConfigWeight GLOWSHROOMBAYOU = new ConfigWeight("Glowshroom_Bayou", 1);
     public static final ConfigWeight GRASSLANDPLATEAU = new ConfigWeight("Grassland_Plateau", 5);
     public static final ConfigWeight GREATLAKES = new ConfigWeight("Great_Lake", 6);
@@ -66,7 +65,6 @@ public class ConfigWeightManager {
     public static final ConfigWeight SNOWYDECIDUOUSFOREST = new ConfigWeight("Snowy_Deciduous_Forest", 6);
     public static final ConfigWeight SNOWY_EVERGREEN_TAIGA = new ConfigWeight("Snowy_Evergreen_Taiga", 6);
     public static final ConfigWeight SNOWYBLUETAIGA = new ConfigWeight("Snowy_Blue_Taiga", 6);
-    public static final ConfigWeight SNOWYGIANTBLUETAIGA = new ConfigWeight("Snowy_Blue_Giant_Taiga", 6);
     //    public static final ConfigWeight sonorandesert = new ConfigWeight("sonorandesert", 10);
 //    public static final ConfigWeight stonebrushlands = new ConfigWeight("stonebrushlands", 10);
 //    public static final ConfigWeight stoneforest = new ConfigWeight("stoneforest", 10);

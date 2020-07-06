@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 
 public class MangroveMarshes extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
-    static final RainType PRECIPATATION = RainType.RAIN;
+    static final RainType PRECIPITATION = RainType.RAIN;
     static final Category CATEGORY = Category.SWAMP;
     static final double DEPTH = -0.4F;
     static final double SCALE = 0.01F;
@@ -37,7 +37,7 @@ public class MangroveMarshes extends Biome {
     static final String PARENT = null;
 
     public MangroveMarshes() {
-        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));
+        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPITATION).category(CATEGORY).depth((float) DEPTH).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));
         BYGTreeFeatures.addMangroveTrees(this);
         DefaultBiomeFeatures.addCarvers(this);
 
