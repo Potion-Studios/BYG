@@ -8,6 +8,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.Direction;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ToolType;
 import voronoiaoc.byg.client.textures.BYGMaterials;
 import voronoiaoc.byg.common.properties.blocks.*;
 import voronoiaoc.byg.common.properties.blocks.embur.EmburPlantBlock;
@@ -61,6 +62,8 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(2.0f, 6.0f)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -71,6 +74,8 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(2.0f, 6.0f)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -347,6 +352,8 @@ public class BYGBlockProperties {
                     .notSolid()
                     .slipperiness(0.98F)
                     .func_235838_a_((state) -> 10)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -381,6 +388,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
 
             );
             setRegistryName(registryName);
@@ -393,6 +402,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
 
             );
             setRegistryName(registryName);
@@ -662,6 +673,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.4F)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -700,6 +713,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -711,6 +726,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -735,6 +752,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -840,44 +859,19 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BlockMushroom extends MushroomBlock {
-        public BlockMushroom(String registryName) {
-            super(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT)
-                    .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f)
-                    .doesNotBlockMovement()
-                    .tickRandomly()
-            );
-            setRegistryName(registryName);
-        }
-    }
-
     //Saving this for later do not touch
 //    @OnlyIn(Dist.CLIENT)
 //    public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
 //        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
 //    }
 
-    public static class BlockGlowshroom extends MushroomBlock {
-        public BlockGlowshroom(String registryName) {
-            super(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT)
-                    .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f)
-                    .doesNotBlockMovement()
-                    .notSolid()
-                    .func_235838_a_((state) -> 8)
-                    .tickRandomly()
-            );
-            setRegistryName(registryName);
-        }
-    }
-
     public static class BYGOreAmetrine extends BYGOreBlock {
         public BYGOreAmetrine(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
+            super(AbstractBlock.Properties.create(Material.IRON)
                             .sound(SoundType.STONE)
                             .hardnessAndResistance(3.0f, 3.0f)
-                    //.harvestLevel(3)
+                            .harvestTool(ToolType.PICKAXE)
+                            .func_235861_h_()
             );
             setRegistryName(registryName);
         }
@@ -885,10 +879,11 @@ public class BYGBlockProperties {
 
     public static class BYGOrePendorite extends OreBlock {
         public BYGOrePendorite(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
+            super(AbstractBlock.Properties.create(Material.IRON)
                             .sound(SoundType.STONE)
                             .hardnessAndResistance(3.0f, 3.0f)
-                    //.harvestLevel(4)
+                            .harvestTool(ToolType.PICKAXE)
+                            .func_235861_h_()
             );
             setRegistryName(registryName);
         }
@@ -899,7 +894,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(3.0f, 3.0f)
-                    //.harvestLevel(4)
+                    .harvestTool(ToolType.PICKAXE)
                     .func_235838_a_((state) -> 13)
             );
             setRegistryName(registryName);
@@ -1125,6 +1120,8 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -1135,6 +1132,8 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.4F, 0.4F)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -1145,6 +1144,8 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
                     .sound(SoundType.field_235590_L_)
                     .hardnessAndResistance(0.4F, 0.4F)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -1179,6 +1180,8 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(3.5F)
                     .func_235838_a_((state) -> 15)
                     .notSolid()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
