@@ -4,6 +4,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.DyeColor;
@@ -642,6 +643,7 @@ public class BYGBlockProperties {
                     .nonOpaque()
                     .velocityMultiplier(1.6F)
                     .slipperiness(0.6F)
+                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
@@ -750,6 +752,7 @@ public class BYGBlockProperties {
                     .sounds(BlockSoundGroup.STONE)
                     .strength(0.2f)
                     .ticksRandomly()
+                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
@@ -858,34 +861,10 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BlockMushroom extends MushroomPlantBlock {
-        public BlockMushroom(String registryName) {
-            super(Settings.of(Material.PLANT, MaterialColor.DIRT)
-                    .sounds(BlockSoundGroup.GRASS)
-                    .strength(0.0f)
-                    .noCollision()
-            );
-            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
-        }
-    }
-
 //Saving this for later do not touch
 ////    public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
 //        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
 //    }
-
-    public static class BlockGlowshroom extends MushroomPlantBlock {
-        public BlockGlowshroom(String registryName) {
-            super(Settings.of(Material.PLANT, MaterialColor.DIRT)
-                    .sounds(BlockSoundGroup.GRASS)
-                    .strength(0.0f)
-                    .noCollision()
-                    .nonOpaque()
-                    .lightLevel((blockStatex) -> 8)
-            );
-            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
-        }
-    }
 
     public static class BYGOreAmetrine extends BYGOreBlock {
         public BYGOreAmetrine(String registryName) {
@@ -904,7 +883,6 @@ public class BYGBlockProperties {
                     .sounds(BlockSoundGroup.STONE)
                     .strength(30.0f, 1200f)
                     .requiresTool()
-
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
@@ -1187,6 +1165,7 @@ public class BYGBlockProperties {
                     .strength(3.5F)
                     .nonOpaque()
                     .lightLevel((blockStatex) -> 15)
+                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
