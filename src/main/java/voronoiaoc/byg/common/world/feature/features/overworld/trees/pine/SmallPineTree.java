@@ -25,8 +25,6 @@ public class SmallPineTree extends Feature<DefaultFeatureConfig> {
         super(configIn);
     }
 
-    Structure
-
     @Override
     public boolean generate(ServerWorldAccess serverWorldAccess, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
         if (pos.getX() == -8 && pos.getZ() == -9) {

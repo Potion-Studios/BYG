@@ -1,6 +1,9 @@
 package voronoiaoc.byg.common.properties.blocks.warped;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.CactusBlock;
+import net.minecraft.block.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.server.world.ServerWorld;
@@ -16,7 +19,6 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
-import java.util.Iterator;
 import java.util.Random;
 
 public class BYGWarpedCactusBlock extends CactusBlock {
@@ -57,23 +59,16 @@ public class BYGWarpedCactusBlock extends CactusBlock {
         return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }
 
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        Iterator var4 = Direction.Type.HORIZONTAL.iterator();
-
-        Direction direction;
-        Material material;
-        do {
-            if (!var4.hasNext()) {
-                BlockState blockState2 = world.getBlockState(pos.down());
-                return (blockState2.isOf(BYGBlockList.WARPED_CACTUS) || blockState2.isOf(Blocks.SAND) || blockState2.isOf(Blocks.RED_SAND)) && !world.getBlockState(pos.up()).getMaterial().isLiquid();
+    @Override
+    public boolean canPlaceAt(BlockState state, WorldView worldIn, BlockPos pos) {
+        for (Direction direction : Direction.Type.HORIZONTAL) {
+            BlockState blockstate = worldIn.getBlockState(pos.offset(direction));
+            Material material = blockstate.getMaterial();
+            if (material.isSolid() || worldIn.getFluidState(pos.offset(direction)).isIn(FluidTags.LAVA)) {
+                return false;
             }
-
-            direction = (Direction) var4.next();
-            BlockState blockState = world.getBlockState(pos.offset(direction));
-            material = blockState.getMaterial();
-        } while (!material.isSolid() && !world.getFluidState(pos.offset(direction)).isIn(FluidTags.LAVA));
-
-        return false;
+        }
+        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.WARPED_CACTUS && !worldIn.getBlockState(pos.up()).getMaterial().isLiquid() && worldIn.getDimension().isUltrawarm();
     }
 
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
