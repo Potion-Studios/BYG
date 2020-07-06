@@ -226,7 +226,6 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .notSolid()
                     .doesNotBlockMovement()
-
             );
             setRegistryName(registryName);
         }

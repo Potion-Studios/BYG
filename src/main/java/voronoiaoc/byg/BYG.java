@@ -57,7 +57,6 @@ public class BYG {
     public BYG() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BYGConfig.COMMON_CONFIG);
         BYGWorldConfig.loadConfig(BYGWorldConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MOD_ID + "-world-common.toml"));
-        ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::bygCommonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::bygClientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::bygLoadComplete);
