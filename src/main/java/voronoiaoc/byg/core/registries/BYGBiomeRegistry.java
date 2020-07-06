@@ -9,7 +9,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.dimension.end.biome.BYGEndBiomeProvider;
-import voronoiaoc.byg.common.world.worldtype.math.BYGBiomeGroup;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
@@ -187,7 +186,7 @@ public class BYGBiomeRegistry {
         //End
         registerBYGEndBiome(registry, BYGBiomeList.IVISFIELDS, "ivis_fields",  BiomeDictionary.Type.END);
 
-        BYGBiomeGroup.initBYGBiomes();
+//        BYGBiomeGroup.initBYGBiomes();
         BYG.LOGGER.info("BYG: Biomes Registered!");
 
     }

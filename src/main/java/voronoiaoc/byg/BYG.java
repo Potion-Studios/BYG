@@ -76,11 +76,11 @@ public class BYG {
         tempList.add(BYGFeatureList.BYGVILLAGE);
         Feature.ILLAGER_STRUCTURES = ImmutableList.copyOf(tempList);
         Collections.sort(BYGBiomeRegistry.biomeList);
-        BYGBiomeRegistry.biomeList.forEach(e -> {
-            idx++;
-            System.out.println(idx + ". " + e);
-
-        });
+//        BYGBiomeRegistry.biomeList.forEach(e -> {
+//            idx++;
+//            System.out.println(idx + ". " + e);
+//
+//        });
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 
