@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "byg:ametrine_gems"
+    }
+  },
+  "result": {
+    "item": "minecraft:ametrine_chestplate"
+  }
+}
