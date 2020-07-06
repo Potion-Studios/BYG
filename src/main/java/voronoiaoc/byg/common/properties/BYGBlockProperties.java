@@ -8,6 +8,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.Direction;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ToolType;
 import voronoiaoc.byg.client.textures.BYGMaterials;
 import voronoiaoc.byg.common.properties.blocks.*;
 import voronoiaoc.byg.common.properties.blocks.embur.EmburPlantBlock;
@@ -66,6 +67,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(2.0f, 6.0f)
+                    .harvestTool(ToolType.PICKAXE)
             );
             setRegistryName(registryName);
         }
@@ -76,6 +78,8 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(2.0f, 6.0f)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -351,6 +355,8 @@ public class BYGBlockProperties {
                     .notSolid()
                     .slipperiness(0.98F)
                     .lightValue(10)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -385,6 +391,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
 
             );
             setRegistryName(registryName);
@@ -397,6 +405,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
 
             );
             setRegistryName(registryName);
@@ -631,6 +641,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .speedFactor(1.6F)
                     .slipperiness(0.6F)
+
             );
             setRegistryName(registryName);
         }
@@ -667,6 +678,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.4F)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -705,6 +718,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.4F)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -716,6 +731,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.4F)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -740,6 +757,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.4F)
                     .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -751,6 +770,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.CORAL)
                     .hardnessAndResistance(0.2f)
                     .lightValue(8)
+                    .harvestTool(ToolType.AXE)
+
             );
             setRegistryName(registryName);
         }
@@ -851,6 +872,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(3.0f, 3.0f)
                     .harvestLevel(3)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -862,6 +885,8 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(3.0f, 3.0f)
                     .harvestLevel(3)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -874,6 +899,8 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.4F, 0.4F)
                     .harvestLevel(4)
                     .lightValue(13)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -1055,6 +1082,8 @@ public class BYGBlockProperties {
             super(Blocks.COBBLESTONE.getDefaultState(), Block.Properties.from(Blocks.COBBLESTONE)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(2.0f, 6.0f)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -1087,6 +1116,8 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5F, 6.0F)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -1097,6 +1128,8 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.4F, 0.4F)
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
@@ -1131,6 +1164,8 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(3.5F)
                     .lightValue(15)
                     .notSolid()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             setRegistryName(registryName);
         }
