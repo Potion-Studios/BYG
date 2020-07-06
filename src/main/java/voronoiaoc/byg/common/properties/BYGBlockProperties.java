@@ -1144,6 +1144,7 @@ public class BYGBlockProperties {
             super(AbstractBlock.Settings.of(Material.STONE, MaterialColor.BLUE_TERRACOTTA)
                     .sounds(BlockSoundGroup.NETHERRACK)
                     .strength(0.4F, 0.4F)
+                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
