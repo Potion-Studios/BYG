@@ -4,7 +4,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.DyeColor;
@@ -856,15 +855,11 @@ public class BYGBlockProperties {
             super(Settings.of(Material.WOOD)
                     .sounds(BlockSoundGroup.WOOD)
                     .strength(2.0f)
+
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
     }
-
-//Saving this for later do not touch
-////    public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
-//        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
-//    }
 
     public static class BYGOreAmetrine extends BYGOreBlock {
         public BYGOreAmetrine(String registryName) {
