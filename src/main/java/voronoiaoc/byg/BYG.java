@@ -65,6 +65,8 @@ public class BYG {
     }
 
     private void bygCommonSetup(FMLCommonSetupEvent event) {
+        ConfigWeightManager.buildConfig();
+        ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
         BYGCreativeTab.init();
         BYGEndBiomeCatch.endBiomeConfigCollection();
