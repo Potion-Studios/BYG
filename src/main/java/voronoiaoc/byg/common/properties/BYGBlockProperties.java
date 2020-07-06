@@ -872,6 +872,7 @@ public class BYGBlockProperties {
                     .sounds(BlockSoundGroup.STONE)
                     .strength(30.0f, 1200F)
                     .requiresTool()
+
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
