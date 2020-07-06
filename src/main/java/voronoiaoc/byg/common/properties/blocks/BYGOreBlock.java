@@ -1,14 +1,17 @@
 package voronoiaoc.byg.common.properties.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.OreBlock;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.common.ToolType;
+import net.minecraftforge.common.extensions.IForgeBlock;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
-public class BYGOreBlock extends OreBlock {
+public class BYGOreBlock extends OreBlock implements IForgeBlock {
 
     public BYGOreBlock(Block.Properties properties) {
         super(properties);
@@ -29,4 +32,16 @@ public class BYGOreBlock extends OreBlock {
         }
     }
 
+    @Override
+    public int getHarvestLevel(BlockState state) {
+        return 3;
+    }
+
+    @Override
+    public ToolType getHarvestTool(BlockState state) {
+        return ToolType.PICKAXE;
+    }
 }
+
+
+
