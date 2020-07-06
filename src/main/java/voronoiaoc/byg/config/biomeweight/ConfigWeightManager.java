@@ -16,7 +16,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight ANCIENT_FOREST = new ConfigWeight("Ancient_Forest", 1);
     public static final ConfigWeight AMARANTHFIELDS = new ConfigWeight("Amaranth_Fields", 2);
     public static final ConfigWeight ASPENFOREST = new ConfigWeight("Aspen_Forest", 6);
-    public static final ConfigWeight AUTUMNALVALLEY = new ConfigWeight("Alps", 5);
+    public static final ConfigWeight AUTUMNALVALLEY = new ConfigWeight("Autumnal_Valley", 5);
     public static final ConfigWeight BAOBABSAVANNA = new ConfigWeight("Baobab_Savanna", 6);
     public static final ConfigWeight BAYOU = new ConfigWeight("Bayou", 5);
     public static final ConfigWeight BLUETAIGA = new ConfigWeight("Blue_Taiga", 6);
