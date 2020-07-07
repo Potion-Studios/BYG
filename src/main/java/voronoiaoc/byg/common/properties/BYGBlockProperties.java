@@ -520,20 +520,7 @@ public class BYGBlockProperties {
             );
             setRegistryName(registryName);
         }
-//        @OnlyIn(Dist.CLIENT)
-//        public void animateTick(BlockState blockstate, World world, BlockPos pos, Random rand) {
-//            VoxelShape shape = this.getShape(blockstate, world, pos, ISelectionContext.dummy());
-//            Vector3d Vector3d = shape.getBoundingBox().getCenter();
-//            double getX = (double) pos.getX() + Vector3d.x;
-//            double getZ = (double) pos.getZ() + Vector3d.z;
-//
-//            for (int idx = 0; idx < 15; ++idx) {
-//                if (rand.nextBoolean()) {
-//                    world.addParticle(BYGParticleList.NYLIUM_SOUL_SAND_AMBIENCE, getX + (double) (rand.nextFloat() / 5.0F), (double) pos.getY() + (double) rand.nextFloat(), getZ + (double) (rand.nextFloat() / 5.0F), 0.0D, 0.02D, 0.0D);
-//                }
-//            }
-//
-//        }
+
     }
 
     public static class BYGNyliumSoulSoil extends Block {
