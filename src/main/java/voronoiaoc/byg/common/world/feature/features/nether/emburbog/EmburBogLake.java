@@ -134,7 +134,7 @@ public class EmburBogLake extends Feature<NoFeatureConfig> {
         blockState = world.getBlockState(blockpos$Mutable.down());
         material = blockState.getMaterial();
         if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) ||
-                BlockTags.PLANKS.func_230235_a_(blockState.getBlock())) &&
+                BlockTags.PLANKS.contains(blockState.getBlock())) &&
                 blockState.getFluidState().isEmpty() &&
                 blockState.getFluidState() != Fluids.LAVA.getStillFluidState(false)) {
             return false;
@@ -157,7 +157,7 @@ public class EmburBogLake extends Feature<NoFeatureConfig> {
                 blockState = world.getBlockState(blockpos$Mutable.add(x2, 0, z2));
                 material = blockState.getMaterial();
 
-                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.func_230235_a_(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.LAVA.getStillFluidState(false)) {
+                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.LAVA.getStillFluidState(false)) {
                     return false;
                 }
                 if (blockState.getBlock() == BYGBlockList.EMBUR_GEL_BLOCK || blockState.getBlock() == BYGBlockList.EMBUR_PEDU) {

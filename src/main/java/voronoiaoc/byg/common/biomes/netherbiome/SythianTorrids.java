@@ -41,11 +41,11 @@ public class SythianTorrids extends Biome implements BiomeFog {
         super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH)
                 .func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR)
                         .func_235239_a_(16572546)
-                        .func_235244_a_(new ParticleEffectAmbience(ParticleTypes.field_239814_an_, 0.01428F))
-                        .func_235241_a_(SoundEvents.field_232711_f_)
-                        .func_235243_a_(new MoodSoundAmbience(SoundEvents.field_232722_g_, 6000, 8, 2.0D))
-                        .func_235242_a_(new SoundAdditionsAmbience(SoundEvents.field_232701_e_, 0.0111D))
-                        .func_235240_a_(BackgroundMusicTracks.func_232677_a_(SoundEvents.field_232762_ir_)).func_235238_a_())
+                        .func_235244_a_(new ParticleEffectAmbience(ParticleTypes.CRIMSON_SPORE, 0.01428F))
+                        .func_235241_a_(SoundEvents.AMBIENT_CRIMSON_FOREST_LOOP)
+                        .func_235243_a_(new MoodSoundAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D))
+                        .func_235242_a_(new SoundAdditionsAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))
+                        .func_235240_a_(BackgroundMusicTracks.func_232677_a_(SoundEvents.MUSIC_NETHER_CRIMSON_FOREST)).func_235238_a_())
                 .func_235098_a_(ImmutableList.of(new Biome.Attributes(-0.13F, 0.0F, 0.0F, 0.0F, 0.0F)))
 
 
@@ -66,7 +66,7 @@ public class SythianTorrids extends Biome implements BiomeFog {
         BYGFeatures.addSythianVegetation(this);
 
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.GHAST, 40, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.field_233591_ai_, 100, 4, 4));
+        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.PIGLIN, 100, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.MAGMA_CUBE, 2, 4, 4));
     }
 

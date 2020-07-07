@@ -125,7 +125,7 @@ public class BYGBlockProperties {
                             .hardnessAndResistance(0.0f)
                             .doesNotBlockMovement()
                             .notSolid()
-                            .func_235838_a_((state) -> 8)
+                            .setLightLevel((state) -> 8)
             );
             setRegistryName(registryName);
 
@@ -351,7 +351,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .notSolid()
                     .slipperiness(0.98F)
-                    .func_235838_a_((state) -> 10)
+                    .setLightLevel((state) -> 10)
                     .harvestTool(ToolType.PICKAXE)
 
             );
@@ -451,7 +451,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.GROUND)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
-                    .func_235838_a_((state) -> 10)
+                    .setLightLevel((state) -> 10)
 
             );
             setRegistryName(registryName);
@@ -492,7 +492,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .sound(SoundType.PLANT)
                     .notSolid()
-                    .func_235838_a_((state) -> 12)
+                    .setLightLevel((state) -> 12)
             );
             setRegistryName(registryName);
             this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)));
@@ -555,7 +555,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
                     .notSolid()
-                    .func_235838_a_((state) -> 8)
+                    .setLightLevel((state) -> 8)
             );
             setRegistryName(registryName);
         }
@@ -568,7 +568,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
                     .notSolid()
-                    .func_235838_a_((state) -> 8)
+                    .setLightLevel((state) -> 8)
             );
             setRegistryName(registryName);
         }
@@ -582,7 +582,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
                     .lootFrom(BYGBlockList.WARPED_CORAL)
-                    .func_235838_a_((state) -> 8)
+                    .setLightLevel((state) -> 8)
             );
             setRegistryName(registryName);
         }
@@ -596,7 +596,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
                     .lootFrom(BYGBlockList.WARPED_CORAL)
-                    .func_235838_a_((state) -> 8)
+                    .setLightLevel((state) -> 8)
             );
             setRegistryName(registryName);
         }
@@ -609,7 +609,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
                     .notSolid()
-                    .func_235838_a_((state) -> 8)
+                    .setLightLevel((state) -> 8)
             );
             setRegistryName(registryName);
 
@@ -623,7 +623,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .notSolid()
                     .tickRandomly()
-                    .func_235838_a_((state) -> 8)
+                    .setLightLevel((state) -> 8)
             );
             setRegistryName(registryName);
 
@@ -764,7 +764,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.CORAL)
                     .hardnessAndResistance(0.2f)
-                    .func_235838_a_((state) -> 8)
+                    .setLightLevel((state) -> 8)
             );
             setRegistryName(registryName);
         }
@@ -778,7 +778,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .notSolid()
                     .doesNotBlockMovement()
-                    .func_235838_a_((state) -> 9)
+                    .setLightLevel((state) -> 9)
             );
             setRegistryName(registryName);
         }
@@ -871,7 +871,7 @@ public class BYGBlockProperties {
                             .sound(SoundType.STONE)
                             .hardnessAndResistance(3.0f, 3.0f)
                             .harvestTool(ToolType.PICKAXE)
-                            .func_235861_h_()
+                            .setRequiresTool()
             );
             setRegistryName(registryName);
         }
@@ -883,7 +883,7 @@ public class BYGBlockProperties {
                             .sound(SoundType.STONE)
                             .hardnessAndResistance(3.0f, 3.0f)
                             .harvestTool(ToolType.PICKAXE)
-                            .func_235861_h_()
+                            .setRequiresTool()
             );
             setRegistryName(registryName);
         }
@@ -895,7 +895,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(3.0f, 3.0f)
                     .harvestTool(ToolType.PICKAXE)
-                    .func_235838_a_((state) -> 13)
+                    .setLightLevel((state) -> 13)
             );
             setRegistryName(registryName);
         }
@@ -907,7 +907,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
-                    .func_235838_a_((state) -> 10)
+                    .setLightLevel((state) -> 10)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -920,7 +920,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
-                    .func_235838_a_((state) -> 10)
+                    .setLightLevel((state) -> 10)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -933,7 +933,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
-                    .func_235838_a_((state) -> 10)
+                    .setLightLevel((state) -> 10)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -946,7 +946,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
-                    .func_235838_a_((state) -> 10)
+                    .setLightLevel((state) -> 10)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -1007,7 +1007,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.WOOD)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .notSolid()
-                    .func_235838_a_((state) -> 12)
+                    .setLightLevel((state) -> 12)
             );
             setRegistryName(registryName);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
@@ -1036,7 +1036,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
                     .variableOpacity()
-                    .func_235838_a_((state) -> 12)
+                    .setLightLevel((state) -> 12)
             );
             setRegistryName(registryName);
         }
@@ -1109,7 +1109,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.GLASS)
                     .sound(SoundType.GLASS)
                     .hardnessAndResistance(0.3F)
-                    .func_235838_a_((state) -> 15)
+                    .setLightLevel((state) -> 15)
             );
             setRegistryName(registryName);
         }
@@ -1178,7 +1178,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.IRON)
                     .sound(SoundType.LANTERN)
                     .hardnessAndResistance(3.5F)
-                    .func_235838_a_((state) -> 15)
+                    .setLightLevel((state) -> 15)
                     .notSolid()
                     .harvestTool(ToolType.PICKAXE)
 
