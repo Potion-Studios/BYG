@@ -31,7 +31,7 @@ public class SkyrisHighlands extends Biome {
     public SkyrisHighlands() {
         super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));//this.addStructure(BYGFeatureList.BYGVILLAGE.withConfiguration(new VillageConfig("byg:village/skyris/town_centers", 5)));
         this.func_235063_a_(DefaultBiomeFeatures.field_235134_a_);
-        this.func_235063_a_(BYGFeatureList.SKYRIS_VILLAGE);
+        //this.func_235063_a_(BYGFeatureList.SKYRIS_VILLAGE);
         //this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.MESA)));
         //this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 

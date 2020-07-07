@@ -41,7 +41,7 @@ public class GuianaClearing extends Biome {
         //this.addStructure(Feature.JUNGLE_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
         DefaultBiomeFeatures.func_235196_b_(this);
         DefaultBiomeFeatures.addCarvers(this);
-        this.func_235063_a_(BYGFeatureList.GUIANA_VILLAGE);
+        //this.func_235063_a_(BYGFeatureList.GUIANA_VILLAGE);
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);
