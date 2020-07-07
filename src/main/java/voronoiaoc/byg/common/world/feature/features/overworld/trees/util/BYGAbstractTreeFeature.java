@@ -131,7 +131,7 @@ public abstract class BYGAbstractTreeFeature<T extends IFeatureConfig> extends F
     public final void setFinalBlockState(Set<BlockPos> changedBlocks, IWorldWriter worldIn, BlockPos pos, BlockState blockState, MutableBoundingBox boundingBox) {
         this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
         boundingBox.expandTo(new MutableBoundingBox(pos, pos));
-        if (BlockTags.LOGS.func_230235_a_(blockState.getBlock())) {
+        if (BlockTags.LOGS.contains(blockState.getBlock())) {
             changedBlocks.add(pos.toImmutable());
         }
     }

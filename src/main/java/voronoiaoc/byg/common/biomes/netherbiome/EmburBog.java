@@ -43,10 +43,10 @@ public class EmburBog extends Biome implements BiomeFog {
                 .func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR)
                         .func_235239_a_(15110510)
                         .func_235244_a_(new ParticleEffectAmbience(ParticleTypes.FLAME, 0.01428F))
-                        .func_235241_a_(SoundEvents.field_232698_c_)
-                        .func_235243_a_(new MoodSoundAmbience(SoundEvents.field_232700_d_, 6000, 8, 2.0D))
-                        .func_235242_a_(new SoundAdditionsAmbience(SoundEvents.field_232692_b_, 0.0111D))
-                        .func_235240_a_(BackgroundMusicTracks.func_232677_a_(SoundEvents.field_232759_io_)).func_235238_a_())
+                        .func_235241_a_(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
+                        .func_235243_a_(new MoodSoundAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
+                        .func_235242_a_(new SoundAdditionsAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
+                        .func_235240_a_(BackgroundMusicTracks.func_232677_a_(SoundEvents.MUSIC_NETHER_BASALT_DELTAS)).func_235238_a_())
                 .func_235098_a_(ImmutableList.of(new Biome.Attributes(0.65F, 0.0F, -0.43F, 0.0F, 0.0F)))
 
 
@@ -64,7 +64,7 @@ public class EmburBog extends Biome implements BiomeFog {
         BYGFeatures.addEmburBogVegetation(this);
 
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.BLAZE, 40, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.field_233592_ba_, 80, 4, 4));
+        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.MAGMA_CUBE, 100, 2, 5));
     }
 

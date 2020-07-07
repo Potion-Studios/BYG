@@ -40,11 +40,11 @@ public class WarpedDesert extends Biome implements BiomeFog {
         super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH)
                 .func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR)
                         .func_235239_a_(1705242)
-                        .func_235244_a_(new ParticleEffectAmbience(ParticleTypes.field_239815_ao_, 0.01428F))
-                        .func_235241_a_(SoundEvents.field_232798_l_)
-                        .func_235243_a_(new MoodSoundAmbience(SoundEvents.field_232798_l_, 6000, 8, 2.0D))
-                        .func_235242_a_(new SoundAdditionsAmbience(SoundEvents.field_232785_k_, 0.0111D))
-                        .func_235240_a_(BackgroundMusicTracks.func_232677_a_(SoundEvents.field_232761_iq_)).func_235238_a_())
+                        .func_235244_a_(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.01428F))
+                        .func_235241_a_(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)
+                        .func_235243_a_(new MoodSoundAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP, 6000, 8, 2.0D))
+                        .func_235242_a_(new SoundAdditionsAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D))
+                        .func_235240_a_(BackgroundMusicTracks.func_232677_a_(SoundEvents.MUSIC_NETHER_SOUL_SAND_VALLEY)).func_235238_a_())
                 .func_235098_a_(ImmutableList.of(new Biome.Attributes(0.32F, 0.0F, 0.0F, 0.0F, 0.0F)))
 
                 .scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));
@@ -64,7 +64,7 @@ public class WarpedDesert extends Biome implements BiomeFog {
         BYGFeatures.addWarpedVegetation(this);
 
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.GHAST, 60, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.field_233591_ai_, 100, 4, 4));
+        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.PIGLIN, 100, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.MAGMA_CUBE, 2, 4, 4));
     }
 

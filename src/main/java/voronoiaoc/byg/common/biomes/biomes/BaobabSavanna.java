@@ -30,7 +30,7 @@ public class BaobabSavanna extends Biome {
         BYGTreeFeatures.addBaobabTrees(this);
         //this.addStructure(Feature.VILLAGE.withConfiguration(new VillageConfig("village/savanna/town_centers", 6)));
         this.func_235063_a_(DefaultBiomeFeatures.field_235134_a_);
-        DefaultBiomeFeatures.func_235189_a_(this);
+        DefaultBiomeFeatures.func_235196_b_(this);
         DefaultBiomeFeatures.addCarvers(this);
 
 
