@@ -22,6 +22,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
+import voronoiaoc.byg.core.byglists.BYGFeatureList;
 
 public class GuianaClearing extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState()));
@@ -40,8 +41,7 @@ public class GuianaClearing extends Biome {
         //this.addStructure(Feature.JUNGLE_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
         DefaultBiomeFeatures.func_235196_b_(this);
         DefaultBiomeFeatures.addCarvers(this);
-
-
+        this.func_235063_a_(BYGFeatureList.GUIANA_VILLAGE);
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);

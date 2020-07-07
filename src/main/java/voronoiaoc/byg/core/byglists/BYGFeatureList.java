@@ -1,10 +1,10 @@
 package voronoiaoc.byg.core.byglists;
 
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.carver.WorldCarver;
-import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
@@ -439,6 +439,16 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE1 = new ZelkovaTree(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE2 = new ZelkovaTree2(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE3 = new ZelkovaTree3(NoFeatureConfig.field_236558_a_);
+
+
+    /********************************************************************Village Configs********************************************************************/
+
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> ADOBE_VILLAGE = Structure.field_236381_q_.func_236391_a_(new VillageConfig(new ResourceLocation("byg:village/adobe/town_centers"), 6));
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> SKYRIS_VILLAGE = Structure.field_236381_q_.func_236391_a_(new VillageConfig(new ResourceLocation("byg:village/skyris/town_centers"), 6));
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> GRASSLAND_VILLAGE = Structure.field_236381_q_.func_236391_a_(new VillageConfig(new ResourceLocation("byg:village/grassland/town_centers"), 6));
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> GUIANA_VILLAGE = Structure.field_236381_q_.func_236391_a_(new VillageConfig(new ResourceLocation("byg:village/guiana/town_centers"), 6));
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> JUNGLE_VILLAGE = Structure.field_236381_q_.func_236391_a_(new VillageConfig(new ResourceLocation("byg:village/jungle/town_centers"), 6));
+
 }
 
 

@@ -28,6 +28,7 @@ import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeCatch;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
+import voronoiaoc.byg.common.world.structure.village.villagepools.*;
 import voronoiaoc.byg.common.world.worldtype116.BYGBiomeProvider116;
 import voronoiaoc.byg.common.world.worldtype116.WorldType116;
 import voronoiaoc.byg.config.BYGConfig;
@@ -68,6 +69,11 @@ public class BYG {
         Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygworld"), BYGBiomeProvider116.BYGBPCODEC);
+        BYGAdobeVillagePools.init();
+        BYGGrasslandVillagePools.init();
+        BYGGuianaVillagePools.init();
+        BYGJungleVillagePools.init();
+        BYGSkyrisVillagePools.init();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

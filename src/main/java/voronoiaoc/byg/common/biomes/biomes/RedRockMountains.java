@@ -14,6 +14,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
+import voronoiaoc.byg.core.byglists.BYGFeatureList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
@@ -35,8 +36,7 @@ public class RedRockMountains extends Biome {
         this.func_235063_a_(DefaultBiomeFeatures.field_235134_a_);
         DefaultBiomeFeatures.func_235196_b_(this);
         DefaultBiomeFeatures.addCarvers(this);
-
-
+        this.func_235063_a_(BYGFeatureList.ADOBE_VILLAGE);
         DefaultBiomeFeatures.addMonsterRooms(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);

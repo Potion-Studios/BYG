@@ -51,11 +51,9 @@ public class BYGFeaturesInVanilla {
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.RICHEA_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
             }
 
-//            if (biome == Biomes.JUNGLE) {
-//                biome.addStructure(BYGFeatureList.BYGVILLAGE.withConfiguration(new VillageConfig("byg:village/jungle/town_centers", 6)));
-//                biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.withConfiguration(new VillageConfig("byg:village/jungle/town_centers", 6)).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-//
-//            }
+            if (biome == Biomes.JUNGLE) {
+                biome.func_235063_a_(BYGFeatureList.JUNGLE_VILLAGE);
+            }
 
             if (biome == Biomes.RIVER) {
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.CATTAIL_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(25))));
