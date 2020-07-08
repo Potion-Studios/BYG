@@ -1,8 +1,11 @@
 package voronoiaoc.byg.core.byglists;
 
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.carver.Carver;
 import net.minecraft.world.gen.feature.*;
+import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.biomefeatures.FrostMagmaLakeFeature;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
@@ -440,6 +443,35 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ZELKOVA_TREE1 = new ZelkovaTree(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ZELKOVA_TREE2 = new ZelkovaTree2(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ZELKOVA_TREE3 = new ZelkovaTree3(DefaultFeatureConfig.CODEC);
+
+
+    public static class RegisterFeatures {
+
+        public static void registerBYGFeatures() {
+            registerFeature(DUMMY_TREE, "dummy_tree");
+            registerFeature(DEADSEASPIKES, "dead_sea_spike");
+            registerFeature(TALLDEADSEASPIKES, "dead_sea_spike_takk");
+            registerFeature(OBBYSPIKES, "obsidian_spike");
+            registerFeature(CACTUS, "canyon_cactus");
+            registerFeature(BLACKICESNOW, "black_ice_and_snow");
+            registerFeature(LAKE_FROST, "frosted_lake");
+            registerFeature(LAKE_WIDE_SHALLOW, "lake_wide_shallow");
+            registerFeature(LAKE_WIDE_SHALLOW, "lava_lake_wide_shallow");
+            registerFeature(VINES, "vines");
+            registerFeature(PUMPKIN_PATCH1, "pumpkin");
+            registerFeature(PUMPKIN_PATCH2, "pumpkin2");
+            registerFeature(PUMPKIN_PATCH3, "pumpkin3");
+
+        }
+
+
+
+        public static void registerFeature(Feature<?> feature, String registryName) {
+            Registry.register(Registry.FEATURE, new Identifier(BYG.MODID, registryName), feature);
+
+        }
+
+    }
 }
 
 
