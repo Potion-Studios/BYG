@@ -13,6 +13,7 @@ import voronoiaoc.byg.common.properties.vanilla.BYGFlammables;
 import voronoiaoc.byg.common.properties.vanilla.BYGHoeables;
 import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
+import voronoiaoc.byg.core.byglists.BYGFeatureList;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 import voronoiaoc.byg.core.registries.BYGBlockRegistry;
@@ -31,6 +32,7 @@ public class BYG implements ModInitializer {
         //Registries
         BYGBlockRegistry.registerBlocks();
         BYGItemRegistry.registerItems();
+        BYGFeatureList.RegisterFeatures.registerBYGFeatures();
         BYGBiomeRegistry.registerSubBiomes();
         BYGBiomeRegistry.registerBiomes();
         BYGEntityRegistry.registerEntities();

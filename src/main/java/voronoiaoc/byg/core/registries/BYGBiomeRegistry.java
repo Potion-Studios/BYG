@@ -4,17 +4,16 @@ import net.fabricmc.fabric.api.biomes.v1.FabricBiomes;
 import net.fabricmc.fabric.api.biomes.v1.NetherBiomes;
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biomes.v1.OverworldClimate;
+import net.minecraft.class_5458;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import voronoiaoc.byg.BYG;
-import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class BYGBiomeRegistry {
     public static List<Biome> biomeList = new ArrayList<>();
@@ -213,101 +212,102 @@ public class BYGBiomeRegistry {
 
 
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate climate) {
-        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
-
-        if (spawn)
-            FabricBiomes.addSpawnBiome(biome);
-        if (weight > 0)
-            OverworldBiomes.addContinentalBiome(biome, climate, weight / 10.0F);
-
-        if (((BiomeTools) biome).getEdge() != null) {
-            if (Registry.BIOME.getId(((BiomeTools) biome).getEdge()) == null) {
-//                throw new NullPointerException();
-            }
-            else {
-                OverworldBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), 1);
-            }
-        }
-
-
-        if (((BiomeTools) biome).getBeach() != null) {
-            if (Registry.BIOME.getId(((BiomeTools) biome).getBeach()) == null) {
-//                throw new NullPointerException();
-            }
-            else {
-                OverworldBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), 1);
-            }
-        }
-
-
-        if (((BiomeTools) biome).getHill() != null) {
-            if (Registry.BIOME.getId(((BiomeTools) biome).getHill()) == null) {
-//                throw new NullPointerException();
-            }
-            else {
-                OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 1);
-            }
-        }
-
-
-        if (((BiomeTools) biome).getMutation() != null) {
-            if (Registry.BIOME.getId(((BiomeTools) biome).getMutation()) == null) {
-//                throw new NullPointerException();
-            }
-            else {
-                OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), 1);
-            }
-        }
-
-
-        if (((BiomeTools) biome).getRiver() != null) {
-            if (Registry.BIOME.getId(((BiomeTools) biome).getRiver()) == null) {
-//                throw new NullPointerException();
-            }
-            else {
-                OverworldBiomes.setRiverBiome(biome, ((BiomeTools) biome).getRiver());
-            }
-        }
-
-        biomeList.add(biome);
-
+        Registry.register(class_5458.field_25933, new Identifier(BYG.MODID, id), biome);
     }
+
+//        if (spawn)
+//            FabricBiomes.addSpawnBiome(biome);
+//        if (weight > 0)
+//            OverworldBiomes.addContinentalBiome(biome, climate, weight / 10.0F);
+//
+//        if (((BiomeTools) biome).getEdge() != null) {
+//            if (Registry.BIOME.getId(((BiomeTools) biome).getEdge()) == null) {
+////                throw new NullPointerException();
+//            }
+//            else {
+//                OverworldBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), 1);
+//            }
+//        }
+//
+//
+//        if (((BiomeTools) biome).getBeach() != null) {
+//            if (Registry.BIOME.getId(((BiomeTools) biome).getBeach()) == null) {
+////                throw new NullPointerException();
+//            }
+//            else {
+//                OverworldBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), 1);
+//            }
+//        }
+//
+//
+//        if (((BiomeTools) biome).getHill() != null) {
+//            if (Registry.BIOME.getId(((BiomeTools) biome).getHill()) == null) {
+////                throw new NullPointerException();
+//            }
+//            else {
+//                OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 1);
+//            }
+//        }
+//
+//
+//        if (((BiomeTools) biome).getMutation() != null) {
+//            if (Registry.BIOME.getId(((BiomeTools) biome).getMutation()) == null) {
+////                throw new NullPointerException();
+//            }
+//            else {
+//                OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), 1);
+//            }
+//        }
+//
+//
+//        if (((BiomeTools) biome).getRiver() != null) {
+//            if (Registry.BIOME.getId(((BiomeTools) biome).getRiver()) == null) {
+////                throw new NullPointerException();
+//            }
+//            else {
+//                OverworldBiomes.setRiverBiome(biome, ((BiomeTools) biome).getRiver());
+//            }
+//        }
+//
+//        biomeList.add(biome);
+//
+//    }
 
 
     private static void registerNetherBiome(Biome biome, String id) {
-        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
+        Registry.register(class_5458.field_25933, new Identifier(BYG.MODID, id), biome);
         NetherBiomes.addNetherBiome(biome);
     }
 
     public static void addBeachesCategorically() {
-        for (Biome biome : Registry.BIOME) {
-            if (!(biome instanceof BiomeTools)) {
-                if (Objects.requireNonNull(Registry.BIOME.getId(biome)).toString().contains("byg")) {
-                    if (biome.getPrecipitation() == Biome.Precipitation.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH)
-                        OverworldBiomes.addShoreBiome(biome, BYGBiomeList.SNOWYBLACKBEACH, 1);
-                }
-            }
-            if (Objects.requireNonNull(Registry.BIOME.getId(biome)).toString().contains("byg")) {
-                if (biome.getCategory() == Biome.Category.JUNGLE)
-                    OverworldBiomes.addShoreBiome(biome, BYGBiomeList.RAINBOWBEACH, 1);
-            }
-        }
+//        for (Biome biome : class_5458.field_25933) {
+//            if (!(biome instanceof BiomeTools)) {
+//                if (Objects.requireNonNull(Registry.BIOME.getId(biome)).toString().contains("byg")) {
+//                    if (biome.getPrecipitation() == Biome.Precipitation.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH)
+//                        OverworldBiomes.addShoreBiome(biome, BYGBiomeList.SNOWYBLACKBEACH, 1);
+//                }
+//            }
+//            if (Objects.requireNonNull(Registry.BIOME.getId(biome)).toString().contains("byg")) {
+//                if (biome.getCategory() == Biome.Category.JUNGLE)
+//                    OverworldBiomes.addShoreBiome(biome, BYGBiomeList.RAINBOWBEACH, 1);
+//            }
+//        }
     }
 
     private static void registerSubBiome(Biome biome, String id, boolean spawn) {
-        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
-        if (spawn) {
-            if (Registry.BIOME.getId(biome) == null) {
-            }
-            else {
-                FabricBiomes.addSpawnBiome(biome);
-            }
-        }
+        Registry.register(class_5458.field_25933, new Identifier(BYG.MODID, id), biome);
+//        if (spawn) {
+//            if (Registry.BIOME.getId(biome) == null) {
+//            }
+//            else {
+//                FabricBiomes.addSpawnBiome(biome);
+//            }
+//        }
         idx++;
     }
 
     private static void registerIsland(Biome island, String id, boolean spawn, Biome... oceanClimates) {
-        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), island);
+        Registry.register(class_5458.field_25933, new Identifier(BYG.MODID, id), island);
         if (spawn)
             FabricBiomes.addSpawnBiome(island);
         for (Biome oceanBiomeIdx : oceanClimates) {

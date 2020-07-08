@@ -41,7 +41,7 @@ public class CoralMangroves extends Biome {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
-        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(NopeDecoratorConfig.field_24892)));
+        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).method_30374(Decorator.TOP_SOLID_HEIGHTMAP.configure(NopeDecoratorConfig.field_24892)));
         BYGFeatures.addGrass(this);
         BYGFeatures.addCattails(this);
         BYGFeatures.addPeachleatherflower(this);
@@ -55,10 +55,10 @@ public class CoralMangroves extends Biome {
                 Feature.CORAL_TREE.configure(DefaultFeatureConfig.DEFAULT),
                 Feature.CORAL_CLAW.configure(DefaultFeatureConfig.DEFAULT),
                 Feature.CORAL_MUSHROOM.configure(DefaultFeatureConfig.DEFAULT))))
-                .createDecoratedFeature(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(7, 0.1F, 3))));
+                .method_30374(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(7, 0.1F, 3))));
 
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION,
-                Feature.SEA_PICKLE.configure(new SeaPickleFeatureConfig(20)).createDecoratedFeature(Decorator.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceDecoratorConfig(20))));
+                Feature.SEA_PICKLE.configure(new SeaPickleFeatureConfig(20)).method_30374(Decorator.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceDecoratorConfig(20))));
 
         DefaultBiomeFeatures.addSavannaTallGrass(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
