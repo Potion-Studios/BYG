@@ -135,7 +135,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.woodlands.Wo
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
-import voronoiaoc.byg.common.world.structure.village.BYGVillageStructureFeature;
+import voronoiaoc.byg.common.world.structure.village.BYGVillage//StructureFeature;
 
 
 public class BYGFeatureList {
@@ -226,8 +226,8 @@ public class BYGFeatureList {
 
 
     /********************************************************************Structures***********************************************************************/
-    public static final StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillageStructureFeature(StructurePoolFeatureConfig.CODEC);
-//    public static final StructureFeature<DefaultFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(DefaultFeatureConfig.CODEC);
+    public static final //StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillage//StructureFeature(StructurePoolFeatureConfig.CODEC);
+//    public static final //StructureFeature<DefaultFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(DefaultFeatureConfig.CODEC);
 //    public static final Feature<DefaultFeatureConfig> DOVERQUARRY = new DoverQuarry1(DefaultFeatureConfig.CODEC);
 
 

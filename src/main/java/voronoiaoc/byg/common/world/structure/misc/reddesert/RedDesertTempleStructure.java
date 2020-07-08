@@ -7,10 +7,9 @@
 //import net.minecraft.world.biome.Biome;
 //import net.minecraft.world.gen.chunk.ChunkGenerator;
 //import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-//import net.minecraft.world.gen.feature.StructureFeature;
-//import voronoiaoc.byg.BYG;
+////import voronoiaoc.byg.BYG;
 //
-//public class RedDesertTempleStructure extends StructureFeature<DefaultFeatureConfig> {
+//public class RedDesertTempleStructure extends //StructureFeature<DefaultFeatureConfig> {
 //    public RedDesertTempleStructure(Codec<DefaultFeatureConfig> config) {
 //        super(config);
 //    }
@@ -34,7 +33,7 @@
 ////    }
 //
 //    public static class Start extends StructureStart<DefaultFeatureConfig> {
-//        public Start(StructureFeature<DefaultFeatureConfig> structureFeature, int i, int j, BlockBox blockBox, int k, long l) {
+//        public Start(//StructureFeature<DefaultFeatureConfig> structureFeature, int i, int j, BlockBox blockBox, int k, long l) {
 //            super(structureFeature, i, j, blockBox, k, l);
 //        }
 //

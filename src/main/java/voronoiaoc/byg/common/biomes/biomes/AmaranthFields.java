@@ -8,7 +8,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
@@ -31,9 +30,9 @@ public class AmaranthFields extends Biome implements BiomeTools {
     static final String PARENT = null;
 
     public AmaranthFields() {
-        super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
-        this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        super(new Settings().configureSurfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
+        ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
+//        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
         BYGFeatures.addAmaranthFieldFlowers(this);
         DefaultBiomeFeatures.addLandCarvers(this);

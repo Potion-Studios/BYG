@@ -3,14 +3,13 @@
 //import net.minecraft.structure.StructurePieceType;
 //import net.minecraft.util.registry.Registry;
 //import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-//import net.minecraft.world.gen.feature.StructureFeature;
-////import voronoiaoc.byg.common.world.structure.misc.reddesert.RedDesertTemplePiece;
+//////import voronoiaoc.byg.common.world.structure.misc.reddesert.RedDesertTemplePiece;
 //import voronoiaoc.byg.common.world.structure.misc.reddesert.RedDesertTempleStructure;
 //
 //import java.util.Locale;
 //
 //public class BYGStructureList {
-//    public static final StructureFeature<DefaultFeatureConfig> RED_DESERT_PYRAMID = new RedDesertTempleStructure(DefaultFeatureConfig.CODEC);
+//    public static final //StructureFeature<DefaultFeatureConfig> RED_DESERT_PYRAMID = new RedDesertTempleStructure(DefaultFeatureConfig.CODEC);
 ////    public static StructurePieceType REDDESERTTEMPLE_PIECE = RedDesertTemplePiece::new;
 //
 ////    public static StructurePieceType SKYRISFORTRESS_CORRIDOR = SkyrisFortressPieces.Corridor::new;

@@ -46,7 +46,7 @@ public class EmburBogLake extends Feature<DefaultFeatureConfig> {
 
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, ChunkGenerator generator, Random random, BlockPos position, DefaultFeatureConfig config) {
         setSeed(world.getSeed());
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.down(2));
 

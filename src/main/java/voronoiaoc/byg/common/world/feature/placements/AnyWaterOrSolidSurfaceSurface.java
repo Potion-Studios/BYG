@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.feature.placements;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.class_5444;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldAccess;
@@ -17,6 +18,11 @@ public class AnyWaterOrSolidSurfaceSurface extends Decorator<CountDecoratorConfi
 
     public AnyWaterOrSolidSurfaceSurface(Codec<CountDecoratorConfig> config) {
         super(config);
+    }
+
+    @Override
+    public Stream<BlockPos> getPositions(class_5444 arg, Random random, CountDecoratorConfig decoratorConfig, BlockPos blockPos) {
+        return null;
     }
 
     public Stream<BlockPos> getPositions(WorldAccess world, ChunkGenerator generator, Random random, CountDecoratorConfig config, BlockPos pos) {

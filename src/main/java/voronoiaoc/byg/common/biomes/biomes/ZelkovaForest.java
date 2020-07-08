@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class ZelkovaForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
+    static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.TAIGA;
     static final double DEPTH = 0.2F;
@@ -32,10 +32,10 @@ public class ZelkovaForest extends Biome implements BiomeTools {
     static final String PARENT = null;
 
     public ZelkovaForest() {
-        super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        this.addStructureFeature(DefaultBiomeFeatures.IGLOO);
+        super(new Settings().configureSurfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
+        //this.add//StructureFeature(DefaultBiomeFeatures.IGLOO);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
-        this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);

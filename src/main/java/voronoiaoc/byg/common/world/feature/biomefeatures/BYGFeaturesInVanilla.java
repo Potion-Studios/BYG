@@ -47,7 +47,7 @@ public class BYGFeaturesInVanilla {
             }
 
 //            if (biome == Biomes.JUNGLE) {
-//                biome.addStructureFeature(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/jungle/town_centers"), 6));
+//                biome.add//StructureFeature(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/jungle/town_centers"), 6));
 //                biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/jungle/town_centers", 6)).method_30374(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
 //
 //            }

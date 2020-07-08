@@ -41,7 +41,7 @@ public class SythianTorrids extends Biome {
     static final String PARENT = null;
 
     public SythianTorrids() {
-        super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT)
+        super(new Settings().configureSurfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT)
                 .effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
                         .fogColor(16572546)
                         .particleConfig(new BiomeParticleConfig(ParticleTypes.CRIMSON_SPORE, 0.01428F))
@@ -52,9 +52,9 @@ public class SythianTorrids extends Biome {
                 .noises(ImmutableList.of(new MixedNoisePoint(-0.13F, 0.0F, 0.0F, 0.0F, 0.0F))));
 
         this.addCarver(GenerationStep.Carver.AIR, configureCarver(Carver.NETHER_CAVE, new ProbabilityConfig(0.2F)));
-        this.addStructureFeature(DefaultBiomeFeatures.NETHER_RUINED_PORTAL);
-        this.addStructureFeature(DefaultBiomeFeatures.FORTRESS);
-        this.addStructureFeature(DefaultBiomeFeatures.BASTION_REMNANT);
+        //this.add//StructureFeature(DefaultBiomeFeatures.NETHER_RUINED_PORTAL);
+        //this.add//StructureFeature(DefaultBiomeFeatures.FORTRESS);
+        //this.add//StructureFeature(DefaultBiomeFeatures.BASTION_REMNANT);
         this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SPRING_FEATURE.configure(DefaultBiomeFeatures.LAVA_SPRING_CONFIG).method_30374(Decorator.COUNT_VERY_BIASED_RANGE.configure(new RangeDecoratorConfig(20, 8, 16, 256))));
         this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.SPRING_FEATURE.configure(DefaultBiomeFeatures.NETHER_SPRING_CONFIG).method_30374(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(8, 4, 8, 128))));
         this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.configure(DefaultBiomeFeatures.NETHER_FIRE_CONFIG).method_30374(Decorator.FIRE.configure(new CountDecoratorConfig(10))));

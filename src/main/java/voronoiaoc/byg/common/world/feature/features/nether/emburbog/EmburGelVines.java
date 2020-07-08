@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -17,7 +16,7 @@ public class EmburGelVines extends Feature<DefaultFeatureConfig> {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor structureAccessor, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
         int randLength = rand.nextInt(2) + 3;
 
         if (!worldIn.isAir(pos)) {

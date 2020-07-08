@@ -33,8 +33,8 @@ public class ColdSwamplands extends Biome implements BiomeTools {
     static final String PARENT = null;
 
     public ColdSwamplands() {
-        super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        this.addStructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
+        super(new Settings().configureSurfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
+        //this.add//StructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDefaultLakes(this);

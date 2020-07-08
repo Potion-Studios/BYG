@@ -43,7 +43,7 @@ public class GlowstoneGardens extends Biome {
     static final String PARENT = null;
 
     public GlowstoneGardens() {
-        super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT)
+        super(new Settings().configureSurfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT)
                 .effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
                         .fogColor(13162605)
                         .particleConfig(new BiomeParticleConfig(ParticleTypes.MYCELIUM, 0.01428F))
@@ -54,9 +54,9 @@ public class GlowstoneGardens extends Biome {
                 .noises(ImmutableList.of(new MixedNoisePoint(0.65F, 0.0F, -0.43F, 0.0F, 0.0F))));
 
         this.addCarver(GenerationStep.Carver.AIR, configureCarver(Carver.NETHER_CAVE, new ProbabilityConfig(0.2F)));
-        this.addStructureFeature(DefaultBiomeFeatures.NETHER_RUINED_PORTAL);
-        this.addStructureFeature(DefaultBiomeFeatures.FORTRESS);
-        this.addStructureFeature(DefaultBiomeFeatures.BASTION_REMNANT);
+        //this.add//StructureFeature(DefaultBiomeFeatures.NETHER_RUINED_PORTAL);
+        //this.add//StructureFeature(DefaultBiomeFeatures.FORTRESS);
+        //this.add//StructureFeature(DefaultBiomeFeatures.BASTION_REMNANT);
         this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.SPRING_FEATURE.configure(DefaultBiomeFeatures.NETHER_SPRING_CONFIG).method_30374(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(8, 4, 8, 128))));
         this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.configure(DefaultBiomeFeatures.NETHER_FIRE_CONFIG).method_30374(Decorator.FIRE.configure(new CountDecoratorConfig(10))));
         this.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.configure(DefaultBiomeFeatures.SOUL_FIRE_CONFIG).method_30374(Decorator.FIRE.configure(new CountDecoratorConfig(10))));

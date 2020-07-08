@@ -17,7 +17,7 @@ public class EmburLily extends Feature<DefaultFeatureConfig> {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess worldIn, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
         if (!worldIn.isAir(pos) || !worldIn.getFluidState(pos.down()).isIn(FluidTags.LAVA)) {
             return false;
         } else {

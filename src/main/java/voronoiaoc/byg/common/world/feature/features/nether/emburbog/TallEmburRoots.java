@@ -22,7 +22,7 @@ public class TallEmburRoots extends Feature<DefaultFeatureConfig> {
 
     public static final EnumProperty<DoubleBlockHalf> HALF;
 
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess worldIn, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
         if (!worldIn.isAir(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.EMBUR_NYLIUM) {
             return false;
         } else {

@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.feature.placements;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.class_5444;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.WorldAccess;
@@ -18,6 +19,11 @@ public class AtOceanFloorWithExtra extends Decorator<CountExtraChanceDecoratorCo
 
     public AtOceanFloorWithExtra(Codec<CountExtraChanceDecoratorConfig> config) {
         super(config);
+    }
+
+    @Override
+    public Stream<BlockPos> getPositions(class_5444 arg, Random random, CountExtraChanceDecoratorConfig decoratorConfig, BlockPos blockPos) {
+        return null;
     }
 
     public Stream<BlockPos> getPositions(WorldAccess world, ChunkGenerator generator, Random random, CountExtraChanceDecoratorConfig config, BlockPos pos) {
