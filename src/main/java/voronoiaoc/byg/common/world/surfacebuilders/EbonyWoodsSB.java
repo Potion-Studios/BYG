@@ -10,8 +10,8 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import java.util.Random;
 
 public class EbonyWoodsSB extends SurfaceBuilder<TernarySurfaceConfig> {
-    public EbonyWoodsSB(Codec<TernarySurfaceConfig> p_i51312_1_) {
-        super(p_i51312_1_);
+    public EbonyWoodsSB(Codec<TernarySurfaceConfig> configIn) {
+        super(configIn);
     }
 
     public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {

@@ -33,7 +33,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
     public static boolean canTreePlaceHere(TestableWorld worldReader, BlockPos blockPos) {
         return worldReader.testBlockState(blockPos, (state) -> {
             Block block = state.getBlock();
-            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || state.getMaterial() == Material.SOIL || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM;
+            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || state.getMaterial() == Material.SOIL || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM || block == BYGBlockList.OVERGROWN_DACITE || block== BYGBlockList.PODZOL_DACITE;
         });
     }
 
@@ -67,7 +67,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         return worldIn.testBlockState(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
     }
 
-    public static boolean isDesiredGround(TestableWorld worldIn, BlockPos pos, Block... desiredGroundBlock) {
+    public static boolean isDesiredGroundwDirtTag(TestableWorld worldIn, BlockPos pos, Block... desiredGroundBlock) {
         return worldIn.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
@@ -76,6 +76,17 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
             return false;
         });
     }
+
+    public static boolean isDesiredGround(TestableWorld worldIn, BlockPos pos, Block... desiredGroundBlock) {
+        return worldIn.testBlockState(pos, (state) -> {
+            Block block = state.getBlock();
+            for (Block block1 : desiredGroundBlock) {
+                return block == block1;
+            }
+            return false;
+        });
+    }
+
 
     protected boolean doesTreeFit(TestableWorld reader, BlockPos blockPos, int height, int distance) {
         int x = blockPos.getX();

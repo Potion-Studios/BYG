@@ -18,6 +18,7 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
 
@@ -86,7 +87,7 @@ public class MangroveMarshes extends Biome implements BiomeTools {
     @Nullable
     @Override
     public Biome getHill() {
-        return null;
+        return BYGBiomeList.CORAL_MANGROVES;
     }
 
     @Nullable

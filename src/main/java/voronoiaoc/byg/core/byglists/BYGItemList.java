@@ -569,6 +569,20 @@ public class BYGItemList {
     public static Item SYTHIAN_STALK;
     public static Item SYTHIAN_NYLIUM;
 
+    public static Item EMBUR_NYLIUM;
+    public static Item EMBUR_PEDU;
+    public static Item EMBUR_ROOTS;
+    public static Item TALL_EMBUR_ROOTS;
+    public static Item EMBUR_WART;
+    public static Item EMBUR_GEL_BLOCK;
+    public static Item EMBUR_GEL_BALL;
+    public static Item EMBUR_GEL_VINES;
+    public static Item EMBUR_LILY;
+
+    public static Item BLUE_NETHERRACK;
+    public static Item BLUE_NETHERRACK_BRICKS;
+    public static Item BLUE_NETHERRACK_BRICK;
+
     public static Item IVIS_PHYLIUM;
     public static Item IVIS_ROOTS;
     public static Item IVIS_SPROUT;
@@ -799,19 +813,14 @@ public class BYGItemList {
     //Gems Items
     public static Item PENDORITE_SCRAPS;
     public static Item AMETRINE_GEMS;
-
-    //Tool Items
-    public static Item AMETRINE_SWORD;
-    public static Item AMETRINE_AXE;
-    public static Item AMETRINE_PICK;
-    public static Item AMETRINE_BATTLEAXE;
-    public static Item AMETRINE_HOE;
+    public static Item CHAIN_PLATING;
 
     public static Item PENDORITE_SWORD;
     public static Item PENDORITE_AXE;
     public static Item PENDORITE_PICK;
     public static Item PENDORITE_BATTLEAXE;
     public static Item PENDORITE_HOE;
+    public static Item PENDORITE_SHOVEL;
 
     //Armor Items
     public static Item AMETRINE_HELMET;

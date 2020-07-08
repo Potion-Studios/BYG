@@ -3,6 +3,7 @@ package voronoiaoc.byg.core.byglists;
 import net.minecraft.world.biome.Biome;
 import voronoiaoc.byg.common.biomes.beachbiomes.*;
 import voronoiaoc.byg.common.biomes.biomes.*;
+import voronoiaoc.byg.common.biomes.netherbiome.EmburBog;
 import voronoiaoc.byg.common.biomes.netherbiome.GlowstoneGardens;
 import voronoiaoc.byg.common.biomes.netherbiome.SythianTorrids;
 import voronoiaoc.byg.common.biomes.netherbiome.WarpedDesert;
@@ -18,6 +19,7 @@ public class BYGBiomeList {
     /************************************Biomes**********************************/
     public static final Biome ALLIUMFIELDS = new AlliumFields();
     public static final Biome ALPS = new Alps();
+    public static final Biome ANCIENTFOREST = new AncientForest();
     public static final Biome AMARANTHFIELDS = new AmaranthFields();
     public static final Biome ASPENFOREST = new AspenForest();
     public static final Biome AUTUMNAL_VALLEY = new AutumnalValley();
@@ -26,6 +28,7 @@ public class BYGBiomeList {
     public static final Biome BLUETAIGA = new BlueTaiga();
     public static final Biome BLUFFSTEEPS = new BluffSteeps();
     public static final Biome BOREALFOREST = new BorealForest();
+    public static final Biome CIKA_WOODS = new CikaWoods();
     public static final Biome COLDSWAMPLANDS = new ColdSwamplands();
     public static final Biome CRAGGARDENS = new CragGardens();
     public static final Biome REDROCKCANYON = new Canyons();
@@ -56,6 +59,7 @@ public class BYGBiomeList {
     public static final Biome REDDESERT = new RedDesert();
     public static final Biome REDOAKFOREST = new RedOakForest();
     public static final Biome RED_ROCK_MOUNTAINS = new RedRockMountains();
+    public static final Biome REDWOOD_TROPICS = new RedwoodTropics();
     public static final Biome SEASONALBIRCHFOREST = new SeasonalBirchForest();
     public static final Biome SEASONALDECIDUOUSFOREST = new SeasonalDeciduousForest();
     public static final Biome SEASONALFOREST = new SeasonalForest();
@@ -100,6 +104,7 @@ public class BYGBiomeList {
     public static final Biome GUIANA_CLEARING = new GuianaClearing();
     public static final Biome JACARANDA_CLEARING = new JacarandaClearing();
     public static final Biome PRAIRIECLEARING = new PrairieClearing();
+    public static final Biome REDWOOD_CLEARING = new RedwoodClearing();
     public static final Biome SEASONAL_DECIDUOUS_CLEARING = new SeasonalDeciduousClearing();
     public static final Biome SNOWY_CONIFEROUS_CLEARING = new SnowyConiferousClearing();
     public static final Biome SNOWY_DECIDUOUS_CLEARING = new SnowyDeciduousClearing();
@@ -107,12 +112,13 @@ public class BYGBiomeList {
     public static final Biome WEEPING_WTICH_CLEARING = new WeepingWitchClearing();
     public static final Biome ZELKOVA_CLEARING = new ZelkovaClearing();
 
-    //Hills - 23
+    //Hills - 25
     public static final Biome ALPINEFOOTHILLS = new AlpineFoothills();
     public static final Biome ASPENFORESTHILLS = new AspenForestHills();
     public static final Biome BLUETAIGAHILLS = new BlueTaigaHills();
     public static final Biome BOREALFORESTHILLS = new BorealForestHills();
     public static final Biome BLACK_FOREST_HILLS = new BlackForestHills();
+    public static final Biome CIKA_MOUNTAINS = new CikaMountains();
     public static final Biome CONIFEROUSFORESTHILLS = new ConiferousForestHills();
     public static final Biome DECIDUOUSFORESTHILLS = new DeciduousForestHills();
     public static final Biome EBONY_HILLS = new EbonyHills();
@@ -120,6 +126,7 @@ public class BYGBiomeList {
     public static final Biome EVERGREEN_HILLS = new EvergreenHills();
     public static final Biome JACARANDAFORESTHILLS = new JacarandaForestHills();
     public static final Biome MAPLE_HILLS = new MapleHills();
+    public static final Biome REDWOOD_MOUNTAINS = new RedwoodMountains();
     public static final Biome SEASONALBIRCHFORESTHILLS = new SeasonalBirchForestHills();
     public static final Biome SEASONALDECIDUOUSFORESTHILLS = new SeasonalDeciduousForestHills();
     public static final Biome SEASONALFORESTHILLS = new SeasonalForestHills();
@@ -146,10 +153,11 @@ public class BYGBiomeList {
     //Bluff - 1
     public static final Biome BLUFFPEAKS = new BluffPeaks();
 
-    //Flowering - 3
+    //Flowering - 4
     public static final Biome FLOWERING_ENCHANTED_GROVE = new FloweringEnchantedGrove();
     public static final Biome FLOWERING_GROVE = new FloweringGrove();
     public static final Biome FLOWERINGMEADOW = new FloweringMeadow();
+    public static final Biome FLOWERING_ANCIENT_FOREST = new FloweringAncientForest();
 
     //RedRock - 3
     public static final Biome RED_ROCK_LOWLANDS = new RedRockLowlands();
@@ -167,6 +175,7 @@ public class BYGBiomeList {
     public static final Biome FOREST_FAULT = new ForestFault();
     public static final Biome FUNGAL_PATCH = new FungalPatch();
     public static final Biome GREATLAKEISLES = new GreatLakeIsles();
+    public static final Biome GLOWING_ANCIENT_FOREST = new GlowingAncientForest();
     public static final Biome LUSHREDDESERT = new LushRedDesert();
     public static final Biome MARSHLANDS = new MarshLands();
     public static final Biome NORTHERN_FOREST = new NorthernForest();
@@ -174,12 +183,13 @@ public class BYGBiomeList {
     public static final Biome REDDESERTDUNES = new RedDesertDunes();
     public static final Biome SIERRARANGE = new SierraRange();
     public static final Biome SEASONALGIANTTAIGA = new SeasonalGiantTaiga();
-
+    public static final Biome CORAL_MANGROVES = new CoralMangroves();
 
     /**************************Nether biomes - 3**************/
     public static final Biome WARPEDDESERT = new WarpedDesert();
     public static final Biome SYTHIANTORRIDS = new SythianTorrids();
     public static final Biome GLOWSTONEGARDENS = new GlowstoneGardens();
+    public static final Biome EMBURBOG = new EmburBog();
 
     //End
 //    public static final Biome IVISFIELDS = new IvisFields();

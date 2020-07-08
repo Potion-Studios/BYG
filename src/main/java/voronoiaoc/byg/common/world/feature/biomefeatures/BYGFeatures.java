@@ -48,6 +48,12 @@ public class BYGFeatures {
 
     }
 
+    public static void addFernGrass(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_GRASS_CONFIG).createDecoratedFeature(Decorator.NOISE_HEIGHTMAP_DOUBLE.configure(new NoiseHeightmapDecoratorConfig(-0.8D, 5, 10))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(DefaultBiomeFeatures.TAIGA_GRASS_CONFIG).createDecoratedFeature(Decorator.NOISE_HEIGHTMAP_DOUBLE.configure(new NoiseHeightmapDecoratorConfig(-0.8D, 5, 10))));
+
+    }
+
     public static void addBYGDesertPlants(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PRICKLY_PEAR_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.GOLDEN_SPINED_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
@@ -93,6 +99,17 @@ public class BYGFeatures {
 
     public static void addVolcanicCarvers(Biome biome) {
         biome.addCarver(GenerationStep.Carver.AIR, Biome.configureCarver(BYGFeatureList.VOLCANIC_CARVER, new ProbabilityConfig(0.02F)));
+
+    }
+
+    public static void addEmburBogVegetation(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(2, 0.5F, 3))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM2.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(2, 0.5F, 3))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_ROOTS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(15, 0.5F, 12))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.TALL_EMBUR_ROOTS.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(15, 0.5F, 12))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.EMBUR_GEL_VINES.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(20, 0.8F, 6))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_WART.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(3, 0.5F, 2))));
+        biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_LILY.configure(FeatureConfig.DEFAULT).createDecoratedFeature(UnderGroundPlacement.UGPLACER.configure(new CountExtraChanceDecoratorConfig(2, 0.5F, 2))));
 
     }
 

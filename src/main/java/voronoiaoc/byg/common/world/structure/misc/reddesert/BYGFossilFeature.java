@@ -12,8 +12,7 @@ package voronoiaoc.byg.common.world.structure.misc.reddesert;//package voronoiao
 //import net.minecraft.world.gen.GenerationSettings;
 //import net.minecraft.world.gen.Heightmap;
 //import net.minecraft.world.gen.feature.Feature;
-//import net.minecraft.world.gen.feature.NoFeatureConfig;
-//import net.minecraft.world.gen.feature.template.*;
+////import net.minecraft.world.gen.feature.template.*;
 //import net.minecraft.world.server.ServerWorld;
 //
 //import java.util.Random;

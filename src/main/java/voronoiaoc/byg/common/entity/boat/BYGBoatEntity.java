@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.entity.boat;
 
+import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -20,13 +21,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import voronoiaoc.byg.common.network.CustomEntitySpawnS2CPacket;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGEntityList;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 
 @SuppressWarnings("EntityConstructor")
 public class BYGBoatEntity extends BoatEntity {
-    private static final TrackedData<Integer> BYG_BOAT_TYPE = DataTracker.registerData(BYGBoatEntity.class, TrackedDataHandlerRegistry.INTEGER);;
+    private static final TrackedData<Integer> BYG_BOAT_TYPE = DataTracker.registerData(BYGBoatEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public BYGBoatEntity(World world, double x, double y, double z) {
         this(BYGEntityList.BYGBOAT ,world);
@@ -39,8 +41,6 @@ public class BYGBoatEntity extends BoatEntity {
 
     public BYGBoatEntity(EntityType<? extends BoatEntity> boatEntityType, World world) {
         super(boatEntityType, world);
-        this.paddlePhases = new float[2];
-        this.inanimate = true;
     }
 
     @Override
@@ -160,82 +160,13 @@ public class BYGBoatEntity extends BoatEntity {
 
     @Override
     protected void readCustomDataFromTag(CompoundTag compound) {
-        if (compound.contains("BYGType", 8)) {
+        if (compound.contains("BYGType", NbtType.STRING)) {
             this.setBYGBoatType(BYGType.getTypeFromString(compound.getString("BYGType")));
         }
     }
-
-    @Override
-    public void animateDamage() {
-        this.setDamageWobbleSide(-this.getDamageWobbleSide());
-        this.setDamageWobbleTicks(10);
-        this.setDamageWobbleStrength(this.getDamageWobbleStrength() * 11.0F);
-    }
-
-
-    @Override
-    protected void fall(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
-        this.fallVelocity = this.getVelocity().y;
-        if (!this.hasVehicle()) {
-            if (onGroundIn) {
-                if (this.fallDistance > 3.0F) {
-                    if (this.location != BoatEntity.Location.ON_LAND) {
-                        this.fallDistance = 0.0F;
-                        return;
-                    }
-
-                    this.handleFallDamage(this.fallDistance, 1.0F);
-                    if (!this.world.isClient && !this.removed) {
-                        this.remove();
-                        if (this.world.getGameRules().getBoolean(GameRules.DO_ENTITY_DROPS)) {
-                            for (int i = 0; i < 3; ++i) {
-                                this.dropItem(this.getPlanks());
-                            }
-
-                            for (int j = 0; j < 2; ++j) {
-                                this.dropItem(Items.STICK);
-                            }
-
-                            this.dropItem(Blocks.AIR);
-                        }
-                    }
-                }
-
-                this.fallDistance = 0.0F;
-            } else if (!this.world.getFluidState(this.getBlockPos().down()).isIn(FluidTags.WATER) && y < 0.0D) {
-                this.fallDistance = (float) ((double) this.fallDistance - y);
-            }
-
-        }
-    }
-
-    @Override
-    public boolean damage(DamageSource source, float amount) {
-        if (this.isInvulnerableTo(source)) {
-            return false;
-        } else if (!this.world.isClient && !this.removed) {
-            this.setDamageWobbleSide(-this.getDamageWobbleSide());
-            this.setDamageWobbleTicks(10);
-            this.setDamageWobbleStrength(this.getDamageWobbleStrength() + amount * 10.0F);
-            this.scheduleVelocityUpdate();
-            boolean bl = source.getAttacker() instanceof PlayerEntity && ((PlayerEntity)source.getAttacker()).abilities.creativeMode;
-            if (bl || this.getDamageWobbleStrength() > 40.0F) {
-                if (!bl && this.world.getGameRules().getBoolean(GameRules.DO_ENTITY_DROPS)) {
-                    this.dropItem(this.asItem());
-                }
-
-                this.remove();
-            }
-
-            return true;
-        } else {
-            return true;
-        }
-    }
-
-    @Override
+        @Override
     public Packet<?> createSpawnPacket() {
-        return new EntitySpawnS2CPacket(this);
+        return CustomEntitySpawnS2CPacket.createSpawnPacket(this);
     }
 
     public enum BYGType {

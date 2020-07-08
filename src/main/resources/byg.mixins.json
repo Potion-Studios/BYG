@@ -4,11 +4,13 @@
   "package": "voronoiaoc.byg.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "client.render.MixinGameRenderer",
+    "common.AbstractBlockStateBookshelfMixin",
     "common.FeatureMixin",
+    "common.MixinDimensionType",
     "common.PlantBlockMixin"
   ],
   "client": [
+    "client.render.MixinGameRenderer"
   ],
   "injectors": {
     "defaultRequire": 1

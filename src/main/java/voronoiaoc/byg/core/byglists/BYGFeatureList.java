@@ -1,11 +1,15 @@
 package voronoiaoc.byg.core.byglists;
 
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.carver.Carver;
 import net.minecraft.world.gen.feature.*;
+import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.biomefeatures.FrostMagmaLakeFeature;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
+import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianSprout;
@@ -23,6 +27,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.IrisG
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.RoseGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.acacia.AcaciaTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownBirchTree;
@@ -38,6 +45,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkC
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkCherry2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cypress.CypressTree2;
@@ -88,6 +98,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.Pum
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.PumpkinPatch3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.LargeRainbowEucalyptus;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree3;
@@ -201,6 +214,16 @@ public class BYGFeatureList {
     public static final Feature<DefaultFeatureConfig> WEEPING_ROOTS = new WeepingRoots(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> WEEPING_ROOTS_PLANT = new WeepingRootsPlant(DefaultFeatureConfig.CODEC);
 
+    //Embur
+    public static final Feature<DefaultFeatureConfig> EMBURLAKE = new EmburBogLake(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBURMUSHROOM = new EmburMushroom(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBURMUSHROOM2 = new EmburMushroom2(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_GEL_VINES = new EmburGelVines(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_ROOTS = new EmburRoots(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> TALL_EMBUR_ROOTS = new TallEmburRoots(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_WART = new EmburWart(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_LILY = new EmburLily(DefaultFeatureConfig.CODEC);
+
 
     /********************************************************************Structures***********************************************************************/
     public static final StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillageStructureFeature(StructurePoolFeatureConfig.CODEC);
@@ -212,6 +235,11 @@ public class BYGFeatureList {
     //Acacia
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ACACIA_TREE1 = new AcaciaTree1(DefaultFeatureConfig.CODEC);
 //    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ACACIA_TREE2 = new AcaciaTree2(DefaultFeatureConfig.CODEC);
+
+    //Ancient
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ANCIENT_TREE1 = new AncientTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ANCIENT_TREE2 = new AncientTree2(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ANCIENT_TREE3 = new AncientTree3(DefaultFeatureConfig.CODEC);
 
     //Aspen
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ASPEN_SHRUB1 = new AspenShrub(DefaultFeatureConfig.CODEC);
@@ -244,6 +272,11 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CHERRY_PINK_TREE2 = new PinkCherry2(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CHERRY_WHITE_TREE1 = new WhiteCherry1(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CHERRY_WHITE_TREE2 = new WhiteCherry2(DefaultFeatureConfig.CODEC);
+
+    //Cika
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CIKA_TREE1 = new CikaTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CIKA_TREE2 = new CikaTree2(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CIKA_TREE3 = new CikaTree3(DefaultFeatureConfig.CODEC);
 
     //Coniferous
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> CONIFER_TREE1 = new ConiferTree1(DefaultFeatureConfig.CODEC);
@@ -351,8 +384,9 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> RAINBOW_LARGE_TREE1 = new LargeRainbowEucalyptus(DefaultFeatureConfig.CODEC);
 
     //RedWood
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> REDWOOD_TREE1 = new EbonyTree1(DefaultFeatureConfig.CODEC);
-
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> REDWOOD_TREE1 = new RedwoodTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> REDWOOD_TREE2 = new RedwoodTree2(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> REDWOOD_TREE3 = new RedwoodTree3(DefaultFeatureConfig.CODEC);
     //Seasonal Oaks
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> OAK_BROWN_TREE1 = new BrownOakTree(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> OAK_ORANGE_TREE1 = new OrangeOakTree(DefaultFeatureConfig.CODEC);
@@ -409,6 +443,51 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ZELKOVA_TREE1 = new ZelkovaTree(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ZELKOVA_TREE2 = new ZelkovaTree2(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ZELKOVA_TREE3 = new ZelkovaTree3(DefaultFeatureConfig.CODEC);
+
+
+    public static class RegisterFeatures {
+
+        public static void registerBYGFeatures() {
+            registerFeature(DUMMY_TREE, "dummy_tree");
+            registerFeature(DEADSEASPIKES, "dead_sea_spike");
+            registerFeature(TALLDEADSEASPIKES, "dead_sea_spike_takk");
+            registerFeature(OBBYSPIKES, "obsidian_spike");
+            registerFeature(CACTUS, "canyon_cactus");
+            registerFeature(BLACKICESNOW, "black_ice_and_snow");
+            registerFeature(LAKE_FROST, "frosted_lake");
+            registerFeature(LAKE_WIDE_SHALLOW, "lake_wide_shallow");
+            registerFeature(LAKE_WIDE_SHALLOW, "lava_lake_wide_shallow");
+            registerFeature(VINES, "vines");
+            registerFeature(PUMPKIN_PATCH1, "pumpkin");
+            registerFeature(PUMPKIN_PATCH2, "pumpkin2");
+            registerFeature(PUMPKIN_PATCH3, "pumpkin3");
+            registerFeature(GIANT_ANGELICA_FLOWER, "giant_angelica_flower");
+            registerFeature(GIANT_DANDELION_FLOWER, "giant_dandelion_flower");
+            registerFeature(GIANT_IRIS_FLOWER, "giant_iris_flower");
+            registerFeature(GIANT_ROSE_FLOWER, "giant_rose");
+            registerFeature(GREEN_MUSHROOM_HUGE, "green_mushroom_huge");
+            registerFeature(WOOD_BLEWIT_HUGE, "wood_blewit_huge");
+            registerFeature(WEEPING_MILKCAP_HUGE, "weeping_milkcap_huge");
+            registerFeature(BLACK_PUFF_HUGE, "black_puff_huge");
+            registerFeature(BLUE_GLOWSHROOM_HUGE, "blue_glowshroom_huge");
+            registerFeature(PURPLE_GLOWSHROOM_HUGE, "purple_glowshroom_huge");
+            registerFeature(BLACK_PUFF, "black_puff");
+            registerFeature(GREEN_MUSHROOM, "green_mushroom");
+            registerFeature(NETHER_BRISTLE, "nether_bristle");
+            registerFeature(SYTHIAN_SPROUT, "sythian_sprout");
+            registerFeature(SYTHIAN_STALK, "sythian_stalk");
+            registerFeature(SYTHIAN_ROOTS, "sythian_roots");
+
+        }
+
+
+
+        public static void registerFeature(Feature<?> feature, String registryName) {
+            Registry.register(Registry.FEATURE, new Identifier(BYG.MODID, registryName), feature);
+
+        }
+
+    }
 }
 
 

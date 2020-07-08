@@ -5,15 +5,18 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
 import voronoiaoc.byg.common.properties.vanilla.BYGFlammables;
 import voronoiaoc.byg.common.properties.vanilla.BYGHoeables;
 import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
+import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 import voronoiaoc.byg.core.registries.BYGBlockRegistry;
+import voronoiaoc.byg.core.registries.BYGEntityRegistry;
 import voronoiaoc.byg.core.registries.BYGItemRegistry;
 
 public class BYG implements ModInitializer {
@@ -30,6 +33,7 @@ public class BYG implements ModInitializer {
         BYGItemRegistry.registerItems();
         BYGBiomeRegistry.registerSubBiomes();
         BYGBiomeRegistry.registerBiomes();
+        BYGEntityRegistry.registerEntities();
 
         //Misc
         BYGBiomeRegistry.addBeachesCategorically();
@@ -40,10 +44,11 @@ public class BYG implements ModInitializer {
         BYGHoeables.tillablesBYG();
         BYGStrippables.strippableLogsBYG();
         BYGCompostables.compostablesBYG();
+        Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
 
 //        BYGBiomeRegistry.biomeList.forEach(biome -> {
 //            idx++;
-//            System.out.println(idx + ". " + Registry.BIOME.getId(biome).toString() + " ID #: " + Registry.BIOME.getRawId(biome));
+//            System.out.println(idx + ". " + Registry.BIOME.getId(biome).toString().replace("_", "").replace("byg:", ""));
 //
 //        });
         LOGGER.info("Initialized BYG!");
