@@ -22,7 +22,7 @@ public class WarpedCoralFeature extends Feature<DefaultFeatureConfig> {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();

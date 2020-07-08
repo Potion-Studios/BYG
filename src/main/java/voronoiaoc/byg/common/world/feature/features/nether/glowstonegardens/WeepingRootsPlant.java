@@ -18,7 +18,7 @@ public class WeepingRootsPlant extends Feature<DefaultFeatureConfig> {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess worldIn, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
         int randLength = random.nextInt(7) + 3;
 
         if (!worldIn.isAir(pos)) {

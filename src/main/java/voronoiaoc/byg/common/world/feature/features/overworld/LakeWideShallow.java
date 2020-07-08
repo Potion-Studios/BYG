@@ -13,7 +13,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.noise.OctaveSimplexNoiseSampler;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -45,7 +44,7 @@ public class LakeWideShallow extends Feature<DefaultFeatureConfig> {
 
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, ChunkGenerator generator, Random random, BlockPos position, DefaultFeatureConfig config) {
         setSeed(world.getSeed());
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.down(2));
 

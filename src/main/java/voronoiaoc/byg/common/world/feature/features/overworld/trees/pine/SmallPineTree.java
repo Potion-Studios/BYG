@@ -11,7 +11,6 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -26,7 +25,7 @@ public class SmallPineTree extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ServerWorldAccess serverWorldAccess, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess serverWorldAccess, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
         if (pos.getX() == -8 && pos.getZ() == -9) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {

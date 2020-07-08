@@ -25,7 +25,7 @@ public class BayouTree2 extends Feature<DefaultFeatureConfig> {
     }
 
 
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
         int randChance = rand.nextInt(2);
         int randChance2 = (-4 + rand.nextInt(9));
         int randTreeHeight = rand.nextInt(6) + 14;

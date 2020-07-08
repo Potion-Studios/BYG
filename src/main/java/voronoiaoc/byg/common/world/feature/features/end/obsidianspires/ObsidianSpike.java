@@ -38,7 +38,7 @@ public class ObsidianSpike extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, ChunkGenerator generator, Random rand, BlockPos position, DefaultFeatureConfig config) {
         setSeed(world.getSeed());
         int randLightHeight = rand.nextInt(25);
         int randChance = rand.nextInt(26);

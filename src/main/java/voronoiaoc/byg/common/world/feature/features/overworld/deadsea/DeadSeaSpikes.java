@@ -40,7 +40,7 @@ public class DeadSeaSpikes extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess world, ChunkGenerator generator, Random rand, BlockPos position, DefaultFeatureConfig config) {
         long randomLong = rand.nextLong();
         setSeed(world.getSeed() + 215465128 + randomLong);
         double noise;

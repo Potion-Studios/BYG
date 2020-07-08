@@ -19,7 +19,7 @@ public class VinePlacer extends Feature<DefaultFeatureConfig> {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
         BlockPos.Mutable block = new BlockPos.Mutable().set(blockPos);
         BlockPos.Mutable mainMutable = new BlockPos.Mutable().set(block);

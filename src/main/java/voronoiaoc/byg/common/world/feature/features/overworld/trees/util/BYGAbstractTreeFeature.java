@@ -14,7 +14,6 @@ import net.minecraft.world.ModifiableTestableWorld;
 import net.minecraft.world.ModifiableWorld;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -134,7 +133,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
     }
 
     @Override
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public boolean generate(ServerWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
         Set<BlockPos> set = Sets.newHashSet();
         BlockBox mutableboundingbox = BlockBox.empty();
         boolean flag = this.place(set, worldIn, rand, pos, mutableboundingbox);

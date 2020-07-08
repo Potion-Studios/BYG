@@ -22,7 +22,7 @@ public class BlackIceAndSnowFeature extends Feature<DefaultFeatureConfig> {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(ServerWorldAccess worldIn, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
         BlockPos.Mutable blockpos$mutable1 = new BlockPos.Mutable();
 
