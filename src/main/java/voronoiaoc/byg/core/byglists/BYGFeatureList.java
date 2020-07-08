@@ -461,6 +461,22 @@ public class BYGFeatureList {
             registerFeature(PUMPKIN_PATCH1, "pumpkin");
             registerFeature(PUMPKIN_PATCH2, "pumpkin2");
             registerFeature(PUMPKIN_PATCH3, "pumpkin3");
+            registerFeature(GIANT_ANGELICA_FLOWER, "giant_angelica_flower");
+            registerFeature(GIANT_DANDELION_FLOWER, "giant_dandelion_flower");
+            registerFeature(GIANT_IRIS_FLOWER, "giant_iris_flower");
+            registerFeature(GIANT_ROSE_FLOWER, "giant_rose");
+            registerFeature(GREEN_MUSHROOM_HUGE, "green_mushroom_huge");
+            registerFeature(WOOD_BLEWIT_HUGE, "wood_blewit_huge");
+            registerFeature(WEEPING_MILKCAP_HUGE, "weeping_milkcap_huge");
+            registerFeature(BLACK_PUFF_HUGE, "black_puff_huge");
+            registerFeature(BLUE_GLOWSHROOM_HUGE, "blue_glowshroom_huge");
+            registerFeature(PURPLE_GLOWSHROOM_HUGE, "purple_glowshroom_huge");
+            registerFeature(BLACK_PUFF, "black_puff");
+            registerFeature(GREEN_MUSHROOM, "green_mushroom");
+            registerFeature(NETHER_BRISTLE, "nether_bristle");
+            registerFeature(SYTHIAN_SPROUT, "sythian_sprout");
+            registerFeature(SYTHIAN_STALK, "sythian_stalk");
+            registerFeature(SYTHIAN_ROOTS, "sythian_roots");
 
         }
 
