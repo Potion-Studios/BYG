@@ -39,7 +39,6 @@ import voronoiaoc.byg.core.byglists.BYGEntityList;
 @Mod("byg")
 public class BYG {
     public static final String MOD_ID = "byg";
-    //    public static final WorldType BYGWORLDTYPE = new BYGWorldType();
     public static boolean isClient = false;
     public static Logger LOGGER = LogManager.getLogger();
     public static boolean isUsingMixin;
@@ -61,11 +60,6 @@ public class BYG {
         BYGNetherBiomeCatch.netherBiomeConfigCollection();
         BYGFeaturesInVanilla.addFeatures();
         BYGBiomeWeightSystem.addBiomesToWeightSystem();
-//        List<Structure<?>> tempList = new ArrayList<>(Feature.ILLAGER_STRUCTURES);
-//        tempList.add(BYGFeatureList.BYGVILLAGE);
-//        Feature.ILLAGER_STRUCTURES = ImmutableList.copyOf(tempList);
-//        BYGBiomeLayer.addVanillaBiomes();
-
         Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygworld"), BYGBiomeProvider116.BYGBPCODEC);
@@ -82,7 +76,6 @@ public class BYG {
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
         BYGCutoutRenders.renderCutOuts();
         MainMenuBYG.mainMenuPanorama();
-//        DimensionOverride.dimensionOverrideClient();
         RenderingRegistry.registerEntityRenderingHandler(BYGEntityList.BYGBOAT, BYGBoatRenderer::new);
         WorldType116.addGenerator();
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
@@ -94,8 +87,6 @@ public class BYG {
         BYGHoeables.hoeablesBYG();
         BYGFlammables.flammablesBYG();
         BYGStrippables.strippableLogsBYG();
-//        BYGBoatDispenseRegister.dispenseBoatBehavior();
-//        DimensionOverride.dimensionOverrideServerCommon();
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
     }
 }

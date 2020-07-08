@@ -60,7 +60,7 @@ public class CragGardens extends Biome implements BiomeFog {
         EntitySpawns.addCreatures(this);
         EntitySpawns.addMonsters(this);
     }
-
+    
     @Override
     public Biome getRiver() {
         return this;
