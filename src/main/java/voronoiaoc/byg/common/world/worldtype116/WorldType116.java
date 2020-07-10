@@ -30,11 +30,11 @@ public class WorldType116 extends BiomeGeneratorTypeScreens {
         return new NoiseChunkGenerator(new BYGBiomeProvider116(seed), seed, DimensionSettings.Preset.field_236122_b_.func_236137_b_());
     }
 
-    public static ChunkGenerator netherBiomeProvider(long seed) {
+    public static ChunkGenerator bygNetherGenerator(long seed) {
         return new NoiseChunkGenerator(new BYGNetherBiomeProvider(seed), seed, DimensionSettings.Preset.field_236124_d_.func_236137_b_());
     }
 
-    public static ChunkGenerator endBiomeProvider(long seed) {
+    public static ChunkGenerator bygEndGenerator(long seed) {
         return new NoiseChunkGenerator(new BYGEndBiomeProvider(seed), seed, DimensionSettings.Preset.field_236125_e_.func_236137_b_());
     }
 
@@ -45,8 +45,8 @@ public class WorldType116 extends BiomeGeneratorTypeScreens {
 
     public static SimpleRegistry<Dimension> pickBYGDimension(long seed) {
         SimpleRegistry<Dimension> simpleregistry = new SimpleRegistry<>(Registry.DIMENSION_KEY, Lifecycle.experimental());
-        simpleregistry.register(Dimension.field_236054_c_, new Dimension(() -> DimensionType.field_236005_i_, netherBiomeProvider(seed)));
-        simpleregistry.register(Dimension.field_236055_d_, new Dimension(() -> DimensionType.field_236006_j_, endBiomeProvider(seed)));
+        simpleregistry.register(Dimension.field_236054_c_, new Dimension(() -> DimensionType.field_236005_i_, bygNetherGenerator(seed)));
+        simpleregistry.register(Dimension.field_236055_d_, new Dimension(() -> DimensionType.field_236006_j_, bygEndGenerator(seed)));
         simpleregistry.func_239662_d_(Dimension.field_236054_c_);
         simpleregistry.func_239662_d_(Dimension.field_236055_d_);
         return simpleregistry;
