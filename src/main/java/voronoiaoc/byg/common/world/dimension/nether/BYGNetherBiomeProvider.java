@@ -5,6 +5,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.fabricmc.fabric.impl.biome.InternalBiomeData;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.source.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
 
@@ -44,4 +45,15 @@ public class BYGNetherBiomeProvider extends BiomeSource {
     }
 
     public static List<Biome> biomeList = new ArrayList<>(InternalBiomeData.getNetherBiomes());
+
+
+
+    static {
+        biomeList.add(Biomes.CRIMSON_FOREST);
+        biomeList.add(Biomes.SOUL_SAND_VALLEY);
+        biomeList.add(Biomes.WARPED_FOREST);
+        biomeList.add(Biomes.NETHER_WASTES);
+        biomeList.add(Biomes.BASALT_DELTAS);
+
+    }
 }
