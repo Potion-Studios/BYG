@@ -29,8 +29,8 @@ public class BYGNetherBiomeCatch {
     public static final int CRIMSONFOREST = BiomeRegistry.getID(Biomes.field_235250_aA_);
     public static final int WARPEDFOREST = BiomeRegistry.getID(Biomes.field_235250_aA_);
     public static final int EMBURBOG = BiomeRegistry.getID(BYGBiomeList.EMBURBOG);
-    public static final int ASHENINFERNO = BiomeRegistry.getID(new ResourceLocation("biomesoplenty:ashen_inferno"));
-    public static final int UNDERGARDEN = BiomeRegistry.getID(new ResourceLocation("biomesoplenty:undergarden"));
+    public static final int WITHEREDABYSS = BiomeRegistry.getID(new ResourceLocation("biomesoplenty:withered_abyss"));
+    public static final int UNDERGROWTH = BiomeRegistry.getID(new ResourceLocation("biomesoplenty:undergrowth"));
     public static final int VISCERALHEAP = BiomeRegistry.getID(new ResourceLocation("biomesoplenty:visceral_heap"));
 
 
@@ -67,7 +67,7 @@ public class BYGNetherBiomeCatch {
         BYG.LOGGER.debug("BYG: Nether Biome Config Collection completed!");
     }
 
-    static {
+   public static void addNetherBiomeIDs() {
         netherBiomeIDS.add(NETHER);
         netherBiomeIDS.add(WARPEDDESERT);
         netherBiomeIDS.add(SYTHIANTORRIDS);
@@ -79,8 +79,8 @@ public class BYGNetherBiomeCatch {
         netherBiomeIDS.add(CRIMSONFOREST);
 
         if (ModList.get().isLoaded("biomesoplenty")) {
-            netherBiomeIDS.add(ASHENINFERNO);
-            netherBiomeIDS.add(UNDERGARDEN);
+            netherBiomeIDS.add(WITHEREDABYSS);
+            netherBiomeIDS.add(UNDERGROWTH);
             netherBiomeIDS.add(VISCERALHEAP);
         }
     }
