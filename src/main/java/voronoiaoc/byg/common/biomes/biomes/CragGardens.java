@@ -71,6 +71,7 @@ public class CragGardens extends Biome implements BiomeFog {
         return this;
     }
 
+
     @Override
     public Vec3d getBiomeFogColor(int x, int z, Vec3d originalValue) {
         return color;

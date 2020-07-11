@@ -73,10 +73,4 @@ public class Quagmire extends Biome {
     public int getFoliageColor(BlockPos pos) {
         return 7048739;
     }
-
-    @OnlyIn(Dist.CLIENT)
-    public int getSkyColor() {
-        return 13789470;
-    }
-
 }

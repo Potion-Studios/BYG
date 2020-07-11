@@ -101,11 +101,6 @@ public class PumpkinForest extends Biome implements BiomeFog {
     Vec3d color = new Vec3d(192, 192, 192);
 
     @Override
-    public int getSkyColor() {
-        return 12632256;
-    }
-
-    @Override
     public Boolean doesBiomeXZShowFog(int x, int z) {
         return false;
     }
