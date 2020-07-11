@@ -4,8 +4,8 @@ import net.fabricmc.fabric.api.biomes.v1.FabricBiomes;
 import net.fabricmc.fabric.api.biomes.v1.NetherBiomes;
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biomes.v1.OverworldClimate;
-import net.minecraft.class_5458;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -212,7 +212,7 @@ public class BYGBiomeRegistry {
 
 
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate climate) {
-        Registry.register(class_5458.field_25933, new Identifier(BYG.MODID, id), biome);
+        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
     }
 
 //        if (spawn)
@@ -275,7 +275,7 @@ public class BYGBiomeRegistry {
 
 
     private static void registerNetherBiome(Biome biome, String id) {
-        Registry.register(class_5458.field_25933, new Identifier(BYG.MODID, id), biome);
+        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
         NetherBiomes.addNetherBiome(biome);
     }
 
@@ -295,7 +295,7 @@ public class BYGBiomeRegistry {
     }
 
     private static void registerSubBiome(Biome biome, String id, boolean spawn) {
-        Registry.register(class_5458.field_25933, new Identifier(BYG.MODID, id), biome);
+        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
 //        if (spawn) {
 //            if (Registry.BIOME.getId(biome) == null) {
 //            }
@@ -307,7 +307,7 @@ public class BYGBiomeRegistry {
     }
 
     private static void registerIsland(Biome island, String id, boolean spawn, Biome... oceanClimates) {
-        Registry.register(class_5458.field_25933, new Identifier(BYG.MODID, id), island);
+        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), island);
         if (spawn)
             FabricBiomes.addSpawnBiome(island);
         for (Biome oceanBiomeIdx : oceanClimates) {

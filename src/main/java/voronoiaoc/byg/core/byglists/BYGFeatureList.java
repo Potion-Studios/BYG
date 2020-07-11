@@ -135,7 +135,6 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.woodlands.Wo
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
-import voronoiaoc.byg.common.world.structure.village.BYGVillage//StructureFeature;
 
 
 public class BYGFeatureList {
@@ -226,7 +225,7 @@ public class BYGFeatureList {
 
 
     /********************************************************************Structures***********************************************************************/
-    public static final //StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillage//StructureFeature(StructurePoolFeatureConfig.CODEC);
+//    public static final //StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillage//StructureFeature(StructurePoolFeatureConfig.CODEC);
 //    public static final //StructureFeature<DefaultFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(DefaultFeatureConfig.CODEC);
 //    public static final Feature<DefaultFeatureConfig> DOVERQUARRY = new DoverQuarry1(DefaultFeatureConfig.CODEC);
 
@@ -446,7 +445,6 @@ public class BYGFeatureList {
 
 
     public static class RegisterFeatures {
-
         public static void registerBYGFeatures() {
             registerFeature(DUMMY_TREE, "dummy_tree");
             registerFeature(DEADSEASPIKES, "dead_sea_spike");
@@ -631,7 +629,6 @@ public class BYGFeatureList {
             registerFeature(ZELKOVA_TREE1, "zelkova_tree1");
             registerFeature(ZELKOVA_TREE2, "zelkova_tree2");
             registerFeature(ZELKOVA_TREE3, "zelkova_tree3");
-
         }
 
         public static void registerFeature(Feature<?> feature, String registryName) {
