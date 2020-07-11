@@ -305,7 +305,7 @@ public class BYGBiomeRegistry {
 //        }
         idx++;
     }
-
+//
     private static void registerIsland(Biome island, String id, boolean spawn, Biome... oceanClimates) {
         Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), island);
         if (spawn)
