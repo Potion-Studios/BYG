@@ -67,11 +67,6 @@ public class WeepingWitchForest extends Biome implements BiomeTools, BiomeFog {
     }
 
     @Override
-    public int getSkyColor() {
-        return 12632256;
-    }
-
-    @Override
     public int getGrassColorAt(double x, double z) {
         return 5406551;
     }

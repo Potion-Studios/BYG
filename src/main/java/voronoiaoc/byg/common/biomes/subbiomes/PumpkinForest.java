@@ -80,12 +80,6 @@ public class PumpkinForest extends Biome implements BiomeFog {
 //    }
 
     @Override
-    public int getSkyColor() {
-        return 12632256;
-    }
-
-
-    @Override
     public float fogDistance(int x, int z, float originalDistanceChunks) {
         return 10;
     }

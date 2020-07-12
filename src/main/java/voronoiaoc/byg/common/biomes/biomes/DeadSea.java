@@ -52,12 +52,6 @@ public class DeadSea extends Biome implements BiomeTools, BiomeFog {
 
     }
 
-
-    @Override
-    public int getSkyColor() {
-        return 12632256;
-    }
-
     @Override
     public float fogDistance(int x, int z, float originalDistanceChunks) {
         return 0.5F;
