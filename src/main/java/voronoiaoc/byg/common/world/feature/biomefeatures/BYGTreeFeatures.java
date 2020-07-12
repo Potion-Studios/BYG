@@ -110,17 +110,17 @@ public class BYGTreeFeatures {
 
     public static void addGiantBlueTaigaTrees(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.BLUEGIANTSPUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
+                BYGFeatureList.BLUE_GIANT_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
                 Feature.TREE.configure(BYGFeatureConfigs.BLUEMEGAPINETREE_CONFIG).withChance(0.1F)),
                 Feature.TREE.configure(BYGFeatureConfigs.BLUEMEGASPRUCETREE_CONFIG))).method_30374(Decorator.COUNT_EXTRA.configure(
                 new CountExtraChanceDecoratorConfig(10, 0.3F, 5))));
 
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.SMALLBLUESPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.3F),
+                BYGFeatureList.BLUE_SMALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.3F),
                 Feature.TREE.configure(BYGFeatureConfigs.BLUEPINETREE_CONFIG).withChance(0.3F),
                 Feature.TREE.configure(BYGFeatureConfigs.BLUESPRUCETREE_CONFIG).withChance(0.3F),
-                BYGFeatureList.TALLBLUESPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F)),
-                BYGFeatureList.BLUESPRUCE_TREE.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
+                BYGFeatureList.BLUE_TALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F)),
+                BYGFeatureList.BLUE_SPRUCE_TREE.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
                 new CountExtraChanceDecoratorConfig(20, 0.3F, 1))));
 
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
@@ -133,31 +133,31 @@ public class BYGTreeFeatures {
 
     public static void addGiantSeasonalTaigaTrees(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.GIANTORANGESPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.15F),
+                BYGFeatureList.ORANGE_GIANT_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.15F),
                 Feature.TREE.configure(BYGFeatureConfigs.ORANGEMEGAPINETREE_CONFIG).withChance(0.15F),
                 Feature.TREE.configure(BYGFeatureConfigs.ORANGEMEGASPRUCETREE_CONFIG).withChance(0.15F),
-                BYGFeatureList.GIANTYELLOWSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.35F),
+                BYGFeatureList.YELLOW_GIANT_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.35F),
                 Feature.TREE.configure(BYGFeatureConfigs.YELLOWMEGAPINETREE_CONFIG).withChance(0.15F),
                 Feature.TREE.configure(BYGFeatureConfigs.YELLOWMEGASPRUCETREE_CONFIG).withChance(0.15F),
-                BYGFeatureList.GIANTREDSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.15F),
+                BYGFeatureList.RED_GIANT_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.15F),
                 Feature.TREE.configure(BYGFeatureConfigs.REDMEGAPINETREE_CONFIG).withChance(0.15F)),
                 Feature.TREE.configure(BYGFeatureConfigs.REDMEGASPRUCETREE_CONFIG))).method_30374(Decorator.COUNT_EXTRA.configure(
                 new CountExtraChanceDecoratorConfig(5, 0.3F, 5))));
 
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.SMALLREDSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.666F),
-                BYGFeatureList.REDSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.666F),
-                BYGFeatureList.TALLREDSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1f),
+                BYGFeatureList.RED_SMALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.666F),
+                BYGFeatureList.RED_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.666F),
+                BYGFeatureList.RED_TALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1f),
                 Feature.TREE.configure(BYGFeatureConfigs.REDPINETREE_CONFIG).withChance(0.3F),
                 Feature.TREE.configure(BYGFeatureConfigs.REDSPRUCETREE_CONFIG).withChance(0.3F),
-                BYGFeatureList.SMALLORANGESPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
-                BYGFeatureList.ORANGESPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
-                BYGFeatureList.TALLORANGESPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.666F),
+                BYGFeatureList.ORANGE_SMALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
+                BYGFeatureList.ORANGE_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
+                BYGFeatureList.ORANGE_TALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.666F),
                 Feature.TREE.configure(BYGFeatureConfigs.ORANGEPINETREE_CONFIG).withChance(0.3F),
                 Feature.TREE.configure(BYGFeatureConfigs.ORANGESPRUCETREE_CONFIG).withChance(0.3F),
-                BYGFeatureList.SMALLYELLOWSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.666F),
-                BYGFeatureList.YELLOWSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
-                BYGFeatureList.YELLOWSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
+                BYGFeatureList.YELLOW_SMALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.666F),
+                BYGFeatureList.YELLOW_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
+                BYGFeatureList.YELLOW_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
                 Feature.TREE.configure(BYGFeatureConfigs.YELLOWPINETREE_CONFIG).withChance(0.3F)),
                 Feature.TREE.configure(BYGFeatureConfigs.YELLOWSPRUCETREE_CONFIG))).method_30374(Decorator.COUNT_EXTRA.configure(
                 new CountExtraChanceDecoratorConfig(5, 0.3F, 3))));
@@ -278,23 +278,23 @@ public class BYGTreeFeatures {
 
     public static void addSeasonalTaigaTrees(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.SMALLREDSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
-                BYGFeatureList.REDSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.2F),
-                BYGFeatureList.TALLREDSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.05f),
+                BYGFeatureList.RED_SMALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
+                BYGFeatureList.RED_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.2F),
+                BYGFeatureList.RED_TALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.05f),
                 Feature.TREE.configure(BYGFeatureConfigs.REDPINETREE_CONFIG).withChance(0.1F),
                 Feature.TREE.configure(BYGFeatureConfigs.REDSPRUCETREE_CONFIG).withChance(0.1F),
                 Feature.TREE.configure(PINE_TREE_CONFIG).withChance(0.1F),
                 Feature.TREE.configure(SPRUCE_TREE_CONFIG).withChance(0.1F),
-                BYGFeatureList.SMALLORANGESPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
-                BYGFeatureList.ORANGESPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.2F),
-                BYGFeatureList.TALLORANGESPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.05F),
+                BYGFeatureList.ORANGE_SMALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
+                BYGFeatureList.ORANGE_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.2F),
+                BYGFeatureList.ORANGE_TALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.05F),
                 Feature.TREE.configure(BYGFeatureConfigs.ORANGEPINETREE_CONFIG).withChance(0.1F),
                 Feature.TREE.configure(BYGFeatureConfigs.ORANGESPRUCETREE_CONFIG).withChance(0.1F),
-                BYGFeatureList.SMALLYELLOWSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
-                BYGFeatureList.YELLOWSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
-                BYGFeatureList.TALLYELLOWSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.2F),
-                BYGFeatureList.YELLOWSPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F)),
-                BYGFeatureList.YELLOWSPRUCE_TREE.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
+                BYGFeatureList.YELLOW_SMALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
+                BYGFeatureList.YELLOW_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
+                BYGFeatureList.YELLOW_TALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.2F),
+                BYGFeatureList.YELLOW_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F)),
+                BYGFeatureList.YELLOW_SPRUCE_TREE.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
                 new CountExtraChanceDecoratorConfig(5, 0.3F, 3))));
 
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
