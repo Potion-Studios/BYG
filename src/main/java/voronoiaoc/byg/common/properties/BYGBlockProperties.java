@@ -19,9 +19,9 @@ import voronoiaoc.byg.common.properties.blocks.embur.EmburVinesPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
 import voronoiaoc.byg.common.properties.blocks.plants.*;
 import voronoiaoc.byg.common.properties.blocks.warped.*;
-import voronoiaoc.byg.common.properties.sythian.SythianPlantBlock;
-import voronoiaoc.byg.common.properties.sythian.SythianSaplingBlock;
-import voronoiaoc.byg.common.properties.sythian.SythianStalkBlock;
+import voronoiaoc.byg.common.properties.blocks.sythian.SythianPlantBlock;
+import voronoiaoc.byg.common.properties.blocks.sythian.SythianSaplingBlock;
+import voronoiaoc.byg.common.properties.blocks.sythian.SythianStalkBlock;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 public class BYGBlockProperties {
