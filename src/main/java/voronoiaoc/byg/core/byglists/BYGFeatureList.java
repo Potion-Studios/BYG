@@ -263,7 +263,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BLUFF_TREE3 = new BluffTree3(DefaultFeatureConfig.CODEC);
 
     //Boreal Trees
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BOREAL_TREE = new BorealForestTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BOREAL_TREE1 = new BorealForestTree1(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BOREAL_TREE2 = new BorealForestTree2(DefaultFeatureConfig.CODEC);
 
     //Cherry
@@ -509,7 +509,7 @@ public class BYGFeatureList {
             registerFeature(BLUFF_TREE1, "bluff_tree1");
             registerFeature(BLUFF_TREE2, "bluff_tree2");
             registerFeature(BLUFF_TREE3, "bluff_tree3");
-            registerFeature(BOREAL_TREE, "boreal_tree1");
+            registerFeature(BOREAL_TREE1, "boreal_tree1");
             registerFeature(BOREAL_TREE2, "boreal_tree2");
             registerFeature(CHERRY_PINK_TREE1, "pink_cherry_tree1");
             registerFeature(CHERRY_PINK_TREE2, "pink_cherry_tree2");
