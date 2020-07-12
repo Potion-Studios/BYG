@@ -90,13 +90,21 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> HOLLY_TREE3 = registerConfiguredFeature("holly_tree3", BYGFeatureList.HOLLY_TREE3.configure(DecoratedFeatureConfig.DEFAULT));
     public static final ConfiguredFeature<?, ?> HOLLY_TREE4 = registerConfiguredFeature("holly_tree4", BYGFeatureList.HOLLY_TREE4.configure(DecoratedFeatureConfig.DEFAULT));
 
+    public static final ConfiguredFeature<?, ?> JACARANDA_TREE1 = registerConfiguredFeature("jacaranda_tree1", BYGFeatureList.JACARANDA_TREE1.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> JACARANDA_TREE2 = registerConfiguredFeature("jacaranda_tree2", BYGFeatureList.JACARANDA_TREE2.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> INDIGO_JACARANDA_TREE1 = registerConfiguredFeature("indigo_jacaranda_tree1", BYGFeatureList.JACARANDA_INDIGO_TREE1.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> INDIGO_JACARANDA_TREE2 = registerConfiguredFeature("indigo_jacaranda_tree2", BYGFeatureList.JACARANDA_INDIGO_TREE2.configure(DecoratedFeatureConfig.DEFAULT));
+
+    public static final ConfiguredFeature<?, ?> JOSHUA_TREE1 = registerConfiguredFeature("joshua_tree1", BYGFeatureList.JOSHUA_TREE1.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> JOSHUA_TREE2 = registerConfiguredFeature("joshua_tree2", BYGFeatureList.JOSHUA_TREE2.configure(DecoratedFeatureConfig.DEFAULT));
+
 
     /***********************************************************Random Selectors***********************************************************/
     public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_TREE = registerConfiguredFeature("rs_jacaranda", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BYGFeatureList.JACARANDA_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.3F),
-            BYGFeatureList.INDIGOJACARANDA_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.3F),
-            BYGFeatureList.INDIGOJACARANDA_TREE.configure(FeatureConfig.DEFAULT).withChance(0.3F)),
-            BYGFeatureList.JACARANDA_TREE.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
+            BYGFeatureList.JACARANDA_INDIGO_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.3F),
+            BYGFeatureList.JACARANDA_INDIGO_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.3F)),
+            BYGFeatureList.JACARANDA_TREE1.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
             new CountExtraChanceDecoratorConfig(45, 0.1F, -15))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUE_TAIGA_TREE = registerConfiguredFeature("rs_blue_taiga", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(

@@ -20,7 +20,7 @@ public class BYGTreeFeatures {
 
     public static void addSparseJacarandaTrees(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.INDIGOJACARANDA_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.3F)),
+                BYGFeatureList.JACARANDA_INDIGO_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.3F)),
                 BYGFeatureList.JACARANDA_TREE2.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
                 new CountExtraChanceDecoratorConfig(1, 0.5F, 2))));
     }

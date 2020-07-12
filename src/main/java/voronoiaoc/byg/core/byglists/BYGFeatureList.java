@@ -332,10 +332,10 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> HOLLY_TREE4 = new HollyTree4(DefaultFeatureConfig.CODEC);
 
     //Jacaranda
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JACARANDA_TREE = new JacarandaTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JACARANDA_TREE1 = new JacarandaTree1(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JACARANDA_TREE2 = new JacarandaTree2(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> INDIGOJACARANDA_TREE = new IndigoJacarandaTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> INDIGOJACARANDA_TREE2 = new IndigoJacarandaTree2(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JACARANDA_INDIGO_TREE1 = new IndigoJacarandaTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JACARANDA_INDIGO_TREE2 = new IndigoJacarandaTree2(DefaultFeatureConfig.CODEC);
 
     //JoshuaTree
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JOSHUA_TREE1 = new JoshuaTree1(DefaultFeatureConfig.CODEC);
@@ -554,10 +554,10 @@ public class BYGFeatureList {
             registerFeature(HOLLY_TREE2, "holly_tree2");
             registerFeature(HOLLY_TREE3, "holly_tree3");
             registerFeature(HOLLY_TREE4, "holly_tree4");
-            registerFeature(JACARANDA_TREE, "jacaranda_tree1");
+            registerFeature(JACARANDA_TREE1, "jacaranda_tree1");
             registerFeature(JACARANDA_TREE2, "jacaranda_tree2");
-            registerFeature(INDIGOJACARANDA_TREE, "indigo_jacaranda_tree1");
-            registerFeature(INDIGOJACARANDA_TREE2, "indigo_jacaranda_tree2");
+            registerFeature(JACARANDA_INDIGO_TREE1, "indigo_jacaranda_tree1");
+            registerFeature(JACARANDA_INDIGO_TREE2, "indigo_jacaranda_tree2");
             registerFeature(JOSHUA_TREE1, "joshua_tree1");
             registerFeature(JOSHUA_TREE2, "joshua_tree2");
             registerFeature(MANGROVE_TREE1, "mangrove_tree1");
