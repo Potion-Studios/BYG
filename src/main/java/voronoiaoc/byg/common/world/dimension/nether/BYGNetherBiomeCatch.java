@@ -48,13 +48,13 @@ public class BYGNetherBiomeCatch {
             for (int index = 0; index < biomeList.size(); ++index) {
                 final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeList.get(index)));
                 if (configResource == null) {
-                    BYG.LOGGER.warn("Illegal registry name! You put: " + configResource);
+                    BYG.LOGGER.warn("Illegal registry name! You put: " + biomeList.get(index));
                 } else if (configResource != null) {
                     getConfigArray[index] = BiomeRegistry.getID(configResource);
                     Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
 
                     if (biome == null) {
-                        BYG.LOGGER.warn("Illegal registry name! You put: " + configResource);
+                        BYG.LOGGER.warn("Illegal registry name! You put: " + biomeList.get(index));
                     } else {
                         BYGNetherBiomeProvider.biomeList.add(biome);
                         netherBiomeIDS.add(Registry.BIOME.getId(biome));

@@ -39,7 +39,7 @@ public class BYGBiomeCatch {
             for (int index = 0; index < biomeICYList.size(); ++index) {
                 final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeICYList.get(index)));
                 if (configResource == null) {
-                    BYG.LOGGER.warn("Illegal registry name! You put: " + configResource);
+                    BYG.LOGGER.warn("Illegal registry name! You put: " + biomeICYList.get(index));
                 } else if (configResource != null) {
                     getConfigArray[index] = BiomeRegistry.getID(configResource);
                     Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
@@ -56,7 +56,7 @@ public class BYGBiomeCatch {
             for (int index = 0; index < biomeCOOLList.size(); ++index) {
                 final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeCOOLList.get(index)));
                 if (configResource == null) {
-                    BYG.LOGGER.warn("Illegal registry name! You put: " + configResource);
+                    BYG.LOGGER.warn("Illegal registry name! You put: " + biomeCOOLList.get(index));
                 } else if (configResource != null) {
                     getConfigArray[index] = BiomeRegistry.getID(configResource);
                     Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
@@ -73,7 +73,7 @@ public class BYGBiomeCatch {
             for (int index = 0; index < biomeWARMList.size(); ++index) {
                 final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeWARMList.get(index)));
                 if (configResource == null) {
-                    BYG.LOGGER.warn("Illegal registry name! You put: " + configResource);
+                    BYG.LOGGER.warn("Illegal registry name! You put: " + biomeWARMList.get(index));
                 } else if (configResource != null) {
                     getConfigArray[index] = BiomeRegistry.getID(configResource);
                     Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
@@ -90,7 +90,7 @@ public class BYGBiomeCatch {
             for (int index = 0; index < biomeHOTList.size(); ++index) {
                 final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeHOTList.get(index)));
                 if (configResource == null) {
-                    BYG.LOGGER.warn("Illegal registry name! You put: " + configResource);
+                    BYG.LOGGER.warn("Illegal registry name! You put: " + biomeHOTList.get(index));
                 } else if (configResource != null) {
                     getConfigArray[index] = BiomeRegistry.getID(configResource);
                     Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
