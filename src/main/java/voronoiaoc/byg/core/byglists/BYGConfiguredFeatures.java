@@ -98,6 +98,23 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> JOSHUA_TREE1 = registerConfiguredFeature("joshua_tree1", BYGFeatureList.JOSHUA_TREE1.configure(DecoratedFeatureConfig.DEFAULT));
     public static final ConfiguredFeature<?, ?> JOSHUA_TREE2 = registerConfiguredFeature("joshua_tree2", BYGFeatureList.JOSHUA_TREE2.configure(DecoratedFeatureConfig.DEFAULT));
 
+    public static final ConfiguredFeature<?, ?> MANGROVE_TREE1 = registerConfiguredFeature("mangrove_tree1", BYGFeatureList.MANGROVE_TREE1.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> MANGROVE_TREE2 = registerConfiguredFeature("mangrove_tree2", BYGFeatureList.MANGROVE_TREE2.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> MANGROVE_TREE3 = registerConfiguredFeature("mangrove_tree3", BYGFeatureList.MANGROVE_TREE3.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> MANGROVE_TREE4 = registerConfiguredFeature("mangrove_tree4", BYGFeatureList.MANGROVE_TREE4.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> MANGROVE_TREE5 = registerConfiguredFeature("mangrove_tree5", BYGFeatureList.MANGROVE_TREE5.configure(DecoratedFeatureConfig.DEFAULT));
+
+    public static final ConfiguredFeature<?, ?> MAPLE_RED_TREE1 = registerConfiguredFeature("red_maple_tree1", BYGFeatureList.MAPLE_RED_TREE1.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> MAPLE_RED_TREE2 = registerConfiguredFeature("red_maple_tree2", BYGFeatureList.MAPLE_RED_TREE2.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> MAPLE_SILVER_TREE1 = registerConfiguredFeature("silver_maple_tree1", BYGFeatureList.MAPLE_SILVER_TREE1.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> MAPLE_SILVER_TREE2 = registerConfiguredFeature("silver_maple_tree2", BYGFeatureList.MAPLE_SILVER_TREE2.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> MAPLE_TREE1 = registerConfiguredFeature("maple_tree2", BYGFeatureList.MAPLE_TREE.configure(DecoratedFeatureConfig.DEFAULT));
+
+    public static final ConfiguredFeature<?, ?> MEADOW_TREE1 = registerConfiguredFeature("meadow_tree1", BYGFeatureList.MEADOW_TREE1.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> MEADOW_TREE2 = registerConfiguredFeature("meadow_tree2", BYGFeatureList.MEADOW_TREE2.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> MEADOW_TREE3 = registerConfiguredFeature("meadow_tree3", BYGFeatureList.MEADOW_TREE3.configure(DecoratedFeatureConfig.DEFAULT));
+
+
 
     /***********************************************************Random Selectors***********************************************************/
     public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_TREE = registerConfiguredFeature("rs_jacaranda", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(

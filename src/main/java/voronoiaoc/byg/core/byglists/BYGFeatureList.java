@@ -349,7 +349,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MANGROVE_TREE5 = new MangroveTree5(DefaultFeatureConfig.CODEC);
 
     //Maple
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MAPLE_RED_TREE = new RedMapleTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MAPLE_RED_TREE1 = new RedMapleTree1(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MAPLE_RED_TREE2 = new RedMapleTree2(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MAPLE_SILVER_TREE1 = new SilverMapleTree1(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MAPLE_SILVER_TREE2 = new SilverMapleTree2(DefaultFeatureConfig.CODEC);
@@ -565,7 +565,7 @@ public class BYGFeatureList {
             registerFeature(MANGROVE_TREE3, "mangrove_tree3");
             registerFeature(MANGROVE_TREE4, "mangrove_tree4");
             registerFeature(MANGROVE_TREE5, "mangrove_tree5");
-            registerFeature(MAPLE_RED_TREE, "red_maple_tree1");
+            registerFeature(MAPLE_RED_TREE1, "red_maple_tree1");
             registerFeature(MAPLE_RED_TREE2, "red_maple_tree2");
             registerFeature(MAPLE_SILVER_TREE1, "silver_maple_tree1");
             registerFeature(MAPLE_SILVER_TREE2, "silver_maple_tree2");

@@ -203,7 +203,7 @@ public class BYGTreeFeatures {
 
     public static void addMapleTrees(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.MAPLE_RED_TREE.configure(FeatureConfig.DEFAULT).withChance(0.4F),
+                BYGFeatureList.MAPLE_RED_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.4F),
                 BYGFeatureList.MAPLE_RED_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.03F),
                 BYGFeatureList.MAPLE_SILVER_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.2F),
                 BYGFeatureList.MAPLE_SILVER_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.1F)),
@@ -214,11 +214,11 @@ public class BYGTreeFeatures {
     public static void addSparseMapleTrees(Biome biome) {
         biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
                 BYGFeatureList.MAPLE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.06F),
-                BYGFeatureList.MAPLE_RED_TREE.configure(FeatureConfig.DEFAULT).withChance(0.5F),
+                BYGFeatureList.MAPLE_RED_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.5F),
                 BYGFeatureList.MAPLE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.04F),
                 BYGFeatureList.MAPLE_SILVER_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.2F),
                 BYGFeatureList.MAPLE_SILVER_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.1F)),
-                BYGFeatureList.MAPLE_RED_TREE.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
+                BYGFeatureList.MAPLE_RED_TREE1.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
                 new CountExtraChanceDecoratorConfig(0, 0.4F, 2))));
     }
 
