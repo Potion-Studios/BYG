@@ -28,11 +28,11 @@ public class BYGBiomeRegistry {
         registerBiome(registry, BYGBiomeList.ALLIUMFIELDS, "alliumfields", true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.RARE, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.ALPS, "alps", true, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.AMARANTHFIELDS, "amaranthfields", true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.RARE, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
-        registerBiome(registry, BYGBiomeList.ANCIENTFOREST, "ancient_forest", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE);
+        registerBiome(registry, BYGBiomeList.ANCIENTFOREST, "ancient_forest", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.ASPENFOREST, "aspenforest", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.AUTUMNAL_VALLEY, "autumnal_valley",  true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.DRY, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.BAOBABSAVANNA, "baobabsavanna",  true, BiomeDictionary.Type.SAVANNA, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.DRY, BiomeDictionary.Type.OVERWORLD);
-        registerBiome(registry, BYGBiomeList.BAYOU, "bayou",  true, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET);
+        registerBiome(registry, BYGBiomeList.BAYOU, "bayou",  true, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.BLUETAIGA, "bluetaiga",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.BLUFFSTEEPS, "bluffsteeps",  true, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.BOREALFOREST, "borealforest",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
@@ -49,7 +49,7 @@ public class BYGBiomeRegistry {
         registerBiome(registry, BYGBiomeList.DEADSEA, "deadsea",  true, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.DECIDUOUSFOREST, "deciduousforest",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.DUNES, "dunes",  true, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.OVERWORLD);
-        registerBiome(registry, BYGBiomeList.EBONYWOODS, "ebony_woods", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE);
+        registerBiome(registry, BYGBiomeList.EBONYWOODS, "ebony_woods", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.ENCHANTEDFOREST, "enchanted_forest", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.RARE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.EVERGREENTAIGA, "evergreen_taiga", true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.GLOWSHROOMBAYOU, "glowshroombayou",  true, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET,BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
@@ -58,7 +58,7 @@ public class BYGBiomeRegistry {
         registerBiome(registry, BYGBiomeList.GROVE, "grove",  true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.ENCHANTED_GROVE, "enchanted_grove",  true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.GUIANASHIELD, "guianashield",  true, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
-        registerBiome(registry, BYGBiomeList.JACARANDAFOREST, "jacarandaforest",  true, BiomeDictionary.Type.FOREST);
+        registerBiome(registry, BYGBiomeList.JACARANDAFOREST, "jacarandaforest",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.MANGROVEMARSHES, "mangrove_marshes", true,  BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.MAPLETAIGA, "maple_taiga", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.MEADOW, "meadow",  true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
@@ -72,7 +72,7 @@ public class BYGBiomeRegistry {
         registerBiome(registry, BYGBiomeList.RED_ROCK_MOUNTAINS, "red_rock_mountains",  true, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.SEASONALBIRCHFOREST, "seasonalbirchforest",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.SEASONALDECIDUOUSFOREST, "seasonaldeciduousforest",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
-        registerBiome(registry, BYGBiomeList.SEASONALFOREST, "seasonalforest", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD);
+        registerBiome(registry, BYGBiomeList.SEASONALFOREST, "seasonalforest", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.SEASONALTAIGA, "seasonaltaiga",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.SHATTEREDGLACIER, "shatteredglacier",  true, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.SHRUBLANDS, "shrublands",  true, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.OVERWORLD);
@@ -92,7 +92,7 @@ public class BYGBiomeRegistry {
 //        registerBiome(registry, BYGBiomeList.VOLCANO, "volcano",  false, BiomeDictionary.Type.HOT, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.SIERRAVALLEY, "sierravalley",  true, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.WEEPINGWITCHFOREST, "weeping_witch_forest", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
-        registerBiome(registry, BYGBiomeList.WOODLANDS, "woodlands", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.MAGICAL);
+        registerBiome(registry, BYGBiomeList.WOODLANDS, "woodlands", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
         registerBiome(registry, BYGBiomeList.ZELKOVAFOREST, "zelkovaforest",  true, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
 
         //Sub Biomes
@@ -100,8 +100,8 @@ public class BYGBiomeRegistry {
         registerBYGSubBiome(registry, BYGBiomeList.REDWOOD_MOUNTAINS, "redwood_mountains", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE,BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.CORAL_MANGROVES, "coral_mangroves", true,  BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.CIKA_MOUNTAINS, "cika_mountains",  true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
-        registerBYGSubBiome(registry, BYGBiomeList.GLOWING_ANCIENT_FOREST, "glowing_ancient_forest", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.RARE);
-        registerBYGSubBiome(registry, BYGBiomeList.FLOWERING_ANCIENT_FOREST, "flowering_ancient_forest", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.RARE);
+        registerBYGSubBiome(registry, BYGBiomeList.GLOWING_ANCIENT_FOREST, "glowing_ancient_forest", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
+        registerBYGSubBiome(registry, BYGBiomeList.FLOWERING_ANCIENT_FOREST, "flowering_ancient_forest", true,  BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
 
         registerBYGSubBiome(registry, BYGBiomeList.SNOWY_EVERGREEN_CLEARING, "snowy_evergreen_clearing", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
         registerBYGSubBiome(registry, BYGBiomeList.SNOWY_EVERGREEN_HILLS, "snowy_evergreen_hills", true, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
