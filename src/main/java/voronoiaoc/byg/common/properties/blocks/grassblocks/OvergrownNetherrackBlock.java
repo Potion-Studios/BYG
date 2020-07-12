@@ -10,7 +10,6 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.FlowerFeature;
 import voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks.SpreadableOvergrownNetherrackBlock;
-import voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks.SpreadableSythianBlock;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.List;
@@ -57,8 +56,8 @@ public class OvergrownNetherrackBlock extends SpreadableOvergrownNetherrackBlock
                             break;
                         }
 
-                        ConfiguredFeature<?, ?> configuredfeature = ((DecoratedFeatureConfig) (list.get(0)).config).feature;
-                        blockstate1 = ((FlowerFeature) configuredfeature.feature).getFlowerState(rand, blockpos1, configuredfeature.config);
+                        ConfiguredFeature<?, ?> configuredFeature = (ConfiguredFeature)((DecoratedFeatureConfig)((ConfiguredFeature)list.get(0)).config).feature.get();
+                        blockstate1 = ((FlowerFeature)configuredFeature.feature).getFlowerState(rand, blockpos1, configuredFeature.config);
                     } else {
                         blockstate1 = blockstate;
                     }
