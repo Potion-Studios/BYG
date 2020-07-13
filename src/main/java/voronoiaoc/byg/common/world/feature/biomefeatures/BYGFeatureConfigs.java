@@ -29,8 +29,6 @@ import java.util.OptionalInt;
 
 
 public class BYGFeatureConfigs {
-
-
     //Plants
     public static final RandomPatchFeatureConfig TALL_ALLIUM_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.TALL_ALLIUM.getDefaultState()), new DoublePlantPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).cannotProject().build();
     public static final RandomPatchFeatureConfig TALL_PINK_ALLIUM_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.TALL_PINK_ALLIUM.getDefaultState()), new DoublePlantPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).cannotProject().build();

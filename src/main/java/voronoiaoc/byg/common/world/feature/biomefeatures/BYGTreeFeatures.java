@@ -19,10 +19,7 @@ public class BYGTreeFeatures {
     }
 
     public static void addSparseJacarandaTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.JACARANDA_INDIGO_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.3F)),
-                BYGFeatureList.JACARANDA_TREE2.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
-                new CountExtraChanceDecoratorConfig(1, 0.5F, 2))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_JACARANDA_TREE);
     }
 
     public static void addBlueTaigaTrees(Biome biome) {
@@ -34,26 +31,28 @@ public class BYGTreeFeatures {
     }
 
     public static void addSparseBorealTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_BOERAL_TREE);
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_BOREAL_TREE);
     }
 
+    //TODO: Reconfigure
     public static void addSparseRedwoodTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE1.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(0, 0.2F, 1))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE2.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(0, 0.1F, 1))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE3.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(0, 0.2F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE1.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(0, 0.2F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE2.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(0, 0.1F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.REDWOOD_TREE3.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(0, 0.2F, 1))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_REDWOOD_TREE);
     }
 
 
     public static void addConiferousTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE1.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE2.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE3.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE4.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE5.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE6.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE7.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE8.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
-
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE1.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE2.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE3.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE4.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE5.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE6.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE7.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CONIFER_TREE8.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(25, 0.1F, 1))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CONIFER_TREE);
     }
 
     public static void addSparseConiferousTrees(Biome biome) {
@@ -62,19 +61,22 @@ public class BYGTreeFeatures {
     }
 
     public static void addCypressTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CYPRESS_TREE1.configure(DecoratedFeatureConfig.DEFAULT).method_30374(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(0, 0.3F, 1))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CYPRESS_TREE2.configure(DecoratedFeatureConfig.DEFAULT).method_30374(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(2, 0.3F, 2))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CYPRESS_TREE3.configure(DecoratedFeatureConfig.DEFAULT).method_30374(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(2, 0.3F, 2))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CYPRESS_TREE1.configure(DecoratedFeatureConfig.DEFAULT).method_30374(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(0, 0.3F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CYPRESS_TREE2.configure(DecoratedFeatureConfig.DEFAULT).method_30374(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(2, 0.3F, 2))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.CYPRESS_TREE3.configure(DecoratedFeatureConfig.DEFAULT).method_30374(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(2, 0.3F, 2))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CYPRESS_TREE);
     }
 
     public static void addDeciduousTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.DECIDUOUS_TREE.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(18, 0.3F, -8))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.SHRUB.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(4, 0.2F, -3))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.DECIDUOUS_TREE.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(18, 0.3F, -8))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.SHRUB.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(4, 0.2F, -3))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DECIDUOUS_TREE);
     }
 
     public static void addSparseDeciduousTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.DECIDUOUS_TREE.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(0, 0.1F, 2))));
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.SHRUB.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(0, 0.08F, 1))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.DECIDUOUS_TREE.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(0, 0.1F, 2))));
+//        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.SHRUB.configure(DecoratedFeatureConfig.DEFAULT).method_30374(Decorator.COUNT_EXTRA.configure(new CountExtraChanceDecoratorConfig(0, 0.08F, 1))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_DECIDUOUS_TREE);
     }
 
     public static void addBYGJungleTreeForest(Biome biomeIn) {
@@ -82,30 +84,11 @@ public class BYGTreeFeatures {
     }
 
     public static void addBlackForestTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.ASPEN_TREE3.configure(FeatureConfig.DEFAULT).withChance(0.2F),
-                BYGFeatureList.ASPEN_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.2F),
-                BYGFeatureList.CONIFER_TREE7.configure(FeatureConfig.DEFAULT).withChance(0.1F),
-                BYGFeatureList.CONIFER_TREE6.configure(FeatureConfig.DEFAULT).withChance(0.1F),
-                BYGFeatureList.PINE_LARGE_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.5F),
-                BYGFeatureList.PINE_LARGE_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.5F),
-                BYGFeatureList.PINE_TREE1.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F)),
-                BYGFeatureList.PINE_TREE2.configure(DecoratedFeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
-                new CountExtraChanceDecoratorConfig(45, 0.4F, 5))));
-
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.PINE_LARGE_TREE2.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F)),
-                BYGFeatureList.PINE_LARGE_TREE1.configure(DecoratedFeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
-                new CountExtraChanceDecoratorConfig(2, 0.3F, 2))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BLACK_FOREST_TREE);
     }
 
     public static void addSparseBlackForestTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.PINE_LARGE_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.45F),
-                BYGFeatureList.PINE_LARGE_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.45F),
-                BYGFeatureList.PINE_TREE1.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.4F)),
-                BYGFeatureList.PINE_TREE2.configure(DecoratedFeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
-                new CountExtraChanceDecoratorConfig(0, 0.3F, 2))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_BLACK_FOREST_TREE);
     }
 
     public static void addGiantBlueTaigaTrees(Biome biome) {
@@ -202,24 +185,11 @@ public class BYGTreeFeatures {
     }
 
     public static void addMapleTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.MAPLE_RED_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.4F),
-                BYGFeatureList.MAPLE_RED_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.03F),
-                BYGFeatureList.MAPLE_SILVER_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.2F),
-                BYGFeatureList.MAPLE_SILVER_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.1F)),
-                BYGFeatureList.MAPLE_TREE.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
-                new CountExtraChanceDecoratorConfig(5, 0.4F, 2))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MAPLE_TREE);
     }
 
     public static void addSparseMapleTrees(Biome biome) {
-        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                BYGFeatureList.MAPLE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.06F),
-                BYGFeatureList.MAPLE_RED_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.5F),
-                BYGFeatureList.MAPLE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.04F),
-                BYGFeatureList.MAPLE_SILVER_TREE1.configure(FeatureConfig.DEFAULT).withChance(0.2F),
-                BYGFeatureList.MAPLE_SILVER_TREE2.configure(FeatureConfig.DEFAULT).withChance(0.1F)),
-                BYGFeatureList.MAPLE_RED_TREE1.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
-                new CountExtraChanceDecoratorConfig(0, 0.4F, 2))));
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_MAPLE_TREE);
     }
 
     public static void addSeasonalBirchForestTrees(Biome biome) {

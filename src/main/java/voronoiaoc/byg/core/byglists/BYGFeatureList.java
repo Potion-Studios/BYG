@@ -448,7 +448,7 @@ public class BYGFeatureList {
         public static void registerBYGFeatures() {
             registerFeature(DUMMY_TREE, "dummy_tree");
             registerFeature(DEADSEASPIKES, "dead_sea_spike");
-            registerFeature(TALLDEADSEASPIKES, "dead_sea_spike_takk");
+            registerFeature(TALLDEADSEASPIKES, "dead_sea_spike_tall");
             registerFeature(OBBYSPIKES, "obsidian_spike");
             registerFeature(CACTUS, "canyon_cactus");
             registerFeature(BLACKICESNOW, "black_ice_and_snow");
