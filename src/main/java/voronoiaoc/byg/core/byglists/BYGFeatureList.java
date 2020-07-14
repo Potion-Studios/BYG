@@ -454,7 +454,7 @@ public class BYGFeatureList {
             registerFeature(BLACKICESNOW, "black_ice_and_snow");
             registerFeature(LAKE_FROST, "frosted_lake");
             registerFeature(LAKE_WIDE_SHALLOW, "lake_wide_shallow");
-            registerFeature(LAKE_WIDE_SHALLOW, "lava_lake_wide_shallow");
+            registerFeature(LAKE_LAVA_WIDE_SHALLOW, "lava_lake_wide_shallow");
             registerFeature(VINES, "vines");
             registerFeature(PUMPKIN_PATCH1, "pumpkin");
             registerFeature(PUMPKIN_PATCH2, "pumpkin2");
@@ -575,7 +575,7 @@ public class BYGFeatureList {
             registerFeature(MEADOW_TREE3, "meadow_tree3");
             registerFeature(ORCHARD_TREE1, "orchard_tree1");
             registerFeature(ORCHARD_TREE2, "orchard_tree2");
-            registerFeature(ORCHARD_TREE1, "orchard_tree3");
+            registerFeature(ORCHARD_TREE3, "orchard_tree3");
             registerFeature(PALM_TREE1, "palm_tree3");
             registerFeature(PINE_LARGE_TREE1, "large_pine_tree1");
             registerFeature(PINE_LARGE_TREE2, "large_pine_tree2");

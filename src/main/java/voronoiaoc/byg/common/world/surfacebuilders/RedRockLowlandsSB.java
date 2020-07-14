@@ -38,7 +38,7 @@ public class RedRockLowlandsSB extends RRSB {
         int l = x & 15;
         int i = z & 15;
         BlockState blockstate2 = TERRACOTTA;
-        BlockState blockstate = biomeIn.getSurfaceBuilder().getConfig().getUnderMaterial();
+        BlockState blockstate = biomeIn.getSurfaceBuilder().get().getConfig().getUnderMaterial();
         int i1 = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int j = -1;
@@ -62,7 +62,7 @@ public class RedRockLowlandsSB extends RRSB {
                         blockstate = defaultBlock;
                     } else if (k >= seaLevel - 4 && k <= seaLevel + 1) {
                         blockstate2 = TERRACOTTA;
-                        blockstate = biomeIn.getSurfaceBuilder().getConfig().getUnderMaterial();
+                        blockstate = biomeIn.getSurfaceBuilder().get().getConfig().getUnderMaterial();
                     }
 
                     if (k < seaLevel && (blockstate2 == null || blockstate2.isAir())) {
@@ -72,7 +72,7 @@ public class RedRockLowlandsSB extends RRSB {
                     j = i1 + Math.max(0, k - seaLevel);
                     if (k >= seaLevel - 1) {
                         if (k <= seaLevel + 3 + i1) {
-                            chunkIn.setBlockState(blockpos$mutable, biomeIn.getSurfaceBuilder().getConfig().getTopMaterial(), false);
+                            chunkIn.setBlockState(blockpos$mutable, biomeIn.getSurfaceBuilder().get().getConfig().getTopMaterial(), false);
                             flag1 = true;
                         } else {
                             BlockState blockstate3;

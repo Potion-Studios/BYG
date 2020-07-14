@@ -9,7 +9,6 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.LightType;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SingleStateFeatureConfig;
@@ -108,7 +107,7 @@ public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
                             lvt_12_5_ = blockPos.add(lvt_9_5_, lvt_11_4_ - 1, lvt_10_5_);
                             if (isSoil(world.getBlockState(lvt_12_5_).getBlock()) && world.getLightLevel(LightType.SKY, blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
                                 Biome lvt_13_2_ = world.getBiome(lvt_12_5_);
-                                if (lvt_13_2_.getSurfaceBuilder().getConfig().getTopMaterial().getBlock() == BYGBlockList.FROST_MAGMA) {
+                                if (lvt_13_2_.getSurfaceBuilder().get().getConfig().getTopMaterial().getBlock() == BYGBlockList.FROST_MAGMA) {
                                     world.setBlockState(lvt_12_5_, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
                                 } else {
                                     world.setBlockState(lvt_12_5_, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);

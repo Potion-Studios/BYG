@@ -5,11 +5,7 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -50,7 +46,7 @@ public class DoverMountains extends Biome implements BiomeTools {
         BYGFeatures.addBYGMushrooms(this);
 
         BYGFeatures.addWinterSucculent(this);
-        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SPRING_FEATURE.configure(DefaultBiomeFeatures.WATER_SPRING_CONFIG).method_30374(Decorator.COUNT_BIASED_RANGE.configure(new RangeDecoratorConfig(50, 8, 8, 256))));
+//        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SPRING_FEATURE.configure(DefaultBiomeFeatures.WATER_SPRING_CONFIG).method_30374(Decorator.COUNT_BIASED_RANGE.configure(new RangeDecoratorConfig(50, 8, 8, 256))));
 //        this.addFeature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.DOVERQUARRY.configure(FeatureConfig.DEFAULT).method_30374(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));

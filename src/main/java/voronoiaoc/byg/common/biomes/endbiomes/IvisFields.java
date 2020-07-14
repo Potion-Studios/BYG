@@ -1,18 +1,10 @@
 package voronoiaoc.byg.common.biomes.endbiomes;
 
-import net.fabricmc.fabric.api.biomes.v1.FabricBiomes;
-import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
-import net.fabricmc.fabric.api.biomes.v1.OverworldClimate;
+
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.DecoratorConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class IvisFields extends Biome {
@@ -32,15 +24,15 @@ public class IvisFields extends Biome {
         //BYGFeatures.addEndCity(this);
 //        this.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, BYGFeatureList.OBBYSPIKES.configure(FeatureConfig.DEFAULT).method_30374(ObsidianSpikePlacer.OBBY_SPIKE.configure(new CountDecoratorConfig(2000))));
 //        this.addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, BYGFeatureList.OBBYSPIKES.configure(FeatureConfig.DEFAULT).method_30374(ObsidianSpikePlacer.OBBY_SPIKE.configure(new CountDecoratorConfig(2000))));
-        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.CHORUS_PLANT.configure(FeatureConfig.DEFAULT).method_30374(Decorator.CHORUS_PLANT.configure(DecoratorConfig.DEFAULT)));
-        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.CHORUS_PLANT.configure(FeatureConfig.DEFAULT).method_30374(Decorator.CHORUS_PLANT.configure(DecoratorConfig.DEFAULT)));
-        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.CHORUS_PLANT.configure(FeatureConfig.DEFAULT).method_30374(Decorator.CHORUS_PLANT.configure(DecoratorConfig.DEFAULT)));
+//        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.CHORUS_PLANT.configure(FeatureConfig.DEFAULT).method_30374(Decorator.CHORUS_PLANT.configure(DecoratorConfig.DEFAULT)));
+//        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.CHORUS_PLANT.configure(FeatureConfig.DEFAULT).method_30374(Decorator.CHORUS_PLANT.configure(DecoratorConfig.DEFAULT)));
+//        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.CHORUS_PLANT.configure(FeatureConfig.DEFAULT).method_30374(Decorator.CHORUS_PLANT.configure(DecoratorConfig.DEFAULT)));
         //BYGFeatures.addivisPlants(this);
 
-        OverworldBiomes.addEdgeBiome(this, BYGBiomeList.ALLIUMFIELDS, 1);
-        OverworldBiomes.addBiomeVariant(this, this, 1);
-        OverworldBiomes.addShoreBiome(this, BYGBiomeList.ALLIUMFIELDS, 1);
-        OverworldBiomes.addContinentalBiome(this, OverworldClimate.TEMPERATE, 1);
-        FabricBiomes.addSpawnBiome(this);
+        //OverworldBiomes.addEdgeBiome(this, BYGBiomeList.ALLIUMFIELDS, 1);
+        //OverworldBiomes.addBiomeVariant(this, this, 1);
+        //OverworldBiomes.addShoreBiome(this, BYGBiomeList.ALLIUMFIELDS, 1);
+        //OverworldBiomes.addContinentalBiome(this, OverworldClimate.TEMPERATE, 1);
+        //FabricBiomes.addSpawnBiome(this);
     }
 }

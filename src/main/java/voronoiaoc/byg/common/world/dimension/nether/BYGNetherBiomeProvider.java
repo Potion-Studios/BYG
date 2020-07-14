@@ -3,10 +3,10 @@ package voronoiaoc.byg.common.world.dimension.nether;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.fabricmc.fabric.impl.biome.InternalBiomeData;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,5 +43,9 @@ public class BYGNetherBiomeProvider extends BiomeSource {
         return new BYGNetherBiomeProvider(seed);
     }
 
-    public static List<Biome> biomeList = new ArrayList<>(InternalBiomeData.getNetherBiomes());
+    public static List<Biome> biomeList = new ArrayList<>();
+
+    static {
+        biomeList.add(BYGBiomeList.SYTHIANTORRIDS);
+    }
 }

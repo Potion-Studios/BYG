@@ -1,25 +1,15 @@
 package voronoiaoc.byg.common.biomes.subbiomes;
 
-import com.google.common.collect.ImmutableList;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
-import net.minecraft.world.gen.decorator.CountExtraChanceDecoratorConfig;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.SimpleRandomFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 
 public class CoralMangroves extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, SurfaceBuilder.SAND_CONFIG);
@@ -44,7 +34,7 @@ public class CoralMangroves extends Biome {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
-        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).method_30374(Decorator.TOP_SOLID_HEIGHTMAP.configure(NopeDecoratorConfig.field_24892)));
+        //this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).method_30374(Decorator.TOP_SOLID_HEIGHTMAP.configure(NopeDecoratorConfig.field_24892)));
         BYGFeatures.addGrass(this);
         BYGFeatures.addCattails(this);
         BYGFeatures.addPeachleatherflower(this);
@@ -54,14 +44,14 @@ public class CoralMangroves extends Biome {
         BYGFeatures.addPinkOrchid(this);
         BYGFeatures.addMudDisks(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.configure(new SimpleRandomFeatureConfig(ImmutableList.of(
-                Feature.CORAL_TREE.configure(DefaultFeatureConfig.DEFAULT),
-                Feature.CORAL_CLAW.configure(DefaultFeatureConfig.DEFAULT),
-                Feature.CORAL_MUSHROOM.configure(DefaultFeatureConfig.DEFAULT))))
-                .method_30374(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(7, 0.1F, 3))));
-
-        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION,
-                Feature.SEA_PICKLE.configure(new SeaPickleFeatureConfig(20)).method_30374(Decorator.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceDecoratorConfig(20))));
+//        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.configure(new SimpleRandomFeatureConfig(ImmutableList.of(
+//                Feature.CORAL_TREE.configure(DefaultFeatureConfig.DEFAULT),
+//                Feature.CORAL_CLAW.configure(DefaultFeatureConfig.DEFAULT),
+//                Feature.CORAL_MUSHROOM.configure(DefaultFeatureConfig.DEFAULT))))
+//                .method_30374(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(7, 0.1F, 3))));
+//
+//        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION,
+//                Feature.SEA_PICKLE.configure(new SeaPickleFeatureConfig(20)).method_30374(Decorator.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceDecoratorConfig(20))));
 
         DefaultBiomeFeatures.addSavannaTallGrass(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);

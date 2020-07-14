@@ -6,14 +6,7 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.decorator.CountDecoratorConfig;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.DecoratorConfig;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.SeagrassFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
@@ -47,8 +40,8 @@ public class FrozenLake extends Biome {
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
         BYGFeatures.addCattails(this);
-        this.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Feature.ICE_SPIKE.configure(FeatureConfig.DEFAULT).method_30374(Decorator.COUNT_HEIGHTMAP.configure(new CountDecoratorConfig(2))));
-        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(48, 0.4D)).method_30374(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
+//        this.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, Feature.ICE_SPIKE.configure(FeatureConfig.DEFAULT).method_30374(Decorator.COUNT_HEIGHTMAP.configure(new CountDecoratorConfig(2))));
+        //this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(48, 0.4D)).method_30374(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
         DefaultBiomeFeatures.addFrozenTopLayer(this);
 
         this.addSpawn(SpawnGroup.WATER_AMBIENT, new SpawnEntry(EntityType.COD, 2, 1, 4));

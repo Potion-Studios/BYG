@@ -6,9 +6,11 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.decorator.CountExtraChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.RandomFeatureConfig;
 import voronoiaoc.byg.BYG;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
 
 public class BYGConfiguredFeatures {
     /***********************************************************Configured Features********************************************************/
@@ -198,15 +200,15 @@ public class BYGConfiguredFeatures {
             JACARANDA_TREE1)).method_30374(Decorator.COUNT_EXTRA.configure(
             new CountExtraChanceDecoratorConfig(45, 0.1F, -15))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_BLUE_TAIGA_TREE = newConfiguredFeature("rs_blue_taiga", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-           BYGFeatureList.BLUE_SMALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
-           Feature.TREE.configure(BYGFeatureConfigs.BLUEPINETREE_CONFIG).withChance(0.1F),
-           Feature.TREE.configure(BYGFeatureConfigs.BLUESPRUCETREE_CONFIG).withChance(0.1F),
-           Feature.TREE.configure(ConfiguredFeatures.PINE.config).withChance(0.5F),
-           Feature.TREE.configure(ConfiguredFeatures.SPRUCE.config).withChance(0.5F),
-           BYGFeatureList.BLUE_TALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F)),
-           BYGFeatureList.BLUE_SPRUCE_TREE.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
-           new CountExtraChanceDecoratorConfig(20, 0.1F, -8))));
+//    public static final ConfiguredFeature<?, ?> RANDOM_BLUE_TAIGA_TREE = newConfiguredFeature("rs_blue_taiga", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//           BYGFeatureList.BLUE_SMALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F),
+//           Feature.TREE.configure(BYGFeatureConfigs.BLUEPINETREE_CONFIG).withChance(0.1F),
+//           Feature.TREE.configure(BYGFeatureConfigs.BLUESPRUCETREE_CONFIG).withChance(0.1F),
+//           Feature.TREE.configure(ConfiguredFeatures.PINE.config).withChance(0.5F),
+//           Feature.TREE.configure(ConfiguredFeatures.SPRUCE.config).withChance(0.5F),
+//           BYGFeatureList.BLUE_TALL_SPRUCE_TREE.configure(FeatureConfig.DEFAULT).withChance(0.1F)),
+//           BYGFeatureList.BLUE_SPRUCE_TREE.configure(FeatureConfig.DEFAULT))).method_30374(Decorator.COUNT_EXTRA.configure(
+//           new CountExtraChanceDecoratorConfig(20, 0.1F, -8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_TREE = newConfiguredFeature("rs_boreal", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BOREAL_TREE1.withChance(0.5F)),
