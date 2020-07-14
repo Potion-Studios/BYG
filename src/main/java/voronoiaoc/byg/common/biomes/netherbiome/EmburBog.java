@@ -24,7 +24,6 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
-import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGFeatureList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
@@ -50,7 +49,7 @@ public class EmburBog extends Biome {
                         .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                         .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
                         .music(MusicType.method_27283(SoundEvents.MUSIC_NETHER_BASALT_DELTAS)).build())
-                .noises(ImmutableList.of(new MixedNoisePoint(0.65F, 0.0F, -0.43F, 0.0F, 0.0F))));
+                .noises(ImmutableList.of(new MixedNoisePoint(0.87F, 0.0F, -0.16F, 0.36F, 0.67F))));
 
 
         this.addFeature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.EMBURLAKE.configure(DefaultFeatureConfig.DEFAULT).createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(8, 0, 4, 128))));
