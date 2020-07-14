@@ -258,6 +258,22 @@ public class BYGConfiguredFeatures {
             PINE_TREE2)).method_30374(Decorator.COUNT_EXTRA.configure(
             new CountExtraChanceDecoratorConfig(0, 0.3F, 2))));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_BLUE_TAIGA_TREE = newConfiguredFeature("rs_blue_taiga_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ConfiguredFeatures.SPRUCE.withChance(0.2F),
+            ConfiguredFeatures.PINE.withChance(0.2F),
+            ConfiguredFeatures.MEGA_SPRUCE.withChance(0.2F),
+            ConfiguredFeatures.MEGA_PINE.withChance(0.2F),
+            BLUE_GIANT_SPRUCE_TREE.withChance(0.2F),
+            MC_BLUE_MEGA_PINE_TREE.withChance(0.2F),
+            MC_BLUE_MEGA_SPRUCE_TREE.withChance(0.1F),
+            BLUE_SMALL_SPRUCE_TREE.withChance(0.1F),
+            MC_BLUE_PINE_TREE.withChance(0.5F),
+            MC_BLUE_SPRUCE_TREE.withChance(0.5F),
+            BLUE_TALL_SPRUCE_TREE.withChance(0.5F),
+            BLUE_SPRUCE_TREE.withChance(0.5F)),
+            PINE_TREE2)).method_30374(Decorator.COUNT_EXTRA.configure(
+            new CountExtraChanceDecoratorConfig(45, 0.4F, 5))));
+
     public static final ConfiguredFeature<?, ?> RANDOM_MAPLE_TREE = newConfiguredFeature("rs_maple", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             MAPLE_RED_TREE1.withChance(0.4F),
             MAPLE_RED_TREE2.withChance(0.03F),
