@@ -11,6 +11,7 @@ import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.RandomFeatureConfig;
 import voronoiaoc.byg.BYG;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
 
 public class BYGConfiguredFeatures {
     /***********************************************************Configured Features********************************************************/
@@ -190,6 +191,24 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ZELKOVA_TREE3 = newConfiguredFeature("zelkova_tree3", BYGFeatureList.ZELKOVA_TREE3.configure(DecoratedFeatureConfig.DEFAULT));
 
     //Vanilla Tree Features
+    public static final ConfiguredFeature<?, ?> MC_TROPICAL_GROUND_BUSH = newConfiguredFeature("mc_tropical_ground_bush", Feature.TREE.configure(BYGFeatureConfigs.TROPGROUNDBUSH_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_MEGA_TROPICAL_GROUND_TREE = newConfiguredFeature("mc_mega_tropical_jungle_tree", Feature.TREE.configure(BYGFeatureConfigs.MEGATROPJUNGLETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BLUE_PINE_TREE = newConfiguredFeature("mc_blue_pine_tree", Feature.TREE.configure(BYGFeatureConfigs.BLUEPINETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BLUE_SPRUCE_TREE = newConfiguredFeature("mc_blue_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.BLUESPRUCETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_RED_PINE_TREE = newConfiguredFeature("mc_red_pine_tree", Feature.TREE.configure(BYGFeatureConfigs.REDPINETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_RED_SPRUCE_TREE = newConfiguredFeature("mc_red_pine_tree", Feature.TREE.configure(BYGFeatureConfigs.REDSPRUCETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_YELLOW_PINE_TREE = newConfiguredFeature("mc_yellow_pine_tree", Feature.TREE.configure(BYGFeatureConfigs.YELLOWPINETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_YELLOW_SPRUCE_TREE = newConfiguredFeature("mc_yellow_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.YELLOWSPRUCETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_ORANGE_PINE_TREE = newConfiguredFeature("mc_orange_pine_tree", Feature.TREE.configure(BYGFeatureConfigs.ORANGEPINETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_ORANGE_SPRUCE_TREE = newConfiguredFeature("mc_orange_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.ORANGESPRUCETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BLUE_MEGA_SPRUCE_TREE = newConfiguredFeature("mc_blue_mega_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.BLUEMEGASPRUCETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BLUE_MEGA_PINE_TREE = newConfiguredFeature("mc_blue_mega_pine_tree", Feature.TREE.configure(BYGFeatureConfigs.BLUEMEGAPINETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_RED_MEGA_SPRUCE_TREE = newConfiguredFeature("mc_red_mega_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.REDMEGASPRUCETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_RED_MEGA_PINE_TREE = newConfiguredFeature("mc_red_mega_pine_tree", Feature.TREE.configure(BYGFeatureConfigs.REDMEGAPINETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_YELLOW_MEGA_SPRUCE_TREE = newConfiguredFeature("mc_yellow_mega_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.YELLOWMEGASPRUCETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_YELLOW_MEGA_PINE_TREE = newConfiguredFeature("mc_yellow_mega_pine_tree", Feature.TREE.configure(BYGFeatureConfigs.YELLOWMEGAPINETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_ORANGE_MEGA_SPRUCE_TREE = newConfiguredFeature("mc_orange_mega_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.ORANGEMEGASPRUCETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_ORANGE_MEGA_PINE_TREE = newConfiguredFeature("mc_orange_mega_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.ORANGEMEGAPINETREE_CONFIG));
 
 
     /***********************************************************Random Selectors***********************************************************/
