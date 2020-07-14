@@ -206,7 +206,24 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> MC_YELLOW_MEGA_SPRUCE_TREE = newConfiguredFeature("mc_yellow_mega_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.YELLOWMEGASPRUCETREE_CONFIG));
     public static final ConfiguredFeature<?, ?> MC_YELLOW_MEGA_PINE_TREE = newConfiguredFeature("mc_yellow_mega_pine_tree", Feature.TREE.configure(BYGFeatureConfigs.YELLOWMEGAPINETREE_CONFIG));
     public static final ConfiguredFeature<?, ?> MC_ORANGE_MEGA_SPRUCE_TREE = newConfiguredFeature("mc_orange_mega_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.ORANGEMEGASPRUCETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_ORANGE_MEGA_PINE_TREE = newConfiguredFeature("mc_orange_mega_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.ORANGEMEGAPINETREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_ORANGE_MEGA_PINE_TREE = newConfiguredFeature("mc_orange_mega_pine_tree", Feature.TREE.configure(BYGFeatureConfigs.ORANGEMEGAPINETREE_CONFIG));
+
+    public static final ConfiguredFeature<?, ?> MC_BIRCH_RED_TREE = newConfiguredFeature("mc_red_birch", Feature.TREE.configure(BYGFeatureConfigs.REDBIRCHTREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BIRCH_TALL_RED_TREE = newConfiguredFeature("mc_tall_red_birch", Feature.TREE.configure(BYGFeatureConfigs.TALLREDBIRCHTREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BIRCH_BROWN_TREE = newConfiguredFeature("mc_brown_birch", Feature.TREE.configure(BYGFeatureConfigs.BROWNBIRCHTREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BIRCH_TALL_BROWN_TREE = newConfiguredFeature("mc_tall_brown_birch", Feature.TREE.configure(BYGFeatureConfigs.TALLBROWNBIRCHTREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BIRCH_ORANGE_TREE = newConfiguredFeature("mc_orange_birch", Feature.TREE.configure(BYGFeatureConfigs.ORANGEBIRCHTREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BIRCH_TALL_ORANGE_TREE = newConfiguredFeature("mc_tall_orange_birch", Feature.TREE.configure(BYGFeatureConfigs.TALLORANGEBIRCHTREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BIRCH_YELLOW_TREE = newConfiguredFeature("mc_yellow_birch", Feature.TREE.configure(BYGFeatureConfigs.YELLOWBIRCHTREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_BIRCH_TALL_YELLOW_TREE = newConfiguredFeature("mc_tall_yellow_birch", Feature.TREE.configure(BYGFeatureConfigs.TALLYELLOWBIRCHTREE_CONFIG));
+
+    public static final ConfiguredFeature<?, ?> MC_BROWN_OAK_TREE = newConfiguredFeature("mc_brown_oak_tree", Feature.TREE.configure(BYGFeatureConfigs.BROWNOAKTREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_ORANGE_OAK_TREE = newConfiguredFeature("mc_orange_oak_tree", Feature.TREE.configure(BYGFeatureConfigs.ORANGEOAKTREE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MC_RED_OAK_TREE = newConfiguredFeature("mc_red_oak_tree", Feature.TREE.configure(BYGFeatureConfigs.REDOAKTREE_CONFIG));
+
+    public static final ConfiguredFeature<?, ?> MC_DOVER_MEGA_SPRUCE_TREE = newConfiguredFeature("mc_dover_mega_spruce_tree", Feature.TREE.configure(BYGFeatureConfigs.DOVERMEGASPRUCETREE_CONFIG));
+
+    public static final ConfiguredFeature<?, ?> MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES = newConfiguredFeature("mc_fancy_red_oak_with_more_beehives_tree", Feature.TREE.configure(BYGFeatureConfigs.FANCY_RED_OAK_WITH_MORE_BEEHIVES_CONFIG));
 
 
     /***********************************************************Random Selectors***********************************************************/
