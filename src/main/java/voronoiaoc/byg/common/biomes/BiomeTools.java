@@ -1,23 +1,30 @@
 package voronoiaoc.byg.common.biomes;
 
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 
 public interface BiomeTools {
 
-    @Nullable
-    Biome getRiver();
+    default Biome getRiver() {
+        return Biomes.RIVER;
+    }
 
-    @Nullable
-    Biome getHill();
+    default HashMap<Biome,Integer> getHills() {
+        return new HashMap<>();
+    }
 
-    @Nullable
-    Biome getEdge();
+    default HashMap<Biome,Integer> getEdges() {
+        return new HashMap<>();
+    }
 
-    @Nullable
-    Biome getBeach();
+    default HashMap<Biome,Integer> getBeaches() {
+        return new HashMap<>();
+    }
 
-    @Nullable
-    Biome getMutation();
+    default HashMap<Biome,Integer> getMutations() {
+        return new HashMap<>();
+    }
 }

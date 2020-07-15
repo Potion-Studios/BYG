@@ -16,6 +16,7 @@ import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class AmaranthFields extends Biome implements BiomeTools {
@@ -63,28 +64,10 @@ public class AmaranthFields extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Override
-    public Biome getHill() {
-        Random rand = new Random();
-        return (rand.nextInt(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.JACARANDAFOREST;
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+        map.put(BYGBiomeList.JACARANDAFOREST,4);
+        return map;
     }
 }

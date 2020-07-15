@@ -75,28 +75,5 @@ public class ConiferousForest extends Biome implements BiomeTools {
         return 2263842;
     }
 
-    @Override
-    public Biome getRiver() {
-        return null;
-    }
 
-    @Override
-    public Biome getHill() {
-        return null;
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

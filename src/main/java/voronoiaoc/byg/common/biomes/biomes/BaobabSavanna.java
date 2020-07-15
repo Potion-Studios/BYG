@@ -65,29 +65,4 @@ public class BaobabSavanna extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
 
     }
-
-    @Override
-    public Biome getRiver() {
-        return null;
-    }
-
-    @Override
-    public Biome getHill() {
-        return null;
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import com.google.common.collect.Maps;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -20,6 +21,8 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
+import java.util.Collections;
+import java.util.HashMap;
 
 public class MarshLands extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.MARSHLAND_SB, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState()));
@@ -82,33 +85,14 @@ public class MarshLands extends Biome implements BiomeTools {
         return 6337104;
     }
 
-    @Nullable
     @Override
     public Biome getRiver() {
         return this;
     }
 
-    @Nullable
     @Override
-    public Biome getHill() {
-        return null;
+    public HashMap<Biome,Integer> getBeaches() {
+        return Maps.newHashMap(Collections.singletonMap(this,1));
     }
 
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return this;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

@@ -35,33 +35,4 @@ public class RedDesertDunes extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.HUSK, 160, 10, 10));
     }
 
-    @Nullable
-    @Override
-    public Biome getRiver() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getHill() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

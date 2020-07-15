@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import com.google.common.collect.Maps;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
@@ -11,6 +12,9 @@ import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
+
+import java.util.Collections;
+import java.util.HashMap;
 
 public class Dunes extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.DUNES_SB, BYGSBList.BYGSBConfigList.SAND_CF);
@@ -32,28 +36,11 @@ public class Dunes extends Biome implements BiomeTools {
         this.addStructureFeature(DefaultBiomeFeatures.DESERT_PYRAMID);
     }
 
-    @Override
-    public Biome getRiver() {
-        return null;
-    }
+
 
     @Override
-    public Biome getHill() {
-        return BYGBiomeList.OASIS;
+    public HashMap<Biome,Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.OASIS,1));
     }
 
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

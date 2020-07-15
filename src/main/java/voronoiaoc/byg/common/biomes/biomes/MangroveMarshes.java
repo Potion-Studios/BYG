@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import com.google.common.collect.Maps;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -21,6 +22,8 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.Collections;
+import java.util.HashMap;
 
 public class MangroveMarshes extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
@@ -78,33 +81,19 @@ public class MangroveMarshes extends Biome implements BiomeTools {
         return 6337104;
     }
 
-    @Nullable
     @Override
     public Biome getRiver() {
         return this;
     }
 
-    @Nullable
     @Override
-    public Biome getHill() {
-        return BYGBiomeList.CORAL_MANGROVES;
+    public HashMap<Biome,Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.CORAL_MANGROVES,1));
     }
 
-    @Nullable
     @Override
-    public Biome getEdge() {
-        return null;
+    public HashMap<Biome,Integer> getBeaches() {
+        return Maps.newHashMap(Collections.singletonMap(this,1));
     }
 
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return this;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

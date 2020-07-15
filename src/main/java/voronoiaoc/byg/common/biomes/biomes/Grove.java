@@ -18,6 +18,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Grove extends Biome implements BiomeTools {
@@ -67,13 +68,6 @@ public class Grove extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
-    @Nullable
-    @Override
-    public Biome getHill() {
-        Random rand = new Random();
-        return (rand.nextInt(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FLOWERING_GROVE;
-    }
-
     @Override
     public int getGrassColorAt(double posX, double posZ) {
         return 11190111;
@@ -85,22 +79,10 @@ public class Grove extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+        map.put(BYGBiomeList.FLOWERING_GROVE,4);
+        return map;
     }
 }

@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import com.google.common.collect.Maps;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -18,6 +19,9 @@ import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
+
+import java.util.Collections;
+import java.util.HashMap;
 
 public class GreatLakes extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.GREAT_LAKES_SB, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.GRAVEL.getDefaultState()));
@@ -77,22 +81,14 @@ public class GreatLakes extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getHill() {
-        return BYGBiomeList.GREATLAKEISLES;
+    public HashMap<Biome,Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.GREATLAKEISLES,1));
     }
 
     @Override
-    public Biome getEdge() {
-        return null;
+    public HashMap<Biome,Integer> getBeaches() {
+        return Maps.newHashMap(Collections.singletonMap(this,1));
     }
 
-    @Override
-    public Biome getBeach() {
-        return this;
-    }
 
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

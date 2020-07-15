@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import com.google.common.collect.Maps;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
@@ -12,6 +13,9 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
+
+import java.util.Collections;
+import java.util.HashMap;
 
 public class GrassLandPlateau extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG);
@@ -64,27 +68,13 @@ public class GrassLandPlateau extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
+    public HashMap<Biome,Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.WOODEDGRASSLANDPLATEAU,1));
     }
 
-    @Override
-    public Biome getHill() {
-        return BYGBiomeList.WOODEDGRASSLANDPLATEAU;
-    }
 
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
 
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
 
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
+
+
 }

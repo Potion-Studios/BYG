@@ -16,6 +16,9 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.Collections;
+import java.util.HashMap;
+
 public class Alps extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState()));
     static final Precipitation PRECIPATATION = Precipitation.SNOW;
@@ -56,22 +59,8 @@ public class Alps extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getHill() {
-        return BYGBiomeList.ALPINEFOOTHILLS;
+    public HashMap<Biome,Integer> getHills() {
+        return new HashMap<>(Collections.singletonMap(BYGBiomeList.ALPINEFOOTHILLS,1));
     }
 
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

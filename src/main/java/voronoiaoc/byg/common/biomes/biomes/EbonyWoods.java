@@ -73,28 +73,4 @@ public class EbonyWoods extends Biome implements BiomeTools {
         return 6589494;
     }
 
-    @Override
-    public Biome getRiver() {
-        return null;
-    }
-
-    @Override
-    public Biome getHill() {
-        return null;
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

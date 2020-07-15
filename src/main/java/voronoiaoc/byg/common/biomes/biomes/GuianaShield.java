@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import com.google.common.collect.Maps;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -22,6 +23,8 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import javax.annotation.Nullable;
+import java.util.Collections;
+import java.util.HashMap;
 
 public class GuianaShield extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState()));
@@ -84,33 +87,15 @@ public class GuianaShield extends Biome implements BiomeTools {
         return 6208527;
     }
 
-    @Nullable
     @Override
     public Biome getRiver() {
         return this;
     }
 
-    @Nullable
     @Override
-    public Biome getHill() {
-        return BYGBiomeList.GUIANA_CLEARING;
+    public HashMap<Biome,Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.GUIANA_CLEARING,1));
     }
 
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
 
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

@@ -18,6 +18,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Random;
 
 public class SeasonalTaiga extends Biome implements BiomeTools {
@@ -88,34 +89,11 @@ public class SeasonalTaiga extends Biome implements BiomeTools {
         return 12435265;
     }
 
-    @Nullable
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Nullable
-    @Override
-    public Biome getHill() {
-        Random rand = new Random();
-        return (rand.nextInt(2) == 0) ? BYGBiomeList.SEASONALTAIGAHILLS : BYGBiomeList.SEASONALGIANTTAIGA;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.SEASONALTAIGAHILLS,1);
+        map.put(BYGBiomeList.SEASONALGIANTTAIGA,1);
+        return map;
     }
 }

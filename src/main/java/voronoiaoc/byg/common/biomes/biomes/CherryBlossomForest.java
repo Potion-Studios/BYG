@@ -15,6 +15,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class CherryBlossomForest extends Biome implements BiomeTools {
@@ -78,40 +79,12 @@ public class CherryBlossomForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getRiver() {
-        return null;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.CHERRY_BLOSSOM_CLEARING,1);
+        map.put(BYGBiomeList.BAMBOO_FOREST,1);
+        map.put(BYGBiomeList.FRESHWATERLAKE,2);
+        return map;
     }
 
-    @Override
-    public Biome getHill() {
-        Random random = new Random();
-        return randomSubBiome(random);
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
-
-    public Biome randomSubBiome(Random random) {
-        int randomPicker = random.nextInt(4);
-        if (randomPicker == 0)
-            return BYGBiomeList.CHERRY_BLOSSOM_CLEARING;
-        else if (randomPicker == 1)
-            return BYGBiomeList.BAMBOO_FOREST;
-        else if (randomPicker == 2)
-            return BYGBiomeList.FRESHWATERLAKE;
-        else
-            return BYGBiomeList.FRESHWATERLAKE;
-    }
 }

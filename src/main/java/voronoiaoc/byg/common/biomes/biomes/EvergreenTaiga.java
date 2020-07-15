@@ -1,5 +1,7 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import com.google.common.collect.Maps;
+import it.unimi.dsi.fastutil.Hash;
 import net.minecraft.block.Blocks;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
@@ -14,6 +16,8 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 public class EvergreenTaiga extends Biome implements BiomeTools {
@@ -72,35 +76,12 @@ public class EvergreenTaiga extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getHill() {
-        Random random = new Random();
-        return randomSubBiome(random);
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = Maps.newHashMap();
+        map.put(BYGBiomeList.EVERGREEN_HILLS, 1);
+        map.put(BYGBiomeList.EVERGREEN_CLEARING, 2);
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
+        return map;
     }
 
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
-
-    public Biome randomSubBiome(Random random) {
-        int randomPicker = random.nextInt(4);
-        if (randomPicker == 0)
-            return BYGBiomeList.EVERGREEN_HILLS;
-        else if (randomPicker == 1)
-            return BYGBiomeList.EVERGREEN_CLEARING;
-        else if (randomPicker == 2)
-            return BYGBiomeList.EVERGREEN_CLEARING;
-        else
-            return BYGBiomeList.FRESHWATERLAKE;
-    }
 }
