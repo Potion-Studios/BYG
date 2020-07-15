@@ -66,34 +66,4 @@ public class SavannaCanopy extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
 
     }
-
-    @Nullable
-    @Override
-    public Biome getRiver() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getHill() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

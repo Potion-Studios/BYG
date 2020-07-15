@@ -74,33 +74,4 @@ public class MapleTaiga extends Biome implements BiomeTools {
         return 6589494;
     }
 
-    @Nullable
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Nullable
-    @Override
-    public Biome getHill() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

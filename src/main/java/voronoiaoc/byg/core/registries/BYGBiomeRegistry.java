@@ -220,53 +220,32 @@ public class BYGBiomeRegistry {
         if (weight > 0)
             OverworldBiomes.addContinentalBiome(biome, climate, weight / 10.0F);
 
-        if (((BiomeTools) biome).getEdge() != null) {
-            if (Registry.BIOME.getId(((BiomeTools) biome).getEdge()) == null) {
-//                throw new NullPointerException();
-            }
-            else {
-                OverworldBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), 1);
-            }
-        }
+        if (biome instanceof BiomeTools) {
+            ((BiomeTools)biome).getBeaches().forEach((subbiome,subWeight)->
+            {
+                OverworldBiomes.addShoreBiome(biome,subbiome,subWeight);
+            });
 
+            ((BiomeTools)biome).getEdges().forEach((subbiome,subWeight)->
+            {
+                OverworldBiomes.addEdgeBiome(biome,subbiome,subWeight);
+            });
 
-        if (((BiomeTools) biome).getBeach() != null) {
-            if (Registry.BIOME.getId(((BiomeTools) biome).getBeach()) == null) {
-//                throw new NullPointerException();
-            }
-            else {
-                OverworldBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), 1);
-            }
-        }
+            ((BiomeTools)biome).getHills().forEach((subbiome,subWeight)->
+            {
+                OverworldBiomes.addHillsBiome(biome,subbiome,subWeight);
+            });
 
+            ((BiomeTools)biome).getMutations().forEach((subbiome,subWeight)->
+            {
+                OverworldBiomes.addBiomeVariant(biome,subbiome,subWeight);
+            });
+            Biome RiverBiome =  ((BiomeTools)biome).getRiver();
+            if (RiverBiome == null) {
+                RiverBiome = Biomes.RIVER;
+            }
+            OverworldBiomes.setRiverBiome(biome,RiverBiome);
 
-        if (((BiomeTools) biome).getHill() != null) {
-            if (Registry.BIOME.getId(((BiomeTools) biome).getHill()) == null) {
-//                throw new NullPointerException();
-            }
-            else {
-                OverworldBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 1);
-            }
-        }
-
-
-        if (((BiomeTools) biome).getMutation() != null) {
-            if (Registry.BIOME.getId(((BiomeTools) biome).getMutation()) == null) {
-//                throw new NullPointerException();
-            }
-            else {
-                OverworldBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), 1);
-            }
-        }
-
-
-        if (((BiomeTools) biome).getRiver() != null) {
-            if (Registry.BIOME.getId(((BiomeTools) biome).getRiver()) == null) {
-//                throw new NullPointerException();
-            }
-            else {
-                OverworldBiomes.setRiverBiome(biome, ((BiomeTools) biome).getRiver());
-            }
         }
 
         biomeList.add(biome);

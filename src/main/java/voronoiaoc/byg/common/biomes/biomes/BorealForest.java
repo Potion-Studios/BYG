@@ -18,6 +18,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class BorealForest extends Biome implements BiomeTools {
@@ -82,42 +83,14 @@ public class BorealForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.BOREALFORESTHILLS,1);
+        map.put(BYGBiomeList.BOREALIS_CLEARING,2);
+        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+        return map;
     }
 
-    @Override
-    public Biome getHill() {
-        Random rand = new Random();
-        return randomSubBiome(rand);
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
-
-    public Biome randomSubBiome(Random random) {
-        int randomPicker = random.nextInt(4);
-        if (randomPicker == 0)
-            return BYGBiomeList.BOREALFORESTHILLS;
-        else if (randomPicker == 1)
-            return BYGBiomeList.BOREALIS_CLEARING;
-        else if (randomPicker == 2)
-            return BYGBiomeList.BOREALIS_CLEARING;
-        else
-            return BYGBiomeList.FRESHWATERLAKE;
-    }
 }
 
 

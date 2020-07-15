@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import com.google.common.collect.Maps;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
@@ -17,6 +18,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class AlliumFields extends Biome implements BiomeTools {
@@ -66,28 +68,11 @@ public class AlliumFields extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = Maps.newHashMap();
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
+        map.put(BYGBiomeList.REDOAKFOREST, 4);
+        return map;
     }
 
-    @Override
-    public Biome getHill() {
-        Random rand = new Random();
-        return (rand.nextInt(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.REDOAKFOREST;
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

@@ -19,6 +19,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Random;
 
 public class SierraValley extends Biome implements BiomeTools {
@@ -77,46 +78,12 @@ public class SierraValley extends Biome implements BiomeTools {
         return 10855786;
     }
 
-    @Nullable
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+        map.put(BYGBiomeList.SIERRARANGE,3);
+        return map;
     }
 
-    @Nullable
-    @Override
-    public Biome getHill() {
-        Random random = new Random();
-        return randomSubBiome(random);
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
-
-    public Biome randomSubBiome(Random random) {
-        int randomPicker = random.nextInt(4);
-        if (randomPicker == 0)
-            return BYGBiomeList.SIERRARANGE;
-        else if (randomPicker == 1)
-            return BYGBiomeList.SIERRARANGE;
-        else if (randomPicker == 2)
-            return BYGBiomeList.SIERRARANGE;
-        else
-            return BYGBiomeList.FRESHWATERLAKE;
-    }
 }

@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import com.google.common.collect.Maps;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
@@ -18,6 +19,9 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
+
+import java.util.Collections;
+import java.util.HashMap;
 
 public class CragGardens extends Biome implements BiomeTools, BiomeFog {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.SLUICE_SB, BYGSBList.BYGSBConfigList.GREEN_CONCRETE_POWDER_CF);
@@ -91,23 +95,15 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
     }
 
     @Override
-    public Biome getHill() {
-        return BYGBiomeList.CRAGGARDENS;
+    public HashMap<Biome,Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.CRAGGARDENS,1));
     }
 
     @Override
-    public Biome getEdge() {
-        return null;
+    public HashMap<Biome,Integer> getBeaches() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.CRAGGARDENS,1));
     }
 
-    @Override
-    public Biome getBeach() {
-        return BYGBiomeList.CRAGGARDENS;
-    }
 
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 
 }

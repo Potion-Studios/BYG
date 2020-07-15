@@ -18,6 +18,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Random;
 
 public class SnowyBlueTaiga extends Biome implements BiomeTools {
@@ -80,34 +81,17 @@ public class SnowyBlueTaiga extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.STRAY, 80, 4, 4));
     }
 
-    @Nullable
     @Override
     public Biome getRiver() {
         return Biomes.FROZEN_RIVER;
     }
 
-    @Nullable
     @Override
-    public Biome getHill() {
-        Random rand = new Random();
-        return (rand.nextInt(2) == 0) ? BYGBiomeList.SNOWYBLUETAIGAHILLS : BYGBiomeList.SNOWYBLUEGIANTTAIGA;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.SNOWYBLUETAIGAHILLS,1);
+        map.put(BYGBiomeList.SNOWYBLUEGIANTTAIGA,1);
+        return map;
     }
 
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

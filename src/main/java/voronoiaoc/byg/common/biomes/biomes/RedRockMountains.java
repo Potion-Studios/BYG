@@ -15,6 +15,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Random;
 
 public class RedRockMountains extends Biome implements BiomeTools {
@@ -70,46 +71,18 @@ public class RedRockMountains extends Biome implements BiomeTools {
         return 10855786;
     }
 
-    @Nullable
     @Override
     public Biome getRiver() {
         return this;
     }
 
-    @Nullable
     @Override
-    public Biome getHill() {
-        Random random = new Random();
-        return randomSubBiome(random);
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.RED_ROCK_LOWLANDS,1);
+        map.put(BYGBiomeList.RED_ROCK_HIGHLANDS,2);
+        map.put(BYGBiomeList.WOODEDREDROCKMOUNTAINS,1);
+        return map;
     }
 
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
-
-    public Biome randomSubBiome(Random random) {
-        int randomPicker = random.nextInt(4);
-        if (randomPicker == 0)
-            return BYGBiomeList.RED_ROCK_LOWLANDS;
-        else if (randomPicker == 1)
-            return BYGBiomeList.RED_ROCK_HIGHLANDS;
-        else if (randomPicker == 2)
-            return BYGBiomeList.RED_ROCK_HIGHLANDS;
-        else
-            return BYGBiomeList.WOODEDREDROCKMOUNTAINS;
-    }
 }

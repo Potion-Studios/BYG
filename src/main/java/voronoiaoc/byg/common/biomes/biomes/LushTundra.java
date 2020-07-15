@@ -15,6 +15,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Random;
 
 public class LushTundra extends Biome implements BiomeTools {
@@ -62,13 +63,6 @@ public class LushTundra extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.STRAY, 80, 4, 4));
     }
 
-    @Nullable
-    @Override
-    public Biome getHill() {
-        Random rand = new Random();
-        return (rand.nextInt(5) == 0) ? BYGBiomeList.FROZENLAKE : BYGBiomeList.NORTHERN_FOREST;
-    }
-
     @Override
     public int getGrassColorAt(double posX, double posZ) {
         return 10044989;
@@ -80,25 +74,10 @@ public class LushTundra extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.FROZENLAKE,1);
+        map.put(BYGBiomeList.NORTHERN_FOREST,4);
+        return map;
     }
 }

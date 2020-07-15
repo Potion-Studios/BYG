@@ -72,23 +72,4 @@ public class GlowShroomBayou extends Biome implements BiomeTools {
         return this;
     }
 
-    @Override
-    public Biome getHill() {
-        return null;
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

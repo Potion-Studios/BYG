@@ -17,6 +17,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class BlueTaiga extends Biome implements BiomeTools {
@@ -76,32 +77,11 @@ public class BlueTaiga extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Override
-    public Biome getHill() {
-        Random rand = new Random();
-        return (rand.nextInt(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : pickRandomSubBiome(rand);
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
-
-    public Biome pickRandomSubBiome(Random rand) {
-        return (rand.nextInt(2) == 0) ? BYGBiomeList.BLUEGIANTTAIGA : BYGBiomeList.BLUETAIGAHILLS;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+        map.put(BYGBiomeList.BLUEGIANTTAIGA,2);
+        map.put(BYGBiomeList.BLUETAIGAHILLS,2);
+        return map;
     }
 }

@@ -17,6 +17,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class DeciduousForest extends Biome implements BiomeTools {
@@ -70,41 +71,13 @@ public class DeciduousForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.DECIDUOUSFORESTHILLS,1);
+        map.put(BYGBiomeList.DECIDUOUS_CLEARING,2);
+        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+        return map;
     }
 
-    @Override
-    public Biome getHill() {
-        Random random = new Random();
-        return randomSubBiome(random);
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
-
-    public Biome randomSubBiome(Random random) {
-        int randomPicker = random.nextInt(4);
-        if (randomPicker == 0)
-            return BYGBiomeList.DECIDUOUSFORESTHILLS;
-        else if (randomPicker == 1)
-            return BYGBiomeList.DECIDUOUS_CLEARING;
-        else if (randomPicker == 2)
-            return BYGBiomeList.DECIDUOUS_CLEARING;
-        else
-            return BYGBiomeList.FRESHWATERLAKE;
-    }
 }
 

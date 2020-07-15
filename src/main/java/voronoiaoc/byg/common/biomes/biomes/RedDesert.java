@@ -19,6 +19,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Random;
 
 public class RedDesert extends Biome implements BiomeTools {
@@ -67,34 +68,12 @@ public class RedDesert extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.HUSK, 80, 4, 4));
     }
 
-    @Nullable
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.LUSHREDDESERT,1);
+        map.put(BYGBiomeList.REDDESERTDUNES,1);
+        return map;
     }
 
-    @Nullable
-    @Override
-    public Biome getHill() {
-        Random random = new Random();
-        return (random.nextInt(2) == 0) ? BYGBiomeList.LUSHREDDESERT : BYGBiomeList.REDDESERTDUNES;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

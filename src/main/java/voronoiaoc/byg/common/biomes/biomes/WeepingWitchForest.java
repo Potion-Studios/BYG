@@ -19,6 +19,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Random;
 
 public class WeepingWitchForest extends Biome implements BiomeTools, BiomeFog {
@@ -84,39 +85,16 @@ public class WeepingWitchForest extends Biome implements BiomeTools, BiomeFog {
         return 6589494;
     }
 
-    @Nullable
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Nullable
-    @Override
-    public Biome getHill() {
-        Random random = new Random();
-        return (random.nextInt(5) == 0) ? BYGBiomeList.PUMPKIN_FOREST : BYGBiomeList.WEEPING_WTICH_CLEARING;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
     @Override
     public float fogDistance(int x, int z, float originalDistanceChunks) {
         return 10;
     }
 
-    @Nullable
     @Override
-    public Biome getMutation() {
-        return null;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.PUMPKIN_FOREST,1);
+        map.put(BYGBiomeList.WEEPING_WTICH_CLEARING,4);
+        return map;
     }
 }

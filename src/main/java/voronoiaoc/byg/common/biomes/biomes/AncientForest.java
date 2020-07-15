@@ -15,6 +15,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Random;
 
 public class AncientForest extends Biome implements BiomeTools {
@@ -65,31 +66,6 @@ public class AncientForest extends Biome implements BiomeTools {
         this.addSpawn(SpawnGroup.MONSTER, new SpawnEntry(EntityType.WITCH, 5, 1, 1));
     }
 
-    @Nullable
-    @Override
-    public Biome getHill() {
-        Random rand = new Random();
-        return (rand.nextInt(5) == 0) ? BYGBiomeList.FLOWERING_ANCIENT_FOREST : BYGBiomeList.GLOWING_ANCIENT_FOREST;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
-
     @Override
     public int getGrassColorAt(double posX, double posZ) {
         return 5406551;
@@ -101,8 +77,10 @@ public class AncientForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
+    public HashMap<Biome,Integer> getHills() {
+        HashMap<Biome,Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.FLOWERING_ANCIENT_FOREST,1);
+        map.put(BYGBiomeList.GLOWING_ANCIENT_FOREST,4);
+        return map;
     }
-
 }

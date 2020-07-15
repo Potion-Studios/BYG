@@ -81,33 +81,5 @@ public class TropicalIslands extends Biome implements BiomeTools {
         return 10145074;
     }
 
-    @Nullable
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
 
-    @Nullable
-    @Override
-    public Biome getHill() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }

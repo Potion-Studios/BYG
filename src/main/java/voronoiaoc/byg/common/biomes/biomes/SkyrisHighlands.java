@@ -73,33 +73,5 @@ public class SkyrisHighlands extends Biome implements BiomeTools {
         return lvt_5_1_ < -0.1D ? 7135854 : 6409356;
     }
 
-    @Nullable
-    @Override
-    public Biome getRiver() {
-        return null;
-    }
 
-    @Nullable
-    @Override
-    public Biome getHill() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
 }
