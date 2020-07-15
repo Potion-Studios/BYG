@@ -503,6 +503,16 @@ public class BYGConfiguredFeatures {
             ConfiguredFeatures.SWAMP_TREE)).method_30374(ConfiguredFeatures.class_5466.field_26165).method_30374(Decorator.COUNT_EXTRA.configure(
             new CountExtraChanceDecoratorConfig(0, 0.4F, 2))));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_TREE = newConfiguredFeature("rs_enchanted_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ENCHANTED_BLUE_TREE1.withChance(0.2F),
+            ENCHANTED_BLUE_TREE2.withChance(0.2F),
+            ENCHANTED_BLUE_TREE3.withChance(0.2F),
+            ENCHANTED_GREEN_TREE1.withChance(0.2F),
+            ENCHANTED_GREEN_TREE2.withChance(0.2F),
+            ENCHANTED_GREEN_TREE3.withChance(0.1F)),
+            ConfiguredFeatures.SWAMP_TREE)).method_30374(ConfiguredFeatures.class_5466.field_26165).method_30374(Decorator.COUNT_EXTRA.configure(
+            new CountExtraChanceDecoratorConfig(0, 0.4F, 2))));
+
     public static final ConfiguredFeature<?, ?> RANDOM_BAYOU_TREE = newConfiguredFeature("rs_bayou_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             WILLOW_DEAD_TREE1.withChance(0.2F),
             WILLOW_TREE3.withChance(0.2F),
