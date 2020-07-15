@@ -36,7 +36,7 @@ public class DeciduousClearing extends Biome {
         DefaultBiomeFeatures.addDefaultFlowers(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
-        BYGTreeFeatures.addSparseDeciduousTrees(this);
+        BYGTreeFeatures.addDeciduousSparseTrees(this);
         BYGFeatures.addHorseweed(this);
         BYGFeatures.addBYGMushrooms(this);
         BYGFeatures.addGrass(this);

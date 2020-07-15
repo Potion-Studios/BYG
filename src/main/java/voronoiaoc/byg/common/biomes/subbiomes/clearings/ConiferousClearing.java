@@ -40,7 +40,7 @@ public class ConiferousClearing extends Biome {
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addSweetBerryBushes(this);
-        BYGTreeFeatures.addSparseConiferousTrees(this);
+        BYGTreeFeatures.addConiferousSparseTrees(this);
         BYGFeatures.addLushBlueberries(this);
         BYGFeatures.addCrocus(this);
         BYGFeatures.addIris(this);

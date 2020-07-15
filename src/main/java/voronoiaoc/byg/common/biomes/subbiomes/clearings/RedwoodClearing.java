@@ -42,7 +42,7 @@ public class RedwoodClearing extends Biome {
         BYGFeatures.addMossyStoneBoulder(this);
         BYGFeatures.addBYGMushrooms(this);
         BYGFeatures.addGrass(this);
-        BYGTreeFeatures.addSparseRedwoodTrees(this);
+        BYGTreeFeatures.addRedwoodSparseTrees(this);
 
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(SpawnGroup.CREATURE, new SpawnEntry(EntityType.PIG, 10, 4, 4));

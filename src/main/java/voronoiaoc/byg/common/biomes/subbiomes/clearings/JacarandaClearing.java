@@ -39,7 +39,7 @@ public class JacarandaClearing extends Biome {
         DefaultBiomeFeatures.addDefaultGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
-        BYGTreeFeatures.addSparseJacarandaTrees(this);
+        BYGTreeFeatures.addJacarandaSparseTrees(this);
         DefaultBiomeFeatures.addJungleVegetation(this);
         DefaultBiomeFeatures.addForestGrass(this);
         BYGFeatures.addWeedGrass(this);

@@ -38,7 +38,7 @@ public class SnowyDeciduousClearing extends Biome {
         DefaultBiomeFeatures.addDefaultFlowers(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
-        BYGTreeFeatures.addSparseDeciduousTrees(this);
+        BYGTreeFeatures.addDeciduousSparseTrees(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
         BYGFeatures.addGrass(this);
         BYGFeatures.addAnemones(this);

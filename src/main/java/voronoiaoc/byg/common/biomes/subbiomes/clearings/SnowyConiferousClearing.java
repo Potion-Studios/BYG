@@ -39,7 +39,7 @@ public class SnowyConiferousClearing extends Biome {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        BYGTreeFeatures.addSparseConiferousTrees(this);
+        BYGTreeFeatures.addConiferousSparseTrees(this);
         BYGFeatures.addLushBlueberries(this);
         BYGFeatures.addGrass(this);
         BYGFeatures.addWinterSucculent(this);

@@ -37,7 +37,7 @@ public class BorealisClearing extends Biome {
         DefaultBiomeFeatures.addForestGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
-        BYGTreeFeatures.addSparseBorealTrees(this);
+        BYGTreeFeatures.addBorealSparseTrees(this);
         BYGFeatures.addLushBlueberries(this);
         BYGFeatures.addCrocus(this);
         BYGFeatures.addIris(this);
