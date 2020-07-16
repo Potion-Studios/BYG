@@ -121,7 +121,6 @@ public class BYGBiomeWeightSystem {
     public static void addBiomeEntry(Biome biome, int weight, BiomeManager.BiomeType type) {
         if (weight > 0) {
             BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(biome, weight));
-
             if (type == BiomeManager.BiomeType.WARM)
                 WARM.add(Registry.BIOME.getId(biome));
             if (type == BiomeManager.BiomeType.COOL)

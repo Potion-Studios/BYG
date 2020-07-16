@@ -23,25 +23,12 @@ public class BlockColorManager {
      */
     @SubscribeEvent
     public static void onBlockColorsInit(ColorHandlerEvent.Block event) {
-        final BlockColors blockColors = event.getBlockColors();
+        BlockColors blockColors = event.getBlockColors();
 
         //registers the colors for blocks that changes colors based on biome
-        blockColors.register((unknown, lightReader, pos, unknown2) -> {
-            return lightReader != null && pos != null ? BiomeColors.getGrassColor(lightReader, pos) : GrassColors.get(0.5D, 1.0D);
-        }, BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_STONE, BYGBlockList.OVERGROWN_NETHERRACK, BYGBlockList.SHORT_GRASS, BYGBlockList.TINY_LILYPADS, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.GLOWCELIUM, BYGBlockList.WILTED_GRASS, BYGBlockList.WEED_GRASS, BYGBlockList.NETHER_BRISTLE, BYGBlockList.WATER_SILK);
+        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getGrassColor(lightReader, pos) : GrassColors.get(0.5D, 1.0D), BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_STONE, BYGBlockList.OVERGROWN_NETHERRACK, BYGBlockList.SHORT_GRASS, BYGBlockList.TINY_LILYPADS, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.GLOWCELIUM, BYGBlockList.WILTED_GRASS, BYGBlockList.WEED_GRASS, BYGBlockList.NETHER_BRISTLE, BYGBlockList.WATER_SILK);
+        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getFoliageColor(lightReader, pos) : FoliageColors.get(0.5D, 1.0D), BYGBlockList.MAHOGANY_LEAVES, BYGBlockList.POISON_IVY, BYGBlockList.LEAF_PILE, BYGBlockList.ORCHARD_LEAVES, BYGBlockList.FLOWERING_ORCHARD_LEAVES, BYGBlockList.RIPE_ORCHARD_LEAVES, BYGBlockList.RAINBOW_EUCALYPTUS_LEAVES, BYGBlockList.WILLOW_LEAVES, BYGBlockList.MAPLE_LEAVES, BYGBlockList.JOSHUA_LEAVES, BYGBlockList.RIPE_JOSHUA_LEAVES);
     }
-
-
-    @SubscribeEvent
-    public static void onFoilageBlockColorsInit(ColorHandlerEvent.Block event) {
-        final BlockColors blockColors = event.getBlockColors();
-
-        //registers the colors for blocks that changes colors based on biome
-        blockColors.register((unknown, lightReader, pos, unknown2) -> {
-            return lightReader != null && pos != null ? BiomeColors.getFoliageColor(lightReader, pos) : FoliageColors.get(0.5D, 1.0D);
-        }, BYGBlockList.MAHOGANY_LEAVES, BYGBlockList.POISON_IVY, BYGBlockList.LEAF_PILE, BYGBlockList.ORCHARD_LEAVES, BYGBlockList.FLOWERING_ORCHARD_LEAVES, BYGBlockList.RIPE_ORCHARD_LEAVES, BYGBlockList.RAINBOW_EUCALYPTUS_LEAVES, BYGBlockList.WILLOW_LEAVES, BYGBlockList.MAPLE_LEAVES, BYGBlockList.JOSHUA_LEAVES, BYGBlockList.RIPE_JOSHUA_LEAVES);
-    }
-
 
     /**
      * Register the {@link IItemColor} handlers
@@ -52,9 +39,9 @@ public class BlockColorManager {
         final ItemColors itemColors = event.getItemColors();
 
         // Use the Block's colour handler for an ItemBlock
-        final IItemColor itemBlockColourHandler = (stack, tintIndex) ->
+        IItemColor itemBlockColourHandler = (stack, tintIndex) ->
         {
-            final BlockState state = ((BlockItem) stack.getItem()).getBlock().getDefaultState();
+            BlockState state = ((BlockItem) stack.getItem()).getBlock().getDefaultState();
             return blockColors.getColor(state, null, null, tintIndex);
         };
 
