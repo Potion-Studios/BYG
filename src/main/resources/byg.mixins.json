@@ -6,7 +6,6 @@
   "mixins": [
     "common.AbstractBlockStateBookshelfMixin",
     "common.FeatureMixin",
-    "common.MixinDimensionType",
     "common.PlantBlockMixin"
   ],
   "client": [

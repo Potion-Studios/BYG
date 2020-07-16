@@ -9,7 +9,6 @@ import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class JacarandaForestHills extends Biome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG);
@@ -38,8 +37,8 @@ public class JacarandaForestHills extends Biome {
         DefaultBiomeFeatures.addForestGrass(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
-        BYGTreeFeatures.addJacarandaTrees(this);
-        BYGTreeFeatures.addBYGJungleTreeForest(this);
+//        BYGTreeFeatures.addJacarandaTrees(this);
+//        BYGTreeFeatures.addBYGJungleTreeForest(this);
         BYGFeatures.addBYGBambooJungleVegetation(this);
         DefaultBiomeFeatures.addJungleVegetation(this);
         DefaultBiomeFeatures.addSavannaGrass(this);

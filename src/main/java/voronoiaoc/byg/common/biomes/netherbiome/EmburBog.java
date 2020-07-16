@@ -37,7 +37,7 @@ public class EmburBog extends Biome {
                         .loopSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
                         .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                         .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
-                        .music(MusicType.method_27283(SoundEvents.MUSIC_NETHER_BASALT_DELTAS)).build()));
+                        .music(MusicType.createIngameMusic(SoundEvents.MUSIC_NETHER_BASALT_DELTAS)).build()));
 
 
         //TODO: Reenable Embur Bog lake.
