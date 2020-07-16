@@ -4,12 +4,15 @@ import net.fabricmc.fabric.api.biomes.v1.FabricBiomes;
 import net.fabricmc.fabric.api.biomes.v1.NetherBiomes;
 import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biomes.v1.OverworldClimate;
+import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
+import net.fabricmc.fabric.api.event.registry.RegistryEntryRemovedCallback;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
@@ -199,14 +202,29 @@ public class BYGBiomeRegistry {
         registerSubBiome(BYGBiomeList.SEASONALGIANTTAIGA, "seasonal_giant_taiga", true);
 
 
+        BYG.LOGGER.info("BYG: Registered Sub Biomes!");
+    }
+
+    public static void registerNetherBiomes() {
+        BYG.LOGGER.debug("BYG: Registering Nether Biomes...");
         /**********NetherBiomes - 3**********/
         registerNetherBiome(BYGBiomeList.GLOWSTONEGARDENS, "glowstone_gardens");
         registerNetherBiome(BYGBiomeList.WARPEDDESERT, "warped_desert");
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
         registerNetherBiome(BYGBiomeList.EMBURBOG, "embur_bog");
-
-
-        BYG.LOGGER.info("BYG: Registered Sub Biomes!");
+        // register existing nether biomes
+        Registry.BIOME.stream().filter(biome->biome.getCategory().equals(Biome.Category.NETHER)).forEach(biome->BYGNetherBiomeProvider.biomeList.add(biome));
+        // register future biomes
+        RegistryEntryAddedCallback.event(Registry.BIOME).register((rawId,id,biome)->{
+            if (biome.getCategory().equals(Biome.Category.NETHER)) {
+                BYGNetherBiomeProvider.biomeList.add(biome);
+            }
+        });
+        // this should never happen, but just in case...
+        RegistryEntryRemovedCallback.event(Registry.BIOME).register((rawid,id,biome)->{
+            BYGNetherBiomeProvider.biomeList.removeIf(biome::equals);
+        });
+        BYG.LOGGER.info("BYG: Registered Nether Biomes!");
     }
 
     static int idx = 0;

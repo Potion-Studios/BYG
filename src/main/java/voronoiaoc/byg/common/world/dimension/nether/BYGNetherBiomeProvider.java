@@ -44,16 +44,5 @@ public class BYGNetherBiomeProvider extends BiomeSource {
         return new BYGNetherBiomeProvider(seed);
     }
 
-    public static List<Biome> biomeList = new ArrayList<>(InternalBiomeData.getNetherBiomes());
-
-
-
-    static {
-        biomeList.add(Biomes.CRIMSON_FOREST);
-        biomeList.add(Biomes.SOUL_SAND_VALLEY);
-        biomeList.add(Biomes.WARPED_FOREST);
-        biomeList.add(Biomes.NETHER_WASTES);
-        biomeList.add(Biomes.BASALT_DELTAS);
-
-    }
+    public static List<Biome> biomeList = new ArrayList<>();
 }

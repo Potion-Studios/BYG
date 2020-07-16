@@ -14,7 +14,7 @@ import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 @Mixin(DimensionType.class)
 public class MixinDimensionType {
 
-    @Inject(at = @At("HEAD"), method = "createNetherGenerator(J)Lnet/minecraft/world/gen/chunk/ChunkGenerator;", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "createNetherGenerator(J)Lnet/minecraft/world/gen/chunk/ChunkGenerator;", cancellable = true, require = 0)
     private static void yeetTheNether(long seed, CallbackInfoReturnable<ChunkGenerator> cir) {
         if (FabricLoader.getInstance().isModLoaded("smolder") || FabricLoader.getInstance().isModLoaded("betternether")) {
 
