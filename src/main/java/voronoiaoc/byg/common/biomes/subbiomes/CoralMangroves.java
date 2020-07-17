@@ -24,7 +24,7 @@ public class CoralMangroves extends Biome {
     static final String PARENT = null;
 
     public CoralMangroves() {
-        super(new Settings().configureSurfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
+        super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
         BYGTreeFeatures.addSparseMangroveMarshes(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
@@ -34,7 +34,7 @@ public class CoralMangroves extends Biome {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
-        //this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).method_30374(Decorator.TOP_SOLID_HEIGHTMAP.configure(NopeDecoratorConfig.field_24892)));
+        //this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).decorate(Decorator.TOP_SOLID_HEIGHTMAP.configure(NopeDecoratorConfig.field_24892)));
         BYGFeatures.addGrass(this);
         BYGFeatures.addCattails(this);
         BYGFeatures.addPeachleatherflower(this);
@@ -48,10 +48,10 @@ public class CoralMangroves extends Biome {
 //                Feature.CORAL_TREE.configure(DefaultFeatureConfig.DEFAULT),
 //                Feature.CORAL_CLAW.configure(DefaultFeatureConfig.DEFAULT),
 //                Feature.CORAL_MUSHROOM.configure(DefaultFeatureConfig.DEFAULT))))
-//                .method_30374(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraChanceDecoratorConfig(7, 0.1F, 3))));
+//                .decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraDecoratorConfig(7, 0.1F, 3))));
 //
 //        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION,
-//                Feature.SEA_PICKLE.configure(new SeaPickleFeatureConfig(20)).method_30374(Decorator.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceDecoratorConfig(20))));
+//                Feature.SEA_PICKLE.configure(new SeaPickleFeatureConfig(20)).decorate(Decorator.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceDecoratorConfig(20))));
 
         DefaultBiomeFeatures.addSavannaTallGrass(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);

@@ -4,7 +4,7 @@ package voronoiaoc.byg.common.world.feature.placements;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
-import net.minecraft.world.gen.decorator.CountExtraChanceDecoratorConfig;
+import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DecoratorContext;
 
@@ -14,17 +14,17 @@ import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class UnderGroundPlacement extends Decorator<CountExtraChanceDecoratorConfig> {
+public class UnderGroundPlacement extends Decorator<CountExtraDecoratorConfig> {
 
-    public static final Decorator<CountExtraChanceDecoratorConfig> UGPLACER = new UnderGroundPlacement(CountExtraChanceDecoratorConfig.CODEC);
+    public static final Decorator<CountExtraDecoratorConfig> UGPLACER = new UnderGroundPlacement(CountExtraDecoratorConfig.CODEC);
 
-    public UnderGroundPlacement(Codec<CountExtraChanceDecoratorConfig> codec) {
+    public UnderGroundPlacement(Codec<CountExtraDecoratorConfig> codec) {
         super(codec);
     }
 
     //TODO: FIX
 
-    public Stream<BlockPos> getPositions(DecoratorContext decoratorContext, Random random, CountExtraChanceDecoratorConfig config, BlockPos pos) {
+    public Stream<BlockPos> getPositions(DecoratorContext decoratorContext, Random random, CountExtraDecoratorConfig config, BlockPos pos) {
         int c = config.count;
         if (random.nextFloat() < config.extraChance) {
             c += config.extraCount;

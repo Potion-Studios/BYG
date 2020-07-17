@@ -30,7 +30,7 @@ public class TropicalFungalRainForest extends Biome implements BiomeTools {
     static final String PARENT = null;
 
     public TropicalFungalRainForest() {
-        super(new Settings().configureSurfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
+        super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
         DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
         DefaultBiomeFeatures.addLandCarvers(this);
