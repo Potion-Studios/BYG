@@ -19,6 +19,9 @@ import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 import voronoiaoc.byg.core.registries.BYGBlockRegistry;
 import voronoiaoc.byg.core.registries.BYGEntityRegistry;
 import voronoiaoc.byg.core.registries.BYGItemRegistry;
+import voronoiaoc.byg.data.BYGDataGenerator;
+
+import java.io.IOException;
 
 public class BYG implements ModInitializer {
     public static final String MODID = "byg";
@@ -53,6 +56,12 @@ public class BYG implements ModInitializer {
 //            System.out.println(idx + ". " + Registry.BIOME.getId(biome).toString().replace("_", "").replace("byg:", ""));
 //
 //        });
+
+        try {
+            BYGDataGenerator.dataGenBiome("D:\\Coding\\BiomeJson");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         LOGGER.info("Initialized BYG!");
     }
 }
