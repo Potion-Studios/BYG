@@ -40,7 +40,7 @@ public class GuianaClearing extends Biome {
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addDefaultVegetation(this);
         DefaultBiomeFeatures.addSprings(this);
-        BYGTreeFeatures.addSparseTropJungleTrees(this);
+        BYGTreeFeatures.addSparseRainforestTrees(this);
         BYGFeatures.addWeedGrass(this);
         BYGFeatures.addGrass(this);
         BYGFeatures.addBYGTropicFlowers(this);

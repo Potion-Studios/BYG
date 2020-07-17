@@ -46,7 +46,7 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
         DefaultBiomeFeatures.addDefaultDisks(this);
         DefaultBiomeFeatures.addDefaultMushrooms(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        BYGTreeFeatures.addTropJungleTrees(this);
+        BYGTreeFeatures.addRainForestTrees(this);
         BYGTreeFeatures.addCragRainbowTrees(this);
         BYGFeatures.addBYGTropicFlowers(this);
         DefaultBiomeFeatures.addJungleVegetation(this);

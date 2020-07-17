@@ -34,7 +34,7 @@ public class AutumnalValley extends Biome implements BiomeTools {
 //        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
         BYGTreeFeatures.addMeadowShrubs(this);
-        BYGTreeFeatures.addPumpkinPatches(this);
+        BYGTreeFeatures.addLargePumpkins(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);
         DefaultBiomeFeatures.addMineables(this);

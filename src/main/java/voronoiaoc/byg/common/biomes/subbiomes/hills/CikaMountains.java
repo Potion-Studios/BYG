@@ -28,7 +28,7 @@ public class CikaMountains extends Biome {
     public CikaMountains() {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
         DefaultBiomeFeatures.addDefaultUndergroundStructures(this);
-        BYGTreeFeatures.addPumpkinPatches(this);
+        BYGTreeFeatures.addLargePumpkins(this);
         BYGTreeFeatures.addCikaTrees(this);
         DefaultBiomeFeatures.addLandCarvers(this);
         DefaultBiomeFeatures.addDungeons(this);

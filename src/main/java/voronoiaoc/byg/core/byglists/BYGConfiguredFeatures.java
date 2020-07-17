@@ -434,6 +434,7 @@ public class BYGConfiguredFeatures {
             RAINBOW_LARGE_TREE1.withChance(0.2F),
             RAINBOW_TREE1.withChance(0.2F),
             TROPICAL_SHRUB1.withChance(0.2F),
+            MC_MEGA_TROPICAL_GROUND_TREE.withChance(0.2F),
             TROPICAL_SHORT_TREE1.withChance(0.1F)),
             TROPICAL_SHORT_TREE1)).decorate(ConfiguredFeatures.Decorators.field_26165).decorate(Decorator.COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(0, 0.4F, 2))));
@@ -445,6 +446,7 @@ public class BYGConfiguredFeatures {
             RAINBOW_LARGE_TREE1.withChance(0.2F),
             RAINBOW_TREE1.withChance(0.2F),
             TROPICAL_SHRUB1.withChance(0.2F),
+            MC_MEGA_TROPICAL_GROUND_TREE.withChance(0.2F),
             TROPICAL_SHORT_TREE1.withChance(0.1F)),
             TROPICAL_SHORT_TREE1)).decorate(ConfiguredFeatures.Decorators.field_26165).decorate(Decorator.COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(0, 0.4F, 2))));

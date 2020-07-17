@@ -39,7 +39,7 @@ public class TropicalRainForestHills extends Biome {
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addJungleVegetation(this);
         DefaultBiomeFeatures.addFrozenTopLayer(this);
-        BYGTreeFeatures.addTropJungleTrees(this);
+        BYGTreeFeatures.addRainForestTrees(this);
         DefaultBiomeFeatures.addSavannaGrass(this);
         BYGFeatures.addWeedGrass(this);
         BYGFeatures.addBYGTropicFlowers(this);
