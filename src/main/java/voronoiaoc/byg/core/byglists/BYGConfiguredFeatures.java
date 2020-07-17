@@ -286,7 +286,7 @@ public class BYGConfiguredFeatures {
             PINE_TREE2)).decorate(ConfiguredFeatures.Decorators.field_26165).decorate(Decorator.COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(0, 0.3F, 2))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_BLUE_TAIGA_TREE = newConfiguredFeature("rs_blue_taiga_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_GIANT_BLUE_TAIGA_TREE = newConfiguredFeature("rs_blue_taiga_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             ConfiguredFeatures.SPRUCE.withChance(0.2F),
             ConfiguredFeatures.PINE.withChance(0.2F),
             ConfiguredFeatures.MEGA_SPRUCE.withChance(0.2F),
@@ -755,7 +755,13 @@ public class BYGConfiguredFeatures {
             MC_BIRCH_TALL_YELLOW_TREE)).decorate(ConfiguredFeatures.Decorators.field_26165).decorate(Decorator.COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(0, 0.4F, 2))));
 
-
+    public static final ConfiguredFeature<?, ?> RANDOM_BLUE_TAIGA_TREE = newConfiguredFeature("rs_blue_taiga_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            BLUE_SMALL_SPRUCE_TREE.withChance(0.1F),
+            BLUE_SPRUCE_TREE.withChance(0.1F),
+            BLUE_TALL_SPRUCE_TREE.withChance(0.1F),
+            MC_BLUE_SPRUCE_TREE.withChance(0.1F)),
+            MC_BLUE_PINE_TREE)).decorate(ConfiguredFeatures.Decorators.field_26165).decorate(Decorator.COUNT_EXTRA.configure(
+            new CountExtraDecoratorConfig(0, 0.4F, 2))));
 
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {
        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(BYG.MODID, registryName), configuredFeature);
