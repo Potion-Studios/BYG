@@ -215,8 +215,8 @@ public class BYGFeatureList {
 
     //Embur
     public static final Feature<DefaultFeatureConfig> EMBURLAKE = new EmburBogLake(DefaultFeatureConfig.CODEC);
-    public static final Feature<DefaultFeatureConfig> EMBURMUSHROOM = new EmburMushroom(DefaultFeatureConfig.CODEC);
-    public static final Feature<DefaultFeatureConfig> EMBURMUSHROOM2 = new EmburMushroom2(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_MUSHROOM = new EmburMushroom(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_MUSHROOM2 = new EmburMushroom2(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> EMBUR_GEL_VINES = new EmburGelVines(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> EMBUR_ROOTS = new EmburRoots(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> TALL_EMBUR_ROOTS = new TallEmburRoots(DefaultFeatureConfig.CODEC);
@@ -485,8 +485,8 @@ public class BYGFeatureList {
             registerFeature(WEEPING_ROOTS, "weeping_roots");
             registerFeature(WEEPING_ROOTS_PLANT, "weeping_roots_plant");
             registerFeature(EMBURLAKE, "embur_lake");
-            registerFeature(EMBURMUSHROOM, "embur_mushroom");
-            registerFeature(EMBURMUSHROOM2, "embur_mushroom2");
+            registerFeature(EMBUR_MUSHROOM, "embur_mushroom");
+            registerFeature(EMBUR_MUSHROOM2, "embur_mushroom2");
             registerFeature(EMBUR_GEL_VINES, "embur_gel_vines");
             registerFeature(EMBUR_ROOTS, "embur_roots");
             registerFeature(TALL_EMBUR_ROOTS, "tall_embur_roots");
