@@ -62,7 +62,7 @@
   "biome.byg.frozen_lake": "冻湖",
   "biome.byg.fungal_patch": "真菌斑块",
   "biome.byg.giant_blue_spruce_taiga": "巨型蓝色泰加林",
-  "biome.byg.giant_seasonal_spruce_taiga": "巨型季节性云杉泰加林",
+  "biome.byg.seasonal_giant_taiga": "巨型季节性云杉泰加林",
   "biome.byg.glowing_ancient_forest": "光辉古林",
   "biome.byg.glowshroom_bayou": "发光菌海湾",
   "biome.byg.glowstone_gardens": "辉石花园",
@@ -133,7 +133,7 @@
   "biome.byg.snowy_coniferous_forest_hills": "下雪的结球林山丘",
   "biome.byg.snowy_deciduous_forest": "下雪的落叶林森林",
   "biome.byg.snowy_deciduous_forest_hills": "下雪的落叶林森林山丘",
-  "biome.byg.snowy_giant_blue_taiga": "巨型下雪的蓝色泰加林",
+  "biome.byg.snowy_blue_giant_taiga": "巨型下雪的蓝色泰加林",
   "biome.byg.snowy_pine_mountains": "下雪的松树山",
   "biome.byg.snowy_rocky_black_beach": "下雪的多石黑色沙滩",
   "biome.byg.sonoran_desert": "索诺拉沙漠",
@@ -883,7 +883,7 @@
   "item.byg.blue_enchanted_boat": "蓝色魔法木船",
   "item.byg.blue_glowcane_dust": "蓝色发光蔗沙土",
   "item.byg.blue_nether_brick": "蓝色下界砖",
-  "item.byg.bluefruit": "蓝色浆果",
+  "item.byg.blueberries": "蓝色浆果",
   "item.byg.byglogo": "Byg图标",
   "item.byg.chain_plating": "链盘",
   "item.byg.cherry_boat": "樱花木船",
@@ -894,7 +894,7 @@
   "item.byg.fir_boat": "冷杉船",
   "item.byg.green_apple": "青苹果",
   "item.byg.green_enchanted_boat": "绿色魔法木船",
-  "item.byg.holly_fruit": "冬青浆果",
+  "item.byg.holly_berries": "冬青浆果",
   "item.byg.holly_boat": "冬青船",
   "item.byg.hollyberry": "冬青浆果",
   "item.byg.jacaranda_boat": "蓝花楹木船",
@@ -922,5 +922,5 @@
   "item.byg.willow_boat": "柳木船",
   "item.byg.witch_hazel_boat": "金缕梅船",
   "item.byg.zelkova_boat": "榉木船",
-  "itemGroup.byg.byg": "你去的生物群系"
+  "itemGroup.byg": "你去的生物群系"
 }
