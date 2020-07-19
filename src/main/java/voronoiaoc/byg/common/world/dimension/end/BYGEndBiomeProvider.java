@@ -1,6 +1,5 @@
 package voronoiaoc.byg.common.world.dimension.end;
 
-import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -13,11 +12,10 @@ import java.util.List;
 
 public class BYGEndBiomeProvider extends BiomeSource {
     public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = Codec.LONG.fieldOf("seed").xmap(BYGEndBiomeProvider::new, (endBP) -> endBP.seed).stable().codec();
-    public static List<Biome> vanillaEnd = ImmutableList.of(Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS);
     private final long seed;
     private final BiomeLayerSampler biomeLayer;
 
-    public static final List<Biome> bygEndBiomeList = new ArrayList<>(vanillaEnd);
+    public static final List<Biome> bygEndBiomeList = new ArrayList<>();
 
     public BYGEndBiomeProvider(long seed) {
         super(bygEndBiomeList);
