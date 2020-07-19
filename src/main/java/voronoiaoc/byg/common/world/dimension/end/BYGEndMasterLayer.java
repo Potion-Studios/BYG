@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.dimension;
+package voronoiaoc.byg.common.world.dimension.end;
 
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biomes;

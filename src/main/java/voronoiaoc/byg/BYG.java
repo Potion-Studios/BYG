@@ -12,7 +12,7 @@ import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
 import voronoiaoc.byg.common.properties.vanilla.BYGFlammables;
 import voronoiaoc.byg.common.properties.vanilla.BYGHoeables;
 import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
-import voronoiaoc.byg.common.world.dimension.BYGEndBiomeProvider;
+import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;

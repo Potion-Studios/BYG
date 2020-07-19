@@ -12,7 +12,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.biomes.BiomeTools;
-import voronoiaoc.byg.common.world.dimension.BYGEndBiomeProvider;
+import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 

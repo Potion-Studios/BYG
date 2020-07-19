@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.dimension;
+package voronoiaoc.byg.common.world.dimension.end;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
