@@ -12,6 +12,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.dimension.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
@@ -227,6 +228,25 @@ public class BYGBiomeRegistry {
         BYG.LOGGER.info("BYG: Registered Nether Biomes!");
     }
 
+    public static void registerEndBiomes() {
+        BYG.LOGGER.debug("BYG: Registering End Biomes...");
+        /**********EndBiomes - 1**********/
+        registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
+        // Register existing End biomes
+        Registry.BIOME.stream().filter(biome->biome.getCategory().equals(Biome.Category.THEEND)).forEach(biome-> BYGEndBiomeProvider.bygEndBiomeList.add(biome));
+        // register future biomes
+        RegistryEntryAddedCallback.event(Registry.BIOME).register((rawId,id,biome)->{
+            if (biome.getCategory().equals(Biome.Category.THEEND)) {
+                BYGEndBiomeProvider.bygEndBiomeList.add(biome);
+            }
+        });
+        //This should never happen, but just in case...
+        RegistryEntryRemovedCallback.event(Registry.BIOME).register((rawid, id, biome)->{
+            BYGEndBiomeProvider.bygEndBiomeList.removeIf(biome::equals);
+        });
+        BYG.LOGGER.info("BYG: Registered End Biomes!");
+    }
+
     static int idx = 0;
 
 
@@ -276,6 +296,10 @@ public class BYGBiomeRegistry {
         NetherBiomes.addNetherBiome(biome);
     }
 
+    private static void registerEndBiome(Biome biome, String id) {
+        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
+    }
+
     public static void addBeachesCategorically() {
         for (Biome biome : Registry.BIOME) {
             if (!(biome instanceof BiomeTools)) {
@@ -311,4 +335,6 @@ public class BYGBiomeRegistry {
             OverworldBiomes.addBiomeVariant(oceanBiomeIdx, island, 0.1F);
         }
     }
+
+
 }

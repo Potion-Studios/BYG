@@ -1,4 +1,5 @@
-package voronoiaoc.byg.common.world.dimension.nether;
+package voronoiaoc.byg.common.world.dimension;
+
 
 import net.minecraft.world.biome.layer.ScaleLayer;
 import net.minecraft.world.biome.layer.util.CachingLayerContext;
@@ -9,17 +10,18 @@ import net.minecraft.world.biome.source.BiomeLayerSampler;
 
 import java.util.function.LongFunction;
 
-public class BYGNetherLayerProvider {
+public class BYGEndLayerProvider {
     public static BiomeLayerSampler stackLayers(long seed) {
         LongFunction<LayerSampleContext<CachingLayerSampler>> randomProvider = salt -> new CachingLayerContext(1, seed, salt);
-        LayerFactory<CachingLayerSampler> netherFactory = BYGNetherMasterLayer.INSTANCE.create(randomProvider.apply(1000L));
+
+        LayerFactory<CachingLayerSampler> endFactory = BYGEndMasterLayer.INSTANCE.create(randomProvider.apply(1000L));
 
         for (int netherBiomeSize = 0; netherBiomeSize <= 3; netherBiomeSize++) {
-            netherFactory = ScaleLayer.NORMAL.create(randomProvider.apply(1000L + netherBiomeSize), netherFactory);
+            endFactory = ScaleLayer.NORMAL.create(randomProvider.apply(1000L + netherBiomeSize), endFactory);
         }
-        netherFactory = ScaleLayer.FUZZY.create(randomProvider.apply(1000L), netherFactory);
-        netherFactory = ScaleLayer.NORMAL.create(randomProvider.apply(1000L), netherFactory);
+        endFactory = ScaleLayer.FUZZY.create(randomProvider.apply(1000L), endFactory);
+        endFactory = ScaleLayer.NORMAL.create(randomProvider.apply(1000L), endFactory);
 
-        return new BiomeLayerSampler(netherFactory);
+        return new BiomeLayerSampler(endFactory);
     }
 }

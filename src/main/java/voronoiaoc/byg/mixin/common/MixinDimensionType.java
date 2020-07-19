@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import voronoiaoc.byg.common.world.dimension.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 
 @Mixin(DimensionType.class)
@@ -22,5 +23,10 @@ public class MixinDimensionType {
         else {
             cir.setReturnValue(new SurfaceChunkGenerator(new BYGNetherBiomeProvider(seed), seed, ChunkGeneratorType.Preset.NETHER.getChunkGeneratorType()));
         }
+    }
+
+    @Inject(at = @At("HEAD"), method = "createEndGenerator(J)Lnet/minecraft/world/gen/chunk/ChunkGenerator;", cancellable = true, require = 0)
+    private static void yeetTheEnd(long seed, CallbackInfoReturnable<ChunkGenerator> cir) {
+        cir.setReturnValue(new SurfaceChunkGenerator(new BYGEndBiomeProvider(seed), seed, ChunkGeneratorType.Preset.END.getChunkGeneratorType()));
     }
 }

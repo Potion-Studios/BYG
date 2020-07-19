@@ -12,6 +12,7 @@ import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
 import voronoiaoc.byg.common.properties.vanilla.BYGFlammables;
 import voronoiaoc.byg.common.properties.vanilla.BYGHoeables;
 import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
+import voronoiaoc.byg.common.world.dimension.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
@@ -34,6 +35,7 @@ public class BYG implements ModInitializer {
         BYGBiomeRegistry.registerSubBiomes();
         BYGBiomeRegistry.registerBiomes();
         BYGBiomeRegistry.registerNetherBiomes();
+        BYGBiomeRegistry.registerEndBiomes();
         BYGEntityRegistry.registerEntities();
 
         //Misc
@@ -46,6 +48,7 @@ public class BYG implements ModInitializer {
         BYGStrippables.strippableLogsBYG();
         BYGCompostables.compostablesBYG();
         Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
+        Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
 
 //        BYGBiomeRegistry.biomeList.forEach(biome -> {
 //            idx++;
