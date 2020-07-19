@@ -5,20 +5,20 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Lazy;
+import voronoiaoc.byg.core.byglists.BYGItemList;
 
 import java.util.function.Supplier;
 
 public enum BYGArmorTiers implements ArmorMaterial {
     AMETRINE("ametrine", 39, new int[]{4, 7, 9, 4}, 15, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.5F, 0.0F, () -> {
-        return Ingredient.ofItems(Items.LEATHER);
+        return Ingredient.ofItems(BYGItemList.AMETRINE_GEMS);
     }),
     PENDORITE("pendorite", 15, new int[]{1, 4, 5, 2}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> {
-        return Ingredient.ofItems(Items.IRON_INGOT);
+        return Ingredient.ofItems(BYGItemList.PENDORITE_SCRAPS);
     });
 
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
