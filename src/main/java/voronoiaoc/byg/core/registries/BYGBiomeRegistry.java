@@ -233,7 +233,7 @@ public class BYGBiomeRegistry {
         /**********EndBiomes - 1**********/
         registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
         // Register existing End biomes
-        Registry.BIOME.stream().filter(biome->biome.getCategory().equals(Biome.Category.THEEND)).forEach(biome-> BYGEndBiomeProvider.bygEndBiomeList.add(biome));
+        Registry.BIOME.stream().filter(biome->biome.getCategory().equals(Biome.Category.THEEND)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
         // register future biomes
         RegistryEntryAddedCallback.event(Registry.BIOME).register((rawId,id,biome)->{
             if (biome.getCategory().equals(Biome.Category.THEEND)) {
