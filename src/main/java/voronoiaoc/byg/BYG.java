@@ -56,7 +56,6 @@ public class BYG {
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
         BYGCreativeTab.init();
-        BYGNetherBiomeCatch.addNetherBiomeIDs();
         BYGEndBiomeCatch.endBiomeConfigCollection();
         BYGNetherBiomeCatch.netherBiomeConfigCollection();
         BYGFeaturesInVanilla.addFeatures();

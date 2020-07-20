@@ -5,7 +5,6 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 import voronoiaoc.byg.BYG;
@@ -34,7 +33,7 @@ public class BYGNetherBiomeCatch {
     public static final int VISCERALHEAP = BiomeRegistry.getID(new ResourceLocation("biomesoplenty:visceral_heap"));
 
 
-    static String biomeRegistries = BYGWorldConfig.externalNetherBiomes.get();
+    static String biomeRegistries = BYGWorldConfig.netherBiomes.get();
     public static String configBiomes = biomeRegistries.trim();
     public static List<String> biomeList = Arrays.asList(configBiomes.split(","));
 
@@ -48,13 +47,13 @@ public class BYGNetherBiomeCatch {
             for (int index = 0; index < biomeList.size(); ++index) {
                 final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeList.get(index)));
                 if (configResource == null) {
-                    BYG.LOGGER.warn("Illegal registry name! You put: " + biomeList.get(index));
+                    BYG.LOGGER.error("Illegal registry name! You put: " + biomeList.get(index));
                 } else if (configResource != null) {
                     getConfigArray[index] = BiomeRegistry.getID(configResource);
                     Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
 
                     if (biome == null) {
-                        BYG.LOGGER.warn("Illegal registry name! You put: " + biomeList.get(index));
+                        BYG.LOGGER.error("Illegal registry name! You put: " + biomeList.get(index));
                     } else {
                         BYGNetherBiomeProvider.biomeList.add(biome);
                         netherBiomeIDS.add(Registry.BIOME.getId(biome));
@@ -66,25 +65,6 @@ public class BYGNetherBiomeCatch {
         BYG.LOGGER.info(biomeList.size());
         BYG.LOGGER.debug("BYG: Nether Biome Config Collection completed!");
     }
-
-   public static void addNetherBiomeIDs() {
-        netherBiomeIDS.add(NETHER);
-        netherBiomeIDS.add(WARPEDDESERT);
-        netherBiomeIDS.add(SYTHIANTORRIDS);
-        netherBiomeIDS.add(GLOWSTONEGARDENS);
-        netherBiomeIDS.add(EMBURBOG);
-        netherBiomeIDS.add(WARPEDFOREST);
-        netherBiomeIDS.add(BASALTDELTAS);
-        netherBiomeIDS.add(SOULSANDVALLEY);
-        netherBiomeIDS.add(CRIMSONFOREST);
-
-        if (ModList.get().isLoaded("biomesoplenty")) {
-            netherBiomeIDS.add(WITHEREDABYSS);
-            netherBiomeIDS.add(UNDERGROWTH);
-            netherBiomeIDS.add(VISCERALHEAP);
-        }
-    }
-
 
     public static int getRandomNetherBiomes(INoiseRandom rand) {
         return netherBiomeIDS.get(rand.random(netherBiomeIDS.size()));

@@ -23,7 +23,7 @@ public class BYGWorldConfig {
     public static ForgeConfigSpec.BooleanValue vanillaBiomes;
     public static ForgeConfigSpec.IntValue seaLevel;
     public static ForgeConfigSpec.ConfigValue<String> externalEndBiomes;
-    public static ForgeConfigSpec.ConfigValue<String> externalNetherBiomes;
+    public static ForgeConfigSpec.ConfigValue<String> netherBiomes;
     public static ForgeConfigSpec.ConfigValue<String> externalICYBiomes;
     public static ForgeConfigSpec.ConfigValue<String> externalWARMBiomes;
     public static ForgeConfigSpec.ConfigValue<String> externalHOTBiomes;
@@ -61,7 +61,7 @@ public class BYGWorldConfig {
         COMMON_BUILDER.comment("External Biomes. World settings for custom nether/end/byg: https://gist.github.com/CorgiTaco/f5716864bc7b63b04aa547ccfc0e846a").push("Dimension_Settings");
         externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry names in a commented list.").define("ExternalEndBiomes", "");
         biomeSizeEND = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").defineInRange("EndBiomeSize", 3, 0, 10);
-        externalNetherBiomes = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").define("ExternalNetherBiomes", "");
+        netherBiomes = COMMON_BUILDER.comment("Add Nether biomes by their registry names(IDs) in a commented list.\n Adding a biome several times gives it more weight in generation.\n Default: \"byg:embur_bog,byg:glowstone_gardens,byg:sythian_torrids,byg:warped_desert,minecraft:basalt_deltas,minecraft:crimson_forest,minecraft:nether_wastes,minecraft:soul_sand_valley,minecraft:warped_forest\".").define("NetherBiomes", "byg:embur_bog,byg:glowstone_gardens,byg:sythian_torrids,byg:warped_desert,minecraft:basalt_deltas,minecraft:crimson_forest,minecraft:nether_wastes,minecraft:soul_sand_valley,minecraft:warped_forest");
         biomeSizeNETHER = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").defineInRange("NetherBiomeSize", 3, 0, 10);
         COMMON_BUILDER.pop();
 
