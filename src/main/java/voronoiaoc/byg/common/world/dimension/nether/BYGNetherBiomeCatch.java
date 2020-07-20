@@ -3,13 +3,11 @@ package voronoiaoc.byg.common.world.dimension.nether;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.config.BYGWorldConfig;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,21 +16,6 @@ import java.util.List;
 @SuppressWarnings("deprecation")
 public class BYGNetherBiomeCatch {
     public static ForgeRegistry<Biome> BiomeRegistry = ((ForgeRegistry<Biome>) ForgeRegistries.BIOMES);
-
-    public static final int NETHER = BiomeRegistry.getID(Biomes.field_235254_j_);
-    public static final int WARPEDDESERT = BiomeRegistry.getID(BYGBiomeList.WARPEDDESERT);
-    public static final int SYTHIANTORRIDS = BiomeRegistry.getID(BYGBiomeList.SYTHIANTORRIDS);
-    public static final int GLOWSTONEGARDENS = BiomeRegistry.getID(BYGBiomeList.GLOWSTONEGARDENS);
-    public static final int BASALTDELTAS = BiomeRegistry.getID(Biomes.field_235251_aB_);
-    public static final int SOULSANDVALLEY = BiomeRegistry.getID(Biomes.field_235252_ay_);
-    public static final int CRIMSONFOREST = BiomeRegistry.getID(Biomes.field_235250_aA_);
-    public static final int WARPEDFOREST = BiomeRegistry.getID(Biomes.field_235250_aA_);
-    public static final int EMBURBOG = BiomeRegistry.getID(BYGBiomeList.EMBURBOG);
-    public static final int WITHEREDABYSS = BiomeRegistry.getID(new ResourceLocation("biomesoplenty:withered_abyss"));
-    public static final int UNDERGROWTH = BiomeRegistry.getID(new ResourceLocation("biomesoplenty:undergrowth"));
-    public static final int VISCERALHEAP = BiomeRegistry.getID(new ResourceLocation("biomesoplenty:visceral_heap"));
-
-
     static String biomeRegistries = BYGWorldConfig.netherBiomes.get();
     public static String configBiomes = biomeRegistries.trim();
     public static List<String> biomeList = Arrays.asList(configBiomes.split(","));

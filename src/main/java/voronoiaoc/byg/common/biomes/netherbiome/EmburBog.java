@@ -62,6 +62,7 @@ public class EmburBog extends Biome implements BiomeFog {
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.RED_MUSHROOM_CONFIG).withPlacement(Placement.CHANCE_RANGE.configure(new ChanceRangeConfig(0.5F, 0, 0, 128))));
         this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHERRACK, Blocks.MAGMA_BLOCK.getDefaultState(), 33)).withPlacement(Placement.MAGMA.configure(new FrequencyConfig(4))));
         BYGFeatures.addEmburBogVegetation(this);
+        DefaultBiomeFeatures.func_235192_as_(this);
 
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.BLAZE, 40, 4, 4));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));
