@@ -897,7 +897,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.4F, 0.4F)
-                    .harvestLevel(4)
+                    .harvestLevel(2)
                     .lightValue(13)
                     .harvestTool(ToolType.PICKAXE)
 
