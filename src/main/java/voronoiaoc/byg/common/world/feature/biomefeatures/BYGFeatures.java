@@ -1,19 +1,12 @@
 package voronoiaoc.byg.common.world.feature.biomefeatures;
 
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.GenerationStep;
+import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 
 public class BYGFeatures {
     public static void addAlliumFieldFlowers(Biome biome) {
-        //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-//                Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.ALLIUMBUSH_CONFIG).withChance(0.6F)),
-//                Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PINKALLIUMBUSH_CONFIG))).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(
-//                new CountDecoratorConfig(200))));
-//
-//        //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-//                Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.TALL_ALLIUM_CONFIG).withChance(0.6F)),
-//                Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.TALL_PINK_ALLIUM_CONFIG))).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(
-//                new CountDecoratorConfig(25))));
-
+        biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ALLIUM_FLOWER);
     }
 
     public static void addAmaranthFieldFlowers(Biome biome) {
