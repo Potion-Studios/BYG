@@ -479,6 +479,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .sound(SoundType.PLANT)
                     .notSolid()
+                    .harvestTool(ToolType.HOE)
             );
             setRegistryName(registryName);
             this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)));
