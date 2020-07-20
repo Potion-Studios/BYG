@@ -239,28 +239,28 @@ public class BYGConfiguredTreeFeatures {
 
     /***********************************************************Random Selectors***********************************************************/
     public static final ConfiguredFeature<?, ?> RANDOM_ANCIENT_TREE = newConfiguredFeature("rs_ancient_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            ConfiguredFeatures.DARK_OAK.withChance(0.01F),
-            ANCIENT_TREE1.withChance(0.7F),
-            ANCIENT_TREE2.withChance(0.1F)),
+            ConfiguredFeatures.DARK_OAK.withChance(0.7F),
+            ANCIENT_TREE1.withChance(0.05F),
+            ANCIENT_TREE2.withChance(0.06F)),
             ANCIENT_TREE3)).decorate(ConfiguredFeatures.Decorators.field_26165).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(75, 0.4F, 2))));
+            new CountExtraDecoratorConfig(16, 0.4F, 8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BAYOU_TREE = newConfiguredFeature("rs_bayou_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            WILLOW_DEAD_TREE1.withChance(0.2F),
-            WILLOW_TREE3.withChance(0.2F),
-            WILLOW_TREE4.withChance(0.2F),
-            WILLOW_TREE2.withChance(0.1F)),
-            WILLOW_TREE1)).decorate(ConfiguredFeatures.Decorators.field_26165).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(0, 0.4F, 2))));
+            WILLOW_DEAD_TREE1.withChance(0.1F),
+            WILLOW_TREE1.withChance(0.25F),
+            WILLOW_TREE2.withChance(0.25F),
+            WILLOW_TREE3.withChance(0.25F)),
+            WILLOW_TREE4)).decorate(ConfiguredFeatures.Decorators.field_26165).decorate(Decorator.COUNT_EXTRA.configure(
+            new CountExtraDecoratorConfig(8, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUFF_TREE = newConfiguredFeature("rs_bluff_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            PINE_TREE1.withChance(0.2F),
-            PINE_TREE2.withChance(0.2F),
-            BLUFF_TREE1.withChance(0.2F),
-            BLUFF_TREE2.withChance(0.2F),
-            BLUFF_TREE3.withChance(0.1F)),
-            HOLLY_TREE4)).decorate(ConfiguredFeatures.Decorators.field_26165).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(0, 0.4F, 2))));
+            PINE_TREE1.withChance(0.05F),
+            PINE_TREE2.withChance(0.05F),
+            BLUFF_TREE1.withChance(0.3F),
+            BLUFF_TREE2.withChance(0.3F),
+            BLUFF_TREE3.withChance(0.25F)),
+            CONIFER_TREE6)).decorate(ConfiguredFeatures.Decorators.field_26165).decorate(Decorator.COUNT_EXTRA.configure(
+            new CountExtraDecoratorConfig(22, 0.3F, -10))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_TREE = newConfiguredFeature("rs_boreal", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BOREAL_TREE1.withChance(0.5F)),
@@ -275,8 +275,8 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_BLACK_FOREST_TREE = newConfiguredFeature("rs_black_forest", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             ASPEN_TREE3.withChance(0.2F),
             ASPEN_TREE2.withChance(0.2F),
-            CONIFER_TREE7.withChance(0.1F),
             CONIFER_TREE6.withChance(0.1F),
+            CONIFER_TREE7.withChance(0.1F),
             PINE_LARGE_TREE1.withChance(0.5F),
             PINE_LARGE_TREE2.withChance(0.5F),
             PINE_TREE1.withChance(0.5F)),
