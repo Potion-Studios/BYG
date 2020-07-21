@@ -38,6 +38,8 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> BEACH_SHORT_GRASS = newConfiguredFeature("short_beach_grass", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_BEACH_GRASS_CONFIG));
     public static ConfiguredFeature<?, ?> WILTED_GRASS = newConfiguredFeature("wilted_grass", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WILTED_GRASS_CONFIG));
     public static ConfiguredFeature<?, ?> LEAF_PILE = newConfiguredFeature("leaf_pile", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.LEAF_PILE_CONFIG));
+    public static ConfiguredFeature<?, ?> CLOVER_PATCH = newConfiguredFeature("clover_patch", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.CLOVER_PATCH));
+    public static ConfiguredFeature<?, ?> FLOWER_PATCH = newConfiguredFeature("flower_patch", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.FLOWER_PATCH));
     public static ConfiguredFeature<?, ?> WEED_GRASS = newConfiguredFeature("weed_grass", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WEED_GRASS_CONFIG));
     public static ConfiguredFeature<?, ?> WINTER_GRASS = newConfiguredFeature("winter_grass", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WINTER_GRASS_CONFIG));
     public static ConfiguredFeature<?, ?> CALIFORNIA_POPPY = newConfiguredFeature("california_poppy", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.CALIFORNIA_POPPY_CONFIG));
@@ -143,6 +145,78 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_FERN_GRASS = newConfiguredFeature("rs_fern_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             FERN_GRASS.withChance(0.50F)),
             SHORT_GRASS)).decorate(ConfiguredFeatures.Decorators.field_26166));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_DESERT_PLANTS = newConfiguredFeature("rs_desert_plants", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            PRICKLY_PEAR_CACTI.withChance(0.25F),
+            GOLDEN_SPINED_CACTI.withChance(0.25F)),
+            FIRECRACKER_BUSH)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_FIRECRACKER = newConfiguredFeature("rs_firecracker", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            FIRECRACKER_BUSH.withChance(0.50F)),
+            FIRECRACKER_BUSH)).decorate(ConfiguredFeatures.Decorators.field_26166));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_PRAIRIE_GRASS = newConfiguredFeature("rs_prairie", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            PRAIRIE_GRASS.withChance(0.50F)),
+            PRAIRIE_TALL_GRASS)).decorate(ConfiguredFeatures.Decorators.field_26166));
+
+    public static final ConfiguredFeature<?, ?> RANDMOM_PUMPKIN = newConfiguredFeature("rs_pumpkin", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            PUMPKIN_CONFIG.withChance(0.50F)),
+            PUMPKIN_CONFIG)).decorate(ConfiguredFeatures.Decorators.field_26166));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_BLUEBERRIES = newConfiguredFeature("rs_blueberries", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            BLUE_BERRY_BUSH.withChance(0.50F)),
+            BLUE_BERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.field_26166));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_LUSH_BLUEBERRIES = newConfiguredFeature("rs_blueberries", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            BLUE_BERRY_BUSH.withChance(0.50F)),
+            BLUE_BERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.field_26166));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_BEACH_GRASS = newConfiguredFeature("rs_beach_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            BEACH_GRASS.withChance(0.50F)),
+            BEACH_SHORT_GRASS)).decorate(ConfiguredFeatures.Decorators.field_26166));
+
+//    public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_VEGETATION = newConfiguredFeature("rs_embur_vegetation", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            AMARANTH_CYAN.withChance(0.2F),
+//            AMARANTH_MAGENTA.withChance(0.2F),
+//            AMARANTH_ORANGE.withChance(0.2F),
+//            AMARANTH_PURPLE.withChance(0.2F)),
+//            AMARANTH)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(150));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_AZALEA = newConfiguredFeature("rs_azalea", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            AZALEA.withChance(0.2F)),
+            AZALEA)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(150));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_JAPANESE_ORCHID = newConfiguredFeature("rs_glowcane", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            JAPANESE_ORCHID.withChance(0.25F)),
+            JAPANESE_ORCHID)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_DELPHINIUM = newConfiguredFeature("rs_delphinium", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            DELPHINIUM.withChance(0.25F)),
+            DELPHINIUM)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WILTED_GRASS = newConfiguredFeature("rs_wilted_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            WILTED_GRASS.withChance(0.25F)),
+            WILTED_GRASS)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WEED_GRASS = newConfiguredFeature("rs_weed_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            WEED_GRASS.withChance(0.25F)),
+            WEED_GRASS)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WINTER_GRASS = newConfiguredFeature("rs_winter_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            WINTER_GRASS.withChance(0.25F)),
+            WINTER_GRASS)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_LEAF_PILE = newConfiguredFeature("rs_leaf_pile", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            LEAF_PILE.withChance(0.25F)),
+            LEAF_PILE)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_CLOVER_FLOWER_PATCH = newConfiguredFeature("rs_clover_flower_patch", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            CLOVER_PATCH.withChance(0.5F)),
+            FLOWER_PATCH)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_CHERRY_FOLIAGE = newConfiguredFeature("rs_cherry_foliage", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            WHITE_CHERRY_FOLIAGE.withChance(0.5F)),
+            PINK_CHERRY_FOLIAGE)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(20));
 
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(BYG.MODID, registryName), configuredFeature);
