@@ -24,7 +24,7 @@ public class CikaTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int randTreeHeight = 23 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
-        if (pos.getY() + randTreeHeight + 1 < 256) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
             if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
                 return false;

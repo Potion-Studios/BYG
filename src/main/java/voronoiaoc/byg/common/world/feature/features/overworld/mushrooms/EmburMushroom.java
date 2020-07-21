@@ -23,7 +23,7 @@ public class EmburMushroom extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int randTreeHeight = 14 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
-        if (pos.getY() + randTreeHeight + 1 < 256) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
             if (!isDesiredGround(worldIn, blockpos, BYGBlockList.EMBUR_NYLIUM)) {
                 return false;
