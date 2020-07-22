@@ -24,7 +24,7 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> AMARANTH_PURPLE = newConfiguredFeature("purple_amaranth", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PURPLEAMARANTH_CONFIG));
     public static ConfiguredFeature<?, ?> AMARANTH_CYAN = newConfiguredFeature("cyan_amaranth", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.CYANAMARANTH_CONFIG));
 
-    public static ConfiguredFeature<?, ?> FERN_GRASS = newConfiguredFeature("short_grass", Feature.RANDOM_PATCH.configure(ConfiguredFeatures.Configs.TAIGA_GRASS_CONFIG));
+    public static ConfiguredFeature<?, ?> FERN_GRASS = newConfiguredFeature("fern_grass", Feature.RANDOM_PATCH.configure(ConfiguredFeatures.Configs.TAIGA_GRASS_CONFIG));
     public static ConfiguredFeature<?, ?> SHORT_GRASS = newConfiguredFeature("short_grass", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_GRASS_CONFIG));
     public static ConfiguredFeature<?, ?> TALL_GRASS = newConfiguredFeature("tall_grass", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.TALL_GRASS_CONFIG));
     public static ConfiguredFeature<?, ?> SOUL_FIRE_ON_NYLIUM = newConfiguredFeature("soul_fire_on_nylium", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SOULFIREONNYLIUM));
@@ -127,24 +127,8 @@ public class BYGConfiguredFeatures {
                 ALLIUM_TALL_BUSH.withChance(0.25F),
                 ALLIUM_TALL_PINK_BUSH.withChance(0.25F),
                 ALLIUM_BUSH.withChance(0.25F)),
-                ALLIUM_PINK_BUSH)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(150));
+                ALLIUM_PINK_BUSH)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(50));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_AMARANTH_FLOWER = newConfiguredFeature("rs_amaranth_flower", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            AMARANTH_CYAN.withChance(0.2F),
-            AMARANTH_MAGENTA.withChance(0.2F),
-            AMARANTH_ORANGE.withChance(0.2F),
-            AMARANTH_PURPLE.withChance(0.2F)),
-            AMARANTH)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(150));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_GLOWCANE = newConfiguredFeature("rs_glowcane", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            GLOWCANE_BLUE.withChance(0.25F),
-            GLOWCANE_PINK.withChance(0.25F),
-            GLOWCANE_PURPLE.withChance(0.25F)),
-            GLOWCANE_RED)).decorate(ConfiguredFeatures.Decorators.field_26166).repeat(20));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_FERN_GRASS = newConfiguredFeature("rs_fern_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            FERN_GRASS.withChance(0.50F)),
-            SHORT_GRASS)).decorate(ConfiguredFeatures.Decorators.field_26166));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DESERT_PLANTS = newConfiguredFeature("rs_desert_plants", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             PRICKLY_PEAR_CACTI.withChance(0.25F),
@@ -167,7 +151,7 @@ public class BYGConfiguredFeatures {
             BLUE_BERRY_BUSH.withChance(0.50F)),
             BLUE_BERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.field_26166));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_LUSH_BLUEBERRIES = newConfiguredFeature("rs_blueberries", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_LUSH_BLUEBERRIES = newConfiguredFeature("rs_lush_blueberries", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BLUE_BERRY_BUSH.withChance(0.50F)),
             BLUE_BERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.field_26166));
 

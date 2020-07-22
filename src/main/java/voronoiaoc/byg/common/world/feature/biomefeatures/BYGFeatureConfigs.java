@@ -89,7 +89,7 @@ public class BYGFeatureConfigs {
 
     public static final RandomPatchFeatureConfig WARPED_CACTUS_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.WARPED_CACTUS.getDefaultState()), new ColumnPlacer(1, 2))).tries(10).cannotProject().build();
 
-//    TropJungle
+    //    TropJungle
     public static final TreeFeatureConfig TROPGROUNDBUSH_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.EBONY_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlockList.EBONY_LEAVES.getDefaultState()), new BushFoliagePlacer(UniformIntDistribution.of(2), UniformIntDistribution.of(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayersFeatureSize(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build();
     public static final TreeFeatureConfig MEGATROPJUNGLETREE_CONFIG = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.JUNGLE_LOG.getDefaultState()), new SimpleBlockStateProvider(Blocks.JUNGLE_LEAVES.getDefaultState()), new JungleFoliagePlacer(UniformIntDistribution.of(2), UniformIntDistribution.of(0), 2), new MegaJungleTrunkPlacer(10, 2, 19), new TwoLayersFeatureSize(1, 1, 2))).decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE, LeaveVineTreeDecorator.INSTANCE)).build();
     //Taiga
