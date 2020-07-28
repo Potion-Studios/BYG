@@ -12,7 +12,7 @@
 //import net.minecraft.util.math.BlockPos;
 //import net.minecraft.util.math.ChunkPos;
 //import net.minecraft.util.math.Direction;
-//import net.minecraft.world.ServerWorldAccess;
+//import net.minecraft.world.StructureWorldAccess;
 //import net.minecraft.world.gen.StructureAccessor;
 //import net.minecraft.world.gen.chunk.ChunkGenerator;
 //import voronoiaoc.byg.core.byglists.BYGStructureList;
@@ -46,7 +46,7 @@
 //        tagCompound.putBoolean("hasPlacedChest3", this.hasPlacedChest[3]);
 //    }
 //
-//    public boolean generate(ServerWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+//    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
 //        this.fillWithOutline(world, boundingBox, 0, -4, 0, this.width - 1, 0, this.depth - 1, Blocks.RED_SANDSTONE.getDefaultState(), Blocks.RED_SANDSTONE.getDefaultState(), false);
 //
 //        for (int i = 1; i <= 9; ++i) {

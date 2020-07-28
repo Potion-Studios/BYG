@@ -19,7 +19,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //        super(null, true);
 //    }
 //
-//    public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+//    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
 //
 //        int randTreeHeight = rand.nextInt(3) + rand.nextInt(3) + 10;
 //        //Positions
@@ -106,7 +106,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //    }
 //
 //    //Log Placement
-//    private void treelog(Set<BlockPos> setlogblock, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
+//    private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
 //        if (canTreePlace(reader, pos)) {
 //            this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
 //        }
@@ -114,7 +114,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //    }
 //
 //    //Leaves Placement
-//    private void leafs(ServerWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+//    private void leafs(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
 //        BlockPos leafpos = new BlockPos(x, y, z);
 //        if (isAir(reader, leafpos)) {
 //            this.setFinalBlockState(blockPos, reader, leafpos, LEAVES, boundingBox);

@@ -8,7 +8,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
@@ -35,7 +35,7 @@ public class TropicalRainForestTree extends BYGAbstractTreeFeature<DefaultFeatur
         );
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
 
         int randTreeHeight = rand.nextInt(3) + rand.nextInt(3) + 8;
         //Positions
@@ -211,7 +211,7 @@ public class TropicalRainForestTree extends BYGAbstractTreeFeature<DefaultFeatur
     }
 
     //Log Placement
-    private void treelog(Set<BlockPos> setlogblock, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
+    private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         if (canTreePlace(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
@@ -219,7 +219,7 @@ public class TropicalRainForestTree extends BYGAbstractTreeFeature<DefaultFeatur
     }
 
     //Leaves Placement
-    private void leafs(ServerWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos leafpos = new BlockPos(x, y, z);
         if (isAir(reader, leafpos)) {
             this.setFinalBlockState(blockPos, reader, leafpos, LEAVES, boundingBox);
@@ -227,7 +227,7 @@ public class TropicalRainForestTree extends BYGAbstractTreeFeature<DefaultFeatur
 
     }
 
-    private void tryPlaceVines(ServerWorldAccess worldIn, Random random, BlockPos pos, BooleanProperty sideProperty) {
+    private void tryPlaceVines(StructureWorldAccess worldIn, Random random, BlockPos pos, BooleanProperty sideProperty) {
         if (random.nextInt(3) > 0 && isAir(worldIn, pos)) {
             this.setBlockState(worldIn, pos, Blocks.VINE.getDefaultState().with(sideProperty, Boolean.valueOf(true)));
         }

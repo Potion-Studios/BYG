@@ -11,7 +11,7 @@ import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.noise.OctaveSimplexNoiseSampler;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -45,7 +45,7 @@ public class LavaLakeWideShallow extends Feature<DefaultFeatureConfig> {
 
 
     @Override
-    public boolean generate(ServerWorldAccess world, ChunkGenerator generator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random random, BlockPos position, DefaultFeatureConfig config) {
         setSeed(world.getSeed());
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.down(2));
 
@@ -116,7 +116,7 @@ public class LavaLakeWideShallow extends Feature<DefaultFeatureConfig> {
      * @param blockpos$Mutable - location to check if valid
      * @return - if the spot is valid
      */
-    private boolean checkIfValidSpot(ServerWorldAccess world, BlockPos.Mutable blockpos$Mutable, double noise) {
+    private boolean checkIfValidSpot(StructureWorldAccess world, BlockPos.Mutable blockpos$Mutable, double noise) {
         Material material;
         BlockState blockState;
 

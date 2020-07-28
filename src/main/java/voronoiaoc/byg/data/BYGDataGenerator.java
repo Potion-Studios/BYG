@@ -75,7 +75,7 @@ public class BYGDataGenerator {
             Biome biome = entry.getValue();
 
 
-            Function<Supplier<Biome>, DataResult<JsonElement>> function = JsonOps.INSTANCE.withEncoder(Biome.field_24677);
+            Function<Supplier<Biome>, DataResult<JsonElement>> function = JsonOps.INSTANCE.withEncoder(Biome.REGISTRY_CODEC);
 
             try {
                Optional optional = ((DataResult)function.apply(() -> biome)).result();

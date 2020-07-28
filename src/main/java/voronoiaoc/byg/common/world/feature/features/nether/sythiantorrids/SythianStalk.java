@@ -7,7 +7,7 @@ import net.minecraft.block.enums.BambooLeaves;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.Heightmap;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -26,7 +26,7 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
         super(configCodec);
     }
 
-    public boolean generate(ServerWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
         int i = 0;
         BlockPos.Mutable pos1 = new BlockPos.Mutable().set(pos);
         BlockPos.Mutable pos2 = new BlockPos.Mutable().set(pos);

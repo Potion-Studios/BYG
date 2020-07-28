@@ -35,7 +35,7 @@ public class WarpedDesert extends Biome {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT)
                 .effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
                         .fogColor(1705242)
-                        .method_30820(BiomeHelper.calcSkyColor(2.0F))
+                        .skyColor(BiomeHelper.calcSkyColor(2.0F))
                         .particleConfig(new BiomeParticleConfig(ParticleTypes.WARPED_SPORE, 0.01428F))
                         .loopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)
                         .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D))

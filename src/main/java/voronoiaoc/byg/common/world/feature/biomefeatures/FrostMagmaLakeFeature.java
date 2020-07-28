@@ -7,7 +7,7 @@ import net.minecraft.block.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.LightType;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
@@ -27,7 +27,7 @@ public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
         super(config);
     }
 
-    public boolean generate(ServerWorldAccess world, ChunkGenerator generator, Random rand, BlockPos blockPos, SingleStateFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos blockPos, SingleStateFeatureConfig config) {
         while (blockPos.getY() > 5 && world.isAir
                 (blockPos)) {
             blockPos = blockPos.down();

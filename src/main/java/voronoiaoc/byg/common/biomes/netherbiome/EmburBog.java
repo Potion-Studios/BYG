@@ -35,7 +35,7 @@ public class EmburBog extends Biome {
         super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT)
                 .effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
                         .fogColor(15110510)
-                        .method_30820(BiomeHelper.calcSkyColor(2.0F))
+                        .skyColor(BiomeHelper.calcSkyColor(2.0F))
                         .particleConfig(new BiomeParticleConfig(ParticleTypes.FLAME, 0.01428F))
                         .loopSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
                         .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
