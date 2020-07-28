@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[32,)"
-license="All rights reserved"
+license="LGPLv3"
 issueTrackerURL="https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId="byg"
