@@ -1,9 +1,10 @@
 modLoader="javafml"
 loaderVersion="[32,)"
+license="All rights reserved"
 issueTrackerURL="https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId="byg"
-version="1.0.12"
+version="1.0.13"
 displayName="Oh The Biomes You'll Go"
 displayURL="https://biomesyougo.weebly.com/"
 logoFile="logo_text.png"
@@ -15,6 +16,6 @@ An Adventure and Exploration mod with over 60 new biomes!
 [[dependencies.byg]]
     modId="forge"
     mandatory=true
-    versionRange="[32.0.72,)"
+    versionRange="[32.0.92,)"
     ordering="NONE"
     side="BOTH"
