@@ -43,8 +43,20 @@ public class EmburBog extends Biome {
                         .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                         .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
                         .music(MusicType.createIngameMusic(SoundEvents.MUSIC_NETHER_BASALT_DELTAS)).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
+    }
 
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 10855786;
 
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 10855786;
+    }
+
+    static {
         //TODO: Reenable Embur Bog lake.
 //        GENERATION_SETTINGS.method_30992(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.EMBURLAKE.configure(DefaultFeatureConfig.DEFAULT).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(8, 0, 4, 128))));
         GENERATION_SETTINGS.method_30991(GenerationStep.Carver.AIR, ConfiguredCarvers.NETHER_CAVE);
@@ -63,16 +75,6 @@ public class EmburBog extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.BLAZE, 40, 4, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.MAGMA_CUBE, 100, 2, 5));
-    }
 
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 10855786;
-
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 10855786;
     }
 }
