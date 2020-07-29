@@ -33,7 +33,26 @@ public class SnowyConiferousClearing extends Biome {
 
     public SnowyConiferousClearing() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//this.addStructure(Feature.IGLOO.configure(IFeatureConfig.NO_FEATURE_CONFIG));
+    }
+
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
+
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 5011004;
+
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 2263842;
+    }
+
+    static {
+        //this.addStructure(Feature.IGLOO.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
@@ -74,22 +93,6 @@ public class SnowyConiferousClearing extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.STRAY, 80, 4, 4));
 
-    }
-
-//    @Override
-//    public Biome getRiver() {
-//        return Biomes.RIVER;
-//    }
-
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 5011004;
 
     }
-
-    @Override
-    public int getFoliageColor() {
-        return 2263842;
-    }
-
 }

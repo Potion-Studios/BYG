@@ -32,7 +32,25 @@ public class JacarandaClearing extends Biome {
 
     public JacarandaClearing() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//this.addStructure(Feature.VILLAGE.configure(new VillageConfig("village/plains/town_centers"), 6));
+    }
+
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
+
+    public int getGrassColorAt(double posX, double posY) {
+        double lvt_5_1_ = FOLIAGE_NOISE.sample(posX * 0.0225D, posY * 0.0225D, false);
+        return lvt_5_1_ < -0.1D ? 6208527 : 10145074;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 14180771;
+    }
+
+    static {
+        //this.addStructure(Feature.VILLAGE.configure(new VillageConfig("village/plains/town_centers"), 6));
         //this.addStructure(Feature.PILLAGER_OUTPOST.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
@@ -70,22 +88,7 @@ public class JacarandaClearing extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 100, 4, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
+
     }
-
-//    @Override
-//    public Biome getRiver() {
-//        return Biomes.RIVER;
-//    }
-
-    public int getGrassColorAt(double posX, double posY) {
-        double lvt_5_1_ = FOLIAGE_NOISE.sample(posX * 0.0225D, posY * 0.0225D, false);
-        return lvt_5_1_ < -0.1D ? 6208527 : 10145074;
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 14180771;
-    }
-
 }
 

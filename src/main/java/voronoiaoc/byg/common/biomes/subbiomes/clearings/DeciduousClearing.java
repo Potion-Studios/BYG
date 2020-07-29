@@ -33,7 +33,25 @@ public class DeciduousClearing extends Biome {
 
     public DeciduousClearing() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+    }
+
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
+
+    public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
+        double lvt_5_1_ = FOLIAGE_NOISE.sample(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
+        return lvt_5_1_ < -0.1D ? 7185745 : 8627537;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 6589494;
+    }
+
+    static {
+        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
@@ -64,22 +82,7 @@ public class DeciduousClearing extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 100, 4, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
+
     }
-
-//    @Override
-//    public Biome getRiver() {
-//        return Biomes.RIVER;
-//    }
-
-    public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
-        double lvt_5_1_ = FOLIAGE_NOISE.sample(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
-        return lvt_5_1_ < -0.1D ? 7185745 : 8627537;
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 6589494;
-    }
-
 }
 

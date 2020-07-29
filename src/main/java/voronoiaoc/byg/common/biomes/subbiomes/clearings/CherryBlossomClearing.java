@@ -35,7 +35,26 @@ public class CherryBlossomClearing extends Biome {
 
     public CherryBlossomClearing() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+    }
+
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
+
+    @Override
+    public int getGrassColorAt(double posX, double posY) {
+        double lvt_5_1_ = FOLIAGE_NOISE.sample(posX * 0.0225D, posY * 0.0225D, false);
+        return lvt_5_1_ < -0.1D ? 10999916 : 10999916;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 10999916;
+    }
+
+    static {
+        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
@@ -69,22 +88,6 @@ public class CherryBlossomClearing extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 100, 4, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
+
     }
-
-//    @Override
-//    public Biome getRiver() {
-//        return Biomes.RIVER;
-//    }
-
-    @Override
-    public int getGrassColorAt(double posX, double posY) {
-        double lvt_5_1_ = FOLIAGE_NOISE.sample(posX * 0.0225D, posY * 0.0225D, false);
-        return lvt_5_1_ < -0.1D ? 10999916 : 10999916;
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 10999916;
-    }
-
 }

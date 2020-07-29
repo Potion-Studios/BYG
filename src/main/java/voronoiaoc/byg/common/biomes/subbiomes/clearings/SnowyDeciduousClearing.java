@@ -33,7 +33,25 @@ public class SnowyDeciduousClearing extends Biome {
 
     public SnowyDeciduousClearing() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//this.addStructure(Feature.VILLAGE.configure(new VillageConfig("village/plains/town_centers"), 6));
+    }
+
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.FROZEN_RIVER;
+//    }
+
+    public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
+        double lvt_5_1_ = FOLIAGE_NOISE.sample(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
+        return lvt_5_1_ < -0.1D ? 12222562 : 12032353;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 12215394;
+    }
+
+    static {
+        //this.addStructure(Feature.VILLAGE.configure(new VillageConfig("village/plains/town_centers"), 6));
         //this.addStructure(Feature.PILLAGER_OUTPOST.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
@@ -69,21 +87,6 @@ public class SnowyDeciduousClearing extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.STRAY, 80, 4, 4));
+
     }
-
-//    @Override
-//    public Biome getRiver() {
-//        return Biomes.FROZEN_RIVER;
-//    }
-
-    public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
-        double lvt_5_1_ = FOLIAGE_NOISE.sample(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
-        return lvt_5_1_ < -0.1D ? 12222562 : 12032353;
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 12215394;
-    }
-
 }

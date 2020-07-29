@@ -35,6 +35,24 @@ public class RedwoodClearing extends Biome {
 
     public RedwoodClearing() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
+    }
+
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 8896351;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 8896351;
+    }
+
+//    @Override
+//    public Biome getRiver() {
+//        return this;
+//    }
+
+    static {
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
@@ -66,21 +84,6 @@ public class RedwoodClearing extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 100, 4, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
+
     }
-
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 8896351;
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 8896351;
-    }
-
-//    @Override
-//    public Biome getRiver() {
-//        return this;
-//    }
-
 }
