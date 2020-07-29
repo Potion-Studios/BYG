@@ -33,7 +33,26 @@ public class FungalPatch extends Biome {
 
     public FungalPatch() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//this.addStructure(Feature.JUNGLE_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG));
+    }
+//
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
+
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 10145074;
+
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 10145074;
+    }
+
+    static {
+        //this.addStructure(Feature.JUNGLE_TEMPLE.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
         //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
@@ -71,22 +90,5 @@ public class FungalPatch extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.OCELOT, 2, 1, 1));
 
     }
-//
-//    @Override
-//    public Biome getRiver() {
-//        return Biomes.RIVER;
-//    }
-
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 10145074;
-
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 10145074;
-    }
-
 }
 

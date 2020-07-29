@@ -34,6 +34,19 @@ public class GlowingAncientForest extends Biome {
 
     public GlowingAncientForest() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
+    }
+
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 5406551;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 6589494;
+    }
+
+    static {
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addAncientTrees(GENERATION_SETTINGS);
         BYGTreeFeatures.addHugeGlowshrooms(GENERATION_SETTINGS);
@@ -63,15 +76,6 @@ public class GlowingAncientForest extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 2, 3));
         SPAWN_SETTINGS.method_31011(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.FOX, 8, 2, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.AMBIENT, new SpawnSettings.SpawnEntry(EntityType.BAT, 10, 8, 8));
-    }
 
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 5406551;
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 6589494;
     }
 }

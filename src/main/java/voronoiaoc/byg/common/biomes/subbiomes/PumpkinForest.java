@@ -35,6 +35,35 @@ public class PumpkinForest extends Biome implements BiomeFog {
 
     public PumpkinForest() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
+    }
+
+//    @Nullable
+//    @Override
+//    public Biome getHill(INoiseRandom rand) {
+//        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FRESHWATERLAKE;
+//    }
+
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 5406551;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 6589494;
+    }
+
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
+
+    @Override
+    public float fogDistance(int x, int z, float originalDistanceChunks) {
+        return 10;
+    }
+
+    static {
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addDeadHazelTrees(GENERATION_SETTINGS);
         BYGTreeFeatures.addWitchPumpkins(GENERATION_SETTINGS);
@@ -64,32 +93,6 @@ public class PumpkinForest extends Biome implements BiomeFog {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 100, 4, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
+
     }
-
-//    @Nullable
-//    @Override
-//    public Biome getHill(INoiseRandom rand) {
-//        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FRESHWATERLAKE;
-//    }
-
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 5406551;
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 6589494;
-    }
-
-//    @Override
-//    public Biome getRiver() {
-//        return Biomes.RIVER;
-//    }
-
-    @Override
-    public float fogDistance(int x, int z, float originalDistanceChunks) {
-        return 10;
-    }
-
 }
