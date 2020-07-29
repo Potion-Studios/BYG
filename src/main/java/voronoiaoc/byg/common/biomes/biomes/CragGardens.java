@@ -38,7 +38,40 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
 
     public CragGardens() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
+    }
+
+    @Override
+    public float fogDistance(int x, int z, float originalDistanceChunks) {
+        return 10;
+    }
+
+    @Override
+    public Biome getRiver() {
+        return this;
+    }
+
+    @Override
+    public Biome getHill() {
+        return BYGBiomeList.CRAGGARDENS;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return BYGBiomeList.CRAGGARDENS;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
+    }
+
+    static {
+        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         BYGFeatures.addLargeLake(GENERATION_SETTINGS);
@@ -78,36 +111,6 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 100, 4, 4));
-    }
 
-    @Override
-    public float fogDistance(int x, int z, float originalDistanceChunks) {
-        return 10;
     }
-
-    @Override
-    public Biome getRiver() {
-        return this;
-    }
-
-    @Override
-    public Biome getHill() {
-        return BYGBiomeList.CRAGGARDENS;
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return BYGBiomeList.CRAGGARDENS;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
-    }
-
 }

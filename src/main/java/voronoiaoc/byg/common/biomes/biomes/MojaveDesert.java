@@ -34,7 +34,40 @@ public class MojaveDesert extends Biome implements BiomeTools {
 
     public MojaveDesert() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/desert/town_centers"), 6));
+    }
+
+    @Nullable
+    @Override
+    public Biome getRiver() {
+        return Biomes.RIVER;
+    }
+
+    @Nullable
+    @Override
+    public Biome getHill() {
+        return Biomes.DESERT;
+    }
+
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public Biome getMutation() {
+        return null;
+    }
+
+    static {
+        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/desert/town_centers"), 6));
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
@@ -71,35 +104,6 @@ public class MojaveDesert extends Biome implements BiomeTools {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE, 19, 4, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE_VILLAGER, 1, 1, 1));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.HUSK, 80, 4, 4));
-    }
 
-    @Nullable
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Nullable
-    @Override
-    public Biome getHill() {
-        return Biomes.DESERT;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public Biome getMutation() {
-        return null;
     }
 }

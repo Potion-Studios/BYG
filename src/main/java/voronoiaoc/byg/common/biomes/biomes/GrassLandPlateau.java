@@ -31,7 +31,35 @@ public class GrassLandPlateau extends Biome implements BiomeTools {
 
     public GrassLandPlateau() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//        //this.add//StructureFeature(BYGFeatureList.BYGVILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("byg:village/grassland/town_centers"), 6)));
+    }
+
+    @Override
+    public Biome getRiver() {
+        return Biomes.RIVER;
+    }
+
+    @Override
+    public Biome getHill() {
+        return BYGBiomeList.WOODEDGRASSLANDPLATEAU;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
+    }
+
+    static {
+        //        //this.add//StructureFeature(BYGFeatureList.BYGVILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("byg:village/grassland/town_centers"), 6)));
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
@@ -65,30 +93,5 @@ public class GrassLandPlateau extends Biome implements BiomeTools {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
 
-    }
-
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Override
-    public Biome getHill() {
-        return BYGBiomeList.WOODEDGRASSLANDPLATEAU;
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
     }
 }

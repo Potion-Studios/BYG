@@ -31,8 +31,6 @@ public class Canyons extends Biome implements BiomeTools {
 
     public Canyons() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-        BYGTreeFeatures.addRedRockCanyonVegetation(GENERATION_SETTINGS);
-
     }
 
     @Override
@@ -58,6 +56,10 @@ public class Canyons extends Biome implements BiomeTools {
     @Override
     public Biome getMutation() {
         return null;
+    }
+
+    static {
+        BYGTreeFeatures.addRedRockCanyonVegetation(GENERATION_SETTINGS);
     }
 }
 

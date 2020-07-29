@@ -35,29 +35,6 @@ public class GlowShroomBayou extends Biome implements BiomeTools {
 
     public GlowShroomBayou() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-        BYGTreeFeatures.addGlowshroomBayouVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addClay(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSwampVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSprings(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.SEAGRASS_NORMAL);
-        BYGFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
-        BYGFeatures.addMarshGrass(GENERATION_SETTINGS);
-        BYGFeatures.addGlowcane(GENERATION_SETTINGS);
-        BYGFeatures.addCattails(GENERATION_SETTINGS);
-        BYGFeatures.addMudDisks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
-        BYGFeatures.addPeachleatherflower(GENERATION_SETTINGS);
-        BYGFeatures.addVioletleatherflower(GENERATION_SETTINGS);
-        BYGFeatures.addRedorchid(GENERATION_SETTINGS);
-        BYGFeatures.addPurpleOrchid(GENERATION_SETTINGS);
-        BYGFeatures.addPinkOrchid(GENERATION_SETTINGS);
-        BYGFeatures.addGlowshrooms(GENERATION_SETTINGS);
-        BYGTreeFeatures.addHugeGlowshrooms(GENERATION_SETTINGS);
 
     }
 
@@ -95,5 +72,32 @@ public class GlowShroomBayou extends Biome implements BiomeTools {
     @Override
     public Biome getMutation() {
         return null;
+    }
+
+    static {
+        BYGTreeFeatures.addGlowshroomBayouVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addClay(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSwampVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSprings(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.SEAGRASS_NORMAL);
+        BYGFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
+        BYGFeatures.addMarshGrass(GENERATION_SETTINGS);
+        BYGFeatures.addGlowcane(GENERATION_SETTINGS);
+        BYGFeatures.addCattails(GENERATION_SETTINGS);
+        BYGFeatures.addMudDisks(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+        BYGFeatures.addPeachleatherflower(GENERATION_SETTINGS);
+        BYGFeatures.addVioletleatherflower(GENERATION_SETTINGS);
+        BYGFeatures.addRedorchid(GENERATION_SETTINGS);
+        BYGFeatures.addPurpleOrchid(GENERATION_SETTINGS);
+        BYGFeatures.addPinkOrchid(GENERATION_SETTINGS);
+        BYGFeatures.addGlowshrooms(GENERATION_SETTINGS);
+        BYGTreeFeatures.addHugeGlowshrooms(GENERATION_SETTINGS);
+
     }
 }

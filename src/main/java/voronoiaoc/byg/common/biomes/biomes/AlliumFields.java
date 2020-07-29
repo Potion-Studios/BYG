@@ -33,8 +33,37 @@ public class AlliumFields extends Biome implements BiomeTools {
 
     public AlliumFields() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-        ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
-//        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+    }
+
+    @Override
+    public Biome getRiver() {
+        return Biomes.RIVER;
+    }
+
+    @Override
+    public Biome getHill() {
+        Random rand = new Random();
+        return (rand.nextInt(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.REDOAKFOREST;
+    }
+
+    @Override
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public Biome getMutation() {
+        return null;
+    }
+
+    static {
+//        StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
+//        this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
 //        DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         BYGFeatures.addAlliumFieldFlowers(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
@@ -63,31 +92,6 @@ public class AlliumFields extends Biome implements BiomeTools {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 100, 4, 4));
-    }
 
-    @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
-    }
-
-    @Override
-    public Biome getHill() {
-        Random rand = new Random();
-        return (rand.nextInt(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.REDOAKFOREST;
-    }
-
-    @Override
-    public Biome getEdge() {
-        return null;
-    }
-
-    @Override
-    public Biome getBeach() {
-        return null;
-    }
-
-    @Override
-    public Biome getMutation() {
-        return null;
     }
 }
