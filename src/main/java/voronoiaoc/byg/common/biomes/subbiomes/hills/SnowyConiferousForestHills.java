@@ -33,7 +33,23 @@ public class SnowyConiferousForestHills extends Biome {
 
     public SnowyConiferousForestHills() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//this.add//StructureFeature(DefaultBiomeFeatures.IGLOO);
+    }
+
+
+
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 5011004;
+
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 2263842;
+    }
+
+    static {
+        //this.add//StructureFeature(DefaultBiomeFeatures.IGLOO);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
 
@@ -74,16 +90,5 @@ public class SnowyConiferousForestHills extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.STRAY, 80, 4, 4));
 
-    }
-
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 5011004;
-
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 2263842;
     }
 }

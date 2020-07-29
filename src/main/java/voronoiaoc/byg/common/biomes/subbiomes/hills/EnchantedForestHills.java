@@ -35,6 +35,24 @@ public class EnchantedForestHills extends Biome {
 
     public EnchantedForestHills() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
+    }
+
+    @Override
+    public int getGrassColorAt(double posX, double posZ) {
+        return 8560845;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 11898572;
+    }
+
+//    @Override
+//    public Biome getRiver() {
+//        return Biomes.RIVER;
+//    }
+
+    static {
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addEnchantedTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
@@ -59,19 +77,4 @@ public class EnchantedForestHills extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
 
     }
-
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 8560845;
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 11898572;
-    }
-
-//    @Override
-//    public Biome getRiver() {
-//        return Biomes.RIVER;
-//    }
 }

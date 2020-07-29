@@ -35,7 +35,20 @@ public class ZelkovaForestHills extends Biome {
 
     public ZelkovaForestHills() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/taiga/town_centers"), 6));
+    }
+
+    public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
+        double lvt_5_1_ = FOLIAGE_NOISE.sample(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
+        return lvt_5_1_ < -0.1D ? 5416309 : 5416309;
+    }
+
+    @Override
+    public int getFoliageColor() {
+        return 5416309;
+    }
+
+    static {
+        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/taiga/town_centers"), 6));
         //this.add//StructureFeature(DefaultBiomeFeatures.IGLOO);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
@@ -71,15 +84,6 @@ public class ZelkovaForestHills extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 100, 4, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
-    }
 
-    public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
-        double lvt_5_1_ = FOLIAGE_NOISE.sample(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
-        return lvt_5_1_ < -0.1D ? 5416309 : 5416309;
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 5416309;
     }
 }
