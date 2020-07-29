@@ -27,8 +27,8 @@ public class BYGFeaturesInVanilla {
             }
 
             if (biome == Biomes.JUNGLE || biome == Biomes.JUNGLE_HILLS) {
-                BYGTreeFeatures.addRainbowTrees(Biomes.JUNGLE);
-                BYGTreeFeatures.addRainbowTrees(Biomes.JUNGLE_HILLS);
+//                BYGTreeFeatures.addRainbowTrees(Biomes.JUNGLE);
+//                BYGTreeFeatures.addRainbowTrees(Biomes.JUNGLE_HILLS);
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BEGONIA_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BISTORT_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));

@@ -17,3 +17,5 @@ mutable field net/minecraft/entity/vehicle/BoatEntity location Lnet/minecraft/en
 accessible method net/minecraft/world/biome/Biome method_30932 (Ljava/lang/Float;)
 extendable method net/minecraft/world/biome/Biome method_30932 (Ljava/lang/Float;)
 accessible class net/minecraft/world/biome/Biome$Weather
+extendable class net/minecraft/world/biome/Biome$Weather
+accessible method net/minecraft/world/biome/Biome$Weather <init> (Lnet/minecraft/world/biome/Biome$Precipitation;FLnet/minecraft/world/biome/Biome$TemperatureModifier;F)V

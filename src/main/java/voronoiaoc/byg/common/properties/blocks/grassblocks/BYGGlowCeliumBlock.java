@@ -60,7 +60,7 @@ public class BYGGlowCeliumBlock extends SpreadableBlock implements Fertilizable 
 
                     BlockState blockstate1;
                     if (rand.nextInt(8) == 0) {
-                        List<ConfiguredFeature<?, ?>> list = world.getBiome(blockpos1).getFlowerFeatures();
+                        List<ConfiguredFeature<?, ?>> list = world.getBiome(blockpos1).method_30970().method_30982();
                         if (list.isEmpty()) {
                             break;
                         }

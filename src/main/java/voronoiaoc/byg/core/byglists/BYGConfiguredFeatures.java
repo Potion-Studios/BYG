@@ -129,7 +129,7 @@ public class BYGConfiguredFeatures {
                 ALLIUM_BUSH.withChance(0.25F)),
                 ALLIUM_PINK_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(50));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_AMARANTH_FLOWER = newConfiguredFeature("rs_allium_flower", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_AMARANTH_FLOWER = newConfiguredFeature("rs_amaranth_flower", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             AMARANTH.withChance(0.2F),
             AMARANTH_CYAN.withChance(0.2F),
             AMARANTH_MAGENTA.withChance(0.2F),

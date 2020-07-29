@@ -39,7 +39,7 @@ public class RRSB extends SurfaceBuilder<TernarySurfaceConfig> {
         int i = x & 15;
         int j = z & 15;
         BlockState blockstate = TERRACOTTA;
-        BlockState blockstate1 = biomeIn.getSurfaceBuilder().get().getConfig().getUnderMaterial();
+        BlockState blockstate1 = biomeIn.method_30970().method_30985().getUnderMaterial();
         int k = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int l = -1;
@@ -61,7 +61,7 @@ public class RRSB extends SurfaceBuilder<TernarySurfaceConfig> {
                             blockstate1 = defaultBlock;
                         } else if (j1 >= seaLevel - 4 && j1 <= seaLevel + 1) {
                             blockstate = TERRACOTTA;
-                            blockstate1 = biomeIn.getSurfaceBuilder().get().getConfig().getUnderMaterial();
+                            blockstate1 = biomeIn.method_30970().method_30985().getUnderMaterial();
                         }
 
                         if (j1 < seaLevel && (blockstate == null || blockstate.isAir())) {
@@ -84,7 +84,7 @@ public class RRSB extends SurfaceBuilder<TernarySurfaceConfig> {
 
                                 chunkIn.setBlockState(blockpos$mutable, blockstate3, false);
                             } else {
-                                chunkIn.setBlockState(blockpos$mutable, biomeIn.getSurfaceBuilder().get().getConfig().getTopMaterial(), false);
+                                chunkIn.setBlockState(blockpos$mutable, biomeIn.method_30970().method_30985().getUnderMaterial(), false);
                                 flag1 = true;
                             }
                         } else {
