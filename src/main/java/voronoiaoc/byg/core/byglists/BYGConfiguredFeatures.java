@@ -129,6 +129,13 @@ public class BYGConfiguredFeatures {
                 ALLIUM_BUSH.withChance(0.25F)),
                 ALLIUM_PINK_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(50));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_AMARANTH_FLOWER = newConfiguredFeature("rs_allium_flower", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            AMARANTH.withChance(0.2F),
+            AMARANTH_CYAN.withChance(0.2F),
+            AMARANTH_MAGENTA.withChance(0.2F),
+            AMARANTH_ORANGE.withChance(0.2F)),
+            AMARANTH_PURPLE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(50));
+
 
     public static final ConfiguredFeature<?, ?> RANDOM_DESERT_PLANTS = newConfiguredFeature("rs_desert_plants", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             PRICKLY_PEAR_CACTI.withChance(0.25F),
@@ -158,6 +165,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_BEACH_GRASS = newConfiguredFeature("rs_beach_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BEACH_GRASS.withChance(0.50F)),
             BEACH_SHORT_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_BYG_GRASS = newConfiguredFeature("rs_byg_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            SHORT_GRASS.withChance(0.50F)),
+            ConfiguredFeatures.PATCH_GRASS_NORMAL)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(10));
 
 //    public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_VEGETATION = newConfiguredFeature("rs_embur_vegetation", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
 //            AMARANTH_CYAN.withChance(0.2F),
