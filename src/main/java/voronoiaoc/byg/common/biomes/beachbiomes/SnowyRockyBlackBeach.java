@@ -32,8 +32,11 @@ public class SnowyRockyBlackBeach extends Biome {
 
     public SnowyRockyBlackBeach() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
-//////this.add//StructureFeature(Feature.BURIED_TREASURE.configure(new BuriedTreasureConfig(0.01F)));
-        //////this.add//StructureFeature(Feature.SHIPWRECK.configure(new ShipwreckConfig(true)));
+    }
+
+    static {
+        //this.addStructureFeature(Feature.BURIED_TREASURE.configure(new BuriedTreasureConfig(0.01F)));
+        //this.addStructureFeature(Feature.SHIPWRECK.configure(new ShipwreckConfig(true)));
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
@@ -53,5 +56,6 @@ public class SnowyRockyBlackBeach extends Biome {
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 100, 4, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.method_31011(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
+
     }
 }
