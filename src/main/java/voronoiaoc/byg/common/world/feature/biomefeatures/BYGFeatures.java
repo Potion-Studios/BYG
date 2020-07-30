@@ -77,19 +77,19 @@ public class BYGFeatures {
     }
 
     public static void addDelphinium(GenerationSettings.class_5495 gen) {
-        //gen.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.DELPHINIUM_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(2))));
+        gen.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DELPHINIUM);
     }
 
     public static void addJapaneseOrchid(GenerationSettings.class_5495 gen) {
-        //gen.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.JAPANESEORCHID_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_32.configure(new CountDecoratorConfig(3))));
+        gen.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_JAPANESE_ORCHID);
     }
 
     public static void addWiltedGrass(GenerationSettings.class_5495 gen) {
-        //gen.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WILTED_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
+        gen.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WILTED_GRASS);
     }
 
     public static void addWeedGrass(GenerationSettings.class_5495 gen) {
-        //gen.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WEED_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
+        gen.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WEED_GRASS);
     }
 
     public static void addWinterGrass(GenerationSettings.class_5495 gen) {

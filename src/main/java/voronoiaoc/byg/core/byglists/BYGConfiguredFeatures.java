@@ -188,24 +188,24 @@ public class BYGConfiguredFeatures {
 //            AMARANTH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(150));
 
     public static final ConfiguredFeature<?, ?> RANDOM_AZALEA = newConfiguredFeature("rs_azalea", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            AZALEA.withChance(0.2F)),
+            AZALEA.withChance(0.5F)),
             AZALEA)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JAPANESE_ORCHID = newConfiguredFeature("rs_japanese_orchid", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            JAPANESE_ORCHID.withChance(0.25F)),
-            JAPANESE_ORCHID)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+            JAPANESE_ORCHID.withChance(0.5F)),
+            JAPANESE_ORCHID)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(3));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DELPHINIUM = newConfiguredFeature("rs_delphinium", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             DELPHINIUM.withChance(0.25F)),
-            DELPHINIUM)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+            DELPHINIUM)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WILTED_GRASS = newConfiguredFeature("rs_wilted_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             WILTED_GRASS.withChance(0.25F)),
-            WILTED_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+            WILTED_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(1));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WEED_GRASS = newConfiguredFeature("rs_weed_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             WEED_GRASS.withChance(0.25F)),
-            WEED_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+            WEED_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(1));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WINTER_GRASS = newConfiguredFeature("rs_winter_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             WINTER_GRASS.withChance(0.25F)),
