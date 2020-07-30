@@ -19,3 +19,5 @@ extendable method net/minecraft/world/biome/Biome method_30932 (Ljava/lang/Float
 accessible class net/minecraft/world/biome/Biome$Weather
 extendable class net/minecraft/world/biome/Biome$Weather
 accessible method net/minecraft/world/biome/Biome$Weather <init> (Lnet/minecraft/world/biome/Biome$Precipitation;FLnet/minecraft/world/biome/Biome$TemperatureModifier;F)V
+mutable field net/minecraft/world/biome/GenerationSettings features Ljava/util/List;
+accessible field net/minecraft/world/biome/GenerationSettings features Ljava/util/List;

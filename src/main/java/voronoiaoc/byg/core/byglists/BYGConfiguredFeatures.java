@@ -138,37 +138,47 @@ public class BYGConfiguredFeatures {
 
 
     public static final ConfiguredFeature<?, ?> RANDOM_DESERT_PLANTS = newConfiguredFeature("rs_desert_plants", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            PRICKLY_PEAR_CACTI.withChance(0.25F),
-            GOLDEN_SPINED_CACTI.withChance(0.25F)),
-            FIRECRACKER_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+            PRICKLY_PEAR_CACTI.withChance(0.3F),
+            GOLDEN_SPINED_CACTI.withChance(0.3F)),
+            FIRECRACKER_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(6));
 
     public static final ConfiguredFeature<?, ?> RANDOM_FIRECRACKER = newConfiguredFeature("rs_firecracker", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             FIRECRACKER_BUSH.withChance(0.50F)),
-            FIRECRACKER_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE));
+            FIRECRACKER_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PRAIRIE_GRASS = newConfiguredFeature("rs_prairie", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            PRAIRIE_GRASS.withChance(0.50F)),
-            PRAIRIE_TALL_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE));
+            PRAIRIE_GRASS.withChance(0.92F)),
+            PRAIRIE_TALL_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(225));
 
-    public static final ConfiguredFeature<?, ?> RANDMOM_PUMPKIN = newConfiguredFeature("rs_pumpkin", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN = newConfiguredFeature("rs_pumpkin", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             PUMPKIN_CONFIG.withChance(0.50F)),
-            PUMPKIN_CONFIG)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE));
+            PUMPKIN_CONFIG)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(8));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUEBERRIES = newConfiguredFeature("rs_blueberries", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BLUE_BERRY_BUSH.withChance(0.50F)),
-            BLUE_BERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE));
+            BLUE_BERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(1));
 
     public static final ConfiguredFeature<?, ?> RANDOM_LUSH_BLUEBERRIES = newConfiguredFeature("rs_lush_blueberries", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BLUE_BERRY_BUSH.withChance(0.50F)),
-            BLUE_BERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE));
+            BLUE_BERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(5));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BEACH_GRASS = newConfiguredFeature("rs_beach_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BEACH_GRASS.withChance(0.50F)),
-            BEACH_SHORT_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE));
+            BEACH_SHORT_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_GLOWCANE = newConfiguredFeature("rs_glowcane", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            GLOWCANE_BLUE.withChance(0.25F),
+            GLOWCANE_PINK.withChance(0.25F),
+            GLOWCANE_PURPLE.withChance(0.25F)),
+            GLOWCANE_RED)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(16));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BYG_GRASS = newConfiguredFeature("rs_byg_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             SHORT_GRASS.withChance(0.50F)),
             ConfiguredFeatures.PATCH_GRASS_NORMAL)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(10));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_BYG_FERN_GRASS = newConfiguredFeature("rs_byg_fern_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            SHORT_GRASS.withChance(0.50F)),
+            ConfiguredFeatures.PATCH_TAIGA_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(10));
 
 //    public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_VEGETATION = newConfiguredFeature("rs_embur_vegetation", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
 //            AMARANTH_CYAN.withChance(0.2F),
@@ -179,9 +189,9 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_AZALEA = newConfiguredFeature("rs_azalea", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             AZALEA.withChance(0.2F)),
-            AZALEA)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(150));
+            AZALEA)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_JAPANESE_ORCHID = newConfiguredFeature("rs_glowcane", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_JAPANESE_ORCHID = newConfiguredFeature("rs_japanese_orchid", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             JAPANESE_ORCHID.withChance(0.25F)),
             JAPANESE_ORCHID)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
 
