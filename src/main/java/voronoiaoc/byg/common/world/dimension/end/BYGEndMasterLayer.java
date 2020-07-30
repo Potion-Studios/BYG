@@ -1,6 +1,6 @@
 package voronoiaoc.byg.common.world.dimension.end;
 
-import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.layer.type.InitLayer;
 import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
@@ -15,8 +15,8 @@ public enum BYGEndMasterLayer implements InitLayer {
 
     public int pickRandomBiomeID(LayerRandomnessSource randomnessSource) {
         if (BYGNetherBiomeProvider.biomeList.isEmpty()) {
-            return Registry.BIOME.getRawId(Biomes.END_HIGHLANDS);
+            return BuiltinRegistries.BIOME.getRawId(Biomes.END_HIGHLANDS);
         }
-        return Registry.BIOME.getRawId(BYGEndBiomeProvider.bygEndBiomeList.get(randomnessSource.nextInt(BYGEndBiomeProvider.bygEndBiomeList.size())));
+        return BuiltinRegistries.BIOME.getRawId(BYGEndBiomeProvider.bygEndBiomeList.get(randomnessSource.nextInt(BYGEndBiomeProvider.bygEndBiomeList.size())));
     }
 }

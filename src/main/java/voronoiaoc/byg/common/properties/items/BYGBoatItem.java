@@ -14,7 +14,6 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RayTraceContext;
 import net.minecraft.world.World;
-import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
 
 import java.util.Iterator;
@@ -38,7 +37,7 @@ public class BYGBoatItem extends Item {
         } else {
             Vec3d vec3d = user.getRotationVec(1.0F);
             double d = 5.0D;
-            List<Entity> list = world.getEntities((Entity)user, user.getBoundingBox().stretch(vec3d.multiply(5.0D)).expand(1.0D), RIDERS);
+            List<Entity> list = world.getOtherEntities((Entity)user, user.getBoundingBox().stretch(vec3d.multiply(5.0D)).expand(1.0D), RIDERS);
             if (!list.isEmpty()) {
                 Vec3d vec3d2 = user.getCameraPosVec(1.0F);
                 Iterator var11 = list.iterator();

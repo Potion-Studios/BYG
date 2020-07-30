@@ -52,13 +52,12 @@ public class EmburNyliumBlock extends SpreadableEmburBlock implements Fertilizab
 
                     BlockState blockstate1;
                     if (rand.nextInt(8) == 0) {
-                        List<ConfiguredFeature<?, ?>> list = world.getBiome(blockpos1).getFlowerFeatures();
+                        List<ConfiguredFeature<?, ?>> list = world.getBiome(blockpos1).method_30970().method_30982();
                         if (list.isEmpty()) {
                             break;
                         }
-
-                        ConfiguredFeature<?, ?> configuredfeature = ((DecoratedFeatureConfig) (list.get(0)).config).feature;
-                        blockstate1 = ((FlowerFeature) configuredfeature.feature).getFlowerState(rand, blockpos1, configuredfeature.config);
+                        ConfiguredFeature<?, ?> configuredFeature = (ConfiguredFeature)((DecoratedFeatureConfig)((ConfiguredFeature)list.get(0)).config).feature.get();
+                        blockstate1 = ((FlowerFeature)configuredFeature.feature).getFlowerState(rand, blockpos1, configuredFeature.config);
                     } else {
                         blockstate1 = blockstate;
                     }

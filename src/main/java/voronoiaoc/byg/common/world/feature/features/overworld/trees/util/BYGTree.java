@@ -20,7 +20,7 @@ public abstract class BYGTree {
             return false;
         } else {
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-            if (abstracttreefeature.generate(worldIn, worldIn.getStructureAccessor(), chunkGenerator, random, pos, DefaultFeatureConfig.DEFAULT)) {
+            if (abstracttreefeature.generate(worldIn, chunkGenerator, random, pos, DefaultFeatureConfig.DEFAULT)) {
                 return true;
             } else {
                 worldIn.setBlockState(pos, blockUnder, 4);

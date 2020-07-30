@@ -1,8 +1,11 @@
 package voronoiaoc.byg.core.byglists;
 
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.carver.Carver;
 import net.minecraft.world.gen.feature.*;
+import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.biomefeatures.FrostMagmaLakeFeature;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
@@ -132,7 +135,6 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.woodlands.Wo
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
-import voronoiaoc.byg.common.world.structure.village.BYGVillageStructureFeature;
 
 
 public class BYGFeatureList {
@@ -213,8 +215,8 @@ public class BYGFeatureList {
 
     //Embur
     public static final Feature<DefaultFeatureConfig> EMBURLAKE = new EmburBogLake(DefaultFeatureConfig.CODEC);
-    public static final Feature<DefaultFeatureConfig> EMBURMUSHROOM = new EmburMushroom(DefaultFeatureConfig.CODEC);
-    public static final Feature<DefaultFeatureConfig> EMBURMUSHROOM2 = new EmburMushroom2(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_MUSHROOM = new EmburMushroom(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> EMBUR_MUSHROOM2 = new EmburMushroom2(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> EMBUR_GEL_VINES = new EmburGelVines(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> EMBUR_ROOTS = new EmburRoots(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> TALL_EMBUR_ROOTS = new TallEmburRoots(DefaultFeatureConfig.CODEC);
@@ -223,8 +225,8 @@ public class BYGFeatureList {
 
 
     /********************************************************************Structures***********************************************************************/
-    public static final StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillageStructureFeature(StructurePoolFeatureConfig.CODEC);
-//    public static final StructureFeature<DefaultFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(DefaultFeatureConfig.CODEC);
+//    public static final //StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillage//StructureFeature(StructurePoolFeatureConfig.CODEC);
+//    public static final //StructureFeature<DefaultFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(DefaultFeatureConfig.CODEC);
 //    public static final Feature<DefaultFeatureConfig> DOVERQUARRY = new DoverQuarry1(DefaultFeatureConfig.CODEC);
 
 
@@ -261,7 +263,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BLUFF_TREE3 = new BluffTree3(DefaultFeatureConfig.CODEC);
 
     //Boreal Trees
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BOREAL_TREE = new BorealForestTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BOREAL_TREE1 = new BorealForestTree1(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BOREAL_TREE2 = new BorealForestTree2(DefaultFeatureConfig.CODEC);
 
     //Cherry
@@ -330,10 +332,10 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> HOLLY_TREE4 = new HollyTree4(DefaultFeatureConfig.CODEC);
 
     //Jacaranda
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JACARANDA_TREE = new JacarandaTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JACARANDA_TREE1 = new JacarandaTree1(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JACARANDA_TREE2 = new JacarandaTree2(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> INDIGOJACARANDA_TREE = new IndigoJacarandaTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> INDIGOJACARANDA_TREE2 = new IndigoJacarandaTree2(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JACARANDA_INDIGO_TREE1 = new IndigoJacarandaTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JACARANDA_INDIGO_TREE2 = new IndigoJacarandaTree2(DefaultFeatureConfig.CODEC);
 
     //JoshuaTree
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> JOSHUA_TREE1 = new JoshuaTree1(DefaultFeatureConfig.CODEC);
@@ -347,7 +349,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MANGROVE_TREE5 = new MangroveTree5(DefaultFeatureConfig.CODEC);
 
     //Maple
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MAPLE_RED_TREE = new RedMapleTree1(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MAPLE_RED_TREE1 = new RedMapleTree1(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MAPLE_RED_TREE2 = new RedMapleTree2(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MAPLE_SILVER_TREE1 = new SilverMapleTree1(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> MAPLE_SILVER_TREE2 = new SilverMapleTree2(DefaultFeatureConfig.CODEC);
@@ -402,22 +404,22 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> SKYRIS_TREE3 = new SkyrisTree3(DefaultFeatureConfig.CODEC);
 
     //Spruce
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BLUEGIANTSPUCE_TREE = new GiantBlueSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> TALLBLUESPRUCE_TREE = new TallBlueSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BLUESPRUCE_TREE = new BlueSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> SMALLBLUESPRUCE_TREE = new SmallBlueTaigaTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> GIANTORANGESPRUCE_TREE = new GiantOrangeSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> TALLORANGESPRUCE_TREE = new TallOrangeSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ORANGESPRUCE_TREE = new OrangeSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> SMALLORANGESPRUCE_TREE = new SmallOrangeSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> GIANTREDSPRUCE_TREE = new GiantRedSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> TALLREDSPRUCE_TREE = new TallRedSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> REDSPRUCE_TREE = new RedSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> SMALLREDSPRUCE_TREE = new SmallRedSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> GIANTYELLOWSPRUCE_TREE = new GiantYellowSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> TALLYELLOWSPRUCE_TREE = new TallYellowSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> YELLOWSPRUCE_TREE = new YellowSpruceTree(DefaultFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> SMALLYELLOWSPRUCE_TREE = new SmallYellowTaigaTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BLUE_GIANT_SPRUCE_TREE = new GiantBlueSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BLUE_TALL_SPRUCE_TREE = new TallBlueSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BLUE_SPRUCE_TREE = new BlueSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> BLUE_SMALL_SPRUCE_TREE = new SmallBlueTaigaTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ORANGE_GIANT_SPRUCE_TREE = new GiantOrangeSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ORANGE_TALL_SPRUCE_TREE = new TallOrangeSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ORANGE_SPRUCE_TREE = new OrangeSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ORANGE_SMALL_SPRUCE_TREE = new SmallOrangeSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> RED_GIANT_SPRUCE_TREE = new GiantRedSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> RED_TALL_SPRUCE_TREE = new TallRedSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> RED_SPRUCE_TREE = new RedSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> RED_SMALL_SPRUCE_TREE = new SmallRedSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> YELLOW_GIANT_SPRUCE_TREE = new GiantYellowSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> YELLOW_TALL_SPRUCE_TREE = new TallYellowSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> YELLOW_SPRUCE_TREE = new YellowSpruceTree(DefaultFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<DefaultFeatureConfig> YELLOW_SMALL_SPRUCE_TREE = new SmallYellowTaigaTree(DefaultFeatureConfig.CODEC);
 
     //Tropical
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> TROPICAL_TREE1 = new TropicalRainForestTree(DefaultFeatureConfig.CODEC);
@@ -440,6 +442,199 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ZELKOVA_TREE1 = new ZelkovaTree(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ZELKOVA_TREE2 = new ZelkovaTree2(DefaultFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<DefaultFeatureConfig> ZELKOVA_TREE3 = new ZelkovaTree3(DefaultFeatureConfig.CODEC);
+
+
+    public static class RegisterFeatures {
+        public static void registerBYGFeatures() {
+            registerFeature(DUMMY_TREE, "dummy_tree");
+            registerFeature(DEADSEASPIKES, "dead_sea_spike");
+            registerFeature(TALLDEADSEASPIKES, "dead_sea_spike_tall");
+            registerFeature(OBBYSPIKES, "obsidian_spike");
+            registerFeature(CACTUS, "canyon_cactus");
+            registerFeature(BLACKICESNOW, "black_ice_and_snow");
+            registerFeature(LAKE_FROST, "frosted_lake");
+            registerFeature(LAKE_WIDE_SHALLOW, "lake_wide_shallow");
+            registerFeature(LAKE_LAVA_WIDE_SHALLOW, "lava_lake_wide_shallow");
+            registerFeature(VINES, "vines");
+            registerFeature(PUMPKIN_PATCH1, "pumpkin");
+            registerFeature(PUMPKIN_PATCH2, "pumpkin2");
+            registerFeature(PUMPKIN_PATCH3, "pumpkin3");
+            registerFeature(GIANT_ANGELICA_FLOWER, "giant_angelica_flower");
+            registerFeature(GIANT_DANDELION_FLOWER, "giant_dandelion_flower");
+            registerFeature(GIANT_IRIS_FLOWER, "giant_iris_flower");
+            registerFeature(GIANT_ROSE_FLOWER, "giant_rose");
+            registerFeature(GREEN_MUSHROOM_HUGE, "green_mushroom_huge");
+            registerFeature(WOOD_BLEWIT_HUGE, "wood_blewit_huge");
+            registerFeature(WEEPING_MILKCAP_HUGE, "weeping_milkcap_huge");
+            registerFeature(BLACK_PUFF_HUGE, "black_puff_huge");
+            registerFeature(BLUE_GLOWSHROOM_HUGE, "blue_glowshroom_huge");
+            registerFeature(PURPLE_GLOWSHROOM_HUGE, "purple_glowshroom_huge");
+            registerFeature(BLACK_PUFF, "black_puff");
+            registerFeature(GREEN_MUSHROOM, "green_mushroom");
+            registerFeature(NETHER_BRISTLE, "nether_bristle");
+            registerFeature(SYTHIAN_SPROUT, "sythian_sprout");
+            registerFeature(SYTHIAN_STALK, "sythian_stalk");
+            registerFeature(SYTHIAN_ROOTS, "sythian_roots");
+            registerFeature(WARPED_BUSH, "warped_bush");
+            registerFeature(WARPED_CORAL, "warped_coral");
+            registerFeature(WARPED_CORALPLANT, "warped_coral_plant");
+            registerFeature(WARPED_CORALFAN, "warped_coral_fan");
+            registerFeature(WOOD_BLEWIT, "wood_blewit");
+            registerFeature(WEED_GRASS, "weed_grass");
+            registerFeature(WEEPING_MILKCAP, "weeping_milk_cap");
+            registerFeature(WEEPING_ROOTS, "weeping_roots");
+            registerFeature(WEEPING_ROOTS_PLANT, "weeping_roots_plant");
+            registerFeature(EMBURLAKE, "embur_lake");
+            registerFeature(EMBUR_MUSHROOM, "embur_mushroom");
+            registerFeature(EMBUR_MUSHROOM2, "embur_mushroom2");
+            registerFeature(EMBUR_GEL_VINES, "embur_gel_vines");
+            registerFeature(EMBUR_ROOTS, "embur_roots");
+            registerFeature(TALL_EMBUR_ROOTS, "tall_embur_roots");
+            registerFeature(EMBUR_WART, "embur_wart");
+            registerFeature(EMBUR_LILY, "embur_lily");
+            registerFeature(ACACIA_TREE1, "acacia_tree1");
+            registerFeature(ANCIENT_TREE1, "ancient_tree1");
+            registerFeature(ANCIENT_TREE2, "ancient_tree2");
+            registerFeature(ANCIENT_TREE3, "ancient_tree3");
+            registerFeature(ASPEN_SHRUB1, "aspen_shrub1");
+            registerFeature(ASPEN_SHRUB2, "aspen_shrub2");
+            registerFeature(ASPEN_TREE1, "aspen_tree1");
+            registerFeature(ASPEN_TREE2, "aspen_tree2");
+            registerFeature(ASPEN_TREE3, "aspen_tree3");
+            registerFeature(BAOBAB_TREE1, "baobab_tree1");
+            registerFeature(BIRCH_BROWN_TREE1, "brown_birch_tree1");
+            registerFeature(BIRCH_ORANGE_TREE1, "orange_birch_tree1");
+            registerFeature(BIRCH_RED_TREE1, "red_birch_tree1");
+            registerFeature(BIRCH_YELLOW_TREE1, "yellow_birch_tree1");
+            registerFeature(BLUFF_TREE1, "bluff_tree1");
+            registerFeature(BLUFF_TREE2, "bluff_tree2");
+            registerFeature(BLUFF_TREE3, "bluff_tree3");
+            registerFeature(BOREAL_TREE1, "boreal_tree1");
+            registerFeature(BOREAL_TREE2, "boreal_tree2");
+            registerFeature(CHERRY_PINK_TREE1, "pink_cherry_tree1");
+            registerFeature(CHERRY_PINK_TREE2, "pink_cherry_tree2");
+            registerFeature(CHERRY_WHITE_TREE1, "white_cherry_tree1");
+            registerFeature(CHERRY_WHITE_TREE2, "white_cherry_tree2");
+            registerFeature(CIKA_TREE1, "cika_tree1");
+            registerFeature(CIKA_TREE2, "cika_tree2");
+            registerFeature(CIKA_TREE3, "cika_tree3");
+            registerFeature(CONIFER_TREE1, "conifer_tree1");
+            registerFeature(CONIFER_TREE2, "conifer_tree2");
+            registerFeature(CONIFER_TREE3, "conifer_tree3");
+            registerFeature(CONIFER_TREE4, "conifer_tree4");
+            registerFeature(CONIFER_TREE5, "conifer_tree5");
+            registerFeature(CONIFER_TREE6, "conifer_tree6");
+            registerFeature(CONIFER_TREE7, "conifer_tree7");
+            registerFeature(CONIFER_TREE8, "conifer_tree8");
+            registerFeature(CYPRESS_TREE1, "cypress_tree1");
+            registerFeature(CYPRESS_TREE2, "cypress_tree2");
+            registerFeature(CYPRESS_TREE3, "cypress_tree3");
+            registerFeature(DEAD_HAZEL_TREE1, "dead_hazel_tree1");
+            registerFeature(DEAD_HAZEL_TREE2, "dead_hazel_tree2");
+            registerFeature(DEAD_HAZEL_TREE3, "dead_hazel_tree3");
+            registerFeature(DEAD_HAZEL_TREE4, "dead_hazel_tree4");
+            registerFeature(DECIDUOUS_TREE, "deciduous_tree");
+            registerFeature(DECIDUOUS_BROWN_TREE, "brown_deciduous_tree");
+            registerFeature(DECIDUOUS_ORANGE_TREE, "orange_deciduous_tree");
+            registerFeature(DECIDUOUS_YELLOW_TREE, "yellow_deciduous_tree");
+            registerFeature(DECIDUOUS_RED_TREE, "red_deciduous_tree");
+            registerFeature(DECIDUOUS_SEASONAL_SHRUBS, "deciduous_seasonal_shrubs");
+            registerFeature(EBONY_BUSH1, "ebony_bush1");
+            registerFeature(EBONY_TREE1, "ebony_tree1");
+            registerFeature(EBONY_TREE2, "ebony_tree2");
+            registerFeature(ENCHANTED_BLUE_TREE1, "blue_enchanted_tree1");
+            registerFeature(ENCHANTED_BLUE_TREE2, "blue_enchanted_tree2");
+            registerFeature(ENCHANTED_BLUE_TREE3, "blue_enchanted_tree3");
+            registerFeature(ENCHANTED_GREEN_TREE1, "green_enchanted_tree1");
+            registerFeature(ENCHANTED_GREEN_TREE2, "green_enchanted_tree2");
+            registerFeature(ENCHANTED_GREEN_TREE3, "green_enchanted_tree3");
+            registerFeature(ENCHANTED_GREEN_GROVE_TREE1, "green_enchanted_grove_tree1");
+            registerFeature(ENCHANTED_BLUE_GROVE_TREE1, "blue_enchanted_grove_tree1");
+            registerFeature(HOLLY_TREE1, "holly_tree1");
+            registerFeature(HOLLY_TREE2, "holly_tree2");
+            registerFeature(HOLLY_TREE3, "holly_tree3");
+            registerFeature(HOLLY_TREE4, "holly_tree4");
+            registerFeature(JACARANDA_TREE1, "jacaranda_tree1");
+            registerFeature(JACARANDA_TREE2, "jacaranda_tree2");
+            registerFeature(JACARANDA_INDIGO_TREE1, "indigo_jacaranda_tree1");
+            registerFeature(JACARANDA_INDIGO_TREE2, "indigo_jacaranda_tree2");
+            registerFeature(JOSHUA_TREE1, "joshua_tree1");
+            registerFeature(JOSHUA_TREE2, "joshua_tree2");
+            registerFeature(MANGROVE_TREE1, "mangrove_tree1");
+            registerFeature(MANGROVE_TREE2, "mangrove_tree2");
+            registerFeature(MANGROVE_TREE3, "mangrove_tree3");
+            registerFeature(MANGROVE_TREE4, "mangrove_tree4");
+            registerFeature(MANGROVE_TREE5, "mangrove_tree5");
+            registerFeature(MAPLE_RED_TREE1, "red_maple_tree1");
+            registerFeature(MAPLE_RED_TREE2, "red_maple_tree2");
+            registerFeature(MAPLE_SILVER_TREE1, "silver_maple_tree1");
+            registerFeature(MAPLE_SILVER_TREE2, "silver_maple_tree2");
+            registerFeature(MAPLE_TREE, "maple_tree1");
+            registerFeature(MEADOW_TREE1, "meadow_tree1");
+            registerFeature(MEADOW_TREE2, "meadow_tree2");
+            registerFeature(MEADOW_TREE3, "meadow_tree3");
+            registerFeature(ORCHARD_TREE1, "orchard_tree1");
+            registerFeature(ORCHARD_TREE2, "orchard_tree2");
+            registerFeature(ORCHARD_TREE3, "orchard_tree3");
+            registerFeature(PALM_TREE1, "palm_tree3");
+            registerFeature(PINE_LARGE_TREE1, "large_pine_tree1");
+            registerFeature(PINE_LARGE_TREE2, "large_pine_tree2");
+            registerFeature(PINE_TREE1, "pine_tree1");
+            registerFeature(PINE_TREE2, "pine_tree2");
+            registerFeature(PALO_VERDE_TREE1, "palo_verde_tree1");
+            registerFeature(PALO_VERDE_TREE2, "palo_verde_tree2");
+            registerFeature(RAINBOW_LARGE_TREE1, "large_rainbow_eucalyptus_tree1");
+            registerFeature(RAINBOW_TREE1, "rainbow_eucalyptus_tree1");
+            registerFeature(REDWOOD_TREE1, "redwood_tree1");
+            registerFeature(REDWOOD_TREE2, "redwood_tree2");
+            registerFeature(REDWOOD_TREE3, "redwood_tree3");
+            registerFeature(OAK_BROWN_TREE1, "brown_oak_tree1");
+            registerFeature(OAK_ORANGE_TREE1, "orange_oak_tree1");
+            registerFeature(OAK_RED_TREE1, "red_oak_tree1");
+            registerFeature(SHRUB, "shrub1");
+            registerFeature(SHRUB_MEADOW1, "meadow_shrub1");
+            registerFeature(SHRUB_MEADOW2, "meadow_shrub2");
+            registerFeature(SHRUB_PRAIRIE1, "prairie_shrub1");
+            registerFeature(SHRUB_PRAIRIE2, "prairie_shrub2");
+            registerFeature(SKYRIS_TREE1, "skyris_tree1");
+            registerFeature(SKYRIS_TREE2, "skyris_tree2");
+            registerFeature(SKYRIS_TREE3, "skyris_tree3");
+            registerFeature(BLUE_GIANT_SPRUCE_TREE, "giant_blue_spruce_tree1");
+            registerFeature(BLUE_TALL_SPRUCE_TREE, "tall_blue_spruce_tree1");
+            registerFeature(BLUE_SPRUCE_TREE, "blue_spruce_tree1");
+            registerFeature(BLUE_SMALL_SPRUCE_TREE, "small_blue_spruce_tree1");
+            registerFeature(ORANGE_GIANT_SPRUCE_TREE, "giant_orange_spruce_tree1");
+            registerFeature(ORANGE_TALL_SPRUCE_TREE, "tall_orange_spruce_tree1");
+            registerFeature(ORANGE_SPRUCE_TREE, "orange_spruce_tree1");
+            registerFeature(ORANGE_SMALL_SPRUCE_TREE, "small_orange_spruce_tree1");
+            registerFeature(RED_GIANT_SPRUCE_TREE, "giant_red_spruce_tree1");
+            registerFeature(RED_TALL_SPRUCE_TREE, "tall_red_spruce_tree1");
+            registerFeature(RED_SPRUCE_TREE, "red_spruce_tree1");
+            registerFeature(RED_SMALL_SPRUCE_TREE, "small_red_spruce_tree1");
+            registerFeature(YELLOW_GIANT_SPRUCE_TREE, "giant_yellow_spruce_tree1");
+            registerFeature(YELLOW_TALL_SPRUCE_TREE, "tall_yellow_spruce_tree1");
+            registerFeature(YELLOW_SPRUCE_TREE, "yellow_spruce_tree1");
+            registerFeature(YELLOW_SMALL_SPRUCE_TREE, "small_yellow_spruce_tree1");
+            registerFeature(TROPICAL_TREE1, "tropical_tree1");
+            registerFeature(TROPICAL_SHORT_TREE1, "tropical_short_tree1");
+            registerFeature(TROPICAL_SHRUB1, "tropical_shrub1");
+            registerFeature(WOODLANDS_TREE1, "woodlands_tree1");
+            registerFeature(WILLOW_DEAD_TREE1, "dead_willow_tree1");
+            registerFeature(WILLOW_M_TREE1, "mutated_willow_tree1");
+            registerFeature(WILLOW_M_TREE2, "mutated_willow_tree2");
+            registerFeature(WILLOW_TREE1, "willow_tree1");
+            registerFeature(WILLOW_TREE2, "willow_tree2");
+            registerFeature(WILLOW_TREE3, "willow_tree3");
+            registerFeature(WILLOW_TREE4, "willow_tree4");
+            registerFeature(ZELKOVA_TREE1, "zelkova_tree1");
+            registerFeature(ZELKOVA_TREE2, "zelkova_tree2");
+            registerFeature(ZELKOVA_TREE3, "zelkova_tree3");
+        }
+
+        public static void registerFeature(Feature<?> feature, String registryName) {
+            Registry.register(Registry.FEATURE, new Identifier(BYG.MODID, registryName), feature);
+        }
+    }
 }
 
 

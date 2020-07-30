@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.properties.sythian;
+package voronoiaoc.byg.common.properties.blocks.sythian;
 
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.BambooSaplingBlock;

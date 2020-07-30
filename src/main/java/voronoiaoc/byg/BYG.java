@@ -14,15 +14,20 @@ import voronoiaoc.byg.common.properties.vanilla.BYGHoeables;
 import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
 import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
+import voronoiaoc.byg.core.byglists.BYGFeatureList;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 import voronoiaoc.byg.core.registries.BYGBlockRegistry;
 import voronoiaoc.byg.core.registries.BYGEntityRegistry;
 import voronoiaoc.byg.core.registries.BYGItemRegistry;
+import voronoiaoc.byg.data.BYGDataGenerator;
+
+import java.io.IOException;
 
 public class BYG implements ModInitializer {
     public static final String MODID = "byg";
-    public static Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final ItemGroup BYG_TAB = FabricItemGroupBuilder.build(new Identifier(MODID,"byg"), () -> new ItemStack(BYGItemList.BYG_LOGO));
     static int idx = 0;
 
@@ -32,6 +37,7 @@ public class BYG implements ModInitializer {
         //Registries
         BYGBlockRegistry.registerBlocks();
         BYGItemRegistry.registerItems();
+        BYGFeatureList.RegisterFeatures.registerBYGFeatures();
         BYGBiomeRegistry.registerSubBiomes();
         BYGBiomeRegistry.registerBiomes();
         BYGBiomeRegistry.registerNetherBiomes();
@@ -40,6 +46,7 @@ public class BYG implements ModInitializer {
 
         //Misc
         BYGBiomeRegistry.addBeachesCategorically();
+        BYGFeaturesInVanilla.addFeatures();
 
         //Block Settings
         BYGFlammables.flammablesBYG();
@@ -52,9 +59,15 @@ public class BYG implements ModInitializer {
 
 //        BYGBiomeRegistry.biomeList.forEach(biome -> {
 //            idx++;
-//            System.out.println(idx + ". " + Registry.BIOME.getId(biome).toString().replace("_", "").replace("byg:", ""));
+//            System.out.println(idx + ". " + BuiltinRegistries.BIOME.getId(biome).toString().replace("_", "").replace("byg:", ""));
 //
 //        });
+
+        try {
+            BYGDataGenerator.dataGenBiome("D:\\Coding\\BiomeJson");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         LOGGER.info("Initialized BYG!");
     }
 }

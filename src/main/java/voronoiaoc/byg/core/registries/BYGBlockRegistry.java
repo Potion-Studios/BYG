@@ -313,7 +313,6 @@ public class BYGBlockRegistry {
                 BYGBlockList.YELLOW_SPRUCE_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.YellowSpruceSaplingToTree(), "yellow_spruce_sapling");
                 BYGBlockList.ZELKOVA_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.ZelkovaSaplingToTree(),"zelkova_sapling");
 
-                //Leaf BYGBlockRenders
                 BYGBlockList.ASPEN_LEAVES = new BYGBlockProperties.BYGLeaves("aspen_leaves");
                 BYGBlockList.BAOBAB_LEAVES = new BYGBlockProperties.BYGLeaves("baobab_leaves");
                 BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES = new BYGBlockProperties.BYGBloomingWitchhazelLeaves("blooming_witch_hazel_leaves");
@@ -499,7 +498,6 @@ public class BYGBlockRegistry {
                 BYGBlockList.PINK_CUT_SANDSTONE = new BYGBlockProperties.BYGStone("pink_cut_sandstone");
                 BYGBlockList.PINK_SMOOTH_SANDSTONE = new BYGBlockProperties.BYGStone("pink_smooth_sandstone");
 
-                //Log BYGBlockRenders
                 BYGBlockList.ASPEN_LOG = new BYGBlockProperties.BYGLog("aspen_log");
                 BYGBlockList.BAOBAB_LOG = new BYGBlockProperties.BYGLog("baobab_log");
                 BYGBlockList.BLUE_ENCHANTED_LOG = new BYGBlockProperties.BYGLog("blue_enchanted_log");

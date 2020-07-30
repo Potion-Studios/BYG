@@ -3,56 +3,38 @@ package voronoiaoc.byg.common.biomes.biomes;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.GenerationSettings;
+import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.DecoratorConfig;
+import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.SeagrassFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
+import java.util.Optional;
+
 public class GlowShroomBayou extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.GLOWSHROOM_BAYOU_SB, SurfaceBuilder.GRASS_CONFIG);
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.SWAMP;
-    static final double DEPTH = -0.2F;
-    static final double SCALE = 0.01F;
+    static final float DEPTH = -0.2F;
+    static final float SCALE = 0.01F;
     static final float TEMPERATURE = 0.8F;
     static final float DOWNFALL = 0.8F;
     static final int WATER_COLOR = 4815438;
     static final int WATER_FOG_COLOR = 6717479;
     static final String PARENT = null;
+    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final SpawnSettings.class_5496 SPAWN_SETTINGS = new SpawnSettings.class_5496();
+    static final GenerationSettings.class_5495 GENERATION_SETTINGS = (new GenerationSettings.class_5495()).method_30996(SURFACE_BUILDER);
 
     public GlowShroomBayou() {
-        super(new Settings().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT).effects((new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).moodSound(BiomeMoodSound.CAVE).build()));
-        BYGTreeFeatures.addGlowshroomBayouVegetation(this);
-        DefaultBiomeFeatures.addLandCarvers(this);
-        DefaultBiomeFeatures.addDungeons(this);
-        DefaultBiomeFeatures.addMineables(this);
-        DefaultBiomeFeatures.addDefaultOres(this);
-        DefaultBiomeFeatures.addClay(this);
-        DefaultBiomeFeatures.addDefaultMushrooms(this);
-        DefaultBiomeFeatures.addSwampVegetation(this);
-        DefaultBiomeFeatures.addSprings(this);
-        this.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).createDecoratedFeature(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
-        BYGFeatures.addBYGSwampVegetation(this);
-        BYGFeatures.addMarshGrass(this);
-        BYGFeatures.addBYGGlowcane(this);
-        BYGFeatures.addCattails(this);
-        BYGFeatures.addMudDisks(this);
-        DefaultBiomeFeatures.addFrozenTopLayer(this);
-        BYGFeatures.addPeachleatherflower(this);
-        BYGFeatures.addVioletleatherflower(this);
-        BYGFeatures.addRedorchid(this);
-        BYGFeatures.addPurpleOrchid(this);
-        BYGFeatures.addPinkOrchid(this);
-        BYGFeatures.addGlowshrooms(this);
-        BYGTreeFeatures.addHugeGlowshrooms(this);
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
 
     }
 
@@ -72,4 +54,39 @@ public class GlowShroomBayou extends Biome implements BiomeTools {
         return this;
     }
 
+
+
+
+
+
+
+
+
+
+    static {
+        BYGTreeFeatures.addGlowshroomBayouVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addClay(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSwampVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSprings(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.SEAGRASS_NORMAL);
+        BYGFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
+        BYGFeatures.addMarshGrass(GENERATION_SETTINGS);
+        BYGFeatures.addGlowcane(GENERATION_SETTINGS);
+        BYGFeatures.addCattails(GENERATION_SETTINGS);
+        BYGFeatures.addMudDisks(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+        BYGFeatures.addPeachleatherflower(GENERATION_SETTINGS);
+        BYGFeatures.addVioletleatherflower(GENERATION_SETTINGS);
+        BYGFeatures.addRedorchid(GENERATION_SETTINGS);
+        BYGFeatures.addPurpleOrchid(GENERATION_SETTINGS);
+        BYGFeatures.addPinkOrchid(GENERATION_SETTINGS);
+        BYGFeatures.addGlowshrooms(GENERATION_SETTINGS);
+        BYGTreeFeatures.addHugeGlowshrooms(GENERATION_SETTINGS);
+
+    }
 }

@@ -39,7 +39,7 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
         int n = i & 15;
         int o = j & 15;
         BlockState blockState3 = WHITE_TERRACOTTA;
-        BlockState blockState4 = biome.getSurfaceConfig().getUnderMaterial();
+        BlockState blockState4 = biome.method_30970().method_30985().getUnderMaterial();
         int p = (int)(d / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean bl = Math.cos(d / 3.0D * 3.141592653589793D) > 0.0D;
         int q = -1;
@@ -61,7 +61,7 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
                             blockState4 = blockState;
                         } else if (s >= l - 4 && s <= l + 1) {
                             blockState3 = WHITE_TERRACOTTA;
-                            blockState4 = biome.getSurfaceConfig().getUnderMaterial();
+                            blockState4 = biome.method_30970().method_30985().getUnderMaterial();
                         }
 
                         if (s < l && (blockState3 == null || blockState3.isAir())) {
@@ -84,7 +84,7 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
 
                                 chunk.setBlockState(mutable, blockState8, false);
                             } else {
-                                chunk.setBlockState(mutable, biome.getSurfaceConfig().getTopMaterial(), false);
+                                chunk.setBlockState(mutable, biome.method_30970().method_30985().getTopMaterial(), false);
                                 bl2 = true;
                             }
                         } else {

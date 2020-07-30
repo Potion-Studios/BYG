@@ -4,10 +4,9 @@ package voronoiaoc.byg.common.world.feature.placements;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.decorator.CountExtraChanceDecoratorConfig;
+import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.DecoratorContext;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -15,15 +14,17 @@ import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class UnderGroundPlacement extends Decorator<CountExtraChanceDecoratorConfig> {
+public class UnderGroundPlacement extends Decorator<CountExtraDecoratorConfig> {
 
-    public static final Decorator<CountExtraChanceDecoratorConfig> UGPLACER = new UnderGroundPlacement(CountExtraChanceDecoratorConfig.CODEC);
+    public static final Decorator<CountExtraDecoratorConfig> UGPLACER = new UnderGroundPlacement(CountExtraDecoratorConfig.CODEC);
 
-    public UnderGroundPlacement(Codec<CountExtraChanceDecoratorConfig> codec) {
+    public UnderGroundPlacement(Codec<CountExtraDecoratorConfig> codec) {
         super(codec);
     }
 
-    public Stream<BlockPos> getPositions(WorldAccess worldIn, ChunkGenerator generator, Random random, CountExtraChanceDecoratorConfig config, BlockPos pos) {
+    //TODO: FIX
+
+    public Stream<BlockPos> getPositions(DecoratorContext decoratorContext, Random random, CountExtraDecoratorConfig config, BlockPos pos) {
         int c = config.count;
         if (random.nextFloat() < config.extraChance) {
             c += config.extraCount;
@@ -37,13 +38,13 @@ public class UnderGroundPlacement extends Decorator<CountExtraChanceDecoratorCon
             int x = random.nextInt(16);
             int z = random.nextInt(16);
             BlockPos newPos = new BlockPos(pos.add(x, 0, z));
-            int height = worldIn.getTopY(Heightmap.Type.MOTION_BLOCKING, newPos.getX(), newPos.getZ()) - 5;
+            int height = decoratorContext.getTopY(Heightmap.Type.MOTION_BLOCKING, newPos.getX(), newPos.getZ()) - 5;
 
 
             while (height > 15) {
 
-                airBlock = worldIn.isAir
-                        (pos.add(x, height, z));
+//                airBlock = decoratorContext.isAir
+//                        (pos.add(x, height, z));
 
                 //if height is is an air block and previous block was a solid block, store the fact that we are in an air block now
                 if (!airFlag && airBlock) {
