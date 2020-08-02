@@ -6,12 +6,12 @@
 //import net.minecraft.world.gen.area.IAreaFactory;
 //import net.minecraft.world.gen.area.LazyArea;
 //import net.minecraft.world.gen.layer.Layer;
+//import net.minecraft.world.gen.layer.MixOceansLayer;
 //import net.minecraft.world.gen.layer.ZoomLayer;
 //import net.minecraft.world.gen.layer.traits.IAreaTransformer1;
 //import voronoiaoc.byg.common.world.worldtype.layers.AddContinentLayer;
 //import voronoiaoc.byg.common.world.worldtype.layers.BYGAddDeepOceanLayer;
 //import voronoiaoc.byg.common.world.worldtype.layers.BYGAddIslandLayer;
-//import voronoiaoc.byg.common.world.worldtype.layers.biomemix.*;
 //import voronoiaoc.byg.common.world.worldtype.math.BiomeGroupManager;
 //import voronoiaoc.byg.config.BYGWorldConfig;
 //
@@ -61,14 +61,14 @@
 //        mergeOceanMixToContinentMix = ZoomLayer.NORMAL.apply(contextProvider.apply(10029232L), mergeOceanMixToContinentMix);
 //        mergeOceanMixToContinentMix = ZoomLayer.NORMAL.apply(contextProvider.apply(1023302L), mergeOceanMixToContinentMix);
 //        mergeOceanMixToContinentMix = ZoomLayer.NORMAL.apply(contextProvider.apply(1022202L), mergeOceanMixToContinentMix);
-////        mergeOceanMixToContinentMix = ZoomLayer.NORMAL.apply(contextProvider.apply(1003L), mergeOceanMixToContinentMix);
-////        mergeOceanMixToContinentMix = BYGAddDeepOceanLayer.INSTANCE.apply(contextProvider.apply(1004), mergeOceanMixToContinentMix);
-////        mergeOceanMixToContinentMix = new BYGAddHillsLayer(manager).apply(contextProvider.apply(1006), mergeOceanMixToContinentMix);
-////        mergeOceanMixToContinentMix = ZoomLayer.FUZZY.apply(contextProvider.apply(1007L), mergeOceanMixToContinentMix);
-////        mergeOceanMixToContinentMix = BYGShoreLayer.INSTANCE.apply(contextProvider.apply(1008), mergeOceanMixToContinentMix);
-////        mergeOceanMixToContinentMix = ZoomLayer.NORMAL.apply(contextProvider.apply(1009L), mergeOceanMixToContinentMix);
-////        mergeOceanMixToContinentMix = ZoomLayer.NORMAL.apply(contextProvider.apply(1010L), mergeOceanMixToContinentMix);
-////        mergeOceanMixToContinentMix = ZoomLayer.FUZZY.apply(contextProvider.apply(1011L), mergeOceanMixToContinentMix);
+//        mergeOceanMixToContinentMix = ZoomLayer.NORMAL.apply(contextProvider.apply(1003L), mergeOceanMixToContinentMix);
+//        mergeOceanMixToContinentMix = BYGAddDeepOceanLayer.INSTANCE.apply(contextProvider.apply(1004), mergeOceanMixToContinentMix);
+//        mergeOceanMixToContinentMix = new BYGAddHillsLayer(manager).apply(contextProvider.apply(1006), mergeOceanMixToContinentMix);
+//        mergeOceanMixToContinentMix = ZoomLayer.FUZZY.apply(contextProvider.apply(1007L), mergeOceanMixToContinentMix);
+//        mergeOceanMixToContinentMix = BYGShoreLayer.INSTANCE.apply(contextProvider.apply(1008), mergeOceanMixToContinentMix);
+//        mergeOceanMixToContinentMix = ZoomLayer.NORMAL.apply(contextProvider.apply(1009L), mergeOceanMixToContinentMix);
+//        mergeOceanMixToContinentMix = ZoomLayer.NORMAL.apply(contextProvider.apply(1010L), mergeOceanMixToContinentMix);
+//        mergeOceanMixToContinentMix = ZoomLayer.FUZZY.apply(contextProvider.apply(1011L), mergeOceanMixToContinentMix);
 //        return new Layer(mergeOceanMixToContinentMix);
 //    }
 //

@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[32,)"
-license="LGPLv3"
+#license="LGPLv3"
 issueTrackerURL="https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId="byg"
@@ -16,6 +16,6 @@ An Adventure and Exploration mod with over 60 new biomes!
 [[dependencies.byg]]
     modId="forge"
     mandatory=true
-    versionRange="[32.0.92,)"
+    versionRange="[32.0.83,)"
     ordering="NONE"
     side="BOTH"
