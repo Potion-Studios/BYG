@@ -52,7 +52,7 @@ public class BYGOverGrownDaciteBlock extends SpreadableSnowyOvergrownDaciteBlock
 
                     BlockState blockstate1;
                     if (rand.nextInt(8) == 0) {
-                        List<ConfiguredFeature<?, ?>> list = world.getBiome(blockpos1).method_30970().method_30982();
+                        List<ConfiguredFeature<?, ?>> list = world.getBiome(blockpos1).getGenerationSettings().getFlowerFeatures();
                         if (list.isEmpty()) {
                             break;
                         }

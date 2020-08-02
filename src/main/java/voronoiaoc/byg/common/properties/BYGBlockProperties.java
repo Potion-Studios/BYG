@@ -103,7 +103,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGButtons extends WoodButtonBlock {
+    public static class BYGButtons extends WoodenButtonBlock {
         public BYGButtons(String registryName) {
             super(Settings.of(Material.WOOD)
                     .sounds(BlockSoundGroup.WOOD)

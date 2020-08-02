@@ -82,7 +82,7 @@ public class BYGFeaturesInVanilla {
     //Use these to add our features to vanilla's biomes.
     public static void addFeatureToBiome(Biome biome, GenerationStep.Feature feature, ConfiguredFeature<?, ?> configuredFeature) {
         ConvertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.method_30970().features;
+        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.getGenerationSettings().features;
         while (biomeFeatures.size() <= feature.ordinal()) {
             biomeFeatures.add(Lists.newArrayList());
         }
@@ -90,8 +90,8 @@ public class BYGFeaturesInVanilla {
 
     }
     private static void ConvertImmutableFeatures(Biome biome) {
-        if (biome.method_30970().features instanceof ImmutableList) {
-            biome.method_30970().features = biome.method_30970().features.stream().map(Lists::newArrayList).collect(Collectors.toList());
+        if (biome.getGenerationSettings().features instanceof ImmutableList) {
+            biome.getGenerationSettings().features = biome.getGenerationSettings().features.stream().map(Lists::newArrayList).collect(Collectors.toList());
         }
     }
 }

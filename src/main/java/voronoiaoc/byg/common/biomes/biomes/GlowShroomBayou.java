@@ -30,11 +30,11 @@ public class GlowShroomBayou extends Biome implements BiomeTools {
     static final int WATER_FOG_COLOR = 6717479;
     static final String PARENT = null;
     static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
-    static final SpawnSettings.class_5496 SPAWN_SETTINGS = new SpawnSettings.class_5496();
-    static final GenerationSettings.class_5495 GENERATION_SETTINGS = (new GenerationSettings.class_5495()).method_30996(SURFACE_BUILDER);
+    static final SpawnSettings.Builder SPAWN_SETTINGS = new SpawnSettings.Builder();
+    static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
     public GlowShroomBayou() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.method_30987(), SPAWN_SETTINGS.method_31007(), Optional.ofNullable(PARENT));
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build(), Optional.ofNullable(PARENT));
 
     }
 
@@ -73,7 +73,7 @@ public class GlowShroomBayou extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addSwampVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addSprings(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.method_30992(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.SEAGRASS_NORMAL);
+        GENERATION_SETTINGS.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.SEAGRASS_NORMAL);
         BYGFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
         BYGFeatures.addMarshGrass(GENERATION_SETTINGS);
         BYGFeatures.addGlowcane(GENERATION_SETTINGS);
