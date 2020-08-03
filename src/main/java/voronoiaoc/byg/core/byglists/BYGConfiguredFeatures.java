@@ -223,6 +223,122 @@ public class BYGConfiguredFeatures {
             WHITE_CHERRY_FOLIAGE.withChance(0.5F)),
             PINK_CHERRY_FOLIAGE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_WARPED_CACTI = newConfiguredFeature("rs_warped_cacti", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            WARPED_CACTI.withChance(0.5F)),
+            WARPED_CACTI)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_BLUEBERRY_BUSH = newConfiguredFeature("rs_blueberry_bush", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            BLUE_BERRY_BUSH.withChance(0.5F)),
+            BLUE_BERRY_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ANGELICA = newConfiguredFeature("rs_angelica", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ANGELICA.withChance(0.5F)),
+            ANGELICA)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_CROCUS = newConfiguredFeature("rs_crocus", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_IRIS = newConfiguredFeature("rs_iris", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ANEMONE = newConfiguredFeature("rs_anemone", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WINTER_ROSE = newConfiguredFeature("rs_winter_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SNOWDROPS = newConfiguredFeature("rs_snowdrops", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_PINK_ALLIUM = newConfiguredFeature("rs_pink_allium", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ORANGE_DAISY = newConfiguredFeature("rs_orange_daisy", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_RED_CORNFLOWER = newConfiguredFeature("rs_red_cornflower", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SAGE = newConfiguredFeature("rs_sage", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_FOXGLOVE = newConfiguredFeature("rs_foxglove", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_YELLOW_DAFFODIL = newConfiguredFeature("rs_yellow_daffodil", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_BELLFLOWER = newConfiguredFeature("rs_bellflower", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SCILLA = newConfiguredFeature("rs_scilla", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            ROSE.withChance(0.5F)),
+            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+//    public static final ConfiguredFeature<?, ?> RANDOM_ = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+//
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+//
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+//
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+//
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+//
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+//
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+//
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+//
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+//
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+//
+//    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            ROSE.withChance(0.5F)),
+//            ROSE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(BYG.MODID, registryName), configuredFeature);
         return configuredFeature;
