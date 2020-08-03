@@ -1,4 +1,4 @@
-package voronoiaoc.byg.mixin;
+package voronoiaoc.byg.mixin.common.entity;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
