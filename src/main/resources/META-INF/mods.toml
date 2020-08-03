@@ -4,7 +4,7 @@ loaderVersion="[31,)" #mandatory This is typically bumped every Minecraft versio
 issueTrackerURL="https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId="byg"
-version="1.0.10"
+version="1.0.11"
 displayName="Oh The Biomes You'll Go"
 displayURL="https://biomesyougo.weebly.com/"
 logoFile="logo_text.png"
