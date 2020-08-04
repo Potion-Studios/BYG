@@ -136,8 +136,20 @@ public class BYGConfiguredFeatures {
             AMARANTH_ORANGE.withChance(0.2F)),
             AMARANTH_PURPLE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(50));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_CALIFORNIA_POPPY = newConfiguredFeature("rs_california_poppy", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            CALIFORNIA_POPPY.withChance(0.50F)),
+            CALIFORNIA_POPPY)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WINTER_SUCCULENT = newConfiguredFeature("rs_winter_succulent", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            WINTER_SUCCULENT.withChance(0.50F)),
+            WINTER_SUCCULENT)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_HORSEWEED = newConfiguredFeature("rs_horseweed", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            HORSE_WEED.withChance(0.50F)),
+            HORSE_WEED)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DESERT_PLANTS = newConfiguredFeature("rs_desert_plants", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            MINI_CACTI.withChance(0.3F),
             PRICKLY_PEAR_CACTI.withChance(0.3F),
             GOLDEN_SPINED_CACTI.withChance(0.3F)),
             FIRECRACKER_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(6));
@@ -176,16 +188,40 @@ public class BYGConfiguredFeatures {
             SHORT_GRASS.withChance(0.50F)),
             ConfiguredFeatures.PATCH_GRASS_NORMAL)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(10));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_SHORT_GRASS = newConfiguredFeature("rs_short_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            SHORT_GRASS.withChance(0.50F)),
+            SHORT_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(10));
+
     public static final ConfiguredFeature<?, ?> RANDOM_BYG_FERN_GRASS = newConfiguredFeature("rs_byg_fern_grass", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             SHORT_GRASS.withChance(0.50F)),
             ConfiguredFeatures.PATCH_TAIGA_GRASS)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(10));
 
-//    public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_VEGETATION = newConfiguredFeature("rs_embur_vegetation", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-//            AMARANTH_CYAN.withChance(0.2F),
-//            AMARANTH_MAGENTA.withChance(0.2F),
-//            AMARANTH_ORANGE.withChance(0.2F),
-//            AMARANTH_PURPLE.withChance(0.2F)),
-//            AMARANTH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(150));
+    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM = newConfiguredFeature("rs_glowshroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            BLUE_GLOWSHROOM.withChance(0.50F)),
+            PURPLE_GLOWSHROOM)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(5));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_MUSHROOM = newConfiguredFeature("rs_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            BLACK_PUFF.withChance(0.50F),
+            WOOD_BLEWIT.withChance(0.50F),
+            WEEPING_MILKCAP.withChance(0.50F)),
+            GREEN_MUSHROOM)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(5));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_JUNGLE_FLOWERS = newConfiguredFeature("rs_jungle_flowers", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            BISTORT.withChance(0.50F),
+            GUZMANIA.withChance(0.50F),
+            BEGONIA.withChance(0.50F),
+            LAZARUS_BELLFLOWER.withChance(0.50F),
+            RICHEA.withChance(0.50F),
+            TORCH_GINGER.withChance(0.50F)),
+            INCAN_LILY)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(5));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SWAMP_PLANTS = newConfiguredFeature("rs_swamp_plants", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            TINY_LILY_PAD.withChance(0.50F)),
+            WATER_SILK)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(5));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_LILY_PADS = newConfiguredFeature("rs_lily_pads", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            TINY_LILY_PAD.withChance(0.50F)),
+            ConfiguredFeatures.PATCH_WATERLILLY)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(5));
 
     public static final ConfiguredFeature<?, ?> RANDOM_AZALEA = newConfiguredFeature("rs_azalea", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             AZALEA.withChance(0.5F)),
@@ -324,7 +360,7 @@ public class BYGConfiguredFeatures {
             LEATHER_FLOWER_VIOLET)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DAFFODILS = newConfiguredFeature("rs_daffodils", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            DAFFODIL_YELLOW.withChance(0.5F)),
+            DAFFODIL.withChance(0.5F)),
             DAFFODIL_PINK)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLACK_ROSE = newConfiguredFeature("rs_black_rose", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
