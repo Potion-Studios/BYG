@@ -761,12 +761,12 @@ public class BYGConfiguredTreeFeatures {
             MC_BLUE_PINE_TREE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(25, 0.4F, 2))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM = newConfiguredFeature("rs_glowshroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM = newConfiguredFeature("rs_huge_glowshroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BLUE_GLOWSHROOM_HUGE.withChance(0.1F)),
             PURPLE_GLOWSHROOM_HUGE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(25, 0.4F, 2))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_MUSHROOM = newConfiguredFeature("rs_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_MUSHROOM = newConfiguredFeature("rs_huge_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
                 GREEN_MUSHROOM_HUGE.withChance(0.4F),
                 WOOD_BLEWIT_HUGE.withChance(0.4F),
                 WEEPING_MILKCAP_HUGE.withChance(0.4F)),
