@@ -3,7 +3,9 @@ package voronoiaoc.byg.common.world.dimension.nether;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.source.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
@@ -30,7 +32,8 @@ public class BYGNetherBiomeProvider extends BiomeSource {
 
     @Override
     public Biome getBiomeForNoiseGen(int biomeX, int biomeY, int biomeZ) {
-        return biomeLayer.sample(biomeX, biomeZ);
+        //TODO: REIMPLEMENT BIOME LAYERS
+        return BuiltinRegistries.BIOME.get(Biomes.NETHER_WASTES);
     }
 
     @Override

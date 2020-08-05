@@ -15,7 +15,7 @@ public enum BYGEndMasterLayer implements InitLayer {
 
     public int pickRandomBiomeID(LayerRandomnessSource randomnessSource) {
         if (BYGNetherBiomeProvider.biomeList.isEmpty()) {
-            return BuiltinRegistries.BIOME.getRawId(Biomes.END_HIGHLANDS);
+            return BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(Biomes.END_HIGHLANDS));
         }
         return BuiltinRegistries.BIOME.getRawId(BYGEndBiomeProvider.bygEndBiomeList.get(randomnessSource.nextInt(BYGEndBiomeProvider.bygEndBiomeList.size())));
     }

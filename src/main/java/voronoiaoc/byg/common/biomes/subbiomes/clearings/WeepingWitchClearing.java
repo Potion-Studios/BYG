@@ -35,7 +35,7 @@ public class WeepingWitchClearing extends Biome implements BiomeFog {
     static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
     public WeepingWitchClearing() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build(), Optional.ofNullable(PARENT));
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
 //    @Nullable
@@ -56,7 +56,7 @@ public class WeepingWitchClearing extends Biome implements BiomeFog {
 
 //    @Override
 //    public Biome getRiver() {
-//        return Biomes.RIVER;
+//        return BuiltinRegistries.BIOME.get(Biomes.RIVER;
 //    }
 
     @Override

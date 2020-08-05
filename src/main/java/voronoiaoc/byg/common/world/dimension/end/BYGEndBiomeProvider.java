@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.dimension.end;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.source.BiomeLayerSampler;
@@ -41,9 +42,10 @@ public class BYGEndBiomeProvider extends BiomeSource {
         int i = x >> 2;
         int j = z >> 2;
         if ((long) i * (long) i + (long) j * (long) j <= 4096L) {
-            return Biomes.THE_END;
+            return BuiltinRegistries.BIOME.get(Biomes.THE_END);
         } else {
-            return biomeLayer.sample(x, z);
+            //TODO: REIMPLEMENT BIOME LAYERS
+            return BuiltinRegistries.BIOME.get(Biomes.THE_END);
         }
     }
 }

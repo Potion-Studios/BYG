@@ -84,7 +84,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.ZELKOVAFOREST, "zelkova_forest", true, 6);
 
         //Islands
-        registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, Biomes.DEEP_WARM_OCEAN, Biomes.WARM_OCEAN);
+        registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, BuiltinRegistries.BIOME.get(Biomes.DEEP_WARM_OCEAN), BuiltinRegistries.BIOME.get(Biomes.WARM_OCEAN));
 
         BYG.LOGGER.info("BYG: Registered Biomes!");
 
