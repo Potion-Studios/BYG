@@ -136,7 +136,7 @@ public class BYGBiomeList {
     public static final Biome SNOWYDECIDUOUSFORESTHILLS = new SnowyDeciduousForestHills();
     public static final Biome SNOWY_EVERGREEN_HILLS = new SnowyEvergreenHills();
     public static final Biome REDOAKFORESTHILLS = new RedOakForestHills();
-    public static final Biome TROPICALFUNGALRAINFORESTHILLS = new TropicalFungalRainForestHills();
+    public static final Biome TROPICALFUNGALRAINFORESTHILLS = new TropicalFungalRainforestHills();
     public static final Biome TROPICALRAINFORESTHILLS = new TropicalRainForestHills();
     public static final Biome ZELKOVAFORESTHILLS = new ZelkovaForestHills();
 
