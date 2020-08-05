@@ -14,10 +14,8 @@ import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
-import java.util.Optional;
-
 public class SnowyConiferousClearing extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "snowy_coniferous_clearing", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.SNOW;
     static final Category CATEGORY = Category.TAIGA;
     static final float DEPTH = 0.2F;

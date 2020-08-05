@@ -16,10 +16,8 @@ import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
-import java.util.Optional;
-
 public class AspenClearing extends Biome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState()));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "aspen_clearing", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final float DEPTH = 0.2F;
@@ -37,10 +35,9 @@ public class AspenClearing extends Biome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
-    //    @Override
-//    public Biome getRiver() {
-//        return BuiltinRegistries.BIOME.get(Biomes.RIVER;
-//    }
+
+
+
     @Override
     public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
         double lvt_5_1_ = FOLIAGE_NOISE.sample(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
