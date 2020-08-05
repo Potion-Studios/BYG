@@ -14,10 +14,8 @@ import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
-import java.util.Optional;
-
 public class FloweringGrove extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "flowering_grove", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.PLAINS;
     static final float DEPTH = 0.25F;
@@ -44,11 +42,6 @@ public class FloweringGrove extends Biome {
     public int getFoliageColor() {
         return 11190111;
     }
-
-//    @Override
-//    public Biome getRiver() {
-//        return BuiltinRegistries.BIOME.get(Biomes.RIVER;
-//    }
 
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
