@@ -14,7 +14,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<TernarySurfaceConfig> SHATTEREDGLACIER_SB2 = newSurfaceBuilder("shattered_glacier", new ShatteredGlacierSB2(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> MARSHLAND_SB = newSurfaceBuilder("marshland", new MarshlandSB(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> GREAT_LAKES_SB = newSurfaceBuilder("great_lakes", new GreatLakeSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> GREAT_LAKE_ISLE_SB = newSurfaceBuilder("great_lakes",  new GreatLakeIsleSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> GREAT_LAKE_ISLE_SB = newSurfaceBuilder("great_lakes_isles",  new GreatLakeIsleSB(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> ERODED_SIERRA_SB = newSurfaceBuilder("eroded_sierra", new ErodedSierraSB(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> SIERRA_VALLEY_SB = newSurfaceBuilder("sierra_valley", new SierraValleySB(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> GLOWSHROOM_BAYOU_SB = newSurfaceBuilder("glowshroom_bayou", new GlowShroomBayouSB(TernarySurfaceConfig.CODEC));
