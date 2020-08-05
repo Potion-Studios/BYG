@@ -15,7 +15,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class RainbowBeach extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.RAINBOWBEACH_SB, BYGSBList.BYGSBConfigList.PURPLESAND_SB);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "rainbow_beach", new ConfiguredSurfaceBuilder<>(BYGSBList.RAINBOWBEACH_SB, BYGSBList.BYGSBConfigList.PURPLESAND_SB));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.BEACH;
     static final float DEPTH = 0.0F;
