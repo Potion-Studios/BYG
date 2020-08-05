@@ -22,9 +22,9 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Optional;
+
 public class CragGardens extends Biome implements BiomeTools, BiomeFog {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.SLUICE_SB, BYGSBList.BYGSBConfigList.GREEN_CONCRETE_POWDER_CF);
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "crag_gardens", new ConfiguredSurfaceBuilder<>(BYGSBList.CRAG_GARDENS, BYGSBList.BYGSBConfigList.GREEN_CONCRETE_POWDER_CF));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
     static final float DEPTH = -1.5F;

@@ -75,7 +75,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.SNOWYDECIDUOUSFOREST, "snowy_deciduous_forest", true, 6);
         registerBiome(BYGBiomeList.SNOWYEVERGREENTAIGA, "snowy_evergreen_taiga", true, 6);
         registerBiome(BYGBiomeList.THE_BLACK_FOREST, "the_black_forest", true, 5);
-        registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_forest", true, 5);
+        registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_rainforest", true, 5);
         registerBiome(BYGBiomeList.TROPICALRAINFOREST, "tropical_rainforest", true, 1);
         registerBiome(BYGBiomeList.VIBRANTSWAMPLANDS, "vibrant_swamplands", true, 6);
         registerBiome(BYGBiomeList.SIERRAVALLEY, "sierra_valley", true, 6);

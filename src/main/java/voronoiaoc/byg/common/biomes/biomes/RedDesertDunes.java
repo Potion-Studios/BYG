@@ -14,10 +14,9 @@ import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import javax.annotation.Nullable;
-import java.util.Optional;
 
 public class RedDesertDunes extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.REDDUNES_SB, BYGSBList.BYGSBConfigList.REDSAND_CF);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "red_desert_dunes", new ConfiguredSurfaceBuilder<>(BYGSBList.REDDUNES_SB, BYGSBList.BYGSBConfigList.REDSAND_CF));
     static final Precipitation PRECIPATATION = Precipitation.NONE;
     static final Category CATEGORY = Category.DESERT;
     static final float DEPTH = 1.3F;

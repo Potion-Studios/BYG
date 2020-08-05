@@ -18,7 +18,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<TernarySurfaceConfig> ERODED_SIERRA_SB = newSurfaceBuilder("eroded_sierra", new ErodedSierraSB(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> SIERRA_VALLEY_SB = newSurfaceBuilder("sierra_valley", new SierraValleySB(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> GLOWSHROOM_BAYOU_SB = newSurfaceBuilder("glowshroom_bayou", new GlowShroomBayouSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> SLUICE_SB = newSurfaceBuilder("crag_gardens", new CragGardens(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> CRAG_GARDENS = newSurfaceBuilder("crag_gardens", new CragGardens(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> RED_ROCK_SB = newSurfaceBuilder("red_rock", new RedRockSB(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> RED_ROCKLOWLAND_SB = newSurfaceBuilder("red_rock_lowlands", new RedRockLowlandsSB(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> REDDUNES_SB = newSurfaceBuilder("red_dunes", new RedDunesSB(TernarySurfaceConfig.CODEC));

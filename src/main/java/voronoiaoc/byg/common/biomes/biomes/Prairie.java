@@ -3,7 +3,10 @@ package voronoiaoc.byg.common.biomes.biomes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
-import net.minecraft.world.biome.*;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.GenerationSettings;
+import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
@@ -13,13 +16,10 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
-import javax.annotation.Nullable;
 import java.util.HashMap;
-import java.util.Optional;
-import java.util.Random;
 
 public class Prairie extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "prairie", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.PLAINS;
     static final float DEPTH = 0.125F;
@@ -50,8 +50,8 @@ public class Prairie extends Biome implements BiomeTools {
     @Override
     public HashMap<Biome,Integer> getHills() {
         HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.FRESHWATERLAKE,1);
-        map.put(BYGBiomeList.PRAIRIECLEARING,4);
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
+        map.put(BYGBiomeList.PRAIRIECLEARING, 4);
         return map;
     }
 
