@@ -377,6 +377,7 @@ public class BYGBiomeRegistry {
         return (T) ((MutableRegistry)registry).method_31062(OptionalInt.empty(), registryKey, object, Lifecycle.stable());
     }
 
+    //TODO: FIGURE THIS OUT
     public static void addBiomeNumericalIDs() {
         int i = 0;
         for (int idx = 0; idx < biomeList.size(); idx++) {
