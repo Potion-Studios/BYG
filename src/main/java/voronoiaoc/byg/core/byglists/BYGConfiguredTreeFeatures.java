@@ -239,9 +239,9 @@ public class BYGConfiguredTreeFeatures {
 
     /***********************************************************Random Selectors***********************************************************/
     public static final ConfiguredFeature<?, ?> RANDOM_ANCIENT_TREE = newConfiguredFeature("rs_ancient_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            ConfiguredFeatures.DARK_OAK.withChance(0.7F),
-            ANCIENT_TREE1.withChance(0.05F),
-            ANCIENT_TREE2.withChance(0.06F)),
+            ConfiguredFeatures.DARK_OAK.withChance(0.3F),
+            ANCIENT_TREE1.withChance(0.20F),
+            ANCIENT_TREE2.withChance(0.20F)),
             ANCIENT_TREE3)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(16, 0.4F, 8))));
 
@@ -577,10 +577,10 @@ public class BYGConfiguredTreeFeatures {
             new CountExtraDecoratorConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_TREE = newConfiguredFeature("rs_aspen_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            ASPEN_TREE2.withChance(0.2F),
-            ASPEN_TREE3.withChance(0.1F)),
+            ASPEN_TREE2.withChance(0.50F),
+            ASPEN_TREE3.withChance(0.25F)),
             ASPEN_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(0, 0.4F, 2))));
+            new CountExtraDecoratorConfig(22, 0.4F, 6))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_SHRUB = newConfiguredFeature("rs_aspen_shrub", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             ASPEN_SHRUB1.withChance(0.1F)),

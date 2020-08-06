@@ -37,6 +37,17 @@ public class AspenForestHills extends Biome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build(), Optional.ofNullable(PARENT));
     }
 
+    @Override
+    public int getFoliageColor() {
+        return 13417297;
+    }
+
+    @Override
+    public int getGrassColorAt(double x, double z) {
+        double color = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
+        return color < -0.1D ? 11909994 : 12499549;
+    }
+
     static {
         ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
 //        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);

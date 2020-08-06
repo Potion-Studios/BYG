@@ -53,6 +53,7 @@ public class AlliumFields extends Biome implements BiomeTools {
 //        DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         BYGFeatures.addAlliumFieldFlowers(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
+        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGTreeFeatures.addSparseRedOakForestTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);

@@ -76,6 +76,14 @@ public class BYGTreeFeatures {
         biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_RED_OAK_FOREST_TREE);
     }
 
+    public static void addJacarandaTrees(GenerationSettings.Builder biome) {
+        biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_JACARANDA_TREE);
+    }
+
+    public static void addSparseJacarandaTrees(GenerationSettings.Builder biome) {
+        biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_JACARANDA_SPARSE_TREE);
+    }
+
     public static void addSparseRedOakForestTrees(GenerationSettings.Builder biome) {
         biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_RED_OAK_FOREST_SPARSE_TREE);
     }
