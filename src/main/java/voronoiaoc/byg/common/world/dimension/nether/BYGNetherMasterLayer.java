@@ -4,6 +4,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.layer.type.InitLayer;
 import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 public enum BYGNetherMasterLayer implements InitLayer {
     INSTANCE;
@@ -17,6 +18,6 @@ public enum BYGNetherMasterLayer implements InitLayer {
         if (BYGNetherBiomeProvider.biomeList.isEmpty()) {
             return BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(Biomes.NETHER_WASTES));
         }
-        return BuiltinRegistries.BIOME.getRawId(BYGNetherBiomeProvider.biomeList.get(randomnessSource.nextInt(BYGNetherBiomeProvider.biomeList.size())));
+        return BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltinRegistries.BIOME.getKey(BYGBiomeList.WARPEDDESERT).get()));
     }
 }
