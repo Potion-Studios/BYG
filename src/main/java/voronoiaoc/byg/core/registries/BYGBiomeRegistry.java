@@ -1,12 +1,10 @@
 package voronoiaoc.byg.core.registries;
 
-import com.mojang.serialization.Lifecycle;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryRemovedCallback;
 import net.minecraft.class_5504;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
@@ -18,7 +16,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.OptionalInt;
+import java.util.Optional;
 
 public class BYGBiomeRegistry {
     public static List<Biome> biomeList = new ArrayList<>();
@@ -251,12 +249,10 @@ public class BYGBiomeRegistry {
 
 
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight) {
-        if (biome != null) {
             Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
             biomeList.add(biome);
             BYG.LOGGER.info(BuiltinRegistries.BIOME.getKey(biome));
         }
-    }
 
 //        if (spawn)
 //            //FabricBiomes.addSpawnBiome(biome);
@@ -318,11 +314,9 @@ public class BYGBiomeRegistry {
 
 
     private static void registerNetherBiome(Biome biome, String id) {
-        if (biome != null) {
             Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
 //        NetherBiomes.addNetherBiome(biome);
             biomeList.add(biome);
-        }
     }
 
     private static void registerEndBiome(Biome biome, String id) {
@@ -348,10 +342,8 @@ public class BYGBiomeRegistry {
     }
 
     private static void registerSubBiome(Biome biome, String id, boolean spawn) {
-        if (biome != null) {
             Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
             biomeList.add(biome);
-        }
 //        if (spawn) {
 //            if (BuiltinRegistries.BIOME.getId(biome) == null) {
 //            }
@@ -373,23 +365,19 @@ public class BYGBiomeRegistry {
         }
     }
 
-    public static <V, T extends V> T set(Registry<V> registry, RegistryKey<V> registryKey, T object) {
-        return (T) ((MutableRegistry)registry).method_31062(OptionalInt.empty(), registryKey, object, Lifecycle.stable());
-    }
-
-    //TODO: FIGURE THIS OUT
     public static void addBiomeNumericalIDs() {
-        int i = 0;
-        for (int idx = 0; idx < biomeList.size(); idx++) {
-            while (class_5504.field_26736.containsKey(i) && class_5504.field_26736.get(i) != null) {
+        int i = 173;
+        for (Biome biome : biomeList) {
+            while (class_5504.field_26736.containsKey(i)) {
                 ++i;
             }
-            if (BuiltinRegistries.BIOME.getKey(biomeList.get(idx)).get() != null)
-                class_5504.field_26736.put(i + idx, BuiltinRegistries.BIOME.getKey(biomeList.get(idx)).orElse(Biomes.OCEAN));
-        }
 
-        for (int idx = 0; idx < class_5504.field_26736.size(); idx++) {
-            BYG.LOGGER.info(idx + ": " + class_5504.field_26736.get(idx));
+            Optional<RegistryKey<Biome>> key = BuiltinRegistries.BIOME.getKey(biome);
+
+            if (key.isPresent()) {
+                class_5504.field_26736.put(i, key.get());
+                i++;
+            }
         }
     }
 }

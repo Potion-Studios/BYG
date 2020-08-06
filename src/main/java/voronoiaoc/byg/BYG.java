@@ -42,7 +42,6 @@ public class BYG implements ModInitializer {
         BYGBiomeRegistry.registerBiomes();
         BYGBiomeRegistry.registerNetherBiomes();
         BYGBiomeRegistry.registerEndBiomes();
-        BYGBiomeRegistry.addBiomeNumericalIDs();
 
         BYGEntityRegistry.registerEntities();
         //Misc
@@ -63,6 +62,7 @@ public class BYG implements ModInitializer {
 //            System.out.println(idx + ". " + BuiltinRegistries.BIOME.getId(biome).toString().replace("_", "").replace("byg:", ""));
 //
 //        });
+        BYGBiomeRegistry.addBiomeNumericalIDs();
 
         try {
             BYGDataGenerator.dataGenBiome("D:\\Coding\\BiomeJson");
