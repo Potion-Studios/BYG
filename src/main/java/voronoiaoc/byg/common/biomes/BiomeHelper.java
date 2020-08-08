@@ -5,6 +5,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.DecoratorConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.BYG;
 
@@ -21,7 +22,7 @@ public class BiomeHelper {
         return configuredSurfaceBuilder;
     }
 
-    public static Decorator<?> newDecorator(String id, Decorator<?> decorator) {
+    public static <T extends DecoratorConfig, G extends Decorator<T>> G newDecorator(String id, G decorator) {
         Registry.register(Registry.DECORATOR, new Identifier(BYG.MODID, id), decorator);
         return decorator;
     }

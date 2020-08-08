@@ -224,9 +224,9 @@ public class BYGBiomeRegistry {
         registerNetherBiome(BYGBiomeList.WARPEDDESERT, "warped_desert");
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
         registerNetherBiome(BYGBiomeList.EMBURBOG, "embur_bog");
-        // register existing nether biomes
+        // newDecorator existing nether biomes
         BuiltinRegistries.BIOME.stream().filter(biome -> biome.getCategory().equals(Biome.Category.NETHER)).forEach(biome -> BYGNetherBiomeProvider.biomeList.add(biome));
-        // register future biomes
+        // newDecorator future biomes
         RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
             if (biome.getCategory().equals(Biome.Category.NETHER)) {
                 BYGNetherBiomeProvider.biomeList.add(biome);
@@ -245,7 +245,7 @@ public class BYGBiomeRegistry {
         registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
         // Register existing End biomes
         BuiltinRegistries.BIOME.stream().filter(biome -> biome.getCategory().equals(Biome.Category.THEEND)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
-        // register future biomes
+        // newDecorator future biomes
         RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
             if (biome.getCategory().equals(Biome.Category.THEEND)) {
                 BYGEndBiomeProvider.bygEndBiomeList.add(biome);

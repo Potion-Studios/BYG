@@ -51,9 +51,9 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         }
     }
 
-//    public static boolean isQualifiedForLog(TestableWorld worldReader, BlockPos blockPos) {
-//        return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.);
-//    }
+    public static boolean isQualifiedForLog(TestableWorld worldReader, BlockPos blockPos) {
+        return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT);
+    }
 
     public static boolean isQualifiedForLogWater(TestableWorld worldReader, BlockPos blockPos) {
         return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.WATER);
