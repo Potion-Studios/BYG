@@ -2,8 +2,8 @@ package voronoiaoc.byg.common.world.dimension.nether;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.class_5505;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryLookupCodec;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BYGNetherBiomeProvider extends BiomeSource {
-    public static final Codec<BYGNetherBiomeProvider> BYGNETHERCODEC = RecordCodecBuilder.create((instance) -> instance.group(class_5505.method_31148(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGNetherBiomeProvider::new)));
+    public static final Codec<BYGNetherBiomeProvider> BYGNETHERCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.of(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGNetherBiomeProvider::new)));
 
 
 
@@ -36,7 +36,7 @@ public class BYGNetherBiomeProvider extends BiomeSource {
     }
 
     @Override
-    protected Codec<? extends BiomeSource> method_28442() {
+    protected Codec<? extends BiomeSource> getCodec() {
         return BYGNETHERCODEC;
     }
 

@@ -49,7 +49,7 @@ public class EvergreenTaiga extends Biome implements BiomeTools {
 
     @Override
     public Biome getRiver() {
-        return BuiltinRegistries.BIOME.get(Biomes.FROZEN_RIVER);
+        return BuiltinRegistries.BIOME.get(BuiltInBiomes.FROZEN_RIVER);
     }
 
     @Override

@@ -21,5 +21,5 @@ extendable class net/minecraft/world/biome/Biome$Weather
 accessible method net/minecraft/world/biome/Biome$Weather <init> (Lnet/minecraft/world/biome/Biome$Precipitation;FLnet/minecraft/world/biome/Biome$TemperatureModifier;F)V
 mutable field net/minecraft/world/biome/GenerationSettings features Ljava/util/List;
 accessible field net/minecraft/world/biome/GenerationSettings features Ljava/util/List;
-accessible field net/minecraft/class_5504 field_26736 Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
-mutable field net/minecraft/class_5504 field_26736 Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+mutable field net/minecraft/world/biome/Biomes BIOMES Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+accessible field net/minecraft/world/biome/Biomes BIOMES Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;

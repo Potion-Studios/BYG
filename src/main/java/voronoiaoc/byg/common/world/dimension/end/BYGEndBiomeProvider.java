@@ -2,11 +2,11 @@ package voronoiaoc.byg.common.world.dimension.end;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.class_5505;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryLookupCodec;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.BuiltInBiomes;
 import net.minecraft.world.biome.source.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.ChunkRandom;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BYGEndBiomeProvider extends BiomeSource {
-    public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(class_5505.method_31148(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeProvider::new)));
+    public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.of(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeProvider::new)));
 
     private final long seed;
     private final BiomeLayerSampler biomeLayer;
@@ -35,7 +35,7 @@ public class BYGEndBiomeProvider extends BiomeSource {
 
 
     @Override
-    protected Codec<? extends BiomeSource> method_28442() {
+    protected Codec<? extends BiomeSource> getCodec() {
         return BYGENDCODEC;
     }
 
@@ -49,7 +49,7 @@ public class BYGEndBiomeProvider extends BiomeSource {
         int i = x >> 2;
         int j = z >> 2;
         if ((long) i * (long) i + (long) j * (long) j <= 4096L) {
-            return BuiltinRegistries.BIOME.get(Biomes.THE_END);
+            return BuiltinRegistries.BIOME.get(BuiltInBiomes.THE_END);
         } else {
             //TODO: REIMPLEMENT BIOME LAYERS
             return biomeLayer.sample(biomeRegistry, x, z);

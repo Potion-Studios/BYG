@@ -5,7 +5,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.BuiltInBiomes;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
@@ -22,7 +22,7 @@ public class BYGFeaturesInVanilla {
             //biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, BYGBlockList.SCORIA_STONE.getDefaultState(), 24)).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(10, 0, 0, 35))));
             //biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, BYGBlockList.SOAPSTONE.getDefaultState(), 24)).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(10, 0, 0, 35))));
 
-            if (biome == BuiltinRegistries.BIOME.get(Biomes.FOREST) || biome == BuiltinRegistries.BIOME.get(Biomes.PLAINS)) {
+            if (biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.FOREST) || biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.PLAINS)) {
 
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.ROSE_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
@@ -30,12 +30,12 @@ public class BYGFeaturesInVanilla {
 
             }
 
-            if (biome == BuiltinRegistries.BIOME.get(Biomes.TAIGA) || biome == BuiltinRegistries.BIOME.get(Biomes.TAIGA_MOUNTAINS)) {
+            if (biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.TAIGA) || biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.TAIGA_MOUNTAINS)) {
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BLUEBERRY_BUSH_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
             }
 
-            if (biome == BuiltinRegistries.BIOME.get(Biomes.JUNGLE) || biome == BuiltinRegistries.BIOME.get(Biomes.JUNGLE_HILLS)) {
+            if (biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.JUNGLE) || biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.JUNGLE_HILLS)) {
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BEGONIA_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BISTORT_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
@@ -46,28 +46,28 @@ public class BYGFeaturesInVanilla {
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.RICHEA_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
             }
 
-//            if (biome == Biomes.JUNGLE) {
+//            if (biome == BuiltInBiomes.JUNGLE) {
 //                biome.add//StructureFeature(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/jungle/town_centers"), 6));
 //                //biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/jungle/town_centers", 6)).decorate(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
 //
 //            }
 
-            if (biome == BuiltinRegistries.BIOME.get(Biomes.DESERT) || biome == BuiltinRegistries.BIOME.get(Biomes.DESERT_HILLS)) {
+            if (biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.DESERT) || biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.DESERT_HILLS)) {
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.MINI_CACTUS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
             }
 
-            if (biome == BuiltinRegistries.BIOME.get(Biomes.SWAMP) || biome == BuiltinRegistries.BIOME.get(Biomes.SWAMP_HILLS)) {
+            if (biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.SWAMP) || biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.SWAMP_HILLS)) {
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.TINY_LILYPAD_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WILTED_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
             }
 
-            if (biome == BuiltinRegistries.BIOME.get(Biomes.BEACH)) {
+            if (biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.BEACH)) {
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BEACH_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.SHORT_BEACH_GRASS_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
             }
-            if (biome == BuiltinRegistries.BIOME.get(Biomes.DARK_FOREST) || biome == BuiltinRegistries.BIOME.get(Biomes.FOREST)) {
+            if (biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.DARK_FOREST) || biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.FOREST)) {
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.LEAF_PILE_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.GREEN_MUSHROOM_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));
                 //biome.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WOOD_BLEWIT_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(1))));

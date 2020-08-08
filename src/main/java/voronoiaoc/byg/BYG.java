@@ -42,10 +42,12 @@ public class BYG implements ModInitializer {
         BYGBiomeRegistry.registerBiomes();
         BYGBiomeRegistry.registerNetherBiomes();
         BYGBiomeRegistry.registerEndBiomes();
+        BYGBiomeRegistry.addBiomeNumericalIDs();
 
         BYGEntityRegistry.registerEntities();
+
         //Misc
-//        BYGBiomeRegistry.addBeachesCategorically();
+        BYGBiomeRegistry.addBeachesCategorically();
         BYGFeaturesInVanilla.addFeatures();
 
         //Block Settings
@@ -54,15 +56,14 @@ public class BYG implements ModInitializer {
         BYGHoeables.tillablesBYG();
         BYGStrippables.strippableLogsBYG();
         BYGCompostables.compostablesBYG();
-        Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
-        Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
+        Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "byg_nether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
+        Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "byg_end"), BYGEndBiomeProvider.BYGENDCODEC);
 
 //        BYGBiomeRegistry.biomeList.forEach(biome -> {
 //            idx++;
 //            System.out.println(idx + ". " + BuiltinRegistries.BIOME.getId(biome).toString().replace("_", "").replace("byg:", ""));
 //
 //        });
-        BYGBiomeRegistry.addBiomeNumericalIDs();
 
         try {
             BYGDataGenerator.dataGenBiome("D:\\Coding\\BiomeJson");

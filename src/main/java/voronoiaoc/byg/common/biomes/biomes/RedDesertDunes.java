@@ -51,7 +51,7 @@ public class RedDesertDunes extends Biome implements BiomeTools {
         //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/desert/town_centers"), 6));
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
-        SPAWN_SETTINGS.spawners(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.HUSK, 160, 10, 10));
+        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.HUSK, 160, 10, 10));
 
     }
 }
