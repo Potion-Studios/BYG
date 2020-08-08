@@ -680,7 +680,7 @@ public class BYGConfiguredTreeFeatures {
             MANGROVE_TREE2.withChance(0.2F),
             MANGROVE_TREE3.withChance(0.2F),
             MANGROVE_TREE4.withChance(0.1F)),
-            MANGROVE_TREE5)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
+            MANGROVE_TREE5)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(
             new CountExtraDecoratorConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MANGROVE_SPARSE_TREE = newConfiguredFeature("rs_sparse_mangrove_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
@@ -688,7 +688,7 @@ public class BYGConfiguredTreeFeatures {
             MANGROVE_TREE2.withChance(0.2F),
             MANGROVE_TREE3.withChance(0.2F),
             MANGROVE_TREE4.withChance(0.1F)),
-            MANGROVE_TREE5)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
+            MANGROVE_TREE5)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(
             new CountExtraDecoratorConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PINE_TREE = newConfiguredFeature("rs_pine_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
