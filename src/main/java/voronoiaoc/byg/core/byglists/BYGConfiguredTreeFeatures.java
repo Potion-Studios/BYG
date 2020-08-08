@@ -774,12 +774,12 @@ public class BYGConfiguredTreeFeatures {
                 WOOD_BLEWIT_HUGE.withChance(0.4F),
                 WEEPING_MILKCAP_HUGE.withChance(0.4F)),
                 BLACK_PUFF_HUGE)).decorate(Decorator.COUNT_EXTRA.configure(
-                new CountExtraDecoratorConfig(25, 0.3F, 2))));
+                new CountExtraDecoratorConfig(10, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_MUSHROOM = newConfiguredFeature("rs_embur_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             EMBUR_MUSHROOM.withChance(0.4F)),
             EMBUR_MUSHROOM2)).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(25, 0.3F, 2))));
+            new CountExtraDecoratorConfig(10, 0.3F, 2))));
 
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {
        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(BYG.MODID, registryName), configuredFeature);
