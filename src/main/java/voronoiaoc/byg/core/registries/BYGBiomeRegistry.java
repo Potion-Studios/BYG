@@ -9,12 +9,14 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.BuiltInBiomes;
+import net.minecraft.world.biome.layer.SetBaseBiomesLayer;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -274,29 +276,6 @@ public class BYGBiomeRegistry {
         }
     }
 
-    public static void addVanillaBiomes() {
-        HOT.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.DESERT)));
-        HOT.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.DESERT)));
-        HOT.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.SAVANNA)));
-        HOT.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.SAVANNA)));
-        HOT.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.PLAINS)));
-        WARM.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.FOREST)));
-        WARM.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.DARK_FOREST)));
-        WARM.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.MOUNTAINS)));
-        WARM.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.PLAINS)));
-        WARM.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.BIRCH_FOREST)));
-        WARM.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.SWAMP)));
-        COOL.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.FOREST)));
-        COOL.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.MOUNTAINS)));
-        COOL.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.TAIGA)));
-        COOL.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.PLAINS)));
-        ICY.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.SNOWY_TUNDRA)));
-        ICY.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.SNOWY_TUNDRA)));
-        ICY.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.SNOWY_TUNDRA)));
-        ICY.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.SNOWY_TUNDRA)));
-        ICY.add(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.SNOWY_TAIGA)));
-    }
-
 //        if (spawn)
 //            //FabricBuiltInBiomes.addSpawnBiome(biome);
 //        if (weight > 0)
@@ -423,5 +402,23 @@ public class BYGBiomeRegistry {
                 i++;
             }
         }
+    }
+
+    public static void addBYGBiomesToVanillaOverworld() {
+        for (Integer integer : BYGBiomeRegistry.HOT)
+            SetBaseBiomesLayer.DRY_BIOMES = addElement(SetBaseBiomesLayer.DRY_BIOMES, integer);
+        for (Integer integer : BYGBiomeRegistry.WARM)
+            SetBaseBiomesLayer.TEMPERATE_BIOMES = addElement(SetBaseBiomesLayer.TEMPERATE_BIOMES, integer);
+        for (Integer integer : BYGBiomeRegistry.COOL)
+            SetBaseBiomesLayer.COOL_BIOMES = addElement(SetBaseBiomesLayer.COOL_BIOMES, integer);
+        for (Integer integer : BYGBiomeRegistry.ICY)
+            SetBaseBiomesLayer.SNOWY_BIOMES = addElement(SetBaseBiomesLayer.SNOWY_BIOMES, integer);
+    }
+
+
+    static int[] addElement(int[] a, int e) {
+        a = Arrays.copyOf(a, a.length + 1);
+        a[a.length - 1] = e;
+        return a;
     }
 }

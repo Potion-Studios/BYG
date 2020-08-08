@@ -7,7 +7,6 @@
     "common.AbstractBlockStateBookshelfMixin",
     "common.FeatureMixin",
     "common.MixinDimensionType",
-    "common.MixinSetBiomesBaseLayer",
     "common.MixinSlimeEntity",
     "common.PlantBlockMixin"
   ],

@@ -23,3 +23,11 @@ mutable field net/minecraft/world/biome/GenerationSettings features Ljava/util/L
 accessible field net/minecraft/world/biome/GenerationSettings features Ljava/util/List;
 mutable field net/minecraft/world/biome/Biomes BIOMES Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
 accessible field net/minecraft/world/biome/Biomes BIOMES Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+mutable field net/minecraft/world/biome/layer/SetBaseBiomesLayer DRY_BIOMES [I
+accessible field net/minecraft/world/biome/layer/SetBaseBiomesLayer DRY_BIOMES [I
+mutable field net/minecraft/world/biome/layer/SetBaseBiomesLayer COOL_BIOMES [I
+accessible field net/minecraft/world/biome/layer/SetBaseBiomesLayer COOL_BIOMES [I
+mutable field net/minecraft/world/biome/layer/SetBaseBiomesLayer TEMPERATE_BIOMES [I
+accessible field net/minecraft/world/biome/layer/SetBaseBiomesLayer TEMPERATE_BIOMES [I
+mutable field net/minecraft/world/biome/layer/SetBaseBiomesLayer SNOWY_BIOMES [I
+accessible field net/minecraft/world/biome/layer/SetBaseBiomesLayer SNOWY_BIOMES [I
