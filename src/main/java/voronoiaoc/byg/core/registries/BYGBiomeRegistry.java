@@ -388,6 +388,8 @@ public class BYGBiomeRegistry {
         }
     }
 
+    //Why? This is how worldtype's using the BiomeLayerSampler get the numerical ID's to sample.
+    //We start at 173(Minecraft's highest ID) and check if any positions beyond that are occupied(Mod compat) if not, we take the key of our biomes and add it to this list.
     public static void addBiomeNumericalIDs() {
         int i = 173;
         for (Biome biome : biomeList) {
@@ -404,6 +406,7 @@ public class BYGBiomeRegistry {
         }
     }
 
+    //We add our biomes to the public static int arrays for each category and this lets us spawn our biomes in vanilla worldtypes.
     public static void addBYGBiomesToVanillaOverworld() {
         for (Integer integer : BYGBiomeRegistry.HOT)
             SetBaseBiomesLayer.DRY_BIOMES = addElement(SetBaseBiomesLayer.DRY_BIOMES, integer);
