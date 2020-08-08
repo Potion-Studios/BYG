@@ -49,6 +49,8 @@ public class BYG implements ModInitializer {
         //Misc
         BYGBiomeRegistry.addBeachesCategorically();
         BYGFeaturesInVanilla.addFeatures();
+        BYGBiomeRegistry.addVanillaBiomes();
+
 
         //Block Settings
         BYGFlammables.flammablesBYG();
