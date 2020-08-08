@@ -1,5 +1,7 @@
 package voronoiaoc.byg.common.world.feature.biomefeatures;
 
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -86,6 +88,13 @@ public class BYGFeaturesInVanilla {
 
             }
         }
+
+        for(Biome biome : ForgeRegistries.BIOMES) {
+            if (biome == Biomes.FOREST) {
+                biome.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
+            }
+        }
+
     }
 
 }

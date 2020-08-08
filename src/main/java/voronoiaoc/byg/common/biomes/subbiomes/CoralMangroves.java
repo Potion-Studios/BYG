@@ -66,7 +66,7 @@ public class CoralMangroves extends Biome {
         DefaultBiomeFeatures.addTallSeagrassSparse(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
 
-        this.addSpawn(EntityClassification.WATER_AMBIENT, new SpawnListEntry(EntityType.TROPICAL_FISH, 25, 8, 8));
+        //this.addSpawn(EntityClassification.WATER_AMBIENT, new SpawnListEntry(EntityType.TROPICAL_FISH, 25, 8, 8));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));
         this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
