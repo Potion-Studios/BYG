@@ -43,7 +43,7 @@ public class UnderGroundPlacement extends Decorator<CountExtraDecoratorConfig> {
 
             while (height > 15) {
 
-//                airBlock = decoratorContext.isAir
+//                airBlock = decoratorContext.getBlockState(pos).getBlock() = Blocks.AIR
 //                        (pos.add(x, height, z));
 
                 //if height is is an air block and previous block was a solid block, store the fact that we are in an air block now
