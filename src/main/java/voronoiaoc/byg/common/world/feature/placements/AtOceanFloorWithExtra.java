@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 public class AtOceanFloorWithExtra extends Decorator<CountExtraDecoratorConfig> {
 
-    public static final Decorator<?> OCEANFLOOR = BiomeHelper.newDecorator("ocean_floor_count_extra", new AtOceanFloorWithExtra(CountExtraDecoratorConfig.CODEC));
+    public static final Decorator<CountExtraDecoratorConfig> OCEANFLOOR = BiomeHelper.newDecorator("ocean_floor_count_extra", new AtOceanFloorWithExtra(CountExtraDecoratorConfig.CODEC));
 
     public AtOceanFloorWithExtra(Codec<CountExtraDecoratorConfig> config) {
         super(config);

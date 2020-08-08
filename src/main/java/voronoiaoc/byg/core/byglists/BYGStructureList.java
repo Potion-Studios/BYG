@@ -50,6 +50,6 @@
 //
 //
 //    public static StructurePieceType registerPieces(StructurePieceType pieceType, String key) {
-//        return Registry.register(Registry.STRUCTURE_PIECE, key.toLowerCase(Locale.ROOT), pieceType);
+//        return Registry.newDecorator(Registry.STRUCTURE_PIECE, key.toLowerCase(Locale.ROOT), pieceType);
 //    }
 //}

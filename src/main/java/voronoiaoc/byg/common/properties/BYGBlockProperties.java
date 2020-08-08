@@ -381,7 +381,7 @@ public class BYGBlockProperties {
 //                    .strength(0.2f)
 //                    .ticksRandomly()
 //            );
-//            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+//            Registry.newDecorator(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
 //        }
 //    }
 //
@@ -958,7 +958,7 @@ public class BYGBlockProperties {
 //                    .strength(1.5f, 6.0f)
 //                    .nonOpaque()
 //            );
-//            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+//            Registry.newDecorator(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
 //        }
 //    }
 
