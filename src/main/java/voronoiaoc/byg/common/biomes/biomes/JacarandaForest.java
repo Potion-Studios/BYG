@@ -13,6 +13,7 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 import javax.annotation.Nullable;
 
@@ -56,8 +57,7 @@ public class JacarandaForest extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addForestGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
-//        BYGTreeFeatures.addJacarandaTrees(GENERATION_SETTINGS);
-//        BYGTreeFeatures.addBYGJungleTreeForest(GENERATION_SETTINGS);
+        BYGTreeFeatures.addJacarandaTrees(GENERATION_SETTINGS);
         BYGFeatures.addBYGBambooJungleVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addJungleVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addSavannaGrass(GENERATION_SETTINGS);

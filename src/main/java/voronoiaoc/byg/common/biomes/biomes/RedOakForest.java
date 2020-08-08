@@ -60,8 +60,6 @@ public class RedOakForest extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
         BYGTreeFeatures.addRedOakForestTrees(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addForestTrees(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addForestTrees(GENERATION_SETTINGS);
         BYGFeatures.addShortGrass(GENERATION_SETTINGS);
         BYGFeatures.addLeafPile(GENERATION_SETTINGS);
         BYGFeatures.addAzalea(GENERATION_SETTINGS);

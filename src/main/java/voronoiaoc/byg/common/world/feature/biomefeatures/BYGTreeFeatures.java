@@ -105,7 +105,8 @@ public class BYGTreeFeatures {
     }
 
     public static void addSeasonalTaigaTrees(GenerationSettings.Builder biome) {
-        biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SEASONAL_GIANT_TAIGA_TREE);
+        biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SEASONAL_TAIGA_TREE);
+        biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SEASONAL_GIANT_TAIGA_MISC_TREE);
     }
 
     public static void addShrubs(GenerationSettings.Builder biome) {
@@ -150,7 +151,7 @@ public class BYGTreeFeatures {
     }
 
     public static void addSpruceTrees(GenerationSettings.Builder biome) {
-        //biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.TREE.configure(PINE_TREE_CONFIG).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.3F, -5))));
+        biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PINE);
     }
 
     public static void addSmallSpruceTrees(GenerationSettings.Builder biome) {

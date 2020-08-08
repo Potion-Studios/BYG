@@ -134,7 +134,7 @@ public class BYGConfiguredFeatures {
             AMARANTH_CYAN.withChance(0.2F),
             AMARANTH_MAGENTA.withChance(0.2F),
             AMARANTH_ORANGE.withChance(0.2F)),
-            AMARANTH_PURPLE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(65));
+            AMARANTH_PURPLE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(80));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CALIFORNIA_POPPY = newConfiguredFeature("rs_california_poppy", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             CALIFORNIA_POPPY.withChance(0.50F)),
@@ -153,6 +153,12 @@ public class BYGConfiguredFeatures {
             PRICKLY_PEAR_CACTI.withChance(0.3F),
             GOLDEN_SPINED_CACTI.withChance(0.3F)),
             FIRECRACKER_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(6));
+
+//    public static final ConfiguredFeature<?, ?> RANDOM_PUMPKINS = newConfiguredFeature("rs_pumpkins", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+//            MINI_CACTI.withChance(0.3F),
+//            PRICKLY_PEAR_CACTI.withChance(0.3F),
+//            GOLDEN_SPINED_CACTI.withChance(0.3F)),
+//            FIRECRACKER_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(6));
 
     public static final ConfiguredFeature<?, ?> RANDOM_FIRECRACKER = newConfiguredFeature("rs_firecracker", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             FIRECRACKER_BUSH.withChance(0.50F)),
