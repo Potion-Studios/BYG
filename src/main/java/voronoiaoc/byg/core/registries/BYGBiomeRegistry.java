@@ -408,13 +408,13 @@ public class BYGBiomeRegistry {
 
     //We add our biomes to the public static int arrays for each category and this lets us spawn our biomes in vanilla worldtypes.
     public static void addBYGBiomesToVanillaOverworld() {
-        for (Integer integer : BYGBiomeRegistry.HOT)
+        for (int integer : BYGBiomeRegistry.HOT)
             SetBaseBiomesLayer.DRY_BIOMES = addElement(SetBaseBiomesLayer.DRY_BIOMES, integer);
-        for (Integer integer : BYGBiomeRegistry.WARM)
+        for (int integer : BYGBiomeRegistry.WARM)
             SetBaseBiomesLayer.TEMPERATE_BIOMES = addElement(SetBaseBiomesLayer.TEMPERATE_BIOMES, integer);
-        for (Integer integer : BYGBiomeRegistry.COOL)
+        for (int integer : BYGBiomeRegistry.COOL)
             SetBaseBiomesLayer.COOL_BIOMES = addElement(SetBaseBiomesLayer.COOL_BIOMES, integer);
-        for (Integer integer : BYGBiomeRegistry.ICY)
+        for (int integer : BYGBiomeRegistry.ICY)
             SetBaseBiomesLayer.SNOWY_BIOMES = addElement(SetBaseBiomesLayer.SNOWY_BIOMES, integer);
     }
 
