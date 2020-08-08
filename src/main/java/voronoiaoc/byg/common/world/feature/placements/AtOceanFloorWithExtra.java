@@ -6,6 +6,7 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DecoratorContext;
+import voronoiaoc.byg.common.biomes.BiomeHelper;
 
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -13,7 +14,7 @@ import java.util.stream.Stream;
 
 public class AtOceanFloorWithExtra extends Decorator<CountExtraDecoratorConfig> {
 
-    public static final Decorator<CountExtraDecoratorConfig> OCEANFLOOR = new AtOceanFloorWithExtra(CountExtraDecoratorConfig.CODEC);
+    public static final Decorator<?> OCEANFLOOR = BiomeHelper.newDecorator("ocean_floor_count_extra", new AtOceanFloorWithExtra(CountExtraDecoratorConfig.CODEC));
 
     public AtOceanFloorWithExtra(Codec<CountExtraDecoratorConfig> config) {
         super(config);
