@@ -15,10 +15,8 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-import java.util.Optional;
-
 public class NorthernForest extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.BOREAL_SB, SurfaceBuilder.GRASS_CONFIG);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "northern_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.BOREAL_SB, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.SNOW;
     static final Category CATEGORY = Category.ICY;
     static final float DEPTH = 0.15F;
@@ -33,7 +31,7 @@ public class NorthernForest extends Biome {
     static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
     public NorthernForest() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build(), Optional.ofNullable(PARENT));
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
     @Override
@@ -48,7 +46,7 @@ public class NorthernForest extends Biome {
 
 //    @Override
 //    public Biome getRiver() {
-//        return Biomes.RIVER;
+//        return BuiltinRegistries.BIOME.get(Biomes.RIVER;
 //    }
 
     static {

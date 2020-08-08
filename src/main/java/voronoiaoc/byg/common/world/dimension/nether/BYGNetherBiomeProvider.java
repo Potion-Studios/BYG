@@ -1,8 +1,9 @@
 package voronoiaoc.byg.common.world.dimension.nether;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.class_5505;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeLayerSampler;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -12,25 +13,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BYGNetherBiomeProvider extends BiomeSource {
-    public static final MapCodec<BYGNetherBiomeProvider> BYGMAPCODEC = RecordCodecBuilder.mapCodec((instance) ->
-            instance.group(Codec.LONG.fieldOf("seed").forGetter((bygNether) ->
-                    bygNether.seed)).apply(instance, BYGNetherBiomeProvider::new));
+    public static final Codec<BYGNetherBiomeProvider> BYGNETHERCODEC = RecordCodecBuilder.create((instance) -> instance.group(class_5505.method_31148(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGNetherBiomeProvider::new)));
 
-    public static final Codec<BYGNetherBiomeProvider> BYGNETHERCODEC = BYGMAPCODEC.codec();
 
 
     private final BiomeLayerSampler biomeLayer;
     private final long seed;
+    private final Registry<Biome> biomeRegistry;
 
-    public BYGNetherBiomeProvider(long seed) {
+
+    public BYGNetherBiomeProvider(Registry<Biome> registry,long seed) {
         super(biomeList);
         this.seed = seed;
         this.biomeLayer = BYGNetherLayerProvider.stackLayers(seed);
+        biomeRegistry = registry;
     }
 
     @Override
     public Biome getBiomeForNoiseGen(int biomeX, int biomeY, int biomeZ) {
-        return biomeLayer.sample(biomeX, biomeZ);
+        //TODO: REIMPLEMENT BIOME LAYERS
+        return biomeLayer.sample(biomeRegistry, biomeX, biomeZ);
     }
 
     @Override
@@ -40,7 +42,7 @@ public class BYGNetherBiomeProvider extends BiomeSource {
 
     @Override
     public BiomeSource withSeed(long seed) {
-        return new BYGNetherBiomeProvider(seed);
+        return new BYGNetherBiomeProvider(biomeRegistry, seed);
     }
 
     public static List<Biome> biomeList = new ArrayList<>();

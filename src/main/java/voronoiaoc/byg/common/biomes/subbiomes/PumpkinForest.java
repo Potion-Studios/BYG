@@ -16,10 +16,8 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-import java.util.Optional;
-
 public class PumpkinForest extends Biome implements BiomeFog {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_CONFIG);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "pumpkin_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final float DEPTH = 0.2F;
@@ -34,14 +32,9 @@ public class PumpkinForest extends Biome implements BiomeFog {
     static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
     public PumpkinForest() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build(), Optional.ofNullable(PARENT));
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
-//    @Nullable
-//    @Override
-//    public Biome getHill(INoiseRandom rand) {
-//        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FRESHWATERLAKE;
-//    }
 
     @Override
     public int getGrassColorAt(double posX, double posZ) {
@@ -52,11 +45,6 @@ public class PumpkinForest extends Biome implements BiomeFog {
     public int getFoliageColor() {
         return 6589494;
     }
-
-//    @Override
-//    public Biome getRiver() {
-//        return Biomes.RIVER;
-//    }
 
     @Override
     public float fogDistance(int x, int z, float originalDistanceChunks) {

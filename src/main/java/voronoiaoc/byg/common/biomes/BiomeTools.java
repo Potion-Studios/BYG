@@ -1,15 +1,15 @@
 package voronoiaoc.byg.common.biomes;
 
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 
-import javax.annotation.Nullable;
 import java.util.HashMap;
 
 public interface BiomeTools {
 
     default Biome getRiver() {
-        return Biomes.RIVER;
+        return BuiltinRegistries.BIOME.get(Biomes.RIVER);
     }
 
     default HashMap<Biome,Integer> getHills() {

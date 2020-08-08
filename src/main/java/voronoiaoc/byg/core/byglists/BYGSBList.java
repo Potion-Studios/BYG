@@ -1,43 +1,49 @@
 package voronoiaoc.byg.core.byglists;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.surfacebuilders.*;
 
 public class BYGSBList {
-    public static final SurfaceBuilder<TernarySurfaceConfig> BOREAL_SB = new BorealForestSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> CONIFEROUS_SB = new ConiferousForestSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> SHATTEREDGLACIER_SB2 = new ShatteredGlacierSB2(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> MARSHLAND_SB = new MarshlandSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> GREAT_LAKES_SB = new GreatLakeSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> GREAT_LAKE_ISLE_SB = new GreatLakeIsleSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> ERODED_SIERRA_SB = new ErodedSierraSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> SIERRA_VALLEY_SB = new SierraValleySB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> GLOWSHROOM_BAYOU_SB = new GlowShroomBayouSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> SLUICE_SB = new CragGardens(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> RED_ROCK_SB = new RedRockSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> RED_ROCKLOWLAND_SB = new RedRockLowlandsSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> REDDUNES_SB = new RedDunesSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> DUNES_SB = new DunesSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> DOVER_SB = new DoverMountainSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> QUAGMIRE_SB = new QuagmireSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> CANYONS = new CanyonSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> MOJAVE = new MojaveSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> LUSH_TUNDRA_SB = new LushTundraSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> FUNGAL_RAINFOREST_SB = new FungalRainforestSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> EBONY_SB = new EbonyWoodsSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> GLOWING_ANCIENT_FOREST_SB = new GlowingAncientForestSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> EMBURBOG = new EmburBogSB(TernarySurfaceConfig.CODEC);
-
-    //Beaches
-    public static final SurfaceBuilder<TernarySurfaceConfig> ROCKYBLACKBEACH_SB = new RockyBlackBeachSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> RAINBOWBEACH_SB = new RainbowBeachSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> ROCKYBEACH_SB = new RockyBeachSB(TernarySurfaceConfig.CODEC);
-    public static final SurfaceBuilder<TernarySurfaceConfig> WARPEDDESERT_SB = new WarpedDesertSB(TernarySurfaceConfig.CODEC);
+    public static final SurfaceBuilder<TernarySurfaceConfig> BOREAL_SB = newSurfaceBuilder("boreal", new BorealForestSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> CONIFEROUS_SB = newSurfaceBuilder("coniferous", new ConiferousForestSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> SHATTEREDGLACIER_SB2 = newSurfaceBuilder("shattered_glacier", new ShatteredGlacierSB2(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> MARSHLAND_SB = newSurfaceBuilder("marshland", new MarshlandSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> GREAT_LAKES_SB = newSurfaceBuilder("great_lakes", new GreatLakeSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> GREAT_LAKE_ISLE_SB = newSurfaceBuilder("great_lakes_isles",  new GreatLakeIsleSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> ERODED_SIERRA_SB = newSurfaceBuilder("eroded_sierra", new ErodedSierraSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> SIERRA_VALLEY_SB = newSurfaceBuilder("sierra_valley", new SierraValleySB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> GLOWSHROOM_BAYOU_SB = newSurfaceBuilder("glowshroom_bayou", new GlowShroomBayouSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> CRAG_GARDENS = newSurfaceBuilder("crag_gardens", new CragGardens(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> RED_ROCK_SB = newSurfaceBuilder("red_rock", new RedRockSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> RED_ROCKLOWLAND_SB = newSurfaceBuilder("red_rock_lowlands", new RedRockLowlandsSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> REDDUNES_SB = newSurfaceBuilder("red_dunes", new RedDunesSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> DUNES_SB = newSurfaceBuilder("dunes", new DunesSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> DOVER_SB = newSurfaceBuilder("dover_mountains", new DoverMountainSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> QUAGMIRE_SB = newSurfaceBuilder("quagmire", new QuagmireSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> CANYONS = newSurfaceBuilder("canyons", new CanyonSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> MOJAVE = newSurfaceBuilder("mojave", new MojaveSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> LUSH_TUNDRA_SB = newSurfaceBuilder("lush_tundra", new LushTundraSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> FUNGAL_RAINFOREST_SB = newSurfaceBuilder("fungal_rainforest", new FungalRainforestSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> EBONY_SB = newSurfaceBuilder("ebony_woods", new EbonyWoodsSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> GLOWING_ANCIENT_FOREST_SB = newSurfaceBuilder("glowing_ancient_forest", new GlowingAncientForestSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> EMBURBOG = newSurfaceBuilder("embur_bog", new EmburBogSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> ROCKYBLACKBEACH_SB = newSurfaceBuilder("rocky_black_beach", new RockyBlackBeachSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> RAINBOWBEACH_SB = newSurfaceBuilder("rainbow_beach", new RainbowBeachSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> ROCKYBEACH_SB = newSurfaceBuilder("rocky_beach", new RockyBeachSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> WARPEDDESERT_SB = newSurfaceBuilder("warped_desert", new WarpedDesertSB(TernarySurfaceConfig.CODEC));
 
     //End
-    public static final SurfaceBuilder<TernarySurfaceConfig> IVISFIELDS_SB = new IvisFieldsSB(TernarySurfaceConfig.CODEC);
+    public static final SurfaceBuilder<TernarySurfaceConfig> IVISFIELDS_SB = newSurfaceBuilder("ivis_fields", new IvisFieldsSB(TernarySurfaceConfig.CODEC));
+
+    public static SurfaceBuilder<TernarySurfaceConfig> newSurfaceBuilder(String id, SurfaceBuilder<TernarySurfaceConfig> surfaceBuilder) {
+        Registry.register(Registry.SURFACE_BUILDER, new Identifier(BYG.MODID, id), surfaceBuilder);
+        return surfaceBuilder;
+    }
 
     public static class BYGSBConfigList {
         public static final TernarySurfaceConfig BLACKSAND = new TernarySurfaceConfig(BYGBlockList.BLACK_SAND.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState());

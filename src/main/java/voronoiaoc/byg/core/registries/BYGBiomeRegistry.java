@@ -2,9 +2,11 @@ package voronoiaoc.byg.core.registries;
 
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryRemovedCallback;
+import net.minecraft.class_5504;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import voronoiaoc.byg.BYG;
@@ -14,6 +16,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class BYGBiomeRegistry {
     public static List<Biome> biomeList = new ArrayList<>();
@@ -75,7 +78,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.SNOWYDECIDUOUSFOREST, "snowy_deciduous_forest", true, 6);
         registerBiome(BYGBiomeList.SNOWYEVERGREENTAIGA, "snowy_evergreen_taiga", true, 6);
         registerBiome(BYGBiomeList.THE_BLACK_FOREST, "the_black_forest", true, 5);
-        registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_forest", true, 5);
+        registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_rainforest", true, 5);
         registerBiome(BYGBiomeList.TROPICALRAINFOREST, "tropical_rainforest", true, 1);
         registerBiome(BYGBiomeList.VIBRANTSWAMPLANDS, "vibrant_swamplands", true, 6);
         registerBiome(BYGBiomeList.SIERRAVALLEY, "sierra_valley", true, 6);
@@ -84,7 +87,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.ZELKOVAFOREST, "zelkova_forest", true, 6);
 
         //Islands
-        registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, Biomes.DEEP_WARM_OCEAN, Biomes.WARM_OCEAN);
+        registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, BuiltinRegistries.BIOME.get(Biomes.DEEP_WARM_OCEAN), BuiltinRegistries.BIOME.get(Biomes.WARM_OCEAN));
 
         BYG.LOGGER.info("BYG: Registered Biomes!");
 
@@ -246,8 +249,10 @@ public class BYGBiomeRegistry {
 
 
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight) {
-        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
-    }
+            Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+            biomeList.add(biome);
+            BYG.LOGGER.info(BuiltinRegistries.BIOME.getKey(biome));
+        }
 
 //        if (spawn)
 //            //FabricBiomes.addSpawnBiome(biome);
@@ -309,12 +314,16 @@ public class BYGBiomeRegistry {
 
 
     private static void registerNetherBiome(Biome biome, String id) {
-        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+            Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
 //        NetherBiomes.addNetherBiome(biome);
+            biomeList.add(biome);
     }
 
     private static void registerEndBiome(Biome biome, String id) {
-        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+        if (biome != null) {
+            Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+            biomeList.add(biome);
+        }
     }
 
     public static void addBeachesCategorically() {
@@ -333,7 +342,8 @@ public class BYGBiomeRegistry {
     }
 
     private static void registerSubBiome(Biome biome, String id, boolean spawn) {
-        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+            Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+            biomeList.add(biome);
 //        if (spawn) {
 //            if (BuiltinRegistries.BIOME.getId(biome) == null) {
 //            }
@@ -341,19 +351,33 @@ public class BYGBiomeRegistry {
 //                //FabricBiomes.addSpawnBiome(biome);
 //            }
 //        }
-        idx++;
     }
 //
     private static void registerIsland(Biome island, String id, boolean spawn, Biome... oceanClimates) {
-        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), island);
-        if (spawn)
-            //FabricBiomes.addSpawnBiome(island);
-        for (Biome oceanBiomeIdx : oceanClimates) {
-            //OverworldBiomes.addBiomeVariant(oceanBiomeIdx, island, 0.1F);
+        if (island != null) {
+            Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), island);
+            biomeList.add(island);
+            if (spawn)
+                //FabricBiomes.addSpawnBiome(island);
+                for (Biome oceanBiomeIdx : oceanClimates) {
+                    //OverworldBiomes.addBiomeVariant(oceanBiomeIdx, island, 0.1F);
+                }
         }
     }
 
+    public static void addBiomeNumericalIDs() {
+        int i = 173;
+        for (Biome biome : biomeList) {
+            while (class_5504.field_26736.containsKey(i)) {
+                ++i;
+            }
 
+            Optional<RegistryKey<Biome>> key = BuiltinRegistries.BIOME.getKey(biome);
+
+            if (key.isPresent()) {
+                class_5504.field_26736.put(i, key.get());
+                i++;
+            }
+        }
+    }
 }
-
-///
