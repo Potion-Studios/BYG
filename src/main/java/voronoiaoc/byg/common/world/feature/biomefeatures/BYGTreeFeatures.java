@@ -11,7 +11,7 @@ public class BYGTreeFeatures {
     }
 
     public static void addBlueTaigaTrees(GenerationSettings.Builder biome) {
-        biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_GIANT_BLUE_TAIGA_TREE);
+        biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_BLUE_TAIGA_TREE);
     }
 
     public static void addBlackForestTrees(GenerationSettings.Builder biome) {
@@ -110,7 +110,7 @@ public class BYGTreeFeatures {
     }
 
     public static void addShrubs(GenerationSettings.Builder biome) {
-        //biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.SHRUB.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(5, 0.1F, 1))));
+        biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SHRUBLAND);
     }
 
     public static void addRainForestTrees(GenerationSettings.Builder biome) {
