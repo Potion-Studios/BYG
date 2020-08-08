@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class ZelkovaForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "zelkova_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("zelkova_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.TAIGA;
     static final float DEPTH = 0.2F;
@@ -52,19 +52,13 @@ public class ZelkovaForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.ZELKOVAFORESTHILLS,1);
-        map.put(BYGBiomeList.ZELKOVA_CLEARING,2);
-        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.ZELKOVAFORESTHILLS, 1);
+        map.put(BYGBiomeList.ZELKOVA_CLEARING, 2);
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
     }
-
-
-
-
-
-
 
 
     public Biome randomSubBiome(Random random) {

@@ -17,6 +17,7 @@ public class BYGFeatures {
     public static void addGlowcane(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_GLOWCANE);
     }
+
     public static void addFernGrass(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BYG_FERN_GRASS);
     }
@@ -196,11 +197,11 @@ public class BYGFeatures {
 
     public static void addBYGMushrooms(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MUSHROOM);
-}
+    }
 
     public static void addGlowshrooms(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_GLOWSHROOM);
-}
+    }
 
     public static void addAnemones(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ANEMONE);
@@ -258,7 +259,7 @@ public class BYGFeatures {
 
     public static void addMarshGrass(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PATCH_TALL_GRASS_2);
-}
+    }
 
     public static void addTallGrass(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PATCH_TALL_GRASS);
@@ -267,7 +268,7 @@ public class BYGFeatures {
 
     public static void addSages(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SAGE);
-}
+    }
 
     public static void addOrangeDaisy(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ORANGE_DAISY);
@@ -283,7 +284,7 @@ public class BYGFeatures {
 
     public static void addBYGTropicFlowers(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_JUNGLE_FLOWERS);
-}
+    }
 
     public static void addMiniCactus(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DESERT_PLANTS);

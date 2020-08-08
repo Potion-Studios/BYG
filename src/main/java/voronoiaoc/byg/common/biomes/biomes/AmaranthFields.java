@@ -38,10 +38,10 @@ public class AmaranthFields extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.FRESHWATERLAKE,1);
-        map.put(BYGBiomeList.JACARANDAFOREST,4);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
+        map.put(BYGBiomeList.JACARANDAFOREST, 4);
         return map;
     }
 

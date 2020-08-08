@@ -24,7 +24,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class Bayou extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "bayou", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("bayou", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.SWAMP;
     static final float DEPTH = -0.38F;
@@ -59,10 +59,9 @@ public class Bayou extends Biome implements BiomeTools {
     }
 
 
-
     @Override
-    public HashMap<Biome,Integer> getBeaches() {
-        return Maps.newHashMap(Collections.singletonMap(this,1));
+    public HashMap<Biome, Integer> getBeaches() {
+        return Maps.newHashMap(Collections.singletonMap(this, 1));
     }
 
     static {

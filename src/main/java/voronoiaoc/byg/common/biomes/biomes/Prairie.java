@@ -19,7 +19,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import java.util.HashMap;
 
 public class Prairie extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "prairie", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("prairie", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.PLAINS;
     static final float DEPTH = 0.125F;
@@ -48,8 +48,8 @@ public class Prairie extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
         map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         map.put(BYGBiomeList.PRAIRIECLEARING, 4);
         return map;

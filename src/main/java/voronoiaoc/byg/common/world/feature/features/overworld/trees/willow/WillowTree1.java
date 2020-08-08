@@ -23,7 +23,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.BLUE_SPRUCE_SAPLING);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn) {
+    protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
         int randChance = rand.nextInt(2);
         int randTreeHeight = rand.nextInt(6) + 8;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
@@ -31,10 +31,12 @@ public class WillowTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         BlockPos.Mutable mainMutable = new BlockPos.Mutable().set(block);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getDimensionHeight()) {
-            BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
+
+            if (!isDesiredGroundwDirtTag(worldIn, pos, Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
+            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
                 //Trunk
@@ -129,7 +131,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
     //Log Placement
     private void setWillowLog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-        if (canTreePlaceHereWater(reader, pos)) {
+        if (canLogPlaceHereWater(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.WILLOW_LOG.getDefaultState(), boundingBox);
         }
 
@@ -156,7 +158,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlaceHereWater(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHereWater(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

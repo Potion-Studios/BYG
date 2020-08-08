@@ -20,8 +20,9 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Collections;
 import java.util.HashMap;
+
 public class GreatLakes extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "great_lakes", new ConfiguredSurfaceBuilder<>(BYGSBList.GREAT_LAKES_SB, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.GRAVEL.getDefaultState())));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("great_lakes", new ConfiguredSurfaceBuilder<>(BYGSBList.GREAT_LAKES_SB, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.GRAVEL.getDefaultState())));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.TAIGA;
     static final float DEPTH = -0.55F;
@@ -51,17 +52,14 @@ public class GreatLakes extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.GREATLAKEISLES,1));
+    public HashMap<Biome, Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.GREATLAKEISLES, 1));
     }
 
     @Override
-    public HashMap<Biome,Integer> getBeaches() {
-        return Maps.newHashMap(Collections.singletonMap(this,1));
+    public HashMap<Biome, Integer> getBeaches() {
+        return Maps.newHashMap(Collections.singletonMap(this, 1));
     }
-
-
-
 
 
     static {

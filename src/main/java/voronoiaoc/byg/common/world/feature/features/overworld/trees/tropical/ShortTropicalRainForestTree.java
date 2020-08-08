@@ -28,26 +28,24 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<DefaultF
     }
 
     protected static boolean canTreePlace(TestableWorld genBaseReader, BlockPos blockPos) {
-        return canTreePlaceHere(
+        return canLogPlaceHere(
                 genBaseReader, blockPos
         );
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
 
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 3;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
-            BlockPos checkGround = position.down();
+            BlockPos checkGround = pos.down();
             if (!isDesiredGroundwDirtTag(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
-                return false;
             } else {
-                //this.setGroundBlockAt(worldIn, checkGround, position, Blocks.STONE.getDefaultState());
+                //this.setGroundBlockAt(worldIn, checkGround, pos, Blocks.STONE.getDefaultState());
 
 
                 Direction direction = Direction.Type.HORIZONTAL.random(rand);
@@ -181,7 +179,7 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<DefaultF
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -189,7 +187,7 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<DefaultF
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlace(reader, position.set(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canTreePlace(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

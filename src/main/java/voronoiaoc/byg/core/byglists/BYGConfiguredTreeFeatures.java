@@ -227,16 +227,16 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES = newConfiguredFeature("mc_fancy_red_oak_with_more_beehives_tree", Feature.TREE.configure(BYGFeatureConfigs.FANCY_RED_OAK_WITH_MORE_BEEHIVES_CONFIG));
 
     //Mushrooms
-    public static final ConfiguredFeature<?, ?> GREEN_MUSHROOM_HUGE  = newConfiguredFeature("huge_green_mushroom", BYGFeatureList.GREEN_MUSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
-    public static final ConfiguredFeature<?, ?> WOOD_BLEWIT_HUGE  = newConfiguredFeature("huge_wood_blewit", BYGFeatureList.WOOD_BLEWIT_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
-    public static final ConfiguredFeature<?, ?> WEEPING_MILKCAP_HUGE  = newConfiguredFeature("huge_weeping_milkcap", BYGFeatureList.WEEPING_MILKCAP_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
-    public static final ConfiguredFeature<?, ?> BLACK_PUFF_HUGE  = newConfiguredFeature("huge_black_puff", BYGFeatureList.BLACK_PUFF_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
-    public static final ConfiguredFeature<?, ?> BLUE_GLOWSHROOM_HUGE  = newConfiguredFeature("huge_blue_glowshroom", BYGFeatureList.BLUE_GLOWSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
-    public static final ConfiguredFeature<?, ?> PURPLE_GLOWSHROOM_HUGE  = newConfiguredFeature("huge_purple_glowshroom", BYGFeatureList.PURPLE_GLOWSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> GREEN_MUSHROOM_HUGE = newConfiguredFeature("huge_green_mushroom", BYGFeatureList.GREEN_MUSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> WOOD_BLEWIT_HUGE = newConfiguredFeature("huge_wood_blewit", BYGFeatureList.WOOD_BLEWIT_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> WEEPING_MILKCAP_HUGE = newConfiguredFeature("huge_weeping_milkcap", BYGFeatureList.WEEPING_MILKCAP_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> BLACK_PUFF_HUGE = newConfiguredFeature("huge_black_puff", BYGFeatureList.BLACK_PUFF_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> BLUE_GLOWSHROOM_HUGE = newConfiguredFeature("huge_blue_glowshroom", BYGFeatureList.BLUE_GLOWSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> PURPLE_GLOWSHROOM_HUGE = newConfiguredFeature("huge_purple_glowshroom", BYGFeatureList.PURPLE_GLOWSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT));
 
     //Nether Mushrooms
-    public static final ConfiguredFeature<?, ?> EMBUR_MUSHROOM  = newConfiguredFeature("embur_mushroom1", BYGFeatureList.EMBUR_MUSHROOM.configure(DecoratedFeatureConfig.DEFAULT));
-    public static final ConfiguredFeature<?, ?> EMBUR_MUSHROOM2  = newConfiguredFeature("embur_mushroom2", BYGFeatureList.EMBUR_MUSHROOM2.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> EMBUR_MUSHROOM = newConfiguredFeature("embur_mushroom1", BYGFeatureList.EMBUR_MUSHROOM.configure(DecoratedFeatureConfig.DEFAULT));
+    public static final ConfiguredFeature<?, ?> EMBUR_MUSHROOM2 = newConfiguredFeature("embur_mushroom2", BYGFeatureList.EMBUR_MUSHROOM2.configure(DecoratedFeatureConfig.DEFAULT));
 
     /***********************************************************Random Selectors***********************************************************/
     public static final ConfiguredFeature<?, ?> RANDOM_ANCIENT_TREE = newConfiguredFeature("rs_ancient_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
@@ -774,11 +774,11 @@ public class BYGConfiguredTreeFeatures {
             new CountExtraDecoratorConfig(25, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MUSHROOM = newConfiguredFeature("rs_huge_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                GREEN_MUSHROOM_HUGE.withChance(0.4F),
-                WOOD_BLEWIT_HUGE.withChance(0.4F),
-                WEEPING_MILKCAP_HUGE.withChance(0.4F)),
-                BLACK_PUFF_HUGE)).decorate(Decorator.COUNT_EXTRA.configure(
-                new CountExtraDecoratorConfig(10, 0.3F, 2))));
+            GREEN_MUSHROOM_HUGE.withChance(0.4F),
+            WOOD_BLEWIT_HUGE.withChance(0.4F),
+            WEEPING_MILKCAP_HUGE.withChance(0.4F)),
+            BLACK_PUFF_HUGE)).decorate(Decorator.COUNT_EXTRA.configure(
+            new CountExtraDecoratorConfig(10, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_MUSHROOM = newConfiguredFeature("rs_embur_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             EMBUR_MUSHROOM.withChance(0.4F)),
@@ -786,7 +786,7 @@ public class BYGConfiguredTreeFeatures {
             new CountExtraDecoratorConfig(10, 0.3F, 2))));
 
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {
-       Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(BYG.MODID, registryName), configuredFeature);
-       return configuredFeature;
-   }
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(BYG.MODID, registryName), configuredFeature);
+        return configuredFeature;
+    }
 }

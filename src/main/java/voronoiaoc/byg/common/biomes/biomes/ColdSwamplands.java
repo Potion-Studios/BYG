@@ -23,8 +23,9 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Collections;
 import java.util.HashMap;
+
 public class ColdSwamplands extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "cold_swamplands", new ConfiguredSurfaceBuilder<>(BYGSBList.MARSHLAND_SB, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState())));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("cold_swamplands", new ConfiguredSurfaceBuilder<>(BYGSBList.MARSHLAND_SB, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState())));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.SWAMP;
     static final float DEPTH = -0.22F;
@@ -59,17 +60,14 @@ public class ColdSwamplands extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.BOG,1));
+    public HashMap<Biome, Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.BOG, 1));
     }
 
     @Override
-    public HashMap<Biome,Integer> getBeaches() {
-        return Maps.newHashMap(Collections.singletonMap(this,1));
+    public HashMap<Biome, Integer> getBeaches() {
+        return Maps.newHashMap(Collections.singletonMap(this, 1));
     }
-
-
-
 
 
     static {

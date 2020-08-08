@@ -389,7 +389,7 @@ public class BYGBiomeRegistry {
     }
 
     //Why? This is how worldtype's using the BiomeLayerSampler get the numerical ID's to sample.
-    //We start at 173(Minecraft's highest ID) and check if any positions beyond that are occupied(Mod compat) if not, we take the key of our biomes and add it to this list.
+    //We start at 173(Minecraft's highest ID) and check if any poss beyond that are occupied(Mod compat) if not, we take the key of our biomes and add it to this list.
     public static void addBiomeNumericalIDs() {
         int i = 173;
         for (Biome biome : biomeList) {

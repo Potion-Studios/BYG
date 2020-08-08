@@ -2,24 +2,15 @@ package voronoiaoc.byg.common.entity.boat;
 
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Packet;
-import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
-import net.minecraft.tag.FluidTags;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import voronoiaoc.byg.common.network.CustomEntitySpawnS2CPacket;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
@@ -31,7 +22,7 @@ public class BYGBoatEntity extends BoatEntity {
     private static final TrackedData<Integer> BYG_BOAT_TYPE = DataTracker.registerData(BYGBoatEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public BYGBoatEntity(World world, double x, double y, double z) {
-        this(BYGEntityList.BYGBOAT ,world);
+        this(BYGEntityList.BYGBOAT, world);
         this.updatePosition(x, y, z);
         this.setVelocity(Vec3d.ZERO);
         this.prevX = x;
@@ -164,7 +155,8 @@ public class BYGBoatEntity extends BoatEntity {
             this.setBYGBoatType(BYGType.getTypeFromString(compound.getString("BYGType")));
         }
     }
-        @Override
+
+    @Override
     public Packet<?> createSpawnPacket() {
         return CustomEntitySpawnS2CPacket.createSpawnPacket(this);
     }

@@ -3,7 +3,6 @@ package voronoiaoc.byg.common.world.feature.features.nether.warpeddesert;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -23,6 +22,6 @@ public class WarpedCoralFan extends Feature<DefaultFeatureConfig> {
             worldIn.setBlockState(pos, BYGBlockList.WARPED_CORAL_FAN.getDefaultState(), 2);
             return true;
         }
-        return  true;
+        return true;
     }
 }

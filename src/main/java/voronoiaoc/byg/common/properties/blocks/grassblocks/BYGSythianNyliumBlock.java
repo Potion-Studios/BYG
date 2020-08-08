@@ -56,8 +56,8 @@ public class BYGSythianNyliumBlock extends SpreadableSythianBlock implements Fer
                             break;
                         }
 
-                        ConfiguredFeature<?, ?> configuredFeature = (ConfiguredFeature)((DecoratedFeatureConfig)((ConfiguredFeature)list.get(0)).config).feature.get();
-                        blockstate1 = ((FlowerFeature)configuredFeature.feature).getFlowerState(rand, blockpos1, configuredFeature.config);
+                        ConfiguredFeature<?, ?> configuredFeature = ((DecoratedFeatureConfig) list.get(0).config).feature.get();
+                        blockstate1 = ((FlowerFeature) configuredFeature.feature).getFlowerState(rand, blockpos1, configuredFeature.config);
                     } else {
                         blockstate1 = blockstate;
                     }

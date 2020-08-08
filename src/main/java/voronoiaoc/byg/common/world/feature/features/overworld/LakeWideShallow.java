@@ -44,9 +44,9 @@ public class LakeWideShallow extends Feature<DefaultFeatureConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
         setSeed(world.getSeed());
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.down(2));
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(pos.down(2));
 
         // creates the actual lakes
         boolean containedFlag;
@@ -61,13 +61,13 @@ public class LakeWideShallow extends Feature<DefaultFeatureConfig> {
                 if (xTemp * xTemp + zTemp * zTemp < 64) {
 
                     double samplePerlin1 = (this.noiseGen.sample(
-                            (double) position.getX() + x * 0.05D,
-                            (double) position.getZ() + z * 0.05D, true) + 1)
+                            (double) pos.getX() + x * 0.05D,
+                            (double) pos.getZ() + z * 0.05D, true) + 1)
                             * 3.0D;
 
                     for (int y = 0; y > -samplePerlin1; --y) {
 
-                        blockpos$Mutable.set(position).move(x, y, z);
+                        blockpos$Mutable.set(pos).move(x, y, z);
 
                         // checks if the spot is solid all around (diagonally too) and has nothing solid above it
                         containedFlag = checkIfValidSpot(world, blockpos$Mutable, samplePerlin1);

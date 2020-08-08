@@ -19,7 +19,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 import java.util.HashMap;
 
 public class LushTundra extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "lush_tundra", new ConfiguredSurfaceBuilder<>(BYGSBList.LUSH_TUNDRA_SB, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("lush_tundra", new ConfiguredSurfaceBuilder<>(BYGSBList.LUSH_TUNDRA_SB, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.SNOW;
     static final Category CATEGORY = Category.ICY;
     static final float DEPTH = 0.15F;
@@ -48,10 +48,10 @@ public class LushTundra extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.FROZENLAKE,1);
-        map.put(BYGBiomeList.NORTHERN_FOREST,4);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.FROZENLAKE, 1);
+        map.put(BYGBiomeList.NORTHERN_FOREST, 4);
         return map;
     }
 

@@ -27,18 +27,16 @@ public class BorealForestTree1 extends BYGAbstractTreeFeature<DefaultFeatureConf
     }
 
 
-    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
 
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 9;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockpos = position.down();
+            BlockPos blockpos = pos.down();
             if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK) || !isDesiredGroundwDirtTag(worldIn, blockpos, BYGBlockList.PEAT)) {
-                return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight, 2)) {
                 return false;
             } else {
 
@@ -225,7 +223,7 @@ public class BorealForestTree1 extends BYGAbstractTreeFeature<DefaultFeatureConf
 
     //Log Placement
     private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-        if (canTreePlaceHere(reader, pos)) {
+        if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
 

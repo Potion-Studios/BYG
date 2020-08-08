@@ -21,7 +21,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import java.util.HashMap;
 
 public class CherryBlossomForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "cherry_blossom_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("cherry_blossom_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final float DEPTH = 0.55F;
@@ -51,11 +51,11 @@ public class CherryBlossomForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.CHERRY_BLOSSOM_CLEARING,1);
-        map.put(BYGBiomeList.BAMBOO_FOREST,1);
-        map.put(BYGBiomeList.FRESHWATERLAKE,2);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.CHERRY_BLOSSOM_CLEARING, 1);
+        map.put(BYGBiomeList.BAMBOO_FOREST, 1);
+        map.put(BYGBiomeList.FRESHWATERLAKE, 2);
         return map;
     }
 

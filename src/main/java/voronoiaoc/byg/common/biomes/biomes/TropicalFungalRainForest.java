@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class TropicalFungalRainForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "tropical_fungal_rainforest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("tropical_fungal_rainforest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
     static final float DEPTH = 0.2F;
@@ -49,19 +49,13 @@ public class TropicalFungalRainForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.TROPICALFUNGALRAINFORESTHILLS,1);
-        map.put(BYGBiomeList.FUNGAL_PATCH,2);
-        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.TROPICALFUNGALRAINFORESTHILLS, 1);
+        map.put(BYGBiomeList.FUNGAL_PATCH, 2);
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
     }
-
-
-
-
-
-
 
 
     public Biome randomSubBiome(Random random) {
@@ -75,6 +69,7 @@ public class TropicalFungalRainForest extends Biome implements BiomeTools {
         else
             return BYGBiomeList.FRESHWATERLAKE;
     }
+
     static {
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);

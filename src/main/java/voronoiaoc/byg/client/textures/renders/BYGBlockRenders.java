@@ -29,8 +29,8 @@ public class BYGBlockRenders {
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.EMBUR_GEL_BLOCK, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.EMBUR_GEL_VINES, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.EMBUR_LILY, RenderLayer.getCutout());
-        
-        
+
+
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.WEEPING_ROOTS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlockList.WEEPING_ROOTS_PLANT, RenderLayer.getCutout());
         //Nether

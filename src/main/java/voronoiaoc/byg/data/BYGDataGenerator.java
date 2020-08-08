@@ -30,78 +30,78 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class BYGDataGenerator {
-   //Have this load after everything else.
+    //Have this load after everything else.
 
-   public static void dataGenBiome(String filePath) throws IOException {
-      OptionParser optionParser = new OptionParser();
-      OptionSpec<Void> optionSpec = optionParser.accepts("help", "Show the help menu").forHelp();
-      OptionSpec<Void> optionSpec7 = optionParser.accepts("all", "Include all generators");
-      OptionSpec<String> optionSpec9 = optionParser.accepts("input", "Input folder").withRequiredArg();
-      OptionSet optionSet = optionParser.parse("-all");
-      if (!optionSet.has(optionSpec) && optionSet.hasOptions()) {
-         Path path = Paths.get((filePath));
-         boolean bl = optionSet.has(optionSpec7);
-         DataGenerator dataGenerator = create(path, optionSet.valuesOf(optionSpec9).stream().map((string) -> Paths.get(string)).collect(Collectors.toList()));
-         dataGenerator.run();
-      } else {
-         optionParser.printHelpOn(System.out);
-      }
-   }
+    public static void dataGenBiome(String filePath) throws IOException {
+        OptionParser optionParser = new OptionParser();
+        OptionSpec<Void> optionSpec = optionParser.accepts("help", "Show the help menu").forHelp();
+        OptionSpec<Void> optionSpec7 = optionParser.accepts("all", "Include all generators");
+        OptionSpec<String> optionSpec9 = optionParser.accepts("input", "Input folder").withRequiredArg();
+        OptionSet optionSet = optionParser.parse("-all");
+        if (!optionSet.has(optionSpec) && optionSet.hasOptions()) {
+            Path path = Paths.get((filePath));
+            boolean bl = optionSet.has(optionSpec7);
+            DataGenerator dataGenerator = create(path, optionSet.valuesOf(optionSpec9).stream().map((string) -> Paths.get(string)).collect(Collectors.toList()));
+            dataGenerator.run();
+        } else {
+            optionParser.printHelpOn(System.out);
+        }
+    }
 
-   public static DataGenerator create(Path output, Collection<Path> inputs) {
-      DataGenerator dataGenerator = new DataGenerator(output, inputs);
-         dataGenerator.install((new SnbtProvider(dataGenerator)).addWriter(new StructureValidatorProvider()));
-         dataGenerator.install(new BiomeDataProvider(dataGenerator));
-      return dataGenerator;
-   }
-
-
-   public static class BiomeDataProvider implements DataProvider {
-      private static final Logger logger = LogManager.getLogger();
-      private static final Gson gson = (new GsonBuilder()).setPrettyPrinting().create();
-      private final DataGenerator dataGen;
-
-      public BiomeDataProvider(DataGenerator dataGenerator) {
-         this.dataGen = dataGenerator;
-      }
-
-      public void run(DataCache cache) {
-         Path path = this.dataGen.getOutput();
-         Iterator var3 = BuiltinRegistries.BIOME.getEntries().iterator();
-
-         while(var3.hasNext()) {
-            Map.Entry<RegistryKey<Biome>, Biome> entry = (Map.Entry)var3.next();
-            Path path2 = filePath(path, entry.getKey().getValue(), entry.getValue());
-            Biome biome = entry.getValue();
+    public static DataGenerator create(Path output, Collection<Path> inputs) {
+        DataGenerator dataGenerator = new DataGenerator(output, inputs);
+        dataGenerator.install((new SnbtProvider(dataGenerator)).addWriter(new StructureValidatorProvider()));
+        dataGenerator.install(new BiomeDataProvider(dataGenerator));
+        return dataGenerator;
+    }
 
 
-            Function<Supplier<Biome>, DataResult<JsonElement>> function = JsonOps.INSTANCE.withEncoder(Biome.REGISTRY_CODEC);
+    public static class BiomeDataProvider implements DataProvider {
+        private static final Logger logger = LogManager.getLogger();
+        private static final Gson gson = (new GsonBuilder()).setPrettyPrinting().create();
+        private final DataGenerator dataGen;
 
-            try {
-               Optional optional = ((DataResult)function.apply(() -> biome)).result();
-               if (optional.isPresent()) {
-                  DataProvider.writeToPath(gson, cache, (JsonElement)optional.get(), path2);
-               } else {
-                  logger.error("Couldn't serialize biome {}", path2);
-               }
-            } catch (IOException var9) {
-               logger.error("Couldn't save biome {}", path2, var9);
+        public BiomeDataProvider(DataGenerator dataGenerator) {
+            this.dataGen = dataGenerator;
+        }
+
+        public void run(DataCache cache) {
+            Path path = this.dataGen.getOutput();
+            Iterator var3 = BuiltinRegistries.BIOME.getEntries().iterator();
+
+            while (var3.hasNext()) {
+                Map.Entry<RegistryKey<Biome>, Biome> entry = (Map.Entry) var3.next();
+                Path path2 = filePath(path, entry.getKey().getValue(), entry.getValue());
+                Biome biome = entry.getValue();
+
+
+                Function<Supplier<Biome>, DataResult<JsonElement>> function = JsonOps.INSTANCE.withEncoder(Biome.REGISTRY_CODEC);
+
+                try {
+                    Optional optional = ((DataResult) function.apply(() -> biome)).result();
+                    if (optional.isPresent()) {
+                        DataProvider.writeToPath(gson, cache, (JsonElement) optional.get(), path2);
+                    } else {
+                        logger.error("Couldn't serialize biome {}", path2);
+                    }
+                } catch (IOException var9) {
+                    logger.error("Couldn't save biome {}", path2, var9);
+                }
             }
-         }
 
-      }
+        }
 
-      private static Path filePath(Path path, Identifier identifier, Biome biome) {
-         if (Objects.requireNonNull(BuiltinRegistries.BIOME.getId(biome)).toString().contains(BYG.MODID))
-            return path.resolve(BYG.MODID + "/biomes/" + identifier.getPath() + ".json");
-         else
-            return path.resolve("minecraft/biomes/" + identifier.getPath() + ".json");
+        private static Path filePath(Path path, Identifier identifier, Biome biome) {
+            if (Objects.requireNonNull(BuiltinRegistries.BIOME.getId(biome)).toString().contains(BYG.MODID))
+                return path.resolve(BYG.MODID + "/biomes/" + identifier.getPath() + ".json");
+            else
+                return path.resolve("minecraft/biomes/" + identifier.getPath() + ".json");
 
-      }
+        }
 
-      public String getName() {
-         return "Biomes";
-      }
-   }
+        public String getName() {
+            return "Biomes";
+        }
+    }
 
 }

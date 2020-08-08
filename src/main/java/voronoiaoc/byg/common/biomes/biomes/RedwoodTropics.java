@@ -21,7 +21,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import java.util.HashMap;
 
 public class RedwoodTropics extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "redwood_tropics", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("redwood_tropics", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final float DEPTH = 0.2F;
@@ -50,16 +50,13 @@ public class RedwoodTropics extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.REDWOOD_MOUNTAINS,2);
-        map.put(BYGBiomeList.REDWOOD_CLEARING,1);
-        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.REDWOOD_MOUNTAINS, 2);
+        map.put(BYGBiomeList.REDWOOD_CLEARING, 1);
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
     }
-
-
-
 
 
     static {

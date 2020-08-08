@@ -26,8 +26,8 @@ public class EmburGelVines extends Feature<DefaultFeatureConfig> {
         } else {
             for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {
                 BlockPos.Mutable mutable = new BlockPos.Mutable(pos.getX(), pos.getY() - WeepingRootPlantLength, pos.getZ());
-            if (worldIn.getBlockState(mutable).getBlock() == Blocks.AIR)
-                worldIn.setBlockState(mutable, BYGBlockList.EMBUR_GEL_VINES.getDefaultState(), 10);
+                if (worldIn.getBlockState(mutable).getBlock() == Blocks.AIR)
+                    worldIn.setBlockState(mutable, BYGBlockList.EMBUR_GEL_VINES.getDefaultState(), 10);
 
             }
             return true;

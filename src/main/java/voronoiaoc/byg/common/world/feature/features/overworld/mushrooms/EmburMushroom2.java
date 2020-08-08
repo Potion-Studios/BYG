@@ -14,11 +14,11 @@ import java.util.Set;
 
 public class EmburMushroom2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
-    public EmburMushroom2(Codec<DefaultFeatureConfig> configIn ) {
+    public EmburMushroom2(Codec<DefaultFeatureConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn) {
+    protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
         int randTreeHeight = 4 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
 
@@ -26,7 +26,9 @@ public class EmburMushroom2 extends BYGAbstractTreeFeature<DefaultFeatureConfig>
             BlockPos blockpos = pos.down();
             if (!isDesiredGround(worldIn, blockpos, BYGBlockList.EMBUR_NYLIUM)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
+            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
@@ -211,14 +213,14 @@ public class EmburMushroom2 extends BYGAbstractTreeFeature<DefaultFeatureConfig>
 
     //Log Placement
     private void treeLog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-        if (canTreePlaceHere(reader, pos)) {
+        if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.EMBUR_PEDU.getDefaultState(), boundingBox);
         }
     }
 
     //Log Placement
     private void treeBranch(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-        if (canTreePlaceHere(reader, pos)) {
+        if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.EMBUR_PEDU.getDefaultState(), boundingBox);
         }
     }
@@ -250,7 +252,7 @@ public class EmburMushroom2 extends BYGAbstractTreeFeature<DefaultFeatureConfig>
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlaceHere(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHere(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

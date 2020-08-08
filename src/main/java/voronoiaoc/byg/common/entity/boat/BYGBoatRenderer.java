@@ -12,7 +12,6 @@ import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Quaternion;
-import voronoiaoc.byg.BYG;
 
 public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
 

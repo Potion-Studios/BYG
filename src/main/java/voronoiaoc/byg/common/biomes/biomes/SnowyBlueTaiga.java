@@ -17,7 +17,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import java.util.HashMap;
 
 public class SnowyBlueTaiga extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "snowy_blue_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("snowy_blue_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.SNOW;
     static final Category CATEGORY = Category.TAIGA;
     static final float DEPTH = 0.2F;
@@ -41,18 +41,15 @@ public class SnowyBlueTaiga extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.SNOWYBLUETAIGAHILLS,1);
-        map.put(BYGBiomeList.SNOWYBLUEGIANTTAIGA,1);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.SNOWYBLUETAIGAHILLS, 1);
+        map.put(BYGBiomeList.SNOWYBLUEGIANTTAIGA, 1);
         return map;
     }
 
 
-
-
-
-static {
+    static {
         //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/snowy/town_centers"), 6));
         //this.add//StructureFeature(DefaultBiomeFeatures.IGLOO);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);

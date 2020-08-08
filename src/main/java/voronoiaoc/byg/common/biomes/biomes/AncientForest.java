@@ -19,7 +19,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import java.util.HashMap;
 
 public class AncientForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "ancient_forest",  new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("ancient_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final float DEPTH = 0.2F;
@@ -35,7 +35,7 @@ public class AncientForest extends Biome implements BiomeTools {
 
     public AncientForest() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
-     }
+    }
 
     @Override
     public int getGrassColorAt(double posX, double posZ) {
@@ -48,12 +48,13 @@ public class AncientForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.FLOWERING_ANCIENT_FOREST,1);
-        map.put(BYGBiomeList.GLOWING_ANCIENT_FOREST,4);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.FLOWERING_ANCIENT_FOREST, 1);
+        map.put(BYGBiomeList.GLOWING_ANCIENT_FOREST, 4);
         return map;
     }
+
     static {
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addAncientTrees(GENERATION_SETTINGS);

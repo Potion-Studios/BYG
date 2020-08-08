@@ -22,10 +22,10 @@ public class ErodedSierraSB extends SierraSB {
 
     public void generate(Random random, Chunk chunk, Biome biome, int i, int j, int k, double d, BlockState blockState, BlockState blockState2, int l, long m, TernarySurfaceConfig ternarySurfaceConfig) {
         double e = 0.0D;
-        double f = Math.min(Math.abs(d), this.heightCutoffNoise.sample((double)i * 0.25D, (double)j * 0.25D, false) * 15.0D);
+        double f = Math.min(Math.abs(d), this.heightCutoffNoise.sample((double) i * 0.25D, (double) j * 0.25D, false) * 15.0D);
         if (f > 0.0D) {
             double g = 0.001953125D;
-            double h = Math.abs(this.heightNoise.sample((double)i * 0.001953125D, (double)j * 0.001953125D, false));
+            double h = Math.abs(this.heightNoise.sample((double) i * 0.001953125D, (double) j * 0.001953125D, false));
             e = f * f * 2.5D;
             double n = Math.ceil(h * 50.0D) + 14.0D;
             if (e > n) {
@@ -39,15 +39,15 @@ public class ErodedSierraSB extends SierraSB {
         int p = j & 15;
         BlockState blockState3 = WHITE_TERRACOTTA;
         BlockState blockState4 = biome.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
-        int q = (int)(d / 3.0D + 3.0D + random.nextDouble() * 0.25D);
+        int q = (int) (d / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean bl = Math.cos(d / 3.0D * 3.141592653589793D) > 0.0D;
         int r = -1;
         boolean bl2 = false;
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        for(int s = Math.max(k, (int)e + 1); s >= 0; --s) {
+        for (int s = Math.max(k, (int) e + 1); s >= 0; --s) {
             mutable.set(o, s, p);
-            if (chunk.getBlockState(mutable).isAir() && s < (int)e) {
+            if (chunk.getBlockState(mutable).isAir() && s < (int) e) {
                 chunk.setBlockState(mutable, blockState, false);
             }
 

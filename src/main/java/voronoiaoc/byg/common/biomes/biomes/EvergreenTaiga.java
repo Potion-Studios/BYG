@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class EvergreenTaiga extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "evergreen_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("evergreen_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.TAIGA;
     static final float DEPTH = 0.75F;
@@ -53,19 +53,13 @@ public class EvergreenTaiga extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = Maps.newHashMap();
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = Maps.newHashMap();
         map.put(BYGBiomeList.EVERGREEN_HILLS, 1);
         map.put(BYGBiomeList.EVERGREEN_CLEARING, 2);
         map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
     }
-
-
-
-
-
-
 
 
     public Biome randomSubBiome(Random random) {

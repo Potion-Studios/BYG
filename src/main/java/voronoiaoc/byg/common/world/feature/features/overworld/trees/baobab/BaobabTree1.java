@@ -21,7 +21,7 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
 
-    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
         int randTreeHeight = rand.nextInt(9) + 20;
         int randCorner1 = randTreeHeight - rand.nextInt(12) - 7;
         int randCorner2 = randTreeHeight - rand.nextInt(12) - 7;
@@ -38,15 +38,16 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         int randOuterEdge8 = rand.nextInt(6) + 2;
 
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
-            BlockPos posDown = position.down();
-            if (!isDesiredGroundwDirtTag(worldIn, posDown, Blocks.GRASS_BLOCK)) {
+            BlockPos posDown = pos.down();
+            if (!isDesiredGroundwDirtTag(worldIn, pos, Blocks.GRASS_BLOCK)) {
                 return false;
-            }
-            if (!this.doesTreeFit(worldIn, position, randTreeHeight, 5)) {
+            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
                 Direction direction = Direction.Type.HORIZONTAL.random(rand);
@@ -331,7 +332,7 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
     private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-        if (canTreePlaceHere(reader, pos)) {
+        if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.BAOBAB_LOG.getDefaultState(), boundingBox);
         }
 

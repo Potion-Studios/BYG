@@ -30,7 +30,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
     }
 
     protected static boolean canTreeReplace(ModifiableTestableWorld genBaseReader, BlockPos blockPos) {
-        return canTreePlaceHere(
+        return canLogPlaceHere(
                 genBaseReader, blockPos
         );
     }
@@ -42,18 +42,16 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
         });
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
         //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 9;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getDimensionHeight()) {
-            BlockPos blockpos = position.down();
+            BlockPos blockpos = pos.down();
             if (!isDirtOrPeatBlock(worldIn, blockpos)) {
-                return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;
             } else {
                 //Places dirt under logs where/when necessary.
@@ -242,7 +240,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -250,7 +248,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
 
             for (int xDistance = -distance; xDistance <= distance; ++xDistance) {
                 for (int zDistance = -distance; zDistance <= distance; ++zDistance) {
-                    if (!canTreeReplace(reader, position.set(x + xDistance, y + yOffset, z + zDistance))) {
+                    if (!canTreeReplace(reader, pos.set(x + xDistance, y + yOffset, z + zDistance))) {
                         return false;
                     }
                 }

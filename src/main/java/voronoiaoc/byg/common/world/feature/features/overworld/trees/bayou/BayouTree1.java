@@ -25,7 +25,7 @@ public class BayouTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         super(configIn);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn) {
+    protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
         int randChance = rand.nextInt(2);
         int randTreeHeight = rand.nextInt(6) + 8;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
@@ -112,7 +112,7 @@ public class BayouTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         }
     }
 
-    private void setBlockStateWithoutUpdates(ModifiableWorld worldWriter, BlockPos blockPos, BlockState blockState) {
+    public void setBlockStateWithoutUpdates(ModifiableWorld worldWriter, BlockPos blockPos, BlockState blockState) {
         worldWriter.setBlockState(blockPos, blockState, 19);
     }
 

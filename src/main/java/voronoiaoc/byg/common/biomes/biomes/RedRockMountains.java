@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class RedRockMountains extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "red_rock_mountains", new ConfiguredSurfaceBuilder<>(BYGSBList.RED_ROCK_SB, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("red_rock_mountains", new ConfiguredSurfaceBuilder<>(BYGSBList.RED_ROCK_SB, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.PLAINS;
     static final float DEPTH = 2.0F;
@@ -55,19 +55,16 @@ public class RedRockMountains extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.RED_ROCK_LOWLANDS,1);
-        map.put(BYGBiomeList.RED_ROCK_HIGHLANDS,2);
-        map.put(BYGBiomeList.WOODEDREDROCKMOUNTAINS,1);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.RED_ROCK_LOWLANDS, 1);
+        map.put(BYGBiomeList.RED_ROCK_HIGHLANDS, 2);
+        map.put(BYGBiomeList.WOODEDREDROCKMOUNTAINS, 1);
         return map;
     }
 
 
-
-
-
-public Biome randomSubBiome(Random random) {
+    public Biome randomSubBiome(Random random) {
         int randomPicker = random.nextInt(4);
         if (randomPicker == 0)
             return BYGBiomeList.RED_ROCK_LOWLANDS;

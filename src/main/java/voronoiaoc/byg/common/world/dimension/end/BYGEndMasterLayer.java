@@ -8,6 +8,7 @@ import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 
 public enum BYGEndMasterLayer implements InitLayer {
     INSTANCE;
+
     @Override
     public int sample(LayerRandomnessSource context, int x, int y) {
         return pickRandomBiomeID(context);

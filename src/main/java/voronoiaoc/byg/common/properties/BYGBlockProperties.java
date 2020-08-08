@@ -20,10 +20,10 @@ import voronoiaoc.byg.common.properties.blocks.embur.EmburPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.embur.EmburVinesPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
 import voronoiaoc.byg.common.properties.blocks.plants.*;
-import voronoiaoc.byg.common.properties.blocks.warped.*;
 import voronoiaoc.byg.common.properties.blocks.sythian.SythianPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.sythian.SythianSaplingBlock;
 import voronoiaoc.byg.common.properties.blocks.sythian.SythianStalkBlock;
+import voronoiaoc.byg.common.properties.blocks.warped.*;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 public class BYGBlockProperties {
@@ -487,7 +487,7 @@ public class BYGBlockProperties {
                     .ticksRandomly()
                     .sounds(BlockSoundGroup.GRASS)
                     .nonOpaque()
-                    .breakByTool(FabricToolTags.HOES,0)
+                    .breakByTool(FabricToolTags.HOES, 0)
                     .build()
             );
 

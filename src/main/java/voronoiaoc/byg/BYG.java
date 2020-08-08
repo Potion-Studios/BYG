@@ -28,7 +28,7 @@ import java.io.IOException;
 public class BYG implements ModInitializer {
     public static final String MODID = "byg";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static final ItemGroup BYG_TAB = FabricItemGroupBuilder.build(new Identifier(MODID,"byg"), () -> new ItemStack(BYGItemList.BYG_LOGO));
+    public static final ItemGroup BYG_TAB = FabricItemGroupBuilder.build(new Identifier(MODID, "byg"), () -> new ItemStack(BYGItemList.BYG_LOGO));
     static int idx = 0;
 
     @Override

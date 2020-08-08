@@ -21,7 +21,7 @@ public class CypressTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         super(configIn);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn) {
+    protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
         int randTreeHeight = 30;
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
         BlockPos.Mutable mainmutable2 = new BlockPos.Mutable().set(pos.offset(Direction.NORTH));
@@ -849,14 +849,14 @@ public class CypressTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
     //Log Placement
     private void treeLog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-        if (isQualifiedForLogWater(reader, pos)) {
+        if (canLogPlaceHereWater(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.CYPRESS_LOG.getDefaultState(), boundingBox);
         }
     }
 
     //Log Placement
     private void treeBranch(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-        if (isQualifiedForLogWater(reader, pos)) {
+        if (canLogPlaceHereWater(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.CYPRESS_LOG.getDefaultState(), boundingBox);
         }
     }
@@ -882,7 +882,7 @@ public class CypressTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlaceHereWater(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHereWater(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

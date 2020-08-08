@@ -21,7 +21,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 import java.util.HashMap;
 
 public class WeepingWitchForest extends Biome implements BiomeTools, BiomeFog {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "weeping_witch_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("weeping_witch_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final float DEPTH = 0.35F;
@@ -55,10 +55,10 @@ public class WeepingWitchForest extends Biome implements BiomeTools, BiomeFog {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.PUMPKIN_FOREST,1);
-        map.put(BYGBiomeList.WEEPING_WTICH_CLEARING,4);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.PUMPKIN_FOREST, 1);
+        map.put(BYGBiomeList.WEEPING_WTICH_CLEARING, 4);
         return map;
     }
 

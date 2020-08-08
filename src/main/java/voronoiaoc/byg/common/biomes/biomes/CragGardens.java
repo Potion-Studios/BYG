@@ -24,7 +24,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class CragGardens extends Biome implements BiomeTools, BiomeFog {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "crag_gardens", new ConfiguredSurfaceBuilder<>(BYGSBList.CRAG_GARDENS, BYGSBList.BYGSBConfigList.GREEN_CONCRETE_POWDER_CF));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("crag_gardens", new ConfiguredSurfaceBuilder<>(BYGSBList.CRAG_GARDENS, BYGSBList.BYGSBConfigList.GREEN_CONCRETE_POWDER_CF));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
     static final float DEPTH = -1.5F;
@@ -53,15 +53,14 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.CRAGGARDENS,1));
+    public HashMap<Biome, Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.CRAGGARDENS, 1));
     }
 
     @Override
-    public HashMap<Biome,Integer> getBeaches() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.CRAGGARDENS,1));
+    public HashMap<Biome, Integer> getBeaches() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.CRAGGARDENS, 1));
     }
-
 
 
     static {

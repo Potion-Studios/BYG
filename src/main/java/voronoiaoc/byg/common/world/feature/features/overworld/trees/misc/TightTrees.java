@@ -29,24 +29,24 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //    }
 //
-//    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+//    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
 //        int randTreeHeight = rand.nextInt(15) + rand.nextInt(2) + 10; //First value changes height of the trunk.
-//        int posX = position.getX();
-//        int posY = position.getY();
-//        int posZ = position.getZ();
+//        int posX = pos.getX();
+//        int posY = pos.getY();
+//        int posZ = pos.getZ();
 //        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
-//            BlockPos blockpos = position.down();
+//            BlockPos blockpos = pos.down();
 //            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
 //                return false;
-//            } else if (!this.func_214615_a(worldIn, position, randTreeHeight)) {
+//            } else if (!this.func_214615_a(worldIn, pos, randTreeHeight)) {
 //                return false;
 //            } else {
 //
-//                ////this.setGroundBlockAt(worldIn, blockpos.east(), position, Blocks.DIRT.getDefaultState());
+//                ////this.setGroundBlockAt(worldIn, blockpos.east(), pos, Blocks.DIRT.getDefaultState());
 
-//                ////this.setGroundBlockAt(worldIn, blockpos.south(), position, Blocks.DIRT.getDefaultState());
+//                ////this.setGroundBlockAt(worldIn, blockpos.south(), pos, Blocks.DIRT.getDefaultState());
 
-//                ////this.setGroundBlockAt(worldIn, blockpos.south().east(), position, Blocks.DIRT.getDefaultState());
+//                ////this.setGroundBlockAt(worldIn, blockpos.south().east(), pos, Blocks.DIRT.getDefaultState());
 
 //                Direction direction = Direction.Type.HORIZONTAL.random(rand);
 //                int random1 = randTreeHeight - rand.nextInt(1);//Crashes on 0. Unknown use.
@@ -227,7 +227,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //            for(int j1 = -i1; j1 <= i1; ++j1) {
 //                for(int k1 = -i1; k1 <= i1; ++k1) {
-//                    if (!canTreePlaceHere(p_214615_1_, blockpos$mutableblockpos.set(i + j1, j + l, k + k1))) {
+//                    if (!canLogPlaceHere(p_214615_1_, blockpos$mutableblockpos.set(i + j1, j + l, k + k1))) {
 //                        return false;
 //                    }
 //                }
@@ -238,7 +238,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //    }
 //    //Log Placement
 //    private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-//        if (canTreePlaceHere(reader, pos)) {
+//        if (canLogPlaceHere(reader, pos)) {
 //            this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
 //        }
 //

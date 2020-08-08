@@ -19,7 +19,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 import java.util.HashMap;
 
 public class TheBlackForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "the_black_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("the_black_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.TAIGA;
     static final float DEPTH = 0.2F;
@@ -49,12 +49,12 @@ public class TheBlackForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.BLACK_FOREST_HILLS,1);
-        map.put(BYGBiomeList.BLACK_FOREST_CLEARING,1);
-        map.put(BYGBiomeList.FOREST_FAULT,1);
-        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.BLACK_FOREST_HILLS, 1);
+        map.put(BYGBiomeList.BLACK_FOREST_CLEARING, 1);
+        map.put(BYGBiomeList.FOREST_FAULT, 1);
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
     }
 

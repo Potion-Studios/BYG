@@ -6,7 +6,6 @@ import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 
 
-
 public class BYGCompostables {
     public static void compostablesBYG() {
         BYG.LOGGER.debug("BYG: Adding Compostible Blocks...");
@@ -175,7 +174,7 @@ public class BYGCompostables {
         addCompostables(0.75f, BYGItemList.POISON_IVY);
         addCompostables(0.65f, BYGItemList.TINY_LILYPADS);
     }
-    
+
     public static void addCompostables(float value, Item item) {
         CompostingChanceRegistry addCompostables = CompostingChanceRegistry.INSTANCE;
         addCompostables.add(item, value);

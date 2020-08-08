@@ -18,8 +18,9 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.Collections;
 import java.util.HashMap;
+
 public class GrassLandPlateau extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "grassland_plateau", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("grassland_plateau", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.PLAINS;
     static final float DEPTH = 2.2F;
@@ -38,14 +39,9 @@ public class GrassLandPlateau extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.WOODEDGRASSLANDPLATEAU,1));
+    public HashMap<Biome, Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.WOODEDGRASSLANDPLATEAU, 1));
     }
-
-
-
-
-
 
 
     static {

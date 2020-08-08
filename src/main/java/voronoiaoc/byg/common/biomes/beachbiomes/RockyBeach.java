@@ -14,7 +14,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class RockyBeach extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "rocky_beach", new ConfiguredSurfaceBuilder<>(BYGSBList.ROCKYBEACH_SB, BYGSBList.BYGSBConfigList.ROCKY));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("rocky_beach", new ConfiguredSurfaceBuilder<>(BYGSBList.ROCKYBEACH_SB, BYGSBList.BYGSBConfigList.ROCKY));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.BEACH;
     static final float DEPTH = 0.0F;

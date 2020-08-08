@@ -29,18 +29,16 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
     }
 
 
-    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
 
         int randTreeHeight = rand.nextInt(1) + 1;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
-            BlockPos blockpos = position.down();
-            if (worldIn.getBlockState(position.down()).getBlock() != Blocks.GRASS_BLOCK && (worldIn).getBlockState(position.down()).getBlock() != Blocks.RED_SAND && (worldIn).getBlockState(position.down()).getBlock() != Blocks.COARSE_DIRT) {
-                return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
+            BlockPos blockpos = pos.down();
+            if (worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.RED_SAND && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.COARSE_DIRT) {
                 return false;
             } else {
 
@@ -142,7 +140,7 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -150,7 +148,7 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlaceHere(reader, position.set(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHere(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }
@@ -161,7 +159,7 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<DefaultFeatureConfig> 
 
     //Log Placement
     private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-        if (canTreePlaceHere(reader, pos)) {
+        if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
 

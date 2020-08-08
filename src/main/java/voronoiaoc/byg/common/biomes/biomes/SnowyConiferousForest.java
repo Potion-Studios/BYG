@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class SnowyConiferousForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "snowy_coniferous_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("snowy_coniferous_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF));
     static final Precipitation PRECIPATATION = Precipitation.SNOW;
     static final Category CATEGORY = Category.TAIGA;
     static final float DEPTH = 0.2F;
@@ -52,19 +52,16 @@ public class SnowyConiferousForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.SNOWYCONIFERFORESTHILLS,1);
-        map.put(BYGBiomeList.SNOWY_CONIFEROUS_CLEARING,2);
-        map.put(BYGBiomeList.FROZENLAKE,1);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.SNOWYCONIFERFORESTHILLS, 1);
+        map.put(BYGBiomeList.SNOWY_CONIFEROUS_CLEARING, 2);
+        map.put(BYGBiomeList.FROZENLAKE, 1);
         return map;
     }
 
 
-
-
-
-public Biome randomSubBiome(Random random) {
+    public Biome randomSubBiome(Random random) {
         int randomPicker = random.nextInt(4);
         if (randomPicker == 0)
             return BYGBiomeList.SNOWYCONIFERFORESTHILLS;

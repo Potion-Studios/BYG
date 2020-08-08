@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class DeciduousForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "deciduous_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("deciduous_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final float DEPTH = 0.2F;
@@ -39,11 +39,11 @@ public class DeciduousForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.DECIDUOUSFORESTHILLS,1);
-        map.put(BYGBiomeList.DECIDUOUS_CLEARING,2);
-        map.put(BYGBiomeList.FRESHWATERLAKE,1);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.DECIDUOUSFORESTHILLS, 1);
+        map.put(BYGBiomeList.DECIDUOUS_CLEARING, 2);
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
     }
 
@@ -58,6 +58,7 @@ public class DeciduousForest extends Biome implements BiomeTools {
         else
             return BYGBiomeList.FRESHWATERLAKE;
     }
+
     static {
         ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
 //        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);

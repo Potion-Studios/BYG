@@ -16,13 +16,12 @@ public class BYGNetherBiomeProvider extends BiomeSource {
     public static final Codec<BYGNetherBiomeProvider> BYGNETHERCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.of(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGNetherBiomeProvider::new)));
 
 
-
     private final BiomeLayerSampler biomeLayer;
     private final long seed;
     private final Registry<Biome> biomeRegistry;
 
 
-    public BYGNetherBiomeProvider(Registry<Biome> registry,long seed) {
+    public BYGNetherBiomeProvider(Registry<Biome> registry, long seed) {
         super(biomeList);
         this.seed = seed;
         this.biomeLayer = BYGNetherLayerProvider.stackLayers(seed);

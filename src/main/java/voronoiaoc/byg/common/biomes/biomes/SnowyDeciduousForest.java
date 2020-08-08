@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class SnowyDeciduousForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "snowy_deciduous_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("snowy_deciduous_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.SNOW;
     static final Category CATEGORY = Category.ICY;
     static final float DEPTH = 0.2F;
@@ -53,19 +53,16 @@ public class SnowyDeciduousForest extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.SNOWYDECIDUOUSFORESTHILLS,1);
-        map.put(BYGBiomeList.SNOWY_DECIDUOUS_CLEARING,2);
-        map.put(BYGBiomeList.FROZENLAKE,1);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.SNOWYDECIDUOUSFORESTHILLS, 1);
+        map.put(BYGBiomeList.SNOWY_DECIDUOUS_CLEARING, 2);
+        map.put(BYGBiomeList.FROZENLAKE, 1);
         return map;
     }
 
 
-
-
-
-public Biome randomSubBiome(Random random) {
+    public Biome randomSubBiome(Random random) {
         int randomPicker = random.nextInt(4);
         if (randomPicker == 0)
             return BYGBiomeList.SNOWYDECIDUOUSFORESTHILLS;

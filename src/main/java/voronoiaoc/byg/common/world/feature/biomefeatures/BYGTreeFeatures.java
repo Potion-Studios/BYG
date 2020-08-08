@@ -49,6 +49,7 @@ public class BYGTreeFeatures {
     public static void addDeciduousSparseTrees(GenerationSettings.Builder biome) {
         biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_DECIDUOUS_SPARSE_TREE);
     }
+
     //TODO: Reconfigure
     public static void addRedwoodSparseTrees(GenerationSettings.Builder biome) {
         biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_REDWOOD_SPARSE_TREE);
@@ -178,7 +179,8 @@ public class BYGTreeFeatures {
         biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_BAOBAB_TREE);
     }
 
-    public static void addSavannaCanopyTrees(GenerationSettings.Builder biome) {}
+    public static void addSavannaCanopyTrees(GenerationSettings.Builder biome) {
+    }
 
     public static void addRedwoodTrees(GenerationSettings.Builder biome) {
         biome.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_REDWOOD_TREE);

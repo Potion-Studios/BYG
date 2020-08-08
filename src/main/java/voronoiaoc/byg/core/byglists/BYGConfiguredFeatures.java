@@ -124,10 +124,10 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> IVIS_SPROUT = newConfiguredFeature("ivis_sprout", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.IVIS_SPROUT));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ALLIUM_FLOWER = newConfiguredFeature("rs_allium_flower", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-                ALLIUM_TALL_BUSH.withChance(0.25F),
-                ALLIUM_TALL_PINK_BUSH.withChance(0.25F),
-                ALLIUM_BUSH.withChance(0.25F)),
-                ALLIUM_PINK_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(65));
+            ALLIUM_TALL_BUSH.withChance(0.25F),
+            ALLIUM_TALL_PINK_BUSH.withChance(0.25F),
+            ALLIUM_BUSH.withChance(0.25F)),
+            ALLIUM_PINK_BUSH)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(65));
 
     public static final ConfiguredFeature<?, ?> RANDOM_AMARANTH_FLOWER = newConfiguredFeature("rs_amaranth_flower", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             AMARANTH.withChance(0.2F),

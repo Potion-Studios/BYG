@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class SierraValley extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder( "sierra_valley", new ConfiguredSurfaceBuilder<>(BYGSBList.SIERRA_VALLEY_SB, SurfaceBuilder.GRASS_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("sierra_valley", new ConfiguredSurfaceBuilder<>(BYGSBList.SIERRA_VALLEY_SB, SurfaceBuilder.GRASS_CONFIG));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
     static final Category CATEGORY = Category.PLAINS;
     static final float DEPTH = 0.2F;
@@ -50,18 +50,12 @@ public class SierraValley extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome,Integer> getHills() {
-        HashMap<Biome,Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.FRESHWATERLAKE,1);
-        map.put(BYGBiomeList.SIERRARANGE,3);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
+        map.put(BYGBiomeList.SIERRARANGE, 3);
         return map;
     }
-
-
-
-
-
-
 
 
     public Biome randomSubBiome(Random random) {
