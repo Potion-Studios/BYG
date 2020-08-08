@@ -60,6 +60,7 @@ public class Prairie extends Biome implements BiomeTools {
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addPrairieTree(GENERATION_SETTINGS);
         BYGFeatures.addPrairieGrass(GENERATION_SETTINGS);
+        BYGFeatures.addGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
