@@ -9,6 +9,7 @@ import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.feature.*;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
+import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 
 public class BYGConfiguredTreeFeatures {
     /***********************************************************Configured Features********************************************************/
@@ -250,7 +251,7 @@ public class BYGConfiguredTreeFeatures {
             WILLOW_TREE1.withChance(0.25F),
             WILLOW_TREE2.withChance(0.25F),
             WILLOW_TREE3.withChance(0.25F)),
-            WILLOW_TREE4)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
+            WILLOW_TREE4)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(
             new CountExtraDecoratorConfig(8, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUFF_TREE = newConfiguredFeature("rs_bluff_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
@@ -329,7 +330,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_CYPRESS_TREE = newConfiguredFeature("rs_cypress_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             CYPRESS_TREE1.withChance(0.55F),
             CYPRESS_TREE2.withChance(0.1F)),
-            CYPRESS_TREE3)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
+            CYPRESS_TREE3)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(
             new CountExtraDecoratorConfig(0, 0.4F, 2))));
 
     public static ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_TREE = newConfiguredFeature("rs_deciduous_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
@@ -573,7 +574,7 @@ public class BYGConfiguredTreeFeatures {
             WILLOW_TREE3.withChance(0.2F),
             WILLOW_TREE4.withChance(0.2F),
             WILLOW_TREE2.withChance(0.1F)),
-            WILLOW_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
+            WILLOW_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(
             new CountExtraDecoratorConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_TREE = newConfiguredFeature("rs_aspen_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
