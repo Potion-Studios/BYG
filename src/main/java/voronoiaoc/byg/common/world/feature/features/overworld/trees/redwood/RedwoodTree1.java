@@ -20,7 +20,7 @@ public class RedwoodTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
-        int randTreeHeight = 23 + rand.nextInt(5);
+        int randTreeHeight = 37;
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
@@ -29,9 +29,11 @@ public class RedwoodTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
-            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, randTreeHeight - 20, 5, 5, isSapling)) {
                 return false;
             } else {
+
+
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(-1, 0, 0), boundsIn);
                 this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);

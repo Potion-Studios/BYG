@@ -33,7 +33,7 @@ public class PinkCherry2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildBase(changedBlocks, worldIn, BYGBlockList.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable);
+                buildTrunk(changedBlocks, worldIn, BYGBlockList.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable);
 
                 this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {

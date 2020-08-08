@@ -300,7 +300,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @param trunkPositions List of trunk poss where the base is built under the given poss.
      */
 
-    public void buildBase(Set<BlockPos> treeBlocksSet, TestableWorld reader, Block fillerBlock, Block earthBlock, BlockBox boundingBox, BlockPos... trunkPositions) {
+    public void buildTrunk(Set<BlockPos> treeBlocksSet, TestableWorld reader, Block fillerBlock, Block earthBlock, BlockBox boundingBox, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
