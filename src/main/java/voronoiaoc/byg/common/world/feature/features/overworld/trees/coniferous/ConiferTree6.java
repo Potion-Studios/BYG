@@ -9,6 +9,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -43,6 +44,12 @@ public class ConiferTree6 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getDimensionHeight()) {
             BlockPos checkGround = pos.down();
             if (!isDesiredGroundwDirtTag(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
+                return false;
+            }else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                BYG.LOGGER.info("AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, 5, 5, isSapling)) {
+                BYG.LOGGER.info("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
                 return false;
             } else {
 
