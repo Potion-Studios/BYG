@@ -4,7 +4,7 @@ loaderVersion="[32,)"
 issueTrackerURL="https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId="byg"
-version="1.0.15"
+version="1.0.16"
 displayName="Oh The Biomes You'll Go"
 displayURL="https://biomesyougo.weebly.com/"
 logoFile="logo_text.png"
