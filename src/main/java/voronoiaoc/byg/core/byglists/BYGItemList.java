@@ -14,7 +14,7 @@ public class BYGItemList {
     public static Item GREEN_APPLE;
     public static Item JOSHUA_FRUIT;
     public static Item COOKED_JOSHUA_FRUIT;
-
+    public static Item MUD_BALL;
     //FenceItems
     public static Item ASPEN_FENCE;
     public static Item BAOBAB_FENCE;

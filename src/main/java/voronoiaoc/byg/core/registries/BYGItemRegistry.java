@@ -30,6 +30,7 @@ public class BYGItemRegistry {
                 BYGItemList.MEADOW_GRASSBLOCK = new BlockItem(BYGBlockList.MEADOW_GRASSBLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MEADOW_GRASSBLOCK.getRegistryName()),
                 BYGItemList.GLOWCELIUM = new BlockItem(BYGBlockList.GLOWCELIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GLOWCELIUM.getRegistryName()),
                 BYGItemList.MEADOW_DIRT = new BlockItem(BYGBlockList.MEADOW_DIRT, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MEADOW_DIRT.getRegistryName()),
+                BYGItemList.MUD_BALL = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("mud_ball"),
                 BYGItemList.MUD_BLOCK = new BlockItem(BYGBlockList.MUD_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MUD_BLOCK.getRegistryName()),
                 BYGItemList.MUD_BRICKS = new BlockItem(BYGBlockList.MUD_BRICKS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MUD_BRICKS.getRegistryName()),
 
