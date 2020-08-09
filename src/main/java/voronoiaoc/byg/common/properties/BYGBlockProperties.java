@@ -2,6 +2,8 @@ package voronoiaoc.byg.common.properties;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.sound.BlockSoundGroup;
@@ -480,16 +482,20 @@ public class BYGBlockProperties {
 
     public static class BYGLeaves extends LeavesBlock {
         public BYGLeaves(String registryName) {
-            super(Settings.of(Material.LEAVES)
-                    .strength(0.2F)
+            super(FabricBlockSettings.of(Material.LEAVES)
+                    .hardness(0.2F)
                     .ticksRandomly()
                     .sounds(BlockSoundGroup.GRASS)
                     .nonOpaque()
+                    .breakByTool(FabricToolTags.HOES,0)
+                    .build()
             );
 
             this.setDefaultState(this.stateManager.getDefaultState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)));
 
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+
+
         }
     }
 
