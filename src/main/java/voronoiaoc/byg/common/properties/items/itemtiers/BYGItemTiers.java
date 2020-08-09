@@ -11,7 +11,7 @@ public enum BYGItemTiers implements ToolMaterial {
     AMETRINE(4, 64, 16.0F, 0.8F, 25, () -> {
         return Ingredient.ofItems(BYGItemList.AMETRINE_GEMS);
     }),
-   PENDORITE(5, 2500, 9.5F, 4.8F, 15, () -> {
+   PENDORITE(5, 2500, 9.5F, 4.0F, 15, () -> {
       return Ingredient.ofItems(BYGItemList.PENDORITE_SCRAPS);
    });
 
