@@ -968,7 +968,7 @@ public class BYGBlockProperties {
     public static class BYGBerryBush extends BlueBerryBush {
         public BYGBerryBush(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
-                    .sound(SoundType.PLANT)
+                    .sound(SoundType.SWEET_BERRY_BUSH)
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
             );
