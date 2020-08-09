@@ -22,7 +22,7 @@ public class CypressTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
-        int randTreeHeight = 30;
+        int randTreeHeight = 10;
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
         BlockPos.Mutable mainmutable2 = new BlockPos.Mutable().set(pos.offset(Direction.NORTH));
         BlockPos.Mutable mainmutable3 = new BlockPos.Mutable().set(pos.offset(Direction.SOUTH));

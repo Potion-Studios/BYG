@@ -692,8 +692,8 @@ public class BYGBlockProperties {
 
     public static class SythianSapling extends SythianSaplingBlock {
         public SythianSapling(String registryName) {
-            super(Settings.of(Material.BAMBOO_SAPLING)
-                    .sounds(BlockSoundGroup.BAMBOO_SAPLING)
+            super(Settings.of(Material.PLANT)
+                    .sounds(BlockSoundGroup.GRASS)
                     .strength(0.0f)
                     .noCollision()
                     .nonOpaque()

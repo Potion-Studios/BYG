@@ -328,10 +328,10 @@ public class BYGConfiguredTreeFeatures {
             new CountExtraDecoratorConfig(50, 0.4F, 8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CYPRESS_TREE = newConfiguredFeature("rs_cypress_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            CYPRESS_TREE1.withChance(0.55F),
-            CYPRESS_TREE2.withChance(0.1F)),
+            CYPRESS_TREE1.withChance(0.5F),
+            CYPRESS_TREE2.withChance(0.4F)),
             CYPRESS_TREE3)).decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(
-            new CountExtraDecoratorConfig(10, 0.4F, 3))));
+            new CountExtraDecoratorConfig(5, 0.4F, 1))));
 
     public static ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_TREE = newConfiguredFeature("rs_deciduous_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_TREE1.withChance(0.9F)),

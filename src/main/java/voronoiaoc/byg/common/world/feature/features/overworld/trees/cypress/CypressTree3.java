@@ -23,7 +23,7 @@ public class CypressTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     //TODO: Root builder.
 
     protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
-        int randTreeHeight = 20 + rand.nextInt(5);
+        int randTreeHeight = 15 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getDimensionHeight()) {
