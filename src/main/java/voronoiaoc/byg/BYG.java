@@ -15,6 +15,7 @@ import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
 import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
+import voronoiaoc.byg.config.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGFeatureList;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
@@ -34,6 +35,11 @@ public class BYG implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Initializing BYG...");
+        try {
+            ConfigWeightManager.buildConfig();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //Registries
         BYGBlockRegistry.registerBlocks();
         BYGItemRegistry.registerItems();

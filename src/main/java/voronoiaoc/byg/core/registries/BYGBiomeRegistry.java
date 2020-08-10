@@ -13,6 +13,7 @@ import net.minecraft.world.biome.layer.SetBaseBiomesLayer;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
+import voronoiaoc.byg.config.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
@@ -31,8 +32,8 @@ public class BYGBiomeRegistry {
     //130
     public static void registerBiomes() {
         BYG.LOGGER.debug("BYG: Registering BuiltInBiomes...");
-        registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields", true, 2, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.ALPS, "alps", true, 5, OverworldClimate.SNOWY);
+        registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields", true, ConfigWeightManager.ALLIUMFIELDS.getWeight(), OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.ALPS, "alps", true, ConfigWeightManager.ALPS.getWeight(), OverworldClimate.SNOWY);
         registerBiome(BYGBiomeList.AMARANTHFIELDS, "amaranth_fields", true, 2, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.ASPENFOREST, "aspen_forest", true, 6, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.ANCIENTFOREST, "ancient_forest", true, 1, OverworldClimate.TEMPERATE);
@@ -61,7 +62,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.GREATLAKES, "great_lakes", true, 6, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.GROVE, "grove", true, 5, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.GUIANASHIELD, "guiana_shield", true, 5, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.JACARANDAFOREST, "jacaranda_forest", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.JACARANDAFOREST, "jacaranda_forest", true, ConfigWeightManager.JACARANDAFOREST.getWeight(), OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.MANGROVEMARSHES, "mangrove_marshes", true, 5, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.MAPLETAIGA, "maple_taiga", true, 6, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.MEADOW, "meadow", true, 6, OverworldClimate.TEMPERATE);
@@ -262,6 +263,8 @@ public class BYGBiomeRegistry {
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate type) {
         Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
         biomeList.add(biome);
+        BYG.LOGGER.info(id + " " + weight);
+
         if (weight > 0) {
             if (type == OverworldClimate.TEMPERATE)
                 WARM.add(BuiltinRegistries.BIOME.getRawId(biome));

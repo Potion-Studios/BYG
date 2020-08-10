@@ -91,6 +91,9 @@ repositories {
 dependencies {
 	modImplementation 'net.earthcomputer:libstructure:1.3' // Or the latest version
 	include 'net.earthcomputer:libstructure:1.3'
+
+	implementation "tk.valoeghese:ZoesteriaConfig:1.3.2"
+	include "tk.valoeghese:ZoesteriaConfig:1.3.2"
 }
 
 processResources {
