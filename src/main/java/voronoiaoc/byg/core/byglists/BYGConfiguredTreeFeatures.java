@@ -783,7 +783,7 @@ public class BYGConfiguredTreeFeatures {
                 WOOD_BLEWIT_HUGE.withChance(0.16F),
                 WEEPING_MILKCAP_HUGE.withChance(0.16F)),
                 BLACK_PUFF_HUGE)).decorate(UnderGroundPlacement.UGPLACER.configure(
-                new CountExtraDecoratorConfig(5, 0.5F, 2))));
+                new CountExtraDecoratorConfig(4, 0.5F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MUSHROOM = newConfiguredFeature("rs_huge_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             GREEN_MUSHROOM_HUGE.withChance(0.4F),
@@ -795,7 +795,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_MUSHROOM = newConfiguredFeature("rs_embur_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             EMBUR_MUSHROOM.withChance(0.5F)),
             EMBUR_MUSHROOM2)).decorate(UnderGroundPlacement.UGPLACER.configure(
-            new CountExtraDecoratorConfig(4, 0.5F, 6))));
+            new CountExtraDecoratorConfig(2, 0.5F, 1))));
 
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(BYG.MODID, registryName), configuredFeature);

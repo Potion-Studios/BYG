@@ -154,7 +154,7 @@ public class BYGConfiguredFeatures {
     /***********************************************************Configured & Decorated Features***********************************************************/
 
     public static ConfiguredFeature<?, ?> FROST_MAGMA_LAKE = newConfiguredFeature("frost_magma_lake", BYGFeatureList.LAKE_FROST.configure(new SingleStateFeatureConfig(BYGBlockList.FROST_MAGMA.getDefaultState())).decorate(Decorator.WATER_LAKE.configure(new ChanceDecoratorConfig(4))));
-    public static ConfiguredFeature<?, ?> WARPED_CORAL_PLANT = newConfiguredFeature("warped_coral_plant", BYGFeatureList.HUGE_WARPED_CORAL_PLANT.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(3, 0.4F, 0))));
+    public static ConfiguredFeature<?, ?> WARPED_CORAL_PLANT = newConfiguredFeature("warped_coral_plant", BYGFeatureList.HUGE_WARPED_CORAL_PLANT.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.2F, 1))));
     public static ConfiguredFeature<?, ?> SYTHIAN_STALK = newConfiguredFeature("sythian_stalk", BYGFeatureList.SYTHIAN_STALK.configure(new ProbabilityConfig(0.9F)).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
     public static ConfiguredFeature<?, ?> EMBUR_LILY = newConfiguredFeature("embur_lily", BYGFeatureList.EMBUR_LILY.configure(DefaultFeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.5F, 2))));
     public static ConfiguredFeature<?, ?> CRAG_LAKE = newConfiguredFeature("crag_lake", BYGFeatureList.LAKE_WIDE_SHALLOW.configure(FeatureConfig.DEFAULT).decorate(AnyWaterOrSolidSurfaceSurface.WATER_OR_SOLID_SURFACE.configure(new CountConfig(4))));
@@ -257,21 +257,21 @@ public class BYGConfiguredFeatures {
             BLACK_PUFF.withChance(0.1F),
             WOOD_BLEWIT.withChance(0.1F),
             WEEPING_MILKCAP.withChance(0.1F)),
-            NETHER_BRISTLE)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(35)).repeat(5)));
+            NETHER_BRISTLE)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(15)).repeat(1)));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_BOG_PLANT = newConfiguredFeature("rs_embur_bog_plant", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             EMBUR_ROOTS.withChance(0.35F),
             EMBUR_ROOTS_TALL.withChance(0.35F),
             EMBUR_GEL_VINES.withChance(0.25F)),
-            EMBUR_WART)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(35))));
+            EMBUR_WART)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(15))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_PLANT = newConfiguredFeature("rs_sythian_plant", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             SYTHIAN_ROOTS.withChance(0.5F)),
             SYTHIAN_SPROUT)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(20))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS = newConfiguredFeature("rs_weeping_roots", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            WEEPING_ROOTS.withChance(0.45F)),
-            WEEPING_ROOTS_PLANT)).method_30377(128).spreadHorizontally().repeat(25));
+            WEEPING_ROOTS.withChance(0.3F)),
+            WEEPING_ROOTS_PLANT)).method_30377(128).spreadHorizontally().repeat(80));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JUNGLE_FLOWERS = newConfiguredFeature("rs_jungle_flowers", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BISTORT.withChance(0.50F),
@@ -330,7 +330,7 @@ public class BYGConfiguredFeatures {
             WARPED_BUSH.withChance(0.25F),
             WARPED_CORAL.withChance(0.25F),
             WARPED_CORAL_FAN.withChance(0.25F)),
-            WARPED_CACTI)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(25))));
+            WARPED_CACTI)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(16))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUEBERRY_BUSH = newConfiguredFeature("rs_blueberry_bush", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BLUE_BERRY_BUSH.withChance(0.5F)),
