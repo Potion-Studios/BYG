@@ -1,14 +1,10 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    "X X",
-    "X X"
-  ],
-  "key": {
-    "X": {
-      "item": "byg:ametrine_gems"
-    }
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_leggings"
+  },
+  "addition": {
+    "item": "byg:ametrine_gems"
   },
   "result": {
     "item": "byg:ametrine_leggings"

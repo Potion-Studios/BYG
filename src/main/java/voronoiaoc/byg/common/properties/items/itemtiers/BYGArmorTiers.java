@@ -14,10 +14,10 @@ import voronoiaoc.byg.core.byglists.BYGItemList;
 import java.util.function.Supplier;
 
 public enum BYGArmorTiers implements ArmorMaterial {
-    AMETRINE("ametrine", 39, new int[]{4, 7, 9, 4}, 15, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.5F, 0.0F, () -> {
+    AMETRINE("ametrine", 39, new int[]{4, 7, 9, 4}, 15, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.2F, 0.5F, () -> {
         return Ingredient.ofItems(BYGItemList.AMETRINE_GEMS);
     }),
-    PENDORITE("pendorite", 15, new int[]{1, 4, 5, 2}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> {
+    PENDORITE("pendorite", 15, new int[]{1, 4, 5, 2}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0F, 0.0F, () -> {
         return Ingredient.ofItems(BYGItemList.PENDORITE_SCRAPS);
     });
 
