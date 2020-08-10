@@ -27,7 +27,6 @@ public class AnyWaterOrSolidSurfaceSurface extends Decorator<CountConfig> {
             BlockPos.Mutable mutable = new BlockPos.Mutable(x, ctx.world.getHeight(), z);
             while (mutable.getY() > 0 && !ctx.getBlockState(mutable).isSolidBlock(ctx.world, mutable) && ctx.getBlockState(mutable).getFluidState().isEmpty())
                 mutable.move(Direction.DOWN);
-
             return mutable.toImmutable();
         });
     }

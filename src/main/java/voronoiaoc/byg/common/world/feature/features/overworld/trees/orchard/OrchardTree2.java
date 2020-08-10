@@ -31,7 +31,7 @@ public class OrchardTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getDimensionHeight()) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos, Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;

@@ -100,7 +100,7 @@ public class BYGDataGenerator {
         }
 
         public String getName() {
-            return "Biomes";
+            return "Byg Biomes";
         }
     }
 

@@ -96,7 +96,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
             for (Block block1 : desiredGroundBlock) {
                 return Feature.isSoil(block) || block == block1;
             }
-            return false;
+            return Feature.isSoil(block);
         });
     }
 
