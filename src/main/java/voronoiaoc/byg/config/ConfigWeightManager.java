@@ -3,6 +3,7 @@ package voronoiaoc.byg.config;
 import net.fabricmc.loader.api.FabricLoader;
 import tk.valoeghese.zoesteriaconfig.api.ZoesteriaConfig;
 import tk.valoeghese.zoesteriaconfig.api.container.WritableConfig;
+import voronoiaoc.byg.BYG;
 
 import java.io.File;
 import java.io.IOException;
@@ -78,16 +79,44 @@ public class ConfigWeightManager {
 
 
 
-    public static void buildConfig() throws IOException {
-        CONFIG_FILE.createNewFile();
+    private static void readConfig() {
         biomeWeights.forEach(configWeight -> {
-                WritableConfig config = ZoesteriaConfig.loadConfigWithDefaults(CONFIG_FILE, configWeight.apply());
+                WritableConfig config = ZoesteriaConfig.loadConfig(CONFIG_FILE);
                 config.writeToFile(CONFIG_FILE);
                 Integer integer = config.getIntegerValue(configWeight.getName() + ".Weight");
                 if (integer != null)
                     configWeight.setWeight(integer);
+                else {
+                    BYG.LOGGER.error(configWeight.getName() + "'s weight could not be read! Defaulting... Make sure:\n1. The value is an integer and not a decimal.\n2. Bracket placement is correct.");
+                    configWeight.setWeight(configWeight.getDefaultWeight());
+                }
+        });
+    }
+
+    private static void buildDefaultConfig() throws IOException {
+        CONFIG_FILE.createNewFile();
+        biomeWeights.forEach(configWeight -> {
+            WritableConfig config = ZoesteriaConfig.loadConfigWithDefaults(CONFIG_FILE, configWeight.apply());
+            config.writeToFile(CONFIG_FILE);
         });
     }
 
     private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(), "byg-weight.cfg");
+
+    public static void weightConfigFile() {
+        if (!CONFIG_FILE.exists()) {
+            BYG.LOGGER.debug("Building Biome Weight Config...");
+            try {
+                ConfigWeightManager.buildDefaultConfig();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            BYG.LOGGER.info("Built Biome Weight Config!");
+
+        }
+        BYG.LOGGER.debug("Reading Biome Weight Config...");
+        ConfigWeightManager.readConfig();
+        BYG.LOGGER.info("Read Biome Weight Config!");
+
+    }
 }

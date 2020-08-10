@@ -35,12 +35,7 @@ public class BYG implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Initializing BYG...");
-        try {
-            ConfigWeightManager.buildConfig();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        ConfigWeightManager.weightConfigFile();
         //Registries
         BYGBlockRegistry.registerBlocks();
         BYGItemRegistry.registerItems();

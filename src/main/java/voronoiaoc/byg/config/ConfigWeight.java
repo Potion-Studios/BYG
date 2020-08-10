@@ -24,6 +24,10 @@ public class ConfigWeight {
         return configWeight;
     }
 
+    public int getDefaultWeight() {
+        return defaultWeight;
+    }
+
     public void setWeight(int configValue) {
         configWeight = configValue;
     }
