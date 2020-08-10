@@ -776,7 +776,7 @@ public class BYGConfiguredTreeFeatures {
             PURPLE_GLOWSHROOM_HUGE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(25, 0.4F, 2))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDENS_MUSHROOM = newConfiguredFeature("rs_glowstone_gardens_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDENS_MUSHROOM = newConfiguredFeature("rs_gg_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
                 BLUE_GLOWSHROOM_HUGE.withChance(0.16F),
                 PURPLE_GLOWSHROOM_HUGE.withChance(0.16F),
                 GREEN_MUSHROOM_HUGE.withChance(0.16F),
@@ -794,7 +794,7 @@ public class BYGConfiguredTreeFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_MUSHROOM = newConfiguredFeature("rs_embur_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             EMBUR_MUSHROOM.withChance(0.5F)),
-            EMBUR_MUSHROOM2)).decorate(Decorator.COUNT_EXTRA.configure(
+            EMBUR_MUSHROOM2)).decorate(UnderGroundPlacement.UGPLACER.configure(
             new CountExtraDecoratorConfig(4, 0.5F, 6))));
 
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {

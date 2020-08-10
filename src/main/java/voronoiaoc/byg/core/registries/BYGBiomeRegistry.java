@@ -212,8 +212,6 @@ public class BYGBiomeRegistry {
         registerSubBiome(BYGBiomeList.SIERRARANGE, "sierra_range", true);
         registerSubBiome(BYGBiomeList.REDDESERTDUNES, "red_desert_dunes", true);
         registerSubBiome(BYGBiomeList.SEASONALGIANTTAIGA, "seasonal_giant_taiga", true);
-
-
         BYG.LOGGER.info("BYG: Registered Sub Biomes!");
     }
 

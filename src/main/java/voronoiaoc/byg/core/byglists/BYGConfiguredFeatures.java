@@ -156,7 +156,7 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> FROST_MAGMA_LAKE = newConfiguredFeature("frost_magma_lake", BYGFeatureList.LAKE_FROST.configure(new SingleStateFeatureConfig(BYGBlockList.FROST_MAGMA.getDefaultState())).decorate(Decorator.WATER_LAKE.configure(new ChanceDecoratorConfig(4))));
     public static ConfiguredFeature<?, ?> WARPED_CORAL_PLANT = newConfiguredFeature("warped_coral_plant", BYGFeatureList.HUGE_WARPED_CORAL_PLANT.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(3, 0.4F, 0))));
     public static ConfiguredFeature<?, ?> SYTHIAN_STALK = newConfiguredFeature("sythian_stalk", BYGFeatureList.SYTHIAN_STALK.configure(new ProbabilityConfig(0.9F)).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
-    public static ConfiguredFeature<?, ?> EMBUR_LILY = newConfiguredFeature("embur_lily", BYGFeatureList.EMBUR_WART.configure(DefaultFeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.5F, 2))));
+    public static ConfiguredFeature<?, ?> EMBUR_LILY = newConfiguredFeature("embur_lily", BYGFeatureList.EMBUR_LILY.configure(DefaultFeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.5F, 2))));
     public static ConfiguredFeature<?, ?> CRAG_LAKE = newConfiguredFeature("crag_lake", BYGFeatureList.LAKE_WIDE_SHALLOW.configure(FeatureConfig.DEFAULT).decorate(AnyWaterOrSolidSurfaceSurface.WATER_OR_SOLID_SURFACE.configure(new CountConfig(4))));
     public static ConfiguredFeature<?, ?> EMBUR_LAKE = newConfiguredFeature("embur_lake", BYGFeatureList.EMBURLAKE.configure(DefaultFeatureConfig.DEFAULT).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(32, 0, 4)).spreadHorizontally()).repeat(15));
 
@@ -251,13 +251,13 @@ public class BYGConfiguredFeatures {
             WEEPING_MILKCAP.withChance(0.50F)),
             GREEN_MUSHROOM)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(5));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDEN_VEGETATION = newConfiguredFeature("rs_glowstone_garden_vegetation", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            BLACK_PUFF.withChance(0.19F),
-            GREEN_MUSHROOM.withChance(0.19F),
-            BLACK_PUFF.withChance(0.19F),
-            WOOD_BLEWIT.withChance(0.19F),
-            WEEPING_MILKCAP.withChance(0.19F)),
-            NETHER_BRISTLE)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(35))));
+    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDEN_VEGETATION = newConfiguredFeature("rs_gg_vegetation", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            BLACK_PUFF.withChance(0.1F),
+            GREEN_MUSHROOM.withChance(0.1F),
+            BLACK_PUFF.withChance(0.1F),
+            WOOD_BLEWIT.withChance(0.1F),
+            WEEPING_MILKCAP.withChance(0.1F)),
+            NETHER_BRISTLE)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(35)).repeat(5)));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_BOG_PLANT = newConfiguredFeature("rs_embur_bog_plant", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             EMBUR_ROOTS.withChance(0.35F),
