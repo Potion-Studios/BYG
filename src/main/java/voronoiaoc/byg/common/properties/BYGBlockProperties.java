@@ -978,8 +978,8 @@ public class BYGBlockProperties {
     public static class BYGBerryBush extends BlueBerryBush {
         public BYGBerryBush(String registryName) {
             super(Settings.of(Material.PLANT)
-                    .sounds(BlockSoundGroup.GRASS)
-                    .strength(1.5f, 6.0f)
+                    .sounds(BlockSoundGroup.SWEET_BERRY_BUSH)
+                    .strength(0.0f, 0.0f)
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
