@@ -84,7 +84,8 @@ public class ConfigWeightManager {
                 WritableConfig config = ZoesteriaConfig.loadConfigWithDefaults(CONFIG_FILE, configWeight.apply());
                 config.writeToFile(CONFIG_FILE);
                 Integer integer = config.getIntegerValue(configWeight.getName() + ".Weight");
-                configWeight.setWeight(integer);
+                if (integer != null)
+                    configWeight.setWeight(integer);
         });
     }
 

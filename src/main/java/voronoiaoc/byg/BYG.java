@@ -40,6 +40,7 @@ public class BYG implements ModInitializer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         //Registries
         BYGBlockRegistry.registerBlocks();
         BYGItemRegistry.registerItems();

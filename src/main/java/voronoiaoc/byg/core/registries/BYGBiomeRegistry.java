@@ -34,8 +34,8 @@ public class BYGBiomeRegistry {
         BYG.LOGGER.debug("BYG: Registering BuiltInBiomes...");
         registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields", true, ConfigWeightManager.ALLIUMFIELDS.getWeight(), OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.ALPS, "alps", true, ConfigWeightManager.ALPS.getWeight(), OverworldClimate.SNOWY);
-        registerBiome(BYGBiomeList.AMARANTHFIELDS, "amaranth_fields", true, 2, OverworldClimate.TEMPERATE);
-        registerBiome(BYGBiomeList.ASPENFOREST, "aspen_forest", true, 6, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.AMARANTHFIELDS, "amaranth_fields", true, ConfigWeightManager.AMARANTHFIELDS.getWeight(), OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.ASPENFOREST, "aspen_forest", true, ConfigWeightManager.ASPENFOREST.getWeight(), OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.ANCIENTFOREST, "ancient_forest", true, 1, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.AUTUMNAL_VALLEY, "autumnal_valley", true, 5, OverworldClimate.COOL);
         registerBiome(BYGBiomeList.BAOBABSAVANNA, "baobab_savanna", true, 6, OverworldClimate.DRY);
@@ -263,8 +263,6 @@ public class BYGBiomeRegistry {
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate type) {
         Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
         biomeList.add(biome);
-        BYG.LOGGER.info(id + " " + weight);
-
         if (weight > 0) {
             if (type == OverworldClimate.TEMPERATE)
                 WARM.add(BuiltinRegistries.BIOME.getRawId(biome));
