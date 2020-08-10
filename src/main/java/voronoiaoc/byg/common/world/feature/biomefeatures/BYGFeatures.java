@@ -4,6 +4,7 @@ import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
+import voronoiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
 
 public class BYGFeatures {
     public static void addAlliumFieldFlowers(GenerationSettings.Builder gen) {
@@ -51,27 +52,13 @@ public class BYGFeatures {
     }
 
     public static void addLargeLake(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.LAKE_WIDE_SHALLOW.configure(FeatureConfig.DEFAULT).decorate(AnyWaterOrSolidSurfaceSurface.WWATERORSOLIDSURFACE.configure(new CountDecoratorConfig(4))));
-    }
-
-    public static void addLargeLavaLake(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.LAKE_LAVA_WIDE_SHALLOW.configure(FeatureConfig.DEFAULT).decorate(AnyWaterOrSolidSurfaceSurface.WWATERORSOLIDSURFACE.configure(new CountDecoratorConfig(3))));
-    }
-
-    public static void addVolcanicCarvers(GenerationSettings.Builder gen) {
-//        gen.addCarver(GenerationStep.Carver.AIR, gen.configureCarver(BYGFeatureList.VOLCANIC_CARVER, new ProbabilityConfig(0.02F)));
-
+        gen.feature(GenerationStep.Feature.RAW_GENERATION, BYGConfiguredFeatures.CRAG_LAKE);
     }
 
     public static void addEmburBogVegetation(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.5F, 3))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBURMUSHROOM2.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.5F, 3))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_ROOTS.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(15, 0.5F, 12))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.TALL_EMBUR_ROOTS.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(15, 0.5F, 12))));
-        //gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.EMBUR_GEL_VINES.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(20, 0.8F, 6))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_WART.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(3, 0.5F, 2))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.EMBUR_LILY.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.5F, 2))));
-
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_EMBUR_MUSHROOM);
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_BOG_PLANT);
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_LILY);
     }
 
     public static void addAzalea(GenerationSettings.Builder gen) {
@@ -290,14 +277,8 @@ public class BYGFeatures {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DESERT_PLANTS);
     }
 
-    public static void addQuagmireFeatures(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.QUAGMIREDEADBUSH_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(100))));
-//        //gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGFeatureList.DEAD_TREE.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(1, 0.4F, -1))));
-
-    }
-
     public static void addBYGBambooJungleVegetation(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.BAMBOO.configure(new ProbabilityConfig(0.1F)).decorate(Decorator.TOP_SOLID_HEIGHTMAP_NOISE_BIASED.configure(new TopSolidHeightmapNoiseBiasedDecoratorConfig(160, 80.0D, 0.3D, Heightmap.Type.WORLD_SURFACE_WG))));
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.BAMBOO);
     }
 
     public static void addRockyStoneBoulder(GenerationSettings.Builder gen) {
@@ -313,69 +294,30 @@ public class BYGFeatures {
     }
 
     public static void addFrostMagmaLakes(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, BYGFeatureList.LAKE_FROST.configure(new SingleStateFeatureConfig(BYGBlockList.FROST_MAGMA.getDefaultState())).decorate(Decorator.WATER_LAKE.configure(new ChanceDecoratorConfig(4))));
-
+        gen.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, BYGConfiguredFeatures.FROST_MAGMA_LAKE);
     }
 
-
-//    public static void addNetherFortress(GenerationSettings.Builder gen) {
-//        gen.addStructure(Feature.NETHER_BRIDGE.configure(FeatureConfig.DEFAULT));
-//        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.NETHER_BRIDGE.configure(FeatureConfig.DEFAULT).decorate(Decorator.NOPE.configure(IDecoratorConfig.NO_Decorator_CONFIG)));
-//    }
-
     public static void addWarpedVegetation(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WARPED_CACTUS_CONFIG).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.4F, -1))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_BUSH.configure(FeatureConfig.DEFAULT).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(400, 0, 0, 256))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_CORAL.configure(FeatureConfig.DEFAULT).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(600, 0, 0, 256))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_CORALFAN.configure(FeatureConfig.DEFAULT).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(600, 0, 0, 256))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WARPED_CORALPLANT.configure(FeatureConfig.DEFAULT).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(300, 0, 0, 256))));
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.WARPED_CORAL_PLANT);
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WARPED_DESERT_VEGETATION);
     }
 
     public static void addSythianVegetation(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.SYTHIAN_STALK.configure(new ProbabilityConfig(0.9F)).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.SYTHIAN_ROOTS.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.SYTHIAN_SPROUT.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.SYTHIAN_STALK);
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SYTHIAN_PLANT);
     }
 
     public static void addGlowstoneGardenVegetation(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WEED_GRASS.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WEEPING_MILKCAP.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WOOD_BLEWIT.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.BLACK_PUFF.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.GREEN_MUSHROOM.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.NETHER_BRISTLE.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.4F, 1))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WEEPING_ROOTS.configure(FeatureConfig.DEFAULT).decorate(Decorator.LIGHT_GEM_CHANCE.configure(new CountDecoratorConfig(150))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.WEEPING_ROOTS_PLANT.configure(FeatureConfig.DEFAULT).decorate(Decorator.LIGHT_GEM_CHANCE.configure(new CountDecoratorConfig(200))));
-
+        gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_GLOWSTONE_GARDEN_VEGETATION);
+        gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_WEEPING_ROOTS);
     }
-
-//    public static void addEndCity(GenerationSettings.Builder gen) {
-//        //gen.feature(GenerationStep.Feature.SURFACE_STRUCTURES, Feature.END_CITY.configure(FeatureConfig.DEFAULT).decorate(Decorator.NOPE.configure(IDecoratorConfig.NO_Decorator_CONFIG)));
-//        gen.addStructure(Feature.END_CITY.configure(FeatureConfig.DEFAULT));
-//        //gen.feature(GenerationStep.Feature.SURFACE_STRUCTURES, Feature.END_GATEWAY.configure(EndGatewayConfig.func_214702_a(EndDimension.SPAWN, true)).decorate(Decorator.END_GATEWAY.configure(IDecoratorConfig.NO_Decorator_CONFIG)));
-//    }
 
     public static void addDeadSeaSpires(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.TALLDEADSEASPIKES.configure(FeatureConfig.DEFAULT).decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraDecoratorConfig(2, 0.1F, 1))));
-        //gen.feature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.DEADSEASPIKES.configure(FeatureConfig.DEFAULT).decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraDecoratorConfig(25, 0.1F, 1))));
+        gen.feature(GenerationStep.Feature.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_DEAD_SEA_SPIKE);
     }
 
-//    public static void addSkyrisFortress(GenerationSettings.Builder gen) {
-//        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGFeatureList.SKYRISFORTRESS.configure(FeatureConfig.DEFAULT).decorate(Decorator.NOPE.configure(IDecoratorConfig.NO_Decorator_CONFIG)));
-//        gen.addStructure(BYGFeatureList.SKYRISFORTRESS.configure(FeatureConfig.DEFAULT));
-//    }
-
     public static void addHugeNetherMushrooms(GenerationSettings.Builder gen) {
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.RANDOM_BOOLEAN_SELECTOR.configure(new RandomBooleanFeatureConfig(Feature.HUGE_RED_MUSHROOM.configure(DefaultBiomeFeatures.HUGE_RED_MUSHROOM_CONFIG), Feature.HUGE_BROWN_MUSHROOM.configure(DefaultBiomeFeatures.HUGE_BROWN_MUSHROOM_CONFIG))).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.5F, 2))));
-        //gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-//                BYGFeatureList.BLUE_GLOWSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F),
-//                BYGFeatureList.PURPLE_GLOWSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F),
-//                BYGFeatureList.GREEN_MUSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F),
-//                BYGFeatureList.WOOD_BLEWIT_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F),
-//                BYGFeatureList.WEEPING_MILKCAP_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.5F)),
-//                BYGFeatureList.BLACK_PUFF_HUGE.configure(DecoratedFeatureConfig.DEFAULT))).decorate(UnderGroundPlacement.UGPLACER.configure(
-//                new CountExtraDecoratorConfig(5, 0.5F, 2))));
-
+        gen.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_GLOWSTONE_GARDENS_MUSHROOM);
     }
 
     public static void addTropFungalMushrooms(GenerationSettings.Builder gen) {

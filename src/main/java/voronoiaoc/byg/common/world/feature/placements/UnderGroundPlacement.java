@@ -7,6 +7,7 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DecoratorContext;
+import voronoiaoc.byg.common.biomes.BiomeHelper;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -16,13 +17,11 @@ import java.util.stream.Stream;
 
 public class UnderGroundPlacement extends Decorator<CountExtraDecoratorConfig> {
 
-    public static final Decorator<CountExtraDecoratorConfig> UGPLACER = new UnderGroundPlacement(CountExtraDecoratorConfig.CODEC);
+    public static final Decorator<CountExtraDecoratorConfig> UGPLACER = BiomeHelper.newDecorator("underground_count_extra_decorator", new UnderGroundPlacement(CountExtraDecoratorConfig.CODEC));
 
     public UnderGroundPlacement(Codec<CountExtraDecoratorConfig> codec) {
         super(codec);
     }
-
-    //TODO: FIX
 
     public Stream<BlockPos> getPositions(DecoratorContext decoratorContext, Random random, CountExtraDecoratorConfig config, BlockPos pos) {
         int c = config.count;
@@ -31,7 +30,7 @@ public class UnderGroundPlacement extends Decorator<CountExtraDecoratorConfig> {
         }
 
         boolean airFlag = false;
-        boolean airBlock = true;
+        boolean airBlock;
         ArrayList<BlockPos> blockPosList = new ArrayList<BlockPos>();
 
         for (int i = 0; i < c; i++) {
@@ -43,8 +42,7 @@ public class UnderGroundPlacement extends Decorator<CountExtraDecoratorConfig> {
 
             while (height > 15) {
 
-//                airBlock = decoratorContext.getBlockState(pos).getBlock() = Blocks.AIR
-//                        (pos.add(x, height, z));
+                airBlock = decoratorContext.getBlockState(pos.add(x, height, z)).isAir();
 
                 //if height is is an air block and previous block was a solid block, store the fact that we are in an air block now
                 if (!airFlag && airBlock) {
@@ -65,8 +63,6 @@ public class UnderGroundPlacement extends Decorator<CountExtraDecoratorConfig> {
 
         }
 
-        return IntStream.range(0, blockPosList.size()).mapToObj((p_215051_3_) -> {
-            return blockPosList.remove(0);
-        }).filter(Objects::nonNull);
+        return IntStream.range(0, blockPosList.size()).mapToObj((integer) -> blockPosList.remove(0)).filter(Objects::nonNull);
     }
 }

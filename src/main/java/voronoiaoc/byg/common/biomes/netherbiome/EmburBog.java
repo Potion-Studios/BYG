@@ -14,6 +14,7 @@ import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 import voronoiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -56,7 +57,7 @@ public class EmburBog extends Biome {
 
     static {
         //TODO: Reenable Embur Bog lake.
-//        GENERATION_SETTINGS.feature(GenerationStep.Feature.RAW_GENERATION, BYGFeatureList.EMBURLAKE.configure(DefaultFeatureConfig.DEFAULT).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(8, 0, 4, 128))));
+        GENERATION_SETTINGS.feature(GenerationStep.Feature.RAW_GENERATION, BYGConfiguredFeatures.EMBUR_LAKE);
         GENERATION_SETTINGS.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.NETHER_CAVE);
         GENERATION_SETTINGS.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, ConfiguredFeatures.SPRING_CLOSED);
         GENERATION_SETTINGS.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, ConfiguredFeatures.SPRING_LAVA);

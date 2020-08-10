@@ -31,3 +31,4 @@ mutable field net/minecraft/world/biome/layer/SetBaseBiomesLayer TEMPERATE_BIOME
 accessible field net/minecraft/world/biome/layer/SetBaseBiomesLayer TEMPERATE_BIOMES [I
 mutable field net/minecraft/world/biome/layer/SetBaseBiomesLayer SNOWY_BIOMES [I
 accessible field net/minecraft/world/biome/layer/SetBaseBiomesLayer SNOWY_BIOMES [I
+accessible field net/minecraft/world/gen/decorator/DecoratorContext world Lnet/minecraft/world/StructureWorldAccess;

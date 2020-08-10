@@ -4,14 +4,21 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.ConfiguredFeatures;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.RandomFeatureConfig;
+import net.minecraft.world.gen.CountConfig;
+import net.minecraft.world.gen.ProbabilityConfig;
+import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
+import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.*;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
+import voronoiaoc.byg.common.world.feature.placements.AnyWaterOrSolidSurfaceSurface;
+import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
+import voronoiaoc.byg.common.world.feature.placements.UnderGroundPlacement;
 
 public class BYGConfiguredFeatures {
+    /***********************************************************Configured Features***********************************************************/
 
     public static ConfiguredFeature<?, ?> ALLIUM_BUSH = newConfiguredFeature("allium_bush", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.ALLIUMBUSH_CONFIG));
     public static ConfiguredFeature<?, ?> ALLIUM_PINK_BUSH = newConfiguredFeature("pink_allium_bush", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.PINKALLIUMBUSH_CONFIG));
@@ -68,6 +75,9 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> WHITE_CHERRY_FOLIAGE = newConfiguredFeature("white_cherry_foliage", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WHITE_CHERRY_FOLIAGE));
 
     public static ConfiguredFeature<?, ?> WARPED_CACTI = newConfiguredFeature("warped_cacti", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WARPED_CACTUS_CONFIG));
+    public static ConfiguredFeature<?, ?> WARPED_BUSH = newConfiguredFeature("warped_bush", BYGFeatureList.WARPED_BUSH.configure(FeatureConfig.DEFAULT));
+    public static ConfiguredFeature<?, ?> WARPED_CORAL = newConfiguredFeature("warped_coral", BYGFeatureList.WARPED_CORAL.configure(FeatureConfig.DEFAULT));
+    public static ConfiguredFeature<?, ?> WARPED_CORAL_FAN = newConfiguredFeature("warped_coral_fan", BYGFeatureList.WARPED_CORAL_FAN.configure(FeatureConfig.DEFAULT));
 
     public static ConfiguredFeature<?, ?> BLUE_BERRY_BUSH = newConfiguredFeature("blue_berry_bush", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.BLUEBERRY_BUSH_CONFIG));
     public static ConfiguredFeature<?, ?> ROSE = newConfiguredFeature("rose", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.ROSE_CONFIG));
@@ -91,6 +101,8 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> WINTER_SCILLA = newConfiguredFeature("winter_scilla", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.WINTER_SCILLA_CONFIG));
     public static ConfiguredFeature<?, ?> KOVAN_FLOWER = newConfiguredFeature("kovan_flower", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.KOVAN_FLOWER_CONFIG));
     public static ConfiguredFeature<?, ?> FIRECRACKER_BUSH = newConfiguredFeature("firecracker_bush", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.FIRECRACKER_CONFIG));
+
+    public static ConfiguredFeature<?, ?> NETHER_BRISTLE = newConfiguredFeature("nether_bristle", BYGFeatureList.NETHER_BRISTLE.configure(FeatureConfig.DEFAULT));
 
     public static ConfiguredFeature<?, ?> TULIP_GREEN = newConfiguredFeature("green_tulip", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.GREEN_TULIP_CONFIG));
     public static ConfiguredFeature<?, ?> TULIP_CYAN = newConfiguredFeature("cyan_tulip", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.CYAN_TULIP_CONFIG));
@@ -122,6 +134,33 @@ public class BYGConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> IVIS_ROOTS = newConfiguredFeature("ivis_roots", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.IVIS_ROOTS));
     public static ConfiguredFeature<?, ?> IVIS_SPROUT = newConfiguredFeature("ivis_sprout", Feature.RANDOM_PATCH.configure(BYGFeatureConfigs.IVIS_SPROUT));
+
+    public static ConfiguredFeature<?, ?> WEEPING_ROOTS = newConfiguredFeature("weeping_roots", BYGFeatureList.WEEPING_ROOTS.configure(DefaultFeatureConfig.DEFAULT));
+    public static ConfiguredFeature<?, ?> WEEPING_ROOTS_PLANT = newConfiguredFeature("weeping_roots_plant", BYGFeatureList.WEEPING_ROOTS_PLANT.configure(DefaultFeatureConfig.DEFAULT));
+
+    public static ConfiguredFeature<?, ?> EMBUR_ROOTS = newConfiguredFeature("embur_roots", BYGFeatureList.EMBUR_ROOTS.configure(DefaultFeatureConfig.DEFAULT));
+    public static ConfiguredFeature<?, ?> EMBUR_ROOTS_TALL = newConfiguredFeature("tall_embur_roots", BYGFeatureList.TALL_EMBUR_ROOTS.configure(DefaultFeatureConfig.DEFAULT));
+    public static ConfiguredFeature<?, ?> EMBUR_GEL_VINES = newConfiguredFeature("embur_gel_vines", BYGFeatureList.EMBUR_GEL_VINES.configure(DefaultFeatureConfig.DEFAULT));
+    public static ConfiguredFeature<?, ?> EMBUR_WART = newConfiguredFeature("embur_wart", BYGFeatureList.EMBUR_WART.configure(DefaultFeatureConfig.DEFAULT));
+
+    public static ConfiguredFeature<?, ?> SYTHIAN_ROOTS = newConfiguredFeature("sythian_root", BYGFeatureList.SYTHIAN_ROOTS.configure(FeatureConfig.DEFAULT));
+    public static ConfiguredFeature<?, ?> SYTHIAN_SPROUT = newConfiguredFeature("sythian_sprout", BYGFeatureList.SYTHIAN_SPROUT.configure(FeatureConfig.DEFAULT));
+
+
+    public static ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = newConfiguredFeature("dead_sea_spike", BYGFeatureList.DEADSEASPIKES.configure(DecoratedFeatureConfig.DEFAULT));
+    public static ConfiguredFeature<?, ?> DEAD_SEA_SPIKE_TALL = newConfiguredFeature("dead_sea_tall_spike", BYGFeatureList.TALLDEADSEASPIKES.configure(DecoratedFeatureConfig.DEFAULT));
+
+
+    /***********************************************************Configured & Decorated Features***********************************************************/
+
+    public static ConfiguredFeature<?, ?> FROST_MAGMA_LAKE = newConfiguredFeature("frost_magma_lake", BYGFeatureList.LAKE_FROST.configure(new SingleStateFeatureConfig(BYGBlockList.FROST_MAGMA.getDefaultState())).decorate(Decorator.WATER_LAKE.configure(new ChanceDecoratorConfig(4))));
+    public static ConfiguredFeature<?, ?> WARPED_CORAL_PLANT = newConfiguredFeature("warped_coral_plant", BYGFeatureList.HUGE_WARPED_CORAL_PLANT.configure(FeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(3, 0.4F, 0))));
+    public static ConfiguredFeature<?, ?> SYTHIAN_STALK = newConfiguredFeature("sythian_stalk", BYGFeatureList.SYTHIAN_STALK.configure(new ProbabilityConfig(0.9F)).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(10, 0.5F, 8))));
+    public static ConfiguredFeature<?, ?> EMBUR_LILY = newConfiguredFeature("embur_lily", BYGFeatureList.EMBUR_WART.configure(DefaultFeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.5F, 2))));
+    public static ConfiguredFeature<?, ?> CRAG_LAKE = newConfiguredFeature("crag_lake", BYGFeatureList.LAKE_WIDE_SHALLOW.configure(FeatureConfig.DEFAULT).decorate(AnyWaterOrSolidSurfaceSurface.WATER_OR_SOLID_SURFACE.configure(new CountConfig(4))));
+    public static ConfiguredFeature<?, ?> EMBUR_LAKE = newConfiguredFeature("embur_lake", BYGFeatureList.EMBURLAKE.configure(DefaultFeatureConfig.DEFAULT).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(32, 0, 4)).spreadHorizontally()).repeat(15));
+
+    /***********************************************************Random Selectors***********************************************************/
 
     public static final ConfiguredFeature<?, ?> RANDOM_ALLIUM_FLOWER = newConfiguredFeature("rs_allium_flower", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             ALLIUM_TALL_BUSH.withChance(0.25F),
@@ -212,6 +251,28 @@ public class BYGConfiguredFeatures {
             WEEPING_MILKCAP.withChance(0.50F)),
             GREEN_MUSHROOM)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(5));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDEN_VEGETATION = newConfiguredFeature("rs_glowstone_garden_vegetation", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            BLACK_PUFF.withChance(0.19F),
+            GREEN_MUSHROOM.withChance(0.19F),
+            BLACK_PUFF.withChance(0.19F),
+            WOOD_BLEWIT.withChance(0.19F),
+            WEEPING_MILKCAP.withChance(0.19F)),
+            NETHER_BRISTLE)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(35))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_BOG_PLANT = newConfiguredFeature("rs_embur_bog_plant", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            EMBUR_ROOTS.withChance(0.35F),
+            EMBUR_ROOTS_TALL.withChance(0.35F),
+            EMBUR_GEL_VINES.withChance(0.25F)),
+            EMBUR_WART)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(35))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_PLANT = newConfiguredFeature("rs_sythian_plant", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            SYTHIAN_ROOTS.withChance(0.5F)),
+            SYTHIAN_SPROUT)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(20))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS = newConfiguredFeature("rs_weeping_roots", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            WEEPING_ROOTS.withChance(0.45F)),
+            WEEPING_ROOTS_PLANT)).method_30377(128)).spreadHorizontally().repeat(128);
+
     public static final ConfiguredFeature<?, ?> RANDOM_JUNGLE_FLOWERS = newConfiguredFeature("rs_jungle_flowers", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BISTORT.withChance(0.50F),
             GUZMANIA.withChance(0.50F),
@@ -265,9 +326,11 @@ public class BYGConfiguredFeatures {
             WHITE_CHERRY_FOLIAGE.withChance(0.5F)),
             PINK_CHERRY_FOLIAGE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_WARPED_CACTI = newConfiguredFeature("rs_warped_cacti", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            WARPED_CACTI.withChance(0.5F)),
-            WARPED_CACTI)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2));
+    public static final ConfiguredFeature<?, ?> RANDOM_WARPED_DESERT_VEGETATION = newConfiguredFeature("rs_warped_desert_plants", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            WARPED_BUSH.withChance(0.25F),
+            WARPED_CORAL.withChance(0.25F),
+            WARPED_CORAL_FAN.withChance(0.25F)),
+            WARPED_CACTI)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(25))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUEBERRY_BUSH = newConfiguredFeature("rs_blueberry_bush", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BLUE_BERRY_BUSH.withChance(0.5F)),
@@ -388,6 +451,11 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_IVIS_PLANTS = newConfiguredFeature("rs_ivis_plants", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             IVIS_ROOTS.withChance(0.5F)),
             IVIS_SPROUT)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(20));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = newConfiguredFeature("rs_dead_sea_spike", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+            DEAD_SEA_SPIKE.withChance(0.9F)),
+            DEAD_SEA_SPIKE_TALL)).decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(new CountExtraDecoratorConfig(28, 0.1F, 1))));
+
 
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(BYG.MODID, registryName), configuredFeature);

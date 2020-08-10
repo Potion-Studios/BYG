@@ -201,8 +201,8 @@ public class BYGFeatureList {
     //Warped
     public static final Feature<DefaultFeatureConfig> WARPED_BUSH = new WarpedBush(DefaultFeatureConfig.CODEC);
     public static final Feature<DefaultFeatureConfig> WARPED_CORAL = new WarpedCoral(DefaultFeatureConfig.CODEC);
-    public static final Feature<DefaultFeatureConfig> WARPED_CORALPLANT = new WarpedCoralFeature(DefaultFeatureConfig.CODEC);
-    public static final Feature<DefaultFeatureConfig> WARPED_CORALFAN = new WarpedCoralFan(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> HUGE_WARPED_CORAL_PLANT = new WarpedCoralFeature(DefaultFeatureConfig.CODEC);
+    public static final Feature<DefaultFeatureConfig> WARPED_CORAL_FAN = new WarpedCoralFan(DefaultFeatureConfig.CODEC);
 
 
     public static final Feature<DefaultFeatureConfig> WOOD_BLEWIT = new WoodBlewitMushroom(DefaultFeatureConfig.CODEC);
@@ -479,8 +479,8 @@ public class BYGFeatureList {
             registerFeature(SYTHIAN_ROOTS, "sythian_roots");
             registerFeature(WARPED_BUSH, "warped_bush");
             registerFeature(WARPED_CORAL, "warped_coral");
-            registerFeature(WARPED_CORALPLANT, "warped_coral_plant");
-            registerFeature(WARPED_CORALFAN, "warped_coral_fan");
+            registerFeature(HUGE_WARPED_CORAL_PLANT, "warped_coral_plant");
+            registerFeature(WARPED_CORAL_FAN, "warped_coral_fan");
             registerFeature(WOOD_BLEWIT, "wood_blewit");
             registerFeature(WEED_GRASS, "weed_grass");
             registerFeature(WEEPING_MILKCAP, "weeping_milk_cap");

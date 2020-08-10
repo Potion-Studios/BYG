@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.*;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
 import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
+import voronoiaoc.byg.common.world.feature.placements.UnderGroundPlacement;
 
 public class BYGConfiguredTreeFeatures {
     /***********************************************************Configured Features********************************************************/
@@ -238,7 +239,9 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> EMBUR_MUSHROOM = newConfiguredFeature("embur_mushroom1", BYGFeatureList.EMBUR_MUSHROOM.configure(DecoratedFeatureConfig.DEFAULT));
     public static final ConfiguredFeature<?, ?> EMBUR_MUSHROOM2 = newConfiguredFeature("embur_mushroom2", BYGFeatureList.EMBUR_MUSHROOM2.configure(DecoratedFeatureConfig.DEFAULT));
 
+
     /***********************************************************Random Selectors***********************************************************/
+
     public static final ConfiguredFeature<?, ?> RANDOM_ANCIENT_TREE = newConfiguredFeature("rs_ancient_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             ConfiguredFeatures.DARK_OAK.withChance(0.3F),
             ANCIENT_TREE1.withChance(0.20F),
@@ -773,6 +776,15 @@ public class BYGConfiguredTreeFeatures {
             PURPLE_GLOWSHROOM_HUGE)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(25, 0.4F, 2))));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDENS_MUSHROOM = newConfiguredFeature("rs_glowstone_gardens_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
+                BLUE_GLOWSHROOM_HUGE.withChance(0.16F),
+                PURPLE_GLOWSHROOM_HUGE.withChance(0.16F),
+                GREEN_MUSHROOM_HUGE.withChance(0.16F),
+                WOOD_BLEWIT_HUGE.withChance(0.16F),
+                WEEPING_MILKCAP_HUGE.withChance(0.16F)),
+                BLACK_PUFF_HUGE)).decorate(UnderGroundPlacement.UGPLACER.configure(
+                new CountExtraDecoratorConfig(5, 0.5F, 2))));
+
     public static final ConfiguredFeature<?, ?> RANDOM_MUSHROOM = newConfiguredFeature("rs_huge_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             GREEN_MUSHROOM_HUGE.withChance(0.4F),
             WOOD_BLEWIT_HUGE.withChance(0.4F),
@@ -781,9 +793,9 @@ public class BYGConfiguredTreeFeatures {
             new CountExtraDecoratorConfig(10, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_MUSHROOM = newConfiguredFeature("rs_embur_mushroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            EMBUR_MUSHROOM.withChance(0.4F)),
+            EMBUR_MUSHROOM.withChance(0.5F)),
             EMBUR_MUSHROOM2)).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(10, 0.3F, 2))));
+            new CountExtraDecoratorConfig(4, 0.5F, 6))));
 
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(BYG.MODID, registryName), configuredFeature);
