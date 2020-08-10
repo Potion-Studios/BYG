@@ -118,7 +118,7 @@ package voronoiaoc.byg.common.noise.simplex;//package voronoiaoc.byg.common.worl
 //        }
 //
 //        // Perform the reDecorators over the depth.
-//        // Note: blockPos.move is OK in this case because the next thing NoiseChunkGenerator does is set blockPos to another position.
+//        // Note: blockPos.move is OK in this case because the next thing NoiseChunkGenerator does is set blockPos to another pos.
 //        // If that changes in the future, change this to blockPos = blockPos.down()
 //        for (int i = 0; i < configs.maxDepth; i++, blockPos.move(0, -1, 0)) {
 //            if (newBlocks[i] != null && Blocks.DIRT.getDefaultState().equals(chunk.getBlockState(blockPos))) {

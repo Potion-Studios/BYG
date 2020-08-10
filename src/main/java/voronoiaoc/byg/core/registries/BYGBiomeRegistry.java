@@ -1,31 +1,36 @@
 package voronoiaoc.byg.core.registries;
 
-import net.fabricmc.fabric.api.biomes.v1.FabricBiomes;
-import net.fabricmc.fabric.api.biomes.v1.NetherBiomes;
-import net.fabricmc.fabric.api.biomes.v1.OverworldBiomes;
-import net.fabricmc.fabric.api.biomes.v1.OverworldClimate;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryRemovedCallback;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.biome.BuiltInBiomes;
+import net.minecraft.world.biome.layer.SetBaseBiomesLayer;
 import voronoiaoc.byg.BYG;
-import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.Optional;
 
 public class BYGBiomeRegistry {
     public static List<Biome> biomeList = new ArrayList<>();
 
+    public static List<Integer> HOT = new ArrayList<>();
+    public static List<Integer> COOL = new ArrayList<>();
+    public static List<Integer> WARM = new ArrayList<>();
+    public static List<Integer> ICY = new ArrayList<>();
+
     //130
     public static void registerBiomes() {
-        BYG.LOGGER.debug("BYG: Registering Biomes...");
+        BYG.LOGGER.debug("BYG: Registering BuiltInBiomes...");
         registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields", true, 2, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.ALPS, "alps", true, 5, OverworldClimate.SNOWY);
         registerBiome(BYGBiomeList.AMARANTHFIELDS, "amaranth_fields", true, 2, OverworldClimate.TEMPERATE);
@@ -80,7 +85,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.SNOWYDECIDUOUSFOREST, "snowy_deciduous_forest", true, 6, OverworldClimate.SNOWY);
         registerBiome(BYGBiomeList.SNOWYEVERGREENTAIGA, "snowy_evergreen_taiga", true, 6, OverworldClimate.SNOWY);
         registerBiome(BYGBiomeList.THE_BLACK_FOREST, "the_black_forest", true, 5, OverworldClimate.COOL);
-        registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_forest", true, 5, OverworldClimate.TEMPERATE);
+        registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_rainforest", true, 5, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.TROPICALRAINFOREST, "tropical_rainforest", true, 1, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.VIBRANTSWAMPLANDS, "vibrant_swamplands", true, 6, OverworldClimate.TEMPERATE);
         registerBiome(BYGBiomeList.SIERRAVALLEY, "sierra_valley", true, 6, OverworldClimate.DRY);
@@ -89,21 +94,27 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.ZELKOVAFOREST, "zelkova_forest", true, 6, OverworldClimate.COOL);
 
         //Islands
-        registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, Biomes.DEEP_WARM_OCEAN, Biomes.WARM_OCEAN);
-
+        registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, BuiltinRegistries.BIOME.get(BuiltInBiomes.DEEP_WARM_OCEAN), BuiltinRegistries.BIOME.get(BuiltInBiomes.WARM_OCEAN));
         BYG.LOGGER.info("BYG: Registered Biomes!");
 
     }
 
+    public enum OverworldClimate {
+        SNOWY,
+        COOL,
+        TEMPERATE,
+        DRY
+    }
+
     public static void registerSubBiomes() {
-        BYG.LOGGER.debug("BYG: Registering Sub Biomes...");
+        BYG.LOGGER.debug("BYG: Registering Sub BuiltInBiomes...");
 
 
         /***********************************SubBiomes***********************************/
         registerSubBiome(BYGBiomeList.REDWOOD_CLEARING, "redwood_clearing", true);
         registerSubBiome(BYGBiomeList.REDWOOD_MOUNTAINS, "redwood_mountains", true);
         registerSubBiome(BYGBiomeList.CORAL_MANGROVES, "coral_mangroves", true);
-        registerSubBiome(BYGBiomeList.CIKA_MOUNTAINS, "cika_mountains",  true);
+        registerSubBiome(BYGBiomeList.CIKA_MOUNTAINS, "cika_mountains", true);
         registerSubBiome(BYGBiomeList.GLOWING_ANCIENT_FOREST, "glowing_ancient_forest", true);
         registerSubBiome(BYGBiomeList.FLOWERING_ANCIENT_FOREST, "flowering_ancient_forest", true);
 
@@ -117,10 +128,10 @@ public class BYGBiomeRegistry {
 
         //Clearings - 15
         registerSubBiome(BYGBiomeList.ASPEN_CLEARING, "aspen_clearing", true);
-        registerSubBiome(BYGBiomeList.BLACK_FOREST_CLEARING, "black_forest_clearing",  true);
+        registerSubBiome(BYGBiomeList.BLACK_FOREST_CLEARING, "black_forest_clearing", true);
         registerSubBiome(BYGBiomeList.BOREALIS_CLEARING, "boreal_clearing", true);
         registerSubBiome(BYGBiomeList.CHERRY_BLOSSOM_CLEARING, "cherry_blossom_clearing", true);
-        registerSubBiome(BYGBiomeList.CONIFEROUS_CLEARING, "coniferous_clearing",  true);
+        registerSubBiome(BYGBiomeList.CONIFEROUS_CLEARING, "coniferous_clearing", true);
         registerSubBiome(BYGBiomeList.DECIDUOUS_CLEARING, "deciduous_clearing", true);
         registerSubBiome(BYGBiomeList.EVERGREEN_CLEARING, "evergreen_clearing", true);
         registerSubBiome(BYGBiomeList.GUIANA_CLEARING, "guiana_clearing", true);
@@ -131,14 +142,14 @@ public class BYGBiomeRegistry {
         registerSubBiome(BYGBiomeList.SNOWY_DECIDUOUS_CLEARING, "snowy_deciduous_clearing", true);
         registerSubBiome(BYGBiomeList.SNOWY_EVERGREEN_CLEARING, "snowy_evergreen_clearing", true);
         registerSubBiome(BYGBiomeList.WEEPING_WTICH_CLEARING, "weeping_witch_clearing", true);
-        registerSubBiome(BYGBiomeList.ZELKOVA_CLEARING, "zelkova_clearing",  true);
+        registerSubBiome(BYGBiomeList.ZELKOVA_CLEARING, "zelkova_clearing", true);
 
         //Hills - 23
-        registerSubBiome(BYGBiomeList.ALPINEFOOTHILLS, "alpine_foothills",true);
+        registerSubBiome(BYGBiomeList.ALPINEFOOTHILLS, "alpine_foothills", true);
         registerSubBiome(BYGBiomeList.ASPENFORESTHILLS, "aspen_forest_hills", true);
         registerSubBiome(BYGBiomeList.BLUETAIGAHILLS, "blue_taiga_hills", true);
         registerSubBiome(BYGBiomeList.BOREALFORESTHILLS, "boreal_forest_hills", true);
-        registerSubBiome(BYGBiomeList.BLACK_FOREST_HILLS, "black_forest_hills",  true);
+        registerSubBiome(BYGBiomeList.BLACK_FOREST_HILLS, "black_forest_hills", true);
         registerSubBiome(BYGBiomeList.CONIFEROUSFORESTHILLS, "coniferous_forest_hills", true);
         registerSubBiome(BYGBiomeList.DECIDUOUSFORESTHILLS, "deciduous_forest_hills", true);
         registerSubBiome(BYGBiomeList.EBONY_HILLS, "ebony_hills", true);
@@ -169,15 +180,15 @@ public class BYGBiomeRegistry {
         /*************Misc SubBiomes***************/
         //Blue - 2
         registerSubBiome(BYGBiomeList.BLUEGIANTTAIGA, "blue_giant_taiga", true);
-        registerSubBiome(BYGBiomeList.SNOWYBLUEGIANTTAIGA, "snowy_blue_giant_taiga",true);
+        registerSubBiome(BYGBiomeList.SNOWYBLUEGIANTTAIGA, "snowy_blue_giant_taiga", true);
 
         //Bluff - 1
         registerSubBiome(BYGBiomeList.BLUFFPEAKS, "bluff_peaks", true);
 
         //Flowering - 3
-        registerSubBiome(BYGBiomeList.FLOWERING_ENCHANTED_GROVE, "flowering_enchanted_grove",  true);
-        registerSubBiome(BYGBiomeList.FLOWERING_GROVE, "flowering_grove",  true);
-        registerSubBiome(BYGBiomeList.FLOWERINGMEADOW, "flowering_meadow",  true);
+        registerSubBiome(BYGBiomeList.FLOWERING_ENCHANTED_GROVE, "flowering_enchanted_grove", true);
+        registerSubBiome(BYGBiomeList.FLOWERING_GROVE, "flowering_grove", true);
+        registerSubBiome(BYGBiomeList.FLOWERINGMEADOW, "flowering_meadow", true);
 
         //RedRock - 3
         registerSubBiome(BYGBiomeList.RED_ROCK_LOWLANDS, "red_rock_lowlands", true);
@@ -191,57 +202,55 @@ public class BYGBiomeRegistry {
         //Misc - 11
         registerSubBiome(BYGBiomeList.BAMBOO_FOREST, "bamboo_forest", true);
         registerSubBiome(BYGBiomeList.BOG, "bog", true);
-        registerSubBiome(BYGBiomeList.FOREST_FAULT, "forest_fault",  true);
-        registerSubBiome(BYGBiomeList.FUNGAL_PATCH, "fungal_patch",  true);
+        registerSubBiome(BYGBiomeList.FOREST_FAULT, "forest_fault", true);
+        registerSubBiome(BYGBiomeList.FUNGAL_PATCH, "fungal_patch", true);
         registerSubBiome(BYGBiomeList.GREATLAKEISLES, "great_lake_isles", true);
         registerSubBiome(BYGBiomeList.LUSHREDDESERT, "lush_red_desert", true);
         registerSubBiome(BYGBiomeList.MARSHLANDS, "marshlands", true);
-        registerSubBiome(BYGBiomeList.NORTHERN_FOREST, "northern_forest",  true);
+        registerSubBiome(BYGBiomeList.NORTHERN_FOREST, "northern_forest", true);
         registerSubBiome(BYGBiomeList.PUMPKIN_FOREST, "pumpkin_forest", true);
         registerSubBiome(BYGBiomeList.SIERRARANGE, "sierra_range", true);
         registerSubBiome(BYGBiomeList.REDDESERTDUNES, "red_desert_dunes", true);
         registerSubBiome(BYGBiomeList.SEASONALGIANTTAIGA, "seasonal_giant_taiga", true);
-
-
         BYG.LOGGER.info("BYG: Registered Sub Biomes!");
     }
 
     public static void registerNetherBiomes() {
-        BYG.LOGGER.debug("BYG: Registering Nether Biomes...");
+        BYG.LOGGER.debug("BYG: Registering Nether BuiltInBiomes...");
         /**********NetherBiomes - 3**********/
         registerNetherBiome(BYGBiomeList.GLOWSTONEGARDENS, "glowstone_gardens");
         registerNetherBiome(BYGBiomeList.WARPEDDESERT, "warped_desert");
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
         registerNetherBiome(BYGBiomeList.EMBURBOG, "embur_bog");
-        // register existing nether biomes
-        Registry.BIOME.stream().filter(biome->biome.getCategory().equals(Biome.Category.NETHER)).forEach(biome->BYGNetherBiomeProvider.biomeList.add(biome));
-        // register future biomes
-        RegistryEntryAddedCallback.event(Registry.BIOME).register((rawId,id,biome)->{
+        // newDecorator existing nether biomes
+        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getCategory().equals(Biome.Category.NETHER)).forEach(biome -> BYGNetherBiomeProvider.biomeList.add(biome));
+        // newDecorator future biomes
+        RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
             if (biome.getCategory().equals(Biome.Category.NETHER)) {
                 BYGNetherBiomeProvider.biomeList.add(biome);
             }
         });
         // this should never happen, but just in case...
-        RegistryEntryRemovedCallback.event(Registry.BIOME).register((rawid,id,biome)->{
+        RegistryEntryRemovedCallback.event(BuiltinRegistries.BIOME).register((rawid, id, biome) -> {
             BYGNetherBiomeProvider.biomeList.removeIf(biome::equals);
         });
         BYG.LOGGER.info("BYG: Registered Nether Biomes!");
     }
 
     public static void registerEndBiomes() {
-        BYG.LOGGER.debug("BYG: Registering End Biomes...");
+        BYG.LOGGER.debug("BYG: Registering End BuiltInBiomes...");
         /**********EndBiomes - 1**********/
         registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
         // Register existing End biomes
-        Registry.BIOME.stream().filter(biome->biome.getCategory().equals(Biome.Category.THEEND)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
-        // register future biomes
-        RegistryEntryAddedCallback.event(Registry.BIOME).register((rawId,id,biome)->{
+        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getCategory().equals(Biome.Category.THEEND)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
+        // newDecorator future biomes
+        RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
             if (biome.getCategory().equals(Biome.Category.THEEND)) {
                 BYGEndBiomeProvider.bygEndBiomeList.add(biome);
             }
         });
         //This should never happen, but just in case...
-        RegistryEntryRemovedCallback.event(Registry.BIOME).register((rawid, id, biome)->{
+        RegistryEntryRemovedCallback.event(BuiltinRegistries.BIOME).register((rawid, id, biome) -> {
             BYGEndBiomeProvider.bygEndBiomeList.removeIf(biome::equals);
         });
         BYG.LOGGER.info("BYG: Registered End Biomes!");
@@ -250,91 +259,167 @@ public class BYGBiomeRegistry {
     static int idx = 0;
 
 
-    private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate climate) {
-        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
-
-        if (spawn)
-            FabricBiomes.addSpawnBiome(biome);
-        if (weight > 0)
-            OverworldBiomes.addContinentalBiome(biome, climate, weight / 10.0F);
-
-        if (biome instanceof BiomeTools) {
-            ((BiomeTools)biome).getBeaches().forEach((subbiome,subWeight)->
-            {
-                OverworldBiomes.addShoreBiome(biome,subbiome,subWeight);
-            });
-
-            ((BiomeTools)biome).getEdges().forEach((subbiome,subWeight)->
-            {
-                OverworldBiomes.addEdgeBiome(biome,subbiome,subWeight);
-            });
-
-            ((BiomeTools)biome).getHills().forEach((subbiome,subWeight)->
-            {
-                OverworldBiomes.addHillsBiome(biome,subbiome,subWeight);
-            });
-
-            ((BiomeTools)biome).getMutations().forEach((subbiome,subWeight)->
-            {
-                OverworldBiomes.addBiomeVariant(biome,subbiome,subWeight);
-            });
-            Biome RiverBiome =  ((BiomeTools)biome).getRiver();
-            if (RiverBiome == null) {
-                RiverBiome = Biomes.RIVER;
-            }
-            OverworldBiomes.setRiverBiome(biome,RiverBiome);
-
-        }
-
+    private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate type) {
+        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
         biomeList.add(biome);
-
+        if (weight > 0) {
+            if (type == OverworldClimate.TEMPERATE)
+                WARM.add(BuiltinRegistries.BIOME.getRawId(biome));
+            if (type == OverworldClimate.COOL)
+                COOL.add(BuiltinRegistries.BIOME.getRawId(biome));
+            if (type == OverworldClimate.DRY)
+                HOT.add(BuiltinRegistries.BIOME.getRawId(biome));
+            if (type == OverworldClimate.SNOWY)
+                ICY.add(BuiltinRegistries.BIOME.getRawId(biome));
+        }
     }
+
+//        if (spawn)
+//            //FabricBuiltInBiomes.addSpawnBiome(biome);
+//        if (weight > 0)
+//            //OverworldBuiltInBiomes.addContinentalBiome(biome, climate, weight / 10.0F);
+//
+//        if (((BiomeTools) biome).getEdge() != null) {
+//            if (BuiltinRegistries.BIOME.getId(((BiomeTools) biome).getEdge()) == null) {
+////                throw new NullPointerException();
+//            }
+//            else {
+//                //OverworldBuiltInBiomes.addEdgeBiome(biome, ((BiomeTools) biome).getEdge(), 1);
+//            }
+//        }
+//
+//
+//        if (((BiomeTools) biome).getBeach() != null) {
+//            if (BuiltinRegistries.BIOME.getId(((BiomeTools) biome).getBeach()) == null) {
+////                throw new NullPointerException();
+//            }
+//            else {
+//                //OverworldBuiltInBiomes.addShoreBiome(biome, ((BiomeTools) biome).getBeach(), 1);
+//            }
+//        }
+//
+//
+//        if (((BiomeTools) biome).getHill() != null) {
+//            if (BuiltinRegistries.BIOME.getId(((BiomeTools) biome).getHill()) == null) {
+////                throw new NullPointerException();
+//            }
+//            else {
+//                //OverworldBuiltInBiomes.addHillsBiome(biome, ((BiomeTools) biome).getHill(), 1);
+//            }
+//        }
+//
+//
+//        if (((BiomeTools) biome).getMutation() != null) {
+//            if (BuiltinRegistries.BIOME.getId(((BiomeTools) biome).getMutation()) == null) {
+////                throw new NullPointerException();
+//            }
+//            else {
+//                //OverworldBuiltInBiomes.addBiomeVariant(biome, ((BiomeTools) biome).getMutation(), 1);
+//            }
+//        }
+//
+//
+//        if (((BiomeTools) biome).getRiver() != null) {
+//            if (BuiltinRegistries.BIOME.getId(((BiomeTools) biome).getRiver()) == null) {
+////                throw new NullPointerException();
+//            }
+//            else {
+//                //OverworldBuiltInBiomes.setRiverBiome(biome, ((BiomeTools) biome).getRiver());
+//            }
+//        }
+//
+//        biomeList.add(biome);
+//
+//    }
 
 
     private static void registerNetherBiome(Biome biome, String id) {
-        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
-        NetherBiomes.addNetherBiome(biome);
+        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+//        NetherBuiltInBiomes.addNetherBiome(biome);
+        biomeList.add(biome);
     }
 
     private static void registerEndBiome(Biome biome, String id) {
-        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
+        if (biome != null) {
+            Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+            biomeList.add(biome);
+        }
     }
 
     public static void addBeachesCategorically() {
-        for (Biome biome : Registry.BIOME) {
-            if (!(biome instanceof BiomeTools)) {
-                if (Objects.requireNonNull(Registry.BIOME.getId(biome)).toString().contains("byg")) {
-                    if (biome.getPrecipitation() == Biome.Precipitation.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH)
-                        OverworldBiomes.addShoreBiome(biome, BYGBiomeList.SNOWYBLACKBEACH, 1);
-                }
-            }
-            if (Objects.requireNonNull(Registry.BIOME.getId(biome)).toString().contains("byg")) {
-                if (biome.getCategory() == Biome.Category.JUNGLE)
-                    OverworldBiomes.addShoreBiome(biome, BYGBiomeList.RAINBOWBEACH, 1);
-            }
-        }
+//        for (Biome biome : class_5458.field_25933) {
+//            if (!(biome instanceof BiomeTools)) {
+//                if (Objects.requireNonNull(BuiltinRegistries.BIOME.getId(biome)).toString().contains("byg")) {
+//                    if (biome.getPrecipitation() == Biome.Precipitation.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH)
+//                        //OverworldBuiltInBiomes.addShoreBiome(biome, BYGBiomeList.SNOWYBLACKBEACH, 1);
+//                }
+//            }
+//            if (Objects.requireNonNull(BuiltinRegistries.BIOME.getId(biome)).toString().contains("byg")) {
+//                if (biome.getCategory() == Biome.Category.JUNGLE)
+//                    //OverworldBuiltInBiomes.addShoreBiome(biome, BYGBiomeList.RAINBOWBEACH, 1);
+//            }
+//        }
     }
 
     private static void registerSubBiome(Biome biome, String id, boolean spawn) {
-        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), biome);
-        if (spawn) {
-            if (Registry.BIOME.getId(biome) == null) {
-            }
-            else {
-                FabricBiomes.addSpawnBiome(biome);
-            }
-        }
-        idx++;
+        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+        biomeList.add(biome);
+//        if (spawn) {
+//            if (BuiltinRegistries.BIOME.getId(biome) == null) {
+//            }
+//            else {
+//                //FabricBuiltInBiomes.addSpawnBiome(biome);
+//            }
+//        }
     }
 
+    //
     private static void registerIsland(Biome island, String id, boolean spawn, Biome... oceanClimates) {
-        Registry.register(Registry.BIOME, new Identifier(BYG.MODID, id), island);
-        if (spawn)
-            FabricBiomes.addSpawnBiome(island);
-        for (Biome oceanBiomeIdx : oceanClimates) {
-            OverworldBiomes.addBiomeVariant(oceanBiomeIdx, island, 0.1F);
+        if (island != null) {
+            Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), island);
+            biomeList.add(island);
+            if (spawn)
+                //FabricBuiltInBiomes.addSpawnBiome(island);
+                for (Biome oceanBiomeIdx : oceanClimates) {
+                    //OverworldBuiltInBiomes.addBiomeVariant(oceanBiomeIdx, island, 0.1F);
+                }
         }
     }
 
+    //Why? This is how worldtype's using the BiomeLayerSampler get the numerical ID's to sample.
+    //We start at 173(Minecraft's highest ID) and check if any poss beyond that are occupied(Mod compat) if not, we take the key of our biomes and add it to this list.
+    public static void addBiomeNumericalIDs() {
+        int i = 173;
+        for (Biome biome : biomeList) {
+            while (Biomes.BIOMES.containsKey(i)) {
+                ++i;
+            }
 
+            Optional<RegistryKey<Biome>> key = BuiltinRegistries.BIOME.getKey(biome);
+
+            if (key.isPresent()) {
+                Biomes.BIOMES.put(i, key.get());
+                i++;
+            }
+        }
+    }
+
+    //We add our biomes to the public static int arrays for each category and this lets us spawn our biomes in vanilla worldtypes.
+    public static void addBYGBiomesToVanillaOverworld() {
+        for (int integer : BYGBiomeRegistry.HOT)
+            SetBaseBiomesLayer.DRY_BIOMES = addElement(SetBaseBiomesLayer.DRY_BIOMES, integer);
+        for (int integer : BYGBiomeRegistry.WARM)
+            SetBaseBiomesLayer.TEMPERATE_BIOMES = addElement(SetBaseBiomesLayer.TEMPERATE_BIOMES, integer);
+        for (int integer : BYGBiomeRegistry.COOL)
+            SetBaseBiomesLayer.COOL_BIOMES = addElement(SetBaseBiomesLayer.COOL_BIOMES, integer);
+        for (int integer : BYGBiomeRegistry.ICY)
+            SetBaseBiomesLayer.SNOWY_BIOMES = addElement(SetBaseBiomesLayer.SNOWY_BIOMES, integer);
+    }
+
+
+    static int[] addElement(int[] a, int e) {
+        a = Arrays.copyOf(a, a.length + 1);
+        a[a.length - 1] = e;
+        return a;
+    }
 }

@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
@@ -24,7 +25,7 @@ public class RedRockSB extends SurfaceBuilder<TernarySurfaceConfig> {
         for (int yPos = startHeight - 3; yPos >= seaLevel; --yPos) {
             block.set(xPos, yPos, zPos);
             BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-            if (currentBlockToReplace == STONE) {
+            if (currentBlockToReplace == Blocks.STONE.getDefaultState()) {
                 chunkIn.setBlockState(block, BYGBlockList.RED_ROCK.getDefaultState(), false);
             }
         }

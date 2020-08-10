@@ -43,7 +43,7 @@ public abstract class BYGHugeTree extends BYGTree {
             worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset), blockstate, 4);
             worldIn.setBlockState(pos.add(xOffset, 0, zOffset + 1), blockstate, 4);
             worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset + 1), blockstate, 4);
-            if (abstracttreefeature.generate(worldIn, worldIn.getStructureAccessor(), chunkGenerator, random, pos.add(xOffset, 0, zOffset), DefaultFeatureConfig.DEFAULT)) {
+            if (abstracttreefeature.placeTree(worldIn, chunkGenerator, random, pos.add(xOffset, 0, zOffset), DefaultFeatureConfig.DEFAULT, true)) {
                 return true;
             } else {
                 worldIn.setBlockState(pos.add(xOffset, 0, zOffset), blockUnder, 4);

@@ -24,40 +24,40 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //        super(null, true);
 //    }
 //
-//    public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+//    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
 //
 //        int randTreeHeight = rand.nextInt(3) + rand.nextInt(3) + 10;
 //        //Positions
-//        int posX = position.getX();
-//        int posY = position.getY();
-//        int posZ = position.getZ();
+//        int posX = pos.getX();
+//        int posY = pos.getY();
+//        int posZ = pos.getZ();
 //        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
-//            BlockPos checkGround = position.down();
+//            BlockPos checkGround = pos.down();
 //            if (!isDesiredGroundwDirtTag(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
 //                return false;
-//            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
+//            } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
 //                return false;
 //            }
 //            else {
 //
-//                //this.setGroundBlockAt(worldIn, checkGround, position, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, checkGround, pos, Blocks.DIRT.getDefaultState());
 
 //                //Uncommenting this will allow for a 2x2 dirt patch under the tree.
-//                /*//this.setGroundBlockAt(worldIn, checkGround.east(), position, Blocks.DIRT.getDefaultState());
+//                /*//this.setGroundBlockAt(worldIn, checkGround.east(), pos, Blocks.DIRT.getDefaultState());
 
-//                //this.setGroundBlockAt(worldIn, checkGround.south(), position, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, checkGround.south(), pos, Blocks.DIRT.getDefaultState());
 
-//                //this.setGroundBlockAt(worldIn, checkGround.south().east(), position, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, checkGround.south().east(), pos, Blocks.DIRT.getDefaultState());
 //                //Uncommenting this will allow for a 3x3 dirt patch under the tree.
-//                /*//this.setGroundBlockAt(worldIn, checkGround.west(), position, Blocks.DIRT.getDefaultState());
+//                /*//this.setGroundBlockAt(worldIn, checkGround.west(), pos, Blocks.DIRT.getDefaultState());
 
-//                //this.setGroundBlockAt(worldIn, checkGround.south().west(), position, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, checkGround.south().west(), pos, Blocks.DIRT.getDefaultState());
 
-//                //this.setGroundBlockAt(worldIn, checkGround.north(), position, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, checkGround.north(), pos, Blocks.DIRT.getDefaultState());
 
-//                //this.setGroundBlockAt(worldIn, checkGround.north().east(), position, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, checkGround.north().east(), pos, Blocks.DIRT.getDefaultState());
 
-//                //this.setGroundBlockAt(worldIn, checkGround.north().west(), position, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, checkGround.north().west(), pos, Blocks.DIRT.getDefaultState());
 //
 //
 //                Direction direction = Direction.Type.HORIZONTAL.random(rand);
@@ -320,7 +320,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //        int x = blockPos.getX();
 //        int y = blockPos.getY();
 //        int z = blockPos.getZ();
-//        MutableBlockPos position = new MutableBlockPos();
+//        MutableBlockPos pos = new MutableBlockPos();
 //
 //        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
 //            //Distance/Density of trees. Positive Values ONLY
@@ -328,7 +328,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
 //                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-//                    if (!canTreePlace(reader, position.set(x + xOffset, y + yOffset, z + zOffset))) {
+//                    if (!canTreePlace(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
 //                        return false;
 //                    }
 //                }
@@ -338,7 +338,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //    }
 //
 //    //Log Placement
-//    private void treelog(Set<BlockPos> setlogblock, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
+//    private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
 //        if (canTreePlace(reader, pos)) {
 //            this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
 //        }
@@ -346,7 +346,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //    }
 //
 //    //Leaves Placement
-//    private void leafs(ServerWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+//    private void leafs(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
 //        BlockPos leafpos = new BlockPos(x, y, z);
 //        if (isAir(reader, leafpos)) {
 //            this.setFinalBlockState(blockPos, reader, leafpos, LEAVES, boundingBox);
@@ -355,7 +355,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //    }
 //
 //    protected static boolean canTreePlace(TestableWorld genBaseReader, BlockPos blockPos) {
-//        return canTreePlaceHere(
+//        return canLogPlaceHere(
 //                genBaseReader, blockPos
 //        );
 //    }

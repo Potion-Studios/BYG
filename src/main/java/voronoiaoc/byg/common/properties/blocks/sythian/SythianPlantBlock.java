@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.properties.sythian;
+package voronoiaoc.byg.common.properties.blocks.sythian;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

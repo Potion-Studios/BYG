@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
@@ -30,18 +30,20 @@ public class OrangeSpruceTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
     }
 
 
-    public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
 
         int randTreeHeight = rand.nextInt(3) + rand.nextInt(3) + 8;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
-            BlockPos blockpos = position.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
+
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
+            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
 
@@ -221,7 +223,7 @@ public class OrangeSpruceTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -236,7 +238,7 @@ public class OrangeSpruceTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlaceHere(reader, position.set(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHere(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }
@@ -246,15 +248,15 @@ public class OrangeSpruceTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
     }
 
     //Log Placement
-    private void treelog(Set<BlockPos> setlogblock, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-        if (canTreePlaceHere(reader, pos)) {
+    private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
+        if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
 
     }
 
     //Leaves Placement
-    private void leafs(ServerWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES, boundingBox);
@@ -262,7 +264,7 @@ public class OrangeSpruceTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
 
     }
 
-    private void leafs3(ServerWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs3(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES3, boundingBox);

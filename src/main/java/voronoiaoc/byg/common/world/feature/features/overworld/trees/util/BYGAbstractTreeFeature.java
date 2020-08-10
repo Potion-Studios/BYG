@@ -3,18 +3,19 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.util;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
 import net.minecraft.state.property.Properties;
 import net.minecraft.structure.Structure;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.*;
 import net.minecraft.util.shape.BitSetVoxelSet;
 import net.minecraft.util.shape.VoxelSet;
-import net.minecraft.world.ModifiableTestableWorld;
 import net.minecraft.world.ModifiableWorld;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -31,55 +32,82 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         super(function);
     }
 
-    public static boolean canTreePlaceHere(TestableWorld worldReader, BlockPos blockPos) {
+    public static boolean canLogPlaceHere(TestableWorld worldReader, BlockPos blockPos) {
+        return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT);
+    }
+
+    public boolean canLogPlaceHereWater(TestableWorld worldReader, BlockPos blockPos) {
+        return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT || state.getMaterial() == Material.WATER);
+    }
+
+    public boolean isAnotherTreeHere(TestableWorld worldReader, BlockPos blockPos) {
         return worldReader.testBlockState(blockPos, (state) -> {
             Block block = state.getBlock();
-            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || state.getMaterial() == Material.SOIL || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.MAHOGANY_LOG || block == BYGBlockList.MAHOGANY_LEAVES || block == BYGBlockList.GLOWCELIUM || block == BYGBlockList.OVERGROWN_DACITE || block== BYGBlockList.PODZOL_DACITE;
+            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES);
         });
     }
 
-    //Qualifies Tree Placement in Water
-    public static boolean canTreePlaceHereWater(TestableWorld worldReader, BlockPos blockPos) {
+    public boolean isAnotherTreeLikeThisHere(TestableWorld worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
         return worldReader.testBlockState(blockPos, (state) -> {
             Block block = state.getBlock();
-            return state.isAir() || state.isIn(BlockTags.LEAVES) || block == Blocks.GRASS_BLOCK || Feature.isSoil(block) || block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.SAPLINGS) || block == Blocks.VINE || block == BYGBlockList.OVERGROWN_STONE || block == BYGBlockList.GLOWCELIUM || block == Blocks.WATER;
+            return block == logBlock || block == leafBlock;
         });
     }
 
-    public static void setGroundBlock(ModifiableTestableWorld reader, Block block, BlockPos... positions) {
-        for (BlockPos pos : positions) {
-            reader.setBlockState(pos.offset(Direction.DOWN), block.getDefaultState(), 2);
-        }
+
+    /**
+     * We use this to determine if a sapling's tree can grow at the given pos.
+     * This is likely if not guaranteed to be used in a for loop checking the surrounding in another method as it's useless like this.
+     *
+     * @param reader Gives us access to world.
+     * @param pos    Position to check.
+     * @return Determine whether or not the pos can support a sapling's tree.
+     */
+    public boolean canSaplingGrowHere(TestableWorld reader, BlockPos pos) {
+        return reader.testBlockState(pos, (state) -> {
+            Block block = state.getBlock();
+            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.SOIL;
+        });
     }
 
-    public static boolean isQualifiedForLog(TestableWorld worldReader, BlockPos blockPos) {
-        return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES));
+    /**
+     * @param reader Gives us access to world.
+     * @param pos    Position to check.
+     * @return Determines whether or not a pos is air.
+     */
+
+    public static boolean isAir(TestableWorld reader, BlockPos pos) {
+        return reader.testBlockState(pos, BlockState::isAir);
     }
 
-    public static boolean isQualifiedForLogWater(TestableWorld worldReader, BlockPos blockPos) {
-        return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.WATER);
-    }
-
-    public static boolean isAir(TestableWorld worldIn, BlockPos pos) {
-        return worldIn.testBlockState(pos, AbstractBlock.AbstractBlockState::isAir);
-    }
-
-    public static boolean isAirOrWater(TestableWorld worldIn, BlockPos pos) {
+    public boolean isAirOrWater(TestableWorld worldIn, BlockPos pos) {
         return worldIn.testBlockState(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
     }
 
-    public static boolean isDesiredGroundwDirtTag(TestableWorld worldIn, BlockPos pos, Block... desiredGroundBlock) {
-        return worldIn.testBlockState(pos, (state) -> {
+    /**
+     * @param reader             Gives us access to world.
+     * @param pos                Position to check.
+     * @param desiredGroundBlock Allows to add other blocks that do not have the dirt tag.
+     * @return Determines if the pos is of the dirt tag or another block.
+     */
+    public static boolean isDesiredGroundwDirtTag(TestableWorld reader, BlockPos pos, Block... desiredGroundBlock) {
+        return reader.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return state.getMaterial() == Material.SOIL || block == block1 || Feature.isSoil(block);
+                return Feature.isSoil(block) || block == block1;
             }
-            return false;
+            return Feature.isSoil(block);
         });
     }
 
-    public static boolean isDesiredGround(TestableWorld worldIn, BlockPos pos, Block... desiredGroundBlock) {
-        return worldIn.testBlockState(pos, (state) -> {
+    /**
+     * @param reader             Gives us access to world.
+     * @param pos                Position to check.
+     * @param desiredGroundBlock Add a blacklist of blocks that we want.
+     * @return Determines if the pos contains a block from our whitelist.
+     */
+    public boolean isDesiredGround(TestableWorld reader, BlockPos pos, Block... desiredGroundBlock) {
+        return reader.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
                 return block == block1;
@@ -88,19 +116,49 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         });
     }
 
+    /**
+     * Use this method if the canopy has a mirrored shape on both the X/Z axises.
+     * Only used during sapling growth.
+     *
+     * @param reader            Gives us access to world.
+     * @param pos               The start pos of the feature from the decorator/pos of the sapling.
+     * @param treeHeight        The height of the tree trunk determined within the feature. Typically a random number.
+     * @param canopyStartHeight The start height at which leaves begin to generate. I.E: "randTreeHeight - 15".
+     * @param xDistance         Used to check the canopy's X offset blocks.
+     * @param zDistance         Used to check the canopy's Z offset blocks.
+     * @param isSapling         Boolean Passed in to determine whether or not the tree is being generated during world gen or with a sapling.
+     * @param trunkPositions    Typically this is going to be the bottom most logs of the trunks for the tree.
+     * @return Determine Whether or not a sapling can grow at the given pos by checking the surrounding area.
+     */
 
-    protected boolean doesTreeFit(TestableWorld reader, BlockPos blockPos, int height, int distance) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlaceHere(reader, position.set(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
+    public boolean doesSaplingHaveSpaceToGrow(TestableWorld reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xDistance, int zDistance, boolean isSapling, BlockPos... trunkPositions) {
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        //Skip if this is not a sapling.
+        if (isSapling) {
+            //Check the tree trunk and determine whether or not there's a block in the way.
+            for (int yOffSet = 0; yOffSet <= treeHeight; yOffSet++) {
+                if (!canSaplingGrowHere(reader, mutable.set(x, y + yOffSet, z))) {
+                    return false;
+                }
+                //If the list of trunk poss(other than the center trunk) is greater than 0, we check each of these trunk poss from the bottom to the tree height.
+                if (trunkPositions.length > 0) {
+                    for (BlockPos trunkPos : trunkPositions) {
+                        if (!canSaplingGrowHere(reader, mutable.set(trunkPos.getX(), trunkPos.getY() + yOffSet, trunkPos.getZ()))) {
+                            return false;
+                        }
+                    }
+                }
+            }
+            //We use canopyStartHeight instead of 0 because we want to check the area only in the canopy's area and not around the trunk. This makes our saplings much smarter and easier to grow.
+            for (int yOffset = canopyStartHeight; yOffset <= treeHeight + 1; ++yOffset) {
+                for (int xOffset = -xDistance; xOffset <= xDistance; ++xOffset) {
+                    for (int zOffset = -zDistance; zOffset <= zDistance; ++zOffset) {
+                        if (!canSaplingGrowHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset))) {
+                            return false;
+                        }
                     }
                 }
             }
@@ -108,36 +166,240 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         return true;
     }
 
-    @Override
-    protected void setBlockState(ModifiableWorld worldIn, BlockPos pos, BlockState state) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, state);
+    /**
+     * Use this method instead of the previous if the canopy does not have a mirror shape on the X/Z axises.
+     * Only used during sapling growth.
+     *
+     * @param reader            Gives us access to world.
+     * @param pos               The start pos of the feature from the decorator/pos of the sapling.
+     * @param treeHeight        The height of the given tree.
+     * @param canopyStartHeight The start height at which leaves begin to generate. I.E: "randTreeHeight - 15".
+     * @param xNegativeDistance Used to check the canopy's negative X offset blocks.
+     * @param zNegativeDistance Used to check the canopy's negative Z offset blocks.
+     * @param xPositiveDistance Used to check the canopy's positive x offset blocks.
+     * @param zPositiveDistance Used to check the canopy's positive Z offset blocks.
+     * @param isSapling         Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
+     * @param trunkPositions    Typically this is going to be the bottom most logs of the trunk for the tree.
+     * @return Determine Whether or not a sapling can grow at the given pos by checking the surrounding area.
+     */
+
+    public boolean doesSaplingHaveSpaceToGrow(TestableWorld reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xNegativeDistance, int zNegativeDistance, int xPositiveDistance, int zPositiveDistance, boolean isSapling, BlockPos... trunkPositions) {
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+
+        //Skip if tree is being called during world gen.
+        if (isSapling) {
+
+            //Check the tree trunk and determine whether or not there's a block in the way.
+            for (int yOffSet = 0; yOffSet <= treeHeight; yOffSet++) {
+                if (!canSaplingGrowHere(reader, mutable.set(x, y + yOffSet, z))) {
+                    return false;
+                }
+
+                //If the list of trunk poss(other than the center trunk) is greater than 0, we check each of these trunk poss from the bottom to the tree height.
+                if (trunkPositions.length > 0) {
+                    for (BlockPos trunkPos : trunkPositions) {
+                        if (!canSaplingGrowHere(reader, mutable.set(trunkPos.getX(), trunkPos.getY() + yOffSet, trunkPos.getZ()))) {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            //We use canopyStartHeight instead of 0 because we want to check the area only in the canopy's area and not around the trunk. This makes our saplings much smarter and easier to grow.
+            for (int yOffset = canopyStartHeight; yOffset <= treeHeight + 1; ++yOffset) {
+                for (int xOffset = -xNegativeDistance; xOffset <= xPositiveDistance; ++xOffset) {
+                    for (int zOffset = -zNegativeDistance; zOffset <= zPositiveDistance; ++zOffset) {
+                        if (!canSaplingGrowHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset))) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
 
-    protected final void setFinalBlockState(Set<BlockPos> changedBlocks, ModifiableWorld worldIn, BlockPos pos, BlockState blockState, BlockBox boundingBox) {
-        if (blockState == null)
-            throw new NullPointerException(blockState + " is missing!");
-        else {
-            this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
-            boundingBox.encompass(new BlockBox(pos, pos));
-            if (BlockTags.LOGS.contains(blockState.getBlock())) {
-                changedBlocks.add(pos.toImmutable());
+    /**
+     * Checks the area surrounding the pos for any blocks using either the log or leaves tag.
+     * Called only during world gen.
+     *
+     * @param reader     Gives us access to world
+     * @param pos        The given pos of either the feature during world gen or the sapling.
+     * @param treeHeight The height of the given tree.
+     * @param distance   Checks the surrounding pos
+     * @param isSapling  Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
+     * @return Determines whether or not any tree is within the givem distance
+     */
+    public boolean isAnotherTreeNearby(TestableWorld reader, BlockPos pos, int treeHeight, int distance, boolean isSapling) {
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+
+        //Skip if tree is being spawned with a sapling.
+        if (!isSapling) {
+            for (int yOffset = 0; yOffset <= treeHeight + 1; ++yOffset) {
+                for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
+                    for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
+                        if (isAnotherTreeHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset))) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Checks the area surrounding the pos for a tree matching its wood/leaves block.
+     * Called only during world gen
+     *
+     * @param reader     Gives us access to world
+     * @param pos        The given pos of either the feature during world gen or the sapling.
+     * @param treeHeight The height of the given tree.
+     * @param distance   Checks the surrounding pos
+     * @param logBlock   The log block we're checking for.
+     * @param leafBlock  The leaf block we're checking for.
+     * @param isSapling  Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
+     * @return Determines whether or not the tree we're searching for is within the given distance.
+     */
+
+    public boolean isAnotherTreeLikeThisNearby(TestableWorld reader, BlockPos pos, int treeHeight, int distance, Block logBlock, Block leafBlock, boolean isSapling) {
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+
+        //Skip if tree is being spawned with a sapling.
+        if (!isSapling) {
+            for (int yOffset = 0; yOffset <= treeHeight + 1; ++yOffset) {
+                for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
+                    for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
+                        if (!isAnotherTreeLikeThisHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset), logBlock, leafBlock)) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Use this to set the soil under large trunked trees. I.E: Baobab or Redwood.
+     *
+     * @param treeBlocksSet  Gives us access to the tree block set where we add our trees blocks.
+     * @param reader         Gives us access to world
+     * @param fillerBlock    Typically this is the log of the tree we're trying to fill the base of.
+     * @param earthBlock     The block used under logs. Typically a block found in the dirt tag
+     * @param boundingBox    Bounding Box of our tree.
+     * @param trunkPositions List of trunk poss where the base is built under the given poss.
+     */
+
+    public void buildTrunk(Set<BlockPos> treeBlocksSet, TestableWorld reader, Block fillerBlock, Block earthBlock, BlockBox boundingBox, BlockPos... trunkPositions) {
+        if (trunkPositions.length > 0) {
+            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
+            for (BlockPos trunkPos : trunkPositions) {
+                mutableTrunk.set(trunkPos);
+                for (int fill = 1; fill <= 15; fill++) {
+                    if (canLogPlaceHere(reader, mutableTrunk)) {
+                        if (fill <= 7)
+                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, fillerBlock.getDefaultState(), boundingBox);
+                        else
+                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
+                    } else {
+                        if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
+                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
+                        fill = 15;
+                    }
+                    mutableTrunk.move(Direction.DOWN);
+                }
             }
         }
     }
 
-    private void setBlockStateWithoutUpdates(ModifiableWorld worldWriter, BlockPos blockPos, BlockState blockState) {
-        if (doBlockNotify) {
-            worldWriter.setBlockState(blockPos, blockState, 19);
-        } else {
-            worldWriter.setBlockState(blockPos, blockState, 18);
+    /**
+     * Use this to set the soil under large trunked trees. Has an extra parameter to specify when the earth block should start placing. I.E: Baobab or Redwood.
+     *
+     * @param treeBlocksSet       Gives us access to the tree block set where we add our trees blocks.
+     * @param reader              Gives us access to world
+     * @param earthBlockThreshold Used to specify when earthBlock starts placing.
+     * @param fillerBlock         Typically this is the log of the tree we're trying to fill the base of.
+     * @param earthBlock          The block used under logs. Typically a block found in the dirt tag
+     * @param boundingBox         Bounding Box of our tree.
+     * @param trunkPositions      List of trunk poss where the base is built under the given poss.
+     */
+    public void buildBase(Set<BlockPos> treeBlocksSet, TestableWorld reader, int earthBlockThreshold, Block fillerBlock, Block earthBlock, BlockBox boundingBox, BlockPos... trunkPositions) {
+        if (trunkPositions.length > 0) {
+            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
+            for (BlockPos trunkPos : trunkPositions) {
+                mutableTrunk.set(trunkPos);
+                for (int fill = 1; fill <= 15; fill++) {
+                    if (canLogPlaceHere(reader, mutableTrunk)) {
+                        if (fill <= earthBlockThreshold)
+                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, fillerBlock.getDefaultState(), boundingBox);
+                        else
+                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
+                    } else {
+                        if (canLogPlaceHere(reader, mutableTrunk)) {
+                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, fillerBlock.getDefaultState(), boundingBox);
+                        } else {
+                            if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
+                                setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
+                            fill = 15;
+                        }
+                    }
+                    mutableTrunk.move(Direction.DOWN);
+                }
+            }
         }
     }
 
+    /**
+     * Use this to set the soil under small trunked trees.
+     */
+
+    public void setSoil(Set<BlockPos> treeBlocksSet, TestableWorld reader, Block soil, BlockBox boundingBox, BlockPos... trunkPositions) {
+        if (trunkPositions.length > 0) {
+            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
+            for (BlockPos trunkPos : trunkPositions) {
+                mutableTrunk.set(trunkPos);
+                if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
+                    setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk.move(Direction.DOWN), soil.getDefaultState(), boundingBox);
+            }
+        }
+    }
+
+    public final void setFinalBlockState(Set<BlockPos> treeBlockSet, ModifiableWorld worldIn, BlockPos pos, BlockState blockState, BlockBox boundingBox) {
+        this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
+        boundingBox.encompass(new BlockBox(pos, pos));
+        if (BlockTags.LOGS.contains(blockState.getBlock())) {
+            treeBlockSet.add(pos.toImmutable());
+        }
+    }
+
+    public void setBlockStateWithoutUpdates(ModifiableWorld worldWriter, BlockPos blockPos, BlockState blockState) {
+        worldWriter.setBlockState(blockPos, blockState, 18);
+    }
+
     @Override
-    public boolean generate(ServerWorldAccess worldIn, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public void setBlockState(ModifiableWorld worldIn, BlockPos pos, BlockState state) {
+        this.setBlockStateWithoutUpdates(worldIn, pos, state);
+    }
+
+    @Override
+    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, T featureConfig) {
+        return this.placeTree(world, chunkGenerator, random, blockPos, featureConfig, false);
+    }
+
+    public boolean placeTree(StructureWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config, boolean isSapling) {
         Set<BlockPos> set = Sets.newHashSet();
         BlockBox mutableboundingbox = BlockBox.empty();
-        boolean flag = this.place(set, worldIn, rand, pos, mutableboundingbox);
+        boolean flag = this.place(set, worldIn, rand, pos, mutableboundingbox, isSapling);
         if (mutableboundingbox.minX > mutableboundingbox.maxX) {
             return false;
         } else {
@@ -208,7 +470,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         }
     }
 
-    protected abstract boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn);
+    protected abstract boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling);
 
     public static final class PooledMutable extends BlockPos.Mutable implements AutoCloseable {
         private boolean free;

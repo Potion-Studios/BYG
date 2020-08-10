@@ -5,7 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
@@ -21,20 +21,22 @@ public class AspenTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         super(configIn);
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
         int minHeight = 12;
-        Biome biome = worldIn.getBiome(position);
+        Biome biome = worldIn.getBiome(pos);
         if (biome == BYGBiomeList.ASPENFORESTHILLS)
             minHeight = 17;
         int randTreeHeight = rand.nextInt(4) + minHeight;
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
-            BlockPos blockpos = position.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
+
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight, 2)) {
+            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
 
@@ -176,15 +178,15 @@ public class AspenTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
     //Log Placement
-    private void placeLog(Set<BlockPos> setlogblock, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
-        if (canTreePlaceHere(reader, pos)) {
+    private void placeLog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
+        if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.ASPEN_LOG.getDefaultState(), boundingBox);
         }
 
     }
 
     //Leaves Placement
-    private void placeLeaf(ServerWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void placeLeaf(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.ASPEN_LEAVES.getDefaultState(), boundingBox);

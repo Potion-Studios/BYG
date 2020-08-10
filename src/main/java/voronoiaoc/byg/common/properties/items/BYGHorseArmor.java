@@ -19,7 +19,6 @@ public class BYGHorseArmor extends HorseArmorItem {
     }
 
 
-
     @Override
     public Identifier getEntityTexture() {
         return texture;

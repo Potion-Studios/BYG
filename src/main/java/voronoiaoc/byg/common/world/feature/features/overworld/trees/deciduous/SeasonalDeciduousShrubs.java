@@ -7,7 +7,7 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.ModifiableTestableWorld;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
@@ -32,45 +32,47 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
     }
 
     protected static boolean canTreeReplace(TestableWorld genBaseReader, BlockPos blockPos) {
-        return canTreePlaceHere(
+        return canLogPlaceHere(
                 genBaseReader, blockPos
         );
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
         //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = 1;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getDimensionHeight()) {
-            BlockPos blockpos = position.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
+
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
+            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
                 //Places dirt under logs where/when necessary.
 
 //Uncommenting this will allow for a 2x2 dirt patch under the tree.
-                /*this.setGroundBlockAt(worldIn, blockpos.east(), position, Blocks.DIRT.getDefaultState());
+                /*this.setGroundBlockAt(worldIn, blockpos.east(), pos, Blocks.DIRT.getDefaultState());
 
-                this.setGroundBlockAt(worldIn, blockpos.south(), position, Blocks.DIRT.getDefaultState());
+                this.setGroundBlockAt(worldIn, blockpos.south(), pos, Blocks.DIRT.getDefaultState());
 
-                this.setGroundBlockAt(worldIn, blockpos.south().east(), position, Blocks.DIRT.getDefaultState());
+                this.setGroundBlockAt(worldIn, blockpos.south().east(), pos, Blocks.DIRT.getDefaultState());
 */
                 //Uncommenting this will allow for a 3x3 dirt patch under the tree.
-                /*this.setGroundBlockAt(worldIn, blockpos.west(), position, Blocks.DIRT.getDefaultState());
+                /*this.setGroundBlockAt(worldIn, blockpos.west(), pos, Blocks.DIRT.getDefaultState());
 
-                this.setGroundBlockAt(worldIn, blockpos.south().west(), position, Blocks.DIRT.getDefaultState());
+                this.setGroundBlockAt(worldIn, blockpos.south().west(), pos, Blocks.DIRT.getDefaultState());
 
-                this.setGroundBlockAt(worldIn, blockpos.north(), position, Blocks.DIRT.getDefaultState());
+                this.setGroundBlockAt(worldIn, blockpos.north(), pos, Blocks.DIRT.getDefaultState());
 
-                this.setGroundBlockAt(worldIn, blockpos.north().east(), position, Blocks.DIRT.getDefaultState());
+                this.setGroundBlockAt(worldIn, blockpos.north().east(), pos, Blocks.DIRT.getDefaultState());
 
-                this.setGroundBlockAt(worldIn, blockpos.north().west(), position, Blocks.DIRT.getDefaultState());
+                this.setGroundBlockAt(worldIn, blockpos.north().west(), pos, Blocks.DIRT.getDefaultState());
 */
 
 
@@ -334,7 +336,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -342,7 +344,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreeReplace(reader, position.set(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canTreeReplace(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }
