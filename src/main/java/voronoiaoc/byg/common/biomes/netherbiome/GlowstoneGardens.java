@@ -12,6 +12,7 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -27,6 +28,8 @@ public class GlowstoneGardens extends Biome {
     static final float DOWNFALL = 0.4F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
+    static final int GRASS_COLOR = 10855786;
+    static final int FOLIAGE_COLOR = 10855786;
     static final String PARENT = null;
     static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final SpawnSettings.Builder SPAWN_SETTINGS = new SpawnSettings.Builder();
@@ -34,6 +37,8 @@ public class GlowstoneGardens extends Biome {
 
     public GlowstoneGardens() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
+                .grassColor(GRASS_COLOR)
+                .foliageColor(FOLIAGE_COLOR)
                 .fogColor(13162605)
                 .skyColor(BiomeHelper.calcSkyColor(2.0F))
                 .particleConfig(new BiomeParticleConfig(ParticleTypes.MYCELIUM, 0.01428F))
@@ -41,17 +46,6 @@ public class GlowstoneGardens extends Biome {
                 .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                 .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
                 .music(MusicType.createIngameMusic(SoundEvents.MUSIC_NETHER_BASALT_DELTAS)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
-    }
-
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 10855786;
-
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 10855786;
     }
 
     static {
