@@ -12,10 +12,10 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class GlowstoneGardens extends Biome {
@@ -59,9 +59,8 @@ public class GlowstoneGardens extends Biome {
         GENERATION_SETTINGS.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, ConfiguredFeatures.RED_MUSHROOM_NETHER);
         GENERATION_SETTINGS.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, ConfiguredFeatures.ORE_MAGMA);
         DefaultBiomeFeatures.addNetherMineables(GENERATION_SETTINGS);
-//        BYGFeatures.addHugeNetherMushrooms(GENERATION_SETTINGS);
-//        BYGFeatures.addGlowstoneGardenVegetation(GENERATION_SETTINGS);
-//
+        BYGFeatures.addHugeNetherMushrooms(GENERATION_SETTINGS);
+        BYGFeatures.addGlowstoneGardenVegetation(GENERATION_SETTINGS);
         SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));
         SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.MAGMA_CUBE, 2, 4, 4));

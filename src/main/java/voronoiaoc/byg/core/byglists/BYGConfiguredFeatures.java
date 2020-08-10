@@ -271,7 +271,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS = newConfiguredFeature("rs_weeping_roots", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             WEEPING_ROOTS.withChance(0.45F)),
-            WEEPING_ROOTS_PLANT)).method_30377(128)).spreadHorizontally().repeat(128);
+            WEEPING_ROOTS_PLANT)).method_30377(128).spreadHorizontally().repeat(25));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JUNGLE_FLOWERS = newConfiguredFeature("rs_jungle_flowers", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BISTORT.withChance(0.50F),
