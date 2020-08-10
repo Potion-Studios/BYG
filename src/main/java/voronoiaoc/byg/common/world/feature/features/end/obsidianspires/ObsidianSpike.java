@@ -7,9 +7,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.ModifiableWorld;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -38,7 +37,7 @@ public class ObsidianSpike extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor accessor, ChunkGenerator generator, Random rand, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
         setSeed(world.getSeed());
         int randLightHeight = rand.nextInt(25);
         int randChance = rand.nextInt(26);
@@ -49,14 +48,14 @@ public class ObsidianSpike extends Feature<DefaultFeatureConfig> {
         int terrainHeight;
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        if (!checkArea(world, position) || world.getBlockState(position.down()).getBlock() != BYGBlockList.IVIS_PHYLIUM) {
+        if (!checkArea(world, pos) || world.getBlockState(pos.down()).getBlock() != BYGBlockList.IVIS_PHYLIUM) {
             return false;
         }
 
-        if (world.getBlockState(position.down()).getBlock() == BYGBlockList.IVIS_PHYLIUM) {
+        if (world.getBlockState(pos.down()).getBlock() == BYGBlockList.IVIS_PHYLIUM) {
             for (int x = 0; x < 16; x++) {
                 for (int z = 0; z < 16; z++) {
-                    mutable.set(position.getX() + x, 0, position.getZ() + z);
+                    mutable.set(pos.getX() + x, 0, pos.getZ() + z);
 
                     noise2 = (noiseGen.noise3_Classic(mutable.getX() * 0.04D, mutable.getY() * 0.04D, mutable.getZ() * 0.04D) + 1D) * 5D;
                     noise = Math.pow(Math.abs(noiseGen.sample2D(mutable.getX() * 0.018D, mutable.getZ() * 0.015D)) + noise2 * 0.005D, 7); //0.70990733195111407153665966708847

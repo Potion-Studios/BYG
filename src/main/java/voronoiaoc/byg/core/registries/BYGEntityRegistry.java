@@ -7,6 +7,6 @@ import voronoiaoc.byg.core.byglists.BYGEntityList;
 
 public class BYGEntityRegistry {
     public static void registerEntities() {
-        Registry.register(Registry.ENTITY_TYPE,new Identifier(BYG.MODID,"boat_entity"), BYGEntityList.BYGBOAT);
+        Registry.register(Registry.ENTITY_TYPE, new Identifier(BYG.MODID, "boat_entity"), BYGEntityList.BYGBOAT);
     }
 }

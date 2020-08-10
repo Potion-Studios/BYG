@@ -91,7 +91,6 @@ public class BYGMushroomBlock extends PlantBlock implements Fertilizable {
     }
 
 
-
     @Override
     public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
         return true;

@@ -6,7 +6,8 @@ import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
 public class BookshelfBlock extends Block {
-    public static Tag<Block> BOOKSHELF_TAG = TagRegistry.block(new Identifier("c","bookshelves"));
+    public static Tag<Block> BOOKSHELF_TAG = TagRegistry.block(new Identifier("c", "bookshelves"));
+
     protected BookshelfBlock(Settings builder) {
         super(builder);
     }

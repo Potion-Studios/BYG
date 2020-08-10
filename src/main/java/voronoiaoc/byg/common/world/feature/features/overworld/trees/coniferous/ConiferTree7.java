@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
@@ -28,23 +28,21 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
     protected static boolean canTreePlace(TestableWorld genBaseReader, BlockPos blockPos) {
-        return canTreePlaceHere(
+        return canLogPlaceHere(
                 genBaseReader, blockPos
         );
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
         //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = rand.nextInt(5) + rand.nextInt(5) + 18;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getDimensionHeight()) {
-            BlockPos checkGround = position.down();
+            BlockPos checkGround = pos.down();
             if (!isDesiredGroundwDirtTag(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
-                return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;
             } else {
 
@@ -139,7 +137,7 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -147,7 +145,7 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
             for (int xDistance = -distance; xDistance <= distance; ++xDistance) {
                 for (int zDistance = -distance; zDistance <= distance; ++zDistance) {
-                    if (!canTreePlace(reader, position.set(x + xDistance, y + yOffset, z + zDistance))) {
+                    if (!canTreePlace(reader, pos.set(x + xDistance, y + yOffset, z + zDistance))) {
                         return false;
                     }
                 }
@@ -157,7 +155,7 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
     //Log Placement
-    private void treelog(Set<BlockPos> setlogblock, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
+    private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         if (canTreePlace(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
@@ -165,7 +163,7 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
     //Leaves Placement
-    private void leafs(ServerWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos leafpos = new BlockPos(x, y, z);
         if (isAir(reader, leafpos)) {
             this.setFinalBlockState(blockPos, reader, leafpos, LEAVES, boundingBox);

@@ -17,7 +17,7 @@ package voronoiaoc.byg.common.world.structure.fortress.skyrishighlands;//package
 //import java.util.List;
 //
 //public class SkyrisFortressStructure extends FortressStructure {
-//    private static final List<Biome.SpawnEntry> spawnList = Lists.newArrayList(new Biome.SpawnEntry(EntityType.PILLAGER, 1, 1, 1), new Biome.SpawnEntry(EntityType.WITCH, 5, 4, 4), new Biome.SpawnEntry(EntityType.VEX, 8, 5, 5), new Biome.SpawnEntry(EntityType.ILLUSIONER, 2, 5, 5), new Biome.SpawnEntry(EntityType.EVOKER, 3, 4, 4));
+//    private static final List<Biome.SpawnSettings.SpawnEntry> spawnList = Lists.newArrayList(new Biome.SpawnSettings.SpawnEntry(EntityType.PILLAGER, 1, 1, 1), new Biome.SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 4, 4), new Biome.SpawnSettings.SpawnEntry(EntityType.VEX, 8, 5, 5), new Biome.SpawnSettings.SpawnEntry(EntityType.ILLUSIONER, 2, 5, 5), new Biome.SpawnSettings.SpawnEntry(EntityType.EVOKER, 3, 4, 4));
 //
 //    public SkyrisFortressStructure(Codec<DefaultFeatureConfig> config) {
 //        super(config);
@@ -35,7 +35,7 @@ package voronoiaoc.byg.common.world.structure.fortress.skyrishighlands;//package
 //        return 15;
 //    }
 //
-//    public List<Biome.SpawnEntry> getSpawnList() {
+//    public List<Biome.SpawnSettings.SpawnEntry> getSpawnList() {
 //        return spawnList;
 //    }
 //

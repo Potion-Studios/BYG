@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.ModifiableTestableWorld;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
@@ -30,7 +30,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
     }
 
     protected static boolean canTreeReplace(ModifiableTestableWorld genBaseReader, BlockPos blockPos) {
-        return canTreePlaceHere(
+        return canLogPlaceHere(
                 genBaseReader, blockPos
         );
     }
@@ -42,18 +42,16 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
         });
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ServerWorldAccess worldIn, Random rand, BlockPos position, BlockBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
         //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 9;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getDimensionHeight()) {
-            BlockPos blockpos = position.down();
+            BlockPos blockpos = pos.down();
             if (!isDirtOrPeatBlock(worldIn, blockpos)) {
-                return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;
             } else {
                 //Places dirt under logs where/when necessary.
@@ -242,7 +240,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -250,7 +248,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
 
             for (int xDistance = -distance; xDistance <= distance; ++xDistance) {
                 for (int zDistance = -distance; zDistance <= distance; ++zDistance) {
-                    if (!canTreeReplace(reader, position.set(x + xDistance, y + yOffset, z + zDistance))) {
+                    if (!canTreeReplace(reader, pos.set(x + xDistance, y + yOffset, z + zDistance))) {
                         return false;
                     }
                 }
@@ -260,7 +258,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
     }
 
     //Log Placement
-    private void treelog(Set<BlockPos> setlogblock, ServerWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
+    private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
         if (canTreeReplace(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
@@ -268,7 +266,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
     }
 
     //Leaves Placement
-    private void leafs(ServerWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES, boundingBox);
@@ -276,7 +274,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<DefaultFeatu
 
     }
 
-    private void leafs2(ServerWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs2(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES2, boundingBox);

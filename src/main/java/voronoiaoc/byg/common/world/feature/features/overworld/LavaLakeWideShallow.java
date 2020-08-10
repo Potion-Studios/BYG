@@ -11,9 +11,8 @@ import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.noise.OctaveSimplexNoiseSampler;
-import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -45,9 +44,9 @@ public class LavaLakeWideShallow extends Feature<DefaultFeatureConfig> {
 
 
     @Override
-    public boolean generate(ServerWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator generator, Random random, BlockPos position, DefaultFeatureConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
         setSeed(world.getSeed());
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(position.down(2));
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(pos.down(2));
 
         // creates the actual lakes
         boolean containedFlag;
@@ -62,13 +61,13 @@ public class LavaLakeWideShallow extends Feature<DefaultFeatureConfig> {
                 if (xTemp * xTemp + zTemp * zTemp < 64) {
 
                     double samplePerlin1 = (this.noiseGen.sample(
-                            (double) position.getX() + x * 0.05D,
-                            (double) position.getZ() + z * 0.05D, true) + 1)
+                            (double) pos.getX() + x * 0.05D,
+                            (double) pos.getZ() + z * 0.05D, true) + 1)
                             * 3.0D;
 
                     for (int y = 0; y > -samplePerlin1; --y) {
 
-                        blockpos$Mutable.set(position).move(x, y, z);
+                        blockpos$Mutable.set(pos).move(x, y, z);
 
                         // checks if the spot is solid all around (diagonally too) and has nothing solid above it
                         containedFlag = checkIfValidSpot(world, blockpos$Mutable, samplePerlin1);
@@ -83,10 +82,10 @@ public class LavaLakeWideShallow extends Feature<DefaultFeatureConfig> {
                                 }
                             }
 
-                                // remove floating plants so they aren't hovering.
-                                // check above while moving up one.
-                                blockState = world.getBlockState(blockpos$Mutable.move(Direction.UP));
-                                material = blockState.getMaterial();
+                            // remove floating plants so they aren't hovering.
+                            // check above while moving up one.
+                            blockState = world.getBlockState(blockpos$Mutable.move(Direction.UP));
+                            material = blockState.getMaterial();
 
                             if (material == Material.PLANT && blockState.getBlock() != Blocks.LILY_PAD) {
                                 world.setBlockState(blockpos$Mutable, Blocks.AIR.getDefaultState(), 2);
@@ -116,7 +115,7 @@ public class LavaLakeWideShallow extends Feature<DefaultFeatureConfig> {
      * @param blockpos$Mutable - location to check if valid
      * @return - if the spot is valid
      */
-    private boolean checkIfValidSpot(ServerWorldAccess world, BlockPos.Mutable blockpos$Mutable, double noise) {
+    private boolean checkIfValidSpot(StructureWorldAccess world, BlockPos.Mutable blockpos$Mutable, double noise) {
         Material material;
         BlockState blockState;
 

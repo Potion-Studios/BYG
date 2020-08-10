@@ -12,6 +12,7 @@ public class BYGTools {
             super(material, attackDamage, attackSpeed, settings);
         }
     }
+
     public static class PickaxeItemBYG extends PickaxeItem {
         public PickaxeItemBYG(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
             super(material, attackDamage, attackSpeed, settings);

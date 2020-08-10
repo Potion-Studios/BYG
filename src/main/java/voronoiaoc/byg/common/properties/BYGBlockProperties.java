@@ -20,10 +20,10 @@ import voronoiaoc.byg.common.properties.blocks.embur.EmburPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.embur.EmburVinesPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
 import voronoiaoc.byg.common.properties.blocks.plants.*;
+import voronoiaoc.byg.common.properties.blocks.sythian.SythianPlantBlock;
+import voronoiaoc.byg.common.properties.blocks.sythian.SythianSaplingBlock;
+import voronoiaoc.byg.common.properties.blocks.sythian.SythianStalkBlock;
 import voronoiaoc.byg.common.properties.blocks.warped.*;
-import voronoiaoc.byg.common.properties.sythian.SythianPlantBlock;
-import voronoiaoc.byg.common.properties.sythian.SythianSaplingBlock;
-import voronoiaoc.byg.common.properties.sythian.SythianStalkBlock;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 public class BYGBlockProperties {
@@ -103,7 +103,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGButtons extends WoodButtonBlock {
+    public static class BYGButtons extends WoodenButtonBlock {
         public BYGButtons(String registryName) {
             super(Settings.of(Material.WOOD)
                     .sounds(BlockSoundGroup.WOOD)
@@ -381,7 +381,7 @@ public class BYGBlockProperties {
 //                    .strength(0.2f)
 //                    .ticksRandomly()
 //            );
-//            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+//            Registry.newDecorator(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
 //        }
 //    }
 //
@@ -487,7 +487,7 @@ public class BYGBlockProperties {
                     .ticksRandomly()
                     .sounds(BlockSoundGroup.GRASS)
                     .nonOpaque()
-                    .breakByTool(FabricToolTags.HOES,0)
+                    .breakByTool(FabricToolTags.HOES, 0)
                     .build()
             );
 
@@ -692,8 +692,8 @@ public class BYGBlockProperties {
 
     public static class SythianSapling extends SythianSaplingBlock {
         public SythianSapling(String registryName) {
-            super(Settings.of(Material.BAMBOO_SAPLING)
-                    .sounds(BlockSoundGroup.BAMBOO_SAPLING)
+            super(Settings.of(Material.PLANT)
+                    .sounds(BlockSoundGroup.GRASS)
                     .strength(0.0f)
                     .noCollision()
                     .nonOpaque()
@@ -958,7 +958,7 @@ public class BYGBlockProperties {
 //                    .strength(1.5f, 6.0f)
 //                    .nonOpaque()
 //            );
-//            Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
+//            Registry.newDecorator(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
 //        }
 //    }
 

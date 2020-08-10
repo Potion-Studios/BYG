@@ -1,6 +1,5 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.entity.Entity;

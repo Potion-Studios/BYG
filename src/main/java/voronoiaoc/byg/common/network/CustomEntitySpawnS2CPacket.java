@@ -1,7 +1,6 @@
 package voronoiaoc.byg.common.network;
 
 import io.netty.buffer.Unpooled;
-import io.netty.buffer.UnpooledDirectByteBuf;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.network.PacketContext;
@@ -12,10 +11,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 import voronoiaoc.byg.BYG;
@@ -28,7 +24,7 @@ public class CustomEntitySpawnS2CPacket {
 
 
     public static Packet<?> createSpawnPacket(Entity e) {
-        if (e==null) {
+        if (e == null) {
             return null;
         }
         PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
@@ -69,7 +65,7 @@ public class CustomEntitySpawnS2CPacket {
 
         int id = buf.readVarInt();
         UUID uuid = buf.readUuid();
-        EntityType  entityTypeId = Registry.ENTITY_TYPE.get(buf.readVarInt());
+        EntityType entityTypeId = Registry.ENTITY_TYPE.get(buf.readVarInt());
         double x = buf.readDouble();
         double y = buf.readDouble();
         double z = buf.readDouble();
@@ -88,7 +84,7 @@ public class CustomEntitySpawnS2CPacket {
 
         if (entity instanceof ProjectileEntity) {
             ((ProjectileEntity) entity).setOwner(client.world.getEntityById(entityData));
-        }else if (entity instanceof BYGBoatEntity) {
+        } else if (entity instanceof BYGBoatEntity) {
             ((BYGBoatEntity) entity).setBYGBoatType(BYGBoatEntity.BYGType.byId(entityData));
         }
         entity.setEntityId(id);
@@ -97,7 +93,7 @@ public class CustomEntitySpawnS2CPacket {
         entity.updateTrackedPosition(x, y, z);
         entity.pitch = pitch;
         entity.yaw = yaw;
-        entity.setVelocity(velocityX,velocityY,velocityZ);
+        entity.setVelocity(velocityX, velocityY, velocityZ);
 
         context.getTaskQueue().execute(() -> {
             client.execute(() -> {

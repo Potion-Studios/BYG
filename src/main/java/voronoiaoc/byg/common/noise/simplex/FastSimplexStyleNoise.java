@@ -9,7 +9,7 @@ package voronoiaoc.byg.common.noise.simplex;
  * <p>
  * Two 3D functions are provided:
  * - noise3_Classic rotates the BCC lattice 180 degrees about the
- * main diagonal, to hide the BCC grid in cardinal slices, while
+ * dataGenBiome diagonal, to hide the BCC grid in cardinal slices, while
  * still keeping each direction symmetric w.r.t the lattice.
  * - noise3_PlaneFirst gives X and Y better attributes as a plane,
  * and allows the third coordinate to be time or the vertical
