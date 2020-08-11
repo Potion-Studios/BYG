@@ -14,7 +14,6 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.data.DataCache;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.resource.ResourcePackManager;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.CommandSource;
 import net.minecraft.util.Identifier;
@@ -103,7 +102,7 @@ public class BYGDataGenerator {
         }
 
         private static Path filePath(Path path, Identifier identifier, Biome biome, String modId) {
-                return path.resolve(modId + "/biomes/" + identifier.getPath() + ".json");
+            return path.resolve(modId + "/biomes/" + identifier.getPath() + ".json");
         }
     }
 
@@ -117,8 +116,6 @@ public class BYGDataGenerator {
 
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
             dispatcher.register(CommandManager.literal("gendata").then(CommandManager.argument("modid", StringArgumentType.string()).suggests((ctx, sb) -> CommandSource.suggestMatching(modIdList.stream(), sb)).executes(cs -> {
-                ResourcePackManager resourcePackManager = cs.getSource().getMinecraftServer().getDataPackManager();
-
                 try {
                     BYGDataGenerator.dataGenBiome(cs.getSource().getWorld().getServer().getSavePath(WorldSavePath.DATAPACKS).toString(),cs.getArgument("modid", String.class));
                 } catch (IOException e) {
