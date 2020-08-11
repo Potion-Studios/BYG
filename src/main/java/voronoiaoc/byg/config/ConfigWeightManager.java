@@ -101,7 +101,7 @@ public class ConfigWeightManager {
         });
     }
 
-    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(), "byg-weight.cfg");
+    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDirectory(), "biome-weight.cfg");
 
     public static void weightConfigFile() {
         if (!CONFIG_FILE.exists()) {

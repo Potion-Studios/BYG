@@ -1,10 +1,17 @@
 package voronoiaoc.byg;
 
+import com.mojang.brigadier.arguments.StringArgumentType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.resource.ResourcePackManager;
+import net.minecraft.server.command.CommandManager;
+import net.minecraft.server.command.CommandSource;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,6 +32,8 @@ import voronoiaoc.byg.core.registries.BYGItemRegistry;
 import voronoiaoc.byg.data.BYGDataGenerator;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BYG implements ModInitializer {
     public static final String MODID = "byg";
@@ -69,11 +78,33 @@ public class BYG implements ModInitializer {
 //
 //        });
 
-        try {
-            BYGDataGenerator.dataGenBiome("D:\\Coding\\BiomeJson");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            BYGDataGenerator.dataGenBiome("D:\\Coding\\BiomeJson");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        List<String> modIdList = new ArrayList<>();
+        FabricLoader.getInstance().getAllMods().forEach(modContainer -> {
+            String modId = modContainer.getMetadata().getId();
+            if (!modId.contains("fabric"))
+                modIdList.add(modId);
+        });
+
+
+
+        CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+            dispatcher.register(CommandManager.literal("gendata").then(CommandManager.argument("modid", StringArgumentType.string()).suggests((ctx, sb) -> CommandSource.suggestMatching(modIdList.stream(), sb)).executes(cs -> {
+                ResourcePackManager resourcePackManager = cs.getSource().getMinecraftServer().getDataPackManager();
+
+                try {
+                    BYGDataGenerator.dataGenBiome(cs.getSource().getWorld().getServer().getSavePath(WorldSavePath.DATAPACKS).toString(),cs.getArgument("modid", String.class));
+                } catch (IOException e) {
+                    BYG.LOGGER.error("REEEEEEEEEEEEEEEEE");
+                }
+                return 1;
+            })));
+        });
         LOGGER.info("Initialized BYG!");
     }
 }
