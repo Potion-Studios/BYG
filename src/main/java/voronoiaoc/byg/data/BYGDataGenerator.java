@@ -23,7 +23,6 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import voronoiaoc.byg.BYG;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -119,7 +118,7 @@ public class BYGDataGenerator {
                 try {
                     BYGDataGenerator.dataGenBiome(cs.getSource().getWorld().getServer().getSavePath(WorldSavePath.DATAPACKS).toString(),cs.getArgument("modid", String.class));
                 } catch (IOException e) {
-                    BYG.LOGGER.error("REEEEEEEEEEEEEEEEE");
+
                 }
                 return 1;
             })));

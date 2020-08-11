@@ -264,14 +264,16 @@ public class BYGBiomeRegistry {
         Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
         biomeList.add(biome);
         if (weight > 0) {
-            if (type == OverworldClimate.TEMPERATE)
-                WARM.add(BuiltinRegistries.BIOME.getRawId(biome));
-            if (type == OverworldClimate.COOL)
-                COOL.add(BuiltinRegistries.BIOME.getRawId(biome));
-            if (type == OverworldClimate.DRY)
-                HOT.add(BuiltinRegistries.BIOME.getRawId(biome));
-            if (type == OverworldClimate.SNOWY)
-                ICY.add(BuiltinRegistries.BIOME.getRawId(biome));
+            for (int idx = 1; idx <= weight; idx++) {
+                if (type == OverworldClimate.TEMPERATE)
+                    WARM.add(BuiltinRegistries.BIOME.getRawId(biome));
+                if (type == OverworldClimate.COOL)
+                    COOL.add(BuiltinRegistries.BIOME.getRawId(biome));
+                if (type == OverworldClimate.DRY)
+                    HOT.add(BuiltinRegistries.BIOME.getRawId(biome));
+                if (type == OverworldClimate.SNOWY)
+                    ICY.add(BuiltinRegistries.BIOME.getRawId(biome));
+            }
         }
     }
 
@@ -388,7 +390,7 @@ public class BYGBiomeRegistry {
     }
 
     //Why? This is how worldtype's using the BiomeLayerSampler get the numerical ID's to sample.
-    //We start at 173(Minecraft's highest ID) and check if any poss beyond that are occupied(Mod compat) if not, we take the key of our biomes and add it to this list.
+    //We start at 173(Minecraft's highest ID) and check if any postion beyond that is occupied(Mod compat) if not, we take the key of our biomes and add it to this list.
     public static void addBiomeNumericalIDs() {
         int i = 173;
         for (Biome biome : biomeList) {
