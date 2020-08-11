@@ -257,23 +257,18 @@ public class BYGBiomeRegistry {
         BYG.LOGGER.info("BYG: Registered End Biomes!");
     }
 
-    static int idx = 0;
-
-
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate type) {
         Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
         biomeList.add(biome);
         if (weight > 0) {
-            for (int idx = 1; idx <= weight; idx++) {
-                if (type == OverworldClimate.TEMPERATE)
-                    WARM.add(BuiltinRegistries.BIOME.getRawId(biome));
-                if (type == OverworldClimate.COOL)
-                    COOL.add(BuiltinRegistries.BIOME.getRawId(biome));
-                if (type == OverworldClimate.DRY)
-                    HOT.add(BuiltinRegistries.BIOME.getRawId(biome));
-                if (type == OverworldClimate.SNOWY)
-                    ICY.add(BuiltinRegistries.BIOME.getRawId(biome));
-            }
+            if (type == OverworldClimate.TEMPERATE)
+                WARM.add(BuiltinRegistries.BIOME.getRawId(biome));
+            if (type == OverworldClimate.COOL)
+                COOL.add(BuiltinRegistries.BIOME.getRawId(biome));
+            if (type == OverworldClimate.DRY)
+                HOT.add(BuiltinRegistries.BIOME.getRawId(biome));
+            if (type == OverworldClimate.SNOWY)
+                ICY.add(BuiltinRegistries.BIOME.getRawId(biome));
         }
     }
 
@@ -390,20 +385,10 @@ public class BYGBiomeRegistry {
     }
 
     //Why? This is how worldtype's using the BiomeLayerSampler get the numerical ID's to sample.
-    //We start at 173(Minecraft's highest ID) and check if any postion beyond that is occupied(Mod compat) if not, we take the key of our biomes and add it to this list.
     public static void addBiomeNumericalIDs() {
-        int i = 173;
         for (Biome biome : biomeList) {
-            while (Biomes.BIOMES.containsKey(i)) {
-                ++i;
-            }
-
             Optional<RegistryKey<Biome>> key = BuiltinRegistries.BIOME.getKey(biome);
-
-            if (key.isPresent()) {
-                Biomes.BIOMES.put(i, key.get());
-                i++;
-            }
+            key.ifPresent(biomeRegistryKey -> Biomes.BIOMES.put(BuiltinRegistries.BIOME.getRawId(biome), biomeRegistryKey));
         }
     }
 
