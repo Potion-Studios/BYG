@@ -102,7 +102,7 @@ public class BYGDataGenerator {
         }
 
         private static Path filePath(Path path, Identifier identifier, String modId) {
-            return path.resolve(modId + "/worldgen/biomes/" + identifier.getPath() + ".json");
+            return path.resolve(modId + "/worldgen/biome/" + identifier.getPath() + ".json");
         }
     }
 
