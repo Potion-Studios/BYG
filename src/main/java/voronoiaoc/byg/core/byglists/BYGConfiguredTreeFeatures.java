@@ -532,7 +532,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_BAOBAB_TREE = newConfiguredFeature("rs_baobab_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             ConfiguredFeatures.ACACIA.withChance(0.1F)),
             BAOBAB_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(5, 0.8F, -1))));
+            new CountExtraDecoratorConfig(3, 0.8F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MEADOW_SHRUB = newConfiguredFeature("rs_meadow_shrub", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             SHRUB_MEADOW.withChance(0.1F)),
@@ -551,7 +551,7 @@ public class BYGConfiguredTreeFeatures {
             new CountExtraDecoratorConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_GROVE_TREE = newConfiguredFeature("rs_enchanted_grove_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            ENCHANTED_BLUE_GROVE_TREE1.withChance(0.1F)),
+            ENCHANTED_BLUE_GROVE_TREE1.withChance(0.5F)),
             ENCHANTED_GREEN_GROVE_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(2, 0.4F, 1))));
 
@@ -613,7 +613,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_PALO_VERDE_TREE = newConfiguredFeature("rs_palo_verde_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             PALO_VERDE_TREE1.withChance(0.1F)),
             PALO_VERDE_TREE2)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(1, 0.4F, 1))));
+            new CountExtraDecoratorConfig(1, 0.4F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JOSHUA_TREE = newConfiguredFeature("rs_joshua_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             JOSHUA_TREE1.withChance(0.1F)),

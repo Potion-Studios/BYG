@@ -68,7 +68,7 @@ public class Meadow extends Biome implements BiomeTools {
         ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
 //        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
-        BYGTreeFeatures.addMeadowTrees(GENERATION_SETTINGS);
+        BYGTreeFeatures.addMeadowShrubs(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
