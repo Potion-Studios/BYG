@@ -47,7 +47,7 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
-            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 30, 5, 5, isSapling)) {
                 return false;
             } else {
                 Direction direction = Direction.Type.HORIZONTAL.random(rand);

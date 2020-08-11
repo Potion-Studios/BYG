@@ -157,12 +157,12 @@ public class BYGSaplingToTree {
     public static class FirSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<DefaultFeatureConfig> getBigTreeFeature(Random random) {
-            return BYGFeatureList.CONIFER_TREE1;
+            return BYGFeatureList.CONIFER_TREE3;
         }
 
         @Nullable
         public BYGAbstractTreeFeature<DefaultFeatureConfig> getTreeFeature(Random random) {
-            return BYGFeatureList.CONIFER_TREE1;
+            return random.nextInt(3) == 0 ? BYGFeatureList.CONIFER_TREE2 : BYGFeatureList.CONIFER_TREE5;
         }
     }
 
@@ -355,6 +355,21 @@ public class BYGSaplingToTree {
         @Nullable
         public BYGAbstractTreeFeature<DefaultFeatureConfig> getTreeFeature(Random random) {
             return random.nextInt(2) == 0 ? BYGFeatureList.ORCHARD_TREE1 : BYGFeatureList.ORCHARD_TREE2;
+        }
+    }
+
+    public static class CikaSaplingToTree extends BYGTree {
+        @Nullable
+        public BYGAbstractTreeFeature<DefaultFeatureConfig> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGFeatureList.CIKA_TREE2 : BYGFeatureList.CIKA_TREE1;
+        }
+
+    }
+
+    public static class RedwoodSaplingToTree extends BYGTree {
+        @Nullable
+        public BYGAbstractTreeFeature<DefaultFeatureConfig> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGFeatureList.REDWOOD_TREE1 : BYGFeatureList.REDWOOD_TREE2;
         }
 
     }
