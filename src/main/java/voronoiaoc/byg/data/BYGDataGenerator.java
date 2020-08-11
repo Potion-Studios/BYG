@@ -80,7 +80,7 @@ public class BYGDataGenerator {
             }
 
             for (Biome biome : biomeList) {
-                Path path2 = filePath(path, BuiltinRegistries.BIOME.getId(biome), biome, modId);
+                Path path2 = filePath(path, BuiltinRegistries.BIOME.getId(biome), modId);
                 Function<Supplier<Biome>, DataResult<JsonElement>> function1 = JsonOps.INSTANCE.withEncoder(Biome.REGISTRY_CODEC);
 
                 try {
@@ -101,8 +101,8 @@ public class BYGDataGenerator {
             return "Byg Biomes";
         }
 
-        private static Path filePath(Path path, Identifier identifier, Biome biome, String modId) {
-            return path.resolve(modId + "/biomes/" + identifier.getPath() + ".json");
+        private static Path filePath(Path path, Identifier identifier, String modId) {
+            return path.resolve(modId + "/worldgen/biomes/" + identifier.getPath() + ".json");
         }
     }
 
