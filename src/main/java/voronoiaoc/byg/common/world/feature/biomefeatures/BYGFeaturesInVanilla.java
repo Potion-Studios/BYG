@@ -8,6 +8,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BuiltInBiomes;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -16,11 +17,13 @@ import java.util.stream.Collectors;
 
 public class BYGFeaturesInVanilla {
     public static void addFeatures() {
+
         for (Biome biome : BuiltinRegistries.BIOME) {
-            //biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, BYGBlockList.PENDORITE_ORE.getDefaultState(), 4)).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(10, 0, 0, 16))));
-            //biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, BYGBlockList.ROCKY_STONE.getDefaultState(), 24)).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(10, 0, 0, 35))));
-            //biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, BYGBlockList.SCORIA_STONE.getDefaultState(), 24)).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(10, 0, 0, 35))));
-            //biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Target.NATURAL_STONE, BYGBlockList.SOAPSTONE.getDefaultState(), 24)).decorate(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(10, 0, 0, 35))));
+            if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
+                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_ROCKY_STONE);
+                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);
+                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SOAP_STONE);
+            }
 
             if (biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.FOREST) || biome == BuiltinRegistries.BIOME.get(BuiltInBiomes.PLAINS)) {
 

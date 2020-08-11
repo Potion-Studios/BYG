@@ -153,6 +153,10 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> ORE_AMETRINE = newConfiguredFeature("ore_ametrine", Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BYGBlockList.AMETRINE_ORE.getDefaultState(), 4)).method_30377(56).spreadHorizontally().repeat(10));
     public static ConfiguredFeature<?, ?> ORE_PENDORITE = newConfiguredFeature("ore_pendorite", Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BYGBlockList.PENDORITE_ORE.getDefaultState(), 4)).method_30377(56).spreadHorizontally().repeat(10));
 
+    public static ConfiguredFeature<?, ?> ORE_ROCKY_STONE = newConfiguredFeature("ore_rocky_stone", Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BYGBlockList.ROCKY_STONE.getDefaultState(), 20)).method_30377(63).spreadHorizontally().repeat(10));
+    public static ConfiguredFeature<?, ?> ORE_SCORIA_STONE = newConfiguredFeature("ore_scoria_stone", Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BYGBlockList.SCORIA_STONE.getDefaultState(), 20)).method_30377(63).spreadHorizontally().repeat(10));
+    public static ConfiguredFeature<?, ?> ORE_SOAP_STONE = newConfiguredFeature("ore_soap_stone", Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BYGBlockList.SOAPSTONE.getDefaultState(), 20)).method_30377(63).spreadHorizontally().repeat(10));
+
 
     /***********************************************************Configured & Decorated Features***********************************************************/
 
