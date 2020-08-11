@@ -3,20 +3,28 @@ package voronoiaoc.byg.data;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.data.DataCache;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
+import net.minecraft.resource.ResourcePackManager;
+import net.minecraft.server.command.CommandManager;
+import net.minecraft.server.command.CommandSource;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import voronoiaoc.byg.BYG;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -97,5 +105,27 @@ public class BYGDataGenerator {
         private static Path filePath(Path path, Identifier identifier, Biome biome, String modId) {
                 return path.resolve(modId + "/biomes/" + identifier.getPath() + ".json");
         }
+    }
+
+    public static void dataGenCommand() {
+        List<String> modIdList = new ArrayList<>();
+        FabricLoader.getInstance().getAllMods().forEach(modContainer -> {
+            String modId = modContainer.getMetadata().getId();
+            if (!modId.contains("fabric"))
+                modIdList.add(modId);
+        });
+
+        CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+            dispatcher.register(CommandManager.literal("gendata").then(CommandManager.argument("modid", StringArgumentType.string()).suggests((ctx, sb) -> CommandSource.suggestMatching(modIdList.stream(), sb)).executes(cs -> {
+                ResourcePackManager resourcePackManager = cs.getSource().getMinecraftServer().getDataPackManager();
+
+                try {
+                    BYGDataGenerator.dataGenBiome(cs.getSource().getWorld().getServer().getSavePath(WorldSavePath.DATAPACKS).toString(),cs.getArgument("modid", String.class));
+                } catch (IOException e) {
+                    BYG.LOGGER.error("REEEEEEEEEEEEEEEEE");
+                }
+                return 1;
+            })));
+        });
     }
 }
