@@ -150,6 +150,9 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = newConfiguredFeature("dead_sea_spike", BYGFeatureList.DEADSEASPIKES.configure(DecoratedFeatureConfig.DEFAULT));
     public static ConfiguredFeature<?, ?> DEAD_SEA_SPIKE_TALL = newConfiguredFeature("dead_sea_tall_spike", BYGFeatureList.TALLDEADSEASPIKES.configure(DecoratedFeatureConfig.DEFAULT));
 
+    public static ConfiguredFeature<?, ?> ORE_AMETRINE = newConfiguredFeature("ore_ametrine", Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BYGBlockList.AMETRINE_ORE.getDefaultState(), 4)).method_30377(56).spreadHorizontally().repeat(10));
+    public static ConfiguredFeature<?, ?> ORE_PENDORITE = newConfiguredFeature("ore_pendorite", Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BYGBlockList.PENDORITE_ORE.getDefaultState(), 4)).method_30377(56).spreadHorizontally().repeat(10));
+
 
     /***********************************************************Configured & Decorated Features***********************************************************/
 
