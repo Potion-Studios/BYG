@@ -866,6 +866,10 @@
   "block.byg.zelkova_walls": "Zelkova Wall",
   "block.byg.zelkova_wood": "Zelkova Wood",
   "commands.byg.locatebiome.failed": "Could Not Find biome: %s",
+  "commands.gendata.failed": "Biome data failed for: %s",
+  "commands.gendata.listisempty": "Could Not Find biomes for %s",
+  "commands.gendata.success": "Biome data for %s has been saved in: %s",
+
   "generator.byg": "BYG-BETA",
   "generator.byg_island": "BYG Islands",
   "generator.bygislands": "BYG Islands-BETA",
