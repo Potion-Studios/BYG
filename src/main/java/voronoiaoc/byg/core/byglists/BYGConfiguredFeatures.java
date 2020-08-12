@@ -15,6 +15,7 @@ import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
 import voronoiaoc.byg.common.world.feature.placements.AnyWaterOrSolidSurfaceSurface;
 import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
+import voronoiaoc.byg.common.world.feature.placements.ObsidianSpikePlacer;
 import voronoiaoc.byg.common.world.feature.placements.UnderGroundPlacement;
 
 public class BYGConfiguredFeatures {
@@ -166,6 +167,7 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> EMBUR_LILY = newConfiguredFeature("embur_lily", BYGFeatureList.EMBUR_LILY.configure(DefaultFeatureConfig.DEFAULT).decorate(UnderGroundPlacement.UGPLACER.configure(new CountExtraDecoratorConfig(2, 0.5F, 2))));
     public static ConfiguredFeature<?, ?> CRAG_LAKE = newConfiguredFeature("crag_lake", BYGFeatureList.LAKE_WIDE_SHALLOW.configure(FeatureConfig.DEFAULT).decorate(AnyWaterOrSolidSurfaceSurface.WATER_OR_SOLID_SURFACE.configure(new CountConfig(4))));
     public static ConfiguredFeature<?, ?> EMBUR_LAKE = newConfiguredFeature("embur_lake", BYGFeatureList.EMBURLAKE.configure(DefaultFeatureConfig.DEFAULT).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(32, 0, 4)).spreadHorizontally()).repeat(15));
+    public static ConfiguredFeature<?, ?> OBBY_SPIKE = newConfiguredFeature("obsidian_spire", BYGFeatureList.OBBYSPIKES.configure(FeatureConfig.DEFAULT).decorate(ObsidianSpikePlacer.OBBY_SPIKE.configure(new CountExtraDecoratorConfig(2000, 0, 0))));
 
     /***********************************************************Random Selectors***********************************************************/
 
