@@ -1,36 +1,28 @@
 package voronoiaoc.byg.common.world.feature.placements;
 
-import com.mojang.serialization.Codec;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.placement.FrequencyConfig;
-import net.minecraft.world.gen.placement.Placement;
+
+import voronoiaoc.byg.common.biomes.BiomeHelper;
 
 import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class AnyWaterOrSolidSurfaceSurface extends Placement<FrequencyConfig> {
-    public static final Placement<FrequencyConfig> WWATERORSOLIDSURFACE = new AnyWaterOrSolidSurfaceSurface(FrequencyConfig.field_236971_a_);
+public class AnyWaterOrSolidSurfaceSurface extends Decorator<SeaPickleFeatureConfig> {
+    public static final Decorator<SeaPickleFeatureConfig> WATER_OR_SOLID_SURFACE = BiomeHelper.newDecorator("any_water_or_solid_surface_decorator", new AnyWaterOrSolidSurfaceSurface(CountConfig.CODEC));
 
-    public AnyWaterOrSolidSurfaceSurface(Codec<FrequencyConfig> config) {
+    public AnyWaterOrSolidSurfaceSurface(Codec<CountConfig> config) {
         super(config);
     }
 
-
-    public Stream<BlockPos> getPositions(IWorld world, ChunkGenerator generator, Random random, FrequencyConfig config, BlockPos pos) {
-        return IntStream.range(0, config.count).mapToObj((obj) -> {
+    @Override
+    public Stream<BlockPos> getPositions(DecoratorContext ctx, Random random, CountConfig config, BlockPos pos) {
+        return IntStream.range(0, config.getCount().getValue(random)).mapToObj((obj) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();
-
-            BlockPos.Mutable mutable = new BlockPos.Mutable(x, 255, z);
-            while (mutable.getY() > 0 &&
-                    !world.getBlockState(mutable).isSolid() &&
-                    world.getBlockState(mutable).getFluidState().isEmpty())
+            BlockPos.Mutable mutable = new BlockPos.Mutable(x, ctx.world.getHeight(), z);
+            while (mutable.getY() > 0 && !ctx.getBlockState(mutable).isSolidBlock(ctx.world, mutable) && ctx.getBlockState(mutable).getFluidState().isEmpty())
                 mutable.move(Direction.DOWN);
-
             return mutable.toImmutable();
         });
     }

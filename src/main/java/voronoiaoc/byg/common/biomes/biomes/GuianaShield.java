@@ -1,87 +1,49 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import com.google.common.collect.Maps;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MoodSoundAmbience;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.BiomeGenerationSettings;
+import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import voronoiaoc.byg.common.biomes.BiomeHelper;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
+import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 
-import javax.annotation.Nullable;
+import java.util.Collections;
+import java.util.HashMap;
 
-public class GuianaShield extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState()));
+public class GuianaShield extends Biome  {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("guiana_shield", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState())));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
-    static final double DEPTH = 6.0F;
-    static final double SCALE = 0.25F;
+    static final float DEPTH = 6.0F;
+    static final float SCALE = 0.25F;
     static final float TEMPERATURE = 0.95F;
     static final float DOWNFALL = 0.9F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
+    static final int GRASS_COLOR = 6208527;
+    static final int FOLIAGE_COLOR = 6208527;
     static final String PARENT = null;
+    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
     public GuianaShield() {
-        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));//this.addStructure(Feature.JUNGLE_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-        DefaultBiomeFeatures.func_235196_b_(this);
-        DefaultBiomeFeatures.addCarvers(this);
-
-
-        DefaultBiomeFeatures.addMonsterRooms(this);
-        DefaultBiomeFeatures.addStoneVariants(this);
-        DefaultBiomeFeatures.addOres(this);
-        DefaultBiomeFeatures.addSedimentDisks(this);
-        DefaultBiomeFeatures.addExtraDefaultFlowers(this);
-        DefaultBiomeFeatures.addMushrooms(this);
-        DefaultBiomeFeatures.addReedsAndPumpkins(this);
-        DefaultBiomeFeatures.addSprings(this);
-        BYGTreeFeatures.addTropJungleTrees(this);
-        BYGFeatures.addWeedGrass(this);
-        BYGFeatures.addGrass(this);
-        BYGFeatures.addBYGTropicFlowers(this);
-        BYGFeatures.addBYGMushrooms(this);
-
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlockList.AMETRINE_ORE.getDefaultState(), BYGWorldConfig.ametrineOreSize.get())).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(BYGWorldConfig.ametrineOreChance.get(), 0, 0, BYGWorldConfig.ametrineOreMaxY.get()))));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.PIG, 10, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.COW, 8, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.PARROT, 40, 1, 2));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
-        this.addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SPIDER, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE, 95, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SKELETON, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.CREEPER, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.OCELOT, 2, 1, 1));
-    }
-
-    @Nullable
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return BYGBiomeList.GUIANA_CLEARING;
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColor(GRASS_COLOR).foliageColor(FOLIAGE_COLOR).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
     @Override
@@ -89,15 +51,47 @@ public class GuianaShield extends Biome {
         return this;
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public int getGrassColor(BlockPos pos) {
-
-        return 6208527;
+    @Override
+    public HashMap<Biome, Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.GUIANA_CLEARING, 1));
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public int getFoliageColor(BlockPos pos) {
-        return 6208527;
-    }
+    static {
+        DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
+        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
+        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
+        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultDisks(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addExtraDefaultFlowers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSprings(GENERATION_SETTINGS);
+        BYGTreeFeatures.addRainForestTrees(GENERATION_SETTINGS);
+        BYGFeatures.addWeedGrass(GENERATION_SETTINGS);
+        BYGFeatures.addGrass(GENERATION_SETTINGS);
+        BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
+        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_AMETRINE);
 
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.COW, 8, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PARROT, 40, 1, 2));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.OCELOT, 2, 1, 1));
+
+    }
 }

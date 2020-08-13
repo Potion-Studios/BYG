@@ -1,101 +1,58 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
-import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.BiomeGenerationSettings;
+import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BiomeHelper;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
-import voronoiaoc.byg.core.byglists.BYGSBList;
 
-import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Random;
 
-public class TropicalFungalRainForest extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.FUNGAL_RAINFOREST_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
+public class TropicalFungalRainForest extends Biome  {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("tropical_fungal_rainforest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
-    static final double DEPTH = 0.2F;
-    static final double SCALE = 0.25F;
+    static final float DEPTH = 0.2F;
+    static final float SCALE = 0.25F;
     static final float TEMPERATURE = 0.95F;
     static final float DOWNFALL = 0.9F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
+    static final int GRASS_COLOR = 10145074;
+    static final int FOLIAGE_COLOR = 10145074;
     static final String PARENT = null;
+    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
     public TropicalFungalRainForest() {
-        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));//this.addStructure(Feature.JUNGLE_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-        DefaultBiomeFeatures.func_235196_b_(this);
-        DefaultBiomeFeatures.addCarvers(this);
-
-
-        DefaultBiomeFeatures.addMonsterRooms(this);
-        DefaultBiomeFeatures.addStoneVariants(this);
-        DefaultBiomeFeatures.addOres(this);
-        DefaultBiomeFeatures.addSedimentDisks(this);
-        DefaultBiomeFeatures.addExtraDefaultFlowers(this);
-        DefaultBiomeFeatures.addMushrooms(this);
-        DefaultBiomeFeatures.addReedsAndPumpkins(this);
-        DefaultBiomeFeatures.addSprings(this);
-        DefaultBiomeFeatures.addJunglePlants(this);
-        DefaultBiomeFeatures.addFreezeTopLayer(this);
-        BYGTreeFeatures.addFungalTropJungleTrees(this);
-        DefaultBiomeFeatures.addMushrooms(this);
-        DefaultBiomeFeatures.addMushrooms(this);
-        BYGFeatures.addTropFungalMushrooms(this);
-        BYGFeatures.addGrass(this);
-        BYGFeatures.addBYGTropicFlowers(this);
-        BYGFeatures.addBYGMushrooms(this);
-
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.PIG, 10, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.COW, 8, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.PARROT, 40, 1, 2));
-        this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
-        this.addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SPIDER, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE, 95, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SKELETON, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.CREEPER, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.SLIME, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.WITCH, 5, 1, 1));
-        this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.OCELOT, 2, 1, 1));
-
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColor(GRASS_COLOR).foliageColor(FOLIAGE_COLOR).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
+
 
     @Override
-    public Biome getRiver() {
-        return Biomes.RIVER;
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.TROPICALFUNGALRAINFORESTHILLS, 1);
+        map.put(BYGBiomeList.FUNGAL_PATCH, 2);
+        map.put(BYGBiomeList.FRESHWATERLAKE, 1);
+        return map;
     }
 
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public int getGrassColor(double posX, double posZ) {
-        return 10145074;
 
-    }
-
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public int getFoliageColor() {
-        return 10145074;
-    }
-
-    @Nullable
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return randomSubBiome(rand);
-    }
-
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
+    public Biome randomSubBiome(Random random) {
+        int randomPicker = random.nextInt(4);
         if (randomPicker == 0)
             return BYGBiomeList.TROPICALFUNGALRAINFORESTHILLS;
         else if (randomPicker == 1)
@@ -104,6 +61,48 @@ public class TropicalFungalRainForest extends Biome {
             return BYGBiomeList.FUNGAL_PATCH;
         else
             return BYGBiomeList.FRESHWATERLAKE;
+    }
+
+    static {
+        DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
+        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
+        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultDisks(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addExtraDefaultFlowers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSprings(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addJungleVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+        BYGTreeFeatures.addFungalRainForestTrees(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        BYGFeatures.addTropFungalMushrooms(GENERATION_SETTINGS);
+        BYGFeatures.addWeedGrass(GENERATION_SETTINGS);
+        BYGFeatures.addGrass(GENERATION_SETTINGS);
+        BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
+        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.COW, 8, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PARROT, 40, 1, 2));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.OCELOT, 2, 1, 1));
+
     }
 }
 

@@ -20,7 +20,7 @@ public abstract class BYGHugeMushroom {
     @Nullable
     protected abstract BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random);
 
-    public boolean spawn(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+    public boolean func_242575_a(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
         BYGAbstractTreeFeature<NoFeatureConfig> abstracttreefeature = this.getHugeMushroomFeature(random);
         if (abstracttreefeature == null) {
             return false;
@@ -43,22 +43,22 @@ public abstract class BYGHugeMushroom {
             return block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset + 1)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset + 1)).getBlock();
         }
 
-        public boolean spawn(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+        public boolean func_242575_a(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
             for (int i = 0; i >= -1; --i) {
                 for (int j = 0; j >= -1; --j) {
                     if (canMassiveMushroomSpawnAt(blockUnder, worldIn, pos, i, j)) {
-                        return this.spawnMassiveMushroom(worldIn, structureManager, chunkGenerator, pos, blockUnder, random, i, j);
+                        return this.func_242575_aMassiveMushroom(worldIn, structureManager, chunkGenerator, pos, blockUnder, random, i, j);
                     }
                 }
             }
 
-            return super.spawn(worldIn, structureManager, chunkGenerator, pos, blockUnder, random);
+            return super.func_242575_a(worldIn, structureManager, chunkGenerator, pos, blockUnder, random);
         }
 
         @Nullable
         protected abstract BYGAbstractTreeFeature<NoFeatureConfig> getMassiveMushroomFeature(Random random);
 
-        public boolean spawnMassiveMushroom(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
+        public boolean func_242575_aMassiveMushroom(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
             BYGAbstractTreeFeature<NoFeatureConfig> abstracttreefeature = this.getMassiveMushroomFeature(random);
             if (abstracttreefeature == null) {
                 return false;

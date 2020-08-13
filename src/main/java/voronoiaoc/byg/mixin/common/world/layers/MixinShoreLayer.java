@@ -49,7 +49,7 @@ public abstract class MixinShoreLayer {
                 if (isOcean(idx))
                     cir.setReturnValue(centre);
 
-            if (biome != null && biome.getPrecipitation() == Biome.RainType.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH)
+            if (biome != null && biome.getRainType() == Biome.RainType.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH)
                 if (isOcean(idx))
                     cir.setReturnValue(BYGBiomeGetter.SNOWYBLACKBEACH);
 

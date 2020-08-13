@@ -24,12 +24,12 @@
 //                return BYGBiomeGetter.WHITEBEACH;
 //            }
 //        }
-//        if (biome != null && biome.getPrecipitation() == Biome.RainType.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH) {
+//        if (biome != null && biome.getRainType() == Biome.RainType.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH) {
 //            if (ClimateBooleans.isOcean(n) || ClimateBooleans.isOcean(e) || ClimateBooleans.isOcean(s) || ClimateBooleans.isOcean(w)) {
 //                return BYGBiomeGetter.SNOWYBLACKBEACH;
 //            }
 //        }
-//        if (biome != null && biome.getPrecipitation() == Biome.RainType.RAIN && biome != BYGBiomeList.DOVERMOUNTAINS && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH && biome != BYGBiomeList.GRASSLANDPLATEAU && biome != BYGBiomeList.TROPICALISLAND && biome.getCategory() != Biome.Category.SWAMP && biome != BYGBiomeList.MARSHLANDS && biome.getCategory() != Biome.Category.MUSHROOM) {
+//        if (biome != null && biome.getRainType() == Biome.RainType.RAIN && biome != BYGBiomeList.DOVERMOUNTAINS && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH && biome != BYGBiomeList.GRASSLANDPLATEAU && biome != BYGBiomeList.TROPICALISLAND && biome.getCategory() != Biome.Category.SWAMP && biome != BYGBiomeList.MARSHLANDS && biome.getCategory() != Biome.Category.MUSHROOM) {
 //            if (ClimateBooleans.isOcean(n) || ClimateBooleans.isOcean(e) || ClimateBooleans.isOcean(s) || ClimateBooleans.isOcean(w)) {
 //                return BYGBiomeGetter.VANILLABEACH;
 //            }

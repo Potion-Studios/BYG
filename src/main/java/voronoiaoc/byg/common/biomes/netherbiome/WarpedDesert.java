@@ -1,74 +1,68 @@
 package voronoiaoc.byg.common.biomes.netherbiome;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.audio.BackgroundMusicTracks;
-import net.minecraft.entity.EntityClassification;
+import net.minecraft.client.sound.MusicType;
 import net.minecraft.entity.EntityType;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.carver.WorldCarver;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
-import net.minecraft.world.gen.placement.ChanceRangeConfig;
-import net.minecraft.world.gen.placement.CountRangeConfig;
-import net.minecraft.world.gen.placement.FrequencyConfig;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import voronoiaoc.byg.common.biomes.BiomeFog;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.BiomeAdditionsSound;
+import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.carver.ConfiguredCarvers;
+import net.minecraft.world.gen.feature.ConfiguredFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class WarpedDesert extends Biome implements BiomeFog {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.WARPEDDESERT_SB, BYGSBList.BYGSBConfigList.WARPEDDESERT);
+public class WarpedDesert extends Biome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("warped_desert", new ConfiguredSurfaceBuilder<>(BYGSBList.WARPEDDESERT_SB, BYGSBList.BYGSBConfigList.WARPEDDESERT));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.NETHER;
-    static final double DEPTH = 0.125F;
-    static final double SCALE = 0.05F;
+    static final float DEPTH = 0.125F;
+    static final float SCALE = 0.05F;
     static final float TEMPERATURE = 0.8F;
     static final float DOWNFALL = 0.4F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
     static final String PARENT = null;
+    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
     public WarpedDesert() {
-        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH)
-                .func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR)
-                        .func_235239_a_(1705242)
-                        .func_235244_a_(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.01428F))
-                        .func_235241_a_(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)
-                        .func_235243_a_(new MoodSoundAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP, 6000, 8, 2.0D))
-                        .func_235242_a_(new SoundAdditionsAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D))
-                        .func_235240_a_(BackgroundMusicTracks.func_232677_a_(SoundEvents.MUSIC_NETHER_SOUL_SAND_VALLEY)).func_235238_a_())
-                .func_235098_a_(ImmutableList.of(new Biome.Attributes(0.32F, 0.0F, 0.0F, 0.0F, 0.0F)))
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
+                .fogColor(1705242)
+                .skyColor(BiomeHelper.calcSkyColor(2.0F))
+                .particleConfig(new BiomeParticleConfig(ParticleTypes.WARPED_SPORE, 0.01428F))
+                .loopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)
+                .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D))
+                .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D))
+                .music(MusicType.createIngameMusic(SoundEvents.MUSIC_NETHER_SOUL_SAND_VALLEY)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
 
-                .scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));
-        this.addCarver(GenerationStage.Carving.AIR, createCarver(WorldCarver.field_236240_b_, new ProbabilityConfig(0.2F)));
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SPRING_FEATURE.withConfiguration(DefaultBiomeFeatures.LAVA_SPRING_CONFIG).withPlacement(Placement.COUNT_VERY_BIASED_RANGE.configure(new CountRangeConfig(20, 8, 16, 256))));
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SPRING_FEATURE.withConfiguration(DefaultBiomeFeatures.NETHER_SPRING_CONFIG).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(8, 4, 8, 128))));
-//        this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.field_235147_ap_).withPlacement(Placement.field_236960_A_.configure(new FrequencyConfig(10))));
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.field_235148_aq_).withPlacement(Placement.field_236960_A_.configure(new FrequencyConfig(10))));
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.GLOWSTONE_BLOB.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.LIGHT_GEM_CHANCE.configure(new FrequencyConfig(10))));
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.GLOWSTONE_BLOB.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(10, 0, 0, 128))));
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.BROWN_MUSHROOM_CONFIG).withPlacement(Placement.CHANCE_RANGE.configure(new ChanceRangeConfig(0.5F, 0, 0, 128))));
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.RED_MUSHROOM_CONFIG).withPlacement(Placement.CHANCE_RANGE.configure(new ChanceRangeConfig(0.5F, 0, 0, 128))));
-        this.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Feature.SPRING_FEATURE.withConfiguration(DefaultBiomeFeatures.ENCLOSED_NETHER_SPRING_CONFIG).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(16, 10, 20, 128))));
-//        BYGFeatures.addNetherFortress(this);
-        BYGFeatures.addWarpedVegetation(this);
-        DefaultBiomeFeatures.func_235192_as_(this);
-
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.GHAST, 60, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.PIGLIN, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.MAGMA_CUBE, 2, 4, 4));
     }
 
-    @Override
-    public Vector3d getBiomeFogColor(int x, int z, Vector3d originalValue) {
-        return WARPEDDESERTVector3d;
-    }
+    static {
+        GENERATION_SETTINGS.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.NETHER_CAVE);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, ConfiguredFeatures.SPRING_CLOSED);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, ConfiguredFeatures.SPRING_LAVA);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, ConfiguredFeatures.PATCH_FIRE);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, ConfiguredFeatures.GLOWSTONE_EXTRA);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, ConfiguredFeatures.GLOWSTONE);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, ConfiguredFeatures.BROWN_MUSHROOM_NETHER);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, ConfiguredFeatures.RED_MUSHROOM_NETHER);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, ConfiguredFeatures.ORE_MAGMA);
+        BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addNetherMineables(GENERATION_SETTINGS);
 
-    private static final Vector3d WARPEDDESERTVector3d = new Vector3d(0.53F, 0.812F, 0.941F);
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.MAGMA_CUBE, 2, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 1, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.PIGLIN, 15, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.STRIDER, 60, 1, 2));
+
+    }
 }

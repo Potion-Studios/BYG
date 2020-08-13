@@ -1,96 +1,64 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
-import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MoodSoundAmbience;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.BiomeGenerationSettings;
+import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BiomeHelper;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
-import voronoiaoc.byg.core.byglists.BYGFeatureList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Random;
 
-public class RedRockMountains extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.RED_ROCK_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
+public class RedRockMountains extends Biome  {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("red_rock_mountains", new ConfiguredSurfaceBuilder<>(BYGSBList.RED_ROCK_SB, SurfaceBuilder.GRASS_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.MESA;
-    static final double DEPTH = 2.0F;
-    static final double SCALE = 0.5F;
+    static final Category CATEGORY = Category.PLAINS;
+    static final float DEPTH = 2.0F;
+    static final float SCALE = 0.5F;
     static final float TEMPERATURE = 1.2F;
     static final float DOWNFALL = 0.1F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
+    static final int GRASS_COLOR = 10855786;
+    static final int FOLIAGE_COLOR = 10855786;
     static final String PARENT = null;
+    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
     public RedRockMountains() {
-        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));//this.addStructure(BYGFeatureList.BYGVILLAGE.withConfiguration(new VillageConfig("byg:village/adobe/town_centers", 6)));
-        this.func_235063_a_(DefaultBiomeFeatures.field_235134_a_);
-        DefaultBiomeFeatures.func_235196_b_(this);
-        DefaultBiomeFeatures.addCarvers(this);
-        //this.func_235063_a_(BYGFeatureList.ADOBE_VILLAGE);
-        DefaultBiomeFeatures.addMonsterRooms(this);
-        DefaultBiomeFeatures.addStoneVariants(this);
-        DefaultBiomeFeatures.addOres(this);
-        DefaultBiomeFeatures.addExtraGoldOre(this);
-        DefaultBiomeFeatures.addExtraEmeraldOre(this);
-        DefaultBiomeFeatures.addSedimentDisks(this);
-        DefaultBiomeFeatures.addMushrooms(this);
-        DefaultBiomeFeatures.addReedsAndPumpkins(this);
-        DefaultBiomeFeatures.addFreezeTopLayer(this);
-        BYGFeatures.addTerracottaBoulder(this);
-        DefaultBiomeFeatures.addGrassAndDeadBushes(this);
-        BYGTreeFeatures.addPaloVerdeTrees(this);
-        BYGFeatures.addBYGMushrooms(this);
-        BYGFeatures.addGrass(this);
-        BYGFeatures.addFirecracker(this);
-        //this.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, BYGFeatureList.BYGVILLAGE.withConfiguration(new VillageConfig("byg:village/adobe/town_centers", 6)).withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-        this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.RABBIT, 4, 2, 3));
-        this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.BAT, 10, 8, 8));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SPIDER, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.HUSK, 95, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SKELETON, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.CREEPER, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SLIME, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColor(GRASS_COLOR).foliageColor(FOLIAGE_COLOR).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public int getGrassColor(double posX, double posZ) {
-        return 10855786;
-
-    }
-
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public int getFoliageColor() {
-        return 10855786;
-    }
 
     @Override
     public Biome getRiver() {
         return this;
     }
 
-    @Nullable
     @Override
-    public Biome getHill(INoiseRandom rand) {
-        return randomSubBiome(rand);
+    public HashMap<Biome, Integer> getHills() {
+        HashMap<Biome, Integer> map = new HashMap<>();
+        map.put(BYGBiomeList.RED_ROCK_LOWLANDS, 1);
+        map.put(BYGBiomeList.RED_ROCK_HIGHLANDS, 2);
+        map.put(BYGBiomeList.WOODEDREDROCKMOUNTAINS, 1);
+        return map;
     }
 
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
+
+    public Biome randomSubBiome(Random random) {
+        int randomPicker = random.nextInt(4);
         if (randomPicker == 0)
             return BYGBiomeList.RED_ROCK_LOWLANDS;
         else if (randomPicker == 1)
@@ -99,5 +67,36 @@ public class RedRockMountains extends Biome {
             return BYGBiomeList.RED_ROCK_HIGHLANDS;
         else
             return BYGBiomeList.WOODEDREDROCKMOUNTAINS;
+    }
+
+    static {
+        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addExtraGoldOre(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addEmeraldOre(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultDisks(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+        BYGFeatures.addTerracottaBoulder(GENERATION_SETTINGS);
+        BYGTreeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
+        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGFeatures.addGrass(GENERATION_SETTINGS);
+        BYGFeatures.addFirecracker(GENERATION_SETTINGS);
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.HUSK, 95, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
+
     }
 }

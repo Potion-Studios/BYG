@@ -1,100 +1,100 @@
 package voronoiaoc.byg.common.biomes.subbiomes;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MoodSoundAmbience;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.SeaGrassConfig;
-import net.minecraft.world.gen.feature.SingleRandomFeature;
-import net.minecraft.world.gen.placement.*;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.BiomeGenerationSettings;
+import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 
 public class CoralMangroves extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, SurfaceBuilder.SAND_CONFIG);
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("coral_mangroves", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, SurfaceBuilder.SAND_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.SWAMP;
-    static final double DEPTH = -0.5F;
-    static final double SCALE = 0.01F;
+    static final float DEPTH = -0.5F;
+    static final float SCALE = 0.01F;
     static final float TEMPERATURE = 0.8F;
     static final float DOWNFALL = 0.8F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
+    static final int GRASS_COLOR = 6337104;
+    static final int FOLIAGE_COLOR = 6337104;
     static final String PARENT = null;
+    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
     public CoralMangroves() {
-        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));//this.addStructure(Feature.VILLAGE.withConfiguration(new VillageConfig("village/taiga/town_centers", 6)));
-        BYGTreeFeatures.addSparseMangroveMarshes(this);
-        DefaultBiomeFeatures.addCarvers(this);
-        DefaultBiomeFeatures.addMonsterRooms(this);
-        DefaultBiomeFeatures.addStoneVariants(this);
-        DefaultBiomeFeatures.addOres(this);
-        DefaultBiomeFeatures.addSwampClayDisks(this);
-        DefaultBiomeFeatures.addMushrooms(this);
-        DefaultBiomeFeatures.addExtraReedsAndPumpkins(this);
-        DefaultBiomeFeatures.addSprings(this);
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.withConfiguration(new SeaGrassConfig(64, 0.6D)).withPlacement(Placement.TOP_SOLID_HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-        BYGFeatures.addGrass(this);
-        BYGFeatures.addCattails(this);
-        BYGFeatures.addPeachleatherflower(this);
-        BYGFeatures.addVioletleatherflower(this);
-        BYGFeatures.addRedorchid(this);
-        BYGFeatures.addPurpleOrchid(this);
-        BYGFeatures.addPinkOrchid(this);
-        BYGFeatures.addMudDisks(this);
-        DefaultBiomeFeatures.addFreezeTopLayer(this);
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.withConfiguration(new SingleRandomFeature(ImmutableList.of(
-                Feature.CORAL_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG),
-                Feature.CORAL_CLAW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG),
-                Feature.CORAL_MUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))))
-                .withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(7, 0.1F, 3))));
-
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-                Feature.SEA_PICKLE.withConfiguration(new CountConfig(20)).withPlacement(Placement.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceConfig(20))));
-
-        DefaultBiomeFeatures.addTallSeagrassSparse(this);
-        DefaultBiomeFeatures.addFreezeTopLayer(this);
-
-        //this.addSpawn(EntityClassification.WATER_AMBIENT, new SpawnListEntry(EntityType.TROPICAL_FISH, 25, 8, 8));
-        this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.PIG, 10, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.CHICKEN, 10, 4, 4));
-        this.addSpawn(EntityClassification.CREATURE, new SpawnListEntry(EntityType.COW, 8, 4, 4));
-        this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.BAT, 10, 8, 8));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SPIDER, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ZOMBIE, 95, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SKELETON, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.CREEPER, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SLIME, 100, 4, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
-        this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColor(GRASS_COLOR).foliageColor(FOLIAGE_COLOR).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public int getGrassColor(double posX, double posZ) {
-        double d0 = INFO_NOISE.noiseAt(posX * 0.0225D, posZ * 0.0225D, false);
+    public int getGrassColorAt(double posX, double posZ) {
+        double d0 = FOLIAGE_NOISE.sample(posX * 0.0225D, posZ * 0.0225D, false);
         return d0 < -0.1D ? 6337104 : 6337104;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public int getFoliageColor() {
         return 6337104;
     }
 
-    @Override
-    public Biome getRiver() {
-        return this;
+//    @Override
+//    public Biome getRiver() {
+//        return this;
+//    }
+
+    static {
+        BYGTreeFeatures.addSparseMangroveMarshes(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addClay(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSprings(GENERATION_SETTINGS);
+        //GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).decorate(Decorator.TOP_SOLID_HEIGHTMAP.configure(NopeDecoratorConfig.field_24892)));
+        BYGFeatures.addGrass(GENERATION_SETTINGS);
+        BYGFeatures.addCattails(GENERATION_SETTINGS);
+        BYGFeatures.addPeachleatherflower(GENERATION_SETTINGS);
+        BYGFeatures.addVioletleatherflower(GENERATION_SETTINGS);
+        BYGFeatures.addRedorchid(GENERATION_SETTINGS);
+        BYGFeatures.addPurpleOrchid(GENERATION_SETTINGS);
+        BYGFeatures.addPinkOrchid(GENERATION_SETTINGS);
+        BYGFeatures.addMudDisks(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+//        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.configure(new SimpleRandomFeatureConfig(ImmutableList.of(
+//                Feature.CORAL_TREE.configure(NoFeatureConfig.DEFAULT),
+//                Feature.CORAL_CLAW.configure(NoFeatureConfig.DEFAULT),
+//                Feature.CORAL_MUSHROOM.configure(NoFeatureConfig.DEFAULT))))
+//                .decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(7, 0.1F, 3))));
+//
+//        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION,
+//                Feature.SEA_PICKLE.configure(new SeaPickleFeatureConfig(20)).decorate(Decorator.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceDecoratorConfig(20))));
+
+        DefaultBiomeFeatures.addSavannaTallGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+
+//         SPAWN_SETTINGS.func_242575_a(EntityClassification.WATER_CREATURE, new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 25, 8, 8));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.COW, 8, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
+
     }
 }

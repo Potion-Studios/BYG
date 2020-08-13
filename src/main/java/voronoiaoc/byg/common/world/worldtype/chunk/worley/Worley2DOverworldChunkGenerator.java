@@ -14,10 +14,10 @@
 //import net.minecraft.world.gen.WorldGenRegion;
 //import net.minecraft.world.gen.feature.Feature;
 //import net.minecraft.world.server.ServerWorld;
-//import net.minecraft.world.spawner.CatSpawner;
-//import net.minecraft.world.spawner.PatrolSpawner;
-//import net.minecraft.world.spawner.PhantomSpawner;
-//import net.minecraft.world.spawner.WorldEntitySpawner;
+//import net.minecraft.world.func_242575_aer.CatSpawner;
+//import net.minecraft.world.func_242575_aer.PatrolSpawner;
+//import net.minecraft.world.func_242575_aer.PhantomSpawner;
+//import net.minecraft.world.func_242575_aer.WorldEntitySpawner;
 //
 //import java.util.List;
 //
@@ -46,7 +46,7 @@
 //        //this.depthNoise = new OctavesNoiseGenerator(this.randomSeed, 15, 0); // See commented-out method below, modulateBiomeParameter
 //    }
 //
-//    public void spawnMobs(WorldGenRegion region) {
+//    public void func_242575_aMobs(WorldGenRegion region) {
 //        int i = region.getMainChunkX();
 //        int j = region.getMainChunkZ();
 //        Biome biome = region.getBiome((new ChunkPos(i, j)).asBlockPos());
@@ -176,11 +176,11 @@
 //        return super.getPossibleCreatures(creatureType, pos);
 //    }
 //
-//    public void spawnMobs(ServerWorld worldIn, boolean spawnHostileMobs, boolean spawnPeacefulMobs) {
-//        this.phantomSpawner.tick(worldIn, spawnHostileMobs, spawnPeacefulMobs);
-//        this.patrolSpawner.tick(worldIn, spawnHostileMobs, spawnPeacefulMobs);
-//        this.catSpawner.tick(worldIn, spawnHostileMobs, spawnPeacefulMobs);
-//        this.field_225495_n.tick(worldIn, spawnHostileMobs, spawnPeacefulMobs);
+//    public void func_242575_aMobs(ServerWorld worldIn, boolean func_242575_aHostileMobs, boolean func_242575_aPeacefulMobs) {
+//        this.phantomSpawner.tick(worldIn, func_242575_aHostileMobs, func_242575_aPeacefulMobs);
+//        this.patrolSpawner.tick(worldIn, func_242575_aHostileMobs, func_242575_aPeacefulMobs);
+//        this.catSpawner.tick(worldIn, func_242575_aHostileMobs, func_242575_aPeacefulMobs);
+//        this.field_225495_n.tick(worldIn, func_242575_aHostileMobs, func_242575_aPeacefulMobs);
 //    }
 //
 //    public int getGroundHeight() {

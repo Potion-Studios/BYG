@@ -39,7 +39,7 @@
 //import java.util.Iterator;
 //import java.util.Random;
 //
-//public abstract class Worley3DNoiseChunkGenerator<T extends GenerationSettings> extends ChunkGenerator<T> {
+//public abstract class Worley3DNoiseChunkGenerator<T extends BiomeGenerationSettings> extends ChunkGenerator<T> {
 //
 //    private static final double BLEND_NOISE_MAIN_AMPLITUDE = 6.35 * 0.87890625;
 //    private static final double OUTPUT_NOISE_MAIN_AMPLITUDE = 64.0 * 0.87890625;

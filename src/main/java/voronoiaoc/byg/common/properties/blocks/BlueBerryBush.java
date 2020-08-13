@@ -40,7 +40,7 @@ public class BlueBerryBush extends SweetBerryBushBlock implements IGrowable {
             return ActionResultType.PASS;
         } else if (i > 1) {
             int j = 1 + worldIn.rand.nextInt(2);
-            spawnAsEntity(worldIn, pos, new ItemStack(BYGItemList.BLUE_BERRY, j + (flag ? 1 : 0)));
+            func_242575_aAsEntity(worldIn, pos, new ItemStack(BYGItemList.BLUE_BERRY, j + (flag ? 1 : 0)));
             worldIn.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
             return ActionResultType.SUCCESS;

@@ -188,17 +188,17 @@ public class BYGBiomeRegistry {
 
     }
 
-    private static void registerBiome(IForgeRegistry<Biome> registry, Biome biome, String name, boolean spawn, BiomeDictionary.Type... types) {
+    private static void registerBiome(IForgeRegistry<Biome> registry, Biome biome, String name, boolean func_242575_a, BiomeDictionary.Type... types) {
         registry.register(biome.setRegistryName(BYG.MOD_ID, name));
-        if (spawn) {
+        if (func_242575_a) {
             BiomeManager.addSpawnBiome(biome);
         }
         BiomeDictionary.addTypes(biome, types);
     }
 
-    private static void registerBYGBiome(IForgeRegistry<Biome> registry, Biome biome, String name, boolean spawn, BiomeDictionary.Type... types) {
+    private static void registerBYGBiome(IForgeRegistry<Biome> registry, Biome biome, String name, boolean func_242575_a, BiomeDictionary.Type... types) {
         registry.register(biome.setRegistryName(BYG.MOD_ID, name));
-        if (spawn) {
+        if (func_242575_a) {
             BiomeManager.addSpawnBiome(biome);
         }
         BiomeDictionary.addTypes(biome, types);
@@ -216,9 +216,9 @@ public class BYGBiomeRegistry {
     }
 
 
-    private static void registerBYGSubBiome(IForgeRegistry<Biome> registry, Biome biome, String name, boolean spawn, BiomeDictionary.Type... types) {
+    private static void registerBYGSubBiome(IForgeRegistry<Biome> registry, Biome biome, String name, boolean func_242575_a, BiomeDictionary.Type... types) {
         registry.register(biome.setRegistryName(BYG.MOD_ID, name));
-        if (spawn) {
+        if (func_242575_a) {
             BiomeManager.addSpawnBiome(biome);
         }
         BiomeDictionary.addTypes(biome, types);
