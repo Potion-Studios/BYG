@@ -1,7 +1,7 @@
 package voronoiaoc.byg.common.world.worldtype;
 
 //
-//public class BYGBiomeProvider extends BiomeProvider {
+//public class BYGBiomeProvider extends Biome implements BiomeToolsProvider {
 //    private final Layer layer;
 //
 //    public BYGBiomeProvider(Set<Biome> biomes, long seed) {

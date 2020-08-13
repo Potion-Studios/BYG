@@ -3,20 +3,16 @@ package voronoiaoc.byg.common.biomes.subbiomes.lakes;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.sound.MoodSoundAmbience;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 
-public class Oasis extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("oasis", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+public class Oasis extends Biome implements BiomeTools {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("oasis", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.SWAMP;
     static final float DEPTH = -0.8F;
@@ -26,32 +22,32 @@ public class Oasis extends Biome {
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
     static final String PARENT = null;
-    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
     public Oasis() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).func_242539_d(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.field_235027_b_).build(), GENERATION_SETTINGS.func_242508_a(), SPAWN_SETTINGS.func_242577_b());
     }
 
     static {
-        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
 
-        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultDisks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addWaterBiomeOakTrees(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultFlowers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultGrass(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSprings(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243763_w(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243707_U(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243709_W(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
         BYGFeatures.addCattails(GENERATION_SETTINGS);
         BYGFeatures.addCattails(GENERATION_SETTINGS);
         BYGFeatures.addBYGLilyPad(GENERATION_SETTINGS);
         //GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(48, 0.4D)).decorate(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
-        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
 
 //         SPAWN_SETTINGS.func_242575_a(EntityClassification.WATER_AMBIENT, new MobSpawnInfo.Spawners(EntityType.COD, 2, 1, 4));
 //         SPAWN_SETTINGS.func_242575_a(EntityClassification.WATER_AMBIENT, new MobSpawnInfo.Spawners(EntityType.SALMON, 5, 1, 5));

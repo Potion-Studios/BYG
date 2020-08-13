@@ -3,21 +3,17 @@ package voronoiaoc.byg.common.biomes.subbiomes.hills;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.sound.MoodSoundAmbience;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
-public class SnowyEvergreenHills extends Biome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("snowy_evergreen_hills", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+public class SnowyEvergreenHills extends Biome implements BiomeTools {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("snowy_evergreen_hills", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.TAIGA;
     static final float DEPTH = 0.25F;
@@ -29,12 +25,12 @@ public class SnowyEvergreenHills extends Biome {
     static final int GRASS_COLOR = 5011004;
     static final int FOLIAGE_COLOR = 2263842;
     static final String PARENT = null;
-    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
     public SnowyEvergreenHills() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColor(GRASS_COLOR).foliageColor(FOLIAGE_COLOR).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).func_242541_f(GRASS_COLOR).func_242540_e(FOLIAGE_COLOR).func_242539_d(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.field_235027_b_).build(), GENERATION_SETTINGS.func_242508_a(), SPAWN_SETTINGS.func_242577_b());
     }
 
 //    @Override
@@ -54,19 +50,19 @@ public class SnowyEvergreenHills extends Biome {
     }
 
     static {
-        DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addMossyRocks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addLargeFerns(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultDisks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultFlowers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addGiantTaigaGrass(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSprings(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243756_p(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243757_q(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243707_U(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243706_T(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addSweetBerryBushes(GENERATION_SETTINGS);
         BYGTreeFeatures.addHollyTrees(GENERATION_SETTINGS);
         BYGFeatures.addLushBlueberries(GENERATION_SETTINGS);
@@ -77,7 +73,7 @@ public class SnowyEvergreenHills extends Biome {
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addWinterSucculent(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

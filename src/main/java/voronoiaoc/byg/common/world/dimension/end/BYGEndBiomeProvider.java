@@ -13,7 +13,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BYGEndBiomeProvider extends BiomeProvider {
+public class BYGEndBiomeProvider extends Biome implements BiomeToolsProvider {
     public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = Codec.LONG.fieldOf("seed").xmap(BYGEndBiomeProvider::new, (p_235316_0_) -> p_235316_0_.seed).stable().codec();
     private static final List<Biome> END_BIOMES = ImmutableList.of(Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS);
     private final long seed;
@@ -29,7 +29,7 @@ public class BYGEndBiomeProvider extends BiomeProvider {
         this.biomeLayer = BYGEndLayerProvider.stackLayers(seed);
     }
 
-    protected Codec<? extends BiomeProvider> func_230319_a_() {
+    protected Codec<? extends Biome implements BiomeToolsProvider> func_230319_a_() {
         return BYGENDCODEC;
     }
 

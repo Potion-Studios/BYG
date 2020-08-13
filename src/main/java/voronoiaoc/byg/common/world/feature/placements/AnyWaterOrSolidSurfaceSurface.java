@@ -3,8 +3,7 @@ package voronoiaoc.byg.common.world.feature.placements;
 import net.minecraft.util.math.BlockPos;
 
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-
-import java.util.Random;
+import voronoiaoc.byg.common.biomes.BiomeTools;import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 

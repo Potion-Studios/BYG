@@ -23,7 +23,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
     private static final BlockState AIR;
 
     static {
-        AIR = Blocks.CAVE_AIR.getDefaultState();
+        AIR = Blocks.field_235027_b__AIR.getDefaultState();
     }
 
     public FrostMagmaLakeFeature(Codec<BlockStateFeatureConfig> config) {

@@ -2,20 +2,18 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.sound.MoodSoundAmbience;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class DoverMountains extends Biome  {
+public class DoverMountains extends Biome implements BiomeTools  {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("dover_mountains", new ConfiguredSurfaceBuilder<>(BYGSBList.DOVER_SB, BYGSBList.BYGSBConfigList.PODZOLDOVERMOUNTAIN_CF));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.EXTREME_HILLS;
@@ -28,12 +26,12 @@ public class DoverMountains extends Biome  {
     static final int GRASS_COLOR = 5011004;
     static final int FOLIAGE_COLOR = 2263842;
     static final String PARENT = null;
-    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
     public DoverMountains() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColor(GRASS_COLOR).foliageColor(FOLIAGE_COLOR).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).func_242541_f(GRASS_COLOR).func_242540_e(FOLIAGE_COLOR).func_242539_d(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.field_235027_b_).build(), GENERATION_SETTINGS.func_242508_a(), SPAWN_SETTINGS.func_242577_b());
     }
 
 
@@ -46,17 +44,17 @@ public class DoverMountains extends Biome  {
     static {
         ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
 //        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
-        DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultDisks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addGiantTaigaGrass(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addMossyRocks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addLargeFerns(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243706_T(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243756_p(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243757_q(GENERATION_SETTINGS);
         BYGTreeFeatures.addDoverMTrees(GENERATION_SETTINGS);
         BYGFeatures.addBlueberries(GENERATION_SETTINGS);
         BYGFeatures.addCrocus(GENERATION_SETTINGS);

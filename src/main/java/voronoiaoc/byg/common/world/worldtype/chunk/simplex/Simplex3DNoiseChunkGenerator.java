@@ -39,7 +39,7 @@
 //import java.util.Iterator;
 //import java.util.Random;
 //
-//public abstract class Simplex3DNoiseChunkGenerator<T extends BiomeGenerationSettings> extends ChunkGenerator<T> {
+//public abstract class Simplex3DNoiseChunkGenerator<T extends Biome implements BiomeToolsGenerationSettings> extends ChunkGenerator<T> {
 //
 //    private static final double BLEND_NOISE_MAIN_AMPLITUDE = 6.35 * 0.87890625;
 //    private static final double OUTPUT_NOISE_MAIN_AMPLITUDE = 64.0 * 0.87890625;

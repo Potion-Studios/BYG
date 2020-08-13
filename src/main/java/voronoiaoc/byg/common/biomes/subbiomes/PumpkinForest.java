@@ -1,23 +1,19 @@
 package voronoiaoc.byg.common.biomes.subbiomes;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.BiomeMoodSound;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
+import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class PumpkinForest extends Biome implements BiomeFog {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("pumpkin_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_CONFIG));
+public class PumpkinForest extends Biome implements BiomeTools implements BiomeFog, BiomeTools {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("pumpkin_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;
     static final float DEPTH = 0.2F;
@@ -29,21 +25,20 @@ public class PumpkinForest extends Biome implements BiomeFog {
     static final int GRASS_COLOR = 5406551;
     static final int FOLIAGE_COLOR = 6589494;
     static final String PARENT = null;
-    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
     public PumpkinForest() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColor(GRASS_COLOR).foliageColor(FOLIAGE_COLOR).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).func_242541_f(GRASS_COLOR).func_242540_e(FOLIAGE_COLOR).func_242539_d(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.field_235027_b_).build(), GENERATION_SETTINGS.func_242508_a(), SPAWN_SETTINGS.func_242577_b());
     }
 
 
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 5406551;
-    }
-
-    @Override
+ //   @Override
+//    public int getGrassColorAt(double posX, double posZ) {
+//        return 5406551;
+//    }
+@Override
     public int getFoliageColor() {
         return 6589494;
     }
@@ -54,17 +49,17 @@ public class PumpkinForest extends Biome implements BiomeFog {
     }
 
     static {
-        DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
         BYGTreeFeatures.addDeadHazelTrees(GENERATION_SETTINGS);
         BYGTreeFeatures.addWitchPumpkins(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultDisks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addAnemones(GENERATION_SETTINGS);

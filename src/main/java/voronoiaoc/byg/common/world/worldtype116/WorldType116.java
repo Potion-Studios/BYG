@@ -14,7 +14,7 @@ import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
 import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 
-public class WorldType116 extends BiomeGeneratorTypeScreens {
+public class WorldType116 extends Biome implements BiomeToolsGeneratorTypeScreens {
     public WorldType116() {
         super("byg");
     }

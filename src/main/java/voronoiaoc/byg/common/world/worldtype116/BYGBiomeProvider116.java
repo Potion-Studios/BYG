@@ -6,7 +6,7 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.OverworldBiomeProvider;
 import net.minecraft.world.gen.layer.Layer;
 
-public class BYGBiomeProvider116 extends BiomeProvider {
+public class BYGBiomeProvider116 extends Biome implements BiomeToolsProvider {
     public Layer layer;
     private final long seed;
 
@@ -27,7 +27,7 @@ public class BYGBiomeProvider116 extends BiomeProvider {
     }
 
     @Override
-    protected Codec<? extends BiomeProvider> func_230319_a_() {
+    protected Codec<? extends Biome implements BiomeToolsProvider> func_230319_a_() {
         return BYGBPCODEC;
     }
 

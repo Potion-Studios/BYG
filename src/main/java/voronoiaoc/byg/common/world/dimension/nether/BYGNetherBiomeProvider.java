@@ -12,7 +12,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BYGNetherBiomeProvider extends BiomeProvider {
+public class BYGNetherBiomeProvider extends Biome implements BiomeToolsProvider {
     public static final MapCodec<BYGNetherBiomeProvider> BYGMAPCODEC = RecordCodecBuilder.mapCodec((instance) ->
             instance.group(Codec.LONG.fieldOf("seed").forGetter((bygNether) ->
                     bygNether.seed)).apply(instance, BYGNetherBiomeProvider::new));
@@ -33,7 +33,7 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
 
 
     @Override
-    protected Codec<? extends BiomeProvider> func_230319_a_() {
+    protected Codec<? extends Biome implements BiomeToolsProvider> func_230319_a_() {
         return BYGNETHERCODEC;
     }
 

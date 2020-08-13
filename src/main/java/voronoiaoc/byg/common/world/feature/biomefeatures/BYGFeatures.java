@@ -1,8 +1,8 @@
 package voronoiaoc.byg.common.world.feature.biomefeatures;
 
 import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.ConfiguredFeatures;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Features;
 import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 import voronoiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
 
@@ -245,11 +245,11 @@ public class BYGFeatures {
     }
 
     public static void addMarshGrass(BiomeGenerationSettings.Builder gen) {
-        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, ConfiguredFeatures.PATCH_TALL_GRASS_2);
+        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243811_aJ);
     }
 
     public static void addTallGrass(BiomeGenerationSettings.Builder gen) {
-        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, ConfiguredFeatures.PATCH_TALL_GRASS);
+        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243812_aK);
     }
 
 
@@ -278,7 +278,7 @@ public class BYGFeatures {
     }
 
     public static void addBYGBambooJungleVegetation(BiomeGenerationSettings.Builder gen) {
-        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, ConfiguredFeatures.BAMBOO);
+        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243787_M);
     }
 
     public static void addRockyStoneBoulder(BiomeGenerationSettings.Builder gen) {
