@@ -33,7 +33,7 @@ public class RedDesertDunes extends Biome implements BiomeTools  {
     @Nullable
     @Override
     public Biome getRiver() {
-        return null;
+        return this;
     }
 
 

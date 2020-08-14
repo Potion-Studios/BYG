@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -49,6 +50,23 @@ public class SnowyEvergreenTaiga extends Biome implements BiomeTools  {
         map.put(BYGBiomeList.FROZENLAKE, 1);
         map.put(BYGBiomeList.SNOWY_EVERGREEN_CLEARING, 2);
         return map;
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
+
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.SNOWY_EVERGREEN_HILLS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.SNOWY_EVERGREEN_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomeList.SNOWY_EVERGREEN_CLEARING;
+        else
+            return BYGBiomeList.FRESHWATERLAKE;
     }
 
     static {

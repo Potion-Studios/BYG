@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -12,6 +13,7 @@ import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import javax.annotation.Nullable;
 
@@ -48,6 +50,10 @@ public class MapleTaiga extends Biome implements BiomeTools  {
         return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.RIVER);
     }
 
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.MAPLE_HILLS;
+    }
 
     static {
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);

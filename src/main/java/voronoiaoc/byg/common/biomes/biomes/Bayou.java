@@ -55,7 +55,6 @@ public class Bayou extends Biome implements BiomeTools  {
         return this;
     }
 
-
     @Override
     public HashMap<Biome, Integer> getBeaches() {
         return Maps.newHashMap(Collections.singletonMap(this, 1));
@@ -99,4 +98,6 @@ public class Bayou extends Biome implements BiomeTools  {
         SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
     }
+
+
 }

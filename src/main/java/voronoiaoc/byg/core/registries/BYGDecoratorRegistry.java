@@ -22,7 +22,5 @@ public class BYGDecoratorRegistry {
         event.getRegistry().register(ObsidianSpikePlacer.OBBY_SPIKE.setRegistryName("obsidian_spike_placer"));
         event.getRegistry().register(UnderGroundPlacement.UGPLACER.setRegistryName("underground_count_extra_decorator"));
         BYG.LOGGER.info("BYG: Features Registered!");
-        BYGBiomeRegistry.registerBYGBiomes();
-
     }
 }

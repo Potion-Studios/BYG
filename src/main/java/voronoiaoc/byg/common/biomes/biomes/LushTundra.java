@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -40,6 +41,11 @@ public class LushTundra extends Biome implements BiomeTools  {
         map.put(BYGBiomeList.FROZENLAKE, 1);
         map.put(BYGBiomeList.NORTHERN_FOREST, 4);
         return map;
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return (rand.random(5) == 0) ? BYGBiomeList.FROZENLAKE : BYGBiomeList.NORTHERN_FOREST;
     }
 
     static {

@@ -58,6 +58,8 @@ public class CragGardens extends Biome implements BiomeTools , BiomeFog {
     }
 
 
+
+
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);

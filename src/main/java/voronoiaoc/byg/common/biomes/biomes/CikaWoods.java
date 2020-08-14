@@ -4,6 +4,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -42,6 +43,23 @@ public class CikaWoods extends Biome implements BiomeTools  {
         map.put(BYGBiomeList.CIKA_MOUNTAINS, 3);
         map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
+
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.CIKA_MOUNTAINS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.CIKA_MOUNTAINS;
+        else if (randomPicker == 2)
+            return BYGBiomeList.CIKA_MOUNTAINS;
+        else
+            return BYGBiomeList.FRESHWATERLAKE;
     }
 
     static {

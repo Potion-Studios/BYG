@@ -3,7 +3,9 @@ package voronoiaoc.byg.common.biomes.biomes;
 import com.google.common.collect.Maps;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -41,6 +43,16 @@ public class AutumnalValley extends Biome implements BiomeTools  {
     @Override
     public HashMap<Biome, Integer> getHills() {
         return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.FRESHWATERLAKE, 1));
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return BYGBiomeList.FRESHWATERLAKE;
+    }
+
+    @Override
+    public Biome getRiver() {
+        return WorldGenRegistries.field_243657_i.getValueForKey(Biomes.RIVER);
     }
 
     static {

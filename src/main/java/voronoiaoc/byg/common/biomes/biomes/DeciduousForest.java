@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -12,7 +13,6 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.HashMap;
-import java.util.Random;
 
 public class DeciduousForest extends Biome implements BiomeTools  {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("deciduous_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -44,8 +44,13 @@ public class DeciduousForest extends Biome implements BiomeTools  {
         return map;
     }
 
-    public Biome randomSubBiome(Random random) {
-        int randomPicker = random.nextInt(4);
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
+
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
         if (randomPicker == 0)
             return BYGBiomeList.DECIDUOUSFORESTHILLS;
         else if (randomPicker == 1)

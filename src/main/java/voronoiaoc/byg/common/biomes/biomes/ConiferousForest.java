@@ -3,11 +3,13 @@ package voronoiaoc.byg.common.biomes.biomes;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class ConiferousForest extends Biome implements BiomeTools  {
@@ -29,6 +31,23 @@ public class ConiferousForest extends Biome implements BiomeTools  {
 
     public ConiferousForest() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).func_242541_f(GRASS_COLOR).func_242540_e(FOLIAGE_COLOR).func_242539_d(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.field_235027_b_).build(), GENERATION_SETTINGS.func_242508_a(), SPAWN_SETTINGS.func_242577_b());
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
+
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.CONIFEROUSFORESTHILLS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.CONIFEROUS_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomeList.CONIFEROUS_CLEARING;
+        else
+            return BYGBiomeList.FRESHWATERLAKE;
     }
 
     static {

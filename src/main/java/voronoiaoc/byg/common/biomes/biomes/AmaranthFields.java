@@ -2,11 +2,14 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
@@ -37,6 +40,16 @@ public class AmaranthFields extends Biome implements BiomeTools  {
         map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         map.put(BYGBiomeList.JACARANDAFOREST, 4);
         return map;
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.JACARANDAFOREST;
+    }
+
+    @Override
+    public Biome getRiver() {
+        return WorldGenRegistries.field_243657_i.getValueForKey(Biomes.RIVER);
     }
 
     static {

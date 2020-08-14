@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import com.google.common.collect.Maps;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
@@ -34,6 +35,11 @@ public class Dunes extends Biome implements BiomeTools  {
     @Override
     public HashMap<Biome, Integer> getHills() {
         return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.OASIS, 1));
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return BYGBiomeList.OASIS;
     }
 
     static {

@@ -1,5 +1,8 @@
-package voronoiaoc.byg.common.world.worldtype116;
+package voronoiaoc.byg.mixin.common.world;
 
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.provider.OverworldBiomeProvider;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
 import net.minecraft.world.gen.LazyAreaLayerContext;
 import net.minecraft.world.gen.area.IArea;
@@ -7,12 +10,30 @@ import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
 import net.minecraft.world.gen.layer.*;
 import net.minecraft.world.gen.layer.traits.IAreaTransformer1;
-import voronoiaoc.byg.config.BYGWorldConfig;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Mutable;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import voronoiaoc.byg.common.world.worldtype116.ModdedHillsLayer;
 
 import java.util.function.LongFunction;
 
-public class BYGWorldLayerProvider {
-    public static <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> repeat(long seed, IAreaTransformer1 parent, IAreaFactory<T> factory, int count, LongFunction<C> contextFactory) {
+@Mixin(OverworldBiomeProvider.class)
+public abstract class MixinVanillaBiomeLayers {
+
+    @Mutable
+    @Shadow @Final private Layer genBiomes;
+
+    @Inject(at = @At("RETURN"), method = "<init>(JZZLnet/minecraft/util/registry/Registry;)V", cancellable = true)
+    private void replaceVanillaHillLayer(long seed, boolean oldBiomes, boolean largeBiomes, Registry<Biome> keys, CallbackInfo ci) {
+        genBiomes =  stackLayers(seed, oldBiomes, largeBiomes ? 6 : 4);
+    }
+
+
+    private <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> repeat(long seed, IAreaTransformer1 parent, IAreaFactory<T> factory, int count, LongFunction<C> contextFactory) {
         IAreaFactory<T> iareafactory = factory;
 
         for (int i = 0; i < count; ++i) {
@@ -23,7 +44,7 @@ public class BYGWorldLayerProvider {
     }
 
 
-    public static Layer stackLayers(long seed) {
+    private Layer stackLayers(long seed, boolean oldBiomes, int biomeSize) {
         LongFunction<IExtendedNoiseRandom<LazyArea>> randomProvider = salt -> new LazyAreaLayerContext(1, seed, salt);
         IAreaFactory<LazyArea> primaryFactory = IslandLayer.INSTANCE.apply(randomProvider.apply(1L));
         primaryFactory = ZoomLayer.FUZZY.apply(randomProvider.apply(2000L), primaryFactory);
@@ -48,7 +69,7 @@ public class BYGWorldLayerProvider {
         primaryFactory = repeat(1000L, ZoomLayer.NORMAL, primaryFactory, 0, randomProvider);
         IAreaFactory<LazyArea> zoomFactory = repeat(1000L, ZoomLayer.NORMAL, primaryFactory, 0, randomProvider);
         zoomFactory = StartRiverLayer.INSTANCE.apply(randomProvider.apply(100L), zoomFactory);
-        IAreaFactory<LazyArea> addBiomeFactory = (new BiomeLayer(true)).apply(randomProvider.apply(200L), primaryFactory);
+        IAreaFactory<LazyArea> addBiomeFactory = (new BiomeLayer(oldBiomes)).apply(randomProvider.apply(200L), primaryFactory);
         addBiomeFactory = AddBambooForestLayer.INSTANCE.apply(randomProvider.apply(1001L), addBiomeFactory);
         addBiomeFactory = repeat(1000L, ZoomLayer.NORMAL, addBiomeFactory, 2, randomProvider);
         addBiomeFactory = EdgeBiomeLayer.INSTANCE.apply(randomProvider.apply(1000L), addBiomeFactory);
@@ -60,7 +81,7 @@ public class BYGWorldLayerProvider {
         zoomFactory = SmoothLayer.INSTANCE.apply(randomProvider.apply(1000L), zoomFactory);
         addBiomeFactory = RareBiomeLayer.INSTANCE.apply(randomProvider.apply(1001L), addBiomeFactory);
 
-        for (int i = 0; i < BYGWorldConfig.biomeSize.get(); ++i) {
+        for (int i = 0; i < biomeSize; ++i) {
             addBiomeFactory = ZoomLayer.NORMAL.apply(randomProvider.apply(1000 + i), addBiomeFactory);
             if (i == 0) {
                 addBiomeFactory = AddIslandLayer.INSTANCE.apply(randomProvider.apply(3L), addBiomeFactory);

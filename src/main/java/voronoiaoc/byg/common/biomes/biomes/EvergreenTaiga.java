@@ -2,8 +2,8 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import com.google.common.collect.Maps;
 import net.minecraft.block.Blocks;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -38,17 +38,29 @@ public class EvergreenTaiga extends Biome implements BiomeTools  {
     }
 
     @Override
-    public Biome getRiver() {
-        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.FROZEN_RIVER);
-    }
-
-    @Override
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = Maps.newHashMap();
         map.put(BYGBiomeList.EVERGREEN_HILLS, 1);
         map.put(BYGBiomeList.EVERGREEN_CLEARING, 2);
         map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
+
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.EVERGREEN_HILLS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.EVERGREEN_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomeList.EVERGREEN_CLEARING;
+        else
+            return BYGBiomeList.FRESHWATERLAKE;
     }
 
 

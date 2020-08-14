@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -40,6 +41,11 @@ public class EnchantedGrove extends Biome implements BiomeTools  {
         map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         map.put(BYGBiomeList.FLOWERING_ENCHANTED_GROVE, 4);
         return map;
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FLOWERING_ENCHANTED_GROVE;
     }
 
     static {

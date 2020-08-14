@@ -6,12 +6,14 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -49,6 +51,10 @@ public class VibrantSwamplands extends Biome implements BiomeTools  {
         return Maps.newHashMap(Collections.singletonMap(this, 1));
     }
 
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return BYGBiomeList.MARSHLANDS;
+    }
 
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.SWAMP_HUT);

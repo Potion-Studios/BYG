@@ -45,6 +45,11 @@ public class Bog extends Biome implements BiomeTools  {
         return Maps.newHashMap(Collections.singletonMap(this, 1));
     }
 
+    @Override
+    public Biome getRiver() {
+        return this;
+    }
+
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);

@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -13,7 +14,6 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.HashMap;
-import java.util.Random;
 
 public class SnowyDeciduousForest extends Biome implements BiomeTools  {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("snowy_deciduous_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -50,9 +50,13 @@ public class SnowyDeciduousForest extends Biome implements BiomeTools  {
         return map;
     }
 
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
 
-    public Biome randomSubBiome(Random random) {
-        int randomPicker = random.nextInt(4);
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
         if (randomPicker == 0)
             return BYGBiomeList.SNOWYDECIDUOUSFORESTHILLS;
         else if (randomPicker == 1)

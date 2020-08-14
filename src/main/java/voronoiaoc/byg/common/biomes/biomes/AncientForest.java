@@ -2,7 +2,9 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -42,6 +44,16 @@ public class AncientForest extends Biome implements BiomeTools  {
         map.put(BYGBiomeList.FLOWERING_ANCIENT_FOREST, 1);
         map.put(BYGBiomeList.GLOWING_ANCIENT_FOREST, 4);
         return map;
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return (rand.random(5) == 0) ? BYGBiomeList.FLOWERING_ANCIENT_FOREST : BYGBiomeList.GLOWING_ANCIENT_FOREST;
+    }
+
+    @Override
+    public Biome getRiver() {
+        return WorldGenRegistries.field_243657_i.getValueForKey(Biomes.RIVER);
     }
 
     static {
