@@ -20,7 +20,6 @@ public class BYGWorldConfig {
     public static ForgeConfigSpec.IntValue biomeSizeNETHER;
     public static ForgeConfigSpec.IntValue biomeSizeEND;
 
-    public static ForgeConfigSpec.BooleanValue vanillaBiomes;
     public static ForgeConfigSpec.IntValue seaLevel;
     public static ForgeConfigSpec.ConfigValue<String> externalEndBiomes;
     public static ForgeConfigSpec.ConfigValue<String> netherBiomes;
@@ -28,6 +27,8 @@ public class BYGWorldConfig {
     public static ForgeConfigSpec.ConfigValue<String> externalWARMBiomes;
     public static ForgeConfigSpec.ConfigValue<String> externalHOTBiomes;
     public static ForgeConfigSpec.ConfigValue<String> externalCOOLBiomes;
+    public static ForgeConfigSpec.BooleanValue controlNether;
+    public static ForgeConfigSpec.BooleanValue controlEnd;
 
     public static ForgeConfigSpec.IntValue rockyStoneSize;
     public static ForgeConfigSpec.IntValue rockyStoneChance;
@@ -50,55 +51,15 @@ public class BYGWorldConfig {
     public static ForgeConfigSpec.IntValue pendoriteOreMaxY;
 
     static {
-        COMMON_BUILDER.comment("BYG WorldType Settings").push("World_Settings");
-        vanillaBiomes = COMMON_BUILDER.comment("Vanilla BiomeSounds. Default is true").define("VanillaBiomes", true);
-        biomeSize = COMMON_BUILDER.comment("Biome Size, Default 1.").defineInRange("BiomeSize", 4, 0, 25);
-        externalICYBiomes = COMMON_BUILDER.comment("Add external ICY biomes by their registry names in a commented list.").define("ExternalICYBiomes", "");
-        externalCOOLBiomes = COMMON_BUILDER.comment("Add external COOL biomes by their registry names in a commented list.").define("ExternalCOOLBiomes", "");
-        externalWARMBiomes = COMMON_BUILDER.comment("Add external WARM biomes by their registry names in a commented list.").define("ExternalWARMBiomes", "");
-        externalHOTBiomes = COMMON_BUILDER.comment("Add external HOT biomes by their registry names in a commented list.").define("ExternalHOTBiomes", "");
-        COMMON_BUILDER.pop();
-        COMMON_BUILDER.comment("External Biomes. World settings for custom nether/end/byg: https://gist.github.com/CorgiTaco/f5716864bc7b63b04aa547ccfc0e846a").push("Dimension_Settings");
+        COMMON_BUILDER.comment("Dimension Settings").push("Dimension_Settings").push("The_End");
+        controlEnd = COMMON_BUILDER.comment("Does BYG control The End?").define("ControlEnd", true);
         externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry names in a commented list.").define("ExternalEndBiomes", "");
         biomeSizeEND = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").defineInRange("EndBiomeSize", 3, 0, 10);
+        COMMON_BUILDER.pop();
+        COMMON_BUILDER.push("The_Nether");
+        controlNether = COMMON_BUILDER.comment("Does BYG control The Nether?").define("ControlNether", true);
         netherBiomes = COMMON_BUILDER.comment("Add Nether biomes by their registry names(IDs) in a commented list.\n Adding a biome several times gives it more weight in generation.\n Default: \"byg:embur_bog,byg:glowstone_gardens,byg:sythian_torrids,byg:warped_desert,minecraft:basalt_deltas,minecraft:crimson_forest,minecraft:nether_wastes,minecraft:soul_sand_valley,minecraft:warped_forest\".").define("NetherBiomes", "byg:embur_bog,byg:glowstone_gardens,byg:sythian_torrids,byg:warped_desert,minecraft:basalt_deltas,minecraft:crimson_forest,minecraft:nether_wastes,minecraft:soul_sand_valley,minecraft:warped_forest");
         biomeSizeNETHER = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").defineInRange("NetherBiomeSize", 3, 0, 10);
-        COMMON_BUILDER.pop();
-
-
-        COMMON_BUILDER.push("Stone_Settings");
-        COMMON_BUILDER.push("Rocky_Stone");
-        rockyStoneSize = COMMON_BUILDER.defineInRange("RockyStoneSize", 0, 0, 100);
-        rockyStoneChance = COMMON_BUILDER.defineInRange("RockyStoneChance", 4, 0, 100);
-        rockyStoneMaxY = COMMON_BUILDER.defineInRange("RockyStoneMaxY", 256, 0, 256);
-        COMMON_BUILDER.pop();
-
-        COMMON_BUILDER.push("Scoria_Stone");
-        scoriaStoneSize = COMMON_BUILDER.defineInRange("ScoriaStoneSize", 24, 0, 35);
-        scoriaStoneChance = COMMON_BUILDER.defineInRange("ScoriaStoneChance", 10, 0, 100);
-        scoriaStoneMaxY = COMMON_BUILDER.defineInRange("ScoriaStoneMaxY", 20, 0, 256);
-        COMMON_BUILDER.pop();
-
-        COMMON_BUILDER.push("Soapstone");
-        soapStoneSize = COMMON_BUILDER.defineInRange("SoapstoneSize", 24, 0, 35);
-        soapStoneChance = COMMON_BUILDER.defineInRange("SoapstoneChance", 10, 0, 100);
-        soapStoneMaxY = COMMON_BUILDER.defineInRange("SoapstoneMaxY", 30, 0, 256);
-        COMMON_BUILDER.pop();
-        COMMON_BUILDER.pop();
-
-
-        COMMON_BUILDER.push("Ore_Settings");
-        COMMON_BUILDER.comment("Pendorite is exclusive to Forest Fault!").push("Pendorite");
-        pendoriteOreSize = COMMON_BUILDER.defineInRange("PendoriteSize", 4, 0, 16);
-        pendoriteOreChance = COMMON_BUILDER.defineInRange("PendoriteChance", 10, 0, 100);
-        pendoriteOreMaxY = COMMON_BUILDER.defineInRange("PendoriteMaxY", 56, 0, 256);
-        COMMON_BUILDER.pop();
-
-        COMMON_BUILDER.comment("Ametrine is exclusive to Guiana Shield!").push("Ametrine");
-        ametrineOreSize = COMMON_BUILDER.defineInRange("AmetrineSize", 4, 0, 16);
-        ametrineOreChance = COMMON_BUILDER.defineInRange("AmetrineChance", 10, 0, 100);
-        ametrineOreMaxY = COMMON_BUILDER.defineInRange("AmetrineMaxY", 56, 0, 256);
-        COMMON_BUILDER.pop();
         COMMON_BUILDER.pop();
 
         COMMON_CONFIG = COMMON_BUILDER.build();
