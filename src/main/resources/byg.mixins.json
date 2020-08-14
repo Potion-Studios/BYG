@@ -5,8 +5,8 @@
   "refmap": "byg.refmap.json",
   "mixins": [
     "common.entity.MixinAnimalEntity",
-    "common.entity.MixinSlimeEntity"
-
+    "common.entity.MixinSlimeEntity",
+    "common.world.MixinVanillaBiomeLayers"
   ],
   "client": [
     "client.MixinGameRenderer"
