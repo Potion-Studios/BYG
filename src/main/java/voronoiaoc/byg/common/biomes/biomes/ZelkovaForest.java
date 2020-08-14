@@ -4,6 +4,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -14,7 +15,6 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.HashMap;
-import java.util.Random;
 
 public class ZelkovaForest extends Biome implements BiomeTools  {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("zelkova_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
@@ -46,9 +46,13 @@ public class ZelkovaForest extends Biome implements BiomeTools  {
         return map;
     }
 
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
 
-    public Biome randomSubBiome(Random random) {
-        int randomPicker = random.nextInt(4);
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
         if (randomPicker == 0)
             return BYGBiomeList.ZELKOVAFORESTHILLS;
         else if (randomPicker == 1)
@@ -57,7 +61,6 @@ public class ZelkovaForest extends Biome implements BiomeTools  {
             return BYGBiomeList.ZELKOVA_CLEARING;
         else
             return BYGBiomeList.FRESHWATERLAKE;
-
     }
 
     static {

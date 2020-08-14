@@ -3,7 +3,9 @@ package voronoiaoc.byg.common.biomes.biomes;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -43,6 +45,28 @@ public class AspenForest extends Biome implements BiomeTools  {
         map.put(BYGBiomeList.ASPEN_CLEARING, 2);
         map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
+    }
+
+    @Override
+    public Biome getRiver() {
+        return WorldGenRegistries.field_243657_i.getValueForKey(Biomes.RIVER);
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
+
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.ASPENFORESTHILLS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.ASPEN_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomeList.ASPEN_CLEARING;
+        else
+            return BYGBiomeList.FRESHWATERLAKE;
     }
 
     static {

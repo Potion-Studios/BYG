@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeFog;
@@ -47,6 +48,11 @@ public class WeepingWitchForest extends Biome implements BiomeTools , BiomeFog {
         map.put(BYGBiomeList.PUMPKIN_FOREST, 1);
         map.put(BYGBiomeList.WEEPING_WTICH_CLEARING, 4);
         return map;
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return (rand.random(5) == 0) ? BYGBiomeList.PUMPKIN_FOREST : BYGBiomeList.WEEPING_WTICH_CLEARING;
     }
 
     static {

@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -46,6 +47,10 @@ public class SnowyBlueTaiga extends Biome implements BiomeTools  {
         return map;
     }
 
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return (rand.random(2) == 0) ? BYGBiomeList.SNOWYBLUETAIGAHILLS : BYGBiomeList.SNOWYBLUEGIANTTAIGA;
+    }
 
     static {
         //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/snowy/town_centers"), 6));

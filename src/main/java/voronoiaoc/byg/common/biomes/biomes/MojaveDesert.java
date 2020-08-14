@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -41,6 +42,10 @@ public class MojaveDesert extends Biome implements BiomeTools  {
         return Maps.newHashMap(Collections.singletonMap(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.DESERT), 1));
     }
 
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return WorldGenRegistries.field_243657_i.getValueForKey(Biomes.DESERT);
+    }
 
     static {
         //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/desert/town_centers"), 6));

@@ -53,7 +53,7 @@ public class BYGWorldLayerProvider {
         addBiomeFactory = repeat(1000L, ZoomLayer.NORMAL, addBiomeFactory, 2, randomProvider);
         addBiomeFactory = EdgeBiomeLayer.INSTANCE.apply(randomProvider.apply(1000L), addBiomeFactory);
         IAreaFactory<LazyArea> lvt_8_1_ = repeat(1000L, ZoomLayer.NORMAL, zoomFactory, 2, randomProvider);
-        addBiomeFactory = HillsLayer.INSTANCE.apply(randomProvider.apply(1000L), addBiomeFactory, lvt_8_1_);
+        addBiomeFactory = ModdedHillsLayer.INSTANCE.apply(randomProvider.apply(1000L), addBiomeFactory, lvt_8_1_);
         zoomFactory = repeat(1000L, ZoomLayer.NORMAL, zoomFactory, 2, randomProvider);
         zoomFactory = repeat(1000L, ZoomLayer.NORMAL, zoomFactory, 4, randomProvider);
         zoomFactory = RiverLayer.INSTANCE.apply(randomProvider.apply(1L), zoomFactory);

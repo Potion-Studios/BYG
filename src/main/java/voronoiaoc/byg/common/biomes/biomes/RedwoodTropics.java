@@ -4,6 +4,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -36,8 +37,6 @@ public class RedwoodTropics extends Biome implements BiomeTools  {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).func_242541_f(GRASS_COLOR).func_242540_e(FOLIAGE_COLOR).func_242539_d(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.field_235027_b_).build(), GENERATION_SETTINGS.func_242508_a(), SPAWN_SETTINGS.func_242577_b());
     }
 
-
-
     @Override
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
@@ -45,6 +44,24 @@ public class RedwoodTropics extends Biome implements BiomeTools  {
         map.put(BYGBiomeList.REDWOOD_CLEARING, 1);
         map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
+    }
+
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
+
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.REDWOOD_MOUNTAINS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.REDWOOD_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomeList.REDWOOD_MOUNTAINS;
+        else
+            return BYGBiomeList.FRESHWATERLAKE;
     }
 
 

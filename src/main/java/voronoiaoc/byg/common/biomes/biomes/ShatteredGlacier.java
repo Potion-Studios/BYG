@@ -36,6 +36,8 @@ public class ShatteredGlacier extends Biome implements BiomeTools  {
     }
 
 
+    
+
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.IGLOO);
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);

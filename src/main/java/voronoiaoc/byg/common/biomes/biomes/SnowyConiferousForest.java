@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
@@ -13,7 +14,6 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.HashMap;
-import java.util.Random;
 
 public class SnowyConiferousForest extends Biome implements BiomeTools  {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("snowy_coniferous_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF));
@@ -50,9 +50,13 @@ public class SnowyConiferousForest extends Biome implements BiomeTools  {
         return map;
     }
 
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
 
-    public Biome randomSubBiome(Random random) {
-        int randomPicker = random.nextInt(4);
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
         if (randomPicker == 0)
             return BYGBiomeList.SNOWYCONIFERFORESTHILLS;
         else if (randomPicker == 1)

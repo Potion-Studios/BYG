@@ -5,6 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -52,6 +53,10 @@ public class GreatLakes extends Biome implements BiomeTools  {
         return Maps.newHashMap(Collections.singletonMap(this, 1));
     }
 
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return BYGBiomeList.GREATLAKEISLES;
+    }
 
     static {
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);

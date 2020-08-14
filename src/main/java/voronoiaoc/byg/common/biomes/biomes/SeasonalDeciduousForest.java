@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -41,6 +42,23 @@ public class SeasonalDeciduousForest extends Biome implements BiomeTools  {
         map.put(BYGBiomeList.SEASONAL_DECIDUOUS_CLEARING, 2);
         map.put(BYGBiomeList.FRESHWATERLAKE, 1);
         return map;
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return randomSubBiome(rand);
+    }
+
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
+        if (randomPicker == 0)
+            return BYGBiomeList.SEASONALDECIDUOUSFORESTHILLS;
+        else if (randomPicker == 1)
+            return BYGBiomeList.SEASONAL_DECIDUOUS_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomeList.SEASONAL_DECIDUOUS_CLEARING;
+        else
+            return BYGBiomeList.FRESHWATERLAKE;
     }
 
     static {

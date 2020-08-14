@@ -34,7 +34,7 @@ public class DoverMountains extends Biome implements BiomeTools  {
 
     @Override
     public Biome getRiver() {
-        return null;
+        return this;
     }
 
 

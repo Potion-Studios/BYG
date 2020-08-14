@@ -14,7 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 
-public enum HillsLayer implements IAreaTransformer2, IDimOffset1Transformer {
+public enum ModdedHillsLayer implements IAreaTransformer2, IDimOffset1Transformer {
    INSTANCE;
 
    private static final Logger LOGGER = LogManager.getLogger();

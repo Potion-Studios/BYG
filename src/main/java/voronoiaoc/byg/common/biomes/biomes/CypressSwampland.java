@@ -49,6 +49,7 @@ public class CypressSwampland extends Biome implements BiomeTools  {
     }
 
 
+
     static {
         BYGTreeFeatures.addCypressTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);

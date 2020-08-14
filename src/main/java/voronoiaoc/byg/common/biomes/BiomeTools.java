@@ -31,7 +31,7 @@ public interface BiomeTools {
     }
 
     @Nullable
-    default Biome getHill(INoiseRandom random) {
+    default Biome getHill(INoiseRandom rand) {
         return null;
     }
 

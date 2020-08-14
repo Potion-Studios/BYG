@@ -5,6 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -45,6 +46,11 @@ public class BluffSteeps extends Biome implements BiomeTools  {
     @Override
     public HashMap<Biome, Integer> getHills() {
         return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.BLUFFPEAKS, 1));
+    }
+
+    @Override
+    public Biome getHill(INoiseRandom rand) {
+        return BYGBiomeList.BLUFFPEAKS;
     }
 
     static {
