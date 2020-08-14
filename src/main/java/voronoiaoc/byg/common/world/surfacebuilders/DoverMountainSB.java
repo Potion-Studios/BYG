@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
@@ -24,7 +25,7 @@ public class DoverMountainSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         for (int yPos = startHeight - 3; yPos >= seaLevel; --yPos) {
             block.setPos(xPos, yPos, zPos);
             BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-            if (currentBlockToReplace == STONE) {
+            if (currentBlockToReplace == Blocks.STONE.getDefaultState()) {
                 chunkIn.setBlockState(block, BYGBlockList.DACITE.getDefaultState(), false);
             }
         }

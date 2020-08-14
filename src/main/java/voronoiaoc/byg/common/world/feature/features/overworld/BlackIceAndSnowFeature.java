@@ -12,7 +12,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
@@ -22,7 +21,7 @@ public class BlackIceAndSnowFeature extends Feature<NoFeatureConfig> {
         super(p_i51435_1_);
     }
 
-    public boolean func_230362_a_(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn,  ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
         BlockPos.Mutable blockpos$mutable1 = new BlockPos.Mutable();
 
@@ -41,7 +40,7 @@ public class BlackIceAndSnowFeature extends Feature<NoFeatureConfig> {
                 if (biome.doesSnowGenerate(worldIn, blockpos$mutable)) {
                     worldIn.setBlockState(blockpos$mutable, Blocks.SNOW.getDefaultState(), 2);
                     BlockState blockstate = worldIn.getBlockState(blockpos$mutable1);
-                    if (blockstate.func_235901_b_(SnowyDirtBlock.SNOWY)) {
+                    if (blockstate.get(SnowyDirtBlock.SNOWY)) {
                         worldIn.setBlockState(blockpos$mutable1, blockstate.with(SnowyDirtBlock.SNOWY, Boolean.valueOf(true)), 2);
                     }
                 }

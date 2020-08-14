@@ -11,7 +11,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
@@ -26,7 +25,7 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
         super(config);
     }
 
-    public boolean func_230362_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
+    public boolean func_241855_a(ISeedReader world,  ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
         int lvt_6_1_ = 0;
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
         BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(pos);

@@ -1,62 +1,45 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MoodSoundAmbience;
+import com.google.common.collect.Maps;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.SeaGrassConfig;
-import net.minecraft.world.gen.placement.IPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeFog;
+import voronoiaoc.byg.common.biomes.BiomeHelper;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.common.world.feature.biomefeatures.EntitySpawns;
+import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class CragGardens extends Biome implements BiomeFog {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = new ConfiguredSurfaceBuilder<>(BYGSBList.SLUICE_SB, BYGSBList.BYGSBConfigList.GREEN_CONCRETE_POWDER_CF);
+import java.util.Collections;
+import java.util.HashMap;
+
+public class CragGardens extends Biome implements BiomeTools , BiomeFog {
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("crag_gardens", new ConfiguredSurfaceBuilder<>(BYGSBList.CRAG_GARDENS, BYGSBList.BYGSBConfigList.GREEN_CONCRETE_POWDER_CF));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.JUNGLE;
-    static final double DEPTH = -1.5F;
-    static final double SCALE = 0.0F;
+    static final float DEPTH = -1.5F;
+    static final float SCALE = 0.0F;
     static final float TEMPERATURE = 1.0F;
     static final float DOWNFALL = 0.8F;
     static final int WATER_COLOR = 8170451;
     static final int WATER_FOG_COLOR = 6200521;
     static final String PARENT = null;
+    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
     public CragGardens() {
-        super(new Builder().surfaceBuilder(SURFACE_BUILDER).precipitation(PRECIPATATION).category(CATEGORY).depth((float) DEPTH).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(WATER_COLOR).func_235248_c_(WATER_FOG_COLOR).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).scale((float) SCALE).temperature(TEMPERATURE).downfall(DOWNFALL).parent(PARENT));//this.addStructure(Feature.OCEAN_RUIN.withConfiguration(new OceanRuinConfig(OceanRuinStructure.Type.WARM, 0.9F, 0.9F)));
-        //this.addStructure(Feature.JUNGLE_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-        DefaultBiomeFeatures.func_235196_b_(this);
-        BYGFeatures.addLargeLake(this);
-        BYGFeatures.addCattails(this);
-        BYGFeatures.addBYGLilyPad(this);
-        BYGFeatures.addMarshGrass(this);
-        BYGFeatures.addTallGrass(this);
-        BYGFeatures.addBYGMushrooms(this);
-        DefaultBiomeFeatures.addCarvers(this);
+      super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).func_242539_d(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.field_235027_b_).build(), GENERATION_SETTINGS.func_242508_a(), SPAWN_SETTINGS.func_242577_b());
+    }
 
-        DefaultBiomeFeatures.addMonsterRooms(this);
-        DefaultBiomeFeatures.addStoneVariants(this);
-        DefaultBiomeFeatures.addOres(this);
-        DefaultBiomeFeatures.addSedimentDisks(this);
-        DefaultBiomeFeatures.addMushrooms(this);
-        DefaultBiomeFeatures.addFreezeTopLayer(this);
-        BYGTreeFeatures.addCragRainbowTrees(this);
-        BYGFeatures.addBYGTropicFlowers(this);
-        DefaultBiomeFeatures.addJunglePlants(this);
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.withConfiguration(new SeaGrassConfig(64, 0.6D)).withPlacement(Placement.TOP_SOLID_HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-
-
-        //this.addSpawn(EntityClassification.WATER_AMBIENT, new Biome.SpawnListEntry(EntityType.COD, 2, 1, 4));
-        //this.addSpawn(EntityClassification.WATER_AMBIENT, new Biome.SpawnListEntry(EntityType.SALMON, 5, 1, 5));
-        EntitySpawns.addCreatures(this);
-        EntitySpawns.addMonsters(this);
+    @Override
+    public float fogDistance(int x, int z, float originalDistanceChunks) {
+        return 10;
     }
 
     @Override
@@ -65,29 +48,57 @@ public class CragGardens extends Biome implements BiomeFog {
     }
 
     @Override
-    public Vector3d getBiomeFogColor(int x, int z, Vector3d originalValue) {
-        return color;
-    }
-
-    Vector3d color = new Vector3d(192, 192, 192);
-
-    @Override
-    public int getSkyColor() {
-        return 12632256;
+    public HashMap<Biome, Integer> getHills() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.CRAGGARDENS, 1));
     }
 
     @Override
-    public Boolean doesBiomeXZShowFog(int x, int z) {
-        return false;
+    public HashMap<Biome, Integer> getBeaches() {
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.CRAGGARDENS, 1));
     }
 
-    @Override
-    public double getBiomeVoidFogYFactor(int x, int y, double originalValue) {
-        return 0.6;
-    }
 
-    @Override
-    public float fogDistance(int x, int z, float originalDistanceChunks) {
-        return 10;
+    static {
+        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
+        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        BYGFeatures.addLargeLake(GENERATION_SETTINGS);
+        BYGFeatures.addCattails(GENERATION_SETTINGS);
+        BYGFeatures.addBYGLilyPad(GENERATION_SETTINGS);
+        BYGFeatures.addMarshGrass(GENERATION_SETTINGS);
+        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGFeatures.addGlowcane(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
+        BYGTreeFeatures.addRainForestTrees(GENERATION_SETTINGS);
+        BYGTreeFeatures.addCragRainbowTrees(GENERATION_SETTINGS);
+        BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243719_ac(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243962_v);
+
+//         SPAWN_SETTINGS.tree(EntityClassification.WATER_AMBIENT, new MobSpawnInfo.Spawners(EntityType.COD, 2, 1, 4));
+//         SPAWN_SETTINGS.tree(EntityClassification.WATER_AMBIENT, new MobSpawnInfo.Spawners(EntityType.SALMON, 5, 1, 5));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.COW, 8, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.HORSE, 5, 2, 6));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.DONKEY, 1, 1, 3));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
+        SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
+
     }
 }

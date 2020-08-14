@@ -20,18 +20,20 @@ public class WhiteCherry2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         super(configIn);
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
+    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
         int randTreeHeight = 4 + rand.nextInt(4);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
+
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
+            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 8, 5, 5, isSapling)) {
                 return false;
             } else {
-                setGroundBlock(worldIn, Blocks.DIRT, mainmutable);
+                buildTrunk(changedBlocks, worldIn, BYGBlockList.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable);
                 this.treeLog(changedBlocks, worldIn, mainmutable, boundsIn);
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
@@ -227,22 +229,23 @@ public class WhiteCherry2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     //Log Placement
     private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canTreePlaceHere(reader, pos)) {
+        if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.CHERRY_LOG.getDefaultState(), boundingBox);
         }
     }
 
     //Log Placement
     private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canTreePlaceHere(reader, pos)) {
+        if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.CHERRY_LOG.getDefaultState(), boundingBox);
         }
     }
 
     //Leaves Placement
     private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.WHITE_CHERRY_LEAVES.getDefaultState(), boundingBox);
+        BlockPos.Mutable blockpos = new BlockPos.Mutable().setPos(pos);
+        if (isAir(reader, blockpos)) {
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.WHITE_CHERRY_LEAVES.getDefaultState(), boundingBox);
         }
     }
 
@@ -259,7 +262,7 @@ public class WhiteCherry2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

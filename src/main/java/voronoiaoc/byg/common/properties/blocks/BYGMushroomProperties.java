@@ -8,7 +8,6 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.server.ServerWorld;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGHugeMushroom;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
@@ -84,9 +83,9 @@ public class BYGMushroomProperties extends BushBlock implements IGrowable {
 
     }
 
-    public void grow(ServerWorld worldIn, StructureManager structureManager, BlockPos pos, BlockState state, Random rand) {
+    public void grow(ServerWorld worldIn,  BlockPos pos, BlockState state, Random rand) {
         worldIn.removeBlock(pos, false);
-        this.mushroom.spawn(worldIn, structureManager, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
+        this.mushroom.func_242575_a(worldIn,  worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
     }
 
     @Override
@@ -101,6 +100,6 @@ public class BYGMushroomProperties extends BushBlock implements IGrowable {
 
     @Override
     public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
-        this.grow(world, world.func_241112_a_(), pos, state, rand);
+        this.grow(world, pos, state, rand);
     }
 }

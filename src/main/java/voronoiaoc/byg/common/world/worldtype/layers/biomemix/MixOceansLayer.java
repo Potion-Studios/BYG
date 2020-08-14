@@ -13,6 +13,6 @@
 //
 //    @Override
 //    public int apply(INoiseRandom rand, int genX, int genZ) {
-//        return Registry.BIOME.getId(this.manager.getCoastalOceanBiome(genX, genZ).pickBiome(rand));
+//        return Registry.field_243657_i.func_243576_dId(this.manager.getCoastalOceanBiome(genX, genZ).pickBiome(rand));
 //    }
 //}

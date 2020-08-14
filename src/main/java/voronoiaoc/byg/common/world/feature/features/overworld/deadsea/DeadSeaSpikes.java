@@ -39,7 +39,7 @@ public class DeadSeaSpikes extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean func_230362_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader world,  ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig config) {
         long randomLong = rand.nextLong();
         setSeed(world.getSeed() + 215465128 + randomLong);
         double noise;

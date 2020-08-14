@@ -27,50 +27,49 @@ public class IndigoJacarandaTree extends BYGAbstractTreeFeature<NoFeatureConfig>
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {
-        return canTreePlaceHere(genBaseReader, blockPos
+        return canLogPlaceHere(genBaseReader, blockPos
         );
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
-        //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
+    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
+
         int randTreeHeight = rand.nextInt(3) + rand.nextInt(5) + 9;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockposdown = position.down();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
+        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+            BlockPos blockposdown = pos.down();
             if (!isDesiredGroundwDirtTag(worldIn, blockposdown, Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
-                return false;
             } else {
-                //Places dirt under logs where/when necessary.
 
-//                this.setGroundBlockAt(worldIn, blockposdown.west(), position, Blocks.DIRT.getDefaultState());
+                //this.setGroundBlockAt(worldIn, blockposdown, pos, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, blockposdown.west(), pos, Blocks.DIRT.getDefaultState());
 
-//                this.setGroundBlockAt(worldIn, blockposdown.east(), position, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, blockposdown.east(), pos, Blocks.DIRT.getDefaultState());
 
-//                this.setGroundBlockAt(worldIn, blockposdown.south(), position, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, blockposdown.south(), pos, Blocks.DIRT.getDefaultState());
 
-//                this.setGroundBlockAt(worldIn, blockposdown.north(), position, Blocks.DIRT.getDefaultState());
+//                //this.setGroundBlockAt(worldIn, blockposdown.north(), pos, Blocks.DIRT.getDefaultState());
 
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane
+.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY1 = 2 - rand.nextInt(1);//Crashes on 0.
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
 
-                //Raising the 'groundUpLogRemover'  will remove all log blocks from the ground up no matter how thick the trunk is based on the value given. 5 would destroy all trunks from 5 up off the ground.
-                for (int groundUpLogRemover = 0; groundUpLogRemover < randTreeHeight; ++groundUpLogRemover) {
-                    if (groundUpLogRemover >= randTreeHeight2 && posY1 < 0) { //Unknown
+
+                for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
+                    if (buildTrunk >= randTreeHeight2 && posY1 < 0) { //Unknown
                         posX1 += direction.getXOffset();
                         posZ1 += direction.getZOffset();
                         ++posY1;
                     }
-                    int logplacer = posY + groundUpLogRemover;
+                    int logplacer = posY + buildTrunk;
                     int logplacer2 = posY;
                     int logplacer3 = posY + randTreeHeight - 3;
                     int logplacer4 = posY + randTreeHeight - 1;
@@ -350,7 +349,7 @@ public class IndigoJacarandaTree extends BYGAbstractTreeFeature<NoFeatureConfig>
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -358,7 +357,7 @@ public class IndigoJacarandaTree extends BYGAbstractTreeFeature<NoFeatureConfig>
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreeReplace(reader, position.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }
@@ -369,7 +368,7 @@ public class IndigoJacarandaTree extends BYGAbstractTreeFeature<NoFeatureConfig>
 
     //Log Placement
     private void treelog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canTreeReplace(reader, pos)) {
+        if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
 

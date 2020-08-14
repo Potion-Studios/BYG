@@ -23,12 +23,6 @@ public class VolcanicCarver extends WorldCarver<ProbabilityConfig> {
         super(configIn, maxHeightIn);
     }
 
-    @Override
-    public boolean func_225555_a_(IChunk p_225555_1_, Function<BlockPos, Biome> p_225555_2_, Random p_225555_3_, int p_225555_4_, int p_225555_5_, int p_225555_6_, int p_225555_7_, int p_225555_8_, BitSet p_225555_9_, ProbabilityConfig p_225555_10_) {
-        return carveRegion(p_225555_1_, p_225555_2_, p_225555_3_, p_225555_4_, p_225555_5_, p_225555_6_, p_225555_7_, p_225555_8_, p_225555_9_, p_225555_10_);
-    }
-
-
     public boolean carveRegion(IChunk chunkIn, Function<BlockPos, Biome> getBiomeFunction, Random rand, int seaLevel, int chunkXOff, int chunkZOff, int chunkX, int chunkZ, BitSet carvingMask, ProbabilityConfig config) {
         int xPos = chunkX * 16;
         int zPos = chunkZ * 16;

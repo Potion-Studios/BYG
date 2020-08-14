@@ -6,7 +6,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.server.ServerWorld;
 import voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks.SpreadableSythianBlock;
@@ -49,13 +48,14 @@ public class BYGIvisPhyliumBlock extends SpreadableSythianBlock implements IGrow
 
                     BlockState blockstate1;
                     if (rand.nextInt(8) == 0) {
-                        List<ConfiguredFeature<?, ?>> list = world.getBiome(blockpos1).getFlowers();
+                        List<ConfiguredFeature<?, ?>> list = world.getBiome(blockpos1).func_242440_e().func_242496_b();
                         if (list.isEmpty()) {
-                            break;
+                            continue;
                         }
 
-                        ConfiguredFeature<?, ?> configuredfeature = ((DecoratedFeatureConfig) (list.get(0)).config).feature;
-                        blockstate1 = ((FlowersFeature) configuredfeature.feature).getFlowerToPlace(rand, blockpos1, configuredfeature.config);
+                        ConfiguredFeature<?, ?> configuredfeature = list.get(0);
+                        FlowersFeature flowersfeature = (FlowersFeature)configuredfeature.feature;
+                        blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.func_242767_c());
                     } else {
                         blockstate1 = blockstate;
                     }

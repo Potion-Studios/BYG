@@ -3,34 +3,30 @@ package voronoiaoc.byg.common.world.feature.placements;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.placement.FrequencyConfig;
+import net.minecraft.world.gen.feature.FeatureSpreadConfig;
+import net.minecraft.world.gen.feature.WorldDecoratingHelper;
 import net.minecraft.world.gen.placement.Placement;
+import voronoiaoc.byg.common.biomes.BiomeHelper;
 
 import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class AnyWaterOrSolidSurfaceSurface extends Placement<FrequencyConfig> {
-    public static final Placement<FrequencyConfig> WWATERORSOLIDSURFACE = new AnyWaterOrSolidSurfaceSurface(FrequencyConfig.field_236971_a_);
+public class AnyWaterOrSolidSurfaceSurface extends Placement<FeatureSpreadConfig> {
+    public static final Placement<FeatureSpreadConfig> WATER_OR_SOLID_SURFACE = BiomeHelper.newDecorator("any_water_or_solid_surface_decorator", new AnyWaterOrSolidSurfaceSurface(FeatureSpreadConfig.field_242797_a));
 
-    public AnyWaterOrSolidSurfaceSurface(Codec<FrequencyConfig> config) {
+    public AnyWaterOrSolidSurfaceSurface(Codec<FeatureSpreadConfig> config) {
         super(config);
     }
 
-
-    public Stream<BlockPos> getPositions(IWorld world, ChunkGenerator generator, Random random, FrequencyConfig config, BlockPos pos) {
-        return IntStream.range(0, config.count).mapToObj((obj) -> {
+    @Override
+    public Stream<BlockPos> func_241857_a(WorldDecoratingHelper ctx, Random random, FeatureSpreadConfig config, BlockPos pos) {
+        return IntStream.range(0, config.func_242799_a().func_242259_a(random)).mapToObj((obj) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();
-
-            BlockPos.Mutable mutable = new BlockPos.Mutable(x, 255, z);
-            while (mutable.getY() > 0 &&
-                    !world.getBlockState(mutable).isSolid() &&
-                    world.getBlockState(mutable).getFluidState().isEmpty())
+            BlockPos.Mutable mutable = new BlockPos.Mutable(x, ctx.field_242889_a.getHeight(), z);
+            while (mutable.getY() > 0 && !ctx.func_242894_a(mutable).isOpaqueCube(ctx.field_242889_a, mutable) && ctx.func_242894_a(mutable).getFluidState().isEmpty())
                 mutable.move(Direction.DOWN);
-
             return mutable.toImmutable();
         });
     }

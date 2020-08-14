@@ -35,9 +35,9 @@ public class BYGBiomeList {
     public static final Biome COLDSWAMPLANDS = new ColdSwamplands();
     public static final Biome CRAGGARDENS = new CragGardens();
     public static final Biome REDROCKCANYON = new Canyons();
-    public static final Biome CANYONCORRIDORS = new CanyonCorridors();
+//    public static final Biome CANYONCORRIDORS = new CanyonCorridors();
     public static final Biome CYPRESSSWAMPLANDS = new CypressSwampland();
-    public static final Biome DUMMYBIOME = new DummyBiome();
+//    public static final Biome DUMMYBIOME = new DummyBiome();
     public static final Biome CHERRYBLOSSOMFOREST = new CherryBlossomForest();
     public static final Biome REDWOOD_TROPICS = new RedwoodTropics();
     public static final Biome CONIFEROUSFOREST = new ConiferousForest();
@@ -115,7 +115,7 @@ public class BYGBiomeList {
     public static final Biome FRESHWATERLAKE = new FreshWaterLake();
     public static final Biome FROZENLAKE = new FrozenLake();
     public static final Biome GREATLAKEISLES = new GreatLakeIsles();
-    public static final Biome WOODEDGRASSLANDPLATEAU = new WoodedGrassLandPlateau();
+    public static final Biome WOODEDGRASSLANDPLATEAU = new WoodedGrasslandPlateau();
     public static final Biome JACARANDAFORESTHILLS = new JacarandaForestHills();
     public static final Biome NORTHERN_FOREST = new NorthernForest();
     public static final Biome FOREST_FAULT = new ForestFault();
@@ -169,7 +169,7 @@ public class BYGBiomeList {
     public static final Biome SNOWYBLUETAIGAHILLS = new SnowyBlueTaigaHills();
     public static final Biome SNOWYCONIFERFORESTHILLS = new SnowyConiferousForestHills();
     public static final Biome SNOWYDECIDUOUSFORESTHILLS = new SnowyDeciduousForestHills();
-    public static final Biome TROPICALFUNGALRAINFORESTHILLS = new TropicalFungalRainForestHills();
+    public static final Biome TROPICALFUNGALRAINFORESTHILLS = new TropicalFungalRainforestHills();
     public static final Biome TROPICALRAINFORESTHILLS = new TropicalRainForestHills();
     //    public static final Biome VOLCANO = new Volcano();
     public static final Biome ZELKOVAFORESTHILLS = new ZelkovaForestHills();

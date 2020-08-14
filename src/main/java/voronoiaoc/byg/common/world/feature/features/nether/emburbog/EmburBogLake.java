@@ -46,7 +46,7 @@ public class EmburBogLake extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean func_230362_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkSettings, Random random, BlockPos position, NoFeatureConfig configBlock) {
+    public boolean func_241855_a(ISeedReader world,  ChunkGenerator chunkSettings, Random random, BlockPos position, NoFeatureConfig configBlock) {
         setSeed(world.getSeed());
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position.down(2));
 

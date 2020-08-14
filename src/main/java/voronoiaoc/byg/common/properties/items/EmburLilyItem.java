@@ -30,7 +30,7 @@ public class EmburLilyItem extends BlockItem {
      */
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         BlockRayTraceResult blockraytraceresult = rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.SOURCE_ONLY);
-        BlockRayTraceResult blockraytraceresult1 = blockraytraceresult.func_237485_a_(blockraytraceresult.getPos().up());
+        BlockRayTraceResult blockraytraceresult1 = blockraytraceresult.withPosition(blockraytraceresult.getPos().up());
         ActionResultType actionresulttype = super.onItemUse(new ItemUseContext(playerIn, handIn, blockraytraceresult1));
         return new ActionResult<>(actionresulttype, playerIn.getHeldItem(handIn));
     }

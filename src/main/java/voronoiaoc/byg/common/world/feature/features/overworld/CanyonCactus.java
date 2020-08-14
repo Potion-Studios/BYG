@@ -7,7 +7,6 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import java.util.Random;
 
@@ -16,7 +15,7 @@ public class CanyonCactus extends Feature<NoFeatureConfig> {
         super(config);
     }
 
-    public boolean func_230362_a_(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn,  ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         if (!worldIn.isAirBlock(pos) || worldIn.getBlockState(pos.down()).getBlock() != Blocks.RED_SAND)
             return false;
         if (pos.getY() < 140)

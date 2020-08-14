@@ -28,27 +28,32 @@ public class ConiferTree8 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     }
 
     protected static boolean canTreePlace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {
-        return canTreePlaceHere(
+        return canLogPlaceHere(
                 genBaseReader, blockPos
         );
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
         //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = rand.nextInt(6) + rand.nextInt(6) + 16;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos checkGround = position.down();
+            BlockPos checkGround = pos.down();
             if (!isDesiredGroundwDirtTag(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
+            }
+            else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
-            } else {
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, randTreeHeight - 10, 5, 5, 5, 5, isSapling)) {
+                return false;
+            }
+            else {
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane
+.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY2 = 2 - rand.nextInt(1);//Crashes on 0.
                 int posX2 = posX;
@@ -261,7 +266,7 @@ public class ConiferTree8 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -269,7 +274,7 @@ public class ConiferTree8 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
             for (int xDistance = -distance; xDistance <= distance; ++xDistance) {
                 for (int zDistance = -distance; zDistance <= distance; ++zDistance) {
-                    if (!canTreePlace(reader, position.setPos(x + xDistance, y + yOffset, z + zDistance))) {
+                    if (!canTreePlace(reader, pos.setPos(x + xDistance, y + yOffset, z + zDistance))) {
                         return false;
                     }
                 }

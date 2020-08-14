@@ -1,9 +1,11 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url ='https://www.dogforce-games.com/maven/'}
         jcenter()
         mavenCentral()
         maven {url='https://dist.creeper.host/Sponge/maven'}
+
 
     }
     dependencies {
@@ -70,7 +72,6 @@ repositories{
     }
 
     maven {url='https://dist.creeper.host/Sponge/maven'}
-
     jcenter()
     mavenCentral()
 
@@ -122,4 +123,8 @@ apply plugin: 'org.spongepowered.mixin'
 
 mixin {
     add sourceSets.main, "${modid}.refmap.json"
+}
+
+repositories {
+    maven { url ='https://www.dogforce-games.com/maven/'}
 }

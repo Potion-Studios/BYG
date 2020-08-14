@@ -14,9 +14,9 @@
 //public enum BYGAddIslandLayer implements Merge1Layer, IDimOffset1Transformer {
 //    INSTANCE;
 //
-//    public static final int DEEP_WARM_OCEAN = Registry.BIOME.getId(Biomes.DEEP_WARM_OCEAN);
-//    public static final int DEEP_LUKEWARM_OCEAN = Registry.BIOME.getId(Biomes.DEEP_LUKEWARM_OCEAN);
-//    public static final int DEEP_FROZEN_OCEAN = Registry.BIOME.getId(Biomes.DEEP_FROZEN_OCEAN);
+//    public static final int DEEP_WARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_WARM_OCEAN);
+//    public static final int DEEP_LUKEWARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_LUKEWARM_OCEAN);
+//    public static final int DEEP_FROZEN_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_FROZEN_OCEAN);
 //
 //    public BYGBiomeGroup getTropIslandBiome() {
 //        return BYGBiomeGroup.OCEAN_ISLANDS_TROPICAL;
@@ -35,34 +35,34 @@
 //
 //    @Override
 //    public int apply(INoiseRandom context, IArea iArea, int x, int z) {
-//        int area1Value = iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 1));
+//        int area1Value = iArea.getValue(this.getXOffset(x + 1), this.getZOffset(z + 1));
 //
 //        if (context.random(islandChance + 2) == 0) {
 //            int l = area1Value;
 //            if (!ClimateBooleans.isShallowOcean(area1Value + 1) || !ClimateBooleans.isShallowOcean(area1Value - 1)) {
 //                if (area1Value == DEEP_WARM_OCEAN) {
-//                    l = Registry.BIOME.getId(getTropIslandBiome().pickBiome(context));
+//                    l = Registry.field_243657_i.func_243576_dId(getTropIslandBiome().pickBiome(context));
 //                } else if (area1Value == DEEP_FROZEN_OCEAN) {
-//                    l = Registry.BIOME.getId(getSnowyIslandBiome().pickBiome(context));
+//                    l = Registry.field_243657_i.func_243576_dId(getSnowyIslandBiome().pickBiome(context));
 //                } else if (area1Value == DEEP_LUKEWARM_OCEAN) {
-//                    l = Registry.BIOME.getId(getTemperateIslandBiome().pickBiome(context));
+//                    l = Registry.field_243657_i.func_243576_dId(getTemperateIslandBiome().pickBiome(context));
 //                }
 //
 //                if (l != area1Value) {
 //                    int i1 = 0;
-//                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z)), area1Value)) {
+//                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 1), this.getZOffset(z)), area1Value)) {
 //                        ++i1;
 //                    }
 //
-//                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 2), this.getOffsetZ(z + 1)), area1Value)) {
+//                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 2), this.getZOffset(z + 1)), area1Value)) {
 //                        ++i1;
 //                    }
 //
-//                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 0), this.getOffsetZ(z + 1)), area1Value)) {
+//                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 0), this.getZOffset(z + 1)), area1Value)) {
 //                        ++i1;
 //                    }
 //
-//                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 2)), area1Value)) {
+//                    if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 1), this.getZOffset(z + 2)), area1Value)) {
 //                        ++i1;
 //                    }
 //

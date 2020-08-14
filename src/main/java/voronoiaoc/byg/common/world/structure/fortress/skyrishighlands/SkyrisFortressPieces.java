@@ -115,7 +115,7 @@
 //            this.fillWithBlocks(world, mutable, 0, 2, 4, 3, 5, 4, DACITEBRICKS, DACITEBRICKS, false);
 //            this.fillWithBlocks(world, mutable, 1, 3, 4, 1, 4, 4, blockstate, blockstate, false);
 //            this.fillWithBlocks(world, mutable, 3, 3, 4, 3, 4, 4, blockstate, blockstate, false);
-//            if (this.chest && mutable.isVecInside(new BlockPos(this.getXWithOffset(3, 3), this.getYWithOffset(2), this.getZWithOffset(3, 3)))) {
+//            if (this.chest && mutable.isVecInside(new BlockPos(this.getXWithOffsetPos(3, 3), this.getYWithOffsetPos(2), this.getZWithOffsetPos(3, 3)))) {
 //                this.chest = false;
 //                this.generateChest(world, mutable, rand, 3, 2, 3, LootTables.CHESTS_PILLAGER_OUTPOST);
 //            }
@@ -179,7 +179,7 @@
 //            this.fillWithBlocks(world, mutable, 1, 2, 4, 4, 5, 4, DACITEBRICKS, DACITEBRICKS, false);
 //            this.fillWithBlocks(world, mutable, 1, 3, 4, 1, 4, 4, blockstate, blockstate, false);
 //            this.fillWithBlocks(world, mutable, 3, 3, 4, 3, 4, 4, blockstate, blockstate, false);
-//            if (this.chest && mutable.isVecInside(new BlockPos(this.getXWithOffset(1, 3), this.getYWithOffset(2), this.getZWithOffset(1, 3)))) {
+//            if (this.chest && mutable.isVecInside(new BlockPos(this.getXWithOffsetPos(1, 3), this.getYWithOffsetPos(2), this.getZWithOffsetPos(1, 3)))) {
 //                this.chest = false;
 //                this.generateChest(world, mutable, rand, 1, 2, 3, LootTables.CHESTS_PILLAGER_OUTPOST);
 //            }
@@ -694,7 +694,7 @@
 //            this.fillWithBlocks(p_225577_1_, p_225577_4_, 6, 1, 6, 6, 4, 6, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
 //            this.setBlockState(p_225577_1_, DACITEBRICKS, 6, 0, 6, p_225577_4_);
 //            this.setBlockState(p_225577_1_, Blocks.LAVA.getDefaultState(), 6, 5, 6, p_225577_4_);
-//            BlockPos blockpos = new BlockPos(this.getXWithOffset(6, 6), this.getYWithOffset(5), this.getZWithOffset(6, 6));
+//            BlockPos blockpos = new BlockPos(this.getXWithOffsetPos(6, 6), this.getYWithOffsetPos(5), this.getZWithOffsetPos(6, 6));
 //            if (p_225577_4_.isVecInside(blockpos)) {
 //                p_225577_1_.getPendingFluidTicks().scheduleTick(blockpos, Fluids.LAVA, 0);
 //            }
@@ -1224,7 +1224,7 @@
 //            this.setBlockState(p_225577_1_, blockstate, 3, 8, 8, p_225577_4_);
 //            this.setBlockState(p_225577_1_, IRONBARS.with(FenceBlock.WEST, Boolean.valueOf(true)), 4, 8, 8, p_225577_4_);
 //            if (!this.hasSpawner) {
-//                BlockPos blockpos = new BlockPos(this.getXWithOffset(3, 5), this.getYWithOffset(5), this.getZWithOffset(3, 5));
+//                BlockPos blockpos = new BlockPos(this.getXWithOffsetPos(3, 5), this.getYWithOffsetPos(5), this.getZWithOffsetPos(3, 5));
 //                if (p_225577_4_.isVecInside(blockpos)) {
 //                    this.hasSpawner = true;
 //                    p_225577_1_.setBlockState(blockpos, Blocks.SPAWNER.getDefaultState(), 2);

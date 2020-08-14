@@ -15,13 +15,13 @@
 //    @Override
 //    public int apply(INoiseRandom rand, int n, int e, int s, int w, int centre) {
 //        if (ClimateBooleans.isDeepWarmOcean(centre)) {
-//            return (rand.random(islandChance + 2) == 0) ? Registry.BIOME.getId(getTropIslandBiome().pickBiome(rand)) : centre;
+//            return (rand.random(islandChance + 2) == 0) ? Registry.field_243657_i.func_243576_dId(getTropIslandBiome().pickBiome(rand)) : centre;
 //        }
 //        if (ClimateBooleans.isDeepFrozenOcean(centre)) {
-//            return (rand.random(islandChance + 2) == 0) ? Registry.BIOME.getId(getSnowyIslandBiome().pickBiome(rand)) : centre;
+//            return (rand.random(islandChance + 2) == 0) ? Registry.field_243657_i.func_243576_dId(getSnowyIslandBiome().pickBiome(rand)) : centre;
 //        }
 //        if (ClimateBooleans.isDeepLukeWarmOcean(centre)) {
-//            return (rand.random(islandChance + 2) == 0) ? Registry.BIOME.getId(getTemperateIslandBiome().pickBiome(rand)) : centre;
+//            return (rand.random(islandChance + 2) == 0) ? Registry.field_243657_i.func_243576_dId(getTemperateIslandBiome().pickBiome(rand)) : centre;
 //        }
 //        return centre;
 //    }

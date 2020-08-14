@@ -1,10 +1,13 @@
 package voronoiaoc.byg.core.byglists;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.carver.WorldCarver;
-import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.VillageConfig;
+import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.ProbabilityConfig;
+import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
@@ -134,6 +137,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.Zelk
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
 
+
 public class BYGFeatureList {
 
     public static final Feature<NoFeatureConfig> DUMMY_TREE = new SmallPineTree(NoFeatureConfig.field_236558_a_);
@@ -196,8 +200,8 @@ public class BYGFeatureList {
     //Warped
     public static final Feature<NoFeatureConfig> WARPED_BUSH = new WarpedBush(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> WARPED_CORAL = new WarpedCoral(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> WARPED_CORALPLANT = new WarpedCoralFeature(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> WARPED_CORALFAN = new WarpedCoralFan(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> HUGE_WARPED_CORAL_PLANT = new WarpedCoralFeature(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> WARPED_CORAL_FAN = new WarpedCoralFan(NoFeatureConfig.field_236558_a_);
 
 
     public static final Feature<NoFeatureConfig> WOOD_BLEWIT = new WoodBlewitMushroom(NoFeatureConfig.field_236558_a_);
@@ -212,8 +216,8 @@ public class BYGFeatureList {
 
     //Embur
     public static final Feature<NoFeatureConfig> EMBURLAKE = new EmburBogLake(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> EMBURMUSHROOM = new EmburMushroom(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> EMBURMUSHROOM2 = new EmburMushroom2(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> EMBUR_MUSHROOM = new EmburMushroom(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> EMBUR_MUSHROOM2 = new EmburMushroom2(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> EMBUR_GEL_VINES = new EmburGelVines(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> EMBUR_ROOTS = new EmburRoots(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> TALL_EMBUR_ROOTS = new TallEmburRoots(NoFeatureConfig.field_236558_a_);
@@ -222,8 +226,8 @@ public class BYGFeatureList {
 
 
     /********************************************************************Structures***********************************************************************/
-//    public static final StructureFeature<VillageConfig> BYGVILLAGE = new BYGVillagePieces(VillageConfig.field_236533_a_);
-//    public static final StructureFeature<NoFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(NoFeatureConfig.field_236558_a_);
+//    public static final //StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillage//StructureFeature(StructurePoolFeatureConfig.field_236558_a_);
+//    public static final //StructureFeature<NoFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(NoFeatureConfig.field_236558_a_);
 //    public static final Feature<NoFeatureConfig> DOVERQUARRY = new DoverQuarry1(NoFeatureConfig.field_236558_a_);
 
 
@@ -260,7 +264,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUFF_TREE3 = new BluffTree3(NoFeatureConfig.field_236558_a_);
 
     //Boreal Trees
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE = new BorealForestTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE1 = new BorealForestTree1(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE2 = new BorealForestTree2(NoFeatureConfig.field_236558_a_);
 
     //Cherry
@@ -329,10 +333,10 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> HOLLY_TREE4 = new HollyTree4(NoFeatureConfig.field_236558_a_);
 
     //Jacaranda
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> JACARANDA_TREE = new JacarandaTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> JACARANDA_TREE1 = new JacarandaTree1(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> JACARANDA_TREE2 = new JacarandaTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> INDIGOJACARANDA_TREE = new IndigoJacarandaTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> INDIGOJACARANDA_TREE2 = new IndigoJacarandaTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> JACARANDA_INDIGO_TREE1 = new IndigoJacarandaTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> JACARANDA_INDIGO_TREE2 = new IndigoJacarandaTree2(NoFeatureConfig.field_236558_a_);
 
     //JoshuaTree
     public static final BYGAbstractTreeFeature<NoFeatureConfig> JOSHUA_TREE1 = new JoshuaTree1(NoFeatureConfig.field_236558_a_);
@@ -346,7 +350,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> MANGROVE_TREE5 = new MangroveTree5(NoFeatureConfig.field_236558_a_);
 
     //Maple
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_RED_TREE = new RedMapleTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_RED_TREE1 = new RedMapleTree1(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_RED_TREE2 = new RedMapleTree2(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_SILVER_TREE1 = new SilverMapleTree1(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_SILVER_TREE2 = new SilverMapleTree2(NoFeatureConfig.field_236558_a_);
@@ -401,22 +405,22 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> SKYRIS_TREE3 = new SkyrisTree3(NoFeatureConfig.field_236558_a_);
 
     //Spruce
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUEGIANTSPUCE_TREE = new GiantBlueSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> TALLBLUESPRUCE_TREE = new TallBlueSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUESPRUCE_TREE = new BlueSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SMALLBLUESPRUCE_TREE = new SmallBlueTaigaTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> GIANTORANGESPRUCE_TREE = new GiantOrangeSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> TALLORANGESPRUCE_TREE = new TallOrangeSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORANGESPRUCE_TREE = new OrangeSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SMALLORANGESPRUCE_TREE = new SmallOrangeSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> GIANTREDSPRUCE_TREE = new GiantRedSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> TALLREDSPRUCE_TREE = new TallRedSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> REDSPRUCE_TREE = new RedSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SMALLREDSPRUCE_TREE = new SmallRedSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> GIANTYELLOWSPRUCE_TREE = new GiantYellowSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> TALLYELLOWSPRUCE_TREE = new TallYellowSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOWSPRUCE_TREE = new YellowSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SMALLYELLOWSPRUCE_TREE = new SmallYellowTaigaTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_GIANT_SPRUCE_TREE = new GiantBlueSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_TALL_SPRUCE_TREE = new TallBlueSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_SPRUCE_TREE = new BlueSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_SMALL_SPRUCE_TREE = new SmallBlueTaigaTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORANGE_GIANT_SPRUCE_TREE = new GiantOrangeSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORANGE_TALL_SPRUCE_TREE = new TallOrangeSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORANGE_SPRUCE_TREE = new OrangeSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORANGE_SMALL_SPRUCE_TREE = new SmallOrangeSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> RED_GIANT_SPRUCE_TREE = new GiantRedSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> RED_TALL_SPRUCE_TREE = new TallRedSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> RED_SPRUCE_TREE = new RedSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> RED_SMALL_SPRUCE_TREE = new SmallRedSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOW_GIANT_SPRUCE_TREE = new GiantYellowSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOW_TALL_SPRUCE_TREE = new TallYellowSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOW_SPRUCE_TREE = new YellowSpruceTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOW_SMALL_SPRUCE_TREE = new SmallYellowTaigaTree(NoFeatureConfig.field_236558_a_);
 
     //Tropical
     public static final BYGAbstractTreeFeature<NoFeatureConfig> TROPICAL_TREE1 = new TropicalRainForestTree(NoFeatureConfig.field_236558_a_);
@@ -441,14 +445,197 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE3 = new ZelkovaTree3(NoFeatureConfig.field_236558_a_);
 
 
-    /********************************************************************Village Configs********************************************************************/
+    public static class RegisterFeatures {
+        public static void registerBYGFeatures() {
+            registerFeature(DUMMY_TREE, "dummy_tree");
+            registerFeature(DEADSEASPIKES, "dead_sea_spike");
+            registerFeature(TALLDEADSEASPIKES, "dead_sea_spike_tall");
+            registerFeature(OBBYSPIKES, "obsidian_spike");
+            registerFeature(CACTUS, "canyon_cactus");
+            registerFeature(BLACKICESNOW, "black_ice_and_snow");
+            registerFeature(LAKE_FROST, "frosted_lake");
+            registerFeature(LAKE_WIDE_SHALLOW, "lake_wide_shallow");
+            registerFeature(LAKE_LAVA_WIDE_SHALLOW, "lava_lake_wide_shallow");
+            registerFeature(VINES, "vines");
+            registerFeature(PUMPKIN_PATCH1, "pumpkin");
+            registerFeature(PUMPKIN_PATCH2, "pumpkin2");
+            registerFeature(PUMPKIN_PATCH3, "pumpkin3");
+            registerFeature(GIANT_ANGELICA_FLOWER, "giant_angelica_flower");
+            registerFeature(GIANT_DANDELION_FLOWER, "giant_dandelion_flower");
+            registerFeature(GIANT_IRIS_FLOWER, "giant_iris_flower");
+            registerFeature(GIANT_ROSE_FLOWER, "giant_rose");
+            registerFeature(GREEN_MUSHROOM_HUGE, "green_mushroom_huge");
+            registerFeature(WOOD_BLEWIT_HUGE, "wood_blewit_huge");
+            registerFeature(WEEPING_MILKCAP_HUGE, "weeping_milkcap_huge");
+            registerFeature(BLACK_PUFF_HUGE, "black_puff_huge");
+            registerFeature(BLUE_GLOWSHROOM_HUGE, "blue_glowshroom_huge");
+            registerFeature(PURPLE_GLOWSHROOM_HUGE, "purple_glowshroom_huge");
+            registerFeature(BLACK_PUFF, "black_puff");
+            registerFeature(GREEN_MUSHROOM, "green_mushroom");
+            registerFeature(NETHER_BRISTLE, "nether_bristle");
+            registerFeature(SYTHIAN_SPROUT, "sythian_sprout");
+            registerFeature(SYTHIAN_STALK, "sythian_stalk");
+            registerFeature(SYTHIAN_ROOTS, "sythian_roots");
+            registerFeature(WARPED_BUSH, "warped_bush");
+            registerFeature(WARPED_CORAL, "warped_coral");
+            registerFeature(HUGE_WARPED_CORAL_PLANT, "warped_coral_plant");
+            registerFeature(WARPED_CORAL_FAN, "warped_coral_fan");
+            registerFeature(WOOD_BLEWIT, "wood_blewit");
+            registerFeature(WEED_GRASS, "weed_grass");
+            registerFeature(WEEPING_MILKCAP, "weeping_milk_cap");
+            registerFeature(WEEPING_ROOTS, "weeping_roots");
+            registerFeature(WEEPING_ROOTS_PLANT, "weeping_roots_plant");
+            registerFeature(EMBURLAKE, "embur_lake");
+            registerFeature(EMBUR_MUSHROOM, "embur_mushroom");
+            registerFeature(EMBUR_MUSHROOM2, "embur_mushroom2");
+            registerFeature(EMBUR_GEL_VINES, "embur_gel_vines");
+            registerFeature(EMBUR_ROOTS, "embur_roots");
+            registerFeature(TALL_EMBUR_ROOTS, "tall_embur_roots");
+            registerFeature(EMBUR_WART, "embur_wart");
+            registerFeature(EMBUR_LILY, "embur_lily");
+            registerFeature(ACACIA_TREE1, "acacia_tree1");
+            registerFeature(ANCIENT_TREE1, "ancient_tree1");
+            registerFeature(ANCIENT_TREE2, "ancient_tree2");
+            registerFeature(ANCIENT_TREE3, "ancient_tree3");
+            registerFeature(ASPEN_SHRUB1, "aspen_shrub1");
+            registerFeature(ASPEN_SHRUB2, "aspen_shrub2");
+            registerFeature(ASPEN_TREE1, "aspen_tree1");
+            registerFeature(ASPEN_TREE2, "aspen_tree2");
+            registerFeature(ASPEN_TREE3, "aspen_tree3");
+            registerFeature(BAOBAB_TREE1, "baobab_tree1");
+            registerFeature(BIRCH_BROWN_TREE1, "brown_birch_tree1");
+            registerFeature(BIRCH_ORANGE_TREE1, "orange_birch_tree1");
+            registerFeature(BIRCH_RED_TREE1, "red_birch_tree1");
+            registerFeature(BIRCH_YELLOW_TREE1, "yellow_birch_tree1");
+            registerFeature(BLUFF_TREE1, "bluff_tree1");
+            registerFeature(BLUFF_TREE2, "bluff_tree2");
+            registerFeature(BLUFF_TREE3, "bluff_tree3");
+            registerFeature(BOREAL_TREE1, "boreal_tree1");
+            registerFeature(BOREAL_TREE2, "boreal_tree2");
+            registerFeature(CHERRY_PINK_TREE1, "pink_cherry_tree1");
+            registerFeature(CHERRY_PINK_TREE2, "pink_cherry_tree2");
+            registerFeature(CHERRY_WHITE_TREE1, "white_cherry_tree1");
+            registerFeature(CHERRY_WHITE_TREE2, "white_cherry_tree2");
+            registerFeature(CIKA_TREE1, "cika_tree1");
+            registerFeature(CIKA_TREE2, "cika_tree2");
+            registerFeature(CIKA_TREE3, "cika_tree3");
+            registerFeature(CONIFER_TREE1, "conifer_tree1");
+            registerFeature(CONIFER_TREE2, "conifer_tree2");
+            registerFeature(CONIFER_TREE3, "conifer_tree3");
+            registerFeature(CONIFER_TREE4, "conifer_tree4");
+            registerFeature(CONIFER_TREE5, "conifer_tree5");
+            registerFeature(CONIFER_TREE6, "conifer_tree6");
+            registerFeature(CONIFER_TREE7, "conifer_tree7");
+            registerFeature(CONIFER_TREE8, "conifer_tree8");
+            registerFeature(CYPRESS_TREE1, "cypress_tree1");
+            registerFeature(CYPRESS_TREE2, "cypress_tree2");
+            registerFeature(CYPRESS_TREE3, "cypress_tree3");
+            registerFeature(DEAD_HAZEL_TREE1, "dead_hazel_tree1");
+            registerFeature(DEAD_HAZEL_TREE2, "dead_hazel_tree2");
+            registerFeature(DEAD_HAZEL_TREE3, "dead_hazel_tree3");
+            registerFeature(DEAD_HAZEL_TREE4, "dead_hazel_tree4");
+            registerFeature(DECIDUOUS_TREE, "deciduous_tree");
+            registerFeature(DECIDUOUS_BROWN_TREE, "brown_deciduous_tree");
+            registerFeature(DECIDUOUS_ORANGE_TREE, "orange_deciduous_tree");
+            registerFeature(DECIDUOUS_YELLOW_TREE, "yellow_deciduous_tree");
+            registerFeature(DECIDUOUS_RED_TREE, "red_deciduous_tree");
+            registerFeature(DECIDUOUS_SEASONAL_SHRUBS, "deciduous_seasonal_shrubs");
+            registerFeature(EBONY_BUSH1, "ebony_bush1");
+            registerFeature(EBONY_TREE1, "ebony_tree1");
+            registerFeature(EBONY_TREE2, "ebony_tree2");
+            registerFeature(ENCHANTED_BLUE_TREE1, "blue_enchanted_tree1");
+            registerFeature(ENCHANTED_BLUE_TREE2, "blue_enchanted_tree2");
+            registerFeature(ENCHANTED_BLUE_TREE3, "blue_enchanted_tree3");
+            registerFeature(ENCHANTED_GREEN_TREE1, "green_enchanted_tree1");
+            registerFeature(ENCHANTED_GREEN_TREE2, "green_enchanted_tree2");
+            registerFeature(ENCHANTED_GREEN_TREE3, "green_enchanted_tree3");
+            registerFeature(ENCHANTED_GREEN_GROVE_TREE1, "green_enchanted_grove_tree1");
+            registerFeature(ENCHANTED_BLUE_GROVE_TREE1, "blue_enchanted_grove_tree1");
+            registerFeature(HOLLY_TREE1, "holly_tree1");
+            registerFeature(HOLLY_TREE2, "holly_tree2");
+            registerFeature(HOLLY_TREE3, "holly_tree3");
+            registerFeature(HOLLY_TREE4, "holly_tree4");
+            registerFeature(JACARANDA_TREE1, "jacaranda_tree1");
+            registerFeature(JACARANDA_TREE2, "jacaranda_tree2");
+            registerFeature(JACARANDA_INDIGO_TREE1, "indigo_jacaranda_tree1");
+            registerFeature(JACARANDA_INDIGO_TREE2, "indigo_jacaranda_tree2");
+            registerFeature(JOSHUA_TREE1, "joshua_tree1");
+            registerFeature(JOSHUA_TREE2, "joshua_tree2");
+            registerFeature(MANGROVE_TREE1, "mangrove_tree1");
+            registerFeature(MANGROVE_TREE2, "mangrove_tree2");
+            registerFeature(MANGROVE_TREE3, "mangrove_tree3");
+            registerFeature(MANGROVE_TREE4, "mangrove_tree4");
+            registerFeature(MANGROVE_TREE5, "mangrove_tree5");
+            registerFeature(MAPLE_RED_TREE1, "red_maple_tree1");
+            registerFeature(MAPLE_RED_TREE2, "red_maple_tree2");
+            registerFeature(MAPLE_SILVER_TREE1, "silver_maple_tree1");
+            registerFeature(MAPLE_SILVER_TREE2, "silver_maple_tree2");
+            registerFeature(MAPLE_TREE, "maple_tree1");
+            registerFeature(MEADOW_TREE1, "meadow_tree1");
+            registerFeature(MEADOW_TREE2, "meadow_tree2");
+            registerFeature(MEADOW_TREE3, "meadow_tree3");
+            registerFeature(ORCHARD_TREE1, "orchard_tree1");
+            registerFeature(ORCHARD_TREE2, "orchard_tree2");
+            registerFeature(ORCHARD_TREE3, "orchard_tree3");
+            registerFeature(PALM_TREE1, "palm_tree3");
+            registerFeature(PINE_LARGE_TREE1, "large_pine_tree1");
+            registerFeature(PINE_LARGE_TREE2, "large_pine_tree2");
+            registerFeature(PINE_TREE1, "pine_tree1");
+            registerFeature(PINE_TREE2, "pine_tree2");
+            registerFeature(PALO_VERDE_TREE1, "palo_verde_tree1");
+            registerFeature(PALO_VERDE_TREE2, "palo_verde_tree2");
+            registerFeature(RAINBOW_LARGE_TREE1, "large_rainbow_eucalyptus_tree1");
+            registerFeature(RAINBOW_TREE1, "rainbow_eucalyptus_tree1");
+            registerFeature(REDWOOD_TREE1, "redwood_tree1");
+            registerFeature(REDWOOD_TREE2, "redwood_tree2");
+            registerFeature(REDWOOD_TREE3, "redwood_tree3");
+            registerFeature(OAK_BROWN_TREE1, "brown_oak_tree1");
+            registerFeature(OAK_ORANGE_TREE1, "orange_oak_tree1");
+            registerFeature(OAK_RED_TREE1, "red_oak_tree1");
+            registerFeature(SHRUB, "shrub1");
+            registerFeature(SHRUB_MEADOW1, "meadow_shrub1");
+            registerFeature(SHRUB_MEADOW2, "meadow_shrub2");
+            registerFeature(SHRUB_PRAIRIE1, "prairie_shrub1");
+            registerFeature(SHRUB_PRAIRIE2, "prairie_shrub2");
+            registerFeature(SKYRIS_TREE1, "skyris_tree1");
+            registerFeature(SKYRIS_TREE2, "skyris_tree2");
+            registerFeature(SKYRIS_TREE3, "skyris_tree3");
+            registerFeature(BLUE_GIANT_SPRUCE_TREE, "giant_blue_spruce_tree1");
+            registerFeature(BLUE_TALL_SPRUCE_TREE, "tall_blue_spruce_tree1");
+            registerFeature(BLUE_SPRUCE_TREE, "blue_spruce_tree1");
+            registerFeature(BLUE_SMALL_SPRUCE_TREE, "small_blue_spruce_tree1");
+            registerFeature(ORANGE_GIANT_SPRUCE_TREE, "giant_orange_spruce_tree1");
+            registerFeature(ORANGE_TALL_SPRUCE_TREE, "tall_orange_spruce_tree1");
+            registerFeature(ORANGE_SPRUCE_TREE, "orange_spruce_tree1");
+            registerFeature(ORANGE_SMALL_SPRUCE_TREE, "small_orange_spruce_tree1");
+            registerFeature(RED_GIANT_SPRUCE_TREE, "giant_red_spruce_tree1");
+            registerFeature(RED_TALL_SPRUCE_TREE, "tall_red_spruce_tree1");
+            registerFeature(RED_SPRUCE_TREE, "red_spruce_tree1");
+            registerFeature(RED_SMALL_SPRUCE_TREE, "small_red_spruce_tree1");
+            registerFeature(YELLOW_GIANT_SPRUCE_TREE, "giant_yellow_spruce_tree1");
+            registerFeature(YELLOW_TALL_SPRUCE_TREE, "tall_yellow_spruce_tree1");
+            registerFeature(YELLOW_SPRUCE_TREE, "yellow_spruce_tree1");
+            registerFeature(YELLOW_SMALL_SPRUCE_TREE, "small_yellow_spruce_tree1");
+            registerFeature(TROPICAL_TREE1, "tropical_tree1");
+            registerFeature(TROPICAL_SHORT_TREE1, "tropical_short_tree1");
+            registerFeature(TROPICAL_SHRUB1, "tropical_shrub1");
+            registerFeature(WOODLANDS_TREE1, "woodlands_tree1");
+            registerFeature(WILLOW_DEAD_TREE1, "dead_willow_tree1");
+            registerFeature(WILLOW_M_TREE1, "mutated_willow_tree1");
+            registerFeature(WILLOW_M_TREE2, "mutated_willow_tree2");
+            registerFeature(WILLOW_TREE1, "willow_tree1");
+            registerFeature(WILLOW_TREE2, "willow_tree2");
+            registerFeature(WILLOW_TREE3, "willow_tree3");
+            registerFeature(WILLOW_TREE4, "willow_tree4");
+            registerFeature(ZELKOVA_TREE1, "zelkova_tree1");
+            registerFeature(ZELKOVA_TREE2, "zelkova_tree2");
+            registerFeature(ZELKOVA_TREE3, "zelkova_tree3");
+        }
 
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> ADOBE_VILLAGE = Structure.field_236381_q_.func_236391_a_(new VillageConfig(new ResourceLocation("byg:village/adobe/town_centers"), 6));
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> SKYRIS_VILLAGE = Structure.field_236381_q_.func_236391_a_(new VillageConfig(new ResourceLocation("byg:village/skyris/town_centers"), 6));
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> GRASSLAND_VILLAGE = Structure.field_236381_q_.func_236391_a_(new VillageConfig(new ResourceLocation("byg:village/grassland/town_centers"), 6));
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> GUIANA_VILLAGE = Structure.field_236381_q_.func_236391_a_(new VillageConfig(new ResourceLocation("byg:village/guiana/town_centers"), 6));
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> JUNGLE_VILLAGE = Structure.field_236381_q_.func_236391_a_(new VillageConfig(new ResourceLocation("byg:village/jungle/town_centers"), 6));
-
+        public static void registerFeature(Feature<?> feature, String registryName) {
+            Registry.register(Registry.FEATURE, new ResourceLocation(BYG.MOD_ID, registryName), feature);
+        }
+    }
 }
 
 

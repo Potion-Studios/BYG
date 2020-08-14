@@ -29,13 +29,13 @@ public class BYGFrostMagmaBlock extends Block {
     }
 
     public void onEntityWalk(World block, BlockPos pos, Entity entity) {
-        if (!entity.func_230279_az_() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+        if (!entity.isImmuneToFire() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
             entity.attackEntityFrom(DamageSource.HOT_FLOOR, 1.0F);
         }
 
         if (entity instanceof LivingEntity) {
             LivingEntity livingentity = (LivingEntity) entity;
-            if (!entity.func_230279_az_() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+            if (!entity.isImmuneToFire() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
                 livingentity.addPotionEffect(new EffectInstance(Effects.LEVITATION, 20, 30));
             }
         }

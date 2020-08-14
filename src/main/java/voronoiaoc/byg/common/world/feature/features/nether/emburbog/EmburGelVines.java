@@ -17,7 +17,7 @@ public class EmburGelVines extends Feature<NoFeatureConfig> {
         super(config);
     }
 
-    public boolean func_230362_a_(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn,  ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         int randLength = rand.nextInt(2) + 3;
 
         if (!worldIn.isAirBlock(pos)) {

@@ -14,9 +14,9 @@
 //@SuppressWarnings("deprecation")
 //public class BYGAddHillsLayer extends InitMerge1 implements IDimOffset1Transformer {
 //
-//    public static final int DEEP_WARM_OCEAN = Registry.BIOME.getId(Biomes.DEEP_WARM_OCEAN);
-//    public static final int DEEP_LUKEWARM_OCEAN = Registry.BIOME.getId(Biomes.DEEP_LUKEWARM_OCEAN);
-//    public static final int DEEP_FROZEN_OCEAN = Registry.BIOME.getId(Biomes.DEEP_FROZEN_OCEAN);
+//    public static final int DEEP_WARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_WARM_OCEAN);
+//    public static final int DEEP_LUKEWARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_LUKEWARM_OCEAN);
+//    public static final int DEEP_FROZEN_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_FROZEN_OCEAN);
 //
 //    public BYGAddHillsLayer(BiomeGroupManager manager) {
 //        super(manager);
@@ -39,29 +39,29 @@
 //
 //    @Override
 //    public int apply(INoiseRandom context, IArea iArea, int x, int z) {
-//        int area1Value = iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 1));
+//        int area1Value = iArea.getValue(this.getXOffset(x + 1), this.getZOffset(z + 1));
 //
 //        if (context.random(hillChance) == 0) {
 //            int l = area1Value;
-//            Biome biome = Registry.BIOME.getByValue(area1Value);
+//            Biome biome = Registry.field_243657_i.func_243576_dByValue(area1Value);
 //            Biome hill = biome == null ? null : biome.getHill(context);
-//            if (hill != null) l = Registry.BIOME.getId(hill);
+//            if (hill != null) l = Registry.field_243657_i.func_243576_dId(hill);
 //
 //            if (l != area1Value) {
 //                int i1 = 0;
-//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z)), area1Value)) {
+//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 1), this.getZOffset(z)), area1Value)) {
 //                    ++i1;
 //                }
 //
-//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 2), this.getOffsetZ(z + 1)), area1Value)) {
+//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 2), this.getZOffset(z + 1)), area1Value)) {
 //                    ++i1;
 //                }
 //
-//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 0), this.getOffsetZ(z + 1)), area1Value)) {
+//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 0), this.getZOffset(z + 1)), area1Value)) {
 //                    ++i1;
 //                }
 //
-//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 2)), area1Value)) {
+//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 1), this.getZOffset(z + 2)), area1Value)) {
 //                    ++i1;
 //                }
 //

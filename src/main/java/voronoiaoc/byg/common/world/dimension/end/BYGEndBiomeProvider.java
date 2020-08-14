@@ -1,50 +1,56 @@
 package voronoiaoc.byg.common.world.dimension.end;
 
-import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryLookupCodec;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.layer.Layer;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BYGEndBiomeProvider extends BiomeProvider {
-    public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = Codec.LONG.fieldOf("seed").xmap(BYGEndBiomeProvider::new, (p_235316_0_) -> p_235316_0_.seed).stable().codec();
-    private static final List<Biome> END_BIOMES = ImmutableList.of(Biomes.THE_END, Biomes.END_HIGHLANDS, Biomes.END_MIDLANDS, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS);
+    public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.func_244331_a(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeProvider::new)));
+
     private final long seed;
     private final Layer biomeLayer;
 
-    public static final List<Biome> bygEndBiomeList = new ArrayList<>(END_BIOMES);
+    public static final List<Biome> bygEndBiomeList = new ArrayList<>();
 
-    public BYGEndBiomeProvider(long seed) {
+    private final Registry<Biome> biomeRegistry;
+
+    public BYGEndBiomeProvider(Registry<Biome> registry, long seed) {
         super(bygEndBiomeList);
         this.seed = seed;
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
-        sharedseedrandom.skip(17292);
+        sharedseedrandom.setSeed(17292);
         this.biomeLayer = BYGEndLayerProvider.stackLayers(seed);
+        biomeRegistry = registry;
     }
 
-    protected Codec<? extends BiomeProvider> func_230319_a_() {
+    @Override
+    protected Codec<? extends BiomeProvider> getBiomeProviderCodec() {
         return BYGENDCODEC;
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public BiomeProvider func_230320_a_(long seed) {
-        return new BYGEndBiomeProvider(seed);
+    @Override
+    public BiomeProvider getBiomeProvider(long seed) {
+        return new BYGEndBiomeProvider(biomeRegistry, seed);
     }
 
+    @Override
     public Biome getNoiseBiome(int x, int y, int z) {
         int i = x >> 2;
         int j = z >> 2;
         if ((long) i * (long) i + (long) j * (long) j <= 4096L) {
-            return Biomes.THE_END;
+            return biomeRegistry.func_243576_d(Biomes.THE_END);
         } else {
-            return biomeLayer.func_215738_a(x, z);
+            //TODO: REIMPLEMENT BIOME LAYERS
+            return biomeLayer.func_242936_a(biomeRegistry, x, z);
         }
     }
 }

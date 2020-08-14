@@ -39,7 +39,7 @@
 //import java.util.Iterator;
 //import java.util.Random;
 //
-//public abstract class Cubic2DNoiseChunkGenerator<T extends GenerationSettings> extends ChunkGenerator<T> {
+//public abstract class Cubic2DNoiseChunkGenerator<T extends Biome implements BiomeToolsGenerationSettings> extends ChunkGenerator<T> {
 //
 //    private static final double BLEND_NOISE_MAIN_AMPLITUDE = 6.35 * 0.87890625;
 //    private static final double OUTPUT_NOISE_MAIN_AMPLITUDE = 64.0 * 0.87890625;
@@ -518,7 +518,7 @@
 //
 //            } catch (Exception e) {
 //                CrashReport crashreport = CrashReport.makeCrashReport(e, "Biome decoration");
-//                crashreport.makeCategory("Generation").addDetail("CenterX", Integer.valueOf(i)).addDetail("CenterZ", Integer.valueOf(j)).addDetail("Step", stage).addDetail("Seed", Long.valueOf(i1)).addDetail("Biome", Registry.BIOME.getKey(biome));
+//                crashreport.makeCategory("Generation").addDetail("CenterX", Integer.valueOf(i)).addDetail("CenterZ", Integer.valueOf(j)).addDetail("Step", stage).addDetail("Seed", Long.valueOf(i1)).addDetail("Biome", Registry.field_243657_i.func_243576_dKey(biome));
 //                throw new ReportedException(crashreport);
 //            }
 //        }

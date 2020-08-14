@@ -17,7 +17,7 @@
 //        this.humidity = new OctaveOpenSimplexNoise(rand, 2, 442 >> CLIMATE_SCALE_LAYER_ADJUSTMENT);
 //        this.landSea = new OctaveOpenSimplexNoise(rand, 2, 400 >> LAND_SEA_SCALE_LAYER_ADJUSTMENT);
 //        this.zSpread = 1280 >> CLIMATE_SCALE_LAYER_ADJUSTMENT;
-//        // z shift, so you don't always spawn in the same climate
+//        // z shift, so you don't always tree in the same climate
 //        this.zShift = 1000 - rand.nextInt(2000) >> CLIMATE_SCALE_LAYER_ADJUSTMENT;
 //    }
 //

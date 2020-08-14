@@ -9,7 +9,7 @@ import voronoiaoc.byg.common.properties.BYGBlockProperties;
 import voronoiaoc.byg.common.properties.blocks.BYGMushroomBlock;
 import voronoiaoc.byg.common.properties.blocks.BYGSaplingProperties;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGSaplingToTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.BYGSaplingToTree;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 
