@@ -38,12 +38,12 @@ public class BaobabSavanna extends Biome implements BiomeTools  {
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSavannaTallGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243696_J(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243708_V(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSavannaGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243698_L(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);

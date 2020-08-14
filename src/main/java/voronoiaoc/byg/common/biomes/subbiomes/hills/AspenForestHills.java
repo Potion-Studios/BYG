@@ -1,15 +1,15 @@
 package voronoiaoc.byg.common.biomes.subbiomes.hills;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class AspenForestHills extends Biome implements BiomeTools {
@@ -36,12 +36,6 @@ public class AspenForestHills extends Biome implements BiomeTools {
     @Override
     public int getFoliageColor() {
         return 13417297;
-    }
-
-    @Override
-    public int getGrassColorAt(double x, double z) {
-        double color = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
-        return color < -0.1D ? 11909994 : 12499549;
     }
 
     static {

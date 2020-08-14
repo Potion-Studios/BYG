@@ -40,7 +40,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         int chunkX = x & 15;
         int chunkZ = z & 15;
         BlockState blockstate = PACKED_ICE;
-        BlockState blockstate1 = biomeIn.getSurfaceBuilderConfig().getUnder();
+        BlockState blockstate1 = biomeIn.func_242440_e().func_242502_e().getUnder();
         int k = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int l = -1;
@@ -62,7 +62,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                             blockstate1 = defaultBlock;
                         } else if (chunkY >= seaLevel - 4 && chunkY <= seaLevel + 1) {
                             blockstate = PACKED_ICE;
-                            blockstate1 = biomeIn.getSurfaceBuilderConfig().getUnder();
+                            blockstate1 = biomeIn.func_242440_e().func_242502_e().getUnder();
                         }
 
                         if (chunkY < seaLevel && (blockstate == null || blockstate.isAir())) {
@@ -85,7 +85,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
                                 chunkIn.setBlockState(blockpos$mutable, blockstate3, false);
                             } else {
-                                chunkIn.setBlockState(blockpos$mutable, biomeIn.getSurfaceBuilderConfig().getTop(), false);
+                                chunkIn.setBlockState(blockpos$mutable, biomeIn.func_242440_e().func_242502_e().getTop(), false);
                                 flag1 = true;
                             }
                         } else {

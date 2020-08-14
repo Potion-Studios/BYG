@@ -54,7 +54,6 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
         return new ItemStack(BYGItemList.SYTHIAN_STALK);
     }
 
-    @Override
     protected void func_220087_a(World world, BlockPos pos) {
         world.setBlockState(pos.up(), BYGBlockList.SYTHIAN_STALK_BLOCK.getDefaultState().with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.SMALL), 3);
     }

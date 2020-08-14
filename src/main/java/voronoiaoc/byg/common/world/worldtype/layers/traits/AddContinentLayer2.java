@@ -13,8 +13,8 @@
 //@SuppressWarnings("deprecation")
 //public class AddContinentLayer2 extends InitMerge1 implements IDimOffset1Transformer {
 //
-//    public static final int PLAINS = Registry.BIOME.getId(Biomes.PLAINS);
-//    public static final int OCEAN = Registry.BIOME.getId(Biomes.OCEAN);
+//    public static final int PLAINS = Registry.field_243657_i.func_243576_dId(Biomes.PLAINS);
+//    public static final int OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.OCEAN);
 //
 //    static int continentChance = BYGBiomeLayers.continentChance;
 //
@@ -25,7 +25,7 @@
 //
 //    @Override
 //    public int apply(INoiseRandom context, IArea iArea, int x, int z) {
-//        int area1Value = iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 1));
+//        int area1Value = iArea.getValue(this.getXOffset(x + 1), this.getZOffset(z + 1));
 //
 //        if (context.random(continentChance) == 0) {
 //            int l = area1Value;
@@ -35,19 +35,19 @@
 //
 //            if (l != area1Value) {
 //                int i1 = 0;
-//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z)), area1Value)) {
+//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 1), this.getZOffset(z)), area1Value)) {
 //                    ++i1;
 //                }
 //
-//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 2), this.getOffsetZ(z + 1)), area1Value)) {
+//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 2), this.getZOffset(z + 1)), area1Value)) {
 //                    ++i1;
 //                }
 //
-//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 0), this.getOffsetZ(z + 1)), area1Value)) {
+//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 0), this.getZOffset(z + 1)), area1Value)) {
 //                    ++i1;
 //                }
 //
-//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 2)), area1Value)) {
+//                if (LayerUtil.areBiomesSimilar(iArea.getValue(this.getXOffset(x + 1), this.getZOffset(z + 2)), area1Value)) {
 //                    ++i1;
 //                }
 //

@@ -1,16 +1,15 @@
 package voronoiaoc.byg.common.biomes.subbiomes.clearings;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -40,13 +39,6 @@ public class GuianaClearing extends Biome implements BiomeTools {
 //        return this;
 //    }
 
-    public int getGrassColorAt(BlockPos pos) {
-        return 6208527;
-    }
-
-    public int getFoliageColor(BlockPos pos) {
-        return 6208527;
-    }
 
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);

@@ -7,12 +7,12 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class PumpkinForest extends Biome implements BiomeTools implements BiomeFog, BiomeTools {
+public class PumpkinForest extends Biome implements BiomeTools, BiomeFog {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("pumpkin_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;
@@ -34,10 +34,6 @@ public class PumpkinForest extends Biome implements BiomeTools implements BiomeF
     }
 
 
- //   @Override
-//    public int getGrassColorAt(double posX, double posZ) {
-//        return 5406551;
-//    }
 @Override
     public int getFoliageColor() {
         return 6589494;

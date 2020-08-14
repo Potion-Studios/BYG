@@ -1,17 +1,15 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.ConfiguredFeatures;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
@@ -48,13 +46,13 @@ public class DeadSea extends Biome implements BiomeTools , BiomeFog {
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.COLD_OCEAN_RUIN);
         //this.add//StructureFeature(DefaultBiomeFeatures.OCEAN_RUINED_PORTAL);
-        DefaultBiomeFeatures.addOceanStructures(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243736_c(GENERATION_SETTINGS);
         BYGFeatures.addDeadSeaSpires(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addOceanCarvers(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, ConfiguredFeatures.SEAGRASS_NORMAL);
+        DefaultBiomeFeatures.func_243740_e(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243962_v);
 
         SPAWN_SETTINGS.func_242575_a(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
         SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));

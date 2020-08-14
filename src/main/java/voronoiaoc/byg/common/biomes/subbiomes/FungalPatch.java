@@ -32,7 +32,7 @@ public class FungalPatch extends Biome implements BiomeTools {
 //
 //    @Override
 //    public Biome getRiver() {
-//        return BuiltinRegistries.BIOME.get(BuiltInBiomes.RIVER;
+//        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.RIVER;
 //    }
 
 

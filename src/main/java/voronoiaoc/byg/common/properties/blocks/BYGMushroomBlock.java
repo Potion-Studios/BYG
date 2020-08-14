@@ -86,7 +86,7 @@ public class BYGMushroomBlock extends BushBlock implements IGrowable {
 
     public void grow(ServerWorld worldIn, BlockPos pos, BlockState state, Random rand) {
         worldIn.removeBlock(pos, false);
-        this.mushroom.func_242575_a(worldIn, worldIn.func_241112_a_(), worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
+        this.mushroom.func_242575_a(worldIn, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
     }
 
     @Override

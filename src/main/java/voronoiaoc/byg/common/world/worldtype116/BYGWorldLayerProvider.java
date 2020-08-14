@@ -48,7 +48,7 @@ public class BYGWorldLayerProvider {
         primaryFactory = repeat(1000L, ZoomLayer.NORMAL, primaryFactory, 0, randomProvider);
         IAreaFactory<LazyArea> zoomFactory = repeat(1000L, ZoomLayer.NORMAL, primaryFactory, 0, randomProvider);
         zoomFactory = StartRiverLayer.INSTANCE.apply(randomProvider.apply(100L), zoomFactory);
-        IAreaFactory<LazyArea> addBiomeFactory = (new BYGBiomeLayer(true)).apply(randomProvider.apply(200L), primaryFactory);
+        IAreaFactory<LazyArea> addBiomeFactory = (new BiomeLayer(true)).apply(randomProvider.apply(200L), primaryFactory);
         addBiomeFactory = AddBambooForestLayer.INSTANCE.apply(randomProvider.apply(1001L), addBiomeFactory);
         addBiomeFactory = repeat(1000L, ZoomLayer.NORMAL, addBiomeFactory, 2, randomProvider);
         addBiomeFactory = EdgeBiomeLayer.INSTANCE.apply(randomProvider.apply(1000L), addBiomeFactory);

@@ -226,8 +226,8 @@
 //
 //        for (Direction direction : Direction.Plane.HORIZONTAL) {
 //            if (!this.hasPlacedChest[direction.getHorizontalIndex()]) {
-//                int i1 = direction.getXOffset() * 2;
-//                int j1 = direction.getZOffset() * 2;
+//                int i1 = direction.getXOffsetPos() * 2;
+//                int j1 = direction.getZOffsetPos() * 2;
 //                this.hasPlacedChest[direction.getHorizontalIndex()] = this.generateChest(world, boundingBox, rand, 10 + i1, -11, 10 + j1, LootTables.CHESTS_DESERT_PYRAMID);
 //            }
 //        }

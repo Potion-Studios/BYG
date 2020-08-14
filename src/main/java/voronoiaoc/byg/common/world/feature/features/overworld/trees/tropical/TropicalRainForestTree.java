@@ -19,7 +19,7 @@ import java.util.Set;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
 public class TropicalRainForestTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //Blocks used for the tree.
+    //BYGBlockRenders used for the tree.
     private static final BlockState LOG = BYGBlockList.MAHOGANY_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.MAHOGANY_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
@@ -30,42 +30,44 @@ public class TropicalRainForestTree extends BYGAbstractTreeFeature<NoFeatureConf
     }
 
     protected static boolean canTreePlace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {
-        return canTreePlaceHere(
+        return canLogPlaceHere(
                 genBaseReader, blockPos
         );
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
-        //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
+    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
+
         int randTreeHeight = rand.nextInt(3) + rand.nextInt(3) + 8;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos checkGround = position.down();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
+        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+            BlockPos checkGround = pos.down();
             if (!isDesiredGroundwDirtTag(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
-                return false;
             } else {
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                //this.setGroundBlockAt(worldIn, checkGround, pos, Blocks.STONE.getDefaultState());
+
+
+                Direction direction = Direction.Plane
+.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY1 = 2 - rand.nextInt(1);//Crashes on 0.
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
 
-                //Raising the 'groundUpLogRemover'  will remove all log blocks from the ground up no matter how thick the trunk is based on the value given. 5 would destroy all trunks from 5 up off the ground.
-                for (int groundUpLogRemover = 0; groundUpLogRemover < randTreeHeight; ++groundUpLogRemover) {
-                    if (groundUpLogRemover >= randTreeHeight2 && posY1 < 0) { //Unknown
+
+                for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
+                    if (buildTrunk >= randTreeHeight2 && posY1 < 0) { //Unknown
                         posX1 += direction.getXOffset();
                         posZ1 += direction.getZOffset();
                         ++posY1;
                     }
-                    int logplacer = posY + groundUpLogRemover;
+                    int logplacer = posY + buildTrunk;
                     int logplacer1 = posY + randTreeHeight;
-                    int logplacer2 = posY + groundUpLogRemover - rand.nextInt(6);
+                    int logplacer2 = posY + buildTrunk - rand.nextInt(6);
 
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer1, posZ1);
@@ -190,7 +192,7 @@ public class TropicalRainForestTree extends BYGAbstractTreeFeature<NoFeatureConf
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -198,7 +200,7 @@ public class TropicalRainForestTree extends BYGAbstractTreeFeature<NoFeatureConf
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlace(reader, position.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canTreePlace(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

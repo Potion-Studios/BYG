@@ -33,7 +33,7 @@ public class WoodedGrasslandPlateau extends Biome implements BiomeTools {
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
         BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
         BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addShatteredSavannaGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243697_K(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
 
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);

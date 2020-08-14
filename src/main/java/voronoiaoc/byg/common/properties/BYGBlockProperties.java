@@ -621,7 +621,7 @@ public class BYGBlockProperties {
     public static class BYGEmburGelBlock extends HoneyBlock {
         public BYGEmburGelBlock(String registryName) {
             super(Block.Properties.create(Material.CLAY)
-                    .sound(SoundType.field_226947_m_)
+                    .sound(SoundType.HONEY)
                     .notSolid()
                     .speedFactor(1.6F)
                     .slipperiness(0.6F)
@@ -1130,7 +1130,7 @@ public class BYGBlockProperties {
     public static class BYGNetherBricks extends Block {
         public BYGNetherBricks(String registryName) {
             super(Block.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
-                    .sound(SoundType.field_235590_L_)
+                    .sound(SoundType.NETHER_BRICK)
                     .hardnessAndResistance(0.4F, 0.4F)
                     .harvestTool(ToolType.PICKAXE)
 

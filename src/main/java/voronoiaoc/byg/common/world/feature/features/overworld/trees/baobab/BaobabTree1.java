@@ -1,13 +1,11 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Direction;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
@@ -16,23 +14,14 @@ import java.util.Random;
 import java.util.Set;
 
 public class BaobabTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    private static final BlockState LOG = BYGBlockList.BAOBAB_LOG.getDefaultState();
-    private static final BlockState LEAVES = BYGBlockList.BAOBAB_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
+
 
     public BaobabTree1(Codec<NoFeatureConfig> configIn) {
         super(configIn);
-        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.BAOBAB_SAPLING);
     }
 
-    protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {
-        return canTreePlaceHere(
-                genBaseReader, blockPos
-        );
-    }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
-        //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
+    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
         int randTreeHeight = rand.nextInt(9) + 20;
         int randCorner1 = randTreeHeight - rand.nextInt(12) - 7;
         int randCorner2 = randTreeHeight - rand.nextInt(12) - 7;
@@ -49,24 +38,24 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         int randOuterEdge8 = rand.nextInt(6) + 2;
 
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockpos = position.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
+        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+            BlockPos posDown = pos.down();
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
+            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 30, 5, 5, isSapling)) {
                 return false;
             } else {
-                //Places dirt under logs where/when necessary.
-
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
-                int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
-                int posY1 = 2 - rand.nextInt(1);//Crashes on 0.
+                Direction direction = Direction.Plane
+.HORIZONTAL.random(rand);
+                int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
+                int posY1 = 2 - rand.nextInt(1);
                 int posX1 = posX;
                 int posZ1 = posZ;
-                int topTrunkHeight = posY + randTreeHeight - 1;
                 int topTrunkHeight2 = posY + randTreeHeight + 2;
                 int topTrunkHeight3 = posY + randTreeHeight + 5;
                 int topTrunkHeight4 = posY + randTreeHeight + 4;
@@ -77,16 +66,14 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 int topTrunkHeight9 = posY + randTreeHeight + 4;
                 int topTrunkHeight10 = posY + randTreeHeight + 2;
 
-                //Raising the 'groundUpLogRemover'  will remove all log blocks from the ground up no matter how thick the trunk is based on the value given. 5 would destroy all trunks from 5 up off the ground.
-                for (int groundUpLogRemover = 0; groundUpLogRemover < randTreeHeight; ++groundUpLogRemover) {
-                    if (groundUpLogRemover >= randTreeHeight2 && posY1 < 0) { //Unknown
+                for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
+                    if (buildTrunk >= randTreeHeight2 && posY1 < 0) { //Unknown
                         posX1 += direction.getXOffset();
                         posZ1 += direction.getZOffset();
                         ++posY1;
                     }
 
-
-                    int logplacerY = posY + groundUpLogRemover;
+                    int logplacerY = posY + buildTrunk;
                     int topTreeHeight = posY + randTreeHeight - 1;
 
                     BlockPos blockpos1 = new BlockPos(posX1, logplacerY, posZ1);
@@ -105,30 +92,30 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                     this.treelog(changedBlocks, worldIn, blockpos1.south().west(), boundsIn);
                     this.treelog(changedBlocks, worldIn, blockpos1.south(), boundsIn);
 
-                    if (groundUpLogRemover <= randCorner1)
+                    if (buildTrunk <= randCorner1)
                         this.treelog(changedBlocks, worldIn, blockpos1.south().east(), boundsIn);
-                    if (groundUpLogRemover <= randCorner2)
+                    if (buildTrunk <= randCorner2)
                         this.treelog(changedBlocks, worldIn, blockpos1.south().west(2), boundsIn);
-                    if (groundUpLogRemover <= randCorner3)
+                    if (buildTrunk <= randCorner3)
                         this.treelog(changedBlocks, worldIn, blockpos1.north(2).east(), boundsIn);
-                    if (groundUpLogRemover <= randCorner4)
+                    if (buildTrunk <= randCorner4)
                         this.treelog(changedBlocks, worldIn, blockpos1.north(2).west(2), boundsIn);
 
-                    if (groundUpLogRemover <= randOuterEdge)
+                    if (buildTrunk <= randOuterEdge)
                         this.treelog(changedBlocks, worldIn, blockpos1.north(3), boundsIn);
-                    if (groundUpLogRemover <= randOuterEdge2)
+                    if (buildTrunk <= randOuterEdge2)
                         this.treelog(changedBlocks, worldIn, blockpos1.north(3).west(), boundsIn);
-                    if (groundUpLogRemover <= randOuterEdge3)
+                    if (buildTrunk <= randOuterEdge3)
                         this.treelog(changedBlocks, worldIn, blockpos1.east(2), boundsIn);
-                    if (groundUpLogRemover <= randOuterEdge4)
+                    if (buildTrunk <= randOuterEdge4)
                         this.treelog(changedBlocks, worldIn, blockpos1.east(2).north(), boundsIn);
-                    if (groundUpLogRemover <= randOuterEdge5)
+                    if (buildTrunk <= randOuterEdge5)
                         this.treelog(changedBlocks, worldIn, blockpos1.south(2).west(), boundsIn);
-                    if (groundUpLogRemover <= randOuterEdge6)
+                    if (buildTrunk <= randOuterEdge6)
                         this.treelog(changedBlocks, worldIn, blockpos1.south(2), boundsIn);
-                    if (groundUpLogRemover <= randOuterEdge7)
+                    if (buildTrunk <= randOuterEdge7)
                         this.treelog(changedBlocks, worldIn, blockpos1.west(3), boundsIn);
-                    if (groundUpLogRemover <= randOuterEdge8)
+                    if (buildTrunk <= randOuterEdge8)
                         this.treelog(changedBlocks, worldIn, blockpos1.west(3).north(), boundsIn);
 
                     this.treelog(changedBlocks, worldIn, blockpos2.east().up(), boundsIn);
@@ -340,37 +327,14 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
             }
 
             return true;
-            //}
         } else {
             return false;
         }
     }
 
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 5;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreeReplace(reader, position.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-    //Log Placement
     private void treelog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canTreeReplace(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
+        if (canLogPlaceHere(reader, pos)) {
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.BAOBAB_LOG.getDefaultState(), boundingBox);
         }
 
     }
@@ -379,7 +343,7 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, LEAVES, boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.BAOBAB_LEAVES.getDefaultState(), boundingBox);
         }
 
     }

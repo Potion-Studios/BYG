@@ -1,15 +1,15 @@
 package voronoiaoc.byg.common.biomes.subbiomes.clearings;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class CherryBlossomClearing extends Biome implements BiomeTools {
@@ -35,14 +35,8 @@ public class CherryBlossomClearing extends Biome implements BiomeTools {
 
 //    @Override
 //    public Biome getRiver() {
-//        return BuiltinRegistries.BIOME.get(BuiltInBiomes.RIVER;
+//        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.RIVER;
 //    }
-
-    @Override
-    public int getGrassColorAt(double posX, double posY) {
-        double lvt_5_1_ = FOLIAGE_NOISE.sample(posX * 0.0225D, posY * 0.0225D, false);
-        return lvt_5_1_ < -0.1D ? 10999916 : 10999916;
-    }
 
     @Override
     public int getFoliageColor() {

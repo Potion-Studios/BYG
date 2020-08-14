@@ -25,7 +25,7 @@ public abstract class MixinGameRenderer {
     private void strengthenFog(CallbackInfoReturnable<Float> cir) {
 
         World world = mc.world;
-        BlockPos playerPos = mc.player.func_233580_cy_();
+        BlockPos playerPos = mc.player.getPosition();
 
         int transitionStart = 8;
 

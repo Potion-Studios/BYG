@@ -1,14 +1,13 @@
 package voronoiaoc.byg.common.biomes.subbiomes.clearings;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class ConiferousClearing extends Biome implements BiomeTools {
@@ -34,13 +33,8 @@ public class ConiferousClearing extends Biome implements BiomeTools {
 
 //    @Override
 //    public Biome getRiver() {
-//        return BuiltinRegistries.BIOME.get(BuiltInBiomes.RIVER;
+//        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.RIVER;
 //    }
-
-    @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 5011004;
-    }
 
     @Override
     public int getFoliageColor() {
@@ -62,7 +56,7 @@ public class ConiferousClearing extends Biome implements BiomeTools {
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSweetBerryBushes(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243759_s(GENERATION_SETTINGS);
         BYGTreeFeatures.addConiferousSparseTrees(GENERATION_SETTINGS);
         BYGFeatures.addLushBlueberries(GENERATION_SETTINGS);
         BYGFeatures.addCrocus(GENERATION_SETTINGS);

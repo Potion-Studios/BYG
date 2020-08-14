@@ -26,7 +26,7 @@ public class DunesSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         for (int yPos = startHeight - 3; yPos >= seaLevel; --yPos) {
             block.setPos(xPos, yPos, zPos);
             BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-            if (currentBlockToReplace == STONE) {
+            if (currentBlockToReplace == Blocks.STONE.getDefaultState()) {
                 chunkIn.setBlockState(block, SAND, true);
             }
         }

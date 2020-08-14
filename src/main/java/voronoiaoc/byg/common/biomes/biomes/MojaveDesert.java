@@ -2,15 +2,14 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import com.google.common.collect.Maps;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilderConfig;
+import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
@@ -39,7 +38,7 @@ public class MojaveDesert extends Biome implements BiomeTools  {
 
     @Override
     public HashMap<Biome, Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BuiltinRegistries.BIOME.get(BuiltInBiomes.DESERT), 1));
+        return Maps.newHashMap(Collections.singletonMap(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.DESERT), 1));
     }
 
 
@@ -54,20 +53,20 @@ public class MojaveDesert extends Biome implements BiomeTools  {
         DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243707_U(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243709_W(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDesertDeadBushes(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243705_S(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDesertVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243720_ad(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDesertFeatures(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243722_af(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
         BYGFeatures.addMiniCactus(GENERATION_SETTINGS);
         BYGTreeFeatures.addJoshuaTrees(GENERATION_SETTINGS);
         BYGFeatures.addBYGDesertPlants(GENERATION_SETTINGS);
         BYGFeatures.addFirecracker(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDesertVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243720_ad(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addBadlandsGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243699_M(GENERATION_SETTINGS);
         BYGTreeFeatures.addBushes(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.func_242575_a(EntityClassification.WATER_AMBIENT, new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 4, 2, 3));

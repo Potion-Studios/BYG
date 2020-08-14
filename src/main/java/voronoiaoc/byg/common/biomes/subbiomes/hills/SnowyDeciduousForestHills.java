@@ -1,14 +1,13 @@
 package voronoiaoc.byg.common.biomes.subbiomes.hills;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class SnowyDeciduousForestHills extends Biome implements BiomeTools {
@@ -33,12 +32,6 @@ public class SnowyDeciduousForestHills extends Biome implements BiomeTools {
     }
 
     @Override
-    public int getGrassColorAt(double p_225528_1_, double p_225528_3_) {
-        double lvt_5_1_ = FOLIAGE_NOISE.sample(p_225528_1_ * 0.0225D, p_225528_3_ * 0.0225D, false);
-        return lvt_5_1_ < -0.1D ? 12222562 : 12032353;
-    }
-
-    @Override
     public int getFoliageColor() {
         return 12215394;
     }
@@ -55,7 +48,7 @@ public class SnowyDeciduousForestHills extends Biome implements BiomeTools {
         DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243707_U(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addForestGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243701_O(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
         BYGTreeFeatures.addDeciduousTrees(GENERATION_SETTINGS);

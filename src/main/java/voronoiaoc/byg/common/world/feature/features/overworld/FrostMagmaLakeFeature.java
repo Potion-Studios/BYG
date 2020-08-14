@@ -6,15 +6,12 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.SectionPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.LightType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
@@ -23,14 +20,14 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
     private static final BlockState AIR;
 
     static {
-        AIR = Blocks.field_235027_b__AIR.getDefaultState();
+        AIR = Blocks.AIR.getDefaultState();
     }
 
     public FrostMagmaLakeFeature(Codec<BlockStateFeatureConfig> config) {
         super(config);
     }
 
-    public boolean func_230362_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator genSettings, Random rand, BlockPos blockPos, BlockStateFeatureConfig blockStateFeatureConfig) {
+    public boolean func_241855_a(ISeedReader world,  ChunkGenerator genSettings, Random rand, BlockPos blockPos, BlockStateFeatureConfig blockStateFeatureConfig) {
         while (blockPos.getY() > 5 && world.isAirBlock(blockPos)) {
             blockPos = blockPos.down();
         }
@@ -40,9 +37,9 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
         } else {
             blockPos = blockPos.down(4);
             ChunkPos chunkPos = new ChunkPos(blockPos);
-            if (structureManager.func_235011_a_(SectionPos.from(blockPos), Structure.field_236381_q_).findAny().isPresent()) {
-                return false;
-            } else {
+//            if (structureManager.func_235011_a_(SectionPos.from(blockPos), Structure.field_236381_q_).findAny().isPresent()) {
+//                return false;
+//            } else {
                 boolean[] flagArray = new boolean[2048];
                 int lvt_8_1_ = rand.nextInt(4) + 4;
 
@@ -109,7 +106,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
                                 lvt_12_5_ = blockPos.add(lvt_9_5_, lvt_11_4_ - 1, lvt_10_5_);
                                 if (isDirt(world.getBlockState(lvt_12_5_).getBlock()) && world.getLightFor(LightType.SKY, blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
                                     Biome lvt_13_2_ = world.getBiome(lvt_12_5_);
-                                    if (lvt_13_2_.getSurfaceBuilderConfig().getTop().getBlock() == BYGBlockList.FROST_MAGMA) {
+                                    if (lvt_13_2_.func_242440_e().func_242502_e().getTop().getBlock() == BYGBlockList.FROST_MAGMA) {
                                         world.setBlockState(lvt_12_5_, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
                                     } else {
                                         world.setBlockState(lvt_12_5_, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
@@ -145,7 +142,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
                 }
 
                 return true;
-            }
+//            }
         }
     }
 }

@@ -12,7 +12,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -38,7 +37,7 @@ public class StonePillars extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean func_230362_a_(ISeedReader world, StructureManager structureManager, ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader world,  ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig config) {
         setSeed(world.getSeed());
         double noise;
         double noise2;

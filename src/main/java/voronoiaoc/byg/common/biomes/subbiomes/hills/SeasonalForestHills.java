@@ -1,14 +1,13 @@
 package voronoiaoc.byg.common.biomes.subbiomes.hills;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class SeasonalForestHills extends Biome implements BiomeTools {
@@ -33,12 +32,6 @@ public class SeasonalForestHills extends Biome implements BiomeTools {
     }
 
     @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 12435265;
-
-    }
-
-    @Override
     public int getFoliageColor() {
         return 12435265;
     }
@@ -55,11 +48,11 @@ public class SeasonalForestHills extends Biome implements BiomeTools {
         DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243707_U(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addForestGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243701_O(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
         BYGTreeFeatures.addSeasonalForestTrees(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addForestTrees(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243765_y(GENERATION_SETTINGS);
         BYGFeatures.addShortGrass(GENERATION_SETTINGS);
         BYGFeatures.addLeafPile(GENERATION_SETTINGS);
         BYGFeatures.addAnemones(GENERATION_SETTINGS);

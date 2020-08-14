@@ -2,6 +2,7 @@ package voronoiaoc.byg.core.byglists;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -164,7 +165,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> PUMPKIN_PATCH3 = new PumpkinPatch3(NoFeatureConfig.field_236558_a_);
 
     /********************************************************************Carvers**************************************************************************/
-    public static final Carver<ProbabilityConfig> VOLCANIC_CARVER = new VolcanicCarver(ProbabilityConfig.field_236558_a_, 256);
+    public static final WorldCarver<ProbabilityConfig> VOLCANIC_CARVER = new VolcanicCarver(ProbabilityConfig.field_236576_b_, 256);
 
 
     /*********************************************************************Large Flower Features***********************************************************/
@@ -193,7 +194,7 @@ public class BYGFeatureList {
 
     //Sythian
     public static final Feature<NoFeatureConfig> SYTHIAN_SPROUT = new SythianSprout(NoFeatureConfig.field_236558_a_);
-    public static final Feature<ProbabilityConfig> SYTHIAN_STALK = new SythianStalk(ProbabilityConfig.field_236558_a_);
+    public static final Feature<ProbabilityConfig> SYTHIAN_STALK = new SythianStalk(ProbabilityConfig.field_236576_b_);
     public static final Feature<NoFeatureConfig> SYTHIAN_ROOTS = new SythianRoots(NoFeatureConfig.field_236558_a_);
 
     //Warped

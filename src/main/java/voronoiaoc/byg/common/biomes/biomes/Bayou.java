@@ -6,7 +6,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.ConfiguredFeatures;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -39,11 +39,11 @@ public class Bayou extends Biome implements BiomeTools  {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).func_242541_f(GRASS_COLOR).func_242540_e(FOLIAGE_COLOR).func_242539_d(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.field_235027_b_).build(), GENERATION_SETTINGS.func_242508_a(), SPAWN_SETTINGS.func_242577_b());
     }
 
-    @Override
-    public int getGrassColorAt(double x, double z) {
-        double d0 = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
-        return d0 < -0.1D ? 7375928 : 6981433;
-    }
+//    @Override
+//    public int getGrassColorAt(double x, double z) {
+//        double d0 = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
+//        return d0 < -0.1D ? 7375928 : 6981433;
+//    }
 
     @Override
     public int getFoliageColor() {
@@ -69,9 +69,9 @@ public class Bayou extends Biome implements BiomeTools  {
         DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243755_o(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSwampVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243721_ae(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, ConfiguredFeatures.SEAGRASS_NORMAL);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243962_v);
         BYGFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
         BYGFeatures.addMarshGrass(GENERATION_SETTINGS);
         BYGFeatures.addCattails(GENERATION_SETTINGS);

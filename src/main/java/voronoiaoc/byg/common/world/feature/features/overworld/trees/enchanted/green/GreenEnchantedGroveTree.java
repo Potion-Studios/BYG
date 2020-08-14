@@ -9,8 +9,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraftforge.common.Tags;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -30,7 +30,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureCon
     }
 
     protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {
-        return canTreePlaceHere(
+        return canLogPlaceHere(
                 genBaseReader, blockPos
         );
     }
@@ -38,27 +38,26 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureCon
     protected static boolean isDirtOrPeatBlock(IWorldGenerationBaseReader worldIn, BlockPos pos) {
         return worldIn.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
-            return Feature.isDirt(block) || block == BYGBlockList.PEAT;
+            return block.isIn(Tags.Blocks.DIRT) || block == BYGBlockList.PEAT;
         });
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundsIn) {
+    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
         //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 9;
         //Positions
-        int posX = position.getX();
-        int posY = position.getY();
-        int posZ = position.getZ();
+        int posX = pos.getX();
+        int posY = pos.getY();
+        int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockpos = position.down();
+            BlockPos blockpos = pos.down();
             if (!isDirtOrPeatBlock(worldIn, blockpos)) {
-                return false;
-            } else if (!this.doesTreeFit(worldIn, position, randTreeHeight)) {
                 return false;
             } else {
                 //Places dirt under logs where/when necessary.
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane
+.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY1 = 2 - rand.nextInt(1);//Crashes on 0.
                 int posX1 = posX;
@@ -242,7 +241,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureCon
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable position = new BlockPos.Mutable();
+        BlockPos.Mutable pos = new BlockPos.Mutable();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -250,7 +249,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureCon
 
             for (int xDistance = -distance; xDistance <= distance; ++xDistance) {
                 for (int zDistance = -distance; zDistance <= distance; ++zDistance) {
-                    if (!canTreeReplace(reader, position.setPos(x + xDistance, y + yOffset, z + zDistance))) {
+                    if (!canTreeReplace(reader, pos.setPos(x + xDistance, y + yOffset, z + zDistance))) {
                         return false;
                     }
                 }

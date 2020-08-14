@@ -24,18 +24,18 @@ public abstract class BYGHugeTree extends BYGTree {
         for (int i = 0; i >= -1; --i) {
             for (int j = 0; j >= -1; --j) {
                 if (canBigTreeSpawnAt(blockUnder, worldIn, pos, i, j)) {
-                    return this.func_242575_aBigTree(worldIn, structureManager, chunkGenerator, pos, blockUnder, random, i, j);
+                    return this.bigTree(worldIn, structureManager, chunkGenerator, pos, blockUnder, random, i, j);
                 }
             }
         }
 
-        return super.func_242575_a(worldIn, structureManager, chunkGenerator, pos, blockUnder, random);
+        return super.tree(worldIn, chunkGenerator, pos, blockUnder, random);
     }
 
     @Nullable
     protected abstract BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random);
 
-    public boolean func_242575_aBigTree(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
+    public boolean bigTree(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
         BYGAbstractTreeFeature<NoFeatureConfig> abstracttreefeature = this.getBigTreeFeature(random);
         if (abstracttreefeature == null) {
             return false;
@@ -45,7 +45,7 @@ public abstract class BYGHugeTree extends BYGTree {
             worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset), blockstate, 4);
             worldIn.setBlockState(pos.add(xOffset, 0, zOffset + 1), blockstate, 4);
             worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset + 1), blockstate, 4);
-            if (abstracttreefeature.func_230362_a_(worldIn, structureManager, chunkGenerator, random, pos.add(xOffset, 0, zOffset), IFeatureConfig.NO_FEATURE_CONFIG)) {
+            if (abstracttreefeature.placeTree(worldIn, chunkGenerator, random, pos.add(xOffset, 0, zOffset), IFeatureConfig.NO_FEATURE_CONFIG, true)) {
                 return true;
             } else {
                 worldIn.setBlockState(pos.add(xOffset, 0, zOffset), blockUnder, 4);

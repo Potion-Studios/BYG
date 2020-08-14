@@ -14,7 +14,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import voronoiaoc.byg.client.gui.MainMenuBYG;
 import voronoiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import voronoiaoc.byg.common.biomes.BYGBiomeWeightSystem;
 import voronoiaoc.byg.common.entity.boat.BYGBoatRenderer;
@@ -28,9 +27,6 @@ import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeCatch;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
-import voronoiaoc.byg.common.world.structure.village.villagepools.*;
-import voronoiaoc.byg.common.world.worldtype116.BYGBiomeProvider116;
-import voronoiaoc.byg.common.world.worldtype116.WorldType116;
 import voronoiaoc.byg.config.BYGConfig;
 import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
@@ -60,14 +56,14 @@ public class BYG {
         BYGNetherBiomeCatch.netherBiomeConfigCollection();
         BYGFeaturesInVanilla.addFeatures();
         BYGBiomeWeightSystem.addBiomesToWeightSystem();
-        Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
-        Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
-        Registry.register(Registry.field_239689_aA_, new ResourceLocation(MOD_ID, "bygworld"), BYGBiomeProvider116.BYGBPCODEC);
-        BYGAdobeVillagePools.init();
-        BYGGrasslandVillagePools.init();
-        BYGGuianaVillagePools.init();
-        BYGJungleVillagePools.init();
-        BYGSkyrisVillagePools.init();
+        Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
+        Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
+//        Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygworld"), BYGBiomeProvider116.BYGBPCODEC);
+//        BYGAdobeVillagePools.init();
+//        BYGGrasslandVillagePools.init();
+//        BYGGuianaVillagePools.init();
+//        BYGJungleVillagePools.init();
+//        BYGSkyrisVillagePools.init();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 
@@ -75,9 +71,9 @@ public class BYG {
         isClient = true;
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
         BYGCutoutRenders.renderCutOuts();
-        MainMenuBYG.mainMenuPanorama();
+//        MainMenuBYG.mainMenuPanorama();
         RenderingRegistry.registerEntityRenderingHandler(BYGEntityList.BYGBOAT, BYGBoatRenderer::new);
-        WorldType116.addGenerator();
+//        WorldType116.addGenerator();
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
 

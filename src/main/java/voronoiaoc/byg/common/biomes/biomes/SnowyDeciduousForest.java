@@ -1,13 +1,13 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
@@ -38,7 +38,7 @@ public class SnowyDeciduousForest extends Biome implements BiomeTools  {
 
     @Override
     public Biome getRiver() {
-        return BuiltinRegistries.BIOME.get(BuiltInBiomes.FROZEN_RIVER);
+        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.FROZEN_RIVER);
     }
 
     @Override

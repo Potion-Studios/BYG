@@ -1,13 +1,13 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
@@ -35,7 +35,7 @@ public class SnowyBlueTaiga extends Biome implements BiomeTools  {
 
     @Override
     public Biome getRiver() {
-        return BuiltinRegistries.BIOME.get(BuiltInBiomes.FROZEN_RIVER);
+        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.FROZEN_RIVER);
     }
 
     @Override
@@ -61,11 +61,11 @@ public class SnowyBlueTaiga extends Biome implements BiomeTools  {
         DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243707_U(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addTaigaGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243710_X(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSweetBerryBushes(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243759_s(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addBlueberries(GENERATION_SETTINGS);

@@ -1,15 +1,13 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import com.google.common.collect.Maps;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
@@ -47,7 +45,7 @@ public class GrassLandPlateau extends Biome implements BiomeTools  {
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
         BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
         BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addShatteredSavannaGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243697_K(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
@@ -55,7 +53,7 @@ public class GrassLandPlateau extends Biome implements BiomeTools  {
         DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addPlainsFeatures(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243704_R(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addAnemones(GENERATION_SETTINGS);
         BYGFeatures.addSages(GENERATION_SETTINGS);

@@ -1,15 +1,15 @@
 package voronoiaoc.byg.common.biomes.subbiomes;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class LushRedDesert extends Biome implements BiomeTools {
@@ -36,18 +36,18 @@ public class LushRedDesert extends Biome implements BiomeTools {
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDesertLakes(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243744_g(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243707_U(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243709_W(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDesertDeadBushes(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243705_S(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDesertVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243720_ad(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDesertFeatures(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243722_af(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
         BYGFeatures.addMiniCactus(GENERATION_SETTINGS);
         BYGTreeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);

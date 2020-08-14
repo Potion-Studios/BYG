@@ -1,15 +1,14 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.MobSpawnInfo;
+import net.minecraft.entity.EntityType;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
@@ -33,11 +32,6 @@ public class TropicalIslands extends Biome implements BiomeTools  {
     }
 
     @Override
-    public int getGrassColorAt(double x, double z) {
-        return 10145074;
-    }
-
-    @Override
     public int getFoliageColor() {
         return 10145074;
     }
@@ -57,8 +51,8 @@ public class TropicalIslands extends Biome implements BiomeTools  {
         DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243719_ac(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSavannaGrass(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addForestGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243698_L(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243701_O(GENERATION_SETTINGS);
         BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
 //        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(Feature.TREE.configure(DefaultBiomeFeatures.JUNGLE_GROUND_BUSH_CONFIG).withChance(0.2F), Feature.TREE.configure(DefaultBiomeFeatures.FANCY_TREE_CONFIG).withChance(0.1F)), Feature.TREE.configure(DefaultBiomeFeatures.JUNGLE_TREE_CONFIG))).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(6, 0.1F, 1))));

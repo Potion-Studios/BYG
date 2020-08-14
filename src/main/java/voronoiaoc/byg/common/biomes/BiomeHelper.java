@@ -4,7 +4,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.gen.placement.DecoratedPlacementConfig;
+import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.BYG;
@@ -21,8 +21,7 @@ public class BiomeHelper {
         return configuredSurfaceBuilder;
     }
 
-    public static <T extends DecoratedPlacementConfig, G extends Placement<T>> G newDecorator(String id, G decorator) {
-        Registry.register(Registry.DECORATOR, new ResourceLocation(BYG.MOD_ID, id), decorator);
+    public static <T extends IPlacementConfig, G extends Placement<T>> G newDecorator(String id, G decorator) {
         return decorator;
     }
 }

@@ -33,7 +33,7 @@ public class BYGFossilFeature extends Feature<NoFeatureConfig> {
         super(p_i49873_1_);
     }
 
-    public boolean func_230362_a_(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn,  ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         Random random = worldIn.getRandom();
         Rotation[] arotation = Rotation.values();
         Rotation rotation = arotation[random.nextInt(arotation.length)];

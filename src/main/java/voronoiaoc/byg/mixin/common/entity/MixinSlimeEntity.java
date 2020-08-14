@@ -5,6 +5,7 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.Biome;
@@ -22,7 +23,7 @@ public class MixinSlimeEntity {
     private static void injectSwampCategory(EntityType<SlimeEntity> entity, IWorld world, SpawnReason reason, BlockPos func_242575_aPos, Random randomIn, CallbackInfoReturnable<Boolean> cir) {
         if (world.getDifficulty() != Difficulty.PEACEFUL) {
             Biome biome = world.getBiome(func_242575_aPos);
-            if (biome.getCategory() == Biome.Category.SWAMP && biome != Biomes.SWAMP && func_242575_aPos.getY() > 50 && func_242575_aPos.getY() < 70 && randomIn.nextFloat() < 0.5F && randomIn.nextFloat() < world.getCurrentMoonPhaseFactor() && world.getLight(func_242575_aPos) <= randomIn.nextInt(8)) {
+            if (biome.getCategory() == Biome.Category.SWAMP && biome != WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SWAMP) && func_242575_aPos.getY() > 50 && func_242575_aPos.getY() < 70 && randomIn.nextFloat() < 0.5F && randomIn.nextFloat() < world.func_242413_ae() && world.getLight(func_242575_aPos) <= randomIn.nextInt(8)) {
                cir.setReturnValue(MobEntity.canSpawnOn(entity, world, reason, func_242575_aPos, randomIn));
             }
         }

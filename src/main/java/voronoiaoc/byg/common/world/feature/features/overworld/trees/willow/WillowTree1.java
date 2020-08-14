@@ -16,6 +16,7 @@ import java.util.Set;
 
 import static net.minecraft.util.Direction.*;
 
+
 public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     public WillowTree1(Codec<NoFeatureConfig> configIn) {
@@ -23,7 +24,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.BLUE_SPRUCE_SAPLING);
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn) {
+    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
         int randChance = rand.nextInt(2);
         int randTreeHeight = rand.nextInt(6) + 8;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
@@ -31,10 +32,12 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         BlockPos.Mutable mainMutable = new BlockPos.Mutable().setPos(block);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK)) {
+
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
+            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
                 //Trunk
@@ -129,7 +132,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     //Log Placement
     private void setWillowLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canTreePlaceHereWater(reader, pos)) {
+        if (canLogPlaceHereWater(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.WILLOW_LOG.getDefaultState(), boundingBox);
         }
 
@@ -137,8 +140,9 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     //Leaves Placement
     private void setWillowLeaves(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (isAirOrWater(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.WILLOW_LEAVES.getDefaultState(), boundingBox);
+        BlockPos.Mutable blockpos = new BlockPos.Mutable().setPos(pos);
+        if (isAirOrWater(reader, blockpos)) {
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.WILLOW_LEAVES.getDefaultState(), boundingBox);
         }
     }
 
@@ -155,7 +159,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlaceHereWater(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHereWater(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

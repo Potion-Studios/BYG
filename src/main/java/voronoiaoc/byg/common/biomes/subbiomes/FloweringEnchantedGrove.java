@@ -31,18 +31,13 @@ public class FloweringEnchantedGrove extends Biome implements BiomeTools {
     }
 
     @Override
-    public int getGrassColorAt(double posX, double posZ) {
-        return 8560845;
-    }
-
-    @Override
     public int getFoliageColor() {
         return 11898572;
     }
 
 //    @Override
 //    public Biome getRiver() {
-//        return BuiltinRegistries.BIOME.get(BuiltInBiomes.RIVER;
+//        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.RIVER;
 //    }
 
     static {

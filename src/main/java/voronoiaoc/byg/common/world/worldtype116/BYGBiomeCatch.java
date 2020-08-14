@@ -1,10 +1,9 @@
 package voronoiaoc.byg.common.world.worldtype116;
 
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.ForgeRegistry;
+import net.minecraft.world.biome.Biomes;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.biomes.BYGBiomeWeightSystem;
 import voronoiaoc.byg.config.BYGWorldConfig;
@@ -14,7 +13,6 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class BYGBiomeCatch {
-    public static ForgeRegistry<Biome> BiomeRegistry = ((ForgeRegistry<Biome>) ForgeRegistries.BIOMES);
 
     static String biomeICYRegistries = BYGWorldConfig.externalICYBiomes.get();
     static String biomeCOOLRegistries = BYGWorldConfig.externalCOOLBiomes.get();
@@ -37,15 +35,15 @@ public class BYGBiomeCatch {
         if (biomeICYList.size() > 0) {
             int[] getConfigArray = new int[biomeICYList.size()];
             for (int index = 0; index < biomeICYList.size(); ++index) {
-                final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeICYList.get(index)));
+                final Biome configResource = WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation(biomeICYList.get(index))).orElse(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.THE_END));
                 if (configResource == null) {
                     BYG.LOGGER.warn("Illegal registry name! You put: " + biomeICYList.get(index));
                 } else if (configResource != null) {
-                    getConfigArray[index] = BiomeRegistry.getID(configResource);
-                    Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
+                    getConfigArray[index] = WorldGenRegistries.field_243657_i.getId(configResource);
+                    Biome biome = WorldGenRegistries.field_243657_i.getByValue(getConfigArray[index]);
                     if (biome == null) {
                     } else {
-                        BYGBiomeWeightSystem.ICY.add(Registry.BIOME.getId(biome));
+                        BYGBiomeWeightSystem.ICY.add(WorldGenRegistries.field_243657_i.getId(biome));
                     }
                 }
             }
@@ -54,15 +52,15 @@ public class BYGBiomeCatch {
         if (biomeCOOLList.size() > 0) {
             int[] getConfigArray = new int[biomeCOOLList.size()];
             for (int index = 0; index < biomeCOOLList.size(); ++index) {
-                final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeCOOLList.get(index)));
+                final Biome configResource = WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation(biomeCOOLList.get(index))).orElse(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.THE_END));
                 if (configResource == null) {
                     BYG.LOGGER.warn("Illegal registry name! You put: " + biomeCOOLList.get(index));
                 } else if (configResource != null) {
-                    getConfigArray[index] = BiomeRegistry.getID(configResource);
-                    Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
+                    getConfigArray[index] = WorldGenRegistries.field_243657_i.getId(configResource);
+                    Biome biome = WorldGenRegistries.field_243657_i.getByValue(getConfigArray[index]);
                     if (biome == null) {
                     } else {
-                        BYGBiomeWeightSystem.COOL.add(Registry.BIOME.getId(biome));
+                        BYGBiomeWeightSystem.COOL.add(WorldGenRegistries.field_243657_i.getId(biome));
                     }
                 }
             }
@@ -71,15 +69,15 @@ public class BYGBiomeCatch {
         if (biomeWARMList.size() > 0) {
             int[] getConfigArray = new int[biomeWARMList.size()];
             for (int index = 0; index < biomeWARMList.size(); ++index) {
-                final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeWARMList.get(index)));
+                final Biome configResource = WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation(biomeWARMList.get(index))).orElse(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.THE_END));
                 if (configResource == null) {
                     BYG.LOGGER.warn("Illegal registry name! You put: " + biomeWARMList.get(index));
                 } else if (configResource != null) {
-                    getConfigArray[index] = BiomeRegistry.getID(configResource);
-                    Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
+                    getConfigArray[index] = WorldGenRegistries.field_243657_i.getId(configResource);
+                    Biome biome = WorldGenRegistries.field_243657_i.getByValue(getConfigArray[index]);
                     if (biome == null) {
                     } else {
-                        BYGBiomeWeightSystem.WARM.add(Registry.BIOME.getId(biome));
+                        BYGBiomeWeightSystem.WARM.add(WorldGenRegistries.field_243657_i.getId(biome));
                     }
                 }
             }
@@ -88,15 +86,15 @@ public class BYGBiomeCatch {
         if (biomeHOTList.size() > 0) {
             int[] getConfigArray = new int[biomeHOTList.size()];
             for (int index = 0; index < biomeHOTList.size(); ++index) {
-                final Biome configResource = BiomeRegistry.getValue(new ResourceLocation(biomeHOTList.get(index)));
+                final Biome configResource = WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation(biomeHOTList.get(index))).orElse(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.THE_END));
                 if (configResource == null) {
                     BYG.LOGGER.warn("Illegal registry name! You put: " + biomeHOTList.get(index));
                 } else if (configResource != null) {
-                    getConfigArray[index] = BiomeRegistry.getID(configResource);
-                    Biome biome = Registry.BIOME.getByValue(getConfigArray[index]);
+                    getConfigArray[index] = WorldGenRegistries.field_243657_i.getId(configResource);
+                    Biome biome = WorldGenRegistries.field_243657_i.getByValue(getConfigArray[index]);
                     if (biome == null) {
                     } else {
-                        BYGBiomeWeightSystem.HOT.add(Registry.BIOME.getId(biome));
+                        BYGBiomeWeightSystem.HOT.add(WorldGenRegistries.field_243657_i.getId(biome));
                     }
                 }
             }

@@ -1,15 +1,15 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.sound.MoodSoundAmbience;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-
+import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
@@ -37,11 +37,6 @@ public class MapleTaiga extends Biome implements BiomeTools  {
     }
 
     @Override
-    public int getGrassColorAt(double x, double z) {
-        return 5406551;
-    }
-
-    @Override
     public int getFoliageColor() {
         return 6589494;
     }
@@ -50,7 +45,7 @@ public class MapleTaiga extends Biome implements BiomeTools  {
     @Nullable
     @Override
     public Biome getRiver() {
-        return BuiltinRegistries.BIOME.get(BuiltInBiomes.RIVER);
+        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.RIVER);
     }
 
 

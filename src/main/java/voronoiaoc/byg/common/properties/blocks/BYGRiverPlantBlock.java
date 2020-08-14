@@ -94,8 +94,8 @@ public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggab
 
             world.playEvent(player, 2001, blockpos, Block.getStateId(blockstate));
             if (!world.isRemote && !player.isCreative()) {
-                func_242575_aDrops(state, world, pos, null, player, player.getHeldItemMainhand());
-                func_242575_aDrops(blockstate, world, blockpos, null, player, player.getHeldItemMainhand());
+                spawnDrops(state, world, pos, null, player, player.getHeldItemMainhand());
+                spawnDrops(blockstate, world, blockpos, null, player, player.getHeldItemMainhand());
             }
         }
         world.playEvent(player, 2001, pos, Block.getStateId(state));
