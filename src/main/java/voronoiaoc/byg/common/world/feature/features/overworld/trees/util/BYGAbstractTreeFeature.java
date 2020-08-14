@@ -400,7 +400,7 @@ public abstract class BYGAbstractTreeFeature<T extends NoFeatureConfig> extends 
 
     @Override
     public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
-        return false;
+        return placeTree(worldIn, generator, rand, pos, config, false);
     }
 
     public boolean placeTree(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config, boolean isSapling) {
