@@ -5,7 +5,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.BiomeLayer;
 import net.minecraftforge.fml.loading.FMLPaths;
 import voronoiaoc.byg.BYG;
-import voronoiaoc.byg.common.world.worldtype116.BYGBiomeCatch;
 import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
@@ -43,8 +42,6 @@ public class BYGBiomeWeightSystem {
 //            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
 //            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TAIGA)));
 //        }
-
-        BYGBiomeCatch.biomeCollection();
 
         BYG.LOGGER.debug("BYG: Adding biome entries with their respective weights...");
         addBiomeEntry(BYGBiomeList.ALLIUMFIELDS, ConfigWeightManager.ALLIUMFIELDS.getWeight(), OverworldClimate.WARM);

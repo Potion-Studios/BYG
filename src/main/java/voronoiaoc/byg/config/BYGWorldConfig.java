@@ -30,26 +30,6 @@ public class BYGWorldConfig {
     public static ForgeConfigSpec.BooleanValue controlNether;
     public static ForgeConfigSpec.BooleanValue controlEnd;
 
-    public static ForgeConfigSpec.IntValue rockyStoneSize;
-    public static ForgeConfigSpec.IntValue rockyStoneChance;
-    public static ForgeConfigSpec.IntValue rockyStoneMaxY;
-
-    public static ForgeConfigSpec.IntValue scoriaStoneSize;
-    public static ForgeConfigSpec.IntValue scoriaStoneChance;
-    public static ForgeConfigSpec.IntValue scoriaStoneMaxY;
-
-    public static ForgeConfigSpec.IntValue soapStoneSize;
-    public static ForgeConfigSpec.IntValue soapStoneChance;
-    public static ForgeConfigSpec.IntValue soapStoneMaxY;
-
-    public static ForgeConfigSpec.IntValue ametrineOreSize;
-    public static ForgeConfigSpec.IntValue ametrineOreChance;
-    public static ForgeConfigSpec.IntValue ametrineOreMaxY;
-
-    public static ForgeConfigSpec.IntValue pendoriteOreSize;
-    public static ForgeConfigSpec.IntValue pendoriteOreChance;
-    public static ForgeConfigSpec.IntValue pendoriteOreMaxY;
-
     static {
         COMMON_BUILDER.comment("Dimension Settings").push("Dimension_Settings").push("The_End");
         controlEnd = COMMON_BUILDER.comment("Does BYG control The End?").define("ControlEnd", true);

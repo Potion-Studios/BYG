@@ -12,7 +12,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -76,10 +75,6 @@ public class ObsidianSpike extends Feature<NoFeatureConfig> {
             }
         }
         return true;
-    }
-
-    protected void setCoralBlock(IWorldWriter worldIn, BlockPos pos) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WARPED_CORAL_BLOCK.getDefaultState());
     }
 
     private void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState) {
