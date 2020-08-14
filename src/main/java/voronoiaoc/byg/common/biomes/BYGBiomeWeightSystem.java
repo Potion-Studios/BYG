@@ -2,15 +2,15 @@ package voronoiaoc.byg.common.biomes;
 
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.layer.BiomeLayer;
 import net.minecraftforge.fml.loading.FMLPaths;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.worldtype116.BYGBiomeCatch;
-import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BYGBiomeWeightSystem {
@@ -21,28 +21,28 @@ public class BYGBiomeWeightSystem {
 
     public static void addBiomesToWeightSystem() {
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
-        if (BYGWorldConfig.vanillaBiomes.get()) {
-            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.DESERT)));
-            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.DESERT)));
-            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SAVANNA)));
-            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SAVANNA)));
-            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.PLAINS)));
-            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.FOREST)));
-            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.DARK_FOREST)));
-            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.MOUNTAINS)));
-            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.PLAINS)));
-            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.BIRCH_FOREST)));
-            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SWAMP)));
-            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.FOREST)));
-            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.MOUNTAINS)));
-            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.TAIGA)));
-            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.PLAINS)));
-            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
-            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
-            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
-            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
-            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TAIGA)));
-        }
+//        if (BYGWorldConfig.vanillaBiomes.get()) {
+//            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.DESERT)));
+//            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.DESERT)));
+//            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SAVANNA)));
+//            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SAVANNA)));
+//            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.PLAINS)));
+//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.FOREST)));
+//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.DARK_FOREST)));
+//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.MOUNTAINS)));
+//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.PLAINS)));
+//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.BIRCH_FOREST)));
+//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SWAMP)));
+//            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.FOREST)));
+//            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.MOUNTAINS)));
+//            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.TAIGA)));
+//            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.PLAINS)));
+//            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
+//            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
+//            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
+//            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
+//            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TAIGA)));
+//        }
 
         BYGBiomeCatch.biomeCollection();
 
@@ -126,7 +126,6 @@ public class BYGBiomeWeightSystem {
 
     public static void addBiomeEntry(Biome biome, int weight, OverworldClimate type) {
         if (weight > 0) {
-//            BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(biome, weight)));
             if (type == OverworldClimate.WARM)
                 WARM.add(WorldGenRegistries.field_243657_i.getId(biome));
             if (type == OverworldClimate.COOL)
@@ -137,4 +136,23 @@ public class BYGBiomeWeightSystem {
                 ICY.add(WorldGenRegistries.field_243657_i.getId(biome));
         }
     }
+
+    public static void addBYGBiomesToVanillaOverworld() {
+        for (int integer : HOT)
+            BiomeLayer.field_202744_r = addElement(BiomeLayer.field_202744_r, integer);
+        for (int integer : WARM)
+            BiomeLayer.field_202745_s = addElement(BiomeLayer.field_202745_s, integer);
+        for (int integer : COOL)
+            BiomeLayer.field_202746_t = addElement(BiomeLayer.field_202746_t, integer);
+        for (int integer : ICY)
+            BiomeLayer.field_202747_u = addElement(BiomeLayer.field_202747_u, integer);
+    }
+
+
+    static int[] addElement(int[] a, int e) {
+        a = Arrays.copyOf(a, a.length + 1);
+        a[a.length - 1] = e;
+        return a;
+    }
+
 }

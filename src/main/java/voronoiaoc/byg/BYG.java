@@ -31,6 +31,7 @@ import voronoiaoc.byg.config.BYGConfig;
 import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGEntityList;
+import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 
 @Mod("byg")
 public class BYG {
@@ -64,6 +65,9 @@ public class BYG {
 //        BYGGuianaVillagePools.init();
 //        BYGJungleVillagePools.init();
 //        BYGSkyrisVillagePools.init();
+        BYGBiomeRegistry.addBiomeNumericalIDsForLayerSampler();
+        BYGBiomeWeightSystem.addBiomesToWeightSystem();
+        BYGBiomeWeightSystem.addBYGBiomesToVanillaOverworld();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

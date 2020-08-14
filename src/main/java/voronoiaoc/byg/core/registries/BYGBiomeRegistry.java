@@ -1,15 +1,22 @@
 package voronoiaoc.byg.core.registries;
 
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeRegistry;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 public class BYGBiomeRegistry {
 
+    public static List<Biome> biomeList = new ArrayList<>();
     public static void registerBYGBiomes() {
         BYG.LOGGER.debug("BYG: Registering Biomes...");
 //        registerBiome(registry, BYGBiomeList.DUMMYBIOME, "dummy", true, BiomeDictionary.Type.PLAINS);
@@ -183,7 +190,7 @@ public class BYGBiomeRegistry {
 
     private static void registerBiome(Biome biome, String name) {
         Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
-
+        biomeList.add(biome);
 
 //        if (func_242575_a) {
 //            BiomeManager.addSpawnBiome(biome);
@@ -192,19 +199,31 @@ public class BYGBiomeRegistry {
 
     private static void registerBYGBiome(Biome biome, String name) {
         Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
+        biomeList.add(biome);
+
     }
 
     private static void registerBYGEndBiome(Biome biome, String name) {
         Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
         BYGEndBiomeProvider.bygEndBiomeList.add(biome);
+        biomeList.add(biome);
     }
 
     private static void registerNetherBiome(Biome biome, String name) {
         Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
+        biomeList.add(biome);
     }
 
 
     private static void registerBYGSubBiome(Biome biome, String name) {
+        Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
+        biomeList.add(biome);
+    }
 
+    public static void addBiomeNumericalIDsForLayerSampler() {
+        for (Biome biome : biomeList) {
+            Optional<RegistryKey<Biome>> key = WorldGenRegistries.field_243657_i.func_230519_c_(biome);
+            key.ifPresent(biomeRegistryKey -> BiomeRegistry.field_244202_c.put(WorldGenRegistries.field_243657_i.getId(biome), biomeRegistryKey));
+        }
     }
 }

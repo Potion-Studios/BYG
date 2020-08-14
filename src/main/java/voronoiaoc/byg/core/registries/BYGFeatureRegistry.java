@@ -14,7 +14,6 @@ public class BYGFeatureRegistry {
     public static void bygRegisterFeatures(RegistryEvent.Register<Feature<?>> event) {
         BYG.LOGGER.debug("BYG: Registering Features...");
         BYGFeatureList.RegisterFeatures.registerBYGFeatures();
-
         BYG.LOGGER.info("BYG: Features Registered!");
         BYGBiomeRegistry.registerBYGBiomes();
 
