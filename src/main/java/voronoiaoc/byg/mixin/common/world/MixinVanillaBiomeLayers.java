@@ -28,9 +28,9 @@ public abstract class MixinVanillaBiomeLayers {
 
     @Inject(at = @At("RETURN"), method = "<init>(JZZLnet/minecraft/util/registry/Registry;)V", cancellable = true)
     private void replaceVanillaHillLayer(long seed, boolean oldBiomes, boolean largeBiomes, Registry<Biome> keys, CallbackInfo ci) {
-        genBiomes =  stackLayers(seed, oldBiomes, largeBiomes ? 6 : 4, 4);
+        genBiomes =  stackLayers(seed, oldBiomes, largeBiomes ? 6 : 4);
     }
-    
+
 
     private <T extends IArea, C extends IExtendedNoiseRandom<T>> IAreaFactory<T> repeat(long seed, IAreaTransformer1 parent, IAreaFactory<T> factory, int count, LongFunction<C> contextFactory) {
         IAreaFactory<T> iareafactory = factory;
@@ -43,7 +43,7 @@ public abstract class MixinVanillaBiomeLayers {
     }
 
 
-    private Layer stackLayers(long seed, boolean oldBiomes, int biomeSize, int riverSize) {
+    private Layer stackLayers(long seed, boolean oldBiomes, int biomeSize) {
         LongFunction<IExtendedNoiseRandom<LazyArea>> randomProvider = salt -> new LazyAreaLayerContext(1, seed, salt);
         IAreaFactory<LazyArea> primaryFactory = IslandLayer.INSTANCE.apply(randomProvider.apply(1L));
         primaryFactory = ZoomLayer.FUZZY.apply(randomProvider.apply(2000L), primaryFactory);
@@ -75,7 +75,7 @@ public abstract class MixinVanillaBiomeLayers {
         IAreaFactory<LazyArea> lvt_8_1_ = repeat(1000L, ZoomLayer.NORMAL, zoomFactory, 2, randomProvider);
         addBiomeFactory = HillsLayer.INSTANCE.apply(randomProvider.apply(1000L), addBiomeFactory, lvt_8_1_);
         zoomFactory = repeat(1000L, ZoomLayer.NORMAL, zoomFactory, 2, randomProvider);
-        zoomFactory = repeat(1000L, ZoomLayer.NORMAL, zoomFactory, riverSize, randomProvider);
+        zoomFactory = repeat(1000L, ZoomLayer.NORMAL, zoomFactory, 4, randomProvider);
         zoomFactory = RiverLayer.INSTANCE.apply(randomProvider.apply(1L), zoomFactory);
         zoomFactory = SmoothLayer.INSTANCE.apply(randomProvider.apply(1000L), zoomFactory);
         addBiomeFactory = RareBiomeLayer.INSTANCE.apply(randomProvider.apply(1001L), addBiomeFactory);
