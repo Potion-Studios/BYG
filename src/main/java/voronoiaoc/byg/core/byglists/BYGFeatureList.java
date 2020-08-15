@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
+import voronoiaoc.byg.common.world.feature.features.nether.NetherSurfaceFeature;
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
@@ -151,6 +152,9 @@ public class BYGFeatureList {
 
     public static final Feature<NoFeatureConfig> CACTUS = new CanyonCactus(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> BLACKICESNOW = new BlackIceAndSnowFeature(NoFeatureConfig.field_236558_a_);
+
+    public static final Feature<NoFeatureConfig> NETHER_SURFACE_FEATURE = new NetherSurfaceFeature(NoFeatureConfig.field_236558_a_);
+
 
     //Lakes
     public static final Feature<BlockStateFeatureConfig> LAKE_FROST = new FrostMagmaLakeFeature(BlockStateFeatureConfig.field_236455_a_);
@@ -630,6 +634,7 @@ public class BYGFeatureList {
             registerFeature(ZELKOVA_TREE1, "zelkova_tree1");
             registerFeature(ZELKOVA_TREE2, "zelkova_tree2");
             registerFeature(ZELKOVA_TREE3, "zelkova_tree3");
+            registerFeature(NETHER_SURFACE_FEATURE, "nether_surface");
         }
 
         public static void registerFeature(Feature<?> feature, String registryName) {
