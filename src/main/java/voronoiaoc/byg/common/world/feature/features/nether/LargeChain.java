@@ -14,7 +14,6 @@ import net.minecraftforge.common.Tags;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class LargeChain extends Feature<NoFeatureConfig> {
     public LargeChain(Codec<NoFeatureConfig> config) {
@@ -38,9 +37,9 @@ public class LargeChain extends Feature<NoFeatureConfig> {
             for (int moveDown = 0; moveDown <= randChainLength;) {
                 for (int move = -1; move <= 1; move++) {
                     BlockPos.Mutable mutable1 = new BlockPos.Mutable(mainMutable1.getX() + move, mainMutable1.getY(), mainMutable1.getZ());
-                    BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(0, -4, 0);
-                    BlockPos.Mutable mutable3 = new BlockPos.Mutable(mainMutable2.getX(), mainMutable2.getY() - 3, mainMutable2.getZ() + move);
-                    BlockPos.Mutable mutable4 = new BlockPos.Mutable().setPos(0, -4, 0);
+                    BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable1.add(0, -4, 0));
+                    BlockPos.Mutable mutable3 = new BlockPos.Mutable().setPos(mainMutable2.getX(), mainMutable2.getY() - 3, mainMutable2.getZ() + move);
+                    BlockPos.Mutable mutable4 = new BlockPos.Mutable().setPos(mutable3.add(0, -4, 0));
 
                     if (canReplaceBlock(worldIn, mutable1))
                         worldIn.setBlockState(mutable1, BYGBlockList.SOAPSTONE.getDefaultState(), 2);

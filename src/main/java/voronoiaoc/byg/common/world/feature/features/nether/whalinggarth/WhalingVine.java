@@ -1,13 +1,11 @@
 package voronoiaoc.byg.common.world.feature.features.nether.whalinggarth;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.Dynamic;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -15,7 +13,6 @@ import net.minecraftforge.common.Tags;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class WhalingVine extends Feature<NoFeatureConfig> {
     public WhalingVine(Codec<NoFeatureConfig> config) {
