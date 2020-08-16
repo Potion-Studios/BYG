@@ -386,10 +386,14 @@ public class BYGBiomeRegistry {
 
     //Why? This is how worldtype's using the BiomeLayerSampler get the numerical ID's to sample.
     public static void addBiomeNumericalIDs() {
+        BYG.LOGGER.info("Adding Numerical Biome ID's");
         for (Biome biome : biomeList) {
             Optional<RegistryKey<Biome>> key = BuiltinRegistries.BIOME.getKey(biome);
-            key.ifPresent(biomeRegistryKey -> Biomes.BIOMES.put(BuiltinRegistries.BIOME.getRawId(biome), biomeRegistryKey));
+            if (key.isPresent())
+            key.ifPresent(biomeRegistryKey -> Biomes.BIOMES.put(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.method_31140(key.get())), biomeRegistryKey));
         }
+        BYG.LOGGER.info("Added Numerical Biome ID's!");
+
     }
 
     //We add our biomes to the public static int arrays for each category and this lets us spawn our biomes in vanilla worldtypes.
