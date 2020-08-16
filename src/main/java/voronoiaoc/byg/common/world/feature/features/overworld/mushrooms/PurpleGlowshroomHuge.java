@@ -20,7 +20,7 @@ public class PurpleGlowshroomHuge extends BYGAbstractTreeFeature<NoFeatureConfig
     }
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
-        int randTreeHeight = 23 + rand.nextInt(5);
+        int randTreeHeight = 4 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
