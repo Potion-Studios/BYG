@@ -225,7 +225,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_LUSH_BLUEBERRIES = newConfiguredFeature("rs_lush_blueberries", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLUE_BERRY_BUSH.withChance(0.50F)),
-            BLUE_BERRY_BUSH)).withPlacement(Features.Placements.field_244001_l).func_242731_b(5));
+            BLUE_BERRY_BUSH)).withPlacement(Features.Placements.field_244001_l).func_242731_b(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BEACH_GRASS = newConfiguredFeature("rs_beach_grass", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BEACH_GRASS.withChance(0.50F)),
