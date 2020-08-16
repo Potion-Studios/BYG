@@ -4,10 +4,7 @@ import net.minecraft.world.biome.Biome;
 import voronoiaoc.byg.common.biomes.beachbiomes.*;
 import voronoiaoc.byg.common.biomes.biomes.*;
 import voronoiaoc.byg.common.biomes.endbiomes.IvisFields;
-import voronoiaoc.byg.common.biomes.netherbiome.EmburBog;
-import voronoiaoc.byg.common.biomes.netherbiome.GlowstoneGardens;
-import voronoiaoc.byg.common.biomes.netherbiome.SythianTorrids;
-import voronoiaoc.byg.common.biomes.netherbiome.WarpedDesert;
+import voronoiaoc.byg.common.biomes.netherbiome.*;
 import voronoiaoc.byg.common.biomes.subbiomes.*;
 import voronoiaoc.byg.common.biomes.subbiomes.clearings.*;
 import voronoiaoc.byg.common.biomes.subbiomes.hills.*;
@@ -179,6 +176,7 @@ public class BYGBiomeList {
     public static final Biome SYTHIANTORRIDS = new SythianTorrids();
     public static final Biome GLOWSTONEGARDENS = new GlowstoneGardens();
     public static final Biome EMBURBOG = new EmburBog();
+    public static final Biome WAILING_GARTH = new WailingGarth();
 
     //End
     public static final Biome IVISFIELDS = new IvisFields();

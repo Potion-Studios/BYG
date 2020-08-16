@@ -453,11 +453,13 @@ public class BYGItemList {
     //GemItems
     public static Item PENDORITE_BLOCK;
     public static Item AMETRINE_BLOCK;
+    public static Item ANTHRACITE_BLOCK;
 
     //OreItems
     public static Item PENDORITE_ORE;
     public static Item AMETRINE_ORE;
     public static Item PERVADED_NETHERRACK;
+    public static Item ANTHRACITE_ORE;
 
 
     //BookshelvesItems
@@ -521,6 +523,10 @@ public class BYGItemList {
     //PlantItems
     public static Item CATTAIL;
     public static Item REEDS;
+    public static Item REED_THATCH;
+    public static Item REED_THATCH_STAIRS;
+    public static Item REED_THATCH_CARPET;
+    public static Item REED_THATCH_SLAB;
     public static Item HORSEWEED;
     public static Item MINI_CACTUS;
     public static Item PRICKLY_PEAR_CACTUS;
@@ -548,6 +554,18 @@ public class BYGItemList {
     public static Item LEAF_PILE;
     public static Item CLOVER_PATCH;
     public static Item FLOWER_PATCH;
+
+    public static Item BRIMSTONE;
+    public static Item BRIM_POWDER;
+    public static Item YELLOW_NETHER_BRICKS;
+    public static Item YELLOW_NETHER_BRICK;
+    public static Item BORIC_CAMPFIRE;
+    public static Item HANGING_BONE;
+    public static Item WHALING_VINES;
+    public static Item WHALING_GRASS;
+    public static Item MAGMATIC_STONE;
+    public static Item SCORCHED_BUSH;
+    public static Item SCORCHED_GRASS;
 
     public static Item OVERGROWN_NETHERRACK;
     public static Item NETHER_BRISTLE;
@@ -813,6 +831,7 @@ public class BYGItemList {
     //Gems Items
     public static Item PENDORITE_SCRAPS;
     public static Item AMETRINE_GEMS;
+    public static Item ANTHRACITE;
     public static Item CHAIN_PLATING;
 
     public static Item PENDORITE_SWORD;

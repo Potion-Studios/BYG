@@ -386,6 +386,10 @@ public class BYGBlockRegistry {
 
                 BYGBlockList.CATTAIL = new BYGBlockProperties.BlockCattail("cattail"),
                 BYGBlockList.REEDS = new BYGBlockProperties.BlockCattail("reeds"),
+                BYGBlockList.REED_THATCH = new BYGBlockProperties.BYGThatch("reed_thatch"),
+                BYGBlockList.REED_THATCH_CARPET = new BYGBlockProperties.ThatchCarpet("reed_thatch_carpet"),
+                BYGBlockList.REED_THATCH_STAIRS = new BYGBlockProperties.ThatchStairs("reed_thatch_stairs"),
+                BYGBlockList.REED_THATCH_SLAB = new BYGBlockProperties.ThatchSlab("reed_thatch_slab"),
                 BYGBlockList.HORSEWEED = new BYGBlockProperties.BYGFlower("horseweed"),
                 BYGBlockList.MINI_CACTUS = new BYGBlockProperties.BYGDesertPlant("mini_cactus"),
                 BYGBlockList.PRICKLY_PEAR_CACTUS = new BYGBlockProperties.BYGDesertPlant("prickly_pear_cactus"),
@@ -415,9 +419,22 @@ public class BYGBlockRegistry {
 
 
                 //Nether Blocks
+                BYGBlockList.ANTHRACITE_BLOCK = new BYGBlockProperties.AnthraciteOre("anthracite_block"),
+                BYGBlockList.ANTHRACITE_ORE = new BYGBlockProperties.AnthraciteOre("anthracite_ore"),
+
                 BYGBlockList.OVERGROWN_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("overgrown_netherrack"),
                 BYGBlockList.NETHER_BRISTLE = new BYGBlockProperties.BYGDoubleDamagePlant("nether_bristle"),
 
+                BYGBlockList.BRIMSTONE = new BYGBlockProperties.BYGNetherrack("brimstone"),
+                BYGBlockList.YELLOW_NETHER_BRICKS = new BYGBlockProperties.BYGNetherrack("yellow_nether_bricks"),
+                BYGBlockList.BORIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("boric_campfire"),
+
+                BYGBlockList.HANGING_BONE = new BYGBlockProperties.HangingBones("hanging_bones"),
+                BYGBlockList.WHALING_VINES = new BYGBlockProperties.WhalingVines("whaling_vine"),
+                BYGBlockList.WHALING_GRASS = new BYGBlockProperties.WhalingGrass("whaling_grass"),
+                BYGBlockList.MAGMATIC_STONE = new BYGBlockProperties.BYGNetherrack("magmatic_stone"),
+                BYGBlockList.SCORCHED_BUSH = new BYGBlockProperties.ScorchedPlant("scorched_bush"),
+                BYGBlockList.SCORCHED_GRASS = new BYGBlockProperties.ScorchedPlant("scorched_grass"),
 
                 BYGBlockList.WARPED_CACTUS = new BYGBlockProperties.BYGWarpedCacti("warped_cactus"),
                 BYGBlockList.WARPED_BUSH = new BYGBlockProperties.BYGWarpedBush("warped_bush"),

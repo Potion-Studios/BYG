@@ -1,0 +1,7 @@
+{
+  "parent": "block/carpet",
+  "textures": {
+    "particle": "byg:blocks/reed_thatch_top",
+    "wool": "byg:blocks/reed_thatch_top"
+  }
+}

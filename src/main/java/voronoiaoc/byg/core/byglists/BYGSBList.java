@@ -36,6 +36,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> RAINBOWBEACH_SB = newSurfaceBuilder("rainbow_beach", new RainbowBeachSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> ROCKYBEACH_SB = newSurfaceBuilder("rocky_beach", new RockyBeachSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> WARPEDDESERT_SB = newSurfaceBuilder("warped_desert", new WarpedDesertSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> WAILING_GARTH_SB = newSurfaceBuilder("wailing_garth", new WarpedDesertSB(SurfaceBuilderConfig.field_237203_a_));
 
     //End
     public static final SurfaceBuilder<SurfaceBuilderConfig> IVISFIELDS_SB = newSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderConfig.field_237203_a_));
@@ -74,6 +75,7 @@ public class BYGSBList {
         public static final SurfaceBuilderConfig SYTHIANTORRIDS = new SurfaceBuilderConfig(BYGBlockList.SYTHIAN_NYLIUM.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
         public static final SurfaceBuilderConfig WARPEDDESERT_SOIL = new SurfaceBuilderConfig(BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState());
         public static final SurfaceBuilderConfig EMBURNYLIUM = new SurfaceBuilderConfig(BYGBlockList.EMBUR_NYLIUM.getDefaultState(), BYGBlockList.BLUE_NETHERRACK.getDefaultState(), BYGBlockList.BLUE_NETHERRACK.getDefaultState());
+        public static final SurfaceBuilderConfig SOULSAND = new SurfaceBuilderConfig(Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
 
 
         public static final SurfaceBuilderConfig PODZOLDOVERMOUNTAIN_CF = new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());

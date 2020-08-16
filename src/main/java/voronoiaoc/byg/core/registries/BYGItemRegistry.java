@@ -714,6 +714,23 @@ public class BYGItemRegistry {
                 BYGItemList.NYLIUM_SOUL_SAND = new BlockItem(BYGBlockList.NYLIUM_SOUL_SAND, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.NYLIUM_SOUL_SAND.getRegistryName()),
                 BYGItemList.NYLIUM_SOUL_SOIL = new BlockItem(BYGBlockList.NYLIUM_SOUL_SOIL, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.NYLIUM_SOUL_SOIL.getRegistryName()),
 
+                BYGItemList.ANTHRACITE = new AnthraciteItem(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("anthracite"),
+                BYGItemList.ANTHRACITE_BLOCK = new AnthraciteBlockItem(BYGBlockList.ANTHRACITE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ANTHRACITE_BLOCK.getRegistryName()),
+                BYGItemList.ANTHRACITE_ORE = new BlockItem(BYGBlockList.ANTHRACITE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ANTHRACITE_ORE.getRegistryName()),
+                BYGItemList.BRIMSTONE = new BlockItem(BYGBlockList.BRIMSTONE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BRIMSTONE.getRegistryName()),
+                BYGItemList.BRIM_POWDER = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("brim_powder"),
+                BYGItemList.BORIC_CAMPFIRE = new BlockItem(BYGBlockList.BORIC_CAMPFIRE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BORIC_CAMPFIRE.getRegistryName()),
+                BYGItemList.YELLOW_NETHER_BRICKS = new BlockItem(BYGBlockList.YELLOW_NETHER_BRICKS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.YELLOW_NETHER_BRICKS.getRegistryName()),
+                BYGItemList.YELLOW_NETHER_BRICK = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("yellow_nether_brick"),
+                BYGItemList.MAGMATIC_STONE = new BlockItem(BYGBlockList.MAGMATIC_STONE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAGMATIC_STONE.getRegistryName()),
+
+                BYGItemList.HANGING_BONE = new BlockItem(BYGBlockList.HANGING_BONE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HANGING_BONE.getRegistryName()),
+                BYGItemList.WHALING_VINES = new BlockItem(BYGBlockList.WHALING_VINES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WHALING_VINES.getRegistryName()),
+                BYGItemList.WHALING_GRASS = new BlockItem(BYGBlockList.WHALING_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WHALING_GRASS.getRegistryName()),
+                BYGItemList.SCORCHED_BUSH = new BlockItem(BYGBlockList.SCORCHED_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SCORCHED_BUSH.getRegistryName()),
+                BYGItemList.SCORCHED_GRASS = new BlockItem(BYGBlockList.SCORCHED_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SCORCHED_GRASS.getRegistryName()),
+
+
                 BYGItemList.WEEPING_ROOTS_PLANT = new BlockItem(BYGBlockList.WEEPING_ROOTS_PLANT, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WEEPING_ROOTS_PLANT.getRegistryName()),
                 BYGItemList.NETHER_BRISTLE = new BlockItem(BYGBlockList.NETHER_BRISTLE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.NETHER_BRISTLE.getRegistryName()),
                 BYGItemList.OVERGROWN_NETHERRACK = new BlockItem(BYGBlockList.OVERGROWN_NETHERRACK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.OVERGROWN_NETHERRACK.getRegistryName()),
@@ -776,6 +793,11 @@ public class BYGItemRegistry {
                 BYGItemList.PRICKLY_PEAR_CACTUS = new BlockItem(BYGBlockList.PRICKLY_PEAR_CACTUS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PRICKLY_PEAR_CACTUS.getRegistryName()),
                 BYGItemList.PRAIRIE_GRASS = new BlockItem(BYGBlockList.PRAIRIE_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PRAIRIE_GRASS.getRegistryName()),
                 BYGItemList.REEDS = new BlockItem(BYGBlockList.REEDS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REEDS.getRegistryName()),
+                BYGItemList.REED_THATCH = new BlockItem(BYGBlockList.REED_THATCH, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REED_THATCH.getRegistryName()),
+                BYGItemList.REED_THATCH_STAIRS = new BlockItem(BYGBlockList.REED_THATCH_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REED_THATCH_STAIRS.getRegistryName()),
+                BYGItemList.REED_THATCH_CARPET = new BlockItem(BYGBlockList.REED_THATCH_CARPET, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REED_THATCH_CARPET.getRegistryName()),
+                BYGItemList.REED_THATCH_SLAB = new BlockItem(BYGBlockList.REED_THATCH_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.REED_THATCH_SLAB.getRegistryName()),
+
                 BYGItemList.SHORT_GRASS = new BlockItem(BYGBlockList.SHORT_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SHORT_GRASS.getRegistryName()),
                 BYGItemList.TALL_PRAIRIE_GRASS = new BlockItem(BYGBlockList.TALL_PRAIRIE_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.TALL_PRAIRIE_GRASS.getRegistryName()),
                 BYGItemList.TINY_LILYPADS = (new BYGLilyItem(BYGBlockList.TINY_LILYPADS, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.TINY_LILYPADS.getRegistryName())),

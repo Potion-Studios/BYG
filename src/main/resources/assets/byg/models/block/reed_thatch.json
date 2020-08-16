@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "byg:blocks/reed_thatch_top",
+    "side": "byg:blocks/reed_thatch_side"
+  }
+}

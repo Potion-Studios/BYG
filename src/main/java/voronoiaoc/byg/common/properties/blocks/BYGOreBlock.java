@@ -21,8 +21,8 @@ public class BYGOreBlock extends OreBlock implements IForgeBlock {
     protected int getExperience(Random p_220281_1_) {
         if (this == BYGBlockList.AMETRINE_ORE) {
             return MathHelper.nextInt(p_220281_1_, 3, 9);
-        } else if (this == Blocks.DIAMOND_ORE) {
-            return MathHelper.nextInt(p_220281_1_, 3, 7);
+        } else if (this == BYGBlockList.ANTHRACITE_ORE) {
+            return MathHelper.nextInt(p_220281_1_, 2, 5);
         } else if (this == Blocks.EMERALD_ORE) {
             return MathHelper.nextInt(p_220281_1_, 3, 7);
         } else if (this == Blocks.LAPIS_ORE) {

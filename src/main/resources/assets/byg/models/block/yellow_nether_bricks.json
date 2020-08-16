@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:blocks/yellow_nether_bricks",
+    "particle": "byg:blocks/yellow_nether_bricks"
+  }
+}

@@ -78,6 +78,13 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> WARPED_CORAL = newConfiguredFeature("warped_coral", BYGFeatureList.WARPED_CORAL.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> WARPED_CORAL_FAN = newConfiguredFeature("warped_coral_fan", BYGFeatureList.WARPED_CORAL_FAN.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
+    public static ConfiguredFeature<?, ?> CHAINS = newConfiguredFeature("chains", BYGFeatureList.CHAINS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+
+    public static ConfiguredFeature<?, ?> SCORCHED_BUSH = newConfiguredFeature("scorched_bush", BYGFeatureList.SCORCHED_BUSH.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static ConfiguredFeature<?, ?> SCORCHED_GRASS = newConfiguredFeature("scorched_grass", BYGFeatureList.SCORCHED_GRASS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static ConfiguredFeature<?, ?> WAILING_GRASS = newConfiguredFeature("wailing_grass", BYGFeatureList.WAILING_GRASS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static ConfiguredFeature<?, ?> WAILING_VINES = newConfiguredFeature("wailing_vines", BYGFeatureList.WAILING_VINES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+
     public static ConfiguredFeature<?, ?> BLUE_BERRY_BUSH = newConfiguredFeature("blue_berry_bush", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.BLUEBERRY_BUSH_CONFIG));
     public static ConfiguredFeature<?, ?> ROSE = newConfiguredFeature("rose", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.ROSE_CONFIG));
     public static ConfiguredFeature<?, ?> ANGELICA = newConfiguredFeature("angelica", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.ANGELICA_CONFIG));
@@ -338,6 +345,19 @@ public class BYGConfiguredFeatures {
             WARPED_CORAL.withChance(0.25F),
             WARPED_CORAL_FAN.withChance(0.25F)),
             WARPED_CACTI)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(16))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WAILING_VEGETATION = newConfiguredFeature("rs_wailing_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            SCORCHED_BUSH.withChance(0.25F),
+            SCORCHED_GRASS.withChance(0.25F)),
+            WAILING_GRASS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(16))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WAILING_VINES = newConfiguredFeature("rs_wailing_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            WAILING_VINES.withChance(0.5F)),
+            WAILING_VINES)).func_242733_d(128).func_242728_a().func_242731_b(50));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_CHAINS = newConfiguredFeature("rs_chains", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            CHAINS.withChance(0.5F)),
+            CHAINS)).func_242733_d(128).func_242728_a().func_242731_b(50));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUEBERRY_BUSH = newConfiguredFeature("rs_blueberry_bush", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLUE_BERRY_BUSH.withChance(0.5F)),

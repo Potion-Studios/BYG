@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
+import voronoiaoc.byg.common.world.feature.features.nether.LargeChain;
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
@@ -19,6 +20,10 @@ import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedBu
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoral;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFan;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFeature;
+import voronoiaoc.byg.common.world.feature.features.nether.whalinggarth.ScorchedBush;
+import voronoiaoc.byg.common.world.feature.features.nether.whalinggarth.ScorchedGrass;
+import voronoiaoc.byg.common.world.feature.features.nether.whalinggarth.WhalingGrass;
+import voronoiaoc.byg.common.world.feature.features.nether.whalinggarth.WhalingVine;
 import voronoiaoc.byg.common.world.feature.features.overworld.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.DeadSeaSpikes;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.TallDeadSeaSpikes;
@@ -183,6 +188,13 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> BLUE_GLOWSHROOM_HUGE = new BlueGlowshroomHuge(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> PURPLE_GLOWSHROOM_HUGE = new PurpleGlowshroomHuge(NoFeatureConfig.field_236558_a_);
 
+    /*********************************************************************Mini Mushroom Features*********************************************************/
+    public static final Feature<NoFeatureConfig> MINI_GREEN_MUSHROOM = new MiniGreenMushroom(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> MINI_RED_MUSHROOM = new MiniRedMushroom(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> MINI_BROWN_MUSHROOM = new MiniBrownMushroom(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> MINI_WEEPING_MILKCAP = new MiniWeepingMilkcap(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> MINI_BLACK_PUFF = new MiniBlackPuff(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> MINI_WOOD_BLEWIT = new MiniWoodBlewit(NoFeatureConfig.field_236558_a_);
 
     /********************************************************************Nether Features********************************************************************/
 
@@ -203,6 +215,14 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> HUGE_WARPED_CORAL_PLANT = new WarpedCoralFeature(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> WARPED_CORAL_FAN = new WarpedCoralFan(NoFeatureConfig.field_236558_a_);
 
+    //Chains
+    public static final Feature<NoFeatureConfig> CHAINS = new LargeChain(NoFeatureConfig.field_236558_a_);
+
+    //Whaling
+    public static final Feature<NoFeatureConfig> WAILING_VINES = new WhalingVine(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> WAILING_GRASS = new WhalingGrass(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SCORCHED_GRASS = new ScorchedGrass(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SCORCHED_BUSH = new ScorchedBush(NoFeatureConfig.field_236558_a_);
 
     public static final Feature<NoFeatureConfig> WOOD_BLEWIT = new WoodBlewitMushroom(NoFeatureConfig.field_236558_a_);
 
@@ -452,6 +472,7 @@ public class BYGFeatureList {
             registerFeature(TALLDEADSEASPIKES, "dead_sea_spike_tall");
             registerFeature(OBBYSPIKES, "obsidian_spike");
             registerFeature(CACTUS, "canyon_cactus");
+            registerFeature(CHAINS, "chains");
             registerFeature(BLACKICESNOW, "black_ice_and_snow");
             registerFeature(LAKE_FROST, "frosted_lake");
             registerFeature(LAKE_WIDE_SHALLOW, "lake_wide_shallow");
@@ -470,6 +491,12 @@ public class BYGFeatureList {
             registerFeature(BLACK_PUFF_HUGE, "black_puff_huge");
             registerFeature(BLUE_GLOWSHROOM_HUGE, "blue_glowshroom_huge");
             registerFeature(PURPLE_GLOWSHROOM_HUGE, "purple_glowshroom_huge");
+            registerFeature(MINI_BLACK_PUFF, "mini_black_puff");
+            registerFeature(MINI_BROWN_MUSHROOM, "mini_brown_mushroom");
+            registerFeature(MINI_GREEN_MUSHROOM, "mini_green_mushroom");
+            registerFeature(MINI_RED_MUSHROOM, "mini_red_mushroom");
+            registerFeature(MINI_WEEPING_MILKCAP, "mini_weeping_milkcap");
+            registerFeature(MINI_WOOD_BLEWIT, "mini_wood_blewit");
             registerFeature(BLACK_PUFF, "black_puff");
             registerFeature(GREEN_MUSHROOM, "green_mushroom");
             registerFeature(NETHER_BRISTLE, "nether_bristle");
@@ -592,6 +619,8 @@ public class BYGFeatureList {
             registerFeature(OAK_BROWN_TREE1, "brown_oak_tree1");
             registerFeature(OAK_ORANGE_TREE1, "orange_oak_tree1");
             registerFeature(OAK_RED_TREE1, "red_oak_tree1");
+            registerFeature(SCORCHED_BUSH, "scorched_bush");
+            registerFeature(SCORCHED_GRASS, "scorched_grass");
             registerFeature(SHRUB, "shrub1");
             registerFeature(SHRUB_MEADOW1, "meadow_shrub1");
             registerFeature(SHRUB_MEADOW2, "meadow_shrub2");
@@ -619,6 +648,8 @@ public class BYGFeatureList {
             registerFeature(TROPICAL_TREE1, "tropical_tree1");
             registerFeature(TROPICAL_SHORT_TREE1, "tropical_short_tree1");
             registerFeature(TROPICAL_SHRUB1, "tropical_shrub1");
+            registerFeature(WAILING_GRASS, "wailing_grass");
+            registerFeature(WAILING_VINES, "wailing_vines");
             registerFeature(WOODLANDS_TREE1, "woodlands_tree1");
             registerFeature(WILLOW_DEAD_TREE1, "dead_willow_tree1");
             registerFeature(WILLOW_M_TREE1, "mutated_willow_tree1");

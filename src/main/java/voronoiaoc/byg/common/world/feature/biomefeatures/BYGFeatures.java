@@ -302,6 +302,13 @@ public class BYGFeatures {
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WARPED_DESERT_VEGETATION);
     }
 
+    public static void addWailingVegetation(BiomeGenerationSettings.Builder gen) {
+        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WARPED_CORAL_PLANT);
+        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WAILING_VEGETATION);
+        gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_WAILING_VINES);
+        gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_CHAINS);
+    }
+
     public static void addSythianVegetation(BiomeGenerationSettings.Builder gen) {
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.SYTHIAN_STALK);
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SYTHIAN_PLANT);
@@ -318,6 +325,10 @@ public class BYGFeatures {
 
     public static void addHugeNetherMushrooms(BiomeGenerationSettings.Builder gen) {
         gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_GLOWSTONE_GARDENS_MUSHROOM);
+    }
+
+    public static void addMiniNetherMushrooms(BiomeGenerationSettings.Builder gen) {
+        gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_MINI_MUSHROOMS);
     }
 
     public static void addTropFungalMushrooms(BiomeGenerationSettings.Builder gen) {

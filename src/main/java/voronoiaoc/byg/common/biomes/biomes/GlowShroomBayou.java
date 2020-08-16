@@ -56,7 +56,7 @@ public class GlowShroomBayou extends Biome implements BiomeTools  {
         DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243962_v);
         BYGFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
-        BYGFeatures.addMarshGrass(GENERATION_SETTINGS);
+        BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addGlowcane(GENERATION_SETTINGS);
         BYGFeatures.addCattails(GENERATION_SETTINGS);
         BYGFeatures.addMudDisks(GENERATION_SETTINGS);

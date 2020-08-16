@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "byg:blocks/reed_thatch_top",
+    "top": "byg:blocks/reed_thatch_top",
+    "side": "byg:blocks/reed_thatch_side"
+  }
+}

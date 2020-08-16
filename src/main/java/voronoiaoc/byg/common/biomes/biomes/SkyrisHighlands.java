@@ -52,6 +52,7 @@ public class SkyrisHighlands extends Biome implements BiomeTools  {
         BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
         BYGFeatures.addFoxgloves(GENERATION_SETTINGS);
         BYGFeatures.addCrocus(GENERATION_SETTINGS);
+        BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addFairyslipper(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
 //        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SPRING_FEATURE.configure(DefaultBiomeFeatures.WATER_SPRING_CONFIG).decorate(Decorator.COUNT_BIASED_RANGE.configure(new RangeDecoratorConfig(50, 8, 8, 256))));

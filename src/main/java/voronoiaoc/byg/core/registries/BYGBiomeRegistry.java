@@ -180,6 +180,8 @@ public class BYGBiomeRegistry {
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
         registerNetherBiome(BYGBiomeList.GLOWSTONEGARDENS, "glowstone_gardens");
         registerNetherBiome(BYGBiomeList.EMBURBOG, "embur_bog");
+        registerNetherBiome(BYGBiomeList.WAILING_GARTH, "wailing_garth");
+
 
         //End
         registerBYGEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");

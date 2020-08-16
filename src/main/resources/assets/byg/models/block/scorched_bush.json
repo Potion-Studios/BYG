@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:blocks/scorched_bush",
+    "particle": "byg:blocks/scorched_bush"
+  }
+}
