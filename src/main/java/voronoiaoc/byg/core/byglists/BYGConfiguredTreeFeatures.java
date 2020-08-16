@@ -792,7 +792,7 @@ public class BYGConfiguredTreeFeatures {
                 WOOD_BLEWIT_HUGE.withChance(0.16F),
                 WEEPING_MILKCAP_HUGE.withChance(0.16F)),
                 BLACK_PUFF_HUGE)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
-                new AtSurfaceWithExtraConfig(4, 0.5F, 2))));
+                new AtSurfaceWithExtraConfig(4, 0.6F, 3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MINI_MUSHROOMS = newConfiguredFeature("rs_mini_mushrooms", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             GREEN_MUSHROOM_MINI.withChance(0.16F),
@@ -801,7 +801,7 @@ public class BYGConfiguredTreeFeatures {
             WOOD_BLEWIT_MINI.withChance(0.16F),
             WEEPING_MILKCAP_MINI.withChance(0.16F)),
             BLACK_PUFF_MINI)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
-            new AtSurfaceWithExtraConfig(4, 0.5F, 2))));
+            new AtSurfaceWithExtraConfig(7, 0.5F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MUSHROOM = newConfiguredFeature("rs_huge_mushroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             GREEN_MUSHROOM_HUGE.withChance(0.4F),
