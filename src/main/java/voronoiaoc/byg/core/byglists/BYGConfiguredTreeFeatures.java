@@ -801,7 +801,7 @@ public class BYGConfiguredTreeFeatures {
             WOOD_BLEWIT_MINI.withChance(0.16F),
             WEEPING_MILKCAP_MINI.withChance(0.16F)),
             BLACK_PUFF_MINI)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
-            new AtSurfaceWithExtraConfig(7, 0.5F, 2))));
+            new AtSurfaceWithExtraConfig(7, 0.5F, 4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MUSHROOM = newConfiguredFeature("rs_huge_mushroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             GREEN_MUSHROOM_HUGE.withChance(0.4F),
