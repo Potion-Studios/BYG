@@ -30,7 +30,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.EMBUR_LILY.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.HANGING_BONE.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.WHALING_GRASS.getBlock(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BYGBlockList.WHALING_VINES.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.WAILING_VINES.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.SCORCHED_BUSH.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.SCORCHED_GRASS.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.BORIC_CAMPFIRE.getBlock(), RenderType.getCutoutMipped());

@@ -430,7 +430,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.BORIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("boric_campfire"),
 
                 BYGBlockList.HANGING_BONE = new BYGBlockProperties.HangingBones("hanging_bones"),
-                BYGBlockList.WHALING_VINES = new BYGBlockProperties.WhalingVines("whaling_vine"),
+                BYGBlockList.WAILING_VINES = new BYGBlockProperties.WailingVines("whaling_vine"),
                 BYGBlockList.WHALING_GRASS = new BYGBlockProperties.WhalingGrass("whaling_grass"),
                 BYGBlockList.MAGMATIC_STONE = new BYGBlockProperties.BYGNetherrack("magmatic_stone"),
                 BYGBlockList.SCORCHED_BUSH = new BYGBlockProperties.ScorchedPlant("scorched_bush"),

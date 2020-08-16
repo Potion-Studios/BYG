@@ -20,10 +20,10 @@ import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedBu
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoral;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFan;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFeature;
-import voronoiaoc.byg.common.world.feature.features.nether.whalinggarth.ScorchedBush;
-import voronoiaoc.byg.common.world.feature.features.nether.whalinggarth.ScorchedGrass;
-import voronoiaoc.byg.common.world.feature.features.nether.whalinggarth.WhalingGrass;
-import voronoiaoc.byg.common.world.feature.features.nether.whalinggarth.WhalingVine;
+import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedBush;
+import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedGrass;
+import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WhalingGrass;
+import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WailingVine;
 import voronoiaoc.byg.common.world.feature.features.overworld.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.DeadSeaSpikes;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.TallDeadSeaSpikes;
@@ -219,7 +219,7 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> CHAINS = new LargeChain(NoFeatureConfig.field_236558_a_);
 
     //Whaling
-    public static final Feature<NoFeatureConfig> WAILING_VINES = new WhalingVine(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> WAILING_VINES = new WailingVine(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> WAILING_GRASS = new WhalingGrass(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> SCORCHED_GRASS = new ScorchedGrass(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> SCORCHED_BUSH = new ScorchedBush(NoFeatureConfig.field_236558_a_);

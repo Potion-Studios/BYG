@@ -353,7 +353,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_WAILING_VINES = newConfiguredFeature("rs_wailing_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             WAILING_VINES.withChance(0.5F)),
-            WAILING_VINES)).func_242733_d(128).func_242728_a().func_242731_b(10));
+            WAILING_VINES)).func_242733_d(128).func_242728_a().func_242731_b(100));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CHAINS = newConfiguredFeature("rs_chains", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CHAINS.withChance(0.5F)),

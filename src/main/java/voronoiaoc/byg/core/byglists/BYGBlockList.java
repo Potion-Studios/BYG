@@ -1,7 +1,6 @@
 package voronoiaoc.byg.core.byglists;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 
 public class BYGBlockList {
 
@@ -510,7 +509,7 @@ public class BYGBlockList {
     public static Block YELLOW_NETHER_BRICKS;
     public static Block BORIC_CAMPFIRE;
     public static Block HANGING_BONE;
-    public static Block WHALING_VINES;
+    public static Block WAILING_VINES;
     public static Block WHALING_GRASS;
     public static Block MAGMATIC_STONE;
     public static Block SCORCHED_BUSH;

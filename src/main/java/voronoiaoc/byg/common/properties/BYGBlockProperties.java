@@ -553,8 +553,8 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class WhalingVines extends VineBlock {
-        public WhalingVines(String registryName) {
+    public static class WailingVines extends VineBlock {
+        public WailingVines(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0F)
