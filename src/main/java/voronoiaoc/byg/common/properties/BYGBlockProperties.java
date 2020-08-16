@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.DyeColor;
 import net.minecraft.potion.Effects;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -18,6 +19,8 @@ import voronoiaoc.byg.common.properties.blocks.scorched.ScorchedPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.whaling.HangingBonesBlock;
 import voronoiaoc.byg.common.properties.blocks.whaling.WhalingGrassBlock;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
+
+import java.util.function.ToIntFunction;
 
 public class BYGBlockProperties {
     public static class BYGFence extends FenceBlock {
@@ -929,12 +932,12 @@ public class BYGBlockProperties {
 
     public static class BoricCampfire extends CampfireBlock {
         public BoricCampfire(String registryName) {
-            super(false, 5, AbstractBlock.Properties.create( Material.WOOD, MaterialColor.OBSIDIAN)
+            super(true, 5, AbstractBlock.Properties.create( Material.WOOD, MaterialColor.OBSIDIAN)
                     .hardnessAndResistance(2.0F)
                     .sound(SoundType.WOOD)
                     .tickRandomly()
                     .notSolid()
-                    .setLightLevel((state) -> 14)
+                    .setLightLevel(getLightValueLit(14))
             );
             setRegistryName(registryName);
         }
@@ -1294,4 +1297,11 @@ public class BYGBlockProperties {
             setRegistryName(registryName);
         }
     }
+
+    private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
+        return (state) -> {
+            return state.get(BlockStateProperties.LIT) ? lightValue : 0;
+        };
+    }
 }
+
