@@ -73,7 +73,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight TROPICALRAINFOREST = new ConfigWeight("Tropical_Rain_Forest", 6);
     public static final ConfigWeight CRAGGARDENS = new ConfigWeight("Crag_Gardens", 1);
     public static final ConfigWeight VIBRANTSWAMPLANDS = new ConfigWeight("Vibrant_Swamplands", 6);
-    //    public static final ConfigWeight VOLCANO = new ConfigWeight("Volcano", 1);
+    //    public static final ConfigWeight VOLCANO = new ConfigWeight("VolcanoFeature", 1);
     public static final ConfigWeight WEEPING_WITCH_FOREST = new ConfigWeight("Weeping_Witch_Forest", 1);
     public static final ConfigWeight WOODLANDS = new ConfigWeight("Woodlands", 4);
     public static final ConfigWeight ZELKOVAFOREST = new ConfigWeight("Zelkova_Forest", 6);

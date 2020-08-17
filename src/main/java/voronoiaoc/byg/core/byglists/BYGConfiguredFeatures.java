@@ -171,6 +171,8 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> EMBUR_LAKE = newConfiguredFeature("embur_lake", BYGFeatureList.EMBURLAKE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.field_242907_l.configure(new TopSolidRangeConfig(32, 0, 4)).func_242728_a()).func_242731_b(15));
     public static ConfiguredFeature<?, ?> OBBY_SPIKE = newConfiguredFeature("obsidian_spire", BYGFeatureList.OBBYSPIKES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(ObsidianSpikePlacer.OBBY_SPIKE.configure(new AtSurfaceWithExtraConfig(2000, 0, 0))));
     public static ConfiguredFeature<?, ?> RIVER = newConfiguredFeature("river_aheehee", BYGFeatureList.HUH.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
+    public static ConfiguredFeature<?, ?> VOLCANO = newConfiguredFeature("volcano", BYGFeatureList.VOLCANO.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
+    public static ConfiguredFeature<?, ?> VOLCANO2 = newConfiguredFeature("volcano2", BYGFeatureList.VOLCANO2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
 
     /***********************************************************Random Selectors***********************************************************/
 
