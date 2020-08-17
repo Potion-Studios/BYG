@@ -57,9 +57,6 @@ public class CragGardens extends Biome implements BiomeTools , BiomeFog {
         return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.CRAGGARDENS, 1));
     }
 
-
-
-
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);

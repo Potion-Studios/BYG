@@ -119,6 +119,11 @@ public class BYGTreeFeatures {
         biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243788_N);
     }
 
+    public static void addStoneForestTrees(BiomeGenerationSettings.Builder biome) {
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_STONEFOREST_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243788_N);
+    }
+
     public static void addFungalRainForestTrees(BiomeGenerationSettings.Builder biome) {
         biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_RAINFOREST_FUNGAL_TREE);
     }

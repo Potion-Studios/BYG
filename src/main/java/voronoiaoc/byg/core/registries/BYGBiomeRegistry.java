@@ -80,6 +80,7 @@ public class BYGBiomeRegistry {
         //registerBiome(registry, BYGBiomeList.SONORANDESERT, "sonorandesert", ConfigWeightManager.sonorandesert.getWeight(), true, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY);
         //registerBiome(registry, BYGBiomeList.STONEBRUSHLANDS, "stonebrushlands", ConfigWeightManager.stonebrushlands.getWeight(), true, BiomeManager.BiomeType.COOL, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.COLD);
 //        registerBiome(registry, BYGBiomeList.STONEFOREST, "stoneforest", ConfigWeightManager.stoneforest.getWeight(), true, BiomeManager.BiomeType.COOL, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.COLD);
+        registerBiome(BYGBiomeList.STONE_FOREST, "stone_forest");
         registerBiome(BYGBiomeList.THE_BLACK_FOREST, "the_black_forest");
         registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_forest");
         registerBiome(BYGBiomeList.TROPICALRAINFOREST, "tropical_rainforest");

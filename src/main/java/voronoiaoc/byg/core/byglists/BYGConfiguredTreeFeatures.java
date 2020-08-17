@@ -531,6 +531,14 @@ public class BYGConfiguredTreeFeatures {
             TROPICAL_SHORT_TREE1)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(65, 0.1F, 10))));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_STONEFOREST_TREE = newConfiguredFeature("rs_stoneforest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            EBONY_TREE1.withChance(0.1F),
+            EBONY_TREE2.withChance(0.1F),
+            Features.field_243876_bV.withChance(0.1F),
+            DECIDUOUS_TREE1.withChance(0.1F)),
+            DECIDUOUS_TREE1)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(30, 0.3F, 8))));
+
     public static final ConfiguredFeature<?, ?> RANDOM_SKYRIS_TREE = newConfiguredFeature("rs_skyris_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SKYRIS_TREE1.withChance(0.2F),
             SKYRIS_TREE2.withChance(0.2F),

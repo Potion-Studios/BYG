@@ -81,7 +81,7 @@ public class BYGBiomeList {
     public static final Biome SNOWYEVERGREENTAIGA = new SnowyEvergreenTaiga();
     public static final Biome SONORANDESERT = new SonoranDesert();
     public static final Biome STONEBRUSHLANDS = new StoneBrushlands();
-    public static final Biome STONEFOREST = new StoneForest();
+    public static final Biome STONE_FOREST = new StoneForest();
     public static final Biome THE_BLACK_FOREST = new TheBlackForest();
     public static final Biome TROPICALFUNGALRAINFOREST = new TropicalFungalRainForest();
     public static final Biome TROPICALISLAND = new TropicalIslands();
