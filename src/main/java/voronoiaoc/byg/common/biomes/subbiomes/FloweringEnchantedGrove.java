@@ -60,7 +60,6 @@ public class FloweringEnchantedGrove extends Biome implements BiomeTools {
         BYGFeatures.addAnemones(GENERATION_SETTINGS);
         BYGFeatures.addSages(GENERATION_SETTINGS);
         BYGFeatures.addTulips(GENERATION_SETTINGS);
-        BYGFeatures.addTulips(GENERATION_SETTINGS);
         BYGFeatures.addGiantFlowerFeatures(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

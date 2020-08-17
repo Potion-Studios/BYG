@@ -47,7 +47,7 @@ public class SeasonalBirchForest extends Biome implements BiomeTools  {
 
     @Override
     public Biome getHill(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.SEASONALFORESTHILLS;
+        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.SEASONALBIRCHFORESTHILLS;
     }
 
     static {

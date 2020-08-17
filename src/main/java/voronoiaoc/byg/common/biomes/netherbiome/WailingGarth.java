@@ -32,7 +32,7 @@ public class WailingGarth extends Biome implements BiomeTools {
 
     public WailingGarth() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
-                .setFogColor(6958489)
+                .setFogColor(4529794)
                 .func_242539_d(BiomeHelper.calcSkyColor(2.0F))
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.01428F))
                 .setAmbientSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)

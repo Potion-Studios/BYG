@@ -46,7 +46,7 @@ public class FloweringMeadow extends Biome implements BiomeTools {
         ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
 //        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
-        BYGTreeFeatures.addMeadowTrees(GENERATION_SETTINGS);
+        BYGTreeFeatures.addMeadowShrubs(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
 
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
@@ -62,8 +62,8 @@ public class FloweringMeadow extends Biome implements BiomeTools {
         BYGFeatures.addAnemones(GENERATION_SETTINGS);
         BYGFeatures.addAzalea(GENERATION_SETTINGS);
         BYGFeatures.addTulips(GENERATION_SETTINGS);
-        BYGFeatures.addTulips(GENERATION_SETTINGS);
-        BYGFeatures.addTulips(GENERATION_SETTINGS);
+
+
 
         SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

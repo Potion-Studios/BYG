@@ -356,13 +356,13 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DOVER_TREE = newConfiguredFeature("rs_dover_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            MC_DOVER_MEGA_SPRUCE_TREE.withChance(0.2F),
+            CONIFER_TREE8.withChance(0.2F),
             PINE_TREE1.withChance(0.2F),
             PINE_TREE2.withChance(0.2F),
             Features.field_243867_bM.withChance(0.2F),
-            CONIFER_TREE7.withChance(0.1F)),
-            CONIFER_TREE8)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(20, 0.4F, 2))));
+            CONIFER_TREE6.withChance(0.1F)),
+            MC_DOVER_MEGA_SPRUCE_TREE)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(15, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EUCALYPTUS_TREE = newConfiguredFeature("rs_eucalyptus_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             RAINBOW_TREE1.withChance(0.1F)),
@@ -758,18 +758,15 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(20, 0.4F, -8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_FOREST_TREE = newConfiguredFeature("rs_seasonal_forest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            BIRCH_BROWN_TREE1.withChance(0.06F),
-            MC_BIRCH_BROWN_TREE.withChance(0.06F),
-            MC_BIRCH_TALL_BROWN_TREE.withChance(0.06F),
-            BIRCH_ORANGE_TREE1.withChance(0.06F),
-            MC_BIRCH_ORANGE_TREE.withChance(0.06F),
-            MC_BIRCH_TALL_ORANGE_TREE.withChance(0.06F),
-            BIRCH_RED_TREE1.withChance(0.06F),
-            MC_BIRCH_RED_TREE.withChance(0.06F),
-            MC_BIRCH_TALL_RED_TREE.withChance(0.06F),
-            BIRCH_YELLOW_TREE1.withChance(0.06F),
+            OAK_BROWN_TREE1.withChance(0.06F),
+            OAK_ORANGE_TREE.withChance(0.06F),
+            OAK_RED_TREE.withChance(0.06F),
+            MC_BROWN_OAK_TREE.withChance(0.06F),
+            MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES.withChance(0.06F),
+            Features.field_243869_bO.withChance(0.06F),
+            Features.field_243862_bH.withChance(0.06F),
             MC_BIRCH_YELLOW_TREE.withChance(0.1F)),
-            MC_BIRCH_TALL_YELLOW_TREE)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
+            MC_ORANGE_OAK_TREE)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(20, 0.4F, -8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUE_TAIGA_TREE = newConfiguredFeature("rs_blue_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
