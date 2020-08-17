@@ -7,7 +7,7 @@
     "MixinDimensionType",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinSlimeEntity",
-    "common.world.MixinVanillaBiomeLayers",
+    "common.world.MixinVanillaBiomeLayers"
   ],
   "client": [
     "client.MixinGameRenderer"
