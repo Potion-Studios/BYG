@@ -87,6 +87,7 @@ public class BYGBiomeList {
     public static final Biome TROPICALISLAND = new TropicalIslands();
     public static final Biome TROPICALRAINFOREST = new TropicalRainForest();
     public static final Biome VIBRANTSWAMPLANDS = new VibrantSwamplands();
+    public static final Biome VOLCANO = new Volcano();
     public static final Biome WEEPINGWITCHFOREST = new WeepingWitchForest();
     public static final Biome WOODLANDS = new WoodLands();
     public static final Biome ZELKOVAFOREST = new ZelkovaForest();
@@ -168,7 +169,7 @@ public class BYGBiomeList {
     public static final Biome SNOWYDECIDUOUSFORESTHILLS = new SnowyDeciduousForestHills();
     public static final Biome TROPICALFUNGALRAINFORESTHILLS = new TropicalFungalRainforestHills();
     public static final Biome TROPICALRAINFORESTHILLS = new TropicalRainForestHills();
-    //    public static final Biome VOLCANO = new Volcano();
+    //    public static final Biome VOLCANO = new VolcanoFeature();
     public static final Biome ZELKOVAFORESTHILLS = new ZelkovaForestHills();
 
     //Nether

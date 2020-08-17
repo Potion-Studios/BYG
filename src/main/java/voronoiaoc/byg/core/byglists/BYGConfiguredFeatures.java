@@ -5,10 +5,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
-import net.minecraft.world.gen.placement.ChanceConfig;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.placement.TopSolidRangeConfig;
+import net.minecraft.world.gen.placement.*;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
 import voronoiaoc.byg.common.world.feature.placements.AnyWaterOrSolidSurfaceSurface;
@@ -173,6 +170,9 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> CRAG_LAKE = newConfiguredFeature("crag_lake", BYGFeatureList.LAKE_WIDE_SHALLOW.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(AnyWaterOrSolidSurfaceSurface.WATER_OR_SOLID_SURFACE.configure(new FeatureSpreadConfig(4))));
     public static ConfiguredFeature<?, ?> EMBUR_LAKE = newConfiguredFeature("embur_lake", BYGFeatureList.EMBURLAKE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.field_242907_l.configure(new TopSolidRangeConfig(32, 0, 4)).func_242728_a()).func_242731_b(15));
     public static ConfiguredFeature<?, ?> OBBY_SPIKE = newConfiguredFeature("obsidian_spire", BYGFeatureList.OBBYSPIKES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(ObsidianSpikePlacer.OBBY_SPIKE.configure(new AtSurfaceWithExtraConfig(2000, 0, 0))));
+    public static ConfiguredFeature<?, ?> RIVER = newConfiguredFeature("river_aheehee", BYGFeatureList.HUH.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
+    public static ConfiguredFeature<?, ?> VOLCANO = newConfiguredFeature("volcano", BYGFeatureList.VOLCANO.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
+    public static ConfiguredFeature<?, ?> VOLCANO2 = newConfiguredFeature("volcano2", BYGFeatureList.VOLCANO2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
 
     /***********************************************************Random Selectors***********************************************************/
 

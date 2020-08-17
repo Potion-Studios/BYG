@@ -84,7 +84,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_forest");
         registerBiome(BYGBiomeList.TROPICALRAINFOREST, "tropical_rainforest");
         registerBiome(BYGBiomeList.VIBRANTSWAMPLANDS, "vibrant_swamplands");
-//        registerBiome(registry, BYGBiomeList.VOLCANO, "volcano",  false, BiomeDictionary.Type.HOT, BiomeDictionary.Type.OVERWORLD);
+        registerBiome(BYGBiomeList.VOLCANO, "volcano");
         registerBiome(BYGBiomeList.SIERRAVALLEY, "sierra_valley");
         registerBiome(BYGBiomeList.WEEPINGWITCHFOREST, "weeping_witch_forest");
         registerBiome(BYGBiomeList.WOODLANDS, "woodlands");

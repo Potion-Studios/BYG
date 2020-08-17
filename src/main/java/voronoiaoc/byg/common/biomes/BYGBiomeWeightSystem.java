@@ -108,7 +108,7 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.SIERRAVALLEY, ConfigWeightManager.SIERRAVALLEY.getWeight(), OverworldClimate.DESERT);
         addBiomeEntry(BYGBiomeList.WEEPINGWITCHFOREST, ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight(), OverworldClimate.COOL);
         addBiomeEntry(BYGBiomeList.WOODLANDS, ConfigWeightManager.WOODLANDS.getWeight(), OverworldClimate.WARM);
-//        addBiomeEntry(BYGBiomeList.VOLCANO, 1, OverworldClimate.WARM);
+        addBiomeEntry(BYGBiomeList.VOLCANO, 1, OverworldClimate.DESERT);
         addBiomeEntry(BYGBiomeList.ZELKOVAFOREST, ConfigWeightManager.ZELKOVAFOREST.getWeight(), OverworldClimate.COOL);
 
         BYG.LOGGER.debug("BYG: Added biome entries with their respective weights!");

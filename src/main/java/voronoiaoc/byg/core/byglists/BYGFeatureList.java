@@ -9,6 +9,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
+import voronoiaoc.byg.common.world.feature.features.RiverThingy;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.LargeChain;
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
@@ -16,14 +17,14 @@ import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianSprout;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianStalk;
+import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedBush;
+import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedGrass;
+import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WailingVine;
+import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WhalingGrass;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedBush;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoral;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFan;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFeature;
-import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedBush;
-import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedGrass;
-import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WhalingGrass;
-import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WailingVine;
 import voronoiaoc.byg.common.world.feature.features.overworld.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.DeadSeaSpikes;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.TallDeadSeaSpikes;
@@ -141,11 +142,15 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.woodlands.Wo
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.volcano.SmallVolcanoFeature;
 
 
 public class BYGFeatureList {
 
     public static final Feature<NoFeatureConfig> DUMMY_TREE = new SmallPineTree(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> HUH = new RiverThingy(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> VOLCANO = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_, 2375866);
+    public static final Feature<NoFeatureConfig> VOLCANO2 = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_, 929445895);
 
     /********************************************************************Features*************************************************************************/
     //DeadSea
@@ -661,6 +666,9 @@ public class BYGFeatureList {
             registerFeature(ZELKOVA_TREE1, "zelkova_tree1");
             registerFeature(ZELKOVA_TREE2, "zelkova_tree2");
             registerFeature(ZELKOVA_TREE3, "zelkova_tree3");
+            registerFeature(HUH, "huh");
+            registerFeature(VOLCANO, "volcano");
+            registerFeature(VOLCANO2, "volcano2");
         }
 
         public static void registerFeature(Feature<?> feature, String registryName) {
