@@ -77,7 +77,7 @@ public class JacarandaForest extends Biome implements BiomeTools  {
         BYGFeatures.addBYGBambooJungleVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243719_ac(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243698_L(GENERATION_SETTINGS);
-        BYGFeatures.addWeedGrass(GENERATION_SETTINGS);
+        BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addDelphinium(GENERATION_SETTINGS);

@@ -571,13 +571,12 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(3, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_TREE = newConfiguredFeature("rs_enchanted_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ENCHANTED_BLUE_TREE1.withChance(0.2F),
             ENCHANTED_BLUE_TREE2.withChance(0.2F),
             ENCHANTED_BLUE_TREE3.withChance(0.2F),
             ENCHANTED_GREEN_TREE1.withChance(0.2F),
             ENCHANTED_GREEN_TREE2.withChance(0.2F),
             ENCHANTED_GREEN_TREE3.withChance(0.1F)),
-            Features.field_243875_bU)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
+            ENCHANTED_BLUE_TREE1)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(25, 0.4F, 5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM_BAYOU_TREE = newConfiguredFeature("rs_glowshroom_bayou_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(

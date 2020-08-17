@@ -8,6 +8,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class JacarandaClearing extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("jacaranda_clearing", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -55,15 +56,12 @@ public class JacarandaClearing extends Biome implements BiomeTools {
         DefaultBiomeFeatures.func_243709_W(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
-//        BYGTreeFeatures.addJacarandaSparseTrees(GENERATION_SETTINGS);
+        BYGTreeFeatures.addSparseJacarandaTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243719_ac(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243701_O(GENERATION_SETTINGS);
-        BYGFeatures.addWeedGrass(GENERATION_SETTINGS);
+        BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addDelphinium(GENERATION_SETTINGS);
-        BYGFeatures.addDelphinium(GENERATION_SETTINGS);
-
 
         SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

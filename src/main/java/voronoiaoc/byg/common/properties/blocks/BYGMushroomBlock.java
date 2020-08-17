@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.properties.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -45,10 +46,10 @@ public class BYGMushroomBlock extends BushBlock implements IGrowable {
         BlockPos blockpos = pos.down();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (block != Blocks.MYCELIUM && block != Blocks.PODZOL && block != BYGBlockList.GLOWCELIUM && block != BYGBlockList.OVERGROWN_NETHERRACK && block != BYGBlockList.EMBUR_NYLIUM && block != BYGBlockList.SYTHIAN_NYLIUM) {
-            return worldIn.getLightSubtracted(pos, 0) < 13 && blockstate.canSustainPlant(worldIn, blockpos, Direction.UP, this);
-        } else {
+        if (blockstate.isIn(BlockTags.field_242171_aD)) {
             return true;
+        } else {
+            return worldIn.getLightSubtracted(pos, 0) < 13 && blockstate.canSustainPlant(worldIn, blockpos, net.minecraft.util.Direction.UP, this);
         }
     }
 
