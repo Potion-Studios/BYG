@@ -8,7 +8,6 @@
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinSlimeEntity",
     "common.world.MixinVanillaBiomeLayers",
-    "common.world.MixinTemplate"
   ],
   "client": [
     "client.MixinGameRenderer"
