@@ -9,6 +9,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
+import voronoiaoc.byg.common.world.feature.features.RiverThingy;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.LargeChain;
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
@@ -146,6 +147,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.Zelk
 public class BYGFeatureList {
 
     public static final Feature<NoFeatureConfig> DUMMY_TREE = new SmallPineTree(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> HUH = new RiverThingy(NoFeatureConfig.field_236558_a_);
 
     /********************************************************************Features*************************************************************************/
     //DeadSea
@@ -661,6 +663,7 @@ public class BYGFeatureList {
             registerFeature(ZELKOVA_TREE1, "zelkova_tree1");
             registerFeature(ZELKOVA_TREE2, "zelkova_tree2");
             registerFeature(ZELKOVA_TREE3, "zelkova_tree3");
+            registerFeature(HUH, "huh");
         }
 
         public static void registerFeature(Feature<?> feature, String registryName) {
