@@ -128,3 +128,13 @@ mixin {
 repositories {
     maven { url ='https://www.dogforce-games.com/maven/'}
 }
+
+task srcJar(type: Jar) {
+    from(sourceSets.main.output)
+    classifier = 'src'
+}
+
+//task apiJar(type: Jar) {
+//    from(sourceSets.main.output)
+//    classifier = 'api'
+//}
