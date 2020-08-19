@@ -46,8 +46,7 @@ public class BYGNetherBiomeProvider extends BiomeSource {
 
     public static List<Biome> biomeList = new ArrayList<>();
 
-
-    static {
+    public static void addNetherBiomesForProvider() {
         biomeList.add(BYGBiomeList.SYTHIANTORRIDS);
     }
 }

@@ -141,7 +141,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.Zelk
 
 public class BYGFeatureList {
 
-    public static final Feature<DefaultFeatureConfig> DUMMY_TREE = new SmallPineTree(DefaultFeatureConfig.CODEC);
+//    public static final Feature<DefaultFeatureConfig> DUMMY_TREE = new SmallPineTree(DefaultFeatureConfig.CODEC);
 
     /********************************************************************Features*************************************************************************/
     //DeadSea
@@ -448,7 +448,7 @@ public class BYGFeatureList {
 
     public static class RegisterFeatures {
         public static void registerBYGFeatures() {
-            registerFeature(DUMMY_TREE, "dummy_tree");
+//            registerFeature(DUMMY_TREE, "dummy_tree");
             registerFeature(DEADSEASPIKES, "dead_sea_spike");
             registerFeature(TALLDEADSEASPIKES, "dead_sea_spike_tall");
             registerFeature(OBBYSPIKES, "obsidian_spike");

@@ -33,16 +33,16 @@ public class BYG implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Initializing BYG...");
-        ConfigWeightManager.weightConfigFile();
+//        ConfigWeightManager.weightConfigFile();
         //Registries
-        BYGBlockRegistry.registerBlocks();
-        BYGItemRegistry.registerItems();
-        BYGFeatureList.RegisterFeatures.registerBYGFeatures();
-        BYGBiomeRegistry.registerSubBiomes();
-        BYGBiomeRegistry.registerBiomes();
-        BYGBiomeRegistry.registerNetherBiomes();
-        BYGBiomeRegistry.registerEndBiomes();
-        BYGBiomeRegistry.addBiomeNumericalIDs();
+//        BYGBlockRegistry.registerBlocks();
+//        BYGItemRegistry.registerItems();
+//        BYGFeatureList.RegisterFeatures.registerBYGFeatures();
+//        BYGBiomeRegistry.registerSubBiomes();
+//        BYGBiomeRegistry.registerBiomes();
+//        BYGBiomeRegistry.registerNetherBiomes();
+//        BYGBiomeRegistry.registerEndBiomes();
+//        BYGBiomeRegistry.addBiomeNumericalIDs();
 
         BYGEntityRegistry.registerEntities();
 
@@ -58,10 +58,24 @@ public class BYG implements ModInitializer {
         BYGHoeables.tillablesBYG();
         BYGStrippables.strippableLogsBYG();
         BYGCompostables.compostablesBYG();
+        BYGNetherBiomeProvider.addNetherBiomesForProvider();
         Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "byg_nether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "byg_end"), BYGEndBiomeProvider.BYGENDCODEC);
 
         BYGDataGenerator.dataGenCommand();
+        BYGBiomeRegistry.addBiomeNumericalIDs();
         LOGGER.info("Initialized BYG!");
+    }
+
+    public static void bootStrap() {
+        ConfigWeightManager.weightConfigFile();
+        BYGBlockRegistry.registerBlocks();
+        BYGItemRegistry.registerItems();
+        BYGFeatureList.RegisterFeatures.registerBYGFeatures();
+        BYGBiomeRegistry.registerSubBiomes();
+        BYGBiomeRegistry.registerBiomes();
+        BYGBiomeRegistry.registerNetherBiomes();
+        BYGBiomeRegistry.registerEndBiomes();
+        BYGBiomeRegistry.addBiomeNumericalIDs();
     }
 }

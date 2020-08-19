@@ -257,23 +257,18 @@ public class BYGBiomeRegistry {
         BYG.LOGGER.info("BYG: Registered End Biomes!");
     }
 
-    static int idx = 0;
-
-
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate type) {
         Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
         biomeList.add(biome);
         if (weight > 0) {
-            for (int idx = 1; idx <= weight; idx++) {
-                if (type == OverworldClimate.TEMPERATE)
-                    WARM.add(BuiltinRegistries.BIOME.getRawId(biome));
-                if (type == OverworldClimate.COOL)
-                    COOL.add(BuiltinRegistries.BIOME.getRawId(biome));
-                if (type == OverworldClimate.DRY)
-                    HOT.add(BuiltinRegistries.BIOME.getRawId(biome));
-                if (type == OverworldClimate.SNOWY)
-                    ICY.add(BuiltinRegistries.BIOME.getRawId(biome));
-            }
+            if (type == OverworldClimate.TEMPERATE)
+                WARM.add(BuiltinRegistries.BIOME.getRawId(biome));
+            if (type == OverworldClimate.COOL)
+                COOL.add(BuiltinRegistries.BIOME.getRawId(biome));
+            if (type == OverworldClimate.DRY)
+                HOT.add(BuiltinRegistries.BIOME.getRawId(biome));
+            if (type == OverworldClimate.SNOWY)
+                ICY.add(BuiltinRegistries.BIOME.getRawId(biome));
         }
     }
 
@@ -390,21 +385,15 @@ public class BYGBiomeRegistry {
     }
 
     //Why? This is how worldtype's using the BiomeLayerSampler get the numerical ID's to sample.
-    //We start at 173(Minecraft's highest ID) and check if any postion beyond that is occupied(Mod compat) if not, we take the key of our biomes and add it to this list.
     public static void addBiomeNumericalIDs() {
-        int i = 173;
+        BYG.LOGGER.info("Adding Numerical Biome ID's");
         for (Biome biome : biomeList) {
-            while (Biomes.BIOMES.containsKey(i)) {
-                ++i;
-            }
-
             Optional<RegistryKey<Biome>> key = BuiltinRegistries.BIOME.getKey(biome);
-
-            if (key.isPresent()) {
-                Biomes.BIOMES.put(i, key.get());
-                i++;
-            }
+            if (key.isPresent())
+            key.ifPresent(biomeRegistryKey -> Biomes.BIOMES.put(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.method_31140(key.get())), biomeRegistryKey));
         }
+        BYG.LOGGER.info("Added Numerical Biome ID's!");
+
     }
 
     //We add our biomes to the public static int arrays for each category and this lets us spawn our biomes in vanilla worldtypes.

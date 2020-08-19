@@ -4,6 +4,7 @@
   "package": "voronoiaoc.byg.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "MixinBootstrap",
     "common.AbstractBlockStateBookshelfMixin",
     "common.FeatureMixin",
     "common.MixinDimensionType",
