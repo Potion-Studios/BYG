@@ -131,7 +131,7 @@ repositories {
 
 task srcJar(type: Jar) {
     from(sourceSets.main.output)
-    classifier = 'src'
+    classifier = 'srcs'
 }
 
 //task apiJar(type: Jar) {
