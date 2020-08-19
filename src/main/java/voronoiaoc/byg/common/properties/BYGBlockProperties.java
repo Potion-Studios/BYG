@@ -647,7 +647,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
                     .velocityMultiplier(1.6F)
                     .slipperiness(0.6F)
-                    .requiresTool()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
         }
