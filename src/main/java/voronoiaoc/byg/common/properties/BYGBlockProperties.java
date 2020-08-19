@@ -432,12 +432,11 @@ public class BYGBlockProperties {
     }
 
 
-    public static class BYGMud extends SoulSandBlock {
+    public static class BYGMud extends Block {
         public BYGMud(String registryName) {
             super(Settings.of(Material.SOIL)
                     .sounds(BlockSoundGroup.GRAVEL)
                     .strength(0.2f)
-                    .ticksRandomly()
                     .velocityMultiplier(0.4F)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MODID, registryName), this);
