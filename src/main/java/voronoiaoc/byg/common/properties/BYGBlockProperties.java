@@ -428,12 +428,11 @@ public class BYGBlockProperties {
     }
 
 
-    public static class BYGMud extends SoulSandBlock {
+    public static class BYGMud extends Block {
         public BYGMud(String registryName) {
             super(Block.Properties.create(Material.EARTH)
                     .sound(SoundType.GROUND)
                     .hardnessAndResistance(0.2f)
-                    .tickRandomly()
                     .speedFactor(0.4F)
             );
             setRegistryName(registryName);
