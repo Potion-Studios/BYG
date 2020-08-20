@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_post",
   "textures": {
-    "wall": "byg:blocks/mahogany_log",
-    "particle": "byg:blocks/mahogany_log"
+    "wall": "byg:block/mahogany_log",
+    "particle": "byg:block/mahogany_log"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/embur_gel_block",
-    "particle": "byg:blocks/embur_gel_block"
+    "all": "byg:block/embur_gel_block",
+    "particle": "byg:block/embur_gel_block"
   }
 }

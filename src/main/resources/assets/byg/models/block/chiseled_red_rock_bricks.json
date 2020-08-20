@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/chiseled_red_rock_bricks",
-    "particle": "byg:blocks/chiseled_red_rock_bricks"
+    "all": "byg:block/chiseled_red_rock_bricks",
+    "particle": "byg:block/chiseled_red_rock_bricks"
   }
 }

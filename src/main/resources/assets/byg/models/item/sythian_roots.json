@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/sythian_roots"
+    "layer0": "byg:block/sythian_roots"
   }
 }

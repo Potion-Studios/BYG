@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/skyris_vine_flowering"
+    "layer0": "byg:block/skyris_vine_flowering"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/stripped_mangrove_log",
-    "particle": "byg:blocks/stripped_mangrove_log"
+    "all": "byg:block/stripped_mangrove_log",
+    "particle": "byg:block/stripped_mangrove_log"
   }
 }

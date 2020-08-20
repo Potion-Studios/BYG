@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "particle": "byg:blocks/cika_crafting_table_front",
-    "down": "byg:blocks/cika_planks",
-    "up": "byg:blocks/cika_crafting_table_top",
-    "north": "byg:blocks/cika_crafting_table_front",
-    "east": "byg:blocks/cika_crafting_table_side",
-    "south": "byg:blocks/cika_crafting_table_side",
-    "west": "byg:blocks/cika_crafting_table_front"
+    "particle": "byg:block/cika_crafting_table_front",
+    "down": "byg:block/cika_planks",
+    "up": "byg:block/cika_crafting_table_top",
+    "north": "byg:block/cika_crafting_table_front",
+    "east": "byg:block/cika_crafting_table_side",
+    "south": "byg:block/cika_crafting_table_side",
+    "west": "byg:block/cika_crafting_table_front"
   }
 }

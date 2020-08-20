@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "byg:blocks/blue_enchanted_leaves",
-    "up": "byg:blocks/blue_enchanted_leaves",
-    "north": "byg:blocks/blue_enchanted_leaves",
-    "east": "byg:blocks/blue_enchanted_leaves",
-    "south": "byg:blocks/blue_enchanted_leaves",
-    "west": "byg:blocks/blue_enchanted_leaves",
-    "particle": "byg:blocks/blue_enchanted_leaves"
+    "down": "byg:block/blue_enchanted_leaves",
+    "up": "byg:block/blue_enchanted_leaves",
+    "north": "byg:block/blue_enchanted_leaves",
+    "east": "byg:block/blue_enchanted_leaves",
+    "south": "byg:block/blue_enchanted_leaves",
+    "west": "byg:block/blue_enchanted_leaves",
+    "particle": "byg:block/blue_enchanted_leaves"
   }
 }

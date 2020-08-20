@@ -1,6 +1,6 @@
 {
   "parent": "block/button_pressed",
   "textures": {
-    "texture": "byg:blocks/zelkova_planks"
+    "texture": "byg:block/zelkova_planks"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/willow_planks",
-    "particle": "byg:blocks/willow_planks"
+    "all": "byg:block/willow_planks",
+    "particle": "byg:block/willow_planks"
   }
 }

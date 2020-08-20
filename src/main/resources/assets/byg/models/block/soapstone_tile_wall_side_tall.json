@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_side_tall",
   "textures": {
-    "wall": "byg:blocks/soapstone_tile",
-    "particle": "byg:blocks/soapstone_tile"
+    "wall": "byg:block/soapstone_tile",
+    "particle": "byg:block/soapstone_tile"
   }
 }

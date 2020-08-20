@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/delphinium_flower_top"
+    "layer0": "byg:block/delphinium_flower_top"
   }
 }

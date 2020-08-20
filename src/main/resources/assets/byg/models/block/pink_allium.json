@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/pink_allium",
-    "particle": "byg:blocks/pink_allium"
+    "cross": "byg:block/pink_allium",
+    "particle": "byg:block/pink_allium"
   }
 }

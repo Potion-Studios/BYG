@@ -1,10 +1,10 @@
 {   "parent": "block/cube",
   "textures": {
-    "particle": "byg:blocks/willow_leaves",
-    "bottom": "byg:blocks/willow_leaves",
-    "top": "byg:blocks/willow_leaves",
-    "side": "byg:blocks/willow_leaves",
-    "overlay": "byg:blocks/willow_leaves"
+    "particle": "byg:block/willow_leaves",
+    "bottom": "byg:block/willow_leaves",
+    "top": "byg:block/willow_leaves",
+    "side": "byg:block/willow_leaves",
+    "overlay": "byg:block/willow_leaves"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

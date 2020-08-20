@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/warped_coral",
-    "particle": "byg:blocks/warped_coral"
+    "cross": "byg:block/warped_coral",
+    "particle": "byg:block/warped_coral"
   }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "particle": "byg:blocks/cherry_crafting_table_front",
-    "down": "byg:blocks/cherry_planks",
-    "up": "byg:blocks/cherry_crafting_table_top",
-    "north": "byg:blocks/cherry_crafting_table_front",
-    "east": "byg:blocks/cherry_crafting_table_side",
-    "south": "byg:blocks/cherry_crafting_table_side",
-    "west": "byg:blocks/cherry_crafting_table_front"
+    "particle": "byg:block/cherry_crafting_table_front",
+    "down": "byg:block/cherry_planks",
+    "up": "byg:block/cherry_crafting_table_top",
+    "north": "byg:block/cherry_crafting_table_front",
+    "east": "byg:block/cherry_crafting_table_side",
+    "south": "byg:block/cherry_crafting_table_side",
+    "west": "byg:block/cherry_crafting_table_front"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/pink_glowcane_block",
-    "particle": "byg:blocks/pink_glowcane_block"
+    "all": "byg:block/pink_glowcane_block",
+    "particle": "byg:block/pink_glowcane_block"
   }
 }

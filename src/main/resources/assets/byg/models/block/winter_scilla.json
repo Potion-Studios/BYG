@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/winter_scilla",
-    "particle": "byg:blocks/winter_scilla"
+    "cross": "byg:block/winter_scilla",
+    "particle": "byg:block/winter_scilla"
   }
 }

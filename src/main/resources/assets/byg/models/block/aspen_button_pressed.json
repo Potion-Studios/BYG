@@ -1,6 +1,6 @@
 {
   "parent": "block/button_pressed",
   "textures": {
-    "texture": "byg:blocks/aspen_planks"
+    "texture": "byg:block/aspen_planks"
   }
 }

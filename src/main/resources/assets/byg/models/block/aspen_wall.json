@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_side",
   "textures": {
-    "wall": "byg:blocks/aspen_log",
-    "particle": "byg:blocks/aspen_log"
+    "wall": "byg:block/aspen_log",
+    "particle": "byg:block/aspen_log"
   }
 }

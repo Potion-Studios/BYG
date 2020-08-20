@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:blocks/water_silk",
-    "texture": "byg:blocks/water_silk"
+    "particle": "byg:block/water_silk",
+    "texture": "byg:block/water_silk"
   },
   "elements": [
     {   "from": [ 0, 0.25, 0 ],

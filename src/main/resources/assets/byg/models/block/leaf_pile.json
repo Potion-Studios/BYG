@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:blocks/leaf_pile",
-    "texture": "byg:blocks/leaf_pile"
+    "particle": "byg:block/leaf_pile",
+    "texture": "byg:block/leaf_pile"
   },
   "elements": [
     {   "from": [ 0, 0.25, 0 ],

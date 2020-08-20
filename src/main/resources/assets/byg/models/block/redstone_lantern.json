@@ -1,8 +1,8 @@
 {
   "parent": "block/block",
   "textures": {
-    "particle": "byg:blocks/redstone_lantern",
-    "all": "byg:blocks/redstone_lantern"
+    "particle": "byg:block/redstone_lantern",
+    "all": "byg:block/redstone_lantern"
   },
   "elements": [
     {   "from": [ 5, 0, 5 ],

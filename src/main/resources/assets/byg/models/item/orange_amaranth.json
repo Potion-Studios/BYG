@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/orange_amaranth"
+    "layer0": "byg:block/orange_amaranth"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/flower_pot_cross",
   "textures": {
-    "plant": "byg:blocks/guzmania"
+    "plant": "byg:block/guzmania"
   }
 }

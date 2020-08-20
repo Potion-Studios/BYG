@@ -1,10 +1,10 @@
 {   "parent": "block/cube",
   "textures": {
-    "particle": "byg:blocks/rainbow_eucalyptus_leaves",
-    "bottom": "byg:blocks/rainbow_eucalyptus_leaves",
-    "top": "byg:blocks/rainbow_eucalyptus_leaves",
-    "side": "byg:blocks/rainbow_eucalyptus_leaves",
-    "overlay": "byg:blocks/rainbow_eucalyptus_leaves"
+    "particle": "byg:block/rainbow_eucalyptus_leaves",
+    "bottom": "byg:block/rainbow_eucalyptus_leaves",
+    "top": "byg:block/rainbow_eucalyptus_leaves",
+    "side": "byg:block/rainbow_eucalyptus_leaves",
+    "overlay": "byg:block/rainbow_eucalyptus_leaves"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

@@ -1,7 +1,7 @@
 {
   "parent": "block/wall_inventory",
   "textures": {
-    "wall": "byg:blocks/blue_enchanted_log",
-    "particle": "byg:blocks/blue_enchanted_log"
+    "wall": "byg:block/blue_enchanted_log",
+    "particle": "byg:block/blue_enchanted_log"
   }
 }

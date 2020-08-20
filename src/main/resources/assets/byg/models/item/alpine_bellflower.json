@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/alpine_bellflower"
+    "layer0": "byg:block/alpine_bellflower"
   }
 }

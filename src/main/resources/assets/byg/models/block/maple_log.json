@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "byg:blocks/maple_log_top",
-    "side": "byg:blocks/maple_log"
+    "end": "byg:block/maple_log_top",
+    "side": "byg:block/maple_log"
   }
 }

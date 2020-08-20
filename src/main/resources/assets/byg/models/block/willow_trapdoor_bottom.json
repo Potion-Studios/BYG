@@ -1,6 +1,6 @@
 {
   "parent": "block/template_orientable_trapdoor_bottom",
   "textures": {
-    "texture": "byg:blocks/willow_trapdoor"
+    "texture": "byg:block/willow_trapdoor"
   }
 }

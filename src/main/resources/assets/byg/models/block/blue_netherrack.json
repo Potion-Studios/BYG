@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/blue_netherrack",
-    "particle": "byg:blocks/blue_netherrack"
+    "all": "byg:block/blue_netherrack",
+    "particle": "byg:block/blue_netherrack"
   }
 }

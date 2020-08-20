@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:blocks/clover_patch",
-    "texture": "byg:blocks/clover_patch"
+    "particle": "byg:block/clover_patch",
+    "texture": "byg:block/clover_patch"
   },
   "elements": [
     {   "from": [ 0, 0.25, 0 ],

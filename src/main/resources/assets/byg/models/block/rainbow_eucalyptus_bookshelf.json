@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "byg:blocks/rainbow_eucalyptus_planks",
-    "up": "byg:blocks/rainbow_eucalyptus_planks",
-    "north": "byg:blocks/rainbow_eucalyptus_bookshelf",
-    "east": "byg:blocks/rainbow_eucalyptus_bookshelf",
-    "south": "byg:blocks/rainbow_eucalyptus_bookshelf",
-    "west": "byg:blocks/rainbow_eucalyptus_bookshelf",
-    "particle": "byg:blocks/rainbow_eucalyptus_planks"
+    "down": "byg:block/rainbow_eucalyptus_planks",
+    "up": "byg:block/rainbow_eucalyptus_planks",
+    "north": "byg:block/rainbow_eucalyptus_bookshelf",
+    "east": "byg:block/rainbow_eucalyptus_bookshelf",
+    "south": "byg:block/rainbow_eucalyptus_bookshelf",
+    "west": "byg:block/rainbow_eucalyptus_bookshelf",
+    "particle": "byg:block/rainbow_eucalyptus_planks"
   }
 }

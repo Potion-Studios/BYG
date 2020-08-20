@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:blocks/tiny_lilypads",
-    "texture": "byg:blocks/tiny_lilypads"
+    "particle": "byg:block/tiny_lilypads",
+    "texture": "byg:block/tiny_lilypads"
   },
   "elements": [
     {   "from": [ 0, 0.25, 0 ],

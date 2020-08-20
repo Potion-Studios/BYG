@@ -1,10 +1,10 @@
 {   "parent": "block/block",
   "textures": {
-    "particle": "byg:blocks/ivis_phylium_side",
+    "particle": "byg:block/ivis_phylium_side",
     "bottom": "block/end_stone",
-    "top": "byg:blocks/ivis_phylium_top",
-    "side": "byg:blocks/ivis_phylium_side",
-    "overlay": "byg:blocks/ivis_phylium_side"
+    "top": "byg:block/ivis_phylium_top",
+    "side": "byg:block/ivis_phylium_side",
+    "overlay": "byg:block/ivis_phylium_side"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

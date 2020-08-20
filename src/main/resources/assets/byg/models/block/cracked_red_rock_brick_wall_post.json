@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_post",
   "textures": {
-    "wall": "byg:blocks/cracked_red_rock_bricks",
-    "particle": "byg:blocks/cracked_red_rock_bricks"
+    "wall": "byg:block/cracked_red_rock_bricks",
+    "particle": "byg:block/cracked_red_rock_bricks"
   }
 }

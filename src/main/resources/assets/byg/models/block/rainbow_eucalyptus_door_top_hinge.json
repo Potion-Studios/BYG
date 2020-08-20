@@ -1,7 +1,7 @@
 {
   "parent": "block/door_top_rh",
   "textures": {
-    "bottom": "byg:blocks/rainbow_eucalyptus_door_bottom",
-    "top": "byg:blocks/rainbow_eucalyptus_door_top"
+    "bottom": "byg:block/rainbow_eucalyptus_door_bottom",
+    "top": "byg:block/rainbow_eucalyptus_door_top"
   }
 }

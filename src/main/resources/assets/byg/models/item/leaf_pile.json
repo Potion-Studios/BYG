@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/leaf_pile"
+    "layer0": "byg:block/leaf_pile"
   }
 }

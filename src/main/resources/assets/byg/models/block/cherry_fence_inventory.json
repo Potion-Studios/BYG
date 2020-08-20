@@ -1,7 +1,7 @@
 {
   "parent": "block/fence_inventory",
   "textures": {
-    "texture": "byg:blocks/cherry_planks",
-    "particle": "byg:blocks/cherry_planks"
+    "texture": "byg:block/cherry_planks",
+    "particle": "byg:block/cherry_planks"
   }
 }

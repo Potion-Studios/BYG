@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:blocks/flower_patch",
-    "texture": "byg:blocks/flower_patch"
+    "particle": "byg:block/flower_patch",
+    "texture": "byg:block/flower_patch"
   },
   "elements": [
     {   "from": [ 0, 0.25, 0 ],

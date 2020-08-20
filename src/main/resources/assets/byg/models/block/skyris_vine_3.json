@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:blocks/skyris_vine_flowering",
-    "vine": "byg:blocks/skyris_vine_flowering"
+    "particle": "byg:block/skyris_vine_flowering",
+    "vine": "byg:block/skyris_vine_flowering"
   },
   "elements": [
     {   "from": [ 15.2, 0, 0 ],

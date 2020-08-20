@@ -1,10 +1,10 @@
 {   "parent": "block/block",
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:blocks/warped_cactus_side",
-    "bottom": "byg:blocks/warped_cactus_bottom",
-    "top": "byg:blocks/warped_cactus_top",
-    "side": "byg:blocks/warped_cactus_side"
+    "particle": "byg:block/warped_cactus_side",
+    "bottom": "byg:block/warped_cactus_bottom",
+    "top": "byg:block/warped_cactus_top",
+    "side": "byg:block/warped_cactus_side"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

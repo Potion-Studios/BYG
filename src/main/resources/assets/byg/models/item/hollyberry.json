@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:items/food_holly_berries"
+    "layer0": "byg:item/food_holly_berries"
   }
 }

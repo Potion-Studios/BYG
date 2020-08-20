@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "byg:blocks/stripped_aspen_log_top",
-    "side": "byg:blocks/stripped_aspen_log"
+    "end": "byg:block/stripped_aspen_log_top",
+    "side": "byg:block/stripped_aspen_log"
   }
 }

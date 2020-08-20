@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/fairy_slipper"
+    "layer0": "byg:block/fairy_slipper"
   }
 }

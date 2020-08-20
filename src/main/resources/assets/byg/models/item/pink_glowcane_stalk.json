@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:items/glowcane_pink_stalk"
+    "layer0": "byg:item/glowcane_pink_stalk"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/sapling_joshua"
+    "layer0": "byg:block/sapling_joshua"
   }
 }

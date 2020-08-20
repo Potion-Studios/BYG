@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_post",
   "textures": {
-    "wall": "byg:blocks/scoria_stone",
-    "particle": "byg:blocks/scoria_stone"
+    "wall": "byg:block/scoria_stone",
+    "particle": "byg:block/scoria_stone"
   }
 }

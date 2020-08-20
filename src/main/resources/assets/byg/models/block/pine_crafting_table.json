@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "particle": "byg:blocks/pine_crafting_table_front",
-    "down": "byg:blocks/pine_planks",
-    "up": "byg:blocks/pine_crafting_table_top",
-    "north": "byg:blocks/pine_crafting_table_front",
-    "east": "byg:blocks/pine_crafting_table_side",
-    "south": "byg:blocks/pine_crafting_table_side",
-    "west": "byg:blocks/pine_crafting_table_front"
+    "particle": "byg:block/pine_crafting_table_front",
+    "down": "byg:block/pine_planks",
+    "up": "byg:block/pine_crafting_table_top",
+    "north": "byg:block/pine_crafting_table_front",
+    "east": "byg:block/pine_crafting_table_side",
+    "south": "byg:block/pine_crafting_table_side",
+    "west": "byg:block/pine_crafting_table_front"
   }
 }

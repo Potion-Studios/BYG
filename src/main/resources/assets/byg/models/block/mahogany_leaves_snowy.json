@@ -1,11 +1,11 @@
 {   "parent": "block/cube",
   "textures": {
-    "particle": "byg:blocks/mahogany_leaves_snowy",
-    "bottom": "byg:blocks/mahogany_leaves_snowy",
-    "top": "byg:blocks/mahogany_leaves_snowy",
-    "side": "byg:blocks/mahogany_leaves_snowy_side",
-    "overlay": "byg:blocks/mahogany_leaves_snowy_side_overlay",
-    "overlay2": "byg:blocks/mahogany_leaves_snowy_side_overlay"
+    "particle": "byg:block/mahogany_leaves_snowy",
+    "bottom": "byg:block/mahogany_leaves_snowy",
+    "top": "byg:block/mahogany_leaves_snowy",
+    "side": "byg:block/mahogany_leaves_snowy_side",
+    "overlay": "byg:block/mahogany_leaves_snowy_side_overlay",
+    "overlay2": "byg:block/mahogany_leaves_snowy_side_overlay"
 
   },
   "elements": [

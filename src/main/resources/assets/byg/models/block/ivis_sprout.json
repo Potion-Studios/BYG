@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/ivis_sprout",
-    "particle": "byg:blocks/ivis_sprout"
+    "cross": "byg:block/ivis_sprout",
+    "particle": "byg:block/ivis_sprout"
   }
 }

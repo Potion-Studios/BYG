@@ -1,7 +1,7 @@
 {
   "parent": "block/wall_inventory",
   "textures": {
-    "wall": "byg:blocks/scoria_stonebrick",
-    "particle": "byg:blocks/scoria_stonebrick"
+    "wall": "byg:block/scoria_stonebrick",
+    "particle": "byg:block/scoria_stonebrick"
   }
 }
