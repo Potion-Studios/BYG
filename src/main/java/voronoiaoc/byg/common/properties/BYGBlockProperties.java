@@ -16,6 +16,9 @@ import voronoiaoc.byg.common.properties.blocks.embur.EmburVinesPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BYGBlockProperties {
     public static class BYGFence extends FenceBlock {
         public BYGFence(String registryName) {
@@ -104,6 +107,7 @@ public class BYGBlockProperties {
     }
 
     public static class BYGFlower extends FlowerBlock {
+        public static List<String> pottedListIDs = new ArrayList<>();
         public BYGFlower(String registryName) {
             super(Effects.SATURATION, 7,
                     Block.Properties.create(Material.PLANTS)
@@ -113,8 +117,10 @@ public class BYGBlockProperties {
                             .notSolid()
             );
             setRegistryName(registryName);
-
+            new FlowerPotBlock(this, Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()).setRegistryName("potted_" + registryName);
+            pottedListIDs.add(registryName);
         }
+
     }
 
     public static class BYGFairySlipperFlower extends BYGFairySlipperBlock {

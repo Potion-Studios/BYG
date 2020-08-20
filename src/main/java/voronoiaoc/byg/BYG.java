@@ -17,6 +17,7 @@ import org.apache.logging.log4j.Logger;
 import voronoiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import voronoiaoc.byg.common.biomes.BYGBiomeWeightSystem;
 import voronoiaoc.byg.common.entity.boat.BYGBoatRenderer;
+import voronoiaoc.byg.common.properties.BYGBlockProperties;
 import voronoiaoc.byg.common.properties.BYGCreativeTab;
 import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
 import voronoiaoc.byg.common.properties.vanilla.BYGFlammables;
@@ -56,6 +57,7 @@ public class BYG {
         BYGEndBiomeCatch.endBiomeConfigCollection();
         BYGNetherBiomeCatch.netherBiomeConfigCollection();
         BYGFeaturesInVanilla.addFeatures();
+//        BYGFeaturesInVanilla.addSpawnEntries();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
 //        Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygworld"), BYGBiomeProvider116.BYGBPCODEC);
@@ -67,6 +69,8 @@ public class BYG {
         BYGBiomeRegistry.addBiomeNumericalIDsForLayerSampler();
         BYGBiomeWeightSystem.addBiomesToWeightSystem();
         BYGBiomeWeightSystem.addBYGBiomesToVanillaOverworld();
+
+        BYGBlockProperties.BYGFlower.pottedListIDs.forEach(o -> BYG.LOGGER.info("byg:" + o));
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 
