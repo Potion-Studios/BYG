@@ -37,6 +37,9 @@ public class BYGCutoutRenders {
         //Nether
         RenderTypeLookup.setRenderLayer(BYGBlockList.OVERGROWN_NETHERRACK.getBlock(), RenderType.getCutoutMipped());
 
+        RenderTypeLookup.setRenderLayer(BYGBlockList.TALL_CRIMSON_ROOTS.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.CRIMSON_BERRY_BUSH.getBlock(), RenderType.getCutoutMipped());
+
         RenderTypeLookup.setRenderLayer(BYGBlockList.WARPED_BUSH.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.WARPED_CACTUS.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.WARPED_CORAL_FAN.getBlock(), RenderType.getCutoutMipped());

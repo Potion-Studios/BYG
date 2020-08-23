@@ -38,7 +38,7 @@ public class BYGWorldConfig {
         COMMON_BUILDER.pop();
         COMMON_BUILDER.push("The_Nether");
         controlNether = COMMON_BUILDER.comment("Does BYG control The Nether?").define("ControlNether", true);
-        netherBiomes = COMMON_BUILDER.comment("Add Nether biomes by their registry names(IDs) in a commented list.\n Adding a biome several times gives it more weight in generation.\n Default: \"byg:embur_bog,byg:glowstone_gardens,byg:sythian_torrids,byg:warped_desert,minecraft:basalt_deltas,minecraft:crimson_forest,minecraft:nether_wastes,minecraft:soul_sand_valley,minecraft:warped_forest\".").define("NetherBiomes", "byg:embur_bog,byg:wailing_garth,byg:glowstone_gardens,byg:sythian_torrids,byg:warped_desert,minecraft:basalt_deltas,minecraft:crimson_forest,minecraft:nether_wastes,minecraft:soul_sand_valley,minecraft:warped_forest");
+        netherBiomes = COMMON_BUILDER.comment("Add Nether biomes by their registry names(IDs) in a commented list.\n Adding a biome several times gives it more weight in generation.\n Default: \"byg:embur_bog,byg:glowstone_gardens,byg:sythian_torrids,byg:warped_desert,minecraft:basalt_deltas,minecraft:crimson_forest,minecraft:nether_wastes,minecraft:soul_sand_valley,minecraft:warped_forest\".").define("NetherBiomes", "byg:embur_bog,byg:crimson_gardens,byg:embur_bog,byg:wailing_garth,byg:glowstone_gardens,byg:sythian_torrids,byg:warped_desert,minecraft:basalt_deltas,minecraft:crimson_forest,minecraft:nether_wastes,minecraft:soul_sand_valley,minecraft:warped_forest");
         biomeSizeNETHER = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").defineInRange("NetherBiomeSize", 3, 0, 10);
         COMMON_BUILDER.pop();
 
