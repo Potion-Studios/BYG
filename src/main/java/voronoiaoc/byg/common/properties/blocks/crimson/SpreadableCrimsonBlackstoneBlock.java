@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks;
+package voronoiaoc.byg.common.properties.blocks.crimson;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -13,8 +13,8 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
-public class SpreadableEmburBlock extends Block {
-    public SpreadableEmburBlock(Properties properties) {
+public class SpreadableCrimsonBlackstoneBlock extends Block {
+    public SpreadableCrimsonBlackstoneBlock(Properties properties) {
         super(properties);
     }
 
@@ -30,7 +30,7 @@ public class SpreadableEmburBlock extends Block {
      */
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
         if (!isDarkEnough(state, worldIn, pos)) {
-            worldIn.setBlockState(pos, BYGBlockList.BLUE_NETHERRACK.getDefaultState());
+            worldIn.setBlockState(pos, Blocks.BLACKSTONE.getDefaultState());
         }
 
     }

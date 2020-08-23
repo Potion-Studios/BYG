@@ -10,10 +10,8 @@ import net.minecraft.world.gen.blockplacer.ColumnBlockPlacer;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.FeatureSpread;
-import net.minecraft.world.gen.feature.TwoLayerFeature;
+import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.foliageplacer.*;
 import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
 import net.minecraft.world.gen.treedecorator.LeaveVineTreeDecorator;
@@ -179,6 +177,9 @@ public class BYGFeatureConfigs {
     public static final BlockClusterFeatureConfig CYAN_ROSE_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.CYAN_ROSE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, GRASS_BLOCK)).func_227317_b_().build();
     public static final BlockClusterFeatureConfig OSIRIA_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.ORSIRIA_ROSE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, GRASS_BLOCK)).func_227317_b_().build();
     public static final BlockClusterFeatureConfig FAIRYSLIPPER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.FAIRY_SLIPPER.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, GRASS_BLOCK)).func_227317_b_().build();
+
+    public static final BlockStateProvidingFeatureConfig EMBUR_ROOTS = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlockList.EMBUR_ROOTS.getDefaultState(), 87).addWeightedBlockstate(BYGBlockList.EMBUR_WART.getDefaultState(), 11).addWeightedBlockstate(BYGBlockList.EMBUR_WART.getDefaultState(), 1));
+
 
     public static final BlockClusterFeatureConfig IVIS_ROOTS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.IVIS_ROOTS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
     public static final BlockClusterFeatureConfig IVIS_SPROUT = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.IVIS_SPROUT.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();

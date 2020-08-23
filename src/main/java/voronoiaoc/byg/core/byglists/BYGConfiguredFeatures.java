@@ -274,10 +274,13 @@ public class BYGConfiguredFeatures {
             NETHER_BRISTLE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(15)).func_242731_b(1)));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_BOG_PLANT = newConfiguredFeature("rs_embur_bog_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            EMBUR_ROOTS.withChance(0.35F),
-            EMBUR_ROOTS_TALL.withChance(0.35F),
-            EMBUR_GEL_VINES.withChance(0.25F)),
-            EMBUR_WART)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(15))));
+            EMBUR_ROOTS_TALL.withChance(0.4F),
+            EMBUR_ROOTS.withChance(0.1F)),
+            EMBUR_WART)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(25))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_GEL_VINES = newConfiguredFeature("rs_embur_gel_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            EMBUR_GEL_VINES.withChance(0.3F)),
+            EMBUR_GEL_VINES)).func_242733_d(128).func_242728_a().func_242731_b(100));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_PLANT = newConfiguredFeature("rs_sythian_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SYTHIAN_ROOTS.withChance(0.5F)),

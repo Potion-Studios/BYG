@@ -12,6 +12,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolType;
 import voronoiaoc.byg.client.textures.BYGMaterials;
 import voronoiaoc.byg.common.properties.blocks.*;
+import voronoiaoc.byg.common.properties.blocks.embur.BlueNetherrackBlock;
+import voronoiaoc.byg.common.properties.blocks.embur.DoubleNetherPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.embur.EmburPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.embur.EmburVinesPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
@@ -142,6 +144,19 @@ public class BYGBlockProperties {
         public BYGDoublePlant(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.PLANT)
+                    .hardnessAndResistance(0.0f)
+                    .doesNotBlockMovement()
+                    .notSolid()
+            );
+            setRegistryName(registryName);
+
+        }
+    }
+
+    public static class BYGDoubleNetherPlant extends DoubleNetherPlantBlock {
+        public BYGDoubleNetherPlant(String registryName) {
+            super(Block.Properties.create(Material.PLANTS)
+                    .sound(SoundType.ROOT)
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
                     .notSolid()
@@ -570,7 +585,7 @@ public class BYGBlockProperties {
     public static class WhalingGrass extends WhalingGrassBlock {
         public WhalingGrass(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
-                    .sound(SoundType.PLANT)
+                    .sound(SoundType.ROOT)
                     .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
                     .notSolid()
@@ -700,7 +715,7 @@ public class BYGBlockProperties {
     public static class BYGEmburPlant extends EmburPlantBlock {
         public BYGEmburPlant(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
-                    .sound(SoundType.PLANT)
+                    .sound(SoundType.ROOT)
                     .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
                     .notSolid()
@@ -713,7 +728,7 @@ public class BYGBlockProperties {
     public static class BYGEmberNylium extends EmburNyliumBlock {
         public BYGEmberNylium(String registryName) {
             super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
+                    .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.4F)
                     .tickRandomly()
                     .harvestTool(ToolType.PICKAXE)
@@ -740,7 +755,7 @@ public class BYGBlockProperties {
     public static class SythianPlant extends BYGSythianPlantBlock {
         public SythianPlant(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
-                    .sound(SoundType.PLANT)
+                    .sound(SoundType.ROOT)
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
                     .notSolid()
@@ -753,7 +768,7 @@ public class BYGBlockProperties {
     public static class BYGSythianNylium extends BYGSythianNyliumBlock {
         public BYGSythianNylium(String registryName) {
             super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
+                    .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
                     .harvestTool(ToolType.PICKAXE)
@@ -766,7 +781,7 @@ public class BYGBlockProperties {
     public static class OvergrownNetherrack extends BYGOvergrownNetherrackBlock {
         public OvergrownNetherrack(String registryName) {
             super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
+                    .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
                     .harvestTool(ToolType.PICKAXE)
@@ -779,7 +794,7 @@ public class BYGBlockProperties {
     public static class BYGIvisPlant extends BYGIvisPlantBlock {
         public BYGIvisPlant(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
-                    .sound(SoundType.PLANT)
+                    .sound(SoundType.ROOT)
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
                     .notSolid()
@@ -792,7 +807,7 @@ public class BYGBlockProperties {
     public static class BYGIvisPhylium extends BYGIvisPhyliumBlock {
         public BYGIvisPhylium(String registryName) {
             super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
+                    .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
                     .harvestTool(ToolType.PICKAXE)
@@ -1243,7 +1258,19 @@ public class BYGBlockProperties {
     public static class BYGNetherrack extends Block {
         public BYGNetherrack(String registryName) {
             super(Block.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
-                    .sound(SoundType.STONE)
+                    .sound(SoundType.NETHERRACK)
+                    .hardnessAndResistance(0.4F, 0.4F)
+                    .harvestTool(ToolType.PICKAXE)
+
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGBlueNetherrack extends BlueNetherrackBlock {
+        public BYGBlueNetherrack(String registryName) {
+            super(Block.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
+                    .sound(SoundType.NETHERRACK)
                     .hardnessAndResistance(0.4F, 0.4F)
                     .harvestTool(ToolType.PICKAXE)
 

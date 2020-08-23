@@ -61,6 +61,10 @@ public class BYGFeatures {
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_LILY);
     }
 
+    public static void addEmburBogVines(BiomeGenerationSettings.Builder gen) {
+        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_GEL_VINES);
+    }
+
     public static void addAzalea(BiomeGenerationSettings.Builder gen) {
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_AZALEA);
     }

@@ -459,9 +459,9 @@ public class BYGBlockRegistry {
                 BYGBlockList.EMBUR_PEDU = new BYGBlockProperties.BYGLog("embur_pedu"),
                 BYGBlockList.EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots"),
                 BYGBlockList.EMBUR_WART = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart"),
-                BYGBlockList.TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoublePlant("tall_embur_roots"),
+                BYGBlockList.TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_embur_roots"),
 
-                BYGBlockList.BLUE_NETHERRACK = new BYGBlockProperties.BYGNetherrack("blue_netherrack"),
+                BYGBlockList.BLUE_NETHERRACK = new BYGBlockProperties.BYGBlueNetherrack("blue_netherrack"),
                 BYGBlockList.BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGNetherrack("blue_nether_bricks"),
 
                 //End Blocks

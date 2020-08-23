@@ -1,5 +1,6 @@
 package voronoiaoc.byg.core.byglists;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 public class BYGItemList {
@@ -15,6 +16,8 @@ public class BYGItemList {
     public static Item JOSHUA_FRUIT;
     public static Item COOKED_JOSHUA_FRUIT;
     public static Item MUD_BALL;
+    public static Item CRIMSON_BERRIES;
+
     //FenceItems
     public static Item ASPEN_FENCE;
     public static Item BAOBAB_FENCE;
@@ -569,6 +572,10 @@ public class BYGItemList {
 
     public static Item OVERGROWN_NETHERRACK;
     public static Item NETHER_BRISTLE;
+
+    public static Item OVERGROWN_CRIMSON_BLACKSTONE;
+    public static Item TALL_CRIMSON_ROOTS;
+    public static Item CRIMSON_BERRY;
 
     public static Item WARPED_CACTUS;
     public static Item WARPED_BUSH;
