@@ -14,11 +14,30 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
-public class EmburPlantBlock extends BushBlock {
+public class EmburPlantBlock extends BushBlock implements IGrowable {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     protected EmburPlantBlock(Properties builder) {
         super(builder);
+
+    }
+
+    /**
+     * Whether this IGrowable can grow
+     */
+    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+        return true;
+    }
+
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+        return true;
+    }
+
+    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+        DoublePlantBlock doubleplantblock = (DoublePlantBlock)(this == BYGBlockList.EMBUR_ROOTS ? BYGBlockList.TALL_EMBUR_ROOTS : BYGBlockList.TALL_EMBUR_ROOTS);
+        if (doubleplantblock.getDefaultState().isValidPosition(worldIn, pos) && worldIn.isAirBlock(pos.up())) {
+            doubleplantblock.placeAt(worldIn, pos, 2);
+        }
 
     }
 
@@ -42,20 +61,5 @@ public class EmburPlantBlock extends BushBlock {
         return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }
 
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        return true;
-    }
-
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
-        return true;
-    }
-
-    public void grow(ServerWorld world, BlockPos pos) {
-        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlockList.EMBUR_ROOTS ? BYGBlockList.TALL_EMBUR_ROOTS : BYGBlockList.TALL_EMBUR_ROOTS);
-        if (doubleplantblock.getDefaultState().isValidPosition(world, pos) && world.isAirBlock(pos.up())) {
-            doubleplantblock.placeAt(world, pos, 2);
-        }
-
-    }
 }
 
