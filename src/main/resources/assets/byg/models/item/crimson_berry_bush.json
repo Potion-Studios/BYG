@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "byg:blocks/crimson_berry_bush_stage01"
+  }
+}
