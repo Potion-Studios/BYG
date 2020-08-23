@@ -706,6 +706,10 @@ public class BYGItemRegistry {
                 BYGItemList.YELLOW_GLOWSHROOM_STEM = new BlockItem(BYGBlockList.YELLOW_GLOWSHROOM_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.YELLOW_GLOWSHROOM_STEM.getRegistryName()),
 
                 //Nether
+                BYGItemList.OVERGROWN_CRIMSON_BLACKSTONE = new BlockItem(BYGBlockList.OVERGROWN_CRIMSON_BLACKSTONE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.OVERGROWN_CRIMSON_BLACKSTONE.getRegistryName()),
+                BYGItemList.TALL_CRIMSON_ROOTS = new BlockItem(BYGBlockList.TALL_CRIMSON_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.TALL_CRIMSON_ROOTS.getRegistryName()),
+                BYGItemList.CRIMSON_BERRIES = new BlockNamedItem(BYGBlockList.CRIMSON_BERRY_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(3).saturation(0.4f).build())).setRegistryName("crimson_berries"),
+
                 BYGItemList.WARPED_CACTUS = new BlockItem(BYGBlockList.WARPED_CACTUS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WARPED_CACTUS.getRegistryName()),
                 BYGItemList.WARPED_BUSH = new BlockItem(BYGBlockList.WARPED_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WARPED_BUSH.getRegistryName()),
                 BYGItemList.WARPED_CORAL_BLOCK = new BlockItem(BYGBlockList.WARPED_CORAL_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WARPED_CORAL_BLOCK.getRegistryName()),

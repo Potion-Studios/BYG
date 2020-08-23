@@ -520,7 +520,7 @@ public class BYGBlockList {
 
     public static Block OVERGROWN_CRIMSON_BLACKSTONE;
     public static Block TALL_CRIMSON_ROOTS;
-    public static Block CRIMSON_BERRY;
+    public static Block CRIMSON_BERRY_BUSH;
 
     public static Block WARPED_CACTUS;
     public static Block WARPED_BUSH;

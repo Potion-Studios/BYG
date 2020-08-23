@@ -575,7 +575,7 @@ public class BYGItemList {
 
     public static Item OVERGROWN_CRIMSON_BLACKSTONE;
     public static Item TALL_CRIMSON_ROOTS;
-    public static Item CRIMSON_BERRY;
+    public static Item CRIMSON_BERRY_BUSH;
 
     public static Item WARPED_CACTUS;
     public static Item WARPED_BUSH;

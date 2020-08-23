@@ -13,6 +13,8 @@ import net.minecraftforge.common.ToolType;
 import voronoiaoc.byg.client.textures.BYGMaterials;
 import voronoiaoc.byg.common.properties.blocks.*;
 import voronoiaoc.byg.common.properties.blocks.nether.BYGOvergrownNetherrackBlock;
+import voronoiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
+import voronoiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBlackstoneBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburNyliumBlock;
@@ -780,6 +782,30 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .harvestTool(ToolType.PICKAXE)
 
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class OvergrownCrimsonBlackstone extends CrimsonBlackstoneBlock {
+        public OvergrownCrimsonBlackstone(String registryName) {
+            super(Block.Properties.create(Material.ROCK)
+                    .sound(SoundType.NYLIUM)
+                    .hardnessAndResistance(0.2f)
+                    .tickRandomly()
+                    .harvestTool(ToolType.PICKAXE)
+
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class CrimsonBerryBush extends CrimsonBerryBushBlock {
+        public CrimsonBerryBush(String registryName) {
+            super(Block.Properties.create(Material.PLANTS)
+                    .sound(SoundType.SWEET_BERRY_BUSH)
+                    .zeroHardnessAndResistance()
+                    .doesNotBlockMovement()
             );
             setRegistryName(registryName);
         }

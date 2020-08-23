@@ -425,6 +425,11 @@ public class BYGBlockRegistry {
                 BYGBlockList.OVERGROWN_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("overgrown_netherrack"),
                 BYGBlockList.NETHER_BRISTLE = new BYGBlockProperties.BYGDoubleDamagePlant("nether_bristle"),
 
+                BYGBlockList.OVERGROWN_CRIMSON_BLACKSTONE = new BYGBlockProperties.OvergrownCrimsonBlackstone("overgrown_crimson_blackstone"),
+                BYGBlockList.CRIMSON_BERRY_BUSH = new BYGBlockProperties.CrimsonBerryBush("crimson_berry_bush"),
+                BYGBlockList.TALL_CRIMSON_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_crimson_roots"),
+
+
                 BYGBlockList.BRIMSTONE = new BYGBlockProperties.BYGNetherrack("brimstone"),
                 BYGBlockList.YELLOW_NETHER_BRICKS = new BYGBlockProperties.BYGNetherrack("yellow_nether_bricks"),
                 BYGBlockList.BORIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("boric_campfire"),
