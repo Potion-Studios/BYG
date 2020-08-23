@@ -182,7 +182,7 @@ public class BYGBiomeRegistry {
         registerNetherBiome(BYGBiomeList.GLOWSTONEGARDENS, "glowstone_gardens");
         registerNetherBiome(BYGBiomeList.EMBURBOG, "embur_bog");
         registerNetherBiome(BYGBiomeList.WAILING_GARTH, "wailing_garth");
-
+        registerNetherBiome(BYGBiomeList.CRIMSON_GARDENS, "crimson_gardens");
 
         //End
         registerBYGEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");

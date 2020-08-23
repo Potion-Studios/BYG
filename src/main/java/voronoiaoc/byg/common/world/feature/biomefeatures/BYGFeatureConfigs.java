@@ -20,6 +20,7 @@ import net.minecraft.world.gen.trunkplacer.FancyTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.GiantTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.MegaJungleTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
+import voronoiaoc.byg.common.properties.blocks.BlueBerryBush;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.OptionalInt;
@@ -125,7 +126,7 @@ public class BYGFeatureConfigs {
     public static final BaseTreeFeatureConfig FANCY_RED_OAK_WITH_MORE_BEEHIVES_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlockList.RED_OAK_LEAVES.getDefaultState()), new FancyFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(4), 4), new FancyTrunkPlacer(3, 11, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).setIgnoreVines().func_236702_a_(Heightmap.Type.MOTION_BLOCKING).build();
 
     private static final Block GRASS_BLOCK = Blocks.GRASS_BLOCK;
-    public static final BlockClusterFeatureConfig BLUEBERRY_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.BLUEBERRY_BUSH.getDefaultState().with(SweetBerryBushBlock.AGE, Integer.valueOf(3))), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, GRASS_BLOCK)).func_227317_b_().build();
+    public static final BlockClusterFeatureConfig BLUEBERRY_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.BLUEBERRY_BUSH.getDefaultState().with(BlueBerryBush.AGE, Integer.valueOf(3))), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, GRASS_BLOCK)).func_227317_b_().build();
     public static final BlockClusterFeatureConfig ROSE_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.ROSE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, GRASS_BLOCK)).func_227317_b_().build();
     public static final BlockClusterFeatureConfig ANGELICA_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.ANGELICA.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, GRASS_BLOCK)).func_227317_b_().build();
     public static final BlockClusterFeatureConfig CROCUS_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.CROCUS.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, GRASS_BLOCK)).func_227317_b_().build();

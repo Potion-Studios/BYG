@@ -146,6 +146,10 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> EMBUR_GEL_VINES = newConfiguredFeature("embur_gel_vines", BYGFeatureList.EMBUR_GEL_VINES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> EMBUR_WART = newConfiguredFeature("embur_wart", BYGFeatureList.EMBUR_WART.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
+    public static ConfiguredFeature<?, ?> CRIMSON_ROOTS_TALL = newConfiguredFeature("tall_crimson_roots", BYGFeatureList.TALL_CRIMSON_ROOTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static ConfiguredFeature<?, ?> CRIMSON_BERRY_BUSH = newConfiguredFeature("crimson_berry_bush", BYGFeatureList.CRIMSON_BERRY_BUSH.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+
+
     public static ConfiguredFeature<?, ?> SYTHIAN_ROOTS = newConfiguredFeature("sythian_root", BYGFeatureList.SYTHIAN_ROOTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> SYTHIAN_SPROUT = newConfiguredFeature("sythian_sprout", BYGFeatureList.SYTHIAN_SPROUT.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
@@ -272,6 +276,10 @@ public class BYGConfiguredFeatures {
             WOOD_BLEWIT.withChance(0.1F),
             WEEPING_MILKCAP.withChance(0.1F)),
             NETHER_BRISTLE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(15)).func_242731_b(1)));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_CRIMSON_GARDEN_VEGETATION = newConfiguredFeature("rs_cg_vegetation", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            CRIMSON_ROOTS_TALL.withChance(0.9F)),
+            CRIMSON_BERRY_BUSH)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(25))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_BOG_PLANT = newConfiguredFeature("rs_embur_bog_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_ROOTS_TALL.withChance(0.45F),

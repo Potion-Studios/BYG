@@ -12,6 +12,8 @@ import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.features.RiverThingy;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.LargeChain;
+import voronoiaoc.byg.common.world.feature.features.nether.crimsongardens.CrimsonBerryBush;
+import voronoiaoc.byg.common.world.feature.features.nether.crimsongardens.TallCrimsonRoots;
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
@@ -223,6 +225,9 @@ public class BYGFeatureList {
     //Chains
     public static final Feature<NoFeatureConfig> CHAINS = new LargeChain(NoFeatureConfig.field_236558_a_);
 
+    //CrimsonGardens
+    public static final Feature<NoFeatureConfig> TALL_CRIMSON_ROOTS = new TallCrimsonRoots(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> CRIMSON_BERRY_BUSH = new CrimsonBerryBush(NoFeatureConfig.field_236558_a_);
     //Whaling
     public static final Feature<NoFeatureConfig> WAILING_VINES = new WailingVine(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> WAILING_GRASS = new WhalingGrass(NoFeatureConfig.field_236558_a_);
@@ -505,6 +510,8 @@ public class BYGFeatureList {
             registerFeature(BLACK_PUFF, "black_puff");
             registerFeature(GREEN_MUSHROOM, "green_mushroom");
             registerFeature(NETHER_BRISTLE, "nether_bristle");
+            registerFeature(TALL_CRIMSON_ROOTS, "tall_crimson_roots");
+            registerFeature(CRIMSON_BERRY_BUSH, "crimson_berry_bush");
             registerFeature(SYTHIAN_SPROUT, "sythian_sprout");
             registerFeature(SYTHIAN_STALK, "sythian_stalk");
             registerFeature(SYTHIAN_ROOTS, "sythian_roots");
