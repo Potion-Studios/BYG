@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.properties.blocks.embur;
+package voronoiaoc.byg.common.properties.blocks.nether;
 
 import net.minecraft.block.*;
 import net.minecraft.tags.BlockTags;

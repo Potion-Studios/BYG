@@ -1,6 +1,5 @@
-package voronoiaoc.byg.common.properties.blocks.scorched;
+package voronoiaoc.byg.common.properties.blocks.nether.scorched;
 
-import com.sun.javafx.geom.Vec3d;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

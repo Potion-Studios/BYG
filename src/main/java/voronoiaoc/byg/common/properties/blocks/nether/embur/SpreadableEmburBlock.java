@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks;
+package voronoiaoc.byg.common.properties.blocks.nether.embur;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

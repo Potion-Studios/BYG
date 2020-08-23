@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.properties.blocks;
+package voronoiaoc.byg.common.properties.blocks.nether.warped;
 
 import net.minecraft.block.Block;
 

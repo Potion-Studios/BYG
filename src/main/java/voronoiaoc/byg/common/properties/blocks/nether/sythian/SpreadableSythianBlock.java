@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks;
+package voronoiaoc.byg.common.properties.blocks.nether.sythian;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -12,8 +12,8 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-public class SpreadableOvergrownNetherrack extends Block {
-    public SpreadableOvergrownNetherrack(Properties properties) {
+public class SpreadableSythianBlock extends Block {
+    public SpreadableSythianBlock(Properties properties) {
         super(properties);
     }
 

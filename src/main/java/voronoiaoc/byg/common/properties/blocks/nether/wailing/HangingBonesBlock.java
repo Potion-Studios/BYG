@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.properties.blocks.whaling;
+package voronoiaoc.byg.common.properties.blocks.nether.wailing;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

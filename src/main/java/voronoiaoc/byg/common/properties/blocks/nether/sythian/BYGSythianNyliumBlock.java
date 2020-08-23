@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.properties.blocks.grassblocks;
+package voronoiaoc.byg.common.properties.blocks.nether.sythian;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IGrowable;
@@ -8,14 +8,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.server.ServerWorld;
-import voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks.SpreadableOvergrownNetherrack;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.List;
 import java.util.Random;
 
-public class BYGOvergrownNetherrackBlock extends SpreadableOvergrownNetherrack implements IGrowable {
-    public BYGOvergrownNetherrackBlock(Properties properties) {
+public class BYGSythianNyliumBlock extends SpreadableSythianBlock implements IGrowable {
+    public BYGSythianNyliumBlock(Properties properties) {
         super(properties);
     }
 
@@ -29,7 +28,7 @@ public class BYGOvergrownNetherrackBlock extends SpreadableOvergrownNetherrack i
 
     public void grow(ServerWorld world, Random rand, BlockPos blockPos, BlockState state) {
         BlockPos blockpos = blockPos.up();
-        BlockState blockstate = BYGBlockList.WEED_GRASS.getDefaultState();
+        BlockState blockstate = BYGBlockList.SYTHIAN_ROOTS.getDefaultState();
 
 
         for (int i = 0; i < 128; ++i) {
@@ -57,7 +56,6 @@ public class BYGOvergrownNetherrackBlock extends SpreadableOvergrownNetherrack i
                         ConfiguredFeature<?, ?> configuredfeature = list.get(0);
                         FlowersFeature flowersfeature = (FlowersFeature)configuredfeature.feature;
                         blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.func_242767_c());
-                        blockstate1 = ((FlowersFeature) configuredfeature.feature).getFlowerToPlace(rand, blockpos1, configuredfeature.config);
                     } else {
                         blockstate1 = blockstate;
                     }
