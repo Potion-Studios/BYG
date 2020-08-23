@@ -3,6 +3,6 @@
   "textures": {
     "top": "minecraft:block/crimson_nylium",
     "bottom": "minecraft:block/blackstone_top",
-    "side": "byg:block/overgrown_crimson_blackstone_side"
+    "side": "byg:blocks/overgrown_crimson_blackstone_side"
   }
 }

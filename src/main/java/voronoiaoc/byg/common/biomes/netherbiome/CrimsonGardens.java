@@ -52,7 +52,6 @@ public class CrimsonGardens extends Biome implements BiomeTools {
 
     static {
         //TODO: Reenable Embur Bog lake.
-        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.EMBUR_LAKE);
         GENERATION_SETTINGS.func_242512_a(GenerationStage.Carving.AIR, ConfiguredCarvers.field_243772_f);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243830_ac);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243828_aa);
@@ -62,7 +61,6 @@ public class CrimsonGardens extends Biome implements BiomeTools {
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243821_aT);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243822_aU);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243884_bd);
-        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_EMBUR_MUSHROOM);
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244153_s); //BastionRemnant
