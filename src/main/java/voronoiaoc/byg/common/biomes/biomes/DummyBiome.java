@@ -36,6 +36,21 @@ public class DummyBiome extends Biome implements BiomeTools  {
     }
 
     static {
+        //        //this.add//StructureFeature(BYGFeatureList.BYGVILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("byg:village/grassland/town_centers"), 6)));
+        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
+        BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243697_K(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243704_R(GENERATION_SETTINGS);
         BYGTreeFeatures.addDummyTree(GENERATION_SETTINGS);
+
     }
 }

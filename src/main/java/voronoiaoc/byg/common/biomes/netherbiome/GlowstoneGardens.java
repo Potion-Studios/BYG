@@ -9,7 +9,9 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
@@ -26,8 +28,8 @@ public class GlowstoneGardens extends Biome implements BiomeTools {
     static final float DOWNFALL = 0.4F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
-    static final int GRASS_COLOR = 10855786;
-    static final int FOLIAGE_COLOR = 10855786;
+    static final int GRASS_COLOR = 1356933;
+    static final int FOLIAGE_COLOR = 1356933;
     static final String PARENT = null;
     static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
@@ -56,6 +58,12 @@ public class GlowstoneGardens extends Biome implements BiomeTools {
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243821_aT);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243822_aU);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243884_bd);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243957_q); //Twisting Vines
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243956_p); //Nether Sprouts
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244134_E); //NetherPortal
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244149_o); //Fortress
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244153_s); //BastionRemnant
+
         DefaultBiomeFeatures.func_243731_ao(GENERATION_SETTINGS);
         BYGFeatures.addHugeNetherMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addGlowstoneGardenVegetation(GENERATION_SETTINGS);

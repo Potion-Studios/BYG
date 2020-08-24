@@ -327,6 +327,7 @@ public class BYGFeatures {
     public static void addGlowstoneGardenVegetation(BiomeGenerationSettings.Builder gen) {
         gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_GLOWSTONE_GARDEN_VEGETATION);
         gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_WEEPING_ROOTS);
+        gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_WEEPING_ROOTS_FEATURE);
     }
 
     public static void addDeadSeaSpires(BiomeGenerationSettings.Builder gen) {

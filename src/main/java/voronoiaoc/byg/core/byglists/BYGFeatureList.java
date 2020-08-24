@@ -246,6 +246,7 @@ public class BYGFeatureList {
     //Weeping Roots
     public static final Feature<NoFeatureConfig> WEEPING_ROOTS = new WeepingRoots(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> WEEPING_ROOTS_PLANT = new WeepingRootsPlant(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> WEEPING_ROOTS_FEATURE = new WeepingRootsFeature(NoFeatureConfig.field_236558_a_);
 
     //Embur
     public static final Feature<NoFeatureConfig> EMBURLAKE = new EmburBogLake(NoFeatureConfig.field_236558_a_);
@@ -527,6 +528,7 @@ public class BYGFeatureList {
             registerFeature(WEEPING_MILKCAP, "weeping_milk_cap");
             registerFeature(WEEPING_ROOTS, "weeping_roots");
             registerFeature(WEEPING_ROOTS_PLANT, "weeping_roots_plant");
+            registerFeature(WEEPING_ROOTS_FEATURE, "weeping_roots_feature");
             registerFeature(WEEPING_VINE_BLACKSTONE, "weeping_vine_blackstone");
             registerFeature(EMBURLAKE, "embur_lake");
             registerFeature(EMBUR_MUSHROOM, "embur_mushroom");

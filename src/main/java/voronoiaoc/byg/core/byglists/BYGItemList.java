@@ -543,6 +543,7 @@ public class BYGItemList {
     public static Item TINY_LILYPADS;
     public static Item WINTER_GRASS;
     public static Item WATER_SILK;
+    public static Item WEEPING_ROOTS;
 
 
     public static Item BLACK_ICE;

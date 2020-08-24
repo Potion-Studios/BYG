@@ -292,6 +292,9 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_VINE_BLACKSTONE = newConfiguredFeature("weeping_vines_blackstone", BYGFeatureList.WEEPING_VINE_BLACKSTONE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS_FEATURE = newConfiguredFeature("weeping_roots_feature", BYGFeatureList.WEEPING_ROOTS_FEATURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
+
+
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_GEL_VINES = newConfiguredFeature("rs_embur_gel_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_GEL_VINES.withChance(0.3F)),
             EMBUR_GEL_VINES)).func_242733_d(128).func_242728_a().func_242731_b(100));

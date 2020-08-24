@@ -27,8 +27,8 @@ public class AspenForest extends Biome implements BiomeTools  {
     static final float DOWNFALL = 0.6F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
-    static final int GRASS_COLOR = 5406551;
-    static final int FOLIAGE_COLOR = 11909994;
+    static final int GRASS_COLOR = 11909994;
+    static final int FOLIAGE_COLOR = 5406551;
     static final String PARENT = null;
     static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();

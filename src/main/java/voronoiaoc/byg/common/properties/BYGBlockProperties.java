@@ -582,7 +582,7 @@ public class BYGBlockProperties {
     public static class WailingVines extends VineBlock {
         public WailingVines(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
-                    .sound(SoundType.PLANT)
+                    .sound(SoundType.NETHER_VINE_LOWER_PITCH)
                     .hardnessAndResistance(0.0F)
                     .tickRandomly()
                     .doesNotBlockMovement()
@@ -942,7 +942,7 @@ public class BYGBlockProperties {
     public static class BYGHangingVine extends HangingVinesBlock {
         public BYGHangingVine(String registryName) {
             super(Block.Properties.create(Material.LEAVES)
-                    .sound(SoundType.PLANT)
+                    .sound(SoundType.NETHER_VINE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
                     .doesNotBlockMovement()
@@ -954,7 +954,7 @@ public class BYGBlockProperties {
     public static class BYGHangingVinePlant extends HangingVinesPlantBlock {
         public BYGHangingVinePlant(String registryName) {
             super(Block.Properties.create(Material.LEAVES)
-                    .sound(SoundType.PLANT)
+                    .sound(SoundType.NETHER_VINE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
                     .doesNotBlockMovement()

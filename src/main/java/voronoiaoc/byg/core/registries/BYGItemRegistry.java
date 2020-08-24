@@ -734,8 +734,7 @@ public class BYGItemRegistry {
                 BYGItemList.SCORCHED_BUSH = new BlockItem(BYGBlockList.SCORCHED_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SCORCHED_BUSH.getRegistryName()),
                 BYGItemList.SCORCHED_GRASS = new BlockItem(BYGBlockList.SCORCHED_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SCORCHED_GRASS.getRegistryName()),
 
-
-                BYGItemList.WEEPING_ROOTS_PLANT = new BlockItem(BYGBlockList.WEEPING_ROOTS_PLANT, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WEEPING_ROOTS_PLANT.getRegistryName()),
+                BYGItemList.WEEPING_ROOTS = new BlockItem(BYGBlockList.WEEPING_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WEEPING_ROOTS.getRegistryName()),
                 BYGItemList.NETHER_BRISTLE = new BlockItem(BYGBlockList.NETHER_BRISTLE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.NETHER_BRISTLE.getRegistryName()),
                 BYGItemList.OVERGROWN_NETHERRACK = new BlockItem(BYGBlockList.OVERGROWN_NETHERRACK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.OVERGROWN_NETHERRACK.getRegistryName()),
                 BYGItemList.PERVADED_NETHERRACK = new BlockItem(BYGBlockList.PERVADED_NETHERRACK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PERVADED_NETHERRACK.getRegistryName()),

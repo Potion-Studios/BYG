@@ -1,9 +1,6 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.IGrowable;
+import net.minecraft.block.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
@@ -22,69 +19,26 @@ import voronoiaoc.byg.core.byglists.BYGItemList;
 
 import java.util.Random;
 
-public class HangingVinesBlock extends Block implements IGrowable {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D);
+public class HangingVinesBlock extends AbstractTopPlantBlock {
+    protected static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
-    protected HangingVinesBlock(Properties builder) {
-        super(builder);
-
+    protected HangingVinesBlock(AbstractBlock.Properties properties) {
+        super(properties, Direction.DOWN, SHAPE, false, 0.1D);
     }
 
-    public Block.OffsetType getOffsetType() {
-        return Block.OffsetType.XZ;
+    /**
+     * Used to determine how much to grow the plant when using bonemeal. Kelp always returns 1, where as the nether vines
+     * return a random value at least 1.
+     */
+    protected int getGrowthAmount(Random rand) {
+        return PlantBlockHelper.getGrowthAmount(rand);
     }
 
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        Vector3d Vector3d = state.getOffset(worldIn, pos);
-        return SHAPE.withOffset(Vector3d.x, Vector3d.y, Vector3d.z);
+    protected Block getBodyPlantBlock() {
+        return BYGBlockList.WEEPING_ROOTS_PLANT;
     }
 
-    @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        worldIn.getBlockState(pos.up());
-
-        Block block = worldIn.getBlockState(pos.up()).getBlock();
-        return block.isIn(Tags.Blocks.NETHERRACK) || block.isIn(Tags.Blocks.STONE) || block.isIn(BlockTags.LOGS);
-    }
-
-    @Override
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (!stateIn.isValidPosition(worldIn, currentPos)) {
-            return Blocks.AIR.getDefaultState();
-        } else {
-            if (facing == Direction.DOWN && facingState.getBlock() == BYGBlockList.WEEPING_ROOTS_PLANT) {
-                worldIn.setBlockState(currentPos, BYGBlockList.WEEPING_ROOTS_PLANT.getDefaultState(), 2);
-            }
-
-            return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
-        }
-    }
-
-    @Override
-    public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        if (rand.nextInt(3) == 0 && worldIn.isAirBlock(pos.down()) && worldIn.getLightSubtracted(pos.down(), 0) <= 12) {
-            this.func_220087_a(worldIn, pos);
-        }
-    }
-
-    @Override
-    public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItemList.WEEPING_ROOTS_PLANT);
-    }
-
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        return worldIn.getBlockState(pos.down()).isAir();
-    }
-
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
-        return true;
-    }
-
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-        this.func_220087_a(worldIn, pos);
-    }
-
-    protected void func_220087_a(World world, BlockPos pos) {
-        world.setBlockState(pos.down(), BYGBlockList.WEEPING_ROOTS_PLANT.getDefaultState(), 3);
+    protected boolean canGrowIn(BlockState state) {
+        return PlantBlockHelper.isAir(state);
     }
 }
