@@ -42,13 +42,13 @@ public class WoodLands extends Biome implements BiomeTools  {
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
         map.put(BYGBiomeList.FRESHWATERLAKE, 1);
-        map.put(BYGBiomeList.MAPLE_HILLS, 4);
+        map.put(BYGBiomeList.FRESHWATERLAKE, 4);
         return map;
     }
 
     @Override
     public Biome getHill(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.MAPLE_HILLS;
+        return (rand.random(5) == 0) ? BYGBiomeList.FRESHWATERLAKE : BYGBiomeList.FRESHWATERLAKE;
     }
 
     static {

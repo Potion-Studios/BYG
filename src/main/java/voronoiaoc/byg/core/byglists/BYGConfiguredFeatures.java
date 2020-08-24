@@ -8,6 +8,7 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.placements.AnyWaterOrSolidSurfaceSurface;
 import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 import voronoiaoc.byg.common.world.feature.placements.ObsidianSpikePlacer;
@@ -137,6 +138,8 @@ public class BYGConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> IVIS_ROOTS = newConfiguredFeature("ivis_roots", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.IVIS_ROOTS));
     public static ConfiguredFeature<?, ?> IVIS_SPROUT = newConfiguredFeature("ivis_sprout", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.IVIS_SPROUT));
+
+    public static ConfiguredFeature<?, ?> WEEPING_VINE_BLACKSTONE = newConfiguredFeature("weeping_vines_blackstone", BYGFeatureList.WEEPING_VINE_BLACKSTONE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
     public static ConfiguredFeature<?, ?> WEEPING_ROOTS = newConfiguredFeature("weeping_roots", BYGFeatureList.WEEPING_ROOTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> WEEPING_ROOTS_PLANT = newConfiguredFeature("weeping_roots_plant", BYGFeatureList.WEEPING_ROOTS_PLANT.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
@@ -278,13 +281,15 @@ public class BYGConfiguredFeatures {
             NETHER_BRISTLE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(15)).func_242731_b(1)));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CRIMSON_GARDEN_VEGETATION = newConfiguredFeature("rs_cg_vegetation", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            CRIMSON_ROOTS_TALL.withChance(0.9F)),
+            CRIMSON_ROOTS_TALL.withChance(0.8F)),
             CRIMSON_BERRY_BUSH)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(25))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_BOG_PLANT = newConfiguredFeature("rs_embur_bog_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_ROOTS_TALL.withChance(0.45F),
             EMBUR_ROOTS.withChance(0.5F)),
             EMBUR_WART)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_VINE_BLACKSTONE = newConfiguredFeature("weeping_vines_blackstone", BYGFeatureList.WEEPING_VINE_BLACKSTONE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(10));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_GEL_VINES = newConfiguredFeature("rs_embur_gel_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_GEL_VINES.withChance(0.3F)),

@@ -58,6 +58,7 @@ public class BYGFeatures {
     public static void addCrimsonGardensVegetation(BiomeGenerationSettings.Builder gen) {
 //        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_EMBUR_MUSHROOM);
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CRIMSON_GARDEN_VEGETATION);
+        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WEEPING_VINE_BLACKSTONE);
     }
 
     public static void addEmburBogVegetation(BiomeGenerationSettings.Builder gen) {
