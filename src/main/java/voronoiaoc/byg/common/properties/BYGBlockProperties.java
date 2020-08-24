@@ -21,6 +21,7 @@ import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburNyliumBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
+import voronoiaoc.byg.common.properties.blocks.nether.glowstonegardens.MyceliumNetherrackBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.scorched.ScorchedPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.sythian.BYGSythianNyliumBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.sythian.BYGSythianPlantBlock;
@@ -467,7 +468,18 @@ public class BYGBlockProperties {
         public BYGMeadowGrass(String registryName) {
             super(Block.Properties.create(Material.ORGANIC)
                     .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.6f)
+                    .tickRandomly()
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class MyceliumNetherrack extends MyceliumNetherrackBlock {
+        public MyceliumNetherrack(String registryName) {
+            super(Block.Properties.create(Material.ORGANIC)
+                    .sound(SoundType.PLANT)
+                    .hardnessAndResistance(0.4f)
                     .tickRandomly()
             );
             setRegistryName(registryName);
@@ -478,7 +490,7 @@ public class BYGBlockProperties {
         public BYGGlowcelium(String registryName) {
             super(Block.Properties.create(BYGMaterials.GLOWCELIUM)
                     .sound(SoundType.GROUND)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.6f)
                     .tickRandomly()
                     .setLightLevel((state) -> 10)
 

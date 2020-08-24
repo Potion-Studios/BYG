@@ -273,8 +273,8 @@ public class BYGConfiguredFeatures {
             GREEN_MUSHROOM)).withPlacement(Features.Placements.field_244001_l).func_242731_b(5));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDEN_VEGETATION = newConfiguredFeature("rs_gg_vegetation", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            BLACK_PUFF.withChance(0.1F),
-            WOOD_BLEWIT.withChance(0.1F)),
+            BLACK_PUFF.withChance(0.2F),
+            WOOD_BLEWIT.withChance(0.2F)),
             NETHER_BRISTLE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(15)).func_242731_b(1)));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CRIMSON_GARDEN_VEGETATION = newConfiguredFeature("rs_cg_vegetation", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(

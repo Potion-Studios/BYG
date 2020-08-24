@@ -39,6 +39,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> WAILING_GARTH_SB = newSurfaceBuilder("wailing_garth", new WailingGarthSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> STONE_FOREST_SB = newSurfaceBuilder("stone_forest", new StoneForestSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> CRIMSON_GARDENS = newSurfaceBuilder("crimson_gardens", new CrimsonGardenSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> GLOWSTONE_GARDENS_SB = newSurfaceBuilder("glowstone_gardens", new GlowstoneGardensSB(SurfaceBuilderConfig.field_237203_a_));
 
     //End
     public static final SurfaceBuilder<SurfaceBuilderConfig> IVISFIELDS_SB = newSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderConfig.field_237203_a_));
@@ -71,6 +72,8 @@ public class BYGSBList {
         public static final SurfaceBuilderConfig GLOWSTONEGARDENS = new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
         public static final SurfaceBuilderConfig GRASSSTONEMOUNTAIN_CF = new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState());
         public static final SurfaceBuilderConfig CRIMSON_GARDEN = new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_CRIMSON_BLACKSTONE.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHER_WART_BLOCK.getDefaultState());
+        public static final SurfaceBuilderConfig MYCELIUM_NETHERRACK = new SurfaceBuilderConfig(BYGBlockList.MYCELIUM_NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
+        public static final SurfaceBuilderConfig WARPED_NYLIUM = new SurfaceBuilderConfig(Blocks.WARPED_NYLIUM.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
 
 
         public static final SurfaceBuilderConfig SAND_CF = new SurfaceBuilderConfig(Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState());

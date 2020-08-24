@@ -571,6 +571,7 @@ public class BYGItemList {
     public static Item SCORCHED_BUSH;
     public static Item SCORCHED_GRASS;
 
+    public static Item MYCELIUM_NETHERRACK;
     public static Item OVERGROWN_NETHERRACK;
     public static Item NETHER_BRISTLE;
 

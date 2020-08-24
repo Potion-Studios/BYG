@@ -798,7 +798,7 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(25, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDENS_MUSHROOM = newConfiguredFeature("rs_gg_mushroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                WOOD_BLEWIT_HUGE.withChance(0.16F)),
+                WOOD_BLEWIT_HUGE.withChance(0.5F)),
                 BLACK_PUFF_HUGE)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
                 new AtSurfaceWithExtraConfig(6, 0.6F, 3))));
 

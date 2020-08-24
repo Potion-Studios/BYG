@@ -25,6 +25,8 @@ public class WailingGarth extends Biome implements BiomeTools {
     static final float DOWNFALL = 0.4F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
+    static final int GRASS_COLOR = 5849791;
+    static final int FOLIAGE_COLOR = 5849791;
     static final String PARENT = null;
     static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
@@ -32,6 +34,8 @@ public class WailingGarth extends Biome implements BiomeTools {
 
     public WailingGarth() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
+                .func_242541_f(GRASS_COLOR)
+                .func_242540_e(FOLIAGE_COLOR)
                 .setFogColor(4529794)
                 .func_242539_d(BiomeHelper.calcSkyColor(2.0F))
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.01428F))
@@ -52,6 +56,8 @@ public class WailingGarth extends Biome implements BiomeTools {
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243821_aT);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243822_aU);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243884_bd);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243956_p); //Nether Sprouts
+
         BYGFeatures.addMiniNetherMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addWailingVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243731_ao(GENERATION_SETTINGS);

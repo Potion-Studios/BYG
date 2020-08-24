@@ -1,0 +1,30 @@
+package voronoiaoc.byg.common.world.surfacebuilders;
+
+import com.mojang.serialization.Codec;
+import net.minecraft.block.BlockState;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.IChunk;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import voronoiaoc.byg.core.byglists.BYGSBList;
+
+import java.util.Random;
+
+public class GlowstoneGardensSB extends SurfaceBuilder<SurfaceBuilderConfig> {
+    public GlowstoneGardensSB(Codec<SurfaceBuilderConfig> config) {
+        super(config);
+    }
+
+    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+        int randomizer = random.nextInt(5);
+
+        if (randomizer <= 1)
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.WARPED_NYLIUM);
+        if (randomizer <= 2)
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.MYCELIUM_NETHERRACK);
+        if (randomizer == 3)
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.GLOWSTONEGARDENS);
+        if (randomizer == 4)
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.GLOWSTONEGARDENS);
+    }
+}

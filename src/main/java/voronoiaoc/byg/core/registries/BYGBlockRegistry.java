@@ -407,7 +407,6 @@ public class BYGBlockRegistry {
                 BYGBlockList.WATER_SILK = new BYGBlockProperties.BYGWaterSilk("water_silk"),
                 BYGBlockList.WEEPING_ROOTS = new BYGBlockProperties.BYGHangingVine("weeping_roots"),
                 BYGBlockList.WEEPING_ROOTS_PLANT = new BYGBlockProperties.BYGHangingVinePlant("weeping_roots_plant"),
-
                 BYGBlockList.WINTER_GRASS = new BYGBlockProperties.BYGWinterTallGrass("winter_grass"),
                 BYGBlockList.WEED_GRASS = new BYGBlockProperties.BYGTallGrass("weed_grass"),
                 BYGBlockList.WILTED_GRASS = new BYGBlockProperties.BYGTallGrass("wilted_grass"),
@@ -422,6 +421,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.ANTHRACITE_BLOCK = new BYGBlockProperties.AnthraciteOre("anthracite_block"),
                 BYGBlockList.ANTHRACITE_ORE = new BYGBlockProperties.AnthraciteOre("anthracite_ore"),
 
+                BYGBlockList.MYCELIUM_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("mycelium_netherrack"),
                 BYGBlockList.OVERGROWN_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("overgrown_netherrack"),
                 BYGBlockList.NETHER_BRISTLE = new BYGBlockProperties.BYGDoubleDamagePlant("nether_bristle"),
 

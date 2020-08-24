@@ -515,6 +515,7 @@ public class BYGBlockList {
     public static Block SCORCHED_BUSH;
     public static Block SCORCHED_GRASS;
 
+    public static Block MYCELIUM_NETHERRACK;
     public static Block OVERGROWN_NETHERRACK;
     public static Block NETHER_BRISTLE;
 

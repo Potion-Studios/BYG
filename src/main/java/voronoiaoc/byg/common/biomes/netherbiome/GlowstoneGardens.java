@@ -19,7 +19,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class GlowstoneGardens extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("glowstone_gardens", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSBList.BYGSBConfigList.GLOWSTONEGARDENS));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("glowstone_gardens", new ConfiguredSurfaceBuilder<>(BYGSBList.WAILING_GARTH_SB, BYGSBList.BYGSBConfigList.GLOWSTONEGARDENS));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.NETHER;
     static final float DEPTH = 0.125F;
@@ -39,7 +39,7 @@ public class GlowstoneGardens extends Biome implements BiomeTools {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
                 .func_242541_f(GRASS_COLOR)
                 .func_242540_e(FOLIAGE_COLOR)
-                .setFogColor(13162605)
+                .setFogColor(1625274)
                 .func_242539_d(BiomeHelper.calcSkyColor(2.0F))
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.MYCELIUM, 0.01428F))
                 .setAmbientSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
@@ -60,6 +60,8 @@ public class GlowstoneGardens extends Biome implements BiomeTools {
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243884_bd);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243957_q); //Twisting Vines
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243956_p); //Nether Sprouts
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243956_p); //Nether Sprouts
+
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244153_s); //BastionRemnant
