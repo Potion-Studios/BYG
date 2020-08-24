@@ -19,7 +19,7 @@ public class CrimsonBerryBush extends Feature<NoFeatureConfig> {
     }
 
     public boolean func_241855_a(ISeedReader worldIn,  ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        if (!worldIn.isAirBlock(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_CRIMSON_BLACKSTONE || worldIn.getBlockState(pos.down()).getBlock() != Blocks.CRIMSON_NYLIUM) {
+        if (!worldIn.isAirBlock(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_CRIMSON_BLACKSTONE) {
             return false;
         } else {
             worldIn.setBlockState(pos, BYGBlockList.CRIMSON_BERRY_BUSH.getDefaultState().with(CrimsonBerryBushBlock.AGE, Integer.valueOf(3)), 10);

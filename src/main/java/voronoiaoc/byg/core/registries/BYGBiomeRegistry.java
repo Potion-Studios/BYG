@@ -19,7 +19,7 @@ public class BYGBiomeRegistry {
     public static List<Biome> biomeList = new ArrayList<>();
     public static void registerBYGBiomes() {
         BYG.LOGGER.debug("BYG: Registering Biomes...");
-//        registerBiome(registry, BYGBiomeList.DUMMYBIOME, "dummy", true, BiomeDictionary.Type.PLAINS);
+        registerBiome(BYGBiomeList.DUMMY_BIOME, "dummy_biome");
 
         registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields");
         registerBiome(BYGBiomeList.ALPS, "alps");

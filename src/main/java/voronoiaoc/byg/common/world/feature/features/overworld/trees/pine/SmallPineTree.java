@@ -25,7 +25,7 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
     }
 
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        if (pos.getX() == -8 && pos.getZ() == -9) {
+        if (pos.getX() == -4 && pos.getZ() == -4) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
                     for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() + 16; checkZ++) {
@@ -36,8 +36,8 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
             }
 
             TemplateManager templatemanager = ((ServerWorld) world.getWorld()).getStructureTemplateManager();
-            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/redwood_treexl_piece1"));
-            Template template2 = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/redwood_treexl_piece2"));
+            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/crimson_fungus_tree1"));
+            Template template2 = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/crimson_fungus_tree1"));
 
             if (template == null || template2 == null) {
                 BYG.LOGGER.warn("NBT does not exist!");

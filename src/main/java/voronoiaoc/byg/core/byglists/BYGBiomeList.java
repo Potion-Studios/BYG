@@ -34,7 +34,7 @@ public class BYGBiomeList {
     public static final Biome REDROCKCANYON = new Canyons();
 //    public static final Biome CANYONCORRIDORS = new CanyonCorridors();
     public static final Biome CYPRESSSWAMPLANDS = new CypressSwampland();
-//    public static final Biome DUMMYBIOME = new DummyBiome();
+    public static final Biome DUMMY_BIOME = new DummyBiome();
     public static final Biome CHERRYBLOSSOMFOREST = new CherryBlossomForest();
     public static final Biome REDWOOD_TROPICS = new RedwoodTropics();
     public static final Biome CONIFEROUSFOREST = new ConiferousForest();
