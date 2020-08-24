@@ -946,6 +946,8 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
                     .doesNotBlockMovement()
+                    .setLightLevel((state) -> 14)
+
             );
             setRegistryName(registryName);
         }

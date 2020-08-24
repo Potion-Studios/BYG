@@ -798,13 +798,9 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(25, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDENS_MUSHROOM = newConfiguredFeature("rs_gg_mushroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                BLUE_GLOWSHROOM_HUGE.withChance(0.16F),
-                PURPLE_GLOWSHROOM_HUGE.withChance(0.16F),
-                GREEN_MUSHROOM_HUGE.withChance(0.16F),
-                WOOD_BLEWIT_HUGE.withChance(0.16F),
-                WEEPING_MILKCAP_HUGE.withChance(0.16F)),
+                WOOD_BLEWIT_HUGE.withChance(0.16F)),
                 BLACK_PUFF_HUGE)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
-                new AtSurfaceWithExtraConfig(4, 0.6F, 3))));
+                new AtSurfaceWithExtraConfig(6, 0.6F, 3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MINI_MUSHROOMS = newConfiguredFeature("rs_mini_mushrooms", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             GREEN_MUSHROOM_MINI.withChance(0.16F),

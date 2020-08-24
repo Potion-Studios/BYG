@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.properties.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -13,6 +14,8 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.Tags;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGItemList;
@@ -40,5 +43,20 @@ public class HangingVinesBlock extends AbstractTopPlantBlock {
 
     protected boolean canGrowIn(BlockState state) {
         return PlantBlockHelper.isAir(state);
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public void animateTick(BlockState p_180655_1_, World p_180655_2_, BlockPos p_180655_3_, Random p_180655_4_) {
+        VoxelShape lvt_5_1_ = this.getShape(p_180655_1_, p_180655_2_, p_180655_3_, ISelectionContext.dummy());
+        Vector3d lvt_6_1_ = lvt_5_1_.getBoundingBox().getCenter();
+        double lvt_7_1_ = (double) p_180655_3_.getX() + lvt_6_1_.x;
+        double lvt_9_1_ = (double) p_180655_3_.getZ() + lvt_6_1_.z;
+
+        for (int lvt_11_1_ = 0; lvt_11_1_ < 3; ++lvt_11_1_) {
+            if (p_180655_4_.nextBoolean()) {
+                p_180655_2_.addParticle(ParticleTypes.END_ROD, lvt_7_1_ + (double) (p_180655_4_.nextFloat() / 5.0F), (double) p_180655_3_.getY() + (0.5D - (double) p_180655_4_.nextFloat()), lvt_9_1_ + (double) (p_180655_4_.nextFloat() / 5.0F), 0.0D, 0.0D, 0.0D);
+            }
+        }
+
     }
 }
