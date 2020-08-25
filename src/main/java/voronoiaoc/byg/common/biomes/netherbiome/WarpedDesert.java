@@ -9,6 +9,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
@@ -52,8 +53,11 @@ public class WarpedDesert extends Biome implements BiomeTools {
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243821_aT);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243822_aU);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243884_bd);
+        DefaultBiomeFeatures.func_243731_ao(GENERATION_SETTINGS); //Ores
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244134_E); //NetherPortal
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244149_o); //Fortress
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244153_s); //BastionRemnant
         BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.func_243731_ao(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));

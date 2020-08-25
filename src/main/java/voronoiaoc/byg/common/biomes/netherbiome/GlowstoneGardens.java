@@ -16,6 +16,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class GlowstoneGardens extends Biome implements BiomeTools {
@@ -61,12 +62,12 @@ public class GlowstoneGardens extends Biome implements BiomeTools {
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243957_q); //Twisting Vines
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243956_p); //Nether Sprouts
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243956_p); //Nether Sprouts
-
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244153_s); //BastionRemnant
 
-        DefaultBiomeFeatures.func_243731_ao(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_PERVADED_NETHERRACK);
+        DefaultBiomeFeatures.func_243731_ao(GENERATION_SETTINGS); //Ores
         BYGFeatures.addHugeNetherMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addGlowstoneGardenVegetation(GENERATION_SETTINGS);
         SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));

@@ -557,7 +557,7 @@ public class BYGBlockProperties {
         public BYGNyliumSoulSand(String registryName) {
             super(Block.Properties.create(Material.SAND)
                     .sound(SoundType.SAND)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.5f)
                     .speedFactor(0.6F)
                     .harvestTool(ToolType.SHOVEL)
             );
@@ -571,7 +571,7 @@ public class BYGBlockProperties {
         public BYGNyliumSoulSoil(String registryName) {
             super(Block.Properties.create(Material.SAND)
                     .sound(SoundType.SAND)
-                    .hardnessAndResistance(0.2f)
+                    .hardnessAndResistance(0.5f)
                     .harvestTool(ToolType.SHOVEL)
 
             );
