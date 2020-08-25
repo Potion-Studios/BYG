@@ -58,6 +58,7 @@ public class WarpedDesert extends Biome implements BiomeTools {
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244153_s); //BastionRemnant
         BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
+        BYGFeatures.addSoulFireWarped(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.func_242575_a(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));

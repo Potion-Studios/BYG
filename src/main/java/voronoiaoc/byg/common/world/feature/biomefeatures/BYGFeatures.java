@@ -310,6 +310,11 @@ public class BYGFeatures {
     public static void addWarpedVegetation(BiomeGenerationSettings.Builder gen) {
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WARPED_CORAL_PLANT);
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WARPED_DESERT_VEGETATION);
+        gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_SOUL_SOIL_PILLARS);
+    }
+
+    public static void addSoulFireWarped(BiomeGenerationSettings.Builder gen) {
+        gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_SOUL_FIRE_PATCH_WARPED);
     }
 
     public static void addWailingVegetation(BiomeGenerationSettings.Builder gen) {

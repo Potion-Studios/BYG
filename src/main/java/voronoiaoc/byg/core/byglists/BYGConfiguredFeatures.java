@@ -1,9 +1,13 @@
 package voronoiaoc.byg.core.byglists;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
+import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
 import voronoiaoc.byg.BYG;
@@ -77,6 +81,7 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> WARPED_CORAL_FAN = newConfiguredFeature("warped_coral_fan", BYGFeatureList.WARPED_CORAL_FAN.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
     public static ConfiguredFeature<?, ?> CHAINS = newConfiguredFeature("chains", BYGFeatureList.CHAINS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static ConfiguredFeature<?, ?> SOUL_SOIL_PILLARS = newConfiguredFeature("soul_soil_pillars", BYGFeatureList.SOUL_SOIL_PILLARS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
     public static ConfiguredFeature<?, ?> SCORCHED_BUSH = newConfiguredFeature("scorched_bush", BYGFeatureList.SCORCHED_BUSH.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> SCORCHED_GRASS = newConfiguredFeature("scorched_grass", BYGFeatureList.SCORCHED_GRASS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
@@ -289,10 +294,14 @@ public class BYGConfiguredFeatures {
             EMBUR_ROOTS.withChance(0.5F)),
             EMBUR_WART)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_SOUL_FIRE_PATCH_WARPED = newConfiguredFeature("patch_soul_fire_warped", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            SOUL_FIRE_ON_NYLIUM.withChance(0.5F)),
+            SOUL_FIRE_ON_NYLIUM)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
+
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_VINE_BLACKSTONE = newConfiguredFeature("weeping_vines_blackstone", BYGFeatureList.WEEPING_VINE_BLACKSTONE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS_FEATURE = newConfiguredFeature("weeping_roots_feature", BYGFeatureList.WEEPING_ROOTS_FEATURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
-
+    public static final ConfiguredFeature<?, ?> RANDOM_SOUL_SOIL_PILLARS = newConfiguredFeature("soul_soil_pillars", BYGFeatureList.SOUL_SOIL_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_GEL_VINES = newConfiguredFeature("rs_embur_gel_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_GEL_VINES.withChance(0.3F)),

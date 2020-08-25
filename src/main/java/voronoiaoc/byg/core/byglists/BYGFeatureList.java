@@ -24,10 +24,7 @@ import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.Scorched
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedGrass;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WailingVine;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WhalingGrass;
-import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedBush;
-import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoral;
-import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFan;
-import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.WarpedCoralFeature;
+import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.DeadSeaSpikes;
 import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.TallDeadSeaSpikes;
@@ -222,6 +219,7 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> WARPED_CORAL = new WarpedCoral(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> HUGE_WARPED_CORAL_PLANT = new WarpedCoralFeature(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> WARPED_CORAL_FAN = new WarpedCoralFan(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SOUL_SOIL_PILLARS = new SoulSoilPillars(NoFeatureConfig.field_236558_a_);
 
     //Chains
     public static final Feature<NoFeatureConfig> CHAINS = new LargeChain(NoFeatureConfig.field_236558_a_);
@@ -523,6 +521,7 @@ public class BYGFeatureList {
             registerFeature(WARPED_CORAL, "warped_coral");
             registerFeature(HUGE_WARPED_CORAL_PLANT, "warped_coral_plant");
             registerFeature(WARPED_CORAL_FAN, "warped_coral_fan");
+            registerFeature(SOUL_SOIL_PILLARS, "soul_soil_pillars");
             registerFeature(WOOD_BLEWIT, "wood_blewit");
             registerFeature(WEED_GRASS, "weed_grass");
             registerFeature(WEEPING_MILKCAP, "weeping_milk_cap");

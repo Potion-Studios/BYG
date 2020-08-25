@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.mushrooms;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
@@ -285,7 +286,7 @@ public class EmburMushroom extends BYGAbstractTreeFeature<NoFeatureConfig> {
     //Leaves Placement
     private void leafs2(Set<BlockPos> blockPos, IWorldGenerationReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.POLLEN_BLOCK.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, pos, Blocks.SHROOMLIGHT.getDefaultState(), boundingBox);
         }
     }
 
