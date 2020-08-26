@@ -9,9 +9,7 @@
     "common.entity.MixinSlimeEntity",
     "common.world.MixinVanillaBiomeLayers"
   ],
-  "client": [
-    "client.MixinGameRenderer"
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   },

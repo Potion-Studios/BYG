@@ -117,8 +117,8 @@ public class BYGBlockProperties {
                             .notSolid()
             );
             setRegistryName(registryName);
-            new FlowerPotBlock(this, Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()).setRegistryName("potted_" + registryName);
-            pottedListIDs.add(registryName);
+//            new FlowerPotBlock(this, Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()).setRegistryName("potted_" + registryName);
+//            pottedListIDs.add(registryName);
         }
 
     }
