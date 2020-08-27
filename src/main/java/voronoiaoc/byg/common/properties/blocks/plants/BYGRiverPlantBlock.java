@@ -1,53 +1,54 @@
 package voronoiaoc.byg.common.properties.blocks.plants;
 
-import net.minecraft.block.*;
-import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 
-public class BYGRiverPlantBlock extends TallPlantBlock implements Waterloggable {
+public class BYGRiverPlantBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
 
-    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public BYGRiverPlantBlock(Settings propeties) {
+    public BYGRiverPlantBlock(Properties propeties) {
         super(propeties);
-        this.setDefaultState(this.stateManager.getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
     }
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        if (state.get(HALF) == DoubleBlockHalf.UPPER && state.get(WATERLOGGED)) {
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+        if (state.getValue(HALF) == DoubleBlockHalf.UPPER && state.getValue(WATERLOGGED)) {
             return false;
         }
-        if (state.get(HALF) != DoubleBlockHalf.UPPER) {
-            BlockPos groundPos = pos.down();
+        if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
+            BlockPos groundPos = pos.below();
             Block ground = world.getBlockState(groundPos).getBlock();
 
-            if (world.getFluidState(pos).getFluid() == Fluids.WATER)
+            if (world.getFluidState(pos).getType() == Fluids.WATER)
                 return canGrow(ground);
 
-            for (Direction direction : Direction.Type.HORIZONTAL) {
-                if (world.getFluidState(groundPos.offset(direction)).getFluid() == Fluids.WATER) {
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                if (world.getFluidState(groundPos.relative(direction)).getType() == Fluids.WATER) {
                     return canGrow(ground);
                 }
             }
 
             return false;
         } else {
-            BlockState blockstate = world.getBlockState(pos.down());
+            BlockState blockstate = world.getBlockState(pos.below());
             if (state.getBlock() != this)
                 return false;
-            return blockstate.getBlock() == this && blockstate.get(HALF) == DoubleBlockHalf.LOWER;
+            return blockstate.getBlock() == this && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER;
         }
     }
 
@@ -56,81 +57,81 @@ public class BYGRiverPlantBlock extends TallPlantBlock implements Waterloggable 
     }
 
     @Override
-    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
-        if (!canPlaceAt(state, world, pos)) {
-            if (state.get(WATERLOGGED)) {
-                world.setBlockState(pos, Blocks.WATER.getDefaultState());
+    public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
+        if (!canSurvive(state, world, pos)) {
+            if (state.getValue(WATERLOGGED)) {
+                world.setBlockAndUpdate(pos, Blocks.WATER.defaultBlockState());
             } else {
-                world.breakBlock(pos, false);
+                world.destroyBlock(pos, false);
             }
         }
-        if (state.get(HALF) == DoubleBlockHalf.LOWER) {
-            BlockState stateUpper = world.getBlockState(pos.up());
+        if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
+            BlockState stateUpper = world.getBlockState(pos.above());
             if (stateUpper.getBlock() instanceof BYGRiverPlantBlock) {
-                if (!canPlaceAt(stateUpper, world, pos.up())) {
-                    world.breakBlock(pos.up(), false);
+                if (!canSurvive(stateUpper, world, pos.above())) {
+                    world.destroyBlock(pos.above(), false);
                 }
             }
         }
     }
 
     @Override
-    public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-        DoubleBlockHalf doubleblockhalf = state.get(HALF);
-        BlockPos blockpos = doubleblockhalf != DoubleBlockHalf.LOWER ? pos.up() : pos.down();
+    public void attack(BlockState state, Level world, BlockPos pos, Player player) {
+        DoubleBlockHalf doubleblockhalf = state.getValue(HALF);
+        BlockPos blockpos = doubleblockhalf != DoubleBlockHalf.LOWER ? pos.above() : pos.below();
         BlockState blockstate = world.getBlockState(blockpos);
-        if (blockstate.getBlock() == this && blockstate.get(HALF) != doubleblockhalf) {
-            if (blockstate.get(HALF) == DoubleBlockHalf.LOWER) {
-                if (blockstate.get(WATERLOGGED)) {
-                    world.setBlockState(blockpos, Blocks.WATER.getDefaultState());
+        if (blockstate.getBlock() == this && blockstate.getValue(HALF) != doubleblockhalf) {
+            if (blockstate.getValue(HALF) == DoubleBlockHalf.LOWER) {
+                if (blockstate.getValue(WATERLOGGED)) {
+                    world.setBlockAndUpdate(blockpos, Blocks.WATER.defaultBlockState());
                 } else {
-                    world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 35);
+                    world.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 35);
                 }
             }
 
-            world.syncWorldEvent(player, 2001, blockpos, Block.getRawIdFromState(blockstate));
-            if (!world.isClient() && !player.isCreative()) {
-                dropStacks(state, world, pos, null, player, player.getMainHandStack());
-                dropStacks(blockstate, world, blockpos, null, player, player.getMainHandStack());
+            world.levelEvent(player, 2001, blockpos, Block.getId(blockstate));
+            if (!world.isClientSide() && !player.isCreative()) {
+                dropResources(state, world, pos, null, player, player.getMainHandItem());
+                dropResources(blockstate, world, blockpos, null, player, player.getMainHandItem());
             }
         }
-        world.syncWorldEvent(player, 2001, pos, Block.getRawIdFromState(state));
+        world.levelEvent(player, 2001, pos, Block.getId(state));
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-        if (state.get(WATERLOGGED)) {
-            world.getBlockTickScheduler().schedule(pos, Blocks.WATER, Fluids.WATER.getTickRate(world));
+    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor world, BlockPos pos, BlockPos posFrom) {
+        if (state.getValue(WATERLOGGED)) {
+            world.getBlockTicks().scheduleTick(pos, Blocks.WATER, Fluids.WATER.getTickDelay(world));
         }
 
-        return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
+        return super.updateShape(state, direction, newState, world, pos, posFrom);
     }
 
 
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        FluidState ifluidstate = ctx.getWorld().getFluidState(ctx.getBlockPos());
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        FluidState ifluidstate = ctx.getLevel().getFluidState(ctx.getClickedPos());
 
-        BlockState state = super.getPlacementState(ctx);
+        BlockState state = super.getStateForPlacement(ctx);
         if (state != null) {
-            return state.with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
+            return state.setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.getType() == Fluids.WATER));
         } else {
             return null;
         }
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(HALF, WATERLOGGED);
     }
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     @Override
-    public boolean canReplace(BlockState state, ItemPlacementContext context) {
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
         return false;
     }
 }

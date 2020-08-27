@@ -1,51 +1,51 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.noise.OctaveSimplexNoiseSampler;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
+import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 
-public class RRSB extends SurfaceBuilder<TernarySurfaceConfig> {
-    private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.getDefaultState();
-    private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.getDefaultState();
-    private static final BlockState TERRACOTTA = BYGBlockList.RED_ROCK.getDefaultState();
-    private static final BlockState YELLOW_TERRACOTTA = Blocks.YELLOW_TERRACOTTA.getDefaultState();
-    private static final BlockState BROWN_TERRACOTTA = Blocks.BROWN_TERRACOTTA.getDefaultState();
-    private static final BlockState RED_TERRACOTTA = Blocks.RED_TERRACOTTA.getDefaultState();
-    private static final BlockState LIGHT_GRAY_TERRACOTTA = Blocks.LIGHT_GRAY_TERRACOTTA.getDefaultState();
+public class RRSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
+    private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.defaultBlockState();
+    private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.defaultBlockState();
+    private static final BlockState TERRACOTTA = BYGBlockList.RED_ROCK.defaultBlockState();
+    private static final BlockState YELLOW_TERRACOTTA = Blocks.YELLOW_TERRACOTTA.defaultBlockState();
+    private static final BlockState BROWN_TERRACOTTA = Blocks.BROWN_TERRACOTTA.defaultBlockState();
+    private static final BlockState RED_TERRACOTTA = Blocks.RED_TERRACOTTA.defaultBlockState();
+    private static final BlockState LIGHT_GRAY_TERRACOTTA = Blocks.LIGHT_GRAY_TERRACOTTA.defaultBlockState();
     protected BlockState[] field_215432_a;
     protected long noise1;
-    protected OctaveSimplexNoiseSampler noiseSampler1;
-    protected OctaveSimplexNoiseSampler noiseSampler2;
-    protected OctaveSimplexNoiseSampler noiseSampler3;
+    protected PerlinSimplexNoise noiseSampler1;
+    protected PerlinSimplexNoise noiseSampler2;
+    protected PerlinSimplexNoise noiseSampler3;
 
-    public RRSB(Codec<TernarySurfaceConfig> p_i51317_1_) {
+    public RRSB(Codec<SurfaceBuilderBaseConfiguration> p_i51317_1_) {
         super(p_i51317_1_);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         int i = x & 15;
         int j = z & 15;
         BlockState blockstate = TERRACOTTA;
-        BlockState blockstate1 = biomeIn.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
+        BlockState blockstate1 = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
         int k = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int l = -1;
         boolean flag1 = false;
         int i1 = 0;
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
         for (int j1 = startHeight; j1 >= 0; --j1) {
             if (i1 < 15) {
@@ -57,11 +57,11 @@ public class RRSB extends SurfaceBuilder<TernarySurfaceConfig> {
                     if (l == -1) {
                         flag1 = false;
                         if (k <= 0) {
-                            blockstate = Blocks.AIR.getDefaultState();
+                            blockstate = Blocks.AIR.defaultBlockState();
                             blockstate1 = defaultBlock;
                         } else if (j1 >= seaLevel - 4 && j1 <= seaLevel + 1) {
                             blockstate = TERRACOTTA;
-                            blockstate1 = biomeIn.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
+                            blockstate1 = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
                         }
 
                         if (j1 < seaLevel && (blockstate == null || blockstate.isAir())) {
@@ -84,7 +84,7 @@ public class RRSB extends SurfaceBuilder<TernarySurfaceConfig> {
 
                                 chunkIn.setBlockState(blockpos$mutable, blockstate3, false);
                             } else {
-                                chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceConfig().getUnderMaterial(), false);
+                                chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial(), false);
                                 flag1 = true;
                             }
                         } else {
@@ -110,15 +110,15 @@ public class RRSB extends SurfaceBuilder<TernarySurfaceConfig> {
 
     }
 
-    public void initSeed(long seed) {
+    public void initNoise(long seed) {
         if (this.noise1 != seed || this.field_215432_a == null) {
             this.func_215430_b(seed);
         }
 
         if (this.noise1 != seed || this.noiseSampler1 == null || this.noiseSampler2 == null) {
-            ChunkRandom sharedseedrandom = new ChunkRandom(seed);
-            this.noiseSampler1 = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.rangeClosed(-3, 0));
-            this.noiseSampler2 = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.of(0));
+            WorldgenRandom sharedseedrandom = new WorldgenRandom(seed);
+            this.noiseSampler1 = new PerlinSimplexNoise(sharedseedrandom, IntStream.rangeClosed(-3, 0));
+            this.noiseSampler2 = new PerlinSimplexNoise(sharedseedrandom, IntStream.of(0));
         }
 
         this.noise1 = seed;
@@ -127,8 +127,8 @@ public class RRSB extends SurfaceBuilder<TernarySurfaceConfig> {
     protected void func_215430_b(long p_215430_1_) {
         this.field_215432_a = new BlockState[64];
         Arrays.fill(this.field_215432_a, TERRACOTTA);
-        ChunkRandom sharedseedrandom = new ChunkRandom(p_215430_1_);
-        this.noiseSampler3 = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.of(0));
+        WorldgenRandom sharedseedrandom = new WorldgenRandom(p_215430_1_);
+        this.noiseSampler3 = new PerlinSimplexNoise(sharedseedrandom, IntStream.of(0));
 
         for (int l1 = 0; l1 < 64; ++l1) {
             l1 += sharedseedrandom.nextInt(5) + 1;
@@ -192,7 +192,7 @@ public class RRSB extends SurfaceBuilder<TernarySurfaceConfig> {
     }
 
     protected BlockState func_215431_a(int x, int y, int z) {
-        int i = (int) Math.round(this.noiseSampler3.sample((double) x / 512.0D, (double) z / 512.0D, false) * 2.0D);
+        int i = (int) Math.round(this.noiseSampler3.getValue((double) x / 512.0D, (double) z / 512.0D, false) * 2.0D);
         return this.field_215432_a[(y + i + 64) % 64];
     }
 }

@@ -1,20 +1,24 @@
 package voronoiaoc.byg.common.properties.blocks.plants;
 
-import net.minecraft.block.*;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class BYGDesertPlants extends PlantBlock {
-    protected static final VoxelShape SHAPE = Block.createCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+public class BYGDesertPlants extends BushBlock {
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
-    protected BYGDesertPlants(Settings builder) {
+    protected BYGDesertPlants(Properties builder) {
         super(builder);
 
     }
@@ -23,24 +27,24 @@ public class BYGDesertPlants extends PlantBlock {
         return OffsetType.XZ;
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Vec3d vec3D = state.getModelOffset(world, pos);
-        return SHAPE.offset(vec3D.x, vec3D.y, vec3D.z);
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        Vec3 vec3D = state.getOffset(world, pos);
+        return SHAPE.move(vec3D.x, vec3D.y, vec3D.z);
     }
 
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.CAT && entityIn.getType() != EntityType.RABBIT) {
-            entityIn.slowMovement(state, new Vec3d(0.8F, 0.75D, 0.8F));
-            double d0 = Math.abs(entityIn.getX() - entityIn.lastRenderX);
-            double d1 = Math.abs(entityIn.getZ() - entityIn.lastRenderZ);
+            entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
+            double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
+            double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
-                entityIn.damage(DamageSource.SWEET_BERRY_BUSH, 1.0F);
+                entityIn.hurt(DamageSource.SWEET_BERRY_BUSH, 1.0F);
             }
         }
 
     }
 
-    protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
         Block block = state.getBlock();
         return block == Blocks.SAND || block == Blocks.RED_SAND || block == Blocks.TERRACOTTA || block == Blocks.WHITE_TERRACOTTA || block == Blocks.ORANGE_TERRACOTTA || block == Blocks.MAGENTA_TERRACOTTA || block == Blocks.LIGHT_BLUE_TERRACOTTA || block == Blocks.YELLOW_TERRACOTTA || block == Blocks.LIME_TERRACOTTA || block == Blocks.PINK_TERRACOTTA || block == Blocks.GRAY_TERRACOTTA || block == Blocks.LIGHT_GRAY_TERRACOTTA || block == Blocks.CYAN_TERRACOTTA || block == Blocks.PURPLE_TERRACOTTA || block == Blocks.BLUE_TERRACOTTA || block == Blocks.BROWN_TERRACOTTA || block == Blocks.GREEN_TERRACOTTA || block == Blocks.RED_TERRACOTTA || block == Blocks.BLACK_TERRACOTTA;
     }

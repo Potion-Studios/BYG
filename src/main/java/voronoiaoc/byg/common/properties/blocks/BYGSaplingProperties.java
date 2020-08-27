@@ -1,81 +1,83 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.*;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks.SpreadableSythianBlock;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGTree;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
-public class BYGSaplingProperties extends PlantBlock implements Fertilizable {
-    public static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-    public static final IntProperty STAGE = Properties.STAGE;
+public class BYGSaplingProperties extends BushBlock implements BonemealableBlock {
+    public static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
+    public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
     private final BYGTree tree;
 
     public BYGSaplingProperties(BYGTree tree, String registryName) {
-        super(Settings.of(Material.PLANT)
-                .sounds(BlockSoundGroup.STEM)
+        super(Properties.of(Material.PLANT)
+                .sound(SoundType.HARD_CROP)
                 .strength(0.0f)
-                .noCollision()
-                .ticksRandomly()
+                .noCollission()
+                .randomTicks()
         );
         this.tree = tree;
-        this.setDefaultState(this.stateManager.getDefaultState().with(STAGE, Integer.valueOf(0)));
-        Registry.register(Registry.BLOCK, new Identifier("byg", registryName), this);
+        this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, Integer.valueOf(0)));
+        Registry.register(Registry.BLOCK, new ResourceLocation("byg", registryName), this);
     }
 
     @Override
-    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState floor, BlockGetter world, BlockPos pos) {
         Block block = floor.getBlock();
         return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT || block == Blocks.PODZOL || block == Blocks.FARMLAND || block == BYGBlockList.OVERGROWN_STONE;
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
         if (!SpreadableSythianBlock.isAreaLoaded(pos, 1, world))
             return;
-        if (world.getLightLevel(pos.up()) >= 9 && random.nextInt(7) == 0) {
-            this.grow(world, random, pos, state);
+        if (world.getMaxLocalRawBrightness(pos.above()) >= 9 && random.nextInt(7) == 0) {
+            this.performBonemeal(world, random, pos, state);
         }
     }
 
     @Override
-    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(BlockGetter world, BlockPos pos, BlockState state, boolean isClient) {
         return true;
     }
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level world, Random random, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
-        if (state.get(STAGE) == 0) {
-            world.setBlockState(pos, state.cycle(STAGE), 4);
+    public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
+        if (state.getValue(STAGE) == 0) {
+            world.setBlock(pos, state.cycle(STAGE), 4);
         } else {
-            this.tree.spawn(world, world.getChunkManager().getChunkGenerator(), pos, state, rand);
+            this.tree.spawn(world, world.getChunkSource().getGenerator(), pos, state, rand);
         }
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(STAGE);
     }
 }

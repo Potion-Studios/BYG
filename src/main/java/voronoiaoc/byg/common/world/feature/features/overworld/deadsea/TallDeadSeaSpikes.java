@@ -1,29 +1,29 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.deadsea;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.ModifiableWorld;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
 import voronoiaoc.byg.common.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelWriter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class TallDeadSeaSpikes extends Feature<DefaultFeatureConfig> {
+public class TallDeadSeaSpikes extends Feature<NoneFeatureConfiguration> {
     public static boolean doBlockNotify;
     static Random random = new Random();
     protected long seed;
     protected ChunkFastSimplexStyleNoise noiseGen;
     protected ChunkFastSimplexStyleNoise noiseGen2;
 
-    public TallDeadSeaSpikes(Codec<DefaultFeatureConfig> config) {
+    public TallDeadSeaSpikes(Codec<NoneFeatureConfiguration> config) {
         super(config);
     }
 
@@ -36,7 +36,7 @@ public class TallDeadSeaSpikes extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         long randomLong = rand.nextLong();
         setSeed(world.getSeed() + 122424235 + randomLong);
         double noise;
@@ -44,7 +44,7 @@ public class TallDeadSeaSpikes extends Feature<DefaultFeatureConfig> {
 
         int maximumHeight;
         int terrainHeight;
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
 //        if (world.getBlockState(pos.down()).getBlock() != BYGBlockList.BLACK_SAND) {
 //            return false;
@@ -59,11 +59,11 @@ public class TallDeadSeaSpikes extends Feature<DefaultFeatureConfig> {
                 noise = Math.pow(Math.abs(noiseGen.sample2D(mutable.getX() * 0.025D, mutable.getZ() * 0.025D)) + noise2 * 0.005D, 7); //0.70990733195111407153665966708847
 
                 maximumHeight = (int) (noise * 85D);
-                terrainHeight = world.getTopY(Heightmap.Type.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ());
+                terrainHeight = world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ());
 
                 mutable.move(Direction.UP, maximumHeight);
                 for (int y = maximumHeight; y >= terrainHeight; y--) {
-                    world.setBlockState(mutable, blockState(), 2);
+                    world.setBlock(mutable, blockState(), 2);
 
                     mutable.move(Direction.DOWN);
                 }
@@ -73,19 +73,19 @@ public class TallDeadSeaSpikes extends Feature<DefaultFeatureConfig> {
         return true;
     }
 
-    protected void setCoralBlock(ModifiableWorld worldIn, BlockPos pos) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WARPED_CORAL_BLOCK.getDefaultState());
+    protected void setCoralBlock(LevelWriter worldIn, BlockPos pos) {
+        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WARPED_CORAL_BLOCK.defaultBlockState());
     }
 
-    private void setBlockStateWithoutUpdates(ModifiableWorld worldWriter, BlockPos blockPos, BlockState blockState) {
+    private void setBlockStateWithoutUpdates(LevelWriter worldWriter, BlockPos blockPos, BlockState blockState) {
         if (doBlockNotify) {
-            worldWriter.setBlockState(blockPos, blockState, 19);
+            worldWriter.setBlock(blockPos, blockState, 19);
         } else {
-            worldWriter.setBlockState(blockPos, blockState, 18);
+            worldWriter.setBlock(blockPos, blockState, 18);
         }
     }
 
     private BlockState blockState() {
-        return (random.nextInt(2) == 0) ? BYGBlockList.ROCKY_STONE.getDefaultState() : Blocks.STONE.getDefaultState();
+        return (random.nextInt(2) == 0) ? BYGBlockList.ROCKY_STONE.defaultBlockState() : Blocks.STONE.defaultBlockState();
     }
 }

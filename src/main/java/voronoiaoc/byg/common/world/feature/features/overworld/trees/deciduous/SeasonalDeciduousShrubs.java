@@ -1,53 +1,53 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockBox;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.ModifiableTestableWorld;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelSimulatedRW;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
-public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
+public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<NoneFeatureConfiguration> {
     //Blocks used for the tree.
-    private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
-    private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
-    private static final BlockState LEAVES2 = BYGBlockList.RED_OAK_LEAVES.getDefaultState();
-    private static final BlockState LEAVES3 = BYGBlockList.BROWN_OAK_LEAVES.getDefaultState();
-    private static final BlockState LEAVES4 = BYGBlockList.ORANGE_OAK_LEAVES.getDefaultState();
-    private static final BlockState LEAVES5 = BYGBlockList.YELLOW_BIRCH_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
+    private static final BlockState LOG = Blocks.OAK_LOG.defaultBlockState();
+    private static final BlockState LEAVES = Blocks.OAK_LEAVES.defaultBlockState();
+    private static final BlockState LEAVES2 = BYGBlockList.RED_OAK_LEAVES.defaultBlockState();
+    private static final BlockState LEAVES3 = BYGBlockList.BROWN_OAK_LEAVES.defaultBlockState();
+    private static final BlockState LEAVES4 = BYGBlockList.ORANGE_OAK_LEAVES.defaultBlockState();
+    private static final BlockState LEAVES5 = BYGBlockList.YELLOW_BIRCH_LEAVES.defaultBlockState();
+    private static final BlockState BEENEST = Blocks.BEE_NEST.defaultBlockState();
 
-    public SeasonalDeciduousShrubs(Codec<DefaultFeatureConfig> configIn) {
+    public SeasonalDeciduousShrubs(Codec<NoneFeatureConfiguration> configIn) {
         super(configIn);
     }
 
-    protected static boolean canTreeReplace(TestableWorld genBaseReader, BlockPos blockPos) {
+    protected static boolean canTreeReplace(LevelSimulatedReader genBaseReader, BlockPos blockPos) {
         return canLogPlaceHere(
                 genBaseReader, blockPos
         );
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
+    protected boolean place(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling) {
         //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = 1;
         //Positions
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getDimensionHeight()) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
@@ -76,7 +76,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
 */
 
 
-                Direction direction = Direction.Type.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY1 = 2 - rand.nextInt(1);//Crashes on 0.
                 int posX1 = posX;
@@ -86,8 +86,8 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
                 //Raising the 'groundUpLogRemover'  will remove all log blocks from the ground up no matter how thick the trunk is based on the value given. 5 would destroy all trunks from 5 up off the ground.
                 for (int groundUpLogRemover = 0; groundUpLogRemover < randTreeHeight; ++groundUpLogRemover) {
                     if (groundUpLogRemover >= randTreeHeight2 && posY1 < 0) { //Unknown
-                        posX1 += direction.getOffsetX();
-                        posZ1 += direction.getOffsetZ();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
                     //This Int is responsible for the Y coordinate of the trunk BlockPos'.
@@ -332,11 +332,11 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
         }
     }
 
-    private boolean doesTreeFit(TestableWorld reader, BlockPos blockPos, int height) {
+    private boolean doesTreeFit(LevelSimulatedReader reader, BlockPos blockPos, int height) {
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -354,7 +354,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
     }
 
     //Log Placement
-    private void treelog(Set<BlockPos> setlogblock, ModifiableTestableWorld reader, BlockPos pos, BlockBox boundingBox) {
+    private void treelog(Set<BlockPos> setlogblock, LevelSimulatedRW reader, BlockPos pos, BoundingBox boundingBox) {
         if (canTreeReplace(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
@@ -362,7 +362,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
     }
 
     //Leaves Placement
-    private void leafs(ModifiableTestableWorld reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs(LevelSimulatedRW reader, int x, int y, int z, BoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES, boundingBox);
@@ -370,7 +370,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
 
     }
 
-    private void leafs2(ModifiableTestableWorld reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs2(LevelSimulatedRW reader, int x, int y, int z, BoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES2, boundingBox);
@@ -378,7 +378,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
 
     }
 
-    private void leafs3(ModifiableTestableWorld reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs3(LevelSimulatedRW reader, int x, int y, int z, BoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES3, boundingBox);
@@ -386,7 +386,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
 
     }
 
-    private void leafs4(ModifiableTestableWorld reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs4(LevelSimulatedRW reader, int x, int y, int z, BoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES4, boundingBox);
@@ -394,7 +394,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<DefaultFeatu
 
     }
 
-    private void leafs5(ModifiableTestableWorld reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs5(LevelSimulatedRW reader, int x, int y, int z, BoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES5, boundingBox);

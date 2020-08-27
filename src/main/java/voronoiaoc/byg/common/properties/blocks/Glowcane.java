@@ -1,49 +1,49 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class Glowcane extends Block {
-    public static final IntProperty AGE = Properties.AGE_15;
-    protected static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
+    public static final IntegerProperty AGE = BlockStateProperties.AGE_15;
+    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 
-    protected Glowcane(Settings properties) {
+    protected Glowcane(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random rand) {
-        if (world.isAir(pos.up())) {
+    public void animateTick(BlockState state, Level world, BlockPos pos, Random rand) {
+        if (world.isEmptyBlock(pos.above())) {
             int i;
-            for (i = 1; world.getBlockState(pos.down(i)).isOf(this); ++i) {
+            for (i = 1; world.getBlockState(pos.below(i)).is(this); ++i) {
             }
 
             if (i < 3) {
-                int j = state.get(AGE);
+                int j = state.getValue(AGE);
                 if (j == 15) {
-                    world.setBlockState(pos.up(), this.getDefaultState());
-                    world.setBlockState(pos, state.with(AGE, 0), 4);
+                    world.setBlockAndUpdate(pos.above(), this.defaultBlockState());
+                    world.setBlock(pos, state.setValue(AGE, 0), 4);
                 } else {
-                    world.setBlockState(pos, state.with(AGE, j + 1), 4);
+                    world.setBlock(pos, state.setValue(AGE, j + 1), 4);
                 }
             }
         }
@@ -51,20 +51,20 @@ public class Glowcane extends Block {
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState stateIn, Direction direction, BlockState newState, WorldAccess worldIn, BlockPos pos, BlockPos posFrom) {
-        if (!stateIn.canPlaceAt(worldIn, pos)) {
-            worldIn.getBlockTickScheduler().schedule(pos, this, 1);
+    public BlockState updateShape(BlockState stateIn, Direction direction, BlockState newState, LevelAccessor worldIn, BlockPos pos, BlockPos posFrom) {
+        if (!stateIn.canSurvive(worldIn, pos)) {
+            worldIn.getBlockTicks().scheduleTick(pos, this, 1);
         }
 
-        return super.getStateForNeighborUpdate(stateIn, direction, newState, worldIn, pos, posFrom);
+        return super.updateShape(stateIn, direction, newState, worldIn, pos, posFrom);
     }
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView worldIn, BlockPos pos) {
-        BlockState soil = worldIn.getBlockState(pos.down());
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
+        BlockState soil = worldIn.getBlockState(pos.below());
         if (soil.getBlock() == BYGBlockList.GLOWCELIUM)
             return true;
-        Block block = worldIn.getBlockState(pos.down()).getBlock();
+        Block block = worldIn.getBlockState(pos.below()).getBlock();
         if (block == this) {
             return true;
         } else {
@@ -77,7 +77,7 @@ public class Glowcane extends Block {
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AGE);
     }
 }

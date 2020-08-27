@@ -1,53 +1,53 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.pine;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Blocks;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.structure.Structure;
-import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructurePlacementData;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import voronoiaoc.byg.BYG;
 
 import java.util.Random;
 
-public class SmallPineTree extends Feature<DefaultFeatureConfig> {
+public class SmallPineTree extends Feature<NoneFeatureConfiguration> {
 
-    public SmallPineTree(Codec<DefaultFeatureConfig> configIn) {
+    public SmallPineTree(Codec<NoneFeatureConfiguration> configIn) {
         super(configIn);
     }
 
     @Override
-    public boolean generate(StructureWorldAccess serverWorldAccess, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean place(WorldGenLevel serverWorldAccess, ChunkGenerator generator, Random random, BlockPos pos, NoneFeatureConfiguration config) {
         if (pos.getX() == -8 && pos.getZ() == -9) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
                     for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() + 16; checkZ++) {
-                        BlockPos.Mutable block = new BlockPos.Mutable(checkX, checkY, checkZ);
-                        serverWorldAccess.setBlockState(block, Blocks.AIR.getDefaultState(), 2);
+                        BlockPos.MutableBlockPos block = new BlockPos.MutableBlockPos(checkX, checkY, checkZ);
+                        serverWorldAccess.setBlock(block, Blocks.AIR.defaultBlockState(), 2);
                     }
                 }
             }
 
-            StructureManager templatemanager = ((ServerWorld) serverWorldAccess).getStructureManager();
-            Structure template = templatemanager.getStructure(new Identifier(BYG.MODID, ":features/trees/redwood_treexl_piece1"));
-            Structure template2 = templatemanager.getStructure(new Identifier(BYG.MODID + ":features/trees/redwood_treexl_piece2"));
+            StructureManager templatemanager = ((ServerLevel) serverWorldAccess).getStructureManager();
+            StructureTemplate template = templatemanager.get(new ResourceLocation(BYG.MODID, ":features/trees/redwood_treexl_piece1"));
+            StructureTemplate template2 = templatemanager.get(new ResourceLocation(BYG.MODID + ":features/trees/redwood_treexl_piece2"));
 
             if (template == null || template2 == null) {
                 BYG.LOGGER.warn("NBT does not exist!");
                 return false;
             }
 
-            StructurePlacementData placementsettings = (new StructurePlacementData()).setMirror(BlockMirror.NONE).setRotation(BlockRotation.NONE).setIgnoreEntities(false).setChunkPosition(null);
-            template.placeAndNotifyListeners(serverWorldAccess, pos, placementsettings, random);
-            template2.placeAndNotifyListeners(serverWorldAccess, pos.up(32), placementsettings, random);
+            StructurePlaceSettings placementsettings = (new StructurePlaceSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunkPos(null);
+            template.placeInWorld(serverWorldAccess, pos, placementsettings, random);
+            template2.placeInWorld(serverWorldAccess, pos.above(32), placementsettings, random);
             return true;
         }
         return false;

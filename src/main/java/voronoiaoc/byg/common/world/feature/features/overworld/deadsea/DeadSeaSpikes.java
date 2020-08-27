@@ -1,30 +1,30 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.deadsea;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.ModifiableWorld;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
 import voronoiaoc.byg.common.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelWriter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class DeadSeaSpikes extends Feature<DefaultFeatureConfig> {
+public class DeadSeaSpikes extends Feature<NoneFeatureConfiguration> {
     public static boolean doBlockNotify;
     static Random random = new Random();
     protected long seed;
     protected ChunkFastSimplexStyleNoise noiseGen;
     protected ChunkFastSimplexStyleNoise noiseGen2;
-    static BlockState[] blockStateArray = {BYGBlockList.ROCKY_STONE.getDefaultState(), Blocks.COBBLESTONE.getDefaultState(), Blocks.STONE.getDefaultState()};
+    static BlockState[] blockStateArray = {BYGBlockList.ROCKY_STONE.defaultBlockState(), Blocks.COBBLESTONE.defaultBlockState(), Blocks.STONE.defaultBlockState()};
 
-    public DeadSeaSpikes(Codec<DefaultFeatureConfig> config) {
+    public DeadSeaSpikes(Codec<NoneFeatureConfiguration> config) {
         super(config);
     }
 
@@ -38,7 +38,7 @@ public class DeadSeaSpikes extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         long randomLong = rand.nextLong();
         setSeed(world.getSeed() + 215465128 + randomLong);
         double noise;
@@ -46,7 +46,7 @@ public class DeadSeaSpikes extends Feature<DefaultFeatureConfig> {
 
         int maximumHeight;
         int terrainHeight;
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
 //        if (world.getBlockState(pos.down()).getBlock() != BYGBlockList.BLACK_SAND) {
 //            return false;
@@ -61,11 +61,11 @@ public class DeadSeaSpikes extends Feature<DefaultFeatureConfig> {
                 noise = Math.pow(Math.abs(noiseGen.sample2D(mutable.getX() * 0.013D, mutable.getZ() * 0.013D)) + noise2 * 0.005D, 7); //0.70990733195111407153665966708847
 
                 maximumHeight = (int) (noise * 65D);
-                terrainHeight = world.getTopY(Heightmap.Type.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ());
+                terrainHeight = world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ());
 
                 mutable.move(Direction.UP, maximumHeight);
                 for (int y = maximumHeight; y >= terrainHeight; y--) {
-                    world.setBlockState(mutable, blockStateArray[rand.nextInt(blockStateArray.length)], 2);
+                    world.setBlock(mutable, blockStateArray[rand.nextInt(blockStateArray.length)], 2);
 
                     mutable.move(Direction.DOWN);
                 }
@@ -75,11 +75,11 @@ public class DeadSeaSpikes extends Feature<DefaultFeatureConfig> {
         return true;
     }
 
-    private void setBlockStateWithoutUpdates(ModifiableWorld worldWriter, BlockPos blockPos, BlockState blockState) {
+    private void setBlockStateWithoutUpdates(LevelWriter worldWriter, BlockPos blockPos, BlockState blockState) {
         if (doBlockNotify) {
-            worldWriter.setBlockState(blockPos, blockState, 19);
+            worldWriter.setBlock(blockPos, blockState, 19);
         } else {
-            worldWriter.setBlockState(blockPos, blockState, 18);
+            worldWriter.setBlock(blockPos, blockState, 18);
         }
     }
 }

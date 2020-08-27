@@ -1,24 +1,24 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.FernBlock;
-import net.minecraft.block.TallPlantBlock;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.TallGrassBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class TallAlliumBlock extends FernBlock {
+public class TallAlliumBlock extends TallGrassBlock {
 
-    protected TallAlliumBlock(Settings builder) {
+    protected TallAlliumBlock(Properties builder) {
         super(builder);
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        TallPlantBlock tallPlantBlock = (TallPlantBlock) (this == BYGBlockList.TALL_ALLIUM ? BYGBlockList.TALL_ALLIUM : BYGBlockList.TALL_ALLIUM);
-        if (tallPlantBlock.getDefaultState().canPlaceAt(world, pos) && world.isAir(pos.up())) {
+    public void performBonemeal(ServerLevel world, Random random, BlockPos pos, BlockState state) {
+        DoublePlantBlock tallPlantBlock = (DoublePlantBlock) (this == BYGBlockList.TALL_ALLIUM ? BYGBlockList.TALL_ALLIUM : BYGBlockList.TALL_ALLIUM);
+        if (tallPlantBlock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
             tallPlantBlock.placeAt(world, pos, 2);
         }
 

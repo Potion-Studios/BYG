@@ -1,25 +1,25 @@
 package voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class WoodBlewitMushroom extends Feature<DefaultFeatureConfig> {
-    public WoodBlewitMushroom(Codec<DefaultFeatureConfig> config) {
+public class WoodBlewitMushroom extends Feature<NoneFeatureConfiguration> {
+    public WoodBlewitMushroom(Codec<NoneFeatureConfiguration> config) {
         super(config);
     }
 
-    public boolean generate(StructureWorldAccess worldIn, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
-        if (!worldIn.isAir(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_NETHERRACK) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random random, BlockPos pos, NoneFeatureConfiguration config) {
+        if (!worldIn.isEmptyBlock(pos) || worldIn.getBlockState(pos.below()).getBlock() != BYGBlockList.OVERGROWN_NETHERRACK) {
             return false;
         } else {
-            worldIn.setBlockState(pos, BYGBlockList.WOOD_BLEWIT.getDefaultState(), 10);
+            worldIn.setBlock(pos, BYGBlockList.WOOD_BLEWIT.defaultBlockState(), 10);
             return true;
         }
     }

@@ -1,35 +1,35 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockBox;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
-public class SkyrisTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
+public class SkyrisTree3 extends BYGAbstractTreeFeature<NoneFeatureConfiguration> {
     //BYGBlockRenders used for the tree.
-    private static final BlockState LOG = BYGBlockList.SKYRIS_LOG.getDefaultState();
-    private static final BlockState LEAVES = BYGBlockList.SKYRIS_LEAVES.getDefaultState();
-    private static final BlockState LEAVES2 = BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
+    private static final BlockState LOG = BYGBlockList.SKYRIS_LOG.defaultBlockState();
+    private static final BlockState LEAVES = BYGBlockList.SKYRIS_LEAVES.defaultBlockState();
+    private static final BlockState LEAVES2 = BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState();
+    private static final BlockState BEENEST = Blocks.BEE_NEST.defaultBlockState();
     Random random = new Random();
 
-    public SkyrisTree3(Codec<DefaultFeatureConfig> configIn) {
+    public SkyrisTree3(Codec<NoneFeatureConfiguration> configIn) {
         super(configIn);
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.SKYRIS_SAPLING);
     }
 
 
-    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
+    public boolean place(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling) {
 
         int randTreeHeight = rand.nextInt(2) + 6;
         //Positions
@@ -38,7 +38,7 @@ public class SkyrisTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
@@ -47,7 +47,7 @@ public class SkyrisTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
             } else {
 
 
-                Direction direction = Direction.Type.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY1 = 2 - rand.nextInt(1);//Crashes on 0.
                 int posX1 = posX;
@@ -61,8 +61,8 @@ public class SkyrisTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
                     if (buildTrunk >= randTreeHeight2 && posY1 < 0) { //Unknown
-                        posX1 += direction.getOffsetX();
-                        posZ1 += direction.getOffsetZ();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
 
@@ -75,46 +75,46 @@ public class SkyrisTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
                     this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
 
                     this.treelog(changedBlocks, worldIn, blockpos2.east(), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(2).up(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(2).above(), boundsIn);
 
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).up(2), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).up(3), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).up(4), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).up(5), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).up(6), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(4).up(6), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).above(2), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).above(3), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).above(4), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).above(5), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).above(6), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(4).above(6), boundsIn);
 
 
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).up(7).south(), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).up(8).south(2), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).up(9).south(2), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).up(10).south(2), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).above(7).south(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).above(8).south(2), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).above(9).south(2), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.east(3).above(10).south(2), boundsIn);
 
-                    this.treelog(changedBlocks, worldIn, blockpos2.south().up(), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.south(2).up(2), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.south().above(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.south(2).above(2), boundsIn);
 
                     this.treelog(changedBlocks, worldIn, blockpos2.north().west(), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north().west().up(), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north().west().up(2), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north().west().up(3), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north().west().up(4), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north().west().up(5), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north().west().above(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north().west().above(2), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north().west().above(3), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north().west().above(4), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north().west().above(5), boundsIn);
 
-                    this.treelog(changedBlocks, worldIn, blockpos2.north().west(2).up(6), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north().west(2).above(6), boundsIn);
 
 
-                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).up(4), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).up(5), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).up(6), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).up(7), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).above(4), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).above(5), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).above(6), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).above(7), boundsIn);
 
-                    this.treelog(changedBlocks, worldIn, blockpos2.north(3).up(7), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north(4).up(8), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north(5).up(9), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north(3).above(7), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north(4).above(8), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north(5).above(9), boundsIn);
 
-                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).up(8).west(), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).up(9).west(2), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).up(10).west(3), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).above(8).west(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).above(9).west(2), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos2.north(2).above(10).west(3), boundsIn);
 
                 }
 
@@ -255,11 +255,11 @@ public class SkyrisTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
         }
     }
 
-    private boolean doesTreeFit(TestableWorld reader, BlockPos blockPos, int height) {
+    private boolean doesTreeFit(LevelSimulatedReader reader, BlockPos blockPos, int height) {
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -277,7 +277,7 @@ public class SkyrisTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
     //Log Placement
-    private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
+    private void treelog(Set<BlockPos> setlogblock, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
@@ -285,7 +285,7 @@ public class SkyrisTree3 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
     }
 
     //Leaves Placement
-    private void leafs(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs(WorldGenLevel reader, int x, int y, int z, BoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, this.randomizer(), boundingBox);

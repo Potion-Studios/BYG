@@ -1,26 +1,26 @@
 package voronoiaoc.byg.common.properties.blocks.plants;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CraftingTableBlock;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.CraftingTableBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import voronoiaoc.byg.client.gui.BYGCraftingTableScreen;
 
 public class BYGCraftingTableBlock extends CraftingTableBlock {
-    private static final Text TITLE = new TranslatableText("container.crafting");
+    private static final Component TITLE = new TranslatableComponent("container.crafting");
 
-    public BYGCraftingTableBlock(Settings properties) {
+    public BYGCraftingTableBlock(Properties properties) {
         super(properties);
     }
 
     @Override
-    public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
-        return new SimpleNamedScreenHandlerFactory((i, playerInventory, playerEntity) -> new BYGCraftingTableScreen(i, playerInventory, ScreenHandlerContext.create(world, pos), this), TITLE);
+    public MenuProvider getMenuProvider(BlockState state, Level world, BlockPos pos) {
+        return new SimpleMenuProvider((i, playerInventory, playerEntity) -> new BYGCraftingTableScreen(i, playerInventory, ContainerLevelAccess.create(world, pos), this), TITLE);
     }
 }
 

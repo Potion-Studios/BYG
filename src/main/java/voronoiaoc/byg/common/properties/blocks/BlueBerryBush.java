@@ -1,50 +1,50 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Fertilizable;
-import net.minecraft.block.SweetBerryBushBlock;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 
-public class BlueBerryBush extends SweetBerryBushBlock implements Fertilizable {
-    public static final IntProperty AGE = Properties.AGE_3;
+public class BlueBerryBush extends SweetBerryBushBlock implements BonemealableBlock {
+    public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
 
-    public BlueBerryBush(Settings properties) {
+    public BlueBerryBush(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(BlockGetter world, BlockPos pos, BlockState state) {
         return new ItemStack(BYGItemList.BLUE_BERRY);
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        int i = state.get(AGE);
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        int i = state.getValue(AGE);
         boolean bl = i == 3;
-        if (!bl && player.getStackInHand(hand).getItem() == Items.BONE_MEAL) {
-            return ActionResult.PASS;
+        if (!bl && player.getItemInHand(hand).getItem() == Items.BONE_MEAL) {
+            return InteractionResult.PASS;
         } else if (i > 1) {
             int j = 1 + world.random.nextInt(2);
-            dropStack(world, pos, new ItemStack(BYGItemList.BLUE_BERRY, j + (bl ? 1 : 0)));
-            world.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
-            world.setBlockState(pos, state.with(AGE, 1), 2);
-            return ActionResult.success(world.isClient);
+            popResource(world, pos, new ItemStack(BYGItemList.BLUE_BERRY, j + (bl ? 1 : 0)));
+            world.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
+            world.setBlock(pos, state.setValue(AGE, 1), 2);
+            return InteractionResult.sidedSuccess(world.isClientSide);
         } else {
-            return super.onUse(state, world, pos, player, hand, hit);
+            return super.use(state, world, pos, player, hand, hit);
         }
     }
 }

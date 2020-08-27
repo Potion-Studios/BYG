@@ -3,51 +3,51 @@ package voronoiaoc.byg.common.world.feature.features.nether.emburbog;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.noise.OctaveSimplexNoiseSampler;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.Material;
 
 
-public class EmburBogLake extends Feature<DefaultFeatureConfig> {
+public class EmburBogLake extends Feature<NoneFeatureConfiguration> {
 
-    protected static final Set<Material> unacceptableSolidMaterials = ImmutableSet.of(Material.BAMBOO, Material.BAMBOO_SAPLING, Material.LEAVES, Material.COBWEB, Material.CACTUS, Material.METAL, Material.GOURD, Material.CAKE, Material.EGG, Material.BARRIER, Material.CAKE);
+    protected static final Set<Material> unacceptableSolidMaterials = ImmutableSet.of(Material.BAMBOO, Material.BAMBOO_SAPLING, Material.LEAVES, Material.WEB, Material.CACTUS, Material.METAL, Material.VEGETABLE, Material.CAKE, Material.EGG, Material.BARRIER, Material.CAKE);
 
     protected long noiseSeed;
-    protected OctaveSimplexNoiseSampler noiseGen;
+    protected PerlinSimplexNoise noiseGen;
 
     public void setSeed(long seed) {
-        ChunkRandom sharedseedrandom = new ChunkRandom(seed);
+        WorldgenRandom sharedseedrandom = new WorldgenRandom(seed);
         if (this.noiseSeed != seed || this.noiseGen == null) {
-            this.noiseGen = new OctaveSimplexNoiseSampler(sharedseedrandom, ImmutableList.of(0));
+            this.noiseGen = new PerlinSimplexNoise(sharedseedrandom, ImmutableList.of(0));
         }
 
         this.noiseSeed = seed;
     }
 
 
-    public EmburBogLake(Codec<DefaultFeatureConfig> configFactory) {
+    public EmburBogLake(Codec<NoneFeatureConfiguration> configFactory) {
         super(configFactory);
     }
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, NoneFeatureConfiguration config) {
         setSeed(world.getSeed());
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().set(pos.down(2));
+        BlockPos.MutableBlockPos blockpos$Mutable = new BlockPos.MutableBlockPos().set(pos.below(2));
 
         // creates the actual lakes
         boolean containedFlag;
@@ -61,7 +61,7 @@ public class EmburBogLake extends Feature<DefaultFeatureConfig> {
                 //circle shaped
                 if (xTemp * xTemp + zTemp * zTemp < 64) {
 
-                    double samplePerlin1 = (this.noiseGen.sample(
+                    double samplePerlin1 = (this.noiseGen.getValue(
                             (double) pos.getX() + x * 0.05D,
                             (double) pos.getZ() + z * 0.05D, true) + 1)
                             * 3.0D;
@@ -75,11 +75,11 @@ public class EmburBogLake extends Feature<DefaultFeatureConfig> {
 
                         // Is spot within the mask (sorta a roundish area) and is contained
                         if (containedFlag) {
-                            for (Direction direction : Direction.Type.HORIZONTAL) {
-                                if (world.getBlockState(blockpos$Mutable.offset(direction)).getBlock() != Blocks.AIR) {
+                            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                                if (world.getBlockState(blockpos$Mutable.relative(direction)).getBlock() != Blocks.AIR) {
                                     // sets the water
-                                    world.setBlockState(blockpos$Mutable, Blocks.LAVA.getDefaultState(), 3);
-                                    world.getFluidTickScheduler().schedule(blockpos$Mutable, Fluids.LAVA, 0);
+                                    world.setBlock(blockpos$Mutable, Blocks.LAVA.defaultBlockState(), 3);
+                                    world.getLiquidTicks().scheduleTick(blockpos$Mutable, Fluids.LAVA, 0);
                                 }
                             }
 
@@ -89,16 +89,16 @@ public class EmburBogLake extends Feature<DefaultFeatureConfig> {
                             material = blockState.getMaterial();
 
                             if (material == Material.PLANT && blockState.getBlock() != Blocks.LILY_PAD) {
-                                world.setBlockState(blockpos$Mutable, Blocks.AIR.getDefaultState(), 2);
+                                world.setBlock(blockpos$Mutable, Blocks.AIR.defaultBlockState(), 2);
 
                                 // recursively moves up and breaks floating sugar cane
-                                while (blockpos$Mutable.getY() < world.getHeight() && world.getBlockState(blockpos$Mutable.move(Direction.UP)) == Blocks.SUGAR_CANE.getDefaultState()) {
-                                    world.setBlockState(blockpos$Mutable, Blocks.AIR.getDefaultState(), 2);
+                                while (blockpos$Mutable.getY() < world.getMaxBuildHeight() && world.getBlockState(blockpos$Mutable.move(Direction.UP)) == Blocks.SUGAR_CANE.defaultBlockState()) {
+                                    world.setBlock(blockpos$Mutable, Blocks.AIR.defaultBlockState(), 2);
                                 }
                             }
                             if (material == Material.PLANT && blockState.getBlock() != Blocks.VINE) {
-                                world.setBlockState(blockpos$Mutable, Blocks.AIR.getDefaultState(), 2);
-                                world.setBlockState(blockpos$Mutable.up(), Blocks.AIR.getDefaultState(), 2);
+                                world.setBlock(blockpos$Mutable, Blocks.AIR.defaultBlockState(), 2);
+                                world.setBlock(blockpos$Mutable.above(), Blocks.AIR.defaultBlockState(), 2);
                             }
                         }
                     }
@@ -116,13 +116,13 @@ public class EmburBogLake extends Feature<DefaultFeatureConfig> {
      * @param blockpos$Mutable - location to check if valid
      * @return - if the spot is valid
      */
-    private boolean checkIfValidSpot(StructureWorldAccess world, BlockPos.Mutable blockpos$Mutable, double noise) {
+    private boolean checkIfValidSpot(WorldGenLevel world, BlockPos.MutableBlockPos blockpos$Mutable, double noise) {
         Material material;
         BlockState blockState;
 
         //cannot be under ledge
-        BlockPos.Mutable temp = new BlockPos.Mutable().set(blockpos$Mutable);
-        blockState = world.getBlockState(temp.up());
+        BlockPos.MutableBlockPos temp = new BlockPos.MutableBlockPos().set(blockpos$Mutable);
+        blockState = world.getBlockState(temp.above());
         while (!blockState.getFluidState().isEmpty() && temp.getY() < 255) {
             temp.move(Direction.UP);
         }
@@ -132,21 +132,21 @@ public class EmburBogLake extends Feature<DefaultFeatureConfig> {
 
         // must be solid below
         // Will also return false if an unacceptable solid material is found.
-        blockState = world.getBlockState(blockpos$Mutable.down());
+        blockState = world.getBlockState(blockpos$Mutable.below());
         material = blockState.getMaterial();
         if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) ||
                 BlockTags.PLANKS.contains(blockState.getBlock())) &&
                 blockState.getFluidState().isEmpty() &&
-                blockState.getFluidState() != Fluids.LAVA.getStill(false)) {
+                blockState.getFluidState() != Fluids.LAVA.getSource(false)) {
             return false;
         }
 
 
         // places water on tips
-        if ((noise < 2D && world.getBlockState(blockpos$Mutable.up()).isAir())) {
+        if ((noise < 2D && world.getBlockState(blockpos$Mutable.above()).isAir())) {
             int open = 0;
-            for (Direction direction : Direction.Type.HORIZONTAL) {
-                if (world.getBlockState(blockpos$Mutable.offset(direction)).isAir()) open++;
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                if (world.getBlockState(blockpos$Mutable.relative(direction)).isAir()) open++;
             }
             if (open == 1) return true;
         }
@@ -155,10 +155,10 @@ public class EmburBogLake extends Feature<DefaultFeatureConfig> {
         // Will also return false if an unacceptable solid material is found.
         for (int x2 = -1; x2 < 2; x2++) {
             for (int z2 = -1; z2 < 2; z2++) {
-                blockState = world.getBlockState(blockpos$Mutable.add(x2, 0, z2));
+                blockState = world.getBlockState(blockpos$Mutable.offset(x2, 0, z2));
                 material = blockState.getMaterial();
 
-                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.LAVA.getStill(false)) {
+                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.LAVA.getSource(false)) {
                     return false;
                 }
             }

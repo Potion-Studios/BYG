@@ -1,28 +1,28 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.TallPlantBlock;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
-public class DoubleDamagePlantBlock extends TallPlantBlock {
+public class DoubleDamagePlantBlock extends DoublePlantBlock {
 
-    protected DoubleDamagePlantBlock(Settings builder) {
+    protected DoubleDamagePlantBlock(Properties builder) {
         super(builder);
     }
 
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.CAT && entityIn.getType() != EntityType.RABBIT) {
-            entityIn.slowMovement(state, new Vec3d(0.8F, 0.75D, 0.8F));
-            double d0 = Math.abs(entityIn.getX() - entityIn.lastRenderX);
-            double d1 = Math.abs(entityIn.getZ() - entityIn.lastRenderZ);
+            entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
+            double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
+            double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
-                entityIn.damage(DamageSource.SWEET_BERRY_BUSH, 1.0F);
+                entityIn.hurt(DamageSource.SWEET_BERRY_BUSH, 1.0F);
             }
         }
 

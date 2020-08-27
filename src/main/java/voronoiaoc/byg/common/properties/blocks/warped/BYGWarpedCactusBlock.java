@@ -1,86 +1,86 @@
 package voronoiaoc.byg.common.properties.blocks.warped;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CactusBlock;
-import net.minecraft.block.Material;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.tag.FluidTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CactusBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.Material;
 
 public class BYGWarpedCactusBlock extends CactusBlock {
-    public static final IntProperty AGE = Properties.AGE_15;
+    public static final IntegerProperty AGE = BlockStateProperties.AGE_15;
 
-    protected BYGWarpedCactusBlock(Settings properties) {
+    protected BYGWarpedCactusBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        BlockPos blockPos = pos.up();
-        if (world.isAir(blockPos)) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
+        BlockPos blockPos = pos.above();
+        if (world.isEmptyBlock(blockPos)) {
             int i;
-            for (i = 1; world.getBlockState(pos.down(i)).isOf(this); ++i) {
+            for (i = 1; world.getBlockState(pos.below(i)).is(this); ++i) {
             }
 
             if (i < 3) {
-                int j = state.get(AGE);
+                int j = state.getValue(AGE);
                 if (j == 15) {
-                    world.setBlockState(blockPos, this.getDefaultState());
-                    BlockState blockState = state.with(AGE, 0);
-                    world.setBlockState(pos, blockState, 4);
-                    blockState.neighborUpdate(world, blockPos, this, pos, false);
+                    world.setBlockAndUpdate(blockPos, this.defaultBlockState());
+                    BlockState blockState = state.setValue(AGE, 0);
+                    world.setBlock(pos, blockState, 4);
+                    blockState.neighborChanged(world, blockPos, this, pos, false);
                 } else {
-                    world.setBlockState(pos, state.with(AGE, j + 1), 4);
+                    world.setBlock(pos, state.setValue(AGE, j + 1), 4);
                 }
 
             }
         }
     }
 
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-        if (!state.canPlaceAt(world, pos)) {
-            world.getBlockTickScheduler().schedule(pos, this, 1);
+    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor world, BlockPos pos, BlockPos posFrom) {
+        if (!state.canSurvive(world, pos)) {
+            world.getBlockTicks().scheduleTick(pos, this, 1);
         }
 
-        return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
+        return super.updateShape(state, direction, newState, world, pos, posFrom);
     }
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView worldIn, BlockPos pos) {
-        for (Direction direction : Direction.Type.HORIZONTAL) {
-            BlockState blockstate = worldIn.getBlockState(pos.offset(direction));
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
+            BlockState blockstate = worldIn.getBlockState(pos.relative(direction));
             Material material = blockstate.getMaterial();
-            if (material.isSolid() || worldIn.getFluidState(pos.offset(direction)).isIn(FluidTags.LAVA)) {
+            if (material.isSolid() || worldIn.getFluidState(pos.relative(direction)).is(FluidTags.LAVA)) {
                 return false;
             }
         }
-        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.WARPED_CACTUS && !worldIn.getBlockState(pos.up()).getMaterial().isLiquid() && worldIn.getDimension().isUltrawarm();
+        return worldIn.getBlockState(pos.below()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND || worldIn.getBlockState(pos.below()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL || worldIn.getBlockState(pos.below()).getBlock() == BYGBlockList.WARPED_CACTUS && !worldIn.getBlockState(pos.above()).getMaterial().isLiquid() && worldIn.dimensionType().ultraWarm();
     }
 
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.damage(DamageSource.CACTUS, 1.0F);
+    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
+        entityIn.hurt(DamageSource.CACTUS, 1.0F);
     }
 
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AGE);
     }
 
 
-    protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
+    protected boolean canPlantOnTop(BlockState state, BlockGetter worldIn, BlockPos pos) {
         Block block = state.getBlock();
         return block == BYGBlockList.NYLIUM_SOUL_SAND || block == BYGBlockList.WARPED_CACTUS;
     }

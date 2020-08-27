@@ -1,44 +1,44 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockBox;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 //Copied and Pasted Dark Oak to try and undertstand the logic and math for tree creation.
-public class RedDeciduousTree extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
-    private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
-    private static final BlockState LEAVES = BYGBlockList.RED_OAK_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
+public class RedDeciduousTree extends BYGAbstractTreeFeature<NoneFeatureConfiguration> {
+    private static final BlockState LOG = Blocks.OAK_LOG.defaultBlockState();
+    private static final BlockState LEAVES = BYGBlockList.RED_OAK_LEAVES.defaultBlockState();
+    private static final BlockState BEENEST = Blocks.BEE_NEST.defaultBlockState();
 
-    public RedDeciduousTree(Codec<DefaultFeatureConfig> configIn) {
+    public RedDeciduousTree(Codec<NoneFeatureConfiguration> configIn) {
         super(configIn);
     }
 
-    protected static boolean canTreeReplace(TestableWorld p_214587_0_, BlockPos p_214587_1_) {
+    protected static boolean canTreeReplace(LevelSimulatedReader p_214587_0_, BlockPos p_214587_1_) {
         return canLogPlaceHere(
                 p_214587_0_, p_214587_1_
         );
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
+    public boolean place(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling) {
         int randTreeHeight = rand.nextInt(3) + rand.nextInt(3) + 10; //First value changes height of the trunk.
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
@@ -52,7 +52,7 @@ public class RedDeciduousTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
 
                 ////this.setGroundBlockAt(worldIn, blockpos.south().east(), pos, Blocks.DIRT.getDefaultState());
 
-                Direction direction = Direction.Type.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int random1 = randTreeHeight - rand.nextInt(1);//Crashes on 0. Unknown use.
                 int posY1 = 2 - rand.nextInt(1);//Crashes on 0. Unknown Use
                 int posX1 = posX;
@@ -66,8 +66,8 @@ public class RedDeciduousTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
 
                 for (int posX2LogRemover = 0; posX2LogRemover < randTreeHeight; ++posX2LogRemover) {//raising this value will remove log blocks from the ground up.
                     if (posX2LogRemover >= random1 && posY1 < 0) { //Unknown
-                        posX1 += direction.getOffsetX();
-                        posZ1 += direction.getOffsetZ();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
                     int logplacer = posY + posX2LogRemover;
@@ -546,11 +546,11 @@ public class RedDeciduousTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
     }
 
     //BYGTree Height Maybe?
-    private boolean doesTreeFit(TestableWorld reader, BlockPos blockPos, int height) {
+    private boolean doesTreeFit(LevelSimulatedReader reader, BlockPos blockPos, int height) {
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             int distance = 2; //higher the value, lower the density of trees?
@@ -568,7 +568,7 @@ public class RedDeciduousTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
     }
 
     //Log Placement
-    private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
+    private void treelog(Set<BlockPos> setlogblock, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
@@ -576,7 +576,7 @@ public class RedDeciduousTree extends BYGAbstractTreeFeature<DefaultFeatureConfi
     }
 
     //Leaves Placement
-    private void leafs(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs(WorldGenLevel reader, int x, int y, int z, BoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES, boundingBox);

@@ -1,42 +1,42 @@
 package voronoiaoc.byg.common.world.feature.biomefeatures;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.world.LightType;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.SingleStateFeatureConfig;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
+import net.minecraft.world.level.material.Material;
 
-public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
+public class FrostMagmaLakeFeature extends Feature<BlockStateConfiguration> {
     private static final BlockState AIR;
 
     static {
-        AIR = Blocks.CAVE_AIR.getDefaultState();
+        AIR = Blocks.CAVE_AIR.defaultBlockState();
     }
 
-    public FrostMagmaLakeFeature(Codec<SingleStateFeatureConfig> config) {
+    public FrostMagmaLakeFeature(Codec<BlockStateConfiguration> config) {
         super(config);
     }
 
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos blockPos, SingleStateFeatureConfig config) {
-        while (blockPos.getY() > 5 && world.isAir
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos blockPos, BlockStateConfiguration config) {
+        while (blockPos.getY() > 5 && world.isEmptyBlock
                 (blockPos)) {
-            blockPos = blockPos.down();
+            blockPos = blockPos.below();
         }
 
         if (blockPos.getY() <= 4) {
             return false;
         } else {
-            blockPos = blockPos.down(4);
+            blockPos = blockPos.below(4);
             ChunkPos chunkPos = new ChunkPos(blockPos);
             /*if (!world.getChunk(chunkPos.x, chunkPos.z, ChunkStatus.STRUCTURE_REFERENCES).getStructureReferences(Feature.VILLAGE.getStructureName()).isEmpty()) {
                 return false;
@@ -76,12 +76,12 @@ public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
                     for (lvt_11_4_ = 0; lvt_11_4_ < 8; ++lvt_11_4_) {
                         lvt_12_4_ = !flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_] && (lvt_9_5_ < 15 && flagArray[((lvt_9_5_ + 1) * 16 + lvt_10_5_) * 8 + lvt_11_4_] || lvt_9_5_ > 0 && flagArray[((lvt_9_5_ - 1) * 16 + lvt_10_5_) * 8 + lvt_11_4_] || lvt_10_5_ < 15 && flagArray[(lvt_9_5_ * 16 + lvt_10_5_ + 1) * 8 + lvt_11_4_] || lvt_10_5_ > 0 && flagArray[(lvt_9_5_ * 16 + (lvt_10_5_ - 1)) * 8 + lvt_11_4_] || lvt_11_4_ < 7 && flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_ + 1] || lvt_11_4_ > 0 && flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + (lvt_11_4_ - 1)]);
                         if (lvt_12_4_) {
-                            Material lvt_13_1_ = world.getBlockState(blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_)).getMaterial();
+                            Material lvt_13_1_ = world.getBlockState(blockPos.offset(lvt_9_5_, lvt_11_4_, lvt_10_5_)).getMaterial();
                             if (lvt_11_4_ >= 4 && lvt_13_1_.isLiquid()) {
                                 return false;
                             }
 
-                            if (lvt_11_4_ < 4 && !lvt_13_1_.isSolid() && world.getBlockState(blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_)) != config.state) {
+                            if (lvt_11_4_ < 4 && !lvt_13_1_.isSolid() && world.getBlockState(blockPos.offset(lvt_9_5_, lvt_11_4_, lvt_10_5_)) != config.state) {
                                 return false;
                             }
                         }
@@ -93,7 +93,7 @@ public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
                 for (lvt_10_5_ = 0; lvt_10_5_ < 16; ++lvt_10_5_) {
                     for (lvt_11_4_ = 0; lvt_11_4_ < 8; ++lvt_11_4_) {
                         if (flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_]) {
-                            world.setBlockState(blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_), lvt_11_4_ >= 4 ? AIR : config.state, 2);
+                            world.setBlock(blockPos.offset(lvt_9_5_, lvt_11_4_, lvt_10_5_), lvt_11_4_ >= 4 ? AIR : config.state, 2);
                         }
                     }
                 }
@@ -104,13 +104,13 @@ public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
                 for (lvt_10_5_ = 0; lvt_10_5_ < 16; ++lvt_10_5_) {
                     for (lvt_11_4_ = 4; lvt_11_4_ < 8; ++lvt_11_4_) {
                         if (flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_]) {
-                            lvt_12_5_ = blockPos.add(lvt_9_5_, lvt_11_4_ - 1, lvt_10_5_);
-                            if (isSoil(world.getBlockState(lvt_12_5_).getBlock()) && world.getLightLevel(LightType.SKY, blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
+                            lvt_12_5_ = blockPos.offset(lvt_9_5_, lvt_11_4_ - 1, lvt_10_5_);
+                            if (isDirt(world.getBlockState(lvt_12_5_).getBlock()) && world.getBrightness(LightLayer.SKY, blockPos.offset(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
                                 Biome lvt_13_2_ = world.getBiome(lvt_12_5_);
-                                if (lvt_13_2_.getGenerationSettings().getSurfaceConfig().getTopMaterial().getBlock() == BYGBlockList.FROST_MAGMA) {
-                                    world.setBlockState(lvt_12_5_, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
+                                if (lvt_13_2_.getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial().getBlock() == BYGBlockList.FROST_MAGMA) {
+                                    world.setBlock(lvt_12_5_, BYGBlockList.FROST_MAGMA.defaultBlockState(), 2);
                                 } else {
-                                    world.setBlockState(lvt_12_5_, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
+                                    world.setBlock(lvt_12_5_, BYGBlockList.FROST_MAGMA.defaultBlockState(), 2);
                                 }
                             }
                         }
@@ -123,8 +123,8 @@ public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
                     for (lvt_10_5_ = 0; lvt_10_5_ < 16; ++lvt_10_5_) {
                         for (lvt_11_4_ = 0; lvt_11_4_ < 8; ++lvt_11_4_) {
                             lvt_12_4_ = !flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_] && (lvt_9_5_ < 15 && flagArray[((lvt_9_5_ + 1) * 16 + lvt_10_5_) * 8 + lvt_11_4_] || lvt_9_5_ > 0 && flagArray[((lvt_9_5_ - 1) * 16 + lvt_10_5_) * 8 + lvt_11_4_] || lvt_10_5_ < 15 && flagArray[(lvt_9_5_ * 16 + lvt_10_5_ + 1) * 8 + lvt_11_4_] || lvt_10_5_ > 0 && flagArray[(lvt_9_5_ * 16 + (lvt_10_5_ - 1)) * 8 + lvt_11_4_] || lvt_11_4_ < 7 && flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_ + 1] || lvt_11_4_ > 0 && flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + (lvt_11_4_ - 1)]);
-                            if (lvt_12_4_ && (lvt_11_4_ < 4 || rand.nextInt(2) != 0) && world.getBlockState(blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_)).getMaterial().isSolid()) {
-                                world.setBlockState(blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_), BYGBlockList.PACKED_BLACK_ICE.getDefaultState(), 2);
+                            if (lvt_12_4_ && (lvt_11_4_ < 4 || rand.nextInt(2) != 0) && world.getBlockState(blockPos.offset(lvt_9_5_, lvt_11_4_, lvt_10_5_)).getMaterial().isSolid()) {
+                                world.setBlock(blockPos.offset(lvt_9_5_, lvt_11_4_, lvt_10_5_), BYGBlockList.PACKED_BLACK_ICE.defaultBlockState(), 2);
                             }
                         }
                     }
@@ -134,9 +134,9 @@ public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
             if (config.state.getMaterial() == Material.WATER) {
                 for (lvt_9_5_ = 0; lvt_9_5_ < 16; ++lvt_9_5_) {
                     for (lvt_10_5_ = 0; lvt_10_5_ < 16; ++lvt_10_5_) {
-                        lvt_12_5_ = blockPos.add(lvt_9_5_, 4, lvt_10_5_);
-                        if (world.getBiome(lvt_12_5_).canSetIce(world, lvt_12_5_, false)) {
-                            world.setBlockState(lvt_12_5_, Blocks.ICE.getDefaultState(), 2);
+                        lvt_12_5_ = blockPos.offset(lvt_9_5_, 4, lvt_10_5_);
+                        if (world.getBiome(lvt_12_5_).shouldFreeze(world, lvt_12_5_, false)) {
+                            world.setBlock(lvt_12_5_, Blocks.ICE.defaultBlockState(), 2);
                         }
                     }
                 }

@@ -2,22 +2,21 @@ package voronoiaoc.byg.common.world.surfacebuilders;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.noise.OctaveSimplexNoiseSampler;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
-
 import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
+import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 
-public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
+public class SierraSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
     private static final BlockState WHITE_TERRACOTTA;
     private static final BlockState ORANGE_TERRACOTTA;
     private static final BlockState TERRACOTTA;
@@ -27,25 +26,25 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
     private static final BlockState LIGHT_GRAY_TERRACOTTA;
     protected BlockState[] layerBlocks;
     protected long seed;
-    protected OctaveSimplexNoiseSampler heightCutoffNoise;
-    protected OctaveSimplexNoiseSampler heightNoise;
-    protected OctaveSimplexNoiseSampler layerNoise;
+    protected PerlinSimplexNoise heightCutoffNoise;
+    protected PerlinSimplexNoise heightNoise;
+    protected PerlinSimplexNoise layerNoise;
 
-    public SierraSB(Codec<TernarySurfaceConfig> codec) {
+    public SierraSB(Codec<SurfaceBuilderBaseConfiguration> codec) {
         super(codec);
     }
 
-    public void generate(Random random, Chunk chunk, Biome biome, int i, int j, int k, double d, BlockState blockState, BlockState blockState2, int l, long m, TernarySurfaceConfig ternarySurfaceConfig) {
+    public void apply(Random random, ChunkAccess chunk, Biome biome, int i, int j, int k, double d, BlockState blockState, BlockState blockState2, int l, long m, SurfaceBuilderBaseConfiguration ternarySurfaceConfig) {
         int n = i & 15;
         int o = j & 15;
         BlockState blockState3 = WHITE_TERRACOTTA;
-        BlockState blockState4 = biome.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
+        BlockState blockState4 = biome.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
         int p = (int) (d / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean bl = Math.cos(d / 3.0D * 3.141592653589793D) > 0.0D;
         int q = -1;
         boolean bl2 = false;
         int r = 0;
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         for (int s = k; s >= 0; --s) {
             if (r < 15) {
@@ -53,15 +52,15 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
                 BlockState blockState5 = chunk.getBlockState(mutable);
                 if (blockState5.isAir()) {
                     q = -1;
-                } else if (blockState5.isOf(blockState.getBlock())) {
+                } else if (blockState5.is(blockState.getBlock())) {
                     if (q == -1) {
                         bl2 = false;
                         if (p <= 0) {
-                            blockState3 = Blocks.AIR.getDefaultState();
+                            blockState3 = Blocks.AIR.defaultBlockState();
                             blockState4 = blockState;
                         } else if (s >= l - 4 && s <= l + 1) {
                             blockState3 = WHITE_TERRACOTTA;
-                            blockState4 = biome.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
+                            blockState4 = biome.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
                         }
 
                         if (s < l && (blockState3 == null || blockState3.isAir())) {
@@ -84,7 +83,7 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
 
                                 chunk.setBlockState(mutable, blockState8, false);
                             } else {
-                                chunk.setBlockState(mutable, biome.getGenerationSettings().getSurfaceConfig().getTopMaterial(), false);
+                                chunk.setBlockState(mutable, biome.getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial(), false);
                                 bl2 = true;
                             }
                         } else {
@@ -110,15 +109,15 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
 
     }
 
-    public void initSeed(long seed) {
+    public void initNoise(long seed) {
         if (this.seed != seed || this.layerBlocks == null) {
             this.initLayerBlocks(seed);
         }
 
         if (this.seed != seed || this.heightCutoffNoise == null || this.heightNoise == null) {
-            ChunkRandom chunkRandom = new ChunkRandom(seed);
-            this.heightCutoffNoise = new OctaveSimplexNoiseSampler(chunkRandom, IntStream.rangeClosed(-3, 0));
-            this.heightNoise = new OctaveSimplexNoiseSampler(chunkRandom, ImmutableList.of(0));
+            WorldgenRandom chunkRandom = new WorldgenRandom(seed);
+            this.heightCutoffNoise = new PerlinSimplexNoise(chunkRandom, IntStream.rangeClosed(-3, 0));
+            this.heightNoise = new PerlinSimplexNoise(chunkRandom, ImmutableList.of(0));
         }
 
         this.seed = seed;
@@ -127,8 +126,8 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
     protected void initLayerBlocks(long seed) {
         this.layerBlocks = new BlockState[64];
         Arrays.fill(this.layerBlocks, TERRACOTTA);
-        ChunkRandom chunkRandom = new ChunkRandom(seed);
-        this.layerNoise = new OctaveSimplexNoiseSampler(chunkRandom, ImmutableList.of(0));
+        WorldgenRandom chunkRandom = new WorldgenRandom(seed);
+        this.layerNoise = new PerlinSimplexNoise(chunkRandom, ImmutableList.of(0));
 
         int j;
         for (j = 0; j < 64; ++j) {
@@ -198,17 +197,17 @@ public class SierraSB extends SurfaceBuilder<TernarySurfaceConfig> {
     }
 
     protected BlockState calculateLayerBlockState(int x, int y, int z) {
-        int i = (int) Math.round(this.layerNoise.sample((double) x / 512.0D, (double) z / 512.0D, false) * 2.0D);
+        int i = (int) Math.round(this.layerNoise.getValue((double) x / 512.0D, (double) z / 512.0D, false) * 2.0D);
         return this.layerBlocks[(y + i + 64) % 64];
     }
 
     static {
-        WHITE_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
-        ORANGE_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
-        TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
-        YELLOW_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
-        BROWN_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
-        RED_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
-        LIGHT_GRAY_TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
+        WHITE_TERRACOTTA = Blocks.TERRACOTTA.defaultBlockState();
+        ORANGE_TERRACOTTA = Blocks.TERRACOTTA.defaultBlockState();
+        TERRACOTTA = Blocks.TERRACOTTA.defaultBlockState();
+        YELLOW_TERRACOTTA = Blocks.TERRACOTTA.defaultBlockState();
+        BROWN_TERRACOTTA = Blocks.TERRACOTTA.defaultBlockState();
+        RED_TERRACOTTA = Blocks.TERRACOTTA.defaultBlockState();
+        LIGHT_GRAY_TERRACOTTA = Blocks.TERRACOTTA.defaultBlockState();
     }
 }

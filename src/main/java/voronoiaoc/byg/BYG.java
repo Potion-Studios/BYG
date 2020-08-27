@@ -2,10 +2,10 @@ package voronoiaoc.byg;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
@@ -27,22 +27,21 @@ import voronoiaoc.byg.data.BYGDataGenerator;
 public class BYG implements ModInitializer {
     public static final String MODID = "byg";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static final ItemGroup BYG_TAB = FabricItemGroupBuilder.build(new Identifier(MODID, "byg"), () -> new ItemStack(BYGItemList.BYG_LOGO));
+    public static final CreativeModeTab BYG_TAB = FabricItemGroupBuilder.build(new ResourceLocation(MODID, "byg"), () -> new ItemStack(BYGItemList.BYG_LOGO));
     static int idx = 0;
 
     @Override
     public void onInitialize() {
         LOGGER.info("Initializing BYG...");
-//        ConfigWeightManager.weightConfigFile();
-        //Registries
-//        BYGBlockRegistry.registerBlocks();
-//        BYGItemRegistry.registerItems();
-//        BYGFeatureList.RegisterFeatures.registerBYGFeatures();
-//        BYGBiomeRegistry.registerSubBiomes();
-//        BYGBiomeRegistry.registerBiomes();
-//        BYGBiomeRegistry.registerNetherBiomes();
-//        BYGBiomeRegistry.registerEndBiomes();
-//        BYGBiomeRegistry.addBiomeNumericalIDs();
+        ConfigWeightManager.weightConfigFile();
+        BYGBlockRegistry.registerBlocks();
+        BYGItemRegistry.registerItems();
+        BYGFeatureList.RegisterFeatures.registerBYGFeatures();
+        BYGBiomeRegistry.registerSubBiomes();
+        BYGBiomeRegistry.registerBiomes();
+        BYGBiomeRegistry.registerNetherBiomes();
+        BYGBiomeRegistry.registerEndBiomes();
+        BYGBiomeRegistry.addBiomeNumericalIDs();
 
         BYGEntityRegistry.registerEntities();
 
@@ -56,26 +55,13 @@ public class BYG implements ModInitializer {
         BYGFlammables.flammablesBYG();
         BYGHoeables.effectiveBlocksBYG();
         BYGHoeables.tillablesBYG();
-        BYGStrippables.strippableLogsBYG();
+        BYGStrippables.stripableLogsBYG();
         BYGCompostables.compostablesBYG();
         BYGNetherBiomeProvider.addNetherBiomesForProvider();
-        Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "byg_nether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
-        Registry.register(Registry.BIOME_SOURCE, new Identifier(MODID, "byg_end"), BYGEndBiomeProvider.BYGENDCODEC);
+        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MODID, "byg_nether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
+        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MODID, "byg_end"), BYGEndBiomeProvider.BYGENDCODEC);
 
         BYGDataGenerator.dataGenCommand();
-        BYGBiomeRegistry.addBiomeNumericalIDs();
         LOGGER.info("Initialized BYG!");
-    }
-
-    public static void bootStrap() {
-        ConfigWeightManager.weightConfigFile();
-        BYGBlockRegistry.registerBlocks();
-        BYGItemRegistry.registerItems();
-        BYGFeatureList.RegisterFeatures.registerBYGFeatures();
-        BYGBiomeRegistry.registerSubBiomes();
-        BYGBiomeRegistry.registerBiomes();
-        BYGBiomeRegistry.registerNetherBiomes();
-        BYGBiomeRegistry.registerEndBiomes();
-        BYGBiomeRegistry.addBiomeNumericalIDs();
     }
 }

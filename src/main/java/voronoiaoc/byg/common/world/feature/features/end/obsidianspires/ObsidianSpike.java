@@ -1,30 +1,30 @@
 package voronoiaoc.byg.common.world.feature.features.end.obsidianspires;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.ModifiableWorld;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
 import voronoiaoc.byg.common.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelWriter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class ObsidianSpike extends Feature<DefaultFeatureConfig> {
+public class ObsidianSpike extends Feature<NoneFeatureConfiguration> {
     public static boolean doBlockNotify;
     static Random random = new Random();
     protected long seed;
     protected ChunkFastSimplexStyleNoise noiseGen;
     protected ChunkFastSimplexStyleNoise noiseGen2;
 
-    public ObsidianSpike(Codec<DefaultFeatureConfig> config) {
+    public ObsidianSpike(Codec<NoneFeatureConfiguration> config) {
         super(config);
     }
 
@@ -37,7 +37,7 @@ public class ObsidianSpike extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         setSeed(world.getSeed());
         int randLightHeight = rand.nextInt(25);
         int randChance = rand.nextInt(26);
@@ -46,13 +46,13 @@ public class ObsidianSpike extends Feature<DefaultFeatureConfig> {
 
         int maximumHeight;
         int terrainHeight;
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        if (!checkArea(world, pos) || world.getBlockState(pos.down()).getBlock() != BYGBlockList.IVIS_PHYLIUM) {
+        if (!checkArea(world, pos) || world.getBlockState(pos.below()).getBlock() != BYGBlockList.IVIS_PHYLIUM) {
             return false;
         }
 
-        if (world.getBlockState(pos.down()).getBlock() == BYGBlockList.IVIS_PHYLIUM) {
+        if (world.getBlockState(pos.below()).getBlock() == BYGBlockList.IVIS_PHYLIUM) {
             for (int x = 0; x < 16; x++) {
                 for (int z = 0; z < 16; z++) {
                     mutable.set(pos.getX() + x, 0, pos.getZ() + z);
@@ -61,12 +61,12 @@ public class ObsidianSpike extends Feature<DefaultFeatureConfig> {
                     noise = Math.pow(Math.abs(noiseGen.sample2D(mutable.getX() * 0.018D, mutable.getZ() * 0.015D)) + noise2 * 0.005D, 7); //0.70990733195111407153665966708847
 
                     maximumHeight = (int) (noise * 100D);
-                    terrainHeight = world.getTopY(Heightmap.Type.MOTION_BLOCKING, mutable.getX(), mutable.getZ());
+                    terrainHeight = world.getHeight(Heightmap.Types.MOTION_BLOCKING, mutable.getX(), mutable.getZ());
 
                     if (terrainHeight >= 55) {
                         mutable.move(Direction.UP, maximumHeight);
                         for (int y = maximumHeight; y >= terrainHeight; y--) {
-                            world.setBlockState(mutable, Blocks.OBSIDIAN.getDefaultState(), 2);
+                            world.setBlock(mutable, Blocks.OBSIDIAN.defaultBlockState(), 2);
 
                             mutable.move(Direction.DOWN);
                         }
@@ -77,19 +77,19 @@ public class ObsidianSpike extends Feature<DefaultFeatureConfig> {
         return true;
     }
 
-    protected void setCoralBlock(ModifiableWorld worldIn, BlockPos pos) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WARPED_CORAL_BLOCK.getDefaultState());
+    protected void setCoralBlock(LevelWriter worldIn, BlockPos pos) {
+        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WARPED_CORAL_BLOCK.defaultBlockState());
     }
 
-    private void setBlockStateWithoutUpdates(ModifiableWorld worldWriter, BlockPos blockPos, BlockState blockState) {
+    private void setBlockStateWithoutUpdates(LevelWriter worldWriter, BlockPos blockPos, BlockState blockState) {
         if (doBlockNotify) {
-            worldWriter.setBlockState(blockPos, blockState, 19);
+            worldWriter.setBlock(blockPos, blockState, 19);
         } else {
-            worldWriter.setBlockState(blockPos, blockState, 18);
+            worldWriter.setBlock(blockPos, blockState, 18);
         }
     }
 
-    private boolean checkArea(WorldAccess world, BlockPos pos) {
+    private boolean checkArea(LevelAccessor world, BlockPos pos) {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
@@ -99,7 +99,7 @@ public class ObsidianSpike extends Feature<DefaultFeatureConfig> {
 
                 BlockPos checkArea = new BlockPos(posX + checkX, posY, posZ + checkZ);
 
-                if (!world.isAir
+                if (!world.isEmptyBlock
                         (checkArea)) return false;
                 if (world.getBlockState(checkArea).getBlock() == Blocks.OBSIDIAN) return false;
             }
@@ -108,6 +108,6 @@ public class ObsidianSpike extends Feature<DefaultFeatureConfig> {
     }
 
     private BlockState blockState() {
-        return (random.nextInt(2) == 0) ? Blocks.END_STONE.getDefaultState() : Blocks.OBSIDIAN.getDefaultState();
+        return (random.nextInt(2) == 0) ? Blocks.END_STONE.defaultBlockState() : Blocks.OBSIDIAN.defaultBlockState();
     }
 }
