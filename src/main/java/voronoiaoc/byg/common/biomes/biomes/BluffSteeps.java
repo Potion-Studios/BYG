@@ -9,6 +9,7 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -19,10 +20,10 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class BluffSteeps extends Biome implements BiomeTools  {
+public class BluffSteeps extends BYGBiomeBuilder implements BiomeTools  {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("bluff_steeps", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState())));
-    static final RainType PRECIPATATION = RainType.SNOW;
-    static final Category CATEGORY = Category.EXTREME_HILLS;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
+    static final Biome.Category CATEGORY = Biome.Category.EXTREME_HILLS;
     static final float DEPTH = 2.5F;
     static final float SCALE = 0.2F;
     static final float TEMPERATURE = 0.25F;
@@ -30,7 +31,7 @@ public class BluffSteeps extends Biome implements BiomeTools  {
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
@@ -40,7 +41,7 @@ public class BluffSteeps extends Biome implements BiomeTools  {
 
     @Override
     public Biome getRiver() {
-        return this;
+        return this.getBiome();
     }
 
     @Override

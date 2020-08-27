@@ -7,16 +7,17 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
-public class GuianaClearing extends Biome implements BiomeTools {
+public class GuianaClearing extends BYGBiomeBuilder implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("guiana_clearing", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState())));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.JUNGLE;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.JUNGLE;
     static final float DEPTH = 6.0F;
     static final float SCALE = 0.25F;
     static final float TEMPERATURE = 0.95F;
@@ -26,7 +27,7 @@ public class GuianaClearing extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 6208527;
     static final int FOLIAGE_COLOR = 6208527;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
@@ -36,7 +37,7 @@ public class GuianaClearing extends Biome implements BiomeTools {
 
 //    @Override
 //    public Biome getRiver() {
-//        return this;
+//        return this.getBiome();
 //    }
 
 

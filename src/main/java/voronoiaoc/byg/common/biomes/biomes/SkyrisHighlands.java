@@ -7,15 +7,16 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
-public class SkyrisHighlands extends Biome implements BiomeTools  {
+public class SkyrisHighlands extends BYGBiomeBuilder implements BiomeTools  {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("skyris_highlands", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.EXTREME_HILLS;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.EXTREME_HILLS;
     static final float DEPTH = 4.0F;
     static final float SCALE = 1.0F;
     static final float TEMPERATURE = 0.25F;
@@ -25,7 +26,7 @@ public class SkyrisHighlands extends Biome implements BiomeTools  {
     static final int GRASS_COLOR = 6409356;
     static final int FOLIAGE_COLOR = 7135854;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 

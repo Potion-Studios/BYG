@@ -7,6 +7,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
@@ -18,10 +19,10 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class CragGardens extends Biome implements BiomeTools , BiomeFog {
+public class CragGardens extends BYGBiomeBuilder implements BiomeTools , BiomeFog {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("crag_gardens", new ConfiguredSurfaceBuilder<>(BYGSBList.CRAG_GARDENS, BYGSBList.BYGSBConfigList.GREEN_CONCRETE_POWDER_CF));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.JUNGLE;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.JUNGLE;
     static final float DEPTH = -1.5F;
     static final float SCALE = 0.0F;
     static final float TEMPERATURE = 1.0F;
@@ -29,7 +30,7 @@ public class CragGardens extends Biome implements BiomeTools , BiomeFog {
     static final int WATER_COLOR = 8170451;
     static final int WATER_FOG_COLOR = 6200521;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
@@ -44,7 +45,7 @@ public class CragGardens extends Biome implements BiomeTools , BiomeFog {
 
     @Override
     public Biome getRiver() {
-        return this;
+        return this.getBiome();
     }
 
     @Override

@@ -9,6 +9,7 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -17,10 +18,10 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.HashMap;
 
-public class SnowyEvergreenTaiga extends Biome implements BiomeTools  {
+public class SnowyEvergreenTaiga extends BYGBiomeBuilder implements BiomeTools  {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("snowy_evergreen_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.TAIGA;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.TAIGA;
     static final float DEPTH = 0.35F;
     static final float SCALE = 0.01F;
     static final float TEMPERATURE = -0.5F;
@@ -30,7 +31,7 @@ public class SnowyEvergreenTaiga extends Biome implements BiomeTools  {
     static final int GRASS_COLOR = 5011004;
     static final int FOLIAGE_COLOR = 2263842;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 

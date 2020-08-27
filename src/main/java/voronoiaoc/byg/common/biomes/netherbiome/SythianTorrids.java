@@ -11,15 +11,16 @@ import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class SythianTorrids extends Biome implements BiomeTools {
+public class SythianTorrids extends BYGBiomeBuilder implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("sythian_torrids", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSBList.BYGSBConfigList.SYTHIANTORRIDS));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.NETHER;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.NETHER;
     static final float DEPTH = 0.125F;
     static final float SCALE = 0.05F;
     static final float TEMPERATURE = 0.8F;
@@ -27,7 +28,7 @@ public class SythianTorrids extends Biome implements BiomeTools {
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 

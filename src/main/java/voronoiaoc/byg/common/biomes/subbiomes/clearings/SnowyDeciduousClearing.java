@@ -5,15 +5,16 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
-public class SnowyDeciduousClearing extends Biome implements BiomeTools {
+public class SnowyDeciduousClearing extends BYGBiomeBuilder implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("snowy_deciduous_clearing", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
-    static final RainType PRECIPATATION = RainType.SNOW;
-    static final Category CATEGORY = Category.ICY;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
+    static final Biome.Category CATEGORY = Biome.Category.ICY;
     static final float DEPTH = 0.2F;
     static final float SCALE = 0.2F;
     static final float TEMPERATURE = -0.5F;
@@ -23,7 +24,7 @@ public class SnowyDeciduousClearing extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 12032353;
     static final int FOLIAGE_COLOR = 12215394;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
@@ -35,12 +36,6 @@ public class SnowyDeciduousClearing extends Biome implements BiomeTools {
 //    public Biome getRiver() {
 //        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.FROZEN_RIVER;
 //    }
-
-
-    @Override
-    public int getFoliageColor() {
-        return 12215394;
-    }
 
     static {
         //this.addStructure(Feature.VILLAGE.configure(new VillageConfig("village/plains/town_centers"), 6));

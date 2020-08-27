@@ -4,15 +4,16 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class IvisFields extends Biome implements BiomeTools {
+public class IvisFields extends BYGBiomeBuilder implements BiomeTools {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("ivis_fields", new ConfiguredSurfaceBuilder<>(BYGSBList.IVISFIELDS_SB, BYGSBList.BYGSBConfigList.END));
-    static final RainType PRECIPATATION = RainType.NONE;
-    static final Category CATEGORY = Category.THEEND;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
+    static final Biome.Category CATEGORY = Biome.Category.THEEND;
     static final float DEPTH = 0.55F;
     static final float SCALE = 0.15F;
     static final float TEMPERATURE = 0.8F;
@@ -20,7 +21,7 @@ public class IvisFields extends Biome implements BiomeTools {
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 

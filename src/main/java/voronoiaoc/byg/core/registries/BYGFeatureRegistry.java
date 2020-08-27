@@ -15,14 +15,5 @@ public class BYGFeatureRegistry {
         BYG.LOGGER.debug("BYG: Registering Features...");
         BYGFeatureList.RegisterFeatures.registerBYGFeatures();
         BYG.LOGGER.info("BYG: Features Registered!");
-        BYGBiomeRegistry.registerBYGBiomes();
-
     }
-
-//    @SubscribeEvent
-//    public static void bygRegisterBiomeProviderTypes(RegistryEvent.Register<BiomeProviderType<?, ?>> event) {
-//        event.getRegistry().registerAll(
-//                EndDimensionHook.BYG_END.setRegistryName("end_byg")
-//        );
-//    }
 }

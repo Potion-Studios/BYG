@@ -6,6 +6,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ForgeRegistry;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
@@ -17,12 +19,14 @@ import java.util.List;
 @SuppressWarnings("deprecation")
 public class BYGEndBiomeCatch {
 
-    public static final int IVISFIELDS = WorldGenRegistries.field_243657_i.getId(BYGBiomeList.IVISFIELDS);
-    public static final int SMALLENDISLANDS = WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.SMALL_END_ISLANDS));
-    public static final int ENDBARRENS = WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.END_BARRENS));
-    public static final int ENDHIGHLANDS = WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.END_HIGHLANDS));
-    public static final int ENDMIDLANDS = WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.END_MIDLANDS));
-    public static final int POISEFOREST = WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation("endergetic:poise_forest")).orElse(WorldGenRegistries.field_243657_i.getByValue(SMALLENDISLANDS)));
+    public static final ForgeRegistry<Biome> BIOME_REGISTRY = ((ForgeRegistry<Biome>) ForgeRegistries.BIOMES);
+
+    public static final int IVISFIELDS = BIOME_REGISTRY.getID(BYGBiomeList.IVISFIELDS);
+    public static final int SMALLENDISLANDS = BIOME_REGISTRY.getID(BIOME_REGISTRY.getValue(Biomes.SMALL_END_ISLANDS.func_240901_a_()));
+    public static final int ENDBARRENS = BIOME_REGISTRY.getID(BIOME_REGISTRY.getValue(Biomes.END_BARRENS.func_240901_a_()));
+    public static final int ENDHIGHLANDS = BIOME_REGISTRY.getID(BIOME_REGISTRY.getValue(Biomes.END_HIGHLANDS.func_240901_a_()));
+    public static final int ENDMIDLANDS = BIOME_REGISTRY.getID(BIOME_REGISTRY.getValue(Biomes.END_MIDLANDS.func_240901_a_()));
+    public static final int POISEFOREST = BIOME_REGISTRY.getID(BIOME_REGISTRY.getValue(new ResourceLocation("endergetic:poise_forest")));
 
     static String biomeRegistries = BYGWorldConfig.externalEndBiomes.get();
     public static String configBiomes = biomeRegistries.trim().replace(" ", "");
@@ -36,7 +40,7 @@ public class BYGEndBiomeCatch {
         if (biomeList.size() > 0) {
             int[] getConfigArray = new int[biomeList.size()];
             for (int index = 0; index < biomeList.size(); ++index) {
-                final Biome configResource = WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation(biomeList.get(index))).orElse(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.THE_END));
+                final Biome configResource = WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation(biomeList.get(index))).orElse(BIOME_REGISTRY.getValue(Biomes.THE_END.func_240901_a_()));
                 if (configResource == null) {
                     BYG.LOGGER.warn("Illegal registry name! You put: " + biomeList.get(index));
                 } else if (configResource != null) {
@@ -45,7 +49,7 @@ public class BYGEndBiomeCatch {
                     if (biome == null) {
                     } else {
                         BYGEndBiomeProvider.bygEndBiomeList.add(biome);
-                        endBiomeIDs.add(WorldGenRegistries.field_243657_i.getId(biome));
+                        endBiomeIDs.add(BIOME_REGISTRY.getID(biome));
                     }
                 }
             }

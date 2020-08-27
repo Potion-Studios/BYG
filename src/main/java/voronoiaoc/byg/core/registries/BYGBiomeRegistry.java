@@ -6,6 +6,9 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeRegistry;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
@@ -14,9 +17,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Mod.EventBusSubscriber(modid = BYG.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BYGBiomeRegistry {
 
     public static List<Biome> biomeList = new ArrayList<>();
+
+        @SubscribeEvent
+        public static void bygRegisterFeatures(RegistryEvent.Register<Biome> event) {
+            BYG.LOGGER.debug("BYG: Registering Biomes...");
+            BYGBiomeRegistry.registerBYGBiomes();
+            BYG.LOGGER.info("BYG: Biomes Registered!");
+        }
+
+
     public static void registerBYGBiomes() {
         BYG.LOGGER.debug("BYG: Registering Biomes...");
 //        registerBiome(registry, BYGBiomeList.DUMMYBIOME, "dummy", true, BiomeDictionary.Type.PLAINS);

@@ -12,7 +12,7 @@ import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset1Transformer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 
 public enum ModdedHillsLayer implements IAreaTransformer2, IDimOffset1Transformer {
    INSTANCE;
@@ -59,10 +59,8 @@ public enum ModdedHillsLayer implements IAreaTransformer2, IDimOffset1Transforme
 
             Biome biome = WorldGenRegistries.field_243657_i.getByValue(i);
             if (biome != null) {
-               if (biome instanceof BiomeTools) {
-                  Biome hill = ((BiomeTools) biome).getHill(rand);
+                  Biome hill = getHillBiomeValue(biome, rand);
                   if (hill != null) l = WorldGenRegistries.field_243657_i.getId(hill);
-               }
             }
 
             if (i == 2) {
@@ -139,5 +137,14 @@ public enum ModdedHillsLayer implements IAreaTransformer2, IDimOffset1Transforme
 
    protected static boolean isShallowOcean(int biomeIn) {
       return biomeIn == 44 || biomeIn == 45 || biomeIn == 0 || biomeIn == 46 || biomeIn == 10;
+   }
+
+   public Biome getHillBiomeValue(Biome firstLayerBiomeValue, INoiseRandom random) {
+      for (BYGBiomeBuilder biomeBuilder : BYGBiomeBuilder.biomeBuilders) {
+         if (firstLayerBiomeValue == biomeBuilder.getBiome())
+            return biomeBuilder.getHill(random);
+      }
+
+      return null;
    }
 }

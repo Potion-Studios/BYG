@@ -5,6 +5,8 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ForgeRegistry;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.config.BYGWorldConfig;
 
@@ -14,6 +16,8 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class BYGNetherBiomeCatch {
+    public static final ForgeRegistry<Biome> BIOME_REGISTRY = ((ForgeRegistry<Biome>) ForgeRegistries.BIOMES);
+
     static String biomeRegistries = BYGWorldConfig.netherBiomes.get();
     public static String configBiomes = biomeRegistries.trim();
     public static List<String> biomeList = Arrays.asList(configBiomes.split(","));
@@ -26,7 +30,7 @@ public class BYGNetherBiomeCatch {
         if (biomeList.size() > 0) {
             int[] getConfigArray = new int[biomeList.size()];
             for (int index = 0; index < biomeList.size(); ++index) {
-                final Biome configResource = WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation(biomeList.get(index))).orElse(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.THE_END));
+                final Biome configResource = WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation(biomeList.get(index))).orElse(BIOME_REGISTRY.getValue(Biomes.NETHER_WASTES.func_240901_a_()));
                 if (configResource == null) {
                     BYG.LOGGER.error("Illegal registry name! You put: " + biomeList.get(index));
                 } else if (configResource != null) {

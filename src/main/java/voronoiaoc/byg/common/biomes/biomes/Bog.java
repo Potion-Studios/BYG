@@ -9,6 +9,7 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -19,10 +20,10 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class Bog extends Biome implements BiomeTools  {
+public class Bog extends BYGBiomeBuilder implements BiomeTools  {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("bog", new ConfiguredSurfaceBuilder<>(BYGSBList.MARSHLAND_SB, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState())));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.SWAMP;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.SWAMP;
     static final float DEPTH = -0.28F;
     static final float SCALE = -0.01F;
     static final float TEMPERATURE = 0.25F;
@@ -32,7 +33,7 @@ public class Bog extends Biome implements BiomeTools  {
     static final int GRASS_COLOR = 7365696;
     static final int FOLIAGE_COLOR = 7365696;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
@@ -42,12 +43,12 @@ public class Bog extends Biome implements BiomeTools  {
 
     @Override
     public HashMap<Biome, Integer> getBeaches() {
-        return Maps.newHashMap(Collections.singletonMap(this, 1));
+        return Maps.newHashMap(Collections.singletonMap(this.getBiome(), 1));
     }
 
     @Override
     public Biome getRiver() {
-        return this;
+        return this.getBiome();
     }
 
     static {

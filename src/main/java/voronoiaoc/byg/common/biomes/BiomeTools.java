@@ -3,9 +3,7 @@ package voronoiaoc.byg.common.biomes;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.INoiseRandom;
 
-import javax.annotation.Nullable;
 import java.util.HashMap;
 
 public interface BiomeTools {
@@ -30,9 +28,9 @@ public interface BiomeTools {
         return new HashMap<>();
     }
 
-    @Nullable
-    default Biome getHill(INoiseRandom rand) {
-        return null;
-    }
+//    @Nullable
+//    default Biome getHill(INoiseRandom rand) {
+//        return null;
+//    }
 
 }

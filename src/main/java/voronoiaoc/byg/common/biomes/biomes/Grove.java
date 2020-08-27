@@ -6,6 +6,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -14,10 +15,10 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.HashMap;
 
-public class Grove extends Biome implements BiomeTools  {
+public class Grove extends BYGBiomeBuilder implements BiomeTools  {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("grove", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.PLAINS;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.PLAINS;
     static final float DEPTH = 0.25F;
     static final float SCALE = 0.1F;
     static final float TEMPERATURE = 0.75F;
@@ -27,7 +28,7 @@ public class Grove extends Biome implements BiomeTools  {
     static final int GRASS_COLOR = 11190111;
     static final int FOLIAGE_COLOR = 11190111;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 

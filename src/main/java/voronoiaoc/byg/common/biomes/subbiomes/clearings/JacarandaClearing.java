@@ -5,14 +5,15 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 
-public class JacarandaClearing extends Biome implements BiomeTools {
+public class JacarandaClearing extends BYGBiomeBuilder implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("jacaranda_clearing", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.JUNGLE;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.JUNGLE;
     static final float DEPTH = 0.2F;
     static final float SCALE = 0.2F;
     static final float TEMPERATURE = 0.95F;
@@ -22,7 +23,7 @@ public class JacarandaClearing extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 10145074;
     static final int FOLIAGE_COLOR = 14180771;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
@@ -34,11 +35,6 @@ public class JacarandaClearing extends Biome implements BiomeTools {
 //    public Biome getRiver() {
 //        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.RIVER;
 //    }
-
-    @Override
-    public int getFoliageColor() {
-        return 14180771;
-    }
 
     static {
         //this.addStructure(Feature.VILLAGE.configure(new VillageConfig("village/plains/town_centers"), 6));

@@ -7,16 +7,17 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class DeadSea extends Biome implements BiomeTools , BiomeFog {
+public class DeadSea extends BYGBiomeBuilder implements BiomeTools , BiomeFog {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("dead_sea", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSBList.BYGSBConfigList.BLACKSAND));
-    static final RainType PRECIPATATION = RainType.NONE;
-    static final Category CATEGORY = Category.OCEAN;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
+    static final Biome.Category CATEGORY = Biome.Category.OCEAN;
     static final float DEPTH = -1.05F;
     static final float SCALE = 0.1F;
     static final float TEMPERATURE = 2.0F;
@@ -24,7 +25,7 @@ public class DeadSea extends Biome implements BiomeTools , BiomeFog {
     static final int WATER_COLOR = 12632256;
     static final int WATER_FOG_COLOR = 12632256;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).func_242517_a(SURFACE_BUILDER);
 
@@ -39,7 +40,7 @@ public class DeadSea extends Biome implements BiomeTools , BiomeFog {
 
     @Override
     public Biome getRiver() {
-        return this;
+        return this.getBiome();
     }
 
 
