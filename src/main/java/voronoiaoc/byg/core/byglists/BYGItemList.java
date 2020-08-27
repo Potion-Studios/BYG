@@ -437,6 +437,8 @@ public class BYGItemList {
     public static Item YELLOW_GLOWSHROOM_STEM;
 
     //MushroomsItems
+    public static Item DEATH_CAP_MUSHROOM_BLOCK;
+    public static Item SOUL_SHROOM_MUSHROOM_BLOCK;
     public static Item PUFF_MUSHROOM_BLOCK;
     public static Item MILKCAP_MUSHROOM_BLOCK;
     public static Item BLEWIT_MUSHROOM_BLOCK;
