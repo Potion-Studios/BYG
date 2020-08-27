@@ -68,6 +68,7 @@ public class CrimsonGardens extends Biome implements BiomeTools {
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243958_r);//Weeping Vines
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243856_bB); //Crimson Fungi
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243954_n); //Crimson Forest Vegetation
+//        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.field_243949_i); //Basalt Columns Large
 
         BYGFeatures.addCrimsonGardensVegetation(GENERATION_SETTINGS);
 
