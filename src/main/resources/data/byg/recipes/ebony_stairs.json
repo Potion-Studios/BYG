@@ -8,11 +8,11 @@
   ],
   "key": {
     "#": {
-      "item": "byg:fir_planks"
+      "item": "byg:ebony_planks"
     }
   },
   "result": {
-    "item": "byg:fir_stairs",
+    "item": "byg:ebony_stairs",
     "count": 4
   }
 }
