@@ -1,6 +1,7 @@
 package voronoiaoc.byg.core.byglists;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 
 public class BYGBlockList {
 
@@ -381,14 +382,19 @@ public class BYGBlockList {
     public static Block YELLOW_GLOWSHROOM_STEM;
 
     //MushroomsBlocks
+    public static Block DEATH_CAP_MUSHROOM_BLOCK;
+    public static Block SOUL_SHROOM_BLOCK;
     public static Block PUFF_MUSHROOM_BLOCK;
     public static Block MILKCAP_MUSHROOM_BLOCK;
     public static Block BLEWIT_MUSHROOM_BLOCK;
     public static Block GREEN_MUSHROOM_BLOCK;
     public static Block WHITE_MUSHROOM_STEM;
     public static Block BROWN_MUSHROOM_STEM;
+    public static Block SOUL_SHROOM_STEM;
 
     //MushroomPlantBlocks
+    public static Block SOUL_SHROOM;
+    public static Block DEATH_CAP;
     public static Block BLACK_PUFF;
     public static Block WEEPING_MILKCAP;
     public static Block WOOD_BLEWIT;

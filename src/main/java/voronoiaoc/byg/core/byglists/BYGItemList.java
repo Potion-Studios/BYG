@@ -438,16 +438,19 @@ public class BYGItemList {
 
     //MushroomsItems
     public static Item DEATH_CAP_MUSHROOM_BLOCK;
-    public static Item SOUL_SHROOM_MUSHROOM_BLOCK;
+    public static Item SOUL_SHROOM_BLOCK;
     public static Item PUFF_MUSHROOM_BLOCK;
     public static Item MILKCAP_MUSHROOM_BLOCK;
     public static Item BLEWIT_MUSHROOM_BLOCK;
     public static Item GREEN_MUSHROOM_BLOCK;
     public static Item WHITE_MUSHROOM_STEM;
     public static Item BROWN_MUSHROOM_STEM;
+    public static Item SOUL_SHROOM_STEM;
 
 
     //MushroomPlantItems
+    public static Item SOUL_SHROOM;
+    public static Item DEATH_CAP;
     public static Item BLACK_PUFF;
     public static Item WEEPING_MILKCAP;
     public static Item WOOD_BLEWIT;
