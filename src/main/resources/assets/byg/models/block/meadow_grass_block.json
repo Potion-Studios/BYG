@@ -1,10 +1,10 @@
 {   "parent": "block/block",
   "textures": {
-    "particle": "byg:blocks/meadow_dirt",
-    "bottom": "byg:blocks/meadow_dirt",
-    "top": "byg:blocks/meadow_grass_top",
-    "side": "byg:blocks/meadow_grass_side",
-    "overlay": "byg:blocks/meadow_grass_side_overlay"
+    "particle": "byg:block/meadow_dirt",
+    "bottom": "byg:block/meadow_dirt",
+    "top": "byg:block/meadow_grass_top",
+    "side": "byg:block/meadow_grass_side",
+    "overlay": "byg:block/meadow_grass_side_overlay"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

@@ -1,9 +1,9 @@
 {
   "parent": "block/cube_bottom_top",
   "textures": {
-    "particle": "byg:blocks/meadow_dirt",
-    "bottom": "byg:blocks/meadow_dirt",
-    "top": "byg:blocks/meadow_grass_top",
-    "side": "byg:blocks/meadow_grass_snow_side"
+    "particle": "byg:block/meadow_dirt",
+    "bottom": "byg:block/meadow_dirt",
+    "top": "byg:block/meadow_grass_top",
+    "side": "byg:block/meadow_grass_snow_side"
   }
 }

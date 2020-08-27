@@ -1,8 +1,8 @@
 {
   "parent": "block/slab_top",
   "textures": {
-    "bottom": "byg:blocks/dacite",
-    "top": "byg:blocks/dacite",
-    "side": "byg:blocks/dacite"
+    "bottom": "byg:block/dacite",
+    "top": "byg:block/dacite",
+    "side": "byg:block/dacite"
   }
 }

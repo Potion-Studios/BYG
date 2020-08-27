@@ -1,7 +1,7 @@
 {
   "parent": "block/door_bottom",
   "textures": {
-    "bottom": "byg:blocks/mangrove_door_bottom",
-    "top": "byg:blocks/mangrove_door_top"
+    "bottom": "byg:block/mangrove_door_bottom",
+    "top": "byg:block/mangrove_door_top"
   }
 }

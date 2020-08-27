@@ -1,7 +1,7 @@
 {
   "parent": "block/fence_post",
   "textures": {
-    "texture": "byg:blocks/holly_planks",
-    "particle": "byg:blocks/holly_planks"
+    "texture": "byg:block/holly_planks",
+    "particle": "byg:block/holly_planks"
   }
 }

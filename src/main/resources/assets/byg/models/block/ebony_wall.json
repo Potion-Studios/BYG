@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_side",
   "textures": {
-    "wall": "byg:blocks/ebony_log",
-    "particle": "byg:blocks/ebony_log"
+    "wall": "byg:block/ebony_log",
+    "particle": "byg:block/ebony_log"
   }
 }

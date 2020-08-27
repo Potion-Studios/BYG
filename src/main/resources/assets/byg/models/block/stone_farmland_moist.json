@@ -3,6 +3,6 @@
   "textures": {
     "particle": "block/stone",
     "dirt": "block/stone",
-    "top": "byg:blocks/stone_farmland_moist"
+    "top": "byg:block/stone_farmland_moist"
   }
 }

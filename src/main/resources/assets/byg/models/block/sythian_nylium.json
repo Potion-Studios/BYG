@@ -1,10 +1,10 @@
 {   "parent": "block/block",
   "textures": {
-    "particle": "byg:blocks/sythian_nylium_side",
+    "particle": "byg:block/sythian_nylium_side",
     "bottom": "block/netherrack",
-    "top": "byg:blocks/sythian_nylium_top",
-    "side": "byg:blocks/sythian_nylium_side",
-    "overlay": "byg:blocks/sythian_nylium_side"
+    "top": "byg:block/sythian_nylium_top",
+    "side": "byg:block/sythian_nylium_side",
+    "overlay": "byg:block/sythian_nylium_side"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

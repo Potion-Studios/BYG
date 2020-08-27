@@ -2,9 +2,9 @@
   "textures": {
     "particle": "block/dirt",
     "bottom": "block/dirt",
-    "top": "byg:blocks/glowcelium_top",
-    "side": "byg:blocks/glowcelium_side",
-    "overlay": "byg:blocks/glowcelium_side_overlay"
+    "top": "byg:block/glowcelium_top",
+    "side": "byg:block/glowcelium_side",
+    "overlay": "byg:block/glowcelium_side_overlay"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/cyan_tulip"
+    "layer0": "byg:block/cyan_tulip"
   }
 }

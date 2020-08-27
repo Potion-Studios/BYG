@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/pollen_block",
-    "particle": "byg:blocks/pollen_block"
+    "all": "byg:block/pollen_block",
+    "particle": "byg:block/pollen_block"
   }
 }

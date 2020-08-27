@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/embur_gel_vines"
+    "layer0": "byg:block/embur_gel_vines"
   }
 }

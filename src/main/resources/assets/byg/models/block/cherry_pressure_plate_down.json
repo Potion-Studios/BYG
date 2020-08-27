@@ -1,6 +1,6 @@
 {
   "parent": "block/pressure_plate_down",
   "textures": {
-    "texture": "byg:blocks/cherry_planks"
+    "texture": "byg:block/cherry_planks"
   }
 }

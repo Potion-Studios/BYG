@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/sythian_roots",
-    "particle": "byg:blocks/sythian_roots"
+    "cross": "byg:block/sythian_roots",
+    "particle": "byg:block/sythian_roots"
   }
 }

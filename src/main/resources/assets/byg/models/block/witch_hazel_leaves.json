@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/witch_hazel_leaves",
-    "particle": "byg:blocks/witch_hazel_leaves"
+    "all": "byg:block/witch_hazel_leaves",
+    "particle": "byg:block/witch_hazel_leaves"
   }
 }

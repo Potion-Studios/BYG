@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/firecracker_flower_bush"
+    "layer0": "byg:block/firecracker_flower_bush"
   }
 }

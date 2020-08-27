@@ -1,7 +1,7 @@
 {
   "textures": {
-    "texture": "byg:blocks/red_glowshroom_stem",
-    "particle": "byg:blocks/red_glowshroom_stem"
+    "texture": "byg:block/red_glowshroom_stem",
+    "particle": "byg:block/red_glowshroom_stem"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

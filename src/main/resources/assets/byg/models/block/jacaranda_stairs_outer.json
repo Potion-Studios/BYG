@@ -1,8 +1,8 @@
 {
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "byg:blocks/jacaranda_planks",
-    "top": "byg:blocks/jacaranda_planks",
-    "side": "byg:blocks/jacaranda_planks"
+    "bottom": "byg:block/jacaranda_planks",
+    "top": "byg:block/jacaranda_planks",
+    "side": "byg:block/jacaranda_planks"
   }
 }

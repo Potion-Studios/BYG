@@ -1,7 +1,7 @@
 {
   "parent": "block/fence_side",
   "textures": {
-    "texture": "byg:blocks/redwood_planks",
-    "particle": "byg:blocks/redwood_planks"
+    "texture": "byg:block/redwood_planks",
+    "particle": "byg:block/redwood_planks"
   }
 }

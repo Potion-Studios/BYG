@@ -8,8 +8,8 @@
   "textures": {
     "particle": "block/campfire_log",
     "log": "block/campfire_log",
-    "litlog": "byg:blocks/boric_campfire_log_lit",
-    "fire": "byg:blocks/boric_fire"
+    "litlog": "byg:block/boric_campfire_log_lit",
+    "fire": "byg:block/boric_fire"
   },
   "elements": [
     {

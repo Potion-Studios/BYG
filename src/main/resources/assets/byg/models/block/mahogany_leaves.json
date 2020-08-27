@@ -1,10 +1,10 @@
 {   "parent": "block/cube",
   "textures": {
-    "particle": "byg:blocks/mahogany_leaves",
-    "bottom": "byg:blocks/mahogany_leaves",
-    "top": "byg:blocks/mahogany_leaves",
-    "side": "byg:blocks/mahogany_leaves",
-    "overlay": "byg:blocks/mahogany_leaves_overlay"
+    "particle": "byg:block/mahogany_leaves",
+    "bottom": "byg:block/mahogany_leaves",
+    "top": "byg:block/mahogany_leaves",
+    "side": "byg:block/mahogany_leaves",
+    "overlay": "byg:block/mahogany_leaves_overlay"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

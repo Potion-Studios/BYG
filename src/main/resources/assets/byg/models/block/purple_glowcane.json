@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/glowcane_purple",
-    "particle": "byg:blocks/glowcane_purple"
+    "cross": "byg:block/glowcane_purple",
+    "particle": "byg:block/glowcane_purple"
   }
 }

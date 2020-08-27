@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/yellow_daffodil",
-    "particle": "byg:blocks/yellow_daffodil"
+    "cross": "byg:block/yellow_daffodil",
+    "particle": "byg:block/yellow_daffodil"
   }
 }

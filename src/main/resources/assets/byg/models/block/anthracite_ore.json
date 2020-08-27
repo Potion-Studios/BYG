@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/anthracite_ore",
-    "particle": "byg:blocks/anthracite_ore"
+    "all": "byg:block/anthracite_ore",
+    "particle": "byg:block/anthracite_ore"
   }
 }

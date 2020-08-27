@@ -1,6 +1,6 @@
 {
   "parent": "block/template_fence_gate",
   "textures": {
-    "texture": "byg:blocks/blue_enchanted_planks"
+    "texture": "byg:block/blue_enchanted_planks"
   }
 }

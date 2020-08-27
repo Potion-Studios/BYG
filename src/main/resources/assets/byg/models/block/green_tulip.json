@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/green_tulip",
-    "particle": "byg:blocks/green_tulip"
+    "cross": "byg:block/green_tulip",
+    "particle": "byg:block/green_tulip"
   }
 }

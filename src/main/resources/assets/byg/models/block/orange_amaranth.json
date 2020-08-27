@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/orange_amaranth",
-    "particle": "byg:blocks/orange_amaranth"
+    "cross": "byg:block/orange_amaranth",
+    "particle": "byg:block/orange_amaranth"
   }
 }

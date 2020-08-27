@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/angelica",
-    "particle": "byg:blocks/angelica"
+    "cross": "byg:block/angelica",
+    "particle": "byg:block/angelica"
   }
 }

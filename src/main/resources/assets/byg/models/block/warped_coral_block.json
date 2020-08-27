@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/warped_coral_block",
-    "particle": "byg:blocks/warped_coral_block"
+    "all": "byg:block/warped_coral_block",
+    "particle": "byg:block/warped_coral_block"
   }
 }

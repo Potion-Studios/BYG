@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_side_tall",
   "textures": {
-    "wall": "byg:blocks/dacite",
-    "particle": "byg:blocks/dacite"
+    "wall": "byg:block/dacite",
+    "particle": "byg:block/dacite"
   }
 }

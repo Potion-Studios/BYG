@@ -1,8 +1,8 @@
 {
   "parent": "block/outer_stairs",
   "textures": {
-    "bottom": "byg:blocks/mossy_red_rock_bricks",
-    "top": "byg:blocks/mossy_red_rock_bricks",
-    "side": "byg:blocks/mossy_red_rock_bricks"
+    "bottom": "byg:block/mossy_red_rock_bricks",
+    "top": "byg:block/mossy_red_rock_bricks",
+    "side": "byg:block/mossy_red_rock_bricks"
   }
 }

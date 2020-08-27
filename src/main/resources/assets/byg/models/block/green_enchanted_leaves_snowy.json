@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "byg:blocks/green_enchanted_leaves_snowy",
-    "up": "byg:blocks/green_enchanted_leaves_snowy",
-    "north": "byg:blocks/green_enchanted_leaves_snowy_side",
-    "east": "byg:blocks/green_enchanted_leaves_snowy_side",
-    "south": "byg:blocks/green_enchanted_leaves_snowy_side",
-    "west": "byg:blocks/green_enchanted_leaves_snowy_side",
-    "particle": "byg:blocks/green_enchanted_leaves_snowy_side"
+    "down": "byg:block/green_enchanted_leaves_snowy",
+    "up": "byg:block/green_enchanted_leaves_snowy",
+    "north": "byg:block/green_enchanted_leaves_snowy_side",
+    "east": "byg:block/green_enchanted_leaves_snowy_side",
+    "south": "byg:block/green_enchanted_leaves_snowy_side",
+    "west": "byg:block/green_enchanted_leaves_snowy_side",
+    "particle": "byg:block/green_enchanted_leaves_snowy_side"
   }
 }

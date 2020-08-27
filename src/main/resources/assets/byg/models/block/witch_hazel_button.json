@@ -1,6 +1,6 @@
 {
   "parent": "block/button",
   "textures": {
-    "texture": "byg:blocks/witch_hazel_planks"
+    "texture": "byg:block/witch_hazel_planks"
   }
 }

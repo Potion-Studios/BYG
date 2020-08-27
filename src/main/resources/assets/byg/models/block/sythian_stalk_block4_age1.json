@@ -1,7 +1,7 @@
 {
   "textures": {
-    "all": "byg:blocks/sythian_stalk",
-    "particle": "byg:blocks/sythian_stalk"
+    "all": "byg:block/sythian_stalk",
+    "particle": "byg:block/sythian_stalk"
   },
   "elements": [
     {   "from": [ 6.5, 0, 6.5 ],

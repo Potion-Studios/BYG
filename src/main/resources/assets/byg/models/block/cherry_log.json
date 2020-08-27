@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "byg:blocks/cherry_log_top",
-    "side": "byg:blocks/cherry_log"
+    "end": "byg:block/cherry_log_top",
+    "side": "byg:block/cherry_log"
   }
 }

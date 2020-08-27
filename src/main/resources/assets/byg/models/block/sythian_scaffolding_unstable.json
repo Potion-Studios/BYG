@@ -1,10 +1,10 @@
 {
   "parent": "block/block",
   "textures": {
-    "particle": "byg:blocks/sythian_scaffolding_top",
-    "top": "byg:blocks/sythian_scaffolding_top",
-    "side": "byg:blocks/sythian_scaffolding_side",
-    "bottom": "byg:blocks/sythian_scaffolding_bottom"
+    "particle": "byg:block/sythian_scaffolding_top",
+    "top": "byg:block/sythian_scaffolding_top",
+    "side": "byg:block/sythian_scaffolding_side",
+    "bottom": "byg:block/sythian_scaffolding_bottom"
   },
   "elements": [
     {

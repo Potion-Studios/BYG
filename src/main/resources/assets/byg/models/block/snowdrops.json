@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/snowdrops",
-    "particle": "byg:blocks/snowdrops"
+    "cross": "byg:block/snowdrops",
+    "particle": "byg:block/snowdrops"
   }
 }

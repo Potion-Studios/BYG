@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/water_silk"
+    "layer0": "byg:block/water_silk"
   }
 }

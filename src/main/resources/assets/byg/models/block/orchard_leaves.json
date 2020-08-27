@@ -1,10 +1,10 @@
 {   "parent": "block/cube",
   "textures": {
-    "particle": "byg:blocks/orchard_leaves",
-    "bottom": "byg:blocks/orchard_leaves",
-    "top": "byg:blocks/orchard_leaves",
-    "side": "byg:blocks/orchard_leaves",
-    "overlay": "byg:blocks/orchard_leaves_overlay"
+    "particle": "byg:block/orchard_leaves",
+    "bottom": "byg:block/orchard_leaves",
+    "top": "byg:block/orchard_leaves",
+    "side": "byg:block/orchard_leaves",
+    "overlay": "byg:block/orchard_leaves_overlay"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

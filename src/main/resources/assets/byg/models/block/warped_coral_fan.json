@@ -1,6 +1,6 @@
 {
   "parent": "block/coral_fan",
   "textures": {
-    "fan": "byg:blocks/warped_coral_fan"
+    "fan": "byg:block/warped_coral_fan"
   }
 }

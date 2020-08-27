@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/purple_glowshroom_block"
+    "all": "byg:block/purple_glowshroom_block"
   }
 }

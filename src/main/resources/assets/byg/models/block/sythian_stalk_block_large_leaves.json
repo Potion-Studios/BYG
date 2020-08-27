@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "texture": "byg:blocks/sythian_stalk_large_leaves",
-    "particle": "byg:blocks/sythian_stalk_large_leaves"
+    "texture": "byg:block/sythian_stalk_large_leaves",
+    "particle": "byg:block/sythian_stalk_large_leaves"
   },
   "elements": [
     {   "from": [ 0.8, 0, 8 ],

@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "texture": "byg:blocks/blue_glowshroom_block_inside",
-    "particle": "byg:blocks/blue_glowshroom_block_inside"
+    "texture": "byg:block/blue_glowshroom_block_inside",
+    "particle": "byg:block/blue_glowshroom_block_inside"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "byg:blocks/indigo_jacaranda_leaves",
-    "up": "byg:blocks/indigo_jacaranda_leaves",
-    "north": "byg:blocks/indigo_jacaranda_leaves",
-    "east": "byg:blocks/indigo_jacaranda_leaves",
-    "south": "byg:blocks/indigo_jacaranda_leaves",
-    "west": "byg:blocks/indigo_jacaranda_leaves",
-    "particle": "byg:blocks/indigo_jacaranda_leaves"
+    "down": "byg:block/indigo_jacaranda_leaves",
+    "up": "byg:block/indigo_jacaranda_leaves",
+    "north": "byg:block/indigo_jacaranda_leaves",
+    "east": "byg:block/indigo_jacaranda_leaves",
+    "south": "byg:block/indigo_jacaranda_leaves",
+    "west": "byg:block/indigo_jacaranda_leaves",
+    "particle": "byg:block/indigo_jacaranda_leaves"
   }
 }

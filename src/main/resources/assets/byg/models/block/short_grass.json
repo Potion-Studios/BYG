@@ -1,6 +1,6 @@
 {
   "parent": "block/tinted_cross",
   "textures": {
-    "cross": "byg:blocks/short_grass"
+    "cross": "byg:block/short_grass"
   }
 }

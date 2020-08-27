@@ -1,10 +1,10 @@
 {   "parent": "block/cube",
   "textures": {
-    "particle": "byg:blocks/flowering_orchard_leaves",
-    "bottom": "byg:blocks/flowering_orchard_leaves",
-    "top": "byg:blocks/flowering_orchard_leaves",
-    "side": "byg:blocks/flowering_orchard_leaves",
-    "overlay": "byg:blocks/flowering_orchard_leaves_overlay"
+    "particle": "byg:block/flowering_orchard_leaves",
+    "bottom": "byg:block/flowering_orchard_leaves",
+    "top": "byg:block/flowering_orchard_leaves",
+    "side": "byg:block/flowering_orchard_leaves",
+    "overlay": "byg:block/flowering_orchard_leaves_overlay"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

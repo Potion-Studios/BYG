@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:blocks/whaling_vine",
-    "vine": "byg:blocks/whaling_vine"
+    "particle": "byg:block/whaling_vine",
+    "vine": "byg:block/whaling_vine"
   },
   "elements": [
     {   "from": [ 0, 0, 15.2 ],

@@ -1,7 +1,7 @@
 {
   "parent": "block/fence_post",
   "textures": {
-    "texture": "byg:blocks/blue_enchanted_planks",
-    "particle": "byg:blocks/blue_enchanted_planks"
+    "texture": "byg:block/blue_enchanted_planks",
+    "particle": "byg:block/blue_enchanted_planks"
   }
 }

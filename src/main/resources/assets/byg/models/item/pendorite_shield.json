@@ -1,7 +1,7 @@
 {
   "parent": "builtin/entity",
   "textures": {
-    "particle": "byg:blocks/pendorite_block"
+    "particle": "byg:block/pendorite_block"
   },
   "display": {
     "thirdperson_righthand": {

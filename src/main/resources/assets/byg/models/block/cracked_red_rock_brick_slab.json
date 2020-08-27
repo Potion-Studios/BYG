@@ -1,8 +1,8 @@
 {
   "parent": "block/slab",
   "textures": {
-    "bottom": "byg:blocks/cracked_red_rock_bricks",
-    "top": "byg:blocks/cracked_red_rock_bricks",
-    "side": "byg:blocks/cracked_red_rock_bricks"
+    "bottom": "byg:block/cracked_red_rock_bricks",
+    "top": "byg:block/cracked_red_rock_bricks",
+    "side": "byg:block/cracked_red_rock_bricks"
   }
 }

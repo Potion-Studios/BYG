@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/warped_coral"
+    "layer0": "byg:block/warped_coral"
   }
 }

@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:blocks/poison_ivy",
-    "vine": "byg:blocks/poison_ivy"
+    "particle": "byg:block/poison_ivy",
+    "vine": "byg:block/poison_ivy"
   },
   "elements": [
     {   "from": [ 0.8, 0, 0 ],

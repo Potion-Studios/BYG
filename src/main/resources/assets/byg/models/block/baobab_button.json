@@ -1,6 +1,6 @@
 {
   "parent": "block/button",
   "textures": {
-    "texture": "byg:blocks/baobab_planks"
+    "texture": "byg:block/baobab_planks"
   }
 }

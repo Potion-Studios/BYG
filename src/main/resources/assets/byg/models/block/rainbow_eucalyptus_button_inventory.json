@@ -1,6 +1,6 @@
 {
   "parent": "block/button_inventory",
   "textures": {
-    "texture": "byg:blocks/rainbow_eucalyptus_planks"
+    "texture": "byg:block/rainbow_eucalyptus_planks"
   }
 }

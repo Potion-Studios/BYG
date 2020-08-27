@@ -1,10 +1,10 @@
 {   "parent": "block/cube",
   "textures": {
-    "particle": "byg:blocks/joshua_leaves",
-    "bottom": "byg:blocks/joshua_leaves",
-    "top": "byg:blocks/joshua_leaves",
-    "side": "byg:blocks/joshua_leaves",
-    "overlay": "byg:blocks/joshua_leaves"
+    "particle": "byg:block/joshua_leaves",
+    "bottom": "byg:block/joshua_leaves",
+    "top": "byg:block/joshua_leaves",
+    "side": "byg:block/joshua_leaves",
+    "overlay": "byg:block/joshua_leaves"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

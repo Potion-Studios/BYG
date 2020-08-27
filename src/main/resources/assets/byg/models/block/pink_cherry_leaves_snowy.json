@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "byg:blocks/pink_cherry_leaves_snowy",
-    "up": "byg:blocks/pink_cherry_leaves_snowy",
-    "north": "byg:blocks/pink_cherry_leaves_snowy_side",
-    "east": "byg:blocks/pink_cherry_leaves_snowy_side",
-    "south": "byg:blocks/pink_cherry_leaves_snowy_side",
-    "west": "byg:blocks/pink_cherry_leaves_snowy_side",
-    "particle": "byg:blocks/pink_cherry_leaves_snowy_side"
+    "down": "byg:block/pink_cherry_leaves_snowy",
+    "up": "byg:block/pink_cherry_leaves_snowy",
+    "north": "byg:block/pink_cherry_leaves_snowy_side",
+    "east": "byg:block/pink_cherry_leaves_snowy_side",
+    "south": "byg:block/pink_cherry_leaves_snowy_side",
+    "west": "byg:block/pink_cherry_leaves_snowy_side",
+    "particle": "byg:block/pink_cherry_leaves_snowy_side"
   }
 }

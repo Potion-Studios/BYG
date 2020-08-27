@@ -1,7 +1,7 @@
 {
   "parent": "block/door_bottom",
   "textures": {
-    "bottom": "byg:blocks/cika_door_bottom",
-    "top": "byg:blocks/cika_door_top"
+    "bottom": "byg:block/cika_door_bottom",
+    "top": "byg:block/cika_door_top"
   }
 }

@@ -1,7 +1,7 @@
 {
   "textures": {
-    "texture": "byg:blocks/brown_mushroom_stem",
-    "particle": "byg:blocks/brown_mushroom_stem"
+    "texture": "byg:block/brown_mushroom_stem",
+    "particle": "byg:block/brown_mushroom_stem"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:items/joshua_fruit"
+    "layer0": "byg:item/joshua_fruit"
   }
 }

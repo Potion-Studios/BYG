@@ -1,7 +1,7 @@
 {
   "parent": "block/door_top",
   "textures": {
-    "bottom": "byg:blocks/green_enchanted_door_bottom",
-    "top": "byg:blocks/green_enchanted_door_top"
+    "bottom": "byg:block/green_enchanted_door_bottom",
+    "top": "byg:block/green_enchanted_door_top"
   }
 }

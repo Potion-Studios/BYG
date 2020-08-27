@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "byg:blocks/embur_pedu_top",
-    "side": "byg:blocks/embur_pedu"
+    "end": "byg:block/embur_pedu_top",
+    "side": "byg:block/embur_pedu"
   }
 }
