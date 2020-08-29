@@ -1,7 +1,6 @@
 package voronoiaoc.byg.common.world.feature.biomefeatures;//package voronoiaoc.byg.common.world.feature.biomefeatures;
 //
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.level.biome.Biome;
@@ -94,8 +93,6 @@ public class BYGFeaturesInVanilla {
     }
 
     private static void ConvertImmutableFeatures(Biome biome) {
-        if (biome.getGenerationSettings().features instanceof ImmutableList) {
-            biome.getGenerationSettings().features = biome.getGenerationSettings().features.stream().map(Lists::newArrayList).collect(Collectors.toList());
-        }
+        biome.getGenerationSettings().features = biome.getGenerationSettings().features.stream().map(Lists::newArrayList).collect(Collectors.toList());
     }
 }

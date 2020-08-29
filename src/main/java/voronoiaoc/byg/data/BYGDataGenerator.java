@@ -118,7 +118,7 @@ public class BYGDataGenerator {
         }
 
         private static Path filePath(Path path, ResourceLocation identifier, String modId) {
-            return path.resolve(modId + "/worldgen/biome/" + identifier.getPath() + ".json");
+            return path.resolve("data/" + modId + "/worldgen/biome/" + identifier.getPath() + ".json");
         }
     }
 
@@ -133,7 +133,7 @@ public class BYGDataGenerator {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
             dispatcher.register(Commands.literal("gendata").then(Commands.argument("modid", StringArgumentType.string()).suggests((ctx, sb) -> SharedSuggestionProvider.suggest(modIdList.stream(), sb)).executes(cs -> {
                 try {
-                    BYGDataGenerator.dataGenBiome(cs.getSource().getLevel().getServer().getWorldPath(LevelResource.DATAPACK_DIR).toString(),cs.getArgument("modid", String.class), cs);
+                    BYGDataGenerator.dataGenBiome(cs.getSource().getLevel().getServer().getWorldPath(LevelResource.DATAPACK_DIR).toString(), cs.getArgument("modid", String.class), cs);
                 } catch (IOException e) {
                     cs.getSource().sendSuccess(new TranslatableComponent("commands.gendata.failed", cs.getArgument("modid", String.class)).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.RED))), false);
                 }
