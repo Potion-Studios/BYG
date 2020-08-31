@@ -90,7 +90,6 @@ public class BYGDataGenerator {
             if (biomeList.size() > 0) {
                 for (Biome biome : biomeList) {
                     Path path2 = filePath(path, ForgeRegistries.BIOMES.getKey(biome), modId);
-                    String realPath = path2.toString();
                     Function<Supplier<Biome>, DataResult<JsonElement>> function1 = JsonOps.INSTANCE.withEncoder(Biome.field_235051_b_);
 
                     try {
@@ -104,7 +103,7 @@ public class BYGDataGenerator {
                         logger.error("Couldn't save biome {}", path2, var9);
                     }
                 }
-                commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS).toString().replace("\\", "/").replace("/./", "/") + "/" + modId + "/worldgen/biome/").modifyStyle(text -> text.setColor(Color.func_240744_a_(TextFormatting.GREEN))), false);
+                commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS).toString().replace("\\", "/").replace("/./", "/") + "/data/" + modId + "/worldgen/biome/").modifyStyle(text -> text.setColor(Color.func_240744_a_(TextFormatting.GREEN))), false);
                 biomeList.clear();
             }
             else {
