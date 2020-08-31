@@ -1,27 +1,27 @@
 package voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class SythianRoots extends Feature<DefaultFeatureConfig> {
-    public SythianRoots(Codec<DefaultFeatureConfig> config) {
+public class SythianRoots extends Feature<NoneFeatureConfiguration> {
+    public SythianRoots(Codec<NoneFeatureConfiguration> config) {
         super(config);
     }
 
     @Override
-    public boolean generate(StructureWorldAccess worldIn, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
-        if (!worldIn.isAir
-                (pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.SYTHIAN_NYLIUM) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random random, BlockPos pos, NoneFeatureConfiguration config) {
+        if (!worldIn.isEmptyBlock
+                (pos) || worldIn.getBlockState(pos.below()).getBlock() != BYGBlockList.SYTHIAN_NYLIUM) {
             return false;
         } else {
-            worldIn.setBlockState(pos, BYGBlockList.SYTHIAN_ROOTS.getDefaultState(), 10);
+            worldIn.setBlock(pos, BYGBlockList.SYTHIAN_ROOTS.defaultBlockState(), 10);
             return true;
         }
     }

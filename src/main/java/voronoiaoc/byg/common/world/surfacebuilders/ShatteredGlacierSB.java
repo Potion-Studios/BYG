@@ -1,52 +1,52 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.noise.OctaveSimplexNoiseSampler;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
+import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 
 @SuppressWarnings("deprecation")
-public class ShatteredGlacierSB extends SurfaceBuilder<TernarySurfaceConfig> {
-    private static final BlockState PACKED_ICE = BYGBlockList.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE = BYGBlockList.BLACK_ICE.getDefaultState();
-    private static final BlockState PACKED_ICE2 = BYGBlockList.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE2 = BYGBlockList.BLACK_ICE.getDefaultState();
-    private static final BlockState PACKED_ICE3 = BYGBlockList.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE3 = BYGBlockList.BLACK_ICE.getDefaultState();
-    private static final BlockState PACKED_ICE4 = BYGBlockList.PACKED_BLACK_ICE.getDefaultState();
+public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
+    private static final BlockState PACKED_ICE = BYGBlockList.PACKED_BLACK_ICE.defaultBlockState();
+    private static final BlockState BLUE_ICE = BYGBlockList.BLACK_ICE.defaultBlockState();
+    private static final BlockState PACKED_ICE2 = BYGBlockList.PACKED_BLACK_ICE.defaultBlockState();
+    private static final BlockState BLUE_ICE2 = BYGBlockList.BLACK_ICE.defaultBlockState();
+    private static final BlockState PACKED_ICE3 = BYGBlockList.PACKED_BLACK_ICE.defaultBlockState();
+    private static final BlockState BLUE_ICE3 = BYGBlockList.BLACK_ICE.defaultBlockState();
+    private static final BlockState PACKED_ICE4 = BYGBlockList.PACKED_BLACK_ICE.defaultBlockState();
     protected BlockState[] blockState;
     protected long seed;
-    protected OctaveSimplexNoiseSampler perlin1;
-    protected OctaveSimplexNoiseSampler perlin2;
-    protected OctaveSimplexNoiseSampler perlin3;
+    protected PerlinSimplexNoise perlin1;
+    protected PerlinSimplexNoise perlin2;
+    protected PerlinSimplexNoise perlin3;
 
-    public ShatteredGlacierSB(Codec<TernarySurfaceConfig> config) {
+    public ShatteredGlacierSB(Codec<SurfaceBuilderBaseConfiguration> config) {
         super(config);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         int chunkX = x & 15;
         int chunkZ = z & 15;
         BlockState blockstate = PACKED_ICE;
-        BlockState blockstate1 = biomeIn.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
+        BlockState blockstate1 = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
         int k = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int l = -1;
         boolean flag1 = false;
         int i1 = 0;
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
         for (int chunkY = startHeight; chunkY >= 0; --chunkY) {
             if (i1 < 15) {
@@ -58,11 +58,11 @@ public class ShatteredGlacierSB extends SurfaceBuilder<TernarySurfaceConfig> {
                     if (l == -1) {
                         flag1 = false;
                         if (k <= 0) {
-                            blockstate = Blocks.AIR.getDefaultState();
+                            blockstate = Blocks.AIR.defaultBlockState();
                             blockstate1 = defaultBlock;
                         } else if (chunkY >= seaLevel - 4 && chunkY <= seaLevel + 1) {
                             blockstate = PACKED_ICE;
-                            blockstate1 = biomeIn.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
+                            blockstate1 = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
                         }
 
                         if (chunkY < seaLevel && (blockstate == null || blockstate.isAir())) {
@@ -85,7 +85,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<TernarySurfaceConfig> {
 
                                 chunkIn.setBlockState(blockpos$mutable, blockstate3, false);
                             } else {
-                                chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceConfig().getTopMaterial(), false);
+                                chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial(), false);
                                 flag1 = true;
                             }
                         } else {
@@ -112,15 +112,15 @@ public class ShatteredGlacierSB extends SurfaceBuilder<TernarySurfaceConfig> {
     }
 
     @Override
-    public void initSeed(long seed) {
+    public void initNoise(long seed) {
         if (this.seed != seed || this.blockState == null) {
             this.fillBlockStateArray(seed);
         }
 
         if (this.seed != seed || this.perlin1 == null || this.perlin2 == null) {
-            ChunkRandom sharedseedrandom = new ChunkRandom(seed);
-            this.perlin1 = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.rangeClosed(-3, 0));
-            this.perlin2 = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.of(0));
+            WorldgenRandom sharedseedrandom = new WorldgenRandom(seed);
+            this.perlin1 = new PerlinSimplexNoise(sharedseedrandom, IntStream.rangeClosed(-3, 0));
+            this.perlin2 = new PerlinSimplexNoise(sharedseedrandom, IntStream.of(0));
         }
 
         this.seed = seed;
@@ -129,8 +129,8 @@ public class ShatteredGlacierSB extends SurfaceBuilder<TernarySurfaceConfig> {
     protected void fillBlockStateArray(long seed) {
         this.blockState = new BlockState[64];
         Arrays.fill(this.blockState, PACKED_ICE2);
-        ChunkRandom sharedseedrandom = new ChunkRandom(seed);
-        this.perlin3 = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.of(0));
+        WorldgenRandom sharedseedrandom = new WorldgenRandom(seed);
+        this.perlin3 = new PerlinSimplexNoise(sharedseedrandom, IntStream.of(0));
 
         for (int l1 = 0; l1 < 64; ++l1) {
             l1 += sharedseedrandom.nextInt(5) + 1;
@@ -194,7 +194,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<TernarySurfaceConfig> {
     }
 
     protected BlockState noiseBlockState(int x, int y, int z) {
-        int i = (int) Math.round(this.perlin3.sample((double) x / 512.0D, (double) z / 512.0D, false) * 2.0D);
+        int i = (int) Math.round(this.perlin3.getValue((double) x / 512.0D, (double) z / 512.0D, false) * 2.0D);
         return this.blockState[(y + i + 64) % 64];
     }
 }

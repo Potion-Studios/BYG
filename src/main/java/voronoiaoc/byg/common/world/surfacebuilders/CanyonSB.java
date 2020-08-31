@@ -1,22 +1,22 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.common.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 
-public class CanyonSB extends SurfaceBuilder<TernarySurfaceConfig> {
-    public CanyonSB(Codec<TernarySurfaceConfig> config) {
+public class CanyonSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
+    public CanyonSB(Codec<SurfaceBuilderBaseConfiguration> config) {
         super(config);
     }
 
@@ -24,8 +24,8 @@ public class CanyonSB extends SurfaceBuilder<TernarySurfaceConfig> {
     protected ChunkFastSimplexStyleNoise simplex;
     protected ChunkFastSimplexStyleNoise simplex2;
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
-        BlockPos.Mutable block = new BlockPos.Mutable();
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+        BlockPos.MutableBlockPos block = new BlockPos.MutableBlockPos();
         int xPos = x & 15;
         int zPos = z & 15;
         double rawSimplexNoiseSample = this.octavedSimplex(x, z, 1, 0.001F, 2, 0.5f);
@@ -37,14 +37,14 @@ public class CanyonSB extends SurfaceBuilder<TernarySurfaceConfig> {
                 for (int yPos = startHeight; yPos >= startHeight - 80; --yPos) {
                     block.set(xPos, yPos, zPos);
                     if (yPos > seaLevel) {
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                     }
                 }
                 if (noise < 1)
-                    SurfaceBuilder.DEFAULT.generate
-                            (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.GRASS_CONFIG);
+                    SurfaceBuilder.DEFAULT.apply
+                            (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_GRASS);
                 else
-                    SurfaceBuilder.DEFAULT.generate
+                    SurfaceBuilder.DEFAULT.apply
                             (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.COARSE);
             }
             //Edge 1(Outwardest Edge)
@@ -54,14 +54,14 @@ public class CanyonSB extends SurfaceBuilder<TernarySurfaceConfig> {
                 for (int yPos = startHeight; yPos >= noiseAdded; --yPos) {
                     block.set(xPos, yPos, zPos);
                     if (yPos > seaLevel) {
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                     }
                 }
                 if (noise < 1)
-                    SurfaceBuilder.DEFAULT.generate
+                    SurfaceBuilder.DEFAULT.apply
                             (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.REDSAND_CF);
                 else
-                    SurfaceBuilder.DEFAULT.generate
+                    SurfaceBuilder.DEFAULT.apply
                             (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, randomSurfaceConfig(random));
             }
             //Edge 2(Middle Edge)
@@ -69,14 +69,14 @@ public class CanyonSB extends SurfaceBuilder<TernarySurfaceConfig> {
                 for (int yPos = startHeight; yPos >= noiseAdded - 9; --yPos) {
                     block.set(xPos, yPos, zPos);
                     if (yPos > seaLevel) {
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                     }
                 }
                 if (noise < 1)
-                    SurfaceBuilder.DEFAULT.generate
+                    SurfaceBuilder.DEFAULT.apply
                             (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.REDSAND_CF);
                 else
-                    SurfaceBuilder.DEFAULT.generate
+                    SurfaceBuilder.DEFAULT.apply
                             (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, randomSurfaceConfig(random));
             }
             //Edge 3(Inner Edge)
@@ -84,14 +84,14 @@ public class CanyonSB extends SurfaceBuilder<TernarySurfaceConfig> {
                 for (int yPos = startHeight; yPos >= noiseAdded - 18; --yPos) {
                     block.set(xPos, yPos, zPos);
                     if (yPos > seaLevel) {
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                     }
                 }
                 if (noise < 1)
-                    SurfaceBuilder.DEFAULT.generate
+                    SurfaceBuilder.DEFAULT.apply
                             (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.REDSAND_CF);
                 else
-                    SurfaceBuilder.DEFAULT.generate
+                    SurfaceBuilder.DEFAULT.apply
                             (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, randomSurfaceConfig(random));
             }
         }
@@ -99,28 +99,28 @@ public class CanyonSB extends SurfaceBuilder<TernarySurfaceConfig> {
         for (int yPos = startHeight - 3; yPos >= seaLevel; --yPos) {
             block.set(xPos, yPos, zPos);
             BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-            if (currentBlockToReplace == Blocks.STONE.getDefaultState()) {
-                chunkIn.setBlockState(block, BYGBlockList.RED_ROCK.getDefaultState(), false);
+            if (currentBlockToReplace == Blocks.STONE.defaultBlockState()) {
+                chunkIn.setBlockState(block, BYGBlockList.RED_ROCK.defaultBlockState(), false);
 
             }
         }
 
         if (noise < 1)
-            SurfaceBuilder.DEFAULT.generate
+            SurfaceBuilder.DEFAULT.apply
                     (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.REDSAND_CF);
         else
-            SurfaceBuilder.DEFAULT.generate
+            SurfaceBuilder.DEFAULT.apply
                     (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, randomSurfaceConfig(random));
     }
 
     @Override
-    public void initSeed(long seed) {
+    public void initNoise(long seed) {
         if (this.seed != seed || this.simplex == null) {
-            ChunkRandom sharedseedrandom = new ChunkRandom(seed);
+            WorldgenRandom sharedseedrandom = new WorldgenRandom(seed);
             this.simplex = new ChunkFastSimplexStyleNoise(sharedseedrandom);
         }
         if (this.seed != seed || this.simplex2 == null) {
-            ChunkRandom sharedseedrandom = new ChunkRandom(1999L + seed);
+            WorldgenRandom sharedseedrandom = new WorldgenRandom(1999L + seed);
             this.simplex2 = new ChunkFastSimplexStyleNoise(sharedseedrandom);
         }
 
@@ -137,11 +137,11 @@ public class CanyonSB extends SurfaceBuilder<TernarySurfaceConfig> {
         return height;
     }
 
-    public static TernarySurfaceConfig randomSurfaceConfig(Random random) {
+    public static SurfaceBuilderBaseConfiguration randomSurfaceConfig(Random random) {
         int randomizer = random.nextInt(3);
 
         if (randomizer == 1) {
-            return SurfaceBuilder.GRASS_CONFIG;
+            return SurfaceBuilder.CONFIG_GRASS;
         } else
             return BYGSBList.BYGSBConfigList.COARSE;
 

@@ -1,6 +1,6 @@
 package voronoiaoc.byg.core.byglists;
 
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 public class BYGItemList {
 

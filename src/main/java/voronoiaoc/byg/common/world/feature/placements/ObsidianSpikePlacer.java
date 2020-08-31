@@ -1,24 +1,24 @@
 package voronoiaoc.byg.common.world.feature.placements;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.DecoratorContext;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 
 import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.placement.DecorationContext;
+import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
+import net.minecraft.world.level.levelgen.placement.FrequencyWithExtraChanceDecoratorConfiguration;
 
-public class ObsidianSpikePlacer extends Decorator<CountExtraDecoratorConfig> {
-    public static final Decorator<CountExtraDecoratorConfig> OBBY_SPIKE = BiomeHelper.newDecorator( "obsidian_spike_placer" ,new ObsidianSpikePlacer(CountExtraDecoratorConfig.CODEC));
+public class ObsidianSpikePlacer extends FeatureDecorator<FrequencyWithExtraChanceDecoratorConfiguration> {
+    public static final FeatureDecorator<FrequencyWithExtraChanceDecoratorConfiguration> OBBY_SPIKE = BiomeHelper.newDecorator( "obsidian_spike_placer" ,new ObsidianSpikePlacer(FrequencyWithExtraChanceDecoratorConfiguration.CODEC));
 
-    public ObsidianSpikePlacer(Codec<CountExtraDecoratorConfig> config) {
+    public ObsidianSpikePlacer(Codec<FrequencyWithExtraChanceDecoratorConfiguration> config) {
         super(config);
     }
 
-    public Stream<BlockPos> getPositions(DecoratorContext decoratorContext, Random random, CountExtraDecoratorConfig config, BlockPos pos) {
+    public Stream<BlockPos> getPositions(DecorationContext decoratorContext, Random random, FrequencyWithExtraChanceDecoratorConfiguration config, BlockPos pos) {
         int i = random.nextInt(config.count);
         return IntStream.range(0, i).mapToObj((idx) -> {
             int j = random.nextInt(16) + pos.getX();

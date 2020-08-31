@@ -1,41 +1,41 @@
 package voronoiaoc.byg.common.entity.boat;
 
 import net.fabricmc.fabric.api.util.NbtType;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.vehicle.BoatEntity;
-import net.minecraft.item.Item;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.Packet;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.phys.Vec3;
 import voronoiaoc.byg.common.network.CustomEntitySpawnS2CPacket;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGEntityList;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 
 @SuppressWarnings("EntityConstructor")
-public class BYGBoatEntity extends BoatEntity {
-    private static final TrackedData<Integer> BYG_BOAT_TYPE = DataTracker.registerData(BYGBoatEntity.class, TrackedDataHandlerRegistry.INTEGER);
+public class BYGBoatEntity extends Boat {
+    private static final EntityDataAccessor<Integer> BYG_BOAT_TYPE = SynchedEntityData.defineId(BYGBoatEntity.class, EntityDataSerializers.INT);
 
-    public BYGBoatEntity(World world, double x, double y, double z) {
+    public BYGBoatEntity(Level world, double x, double y, double z) {
         this(BYGEntityList.BYGBOAT, world);
-        this.updatePosition(x, y, z);
-        this.setVelocity(Vec3d.ZERO);
-        this.prevX = x;
-        this.prevY = y;
-        this.prevZ = z;
+        this.setPos(x, y, z);
+        this.setDeltaMovement(Vec3.ZERO);
+        this.xo = x;
+        this.yo = y;
+        this.zo = z;
     }
 
-    public BYGBoatEntity(EntityType<? extends BoatEntity> boatEntityType, World world) {
+    public BYGBoatEntity(EntityType<? extends Boat> boatEntityType, Level world) {
         super(boatEntityType, world);
     }
 
     @Override
-    public Item asItem() {
+    public Item getDropItem() {
         switch (this.getBYGBoatType()) {
             default:
                 return BYGItemList.ASPEN_BOAT;
@@ -130,34 +130,34 @@ public class BYGBoatEntity extends BoatEntity {
     }
 
     public BYGType getBYGBoatType() {
-        return BYGType.byId(this.dataTracker.get(BYG_BOAT_TYPE));
+        return BYGType.byId(this.entityData.get(BYG_BOAT_TYPE));
     }
 
     public void setBYGBoatType(BYGType boatBYGType) {
-        this.dataTracker.set(BYG_BOAT_TYPE, boatBYGType.ordinal());
+        this.entityData.set(BYG_BOAT_TYPE, boatBYGType.ordinal());
     }
 
     @Override
-    protected void initDataTracker() {
-        super.initDataTracker();
-        this.dataTracker.startTracking(BYG_BOAT_TYPE, BYGType.ASPEN.ordinal());
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(BYG_BOAT_TYPE, BYGType.ASPEN.ordinal());
     }
 
 
     @Override
-    protected void writeCustomDataToTag(CompoundTag compound) {
+    protected void addAdditionalSaveData(CompoundTag compound) {
         compound.putString("BYGType", this.getBYGBoatType().getName());
     }
 
     @Override
-    protected void readCustomDataFromTag(CompoundTag compound) {
+    protected void readAdditionalSaveData(CompoundTag compound) {
         if (compound.contains("BYGType", NbtType.STRING)) {
             this.setBYGBoatType(BYGType.getTypeFromString(compound.getString("BYGType")));
         }
     }
 
     @Override
-    public Packet<?> createSpawnPacket() {
+    public Packet<?> getAddEntityPacket() {
         return CustomEntitySpawnS2CPacket.createSpawnPacket(this);
     }
 

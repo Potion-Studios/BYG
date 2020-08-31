@@ -1,6 +1,6 @@
 package voronoiaoc.byg.core.byglists;
 
-import net.minecraft.world.biome.Biome;
+import net.minecraft.world.level.biome.Biome;
 import voronoiaoc.byg.common.biomes.beachbiomes.*;
 import voronoiaoc.byg.common.biomes.biomes.*;
 import voronoiaoc.byg.common.biomes.endbiomes.IvisFields;

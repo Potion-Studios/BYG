@@ -1,7 +1,7 @@
 package voronoiaoc.byg.common.properties.vanilla;//package voronoiaoc.byg.common.properties.vanilla;
 
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.core.byglists.BYGItemList;
 

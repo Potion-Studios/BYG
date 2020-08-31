@@ -1,30 +1,29 @@
 package voronoiaoc.byg.common.world.feature.features.overworld;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class CanyonCactus extends Feature<DefaultFeatureConfig> {
-    public CanyonCactus(Codec<DefaultFeatureConfig> config) {
+public class CanyonCactus extends Feature<NoneFeatureConfiguration> {
+    public CanyonCactus(Codec<NoneFeatureConfiguration> config) {
         super(config);
     }
 
 
-    public boolean generate(StructureWorldAccess worldIn, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
-        if (!worldIn.isAir
-                (pos) || worldIn.getBlockState(pos.down()).getBlock() != Blocks.RED_SAND)
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random random, BlockPos pos, NoneFeatureConfiguration config) {
+        if (!worldIn.isEmptyBlock
+                (pos) || worldIn.getBlockState(pos.below()).getBlock() != Blocks.RED_SAND)
             return false;
         if (pos.getY() < 140)
             return false;
         else {
-            worldIn.setBlockState(pos, Blocks.CACTUS.getDefaultState(), 2);
-            worldIn.setBlockState(pos.up(), Blocks.CACTUS.getDefaultState(), 2);
+            worldIn.setBlock(pos, Blocks.CACTUS.defaultBlockState(), 2);
+            worldIn.setBlock(pos.above(), Blocks.CACTUS.defaultBlockState(), 2);
             return true;
         }
     }

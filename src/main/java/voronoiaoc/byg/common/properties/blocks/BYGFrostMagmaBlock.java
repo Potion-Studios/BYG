@@ -1,48 +1,47 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.World;
-
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("deprecation")
 public class BYGFrostMagmaBlock extends Block {
-    public BYGFrostMagmaBlock(Settings properties) {
+    public BYGFrostMagmaBlock(Properties properties) {
         super(properties);
     }
 
     @Override
-    public void onSteppedOn(World world, BlockPos pos, Entity entity) {
-        if (!entity.isFireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
-            entity.damage(DamageSource.HOT_FLOOR, 1.0F);
+    public void stepOn(Level world, BlockPos pos, Entity entity) {
+        if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+            entity.hurt(DamageSource.HOT_FLOOR, 1.0F);
         }
 
         if (entity instanceof LivingEntity) {
             LivingEntity livingentity = (LivingEntity) entity;
-            if (!entity.isFireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
-                livingentity.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, 20, 30));
+            if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+                livingentity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 20, 30));
             }
         }
 
 
-        super.onSteppedOn(world, pos, entity);
+        super.stepOn(world, pos, entity);
     }
 
-    public void randomDisplayTick(BlockState blockstate, World world, BlockPos pos, Random rand) {
-        VoxelShape shape = this.getVisualShape(blockstate, world, pos, ShapeContext.absent());
-        Vec3d vec3d = shape.getBoundingBox().getCenter();
+    public void animateTick(BlockState blockstate, Level world, BlockPos pos, Random rand) {
+        VoxelShape shape = this.getVisualShape(blockstate, world, pos, CollisionContext.empty());
+        Vec3 vec3d = shape.bounds().getCenter();
         double getX = (double) pos.getX() + vec3d.x;
         double getZ = (double) pos.getZ() + vec3d.z;
 
@@ -54,7 +53,7 @@ public class BYGFrostMagmaBlock extends Block {
 
     }
 
-    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-        world.getBlockTickScheduler().schedule(pos, this, 20);
+    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean notify) {
+        world.getBlockTicks().scheduleTick(pos, this, 20);
     }
 }

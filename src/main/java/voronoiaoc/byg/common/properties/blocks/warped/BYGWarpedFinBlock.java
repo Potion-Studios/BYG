@@ -4,7 +4,7 @@ import voronoiaoc.byg.common.properties.blocks.plants.BYGCoralFanBlock;
 
 public class BYGWarpedFinBlock extends BYGCoralFanBlock {
 
-    protected BYGWarpedFinBlock(Settings builder) {
+    protected BYGWarpedFinBlock(Properties builder) {
         super(builder);
 
     }

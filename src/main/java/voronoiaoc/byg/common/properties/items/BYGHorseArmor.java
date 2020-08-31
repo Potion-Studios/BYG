@@ -1,18 +1,18 @@
 package voronoiaoc.byg.common.properties.items;
 
-import net.minecraft.item.HorseArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.HorseArmorItem;
+import net.minecraft.world.item.Item;
 
 public class BYGHorseArmor extends HorseArmorItem {
     private final int bonus;
-    private final Identifier texture;
+    private final ResourceLocation texture;
 
-    public BYGHorseArmor(int bonus, String armorMaterial, Item.Settings properties) {
-        this(bonus, new Identifier("byg:textures/entity/horse/armor/horse_armor_" + armorMaterial + ".png"), properties);
+    public BYGHorseArmor(int bonus, String armorMaterial, Item.Properties properties) {
+        this(bonus, new ResourceLocation("byg:textures/entity/horse/armor/horse_armor_" + armorMaterial + ".png"), properties);
     }
 
-    public BYGHorseArmor(int bonus, Identifier texture, Item.Settings properties) {
+    public BYGHorseArmor(int bonus, ResourceLocation texture, Item.Properties properties) {
         super(bonus, null, properties);
         this.bonus = bonus;
         this.texture = texture;
@@ -20,7 +20,7 @@ public class BYGHorseArmor extends HorseArmorItem {
 
 
     @Override
-    public Identifier getEntityTexture() {
+    public ResourceLocation getTexture() {
         return texture;
     }
 }

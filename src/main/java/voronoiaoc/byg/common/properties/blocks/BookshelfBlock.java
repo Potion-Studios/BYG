@@ -1,14 +1,14 @@
 package voronoiaoc.byg.common.properties.blocks;
 
 import net.fabricmc.fabric.api.tag.TagRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.tag.Tag;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.level.block.Block;
 
 public class BookshelfBlock extends Block {
-    public static Tag<Block> BOOKSHELF_TAG = TagRegistry.block(new Identifier("c", "bookshelves"));
+    public static Tag<Block> BOOKSHELF_TAG = TagRegistry.block(new ResourceLocation("c", "bookshelves"));
 
-    protected BookshelfBlock(Settings builder) {
+    protected BookshelfBlock(Properties builder) {
         super(builder);
     }
 }

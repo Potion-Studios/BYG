@@ -1,7 +1,7 @@
 package voronoiaoc.byg.common;
 
-import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 
 public class BYGMaterials {
     public static final Material GLOWCELIUM;
@@ -12,10 +12,10 @@ public class BYGMaterials {
 
     static {
         GLOWCELIUM = (new Material.Builder(MaterialColor.GRASS)).build();
-        RED_GLOWCANE = (new Material.Builder(MaterialColor.RED)).build();
-        BLUE_GLOWCANE = (new Material.Builder(MaterialColor.BLUE)).build();
-        PURPLE_GLOWCANE = (new Material.Builder(MaterialColor.PURPLE)).build();
-        PINK_GLOWCANE = (new Material.Builder(MaterialColor.PINK)).build();
+        RED_GLOWCANE = (new Material.Builder(MaterialColor.COLOR_RED)).build();
+        BLUE_GLOWCANE = (new Material.Builder(MaterialColor.COLOR_BLUE)).build();
+        PURPLE_GLOWCANE = (new Material.Builder(MaterialColor.COLOR_PURPLE)).build();
+        PINK_GLOWCANE = (new Material.Builder(MaterialColor.COLOR_PINK)).build();
     }
 
 }

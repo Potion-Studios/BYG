@@ -1,102 +1,102 @@
 package voronoiaoc.byg.core.byglists;
 
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.surfacebuilders.*;
 
 public class BYGSBList {
-    public static final SurfaceBuilder<TernarySurfaceConfig> BOREAL_SB = newSurfaceBuilder("boreal", new BorealForestSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> CONIFEROUS_SB = newSurfaceBuilder("coniferous", new ConiferousForestSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> SHATTEREDGLACIER_SB2 = newSurfaceBuilder("shattered_glacier", new ShatteredGlacierSB2(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> MARSHLAND_SB = newSurfaceBuilder("marshland", new MarshlandSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> GREAT_LAKES_SB = newSurfaceBuilder("great_lakes", new GreatLakeSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> GREAT_LAKE_ISLE_SB = newSurfaceBuilder("great_lakes_isles", new GreatLakeIsleSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> ERODED_SIERRA_SB = newSurfaceBuilder("eroded_sierra", new ErodedSierraSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> SIERRA_VALLEY_SB = newSurfaceBuilder("sierra_valley", new SierraValleySB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> GLOWSHROOM_BAYOU_SB = newSurfaceBuilder("glowshroom_bayou", new GlowShroomBayouSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> CRAG_GARDENS = newSurfaceBuilder("crag_gardens", new CragGardens(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> RED_ROCK_SB = newSurfaceBuilder("red_rock", new RedRockSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> RED_ROCKLOWLAND_SB = newSurfaceBuilder("red_rock_lowlands", new RedRockLowlandsSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> REDDUNES_SB = newSurfaceBuilder("red_dunes", new RedDunesSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> DUNES_SB = newSurfaceBuilder("dunes", new DunesSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> DOVER_SB = newSurfaceBuilder("dover_mountains", new DoverMountainSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> QUAGMIRE_SB = newSurfaceBuilder("quagmire", new QuagmireSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> CANYONS = newSurfaceBuilder("canyons", new CanyonSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> MOJAVE = newSurfaceBuilder("mojave", new MojaveSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> LUSH_TUNDRA_SB = newSurfaceBuilder("lush_tundra", new LushTundraSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> FUNGAL_RAINFOREST_SB = newSurfaceBuilder("fungal_rainforest", new FungalRainforestSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> EBONY_SB = newSurfaceBuilder("ebony_woods", new EbonyWoodsSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> GLOWING_ANCIENT_FOREST_SB = newSurfaceBuilder("glowing_ancient_forest", new GlowingAncientForestSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> EMBURBOG = newSurfaceBuilder("embur_bog", new EmburBogSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> ROCKYBLACKBEACH_SB = newSurfaceBuilder("rocky_black_beach", new RockyBlackBeachSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> RAINBOWBEACH_SB = newSurfaceBuilder("rainbow_beach", new RainbowBeachSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> ROCKYBEACH_SB = newSurfaceBuilder("rocky_beach", new RockyBeachSB(TernarySurfaceConfig.CODEC));
-    public static final SurfaceBuilder<TernarySurfaceConfig> WARPEDDESERT_SB = newSurfaceBuilder("warped_desert", new WarpedDesertSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> BOREAL_SB = newSurfaceBuilder("boreal", new BorealForestSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> CONIFEROUS_SB = newSurfaceBuilder("coniferous", new ConiferousForestSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> SHATTEREDGLACIER_SB2 = newSurfaceBuilder("shattered_glacier", new ShatteredGlacierSB2(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> MARSHLAND_SB = newSurfaceBuilder("marshland", new MarshlandSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> GREAT_LAKES_SB = newSurfaceBuilder("great_lakes", new GreatLakeSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> GREAT_LAKE_ISLE_SB = newSurfaceBuilder("great_lakes_isles", new GreatLakeIsleSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> ERODED_SIERRA_SB = newSurfaceBuilder("eroded_sierra", new ErodedSierraSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> SIERRA_VALLEY_SB = newSurfaceBuilder("sierra_valley", new SierraValleySB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> GLOWSHROOM_BAYOU_SB = newSurfaceBuilder("glowshroom_bayou", new GlowShroomBayouSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> CRAG_GARDENS = newSurfaceBuilder("crag_gardens", new CragGardens(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> RED_ROCK_SB = newSurfaceBuilder("red_rock", new RedRockSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> RED_ROCKLOWLAND_SB = newSurfaceBuilder("red_rock_lowlands", new RedRockLowlandsSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> REDDUNES_SB = newSurfaceBuilder("red_dunes", new RedDunesSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> DUNES_SB = newSurfaceBuilder("dunes", new DunesSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> DOVER_SB = newSurfaceBuilder("dover_mountains", new DoverMountainSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> QUAGMIRE_SB = newSurfaceBuilder("quagmire", new QuagmireSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> CANYONS = newSurfaceBuilder("canyons", new CanyonSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> MOJAVE = newSurfaceBuilder("mojave", new MojaveSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> LUSH_TUNDRA_SB = newSurfaceBuilder("lush_tundra", new LushTundraSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> FUNGAL_RAINFOREST_SB = newSurfaceBuilder("fungal_rainforest", new FungalRainforestSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> EBONY_SB = newSurfaceBuilder("ebony_woods", new EbonyWoodsSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> GLOWING_ANCIENT_FOREST_SB = newSurfaceBuilder("glowing_ancient_forest", new GlowingAncientForestSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> EMBURBOG = newSurfaceBuilder("embur_bog", new EmburBogSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> ROCKYBLACKBEACH_SB = newSurfaceBuilder("rocky_black_beach", new RockyBlackBeachSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> RAINBOWBEACH_SB = newSurfaceBuilder("rainbow_beach", new RainbowBeachSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> ROCKYBEACH_SB = newSurfaceBuilder("rocky_beach", new RockyBeachSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> WARPEDDESERT_SB = newSurfaceBuilder("warped_desert", new WarpedDesertSB(SurfaceBuilderBaseConfiguration.CODEC));
 
     //End
-    public static final SurfaceBuilder<TernarySurfaceConfig> IVISFIELDS_SB = newSurfaceBuilder("ivis_fields", new IvisFieldsSB(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> IVISFIELDS_SB = newSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderBaseConfiguration.CODEC));
 
-    public static SurfaceBuilder<TernarySurfaceConfig> newSurfaceBuilder(String id, SurfaceBuilder<TernarySurfaceConfig> surfaceBuilder) {
-        Registry.register(Registry.SURFACE_BUILDER, new Identifier(BYG.MODID, id), surfaceBuilder);
+    public static SurfaceBuilder<SurfaceBuilderBaseConfiguration> newSurfaceBuilder(String id, SurfaceBuilder<SurfaceBuilderBaseConfiguration> surfaceBuilder) {
+        Registry.register(Registry.SURFACE_BUILDER, new ResourceLocation(BYG.MODID, id), surfaceBuilder);
         return surfaceBuilder;
     }
 
     public static class BYGSBConfigList {
-        public static final TernarySurfaceConfig BLACKSAND = new TernarySurfaceConfig(BYGBlockList.BLACK_SAND.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState());
-        public static final TernarySurfaceConfig ROCKYBLACKSAND = new TernarySurfaceConfig(BYGBlockList.ROCKY_STONE.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState());
-        public static final TernarySurfaceConfig ROCKYBLACKSAND2 = new TernarySurfaceConfig(BYGBlockList.BLACK_SAND.getDefaultState(), BYGBlockList.ROCKY_STONE.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState());
-        public static final TernarySurfaceConfig STONEBLACKSAND = new TernarySurfaceConfig(BYGBlockList.BLACK_SAND.getDefaultState(), Blocks.STONE.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState());
-        public static final TernarySurfaceConfig STONEBLACKSAND2 = new TernarySurfaceConfig(Blocks.STONE.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState());
-        public static final TernarySurfaceConfig BLUESAND_SB = new TernarySurfaceConfig(BYGBlockList.BLUE_SAND.getDefaultState(), BYGBlockList.BLUE_SAND.getDefaultState(), BYGBlockList.BLUE_SAND.getDefaultState());
-        public static final TernarySurfaceConfig PINKSAND_SB = new TernarySurfaceConfig(BYGBlockList.PINK_SAND.getDefaultState(), BYGBlockList.PINK_SAND.getDefaultState(), BYGBlockList.PINK_SAND.getDefaultState());
-        public static final TernarySurfaceConfig PURPLESAND_SB = new TernarySurfaceConfig(BYGBlockList.PURPLE_SAND.getDefaultState(), BYGBlockList.PURPLE_SAND.getDefaultState(), BYGBlockList.PURPLE_SAND.getDefaultState());
-        public static final TernarySurfaceConfig WHITESAND = new TernarySurfaceConfig(BYGBlockList.WHITE_SAND.getDefaultState(), BYGBlockList.WHITE_SAND.getDefaultState(), BYGBlockList.WHITE_SAND.getDefaultState());
-        public static final TernarySurfaceConfig ROCKYSAND = new TernarySurfaceConfig(BYGBlockList.ROCKY_STONE.getDefaultState(), Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState());
-        public static final TernarySurfaceConfig ROCKYSAND2 = new TernarySurfaceConfig(Blocks.SAND.getDefaultState(), BYGBlockList.ROCKY_STONE.getDefaultState(), Blocks.SAND.getDefaultState());
-        public static final TernarySurfaceConfig ROCKYSAND3 = new TernarySurfaceConfig(Blocks.SAND.getDefaultState(), BYGBlockList.ROCKY_STONE.getDefaultState(), BYGBlockList.ROCKY_STONE.getDefaultState());
-        public static final TernarySurfaceConfig STONESAND = new TernarySurfaceConfig(Blocks.STONE.getDefaultState(), Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState());
-        public static final TernarySurfaceConfig STONESAND2 = new TernarySurfaceConfig(Blocks.SAND.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.SAND.getDefaultState());
-        public static final TernarySurfaceConfig STONESAND3 = new TernarySurfaceConfig(Blocks.SAND.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState());
-        public static final TernarySurfaceConfig SAND = new TernarySurfaceConfig(Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState());
-        public static final TernarySurfaceConfig ROCKY = new TernarySurfaceConfig(BYGBlockList.ROCKY_STONE.getDefaultState(), BYGBlockList.ROCKY_STONE.getDefaultState(), BYGBlockList.ROCKY_STONE.getDefaultState());
-        public static final TernarySurfaceConfig STONE = new TernarySurfaceConfig(Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState());
-        public static final TernarySurfaceConfig COARSE = new TernarySurfaceConfig(Blocks.COARSE_DIRT.getDefaultState(), Blocks.COARSE_DIRT.getDefaultState(), Blocks.COARSE_DIRT.getDefaultState());
-        public static final TernarySurfaceConfig GLOWSTONEGARDENS = new TernarySurfaceConfig(BYGBlockList.OVERGROWN_NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
+        public static final SurfaceBuilderBaseConfiguration BLACKSAND = new SurfaceBuilderBaseConfiguration(BYGBlockList.BLACK_SAND.defaultBlockState(), BYGBlockList.BLACK_SAND.defaultBlockState(), BYGBlockList.BLACK_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration ROCKYBLACKSAND = new SurfaceBuilderBaseConfiguration(BYGBlockList.ROCKY_STONE.defaultBlockState(), BYGBlockList.BLACK_SAND.defaultBlockState(), BYGBlockList.BLACK_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration ROCKYBLACKSAND2 = new SurfaceBuilderBaseConfiguration(BYGBlockList.BLACK_SAND.defaultBlockState(), BYGBlockList.ROCKY_STONE.defaultBlockState(), BYGBlockList.BLACK_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration STONEBLACKSAND = new SurfaceBuilderBaseConfiguration(BYGBlockList.BLACK_SAND.defaultBlockState(), Blocks.STONE.defaultBlockState(), BYGBlockList.BLACK_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration STONEBLACKSAND2 = new SurfaceBuilderBaseConfiguration(Blocks.STONE.defaultBlockState(), BYGBlockList.BLACK_SAND.defaultBlockState(), BYGBlockList.BLACK_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration BLUESAND_SB = new SurfaceBuilderBaseConfiguration(BYGBlockList.BLUE_SAND.defaultBlockState(), BYGBlockList.BLUE_SAND.defaultBlockState(), BYGBlockList.BLUE_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration PINKSAND_SB = new SurfaceBuilderBaseConfiguration(BYGBlockList.PINK_SAND.defaultBlockState(), BYGBlockList.PINK_SAND.defaultBlockState(), BYGBlockList.PINK_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration PURPLESAND_SB = new SurfaceBuilderBaseConfiguration(BYGBlockList.PURPLE_SAND.defaultBlockState(), BYGBlockList.PURPLE_SAND.defaultBlockState(), BYGBlockList.PURPLE_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration WHITESAND = new SurfaceBuilderBaseConfiguration(BYGBlockList.WHITE_SAND.defaultBlockState(), BYGBlockList.WHITE_SAND.defaultBlockState(), BYGBlockList.WHITE_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration ROCKYSAND = new SurfaceBuilderBaseConfiguration(BYGBlockList.ROCKY_STONE.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration ROCKYSAND2 = new SurfaceBuilderBaseConfiguration(Blocks.SAND.defaultBlockState(), BYGBlockList.ROCKY_STONE.defaultBlockState(), Blocks.SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration ROCKYSAND3 = new SurfaceBuilderBaseConfiguration(Blocks.SAND.defaultBlockState(), BYGBlockList.ROCKY_STONE.defaultBlockState(), BYGBlockList.ROCKY_STONE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration STONESAND = new SurfaceBuilderBaseConfiguration(Blocks.STONE.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration STONESAND2 = new SurfaceBuilderBaseConfiguration(Blocks.SAND.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration STONESAND3 = new SurfaceBuilderBaseConfiguration(Blocks.SAND.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration SAND = new SurfaceBuilderBaseConfiguration(Blocks.SAND.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration ROCKY = new SurfaceBuilderBaseConfiguration(BYGBlockList.ROCKY_STONE.defaultBlockState(), BYGBlockList.ROCKY_STONE.defaultBlockState(), BYGBlockList.ROCKY_STONE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration STONE = new SurfaceBuilderBaseConfiguration(Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration COARSE = new SurfaceBuilderBaseConfiguration(Blocks.COARSE_DIRT.defaultBlockState(), Blocks.COARSE_DIRT.defaultBlockState(), Blocks.COARSE_DIRT.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration GLOWSTONEGARDENS = new SurfaceBuilderBaseConfiguration(BYGBlockList.OVERGROWN_NETHERRACK.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState());
 
 
-        public static final TernarySurfaceConfig SAND_CF = new TernarySurfaceConfig(Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState());
-        public static final TernarySurfaceConfig REDSAND_CF = new TernarySurfaceConfig(Blocks.RED_SAND.getDefaultState(), Blocks.RED_SAND.getDefaultState(), Blocks.RED_SAND.getDefaultState());
-        public static final TernarySurfaceConfig WARPEDDESERT = new TernarySurfaceConfig(BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState());
-        public static final TernarySurfaceConfig SYTHIANTORRIDS = new TernarySurfaceConfig(BYGBlockList.SYTHIAN_NYLIUM.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
-        public static final TernarySurfaceConfig WARPEDDESERT_SOIL = new TernarySurfaceConfig(BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState());
-        public static final TernarySurfaceConfig EMBURNYLIUM = new TernarySurfaceConfig(BYGBlockList.EMBUR_NYLIUM.getDefaultState(), BYGBlockList.BLUE_NETHERRACK.getDefaultState(), BYGBlockList.BLUE_NETHERRACK.getDefaultState());
+        public static final SurfaceBuilderBaseConfiguration SAND_CF = new SurfaceBuilderBaseConfiguration(Blocks.SAND.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration REDSAND_CF = new SurfaceBuilderBaseConfiguration(Blocks.RED_SAND.defaultBlockState(), Blocks.RED_SAND.defaultBlockState(), Blocks.RED_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration WARPEDDESERT = new SurfaceBuilderBaseConfiguration(BYGBlockList.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlockList.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlockList.NYLIUM_SOUL_SAND.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration SYTHIANTORRIDS = new SurfaceBuilderBaseConfiguration(BYGBlockList.SYTHIAN_NYLIUM.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration WARPEDDESERT_SOIL = new SurfaceBuilderBaseConfiguration(BYGBlockList.NYLIUM_SOUL_SOIL.defaultBlockState(), BYGBlockList.NYLIUM_SOUL_SOIL.defaultBlockState(), BYGBlockList.NYLIUM_SOUL_SOIL.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration EMBURNYLIUM = new SurfaceBuilderBaseConfiguration(BYGBlockList.EMBUR_NYLIUM.defaultBlockState(), BYGBlockList.BLUE_NETHERRACK.defaultBlockState(), BYGBlockList.BLUE_NETHERRACK.defaultBlockState());
 
 
-        public static final TernarySurfaceConfig PODZOLDOVERMOUNTAIN_CF = new TernarySurfaceConfig(BYGBlockList.OVERGROWN_DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());
-        public static final TernarySurfaceConfig COARSEDIRTDOVERMOUNTAIN_CF = new TernarySurfaceConfig(Blocks.COARSE_DIRT.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());
-        public static final TernarySurfaceConfig GRASSDOVERMOUNTAIN_CF = new TernarySurfaceConfig(BYGBlockList.PODZOL_DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());
+        public static final SurfaceBuilderBaseConfiguration PODZOLDOVERMOUNTAIN_CF = new SurfaceBuilderBaseConfiguration(BYGBlockList.OVERGROWN_DACITE.defaultBlockState(), BYGBlockList.DACITE.defaultBlockState(), BYGBlockList.DACITE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration COARSEDIRTDOVERMOUNTAIN_CF = new SurfaceBuilderBaseConfiguration(Blocks.COARSE_DIRT.defaultBlockState(), BYGBlockList.DACITE.defaultBlockState(), BYGBlockList.DACITE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration GRASSDOVERMOUNTAIN_CF = new SurfaceBuilderBaseConfiguration(BYGBlockList.PODZOL_DACITE.defaultBlockState(), BYGBlockList.DACITE.defaultBlockState(), BYGBlockList.DACITE.defaultBlockState());
 
-        public static final TernarySurfaceConfig AIR_CF = new TernarySurfaceConfig(Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState());
+        public static final SurfaceBuilderBaseConfiguration AIR_CF = new SurfaceBuilderBaseConfiguration(Blocks.AIR.defaultBlockState(), Blocks.AIR.defaultBlockState(), Blocks.AIR.defaultBlockState());
 
-        public static final TernarySurfaceConfig QUAGMIREPEAT_SB = new TernarySurfaceConfig(BYGBlockList.PEAT.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState());
-        public static final TernarySurfaceConfig QUAGMIREMUD_CF = new TernarySurfaceConfig(BYGBlockList.MUD_BLOCK.getDefaultState(), BYGBlockList.MUD_BRICKS.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState());
-        public static final TernarySurfaceConfig GRASSMOUNTAIN_CF = new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState());
-        public static final TernarySurfaceConfig PEATGRASS_CF = new TernarySurfaceConfig(BYGBlockList.PEAT.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState());
-        public static final TernarySurfaceConfig MUD_CF = new TernarySurfaceConfig(BYGBlockList.MUD_BLOCK.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState(), BYGBlockList.MUD_BLOCK.getDefaultState());
-        public static final TernarySurfaceConfig TERRACOTTA_CF = new TernarySurfaceConfig(Blocks.TERRACOTTA.getDefaultState(), Blocks.TERRACOTTA.getDefaultState(), Blocks.TERRACOTTA.getDefaultState());
-        public static final TernarySurfaceConfig GLOWCELIUM_CF = new TernarySurfaceConfig(BYGBlockList.GLOWCELIUM.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState());
+        public static final SurfaceBuilderBaseConfiguration QUAGMIREPEAT_SB = new SurfaceBuilderBaseConfiguration(BYGBlockList.PEAT.defaultBlockState(), BYGBlockList.MUD_BLOCK.defaultBlockState(), BYGBlockList.MUD_BLOCK.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration QUAGMIREMUD_CF = new SurfaceBuilderBaseConfiguration(BYGBlockList.MUD_BLOCK.defaultBlockState(), BYGBlockList.MUD_BRICKS.defaultBlockState(), BYGBlockList.MUD_BLOCK.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration GRASSMOUNTAIN_CF = new SurfaceBuilderBaseConfiguration(Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration PEATGRASS_CF = new SurfaceBuilderBaseConfiguration(BYGBlockList.PEAT.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration MUD_CF = new SurfaceBuilderBaseConfiguration(BYGBlockList.MUD_BLOCK.defaultBlockState(), BYGBlockList.MUD_BLOCK.defaultBlockState(), BYGBlockList.MUD_BLOCK.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration TERRACOTTA_CF = new SurfaceBuilderBaseConfiguration(Blocks.TERRACOTTA.defaultBlockState(), Blocks.TERRACOTTA.defaultBlockState(), Blocks.TERRACOTTA.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration GLOWCELIUM_CF = new SurfaceBuilderBaseConfiguration(BYGBlockList.GLOWCELIUM.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState());
 
-        public static final TernarySurfaceConfig GREEN_CONCRETE_POWDER_CF = new TernarySurfaceConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), BYGBlockList.MOSSY_STONE.getDefaultState(), Blocks.STONE.getDefaultState());
+        public static final SurfaceBuilderBaseConfiguration GREEN_CONCRETE_POWDER_CF = new SurfaceBuilderBaseConfiguration(BYGBlockList.OVERGROWN_STONE.defaultBlockState(), BYGBlockList.MOSSY_STONE.defaultBlockState(), Blocks.STONE.defaultBlockState());
 
-        public static final TernarySurfaceConfig RED_ROCK_CF = new TernarySurfaceConfig(BYGBlockList.RED_ROCK.getDefaultState(), BYGBlockList.RED_ROCK.getDefaultState(), BYGBlockList.RED_ROCK.getDefaultState());
+        public static final SurfaceBuilderBaseConfiguration RED_ROCK_CF = new SurfaceBuilderBaseConfiguration(BYGBlockList.RED_ROCK.defaultBlockState(), BYGBlockList.RED_ROCK.defaultBlockState(), BYGBlockList.RED_ROCK.defaultBlockState());
 
-        public static final TernarySurfaceConfig IVIS_CF = new TernarySurfaceConfig(BYGBlockList.IVIS_PHYLIUM.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
-        public static final TernarySurfaceConfig END = new TernarySurfaceConfig(Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
-        public static final TernarySurfaceConfig MYCELIUM = new TernarySurfaceConfig(Blocks.MYCELIUM.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState());
+        public static final SurfaceBuilderBaseConfiguration IVIS_CF = new SurfaceBuilderBaseConfiguration(BYGBlockList.IVIS_PHYLIUM.defaultBlockState(), Blocks.END_STONE.defaultBlockState(), Blocks.END_STONE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration END = new SurfaceBuilderBaseConfiguration(Blocks.END_STONE.defaultBlockState(), Blocks.END_STONE.defaultBlockState(), Blocks.END_STONE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration MYCELIUM = new SurfaceBuilderBaseConfiguration(Blocks.MYCELIUM.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState());
 
     }
 }

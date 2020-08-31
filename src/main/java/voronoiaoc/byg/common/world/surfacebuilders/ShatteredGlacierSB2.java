@@ -1,32 +1,32 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 
 @SuppressWarnings("deprecation")
 public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
-    private static final BlockState PACKED_ICE = BYGBlockList.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE = BYGBlockList.BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE2 = Blocks.SNOW_BLOCK.getDefaultState();
+    private static final BlockState PACKED_ICE = BYGBlockList.PACKED_BLACK_ICE.defaultBlockState();
+    private static final BlockState BLUE_ICE = BYGBlockList.BLACK_ICE.defaultBlockState();
+    private static final BlockState BLUE_ICE2 = Blocks.SNOW_BLOCK.defaultBlockState();
 
-    public ShatteredGlacierSB2(Codec<TernarySurfaceConfig> config) {
+    public ShatteredGlacierSB2(Codec<SurfaceBuilderBaseConfiguration> config) {
         super(config);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         double d0 = 0.0D;
-        double d1 = Math.min(Math.abs(noise), this.perlin1.sample((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
+        double d1 = Math.min(Math.abs(noise), this.perlin1.getValue((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
         if (d1 > 0.0D) {
-            double d3 = Math.abs(this.perlin2.sample((double) x * 0.001953125D, (double) z * 0.001953125D, false));
+            double d3 = Math.abs(this.perlin2.getValue((double) x * 0.001953125D, (double) z * 0.001953125D, false));
             d0 = d1 * d1 * 2.5D;
             double d4 = Math.ceil(d3 * 50.0D) + 14.0D;
             if (d0 > d4) {
@@ -39,12 +39,12 @@ public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
         int chunkX = x & 15;
         int chunkZ = z & 15;
         BlockState blockstatePackedIce = PACKED_ICE;
-        BlockState blockstateUnder = biomeIn.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
+        BlockState blockstateUnder = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
         int i1 = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int j = -1;
         boolean flag1 = false;
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
         for (int k = Math.max(startHeight, (int) d0 + 1); k >= 0; --k) {
             blockpos$mutable.set(chunkX, k, chunkZ);
@@ -59,11 +59,11 @@ public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
                 if (j == -1) {
                     flag1 = false;
                     if (i1 <= 0) {
-                        blockstatePackedIce = Blocks.AIR.getDefaultState();
+                        blockstatePackedIce = Blocks.AIR.defaultBlockState();
                         blockstateUnder = defaultBlock;
                     } else if (k >= seaLevel - 4 && k <= seaLevel + 1) {
                         blockstatePackedIce = PACKED_ICE;
-                        blockstateUnder = biomeIn.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
+                        blockstateUnder = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
                     }
 
                     if (k < seaLevel && (blockstatePackedIce == null || blockstatePackedIce.isAir())) {
@@ -73,7 +73,7 @@ public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
                     j = i1 + Math.max(0, k - seaLevel);
                     if (k >= seaLevel - 1) {
                         if (k <= seaLevel + 3 + i1) {
-                            chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceConfig().getUnderMaterial(), false);
+                            chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial(), false);
                             flag1 = true;
                         } else {
                             BlockState blockstate3;

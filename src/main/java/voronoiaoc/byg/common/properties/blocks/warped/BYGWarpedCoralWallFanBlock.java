@@ -1,11 +1,11 @@
 package voronoiaoc.byg.common.properties.blocks.warped;
 
-import net.minecraft.block.DeadCoralWallFanBlock;
-import net.minecraft.util.math.Direction;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.BaseCoralWallFanBlock;
 
-public class BYGWarpedCoralWallFanBlock extends DeadCoralWallFanBlock {
-    protected BYGWarpedCoralWallFanBlock(Settings block) {
+public class BYGWarpedCoralWallFanBlock extends BaseCoralWallFanBlock {
+    protected BYGWarpedCoralWallFanBlock(Properties block) {
         super(block);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
 }

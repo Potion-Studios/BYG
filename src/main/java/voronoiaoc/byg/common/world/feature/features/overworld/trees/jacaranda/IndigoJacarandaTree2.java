@@ -1,37 +1,37 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockBox;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
-public class IndigoJacarandaTree2 extends BYGAbstractTreeFeature<DefaultFeatureConfig> {
-    private static final BlockState LOG = BYGBlockList.JACARANDA_LOG.getDefaultState();
-    private static final BlockState LEAVES = BYGBlockList.INDIGO_JACARANDA_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
+public class IndigoJacarandaTree2 extends BYGAbstractTreeFeature<NoneFeatureConfiguration> {
+    private static final BlockState LOG = BYGBlockList.JACARANDA_LOG.defaultBlockState();
+    private static final BlockState LEAVES = BYGBlockList.INDIGO_JACARANDA_LEAVES.defaultBlockState();
+    private static final BlockState BEENEST = Blocks.BEE_NEST.defaultBlockState();
 
-    public IndigoJacarandaTree2(Codec<DefaultFeatureConfig> configIn) {
+    public IndigoJacarandaTree2(Codec<NoneFeatureConfiguration> configIn) {
         super(configIn);
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.JACARANDA_SAPLING);
     }
 
-    protected static boolean canTreeReplace(TestableWorld genBaseReader, BlockPos blockPos) {
+    protected static boolean canTreeReplace(LevelSimulatedReader genBaseReader, BlockPos blockPos) {
         return canLogPlaceHere(genBaseReader, blockPos
         );
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling) {
+    public boolean place(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling) {
 
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(3) + 7;
         //Positions
@@ -40,7 +40,7 @@ public class IndigoJacarandaTree2 extends BYGAbstractTreeFeature<DefaultFeatureC
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
@@ -49,7 +49,7 @@ public class IndigoJacarandaTree2 extends BYGAbstractTreeFeature<DefaultFeatureC
             } else {
 
 
-                Direction direction = Direction.Type.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
                 int posY1 = 2 - rand.nextInt(1);//Crashes on 0.
                 int posX1 = posX;
@@ -59,8 +59,8 @@ public class IndigoJacarandaTree2 extends BYGAbstractTreeFeature<DefaultFeatureC
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
                     if (buildTrunk >= randTreeHeight2 && posY1 < 0) { //Unknown
-                        posX1 += direction.getOffsetX();
-                        posZ1 += direction.getOffsetZ();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
                     int logplacer = posY + buildTrunk;
@@ -82,10 +82,10 @@ public class IndigoJacarandaTree2 extends BYGAbstractTreeFeature<DefaultFeatureC
                     this.treelog(changedBlocks, worldIn, blockpos4.east(2), boundsIn);
                     this.treelog(changedBlocks, worldIn, blockpos4.west(2), boundsIn);
 
-                    this.treelog(changedBlocks, worldIn, blockpos4.west().down(), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos4.east().down(), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos4.south().down(), boundsIn);
-                    this.treelog(changedBlocks, worldIn, blockpos4.north().down(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos4.west().below(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos4.east().below(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos4.south().below(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos4.north().below(), boundsIn);
 
                 }
                 int leavePreset = rand.nextInt(1) + 1;
@@ -221,11 +221,11 @@ public class IndigoJacarandaTree2 extends BYGAbstractTreeFeature<DefaultFeatureC
         }
     }
 
-    private boolean doesTreeFit(TestableWorld reader, BlockPos blockPos, int height) {
+    private boolean doesTreeFit(LevelSimulatedReader reader, BlockPos blockPos, int height) {
         int x = blockPos.getX();
         int y = blockPos.getY();
         int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
         for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
             //Distance/Density of trees. Positive Values ONLY
@@ -243,7 +243,7 @@ public class IndigoJacarandaTree2 extends BYGAbstractTreeFeature<DefaultFeatureC
     }
 
     //Log Placement
-    private void treelog(Set<BlockPos> setlogblock, StructureWorldAccess reader, BlockPos pos, BlockBox boundingBox) {
+    private void treelog(Set<BlockPos> setlogblock, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
         }
@@ -251,7 +251,7 @@ public class IndigoJacarandaTree2 extends BYGAbstractTreeFeature<DefaultFeatureC
     }
 
     //Leaves Placement
-    private void leafs(StructureWorldAccess reader, int x, int y, int z, BlockBox boundingBox, Set<BlockPos> blockPos) {
+    private void leafs(WorldGenLevel reader, int x, int y, int z, BoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(blockPos, reader, blockpos, LEAVES, boundingBox);

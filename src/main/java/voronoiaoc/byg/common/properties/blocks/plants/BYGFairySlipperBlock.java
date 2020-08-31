@@ -1,25 +1,25 @@
 package voronoiaoc.byg.common.properties.blocks.plants;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.PlantBlock;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class BYGFairySlipperBlock extends PlantBlock {
-    protected static final VoxelShape SHAPE = Block.createCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
-    private final StatusEffect stewEffect;
+public class BYGFairySlipperBlock extends BushBlock {
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    private final MobEffect stewEffect;
     private final int stewEffectDuration;
 
-    public BYGFairySlipperBlock(StatusEffect statusEffect, int duration, Settings properties) {
+    public BYGFairySlipperBlock(MobEffect statusEffect, int duration, Properties properties) {
         super(properties);
         this.stewEffect = statusEffect;
-        if (statusEffect.isInstant()) {
+        if (statusEffect.isInstantenous()) {
             this.stewEffectDuration = duration;
         } else {
             this.stewEffectDuration = duration * 20;
@@ -27,20 +27,20 @@ public class BYGFairySlipperBlock extends PlantBlock {
 
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Vec3d vec3D = state.getModelOffset(world, pos);
-        return SHAPE.offset(vec3D.x, vec3D.y, vec3D.z);
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        Vec3 vec3D = state.getOffset(world, pos);
+        return SHAPE.move(vec3D.x, vec3D.y, vec3D.z);
     }
 
-    protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
-        return state.isIn(BlockTags.LOGS);
+    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
+        return state.is(BlockTags.LOGS);
     }
 
     public OffsetType getOffsetType() {
         return OffsetType.XZ;
     }
 
-    public StatusEffect getEffectInStew() {
+    public MobEffect getEffectInStew() {
         return this.stewEffect;
     }
 

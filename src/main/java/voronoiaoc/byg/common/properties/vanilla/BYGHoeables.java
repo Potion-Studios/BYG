@@ -3,10 +3,10 @@ package voronoiaoc.byg.common.properties.vanilla;//package voronoiaoc.byg.common
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.HoeItem;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -15,12 +15,12 @@ import java.util.Set;
 public class BYGHoeables {
     public static void tillablesBYG() {
         BYG.LOGGER.debug("BYG: Adding Hoe Tillables...");
-        addTillable(BYGBlockList.OVERGROWN_STONE, Blocks.FARMLAND.getDefaultState());
-        addTillable(BYGBlockList.OVERGROWN_DACITE, Blocks.FARMLAND.getDefaultState());
-        addTillable(BYGBlockList.PODZOL_DACITE, Blocks.FARMLAND.getDefaultState());
-        addTillable(BYGBlockList.MEADOW_GRASSBLOCK, Blocks.FARMLAND.getDefaultState());
-        addTillable(BYGBlockList.MEADOW_DIRT, Blocks.FARMLAND.getDefaultState());
-        addTillable(BYGBlockList.PEAT, Blocks.FARMLAND.getDefaultState());
+        addTillable(BYGBlockList.OVERGROWN_STONE, Blocks.FARMLAND.defaultBlockState());
+        addTillable(BYGBlockList.OVERGROWN_DACITE, Blocks.FARMLAND.defaultBlockState());
+        addTillable(BYGBlockList.PODZOL_DACITE, Blocks.FARMLAND.defaultBlockState());
+        addTillable(BYGBlockList.MEADOW_GRASSBLOCK, Blocks.FARMLAND.defaultBlockState());
+        addTillable(BYGBlockList.MEADOW_DIRT, Blocks.FARMLAND.defaultBlockState());
+        addTillable(BYGBlockList.PEAT, Blocks.FARMLAND.defaultBlockState());
         BYG.LOGGER.debug("BYG: Added Hoe Tillables!!");
     }
 
@@ -76,14 +76,14 @@ public class BYGHoeables {
     }
 
     public static void addTillable(Block block, BlockState state) {
-        HoeItem.TILLED_BLOCKS = Maps.newHashMap(HoeItem.TILLED_BLOCKS);
-        HoeItem.TILLED_BLOCKS.put(block, state);
+        HoeItem.TILLABLES = Maps.newHashMap(HoeItem.TILLABLES);
+        HoeItem.TILLABLES.put(block, state);
     }
 
     public static void addEffectiveBlocks(Block block) {
-        Set<Block> effectiveBlocksSet = Sets.newHashSet(HoeItem.EFFECTIVE_BLOCKS);
+        Set<Block> effectiveBlocksSet = Sets.newHashSet(HoeItem.DIGGABLES);
         effectiveBlocksSet.add(block);
-        HoeItem.EFFECTIVE_BLOCKS = ImmutableSet.copyOf(effectiveBlocksSet);
+        HoeItem.DIGGABLES = ImmutableSet.copyOf(effectiveBlocksSet);
     }
 }
 

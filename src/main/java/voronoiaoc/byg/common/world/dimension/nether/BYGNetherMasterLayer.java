@@ -1,22 +1,22 @@
 package voronoiaoc.byg.common.world.dimension.nether;
 
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.world.biome.BuiltInBiomes;
-import net.minecraft.world.biome.layer.type.InitLayer;
-import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.layer.traits.AreaTransformer0;
 
-public enum BYGNetherMasterLayer implements InitLayer {
+public enum BYGNetherMasterLayer implements AreaTransformer0 {
     INSTANCE;
 
     @Override
-    public int sample(LayerRandomnessSource context, int x, int y) {
+    public int applyPixel(Context context, int x, int y) {
         return pickRandomBiomeID(context);
     }
 
-    public int pickRandomBiomeID(LayerRandomnessSource randomnessSource) {
+    public int pickRandomBiomeID(Context randomnessSource) {
         if (BYGNetherBiomeProvider.biomeList.isEmpty()) {
-            return BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.get(BuiltInBiomes.NETHER_WASTES));
+            return BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.get(Biomes.NETHER_WASTES));
         }
-        return BuiltinRegistries.BIOME.getRawId(BYGNetherBiomeProvider.biomeList.get(randomnessSource.nextInt(BYGNetherBiomeProvider.biomeList.size())));
+        return BuiltinRegistries.BIOME.getId(BYGNetherBiomeProvider.biomeList.get(randomnessSource.nextRandom(BYGNetherBiomeProvider.biomeList.size())));
     }
 }

@@ -1,47 +1,47 @@
 package voronoiaoc.byg.common.properties.blocks.sythian;
 
-import net.minecraft.block.BambooBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.enums.BambooLeaves;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import javax.annotation.Nullable;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.BambooBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BambooLeaves;
+import net.minecraft.world.level.material.FluidState;
 import java.util.Random;
 
 public class SythianStalkBlock extends BambooBlock {
 
-    public SythianStalkBlock(Settings properties) {
+    public SythianStalkBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(LEAVES, BambooLeaves.NONE).with(STAGE, 0));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0).setValue(LEAVES, BambooLeaves.NONE).setValue(STAGE, 0));
     }
 
     @Nullable
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        FluidState fluidState = ctx.getLevel().getFluidState(ctx.getClickedPos());
         if (!fluidState.isEmpty()) {
             return null;
         } else {
-            BlockState blockStateDOWN = ctx.getWorld().getBlockState(ctx.getBlockPos().down());
+            BlockState blockStateDOWN = ctx.getLevel().getBlockState(ctx.getClickedPos().below());
             if (blockStateDOWN.getBlock() == BYGBlockList.SYTHIAN_NYLIUM) {
                 Block blockDOWN = blockStateDOWN.getBlock();
                 if (blockDOWN == BYGBlockList.SYTHIAN_SAPLING) {
-                    return this.getDefaultState().with(AGE, 0);
+                    return this.defaultBlockState().setValue(AGE, 0);
                 } else if (blockDOWN == this) {
-                    int getPropertyAge = blockStateDOWN.get(AGE) > 0 ? 1 : 0;
-                    return this.getDefaultState().with(AGE, getPropertyAge);
+                    int getPropertyAge = blockStateDOWN.getValue(AGE) > 0 ? 1 : 0;
+                    return this.defaultBlockState().setValue(AGE, getPropertyAge);
                 } else {
-                    return BYGBlockList.SYTHIAN_SAPLING.getDefaultState();
+                    return BYGBlockList.SYTHIAN_SAPLING.defaultBlockState();
                 }
             } else {
                 BYG.LOGGER.info("NULL");
@@ -51,12 +51,12 @@ public class SythianStalkBlock extends BambooBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (state.get(STAGE) == 0) {
-            if (random.nextInt(3) == 0 && world.isAir(pos.up()) && world.getBaseLightLevel(pos.up(), 0) <= 12) {
-                int i = this.countBambooBelow(world, pos) + 1;
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
+        if (state.getValue(STAGE) == 0) {
+            if (random.nextInt(3) == 0 && world.isEmptyBlock(pos.above()) && world.getRawBrightness(pos.above(), 0) <= 12) {
+                int i = this.getHeightBelowUpToMax(world, pos) + 1;
                 if (i < 16) {
-                    this.updateLeaves(state, world, pos, random, i);
+                    this.growBamboo(state, world, pos, random, i);
                 }
             }
 
@@ -64,31 +64,31 @@ public class SythianStalkBlock extends BambooBlock {
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-        if (!state.canPlaceAt(world, pos)) {
-            world.getBlockTickScheduler().schedule(pos, this, 1);
+    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor world, BlockPos pos, BlockPos posFrom) {
+        if (!state.canSurvive(world, pos)) {
+            world.getBlockTicks().scheduleTick(pos, this, 1);
         }
 
-        if (direction == Direction.UP && newState.getBlock() == this && newState.get(AGE) > state.get(AGE)) {
-            world.setBlockState(pos, state.cycle(AGE), 2);
+        if (direction == Direction.UP && newState.getBlock() == this && newState.getValue(AGE) > state.getValue(AGE)) {
+            world.setBlock(pos, state.cycle(AGE), 2);
         }
 
-        return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
+        return super.updateShape(state, direction, newState, world, pos, posFrom);
     }
 
     @Override
-    protected void updateLeaves(BlockState state, World world, BlockPos pos, Random random, int height) {
-        BlockState stateDOWN = world.getBlockState(pos.down());
-        BlockPos posDOWN2 = pos.down(2);
+    protected void growBamboo(BlockState state, Level world, BlockPos pos, Random random, int height) {
+        BlockState stateDOWN = world.getBlockState(pos.below());
+        BlockPos posDOWN2 = pos.below(2);
         BlockState blockStateDOWN2 = world.getBlockState(posDOWN2);
         BambooLeaves bambooLeavesNONE = BambooLeaves.NONE;
         if (height >= 1) {
-            if (stateDOWN.getBlock() == this && stateDOWN.get(LEAVES) != BambooLeaves.NONE) {
-                if (stateDOWN.getBlock() == this && stateDOWN.get(LEAVES) != BambooLeaves.NONE) {
+            if (stateDOWN.getBlock() == this && stateDOWN.getValue(LEAVES) != BambooLeaves.NONE) {
+                if (stateDOWN.getBlock() == this && stateDOWN.getValue(LEAVES) != BambooLeaves.NONE) {
                     bambooLeavesNONE = BambooLeaves.LARGE;
                     if (blockStateDOWN2.getBlock() == this) {
-                        world.setBlockState(pos.down(), stateDOWN.with(LEAVES, BambooLeaves.SMALL), 3);
-                        world.setBlockState(posDOWN2, blockStateDOWN2.with(LEAVES, BambooLeaves.NONE), 3);
+                        world.setBlock(pos.below(), stateDOWN.setValue(LEAVES, BambooLeaves.SMALL), 3);
+                        world.setBlock(posDOWN2, blockStateDOWN2.setValue(LEAVES, BambooLeaves.NONE), 3);
                     }
                 }
             } else {
@@ -96,14 +96,14 @@ public class SythianStalkBlock extends BambooBlock {
             }
         }
 
-        int j = state.get(AGE) != 1 && blockStateDOWN2.getBlock() != this ? 0 : 1;
+        int j = state.getValue(AGE) != 1 && blockStateDOWN2.getBlock() != this ? 0 : 1;
         int k = (height < 11 || random.nextFloat() >= 0.25F) && height != 15 ? 0 : 1;
-        world.setBlockState(pos.up(), this.getDefaultState().with(AGE, j).with(LEAVES, bambooLeavesNONE).with(STAGE, k), 3);
+        world.setBlock(pos.above(), this.defaultBlockState().setValue(AGE, j).setValue(LEAVES, bambooLeavesNONE).setValue(STAGE, k), 3);
     }
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView worldIn, BlockPos pos) {
-        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.SYTHIAN_NYLIUM || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.SYTHIAN_STALK_BLOCK;
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
+        return worldIn.getBlockState(pos.below()).getBlock() == BYGBlockList.SYTHIAN_NYLIUM || worldIn.getBlockState(pos.below()).getBlock() == BYGBlockList.SYTHIAN_STALK_BLOCK;
     }
 
 }

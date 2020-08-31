@@ -2,14 +2,13 @@ package voronoiaoc.byg.core.registries;
 
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryRemovedCallback;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.BuiltInBiomes;
-import net.minecraft.world.biome.layer.SetBaseBiomesLayer;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.newbiome.layer.BiomeInitLayer;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
@@ -95,7 +94,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.ZELKOVAFOREST, "zelkova_forest", true, ConfigWeightManager.ZELKOVAFOREST.getWeight(), OverworldClimate.COOL);
 
         //Islands
-        registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, BuiltinRegistries.BIOME.get(BuiltInBiomes.DEEP_WARM_OCEAN), BuiltinRegistries.BIOME.get(BuiltInBiomes.WARM_OCEAN));
+        registerIsland(BYGBiomeList.TROPICALISLAND, "tropical_island", true, BuiltinRegistries.BIOME.get(Biomes.DEEP_WARM_OCEAN), BuiltinRegistries.BIOME.get(Biomes.WARM_OCEAN));
         BYG.LOGGER.info("BYG: Registered Biomes!");
 
     }
@@ -224,10 +223,10 @@ public class BYGBiomeRegistry {
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
         registerNetherBiome(BYGBiomeList.EMBURBOG, "embur_bog");
         // newDecorator existing nether biomes
-        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getCategory().equals(Biome.Category.NETHER)).forEach(biome -> BYGNetherBiomeProvider.biomeList.add(biome));
+        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getBiomeCategory().equals(Biome.BiomeCategory.NETHER)).forEach(biome -> BYGNetherBiomeProvider.biomeList.add(biome));
         // newDecorator future biomes
         RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
-            if (biome.getCategory().equals(Biome.Category.NETHER)) {
+            if (biome.getBiomeCategory().equals(Biome.BiomeCategory.NETHER)) {
                 BYGNetherBiomeProvider.biomeList.add(biome);
             }
         });
@@ -243,10 +242,10 @@ public class BYGBiomeRegistry {
         /**********EndBiomes - 1**********/
         registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
         // Register existing End biomes
-        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getCategory().equals(Biome.Category.THEEND)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
+        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
         // newDecorator future biomes
         RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
-            if (biome.getCategory().equals(Biome.Category.THEEND)) {
+            if (biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)) {
                 BYGEndBiomeProvider.bygEndBiomeList.add(biome);
             }
         });
@@ -258,17 +257,17 @@ public class BYGBiomeRegistry {
     }
 
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate type) {
-        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+        Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MODID, id), biome);
         biomeList.add(biome);
         if (weight > 0) {
             if (type == OverworldClimate.TEMPERATE)
-                WARM.add(BuiltinRegistries.BIOME.getRawId(biome));
+                WARM.add(BuiltinRegistries.BIOME.getId(biome));
             if (type == OverworldClimate.COOL)
-                COOL.add(BuiltinRegistries.BIOME.getRawId(biome));
+                COOL.add(BuiltinRegistries.BIOME.getId(biome));
             if (type == OverworldClimate.DRY)
-                HOT.add(BuiltinRegistries.BIOME.getRawId(biome));
+                HOT.add(BuiltinRegistries.BIOME.getId(biome));
             if (type == OverworldClimate.SNOWY)
-                ICY.add(BuiltinRegistries.BIOME.getRawId(biome));
+                ICY.add(BuiltinRegistries.BIOME.getId(biome));
         }
     }
 
@@ -332,14 +331,14 @@ public class BYGBiomeRegistry {
 
 
     private static void registerNetherBiome(Biome biome, String id) {
-        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+        Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MODID, id), biome);
 //        NetherBuiltInBiomes.addNetherBiome(biome);
         biomeList.add(biome);
     }
 
     private static void registerEndBiome(Biome biome, String id) {
         if (biome != null) {
-            Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+            Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MODID, id), biome);
             biomeList.add(biome);
         }
     }
@@ -360,7 +359,7 @@ public class BYGBiomeRegistry {
     }
 
     private static void registerSubBiome(Biome biome, String id, boolean spawn) {
-        Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), biome);
+        Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MODID, id), biome);
         biomeList.add(biome);
 //        if (spawn) {
 //            if (BuiltinRegistries.BIOME.getId(biome) == null) {
@@ -374,7 +373,7 @@ public class BYGBiomeRegistry {
     //
     private static void registerIsland(Biome island, String id, boolean spawn, Biome... oceanClimates) {
         if (island != null) {
-            Registry.register(BuiltinRegistries.BIOME, new Identifier(BYG.MODID, id), island);
+            Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MODID, id), island);
             biomeList.add(island);
             if (spawn)
                 //FabricBuiltInBiomes.addSpawnBiome(island);
@@ -386,26 +385,26 @@ public class BYGBiomeRegistry {
 
     //Why? This is how worldtype's using the BiomeLayerSampler get the numerical ID's to sample.
     public static void addBiomeNumericalIDs() {
-        BYG.LOGGER.info("Adding Numerical Biome ID's");
+        BYG.LOGGER.debug("Adding Numerical Biome IDs...");
         for (Biome biome : biomeList) {
-            Optional<RegistryKey<Biome>> key = BuiltinRegistries.BIOME.getKey(biome);
+            Optional<ResourceKey<Biome>> key = BuiltinRegistries.BIOME.getResourceKey(biome);
             if (key.isPresent())
-            key.ifPresent(biomeRegistryKey -> Biomes.BIOMES.put(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.method_31140(key.get())), biomeRegistryKey));
+                key.ifPresent(biomeRegistryKey -> net.minecraft.data.worldgen.biome.Biomes.TO_NAME.put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
         }
-        BYG.LOGGER.info("Added Numerical Biome ID's!");
+        BYG.LOGGER.info("Added Numerical Biome IDs!");
 
     }
 
     //We add our biomes to the public static int arrays for each category and this lets us spawn our biomes in vanilla worldtypes.
     public static void addBYGBiomesToVanillaOverworld() {
         for (int integer : BYGBiomeRegistry.HOT)
-            SetBaseBiomesLayer.DRY_BIOMES = addElement(SetBaseBiomesLayer.DRY_BIOMES, integer);
+            BiomeInitLayer.WARM_BIOMES = addElement(BiomeInitLayer.WARM_BIOMES, integer);
         for (int integer : BYGBiomeRegistry.WARM)
-            SetBaseBiomesLayer.TEMPERATE_BIOMES = addElement(SetBaseBiomesLayer.TEMPERATE_BIOMES, integer);
+            BiomeInitLayer.MEDIUM_BIOMES = addElement(BiomeInitLayer.MEDIUM_BIOMES, integer);
         for (int integer : BYGBiomeRegistry.COOL)
-            SetBaseBiomesLayer.COOL_BIOMES = addElement(SetBaseBiomesLayer.COOL_BIOMES, integer);
+            BiomeInitLayer.COLD_BIOMES = addElement(BiomeInitLayer.COLD_BIOMES, integer);
         for (int integer : BYGBiomeRegistry.ICY)
-            SetBaseBiomesLayer.SNOWY_BIOMES = addElement(SetBaseBiomesLayer.SNOWY_BIOMES, integer);
+            BiomeInitLayer.ICE_BIOMES = addElement(BiomeInitLayer.ICE_BIOMES, integer);
     }
 
 

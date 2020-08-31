@@ -12,20 +12,20 @@ import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.data.DataCache;
+import net.minecraft.ChatFormatting;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
+import net.minecraft.commands.SharedSuggestionProvider;
+import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.server.command.CommandManager;
-import net.minecraft.server.command.CommandSource;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.text.TextColor;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.WorldSavePath;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.data.HashCache;
+import net.minecraft.network.chat.TextColor;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.storage.LevelResource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -40,7 +40,7 @@ import java.util.stream.Collectors;
 public class BYGDataGenerator {
     //Have this load after everything else.
 
-    public static void dataGenBiome(String filePath, String modId, CommandContext<ServerCommandSource> source) throws IOException {
+    public static void dataGenBiome(String filePath, String modId, CommandContext<CommandSourceStack> source) throws IOException {
         OptionParser optionParser = new OptionParser();
         OptionSpec<Void> optionSpec = optionParser.accepts("help", "Show the help menu").forHelp();
         OptionSpec<Void> optionSpec7 = optionParser.accepts("all", "Include all generators");
@@ -56,9 +56,9 @@ public class BYGDataGenerator {
         }
     }
 
-    public static DataGenerator create(Path output, Collection<Path> inputs, String modId, CommandContext<ServerCommandSource> source) {
+    public static DataGenerator create(Path output, Collection<Path> inputs, String modId, CommandContext<CommandSourceStack> source) {
         DataGenerator dataGenerator = new DataGenerator(output, inputs);
-        dataGenerator.install(new BiomeDataProvider(dataGenerator, modId, source));
+        dataGenerator.addProvider(new BiomeDataProvider(dataGenerator, modId, source));
         return dataGenerator;
     }
 
@@ -68,34 +68,34 @@ public class BYGDataGenerator {
         private static final Gson gson = (new GsonBuilder()).setPrettyPrinting().create();
         private final DataGenerator dataGen;
         private final String modId;
-        private final CommandContext<ServerCommandSource> commandSource;
+        private final CommandContext<CommandSourceStack> commandSource;
 
         private static final List<Biome> biomeList = new ArrayList<>();
 
-        public BiomeDataProvider(DataGenerator dataGenerator, String modId, CommandContext<ServerCommandSource> source) {
+        public BiomeDataProvider(DataGenerator dataGenerator, String modId, CommandContext<CommandSourceStack> source) {
             this.dataGen = dataGenerator;
             this.modId = modId;
             commandSource = source;
         }
 
-        public void run(DataCache cache) {
-            Path path = this.dataGen.getOutput();
-            for (Map.Entry<RegistryKey<Biome>, Biome> biome : BuiltinRegistries.BIOME.getEntries()) {
-                if (Objects.requireNonNull(BuiltinRegistries.BIOME.getId(biome.getValue())).toString().contains(modId)) {
+        public void run(HashCache cache) {
+            Path path = this.dataGen.getOutputFolder();
+            for (Map.Entry<ResourceKey<Biome>, Biome> biome : BuiltinRegistries.BIOME.entrySet()) {
+                if (Objects.requireNonNull(BuiltinRegistries.BIOME.getKey(biome.getValue())).toString().contains(modId)) {
                     biomeList.add(biome.getValue());
                 }
             }
 
             if (biomeList.size() > 0) {
                 for (Biome biome : biomeList) {
-                    Path path2 = filePath(path, BuiltinRegistries.BIOME.getId(biome), modId);
+                    Path path2 = filePath(path, BuiltinRegistries.BIOME.getKey(biome), modId);
                     String realPath = path2.toString();
-                    Function<Supplier<Biome>, DataResult<JsonElement>> function1 = JsonOps.INSTANCE.withEncoder(Biome.REGISTRY_CODEC);
+                    Function<Supplier<Biome>, DataResult<JsonElement>> function1 = JsonOps.INSTANCE.withEncoder(Biome.CODEC);
 
                     try {
                         Optional optional = ((DataResult) function1.apply(() -> biome)).result();
                         if (optional.isPresent()) {
-                            DataProvider.writeToPath(gson, cache, (JsonElement) optional.get(), path2);
+                            DataProvider.save(gson, cache, (JsonElement) optional.get(), path2);
                         } else {
                             logger.error("Couldn't serialize biome {}", path2);
                         }
@@ -103,11 +103,11 @@ public class BYGDataGenerator {
                         logger.error("Couldn't save biome {}", path2, var9);
                     }
                 }
-                commandSource.getSource().sendFeedback(new TranslatableText("commands.gendata.success", commandSource.getArgument("modid", String.class), commandSource.getSource().getWorld().getServer().getSavePath(WorldSavePath.DATAPACKS).toString().replace("\\", "/").replace("/./", "/") + "/" + modId + "/worldgen/biome/").styled(text -> text.withColor(TextColor.fromFormatting(Formatting.GREEN))), false);
+                commandSource.getSource().sendSuccess(new TranslatableComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), commandSource.getSource().getLevel().getServer().getWorldPath(LevelResource.DATAPACK_DIR).toString().replace("\\", "/").replace("/./", "/") + "/" + modId + "/worldgen/biome/").withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.GREEN))), false);
                 biomeList.clear();
             }
             else {
-                commandSource.getSource().sendFeedback(new TranslatableText("commands.gendata.listisempty", modId).styled(text -> text.withColor(TextColor.fromFormatting(Formatting.RED))), false);
+                commandSource.getSource().sendSuccess(new TranslatableComponent("commands.gendata.listisempty", modId).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.RED))), false);
             }
 
         }
@@ -117,8 +117,8 @@ public class BYGDataGenerator {
             return "Byg Biomes";
         }
 
-        private static Path filePath(Path path, Identifier identifier, String modId) {
-            return path.resolve(modId + "/worldgen/biome/" + identifier.getPath() + ".json");
+        private static Path filePath(Path path, ResourceLocation identifier, String modId) {
+            return path.resolve("data/" + modId + "/worldgen/biome/" + identifier.getPath() + ".json");
         }
     }
 
@@ -131,11 +131,11 @@ public class BYGDataGenerator {
         });
 
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-            dispatcher.register(CommandManager.literal("gendata").then(CommandManager.argument("modid", StringArgumentType.string()).suggests((ctx, sb) -> CommandSource.suggestMatching(modIdList.stream(), sb)).executes(cs -> {
+            dispatcher.register(Commands.literal("gendata").then(Commands.argument("modid", StringArgumentType.string()).suggests((ctx, sb) -> SharedSuggestionProvider.suggest(modIdList.stream(), sb)).executes(cs -> {
                 try {
-                    BYGDataGenerator.dataGenBiome(cs.getSource().getWorld().getServer().getSavePath(WorldSavePath.DATAPACKS).toString(),cs.getArgument("modid", String.class), cs);
+                    BYGDataGenerator.dataGenBiome(cs.getSource().getLevel().getServer().getWorldPath(LevelResource.DATAPACK_DIR).toString(), cs.getArgument("modid", String.class), cs);
                 } catch (IOException e) {
-                    cs.getSource().sendFeedback(new TranslatableText("commands.gendata.failed", cs.getArgument("modid", String.class)).styled(text -> text.withColor(TextColor.fromFormatting(Formatting.RED))), false);
+                    cs.getSource().sendSuccess(new TranslatableComponent("commands.gendata.failed", cs.getArgument("modid", String.class)).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.RED))), false);
                 }
                 return 1;
             })));

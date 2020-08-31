@@ -1,14 +1,13 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import com.google.common.collect.Maps;
-import net.minecraft.block.Blocks;
-import net.minecraft.sound.BiomeMoodSound;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -19,9 +18,9 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class EvergreenTaiga extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("evergreen_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("evergreen_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderBaseConfiguration(Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState())));
     static final Precipitation PRECIPATATION = Precipitation.RAIN;
-    static final Category CATEGORY = Category.TAIGA;
+    static final BiomeCategory CATEGORY = BiomeCategory.TAIGA;
     static final float DEPTH = 0.75F;
     static final float SCALE = 0.1F;
     static final float TEMPERATURE = 0.25F;
@@ -31,17 +30,17 @@ public class EvergreenTaiga extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 5011004;
     static final int FOLIAGE_COLOR = 2263842;
     static final String PARENT = null;
-    static final Weather WEATHER = new Weather(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
-    static final SpawnSettings.Builder SPAWN_SETTINGS = new SpawnSettings.Builder();
-    static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
+    static final ClimateSettings WEATHER = new ClimateSettings(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final MobSpawnSettings.Builder SPAWN_SETTINGS = new MobSpawnSettings.Builder();
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
     public EvergreenTaiga() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColor(GRASS_COLOR).foliageColor(FOLIAGE_COLOR).skyColor(BiomeHelper.calcSkyColor(0.8F)).moodSound(BiomeMoodSound.CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeSpecialEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColorOverride(GRASS_COLOR).foliageColorOverride(FOLIAGE_COLOR).skyColor(BiomeHelper.calcSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
     @Override
     public Biome getRiver() {
-        return BuiltinRegistries.BIOME.get(BuiltInBiomes.FROZEN_RIVER);
+        return BuiltinRegistries.BIOME.get(Biomes.FROZEN_RIVER);
     }
 
     @Override
@@ -67,20 +66,20 @@ public class EvergreenTaiga extends Biome implements BiomeTools {
     }
 
     static {
-        DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addMossyRocks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addLargeFerns(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultDisks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultFlowers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addGiantTaigaGrass(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addDefaultVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSprings(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSweetBerryBushes(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addDefaultCarvers(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addMossyStoneBlock(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addFerns(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addDefaultUndergroundVariety(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addDefaultOres(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addDefaultSoftDisks(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addDefaultFlowers(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addGiantTaigaVegetation(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addDefaultSprings(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addSparseBerryBushes(GENERATION_SETTINGS);
         BYGTreeFeatures.addHollyTrees(GENERATION_SETTINGS);
         BYGFeatures.addLushBlueberries(GENERATION_SETTINGS);
         BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
@@ -90,7 +89,7 @@ public class EvergreenTaiga extends Biome implements BiomeTools {
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addWinterSucculent(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+        BiomeDefaultFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
 
     }
 }

@@ -1,31 +1,30 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
-
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 
 public class RedRockLowlandsSB extends RRSB {
-    private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.getDefaultState();
-    private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.getDefaultState();
-    private static final BlockState TERRACOTTA = Blocks.RED_SAND.getDefaultState();
+    private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.defaultBlockState();
+    private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.defaultBlockState();
+    private static final BlockState TERRACOTTA = Blocks.RED_SAND.defaultBlockState();
 
-    public RedRockLowlandsSB(Codec<TernarySurfaceConfig> p_i51314_1_) {
+    public RedRockLowlandsSB(Codec<SurfaceBuilderBaseConfiguration> p_i51314_1_) {
         super(p_i51314_1_);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         double d0 = 0.0D;
-        double d1 = Math.min(Math.abs(noise), this.noiseSampler1.sample((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
+        double d1 = Math.min(Math.abs(noise), this.noiseSampler1.getValue((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
         if (d1 > 0.0D) {
             double d2 = 0.001953125D;
-            double d3 = Math.abs(this.noiseSampler2.sample((double) x * 0.001953125D, (double) z * 0.001953125D, false));
+            double d3 = Math.abs(this.noiseSampler2.getValue((double) x * 0.001953125D, (double) z * 0.001953125D, false));
             d0 = d1 * d1 * 2.5D;
             double d4 = Math.ceil(d3 * 50.0D) + 14.0D;
             if (d0 > d4) {
@@ -38,12 +37,12 @@ public class RedRockLowlandsSB extends RRSB {
         int l = x & 15;
         int i = z & 15;
         BlockState blockstate2 = TERRACOTTA;
-        BlockState blockstate = biomeIn.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
+        BlockState blockstate = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
         int i1 = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int j = -1;
         boolean flag1 = false;
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
         for (int k = Math.max(startHeight, (int) d0 + 1); k >= 0; --k) {
             blockpos$mutable.set(l, k, i);
@@ -58,11 +57,11 @@ public class RedRockLowlandsSB extends RRSB {
                 if (j == -1) {
                     flag1 = false;
                     if (i1 <= 0) {
-                        blockstate2 = Blocks.AIR.getDefaultState();
+                        blockstate2 = Blocks.AIR.defaultBlockState();
                         blockstate = defaultBlock;
                     } else if (k >= seaLevel - 4 && k <= seaLevel + 1) {
                         blockstate2 = TERRACOTTA;
-                        blockstate = biomeIn.getGenerationSettings().getSurfaceConfig().getUnderMaterial();
+                        blockstate = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
                     }
 
                     if (k < seaLevel && (blockstate2 == null || blockstate2.isAir())) {
@@ -72,7 +71,7 @@ public class RedRockLowlandsSB extends RRSB {
                     j = i1 + Math.max(0, k - seaLevel);
                     if (k >= seaLevel - 1) {
                         if (k <= seaLevel + 3 + i1) {
-                            chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceConfig().getTopMaterial(), false);
+                            chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial(), false);
                             flag1 = true;
                         } else {
                             BlockState blockstate3;

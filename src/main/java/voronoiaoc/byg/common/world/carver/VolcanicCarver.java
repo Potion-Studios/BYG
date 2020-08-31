@@ -1,13 +1,13 @@
 package voronoiaoc.byg.common.world.carver;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.ProbabilityConfig;
-import net.minecraft.world.gen.carver.Carver;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
+import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 import voronoiaoc.byg.common.noise.fastnoise.FastNoise;
 import voronoiaoc.byg.common.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 
@@ -15,16 +15,16 @@ import java.util.BitSet;
 import java.util.Random;
 import java.util.function.Function;
 
-public class VolcanicCarver extends Carver<ProbabilityConfig> {
+public class VolcanicCarver extends WorldCarver<ProbabilityFeatureConfiguration> {
 
     protected ChunkFastSimplexStyleNoise simplex = new ChunkFastSimplexStyleNoise(1000);
 
-    public VolcanicCarver(Codec<ProbabilityConfig> configIn, int maxHeightIn) {
+    public VolcanicCarver(Codec<ProbabilityFeatureConfiguration> configIn, int maxHeightIn) {
         super(configIn, maxHeightIn);
     }
 
     @Override
-    public boolean carve(Chunk chunkIn, Function<BlockPos, Biome> posToBiome, Random random, int seaLevel, int chunkX, int chunkZ, int mainChunkX, int mainChunkZ, BitSet carvingMask, ProbabilityConfig carverConfig) {
+    public boolean carve(ChunkAccess chunkIn, Function<BlockPos, Biome> posToBiome, Random random, int seaLevel, int chunkX, int chunkZ, int mainChunkX, int mainChunkZ, BitSet carvingMask, ProbabilityFeatureConfiguration carverConfig) {
         int xPos = chunkX * 16;
         int zPos = chunkZ * 16;
         FastNoise noiseGen = new FastNoise();
@@ -37,12 +37,12 @@ public class VolcanicCarver extends Carver<ProbabilityConfig> {
 
         for (int x = xPos; x <= xPos + 15; x++) {
             for (int z = zPos; z <= zPos + 15; z++) {
-                int topBlockY = chunkIn.getHeightmap(Heightmap.Type.WORLD_SURFACE_WG).get(x, z);
+                int topBlockY = chunkIn.getOrCreateHeightmapUnprimed(Heightmap.Types.WORLD_SURFACE_WG).getFirstAvailable(x, z);
                 double rawSimplexNoiseSample = noiseGen.GetNoise(x, z) * 10;
                 if (rawSimplexNoiseSample > 8.75) {
                     for (int y = topBlockY; y >= 63; y--) {
-                        BlockPos.Mutable mutable1 = new BlockPos.Mutable(x, y, z);
-                        chunkIn.setBlockState(mutable1, Blocks.AIR.getDefaultState(), false);
+                        BlockPos.MutableBlockPos mutable1 = new BlockPos.MutableBlockPos(x, y, z);
+                        chunkIn.setBlockState(mutable1, Blocks.AIR.defaultBlockState(), false);
                     }
                 }
             }
@@ -51,12 +51,12 @@ public class VolcanicCarver extends Carver<ProbabilityConfig> {
     }
 
     @Override
-    public boolean shouldCarve(Random rand, int chunkX, int chunkZ, ProbabilityConfig config) {
+    public boolean isStartChunk(Random rand, int chunkX, int chunkZ, ProbabilityFeatureConfiguration config) {
         return true;
     }
 
     @Override
-    protected boolean isPositionExcluded(double scaledRelativeX, double scaledRelativeY, double scaledRelativeZ, int y) {
+    protected boolean skip(double scaledRelativeX, double scaledRelativeY, double scaledRelativeZ, int y) {
         return false;
     }
 

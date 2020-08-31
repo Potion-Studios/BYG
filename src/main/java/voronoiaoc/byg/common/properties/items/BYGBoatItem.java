@@ -1,81 +1,81 @@
 package voronoiaoc.byg.common.properties.items;
 
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.predicate.entity.EntityPredicates;
-import net.minecraft.stat.Stats;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.RayTraceContext;
-import net.minecraft.world.World;
 import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySelector;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 
 public class BYGBoatItem extends Item {
     private static final Predicate<Entity> RIDERS;
     private final BYGBoatEntity.BYGType type;
 
-    public BYGBoatItem(BYGBoatEntity.BYGType type, Item.Settings settings) {
+    public BYGBoatItem(BYGBoatEntity.BYGType type, Item.Properties settings) {
         super(settings);
         this.type = type;
     }
 
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        HitResult hitResult = rayTrace(world, user, RayTraceContext.FluidHandling.ANY);
+    public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
+        ItemStack itemStack = user.getItemInHand(hand);
+        HitResult hitResult = getPlayerPOVHitResult(world, user, ClipContext.Fluid.ANY);
         if (hitResult.getType() == HitResult.Type.MISS) {
-            return TypedActionResult.pass(itemStack);
+            return InteractionResultHolder.pass(itemStack);
         } else {
-            Vec3d vec3d = user.getRotationVec(1.0F);
+            Vec3 vec3d = user.getViewVector(1.0F);
             double d = 5.0D;
-            List<Entity> list = world.getOtherEntities(user, user.getBoundingBox().stretch(vec3d.multiply(5.0D)).expand(1.0D), RIDERS);
+            List<Entity> list = world.getEntities(user, user.getBoundingBox().expandTowards(vec3d.scale(5.0D)).inflate(1.0D), RIDERS);
             if (!list.isEmpty()) {
-                Vec3d vec3d2 = user.getCameraPosVec(1.0F);
+                Vec3 vec3d2 = user.getEyePosition(1.0F);
                 Iterator var11 = list.iterator();
 
                 while (var11.hasNext()) {
                     Entity entity = (Entity) var11.next();
-                    Box box = entity.getBoundingBox().expand(entity.getTargetingMargin());
+                    AABB box = entity.getBoundingBox().inflate(entity.getPickRadius());
                     if (box.contains(vec3d2)) {
-                        return TypedActionResult.pass(itemStack);
+                        return InteractionResultHolder.pass(itemStack);
                     }
                 }
             }
 
             if (hitResult.getType() == HitResult.Type.BLOCK) {
-                BYGBoatEntity bygBoatEntity = new BYGBoatEntity(world, hitResult.getPos().x, hitResult.getPos().y, hitResult.getPos().z);
+                BYGBoatEntity bygBoatEntity = new BYGBoatEntity(world, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
                 //BYG.LOGGER.info("BOAT ENTITY: " + bygBoatEntity.toString());
                 bygBoatEntity.setBYGBoatType(this.type);
-                bygBoatEntity.yaw = user.yaw;
-                if (!world.doesNotCollide(bygBoatEntity, bygBoatEntity.getBoundingBox().expand(-0.1D))) {
-                    return TypedActionResult.fail(itemStack);
+                bygBoatEntity.yRot = user.yRot;
+                if (!world.noCollision(bygBoatEntity, bygBoatEntity.getBoundingBox().inflate(-0.1D))) {
+                    return InteractionResultHolder.fail(itemStack);
                 } else {
-                    if (!world.isClient) {
-                        world.spawnEntity(bygBoatEntity);
-                        if (!user.abilities.creativeMode) {
-                            itemStack.decrement(1);
+                    if (!world.isClientSide) {
+                        world.addFreshEntity(bygBoatEntity);
+                        if (!user.abilities.instabuild) {
+                            itemStack.shrink(1);
                         }
                     }
 
-                    user.incrementStat(Stats.USED.getOrCreateStat(this));
-                    return TypedActionResult.method_29237(itemStack, world.isClient());
+                    user.awardStat(Stats.ITEM_USED.get(this));
+                    return InteractionResultHolder.sidedSuccess(itemStack, world.isClientSide());
                 }
             } else {
-                return TypedActionResult.pass(itemStack);
+                return InteractionResultHolder.pass(itemStack);
             }
         }
     }
 
     static {
-        RIDERS = EntityPredicates.EXCEPT_SPECTATOR.and(Entity::collides);
+        RIDERS = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
     }
 }

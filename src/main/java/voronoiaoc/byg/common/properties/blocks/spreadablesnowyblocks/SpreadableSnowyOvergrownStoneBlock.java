@@ -1,52 +1,52 @@
 package voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SnowBlock;
-import net.minecraft.block.SnowyBlock;
-import net.minecraft.tag.FluidTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.chunk.light.ChunkLightProvider;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SnowLayerBlock;
+import net.minecraft.world.level.block.SnowyDirtBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.lighting.LayerLightEngine;
 
 import java.util.Random;
 
-public class SpreadableSnowyOvergrownStoneBlock extends SnowyBlock {
-    public SpreadableSnowyOvergrownStoneBlock(Settings properties) {
+public class SpreadableSnowyOvergrownStoneBlock extends SnowyDirtBlock {
+    public SpreadableSnowyOvergrownStoneBlock(Properties properties) {
         super(properties);
     }
 
-    private static boolean canSurvive(BlockState state, WorldView worldReader, BlockPos blockPos) {
-        BlockPos blockpos = blockPos.up();
+    private static boolean canSurviveHere(BlockState state, LevelReader worldReader, BlockPos blockPos) {
+        BlockPos blockpos = blockPos.above();
         BlockState blockstate = worldReader.getBlockState(blockpos);
-        if (blockstate.getBlock() == Blocks.SNOW && blockstate.get(SnowBlock.LAYERS) == 1) {
+        if (blockstate.getBlock() == Blocks.SNOW && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) {
             return true;
         } else {
-            int i = ChunkLightProvider.getRealisticOpacity(worldReader, state, blockPos, blockstate, blockpos, Direction.UP, blockstate.getOpacity(worldReader, blockpos));
+            int i = LayerLightEngine.getLightBlockInto(worldReader, state, blockPos, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(worldReader, blockpos));
             return i < worldReader.getMaxLightLevel();
         }
     }
 
-    private static boolean canSpread(BlockState state, WorldView worldReader, BlockPos blockPos) {
-        BlockPos blockpos = blockPos.up();
-        return canSurvive(state, worldReader, blockPos) && !worldReader.getFluidState(blockpos).isIn(FluidTags.WATER);
+    private static boolean canSpread(BlockState state, LevelReader worldReader, BlockPos blockPos) {
+        BlockPos blockpos = blockPos.above();
+        return canSurviveHere(state, worldReader, blockPos) && !worldReader.getFluidState(blockpos).is(FluidTags.WATER);
     }
 
-    public void randomDisplayTick(BlockState state, World worldIn, BlockPos pos, Random rand) {
+    public void animateTick(BlockState state, Level worldIn, BlockPos pos, Random rand) {
         if (!canSurvive(state, worldIn, pos)) {
             if (!SpreadableSythianBlock.isAreaLoaded(pos, 3, worldIn))
                 return;
-            worldIn.setBlockState(pos, Blocks.STONE.getDefaultState());
+            worldIn.setBlockAndUpdate(pos, Blocks.STONE.defaultBlockState());
         } else {
-            if (worldIn.getBrightness(pos.up()) >= 9) {
-                BlockState blockstate = this.getDefaultState();
+            if (worldIn.getBrightness(pos.above()) >= 9) {
+                BlockState blockstate = this.defaultBlockState();
 
                 for (int i = 0; i < 4; ++i) {
-                    BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
+                    BlockPos blockpos = pos.offset(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
                     if (worldIn.getBlockState(blockpos).getBlock() == Blocks.STONE && canSpread(blockstate, worldIn, blockpos)) {
-                        worldIn.setBlockState(blockpos, blockstate.with(SNOWY, Boolean.valueOf(worldIn.getBlockState(blockpos.up()).getBlock() == Blocks.SNOW)));
+                        worldIn.setBlockAndUpdate(blockpos, blockstate.setValue(SNOWY, Boolean.valueOf(worldIn.getBlockState(blockpos.above()).getBlock() == Blocks.SNOW)));
                     }
                 }
             }

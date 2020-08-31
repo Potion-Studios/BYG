@@ -1,26 +1,26 @@
 package voronoiaoc.byg.common.world.feature.features.nether.warpeddesert;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class WarpedBush extends Feature<DefaultFeatureConfig> {
-    public WarpedBush(Codec<DefaultFeatureConfig> config) {
+public class WarpedBush extends Feature<NoneFeatureConfiguration> {
+    public WarpedBush(Codec<NoneFeatureConfiguration> config) {
         super(config);
     }
 
 
-    public boolean generate(StructureWorldAccess worldIn, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
-        if (!worldIn.isAir(pos)) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random random, BlockPos pos, NoneFeatureConfiguration config) {
+        if (!worldIn.isEmptyBlock(pos)) {
             return false;
-        } else if ((worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND) || (worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL)) {
-            worldIn.setBlockState(pos, BYGBlockList.WARPED_BUSH.getDefaultState(), 2);
+        } else if ((worldIn.getBlockState(pos.below()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND) || (worldIn.getBlockState(pos.below()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL)) {
+            worldIn.setBlock(pos, BYGBlockList.WARPED_BUSH.defaultBlockState(), 2);
             return true;
         }
         return true;

@@ -1,36 +1,36 @@
 package voronoiaoc.byg.common.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 
-public class DunesSB extends SurfaceBuilder<TernarySurfaceConfig> {
-    public static final BlockState SAND = Blocks.SAND.getDefaultState();
+public class DunesSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
+    public static final BlockState SAND = Blocks.SAND.defaultBlockState();
 
-    public DunesSB(Codec<TernarySurfaceConfig> p_i51312_1_) {
+    public DunesSB(Codec<SurfaceBuilderBaseConfiguration> p_i51312_1_) {
         super(p_i51312_1_);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
-        BlockPos.Mutable block = new BlockPos.Mutable();
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+        BlockPos.MutableBlockPos block = new BlockPos.MutableBlockPos();
         int xPos = x & 15;
         int zPos = z & 15;
         for (int yPos = startHeight - 3; yPos >= seaLevel; --yPos) {
             block.set(xPos, yPos, zPos);
             BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-            if (currentBlockToReplace == Blocks.STONE.getDefaultState()) {
+            if (currentBlockToReplace == Blocks.STONE.defaultBlockState()) {
                 chunkIn.setBlockState(block, SAND, true);
             }
         }
-        SurfaceBuilder.DEFAULT.generate
+        SurfaceBuilder.DEFAULT.apply
                 (random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.SAND_CF);
     }
 }

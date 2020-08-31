@@ -1,23 +1,23 @@
 package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class BYGOreBlock extends Block {
-    public BYGOreBlock(Settings properties) {
+    public BYGOreBlock(Properties properties) {
         super(properties);
     }
 
     @Override
-    public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack stack) {
-        super.onStacksDropped(this.getDefaultState(), world, pos, stack);
+    public void spawnAfterBreak(BlockState state, ServerLevel world, BlockPos pos, ItemStack stack) {
+        super.spawnAfterBreak(this.defaultBlockState(), world, pos, stack);
     }
 
     @Override
-    protected void dropExperience(ServerWorld serverWorld, BlockPos pos, int size) {
-        super.dropExperience(serverWorld, pos, size);
+    protected void popExperience(ServerLevel serverWorld, BlockPos pos, int size) {
+        super.popExperience(serverWorld, pos, size);
     }
 }

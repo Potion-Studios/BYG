@@ -1,13 +1,13 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
 import javax.annotation.Nullable;
@@ -15,18 +15,18 @@ import java.util.Random;
 
 public abstract class BYGHugeMushroom {
     @Nullable
-    protected abstract BYGAbstractTreeFeature<DefaultFeatureConfig> getHugeMushroomFeature(Random random);
+    protected abstract BYGAbstractTreeFeature<NoneFeatureConfiguration> getHugeMushroomFeature(Random random);
 
-    public boolean spawn(ServerWorld worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
-        BYGAbstractTreeFeature<DefaultFeatureConfig> abstracttreefeature = this.getHugeMushroomFeature(random);
+    public boolean spawn(ServerLevel worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+        BYGAbstractTreeFeature<NoneFeatureConfiguration> abstracttreefeature = this.getHugeMushroomFeature(random);
         if (abstracttreefeature == null) {
             return false;
         } else {
-            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-            if (abstracttreefeature.generate(worldIn, chunkGenerator, random, pos, DefaultFeatureConfig.DEFAULT)) {
+            worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
+            if (abstracttreefeature.place(worldIn, chunkGenerator, random, pos, NoneFeatureConfiguration.NONE)) {
                 return true;
             } else {
-                worldIn.setBlockState(pos, blockUnder, 4);
+                worldIn.setBlock(pos, blockUnder, 4);
                 return false;
             }
         }
@@ -34,12 +34,12 @@ public abstract class BYGHugeMushroom {
 
 
     public static abstract class Massive extends BYGHugeMushroom {
-        public static boolean canMassiveMushroomSpawnAt(BlockState blockUnder, BlockView worldIn, BlockPos pos, int xOffset, int zOffset) {
+        public static boolean canMassiveMushroomSpawnAt(BlockState blockUnder, BlockGetter worldIn, BlockPos pos, int xOffset, int zOffset) {
             Block block = blockUnder.getBlock();
-            return block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset + 1)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset + 1)).getBlock();
+            return block == worldIn.getBlockState(pos.offset(xOffset, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.offset(xOffset + 1, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.offset(xOffset, 0, zOffset + 1)).getBlock() && block == worldIn.getBlockState(pos.offset(xOffset + 1, 0, zOffset + 1)).getBlock();
         }
 
-        public boolean spawn(ServerWorld worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+        public boolean spawn(ServerLevel worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
             for (int i = 0; i >= -1; --i) {
                 for (int j = 0; j >= -1; --j) {
                     if (canMassiveMushroomSpawnAt(blockUnder, worldIn, pos, i, j)) {
@@ -52,25 +52,25 @@ public abstract class BYGHugeMushroom {
         }
 
         @Nullable
-        protected abstract BYGAbstractTreeFeature<DefaultFeatureConfig> getMassiveMushroomFeature(Random random);
+        protected abstract BYGAbstractTreeFeature<NoneFeatureConfiguration> getMassiveMushroomFeature(Random random);
 
-        public boolean spawnMassiveMushroom(ServerWorld worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
-            BYGAbstractTreeFeature<DefaultFeatureConfig> abstracttreefeature = this.getMassiveMushroomFeature(random);
+        public boolean spawnMassiveMushroom(ServerLevel worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
+            BYGAbstractTreeFeature<NoneFeatureConfiguration> abstracttreefeature = this.getMassiveMushroomFeature(random);
             if (abstracttreefeature == null) {
                 return false;
             } else {
-                BlockState blockstate = Blocks.AIR.getDefaultState();
-                worldIn.setBlockState(pos.add(xOffset, 0, zOffset), blockstate, 4);
-                worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset), blockstate, 4);
-                worldIn.setBlockState(pos.add(xOffset, 0, zOffset + 1), blockstate, 4);
-                worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset + 1), blockstate, 4);
-                if (abstracttreefeature.generate(worldIn, chunkGenerator, random, pos.add(xOffset, 0, zOffset), DefaultFeatureConfig.DEFAULT)) {
+                BlockState blockstate = Blocks.AIR.defaultBlockState();
+                worldIn.setBlock(pos.offset(xOffset, 0, zOffset), blockstate, 4);
+                worldIn.setBlock(pos.offset(xOffset + 1, 0, zOffset), blockstate, 4);
+                worldIn.setBlock(pos.offset(xOffset, 0, zOffset + 1), blockstate, 4);
+                worldIn.setBlock(pos.offset(xOffset + 1, 0, zOffset + 1), blockstate, 4);
+                if (abstracttreefeature.place(worldIn, chunkGenerator, random, pos.offset(xOffset, 0, zOffset), NoneFeatureConfiguration.NONE)) {
                     return true;
                 } else {
-                    worldIn.setBlockState(pos.add(xOffset, 0, zOffset), blockUnder, 4);
-                    worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset), blockUnder, 4);
-                    worldIn.setBlockState(pos.add(xOffset, 0, zOffset + 1), blockUnder, 4);
-                    worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset + 1), blockUnder, 4);
+                    worldIn.setBlock(pos.offset(xOffset, 0, zOffset), blockUnder, 4);
+                    worldIn.setBlock(pos.offset(xOffset + 1, 0, zOffset), blockUnder, 4);
+                    worldIn.setBlock(pos.offset(xOffset, 0, zOffset + 1), blockUnder, 4);
+                    worldIn.setBlock(pos.offset(xOffset + 1, 0, zOffset + 1), blockUnder, 4);
                     return false;
                 }
             }

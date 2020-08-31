@@ -3,52 +3,56 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.util;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
-import net.minecraft.state.property.Properties;
-import net.minecraft.structure.Structure;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.util.math.*;
-import net.minecraft.util.shape.BitSetVoxelSet;
-import net.minecraft.util.shape.VoxelSet;
-import net.minecraft.world.ModifiableWorld;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.LevelWriter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape;
+import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> extends Feature<T> {
+public abstract class BYGAbstractTreeFeature<T extends NoneFeatureConfiguration> extends Feature<T> {
     public static boolean doBlockNotify;
 
     public BYGAbstractTreeFeature(Codec<T> function) {
         super(function);
     }
 
-    public static boolean canLogPlaceHere(TestableWorld worldReader, BlockPos blockPos) {
-        return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT);
+    public static boolean canLogPlaceHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
+        return worldReader.isStateAtPosition(blockPos, (state) -> state.isAir() || state.is(BlockTags.LEAVES) || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT);
     }
 
-    public boolean canLogPlaceHereWater(TestableWorld worldReader, BlockPos blockPos) {
-        return worldReader.testBlockState(blockPos, (state) -> state.isAir() || state.isIn(BlockTags.LEAVES) || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT || state.getMaterial() == Material.WATER);
+    public boolean canLogPlaceHereWater(LevelSimulatedReader worldReader, BlockPos blockPos) {
+        return worldReader.isStateAtPosition(blockPos, (state) -> state.isAir() || state.is(BlockTags.LEAVES) || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.WATER);
     }
 
-    public boolean isAnotherTreeHere(TestableWorld worldReader, BlockPos blockPos) {
-        return worldReader.testBlockState(blockPos, (state) -> {
+    public boolean isAnotherTreeHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
+        return worldReader.isStateAtPosition(blockPos, (state) -> {
             Block block = state.getBlock();
-            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES);
+            return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES);
         });
     }
 
-    public boolean isAnotherTreeLikeThisHere(TestableWorld worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
-        return worldReader.testBlockState(blockPos, (state) -> {
+    public boolean isAnotherTreeLikeThisHere(LevelSimulatedReader worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
+        return worldReader.isStateAtPosition(blockPos, (state) -> {
             Block block = state.getBlock();
             return block == logBlock || block == leafBlock;
         });
@@ -63,10 +67,10 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @param pos    Position to check.
      * @return Determine whether or not the pos can support a sapling's tree.
      */
-    public boolean canSaplingGrowHere(TestableWorld reader, BlockPos pos) {
-        return reader.testBlockState(pos, (state) -> {
+    public boolean canSaplingGrowHere(LevelSimulatedReader reader, BlockPos pos) {
+        return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
-            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.SOIL;
+            return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
         });
     }
 
@@ -76,12 +80,12 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @return Determines whether or not a pos is air.
      */
 
-    public static boolean isAir(TestableWorld reader, BlockPos pos) {
-        return reader.testBlockState(pos, BlockState::isAir);
+    public static boolean isAir(LevelSimulatedReader reader, BlockPos pos) {
+        return reader.isStateAtPosition(pos, BlockState::isAir);
     }
 
-    public boolean isAirOrWater(TestableWorld worldIn, BlockPos pos) {
-        return worldIn.testBlockState(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
+    public boolean isAirOrWater(LevelSimulatedReader worldIn, BlockPos pos) {
+        return worldIn.isStateAtPosition(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
     }
 
     /**
@@ -90,13 +94,13 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @param desiredGroundBlock Allows to add other blocks that do not have the dirt tag.
      * @return Determines if the pos is of the dirt tag or another block.
      */
-    public static boolean isDesiredGroundwDirtTag(TestableWorld reader, BlockPos pos, Block... desiredGroundBlock) {
-        return reader.testBlockState(pos, (state) -> {
+    public static boolean isDesiredGroundwDirtTag(LevelSimulatedReader reader, BlockPos pos, Block... desiredGroundBlock) {
+        return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return Feature.isSoil(block) || block == block1;
+                return Feature.isDirt(block) || block == block1;
             }
-            return Feature.isSoil(block);
+            return Feature.isDirt(block);
         });
     }
 
@@ -106,8 +110,8 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @param desiredGroundBlock Add a blacklist of blocks that we want.
      * @return Determines if the pos contains a block from our whitelist.
      */
-    public boolean isDesiredGround(TestableWorld reader, BlockPos pos, Block... desiredGroundBlock) {
-        return reader.testBlockState(pos, (state) -> {
+    public boolean isDesiredGround(LevelSimulatedReader reader, BlockPos pos, Block... desiredGroundBlock) {
+        return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
                 return block == block1;
@@ -131,11 +135,11 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @return Determine Whether or not a sapling can grow at the given pos by checking the surrounding area.
      */
 
-    public boolean doesSaplingHaveSpaceToGrow(TestableWorld reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xDistance, int zDistance, boolean isSapling, BlockPos... trunkPositions) {
+    public boolean doesSaplingHaveSpaceToGrow(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xDistance, int zDistance, boolean isSapling, BlockPos... trunkPositions) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         //Skip if this is not a sapling.
         if (isSapling) {
             //Check the tree trunk and determine whether or not there's a block in the way.
@@ -183,11 +187,11 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @return Determine Whether or not a sapling can grow at the given pos by checking the surrounding area.
      */
 
-    public boolean doesSaplingHaveSpaceToGrow(TestableWorld reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xNegativeDistance, int zNegativeDistance, int xPositiveDistance, int zPositiveDistance, boolean isSapling, BlockPos... trunkPositions) {
+    public boolean doesSaplingHaveSpaceToGrow(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xNegativeDistance, int zNegativeDistance, int xPositiveDistance, int zPositiveDistance, boolean isSapling, BlockPos... trunkPositions) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         //Skip if tree is being called during world gen.
         if (isSapling) {
@@ -233,11 +237,11 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @param isSapling  Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
      * @return Determines whether or not any tree is within the givem distance
      */
-    public boolean isAnotherTreeNearby(TestableWorld reader, BlockPos pos, int treeHeight, int distance, boolean isSapling) {
+    public boolean isAnotherTreeNearby(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int distance, boolean isSapling) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         //Skip if tree is being spawned with a sapling.
         if (!isSapling) {
@@ -268,11 +272,11 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @return Determines whether or not the tree we're searching for is within the given distance.
      */
 
-    public boolean isAnotherTreeLikeThisNearby(TestableWorld reader, BlockPos pos, int treeHeight, int distance, Block logBlock, Block leafBlock, boolean isSapling) {
+    public boolean isAnotherTreeLikeThisNearby(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int distance, Block logBlock, Block leafBlock, boolean isSapling) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         //Skip if tree is being spawned with a sapling.
         if (!isSapling) {
@@ -300,20 +304,20 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @param trunkPositions List of trunk poss where the base is built under the given poss.
      */
 
-    public void buildTrunk(Set<BlockPos> treeBlocksSet, TestableWorld reader, Block fillerBlock, Block earthBlock, BlockBox boundingBox, BlockPos... trunkPositions) {
+    public void buildTrunk(Set<BlockPos> treeBlocksSet, LevelSimulatedReader reader, Block fillerBlock, Block earthBlock, BoundingBox boundingBox, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
+            BlockPos.MutableBlockPos mutableTrunk = new BlockPos.MutableBlockPos();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.set(trunkPos);
                 for (int fill = 1; fill <= 15; fill++) {
                     if (canLogPlaceHere(reader, mutableTrunk)) {
                         if (fill <= 7)
-                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, fillerBlock.getDefaultState(), boundingBox);
+                            setFinalBlockState(treeBlocksSet, (LevelWriter) reader, mutableTrunk, fillerBlock.defaultBlockState(), boundingBox);
                         else
-                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
+                            setFinalBlockState(treeBlocksSet, (LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState(), boundingBox);
                     } else {
                         if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
-                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
+                            setFinalBlockState(treeBlocksSet, (LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState(), boundingBox);
                         fill = 15;
                     }
                     mutableTrunk.move(Direction.DOWN);
@@ -333,23 +337,23 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * @param boundingBox         Bounding Box of our tree.
      * @param trunkPositions      List of trunk poss where the base is built under the given poss.
      */
-    public void buildBase(Set<BlockPos> treeBlocksSet, TestableWorld reader, int earthBlockThreshold, Block fillerBlock, Block earthBlock, BlockBox boundingBox, BlockPos... trunkPositions) {
+    public void buildBase(Set<BlockPos> treeBlocksSet, LevelSimulatedReader reader, int earthBlockThreshold, Block fillerBlock, Block earthBlock, BoundingBox boundingBox, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
+            BlockPos.MutableBlockPos mutableTrunk = new BlockPos.MutableBlockPos();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.set(trunkPos);
                 for (int fill = 1; fill <= 15; fill++) {
                     if (canLogPlaceHere(reader, mutableTrunk)) {
                         if (fill <= earthBlockThreshold)
-                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, fillerBlock.getDefaultState(), boundingBox);
+                            setFinalBlockState(treeBlocksSet, (LevelWriter) reader, mutableTrunk, fillerBlock.defaultBlockState(), boundingBox);
                         else
-                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
+                            setFinalBlockState(treeBlocksSet, (LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState(), boundingBox);
                     } else {
                         if (canLogPlaceHere(reader, mutableTrunk)) {
-                            setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, fillerBlock.getDefaultState(), boundingBox);
+                            setFinalBlockState(treeBlocksSet, (LevelWriter) reader, mutableTrunk, fillerBlock.defaultBlockState(), boundingBox);
                         } else {
                             if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
-                                setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
+                                setFinalBlockState(treeBlocksSet, (LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState(), boundingBox);
                             fill = 15;
                         }
                     }
@@ -363,44 +367,44 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
      * Use this to set the soil under small trunked trees.
      */
 
-    public void setSoil(Set<BlockPos> treeBlocksSet, TestableWorld reader, Block soil, BlockBox boundingBox, BlockPos... trunkPositions) {
+    public void setSoil(Set<BlockPos> treeBlocksSet, LevelSimulatedReader reader, Block soil, BoundingBox boundingBox, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
+            BlockPos.MutableBlockPos mutableTrunk = new BlockPos.MutableBlockPos();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.set(trunkPos);
                 if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
-                    setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk.move(Direction.DOWN), soil.getDefaultState(), boundingBox);
+                    setFinalBlockState(treeBlocksSet, (LevelWriter) reader, mutableTrunk.move(Direction.DOWN), soil.defaultBlockState(), boundingBox);
             }
         }
     }
 
-    public final void setFinalBlockState(Set<BlockPos> treeBlockSet, ModifiableWorld worldIn, BlockPos pos, BlockState blockState, BlockBox boundingBox) {
+    public final void setFinalBlockState(Set<BlockPos> treeBlockSet, LevelWriter worldIn, BlockPos pos, BlockState blockState, BoundingBox boundingBox) {
         this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
-        boundingBox.encompass(new BlockBox(pos, pos));
+        boundingBox.expand(new BoundingBox(pos, pos));
         if (BlockTags.LOGS.contains(blockState.getBlock())) {
-            treeBlockSet.add(pos.toImmutable());
+            treeBlockSet.add(pos.immutable());
         }
     }
 
-    public void setBlockStateWithoutUpdates(ModifiableWorld worldWriter, BlockPos blockPos, BlockState blockState) {
-        worldWriter.setBlockState(blockPos, blockState, 18);
+    public void setBlockStateWithoutUpdates(LevelWriter worldWriter, BlockPos blockPos, BlockState blockState) {
+        worldWriter.setBlock(blockPos, blockState, 18);
     }
 
     @Override
-    public void setBlockState(ModifiableWorld worldIn, BlockPos pos, BlockState state) {
+    public void setBlock(LevelWriter worldIn, BlockPos pos, BlockState state) {
         this.setBlockStateWithoutUpdates(worldIn, pos, state);
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, T featureConfig) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, T featureConfig) {
         return this.placeTree(world, chunkGenerator, random, blockPos, featureConfig, false);
     }
 
-    public boolean placeTree(StructureWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config, boolean isSapling) {
+    public boolean placeTree(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config, boolean isSapling) {
         Set<BlockPos> set = Sets.newHashSet();
-        BlockBox mutableboundingbox = BlockBox.empty();
+        BoundingBox mutableboundingbox = BoundingBox.getUnknownBox();
         boolean flag = this.place(set, worldIn, rand, pos, mutableboundingbox, isSapling);
-        if (mutableboundingbox.minX > mutableboundingbox.maxX) {
+        if (mutableboundingbox.x0 > mutableboundingbox.x1) {
             return false;
         } else {
             List<Set<BlockPos>> list = Lists.newArrayList();
@@ -409,24 +413,24 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
                 list.add(Sets.newHashSet());
             }
 
-            VoxelSet voxelshapepart = new BitSetVoxelSet(mutableboundingbox.getBlockCountX(), mutableboundingbox.getBlockCountY(), mutableboundingbox.getBlockCountZ());
+            DiscreteVoxelShape voxelshapepart = new BitSetDiscreteVoxelShape(mutableboundingbox.getXSpan(), mutableboundingbox.getYSpan(), mutableboundingbox.getZSpan());
 
             try (PooledMutable blockpos$pooledmutableblockpos = PooledMutable.get()) {
                 if (flag && !set.isEmpty()) {
                     for (BlockPos blockpos : Lists.newArrayList(set)) {
-                        if (mutableboundingbox.contains(blockpos)) {
-                            voxelshapepart.set(blockpos.getX() - mutableboundingbox.minX, blockpos.getY() - mutableboundingbox.minY, blockpos.getZ() - mutableboundingbox.minZ, true, true);
+                        if (mutableboundingbox.isInside(blockpos)) {
+                            voxelshapepart.setFull(blockpos.getX() - mutableboundingbox.x0, blockpos.getY() - mutableboundingbox.y0, blockpos.getZ() - mutableboundingbox.z0, true, true);
                         }
 
                         for (Direction direction : Direction.values()) {
                             blockpos$pooledmutableblockpos.set(blockpos).move(direction);
                             if (!set.contains(blockpos$pooledmutableblockpos)) {
                                 BlockState blockstate = worldIn.getBlockState(blockpos$pooledmutableblockpos);
-                                if (blockstate.contains(Properties.DISTANCE_1_7)) {
-                                    list.get(0).add(blockpos$pooledmutableblockpos.toImmutable());
-                                    this.setBlockStateWithoutUpdates(worldIn, blockpos$pooledmutableblockpos, blockstate.with(Properties.DISTANCE_1_7, Integer.valueOf(1)));
-                                    if (mutableboundingbox.contains(blockpos$pooledmutableblockpos)) {
-                                        voxelshapepart.set(blockpos$pooledmutableblockpos.getX() - mutableboundingbox.minX, blockpos$pooledmutableblockpos.getY() - mutableboundingbox.minY, blockpos$pooledmutableblockpos.getZ() - mutableboundingbox.minZ, true, true);
+                                if (blockstate.hasProperty(BlockStateProperties.DISTANCE)) {
+                                    list.get(0).add(blockpos$pooledmutableblockpos.immutable());
+                                    this.setBlockStateWithoutUpdates(worldIn, blockpos$pooledmutableblockpos, blockstate.setValue(BlockStateProperties.DISTANCE, Integer.valueOf(1)));
+                                    if (mutableboundingbox.isInside(blockpos$pooledmutableblockpos)) {
+                                        voxelshapepart.setFull(blockpos$pooledmutableblockpos.getX() - mutableboundingbox.x0, blockpos$pooledmutableblockpos.getY() - mutableboundingbox.y0, blockpos$pooledmutableblockpos.getZ() - mutableboundingbox.z0, true, true);
                                     }
                                 }
                             }
@@ -439,24 +443,24 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
                     Set<BlockPos> set2 = list.get(l);
 
                     for (BlockPos blockpos1 : set1) {
-                        if (mutableboundingbox.contains(blockpos1)) {
-                            voxelshapepart.set(blockpos1.getX() - mutableboundingbox.minX, blockpos1.getY() - mutableboundingbox.minY, blockpos1.getZ() - mutableboundingbox.minZ, true, true);
+                        if (mutableboundingbox.isInside(blockpos1)) {
+                            voxelshapepart.setFull(blockpos1.getX() - mutableboundingbox.x0, blockpos1.getY() - mutableboundingbox.y0, blockpos1.getZ() - mutableboundingbox.z0, true, true);
                         }
 
                         for (Direction direction1 : Direction.values()) {
                             blockpos$pooledmutableblockpos.set(blockpos1).move(direction1);
                             if (!set1.contains(blockpos$pooledmutableblockpos) && !set2.contains(blockpos$pooledmutableblockpos)) {
                                 BlockState blockstate1 = worldIn.getBlockState(blockpos$pooledmutableblockpos);
-                                if (blockstate1.contains(Properties.DISTANCE_1_7)) {
-                                    int k = blockstate1.get(Properties.DISTANCE_1_7);
+                                if (blockstate1.hasProperty(BlockStateProperties.DISTANCE)) {
+                                    int k = blockstate1.getValue(BlockStateProperties.DISTANCE);
                                     if (k > l + 1) {
-                                        BlockState blockstate2 = blockstate1.with(Properties.DISTANCE_1_7, l + 1);
+                                        BlockState blockstate2 = blockstate1.setValue(BlockStateProperties.DISTANCE, l + 1);
                                         this.setBlockStateWithoutUpdates(worldIn, blockpos$pooledmutableblockpos, blockstate2);
-                                        if (mutableboundingbox.contains(blockpos$pooledmutableblockpos)) {
-                                            voxelshapepart.set(blockpos$pooledmutableblockpos.getX() - mutableboundingbox.minX, blockpos$pooledmutableblockpos.getY() - mutableboundingbox.minY, blockpos$pooledmutableblockpos.getZ() - mutableboundingbox.minZ, true, true);
+                                        if (mutableboundingbox.isInside(blockpos$pooledmutableblockpos)) {
+                                            voxelshapepart.setFull(blockpos$pooledmutableblockpos.getX() - mutableboundingbox.x0, blockpos$pooledmutableblockpos.getY() - mutableboundingbox.y0, blockpos$pooledmutableblockpos.getZ() - mutableboundingbox.z0, true, true);
                                         }
 
-                                        set2.add(blockpos$pooledmutableblockpos.toImmutable());
+                                        set2.add(blockpos$pooledmutableblockpos.immutable());
                                     }
                                 }
                             }
@@ -465,14 +469,14 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
                 }
             }
 
-            Structure.updateCorner(worldIn, 3, voxelshapepart, mutableboundingbox.minX, mutableboundingbox.minY, mutableboundingbox.minZ);
+            StructureTemplate.updateShapeAtEdge(worldIn, 3, voxelshapepart, mutableboundingbox.x0, mutableboundingbox.y0, mutableboundingbox.z0);
             return flag;
         }
     }
 
-    protected abstract boolean place(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling);
+    protected abstract boolean place(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling);
 
-    public static final class PooledMutable extends BlockPos.Mutable implements AutoCloseable {
+    public static final class PooledMutable extends BlockPos.MutableBlockPos implements AutoCloseable {
         private boolean free;
         private static final List<PooledMutable> POOL = Lists.newArrayList();
 
@@ -485,7 +489,7 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         }
 
         public static PooledMutable get(double x, double y, double z) {
-            return get(MathHelper.floor(x), MathHelper.floor(y), MathHelper.floor(z));
+            return get(Mth.floor(x), Mth.floor(y), Mth.floor(z));
         }
 
         public static PooledMutable get(int x, int y, int z) {
@@ -520,10 +524,10 @@ public abstract class BYGAbstractTreeFeature<T extends DefaultFeatureConfig> ext
         }
 
         public PooledMutable setOffset(Direction direction, int distance) {
-            return this.set(this.getX() + direction.getOffsetX() * distance, this.getY() + direction.getOffsetY() * distance, this.getZ() + direction.getOffsetZ() * distance);
+            return this.set(this.getX() + direction.getStepX() * distance, this.getY() + direction.getStepY() * distance, this.getZ() + direction.getStepZ() * distance);
         }
 
-        public Mutable setOffset(int x, int y, int z) {
+        public MutableBlockPos setOffset(int x, int y, int z) {
             return this.set(this.getX() + x, this.getY() + y, this.getZ() + z);
         }
 

@@ -1,46 +1,45 @@
 package voronoiaoc.byg.common.properties.blocks;//package voronoiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ScaffoldingBlock;
-import net.minecraft.block.Waterloggable;
-import net.minecraft.entity.FallingBlockEntity;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
-
 import java.util.Iterator;
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.item.FallingBlockEntity;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ScaffoldingBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 
-public class BYGScaffoldingBlock extends ScaffoldingBlock implements Waterloggable {
+public class BYGScaffoldingBlock extends ScaffoldingBlock implements SimpleWaterloggedBlock {
 
-    protected BYGScaffoldingBlock(Settings properties) {
+    protected BYGScaffoldingBlock(Properties properties) {
         super(properties);
     }
 
-    public static int calculateDistance(BlockView world, BlockPos pos) {
-        BlockPos.Mutable mutable = pos.mutableCopy().move(Direction.DOWN);
+    public static int getDistance(BlockGetter world, BlockPos pos) {
+        BlockPos.MutableBlockPos mutable = pos.mutable().move(Direction.DOWN);
         BlockState blockState = world.getBlockState(mutable);
         int i = 7;
-        if (blockState.isOf(Blocks.SCAFFOLDING)) {
-            i = blockState.get(DISTANCE);
-        } else if (blockState.isSideSolidFullSquare(world, mutable, Direction.UP)) {
+        if (blockState.is(Blocks.SCAFFOLDING)) {
+            i = blockState.getValue(DISTANCE);
+        } else if (blockState.isFaceSturdy(world, mutable, Direction.UP)) {
             return 0;
         }
 
-        Iterator var5 = Direction.Type.HORIZONTAL.iterator();
+        Iterator var5 = Direction.Plane.HORIZONTAL.iterator();
 
         while (var5.hasNext()) {
             Direction direction = (Direction) var5.next();
-            BlockState blockState2 = world.getBlockState(mutable.set(pos, direction));
-            if (blockState2.isOf(Blocks.SCAFFOLDING)) {
-                i = Math.min(i, blockState2.get(DISTANCE) + 1);
+            BlockState blockState2 = world.getBlockState(mutable.setWithOffset(pos, direction));
+            if (blockState2.is(Blocks.SCAFFOLDING)) {
+                i = Math.min(i, blockState2.getValue(DISTANCE) + 1);
                 if (i == 1) {
                     break;
                 }
@@ -51,56 +50,56 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements Waterloggab
     }
 
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        BlockPos blockPos = ctx.getBlockPos();
-        World world = ctx.getWorld();
-        int i = calculateDistance(world, blockPos);
-        return this.getDefaultState().with(WATERLOGGED, world.getFluidState(blockPos).getFluid() == Fluids.WATER).with(DISTANCE, i).with(BOTTOM, this.shouldBeBottom(world, blockPos, i));
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        BlockPos blockPos = ctx.getClickedPos();
+        Level world = ctx.getLevel();
+        int i = getDistance(world, blockPos);
+        return this.defaultBlockState().setValue(WATERLOGGED, world.getFluidState(blockPos).getType() == Fluids.WATER).setValue(DISTANCE, i).setValue(BOTTOM, this.isBottom(world, blockPos, i));
     }
 
     @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        int i = calculateDistance(world, pos);
-        BlockState blockState = state.with(DISTANCE, i).with(BOTTOM, this.shouldBeBottom(world, pos, i));
-        if (blockState.get(DISTANCE) == 7) {
-            if (state.get(DISTANCE) == 7) {
-                world.spawnEntity(new FallingBlockEntity(world, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, blockState.with(WATERLOGGED, false)));
+    public void tick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
+        int i = getDistance(world, pos);
+        BlockState blockState = state.setValue(DISTANCE, i).setValue(BOTTOM, this.isBottom(world, pos, i));
+        if (blockState.getValue(DISTANCE) == 7) {
+            if (state.getValue(DISTANCE) == 7) {
+                world.addFreshEntity(new FallingBlockEntity(world, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, blockState.setValue(WATERLOGGED, false)));
             } else {
-                world.breakBlock(pos, true);
+                world.destroyBlock(pos, true);
             }
         } else if (state != blockState) {
-            world.setBlockState(pos, blockState, 3);
+            world.setBlock(pos, blockState, 3);
         }
     }
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return calculateDistance(world, pos) < 7;
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+        return getDistance(world, pos) < 7;
     }
 
-    private boolean shouldBeBottom(BlockView world, BlockPos pos, int distance) {
-        return distance > 0 && !world.getBlockState(pos.down()).isOf(this);
-    }
-
-    @Override
-    public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        return context.getStack().getItem() == this.asItem();
+    private boolean isBottom(BlockGetter world, BlockPos pos, int distance) {
+        return distance > 0 && !world.getBlockState(pos.below()).is(this);
     }
 
     @Override
-    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-        if (!world.isClient) {
-            world.getBlockTickScheduler().schedule(pos, this, 1);
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+        return context.getItemInHand().getItem() == this.asItem();
+    }
+
+    @Override
+    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean notify) {
+        if (!world.isClientSide) {
+            world.getBlockTicks().scheduleTick(pos, this, 1);
         }
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-        if (state.get(WATERLOGGED)) {
-            world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor world, BlockPos pos, BlockPos posFrom) {
+        if (state.getValue(WATERLOGGED)) {
+            world.getLiquidTicks().scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
         }
-        if (!world.isClient()) {
-            world.getBlockTickScheduler().schedule(pos, this, 1);
+        if (!world.isClientSide()) {
+            world.getBlockTicks().scheduleTick(pos, this, 1);
         }
         return state;
     }

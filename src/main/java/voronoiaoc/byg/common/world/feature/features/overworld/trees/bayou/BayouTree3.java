@@ -1,48 +1,48 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.bayou;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.ModifiableWorld;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelWriter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
 
-public class BayouTree3 extends Feature<DefaultFeatureConfig> {
+public class BayouTree3 extends Feature<NoneFeatureConfiguration> {
     public static boolean doBlockNotify;
 
-    public BayouTree3(Codec<DefaultFeatureConfig> config) {
+    public BayouTree3(Codec<NoneFeatureConfiguration> config) {
         super(config);
     }
 
-    public boolean generate(StructureWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         int randChance = rand.nextInt(2);
         int randTreeHeight = rand.nextInt(6) + 5;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
-        BlockPos.Mutable block = new BlockPos.Mutable().set(blockPos);
-        BlockPos.Mutable mainMutable = new BlockPos.Mutable().set(block);
+        BlockPos.MutableBlockPos block = new BlockPos.MutableBlockPos().set(blockPos);
+        BlockPos.MutableBlockPos mainMutable = new BlockPos.MutableBlockPos().set(block);
 
-        if (!this.checkArea(worldIn, pos, 5) || worldIn.getBlockState(pos.down()).getBlock() != Blocks.DIRT && worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.MUD_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK) {
+        if (!this.checkArea(worldIn, pos, 5) || worldIn.getBlockState(pos.below()).getBlock() != Blocks.DIRT && worldIn.getBlockState(pos.below()).getBlock() != BYGBlockList.MUD_BLOCK && worldIn.getBlockState(pos.below()).getBlock() != Blocks.GRASS_BLOCK) {
             return false;
         } else {
             for (int i = 3; i <= randTreeHeight; i++) {
-                BlockPos.Mutable mutable = new BlockPos.Mutable().set(block);
+                BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(block);
                 this.setWillowLog(worldIn, mutable.move(Direction.UP, i));
             }
 
             for (int baseSize = 0; baseSize < 4; baseSize++) {
-                BlockPos.Mutable mutable = new BlockPos.Mutable().set(block.up(3));
-                for (Direction direction : Direction.Type.HORIZONTAL) {
-                    mutable.set(block.up(3).offset(direction, baseSize));
+                BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(block.above(3));
+                for (Direction direction : Direction.Plane.HORIZONTAL) {
+                    mutable.set(block.above(3).relative(direction, baseSize));
                     if (worldIn.getBlockState(mutable).getBlock() != Blocks.DIRT)
                         this.setWillowLog(worldIn, mutable.move(Direction.DOWN, baseSize));
                 }
@@ -99,22 +99,22 @@ public class BayouTree3 extends Feature<DefaultFeatureConfig> {
         return true;
     }
 
-    protected void setWillowLog(ModifiableWorld worldIn, BlockPos pos) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LOG.getDefaultState());
+    protected void setWillowLog(LevelWriter worldIn, BlockPos pos) {
+        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LOG.defaultBlockState());
     }
 
-    protected void setWillowLeaves(ModifiableWorld worldIn, BlockPos pos) {
-        if ((worldIn instanceof WorldAccess)) {
-            if (((WorldAccess) worldIn).getBlockState(pos).getBlock() != BYGBlockList.WILLOW_LOG)
-                this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LEAVES.getDefaultState().with(Properties.DISTANCE_1_7, Integer.valueOf(1)));
+    protected void setWillowLeaves(LevelWriter worldIn, BlockPos pos) {
+        if ((worldIn instanceof LevelAccessor)) {
+            if (((LevelAccessor) worldIn).getBlockState(pos).getBlock() != BYGBlockList.WILLOW_LOG)
+                this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LEAVES.defaultBlockState().setValue(BlockStateProperties.DISTANCE, Integer.valueOf(1)));
         }
     }
 
-    private void setBlockStateWithoutUpdates(ModifiableWorld worldWriter, BlockPos blockPos, BlockState blockState) {
-        worldWriter.setBlockState(blockPos, blockState, 19);
+    private void setBlockStateWithoutUpdates(LevelWriter worldWriter, BlockPos blockPos, BlockState blockState) {
+        worldWriter.setBlock(blockPos, blockState, 19);
     }
 
-    private boolean checkArea(WorldAccess world, BlockPos pos, int radius) {
+    private boolean checkArea(LevelAccessor world, BlockPos pos, int radius) {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
