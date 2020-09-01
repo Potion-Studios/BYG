@@ -536,7 +536,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_BAOBAB_TREE = newConfiguredFeature("rs_baobab_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             Features.ACACIA.weighted(0.1F)),
             BAOBAB_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(3, 0.8F, -1))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MEADOW_SHRUB = newConfiguredFeature("rs_meadow_shrub", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             SHRUB_MEADOW.weighted(0.1F)),

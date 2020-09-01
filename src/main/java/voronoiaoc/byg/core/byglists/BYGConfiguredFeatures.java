@@ -175,26 +175,26 @@ public class BYGConfiguredFeatures {
             ALLIUM_TALL_BUSH.weighted(0.25F),
             ALLIUM_TALL_PINK_BUSH.weighted(0.25F),
             ALLIUM_BUSH.weighted(0.25F)),
-            ALLIUM_PINK_BUSH)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(65));
+            ALLIUM_PINK_BUSH)).decorated(Features.Decorators.HEIGHTMAP).count(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_AMARANTH_FLOWER = newConfiguredFeature("rs_amaranth_flower", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             AMARANTH.weighted(0.2F),
             AMARANTH_CYAN.weighted(0.2F),
             AMARANTH_MAGENTA.weighted(0.2F),
             AMARANTH_ORANGE.weighted(0.2F)),
-            AMARANTH_PURPLE)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(80));
+            AMARANTH_PURPLE)).decorated(Features.Decorators.HEIGHTMAP).count(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CALIFORNIA_POPPY = newConfiguredFeature("rs_california_poppy", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             CALIFORNIA_POPPY.weighted(0.50F)),
-            CALIFORNIA_POPPY)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            CALIFORNIA_POPPY)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WINTER_SUCCULENT = newConfiguredFeature("rs_winter_succulent", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             WINTER_SUCCULENT.weighted(0.50F)),
-            WINTER_SUCCULENT)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            WINTER_SUCCULENT)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_HORSEWEED = newConfiguredFeature("rs_horseweed", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             HORSE_WEED.weighted(0.50F)),
-            HORSE_WEED)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            HORSE_WEED)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DESERT_PLANTS = newConfiguredFeature("rs_desert_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             MINI_CACTI.weighted(0.3F),
@@ -210,11 +210,11 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_FIRECRACKER = newConfiguredFeature("rs_firecracker", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             FIRECRACKER_BUSH.weighted(0.50F)),
-            FIRECRACKER_BUSH)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            FIRECRACKER_BUSH)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PRAIRIE_GRASS = newConfiguredFeature("rs_prairie", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             PRAIRIE_GRASS.weighted(0.92F)),
-            PRAIRIE_TALL_GRASS)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(80));
+            PRAIRIE_TALL_GRASS)).decorated(Features.Decorators.HEIGHTMAP).count(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN = newConfiguredFeature("rs_pumpkin", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             PUMPKIN_CONFIG.weighted(0.50F)),
@@ -226,7 +226,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_LUSH_BLUEBERRIES = newConfiguredFeature("rs_lush_blueberries", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             BLUE_BERRY_BUSH.weighted(0.50F)),
-            BLUE_BERRY_BUSH)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(5));
+            BLUE_BERRY_BUSH)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).chance(12));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BEACH_GRASS = newConfiguredFeature("rs_beach_grass", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             BEACH_GRASS.weighted(0.50F)),
@@ -258,7 +258,7 @@ public class BYGConfiguredFeatures {
             BLACK_PUFF.weighted(0.50F),
             WOOD_BLEWIT.weighted(0.50F),
             WEEPING_MILKCAP.weighted(0.50F)),
-            GREEN_MUSHROOM)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(5));
+            GREEN_MUSHROOM)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(4));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDEN_VEGETATION = newConfiguredFeature("rs_gg_vegetation", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             BLACK_PUFF.weighted(0.1F),
@@ -301,7 +301,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_AZALEA = newConfiguredFeature("rs_azalea", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             AZALEA.weighted(0.5F)),
-            AZALEA)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            AZALEA)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JAPANESE_ORCHID = newConfiguredFeature("rs_japanese_orchid", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             JAPANESE_ORCHID.weighted(0.5F)),
@@ -309,7 +309,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_DELPHINIUM = newConfiguredFeature("rs_delphinium", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             DELPHINIUM.weighted(0.25F)),
-            DELPHINIUM)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            DELPHINIUM)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WILTED_GRASS = newConfiguredFeature("rs_wilted_grass", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             WILTED_GRASS.weighted(0.25F)),
@@ -343,71 +343,71 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUEBERRY_BUSH = newConfiguredFeature("rs_blueberry_bush", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             BLUE_BERRY_BUSH.weighted(0.5F)),
-            BLUE_BERRY_BUSH)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            BLUE_BERRY_BUSH)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ROSE = newConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ROSE.weighted(0.5F)),
-            ROSE)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            ROSE)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ANGELICA = newConfiguredFeature("rs_angelica", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ANGELICA.weighted(0.5F)),
-            ANGELICA)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            ANGELICA)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CROCUS = newConfiguredFeature("rs_crocus", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             CROCUS.weighted(0.5F)),
-            CROCUS)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            CROCUS)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_IRIS = newConfiguredFeature("rs_iris", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             IRIS.weighted(0.5F)),
-            IRIS)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            IRIS)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ANEMONE = newConfiguredFeature("rs_anemone", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ANEMONE_PINK.weighted(0.5F)),
-            ANEMONE_WHITE)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            ANEMONE_WHITE)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WINTER_ROSE = newConfiguredFeature("rs_winter_rose", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ROSE_WINTER.weighted(0.5F)),
-            ROSE_WINTER)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            ROSE_WINTER)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SNOWDROPS = newConfiguredFeature("rs_snowdrops", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             SNOWDROPS.weighted(0.5F)),
-            SNOWDROPS)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            SNOWDROPS)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PINK_ALLIUM = newConfiguredFeature("rs_pink_allium", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ALLIUM_PINK.weighted(0.5F)),
-            ALLIUM_PINK)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            ALLIUM_PINK)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ORANGE_DAISY = newConfiguredFeature("rs_orange_daisy", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             DAISY_ORANGE.weighted(0.5F)),
-            DAISY_ORANGE)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            DAISY_ORANGE)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RED_CORNFLOWER = newConfiguredFeature("rs_red_cornflower", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             CORNFLOWER_RED.weighted(0.5F)),
-            CORNFLOWER_RED)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            CORNFLOWER_RED)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SAGE = newConfiguredFeature("rs_sage", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             SAGE_PURPLE.weighted(0.5F)),
-            SAGE_WHITE)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            SAGE_WHITE)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_FOXGLOVE = newConfiguredFeature("rs_foxglove", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             FOXGLOVE.weighted(0.5F)),
-            FOXGLOVE)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            FOXGLOVE)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_YELLOW_DAFFODIL = newConfiguredFeature("rs_yellow_daffodil", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             DAFFODIL_YELLOW.weighted(0.5F)),
-            DAFFODIL_YELLOW)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            DAFFODIL_YELLOW)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BELLFLOWER = newConfiguredFeature("rs_bellflower", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ALPINE_BELLFLOWER.weighted(0.5F)),
-            ALPINE_BELLFLOWER)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            ALPINE_BELLFLOWER)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SCILLA = newConfiguredFeature("rs_scilla", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             WINTER_SCILLA.weighted(0.5F)),
-            WINTER_SCILLA)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            WINTER_SCILLA)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_KOVAN = newConfiguredFeature("rs_kovan", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             KOVAN_FLOWER.weighted(0.5F)),
-            KOVAN_FLOWER)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            KOVAN_FLOWER)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_TULIP = newConfiguredFeature("rs_tulip", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             TULIP_MAGENTA.weighted(0.5F),
@@ -426,36 +426,36 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_LOLIPOP = newConfiguredFeature("rs_lolipop", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             LOLI_POP.weighted(0.5F)),
-            LOLI_POP)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            LOLI_POP)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ORCHID = newConfiguredFeature("rs_orchid", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ORCHID_PINK.weighted(0.5F),
             ORCHID_PURPLE.weighted(0.5F)),
-            ORCHID_RED)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            ORCHID_RED)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_LEATHER_FLOWER = newConfiguredFeature("rs_leather_flower", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             LEATHER_FLOWER_PEACH.weighted(0.5F)),
-            LEATHER_FLOWER_VIOLET)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            LEATHER_FLOWER_VIOLET)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DAFFODILS = newConfiguredFeature("rs_daffodils", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             DAFFODIL.weighted(0.5F)),
-            DAFFODIL_PINK)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            DAFFODIL_PINK)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLACK_ROSE = newConfiguredFeature("rs_black_rose", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ROSE_BLACK.weighted(0.5F)),
-            ROSE_BLACK)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            ROSE_BLACK)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CYAN_ROSE = newConfiguredFeature("rs_cyan_rose", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ROSE_CYAN.weighted(0.5F)),
-            ROSE_CYAN)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            ROSE_CYAN)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_OSIRIA_ROSE = newConfiguredFeature("rs_osiria_rose", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ROSE_OSIRIA.weighted(0.5F)),
-            ROSE_OSIRIA)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            ROSE_OSIRIA)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_FAIRYSLIPPER = newConfiguredFeature("rs_fairslipper", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             FAIRY_SLIPPER.weighted(0.5F)),
-            FAIRY_SLIPPER)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+            FAIRY_SLIPPER)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_SQUARE).count(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_IVIS_PLANTS = newConfiguredFeature("rs_ivis_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             IVIS_ROOTS.weighted(0.5F)),
