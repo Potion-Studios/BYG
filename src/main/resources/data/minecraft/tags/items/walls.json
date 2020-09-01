@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "byg:dacite_cobblestone_wall",
+    "byg:dacite_wall",
+    "byg:dacite_brick_wall",
+    "byg:dacite_tile_wall",
     "byg:mossy_stone_wall",
     "byg:rocky_stone_wall",
     "byg:scoria_stone_wall",
