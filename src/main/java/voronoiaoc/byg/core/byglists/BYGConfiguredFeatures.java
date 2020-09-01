@@ -233,7 +233,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_PRAIRIE_GRASS = newConfiguredFeature("rs_prairie", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PRAIRIE_GRASS.withChance(0.92F)),
-            PRAIRIE_TALL_GRASS)).withPlacement(Features.Placements.field_244001_l).func_242731_b(60));
+            PRAIRIE_TALL_GRASS)).withPlacement(Features.Placements.field_243993_d).func_242731_b(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN = newConfiguredFeature("rs_pumpkin", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PUMPKIN_CONFIG.withChance(0.50F)),
