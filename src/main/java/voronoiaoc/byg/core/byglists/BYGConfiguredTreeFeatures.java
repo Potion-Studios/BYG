@@ -398,7 +398,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_SPARSE_TREE = newConfiguredFeature("rs_sparse_jacaranda", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             INDIGO_JACARANDA_TREE1.withChance(0.3F)),
             JACARANDA_TREE2)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(1, 0.5F, 2))));
+            new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MAPLE_TREE = newConfiguredFeature("rs_maple", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             MAPLE_RED_TREE1.withChance(0.4F),
