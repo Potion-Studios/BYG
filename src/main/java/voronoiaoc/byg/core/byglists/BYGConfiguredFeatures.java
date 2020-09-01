@@ -214,7 +214,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_PRAIRIE_GRASS = newConfiguredFeature("rs_prairie", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             PRAIRIE_GRASS.weighted(0.92F)),
-            PRAIRIE_TALL_GRASS)).decorated(Features.Decorators.HEIGHTMAP).count(60));
+            PRAIRIE_TALL_GRASS)).decorated(Features.Decorators.FIRE).count(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN = newConfiguredFeature("rs_pumpkin", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             PUMPKIN_CONFIG.weighted(0.50F)),
