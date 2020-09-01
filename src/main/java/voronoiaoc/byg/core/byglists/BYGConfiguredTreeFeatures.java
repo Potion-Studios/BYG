@@ -390,7 +390,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_SPARSE_TREE = newConfiguredFeature("rs_sparse_jacaranda", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             INDIGO_JACARANDA_TREE1.weighted(0.3F)),
             JACARANDA_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.5F, 2))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MAPLE_TREE = newConfiguredFeature("rs_maple", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             MAPLE_RED_TREE1.weighted(0.4F),

@@ -175,14 +175,14 @@ public class BYGConfiguredFeatures {
             ALLIUM_TALL_BUSH.weighted(0.25F),
             ALLIUM_TALL_PINK_BUSH.weighted(0.25F),
             ALLIUM_BUSH.weighted(0.25F)),
-            ALLIUM_PINK_BUSH)).decorated(Features.Decorators.HEIGHTMAP).count(60));
+            ALLIUM_PINK_BUSH)).decorated(Features.Decorators.FIRE).count(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_AMARANTH_FLOWER = newConfiguredFeature("rs_amaranth_flower", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             AMARANTH.weighted(0.2F),
             AMARANTH_CYAN.weighted(0.2F),
             AMARANTH_MAGENTA.weighted(0.2F),
             AMARANTH_ORANGE.weighted(0.2F)),
-            AMARANTH_PURPLE)).decorated(Features.Decorators.HEIGHTMAP).count(60));
+            AMARANTH_PURPLE)).decorated(Features.Decorators.FIRE).count(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CALIFORNIA_POPPY = newConfiguredFeature("rs_california_poppy", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             CALIFORNIA_POPPY.weighted(0.50F)),
