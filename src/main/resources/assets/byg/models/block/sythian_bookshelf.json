@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:block/sythian_planks",
+    "up": "byg:block/sythian_planks",
+    "north": "byg:block/sythian_bookshelf",
+    "east": "byg:block/sythian_bookshelf",
+    "south": "byg:block/sythian_bookshelf",
+    "west": "byg:block/sythian_bookshelf",
+    "particle": "byg:block/sythian_planks"
+  }
+}
