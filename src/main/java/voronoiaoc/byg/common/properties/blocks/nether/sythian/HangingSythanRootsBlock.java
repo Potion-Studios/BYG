@@ -4,6 +4,7 @@ import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PlantBlockHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -54,4 +55,8 @@ public class HangingSythanRootsBlock extends AbstractTopPlantBlock {
 //        }
 //
 //    }
+
+    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+        entityIn.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
+    }
 }

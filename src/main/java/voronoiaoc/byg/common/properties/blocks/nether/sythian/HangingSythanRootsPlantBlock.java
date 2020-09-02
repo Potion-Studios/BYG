@@ -3,8 +3,13 @@ package voronoiaoc.byg.common.properties.blocks.nether.sythian;
 import net.minecraft.block.AbstractBodyPlantBlock;
 import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.World;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 public class HangingSythanRootsPlantBlock extends AbstractBodyPlantBlock {
@@ -16,6 +21,10 @@ public class HangingSythanRootsPlantBlock extends AbstractBodyPlantBlock {
 
     protected AbstractTopPlantBlock getTopPlantBlock() {
         return (AbstractTopPlantBlock)BYGBlockList.HANGING_SYTHIAN_ROOTS;
+    }
+
+    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+        entityIn.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
     }
 }
 

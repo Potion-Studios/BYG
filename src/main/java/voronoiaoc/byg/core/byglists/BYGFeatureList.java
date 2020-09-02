@@ -17,9 +17,7 @@ import voronoiaoc.byg.common.world.feature.features.nether.crimsongardens.TallCr
 import voronoiaoc.byg.common.world.feature.features.nether.crimsongardens.WeepingVineFeatureBlackstone;
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
-import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianRoots;
-import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianSprout;
-import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.SythianStalk;
+import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.*;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedBush;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedGrass;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WailingVine;
@@ -213,6 +211,14 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> SYTHIAN_SPROUT = new SythianSprout(NoFeatureConfig.field_236558_a_);
     public static final Feature<ProbabilityConfig> SYTHIAN_STALK = new SythianStalk(ProbabilityConfig.field_236576_b_);
     public static final Feature<NoFeatureConfig> SYTHIAN_ROOTS = new SythianRoots(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS = new SythianFungus(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS_TREE1 = new SythianFungusTree1(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS_TREE2 = new SythianFungusTree2(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS_TREE3 = new SythianFungusTree3(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS_TREE4 = new SythianFungusTree4(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SYTHIAN_HANGING_ROOTS = new HangingSythianRootsFeature(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> MOSSY_NETHERRACK_PILLARS = new MossyNetherrackPillars(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS_PILLARS = new SythianFungusPillars(NoFeatureConfig.field_236558_a_);
 
     //Warped
     public static final Feature<NoFeatureConfig> WARPED_BUSH = new WarpedBush(NoFeatureConfig.field_236558_a_);
@@ -525,6 +531,14 @@ public class BYGFeatureList {
             registerFeature(SYTHIAN_SPROUT, "sythian_sprout");
             registerFeature(SYTHIAN_STALK, "sythian_stalk");
             registerFeature(SYTHIAN_ROOTS, "sythian_roots");
+            registerFeature(SYTHIAN_FUNGUS, "sythian_fungus");
+            registerFeature(SYTHIAN_FUNGUS_TREE1, "sythian_fungus_tree1");
+            registerFeature(SYTHIAN_FUNGUS_TREE2, "sythian_fungus_tree2");
+            registerFeature(SYTHIAN_FUNGUS_TREE3, "sythian_fungus_tree3");
+            registerFeature(SYTHIAN_FUNGUS_TREE4, "sythian_fungus_tree4");
+            registerFeature(SYTHIAN_FUNGUS_PILLARS, "sythian_fungus_pillars");
+            registerFeature(SYTHIAN_HANGING_ROOTS, "hanging_sythian_roots_feature");
+            registerFeature(MOSSY_NETHERRACK_PILLARS, "mossy_netherrack_pillars");
             registerFeature(WARPED_BUSH, "warped_bush");
             registerFeature(WARPED_CORAL, "warped_coral");
             registerFeature(HUGE_WARPED_CORAL_PLANT, "warped_coral_plant");

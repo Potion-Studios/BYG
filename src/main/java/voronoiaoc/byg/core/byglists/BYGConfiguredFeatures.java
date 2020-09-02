@@ -160,6 +160,7 @@ public class BYGConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> SYTHIAN_ROOTS = newConfiguredFeature("sythian_root", BYGFeatureList.SYTHIAN_ROOTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> SYTHIAN_SPROUT = newConfiguredFeature("sythian_sprout", BYGFeatureList.SYTHIAN_SPROUT.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static ConfiguredFeature<?, ?> SYTHIAN_FUNGUS = newConfiguredFeature("sythian_sprout", BYGFeatureList.SYTHIAN_FUNGUS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
 
     public static ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = newConfiguredFeature("dead_sea_spike", BYGFeatureList.DEADSEASPIKES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
@@ -320,8 +321,15 @@ public class BYGConfiguredFeatures {
             EMBUR_GEL_VINES)).func_242733_d(128).func_242728_a().func_242731_b(100));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_PLANT = newConfiguredFeature("rs_sythian_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            SYTHIAN_ROOTS.withChance(0.5F)),
-            SYTHIAN_SPROUT)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(20))));
+            SYTHIAN_SPROUT.withChance(0.5F),
+            SYTHIAN_ROOTS.withChance(0.46F)),
+            SYTHIAN_FUNGUS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+
+    public static final ConfiguredFeature<?, ?> HANGING_SYTHIAN_ROOTS = newConfiguredFeature("hanging_sythian_roots_feature", BYGFeatureList.SYTHIAN_HANGING_ROOTS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> MOSSY_NETHERRACK_PILLARS_FEATURE = newConfiguredFeature("mossy_netherrack_pillars", BYGFeatureList.MOSSY_NETHERRACK_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
+    public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_PILLARS_FEATURE = newConfiguredFeature("sythian_fungus_pillars", BYGFeatureList.SYTHIAN_FUNGUS_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
+
+
 
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS = newConfiguredFeature("rs_weeping_roots", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             WEEPING_ROOTS.withChance(0.3F)),

@@ -256,6 +256,11 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> WARPED_FUNGUS1 = newConfiguredFeature("warped_fungus1", BYGFeatureList.WARPED_FUNGUS_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static final ConfiguredFeature<?, ?> WARPED_FUNGUS2 = newConfiguredFeature("warped_fungus2", BYGFeatureList.WARPED_FUNGUS_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
+    public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_TREE1 = newConfiguredFeature("sythian_fungus_tree1", BYGFeatureList.SYTHIAN_FUNGUS_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_TREE2 = newConfiguredFeature("sythian_fungus_tree2", BYGFeatureList.SYTHIAN_FUNGUS_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_TREE3 = newConfiguredFeature("sythian_fungus_tree3", BYGFeatureList.SYTHIAN_FUNGUS_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_TREE4 = newConfiguredFeature("sythian_fungus_tree4", BYGFeatureList.SYTHIAN_FUNGUS_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+
 
     /***********************************************************Random Selectors***********************************************************/
 
@@ -834,6 +839,13 @@ public class BYGConfiguredTreeFeatures {
             CRIMSON_FUNGUS1.withChance(0.4F)),
             CRIMSON_FUNGUS2)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
             new AtSurfaceWithExtraConfig(4, 0.5F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_FUNGUS = newConfiguredFeature("rs_sythian_fungus", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            SYTHIAN_FUNGUS_TREE1.withChance(0.25F),
+            SYTHIAN_FUNGUS_TREE2.withChance(0.25F),
+            SYTHIAN_FUNGUS_TREE3.withChance(0.25F)),
+            SYTHIAN_FUNGUS_TREE4)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
+            new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
 
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {
         Registry.register(WorldGenRegistries.field_243653_e, new ResourceLocation(BYG.MOD_ID, registryName), configuredFeature);
