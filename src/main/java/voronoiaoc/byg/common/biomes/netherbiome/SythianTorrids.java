@@ -27,6 +27,8 @@ public class SythianTorrids extends Biome implements BiomeTools {
     static final float DOWNFALL = 0.4F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
+    static final int GRASS_COLOR = 11704602;
+    static final int FOLIAGE_COLOR = 11704602;
     static final String PARENT = null;
     static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
@@ -34,6 +36,8 @@ public class SythianTorrids extends Biome implements BiomeTools {
 
     public SythianTorrids() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
+                .func_242541_f(GRASS_COLOR)
+                .func_242540_e(FOLIAGE_COLOR)
                 .setFogColor(16572546)
                 .func_242539_d(BiomeHelper.calcSkyColor(2.0F))
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.CRIMSON_SPORE, 0.01428F))

@@ -5,6 +5,7 @@
     "#byg:baobab_logs",
     "#byg:blue_enchanted_logs",
     "#byg:cherry_logs",
+    "#byg:cika_logs",
     "#byg:cypress_logs",
     "#byg:ebony_logs",
     "#byg:fir_logs",
@@ -21,6 +22,8 @@
     "#byg:skyris_logs",
     "#byg:willow_logs",
     "#byg:witch_hazel_logs",
-    "#byg:zelkova_logs"
+    "#byg:zelkova_logs",
+    "byg:embur_pedu",
+    "#byg:sythian_stems"
   ]
 }
