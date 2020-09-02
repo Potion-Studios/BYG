@@ -174,6 +174,11 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> ORE_SCORIA_STONE = newConfiguredFeature("ore_scoria_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, BYGBlockList.SCORIA_STONE.getDefaultState(), 20)).func_242733_d(63).func_242728_a().func_242731_b(10));
     public static ConfiguredFeature<?, ?> ORE_SOAP_STONE = newConfiguredFeature("ore_soap_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, BYGBlockList.SOAPSTONE.getDefaultState(), 20)).func_242733_d(63).func_242728_a().func_242731_b(10));
 
+    public static ConfiguredFeature<?, ?> MOSSY_STONE_BOULDER = newConfiguredFeature("mossy_stone_boulder", Feature.FOREST_ROCK.withConfiguration(new BlockStateFeatureConfig(BYGBlockList.MOSSY_STONE.getDefaultState())));
+    public static ConfiguredFeature<?, ?> ROCKY_STONE_BOULDER = newConfiguredFeature("rocky_stone_boulder", Feature.FOREST_ROCK.withConfiguration(new BlockStateFeatureConfig(BYGBlockList.ROCKY_STONE.getDefaultState())));
+    public static ConfiguredFeature<?, ?> BLACKSTONE_BOULDER = newConfiguredFeature("blackstone_boulder", Feature.FOREST_ROCK.withConfiguration(new BlockStateFeatureConfig(Blocks.BLACKSTONE.getDefaultState())));
+    public static ConfiguredFeature<?, ?> ORANGE_TERRACOTTA_BOULDER = newConfiguredFeature("orange_terracotta_boulder", Feature.FOREST_ROCK.withConfiguration(new BlockStateFeatureConfig(Blocks.ORANGE_TERRACOTTA.getDefaultState())));
+
 
     /***********************************************************Configured & Decorated Features***********************************************************/
 
@@ -221,11 +226,18 @@ public class BYGConfiguredFeatures {
             GOLDEN_SPINED_CACTI.withChance(0.3F)),
             FIRECRACKER_BUSH)).withPlacement(Features.Placements.field_244000_k).withPlacement(Features.Placements.field_244001_l).func_242731_b(2));
 
-//    public static final ConfiguredFeature<?, ?> RANDOM_PUMPKINS = newConfiguredFeature("rs_pumpkins", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-//            MINI_CACTI.withChance(0.3F),
-//            PRICKLY_PEAR_CACTI.withChance(0.3F),
-//            GOLDEN_SPINED_CACTI.withChance(0.3F)),
-//            FIRECRACKER_BUSH)).withPlacement(Features.Placements.field_244001_l).func_242731_b(6));
+    public static final ConfiguredFeature<?, ?> RANDOM_BLACKSTONE_BOULDERS = newConfiguredFeature("rs_blackstone_boulders", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            BLACKSTONE_BOULDER.withChance(0.5F)),
+            BLACKSTONE_BOULDER)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
+            new AtSurfaceWithExtraConfig(0, 0.3F, 3))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_BOULDERS = newConfiguredFeature("rs_boulders", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            MOSSY_STONE_BOULDER.withChance(0.5F)),
+            ROCKY_STONE_BOULDER)).withPlacement(Features.Placements.field_244001_l).func_242732_c(2));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_TERRACOTTA_BOULDERS = newConfiguredFeature("rs_terracotta_boulders", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            ORANGE_TERRACOTTA_BOULDER.withChance(0.5F)),
+            ORANGE_TERRACOTTA_BOULDER)).withPlacement(Features.Placements.field_244001_l).func_242732_c(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_FIRECRACKER = newConfiguredFeature("rs_firecracker", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             FIRECRACKER_BUSH.withChance(0.50F)),

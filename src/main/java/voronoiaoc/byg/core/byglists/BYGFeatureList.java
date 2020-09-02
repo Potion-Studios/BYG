@@ -228,6 +228,10 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> TALL_CRIMSON_ROOTS = new TallCrimsonRoots(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> CRIMSON_BERRY_BUSH = new CrimsonBerryBush(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> WEEPING_VINE_BLACKSTONE = new WeepingVineFeatureBlackstone(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> CRIMSON_FUNGUS_TREE1 = new CrimsonFungus1(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> CRIMSON_FUNGUS_TREE2 = new CrimsonFungus2(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> WARPED_FUNGUS_TREE1 = new WarpedFungus1(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> WARPED_FUNGUS_TREE2 = new WarpedFungus2(NoFeatureConfig.field_236558_a_);
 
     //Whaling
     public static final Feature<NoFeatureConfig> WAILING_VINES = new WailingVine(NoFeatureConfig.field_236558_a_);
@@ -514,6 +518,10 @@ public class BYGFeatureList {
             registerFeature(NETHER_BRISTLE, "nether_bristle");
             registerFeature(TALL_CRIMSON_ROOTS, "tall_crimson_roots");
             registerFeature(CRIMSON_BERRY_BUSH, "crimson_berry_bush");
+            registerFeature(WARPED_FUNGUS_TREE1, "warped_fungus_tree1");
+            registerFeature(WARPED_FUNGUS_TREE2, "warped_fungus_tree2");
+            registerFeature(CRIMSON_FUNGUS_TREE1, "crimson_fungus_tree1");
+            registerFeature(CRIMSON_FUNGUS_TREE2, "crimson_fungus_tree2");
             registerFeature(SYTHIAN_SPROUT, "sythian_sprout");
             registerFeature(SYTHIAN_STALK, "sythian_stalk");
             registerFeature(SYTHIAN_ROOTS, "sythian_roots");

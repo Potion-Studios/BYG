@@ -251,6 +251,11 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> EMBUR_MUSHROOM = newConfiguredFeature("embur_mushroom1", BYGFeatureList.EMBUR_MUSHROOM.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static final ConfiguredFeature<?, ?> EMBUR_MUSHROOM2 = newConfiguredFeature("embur_mushroom2", BYGFeatureList.EMBUR_MUSHROOM2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
+    public static final ConfiguredFeature<?, ?> CRIMSON_FUNGUS1 = newConfiguredFeature("crimson_fungus1", BYGFeatureList.CRIMSON_FUNGUS_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> CRIMSON_FUNGUS2 = newConfiguredFeature("crimson_fungus2", BYGFeatureList.CRIMSON_FUNGUS_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> WARPED_FUNGUS1 = newConfiguredFeature("warped_fungus1", BYGFeatureList.WARPED_FUNGUS_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> WARPED_FUNGUS2 = newConfiguredFeature("warped_fungus2", BYGFeatureList.WARPED_FUNGUS_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+
 
     /***********************************************************Random Selectors***********************************************************/
 
@@ -822,6 +827,13 @@ public class BYGConfiguredTreeFeatures {
             EMBUR_MUSHROOM.withChance(0.5F)),
             EMBUR_MUSHROOM2)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
             new AtSurfaceWithExtraConfig(2, 0.5F, 1))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_FUNGUS = newConfiguredFeature("rs_fungus", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            WARPED_FUNGUS1.withChance(0.15F),
+            WARPED_FUNGUS2.withChance(0.15F),
+            CRIMSON_FUNGUS1.withChance(0.4F)),
+            CRIMSON_FUNGUS2)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
+            new AtSurfaceWithExtraConfig(4, 0.5F, 2))));
 
     public static ConfiguredFeature<?, ?> newConfiguredFeature(String registryName, ConfiguredFeature<?, ?> configuredFeature) {
         Registry.register(WorldGenRegistries.field_243653_e, new ResourceLocation(BYG.MOD_ID, registryName), configuredFeature);
