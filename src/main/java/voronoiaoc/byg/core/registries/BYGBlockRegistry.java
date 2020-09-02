@@ -462,6 +462,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.NYLIUM_SOUL_SAND = new BYGBlockProperties.BYGNyliumSoulSand("nylium_soul_sand"),
                 BYGBlockList.NYLIUM_SOUL_SOIL = new BYGBlockProperties.BYGNyliumSoulSoil("nylium_soul_soil"),
 
+                BYGBlockList.SYTHIAN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("sythian_wart_block"),
                 BYGBlockList.SYTHIAN_NYLIUM = new BYGBlockProperties.BYGSythianNylium("sythian_nylium"),
                 BYGBlockList.SYTHIAN_ROOTS = new BYGBlockProperties.SythianPlant("sythian_roots"),
                 BYGBlockList.SYTHIAN_SPROUT = new BYGBlockProperties.SythianPlant("sythian_sprout"),

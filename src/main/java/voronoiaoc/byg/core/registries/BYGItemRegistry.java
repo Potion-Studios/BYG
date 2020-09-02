@@ -635,6 +635,7 @@ public class BYGItemRegistry {
                 BYGItemList.ZELKOVA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.ZELKOVA, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("zelkova_boat"),
 
                 //Sythian Woodtype
+                BYGItemList.SYTHIAN_WART_BLOCK = new BlockItem(BYGBlockList.SYTHIAN_WART_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_WART_BLOCK.getRegistryName()),
                 BYGItemList.SYTHIAN_FUNGUS = new BlockItem(BYGBlockList.SYTHIAN_FUNGUS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_FUNGUS.getRegistryName()),
                 BYGItemList.SYTHIAN_STEM = new BlockItem(BYGBlockList.SYTHIAN_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_STEM.getRegistryName()),
                 BYGItemList.SYTHIAN_HYPHAE = new BlockItem(BYGBlockList.SYTHIAN_HYPHAE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_HYPHAE.getRegistryName()),
@@ -651,7 +652,6 @@ public class BYGItemRegistry {
                 BYGItemList.SYTHIAN_TRAPDOOR = new BlockItem(BYGBlockList.SYTHIAN_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_TRAPDOOR.getRegistryName()),
                 BYGItemList.SYTHIAN_PRESSURE_PLATE = new BlockItem(BYGBlockList.SYTHIAN_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_PRESSURE_PLATE.getRegistryName()),
                 BYGItemList.SYTHIAN_BUTTON = new BlockItem(BYGBlockList.SYTHIAN_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_BUTTON.getRegistryName()),
-
 
                 //SaplingItems
                 BYGItemList.BLUE_SPRUCE_SAPLING = new BlockItem(BYGBlockList.BLUE_SPRUCE_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_SPRUCE_SAPLING.getRegistryName()),

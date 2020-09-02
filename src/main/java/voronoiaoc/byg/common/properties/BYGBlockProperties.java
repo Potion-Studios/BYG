@@ -706,6 +706,16 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGWartBlock extends Block {
+        public BYGWartBlock(String registryName) {
+            super(Block.Properties.create(Material.ORGANIC)
+                    .sound(SoundType.WART)
+                    .hardnessAndResistance(1.0F)
+            );
+            setRegistryName(registryName);
+        }
+    }
+
     public static class BYGEmburGelBlock extends HoneyBlock {
         public BYGEmburGelBlock(String registryName) {
             super(Block.Properties.create(Material.CLAY)
