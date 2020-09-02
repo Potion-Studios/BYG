@@ -634,6 +634,25 @@ public class BYGItemRegistry {
                 BYGItemList.ZELKOVA_BUTTON = new BlockItem(BYGBlockList.ZELKOVA_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ZELKOVA_BUTTON.getRegistryName()),
                 BYGItemList.ZELKOVA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.ZELKOVA, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("zelkova_boat"),
 
+                //Sythian Woodtype
+                BYGItemList.SYTHIAN_FUNGUS = new BlockItem(BYGBlockList.SYTHIAN_FUNGUS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_FUNGUS.getRegistryName()),
+                BYGItemList.SYTHIAN_STEM = new BlockItem(BYGBlockList.SYTHIAN_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_STEM.getRegistryName()),
+                BYGItemList.SYTHIAN_HYPHAE = new BlockItem(BYGBlockList.SYTHIAN_HYPHAE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_HYPHAE.getRegistryName()),
+                BYGItemList.STRIPPED_SYTHIAN_STEM = new BlockItem(BYGBlockList.STRIPPED_SYTHIAN_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.STRIPPED_SYTHIAN_STEM.getRegistryName()),
+                BYGItemList.STRIPPED_SYTHIAN_HYPHAE = new BlockItem(BYGBlockList.STRIPPED_SYTHIAN_HYPHAE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.STRIPPED_SYTHIAN_HYPHAE.getRegistryName()),
+                BYGItemList.SYTHIAN_PLANKS = new BlockItem(BYGBlockList.SYTHIAN_PLANKS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_PLANKS.getRegistryName()),
+                BYGItemList.SYTHIAN_BOOKSHELF = new BlockItem(BYGBlockList.SYTHIAN_BOOKSHELF, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_BOOKSHELF.getRegistryName()),
+                BYGItemList.SYTHIAN_CRAFTING_TABLE = new BlockItem(BYGBlockList.SYTHIAN_CRAFTING_TABLE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_CRAFTING_TABLE.getRegistryName()),
+                BYGItemList.SYTHIAN_STAIRS = new BlockItem(BYGBlockList.SYTHIAN_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_STAIRS.getRegistryName()),
+                BYGItemList.SYTHIAN_SLAB = new BlockItem(BYGBlockList.SYTHIAN_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_SLAB.getRegistryName()),
+                BYGItemList.SYTHIAN_FENCE = new BlockItem(BYGBlockList.SYTHIAN_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_FENCE.getRegistryName()),
+                BYGItemList.SYTHIAN_FENCE_GATE = new BlockItem(BYGBlockList.SYTHIAN_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_FENCE_GATE.getRegistryName()),
+                BYGItemList.SYTHIAN_DOOR = new TallBlockItem(BYGBlockList.SYTHIAN_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_DOOR.getRegistryName()),
+                BYGItemList.SYTHIAN_TRAPDOOR = new BlockItem(BYGBlockList.SYTHIAN_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_TRAPDOOR.getRegistryName()),
+                BYGItemList.SYTHIAN_PRESSURE_PLATE = new BlockItem(BYGBlockList.SYTHIAN_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.SYTHIAN_BUTTON = new BlockItem(BYGBlockList.SYTHIAN_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_BUTTON.getRegistryName()),
+
+
                 //SaplingItems
                 BYGItemList.BLUE_SPRUCE_SAPLING = new BlockItem(BYGBlockList.BLUE_SPRUCE_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_SPRUCE_SAPLING.getRegistryName()),
                 BYGItemList.BLUE_SPRUCE_LEAVES = new BlockItem(BYGBlockList.BLUE_SPRUCE_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_SPRUCE_LEAVES.getRegistryName()),
@@ -738,6 +757,8 @@ public class BYGItemRegistry {
                 BYGItemList.NETHER_BRISTLE = new BlockItem(BYGBlockList.NETHER_BRISTLE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.NETHER_BRISTLE.getRegistryName()),
                 BYGItemList.MYCELIUM_NETHERRACK = new BlockItem(BYGBlockList.MYCELIUM_NETHERRACK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MYCELIUM_NETHERRACK.getRegistryName()),
                 BYGItemList.OVERGROWN_NETHERRACK = new BlockItem(BYGBlockList.OVERGROWN_NETHERRACK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.OVERGROWN_NETHERRACK.getRegistryName()),
+                BYGItemList.MOSSY_NETHERRACK = new BlockItem(BYGBlockList.MOSSY_NETHERRACK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MOSSY_NETHERRACK.getRegistryName()),
+
                 BYGItemList.PERVADED_NETHERRACK = new BlockItem(BYGBlockList.PERVADED_NETHERRACK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PERVADED_NETHERRACK.getRegistryName()),
                 BYGItemList.GLOWSTONE_LANTERN = new BlockItem(BYGBlockList.GLOWSTONE_LANTERN, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GLOWSTONE_LANTERN.getRegistryName()),
                 BYGItemList.GLOWSTONE_LAMP = new BlockItem(BYGBlockList.GLOWSTONE_LAMP, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GLOWSTONE_LAMP.getRegistryName()),
@@ -747,6 +768,7 @@ public class BYGItemRegistry {
                 BYGItemList.SYTHIAN_SPROUT = new BlockItem(BYGBlockList.SYTHIAN_SPROUT, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_SPROUT.getRegistryName()),
                 BYGItemList.SYTHIAN_STALK_BLOCK = new BlockItem(BYGBlockList.SYTHIAN_STALK_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_STALK_BLOCK.getRegistryName()),
                 BYGItemList.SYTHIAN_SCAFFOLDING = new ScaffoldingItem(BYGBlockList.SYTHIAN_SCAFFOLDING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_SCAFFOLDING.getRegistryName()),
+                BYGItemList.HANGING_SYTHIAN_ROOTS = new BlockItem(BYGBlockList.HANGING_SYTHIAN_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HANGING_SYTHIAN_ROOTS.getRegistryName()),
 
                 BYGItemList.EMBUR_GEL_BALL = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("embur_gel_ball"),
                 BYGItemList.EMBUR_GEL_BLOCK = new BlockItem(BYGBlockList.EMBUR_GEL_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_GEL_BLOCK.getRegistryName()),

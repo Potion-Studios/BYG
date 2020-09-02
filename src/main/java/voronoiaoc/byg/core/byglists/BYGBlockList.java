@@ -789,7 +789,7 @@ public class BYGBlockList {
     public static Block STRIPPED_REDWOOD_LOG;
     public static Block STRIPPED_WITCH_HAZEL_LOG;
     public static Block STRIPPED_ZELKOVA_LOG;
-    public static Block STRIPPED_SYTHIAN_LOG;
+    public static Block STRIPPED_SYTHIAN_STEM;
 
     //StrippedWoodBlocks
     public static Block STRIPPED_BAOBAB_WOOD;

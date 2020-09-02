@@ -23,10 +23,7 @@ import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
 import voronoiaoc.byg.common.properties.blocks.nether.glowstonegardens.MyceliumNetherrackBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.scorched.ScorchedPlantBlock;
-import voronoiaoc.byg.common.properties.blocks.nether.sythian.BYGSythianNyliumBlock;
-import voronoiaoc.byg.common.properties.blocks.nether.sythian.BYGSythianPlantBlock;
-import voronoiaoc.byg.common.properties.blocks.nether.sythian.SythianSaplingBlock;
-import voronoiaoc.byg.common.properties.blocks.nether.sythian.SythianStalkBlock;
+import voronoiaoc.byg.common.properties.blocks.nether.sythian.*;
 import voronoiaoc.byg.common.properties.blocks.nether.wailing.HangingBonesBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.wailing.WhalingGrassBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.warped.*;
@@ -977,6 +974,30 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGSythianHangingRootsPlant extends HangingSythanRootsPlantBlock {
+        public BYGSythianHangingRootsPlant(String registryName) {
+            super(Block.Properties.create(Material.LEAVES)
+                    .sound(SoundType.NETHER_VINE)
+                    .hardnessAndResistance(0.2f)
+                    .tickRandomly()
+                    .doesNotBlockMovement()
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGSythianHangingRoots extends HangingSythanRootsBlock {
+        public BYGSythianHangingRoots(String registryName) {
+            super(Block.Properties.create(Material.LEAVES)
+                    .sound(SoundType.NETHER_VINE)
+                    .hardnessAndResistance(0.2f)
+                    .tickRandomly()
+                    .doesNotBlockMovement()
+            );
+            setRegistryName(registryName);
+        }
+    }
+
     public static class LogBlock extends RotatedPillarBlock {
         public LogBlock(AbstractBlock.Properties properties) {
             super(properties);
@@ -988,6 +1009,17 @@ public class BYGBlockProperties {
             super(
                     Block.Properties.create(Material.WOOD)
                             .sound(SoundType.WOOD)
+                            .hardnessAndResistance(2.0f)
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGNetherLog extends LogBlock {
+        public BYGNetherLog(String registryName) {
+            super(
+                    Block.Properties.create(Material.NETHER_WOOD)
+                            .sound(SoundType.HYPHAE)
                             .hardnessAndResistance(2.0f)
             );
             setRegistryName(registryName);
@@ -1011,6 +1043,16 @@ public class BYGBlockProperties {
         public BYGWood(String registryName) {
             super(Block.Properties.create(Material.WOOD)
                     .sound(SoundType.WOOD)
+                    .hardnessAndResistance(2.0f)
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGNetherWood extends RotatedPillarBlock {
+        public BYGNetherWood(String registryName) {
+            super(Block.Properties.create(Material.NETHER_WOOD)
+                    .sound(SoundType.HYPHAE)
                     .hardnessAndResistance(2.0f)
             );
             setRegistryName(registryName);
