@@ -109,7 +109,7 @@ public class ConfigWeightManager {
             try {
                 ConfigWeightManager.buildDefaultConfig();
             } catch (IOException e) {
-                e.printStackTrace();
+                BYG.LOGGER.error("FAILED: Biome Weight Config could not be built. :(");
             }
             BYG.LOGGER.info("Built Biome Weight Config!");
 
