@@ -160,6 +160,7 @@ public class BYGCompostables {
         compostibleBlocks(0.85f, BYGItemList.BROWN_MUSHROOM_STEM);
 
         //Foods
+        compostibleBlocks(0.65f, BYGItemList.CRIMSON_BERRIES);
         compostibleBlocks(0.65f, BYGItemList.GREEN_APPLE);
         compostibleBlocks(0.65f, BYGItemList.GREEN_MUSHSHROOM);
         compostibleBlocks(0.65f, BYGItemList.BLACK_PUFF);
