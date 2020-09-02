@@ -30,6 +30,7 @@ public class BYGBlockList {
     public static Block WILLOW_FENCE;
     public static Block WITCH_HAZEL_FENCE;
     public static Block ZELKOVA_FENCE;
+    public static Block SYTHIAN_FENCE;
 
     //TrapdoorBlocks
     public static Block ASPEN_TRAPDOOR;
@@ -53,6 +54,7 @@ public class BYGBlockList {
     public static Block WILLOW_TRAPDOOR;
     public static Block WITCH_HAZEL_TRAPDOOR;
     public static Block ZELKOVA_TRAPDOOR;
+    public static Block SYTHIAN_TRAPDOOR;
 
     //PressurePlates
     public static Block ASPEN_PRESSURE_PLATE;
@@ -76,6 +78,7 @@ public class BYGBlockList {
     public static Block WILLOW_PRESSURE_PLATE;
     public static Block WITCH_HAZEL_PRESSURE_PLATE;
     public static Block ZELKOVA_PRESSURE_PLATE;
+    public static Block SYTHIAN_PRESSURE_PLATE;
 
     //Buttons
     public static Block ASPEN_BUTTON;
@@ -99,6 +102,7 @@ public class BYGBlockList {
     public static Block WILLOW_BUTTON;
     public static Block WITCH_HAZEL_BUTTON;
     public static Block ZELKOVA_BUTTON;
+    public static Block SYTHIAN_BUTTON;
 
     //DoorBlocks
     public static Block ASPEN_DOOR;
@@ -122,6 +126,7 @@ public class BYGBlockList {
     public static Block WILLOW_DOOR;
     public static Block WITCH_HAZEL_DOOR;
     public static Block ZELKOVA_DOOR;
+    public static Block SYTHIAN_DOOR;
 
     //Fence Gates
     public static Block ASPEN_FENCE_GATE;
@@ -145,6 +150,7 @@ public class BYGBlockList {
     public static Block WILLOW_FENCE_GATE;
     public static Block WITCH_HAZEL_FENCE_GATE;
     public static Block ZELKOVA_FENCE_GATE;
+    public static Block SYTHIAN_FENCE_GATE;
 
     //Crafting Tables
     public static Block ASPEN_CRAFTING_TABLE;
@@ -168,6 +174,7 @@ public class BYGBlockList {
     public static Block WILLOW_CRAFTING_TABLE;
     public static Block WITCH_HAZEL_CRAFTING_TABLE;
     public static Block ZELKOVA_CRAFTING_TABLE;
+    public static Block SYTHIAN_CRAFTING_TABLE;
 
     //FlowerBlocks
     public static Block ALPINE_BELLFLOWER;
@@ -326,6 +333,7 @@ public class BYGBlockList {
     public static Block YELLOW_BIRCH_LEAVES;
     public static Block YELLOW_SPRUCE_LEAVES;
     public static Block ZELKOVA_LEAVES;
+    public static Block SYTHIAN_WART_BLOCK;
 
     //LogBlocks
     public static Block ASPEN_LOG;
@@ -350,6 +358,7 @@ public class BYGBlockList {
     public static Block WILLOW_LOG;
     public static Block WITCH_HAZEL_LOG;
     public static Block ZELKOVA_LOG;
+    public static Block SYTHIAN_STEM;
 
     //WoodBlocks
     public static Block ASPEN_WOOD;
@@ -374,6 +383,7 @@ public class BYGBlockList {
     public static Block WILLOW_WOOD;
     public static Block WITCH_HAZEL_WOOD;
     public static Block ZELKOVA_WOOD;
+    public static Block SYTHIAN_HYPHAE;
 
     //GlowshroomsBlocks
     public static Block PURPLE_GLOWSHROOM_BLOCK;
@@ -437,6 +447,7 @@ public class BYGBlockList {
     public static Block WILLOW_BOOKSHELF;
     public static Block WITCH_HAZEL_BOOKSHELF;
     public static Block ZELKOVA_BOOKSHELF;
+    public static Block SYTHIAN_BOOKSHELF;
 
     //PlankBlocks
     public static Block ASPEN_PLANKS;
@@ -460,6 +471,7 @@ public class BYGBlockList {
     public static Block WILLOW_PLANKS;
     public static Block WITCH_HAZEL_PLANKS;
     public static Block ZELKOVA_PLANKS;
+    public static Block SYTHIAN_PLANKS;
 
     //PetalBlocks
     public static Block WHITE_PETAL;
@@ -524,6 +536,7 @@ public class BYGBlockList {
     public static Block MYCELIUM_NETHERRACK;
     public static Block OVERGROWN_NETHERRACK;
     public static Block NETHER_BRISTLE;
+    public static Block MOSSY_NETHERRACK;
 
     public static Block OVERGROWN_CRIMSON_BLACKSTONE;
     public static Block TALL_CRIMSON_ROOTS;
@@ -556,6 +569,9 @@ public class BYGBlockList {
     public static Block SYTHIAN_SCAFFOLDING;
     public static Block SYTHIAN_SAPLING;
     public static Block SYTHIAN_NYLIUM;
+    public static Block SYTHIAN_FUNGUS;
+    public static Block HANGING_SYTHIAN_ROOTS;
+    public static Block HANGING_SYTHIAN_ROOTS_PLANT;
 
     public static Block IVIS_PHYLIUM;
     public static Block IVIS_ROOTS;
@@ -638,6 +654,7 @@ public class BYGBlockList {
     public static Block WILLOW_SLAB;
     public static Block WITCH_HAZEL_SLAB;
     public static Block ZELKOVA_SLAB;
+    public static Block SYTHIAN_SLAB;
 
     //StairBlocks
     public static Block ASPEN_STAIRS;
@@ -661,6 +678,7 @@ public class BYGBlockList {
     public static Block WILLOW_STAIRS;
     public static Block WITCH_HAZEL_STAIRS;
     public static Block ZELKOVA_STAIRS;
+    public static Block SYTHIAN_STAIRS;
 
     //StoneBlocks
     public static Block DACITE;
@@ -771,6 +789,7 @@ public class BYGBlockList {
     public static Block STRIPPED_REDWOOD_LOG;
     public static Block STRIPPED_WITCH_HAZEL_LOG;
     public static Block STRIPPED_ZELKOVA_LOG;
+    public static Block STRIPPED_SYTHIAN_LOG;
 
     //StrippedWoodBlocks
     public static Block STRIPPED_BAOBAB_WOOD;
@@ -795,4 +814,6 @@ public class BYGBlockList {
     public static Block STRIPPED_REDWOOD_WOOD;
     public static Block STRIPPED_WITCH_HAZEL_WOOD;
     public static Block STRIPPED_ZELKOVA_WOOD;
+    public static Block STRIPPED_SYTHIAN_HYPHAE;
+
 }

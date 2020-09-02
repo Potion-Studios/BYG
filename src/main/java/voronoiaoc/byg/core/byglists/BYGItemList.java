@@ -40,6 +40,7 @@ public class BYGItemList {
     public static Item WILLOW_FENCE;
     public static Item WITCH_HAZEL_FENCE;
     public static Item ZELKOVA_FENCE;
+    public static Item SYTHIAN_FENCE;
 
     //BoatItem
     public static Item ASPEN_BOAT;
@@ -86,6 +87,7 @@ public class BYGItemList {
     public static Item WILLOW_TRAPDOOR;
     public static Item WITCH_HAZEL_TRAPDOOR;
     public static Item ZELKOVA_TRAPDOOR;
+    public static Item SYTHIAN_TRAPDOOR;
 
     //Pressure Plate
     public static Item ASPEN_PRESSURE_PLATE;
@@ -109,6 +111,7 @@ public class BYGItemList {
     public static Item WILLOW_PRESSURE_PLATE;
     public static Item WITCH_HAZEL_PRESSURE_PLATE;
     public static Item ZELKOVA_PRESSURE_PLATE;
+    public static Item SYTHIAN_PRESSURE_PLATE;
 
     //Buttons
     public static Item ASPEN_BUTTON;
@@ -132,6 +135,7 @@ public class BYGItemList {
     public static Item WILLOW_BUTTON;
     public static Item WITCH_HAZEL_BUTTON;
     public static Item ZELKOVA_BUTTON;
+    public static Item SYTHIAN_BUTTON;
 
     //Doors
     public static Item ASPEN_DOOR;
@@ -155,6 +159,7 @@ public class BYGItemList {
     public static Item WILLOW_DOOR;
     public static Item WITCH_HAZEL_DOOR;
     public static Item ZELKOVA_DOOR;
+    public static Item SYTHIAN_DOOR;
 
     //Fence Gates
     public static Item ASPEN_FENCE_GATE;
@@ -178,6 +183,7 @@ public class BYGItemList {
     public static Item WILLOW_FENCE_GATE;
     public static Item WITCH_HAZEL_FENCE_GATE;
     public static Item ZELKOVA_FENCE_GATE;
+    public static Item SYTHIAN_FENCE_GATE;
 
     //Crafting Tables
     public static Item ASPEN_CRAFTING_TABLE;
@@ -201,6 +207,7 @@ public class BYGItemList {
     public static Item WILLOW_CRAFTING_TABLE;
     public static Item WITCH_HAZEL_CRAFTING_TABLE;
     public static Item ZELKOVA_CRAFTING_TABLE;
+    public static Item SYTHIAN_CRAFTING_TABLE;
 
     //Flowers
     public static Item ALPINE_BELLFLOWER;
@@ -357,6 +364,7 @@ public class BYGItemList {
     public static Item YELLOW_SPRUCE_LEAVES;
     public static Item SKYRIS_LEAVES;
     public static Item ZELKOVA_LEAVES;
+    public static Item SYTHIAN_WART_BLOCK;
 
     //LogItems
     public static Item ASPEN_LOG;
@@ -381,6 +389,7 @@ public class BYGItemList {
     public static Item WILLOW_LOG;
     public static Item WITCH_HAZEL_LOG;
     public static Item ZELKOVA_LOG;
+    public static Item SYTHIAN_STEM;
 
     //WoodItems
     public static Item ASPEN_WOOD;
@@ -405,6 +414,7 @@ public class BYGItemList {
     public static Item WILLOW_WOOD;
     public static Item WITCH_HAZEL_WOOD;
     public static Item ZELKOVA_WOOD;
+    public static Item SYTHIAN_HYPHAE;
 
     //StrippedWoodItems
     public static Item STRIPPED_BAOBAB_WOOD;
@@ -429,6 +439,7 @@ public class BYGItemList {
     public static Item STRIPPED_REDWOOD_WOOD;
     public static Item STRIPPED_WITCH_HAZEL_WOOD;
     public static Item STRIPPED_ZELKOVA_WOOD;
+    public static Item STRIPPED_SYTHIAN_HYPHAE;
 
     //GlowshroomsBlocks
     public static Item PURPLE_GLOWSHROOM_BLOCK;
@@ -492,7 +503,7 @@ public class BYGItemList {
     public static Item WILLOW_BOOKSHELF;
     public static Item WITCH_HAZEL_BOOKSHELF;
     public static Item ZELKOVA_BOOKSHELF;
-
+    public static Item SYTHIAN_BOOKSHELF;
 
     //PlankItems
     public static Item ASPEN_PLANKS;
@@ -516,6 +527,7 @@ public class BYGItemList {
     public static Item WILLOW_PLANKS;
     public static Item WITCH_HAZEL_PLANKS;
     public static Item ZELKOVA_PLANKS;
+    public static Item SYTHIAN_PLANKS;
 
     //PetalBlocks
     public static Item WHITE_PETAL;
@@ -579,6 +591,7 @@ public class BYGItemList {
     public static Item MYCELIUM_NETHERRACK;
     public static Item OVERGROWN_NETHERRACK;
     public static Item NETHER_BRISTLE;
+    public static Item MOSSY_NETHERRACK;
 
     public static Item OVERGROWN_CRIMSON_BLACKSTONE;
     public static Item TALL_CRIMSON_ROOTS;
@@ -597,9 +610,12 @@ public class BYGItemList {
     public static Item SYTHIAN_ROOTS;
     public static Item SYTHIAN_STALK_BLOCK;
     public static Item SYTHIAN_SCAFFOLDING;
-    public static Item SYTHIAN_SAPLING;
     public static Item SYTHIAN_STALK;
     public static Item SYTHIAN_NYLIUM;
+    public static Item SYTHIAN_FUNGUS;
+    public static Item HANGING_SYTHIAN_ROOTS;
+    public static Item HANGING_SYTHIAN_ROOTS_PLANT;
+
 
     public static Item EMBUR_NYLIUM;
     public static Item EMBUR_PEDU;
@@ -708,6 +724,7 @@ public class BYGItemList {
     public static Item WILLOW_SLAB;
     public static Item WITCH_HAZEL_SLAB;
     public static Item ZELKOVA_SLAB;
+    public static Item SYTHIAN_SLAB;
 
     //StairItems
     public static Item ASPEN_STAIRS;
@@ -731,6 +748,7 @@ public class BYGItemList {
     public static Item WILLOW_STAIRS;
     public static Item WITCH_HAZEL_STAIRS;
     public static Item ZELKOVA_STAIRS;
+    public static Item SYTHIAN_STAIRS;
 
     //StoneItems
     public static Item DACITE;
@@ -841,6 +859,7 @@ public class BYGItemList {
     public static Item STRIPPED_REDWOOD_LOG;
     public static Item STRIPPED_WITCH_HAZEL_LOG;
     public static Item STRIPPED_ZELKOVA_LOG;
+    public static Item STRIPPED_SYTHIAN_STEM;
 
     //Gems Items
     public static Item PENDORITE_SCRAPS;
