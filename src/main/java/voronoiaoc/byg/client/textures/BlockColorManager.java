@@ -27,7 +27,7 @@ public class BlockColorManager {
 
         //registers the colors for blocks that changes colors based on biome
         blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getGrassColor(lightReader, pos) : GrassColors.get(0.5D, 1.0D), BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_STONE, BYGBlockList.OVERGROWN_NETHERRACK, BYGBlockList.SHORT_GRASS, BYGBlockList.TINY_LILYPADS, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.GLOWCELIUM, BYGBlockList.WILTED_GRASS, BYGBlockList.WEED_GRASS, BYGBlockList.NETHER_BRISTLE, BYGBlockList.WATER_SILK);
-        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getFoliageColor(lightReader, pos) : FoliageColors.get(0.5D, 1.0D), BYGBlockList.MAHOGANY_LEAVES, BYGBlockList.POISON_IVY, BYGBlockList.LEAF_PILE, BYGBlockList.ORCHARD_LEAVES, BYGBlockList.FLOWERING_ORCHARD_LEAVES, BYGBlockList.RIPE_ORCHARD_LEAVES, BYGBlockList.RAINBOW_EUCALYPTUS_LEAVES, BYGBlockList.WILLOW_LEAVES, BYGBlockList.MAPLE_LEAVES, BYGBlockList.JOSHUA_LEAVES, BYGBlockList.RIPE_JOSHUA_LEAVES);
+        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getFoliageColor(lightReader, pos) : FoliageColors.get(0.5D, 1.0D), BYGBlockList.MAHOGANY_LEAVES, BYGBlockList.POISON_IVY, BYGBlockList.LEAF_PILE, BYGBlockList.ORCHARD_LEAVES, BYGBlockList.FLOWERING_ORCHARD_LEAVES, BYGBlockList.RIPE_ORCHARD_LEAVES, BYGBlockList.RAINBOW_EUCALYPTUS_LEAVES, BYGBlockList.WILLOW_LEAVES, BYGBlockList.MAPLE_LEAVES, BYGBlockList.JOSHUA_LEAVES, BYGBlockList.RIPE_JOSHUA_LEAVES, BYGBlockList.MOSSY_NETHERRACK);
     }
 
     /**
@@ -46,6 +46,6 @@ public class BlockColorManager {
         };
 
         itemColors.register(itemBlockColourHandler,
-                BYGItemList.MEADOW_GRASSBLOCK, BYGItemList.OVERGROWN_NETHERRACK, BYGItemList.MAHOGANY_LEAVES, BYGItemList.POISON_IVY, BYGItemList.OVERGROWN_STONE, BYGItemList.SHORT_GRASS, BYGItemList.TINY_LILYPADS, BYGItemList.NETHER_BRISTLE, BYGItemList.OVERGROWN_DACITE, BYGItemList.GLOWCELIUM, BYGItemList.WILTED_GRASS, BYGItemList.WEED_GRASS, BYGItemList.LEAF_PILE, BYGItemList.ORCHARD_LEAVES, BYGItemList.FLOWERING_ORCHARD_LEAVES, BYGItemList.RIPE_ORCHARD_LEAVES, BYGItemList.RAINBOW_EUCALYPTUS_LEAVES, BYGItemList.WILLOW_LEAVES, BYGItemList.WATER_SILK, BYGItemList.MAPLE_LEAVES, BYGItemList.JOSHUA_LEAVES, BYGItemList.RIPE_JOSHUA_LEAVES);
+                BYGItemList.MEADOW_GRASSBLOCK, BYGItemList.OVERGROWN_NETHERRACK, BYGItemList.MAHOGANY_LEAVES, BYGItemList.POISON_IVY, BYGItemList.OVERGROWN_STONE, BYGItemList.SHORT_GRASS, BYGItemList.TINY_LILYPADS, BYGItemList.NETHER_BRISTLE, BYGItemList.OVERGROWN_DACITE, BYGItemList.GLOWCELIUM, BYGItemList.WILTED_GRASS, BYGItemList.WEED_GRASS, BYGItemList.LEAF_PILE, BYGItemList.ORCHARD_LEAVES, BYGItemList.FLOWERING_ORCHARD_LEAVES, BYGItemList.RIPE_ORCHARD_LEAVES, BYGItemList.RAINBOW_EUCALYPTUS_LEAVES, BYGItemList.WILLOW_LEAVES, BYGItemList.WATER_SILK, BYGItemList.MAPLE_LEAVES, BYGItemList.JOSHUA_LEAVES, BYGItemList.RIPE_JOSHUA_LEAVES, BYGBlockList.MOSSY_NETHERRACK);
     }
 }

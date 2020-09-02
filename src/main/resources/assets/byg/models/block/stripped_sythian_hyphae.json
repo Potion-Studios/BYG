@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "byg:block/stripped_sythian_hyphae",
-    "side": "byg:block/stripped_sythian_hyphae"
+    "end": "byg:block/stripped_sythian_stem",
+    "side": "byg:block/stripped_sythian_stem"
   }
 }
