@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:sythian_planks"
+    }
+  },
+  "result": {
+    "item": "byg:sythian_crafting_table"
+  }
+}

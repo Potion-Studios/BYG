@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "byg:sythian_stems"
+    }
+  ],
+  "result": {
+    "item": "byg:sythian_planks",
+    "count": 4
+  }
+}
