@@ -582,7 +582,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_LOG = new BYGBlockProperties.BYGLog("witch_hazel_log"),
                 BYGBlockList.ZELKOVA_LOG = new BYGBlockProperties.BYGLog("zelkova_log"),
                 BYGBlockList.SYTHIAN_STEM = new BYGBlockProperties.BYGNetherLog("sythian_stem"),
-                BYGBlockList.EMBUR_PEDU = new BYGBlockProperties.BYGLog("embur_pedu"),
+                BYGBlockList.EMBUR_PEDU = new BYGBlockProperties.BYGNetherLog("embur_pedu"),
 
                 BYGBlockList.ASPEN_WOOD = new BYGBlockProperties.BYGWood("aspen_wood"),
                 BYGBlockList.BAOBAB_WOOD = new BYGBlockProperties.BYGWood("baobab_wood"),
@@ -607,7 +607,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_WOOD = new BYGBlockProperties.BYGWood("witch_hazel_wood"),
                 BYGBlockList.ZELKOVA_WOOD = new BYGBlockProperties.BYGWood("zelkova_wood"),
                 BYGBlockList.SYTHIAN_HYPHAE = new BYGBlockProperties.BYGNetherWood("sythian_hyphae"),
-                BYGBlockList.EMBUR_HYPHAE = new BYGBlockProperties.BYGNetherWood("embur_hyphae_hyphae"),
+                BYGBlockList.EMBUR_HYPHAE = new BYGBlockProperties.BYGNetherWood("embur_hyphae"),
 
                 //Mushroom Blocks
                 BYGBlockList.BLACK_PUFF = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.BlackPuff(), "black_puff"),

@@ -97,6 +97,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.WITCH_HAZEL_DOOR.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.ZELKOVA_DOOR.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.SYTHIAN_DOOR.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.EMBUR_DOOR.getBlock(), RenderType.getTranslucent());
         //Trapdoors
         RenderTypeLookup.setRenderLayer(BYGBlockList.ASPEN_TRAPDOOR.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.BAOBAB_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
@@ -120,6 +121,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.WITCH_HAZEL_TRAPDOOR.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.ZELKOVA_TRAPDOOR.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.SYTHIAN_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.EMBUR_TRAPDOOR.getBlock(), RenderType.getTranslucent());
 
         //Grass
         RenderTypeLookup.setRenderLayer(BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES.getBlock(), RenderType.getTranslucent());
