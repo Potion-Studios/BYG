@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "byg:embur_pedus"
+    }
+  ],
+  "result": {
+    "item": "byg:embur_planks",
+    "count": 4
+  }
+}

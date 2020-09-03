@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_slab",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:embur_planks"
+    }
+  },
+  "result": {
+    "item": "byg:embur_slab",
+    "count": 6
+  }
+}

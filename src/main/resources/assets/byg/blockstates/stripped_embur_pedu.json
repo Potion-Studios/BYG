@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "byg:block/stripped_embur_pedu"
+    },
+    "axis=z": {
+      "model": "byg:block/stripped_embur_pedu",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "byg:block/stripped_embur_pedu",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
