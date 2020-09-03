@@ -43,6 +43,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_PLANKS = new BYGBlockProperties.BYGPlanks("witch_hazel_planks"),
                 BYGBlockList.ZELKOVA_PLANKS = new BYGBlockProperties.BYGPlanks("zelkova_planks"),
                 BYGBlockList.SYTHIAN_PLANKS = new BYGBlockProperties.BYGPlanks("sythian_planks"),
+                BYGBlockList.EMBUR_PLANKS = new BYGBlockProperties.BYGPlanks("embur_planks"),
 
                 //Bookshelf Blocks
                 BYGBlockList.ASPEN_BOOKSHELF = new BYGBlockProperties.BlockBookshelf("aspen_bookshelf"),
@@ -67,6 +68,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_BOOKSHELF = new BYGBlockProperties.BlockBookshelf("witch_hazel_bookshelf"),
                 BYGBlockList.ZELKOVA_BOOKSHELF = new BYGBlockProperties.BlockBookshelf("zelkova_bookshelf"),
                 BYGBlockList.SYTHIAN_BOOKSHELF = new BYGBlockProperties.BlockBookshelf("sythian_bookshelf"),
+                BYGBlockList.EMBUR_BOOKSHELF = new BYGBlockProperties.BlockBookshelf("embur_bookshelf"),
 
                 //Doors
                 BYGBlockList.ASPEN_DOOR = new BYGBlockProperties.BYGDoors("aspen_door"),
@@ -91,6 +93,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_DOOR = new BYGBlockProperties.BYGDoors("witch_hazel_door"),
                 BYGBlockList.ZELKOVA_DOOR = new BYGBlockProperties.BYGDoors("zelkova_door"),
                 BYGBlockList.SYTHIAN_DOOR = new BYGBlockProperties.BYGDoors("sythian_door"),
+                BYGBlockList.EMBUR_DOOR = new BYGBlockProperties.BYGDoors("embur_door"),
 
                 //Pressure Plate Blocks
                 BYGBlockList.ASPEN_PRESSURE_PLATE = new BYGBlockProperties.BYGPressurePlate("aspen_pressure_plate"),
@@ -115,6 +118,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_PRESSURE_PLATE = new BYGBlockProperties.BYGPressurePlate("witch_hazel_pressure_plate"),
                 BYGBlockList.ZELKOVA_PRESSURE_PLATE = new BYGBlockProperties.BYGPressurePlate("zelkova_pressure_plate"),
                 BYGBlockList.SYTHIAN_PRESSURE_PLATE = new BYGBlockProperties.BYGPressurePlate("sythian_pressure_plate"),
+                BYGBlockList.EMBUR_PRESSURE_PLATE = new BYGBlockProperties.BYGPressurePlate("embur_pressure_plate"),
 
                 //Button Blocks
                 BYGBlockList.ASPEN_BUTTON = new BYGBlockProperties.BYGButtons("aspen_button"),
@@ -139,6 +143,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_BUTTON = new BYGBlockProperties.BYGButtons("witch_hazel_button"),
                 BYGBlockList.ZELKOVA_BUTTON = new BYGBlockProperties.BYGButtons("zelkova_button"),
                 BYGBlockList.SYTHIAN_BUTTON = new BYGBlockProperties.BYGButtons("sythian_button"),
+                BYGBlockList.EMBUR_BUTTON = new BYGBlockProperties.BYGButtons("embur_button"),
 
                 //Trapdoor Blocks
                 BYGBlockList.ASPEN_TRAPDOOR = new BYGBlockProperties.BYGTrapdoors("aspen_trapdoor"),
@@ -163,6 +168,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_TRAPDOOR = new BYGBlockProperties.BYGTrapdoors("witch_hazel_trapdoor"),
                 BYGBlockList.ZELKOVA_TRAPDOOR = new BYGBlockProperties.BYGTrapdoors("zelkova_trapdoor"),
                 BYGBlockList.SYTHIAN_TRAPDOOR = new BYGBlockProperties.BYGTrapdoors("sythian_trapdoor"),
+                BYGBlockList.EMBUR_TRAPDOOR = new BYGBlockProperties.BYGTrapdoors("embur_trapdoor"),
 
 
                 //Crafting Table Blocks
@@ -188,6 +194,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_CRAFTING_TABLE = new BYGBlockProperties.BYGCraftingTable("witch_hazel_crafting_table"),
                 BYGBlockList.ZELKOVA_CRAFTING_TABLE = new BYGBlockProperties.BYGCraftingTable("zelkova_crafting_table"),
                 BYGBlockList.SYTHIAN_CRAFTING_TABLE = new BYGBlockProperties.BYGCraftingTable("sythian_crafting_table"),
+                BYGBlockList.EMBUR_CRAFTING_TABLE = new BYGBlockProperties.BYGCraftingTable("embur_crafting_table"),
 
                 //Fence Gate Blocks
                 BYGBlockList.ASPEN_FENCE_GATE = new BYGBlockProperties.BYGFenceGate("aspen_fence_gate"),
@@ -212,6 +219,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_FENCE_GATE = new BYGBlockProperties.BYGFenceGate("witch_hazel_fence_gate"),
                 BYGBlockList.ZELKOVA_FENCE_GATE = new BYGBlockProperties.BYGFenceGate("zelkova_fence_gate"),
                 BYGBlockList.SYTHIAN_FENCE_GATE = new BYGBlockProperties.BYGFenceGate("sythian_fence_gate"),
+                BYGBlockList.EMBUR_FENCE_GATE = new BYGBlockProperties.BYGFenceGate("embur_fence_gate"),
 
                 //Slabs
                 BYGBlockList.ASPEN_SLAB = new BYGBlockProperties.BYGWoodSlab("aspen_slab"),
@@ -236,6 +244,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_SLAB = new BYGBlockProperties.BYGWoodSlab("witch_hazel_slab"),
                 BYGBlockList.ZELKOVA_SLAB = new BYGBlockProperties.BYGWoodSlab("zelkova_slab"),
                 BYGBlockList.SYTHIAN_SLAB = new BYGBlockProperties.BYGWoodSlab("sythian_slab"),
+                BYGBlockList.EMBUR_SLAB = new BYGBlockProperties.BYGWoodSlab("embur_slab"),
 
                 //Stairs Blocks
                 BYGBlockList.ASPEN_STAIRS = new BYGBlockProperties.BYGWoodStairs("aspen_stairs"),
@@ -260,6 +269,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_STAIRS = new BYGBlockProperties.BYGWoodStairs("witch_hazel_stairs"),
                 BYGBlockList.ZELKOVA_STAIRS = new BYGBlockProperties.BYGWoodStairs("zelkova_stairs"),
                 BYGBlockList.SYTHIAN_STAIRS = new BYGBlockProperties.BYGWoodStairs("sythian_stairs"),
+                BYGBlockList.EMBUR_STAIRS = new BYGBlockProperties.BYGWoodStairs("embur_stairs"),
 
                 //Fence Blocks
                 BYGBlockList.ASPEN_FENCE = new BYGBlockProperties.BYGFence("aspen_fence"),
@@ -284,6 +294,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_FENCE = new BYGBlockProperties.BYGFence("witch_hazel_fence"),
                 BYGBlockList.ZELKOVA_FENCE = new BYGBlockProperties.BYGFence("zelkova_fence"),
                 BYGBlockList.SYTHIAN_FENCE = new BYGBlockProperties.BYGFence("sythian_fence"),
+                BYGBlockList.EMBUR_FENCE = new BYGBlockProperties.BYGFence("embur_fence"),
 
                 //Ground Blocks
                 BYGBlockList.PEAT = new BYGBlockProperties.BYGDirt("peat"),
@@ -476,7 +487,6 @@ public class BYGBlockRegistry {
                 BYGBlockList.EMBUR_GEL_BLOCK = new BYGBlockProperties.BYGEmburGelBlock("embur_gel_block"),
                 BYGBlockList.EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines"),
                 BYGBlockList.EMBUR_NYLIUM = new BYGBlockProperties.BYGEmberNylium("embur_nylium"),
-                BYGBlockList.EMBUR_PEDU = new BYGBlockProperties.BYGLog("embur_pedu"),
                 BYGBlockList.EMBUR_SPROUTS = new BYGBlockProperties.BYGEmburPlant("embur_sprouts"),
                 BYGBlockList.EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots"),
                 BYGBlockList.EMBUR_WART = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart"),
@@ -572,6 +582,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_LOG = new BYGBlockProperties.BYGLog("witch_hazel_log"),
                 BYGBlockList.ZELKOVA_LOG = new BYGBlockProperties.BYGLog("zelkova_log"),
                 BYGBlockList.SYTHIAN_STEM = new BYGBlockProperties.BYGNetherLog("sythian_stem"),
+                BYGBlockList.EMBUR_PEDU = new BYGBlockProperties.BYGLog("embur_pedu"),
 
                 BYGBlockList.ASPEN_WOOD = new BYGBlockProperties.BYGWood("aspen_wood"),
                 BYGBlockList.BAOBAB_WOOD = new BYGBlockProperties.BYGWood("baobab_wood"),
@@ -596,6 +607,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.WITCH_HAZEL_WOOD = new BYGBlockProperties.BYGWood("witch_hazel_wood"),
                 BYGBlockList.ZELKOVA_WOOD = new BYGBlockProperties.BYGWood("zelkova_wood"),
                 BYGBlockList.SYTHIAN_HYPHAE = new BYGBlockProperties.BYGNetherWood("sythian_hyphae"),
+                BYGBlockList.EMBUR_HYPHAE = new BYGBlockProperties.BYGNetherWood("embur_hyphae_hyphae"),
 
                 //Mushroom Blocks
                 BYGBlockList.BLACK_PUFF = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.BlackPuff(), "black_puff"),
@@ -724,6 +736,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.STRIPPED_WITCH_HAZEL_LOG = new BYGBlockProperties.BYGStrippedLog("stripped_witch_hazel_log"),
                 BYGBlockList.STRIPPED_ZELKOVA_LOG = new BYGBlockProperties.BYGStrippedLog("stripped_zelkova_log"),
                 BYGBlockList.STRIPPED_SYTHIAN_STEM = new BYGBlockProperties.BYGNetherLog("stripped_sythian_stem"),
+                BYGBlockList.STRIPPED_EMBUR_PEDU = new BYGBlockProperties.BYGNetherLog("stripped_embur_pedu"),
 
                 //Stripped Wood Blocks
                 BYGBlockList.STRIPPED_ASPEN_WOOD = new BYGBlockProperties.BYGWood("stripped_aspen_wood"),
@@ -749,6 +762,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.STRIPPED_WITCH_HAZEL_WOOD = new BYGBlockProperties.BYGWood("stripped_witch_hazel_wood"),
                 BYGBlockList.STRIPPED_ZELKOVA_WOOD = new BYGBlockProperties.BYGWood("stripped_zelkova_wood"),
                 BYGBlockList.STRIPPED_SYTHIAN_HYPHAE = new BYGBlockProperties.BYGNetherWood("stripped_sythian_hyphae"),
+                BYGBlockList.STRIPPED_EMBUR_HYPHAE = new BYGBlockProperties.BYGNetherWood("stripped_embur_hyphae"),
 
                 //Flower Blocks
 

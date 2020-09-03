@@ -653,6 +653,27 @@ public class BYGItemRegistry {
                 BYGItemList.SYTHIAN_PRESSURE_PLATE = new BlockItem(BYGBlockList.SYTHIAN_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_PRESSURE_PLATE.getRegistryName()),
                 BYGItemList.SYTHIAN_BUTTON = new BlockItem(BYGBlockList.SYTHIAN_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_BUTTON.getRegistryName()),
 
+                //Embur Woodtype
+                BYGItemList.EMBUR_GEL_BALL = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("embur_gel_ball"),
+                BYGItemList.EMBUR_GEL_BLOCK = new BlockItem(BYGBlockList.EMBUR_GEL_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_GEL_BLOCK.getRegistryName()),
+                BYGItemList.EMBUR_GEL_VINES = new BlockItem(BYGBlockList.EMBUR_GEL_VINES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_GEL_VINES.getRegistryName()),
+                BYGItemList.EMBUR_WART = new BlockItem(BYGBlockList.EMBUR_WART, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_WART.getRegistryName()),
+                BYGItemList.EMBUR_PEDU = new BlockItem(BYGBlockList.EMBUR_PEDU, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_PEDU.getRegistryName()),
+                BYGItemList.EMBUR_HYPHAE = new BlockItem(BYGBlockList.EMBUR_HYPHAE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_HYPHAE.getRegistryName()),
+                BYGItemList.STRIPPED_EMBUR_PEDU = new BlockItem(BYGBlockList.STRIPPED_EMBUR_PEDU, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.STRIPPED_EMBUR_PEDU.getRegistryName()),
+                BYGItemList.STRIPPED_EMBUR_HYPHAE = new BlockItem(BYGBlockList.STRIPPED_EMBUR_HYPHAE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.STRIPPED_EMBUR_HYPHAE.getRegistryName()),
+                BYGItemList.EMBUR_PLANKS = new BlockItem(BYGBlockList.EMBUR_PLANKS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_PLANKS.getRegistryName()),
+                BYGItemList.EMBUR_BOOKSHELF = new BlockItem(BYGBlockList.EMBUR_BOOKSHELF, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_BOOKSHELF.getRegistryName()),
+                BYGItemList.EMBUR_CRAFTING_TABLE = new BlockItem(BYGBlockList.EMBUR_CRAFTING_TABLE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_CRAFTING_TABLE.getRegistryName()),
+                BYGItemList.EMBUR_STAIRS = new BlockItem(BYGBlockList.EMBUR_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_STAIRS.getRegistryName()),
+                BYGItemList.EMBUR_SLAB = new BlockItem(BYGBlockList.EMBUR_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_SLAB.getRegistryName()),
+                BYGItemList.EMBUR_FENCE = new BlockItem(BYGBlockList.EMBUR_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_FENCE.getRegistryName()),
+                BYGItemList.EMBUR_FENCE_GATE = new BlockItem(BYGBlockList.EMBUR_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_FENCE_GATE.getRegistryName()),
+                BYGItemList.EMBUR_DOOR = new TallBlockItem(BYGBlockList.EMBUR_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_DOOR.getRegistryName()),
+                BYGItemList.EMBUR_TRAPDOOR = new BlockItem(BYGBlockList.EMBUR_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_TRAPDOOR.getRegistryName()),
+                BYGItemList.EMBUR_PRESSURE_PLATE = new BlockItem(BYGBlockList.EMBUR_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.EMBUR_BUTTON = new BlockItem(BYGBlockList.EMBUR_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_BUTTON.getRegistryName()),
+
                 //SaplingItems
                 BYGItemList.BLUE_SPRUCE_SAPLING = new BlockItem(BYGBlockList.BLUE_SPRUCE_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_SPRUCE_SAPLING.getRegistryName()),
                 BYGItemList.BLUE_SPRUCE_LEAVES = new BlockItem(BYGBlockList.BLUE_SPRUCE_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_SPRUCE_LEAVES.getRegistryName()),
@@ -770,14 +791,9 @@ public class BYGItemRegistry {
                 BYGItemList.SYTHIAN_SCAFFOLDING = new ScaffoldingItem(BYGBlockList.SYTHIAN_SCAFFOLDING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SYTHIAN_SCAFFOLDING.getRegistryName()),
                 BYGItemList.HANGING_SYTHIAN_ROOTS = new BlockItem(BYGBlockList.HANGING_SYTHIAN_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HANGING_SYTHIAN_ROOTS.getRegistryName()),
 
-                BYGItemList.EMBUR_GEL_BALL = new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("embur_gel_ball"),
-                BYGItemList.EMBUR_GEL_BLOCK = new BlockItem(BYGBlockList.EMBUR_GEL_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_GEL_BLOCK.getRegistryName()),
-                BYGItemList.EMBUR_GEL_VINES = new BlockItem(BYGBlockList.EMBUR_GEL_VINES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_GEL_VINES.getRegistryName()),
                 BYGItemList.EMBUR_NYLIUM = new BlockItem(BYGBlockList.EMBUR_NYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_NYLIUM.getRegistryName()),
-                BYGItemList.EMBUR_PEDU = new BlockItem(BYGBlockList.EMBUR_PEDU, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_PEDU.getRegistryName()),
                 BYGItemList.EMBUR_SPROUTS = new BlockItem(BYGBlockList.EMBUR_SPROUTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_SPROUTS.getRegistryName()),
                 BYGItemList.EMBUR_ROOTS = new BlockItem(BYGBlockList.EMBUR_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_ROOTS.getRegistryName()),
-                BYGItemList.EMBUR_WART = new BlockItem(BYGBlockList.EMBUR_WART, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_WART.getRegistryName()),
                 BYGItemList.TALL_EMBUR_ROOTS = new BlockItem(BYGBlockList.TALL_EMBUR_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.TALL_EMBUR_ROOTS.getRegistryName()),
                 BYGItemList.EMBUR_LILY = (new EmburLilyItem(BYGBlockList.EMBUR_LILY, (new Item.Properties()).group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_LILY.getRegistryName())),
 
