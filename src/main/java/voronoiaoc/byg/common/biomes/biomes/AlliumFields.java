@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -51,6 +52,7 @@ public class AlliumFields extends Biome implements BiomeTools  {
 //        StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
 //        this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
 //        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS); //Strongholds & Mineshafts
         BYGFeatures.addAlliumFieldFlowers(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
