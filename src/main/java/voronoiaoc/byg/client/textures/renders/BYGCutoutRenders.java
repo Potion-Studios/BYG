@@ -27,6 +27,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.EMBUR_WART.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.EMBUR_GEL_BLOCK.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.EMBUR_GEL_VINES.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.EMBUR_SPROUTS.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.EMBUR_LILY.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.HANGING_BONE.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.WHALING_GRASS.getBlock(), RenderType.getCutoutMipped());

@@ -153,6 +153,7 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> EMBUR_ROOTS_TALL = newConfiguredFeature("tall_embur_roots", BYGFeatureList.TALL_EMBUR_ROOTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> EMBUR_GEL_VINES = newConfiguredFeature("embur_gel_vines", BYGFeatureList.EMBUR_GEL_VINES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> EMBUR_WART = newConfiguredFeature("embur_wart", BYGFeatureList.EMBUR_WART.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static ConfiguredFeature<?, ?> EMBUR_SPROUTS = newConfiguredFeature("embur_sprouts", BYGFeatureList.EMBUR_SPROUTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
     public static ConfiguredFeature<?, ?> CRIMSON_ROOTS_TALL = newConfiguredFeature("tall_crimson_roots", BYGFeatureList.TALL_CRIMSON_ROOTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> CRIMSON_BERRY_BUSH = newConfiguredFeature("crimson_berry_bush", BYGFeatureList.CRIMSON_BERRY_BUSH.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
@@ -306,6 +307,10 @@ public class BYGConfiguredFeatures {
             EMBUR_ROOTS_TALL.withChance(0.45F),
             EMBUR_ROOTS.withChance(0.5F)),
             EMBUR_WART)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_SPROUTS = newConfiguredFeature("rs_embur_sprouts", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            EMBUR_SPROUTS.withChance(0.5F)),
+            EMBUR_SPROUTS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(30))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SOUL_FIRE_PATCH_WARPED = newConfiguredFeature("patch_soul_fire_warped", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SOUL_FIRE_ON_NYLIUM.withChance(0.5F)),

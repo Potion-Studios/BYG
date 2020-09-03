@@ -775,6 +775,7 @@ public class BYGItemRegistry {
                 BYGItemList.EMBUR_GEL_VINES = new BlockItem(BYGBlockList.EMBUR_GEL_VINES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_GEL_VINES.getRegistryName()),
                 BYGItemList.EMBUR_NYLIUM = new BlockItem(BYGBlockList.EMBUR_NYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_NYLIUM.getRegistryName()),
                 BYGItemList.EMBUR_PEDU = new BlockItem(BYGBlockList.EMBUR_PEDU, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_PEDU.getRegistryName()),
+                BYGItemList.EMBUR_SPROUTS = new BlockItem(BYGBlockList.EMBUR_SPROUTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_SPROUTS.getRegistryName()),
                 BYGItemList.EMBUR_ROOTS = new BlockItem(BYGBlockList.EMBUR_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_ROOTS.getRegistryName()),
                 BYGItemList.EMBUR_WART = new BlockItem(BYGBlockList.EMBUR_WART, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_WART.getRegistryName()),
                 BYGItemList.TALL_EMBUR_ROOTS = new BlockItem(BYGBlockList.TALL_EMBUR_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.TALL_EMBUR_ROOTS.getRegistryName()),

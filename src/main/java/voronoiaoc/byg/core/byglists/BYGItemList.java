@@ -619,6 +619,7 @@ public class BYGItemList {
 
     public static Item EMBUR_NYLIUM;
     public static Item EMBUR_PEDU;
+    public static Item EMBUR_SPROUTS;
     public static Item EMBUR_ROOTS;
     public static Item TALL_EMBUR_ROOTS;
     public static Item EMBUR_WART;

@@ -264,6 +264,7 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> EMBUR_ROOTS = new EmburRoots(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> TALL_EMBUR_ROOTS = new TallEmburRoots(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> EMBUR_WART = new EmburWart(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> EMBUR_SPROUTS = new EmburSprouts(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> EMBUR_LILY = new EmburLily(NoFeatureConfig.field_236558_a_);
 
 
@@ -557,6 +558,7 @@ public class BYGFeatureList {
             registerFeature(EMBUR_GEL_VINES, "embur_gel_vines");
             registerFeature(EMBUR_ROOTS, "embur_roots");
             registerFeature(TALL_EMBUR_ROOTS, "tall_embur_roots");
+            registerFeature(EMBUR_SPROUTS, "embur_sprouts");
             registerFeature(EMBUR_WART, "embur_wart");
             registerFeature(EMBUR_LILY, "embur_lily");
             registerFeature(ACACIA_TREE1, "acacia_tree1");

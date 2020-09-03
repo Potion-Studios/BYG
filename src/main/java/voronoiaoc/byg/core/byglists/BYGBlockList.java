@@ -553,6 +553,7 @@ public class BYGBlockList {
 
     public static Block EMBUR_NYLIUM;
     public static Block EMBUR_PEDU;
+    public static Block EMBUR_SPROUTS;
     public static Block EMBUR_ROOTS;
     public static Block TALL_EMBUR_ROOTS;
     public static Block EMBUR_WART;

@@ -477,6 +477,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines"),
                 BYGBlockList.EMBUR_NYLIUM = new BYGBlockProperties.BYGEmberNylium("embur_nylium"),
                 BYGBlockList.EMBUR_PEDU = new BYGBlockProperties.BYGLog("embur_pedu"),
+                BYGBlockList.EMBUR_SPROUTS = new BYGBlockProperties.BYGEmburPlant("embur_sprouts"),
                 BYGBlockList.EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots"),
                 BYGBlockList.EMBUR_WART = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart"),
                 BYGBlockList.TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_embur_roots"),
