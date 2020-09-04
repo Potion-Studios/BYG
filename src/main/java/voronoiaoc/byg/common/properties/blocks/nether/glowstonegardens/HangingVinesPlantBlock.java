@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.properties.blocks;
+package voronoiaoc.byg.common.properties.blocks.nether.glowstonegardens;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;

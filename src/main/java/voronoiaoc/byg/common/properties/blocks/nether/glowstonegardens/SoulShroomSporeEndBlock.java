@@ -1,31 +1,26 @@
-package voronoiaoc.byg.common.properties.blocks;
+package voronoiaoc.byg.common.properties.blocks.nether.glowstonegardens;
 
-import net.minecraft.block.*;
-import net.minecraft.item.ItemStack;
+import net.minecraft.block.AbstractTopPlantBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.PlantBlockHelper;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.Tags;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
-import voronoiaoc.byg.core.byglists.BYGItemList;
 
 import java.util.Random;
 
-public class HangingVinesBlock extends AbstractTopPlantBlock {
+public class SoulShroomSporeEndBlock extends AbstractTopPlantBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
-    protected HangingVinesBlock(AbstractBlock.Properties properties) {
+    protected SoulShroomSporeEndBlock(Properties properties) {
         super(properties, Direction.DOWN, SHAPE, false, 0.1D);
     }
 
@@ -38,7 +33,7 @@ public class HangingVinesBlock extends AbstractTopPlantBlock {
     }
 
     protected Block getBodyPlantBlock() {
-        return BYGBlockList.WEEPING_ROOTS_PLANT;
+        return BYGBlockList.SOUL_SHROOM_SPORE;
     }
 
     protected boolean canGrowIn(BlockState state) {
@@ -54,7 +49,7 @@ public class HangingVinesBlock extends AbstractTopPlantBlock {
 
         for (int lvt_11_1_ = 0; lvt_11_1_ < 3; ++lvt_11_1_) {
             if (p_180655_4_.nextBoolean()) {
-                p_180655_2_.addParticle(ParticleTypes.END_ROD, lvt_7_1_ + (double) (p_180655_4_.nextFloat() / 5.0F), (double) p_180655_3_.getY() + (0.5D - (double) p_180655_4_.nextFloat()), lvt_9_1_ + (double) (p_180655_4_.nextFloat() / 5.0F), 0.0D, 0.0D, 0.0D);
+                p_180655_2_.addParticle(ParticleTypes.SOUL_FIRE_FLAME, lvt_7_1_ + (double) (p_180655_4_.nextFloat() / 5.0F), (double) p_180655_3_.getY() + (0.5D - (double) p_180655_4_.nextFloat()), lvt_9_1_ + (double) (p_180655_4_.nextFloat() / 5.0F), 0.0D, 0.0D, 0.0D);
             }
         }
 

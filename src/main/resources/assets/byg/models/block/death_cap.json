@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/death_cap",
+    "particle": "byg:block/death_cap"
+  }
+}

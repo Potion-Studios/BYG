@@ -777,7 +777,7 @@ public class BYGItemRegistry {
                 BYGItemList.SCORCHED_GRASS = new BlockItem(BYGBlockList.SCORCHED_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SCORCHED_GRASS.getRegistryName()),
 
                 BYGItemList.SOUL_SHROOM = new BlockItem(BYGBlockList.SOUL_SHROOM, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.6f).effect(new EffectInstance(Effects.WEAKNESS, 200, 0), 1.0F).build())).setRegistryName(BYGBlockList.SOUL_SHROOM.getRegistryName()),
-                BYGItemList.SOUL_SHROOM_SPORE = new BlockItem(BYGBlockList.SOUL_SHROOM_SPORE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SOUL_SHROOM_SPORE.getRegistryName()),
+                BYGItemList.SOUL_SHROOM_SPORE_END = new BlockItem(BYGBlockList.SOUL_SHROOM_SPORE_END, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SOUL_SHROOM_SPORE_END.getRegistryName()),
                 BYGItemList.SOUL_SHROOM_STEM = new BlockItem(BYGBlockList.SOUL_SHROOM_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SOUL_SHROOM_STEM.getRegistryName()),
                 BYGItemList.SOUL_SHROOM_BLOCK = new BlockItem(BYGBlockList.SOUL_SHROOM_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SOUL_SHROOM_BLOCK.getRegistryName()),
                 BYGItemList.DEATH_CAP = new BlockItem(BYGBlockList.DEATH_CAP, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.6f).effect(new EffectInstance(Effects.WITHER, 200, 0), 1.0F).build())).setRegistryName(BYGBlockList.DEATH_CAP.getRegistryName()),

@@ -468,6 +468,7 @@ public class BYGItemList {
 
     //MushroomPlantItems
     public static Item SOUL_SHROOM_SPORE;
+    public static Item SOUL_SHROOM_SPORE_END;
     public static Item SOUL_SHROOM;
     public static Item DEATH_CAP;
     public static Item BLACK_PUFF;

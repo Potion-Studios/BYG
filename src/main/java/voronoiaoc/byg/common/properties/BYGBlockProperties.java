@@ -21,7 +21,7 @@ import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburNyliumBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
-import voronoiaoc.byg.common.properties.blocks.nether.glowstonegardens.MyceliumNetherrackBlock;
+import voronoiaoc.byg.common.properties.blocks.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.properties.blocks.nether.scorched.ScorchedPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.sythian.*;
 import voronoiaoc.byg.common.properties.blocks.nether.wailing.HangingBonesBlock;
@@ -984,6 +984,32 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGSoulShroomSporeEnd extends SoulShroomSporeEndBlock {
+        public BYGSoulShroomSporeEnd(String registryName) {
+            super(Block.Properties.create(Material.LEAVES)
+                    .sound(SoundType.FUNGUS)
+                    .hardnessAndResistance(0.2f)
+                    .tickRandomly()
+                    .doesNotBlockMovement()
+                    .setLightLevel((state) -> 14)
+
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGSoulShroomSpore extends SoulShroomSporeBlock {
+        public BYGSoulShroomSpore(String registryName) {
+            super(Block.Properties.create(Material.LEAVES)
+                    .sound(SoundType.FUNGUS)
+                    .hardnessAndResistance(0.2f)
+                    .tickRandomly()
+                    .doesNotBlockMovement()
+            );
+            setRegistryName(registryName);
+        }
+    }
+
     public static class BYGSythianHangingRootsPlant extends HangingSythanRootsPlantBlock {
         public BYGSythianHangingRootsPlant(String registryName) {
             super(Block.Properties.create(Material.LEAVES)
@@ -1470,20 +1496,6 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 15)
                     .notSolid()
                     .harvestTool(ToolType.PICKAXE)
-
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGOrganicLantern extends LanternBlock {
-        public BYGOrganicLantern(String registryName) {
-            super(Block.Properties.create(Material.NETHER_WOOD)
-                    .sound(SoundType.SHROOMLIGHT)
-                    .hardnessAndResistance(0.5F)
-                    .setLightLevel((state) -> 15)
-                    .notSolid()
-                    .harvestTool(ToolType.HOE)
 
             );
             setRegistryName(registryName);

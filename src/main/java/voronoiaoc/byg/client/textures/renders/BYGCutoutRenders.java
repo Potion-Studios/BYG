@@ -38,6 +38,10 @@ public class BYGCutoutRenders {
         //Nether
         RenderTypeLookup.setRenderLayer(BYGBlockList.OVERGROWN_NETHERRACK.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.MOSSY_NETHERRACK.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.SOUL_SHROOM_SPORE.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.SOUL_SHROOM_SPORE_END.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.SOUL_SHROOM.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.DEATH_CAP.getBlock(), RenderType.getCutoutMipped());
 
         RenderTypeLookup.setRenderLayer(BYGBlockList.TALL_CRIMSON_ROOTS.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.CRIMSON_BERRY_BUSH.getBlock(), RenderType.getCutoutMipped());
