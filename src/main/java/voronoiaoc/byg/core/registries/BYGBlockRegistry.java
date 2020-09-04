@@ -405,6 +405,10 @@ public class BYGBlockRegistry {
                 BYGBlockList.PURPLE_GLOWSHROOM_BLOCK = new BYGBlockProperties.BlockHugeGlowshroom("purple_glowshroom_block"),
                 BYGBlockList.RED_GLOWSHROOM_STEM = new BYGBlockProperties.BlockHugeGlowshroomStem("red_glowshroom_stem"),
                 BYGBlockList.YELLOW_GLOWSHROOM_STEM = new BYGBlockProperties.BlockHugeGlowshroomStem("yellow_glowshroom_stem"),
+                BYGBlockList.SOUL_SHROOM_STEM = new BYGBlockProperties.BlockHugeNetherMushroomStem("soul_shroom_stem"),
+                BYGBlockList.SOUL_SHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("soul_shroom_block"),
+                BYGBlockList.DEATH_CAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("death_cap_mushroom_block"),
+
 
                 BYGBlockList.CATTAIL = new BYGBlockProperties.BlockCattail("cattail"),
                 BYGBlockList.REEDS = new BYGBlockProperties.BlockCattail("reeds"),
@@ -617,7 +621,9 @@ public class BYGBlockRegistry {
                 BYGBlockList.BLUE_GLOWSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.BlueGlowshroom(), "blue_glowshroom"),
                 BYGBlockList.PURPLE_GLOWSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.PurpleGlowshroom(), "purple_glowshroom"),
 
-                BYGBlockList.SYTHIAN_FUNGUS = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.BlackPuff(), "sythian_fungus"),
+                BYGBlockList.SYTHIAN_FUNGUS = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus"),
+                BYGBlockList.SOUL_SHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.SythianFungus(), "soul_shroom"),
+                BYGBlockList.DEATH_CAP = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.SythianFungus(), "death_cap"),
 
                 //Ore Blocks
                 BYGBlockList.PENDORITE_ORE = new BYGBlockProperties.BYGOrePendorite("pendorite_ore"),

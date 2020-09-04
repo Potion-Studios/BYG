@@ -70,5 +70,12 @@ public class BYGMushroomToHugeMushroom {
             return (random.nextInt(2) == 0) ? new EmburMushroom(NoFeatureConfig.field_236558_a_) : new EmburMushroom2(NoFeatureConfig.field_236558_a_);
         }
     }
+
+    public static class SythianFungus extends BYGHugeMushroom {
+        @Nullable
+        public BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? new SythianFungusTree1(NoFeatureConfig.field_236558_a_) : new SythianFungusTree3(NoFeatureConfig.field_236558_a_);
+        }
+    }
 }
 

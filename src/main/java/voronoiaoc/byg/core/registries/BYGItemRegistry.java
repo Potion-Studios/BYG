@@ -2,6 +2,8 @@ package voronoiaoc.byg.core.registries;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -773,6 +775,12 @@ public class BYGItemRegistry {
                 BYGItemList.WHALING_GRASS = new BlockItem(BYGBlockList.WHALING_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WHALING_GRASS.getRegistryName()),
                 BYGItemList.SCORCHED_BUSH = new BlockItem(BYGBlockList.SCORCHED_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SCORCHED_BUSH.getRegistryName()),
                 BYGItemList.SCORCHED_GRASS = new BlockItem(BYGBlockList.SCORCHED_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SCORCHED_GRASS.getRegistryName()),
+
+                BYGItemList.SOUL_SHROOM = new BlockItem(BYGBlockList.SOUL_SHROOM, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.6f).effect(new EffectInstance(Effects.WEAKNESS, 200, 0), 1.0F).build())).setRegistryName(BYGBlockList.SOUL_SHROOM.getRegistryName()),
+                BYGItemList.SOUL_SHROOM_STEM = new BlockItem(BYGBlockList.SOUL_SHROOM_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SOUL_SHROOM_STEM.getRegistryName()),
+                BYGItemList.SOUL_SHROOM_BLOCK = new BlockItem(BYGBlockList.SOUL_SHROOM_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SOUL_SHROOM_BLOCK.getRegistryName()),
+                BYGItemList.DEATH_CAP = new BlockItem(BYGBlockList.DEATH_CAP, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.6f).effect(new EffectInstance(Effects.WITHER, 200, 0), 1.0F).build())).setRegistryName(BYGBlockList.DEATH_CAP.getRegistryName()),
+                BYGItemList.DEATH_CAP_MUSHROOM_BLOCK = new BlockItem(BYGBlockList.DEATH_CAP_MUSHROOM_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.DEATH_CAP_MUSHROOM_BLOCK.getRegistryName()),
 
                 BYGItemList.WEEPING_ROOTS = new BlockItem(BYGBlockList.WEEPING_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WEEPING_ROOTS.getRegistryName()),
                 BYGItemList.NETHER_BRISTLE = new BlockItem(BYGBlockList.NETHER_BRISTLE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.NETHER_BRISTLE.getRegistryName()),
