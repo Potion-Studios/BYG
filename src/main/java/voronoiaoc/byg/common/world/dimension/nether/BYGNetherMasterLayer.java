@@ -1,6 +1,5 @@
 package voronoiaoc.byg.common.world.dimension.nether;
 
-import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.traits.AreaTransformer0;
@@ -14,9 +13,9 @@ public enum BYGNetherMasterLayer implements AreaTransformer0 {
     }
 
     public int pickRandomBiomeID(Context randomnessSource) {
-        if (BYGNetherBiomeProvider.biomeList.isEmpty()) {
+        if (BYGNetherBiomeProvider.biomeIdList.isEmpty()) {
             return BYGNetherBiomeProvider.biomeRegistry.getId(BYGNetherBiomeProvider.biomeRegistry.get(Biomes.NETHER_WASTES));
         }
-        return BYGNetherBiomeProvider.biomeRegistry.getId(BYGNetherBiomeProvider.biomeRegistry.get(BYGNetherBiomeProvider.biomeList.get(randomnessSource.nextRandom(BYGNetherBiomeProvider.biomeList.size()))));
+        return BYGNetherBiomeProvider.biomeRegistry.getId(BYGNetherBiomeProvider.biomeRegistry.get(BYGNetherBiomeProvider.biomeIdList.get(randomnessSource.nextRandom(BYGNetherBiomeProvider.biomeIdList.size()))));
     }
 }

@@ -15,7 +15,7 @@ public enum BYGEndMasterLayer implements AreaTransformer0 {
     }
 
     public int pickRandomBiomeID(Context randomnessSource) {
-        if (BYGNetherBiomeProvider.biomeList.isEmpty()) {
+        if (BYGNetherBiomeProvider.biomeIdList.isEmpty()) {
             return BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.get(Biomes.END_HIGHLANDS));
         }
         return BuiltinRegistries.BIOME.getId(BYGEndBiomeProvider.bygEndBiomeList.get(randomnessSource.nextRandom(BYGEndBiomeProvider.bygEndBiomeList.size())));

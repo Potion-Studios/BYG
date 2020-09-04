@@ -223,16 +223,16 @@ public class BYGBiomeRegistry {
         registerNetherBiome(BYGBiomeList.SYTHIANTORRIDS, "sythian_torrids");
         registerNetherBiome(BYGBiomeList.EMBURBOG, "embur_bog");
         // newDecorator existing nether biomes
-        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getBiomeCategory().equals(Biome.BiomeCategory.NETHER)).forEach(biome -> BYGNetherBiomeProvider.biomeList.add(BuiltinRegistries.BIOME.getKey(biome)));
+        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getBiomeCategory().equals(Biome.BiomeCategory.NETHER)).forEach(biome -> BYGNetherBiomeProvider.biomeIdList.add(BuiltinRegistries.BIOME.getKey(biome)));
         // newDecorator future biomes
         RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
             if (biome.getBiomeCategory().equals(Biome.BiomeCategory.NETHER)) {
-                BYGNetherBiomeProvider.biomeList.add(id);
+                BYGNetherBiomeProvider.biomeIdList.add(id);
             }
         });
         // this should never happen, but just in case...
         RegistryEntryRemovedCallback.event(BuiltinRegistries.BIOME).register((rawid, id, biome) -> {
-            BYGNetherBiomeProvider.biomeList.removeIf(biome::equals);
+            BYGNetherBiomeProvider.biomeIdList.removeIf(biome::equals);
         });
         BYG.LOGGER.info("BYG: Registered Nether Biomes!");
     }

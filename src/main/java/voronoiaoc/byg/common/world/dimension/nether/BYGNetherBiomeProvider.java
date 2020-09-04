@@ -3,10 +3,13 @@ package voronoiaoc.byg.common.world.dimension.nether;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.ResourceLocation;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import net.minecraft.core.Registry;
@@ -25,7 +28,7 @@ public class BYGNetherBiomeProvider extends BiomeSource {
 
 
     public BYGNetherBiomeProvider(Registry<Biome> registry, long seed) {
-        super(biomeList.stream().map(registry::get).collect(Collectors.toList()));
+        super(biomeIdList.stream().map(registry::get).collect(Collectors.toList()));
         this.seed = seed;
         this.biomeLayer = BYGNetherLayerProvider.stackLayers(seed);
         biomeRegistry = registry;
@@ -47,9 +50,34 @@ public class BYGNetherBiomeProvider extends BiomeSource {
         return new BYGNetherBiomeProvider(biomeRegistry, seed);
     }
 
-    public static List<ResourceLocation> biomeList = new ArrayList<>();
+    public static List<ResourceLocation> biomeIdList = new ArrayList<>();
 
     public static void addNetherBiomesForProvider() {
-        biomeList.add(new ResourceLocation("byg:sythian_torrids"));
+        biomeIdList.add(new ResourceLocation("byg:sythian_torrids"));
+    }
+
+
+    @Override
+    public List<Biome> possibleBiomes() {
+        return this.possibleBiomes;
+    }
+
+    @Override
+    public boolean canGenerateStructure(StructureFeature<?> structureFeature) {
+        return this.supportedStructures.computeIfAbsent(structureFeature,
+                (structureFeaturex) -> biomeIdList.stream().map(biomeRegistry::get).collect(Collectors.toList()).stream()
+                        .anyMatch((biome) -> biome.getGenerationSettings().isValidStart(structureFeaturex)));
+    }
+
+    @Override
+    public Set<BlockState> getSurfaceBlocks() {
+        if (this.surfaceBlocks.isEmpty()) {
+
+            for (Biome biome : biomeIdList.stream().map(biomeRegistry::get).collect(Collectors.toList())) {
+                this.surfaceBlocks.add(biome.getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial());
+            }
+        }
+
+        return this.surfaceBlocks;
     }
 }
