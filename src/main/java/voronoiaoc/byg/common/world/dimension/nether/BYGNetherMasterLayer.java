@@ -15,8 +15,8 @@ public enum BYGNetherMasterLayer implements AreaTransformer0 {
 
     public int pickRandomBiomeID(Context randomnessSource) {
         if (BYGNetherBiomeProvider.biomeList.isEmpty()) {
-            return BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.get(Biomes.NETHER_WASTES));
+            return BYGNetherBiomeProvider.biomeRegistry.getId(BYGNetherBiomeProvider.biomeRegistry.get(Biomes.NETHER_WASTES));
         }
-        return BuiltinRegistries.BIOME.getId(BYGNetherBiomeProvider.biomeList.get(randomnessSource.nextRandom(BYGNetherBiomeProvider.biomeList.size())));
+        return BYGNetherBiomeProvider.biomeRegistry.getId(BYGNetherBiomeProvider.biomeRegistry.get(BYGNetherBiomeProvider.biomeList.get(randomnessSource.nextRandom(BYGNetherBiomeProvider.biomeList.size()))));
     }
 }

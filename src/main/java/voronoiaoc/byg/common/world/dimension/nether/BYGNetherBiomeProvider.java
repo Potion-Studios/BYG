@@ -2,10 +2,13 @@ package voronoiaoc.byg.common.world.dimension.nether;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.resources.ResourceLocation;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import net.minecraft.core.Registry;
 import net.minecraft.resources.RegistryLookupCodec;
 import net.minecraft.world.level.biome.Biome;
@@ -18,11 +21,11 @@ public class BYGNetherBiomeProvider extends BiomeSource {
 
     private final Layer biomeLayer;
     private final long seed;
-    private final Registry<Biome> biomeRegistry;
+    public static Registry<Biome> biomeRegistry; // Should always be Dynamic Registry
 
 
     public BYGNetherBiomeProvider(Registry<Biome> registry, long seed) {
-        super(biomeList);
+        super(biomeList.stream().map(registry::get).collect(Collectors.toList()));
         this.seed = seed;
         this.biomeLayer = BYGNetherLayerProvider.stackLayers(seed);
         biomeRegistry = registry;
@@ -44,9 +47,9 @@ public class BYGNetherBiomeProvider extends BiomeSource {
         return new BYGNetherBiomeProvider(biomeRegistry, seed);
     }
 
-    public static List<Biome> biomeList = new ArrayList<>();
+    public static List<ResourceLocation> biomeList = new ArrayList<>();
 
     public static void addNetherBiomesForProvider() {
-        biomeList.add(BYGBiomeList.SYTHIANTORRIDS);
+        biomeList.add(new ResourceLocation("byg:sythian_torrids"));
     }
 }
