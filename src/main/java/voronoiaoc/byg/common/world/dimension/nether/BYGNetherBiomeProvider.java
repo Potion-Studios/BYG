@@ -59,7 +59,7 @@ public class BYGNetherBiomeProvider extends BiomeSource {
 
     @Override
     public List<Biome> possibleBiomes() {
-        return this.possibleBiomes;
+        return biomeIdList.stream().map(biomeRegistry::get).collect(Collectors.toList());
     }
 
     @Override
