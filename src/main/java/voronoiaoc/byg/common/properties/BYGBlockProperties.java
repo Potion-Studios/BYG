@@ -109,7 +109,7 @@ public class BYGBlockProperties {
 
     public static class BYGButtons extends WoodButtonBlock {
         public BYGButtons(String registryName) {
-            super(Block.Properties.create(Material.WOOD)
+            super(Block.Properties.create(Material.MISCELLANEOUS)
                     .sound(SoundType.WOOD)
                     .doesNotBlockMovement()
                     .hardnessAndResistance(0.5F)
@@ -1220,7 +1220,7 @@ public class BYGBlockProperties {
         public BlockHugeMushroom(String registryName) {
             super(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT)
                     .sound(SoundType.HYPHAE)
-                    .hardnessAndResistance(1.5f, 6.0f)
+                    .hardnessAndResistance(0.2F)
                     .notSolid()
             );
             setRegistryName(registryName);
@@ -1232,7 +1232,7 @@ public class BYGBlockProperties {
         public BlockHugeNetherMushroom(String registryName) {
             super(Block.Properties.create(Material.NETHER_WOOD, MaterialColor.DIRT)
                     .sound(SoundType.HYPHAE)
-                    .hardnessAndResistance(1.5f, 6.0f)
+                    .hardnessAndResistance(0.2F)
                     .setLightLevel((state) -> 12)
             );
             setRegistryName(registryName);
@@ -1249,7 +1249,7 @@ public class BYGBlockProperties {
         public BlockHugeNetherMushroomStem(String registryName) {
             super(Block.Properties.create(Material.NETHER_WOOD, MaterialColor.DIRT)
                     .sound(SoundType.HYPHAE)
-                    .hardnessAndResistance(1.5f, 6.0f)
+                    .hardnessAndResistance(0.2F)
             );
             setRegistryName(registryName);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
@@ -1265,7 +1265,7 @@ public class BYGBlockProperties {
         public BlockHugeGlowshroom(String registryName) {
             super(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT)
                     .sound(SoundType.HYPHAE)
-                    .hardnessAndResistance(1.5f, 6.0f)
+                    .hardnessAndResistance(0.2F)
                     .notSolid()
                     .setLightLevel((state) -> 12)
             );
@@ -1283,7 +1283,7 @@ public class BYGBlockProperties {
         public BlockHugeGlowshroomStem(String registryName) {
             super(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT)
                     .sound(SoundType.HYPHAE)
-                    .hardnessAndResistance(1.5f, 6.0f)
+                    .hardnessAndResistance(0.2F)
                     .setLightLevel((state) -> 12)
             );
             setRegistryName(registryName);
@@ -1470,6 +1470,20 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 15)
                     .notSolid()
                     .harvestTool(ToolType.PICKAXE)
+
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGOrganicLantern extends LanternBlock {
+        public BYGOrganicLantern(String registryName) {
+            super(Block.Properties.create(Material.NETHER_WOOD)
+                    .sound(SoundType.SHROOMLIGHT)
+                    .hardnessAndResistance(0.5F)
+                    .setLightLevel((state) -> 15)
+                    .notSolid()
+                    .harvestTool(ToolType.HOE)
 
             );
             setRegistryName(registryName);

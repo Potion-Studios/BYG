@@ -623,6 +623,7 @@ public class BYGBlockRegistry {
 
                 BYGBlockList.SYTHIAN_FUNGUS = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus"),
                 BYGBlockList.SOUL_SHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.SythianFungus(), "soul_shroom"),
+                BYGBlockList.SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGOrganicLantern("soul_shroom_spore"),
                 BYGBlockList.DEATH_CAP = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.SythianFungus(), "death_cap"),
 
                 //Ore Blocks

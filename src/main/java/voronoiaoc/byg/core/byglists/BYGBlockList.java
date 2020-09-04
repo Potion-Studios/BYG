@@ -407,6 +407,7 @@ public class BYGBlockList {
     public static Block SOUL_SHROOM_STEM;
 
     //MushroomPlantBlocks
+    public static Block SOUL_SHROOM_SPORE;
     public static Block SOUL_SHROOM;
     public static Block DEATH_CAP;
     public static Block BLACK_PUFF;
