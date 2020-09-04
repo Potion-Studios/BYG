@@ -1219,7 +1219,7 @@ public class BYGBlockProperties {
     public static class BlockHugeMushroom extends HugeMushroomBlock {
         public BlockHugeMushroom(String registryName) {
             super(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT)
-                    .sound(SoundType.WOOD)
+                    .sound(SoundType.HYPHAE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .notSolid()
             );
@@ -1231,9 +1231,26 @@ public class BYGBlockProperties {
     public static class BlockHugeGlowshroom extends HugeMushroomBlock {
         public BlockHugeGlowshroom(String registryName) {
             super(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT)
-                    .sound(SoundType.WOOD)
+                    .sound(SoundType.HYPHAE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .notSolid()
+                    .setLightLevel((state) -> 12)
+            );
+            setRegistryName(registryName);
+            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
+        }
+
+        @OnlyIn(Dist.CLIENT)
+        public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
+            return adjacentBlockState.getBlock() == this || super.isSideInvisible(state, adjacentBlockState, side);
+        }
+    }
+
+    public static class BlockHugeGlowshroomStem extends HugeMushroomBlock {
+        public BlockHugeGlowshroomStem(String registryName) {
+            super(Block.Properties.create(Material.PLANTS, MaterialColor.DIRT)
+                    .sound(SoundType.HYPHAE)
+                    .hardnessAndResistance(1.5f, 6.0f)
                     .setLightLevel((state) -> 12)
             );
             setRegistryName(registryName);

@@ -403,8 +403,8 @@ public class BYGBlockRegistry {
                 BYGBlockList.BROWN_MUSHROOM_STEM = new BYGBlockProperties.BlockHugeMushroom("brown_mushroom_stem"),
                 BYGBlockList.BLUE_GLOWSHROOM_BLOCK = new BYGBlockProperties.BlockHugeGlowshroom("blue_glowshroom_block"),
                 BYGBlockList.PURPLE_GLOWSHROOM_BLOCK = new BYGBlockProperties.BlockHugeGlowshroom("purple_glowshroom_block"),
-                BYGBlockList.RED_GLOWSHROOM_STEM = new BYGBlockProperties.BlockHugeGlowshroom("red_glowshroom_stem"),
-                BYGBlockList.YELLOW_GLOWSHROOM_STEM = new BYGBlockProperties.BlockHugeGlowshroom("yellow_glowshroom_stem"),
+                BYGBlockList.RED_GLOWSHROOM_STEM = new BYGBlockProperties.BlockHugeGlowshroomStem("red_glowshroom_stem"),
+                BYGBlockList.YELLOW_GLOWSHROOM_STEM = new BYGBlockProperties.BlockHugeGlowshroomStem("yellow_glowshroom_stem"),
 
                 BYGBlockList.CATTAIL = new BYGBlockProperties.BlockCattail("cattail"),
                 BYGBlockList.REEDS = new BYGBlockProperties.BlockCattail("reeds"),

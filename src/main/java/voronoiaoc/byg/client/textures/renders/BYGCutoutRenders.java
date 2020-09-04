@@ -253,8 +253,6 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.PURPLE_GLOWSHROOM_BLOCK.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.BLUE_GLOWSHROOM.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.BLUE_GLOWSHROOM_BLOCK.getBlock(), RenderType.getTranslucent());
-        RenderTypeLookup.setRenderLayer(BYGBlockList.RED_GLOWSHROOM_STEM.getBlock(), RenderType.getTranslucent());
-        RenderTypeLookup.setRenderLayer(BYGBlockList.YELLOW_GLOWSHROOM_STEM.getBlock(), RenderType.getTranslucent());
 
         RenderTypeLookup.setRenderLayer(BYGBlockList.BLACK_ICE.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.BLUEBERRY_BUSH.getBlock(), RenderType.getCutoutMipped());
