@@ -23,6 +23,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.Color;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.FolderName;
 import net.minecraftforge.fml.ModList;
@@ -103,7 +104,12 @@ public class BYGDataGenerator {
                         logger.error("Couldn't save biome {}", path2, var9);
                     }
                 }
-                commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS).toString().replace("\\", "/").replace("/./", "/") + "/data/" + modId + "/worldgen/biome/").modifyStyle(text -> text.setColor(Color.func_240744_a_(TextFormatting.GREEN))), false);
+                commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS).toString().replace("\\", "/").replace("/./", "/") + "/data/" + modId + "/worldgen/biome/").modifyStyle(text -> {
+//                    text.setColor(Color.func_240744_a_(TextFormatting.GREEN));
+
+                    return text.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS).toString().replace("\\", "/").replace("/./", "/") + "/data/" + modId + "/worldgen/biome/")).setColor(Color.func_240744_a_(TextFormatting.GREEN));
+
+                }), false);
                 biomeList.clear();
             }
             else {
