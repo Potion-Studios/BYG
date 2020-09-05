@@ -2,8 +2,11 @@ package voronoiaoc.byg;
 
 
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -34,6 +37,7 @@ import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGEntityList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
+import voronoiaoc.byg.data.BlockDataHelperCleanedUp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +49,7 @@ public class BYG {
     public static boolean isClient = false;
     public static Logger LOGGER = LogManager.getLogger();
     public static boolean isUsingMixin;
-    private static String langPath = "D:\\Coding\\BYG - Forge 1.16.X\\src\\main\\resources\\assets\\byg\\lang\\en_us.json";
+    private static final String langPath = "D:\\Coding\\BYG - Forge 1.16.X\\src\\main\\resources\\assets\\byg\\lang\\en_us.json";
 
     public BYG() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BYGConfig.COMMON_CONFIG);
@@ -76,19 +80,43 @@ public class BYG {
         BYGBiomeWeightSystem.addBYGBiomesToVanillaOverworld();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
 
-        List<String> idList = new ArrayList<>();
+//        makeBYGLangFile();
+
+    }
+
+
+    public static void makeBYGLangFile() {
+        List<String> blockIDList = new ArrayList<>();
+        List<String> itemIDList = new ArrayList<>();
+        List<String> biomeIDList = new ArrayList<>();
 
         for (Block block : ForgeRegistries.BLOCKS) {
             String blockID = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).toString();
 
             if (blockID.contains(MOD_ID))
-                idList.add(blockID.replace(MOD_ID + ":", ""));
-
-//            BlockDataHelperCleanedUp.createLangFile(langPath, MOD_ID, idList, true, true);
-
+                blockIDList.add(blockID.replace(MOD_ID + ":", ""));
         }
 
+        for (Item item : ForgeRegistries.ITEMS) {
+            String itemID = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).toString();
+
+            if (itemID.contains(MOD_ID))
+                itemIDList.add(itemID.replace(MOD_ID + ":", ""));
+        }
+
+
+        for (Biome biome : WorldGenRegistries.field_243657_i) {
+            String biomeID = Objects.requireNonNull(WorldGenRegistries.field_243657_i.getKey(biome)).toString();
+
+            if (biomeID.contains(MOD_ID))
+                biomeIDList.add(biomeID.replace(MOD_ID + ":", ""));
+        }
+
+        BlockDataHelperCleanedUp.createLangFile(langPath, MOD_ID, blockIDList, biomeIDList, itemIDList);
+
+
     }
+
 
     private void bygClientSetup(FMLClientSetupEvent event) {
         isClient = true;

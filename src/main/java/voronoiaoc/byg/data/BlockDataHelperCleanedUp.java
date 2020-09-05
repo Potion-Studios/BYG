@@ -24,51 +24,53 @@ public class BlockDataHelperCleanedUp {
      * @param langPath    The absolute path of the file along with the file name. I.E: "D:\Coding\src\main\resources\assets\modid\lang\en_us.json"
      * @param modID       Your mod's ID.
      * @param idList      A string list with your blocks/items
-     * @param isBlockList Is the list made up of blocks.
-     * @param isItemList  Is the list made up of items,
      */
-    public static void createLangFile(String langPath, String modID, List<String> idList, boolean isBlockList, boolean isItemList) {
+    public static void createLangFile(String langPath, String modID, List<String> idList, List<String> biomeIDs, List<String> itemIDs) {
 
         try {
             FileWriter fileWriter = new FileWriter(langPath);
             Gson prettyPrinting = new GsonBuilder().setPrettyPrinting().create();
             fileWriter.write(StringEscapeUtils.unescapeJava("{\n\""));
 
-            for (int idx = 0; idx < idList.size(); idx++) {
-                String id = idList.get(idx);
+            for (String id : biomeIDs) {
+                String biomePath = "\"biome." + modID + "." + id;
 
-                String blockPath = "\"block." + modID + "." + id;
-                if (isBlockList) {
-                    if (idx == idList.size() - 1 && !isItemList)
-                        blockPath = blockPath + "\":\"" + WordUtils.capitalize(id.replace("_", " ")) + "\"\n";
-
-                    String blockLangLine = blockPath + "\":\"" + WordUtils.capitalize(id.replace("_", " ")) + "\",\n";
-                    String blockTranslation = prettyPrinting.toJson(new JsonPrimitive(blockLangLine));
-                    blockTranslation = StringEscapeUtils.unescapeJava(blockTranslation);
-                    blockTranslation = StringEscapeUtils.unescapeJava(blockTranslation.replace("\"\"", ""));
-                    blockTranslation = blockTranslation.replace("{", "\",\n}");
-                    blockTranslation = blockTranslation.replace("\" \n\"\"}", "\",\n}");
-                    fileWriter.write(blockTranslation);
-                }
+                String blockLangLine = biomePath + "\":\"" + WordUtils.capitalize(id.replace("_", " ")) + "\",\n";
+                String blockTranslation = prettyPrinting.toJson(new JsonPrimitive(blockLangLine));
+                blockTranslation = StringEscapeUtils.unescapeJava(blockTranslation);
+                blockTranslation = StringEscapeUtils.unescapeJava(blockTranslation.replace("\"\"", ""));
+                blockTranslation = blockTranslation.replace("{", "\",\n}");
+                blockTranslation = blockTranslation.replace("\" \n\"\"}", "\",\n}");
+                fileWriter.write(blockTranslation);
             }
 
-            for (int idx = 0; idx < idList.size(); idx++) {
-                String id = idList.get(idx);
+            for (String id : idList) {
+                String blockPath = "\"block." + modID + "." + id;
+
+                String blockLangLine = blockPath + "\":\"" + WordUtils.capitalize(id.replace("_", " ")) + "\",\n";
+                String blockTranslation = prettyPrinting.toJson(new JsonPrimitive(blockLangLine));
+                blockTranslation = StringEscapeUtils.unescapeJava(blockTranslation);
+                blockTranslation = StringEscapeUtils.unescapeJava(blockTranslation.replace("\"\"", ""));
+                blockTranslation = blockTranslation.replace("{", "\",\n}");
+                blockTranslation = blockTranslation.replace("\" \n\"\"}", "\",\n}");
+                fileWriter.write(blockTranslation);
+            }
+
+            for (int idx = 0; idx < itemIDs.size(); idx++) {
+                String id = itemIDs.get(idx);
                 String itemPath = "\"item." + modID + "." + id;
-                if (isItemList) {
-                    String itemLangLine = itemPath + "\":\"" + WordUtils.capitalize(id.replace("_", " ")) + "\",\n";
-                    if (idx == idList.size() - 1)
-                        itemLangLine = itemPath + "\":\"" + WordUtils.capitalize(id.replace("_", " ")) + "\"\n";
-                    String itemTranslation = prettyPrinting.toJson(new JsonPrimitive(itemLangLine));
-                    itemTranslation = StringEscapeUtils.unescapeJava(itemTranslation);
+                String itemLangLine = itemPath + "\":\"" + WordUtils.capitalize(id.replace("_", " ")) + "\",\n";
+                if (idx == idList.size() - 1)
+                    itemLangLine = itemPath + "\":\"" + WordUtils.capitalize(id.replace("_", " ")) + "\"\n";
+                String itemTranslation = prettyPrinting.toJson(new JsonPrimitive(itemLangLine));
+                itemTranslation = StringEscapeUtils.unescapeJava(itemTranslation);
 
 
-                    itemTranslation = StringEscapeUtils.unescapeJava(itemTranslation.replace("\"\"", ""));
-                    itemTranslation = itemTranslation.replace("{", "\",\n}");
-                    itemTranslation = itemTranslation.replace("\" \n\"\"}", "\",\n}");
+                itemTranslation = StringEscapeUtils.unescapeJava(itemTranslation.replace("\"\"", ""));
+                itemTranslation = itemTranslation.replace("{", "\",\n}");
+                itemTranslation = itemTranslation.replace("\" \n\"\"}", "\",\n}");
 
-                    fileWriter.write(itemTranslation);
-                }
+                fileWriter.write(itemTranslation);
             }
 
             String endBracket = StringEscapeUtils.unescapeJava("}");
@@ -82,7 +84,6 @@ public class BlockDataHelperCleanedUp {
             LOGGER.error(modID + "'s en_us lang file failed to generate.");
         }
     }
-
 
 
     /**
@@ -102,12 +103,10 @@ public class BlockDataHelperCleanedUp {
             } else if (modifiedID.contains("_craft_table")) {
                 if (hasCraftingTable)
                     woodTypes.add(modifiedID);
-            }
-            else if (modifiedID.contains("_sign")) {
+            } else if (modifiedID.contains("_sign")) {
                 if (hasSign)
                     woodTypes.add(modifiedID);
-            }
-            else
+            } else
                 woodTypes.add(modifiedID);
         }
 
@@ -140,7 +139,7 @@ public class BlockDataHelperCleanedUp {
 
         for (String woodType : STONE_CUTTER_TYPES) {
             String modifiedID = stoneID + woodType;
-                stoneTypes.add(modifiedID);
+            stoneTypes.add(modifiedID);
         }
 
         createStoneCutterRecipes(absolutePath, modID, stoneTypes);
@@ -508,9 +507,9 @@ public class BlockDataHelperCleanedUp {
                 "  \"count\": resultcount\n" +
                 "}";
 
-        filterRecipeList.add(new Triple<>("_stairs","1", recipe));
-        filterRecipeList.add(new Triple<>("_slab","2", recipe));
-        filterRecipeList.add(new Triple<>("_wall","1", recipe));
+        filterRecipeList.add(new Triple<>("_stairs", "1", recipe));
+        filterRecipeList.add(new Triple<>("_slab", "2", recipe));
+        filterRecipeList.add(new Triple<>("_wall", "1", recipe));
 
         createStoneCutterRecipeGenerator(absolutePath, modID, idList, "key", "id", "resultcount", filterRecipeList);
     }
@@ -519,7 +518,6 @@ public class BlockDataHelperCleanedUp {
         String recipe = oreType.getRecipe();
         createCustomOreJsonLootTableGenerator(absolutePath, modID, idList, "key", "id", recipe, ingot);
     }
-
 
 
     /**
@@ -694,7 +692,6 @@ public class BlockDataHelperCleanedUp {
             }
         });
     }
-
 
 
     public enum OreType {
@@ -969,8 +966,6 @@ public class BlockDataHelperCleanedUp {
             return recipe;
         }
     }
-
-
 
 
     public static class Triple<A, B, C> {
