@@ -1,6 +1,7 @@
 package voronoiaoc.byg;
 
 
+import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import voronoiaoc.byg.client.textures.renders.BYGCutoutRenders;
@@ -33,12 +35,17 @@ import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGEntityList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 @Mod("byg")
 public class BYG {
     public static final String MOD_ID = "byg";
     public static boolean isClient = false;
     public static Logger LOGGER = LogManager.getLogger();
     public static boolean isUsingMixin;
+    private static String langPath = "D:\\Coding\\BYG - Forge 1.16.X\\src\\main\\resources\\assets\\byg\\lang\\en_us.json";
 
     public BYG() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BYGConfig.COMMON_CONFIG);
@@ -68,6 +75,19 @@ public class BYG {
         BYGBiomeWeightSystem.addBiomesToWeightSystem();
         BYGBiomeWeightSystem.addBYGBiomesToVanillaOverworld();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
+
+        List<String> idList = new ArrayList<>();
+
+        for (Block block : ForgeRegistries.BLOCKS) {
+            String blockID = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).toString();
+
+            if (blockID.contains(MOD_ID))
+                idList.add(blockID.replace(MOD_ID + ":", ""));
+
+//            BlockDataHelperCleanedUp.createLangFile(langPath, MOD_ID, idList, true, true);
+
+        }
+
     }
 
     private void bygClientSetup(FMLClientSetupEvent event) {
