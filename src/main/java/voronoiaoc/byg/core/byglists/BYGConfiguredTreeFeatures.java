@@ -148,6 +148,11 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> SHRUB_PRAIRIE1 = newConfiguredFeature("prairie_shrub1", BYGFeatureList.SHRUB_PRAIRIE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static final ConfiguredFeature<?, ?> SHRUB_PRAIRIE2 = newConfiguredFeature("prairie_shrub2", BYGFeatureList.SHRUB_PRAIRIE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
+    public static final ConfiguredFeature<?, ?> PUMPKIN1 = newConfiguredFeature("pumpkin1", BYGFeatureList.PUMPKIN_PATCH1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> PUMPKIN2 = newConfiguredFeature("pumpkin2", BYGFeatureList.PUMPKIN_PATCH2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> PUMPKIN3 = newConfiguredFeature("pumpkin3", BYGFeatureList.PUMPKIN_PATCH3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+
+
     public static final ConfiguredFeature<?, ?> SKYRIS_TREE1 = newConfiguredFeature("skyris_tree1", BYGFeatureList.SKYRIS_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static final ConfiguredFeature<?, ?> SKYRIS_TREE2 = newConfiguredFeature("skyris_tree2", BYGFeatureList.SKYRIS_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static final ConfiguredFeature<?, ?> SKYRIS_TREE3 = newConfiguredFeature("skyris_tree3", BYGFeatureList.SKYRIS_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
@@ -590,6 +595,12 @@ public class BYGConfiguredTreeFeatures {
             SHRUB_PRAIRIE1.withChance(0.1F)),
             Features.field_243875_bU)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(3, 0.4F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN_PATCH = newConfiguredFeature("rs_pumpkin_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            PUMPKIN1.withChance(0.45F),
+            PUMPKIN2.withChance(0.45F)),
+            PUMPKIN3)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_TREE = newConfiguredFeature("rs_enchanted_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ENCHANTED_BLUE_TREE2.withChance(0.2F),

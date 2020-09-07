@@ -213,16 +213,12 @@ public class BYGTreeFeatures {
 
     //TODO: Configured Pumpkin Random Selector
     public static void addLargePumpkins(BiomeGenerationSettings.Builder biome) {
-        //biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(3, 0.5F, -2))));
-        //biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH2.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
-        //biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH3.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_PUMPKIN_PATCH);
     }
 
     //TODO: Configured Pumpkin Random Selector
     public static void addWitchPumpkins(BiomeGenerationSettings.Builder biome) {
-        //biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(3, 0.5F, -2))));
-        //biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH2.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(3, 0.8F, 2))));
-        //biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PUMPKIN_PATCH3.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(3, 0.5F, 1))));
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_PUMPKIN_PATCH);
     }
 
     public static void addMarshTrees(BiomeGenerationSettings.Builder biome) {
