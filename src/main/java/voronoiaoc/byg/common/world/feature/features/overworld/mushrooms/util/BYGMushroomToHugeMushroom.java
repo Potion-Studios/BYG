@@ -77,5 +77,19 @@ public class BYGMushroomToHugeMushroom {
             return (random.nextInt(2) == 0) ? new SythianFungusTree1(NoFeatureConfig.field_236558_a_) : new SythianFungusTree3(NoFeatureConfig.field_236558_a_);
         }
     }
+
+    public static class SoulShroom extends BYGHugeMushroom {
+        @Nullable
+        public BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? new SoulShroomTree1(NoFeatureConfig.field_236558_a_) : new SoulShroomTree3(NoFeatureConfig.field_236558_a_);
+        }
+    }
+
+    public static class DeathCap extends BYGHugeMushroom {
+        @Nullable
+        public BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? new DeathCapTree2(NoFeatureConfig.field_236558_a_) : new DeathCapTree3(NoFeatureConfig.field_236558_a_);
+        }
+    }
 }
 

@@ -17,6 +17,7 @@ import voronoiaoc.byg.common.world.feature.features.nether.crimsongardens.TallCr
 import voronoiaoc.byg.common.world.feature.features.nether.crimsongardens.WeepingVineFeatureBlackstone;
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
+import voronoiaoc.byg.common.world.feature.features.nether.soulsandvalley.SoulShroomSporeFeature;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.*;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedBush;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedGrass;
@@ -206,6 +207,17 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> GREEN_MUSHROOM = new GreenMushroom(NoFeatureConfig.field_236558_a_);
 
     public static final Feature<NoFeatureConfig> NETHER_BRISTLE = new NetherBristle(NoFeatureConfig.field_236558_a_);
+
+    //SoulShroom
+    public static final Feature<NoFeatureConfig> SOUL_SHROOM_TREE1 = new SoulShroomTree1(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SOUL_SHROOM_TREE2 = new SoulShroomTree2(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SOUL_SHROOM_TREE3 = new SoulShroomTree3(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> SOUL_SHROOM_SPORES_HANGING = new SoulShroomSporeFeature(NoFeatureConfig.field_236558_a_);
+
+    //DeathCap
+    public static final Feature<NoFeatureConfig> DEATH_CAP_TREE1 = new DeathCapTree1(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> DEATH_CAP_TREE2 = new DeathCapTree2(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> DEATH_CAP_TREE3 = new DeathCapTree3(NoFeatureConfig.field_236558_a_);
 
     //Sythian
     public static final Feature<NoFeatureConfig> SYTHIAN_SPROUT = new SythianSprout(NoFeatureConfig.field_236558_a_);
@@ -529,6 +541,13 @@ public class BYGFeatureList {
             registerFeature(WARPED_FUNGUS_TREE2, "warped_fungus_tree2");
             registerFeature(CRIMSON_FUNGUS_TREE1, "crimson_fungus_tree1");
             registerFeature(CRIMSON_FUNGUS_TREE2, "crimson_fungus_tree2");
+            registerFeature(SOUL_SHROOM_SPORES_HANGING, "hanging_soul_shroom_spore_feature");
+            registerFeature(SOUL_SHROOM_TREE1, "soul_shroom_tree1");
+            registerFeature(SOUL_SHROOM_TREE2, "soul_shroom_tree2");
+            registerFeature(SOUL_SHROOM_TREE3, "soul_shroom_tree3");
+            registerFeature(DEATH_CAP_TREE1, "death_cap_tree1");
+            registerFeature(DEATH_CAP_TREE2, "death_cap_tree2");
+            registerFeature(DEATH_CAP_TREE3, "death_cap_tree3");
             registerFeature(SYTHIAN_SPROUT, "sythian_sprout");
             registerFeature(SYTHIAN_STALK, "sythian_stalk");
             registerFeature(SYTHIAN_ROOTS, "sythian_roots");

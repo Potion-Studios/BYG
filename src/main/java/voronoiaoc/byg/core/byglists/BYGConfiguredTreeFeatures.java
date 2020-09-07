@@ -266,6 +266,14 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_TREE3 = newConfiguredFeature("sythian_fungus_tree3", BYGFeatureList.SYTHIAN_FUNGUS_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_TREE4 = newConfiguredFeature("sythian_fungus_tree4", BYGFeatureList.SYTHIAN_FUNGUS_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
+    public static final ConfiguredFeature<?, ?> SOUL_SHROOM_TREE1 = newConfiguredFeature("soul_shroom_tree1", BYGFeatureList.SOUL_SHROOM_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> SOUL_SHROOM_TREE2 = newConfiguredFeature("soul_shroom_tree2", BYGFeatureList.SOUL_SHROOM_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> SOUL_SHROOM_TREE3 = newConfiguredFeature("soul_shroom_tree3", BYGFeatureList.SOUL_SHROOM_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+
+    public static final ConfiguredFeature<?, ?> DEATH_CAP_TREE1 = newConfiguredFeature("death_cap_tree1", BYGFeatureList.DEATH_CAP_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> DEATH_CAP_TREE2 = newConfiguredFeature("death_cap_tree2", BYGFeatureList.DEATH_CAP_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> DEATH_CAP_TREE3 = newConfiguredFeature("death_cap_tree3", BYGFeatureList.DEATH_CAP_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+
 
     /***********************************************************Random Selectors***********************************************************/
 
@@ -817,6 +825,18 @@ public class BYGConfiguredTreeFeatures {
             BLUE_GLOWSHROOM_HUGE.withChance(0.1F)),
             PURPLE_GLOWSHROOM_HUGE)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(25, 0.4F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SOUL_SHROOM_TREES = newConfiguredFeature("rs_soul_shroom_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            SOUL_SHROOM_TREE3.withChance(0.35F),
+            SOUL_SHROOM_TREE2.withChance(0.35F)),
+            SOUL_SHROOM_TREE1)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
+            new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_DEATH_CAP_TREES = newConfiguredFeature("rs_death_cap_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            DEATH_CAP_TREE3.withChance(0.35F),
+            DEATH_CAP_TREE2.withChance(0.35F)),
+            DEATH_CAP_TREE1)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
+            new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDENS_MUSHROOM = newConfiguredFeature("rs_gg_mushroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
                 WOOD_BLEWIT_HUGE.withChance(0.5F)),

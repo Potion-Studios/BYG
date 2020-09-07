@@ -351,6 +351,8 @@ public class BYGFeatures {
 
     public static void addHugeNetherMushrooms(BiomeGenerationSettings.Builder gen) {
         gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_GLOWSTONE_GARDENS_MUSHROOM);
+        gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SOUL_SHROOM_TREES);
+        gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_DEATH_CAP_TREES);
     }
 
     public static void addMiniNetherMushrooms(BiomeGenerationSettings.Builder gen) {
