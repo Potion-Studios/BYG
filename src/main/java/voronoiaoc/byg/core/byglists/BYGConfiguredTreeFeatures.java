@@ -830,18 +830,13 @@ public class BYGConfiguredTreeFeatures {
             SOUL_SHROOM_TREE3.withChance(0.35F),
             SOUL_SHROOM_TREE2.withChance(0.35F)),
             SOUL_SHROOM_TREE1)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
-            new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
+            new AtSurfaceWithExtraConfig(8, 0.5F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEATH_CAP_TREES = newConfiguredFeature("rs_death_cap_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEATH_CAP_TREE3.withChance(0.35F),
             DEATH_CAP_TREE2.withChance(0.35F)),
             DEATH_CAP_TREE1)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
-            new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDENS_MUSHROOM = newConfiguredFeature("rs_gg_mushroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-                WOOD_BLEWIT_HUGE.withChance(0.5F)),
-                BLACK_PUFF_HUGE)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
-                new AtSurfaceWithExtraConfig(6, 0.6F, 3))));
+            new AtSurfaceWithExtraConfig(8, 0.5F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MINI_MUSHROOMS = newConfiguredFeature("rs_mini_mushrooms", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             GREEN_MUSHROOM_MINI.withChance(0.16F),

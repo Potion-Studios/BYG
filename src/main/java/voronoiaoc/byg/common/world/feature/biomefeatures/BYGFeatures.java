@@ -314,6 +314,7 @@ public class BYGFeatures {
     }
 
     public static void addWarpedVegetation(BiomeGenerationSettings.Builder gen) {
+        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WARPED_CORAL_PLANT);
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WARPED_DESERT_VEGETATION);
         gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_SOUL_SOIL_PILLARS);
@@ -350,7 +351,6 @@ public class BYGFeatures {
     }
 
     public static void addHugeNetherMushrooms(BiomeGenerationSettings.Builder gen) {
-        gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_GLOWSTONE_GARDENS_MUSHROOM);
         gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SOUL_SHROOM_TREES);
         gen.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_DEATH_CAP_TREES);
     }
@@ -360,12 +360,8 @@ public class BYGFeatures {
     }
 
     public static void addTropFungalMushrooms(BiomeGenerationSettings.Builder gen) {
-        //gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-//                BYGFeatureList.GREEN_MUSHROOM_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.2F),
-//                BYGFeatureList.WOOD_BLEWIT_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.4F),
-//                BYGFeatureList.WEEPING_MILKCAP_HUGE.configure(DecoratedFeatureConfig.DEFAULT).withChance(0.4F)),
-//                BYGFeatureList.BLACK_PUFF_HUGE.configure(DecoratedFeatureConfig.DEFAULT))).decorate(Decorator.COUNT_EXTRA.configure(
-//                new AtSurfaceWithExtraConfig(15, 0.5F, 5))));
+        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_MUSHROOM);
+
     }
 
     public static void addIvisPlants(BiomeGenerationSettings.Builder gen) {

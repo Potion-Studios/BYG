@@ -23,8 +23,9 @@ public class BYGFeaturesInVanilla {
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SOAP_STONE);
 //                addFeatureToBiome(biome, GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.VOLCANO2);
+            }
 
-                if (biome == WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SOUL_SAND_VALLEY))
+            if (biome == WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SOUL_SAND_VALLEY)) {
                     addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
             }
         }

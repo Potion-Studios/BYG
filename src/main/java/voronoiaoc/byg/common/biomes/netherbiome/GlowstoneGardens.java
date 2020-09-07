@@ -40,7 +40,7 @@ public class GlowstoneGardens extends Biome implements BiomeTools {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
                 .func_242541_f(GRASS_COLOR)
                 .func_242540_e(FOLIAGE_COLOR)
-                .setFogColor(1287536)
+                .setFogColor(2064220)
                 .func_242539_d(BiomeHelper.calcSkyColor(2.0F))
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.MYCELIUM, 0.01428F))
                 .setAmbientSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)

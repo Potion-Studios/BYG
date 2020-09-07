@@ -161,7 +161,9 @@ public class BYGConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> SYTHIAN_ROOTS = newConfiguredFeature("sythian_root", BYGFeatureList.SYTHIAN_ROOTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> SYTHIAN_SPROUT = newConfiguredFeature("sythian_sprout", BYGFeatureList.SYTHIAN_SPROUT.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static ConfiguredFeature<?, ?> SYTHIAN_FUNGUS = newConfiguredFeature("sythian_sprout", BYGFeatureList.SYTHIAN_FUNGUS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static ConfiguredFeature<?, ?> SYTHIAN_FUNGUS = newConfiguredFeature("sythian_fungus", BYGFeatureList.SYTHIAN_FUNGUS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static ConfiguredFeature<?, ?> SOUL_SHROOM = newConfiguredFeature("soul_shroom", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SOUL_SHROOM_CONFIG));
+    public static ConfiguredFeature<?, ?> DEATH_CAP = newConfiguredFeature("death_cap", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.DEATH_CAP_CONFIG));
 
 
     public static ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = newConfiguredFeature("dead_sea_spike", BYGFeatureList.DEADSEASPIKES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
@@ -294,9 +296,9 @@ public class BYGConfiguredFeatures {
             GREEN_MUSHROOM)).withPlacement(Features.Placements.field_244002_m).func_242729_a(4));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDEN_VEGETATION = newConfiguredFeature("rs_gg_vegetation", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            BLACK_PUFF.withChance(0.2F),
-            WOOD_BLEWIT.withChance(0.2F)),
-            NETHER_BRISTLE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(15)).func_242731_b(1)));
+            SOUL_SHROOM.withChance(0.2F),
+            DEATH_CAP.withChance(0.2F)),
+            NETHER_BRISTLE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(4)).func_242731_b(1)));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CRIMSON_GARDEN_VEGETATION = newConfiguredFeature("rs_cg_vegetation", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_ROOTS_TALL.withChance(0.45F),

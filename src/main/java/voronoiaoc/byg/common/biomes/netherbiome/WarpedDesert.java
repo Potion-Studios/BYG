@@ -57,6 +57,8 @@ public class WarpedDesert extends Biome implements BiomeTools {
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244153_s); //BastionRemnant
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244150_p); //Nether Fossils
+
         BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
         BYGFeatures.addSoulFireWarped(GENERATION_SETTINGS);
 

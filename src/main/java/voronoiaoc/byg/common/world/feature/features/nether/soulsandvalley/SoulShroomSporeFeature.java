@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -12,6 +13,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraftforge.common.Tags;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
@@ -28,7 +30,7 @@ public class SoulShroomSporeFeature extends Feature<NoFeatureConfig> {
             return false;
         } else {
             BlockState blockstate = p_241855_1_.getBlockState(p_241855_4_.up());
-            if (!blockstate.isIn(Blocks.SOUL_SOIL) || !blockstate.isIn(Blocks.SOUL_SAND) && !blockstate.isIn(BYGBlockList.SOUL_SHROOM_BLOCK)) {
+            if (!blockstate.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) && !blockstate.isIn(BYGBlockList.SOUL_SHROOM_BLOCK)) {
                 return false;
             } else {
                 this.func_236428_a_(p_241855_1_, p_241855_3_, p_241855_4_);
@@ -39,7 +41,7 @@ public class SoulShroomSporeFeature extends Feature<NoFeatureConfig> {
     }
 
     private void func_236428_a_(IWorld p_236428_1_, Random p_236428_2_, BlockPos p_236428_3_) {
-        p_236428_1_.setBlockState(p_236428_3_, BYGBlockList.SYTHIAN_WART_BLOCK.getDefaultState(), 2);
+        p_236428_1_.setBlockState(p_236428_3_, BYGBlockList.SOUL_SHROOM_BLOCK.getDefaultState(), 2);
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
         BlockPos.Mutable blockpos$mutable1 = new BlockPos.Mutable();
 
@@ -50,7 +52,7 @@ public class SoulShroomSporeFeature extends Feature<NoFeatureConfig> {
 
                 for(Direction direction : field_236426_a_) {
                     BlockState blockstate = p_236428_1_.getBlockState(blockpos$mutable1.setAndMove(blockpos$mutable, direction));
-                    if (!blockstate.isIn(Blocks.SOUL_SOIL) || !blockstate.isIn(Blocks.SOUL_SAND) && !blockstate.isIn(BYGBlockList.SOUL_SHROOM_BLOCK)) {
+                    if (blockstate.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) || blockstate.isIn(BYGBlockList.SOUL_SHROOM_BLOCK)) {
                         ++j;
                     }
 
@@ -74,7 +76,7 @@ public class SoulShroomSporeFeature extends Feature<NoFeatureConfig> {
             blockpos$mutable.setAndOffset(p_236429_3_, p_236429_2_.nextInt(8) - p_236429_2_.nextInt(8), p_236429_2_.nextInt(2) - p_236429_2_.nextInt(7), p_236429_2_.nextInt(8) - p_236429_2_.nextInt(8));
             if (p_236429_1_.isAirBlock(blockpos$mutable)) {
                 BlockState blockstate = p_236429_1_.getBlockState(blockpos$mutable.up());
-                if (!blockstate.isIn(Blocks.SOUL_SOIL) || !blockstate.isIn(Blocks.SOUL_SAND) && !blockstate.isIn(BYGBlockList.SOUL_SHROOM_BLOCK)) {
+                if (blockstate.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) || blockstate.isIn(BYGBlockList.SOUL_SHROOM_BLOCK)) {
                     int j = MathHelper.nextInt(p_236429_2_, 1, 8);
                     if (p_236429_2_.nextInt(6) == 0) {
                         j *= 2;
