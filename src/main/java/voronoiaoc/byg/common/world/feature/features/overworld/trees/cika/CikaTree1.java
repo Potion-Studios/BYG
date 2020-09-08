@@ -28,7 +28,6 @@ public class CikaTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
-                BYG.LOGGER.info("FFFFFFFFFFFFFFFFFFFFFFFFF");
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
