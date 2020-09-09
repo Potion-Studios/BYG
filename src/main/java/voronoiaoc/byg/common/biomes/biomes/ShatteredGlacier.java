@@ -16,8 +16,8 @@ public class ShatteredGlacier extends Biome implements BiomeTools  {
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.ICY;
     static final float DEPTH = 0.1F;
-    static final float SCALE = 0.36F;
-    static final float TEMPERATURE = -0.5F;
+    static final float SCALE = -0.36F;
+    static final float TEMPERATURE = 0.35F;
     static final float DOWNFALL = 0.9F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
@@ -43,7 +43,7 @@ public class ShatteredGlacier extends Biome implements BiomeTools  {
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
-
+        DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243757_q(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
