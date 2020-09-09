@@ -6,13 +6,10 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.placements.AnyWaterOrSolidSurfaceSurface;
 import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 import voronoiaoc.byg.common.world.feature.placements.ObsidianSpikePlacer;
@@ -196,6 +193,13 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> RIVER = newConfiguredFeature("river_aheehee", BYGFeatureList.HUH.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
     public static ConfiguredFeature<?, ?> VOLCANO = newConfiguredFeature("volcano", BYGFeatureList.VOLCANO.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
     public static ConfiguredFeature<?, ?> VOLCANO2 = newConfiguredFeature("volcano2", BYGFeatureList.VOLCANO2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
+    public static final ConfiguredFeature<?, ?> BASALT_SPRING = newConfiguredFeature("blackhead_spring", Feature.SPRING_FEATURE.withConfiguration(new LiquidsConfig(Blocks.WATER.getDefaultState().getFluidState(), true, 4, 1, ImmutableSet.of(Blocks.BLACKSTONE))).withPlacement(Features.Placements.field_243999_j).func_242728_a().func_242731_b(16));
+    public static final ConfiguredFeature<?, ?> BASALT_DELTA = newConfiguredFeature("delta", Feature.field_236286_Q_.withConfiguration(new BasaltDeltasFeature(Blocks.WATER.getDefaultState(), BYGBlockList.BLACK_SAND.getDefaultState(), FeatureSpread.func_242253_a(3, 4), FeatureSpread.func_242253_a(0, 2))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(40))));
+    public static final ConfiguredFeature<?, ?> SMALL_BASALT_COLUMN = newConfiguredFeature("small_basalt_columns", Feature.field_236285_P_.withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(1, 3))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(4))));
+    public static final ConfiguredFeature<?, ?> LARGE_BASALT_COLUMN = newConfiguredFeature("large_basalt_columns", Feature.field_236285_P_.withConfiguration(new ColumnConfig(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(5, 5))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(2))));
+    public static final ConfiguredFeature<?, ?> BASALT_BLOBS = newConfiguredFeature("basalt_blobs", Feature.field_236287_R_.withConfiguration(new BlobReplacementConfig(BYGBlockList.BLACK_SAND.getDefaultState(), Blocks.BASALT.getDefaultState(), FeatureSpread.func_242253_a(3, 4))).func_242733_d(128).func_242728_a().func_242731_b(75));
+    public static final ConfiguredFeature<?, ?> BASALT_BLOBS2 = newConfiguredFeature("blackstone_blobs2", Feature.field_236287_R_.withConfiguration(new BlobReplacementConfig(BYGBlockList.BLACK_SAND.getDefaultState(), Blocks.BASALT.getDefaultState(), FeatureSpread.func_242253_a(3, 4))).func_242733_d(128).func_242728_a().func_242731_b(25));
+
 
     /***********************************************************Random Selectors***********************************************************/
 

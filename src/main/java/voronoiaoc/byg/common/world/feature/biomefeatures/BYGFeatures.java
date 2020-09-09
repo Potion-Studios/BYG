@@ -2,15 +2,21 @@ package voronoiaoc.byg.common.world.feature.biomefeatures;
 
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.Features;
-import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 import voronoiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
 
 public class BYGFeatures {
     public static void addAlliumFieldFlowers(BiomeGenerationSettings.Builder gen) {
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ALLIUM_FLOWER);
+    }
+
+    public static void addBasaltFeatures(BiomeGenerationSettings.Builder gen) {
+//        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_BLOBS);
+//        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_BLOBS2);
+//        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_SPRING);
+        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.LARGE_BASALT_COLUMN);
+        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.SMALL_BASALT_COLUMN);
     }
 
     public static void addAmaranthFieldFlowers(BiomeGenerationSettings.Builder gen) {
