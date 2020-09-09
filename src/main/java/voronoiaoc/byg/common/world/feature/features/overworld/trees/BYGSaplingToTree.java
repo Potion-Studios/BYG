@@ -169,7 +169,7 @@ public class BYGSaplingToTree {
     public static class MahogonySaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? BYGFeatureList.TROPICAL_TREE1 : BYGFeatureList.TROPICAL_SHORT_TREE1;
+            return random.nextInt(2) == 0 ? BYGFeatureList.MAHOGANY_TREE1 : BYGFeatureList.MAHOGANY_TREE3;
         }
     }
 
