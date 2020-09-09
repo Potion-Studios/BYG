@@ -84,6 +84,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.Ja
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.JacarandaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.JoshuaTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.JoshuaTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.mahogany.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.mangrove.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.maple.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.meadow.*;
@@ -482,6 +483,13 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> TROPICAL_SHORT_TREE1 = new ShortTropicalRainForestTree(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> TROPICAL_SHRUB1 = new TropicalShrub(NoFeatureConfig.field_236558_a_);
 
+    //Mahogany
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE1 = new MahoganyTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE2 = new MahoganyTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE3 = new MahoganyTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE4 = new MahoganyTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE5 = new MahoganyTree5(NoFeatureConfig.field_236558_a_);
+
     //Woodlands
     public static final BYGAbstractTreeFeature<NoFeatureConfig> WOODLANDS_TREE1 = new WoodlandsTree1(NoFeatureConfig.field_236558_a_);
 
@@ -708,6 +716,11 @@ public class BYGFeatureList {
             registerFeature(TROPICAL_TREE1, "tropical_tree1");
             registerFeature(TROPICAL_SHORT_TREE1, "tropical_short_tree1");
             registerFeature(TROPICAL_SHRUB1, "tropical_shrub1");
+            registerFeature(MAHOGANY_TREE1, "mahogany_tree1");
+            registerFeature(MAHOGANY_TREE2, "mahogany_tree2");
+            registerFeature(MAHOGANY_TREE3, "mahogany_tree3");
+            registerFeature(MAHOGANY_TREE4, "mahogany_tree4");
+            registerFeature(MAHOGANY_TREE5, "mahogany_tree5");
             registerFeature(WAILING_GRASS, "wailing_grass");
             registerFeature(WAILING_VINES, "wailing_vines");
             registerFeature(WOODLANDS_TREE1, "woodlands_tree1");

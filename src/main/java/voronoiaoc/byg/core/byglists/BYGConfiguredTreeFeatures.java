@@ -181,6 +181,13 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> TROPICAL_SHORT_TREE1 = newConfiguredFeature("tropical_short_tree1", BYGFeatureList.TROPICAL_SHORT_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static final ConfiguredFeature<?, ?> TROPICAL_SHRUB1 = newConfiguredFeature("tropical_shrub1", BYGFeatureList.TROPICAL_SHRUB1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
+    public static final ConfiguredFeature<?, ?> MAHOGANY_TREE1 = newConfiguredFeature("mahogany_tree1", BYGFeatureList.MAHOGANY_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MAHOGANY_TREE2 = newConfiguredFeature("mahogany_tree2", BYGFeatureList.MAHOGANY_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MAHOGANY_TREE3 = newConfiguredFeature("mahogany_tree3", BYGFeatureList.MAHOGANY_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MAHOGANY_TREE4 = newConfiguredFeature("mahogany_tree4", BYGFeatureList.MAHOGANY_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> MAHOGANY_TREE5 = newConfiguredFeature("mahogany_tree5", BYGFeatureList.MAHOGANY_TREE5.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+
+
     public static final ConfiguredFeature<?, ?> WOODLANDS_TREE1 = newConfiguredFeature("woodlands_tree1", BYGFeatureList.WOODLANDS_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
     public static final ConfiguredFeature<?, ?> DUMMY_TREE = newConfiguredFeature("dummy_tree", BYGFeatureList.DUMMY_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
@@ -525,36 +532,36 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(10, 0.4F, 5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_FUNGAL_TREE = newConfiguredFeature("rs_fungal_rainforest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            TROPICAL_SHORT_TREE1.withChance(0.6F),
-            TROPICAL_SHRUB1.withChance(0.1F),
-            TROPICAL_TREE1.withChance(0.4F),
             RAINBOW_LARGE_TREE1.withChance(0.1F),
             RAINBOW_TREE1.withChance(0.1F),
+            MAHOGANY_TREE5.withChance(0.1F),
             TROPICAL_SHRUB1.withChance(0.1F),
-            TROPICAL_SHORT_TREE1.withChance(0.1F)),
-            TROPICAL_SHORT_TREE1)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
+            MAHOGANY_TREE2.withChance(0.2F),
+            MAHOGANY_TREE3.withChance(0.2F),
+            MAHOGANY_TREE4.withChance(0.15F)),
+            MAHOGANY_TREE1)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(45, 0.1F, 10))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_SPARSE_TREE = newConfiguredFeature("rs_sparse_rainforest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            TROPICAL_SHORT_TREE1.withChance(0.6F),
-            TROPICAL_SHRUB1.withChance(0.1F),
-            TROPICAL_TREE1.withChance(0.4F),
             RAINBOW_LARGE_TREE1.withChance(0.1F),
             RAINBOW_TREE1.withChance(0.1F),
+            MAHOGANY_TREE5.withChance(0.1F),
             TROPICAL_SHRUB1.withChance(0.1F),
-            TROPICAL_SHORT_TREE1.withChance(0.1F)),
-            TROPICAL_SHORT_TREE1)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
+            MAHOGANY_TREE2.withChance(0.2F),
+            MAHOGANY_TREE3.withChance(0.2F),
+            MAHOGANY_TREE4.withChance(0.15F)),
+            MAHOGANY_TREE1)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_TREE = newConfiguredFeature("rs_rainforest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            TROPICAL_SHORT_TREE1.withChance(0.6F),
-            TROPICAL_SHRUB1.withChance(0.1F),
-            TROPICAL_TREE1.withChance(0.4F),
             RAINBOW_LARGE_TREE1.withChance(0.1F),
             RAINBOW_TREE1.withChance(0.1F),
+            MAHOGANY_TREE5.withChance(0.1F),
             TROPICAL_SHRUB1.withChance(0.1F),
-            TROPICAL_SHORT_TREE1.withChance(0.1F)),
-            TROPICAL_SHORT_TREE1)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
+            MAHOGANY_TREE2.withChance(0.2F),
+            MAHOGANY_TREE3.withChance(0.2F),
+            MAHOGANY_TREE4.withChance(0.15F)),
+            MAHOGANY_TREE1)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(65, 0.1F, 10))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_STONEFOREST_TREE = newConfiguredFeature("rs_stoneforest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
