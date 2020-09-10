@@ -26,13 +26,10 @@ public class CikaTree1 extends BYGAbstractTreeFeature<NoneFeatureConfiguration> 
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.below(), Blocks.GRASS_BLOCK)) {
-                BYG.LOGGER.info("AHHHHHHHHHHHHHHHHHHHHHHHHH");
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
-                BYG.LOGGER.info("FFFFFFFFFFFFFFFFFFFFFFFFF");
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
-                BYG.LOGGER.info("NNNNNNNNNNNNNNNNNNNNNN");
                 return false;
             } else {
                 this.treeLog(changedBlocks, worldIn, mainmutable.offset(0, 0, 0), boundsIn);

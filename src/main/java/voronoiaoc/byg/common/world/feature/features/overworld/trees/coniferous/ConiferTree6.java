@@ -1,12 +1,6 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.coniferous;
 
 import com.mojang.serialization.Codec;
-import voronoiaoc.byg.BYG;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import voronoiaoc.byg.core.byglists.BYGBlockList;
-
-import java.util.Random;
-import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelSimulatedReader;
@@ -15,6 +9,11 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
+import voronoiaoc.byg.core.byglists.BYGBlockList;
+
+import java.util.Random;
+import java.util.Set;
 
 public class ConiferTree6 extends BYGAbstractTreeFeature<NoneFeatureConfiguration> {
     //Blocks used for the tree.
@@ -46,10 +45,8 @@ public class ConiferTree6 extends BYGAbstractTreeFeature<NoneFeatureConfiguratio
             if (!isDesiredGroundwDirtTag(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
                 return false;
             }else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
-                BYG.LOGGER.info("AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, 5, 5, isSapling)) {
-                BYG.LOGGER.info("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
                 return false;
             } else {
 
