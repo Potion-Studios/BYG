@@ -6,7 +6,8 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
-import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.biomes.BiomeTools;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class CoralMangroves extends Biome implements BiomeTools {
@@ -58,16 +59,8 @@ public class CoralMangroves extends Biome implements BiomeTools {
         BYGFeatures.addPurpleOrchid(GENERATION_SETTINGS);
         BYGFeatures.addPinkOrchid(GENERATION_SETTINGS);
         BYGFeatures.addMudDisks(GENERATION_SETTINGS);
+        BYGFeatures.addMGCoral(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
-//        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.configure(new SimpleRandomFeatureConfig(ImmutableList.of(
-//                Feature.CORAL_TREE.configure(NoFeatureConfig.DEFAULT),
-//                Feature.CORAL_CLAW.configure(NoFeatureConfig.DEFAULT),
-//                Feature.CORAL_MUSHROOM.configure(NoFeatureConfig.DEFAULT))))
-//                .decorate(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(7, 0.1F, 3))));
-//
-//        GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION,
-//                Feature.SEA_PICKLE.configure(new SeaPickleFeatureConfig(20)).decorate(Decorator.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceDecoratorConfig(20))));
-
         DefaultBiomeFeatures.func_243696_J(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
 

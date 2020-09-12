@@ -299,6 +299,13 @@ public class BYGConfiguredTreeFeatures {
             WILLOW_TREE4)).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(
             new AtSurfaceWithExtraConfig(8, 0.3F, 2))));
 
+
+    public static final ConfiguredFeature<?, ?> RANDOM_CORAL_MANGROVE = newConfiguredFeature("rs_mg_coral", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            Feature.CORAL_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.25F),
+            Feature.CORAL_MUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.25F)),
+            Feature.CORAL_CLAW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(
+            new AtSurfaceWithExtraConfig(25, 0.3F, 2))));
+
     public static final ConfiguredFeature<?, ?> RANDOM_BLUFF_TREE = newConfiguredFeature("rs_bluff_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PINE_TREE1.withChance(0.05F),
             PINE_TREE2.withChance(0.05F),

@@ -208,6 +208,10 @@ public class BYGFeatures {
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MUSHROOM);
     }
 
+    public static void addMGCoral(BiomeGenerationSettings.Builder gen) {
+        gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_CORAL_MANGROVE);
+    }
+
     public static void addGlowshrooms(BiomeGenerationSettings.Builder gen) {
         gen.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_GLOWSHROOM);
     }
