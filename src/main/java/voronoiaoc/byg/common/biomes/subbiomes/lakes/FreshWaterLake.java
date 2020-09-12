@@ -15,7 +15,7 @@ public class FreshWaterLake extends BYGBiomeBuilder implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("fresh_water_lake", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.SWAMP;
-    static final float DEPTH = -0.4F;
+    static final float DEPTH = -0.5F;
     static final float SCALE = 0.00F;
     static final float TEMPERATURE = 0.8F;
     static final float DOWNFALL = 0.8F;

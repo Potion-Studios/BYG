@@ -35,7 +35,6 @@ public class BlueGiantTaiga extends BYGBiomeBuilder implements BiomeTools {
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
-
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243756_p(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243757_q(GENERATION_SETTINGS);
