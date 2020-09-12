@@ -20,7 +20,6 @@ public class BYGBiomeRegistry {
     public static void registerBYGBiomes() {
         BYG.LOGGER.debug("BYG: Registering Biomes...");
         registerBiome(BYGBiomeList.DUMMY_BIOME, "dummy_biome");
-
         registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields");
         registerBiome(BYGBiomeList.ALPS, "alps");
         registerBiome(BYGBiomeList.AMARANTHFIELDS, "amaranth_fields");
@@ -32,6 +31,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.BLUETAIGA, "blue_taiga");
         registerBiome(BYGBiomeList.BLUFFSTEEPS, "bluff_steeps");
         registerBiome(BYGBiomeList.BOREALFOREST, "boreal_forest");
+        registerBiome(BYGBiomeList.REDROCKCANYON, "canyons");
         registerBiome(BYGBiomeList.COLDSWAMPLANDS, "cold_swamplands");
         registerBiome(BYGBiomeList.CRAGGARDENS, "crag_gardens");
         registerBiome(BYGBiomeList.CIKA_WOODS, "cika_woods");
@@ -170,6 +170,7 @@ public class BYGBiomeRegistry {
 
         //NonDefault Biomes.
         registerBYGBiome(BYGBiomeList.ROCKYBEACH, "rocky_beach");
+        registerBYGBiome(BYGBiomeList.BASALT_BARRERA, "basalt_barrera");
         registerBYGBiome(BYGBiomeList.SNOWYROCKYBLACKBEACH, "snowy_rocky_black_beach");
         registerBYGBiome(BYGBiomeList.SNOWYBLACKBEACH, "snowy_black_beach");
         registerBYGBiome(BYGBiomeList.WHITEBEACH, "white_beach");

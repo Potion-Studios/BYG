@@ -16,13 +16,16 @@ import java.util.stream.Collectors;
 
 
 public class BYGFeaturesInVanilla {
-    public static void addFeatures() {
+    public static void addBYGFeaturesToBiomes() {
         for (Biome biome : WorldGenRegistries.field_243657_i) {
             if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_ROCKY_STONE);
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SOAP_STONE);
-//                addFeatureToBiome(biome, GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.VOLCANO2);
+                addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.TALL_GRASS);
+                addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.EMBUR_LAKE);
+                if (biome == WorldGenRegistries.field_243657_i.getValueForKey(Biomes.BADLANDS))
+                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ALLIUM_BUSH);
             }
 
             if (biome == WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SOUL_SAND_VALLEY)) {

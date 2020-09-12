@@ -24,6 +24,7 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
         super(configIn);
     }
 
+    @Override
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         if (pos.getX() == -4 && pos.getZ() == -4) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
