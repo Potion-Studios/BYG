@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
@@ -65,7 +66,9 @@ public class SnowyConiferousForest extends Biome implements BiomeTools {
     }
 
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.IGLOO);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.VILLAGE_SNOWY);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultCarvers(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);

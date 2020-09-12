@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.Features;
+import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.AmbientMoodSettings;
@@ -49,8 +50,9 @@ public class DeadSea extends Biome implements BiomeTools, BiomeFog {
 
 
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.COLD_OCEAN_RUIN);
-        //this.add//StructureFeature(DefaultBiomeFeatures.OCEAN_RUINED_PORTAL);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.OCEAN_RUIN_WARM);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_OCEAN);
         BiomeDefaultFeatures.addDefaultOverworldOceanStructures(GENERATION_SETTINGS);
         BYGFeatures.addDeadSeaSpires(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(GENERATION_SETTINGS);

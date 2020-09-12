@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
@@ -65,11 +66,11 @@ public class SnowyDeciduousForest extends Biome implements BiomeTools {
     }
 
     static {
-        ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
-//        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.IGLOO);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultCarvers(GENERATION_SETTINGS);
-
         BiomeDefaultFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addForestFlowers(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(GENERATION_SETTINGS);

@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import com.google.common.collect.Maps;
+import net.minecraft.data.worldgen.StructureFeatures;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -53,8 +54,9 @@ public class BluffSteeps extends Biome implements BiomeTools {
     }
 
     static {
-        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/taiga/town_centers"), 6));
-        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.VILLAGE_TAIGA);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_MOUNTAIN);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultCarvers(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);

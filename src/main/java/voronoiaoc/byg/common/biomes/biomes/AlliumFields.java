@@ -1,6 +1,8 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import com.google.common.collect.Maps;
+import net.minecraft.data.worldgen.StructureFeatures;
+import net.minecraft.data.worldgen.SurfaceBuilders;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -47,9 +49,11 @@ public class AlliumFields extends Biome implements BiomeTools {
     }
 
     static {
-//        StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
-//        this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
-//        DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.VILLAGE_PLAINS);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
+        BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
+
         BYGFeatures.addAlliumFieldFlowers(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);

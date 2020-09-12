@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import net.minecraft.data.worldgen.StructureFeatures;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -50,6 +51,8 @@ public class CikaWoods extends Biome implements BiomeTools {
     }
 
     static {
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addLargePumpkins(GENERATION_SETTINGS);
         BYGTreeFeatures.addCikaTrees(GENERATION_SETTINGS);

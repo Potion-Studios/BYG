@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.AmbientMoodSettings;
@@ -37,9 +38,9 @@ public class BaobabSavanna extends Biome implements BiomeTools {
     }
 
     static {
-        BYGTreeFeatures.addBaobabTrees(GENERATION_SETTINGS);
-        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/savanna/town_centers"), 6));
-        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.VILLAGE_SAVANNA);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultCarvers(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);

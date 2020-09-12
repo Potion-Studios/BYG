@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import net.minecraft.data.worldgen.StructureFeatures;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -51,6 +52,9 @@ public class WoodLands extends Biome implements BiomeTools {
     }
 
     static {
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.WOODLAND_MANSION);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addWoodlandTrees(GENERATION_SETTINGS);
         BYGTreeFeatures.addMeadowTrees(GENERATION_SETTINGS);

@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import com.google.common.collect.Maps;
+import net.minecraft.data.worldgen.StructureFeatures;
 import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
@@ -64,8 +65,7 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
 
 
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
-        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_JUNGLE);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BYGFeatures.addLargeLake(GENERATION_SETTINGS);
         BYGFeatures.addCattails(GENERATION_SETTINGS);

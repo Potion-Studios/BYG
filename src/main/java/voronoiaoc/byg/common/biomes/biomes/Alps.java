@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.AmbientMoodSettings;
@@ -41,10 +42,8 @@ public class Alps extends Biome implements BiomeTools {
     }
 
     static {
-        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/snowy/town_centers"), 6));
-        //this.addStructureFeature(DefaultBiomeFeatures.IGLOO);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_MOUNTAIN);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
-        //this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         BiomeDefaultFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
         SPAWN_SETTINGS.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 10, 2, 3));
         SPAWN_SETTINGS.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.POLAR_BEAR, 1, 1, 2));

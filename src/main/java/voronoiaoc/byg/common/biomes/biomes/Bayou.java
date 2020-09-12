@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import com.google.common.collect.Maps;
+import net.minecraft.data.worldgen.StructureFeatures;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
@@ -67,6 +68,9 @@ public class Bayou extends Biome implements BiomeTools {
     }
 
     static {
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.SWAMP_HUT);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_SWAMP);
+        BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addBayouVegetation(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultCarvers(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);

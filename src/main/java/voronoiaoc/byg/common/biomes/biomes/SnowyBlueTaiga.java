@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
@@ -49,10 +50,10 @@ public class SnowyBlueTaiga extends Biome implements BiomeTools {
 
 
     static {
-        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/snowy/town_centers"), 6));
-        //this.add//StructureFeature(DefaultBiomeFeatures.IGLOO);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.IGLOO);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
-        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         BYGTreeFeatures.addBlueTaigaTrees(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addFerns(GENERATION_SETTINGS);

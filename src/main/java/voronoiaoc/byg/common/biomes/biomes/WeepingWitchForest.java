@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
+import net.minecraft.data.worldgen.StructureFeatures;
 import voronoiaoc.byg.common.biomes.BiomeFog;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
@@ -55,6 +56,8 @@ public class WeepingWitchForest extends Biome implements BiomeTools, BiomeFog {
     }
 
     static {
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.WOODLAND_MANSION);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addDeadHazelTrees(GENERATION_SETTINGS);
         BYGTreeFeatures.addHugeMushrooms(GENERATION_SETTINGS);

@@ -1,6 +1,7 @@
 package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.AmbientMoodSettings;
@@ -44,6 +45,8 @@ public class EbonyWoods extends Biome implements BiomeTools {
 
 
     static {
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.WOODLAND_MANSION);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addEbonyTrees(GENERATION_SETTINGS);
         BYGTreeFeatures.addHugeMushrooms(GENERATION_SETTINGS);

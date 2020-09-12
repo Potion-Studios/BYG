@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
@@ -56,6 +57,7 @@ public class MapleTaiga extends Biome implements BiomeTools {
 
 
     static {
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BYGTreeFeatures.addMapleTrees(GENERATION_SETTINGS);
         BYGTreeFeatures.addSmallSpruceTrees(GENERATION_SETTINGS);
