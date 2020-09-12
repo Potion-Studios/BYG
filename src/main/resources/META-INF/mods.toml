@@ -4,7 +4,7 @@ license="LGPLv3"
 issueTrackerURL="https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId="byg"
-version="1.0.4"
+version="1.0.5"
 displayName="Oh The Biomes You'll Go"
 displayURL="https://biomesyougo.weebly.com/"
 logoFile="logo_text.png"
