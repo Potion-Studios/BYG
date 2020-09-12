@@ -8,11 +8,10 @@
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinSlimeEntity",
     "common.world.MixinVanillaBiomeLayers",
-    "common.world.feature.MixinBasaltFeatures",
     "common.world.layers.MixinShoreLayer"
   ],
   "client": [
-    "client.MixinGameRenderer"
+    "client.MixinMinecraft"
   ],
   "injectors": {
     "defaultRequire": 1
