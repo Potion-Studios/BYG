@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
@@ -52,8 +53,9 @@ public class Bog extends BYGBiomeBuilder implements BiomeTools  {
     }
 
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
-        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244144_j); //Witch Hut
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244131_B); //Ruined Portal Swamp
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS); //Overworld Land Structures
         BYGTreeFeatures.addMarshTrees(GENERATION_SETTINGS);
         BYGTreeFeatures.addMarshTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);

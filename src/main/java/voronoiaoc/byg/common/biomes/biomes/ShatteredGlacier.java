@@ -4,6 +4,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
@@ -40,11 +41,11 @@ public class ShatteredGlacier extends BYGBiomeBuilder implements BiomeTools  {
     
 
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.IGLOO);
-        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
-        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244141_g); //Igloo
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244159_y); //Ruined Portal Standard
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS); //Overworld Land Structures
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
-
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243757_q(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);

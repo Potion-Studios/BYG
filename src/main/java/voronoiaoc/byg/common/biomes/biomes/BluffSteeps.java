@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -55,9 +56,10 @@ public class BluffSteeps extends BYGBiomeBuilder implements BiomeTools  {
     }
 
     static {
-        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/taiga/town_centers"), 6));
-        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
-        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244158_x); //Taiga Village
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244132_C); //Ruined Portal Mountain
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS); //Overworld Land Structures
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243756_p(GENERATION_SETTINGS);

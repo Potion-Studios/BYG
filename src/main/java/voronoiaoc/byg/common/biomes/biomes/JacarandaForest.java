@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
@@ -61,9 +62,9 @@ public class JacarandaForest extends BYGBiomeBuilder implements BiomeTools  {
     }
 
     static {
-        ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
-//        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
-        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244139_e); //Jungle Temple
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244130_A); //Ruined Portal Jungle
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS); //Overworld Land Structures
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243700_N(GENERATION_SETTINGS);

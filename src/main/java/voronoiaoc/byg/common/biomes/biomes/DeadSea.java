@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
@@ -45,9 +46,10 @@ public class DeadSea extends BYGBiomeBuilder implements BiomeTools , BiomeFog {
 
 
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.COLD_OCEAN_RUIN);
-        //this.add//StructureFeature(DefaultBiomeFeatures.OCEAN_RUINED_PORTAL);
-        DefaultBiomeFeatures.func_243736_c(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244148_n); //Warm Ocean Ruins
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244133_D); //Ruined Portal Ocean
+        DefaultBiomeFeatures.func_243736_c(GENERATION_SETTINGS); //Overworld Ocean Structures
         BYGFeatures.addDeadSeaSpires(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243750_j(GENERATION_SETTINGS);

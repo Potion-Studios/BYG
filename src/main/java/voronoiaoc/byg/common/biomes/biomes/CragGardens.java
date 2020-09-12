@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeFog;
@@ -62,9 +63,8 @@ public class CragGardens extends BYGBiomeBuilder implements BiomeTools , BiomeFo
 
 
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
-        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
-        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244130_A); //Ruined Portal Jungle
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS); //Overworld Land Structures
         BYGFeatures.addLargeLake(GENERATION_SETTINGS);
         BYGFeatures.addCattails(GENERATION_SETTINGS);
         BYGFeatures.addBYGLilyPad(GENERATION_SETTINGS);

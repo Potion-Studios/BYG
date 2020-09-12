@@ -5,6 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
@@ -52,6 +53,10 @@ public class CypressSwampland extends BYGBiomeBuilder implements BiomeTools  {
 
 
     static {
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244144_j); //Witch Hut
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244131_B); //Ruined Portal Swamp
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS); //Overworld Land Structures
         BYGTreeFeatures.addCypressTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243746_h(GENERATION_SETTINGS);

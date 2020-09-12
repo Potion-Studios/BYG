@@ -4,6 +4,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -33,8 +34,10 @@ public class TropicalIslands extends BYGBiomeBuilder implements BiomeTools  {
     }
 
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
-        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244139_e); //Jungle Temple
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244130_A); //Ruined Portal Jungle
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS); //Overworld Land Structures
         BYGTreeFeatures.addIslandRainbowTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243738_d(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243748_i(GENERATION_SETTINGS);

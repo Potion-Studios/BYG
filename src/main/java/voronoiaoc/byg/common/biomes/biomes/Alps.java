@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -43,10 +44,9 @@ public class Alps extends BYGBiomeBuilder implements BiomeTools {
     }
 
     static {
-        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/snowy/town_centers"), 6));
-        //this.addStructureFeature(DefaultBiomeFeatures.IGLOO);
-        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
-        //this.addStructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244141_g); //Igloo
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244132_C); //Ruined Portal Mountain
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS); //Overworld Land Structures
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
         SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 10, 2, 3));
         SPAWN_SETTINGS.func_242575_a(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.POLAR_BEAR, 1, 1, 2));

@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
@@ -47,9 +48,10 @@ public class GrassLandPlateau extends BYGBiomeBuilder implements BiomeTools  {
 
 
     static {
-        //        //this.add//StructureFeature(BYGFeatureList.BYGVILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("byg:village/grassland/town_centers"), 6)));
-        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
-        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244154_t); //Plains Village
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244132_C); //Ruined Portal Mountain
+        DefaultBiomeFeatures.func_243733_b(GENERATION_SETTINGS); //Overworld Land Structures
         BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
         BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243697_K(GENERATION_SETTINGS);
