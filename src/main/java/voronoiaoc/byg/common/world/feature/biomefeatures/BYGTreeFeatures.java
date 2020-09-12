@@ -64,7 +64,7 @@ public class BYGTreeFeatures {
     }
 
     public static void addGiantBlueTaigaTrees(BiomeGenerationSettings.Builder biome) {
-        biome.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_BLUE_TAIGA_TREE);
+        biome.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_GIANT_BLUE_TAIGA_TREE);
     }
 
     public static void addGiantSeasonalTaigaTrees(BiomeGenerationSettings.Builder biome) {

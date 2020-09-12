@@ -268,12 +268,12 @@ public class BYGConfiguredTreeFeatures {
             BLUFF_TREE2.weighted(0.3F),
             BLUFF_TREE3.weighted(0.25F)),
             CONIFER_TREE6)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(22, 0.3F, -10))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(12, 0.3F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_TREE = newConfiguredFeature("rs_boreal", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             BOREAL_TREE1.weighted(0.5F)),
             BOREAL_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(55, 0.5F, -20))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(20, 0.5F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_SPARSE_TREE = newConfiguredFeature("rs_sparse_boreal", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             BOREAL_TREE1.weighted(0.5F)),
@@ -289,7 +289,7 @@ public class BYGConfiguredTreeFeatures {
             PINE_LARGE_TREE2.weighted(0.5F),
             PINE_TREE1.weighted(0.5F)),
             PINE_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(45, 0.4F, 5))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(30, 0.4F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLACK_FOREST_SPARSE_TREE = newConfiguredFeature("rs_sparse_black_forest", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             PINE_LARGE_TREE1.weighted(0.45F),
@@ -302,7 +302,7 @@ public class BYGConfiguredTreeFeatures {
             CIKA_TREE2.weighted(0.2F),
             CIKA_TREE3.weighted(0.1F)),
             CIKA_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(6, 0.4F, 3))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(4, 0.4F, 3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_TREE = newConfiguredFeature("rs_conifer_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             CONIFER_TREE1.weighted(0.06F),
@@ -313,7 +313,7 @@ public class BYGConfiguredTreeFeatures {
             CONIFER_TREE6.weighted(0.2F),
             CONIFER_TREE7.weighted(0.1F)),
             CONIFER_TREE8)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(40, 0.4F, 10))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(30, 0.4F, 10))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_SPARSE_TREE = newConfiguredFeature("rs_sparse_conifer_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             CONIFER_TREE1.weighted(0.06F),
@@ -332,7 +332,7 @@ public class BYGConfiguredTreeFeatures {
             Features.BAMBOO.weighted(0.2F),
             RAINBOW_LARGE_TREE1.weighted(0.1F)),
             Features.BAMBOO)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(50, 0.4F, 8))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(30, 0.4F, 8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CYPRESS_TREE = newConfiguredFeature("rs_cypress_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             CYPRESS_TREE1.weighted(0.5F),
@@ -343,7 +343,7 @@ public class BYGConfiguredTreeFeatures {
     public static ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_TREE = newConfiguredFeature("rs_deciduous_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             DECIDUOUS_TREE1.weighted(0.9F)),
             SHRUB)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(24, 0.4F, 4))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(20, 0.4F, 4))));
 
     public static ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_SPARSE_TREE = newConfiguredFeature("rs_sparse_deciduous_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             DECIDUOUS_TREE1.weighted(0.5F)),
@@ -357,7 +357,7 @@ public class BYGConfiguredTreeFeatures {
             Features.PINE.weighted(0.2F),
             CONIFER_TREE7.weighted(0.1F)),
             CONIFER_TREE8)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(20, 0.4F, 2))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(10, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EUCALYPTUS_TREE = newConfiguredFeature("rs_eucalyptus_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             RAINBOW_TREE1.weighted(0.1F)),
@@ -385,7 +385,7 @@ public class BYGConfiguredTreeFeatures {
             INDIGO_JACARANDA_TREE2.weighted(0.3F),
             INDIGO_JACARANDA_TREE1.weighted(0.3F)),
             JACARANDA_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(45, 0.1F, -15))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(25, 0.1F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_SPARSE_TREE = newConfiguredFeature("rs_sparse_jacaranda", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             INDIGO_JACARANDA_TREE1.weighted(0.3F)),
@@ -429,7 +429,7 @@ public class BYGConfiguredTreeFeatures {
             REDWOOD_TREE1.weighted(0.55F),
             REDWOOD_TREE2.weighted(0.1F)),
             REDWOOD_TREE3)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(8, 0.4F, 2))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(5, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_REDWOOD_SPARSE_TREE = newConfiguredFeature("rs_sparse_redwood_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             REDWOOD_TREE1.weighted(0.55F),
@@ -502,7 +502,7 @@ public class BYGConfiguredTreeFeatures {
             TROPICAL_SHRUB1.weighted(0.1F),
             TROPICAL_SHORT_TREE1.weighted(0.1F)),
             TROPICAL_SHORT_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(45, 0.1F, 10))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(35, 0.1F, 10))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_SPARSE_TREE = newConfiguredFeature("rs_sparse_rainforest_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             TROPICAL_SHORT_TREE1.weighted(0.6F),
@@ -524,14 +524,14 @@ public class BYGConfiguredTreeFeatures {
             TROPICAL_SHRUB1.weighted(0.1F),
             TROPICAL_SHORT_TREE1.weighted(0.1F)),
             TROPICAL_SHORT_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(65, 0.1F, 10))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(45, 0.1F, 10))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SKYRIS_TREE = newConfiguredFeature("rs_skyris_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             SKYRIS_TREE1.weighted(0.2F),
             SKYRIS_TREE2.weighted(0.2F),
             SKYRIS_TREE3.weighted(0.1F)),
             SKYRIS_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(15, 0.4F, 4))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(12, 0.4F, 4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BAOBAB_TREE = newConfiguredFeature("rs_baobab_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             Features.ACACIA.weighted(0.1F)),
@@ -573,7 +573,7 @@ public class BYGConfiguredTreeFeatures {
             ENCHANTED_GREEN_TREE2.weighted(0.2F),
             ENCHANTED_GREEN_TREE3.weighted(0.1F)),
             Features.SWAMP_TREE)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(25, 0.4F, 5))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(20, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM_BAYOU_TREE = newConfiguredFeature("rs_glowshroom_bayou_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             WILLOW_DEAD_TREE1.weighted(0.2F),
@@ -589,7 +589,7 @@ public class BYGConfiguredTreeFeatures {
             ASPEN_TREE2.weighted(0.50F),
             ASPEN_TREE3.weighted(0.25F)),
             ASPEN_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(30, 0.5F, -1))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(20, 0.5F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_SHRUB = newConfiguredFeature("rs_aspen_shrub", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ASPEN_SHRUB1.weighted(0.1F)),
@@ -606,7 +606,7 @@ public class BYGConfiguredTreeFeatures {
             ZELKOVA_TREE2.weighted(0.2F),
             ZELKOVA_TREE3.weighted(0.1F)),
             ZELKOVA_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(30, 0.4F, -2))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(20, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_ZELKOVA_TREE = newConfiguredFeature("rs_sparse_zelkova_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             ZELKOVA_TREE2.weighted(0.2F),
@@ -644,7 +644,7 @@ public class BYGConfiguredTreeFeatures {
             CHERRY_PINK_TREE2.weighted(0.2F),
             CHERRY_WHITE_TREE1.weighted(0.1F)),
             CHERRY_WHITE_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(16, 0.4F, 5))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(14, 0.4F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_CHERRY_TREE = newConfiguredFeature("rs_sparse_cherry_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             CHERRY_PINK_TREE1.weighted(0.2F),
@@ -658,7 +658,7 @@ public class BYGConfiguredTreeFeatures {
             DEAD_HAZEL_TREE2.weighted(0.2F),
             DEAD_HAZEL_TREE3.weighted(0.1F)),
             DEAD_HAZEL_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(18, 0.3F, 4))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(14, 0.3F, 4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_WITCH_HAZEL_TREE = newConfiguredFeature("rs_sparse_witch_hazel_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             DEAD_HAZEL_TREE1.weighted(0.2F),
@@ -679,7 +679,7 @@ public class BYGConfiguredTreeFeatures {
             HOLLY_TREE2.weighted(0.2F),
             HOLLY_TREE3.weighted(0.1F)),
             HOLLY_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(40, 0.4F, 8))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(25, 0.4F, 5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_HOLLY_TREE = newConfiguredFeature("rs_sparse_holly_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             HOLLY_TREE1.weighted(0.2F),
@@ -715,7 +715,7 @@ public class BYGConfiguredTreeFeatures {
             ORCHARD_TREE1.weighted(0.3F),
             ORCHARD_TREE2.weighted(0.3F)),
             ORCHARD_TREE3)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(5, 0.4F, 2))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(2, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WOODLAND_TREE = newConfiguredFeature("rs_woodland_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             WOODLANDS_TREE1.weighted(0.1F)),
@@ -750,7 +750,7 @@ public class BYGConfiguredTreeFeatures {
             BIRCH_YELLOW_TREE1.weighted(0.06F),
             MC_BIRCH_YELLOW_TREE.weighted(0.1F)),
             MC_BIRCH_TALL_YELLOW_TREE)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(20, 0.4F, -8))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(15, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_FOREST_TREE = newConfiguredFeature("rs_seasonal_forest_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             BIRCH_BROWN_TREE1.weighted(0.06F),
@@ -765,7 +765,7 @@ public class BYGConfiguredTreeFeatures {
             BIRCH_YELLOW_TREE1.weighted(0.06F),
             MC_BIRCH_YELLOW_TREE.weighted(0.1F)),
             MC_BIRCH_TALL_YELLOW_TREE)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(20, 0.4F, -8))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(15, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUE_TAIGA_TREE = newConfiguredFeature("rs_blue_tree", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             BLUE_SMALL_SPRUCE_TREE.weighted(0.1F),
