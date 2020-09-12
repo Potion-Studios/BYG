@@ -9,12 +9,12 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FNVector3f;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     public static final BlockState SAND = Blocks.SAND.getDefaultState();
@@ -30,10 +30,16 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         BlockPos.Mutable block = new BlockPos.Mutable();
         int xPos = x & 15;
         int zPos = z & 15;
-        float sampleNoise = noiseGen.GetNoise(x, z);
+
+        FNVector3f fnVector3f = new FNVector3f(x, 0, z);
+
+        noiseGen.GradientPerturb(fnVector3f);
+
+        float sampleNoise = noiseGen.GetNoise(fnVector3f.x, fnVector3f.z);
+
         int groundLevel = chunkIn.getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
 
-        if(sampleNoise < 0.43) {
+        if (sampleNoise < 0.43) {
             for (int yPos = startHeight + 55; yPos >= groundLevel; --yPos) {
                 block.setPos(xPos, yPos, zPos);
                 if (yPos == startHeight + 55)
@@ -61,8 +67,8 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             noiseGen = new FastNoise((int) seed);
             noiseGen.SetFractalType(FastNoise.FractalType.RigidMulti);
             noiseGen.SetNoiseType(FastNoise.NoiseType.SimplexFractal);
-            noiseGen.SetGradientPerturbAmp(1);
-            noiseGen.SetFractalOctaves(1);
+            noiseGen.SetGradientPerturbAmp(1000);
+            noiseGen.SetFractalOctaves(5);
             noiseGen.SetFractalGain(0.3f);
             noiseGen.SetFrequency(0.02f);
         }

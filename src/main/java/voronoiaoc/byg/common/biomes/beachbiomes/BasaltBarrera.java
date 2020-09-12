@@ -4,7 +4,6 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class BasaltBarrera extends Biome implements BiomeTools {
@@ -38,7 +37,7 @@ public class BasaltBarrera extends Biome implements BiomeTools {
 //        DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
 //        DefaultBiomeFeatures.func_243709_W(GENERATION_SETTINGS);
 //        DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
-        BYGFeatures.addBasaltFeatures(GENERATION_SETTINGS);
+//        BYGFeatures.addBasaltFeatures(GENERATION_SETTINGS);
 //        BYGTreeFeatures.addPalmTree(GENERATION_SETTINGS);
 //
 //        SPAWN_SETTINGS.func_242575_a(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));

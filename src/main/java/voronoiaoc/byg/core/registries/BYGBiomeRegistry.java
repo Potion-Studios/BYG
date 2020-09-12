@@ -170,7 +170,7 @@ public class BYGBiomeRegistry {
 
         //NonDefault Biomes.
         registerBYGBiome(BYGBiomeList.ROCKYBEACH, "rocky_beach");
-        registerBYGBiome(BYGBiomeList.BASALT_BARRERA, "basalt_barrera");
+//        registerBYGBiome(BYGBiomeList.BASALT_BARRERA, "basalt_barrera");
         registerBYGBiome(BYGBiomeList.SNOWYROCKYBLACKBEACH, "snowy_rocky_black_beach");
         registerBYGBiome(BYGBiomeList.SNOWYBLACKBEACH, "snowy_black_beach");
         registerBYGBiome(BYGBiomeList.WHITEBEACH, "white_beach");

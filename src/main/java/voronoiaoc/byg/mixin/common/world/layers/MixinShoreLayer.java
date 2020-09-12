@@ -76,9 +76,9 @@ public abstract class MixinShoreLayer {
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.field_243657_i.getId(BYGBiomeList.ROCKYBEACH));
 
-            if (biome != null && biome.getDepth() > 2.0F)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.field_243657_i.getId(BYGBiomeList.BASALT_BARRERA));
+//            if (biome != null && biome.getDepth() > 2.0F)
+//                if (isOcean(idx))
+//                    cir.setReturnValue(WorldGenRegistries.field_243657_i.getId(BYGBiomeList.BASALT_BARRERA));
 
 
             if (biome == BYGBiomeList.THE_BLACK_FOREST || biome == BYGBiomeList.BLACK_FOREST_CLEARING || biome == BYGBiomeList.BLACK_FOREST_HILLS || biome == BYGBiomeList.FOREST_FAULT)
