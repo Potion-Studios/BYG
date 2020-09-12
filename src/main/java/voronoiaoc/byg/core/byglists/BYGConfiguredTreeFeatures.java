@@ -385,7 +385,7 @@ public class BYGConfiguredTreeFeatures {
             INDIGO_JACARANDA_TREE2.withChance(0.3F),
             INDIGO_JACARANDA_TREE1.withChance(0.3F)),
             JACARANDA_TREE1)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(45, 0.1F, -15))));
+            new AtSurfaceWithExtraConfig(25, 0.1F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_SPARSE_TREE = newConfiguredFeature("rs_sparse_jacaranda", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             INDIGO_JACARANDA_TREE1.withChance(0.3F)),
@@ -649,7 +649,7 @@ public class BYGConfiguredTreeFeatures {
             CHERRY_PINK_TREE2.withChance(0.2F),
             CHERRY_WHITE_TREE1.withChance(0.1F)),
             CHERRY_WHITE_TREE2)).withPlacement(Features.Placements.field_244001_l).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(16, 0.4F, 5))));
+            new AtSurfaceWithExtraConfig(14, 0.4F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_CHERRY_TREE = newConfiguredFeature("rs_sparse_cherry_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CHERRY_PINK_TREE1.withChance(0.2F),
