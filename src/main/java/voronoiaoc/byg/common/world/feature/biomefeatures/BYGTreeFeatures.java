@@ -11,7 +11,8 @@ public class BYGTreeFeatures {
     }
 
     public static void addBlueTaigaTrees(BiomeGenerationSettings.Builder biome) {
-        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_BLUE_TAIGA_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_BLUE_TREE);
     }
 
     public static void addBlackForestTrees(BiomeGenerationSettings.Builder biome) {
@@ -64,13 +65,18 @@ public class BYGTreeFeatures {
     }
 
     public static void addGiantBlueTaigaTrees(BiomeGenerationSettings.Builder biome) {
-        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_BLUE_TAIGA_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_BLUE_TREE_GIANT);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_BLUE_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_TREE);
     }
 
     public static void addGiantSeasonalTaigaTrees(BiomeGenerationSettings.Builder biome) {
-        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SEASONAL_GIANT_TAIGA_TREE);
-        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SEASONAL_TAIGA_TREE);
-        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SEASONAL_GIANT_TAIGA_MISC_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_RED_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_YELLOW_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_ORANGE_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_SEASONAL_TREE_GIANT);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SEASONAL_TAIGA_MISC_TREE);
     }
 
     public static void addRedOakForestTrees(BiomeGenerationSettings.Builder biome) {
@@ -106,8 +112,11 @@ public class BYGTreeFeatures {
     }
 
     public static void addSeasonalTaigaTrees(BiomeGenerationSettings.Builder biome) {
-        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SEASONAL_TAIGA_TREE);
-        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SEASONAL_GIANT_TAIGA_MISC_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_RED_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_YELLOW_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_ORANGE_TREE);
+        biome.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SEASONAL_TAIGA_MISC_TREE);
     }
 
     public static void addShrubs(BiomeGenerationSettings.Builder biome) {

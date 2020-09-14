@@ -111,6 +111,51 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.Redw
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.giant.blue.SpruceBlueTreeLarge1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.giant.orange.SpruceOrangeTreeLarge1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.giant.red.SpruceRedTreeLarge1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.giant.regular.SpruceTreeLarge1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.giant.yellow.SpruceYellowTreeLarge1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.blue.SpruceBlueTreeMedium1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.blue.SpruceBlueTreeMedium2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.blue.SpruceBlueTreeMedium3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.blue.SpruceBlueTreeMedium4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.orange.SpruceOrangeTreeMedium1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.orange.SpruceOrangeTreeMedium2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.orange.SpruceOrangeTreeMedium3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.orange.SpruceOrangeTreeMedium4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.red.SpruceRedTreeMedium1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.red.SpruceRedTreeMedium2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.red.SpruceRedTreeMedium3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.red.SpruceRedTreeMedium4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.regular.SpruceTreeMedium1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.regular.SpruceTreeMedium2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.regular.SpruceTreeMedium3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.regular.SpruceTreeMedium4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.yellow.SpruceYellowTreeMedium1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.yellow.SpruceYellowTreeMedium2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.yellow.SpruceYellowTreeMedium3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.yellow.SpruceYellowTreeMedium4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.blue.SpruceBlueTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.blue.SpruceBlueTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.blue.SpruceBlueTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.blue.SpruceBlueTree4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.orange.SpruceOrangeTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.orange.SpruceOrangeTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.orange.SpruceOrangeTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.orange.SpruceOrangeTree4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.red.SpruceRedTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.red.SpruceRedTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.red.SpruceRedTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.red.SpruceRedTree4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.regular.SpruceTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.regular.SpruceTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.regular.SpruceTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.regular.SpruceTree4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.yellow.SpruceYellowTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.yellow.SpruceYellowTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.yellow.SpruceYellowTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.yellow.SpruceYellowTree4;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.taiga.giantspruce.GiantBlueSpruceTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.taiga.giantspruce.GiantOrangeSpruceTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.taiga.giantspruce.GiantRedSpruceTree;
@@ -460,7 +505,7 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> SKYRIS_TREE2 = new SkyrisTree2(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> SKYRIS_TREE3 = new SkyrisTree3(NoFeatureConfig.field_236558_a_);
 
-    //Spruce
+    //Old Spruce
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_GIANT_SPRUCE_TREE = new GiantBlueSpruceTree(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_TALL_SPRUCE_TREE = new TallBlueSpruceTree(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_SPRUCE_TREE = new BlueSpruceTree(NoFeatureConfig.field_236558_a_);
@@ -478,6 +523,71 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOW_SPRUCE_TREE = new YellowSpruceTree(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOW_SMALL_SPRUCE_TREE = new SmallYellowTaigaTree(NoFeatureConfig.field_236558_a_);
 
+    //Spruce
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE_LARGE1 = new SpruceTreeLarge1(NoFeatureConfig.field_236558_a_);
+    
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE_MEDIUM1 = new SpruceTreeMedium1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE_MEDIUM2 = new SpruceTreeMedium2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE_MEDIUM3 = new SpruceTreeMedium3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE_MEDIUM4 = new SpruceTreeMedium4(NoFeatureConfig.field_236558_a_);
+    
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE1 = new SpruceTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE2 = new SpruceTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE3 = new SpruceTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE4 = new SpruceTree4(NoFeatureConfig.field_236558_a_);
+
+    //Red Spruce
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE_LARGE1 = new SpruceRedTreeLarge1(NoFeatureConfig.field_236558_a_);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE_MEDIUM1 = new SpruceRedTreeMedium1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE_MEDIUM2 = new SpruceRedTreeMedium2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE_MEDIUM3 = new SpruceRedTreeMedium3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE_MEDIUM4 = new SpruceRedTreeMedium4(NoFeatureConfig.field_236558_a_);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE1 = new SpruceRedTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE2 = new SpruceRedTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE3 = new SpruceRedTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE4 = new SpruceRedTree4(NoFeatureConfig.field_236558_a_);
+    
+    //Orange Spruce
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE_LARGE1 = new SpruceOrangeTreeLarge1(NoFeatureConfig.field_236558_a_);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM1 = new SpruceOrangeTreeMedium1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM2 = new SpruceOrangeTreeMedium2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM3 = new SpruceOrangeTreeMedium3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM4 = new SpruceOrangeTreeMedium4(NoFeatureConfig.field_236558_a_);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE1 = new SpruceOrangeTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE2 = new SpruceOrangeTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE3 = new SpruceOrangeTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE4 = new SpruceOrangeTree4(NoFeatureConfig.field_236558_a_);
+    
+    //Blue Spruce
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE_LARGE1 = new SpruceBlueTreeLarge1(NoFeatureConfig.field_236558_a_);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM1 = new SpruceBlueTreeMedium1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM2 = new SpruceBlueTreeMedium2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM3 = new SpruceBlueTreeMedium3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM4 = new SpruceBlueTreeMedium4(NoFeatureConfig.field_236558_a_);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE1 = new SpruceBlueTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE2 = new SpruceBlueTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE3 = new SpruceBlueTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE4 = new SpruceBlueTree4(NoFeatureConfig.field_236558_a_);
+    
+    //Yellow Spruce
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE_LARGE1 = new SpruceYellowTreeLarge1(NoFeatureConfig.field_236558_a_);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM1 = new SpruceYellowTreeMedium1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM2 = new SpruceYellowTreeMedium2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM3 = new SpruceYellowTreeMedium3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM4 = new SpruceYellowTreeMedium4(NoFeatureConfig.field_236558_a_);
+
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE1 = new SpruceYellowTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE2 = new SpruceYellowTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE3 = new SpruceYellowTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE4 = new SpruceYellowTree4(NoFeatureConfig.field_236558_a_);
+    
     //Tropical
     public static final BYGAbstractTreeFeature<NoFeatureConfig> TROPICAL_TREE1 = new TropicalRainForestTree(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<NoFeatureConfig> TROPICAL_SHORT_TREE1 = new ShortTropicalRainForestTree(NoFeatureConfig.field_236558_a_);
@@ -713,6 +823,51 @@ public class BYGFeatureList {
             registerFeature(YELLOW_TALL_SPRUCE_TREE, "tall_yellow_spruce_tree1");
             registerFeature(YELLOW_SPRUCE_TREE, "yellow_spruce_tree1");
             registerFeature(YELLOW_SMALL_SPRUCE_TREE, "small_yellow_spruce_tree1");
+            registerFeature(SPRUCE_TREE1, "spruce_tree1");
+            registerFeature(SPRUCE_TREE2, "spruce_tree2");
+            registerFeature(SPRUCE_TREE3, "spruce_tree3");
+            registerFeature(SPRUCE_TREE4, "spruce_tree4");
+            registerFeature(SPRUCE_TREE_MEDIUM1, "spruce_tree_medium1");
+            registerFeature(SPRUCE_TREE_MEDIUM2, "spruce_tree_medium2");
+            registerFeature(SPRUCE_TREE_MEDIUM3, "spruce_tree_medium3");
+            registerFeature(SPRUCE_TREE_MEDIUM4, "spruce_tree_medium4");
+            registerFeature(SPRUCE_TREE_LARGE1, "spruce_tree_large1");
+            registerFeature(SPRUCE_YELLOW_TREE1, "spruce_yellow_tree1");
+            registerFeature(SPRUCE_YELLOW_TREE2, "spruce_yellow_tree2");
+            registerFeature(SPRUCE_YELLOW_TREE3, "spruce_yellow_tree3");
+            registerFeature(SPRUCE_YELLOW_TREE4, "spruce_yellow_tree4");
+            registerFeature(SPRUCE_YELLOW_TREE_MEDIUM1, "spruce_yellow_tree_medium1");
+            registerFeature(SPRUCE_YELLOW_TREE_MEDIUM2, "spruce_yellow_tree_medium2");
+            registerFeature(SPRUCE_YELLOW_TREE_MEDIUM3, "spruce_yellow_tree_medium3");
+            registerFeature(SPRUCE_YELLOW_TREE_MEDIUM4, "spruce_yellow_tree_medium4");
+            registerFeature(SPRUCE_YELLOW_TREE_LARGE1, "spruce_yellow_tree_large1");
+            registerFeature(SPRUCE_ORANGE_TREE1, "spruce_orange_tree1");
+            registerFeature(SPRUCE_ORANGE_TREE2, "spruce_orange_tree2");
+            registerFeature(SPRUCE_ORANGE_TREE3, "spruce_orange_tree3");
+            registerFeature(SPRUCE_ORANGE_TREE4, "spruce_orange_tree4");
+            registerFeature(SPRUCE_ORANGE_TREE_MEDIUM1, "spruce_orange_tree_medium1");
+            registerFeature(SPRUCE_ORANGE_TREE_MEDIUM2, "spruce_orange_tree_medium2");
+            registerFeature(SPRUCE_ORANGE_TREE_MEDIUM3, "spruce_orange_tree_medium3");
+            registerFeature(SPRUCE_ORANGE_TREE_MEDIUM4, "spruce_orange_tree_medium4");
+            registerFeature(SPRUCE_ORANGE_TREE_LARGE1, "spruce_orange_tree_large1");
+            registerFeature(SPRUCE_RED_TREE1, "spruce_red_tree1");
+            registerFeature(SPRUCE_RED_TREE2, "spruce_red_tree2");
+            registerFeature(SPRUCE_RED_TREE3, "spruce_red_tree3");
+            registerFeature(SPRUCE_RED_TREE4, "spruce_red_tree4");
+            registerFeature(SPRUCE_RED_TREE_MEDIUM1, "spruce_red_tree_medium1");
+            registerFeature(SPRUCE_RED_TREE_MEDIUM2, "spruce_red_tree_medium2");
+            registerFeature(SPRUCE_RED_TREE_MEDIUM3, "spruce_red_tree_medium3");
+            registerFeature(SPRUCE_RED_TREE_MEDIUM4, "spruce_red_tree_medium4");
+            registerFeature(SPRUCE_RED_TREE_LARGE1, "spruce_red_tree_large1");
+            registerFeature(SPRUCE_BLUE_TREE1, "spruce_blue_tree1");
+            registerFeature(SPRUCE_BLUE_TREE2, "spruce_blue_tree2");
+            registerFeature(SPRUCE_BLUE_TREE3, "spruce_blue_tree3");
+            registerFeature(SPRUCE_BLUE_TREE4, "spruce_blue_tree4");
+            registerFeature(SPRUCE_BLUE_TREE_MEDIUM1, "spruce_blue_tree_medium1");
+            registerFeature(SPRUCE_BLUE_TREE_MEDIUM2, "spruce_blue_tree_medium2");
+            registerFeature(SPRUCE_BLUE_TREE_MEDIUM3, "spruce_blue_tree_medium3");
+            registerFeature(SPRUCE_BLUE_TREE_MEDIUM4, "spruce_blue_tree_medium4");
+            registerFeature(SPRUCE_BLUE_TREE_LARGE1, "spruce_blue_tree_large1");
             registerFeature(TROPICAL_TREE1, "tropical_tree1");
             registerFeature(TROPICAL_SHORT_TREE1, "tropical_short_tree1");
             registerFeature(TROPICAL_SHRUB1, "tropical_shrub1");
