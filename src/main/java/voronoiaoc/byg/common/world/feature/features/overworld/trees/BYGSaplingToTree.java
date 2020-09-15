@@ -13,24 +13,24 @@ public class BYGSaplingToTree {
     public static class BlueSpruceSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return BYGFeatureList.BLUE_GIANT_SPRUCE_TREE;
+            return BYGFeatureList.SPRUCE_BLUE_TREE_LARGE1;
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return BYGFeatureList.BLUE_SPRUCE_TREE;
+            return BYGFeatureList.SPRUCE_BLUE_TREE1;
         }
     }
 
     public static class RedSpruceSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return BYGFeatureList.RED_GIANT_SPRUCE_TREE;
+            return BYGFeatureList.SPRUCE_RED_TREE_LARGE1;
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return BYGFeatureList.RED_SPRUCE_TREE;
+            return BYGFeatureList.SPRUCE_RED_TREE1;
         }
     }
 
@@ -49,12 +49,12 @@ public class BYGSaplingToTree {
     public static class OrangeSpruceSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return BYGFeatureList.ORANGE_GIANT_SPRUCE_TREE;
+            return BYGFeatureList.SPRUCE_ORANGE_TREE_LARGE1;
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return BYGFeatureList.ORANGE_SPRUCE_TREE;
+            return BYGFeatureList.SPRUCE_ORANGE_TREE1;
         }
     }
 
@@ -62,12 +62,12 @@ public class BYGSaplingToTree {
     public static class YellowSpruceSaplingToTree extends BYGHugeTree {
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random) {
-            return BYGFeatureList.YELLOW_GIANT_SPRUCE_TREE;
+            return BYGFeatureList.SPRUCE_YELLOW_TREE_LARGE1;
         }
 
         @Nullable
         public BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random) {
-            return BYGFeatureList.YELLOW_SPRUCE_TREE;
+            return BYGFeatureList.SPRUCE_YELLOW_TREE1;
         }
     }
 
