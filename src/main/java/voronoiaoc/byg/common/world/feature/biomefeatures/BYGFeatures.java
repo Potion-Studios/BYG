@@ -15,8 +15,8 @@ public class BYGFeatures {
 //        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_BLOBS);
 //        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_BLOBS2);
 //        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_SPRING);
-        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.LARGE_BASALT_COLUMN);
-        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.SMALL_BASALT_COLUMN);
+//        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.LARGE_BASALT_COLUMN);
+//        gen.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.SMALL_BASALT_COLUMN);
     }
 
     public static void addAmaranthFieldFlowers(BiomeGenerationSettings.Builder gen) {

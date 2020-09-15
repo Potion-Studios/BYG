@@ -60,15 +60,15 @@ public abstract class MixinShoreLayer {
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.field_243657_i.getId(BYGBiomeList.RAINBOWBEACH));
 
-            if (biome == BYGBiomeList.TROPICALRAINFOREST)
+            if (biome == BYGBiomeList.TROPICALRAINFOREST || biome == BYGBiomeList.TROPICALRAINFORESTHILLS)
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.field_243657_i.getId(BYGBiomeList.RAINBOWBEACH));
 
-            if (biome == BYGBiomeList.TROPICALFUNGALRAINFOREST)
+            if (biome == BYGBiomeList.TROPICALFUNGALRAINFOREST || biome == BYGBiomeList.TROPICALFUNGALRAINFORESTHILLS || biome == BYGBiomeList.FUNGAL_PATCH)
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.field_243657_i.getId(BYGBiomeList.RAINBOWBEACH));
 
-            if (biome == BYGBiomeList.GUIANASHIELD)
+            if (biome == BYGBiomeList.GUIANASHIELD || biome == BYGBiomeList.GUIANA_CLEARING)
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.field_243657_i.getId(BYGBiomeList.ROCKYBEACH));
 
