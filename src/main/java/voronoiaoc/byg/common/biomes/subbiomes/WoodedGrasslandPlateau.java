@@ -7,6 +7,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class WoodedGrasslandPlateau extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("wooded_grassland_pleateau", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -42,7 +43,7 @@ public class WoodedGrasslandPlateau extends Biome implements BiomeTools {
         DefaultBiomeFeatures.func_243754_n(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243712_Z(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.func_243690_D(GENERATION_SETTINGS);
+        BYGTreeFeatures.addSpruceTrees(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addAnemones(GENERATION_SETTINGS);

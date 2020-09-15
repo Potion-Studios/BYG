@@ -23,7 +23,7 @@ public class BYGBiomeList {
     public static final Biome AUTUMNAL_VALLEY = new AutumnalValley();
     public static final Biome BAOBABSAVANNA = new BaobabSavanna();
     public static final Biome BAYOU = new Bayou();
-    public static final Biome BASALT_BARRERA = new BasaltBarrera();
+//    public static final Biome BASALT_BARRERA = new BasaltBarrera();
     public static final Biome BLUEGIANTTAIGA = new BlueGiantTaiga();
     public static final Biome BLUETAIGA = new BlueTaiga();
     public static final Biome CIKA_WOODS = new CikaWoods();

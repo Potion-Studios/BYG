@@ -7,6 +7,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class GreatLakeIsles extends Biome implements BiomeTools {
@@ -44,8 +45,7 @@ public class GreatLakeIsles extends Biome implements BiomeTools {
         DefaultBiomeFeatures.func_243727_ak(GENERATION_SETTINGS);
         //GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(48, 0.4D)).decorate(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.func_243690_D(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.func_243690_D(GENERATION_SETTINGS);
+        BYGTreeFeatures.addSpruceTrees(GENERATION_SETTINGS);
         BYGFeatures.addBlueberries(GENERATION_SETTINGS);
         BYGFeatures.addCrocus(GENERATION_SETTINGS);
         BYGFeatures.addOsiria(GENERATION_SETTINGS);
