@@ -68,7 +68,7 @@ public class TropicalShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
 
                     //Sets Logs
                     if (isAir(worldIn, blockpos1)) {
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
                     }
                 }
 

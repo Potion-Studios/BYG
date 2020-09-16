@@ -35,10 +35,10 @@ public class EbonyBush1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 0, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);

@@ -65,15 +65,15 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
                     //Sets Logs
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east().north(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east().north(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east(2).north(3).up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east(2).north(3).up(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east(3).north().up(3), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east(4).north(2).up(3), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east(3).north(2).up(3), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east(2).north(4).up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east().north(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east().north(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(2).north(3).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(2).north(3).up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(3).north().up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(4).north(2).up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(3).north(2).up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(2).north(4).up(3), boundsIn);
 
 
                 }

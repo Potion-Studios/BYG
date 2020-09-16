@@ -51,8 +51,8 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 
 //                Direction direction = Direction.Plane
 //.HORIZONTAL.random(rand);
-//                int random1 = randTreeHeight - rand.nextInt(1); Unknown use.
-//                int posY1 = 2 - rand.nextInt(1); Unknown Use
+//                int random1 = randTreeHeight - rand.nextInt(1);
+//                int posY1 = 2 - rand.nextInt(1);
 //                int posX1 = posX;
 //                int posZ1 = posZ;
 //                int posy2 = posY + randTreeHeight - 1;
@@ -79,16 +79,16 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //                    //BlockPos blockpos7 = new BlockPos(posX1 - 1, logplacer2, posZ1 );
 //
 //                    if (isAir(worldIn, blockpos1)) {
-//                        placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
-//                        //placeLog(LOG, changedBlocks, worldIn, blockpos1.east(), boundsIn);
-//                       // placeLog(LOG, changedBlocks, worldIn, blockpos1.south(), boundsIn);
-//                       // placeLog(LOG, changedBlocks, worldIn, blockpos1.west(), boundsIn);
-//                       // placeLog(LOG, changedBlocks, worldIn, blockpos1.north(), boundsIn);
-//                        //placeLog(LOG, changedBlocks, worldIn, blockpos1.north(2), boundsIn);
-//                        //placeLog(LOG, changedBlocks, worldIn, blockposnorth1.north(), boundsIn);
-//                       // placeLog(LOG, changedBlocks, worldIn, blockpossouth1.south(), boundsIn);
-//                      //  placeLog(LOG, changedBlocks, worldIn, blockposeast1.east(), boundsIn);
-//                       // placeLog(LOG, changedBlocks, worldIn, blockposwest1.west(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+//                        //placeTrunk(LOG, changedBlocks, worldIn, blockpos1.east(), boundsIn);
+//                       // placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south(), boundsIn);
+//                       // placeTrunk(LOG, changedBlocks, worldIn, blockpos1.west(), boundsIn);
+//                       // placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north(), boundsIn);
+//                        //placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north(2), boundsIn);
+//                        //placeTrunk(LOG, changedBlocks, worldIn, blockposnorth1.north(), boundsIn);
+//                       // placeTrunk(LOG, changedBlocks, worldIn, blockpossouth1.south(), boundsIn);
+//                      //  placeTrunk(LOG, changedBlocks, worldIn, blockposeast1.east(), boundsIn);
+//                       // placeTrunk(LOG, changedBlocks, worldIn, blockposwest1.west(), boundsIn);
 //
 //                    }
 //
@@ -182,7 +182,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //                            int i5 = rand.nextInt(3) + 2; //makes the tree increase both upwards and downwards
 //
 //                            for(int l2 = 0; l2 < i5; ++l2) { //does nothing
-//                                placeLog(LOG, changedBlocks, worldIn, new BlockPos(posX , posy2, posZ + 1), boundsIn); //creates Branches, number value of 2 or lower does nothing 5 seems to be a good value
+//                                placeTrunk(LOG, changedBlocks, worldIn, new BlockPos(posX , posy2, posZ + 1), boundsIn); //creates Branches, number value of 2 or lower does nothing 5 seems to be a good value
 //                            }*/
 //
 //

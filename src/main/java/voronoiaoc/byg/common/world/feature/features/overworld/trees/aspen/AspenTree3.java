@@ -61,11 +61,11 @@ public class AspenTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().west(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.down().south().east(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south().east(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.up().south().east(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.down().south().east(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south().east(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.up().south().east(), boundsIn);
 
                 }
 

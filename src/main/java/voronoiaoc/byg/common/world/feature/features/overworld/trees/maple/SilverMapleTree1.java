@@ -37,7 +37,7 @@ public class SilverMapleTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfi
                 return false;
             } else {
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
 
                     mainmutable.move(Direction.UP);
                 }

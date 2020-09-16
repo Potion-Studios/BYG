@@ -71,10 +71,10 @@ public class GiantOrangeSpruceTree extends BYGAbstractTreeFeature<BYGTreeFeature
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
 
                     if (isAir(worldIn, blockpos1)) {
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.south(), boundsIn);
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.east(), boundsIn);
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.south().east(), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south(), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.east(), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south().east(), boundsIn);
 
                     }
                 }

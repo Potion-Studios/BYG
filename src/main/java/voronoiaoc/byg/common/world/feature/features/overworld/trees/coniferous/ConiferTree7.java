@@ -50,7 +50,7 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
 
                     BlockPos trunkPos1 = new BlockPos(posX2, logplacer, posZ2);
-                    placeLog(LOG, changedBlocks, worldIn, trunkPos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1, boundsIn);
 
                 }
                 for (int posXLeafSize = -1; posXLeafSize <= 1; ++posXLeafSize) {

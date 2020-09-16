@@ -34,19 +34,19 @@ public class SpruceBlueTree4 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 8, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 9, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 10, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 11, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 12, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 8, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 9, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 10, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 11, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 12, 0), boundsIn);
                 placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 2, -1), boundsIn);
                 placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 3, 0), boundsIn);
                 placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 3, 0), boundsIn);

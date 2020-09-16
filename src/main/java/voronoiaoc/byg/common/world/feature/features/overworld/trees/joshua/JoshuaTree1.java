@@ -7,38 +7,27 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.Random;
 import java.util.Set;
 
 public class JoshuaTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
-    //BYGBlockRenders used for the tree.
-    //private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlockList.JOSHUA_LEAVES.getDefaultState();
-    //private static final BlockState LEAVES2 = BYGBlockList.RIPE_JOSHUA_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
-    Random random = new Random();
 
     public JoshuaTree1(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
-        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.JOSHUA_SAPLING);
     }
-
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = rand.nextInt(3) + 3;
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         //Positions
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= this.redRockHeight(worldIn, pos) && posY + randTreeHeight + 1 < 256) {
+        if (posY + randTreeHeight + 1 < worldIn.getHeight()) {
 
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
@@ -55,7 +44,6 @@ public class JoshuaTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
 
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
@@ -71,16 +59,16 @@ public class JoshuaTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
                     //Sets Logs
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().down(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(2).down(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south().down(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east().down(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west().down(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(2).down(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().down(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(2).down(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south().down(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east().down(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west().down(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(2).down(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(2), boundsIn);
 
 
                 }
@@ -89,9 +77,6 @@ public class JoshuaTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 int leavessquarespos = 2;
                 for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
                     for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
-
-
-//                        //Top Leaves
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight + 1, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight, posZ1 - 3, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1 + 1, topTrunkHeight, posZ1 - 2, boundsIn, changedBlocks);
@@ -115,51 +100,8 @@ public class JoshuaTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             }
 
             return true;
-            //}
         } else {
             return false;
         }
-    }
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 2;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-
-    private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
-        BlockPos blockpos = new BlockPos(x, y, z);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, this.randomizer(), boundingBox);
-        }
-
-    }
-
-    public int redRockHeight(ISeedReader worldIn, BlockPos pos) {
-        int minYHeight = 1;
-        Biome biome = worldIn.getBiome(pos);
-        if (biome == BYGBiomeList.REDROCKCANYON)
-            minYHeight = 140;
-        return minYHeight;
-    }
-
-    private BlockState randomizer() {
-        return (random.nextInt(5) == 0) ? LEAVES2 : LEAVES;
     }
 }

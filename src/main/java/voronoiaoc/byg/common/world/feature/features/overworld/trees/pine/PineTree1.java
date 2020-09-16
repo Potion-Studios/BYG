@@ -70,16 +70,16 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
                     //Sets Logs
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().down(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().down(7), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().down(11), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south().down(6), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south().down(10), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east().down(4), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east().down(8), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west().down(3), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west().down(8), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().down(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().down(7), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().down(11), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south().down(6), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south().down(10), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east().down(4), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east().down(8), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west().down(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west().down(8), boundsIn);
                 }
                 //This allows a random rotation between 3 differently leave Presets in the same class. Optimizes Performance instead of the loading of several classes.
 

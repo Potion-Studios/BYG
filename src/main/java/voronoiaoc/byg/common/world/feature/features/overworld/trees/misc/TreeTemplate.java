@@ -81,7 +81,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //                    BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
 //
 //                    //Sets Logs
-//                        placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
 //                }
 //
 //                int leavePreset = rand.nextInt(3) + 1;

@@ -24,7 +24,7 @@ public class HollyTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = 18 + rand.nextInt(7);
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
         BlockPos.Mutable mainmutable2 = new BlockPos.Mutable().setPos(pos.offset(Direction.SOUTH));
         BlockPos.Mutable mainmutable3 = new BlockPos.Mutable().setPos(pos.offset(Direction.EAST));
@@ -42,10 +42,10 @@ public class HollyTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
                 buildTrunk(changedBlocks, worldIn, BYGBlockList.HOLLY_LOG, Blocks.DIRT, boundsIn, mainmutable, mainmutable2, mainmutable3, mainmutable4);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable2, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable3, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable4, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable2, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable3, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable4, boundsIn);
                     mainmutable.move(Direction.UP);
                     mainmutable2.move(Direction.UP);
                     mainmutable3.move(Direction.UP);

@@ -259,7 +259,7 @@ public class BYGSaplingToTree {
     public static class BlueEnchantedSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<BYGTreeFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? BYGFeatureList.ENCHANTED_BLUE_TREE1 : BYGFeatureList.ENCHANTED_BLUE_TREE2;
+            return random.nextInt(2) == 0 ? BYGFeatureList.ENCHANTED_TREE1 : BYGFeatureList.ENCHANTED_TREE2;
         }
 
     }

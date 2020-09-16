@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.red;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
@@ -9,21 +9,20 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
 
-public class DeciduousRedTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class DeciduousTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
-    public DeciduousRedTree2(Codec<BYGTreeFeatureConfig> configIn) {
+    public DeciduousTree2(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = 17 + rand.nextInt(5);
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
@@ -34,24 +33,24 @@ public class DeciduousRedTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConf
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 8, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 9, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 10, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 11, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 12, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 13, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 14, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 15, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 16, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 17, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 8, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 9, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 10, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 11, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 12, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 13, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 14, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 15, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 16, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 17, 0), boundsIn);
                 placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 4, -1), boundsIn);
                 placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 5, 1), boundsIn);
                 placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 5, 1), boundsIn);
@@ -246,7 +245,7 @@ public class DeciduousRedTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConf
 
     private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.RED_OAK_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, pos, Blocks.DARK_OAK_LEAVES.getDefaultState(), boundingBox);
         }
     }
 

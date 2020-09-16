@@ -60,7 +60,13 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
     }
 
 
-    public void placeLog(BlockState logBlockState, Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeTrunk(BlockState logBlockState, Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        if (canLogPlaceHere(reader, pos)) {
+            this.setFinalBlockState(setlogblock, reader, pos, logBlockState, boundingBox);
+        }
+    }
+
+    public void placeBranch(BlockState logBlockState, Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, logBlockState, boundingBox);
         }

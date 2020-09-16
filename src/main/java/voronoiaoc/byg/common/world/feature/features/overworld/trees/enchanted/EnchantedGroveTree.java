@@ -1,12 +1,14 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.boreal;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
+import net.minecraft.world.gen.IWorldGenerationBaseReader;
+import net.minecraftforge.common.Tags;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
@@ -14,22 +16,31 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import java.util.Random;
 import java.util.Set;
 
-public class BorealForestTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
-    public BorealForestTree1(Codec<BYGTreeFeatureConfig> configIn) {
+    public EnchantedGroveTree(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
+    }
+
+
+    protected static boolean isDirtOrPeatBlock(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+        return worldIn.hasBlockState(pos, (state) -> {
+            Block block = state.getBlock();
+            return block.isIn(Tags.Blocks.DIRT) || block == BYGBlockList.PEAT;
+        });
     }
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
+        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);//This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
+        int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 9;
+        //Positions
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK) || !isDesiredGroundwDirtTag(worldIn, blockpos, BYGBlockList.PEAT)) {
+            if (!isDirtOrPeatBlock(worldIn, blockpos)) {
                 return false;
             } else {
 
@@ -40,23 +51,21 @@ public class BorealForestTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConf
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
 
-
-                for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
-                    if (buildTrunk >= randTreeHeight2 && posY1 < 0) {
+                for (int groundUpLogRemover = 0; groundUpLogRemover < randTreeHeight; ++groundUpLogRemover) {
+                    if (groundUpLogRemover >= randTreeHeight2 && posY1 < 0) {
                         posX1 += direction.getXOffset();
                         posZ1 += direction.getZOffset();
                         ++posY1;
                     }
-
-                    int logplacer = posY + buildTrunk;
+                    //This Int is responsible for the Y coordinate of the trunk BlockPos'.
+                    int logplacer = posY + groundUpLogRemover;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos1.up(1), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos1.up(2), boundsIn);
 
-                }
 
-                int leaveColor = rand.nextInt(2) + 1;
+                }
                 int tHSub5 = 5;
                 int tHSub4 = 4;
                 int tHSub3 = 3;
@@ -128,10 +137,10 @@ public class BorealForestTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConf
 
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight + tHSub3, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight + tHSub4, posZ1, boundsIn, changedBlocks);
-
                     }
                 }
             }
+
             return true;
         } else {
             return false;

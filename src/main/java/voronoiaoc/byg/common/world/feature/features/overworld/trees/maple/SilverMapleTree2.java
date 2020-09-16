@@ -38,18 +38,18 @@ public class SilverMapleTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfi
             } else {
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
 
                     mainmutable.move(Direction.UP);
                 }
                 mainmutable.setPos(pos);
 
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 1, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 1, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight, 0), boundsIn);
 
 
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);

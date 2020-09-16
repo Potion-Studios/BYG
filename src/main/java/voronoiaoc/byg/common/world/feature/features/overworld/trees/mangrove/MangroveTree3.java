@@ -24,7 +24,7 @@ public class MangroveTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
     protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = 7 + rand.nextInt(5);
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
@@ -39,7 +39,7 @@ public class MangroveTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
                 for (int buildTrunk = 3; buildTrunk <= randTreeHeight; buildTrunk++) {
                     if (buildTrunk == 3)
                         mainmutable.move(Direction.UP, 3);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
 
                     mainmutable.move(Direction.UP);
                 }

@@ -54,10 +54,10 @@ public class ConiferTree8 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
 
                     BlockPos trunkPos1 = new BlockPos(posX2, logplacer, posZ2);
-                    placeLog(LOG, changedBlocks, worldIn, trunkPos1, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.west(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.south(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.south().west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1.west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1.south(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1.south().west(), boundsIn);
 
                 }
                 for (int posXLeafSize = 0; posXLeafSize <= 1; ++posXLeafSize) {

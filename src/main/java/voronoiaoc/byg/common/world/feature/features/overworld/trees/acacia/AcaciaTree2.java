@@ -37,7 +37,7 @@ public class AcaciaTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 return false;
             } else {
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);
                 }
                 mainmutable.setPos(pos);
                 //Stump

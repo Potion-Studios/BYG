@@ -52,7 +52,7 @@ public class BluffTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     int logplacer = posY + buildTrunk;
 
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
                 }
 
 

@@ -42,11 +42,11 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             } else {
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable2, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable3, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable4, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable5, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable2, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable3, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable4, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable5, boundsIn);
                     mainmutable.move(Direction.UP);
                     mainmutable2.move(Direction.UP);
                     mainmutable3.move(Direction.UP);

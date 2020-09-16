@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
@@ -15,9 +15,9 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import java.util.Random;
 import java.util.Set;
 
-public class BlueEnchantedTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class EnchantedTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
-    public BlueEnchantedTree3(Codec<BYGTreeFeatureConfig> configIn) {
+    public EnchantedTree2(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
     }
 
@@ -37,7 +37,7 @@ public class BlueEnchantedTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureCon
                 return false;
             } else {
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
 
                     mainmutable.move(Direction.UP);
                 }

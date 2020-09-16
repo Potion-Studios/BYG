@@ -38,7 +38,7 @@ public class LargePineTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig>
             } else {
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
 
                     mainmutable.move(Direction.UP);
                 }

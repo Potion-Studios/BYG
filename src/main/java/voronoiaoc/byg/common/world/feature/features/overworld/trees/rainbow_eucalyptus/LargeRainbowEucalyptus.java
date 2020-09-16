@@ -43,11 +43,11 @@ public class LargeRainbowEucalyptus extends BYGAbstractTreeFeature<BYGTreeFeatur
                 buildTrunk(changedBlocks, worldIn, BYGBlockList.RAINBOW_EUCALYPTUS_LOG, Blocks.DIRT, boundsIn, mainmutable, mainmutable2, mainmutable3, mainmutable4);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     if (buildTrunk < randTreeHeight - 2) {
-                        placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
-                        placeLog(LOG, changedBlocks, worldIn, mainmutable2, boundsIn);
-                        placeLog(LOG, changedBlocks, worldIn, mainmutable3, boundsIn);
-                        placeLog(LOG, changedBlocks, worldIn, mainmutable4, boundsIn);
-                        placeLog(LOG, changedBlocks, worldIn, mainmutable5, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, mainmutable2, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, mainmutable3, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, mainmutable4, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, mainmutable5, boundsIn);
                     } else if (buildTrunk == randTreeHeight - 2) {
                         placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable, boundsIn);
                         placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable2, boundsIn);

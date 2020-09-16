@@ -68,18 +68,18 @@ public class BlackPuff extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
                     //Sets Logs
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(2).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(2).up(), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(2).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(2).up(), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east(2).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(2).up(), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(2).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(2).up(), boundsIn);
 
                 }
 

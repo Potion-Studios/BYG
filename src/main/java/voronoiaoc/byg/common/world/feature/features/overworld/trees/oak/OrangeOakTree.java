@@ -64,7 +64,7 @@ public class OrangeOakTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
 
                     //Sets Logs
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
                 }
 
                 int leavePreset = rand.nextInt(4) + 1;

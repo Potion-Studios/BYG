@@ -14,32 +14,20 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbst
 import java.util.Random;
 import java.util.Set;
 
-//THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
 public class JacarandaTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
-    //private static final BlockState LOG = BYGBlockList.JACARANDA_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlockList.JACARANDA_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
-
     public JacarandaTree2(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
-        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.JACARANDA_SAPLING);
-    }
-
-    protected static boolean canTreeReplace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {
-        return canLogPlaceHere(genBaseReader, blockPos
-        );
     }
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = rand.nextInt(2) + rand.nextInt(3) + 7;
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         //Positions
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
-
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
@@ -64,28 +52,21 @@ public class JacarandaTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig>
                         ++posY1;
                     }
                     int logplacer = posY + buildTrunk;
-                    int logplacer2 = posY;
-                    int logplacer3 = posY + randTreeHeight - 3;
                     int logplacer4 = posY + randTreeHeight - 2;
-                    int logplacer5 = posY + randTreeHeight - 2;
 
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
-                    BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
-                    BlockPos blockpos3 = new BlockPos(posX1, logplacer3, posZ1);
                     BlockPos blockpos4 = new BlockPos(posX1, logplacer4, posZ1);
-                    BlockPos blockpos5 = new BlockPos(posX1, logplacer5, posZ1);
 
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos4.south(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos4.north(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos4.east(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos4.west(2), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos4.south(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos4.north(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos4.east(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos4.west(2), boundsIn);
-
-                    placeLog(LOG, changedBlocks, worldIn, blockpos4.west().down(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos4.east().down(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos4.south().down(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos4.north().down(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos4.west().down(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos4.east().down(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos4.south().down(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos4.north().down(), boundsIn);
 
                 }
                 int leavePreset = rand.nextInt(1) + 1;
@@ -187,27 +168,6 @@ public class JacarandaTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig>
                                     placeLeaves(LEAVES, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 4, posZ1 - 2, boundsIn, changedBlocks);
 
                                 }
-                            }
-                        }
-                    } else if (leavePreset == 2) {
-                        int leavessquarespos = 2;
-                        for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
-                            for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
-
-                            }
-                        }
-                    } else if (leavePreset == 3) {
-                        int leavessquarespos = 2;
-                        for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
-                            for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
-
-                            }
-                        }
-                    } else if (leavePreset == 4) {
-                        int leavessquarespos = 2;
-                        for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
-                            for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
-
                             }
                         }
                     }

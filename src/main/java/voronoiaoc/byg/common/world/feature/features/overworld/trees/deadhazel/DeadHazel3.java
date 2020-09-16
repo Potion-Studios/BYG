@@ -37,7 +37,7 @@ public class DeadHazel3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 return false;
             } else {
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mutable, boundsIn);
 
                     mutable.move(Direction.UP);
                 }

@@ -38,9 +38,9 @@ public class PinkCherry2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             } else {
                 buildTrunk(changedBlocks, worldIn, BYGBlockList.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable);
 
-                placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);
                 }
                 mainmutable.setPos(pos);
 

@@ -40,30 +40,30 @@ public class AcaciaTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 return false;
             } else {
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable.move(Direction.UP), boundsIn);
                 }
                 mainmutable.setPos(pos);
 
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 0, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 0, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 1, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 1, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 2, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 2, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 3, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 3, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 4, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 4, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 5, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 5, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 6, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 6, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 7, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 7, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 8, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 8, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 9, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, 9, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 0, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 0, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 1, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 1, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 2, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 2, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 3, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 3, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 4, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 4, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 5, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 5, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 6, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 6, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 7, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 8, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 8, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 9, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, 9, 0), boundsIn);
 
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 0, -2), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -2), boundsIn);

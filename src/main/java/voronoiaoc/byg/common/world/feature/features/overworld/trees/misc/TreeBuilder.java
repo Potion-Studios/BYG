@@ -108,28 +108,28 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //                    //Sets Logs
 //                    if (isAir(worldIn, blockpos1)) {
-//                        placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
 //                        //Uncommenting this will create a 2x2 tree trunk.
-//                        /*placeLog(LOG, changedBlocks, worldIn, blockpos1.south(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockpos1.south().east(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockpos1.east(), boundsIn);*/
+//                        /*placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south().east(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.east(), boundsIn);*/
 //                        //Uncommenting this will create a 3x3 tree trunk.
-//                        /*placeLog(LOG, changedBlocks, worldIn, blockpos1.west(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockpos1.south().west(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockpos1.north(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockpos1.north().east(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockpos1.north().west(), boundsIn);*/
+//                        /*placeTrunk(LOG, changedBlocks, worldIn, blockpos1.west(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south().west(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north().east(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north().west(), boundsIn);*/
 //                        //Uncommenting this will create a 4x4 tree trunk.
-//                        /*placeLog(LOG, changedBlocks, worldIn, blockposwest1, boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockposwest1.west(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockposwest1.north().west(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockposwest1.south().west(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockposnorth1, boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockposnorth1.north().west(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockposnorth1.north(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockposnorth1.north().east(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockposnorth1.west(), boundsIn);
-//                        placeLog(LOG, changedBlocks, worldIn, blockposnorthwest1.north().west(), boundsIn);*/
+//                        /*placeTrunk(LOG, changedBlocks, worldIn, blockposwest1, boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockposwest1.west(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockposwest1.north().west(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockposwest1.south().west(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockposnorth1, boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockposnorth1.north().west(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockposnorth1.north(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockposnorth1.north().east(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockposnorth1.west(), boundsIn);
+//                        placeTrunk(LOG, changedBlocks, worldIn, blockposnorthwest1.north().west(), boundsIn);*/
 //                    }
 //                }
 //                //This allows a random rotation between different leave presets

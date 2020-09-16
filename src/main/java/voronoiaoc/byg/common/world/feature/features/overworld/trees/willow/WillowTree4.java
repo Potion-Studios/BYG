@@ -49,13 +49,13 @@ public class WillowTree4 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                         mainmutable4.move(Direction.UP, 4);
                         mainmutable5.move(Direction.UP, 4);
                     }
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
 
                     if (buildTrunk <= randTreeHeight - 3) {
-                        placeLog(LOG, changedBlocks, worldIn, mainmutable2, boundsIn);
-                        placeLog(LOG, changedBlocks, worldIn, mainmutable3, boundsIn);
-                        placeLog(LOG, changedBlocks, worldIn, mainmutable4, boundsIn);
-                        placeLog(LOG, changedBlocks, worldIn, mainmutable5, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, mainmutable2, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, mainmutable3, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, mainmutable4, boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, mainmutable5, boundsIn);
                     }
 
                     mainmutable.move(Direction.UP);

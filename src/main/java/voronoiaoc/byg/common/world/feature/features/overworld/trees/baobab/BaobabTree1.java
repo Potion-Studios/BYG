@@ -81,104 +81,104 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     BlockPos blockpos1 = new BlockPos(posX1, logplacerY, posZ1);
                     BlockPos blockpos2 = new BlockPos(posX1, topTreeHeight, posZ1);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.north(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.north().west(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.west(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.north(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.north(2).west(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.north().west(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.west(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.east(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.north().east(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.south().west(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos1.south(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north().west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north(2).west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north().west(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.west(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.east(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north().east(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south().west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south(), boundsIn);
 
                     if (buildTrunk <= randCorner1)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.south().east(), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south().east(), boundsIn);
                     if (buildTrunk <= randCorner2)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.south().west(2), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south().west(2), boundsIn);
                     if (buildTrunk <= randCorner3)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.north(2).east(), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north(2).east(), boundsIn);
                     if (buildTrunk <= randCorner4)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.north(2).west(2), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north(2).west(2), boundsIn);
 
                     if (buildTrunk <= randOuterEdge)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.north(3), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north(3), boundsIn);
                     if (buildTrunk <= randOuterEdge2)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.north(3).west(), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.north(3).west(), boundsIn);
                     if (buildTrunk <= randOuterEdge3)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.east(2), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.east(2), boundsIn);
                     if (buildTrunk <= randOuterEdge4)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.east(2).north(), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.east(2).north(), boundsIn);
                     if (buildTrunk <= randOuterEdge5)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.south(2).west(), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south(2).west(), boundsIn);
                     if (buildTrunk <= randOuterEdge6)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.south(2), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.south(2), boundsIn);
                     if (buildTrunk <= randOuterEdge7)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.west(3), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.west(3), boundsIn);
                     if (buildTrunk <= randOuterEdge8)
-                        placeLog(LOG, changedBlocks, worldIn, blockpos1.west(3).north(), boundsIn);
+                        placeTrunk(LOG, changedBlocks, worldIn, blockpos1.west(3).north(), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east().up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.east(2).up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().east().up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().east(2).up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().east(2).up(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().east(2).up(3), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(2).east(3).up(4), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(2).east(3).up(5), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(2).east(3).up(6), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south().east(3).up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south().east(4).up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south().east(5).up(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south().east(5).up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east().up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(2).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().east().up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().east(2).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().east(2).up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().east(2).up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(2).east(3).up(4), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(2).east(3).up(5), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(2).east(3).up(6), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south().east(3).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south().east(4).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south().east(5).up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south().east(5).up(3), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south().west().up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(2).west(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(2).west().up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(2).west(2).up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(3).up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south().west().up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(2).west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(2).west().up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(2).west(2).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(3).up(2), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(3).up(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(4).up(3).east(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(3).up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(4).up(3).east(), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(3).up(2).west(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(4).up(2).west(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(5).up(3).west(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(5).up(4).west(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.south(3).up(3).west(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(3).up(2).west(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(4).up(2).west(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(5).up(3).west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(5).up(4).west(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(3).up(3).west(3), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west().up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west().up(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(3).up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(3), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(4).south().up(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(5).up(3), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(6).up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west().up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west().up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(3).up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(4).south().up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(5).up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(6).up(3), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(7).up(4).south(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(7).up(5).south(), boundsIn);
-//                    placeLog(LOG, changedBlocks, worldIn, blockpos2.west(7).up(6).south(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(7).up(4).south(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(7).up(5).south(), boundsIn);
+//                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(7).up(6).south(), boundsIn);
 
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().up(), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().up(2), boundsIn);
-//                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north().up(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(3).up(3), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(3).up(4), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(3).up(5), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(6).up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().up(), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().up(2), boundsIn);
+//                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).up(4), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).up(5), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(6).up(3), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(4).west().up(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(5).west().up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(4).west().up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(5).west().up(2), boundsIn);
 
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(3).west(2).up(1), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(3).west(3).up(2), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(2).west(4).up(3), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(3).west(5).up(4), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(3).west(5).up(5), boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, blockpos2.north(3).west(5).up(6), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).west(2).up(1), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).west(3).up(2), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(2).west(4).up(3), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).west(5).up(4), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).west(5).up(5), boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).west(5).up(6), boundsIn);
 
 
                 }

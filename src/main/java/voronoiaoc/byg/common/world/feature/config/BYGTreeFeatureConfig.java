@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.world.feature.config;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
@@ -10,16 +11,16 @@ import net.minecraft.world.gen.feature.IFeatureConfig;
 
 public class BYGTreeFeatureConfig implements IFeatureConfig {
 
-    public static final Codec<BYGTreeFeatureConfig> CODEC = RecordCodecBuilder.create((p_236683_0_) -> {
-        return p_236683_0_.group(BlockStateProvider.field_236796_a_.fieldOf("trunk_provider").forGetter((p_236693_0_) -> {
-            return p_236693_0_.trunkProvider;
-        }), BlockStateProvider.field_236796_a_.fieldOf("leaves_provider").forGetter((p_236692_0_) -> {
-            return p_236692_0_.leavesProvider;
-        }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((p_236687_0_) -> {
-            return p_236687_0_.minHeight;
-        }), Codec.INT.fieldOf("max_possible_height").orElse(1).forGetter((p_236686_0_) -> {
-            return p_236686_0_.maxPossibleHeight;
-        })).apply(p_236683_0_, BYGTreeFeatureConfig::new);
+    public static final Codec<BYGTreeFeatureConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
+        return codecRecorder.group(BlockStateProvider.field_236796_a_.fieldOf("trunk_provider").forGetter((config) -> {
+            return config.trunkProvider;
+        }), BlockStateProvider.field_236796_a_.fieldOf("leaves_provider").forGetter((config) -> {
+            return config.leavesProvider;
+        }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
+            return config.minHeight;
+        }), Codec.INT.fieldOf("max_possible_height").orElse(1).forGetter((config) -> {
+            return config.maxPossibleHeight;
+        })).apply(codecRecorder, BYGTreeFeatureConfig::new);
     });
 
 
@@ -86,9 +87,27 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
             return this;
         }
 
+        public Builder setTrunkBlock(BlockState state) {
+            if (state != null)
+                trunkProvider = new SimpleBlockStateProvider(state);
+            else
+                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+
+            return this;
+        }
+
         public Builder setLeavesBlock(Block block) {
             if (block != null)
                 leavesProvider = new SimpleBlockStateProvider(block.getDefaultState());
+            else
+                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+
+            return this;
+        }
+
+        public Builder setLeavesBlock(BlockState state) {
+            if (state != null)
+                leavesProvider = new SimpleBlockStateProvider(state);
             else
                 leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
 
@@ -105,6 +124,14 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
                 this.maxPossibleHeight = maxPossibleHeight + 1;
             else
                 this.maxPossibleHeight = 1;
+            return this;
+        }
+
+        public Builder copy(BYGTreeFeatureConfig config) {
+            this.maxPossibleHeight = config.maxPossibleHeight;
+            this.minHeight = config.minHeight;
+            this.trunkProvider = config.trunkProvider;
+            this.leavesProvider = config.leavesProvider;
             return this;
         }
 

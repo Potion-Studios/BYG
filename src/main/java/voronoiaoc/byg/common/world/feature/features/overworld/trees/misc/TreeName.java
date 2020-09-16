@@ -54,16 +54,16 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //
 //                    BlockPos trunkPos1 = new BlockPos(posX2, logplacer, posZ2);
-//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1, boundsIn);
-//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.north(), boundsIn);
-//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.east(), boundsIn);
-//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.north().east(), boundsIn);
+//                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1, boundsIn);
+//                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1.north(), boundsIn);
+//                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1.east(), boundsIn);
+//                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1.north().east(), boundsIn);
 //
 //
-//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1, boundsIn);
-//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.north(5), boundsIn);
-//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.east(1), boundsIn);
-//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.north(1).east(1), boundsIn);
+//                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1, boundsIn);
+//                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1.north(5), boundsIn);
+//                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1.east(1), boundsIn);
+//                    placeTrunk(LOG, changedBlocks, worldIn, trunkPos1.north(1).east(1), boundsIn);
 //                }
 //                for (int posXLeafSize = -2; posXLeafSize <= 2; ++posXLeafSize) {
 //                    for (int posZLeafSize = -2; posZLeafSize <= 2; ++posZLeafSize) {

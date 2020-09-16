@@ -58,7 +58,6 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel.De
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel.DeadHazel2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel.DeadHazel3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deadhazel.DeadHazel4;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.brown.DeciduousBrownTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.brown.DeciduousBrownTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.brown.DeciduousBrownTree3;
@@ -71,27 +70,22 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.sm
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.red.DeciduousRedTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.red.DeciduousRedTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.red.DeciduousRedTree4;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.regular.DeciduousTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.regular.DeciduousTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.regular.DeciduousTree3;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.small.regular.DeciduousTree4;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.DeciduousTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.DeciduousTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.DeciduousTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.deciduous.DeciduousTree4;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ebony.EbonyBush1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ebony.EbonyTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ebony.EbonyTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedGroveTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.blue.BlueEnchantedTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.EnchantedGroveTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.EnchantedTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.EnchantedTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.EnchantedTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedGroveTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.enchanted.green.GreenEnchantedTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.holly.HollyTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.holly.HollyTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.holly.HollyTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.holly.HollyTree4;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.IndigoJacarandaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.JacarandaTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda.JacarandaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua.JoshuaTree1;
@@ -415,37 +409,11 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DEAD_HAZEL_TREE3 = new DeadHazel3(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DEAD_HAZEL_TREE4 = new DeadHazel4(BYGTreeFeatureConfig.CODEC);
 
-    //Old Deciduous
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_TREE = new DeciduousTree(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_BROWN_TREE = new BrownDeciduousTree(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_ORANGE_TREE = new OrangeDeciduousTree(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_YELLOW_TREE = new YellowDeciduousTree(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_RED_TREE = new RedDeciduousTree(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_SEASONAL_SHRUBS = new SeasonalDeciduousShrubs(BYGTreeFeatureConfig.CODEC);
-
     //Deciduous
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_TREE1 = new DeciduousTree1(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_TREE2 = new DeciduousTree2(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_TREE3 = new DeciduousTree3(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_TREE4 = new DeciduousTree4(BYGTreeFeatureConfig.CODEC);
-
-    //Red Deciduous
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_RED_TREE1 = new DeciduousRedTree1(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_RED_TREE2 = new DeciduousRedTree2(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_RED_TREE3 = new DeciduousRedTree3(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_RED_TREE4 = new DeciduousRedTree4(BYGTreeFeatureConfig.CODEC);
-
-    //Orange Deciduous
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_ORANGE_TREE1 = new DeciduousOrangeTree1(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_ORANGE_TREE2 = new DeciduousOrangeTree2(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_ORANGE_TREE3 = new DeciduousOrangeTree3(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_ORANGE_TREE4 = new DeciduousOrangeTree4(BYGTreeFeatureConfig.CODEC);
-
-    //Brown Deciduous
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_BROWN_TREE1 = new DeciduousBrownTree1(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_BROWN_TREE2 = new DeciduousBrownTree2(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_BROWN_TREE3 = new DeciduousBrownTree3(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_BROWN_TREE4 = new DeciduousBrownTree4(BYGTreeFeatureConfig.CODEC);
 
     //Ebony
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> EBONY_BUSH1 = new EbonyBush1(BYGTreeFeatureConfig.CODEC);
@@ -453,15 +421,15 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> EBONY_TREE2 = new EbonyTree2(BYGTreeFeatureConfig.CODEC);
 
     //Enchanted Trees
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_BLUE_TREE1 = new BlueEnchantedTree1(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_BLUE_TREE2 = new BlueEnchantedTree2(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_BLUE_TREE3 = new BlueEnchantedTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_TREE1 = new EnchantedTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_TREE2 = new EnchantedTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_TREE3 = new EnchantedTree2(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_GREEN_TREE1 = new GreenEnchantedTree1(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_GREEN_TREE2 = new GreenEnchantedTree2(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_GREEN_TREE3 = new GreenEnchantedTree3(BYGTreeFeatureConfig.CODEC);
 
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_GREEN_GROVE_TREE1 = new GreenEnchantedGroveTree(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_BLUE_GROVE_TREE1 = new BlueEnchantedGroveTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_GROVE_TREE1 = new EnchantedGroveTree(BYGTreeFeatureConfig.CODEC);
 
     //Holly
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> HOLLY_TREE1 = new HollyTree1(BYGTreeFeatureConfig.CODEC);
@@ -800,14 +768,14 @@ public class BYGFeatureList {
             registerFeature(EBONY_BUSH1, "ebony_bush1");
             registerFeature(EBONY_TREE1, "ebony_tree1");
             registerFeature(EBONY_TREE2, "ebony_tree2");
-            registerFeature(ENCHANTED_BLUE_TREE1, "blue_enchanted_tree1");
-            registerFeature(ENCHANTED_BLUE_TREE2, "blue_enchanted_tree2");
-            registerFeature(ENCHANTED_BLUE_TREE3, "blue_enchanted_tree3");
+            registerFeature(ENCHANTED_TREE1, "blue_enchanted_tree1");
+            registerFeature(ENCHANTED_TREE2, "blue_enchanted_tree2");
+            registerFeature(ENCHANTED_TREE3, "blue_enchanted_tree3");
             registerFeature(ENCHANTED_GREEN_TREE1, "green_enchanted_tree1");
             registerFeature(ENCHANTED_GREEN_TREE2, "green_enchanted_tree2");
             registerFeature(ENCHANTED_GREEN_TREE3, "green_enchanted_tree3");
             registerFeature(ENCHANTED_GREEN_GROVE_TREE1, "green_enchanted_grove_tree1");
-            registerFeature(ENCHANTED_BLUE_GROVE_TREE1, "blue_enchanted_grove_tree1");
+            registerFeature(ENCHANTED_GROVE_TREE1, "blue_enchanted_grove_tree1");
             registerFeature(HOLLY_TREE1, "holly_tree1");
             registerFeature(HOLLY_TREE2, "holly_tree2");
             registerFeature(HOLLY_TREE3, "holly_tree3");

@@ -39,10 +39,10 @@ public class PinkCherry1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             } else {
                 buildTrunk(changedBlocks, worldIn, BYGBlockList.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable, mainmutable2, mainmutable3, mainmutable4);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight + 1; buildTrunk++) {
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable2, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable3, boundsIn);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable4, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable2, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable3, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable4, boundsIn);
                     mainmutable.move(Direction.UP);
                     mainmutable2.move(Direction.UP);
                     mainmutable3.move(Direction.UP);
@@ -50,43 +50,43 @@ public class PinkCherry1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 }
                 mainmutable.setPos(pos);
 
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, -3), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, -3), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(4, randTreeHeight - 7, -3), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, -2), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, -2), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-5, randTreeHeight - 7, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-4, randTreeHeight - 7, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-3, randTreeHeight - 7, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight - 7, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 7, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 7, 2), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 7, 3), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 7, 3), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, 3), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(4, randTreeHeight - 7, 3), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, 4), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight - 7, 4), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 7, 4), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 7, 4), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(4, randTreeHeight - 7, 4), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, 5), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, 6), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, -3), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, -3), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(4, randTreeHeight - 7, -3), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, -2), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, -2), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-5, randTreeHeight - 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-4, randTreeHeight - 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-3, randTreeHeight - 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight - 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 7, 2), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 7, 3), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 7, 3), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 7, 3), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(4, randTreeHeight - 7, 3), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, 4), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight - 7, 4), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 7, 4), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(1, randTreeHeight - 7, 4), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(4, randTreeHeight - 7, 4), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, 5), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 7, 6), boundsIn);
 
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, -2), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, -1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 2, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 2, 0), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 2, 1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight - 2, 1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, -2), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, -1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 2, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(3, randTreeHeight - 2, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 2, 1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(-1, randTreeHeight - 2, 1), boundsIn);
 
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 2, 1), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, 2), boundsIn);
-                placeLog(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, 3), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(2, randTreeHeight - 2, 1), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, 2), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, randTreeHeight - 2, 3), boundsIn);
 
 
                 placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, randTreeHeight - 10, -4), boundsIn);

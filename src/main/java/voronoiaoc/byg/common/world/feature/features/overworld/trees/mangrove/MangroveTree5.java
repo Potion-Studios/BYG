@@ -39,7 +39,7 @@ public class MangroveTree5 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
                 for (int buildTrunk = 3; buildTrunk <= randTreeHeight; buildTrunk++) {
                     if (buildTrunk == 3)
                         mainmutable.move(Direction.UP, 3);
-                    placeLog(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
+                    placeTrunk(LOG, changedBlocks, worldIn, mainmutable, boundsIn);
 
                     mainmutable.move(Direction.UP);
                 }
