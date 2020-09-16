@@ -42,20 +42,24 @@ public class BYGPumpkinConfig implements IFeatureConfig {
         private BlockStateProvider pumpkinProvider = new SimpleBlockStateProvider(Blocks.PUMPKIN.getDefaultState());
         private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
 
-        public BlockStateProvider setPumpkinBlock(Block block) {
-            return this.pumpkinProvider = new SimpleBlockStateProvider(block.getDefaultState());
+        public Builder setPumpkinBlock(Block block) {
+            this.pumpkinProvider = new SimpleBlockStateProvider(block.getDefaultState());
+            return this;
         }
 
-        public BlockStateProvider setPumpkinBlock(BlockState state) {
-            return this.pumpkinProvider = new SimpleBlockStateProvider(state);
+        public Builder setPumpkinBlock(BlockState state) {
+            this.pumpkinProvider = new SimpleBlockStateProvider(state);
+            return this;
         }
 
-        public BlockStateProvider setStemBlock(Block block) {
-            return this.stemProvider = new SimpleBlockStateProvider(block.getDefaultState());
+        public Builder setStemBlock(Block block) {
+            this.stemProvider = new SimpleBlockStateProvider(block.getDefaultState());
+            return this;
         }
 
-        public BlockStateProvider setStemBlock(BlockState state) {
-            return this.stemProvider = new SimpleBlockStateProvider(state);
+        public Builder setStemBlock(BlockState state) {
+            this.stemProvider = new SimpleBlockStateProvider(state);
+            return this;
         }
 
         public BYGPumpkinConfig build() {

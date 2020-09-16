@@ -7,7 +7,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
@@ -15,11 +14,6 @@ import java.util.Random;
 import java.util.Set;
 
 public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
-    //BYGBlockRenders used for the tree.
-    //private static final BlockState LOG = BYGBlockList.ZELKOVA_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlockList.ZELKOVA_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
-    Random random = new Random();
 
     public ZelkovaTree3(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
@@ -29,12 +23,12 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = rand.nextInt(5) + 22;
+        int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         //Positions
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
 
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
@@ -51,7 +45,6 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
 
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
@@ -87,15 +80,6 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
                     for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
 
-                        int posX2 = posX1 + 1;
-                        int posZ2 = posZ1 + 1;
-
-                        //Bottom Leaves
-//                        placeLeaves(LEAVES, worldIn, posX1 + posXLeafWidth, topTrunkHeight + 1, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
-//                        placeLeaves(LEAVES, worldIn, posX1 + posXLeafWidth - 2, topTrunkHeight + 1, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
-//                        placeLeaves(LEAVES, worldIn, posX1 + posXLeafWidth - 1, topTrunkHeight + 1, posZ1 + posZLeafWidthL0 + 1, boundsIn, changedBlocks);
-//                        placeLeaves(LEAVES, worldIn, posX1 + posXLeafWidth - 1, topTrunkHeight + 1, posZ1 + posZLeafWidthL0 - 1, boundsIn, changedBlocks);
-
                         //3x3
                         if (posXLeafWidth <= 1 && posZLeafWidthL0 <= 1 && posZLeafWidthL0 >= -1 && posXLeafWidth >= -1) {
 
@@ -103,14 +87,8 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                             placeLeaves(LEAVES, worldIn, posX1 + posXLeafWidth, topTrunkHeight - 6, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
                             placeLeaves(LEAVES, worldIn, posX1 + posXLeafWidth, topTrunkHeight - 10, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
                             placeLeaves(LEAVES, worldIn, posX1 + posXLeafWidth, topTrunkHeight - 14, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
-
-
                         }
 
-                        //2x3
-                        if (posXLeafWidth <= 0 && posZLeafWidthL0 <= 1 && posZLeafWidthL0 >= -1 && posXLeafWidth >= -1) {
-
-                        }
 
                         //Bottom Leaves
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight + 1, posZ1, boundsIn, changedBlocks);
@@ -194,23 +172,18 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                         placeLeaves(LEAVES, worldIn, posX1 - 2, topTrunkHeight - 10, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 10, posZ1 - 2, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 10, posZ1 + 2, boundsIn, changedBlocks);
-                        //---
-
                         placeLeaves(LEAVES, worldIn, posX1 + 3, topTrunkHeight - 12, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1 - 3, topTrunkHeight - 12, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 12, posZ1 - 3, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 12, posZ1 + 3, boundsIn, changedBlocks);
-
                         placeLeaves(LEAVES, worldIn, posX1 + 3, topTrunkHeight - 13, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1 - 3, topTrunkHeight - 13, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 13, posZ1 - 3, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 13, posZ1 + 3, boundsIn, changedBlocks);
-                        //---
                         placeLeaves(LEAVES, worldIn, posX1 + 2, topTrunkHeight - 13, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1 - 2, topTrunkHeight - 13, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 13, posZ1 - 2, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 13, posZ1 + 2, boundsIn, changedBlocks);
-
                         placeLeaves(LEAVES, worldIn, posX1 + 2, topTrunkHeight - 14, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1 - 2, topTrunkHeight - 14, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 14, posZ1 - 2, boundsIn, changedBlocks);
@@ -220,49 +193,17 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                         placeLeaves(LEAVES, worldIn, posX1 - 2, topTrunkHeight - 15, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 15, posZ1 - 2, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 15, posZ1 + 2, boundsIn, changedBlocks);
-                        //---
                         placeLeaves(LEAVES, worldIn, posX1 + 1, topTrunkHeight - 16, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1 - 1, topTrunkHeight - 16, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 16, posZ1 - 1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 16, posZ1 + 1, boundsIn, changedBlocks);
-                        //------
                     }
                 }
             }
 
             return true;
-            //}
         } else {
             return false;
-        }
-    }
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 0;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-
-    private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
-        BlockPos blockpos = new BlockPos(x, y, z);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, LEAVES, boundingBox);
         }
     }
 }

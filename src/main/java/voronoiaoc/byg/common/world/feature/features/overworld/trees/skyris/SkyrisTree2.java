@@ -7,7 +7,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
@@ -15,28 +14,21 @@ import java.util.Random;
 import java.util.Set;
 
 public class SkyrisTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
-    //BYGBlockRenders used for the tree.
-    //private static final BlockState LOG = BYGBlockList.SKYRIS_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlockList.SKYRIS_LEAVES.getDefaultState();
-    //private static final BlockState LEAVES2 = BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
-    Random random = new Random();
 
     public SkyrisTree2(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
-        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.SKYRIS_SAPLING);
     }
 
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = rand.nextInt(2) + 3;
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         //Positions
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+        if (posY + randTreeHeight + 1 < worldIn.getHeight()) {
 
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
@@ -52,8 +44,6 @@ public class SkyrisTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 int posY1 = 2 - rand.nextInt(1);
                 int posX1 = posX;
                 int posZ1 = posZ;
-                int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
                 int topTrunkHeight3 = posY + randTreeHeight + randTreeHeight + 8;
                 int topTrunkHeight4 = posY + randTreeHeight + randTreeHeight + 10;
                 int topTrunkHeight5 = posY + randTreeHeight + randTreeHeight + 11;
@@ -102,9 +92,6 @@ public class SkyrisTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
                     for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
 
-                        int posX2 = posX1 + 1;
-                        int posZ2 = posZ1 + 2;
-
                         int posX3 = posX1 + 2;
                         int posZ3 = posZ1 + 5;
 
@@ -144,12 +131,6 @@ public class SkyrisTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
                         }
 
-                        //2x3
-                        if (posXLeafWidth <= 0 && posZLeafWidthL0 <= 1 && posZLeafWidthL0 >= -1 && posXLeafWidth >= -1) {
-
-                        }
-
-
                         //Top Leaves
                         placeLeaves(LEAVES, worldIn, posX4 - 1, topTrunkHeight4 - 5, posZ4 + 2, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX4 - 3, topTrunkHeight4 - 5, posZ4, boundsIn, changedBlocks);
@@ -174,43 +155,8 @@ public class SkyrisTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             }
 
             return true;
-            //}
         } else {
             return false;
         }
-    }
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 4;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-
-    private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
-        BlockPos blockpos = new BlockPos(x, y, z);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, this.randomizer(), boundingBox);
-        }
-
-    }
-
-    private BlockState randomizer() {
-        return (random.nextInt(25) == 0) ? LEAVES2 : LEAVES;
     }
 }

@@ -5,11 +5,13 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
+import voronoiaoc.byg.common.world.feature.config.BYGPumpkinConfig;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 import voronoiaoc.byg.common.world.feature.placements.UnderGroundPlacement;
@@ -22,8 +24,8 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ANCIENT_TREE2 = newConfiguredFeature("ancient_tree2", BYGFeatureList.ANCIENT_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(25).setMinHeight(15).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ANCIENT_TREE3 = newConfiguredFeature("ancient_tree3", BYGFeatureList.ANCIENT_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(25).setMinHeight(15).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ASPEN_SHRUB1 = newConfiguredFeature("aspen_shrub1", BYGFeatureList.ASPEN_SHRUB1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMaxHeight(0).setMinHeight(2).build()));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ASPEN_SHRUB2 = newConfiguredFeature("aspen_shrub2", BYGFeatureList.ASPEN_SHRUB2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMaxHeight(0).setMinHeight(1).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ASPEN_SHRUB1 = newConfiguredFeature("aspen_shrub1", BYGFeatureList.SHRUB1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMinHeight(2).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ASPEN_SHRUB2 = newConfiguredFeature("aspen_shrub2", BYGFeatureList.SHRUB2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMinHeight(1).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ASPEN_TREE1 = newConfiguredFeature("aspen_tree1", BYGFeatureList.ASPEN_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMaxHeight(0).setMinHeight(1).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ASPEN_TREE2 = newConfiguredFeature("aspen_tree2", BYGFeatureList.ASPEN_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMaxHeight(16).setMinHeight(12).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ASPEN_TREE3 = newConfiguredFeature("aspen_tree3", BYGFeatureList.ASPEN_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMaxHeight(16).setMinHeight(9).build()));
@@ -69,7 +71,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> DEAD_HAZEL_TREE3 = newConfiguredFeature("dead_hazel_tree3", BYGFeatureList.DEAD_HAZEL_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WITCH_HAZEL_LOG).setLeavesBlock(BYGBlockList.WITCH_HAZEL_LEAVES).setMaxHeight(16).setMinHeight(11).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> DEAD_HAZEL_TREE4 = newConfiguredFeature("dead_hazel_tree4", BYGFeatureList.DEAD_HAZEL_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WITCH_HAZEL_LOG).setLeavesBlock(BYGBlockList.WITCH_HAZEL_LEAVES).setMaxHeight(7).setMinHeight(5).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> DECIDUOUS_SEASONAL_SHRUB = newConfiguredFeature("seasonal_deciduous_shrub", BYGFeatureList.DECIDUOUS_SEASONAL_SHRUBS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> DECIDUOUS_SEASONAL_SHRUB = newConfiguredFeature("seasonal_deciduous_shrub", BYGFeatureList.SHRUB1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlockList.RED_OAK_LEAVES).setMinHeight(2).build()));
 
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> DECIDUOUS_TREE1 = newConfiguredFeature("deciduous_tree1", BYGFeatureList.DECIDUOUS_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(19).setMinHeight(14).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> DECIDUOUS_TREE2 = newConfiguredFeature("deciduous_tree2", BYGFeatureList.DECIDUOUS_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(22).setMinHeight(17).build()));
@@ -159,132 +161,106 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> OAK_ORANGE_TREE = newConfiguredFeature("orange_oak_tree1", BYGFeatureList.BASIC_TREE.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlockList.ORANGE_OAK_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> OAK_RED_TREE = newConfiguredFeature("red_oak_tree1", BYGFeatureList.BASIC_TREE.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlockList.RED_OAK_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
 
-//    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SHRUB = newConfiguredFeature("shrub", BYGFeatureList.SHRUB.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SHRUB = newConfiguredFeature("shrub", BYGFeatureList.SHRUB1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMinHeight(2).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SHRUB_MEADOW = newConfiguredFeature("meadow_shrub1", BYGFeatureList.SHRUB1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.DARK_OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMinHeight(2).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SHRUB_MEADOW2 = newConfiguredFeature("meadow_shrub2", BYGFeatureList.SHRUB2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.DARK_OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMinHeight(2).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SHRUB_PRAIRIE1 = newConfiguredFeature("prairie_shrub1", BYGFeatureList.SHRUB1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMinHeight(2).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SHRUB_PRAIRIE2 = newConfiguredFeature("prairie_shrub2", BYGFeatureList.SHRUB2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMinHeight(2).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> PUMPKIN1 = newConfiguredFeature("pumpkin1", BYGFeatureList.PUMPKIN_PATCH1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> PUMPKIN2 = newConfiguredFeature("pumpkin2", BYGFeatureList.PUMPKIN_PATCH2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> PUMPKIN3 = newConfiguredFeature("pumpkin3", BYGFeatureList.PUMPKIN_PATCH3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGPumpkinConfig, ?> PUMPKIN1 = newConfiguredFeature("pumpkin1", BYGFeatureList.LARGE_PUMPKIN1.withConfiguration(new BYGPumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.OAK_LOG).build()));
+    public static final ConfiguredFeature<BYGPumpkinConfig, ?> PUMPKIN2 = newConfiguredFeature("pumpkin2", BYGFeatureList.LARGE_PUMPKIN2.withConfiguration(new BYGPumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.OAK_LOG).build()));
 
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SKYRIS_TREE1 = newConfiguredFeature("skyris_tree1", BYGFeatureList.SKYRIS_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SKYRIS_TREE2 = newConfiguredFeature("skyris_tree2", BYGFeatureList.SKYRIS_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SKYRIS_TREE3 = newConfiguredFeature("skyris_tree3", BYGFeatureList.SKYRIS_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SKYRIS_TREE1 = newConfiguredFeature("skyris_tree1", BYGFeatureList.SKYRIS_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.SKYRIS_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE.getDefaultState(), 1).addWeightedBlockstate(BYGBlockList.SKYRIS_LEAVES.getDefaultState(), 4)).setMaxHeight(9).setMinHeight(6).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SKYRIS_TREE2 = newConfiguredFeature("skyris_tree2", BYGFeatureList.SKYRIS_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.SKYRIS_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE.getDefaultState(), 1).addWeightedBlockstate(BYGBlockList.SKYRIS_LEAVES.getDefaultState(), 4)).setMaxHeight(6).setMinHeight(3).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SKYRIS_TREE3 = newConfiguredFeature("skyris_tree3", BYGFeatureList.SKYRIS_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.SKYRIS_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE.getDefaultState(), 1).addWeightedBlockstate(BYGBlockList.SKYRIS_LEAVES.getDefaultState(), 4)).setMaxHeight(8).setMinHeight(6).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> BLUE_GIANT_SPRUCE_TREE = newConfiguredFeature("blue_giant_spruce_tree", BYGFeatureList.BLUE_GIANT_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> BLUE_TALL_SPRUCE_TREE = newConfiguredFeature("blue_tall_spruce_tree", BYGFeatureList.BLUE_TALL_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> BLUE_SPRUCE_TREE = newConfiguredFeature("blue_spruce_tree", BYGFeatureList.BLUE_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> BLUE_SMALL_SPRUCE_TREE = newConfiguredFeature("blue_small_spruce_tree", BYGFeatureList.BLUE_SMALL_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE1 = newConfiguredFeature("spruce_tree1", BYGFeatureList.SPRUCE_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(17).setMinHeight(12).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE2 = newConfiguredFeature("spruce_tree2", BYGFeatureList.SPRUCE_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(17).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE3 = newConfiguredFeature("spruce_tree3", BYGFeatureList.SPRUCE_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(16).setMinHeight(12).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE4 = newConfiguredFeature("spruce_tree4", BYGFeatureList.SPRUCE_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(17).setMinHeight(12).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ORANGE_GIANT_SPRUCE_TREE = newConfiguredFeature("orange_giant_spruce_tree", BYGFeatureList.ORANGE_GIANT_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ORANGE_TALL_SPRUCE_TREE = newConfiguredFeature("orange_tall_spruce_tree", BYGFeatureList.ORANGE_TALL_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ORANGE_SPRUCE_TREE = newConfiguredFeature("orange_spruce_tree", BYGFeatureList.ORANGE_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ORANGE_SMALL_SPRUCE_TREE = newConfiguredFeature("orange_small_spruce_tree", BYGFeatureList.ORANGE_SMALL_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE_MEDIUM1 = newConfiguredFeature("spruce_tree_medium1", BYGFeatureList.SPRUCE_TREE_MEDIUM1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(24).setMinHeight(19).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE_MEDIUM2 = newConfiguredFeature("spruce_tree_medium2", BYGFeatureList.SPRUCE_TREE_MEDIUM2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(25).setMinHeight(20).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE_MEDIUM3 = newConfiguredFeature("spruce_tree_medium3", BYGFeatureList.SPRUCE_TREE_MEDIUM3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(26).setMinHeight(21).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE_MEDIUM4 = newConfiguredFeature("spruce_tree_medium4", BYGFeatureList.SPRUCE_TREE_MEDIUM4.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(25).setMinHeight(19).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> RED_GIANT_SPRUCE_TREE = newConfiguredFeature("red_giant_spruce_tree", BYGFeatureList.RED_GIANT_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> RED_TALL_SPRUCE_TREE = newConfiguredFeature("red_tall_spruce_tree", BYGFeatureList.RED_TALL_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> RED_SPRUCE_TREE = newConfiguredFeature("red_spruce_tree", BYGFeatureList.RED_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> RED_SMALL_SPRUCE_TREE = newConfiguredFeature("red_small_spruce_tree", BYGFeatureList.RED_SMALL_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> YELLOW_GIANT_SPRUCE_TREE = newConfiguredFeature("yellow_giant_spruce_tree", BYGFeatureList.YELLOW_GIANT_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> YELLOW_TALL_SPRUCE_TREE = newConfiguredFeature("yellow_tall_spruce_tree", BYGFeatureList.YELLOW_TALL_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> YELLOW_SPRUCE_TREE = newConfiguredFeature("yellow_spruce_tree", BYGFeatureList.YELLOW_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> YELLOW_SMALL_SPRUCE_TREE = newConfiguredFeature("yellow_small_spruce_tree", BYGFeatureList.YELLOW_SMALL_SPRUCE_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE1 = newConfiguredFeature("spruce_tree1", BYGFeatureList.SPRUCE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE2 = newConfiguredFeature("spruce_tree2", BYGFeatureList.SPRUCE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE3 = newConfiguredFeature("spruce_tree3", BYGFeatureList.SPRUCE_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE4 = newConfiguredFeature("spruce_tree4", BYGFeatureList.SPRUCE_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE_MEDIUM1 = newConfiguredFeature("spruce_tree_medium1", BYGFeatureList.SPRUCE_TREE_MEDIUM1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE_MEDIUM2 = newConfiguredFeature("spruce_tree_medium2", BYGFeatureList.SPRUCE_TREE_MEDIUM2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE_MEDIUM3 = newConfiguredFeature("spruce_tree_medium3", BYGFeatureList.SPRUCE_TREE_MEDIUM3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE_MEDIUM4 = newConfiguredFeature("spruce_tree_medium4", BYGFeatureList.SPRUCE_TREE_MEDIUM4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE_LARGE1 = newConfiguredFeature("spruce_tree_large1", BYGFeatureList.SPRUCE_TREE_LARGE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_TREE_LARGE1 = newConfiguredFeature("spruce_tree_large1", BYGFeatureList.SPRUCE_TREE_LARGE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(55).setMinHeight(40).build()));
 
     //Yellow Spruce
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE1 = newConfiguredFeature("spruce_yellow_tree1", BYGFeatureList.SPRUCE_YELLOW_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE2 = newConfiguredFeature("spruce_yellow_tree2", BYGFeatureList.SPRUCE_YELLOW_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE3 = newConfiguredFeature("spruce_yellow_tree3", BYGFeatureList.SPRUCE_YELLOW_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE4 = newConfiguredFeature("spruce_yellow_tree4", BYGFeatureList.SPRUCE_YELLOW_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE1 = newConfiguredFeature("spruce_yellow_tree1", BYGFeatureList.SPRUCE_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE1.config).setLeavesBlock(BYGBlockList.YELLOW_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE2 = newConfiguredFeature("spruce_yellow_tree2", BYGFeatureList.SPRUCE_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE2.config).setLeavesBlock(BYGBlockList.YELLOW_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE3 = newConfiguredFeature("spruce_yellow_tree3", BYGFeatureList.SPRUCE_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE3.config).setLeavesBlock(BYGBlockList.YELLOW_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE4 = newConfiguredFeature("spruce_yellow_tree4", BYGFeatureList.SPRUCE_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE4.config).setLeavesBlock(BYGBlockList.YELLOW_SPRUCE_LEAVES).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE_MEDIUM1 = newConfiguredFeature("spruce_yellow_tree_medium1", BYGFeatureList.SPRUCE_YELLOW_TREE_MEDIUM1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE_MEDIUM2 = newConfiguredFeature("spruce_yellow_tree_medium2", BYGFeatureList.SPRUCE_YELLOW_TREE_MEDIUM2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE_MEDIUM3 = newConfiguredFeature("spruce_yellow_tree_medium3", BYGFeatureList.SPRUCE_YELLOW_TREE_MEDIUM3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE_MEDIUM4 = newConfiguredFeature("spruce_yellow_tree_medium4", BYGFeatureList.SPRUCE_YELLOW_TREE_MEDIUM4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE_MEDIUM1 = newConfiguredFeature("spruce_yellow_tree_medium1", BYGFeatureList.SPRUCE_TREE_MEDIUM1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM1.config).setLeavesBlock(BYGBlockList.YELLOW_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE_MEDIUM2 = newConfiguredFeature("spruce_yellow_tree_medium2", BYGFeatureList.SPRUCE_TREE_MEDIUM2.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM2.config).setLeavesBlock(BYGBlockList.YELLOW_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE_MEDIUM3 = newConfiguredFeature("spruce_yellow_tree_medium3", BYGFeatureList.SPRUCE_TREE_MEDIUM3.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM3.config).setLeavesBlock(BYGBlockList.YELLOW_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE_MEDIUM4 = newConfiguredFeature("spruce_yellow_tree_medium4", BYGFeatureList.SPRUCE_TREE_MEDIUM4.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM4.config).setLeavesBlock(BYGBlockList.YELLOW_SPRUCE_LEAVES).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE_LARGE1 = newConfiguredFeature("spruce_yellow_tree_large1", BYGFeatureList.SPRUCE_YELLOW_TREE_LARGE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_YELLOW_TREE_LARGE1 = newConfiguredFeature("spruce_yellow_tree_large1", BYGFeatureList.SPRUCE_TREE_LARGE1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_LARGE1.config).setLeavesBlock(BYGBlockList.YELLOW_SPRUCE_LEAVES).build()));
 
     //Orange Spruce
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE1 = newConfiguredFeature("spruce_orange_tree1", BYGFeatureList.SPRUCE_ORANGE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE2 = newConfiguredFeature("spruce_orange_tree2", BYGFeatureList.SPRUCE_ORANGE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE3 = newConfiguredFeature("spruce_orange_tree3", BYGFeatureList.SPRUCE_ORANGE_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE4 = newConfiguredFeature("spruce_orange_tree4", BYGFeatureList.SPRUCE_ORANGE_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE1 = newConfiguredFeature("spruce_orange_tree1", BYGFeatureList.SPRUCE_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE1.config).setLeavesBlock(BYGBlockList.ORANGE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE2 = newConfiguredFeature("spruce_orange_tree2", BYGFeatureList.SPRUCE_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE2.config).setLeavesBlock(BYGBlockList.ORANGE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE3 = newConfiguredFeature("spruce_orange_tree3", BYGFeatureList.SPRUCE_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE3.config).setLeavesBlock(BYGBlockList.ORANGE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE4 = newConfiguredFeature("spruce_orange_tree4", BYGFeatureList.SPRUCE_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE4.config).setLeavesBlock(BYGBlockList.ORANGE_SPRUCE_LEAVES).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE_MEDIUM1 = newConfiguredFeature("spruce_orange_tree_medium1", BYGFeatureList.SPRUCE_ORANGE_TREE_MEDIUM1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE_MEDIUM2 = newConfiguredFeature("spruce_orange_tree_medium2", BYGFeatureList.SPRUCE_ORANGE_TREE_MEDIUM2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE_MEDIUM3 = newConfiguredFeature("spruce_orange_tree_medium3", BYGFeatureList.SPRUCE_ORANGE_TREE_MEDIUM3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE_MEDIUM4 = newConfiguredFeature("spruce_orange_tree_medium4", BYGFeatureList.SPRUCE_ORANGE_TREE_MEDIUM4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE_MEDIUM1 = newConfiguredFeature("spruce_orange_tree_medium1", BYGFeatureList.SPRUCE_TREE_MEDIUM1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM1.config).setLeavesBlock(BYGBlockList.ORANGE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE_MEDIUM2 = newConfiguredFeature("spruce_orange_tree_medium2", BYGFeatureList.SPRUCE_TREE_MEDIUM2.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM2.config).setLeavesBlock(BYGBlockList.ORANGE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE_MEDIUM3 = newConfiguredFeature("spruce_orange_tree_medium3", BYGFeatureList.SPRUCE_TREE_MEDIUM3.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM3.config).setLeavesBlock(BYGBlockList.ORANGE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE_MEDIUM4 = newConfiguredFeature("spruce_orange_tree_medium4", BYGFeatureList.SPRUCE_TREE_MEDIUM4.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM4.config).setLeavesBlock(BYGBlockList.ORANGE_SPRUCE_LEAVES).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE_LARGE1 = newConfiguredFeature("spruce_orange_tree_large1", BYGFeatureList.SPRUCE_ORANGE_TREE_LARGE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_ORANGE_TREE_LARGE1 = newConfiguredFeature("spruce_orange_tree_large1", BYGFeatureList.SPRUCE_TREE_LARGE1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_LARGE1.config).setLeavesBlock(BYGBlockList.ORANGE_SPRUCE_LEAVES).build()));
 
     //Red Spruce
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE1 = newConfiguredFeature("spruce_red_tree1", BYGFeatureList.SPRUCE_RED_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE2 = newConfiguredFeature("spruce_red_tree2", BYGFeatureList.SPRUCE_RED_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE3 = newConfiguredFeature("spruce_red_tree3", BYGFeatureList.SPRUCE_RED_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE4 = newConfiguredFeature("spruce_red_tree4", BYGFeatureList.SPRUCE_RED_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE1 = newConfiguredFeature("spruce_red_tree1", BYGFeatureList.SPRUCE_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE1.config).setLeavesBlock(BYGBlockList.RED_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE2 = newConfiguredFeature("spruce_red_tree2", BYGFeatureList.SPRUCE_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE2.config).setLeavesBlock(BYGBlockList.RED_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE3 = newConfiguredFeature("spruce_red_tree3", BYGFeatureList.SPRUCE_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE3.config).setLeavesBlock(BYGBlockList.RED_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE4 = newConfiguredFeature("spruce_red_tree4", BYGFeatureList.SPRUCE_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE4.config).setLeavesBlock(BYGBlockList.RED_SPRUCE_LEAVES).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE_MEDIUM1 = newConfiguredFeature("spruce_red_tree_medium1", BYGFeatureList.SPRUCE_RED_TREE_MEDIUM1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE_MEDIUM2 = newConfiguredFeature("spruce_red_tree_medium2", BYGFeatureList.SPRUCE_RED_TREE_MEDIUM2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE_MEDIUM3 = newConfiguredFeature("spruce_red_tree_medium3", BYGFeatureList.SPRUCE_RED_TREE_MEDIUM3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE_MEDIUM4 = newConfiguredFeature("spruce_red_tree_medium4", BYGFeatureList.SPRUCE_RED_TREE_MEDIUM4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE_MEDIUM1 = newConfiguredFeature("spruce_red_tree_medium1", BYGFeatureList.SPRUCE_TREE_MEDIUM1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM1.config).setLeavesBlock(BYGBlockList.RED_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE_MEDIUM2 = newConfiguredFeature("spruce_red_tree_medium2", BYGFeatureList.SPRUCE_TREE_MEDIUM2.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM2.config).setLeavesBlock(BYGBlockList.RED_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE_MEDIUM3 = newConfiguredFeature("spruce_red_tree_medium3", BYGFeatureList.SPRUCE_TREE_MEDIUM3.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM3.config).setLeavesBlock(BYGBlockList.RED_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE_MEDIUM4 = newConfiguredFeature("spruce_red_tree_medium4", BYGFeatureList.SPRUCE_TREE_MEDIUM4.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM4.config).setLeavesBlock(BYGBlockList.RED_SPRUCE_LEAVES).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE_LARGE1 = newConfiguredFeature("spruce_red_tree_large1", BYGFeatureList.SPRUCE_RED_TREE_LARGE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_RED_TREE_LARGE1 = newConfiguredFeature("spruce_red_tree_large1", BYGFeatureList.SPRUCE_TREE_LARGE1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_LARGE1.config).setLeavesBlock(BYGBlockList.RED_SPRUCE_LEAVES).build()));
 
     //Blue Spruce
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE1 = newConfiguredFeature("spruce_blue_tree1", BYGFeatureList.SPRUCE_BLUE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE2 = newConfiguredFeature("spruce_blue_tree2", BYGFeatureList.SPRUCE_BLUE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE3 = newConfiguredFeature("spruce_blue_tree3", BYGFeatureList.SPRUCE_BLUE_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE4 = newConfiguredFeature("spruce_blue_tree4", BYGFeatureList.SPRUCE_BLUE_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE1 = newConfiguredFeature("spruce_blue_tree1", BYGFeatureList.SPRUCE_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE1.config).setLeavesBlock(BYGBlockList.BLUE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE2 = newConfiguredFeature("spruce_blue_tree2", BYGFeatureList.SPRUCE_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE2.config).setLeavesBlock(BYGBlockList.BLUE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE3 = newConfiguredFeature("spruce_blue_tree3", BYGFeatureList.SPRUCE_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE3.config).setLeavesBlock(BYGBlockList.BLUE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE4 = newConfiguredFeature("spruce_blue_tree4", BYGFeatureList.SPRUCE_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE4.config).setLeavesBlock(BYGBlockList.BLUE_SPRUCE_LEAVES).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE_MEDIUM1 = newConfiguredFeature("spruce_blue_tree_medium1", BYGFeatureList.SPRUCE_BLUE_TREE_MEDIUM1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE_MEDIUM2 = newConfiguredFeature("spruce_blue_tree_medium2", BYGFeatureList.SPRUCE_BLUE_TREE_MEDIUM2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE_MEDIUM3 = newConfiguredFeature("spruce_blue_tree_medium3", BYGFeatureList.SPRUCE_BLUE_TREE_MEDIUM3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE_MEDIUM4 = newConfiguredFeature("spruce_blue_tree_medium4", BYGFeatureList.SPRUCE_BLUE_TREE_MEDIUM4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE_MEDIUM1 = newConfiguredFeature("spruce_blue_tree_medium1", BYGFeatureList.SPRUCE_TREE_MEDIUM1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM1.config).setLeavesBlock(BYGBlockList.BLUE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE_MEDIUM2 = newConfiguredFeature("spruce_blue_tree_medium2", BYGFeatureList.SPRUCE_TREE_MEDIUM2.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM2.config).setLeavesBlock(BYGBlockList.BLUE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE_MEDIUM3 = newConfiguredFeature("spruce_blue_tree_medium3", BYGFeatureList.SPRUCE_TREE_MEDIUM3.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM3.config).setLeavesBlock(BYGBlockList.BLUE_SPRUCE_LEAVES).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE_MEDIUM4 = newConfiguredFeature("spruce_blue_tree_medium4", BYGFeatureList.SPRUCE_TREE_MEDIUM4.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_MEDIUM4.config).setLeavesBlock(BYGBlockList.BLUE_SPRUCE_LEAVES).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE_LARGE1 = newConfiguredFeature("spruce_blue_tree_large1", BYGFeatureList.SPRUCE_BLUE_TREE_LARGE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> TROPICAL_TREE1 = newConfiguredFeature("tropical_tree1", BYGFeatureList.TROPICAL_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> TROPICAL_SHORT_TREE1 = newConfiguredFeature("tropical_short_tree1", BYGFeatureList.TROPICAL_SHORT_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> TROPICAL_SHRUB1 = newConfiguredFeature("tropical_shrub1", BYGFeatureList.TROPICAL_SHRUB1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SPRUCE_BLUE_TREE_LARGE1 = newConfiguredFeature("spruce_blue_tree_large1", BYGFeatureList.SPRUCE_TREE_LARGE1.withConfiguration(new BYGTreeFeatureConfig.Builder().copy(SPRUCE_TREE_LARGE1.config).setLeavesBlock(BYGBlockList.BLUE_SPRUCE_LEAVES).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> MAHOGANY_TREE1 = newConfiguredFeature("mahogany_tree1", BYGFeatureList.MAHOGANY_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> MAHOGANY_TREE2 = newConfiguredFeature("mahogany_tree2", BYGFeatureList.MAHOGANY_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> MAHOGANY_TREE3 = newConfiguredFeature("mahogany_tree3", BYGFeatureList.MAHOGANY_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> MAHOGANY_TREE4 = newConfiguredFeature("mahogany_tree4", BYGFeatureList.MAHOGANY_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> MAHOGANY_TREE5 = newConfiguredFeature("mahogany_tree5", BYGFeatureList.MAHOGANY_TREE5.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> TROPICAL_SHRUB1 = newConfiguredFeature("tropical_shrub1", BYGFeatureList.SHRUB1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.MAHOGANY_LOG).setLeavesBlock(BYGBlockList.MAHOGANY_LEAVES).setMinHeight(2).build()));
+
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> MAHOGANY_TREE1 = newConfiguredFeature("mahogany_tree1", BYGFeatureList.MAHOGANY_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.MAHOGANY_LOG).setLeavesBlock(BYGBlockList.MAHOGANY_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> MAHOGANY_TREE2 = newConfiguredFeature("mahogany_tree2", BYGFeatureList.MAHOGANY_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.MAHOGANY_LOG).setLeavesBlock(BYGBlockList.MAHOGANY_LEAVES).setMaxHeight(14).setMinHeight(8).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> MAHOGANY_TREE3 = newConfiguredFeature("mahogany_tree3", BYGFeatureList.MAHOGANY_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.MAHOGANY_LOG).setLeavesBlock(BYGBlockList.MAHOGANY_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> MAHOGANY_TREE4 = newConfiguredFeature("mahogany_tree4", BYGFeatureList.MAHOGANY_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.MAHOGANY_LOG).setLeavesBlock(BYGBlockList.MAHOGANY_LEAVES).setMaxHeight(24).setMinHeight(18).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> MAHOGANY_TREE5 = newConfiguredFeature("mahogany_tree5", BYGFeatureList.MAHOGANY_TREE5.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.MAHOGANY_LOG).setLeavesBlock(BYGBlockList.MAHOGANY_LEAVES).setMaxHeight(31).setMinHeight(25).build()));
 
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WOODLANDS_TREE1 = newConfiguredFeature("woodlands_tree1", BYGFeatureList.WOODLANDS_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(5).setMinHeight(25).setTrunkBlock(Blocks.OAK_LOG).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WOODLANDS_TREE1 = newConfiguredFeature("woodlands_tree1", BYGFeatureList.WOODLANDS_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(5).setMinHeight(25).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> DUMMY_TREE = newConfiguredFeature("dummy_tree", BYGFeatureList.DUMMY_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_DEAD_TREE1 = newConfiguredFeature("dead_willow_tree1", BYGFeatureList.WILLOW_DEAD_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WILLOW_LOG).setLeavesBlock(BYGBlockList.WILLOW_LEAVES).setMaxHeight(12).setMinHeight(7).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_M_TREE1 = newConfiguredFeature("mutated_willow_tree1", BYGFeatureList.WILLOW_M_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WILLOW_LOG).setLeavesBlock(BYGBlockList.WILLOW_LEAVES).setMaxHeight(11).setMinHeight(6).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_M_TREE2 = newConfiguredFeature("mutated_willow_tree2", BYGFeatureList.WILLOW_M_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WILLOW_LOG).setLeavesBlock(BYGBlockList.WILLOW_LEAVES).setMaxHeight(12).setMinHeight(7).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_TREE1 = newConfiguredFeature("willow_tree1", BYGFeatureList.WILLOW_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WILLOW_LOG).setLeavesBlock(BYGBlockList.WILLOW_LEAVES).setMaxHeight(14).setMinHeight(8).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_TREE2 = newConfiguredFeature("willow_tree2", BYGFeatureList.WILLOW_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WILLOW_LOG).setLeavesBlock(BYGBlockList.WILLOW_LEAVES).setMaxHeight(12).setMinHeight(7).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_TREE3 = newConfiguredFeature("willow_tree3", BYGFeatureList.WILLOW_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WILLOW_LOG).setLeavesBlock(BYGBlockList.WILLOW_LEAVES).setMaxHeight(12).setMinHeight(7).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_TREE4 = newConfiguredFeature("willow_tree4", BYGFeatureList.WILLOW_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WILLOW_LOG).setLeavesBlock(BYGBlockList.WILLOW_LEAVES).setMaxHeight(21).setMinHeight(13).build()));
 
-
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_DEAD_TREE1 = newConfiguredFeature("dead_willow_tree1", BYGFeatureList.WILLOW_DEAD_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_M_TREE1 = newConfiguredFeature("mutated_willow_tree1", BYGFeatureList.WILLOW_M_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_M_TREE2 = newConfiguredFeature("mutated_willow_tree2", BYGFeatureList.WILLOW_M_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_TREE1 = newConfiguredFeature("willow_tree1", BYGFeatureList.WILLOW_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_TREE2 = newConfiguredFeature("willow_tree2", BYGFeatureList.WILLOW_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_TREE3 = newConfiguredFeature("willow_tree3", BYGFeatureList.WILLOW_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WILLOW_TREE4 = newConfiguredFeature("willow_tree4", BYGFeatureList.WILLOW_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_TREE1 = newConfiguredFeature("zelkova_tree1", BYGFeatureList.ZELKOVA_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_TREE2 = newConfiguredFeature("zelkova_tree2", BYGFeatureList.ZELKOVA_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_TREE3 = newConfiguredFeature("zelkova_tree3", BYGFeatureList.ZELKOVA_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_TREE1 = newConfiguredFeature("zelkova_tree1", BYGFeatureList.ZELKOVA_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.ZELKOVA_LEAVES).setMaxHeight(20).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_TREE2 = newConfiguredFeature("zelkova_tree2", BYGFeatureList.ZELKOVA_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.ZELKOVA_LEAVES).setMaxHeight(28).setMinHeight(18).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_TREE3 = newConfiguredFeature("zelkova_tree3", BYGFeatureList.ZELKOVA_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.ZELKOVA_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
 
     //Vanilla Tree Features
     public static final ConfiguredFeature<?, ?> MC_TROPICAL_GROUND_BUSH = newConfiguredFeature("mc_tropical_ground_bush", Feature.TREE.withConfiguration(BYGFeatureConfigs.TROPGROUNDBUSH_CONFIG));
@@ -366,7 +342,7 @@ public class BYGConfiguredTreeFeatures {
     /***********************************************************Random Selectors***********************************************************/
 
     public static final ConfiguredFeature<?, ?> RANDOM_ANCIENT_TREE = newConfiguredFeature("rs_ancient_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            Features.field_243863_bI.withChance(0.3F),
+            Features.DARK_OAK.withChance(0.3F),
             ANCIENT_TREE1.withChance(0.20F),
             ANCIENT_TREE2.withChance(0.20F)),
             ANCIENT_TREE3)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
@@ -454,9 +430,9 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_CRAG_GARDEN_TREE = newConfiguredFeature("rs_crag_garden_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             RAINBOW_TREE1.withChance(0.2F),
             RAINBOW_TREE1.withChance(0.2F),
-            Features.field_243787_M.withChance(0.2F),
+            Features.BAMBOO.withChance(0.2F),
             RAINBOW_LARGE_TREE1.withChance(0.1F)),
-            Features.field_243787_M)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            Features.BAMBOO)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(30, 0.4F, 8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CYPRESS_TREE = newConfiguredFeature("rs_cypress_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -511,22 +487,6 @@ public class BYGConfiguredTreeFeatures {
             RAINBOW_LARGE_TREE1)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(8, 0.4F, 2))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_GIANT_BLUE_TAIGA_TREE = newConfiguredFeature("rs_blue_taiga_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            Features.field_243866_bL.withChance(0.2F),
-            Features.field_243867_bM.withChance(0.2F),
-            Features.field_243872_bR.withChance(0.2F),
-            Features.field_243873_bS.withChance(0.2F),
-            BLUE_GIANT_SPRUCE_TREE.withChance(0.2F),
-            MC_BLUE_MEGA_PINE_TREE.withChance(0.2F),
-            MC_BLUE_MEGA_SPRUCE_TREE.withChance(0.1F),
-            BLUE_SMALL_SPRUCE_TREE.withChance(0.1F),
-            MC_BLUE_PINE_TREE.withChance(0.5F),
-            MC_BLUE_SPRUCE_TREE.withChance(0.5F),
-            BLUE_TALL_SPRUCE_TREE.withChance(0.5F),
-            BLUE_SPRUCE_TREE.withChance(0.5F)),
-            PINE_TREE2)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(45, 0.4F, 5))));
-
     public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_TREE = newConfiguredFeature("rs_jacaranda", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             JACARANDA_TREE2.withChance(0.3F),
             INDIGO_JACARANDA_TREE2.withChance(0.3F),
@@ -564,8 +524,8 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_PRAIRIE_TREE = newConfiguredFeature("rs_prairie_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB_PRAIRIE1.withChance(0.4F),
             SHRUB_PRAIRIE2.withChance(0.4F),
-            Features.field_243921_cd.withChance(0.1F)),
-            Features.field_243869_bO)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            Features.FANCY_OAK_BEES_002.withChance(0.1F)),
+            Features.FANCY_OAK)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_REDWOOD_TREE = newConfiguredFeature("rs_redwood_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -708,7 +668,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_STONEFOREST_TREE = newConfiguredFeature("rs_stoneforest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EBONY_TREE1.withChance(0.1F),
             EBONY_TREE2.withChance(0.1F),
-            Features.field_243876_bV.withChance(0.1F),
+            Features.JUNGLE_BUSH.withChance(0.1F),
             DECIDUOUS_TREE1.withChance(0.1F)),
             DECIDUOUS_TREE1)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(30, 0.3F, 8))));
@@ -721,7 +681,7 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(12, 0.4F, 4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BAOBAB_TREE = newConfiguredFeature("rs_baobab_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            Features.field_243865_bK.withChance(0.1F)),
+            Features.ACACIA.withChance(0.1F)),
             BAOBAB_TREE1)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
 
@@ -749,13 +709,13 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_MARSH_TREE = newConfiguredFeature("rs_marsh_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB_PRAIRIE2.withChance(0.2F),
             SHRUB_PRAIRIE1.withChance(0.1F)),
-            Features.field_243875_bU)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            Features.SWAMP_TREE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(3, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN_PATCH = newConfiguredFeature("rs_pumpkin_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PUMPKIN1.withChance(0.45F),
             PUMPKIN2.withChance(0.45F)),
-            PUMPKIN3)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            PUMPKIN2)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_TREE = newConfiguredFeature("rs_enchanted_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -914,22 +874,17 @@ public class BYGConfiguredTreeFeatures {
             WOODLANDS_TREE1)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 3))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_DUMMY_TREE = newConfiguredFeature("rs_dummy_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            DUMMY_TREE.withChance(0.1F)),
-            DUMMY_TREE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(1, 0.0F, 0))));
-
     public static final ConfiguredFeature<?, ?> RANDOM_RED_OAK_FOREST_TREE = newConfiguredFeature("rs_red_oak_forest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            Features.field_243862_bH.withChance(0.1F),
-            Features.field_243869_bO.withChance(0.1F),
-            Features.field_243864_bJ.withChance(0.1F),
+            Features.OAK.withChance(0.1F),
+            Features.OAK_BEES_002.withChance(0.1F),
+            Features.FANCY_OAK_BEES_0002.withChance(0.1F),
             MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES.withChance(0.2F)),
             MC_RED_OAK_TREE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(8, 0.3F, 5))));
 
 
     public static final ConfiguredFeature<?, ?> RANDOM_RED_OAK_FOREST_SPARSE_TREE = newConfiguredFeature("rs_red_oak_forest_sparse_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            Features.field_243920_cc.withChance(0.06F),
+            Features.OAK.withChance(0.06F),
             MC_RED_OAK_TREE.withChance(0.1F)),
             MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
@@ -955,19 +910,11 @@ public class BYGConfiguredTreeFeatures {
             OAK_RED_TREE.withChance(0.06F),
             MC_BROWN_OAK_TREE.withChance(0.06F),
             MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES.withChance(0.06F),
-            Features.field_243869_bO.withChance(0.06F),
-            Features.field_243862_bH.withChance(0.06F),
+            Features.FANCY_OAK.withChance(0.06F),
+            Features.OAK.withChance(0.06F),
             MC_BIRCH_YELLOW_TREE.withChance(0.1F)),
             MC_ORANGE_OAK_TREE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(15, 0.4F, -2))));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_BLUE_TAIGA_TREE = newConfiguredFeature("rs_blue_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            BLUE_SMALL_SPRUCE_TREE.withChance(0.1F),
-            BLUE_SPRUCE_TREE.withChance(0.1F),
-            BLUE_TALL_SPRUCE_TREE.withChance(0.1F),
-            MC_BLUE_SPRUCE_TREE.withChance(0.1F)),
-            MC_BLUE_PINE_TREE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(20, 0.2F, -8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM = newConfiguredFeature("rs_huge_glowshroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLUE_GLOWSHROOM_HUGE.withChance(0.1F)),
@@ -1022,7 +969,7 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
 
     private static <FC extends IFeatureConfig, F extends Feature<FC>> ConfiguredFeature<FC, F> newConfiguredFeature(String registryName, ConfiguredFeature<FC, F> configuredFeature) {
-        Registry.register(WorldGenRegistries.field_243653_e, new ResourceLocation(BYG.MOD_ID, registryName), configuredFeature);
+        Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(BYG.MOD_ID, registryName), configuredFeature);
         return configuredFeature;
     }
 }

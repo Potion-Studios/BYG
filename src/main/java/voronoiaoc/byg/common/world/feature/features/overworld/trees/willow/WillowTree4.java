@@ -24,7 +24,7 @@ public class WillowTree4 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = 13 + rand.nextInt(8);
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
         BlockPos.Mutable mainmutable2 = new BlockPos.Mutable().setPos(pos.offset(Direction.NORTH));
         BlockPos.Mutable mainmutable3 = new BlockPos.Mutable().setPos(pos.offset(Direction.SOUTH));

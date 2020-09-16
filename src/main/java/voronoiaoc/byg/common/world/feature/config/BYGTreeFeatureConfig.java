@@ -7,6 +7,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 
 public class BYGTreeFeatureConfig implements IFeatureConfig {
@@ -108,6 +109,15 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
         public Builder setLeavesBlock(BlockState state) {
             if (state != null)
                 leavesProvider = new SimpleBlockStateProvider(state);
+            else
+                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+
+            return this;
+        }
+
+        public Builder setLeavesBlock(WeightedBlockStateProvider statesList) {
+            if (statesList != null)
+                leavesProvider = statesList;
             else
                 leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
 
