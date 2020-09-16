@@ -5,7 +5,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -14,7 +13,6 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
-import java.util.function.Function;
 
 public class MiniWoodBlewit extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
@@ -28,7 +26,7 @@ public class MiniWoodBlewit extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
-            if (((IWorld) worldIn).getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && ((IWorld) worldIn).getBlockState(pos.down()).getBlock() != Blocks.SOUL_SAND && ((IWorld) worldIn).getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_NETHERRACK) {
+            if (worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != Blocks.SOUL_SAND && worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_NETHERRACK) {
                 return false;
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;

@@ -32,9 +32,8 @@ public class LargeChain extends Feature<NoFeatureConfig> {
             return false;
         } else if (!worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.NETHERRACK)) {
             return false;
-        }
-        else {
-            for (int moveDown = 0; moveDown <= randChainLength;) {
+        } else {
+            for (int moveDown = 0; moveDown <= randChainLength; ) {
                 for (int move = -1; move <= 1; move++) {
                     BlockPos.Mutable mutable1 = new BlockPos.Mutable(mainMutable1.getX() + move, mainMutable1.getY(), mainMutable1.getZ());
                     BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable1.add(0, -4, 0));
@@ -50,7 +49,6 @@ public class LargeChain extends Feature<NoFeatureConfig> {
                         worldIn.setBlockState(mutable3, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
                     if (canReplaceBlock(worldIn, mutable4))
                         worldIn.setBlockState(mutable4, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
-
 
 
                     BlockPos.Mutable mutable5 = new BlockPos.Mutable(mainMutable1.getX() + 2, (mainMutable1.getY() - 2) + move, mainMutable1.getZ());
@@ -75,6 +73,6 @@ public class LargeChain extends Feature<NoFeatureConfig> {
     }
 
     public boolean canReplaceBlock(IWorld world, BlockPos pos) {
-       return world.getBlockState(pos).isIn(Tags.Blocks.NETHERRACK) || world.getBlockState(pos).isAir() || world.getBlockState(pos).getMaterial() == Material.PLANTS || world.getBlockState(pos).getMaterial() == Material.OCEAN_PLANT || world.getBlockState(pos).getMaterial() == Material.TALL_PLANTS || world.getBlockState(pos).getBlock() == Blocks.LAVA;
+        return world.getBlockState(pos).isIn(Tags.Blocks.NETHERRACK) || world.getBlockState(pos).isAir() || world.getBlockState(pos).getMaterial() == Material.PLANTS || world.getBlockState(pos).getMaterial() == Material.OCEAN_PLANT || world.getBlockState(pos).getMaterial() == Material.TALL_PLANTS || world.getBlockState(pos).getBlock() == Blocks.LAVA;
     }
 }

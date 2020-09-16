@@ -9,7 +9,6 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
-import java.util.function.Function;
 
 public class WailingGarthSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     public WailingGarthSB(Codec<SurfaceBuilderConfig> config) {

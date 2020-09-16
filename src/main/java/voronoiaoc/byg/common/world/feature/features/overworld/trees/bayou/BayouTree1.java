@@ -10,7 +10,7 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -18,14 +18,16 @@ import java.util.Random;
 import java.util.Set;
 
 
-public class BayouTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class BayouTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     public static boolean doBlockNotify;
 
-    public BayouTree1(Codec<NoFeatureConfig> configIn) {
+    public BayouTree1(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
+    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+        BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
+        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
         int randChance = rand.nextInt(2);
         int randTreeHeight = rand.nextInt(6) + 8;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
@@ -43,8 +45,7 @@ public class BayouTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
             for (int baseSize = 0; baseSize < 4; baseSize++) {
                 BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(block.up(3));
-                for (Direction direction : Direction.Plane
-.HORIZONTAL) {
+                for (Direction direction : Direction.Plane.HORIZONTAL) {
                     mutable.setPos(block.up(3).offset(direction, baseSize));
                     if (worldIn.getBlockState(mutable).getBlock() != Blocks.DIRT)
                         this.setWillowLog(worldIn, mutable.move(Direction.DOWN, baseSize));

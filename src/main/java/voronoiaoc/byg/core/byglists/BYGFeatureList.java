@@ -9,6 +9,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
+import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.RiverThingy;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.LargeChain;
@@ -38,10 +39,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.Anci
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BrownBirchTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.OrangeBirchTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.RedBirchTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.YellowBirchTree;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BasicTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.bluff.BluffTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.bluff.BluffTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.bluff.BluffTree3;
@@ -49,8 +47,6 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.boreal.Borea
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.boreal.BorealForestTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkCherry1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.PinkCherry2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.cherry.WhiteCherry2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.cika.CikaTree3;
@@ -231,19 +227,19 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> VINES = new VinePlacer(NoFeatureConfig.field_236558_a_);
 
     //Pumpkins
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PUMPKIN_PATCH1 = new PumpkinPatch1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PUMPKIN_PATCH2 = new PumpkinPatch2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PUMPKIN_PATCH3 = new PumpkinPatch3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PUMPKIN_PATCH1 = new PumpkinPatch1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PUMPKIN_PATCH2 = new PumpkinPatch2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PUMPKIN_PATCH3 = new PumpkinPatch3(NoFeatureConfig.field_236558_a_);
 
     /********************************************************************Carvers**************************************************************************/
     public static final WorldCarver<ProbabilityConfig> VOLCANIC_CARVER = new VolcanicCarver(ProbabilityConfig.field_236576_b_, 256);
 
 
     /*********************************************************************Large Flower Features***********************************************************/
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> GIANT_ANGELICA_FLOWER = new AngelicaGiant(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> GIANT_DANDELION_FLOWER = new DandelionGiant(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> GIANT_IRIS_FLOWER = new IrisGiant(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> GIANT_ROSE_FLOWER = new RoseGiant(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> GIANT_ANGELICA_FLOWER = new AngelicaGiant(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> GIANT_DANDELION_FLOWER = new DandelionGiant(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> GIANT_IRIS_FLOWER = new IrisGiant(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> GIANT_ROSE_FLOWER = new RoseGiant(NoFeatureConfig.field_236558_a_);
 
 
     /*********************************************************************Large Mushroom Features*********************************************************/
@@ -344,318 +340,318 @@ public class BYGFeatureList {
 
     /********************************************************************Structures***********************************************************************/
 //    public static final //StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillage//StructureFeature(StructurePoolFeatureConfig.field_236558_a_);
-//    public static final //StructureFeature<NoFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(NoFeatureConfig.field_236558_a_);
-//    public static final Feature<NoFeatureConfig> DOVERQUARRY = new DoverQuarry1(NoFeatureConfig.field_236558_a_);
+//    public static final //StructureFeature<NoFeatureConfig> SKYRISFORTRESS = new SkyrisFortressStructure(BYGTreeFeatureConfig.CODEC);
+//    public static final Feature<NoFeatureConfig> DOVERQUARRY = new DoverQuarry1(BYGTreeFeatureConfig.CODEC);
 
 
     /********************************************************************Tree Features********************************************************************/
     //Acacia
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE1 = new AcaciaTree1(NoFeatureConfig.field_236558_a_);
-//    public static final BYGAbstractTreeFeature<NoFeatureConfig> ACACIA_TREE2 = new AcaciaTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ACACIA_TREE1 = new AcaciaTree1(BYGTreeFeatureConfig.CODEC);
+//    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ACACIA_TREE2 = new AcaciaTree2(BYGTreeFeatureConfig.CODEC);
 
     //Ancient
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ANCIENT_TREE1 = new AncientTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ANCIENT_TREE2 = new AncientTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ANCIENT_TREE3 = new AncientTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ANCIENT_TREE1 = new AncientTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ANCIENT_TREE2 = new AncientTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ANCIENT_TREE3 = new AncientTree3(BYGTreeFeatureConfig.CODEC);
 
     //Aspen
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_SHRUB1 = new AspenShrub(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_SHRUB2 = new AspenShrub2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_TREE1 = new AspenTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_TREE2 = new AspenTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_TREE3 = new AspenTree3(NoFeatureConfig.field_236558_a_);
-//    public static final BYGAbstractTreeFeature<NoFeatureConfig> ASPEN_TREE4 = new AspenTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ASPEN_SHRUB1 = new AspenShrub(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ASPEN_SHRUB2 = new AspenShrub2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ASPEN_TREE1 = new AspenTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ASPEN_TREE2 = new AspenTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ASPEN_TREE3 = new AspenTree3(BYGTreeFeatureConfig.CODEC);
+//    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ASPEN_TREE4 = new AspenTree4(BYGTreeFeatureConfig.CODEC);
 
     //Baobab Tree
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BAOBAB_TREE1 = new BaobabTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BAOBAB_TREE1 = new BaobabTree1(BYGTreeFeatureConfig.CODEC);
 
     //Birch
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BIRCH_BROWN_TREE1 = new BrownBirchTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BIRCH_ORANGE_TREE1 = new OrangeBirchTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BIRCH_RED_TREE1 = new RedBirchTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BIRCH_YELLOW_TREE1 = new YellowBirchTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BASIC_TREE = new BasicTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BIRCH_ORANGE_TREE1 = new OrangeBirchTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BIRCH_RED_TREE1 = new RedBirchTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BIRCH_YELLOW_TREE1 = new YellowBirchTree(BYGTreeFeatureConfig.CODEC);
 
     //Bluff Trees
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUFF_TREE1 = new BluffTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUFF_TREE2 = new BluffTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUFF_TREE3 = new BluffTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BLUFF_TREE1 = new BluffTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BLUFF_TREE2 = new BluffTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BLUFF_TREE3 = new BluffTree3(BYGTreeFeatureConfig.CODEC);
 
     //Boreal Trees
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE1 = new BorealForestTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BOREAL_TREE2 = new BorealForestTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BOREAL_TREE1 = new BorealForestTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BOREAL_TREE2 = new BorealForestTree2(BYGTreeFeatureConfig.CODEC);
 
     //Cherry
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_PINK_TREE1 = new PinkCherry1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_PINK_TREE2 = new PinkCherry2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_WHITE_TREE1 = new WhiteCherry1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CHERRY_WHITE_TREE2 = new WhiteCherry2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CHERRY_TREE1 = new PinkCherry1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CHERRY_TREE2 = new PinkCherry2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CHERRY_WHITE_TREE1 = new WhiteCherry1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CHERRY_WHITE_TREE2 = new WhiteCherry2(BYGTreeFeatureConfig.CODEC);
 
     //Cika
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE1 = new CikaTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE2 = new CikaTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CIKA_TREE3 = new CikaTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CIKA_TREE1 = new CikaTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CIKA_TREE2 = new CikaTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CIKA_TREE3 = new CikaTree3(BYGTreeFeatureConfig.CODEC);
 
     //Coniferous
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE1 = new ConiferTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE2 = new ConiferTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE3 = new ConiferTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE4 = new ConiferTree4(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE5 = new ConiferTree5(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE6 = new ConiferTree6(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE7 = new ConiferTree7(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CONIFER_TREE8 = new ConiferTree8(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CONIFER_TREE1 = new ConiferTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CONIFER_TREE2 = new ConiferTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CONIFER_TREE3 = new ConiferTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CONIFER_TREE4 = new ConiferTree4(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CONIFER_TREE5 = new ConiferTree5(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CONIFER_TREE6 = new ConiferTree6(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CONIFER_TREE7 = new ConiferTree7(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CONIFER_TREE8 = new ConiferTree8(BYGTreeFeatureConfig.CODEC);
 
     //Cypress
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CYPRESS_TREE1 = new CypressTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CYPRESS_TREE2 = new CypressTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> CYPRESS_TREE3 = new CypressTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CYPRESS_TREE1 = new CypressTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CYPRESS_TREE2 = new CypressTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> CYPRESS_TREE3 = new CypressTree3(BYGTreeFeatureConfig.CODEC);
 
     //Dead
-//    public static final BYGAbstractTreeFeature<NoFeatureConfig> DEAD_TREE = new DeadTree(NoFeatureConfig.field_236558_a_);
+//    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DEAD_TREE = new DeadTree(BYGTreeFeatureConfig.CODEC);
 
     //Dead Hazel
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DEAD_HAZEL_TREE1 = new DeadHazel1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DEAD_HAZEL_TREE2 = new DeadHazel2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DEAD_HAZEL_TREE3 = new DeadHazel3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DEAD_HAZEL_TREE4 = new DeadHazel4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DEAD_HAZEL_TREE1 = new DeadHazel1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DEAD_HAZEL_TREE2 = new DeadHazel2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DEAD_HAZEL_TREE3 = new DeadHazel3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DEAD_HAZEL_TREE4 = new DeadHazel4(BYGTreeFeatureConfig.CODEC);
 
     //Old Deciduous
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_TREE = new DeciduousTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_BROWN_TREE = new BrownDeciduousTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_ORANGE_TREE = new OrangeDeciduousTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_YELLOW_TREE = new YellowDeciduousTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_RED_TREE = new RedDeciduousTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_SEASONAL_SHRUBS = new SeasonalDeciduousShrubs(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_TREE = new DeciduousTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_BROWN_TREE = new BrownDeciduousTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_ORANGE_TREE = new OrangeDeciduousTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_YELLOW_TREE = new YellowDeciduousTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_RED_TREE = new RedDeciduousTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_SEASONAL_SHRUBS = new SeasonalDeciduousShrubs(BYGTreeFeatureConfig.CODEC);
 
     //Deciduous
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_TREE1 = new DeciduousTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_TREE2 = new DeciduousTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_TREE3 = new DeciduousTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_TREE4 = new DeciduousTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_TREE1 = new DeciduousTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_TREE2 = new DeciduousTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_TREE3 = new DeciduousTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_TREE4 = new DeciduousTree4(BYGTreeFeatureConfig.CODEC);
 
     //Red Deciduous
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_RED_TREE1 = new DeciduousRedTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_RED_TREE2 = new DeciduousRedTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_RED_TREE3 = new DeciduousRedTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_RED_TREE4 = new DeciduousRedTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_RED_TREE1 = new DeciduousRedTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_RED_TREE2 = new DeciduousRedTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_RED_TREE3 = new DeciduousRedTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_RED_TREE4 = new DeciduousRedTree4(BYGTreeFeatureConfig.CODEC);
 
     //Orange Deciduous
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_ORANGE_TREE1 = new DeciduousOrangeTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_ORANGE_TREE2 = new DeciduousOrangeTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_ORANGE_TREE3 = new DeciduousOrangeTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_ORANGE_TREE4 = new DeciduousOrangeTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_ORANGE_TREE1 = new DeciduousOrangeTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_ORANGE_TREE2 = new DeciduousOrangeTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_ORANGE_TREE3 = new DeciduousOrangeTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_ORANGE_TREE4 = new DeciduousOrangeTree4(BYGTreeFeatureConfig.CODEC);
 
     //Brown Deciduous
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_BROWN_TREE1 = new DeciduousBrownTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_BROWN_TREE2 = new DeciduousBrownTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_BROWN_TREE3 = new DeciduousBrownTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> DECIDUOUS_BROWN_TREE4 = new DeciduousBrownTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_BROWN_TREE1 = new DeciduousBrownTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_BROWN_TREE2 = new DeciduousBrownTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_BROWN_TREE3 = new DeciduousBrownTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> DECIDUOUS_BROWN_TREE4 = new DeciduousBrownTree4(BYGTreeFeatureConfig.CODEC);
 
     //Ebony
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> EBONY_BUSH1 = new EbonyBush1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> EBONY_TREE1 = new EbonyTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> EBONY_TREE2 = new EbonyTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> EBONY_BUSH1 = new EbonyBush1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> EBONY_TREE1 = new EbonyTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> EBONY_TREE2 = new EbonyTree2(BYGTreeFeatureConfig.CODEC);
 
     //Enchanted Trees
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_BLUE_TREE1 = new BlueEnchantedTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_BLUE_TREE2 = new BlueEnchantedTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_BLUE_TREE3 = new BlueEnchantedTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_GREEN_TREE1 = new GreenEnchantedTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_GREEN_TREE2 = new GreenEnchantedTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_GREEN_TREE3 = new GreenEnchantedTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_BLUE_TREE1 = new BlueEnchantedTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_BLUE_TREE2 = new BlueEnchantedTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_BLUE_TREE3 = new BlueEnchantedTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_GREEN_TREE1 = new GreenEnchantedTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_GREEN_TREE2 = new GreenEnchantedTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_GREEN_TREE3 = new GreenEnchantedTree3(BYGTreeFeatureConfig.CODEC);
 
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_GREEN_GROVE_TREE1 = new GreenEnchantedGroveTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ENCHANTED_BLUE_GROVE_TREE1 = new BlueEnchantedGroveTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_GREEN_GROVE_TREE1 = new GreenEnchantedGroveTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ENCHANTED_BLUE_GROVE_TREE1 = new BlueEnchantedGroveTree(BYGTreeFeatureConfig.CODEC);
 
     //Holly
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> HOLLY_TREE1 = new HollyTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> HOLLY_TREE2 = new HollyTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> HOLLY_TREE3 = new HollyTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> HOLLY_TREE4 = new HollyTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> HOLLY_TREE1 = new HollyTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> HOLLY_TREE2 = new HollyTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> HOLLY_TREE3 = new HollyTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> HOLLY_TREE4 = new HollyTree4(BYGTreeFeatureConfig.CODEC);
 
     //Jacaranda
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> JACARANDA_TREE1 = new JacarandaTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> JACARANDA_TREE2 = new JacarandaTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> JACARANDA_INDIGO_TREE1 = new IndigoJacarandaTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> JACARANDA_INDIGO_TREE2 = new IndigoJacarandaTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> JACARANDA_TREE1 = new JacarandaTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> JACARANDA_TREE2 = new JacarandaTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> JACARANDA_INDIGO_TREE1 = new IndigoJacarandaTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> JACARANDA_INDIGO_TREE2 = new IndigoJacarandaTree2(BYGTreeFeatureConfig.CODEC);
 
     //JoshuaTree
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> JOSHUA_TREE1 = new JoshuaTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> JOSHUA_TREE2 = new JoshuaTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> JOSHUA_TREE1 = new JoshuaTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> JOSHUA_TREE2 = new JoshuaTree2(BYGTreeFeatureConfig.CODEC);
 
     //Mangrove
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MANGROVE_TREE1 = new MangroveTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MANGROVE_TREE2 = new MangroveTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MANGROVE_TREE3 = new MangroveTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MANGROVE_TREE4 = new MangroveTree4(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MANGROVE_TREE5 = new MangroveTree5(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MANGROVE_TREE1 = new MangroveTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MANGROVE_TREE2 = new MangroveTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MANGROVE_TREE3 = new MangroveTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MANGROVE_TREE4 = new MangroveTree4(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MANGROVE_TREE5 = new MangroveTree5(BYGTreeFeatureConfig.CODEC);
 
     //Maple
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_RED_TREE1 = new RedMapleTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_RED_TREE2 = new RedMapleTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_SILVER_TREE1 = new SilverMapleTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_SILVER_TREE2 = new SilverMapleTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAPLE_TREE = new MapleTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_RED_TREE1 = new RedMapleTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_RED_TREE2 = new RedMapleTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_SILVER_TREE1 = new SilverMapleTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_SILVER_TREE2 = new SilverMapleTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_TREE = new MapleTree(BYGTreeFeatureConfig.CODEC);
 
     //Meadow
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MEADOW_TREE1 = new MeadowTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MEADOW_TREE2 = new MeadowTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MEADOW_TREE3 = new MeadowTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MEADOW_TREE1 = new MeadowTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MEADOW_TREE2 = new MeadowTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MEADOW_TREE3 = new MeadowTree3(BYGTreeFeatureConfig.CODEC);
 
     //Orchard
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORCHARD_TREE1 = new OrchardTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORCHARD_TREE2 = new OrchardTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORCHARD_TREE3 = new OrchardTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ORCHARD_TREE1 = new OrchardTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ORCHARD_TREE2 = new OrchardTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ORCHARD_TREE3 = new OrchardTree3(BYGTreeFeatureConfig.CODEC);
 
     //Palm
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PALM_TREE1 = new PalmTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PALM_TREE1 = new PalmTree1(BYGTreeFeatureConfig.CODEC);
 
     //Pine
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_LARGE_TREE1 = new LargePineTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_LARGE_TREE2 = new LargePineTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE1 = new PineTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PINE_TREE2 = new PineTree2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PINE_LARGE_TREE1 = new LargePineTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PINE_LARGE_TREE2 = new LargePineTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PINE_TREE1 = new PineTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PINE_TREE2 = new PineTree2(BYGTreeFeatureConfig.CODEC);
 
     //Palo Verde
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PALO_VERDE_TREE1 = new PaloVerdeTree(NoFeatureConfig.field_236558_a_, 0);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> PALO_VERDE_TREE2 = new PaloVerdeTree2(NoFeatureConfig.field_236558_a_, 0);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PALO_VERDE_TREE1 = new PaloVerdeTree(BYGTreeFeatureConfig.CODEC, 0);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PALO_VERDE_TREE2 = new PaloVerdeTree2(BYGTreeFeatureConfig.CODEC, 0);
 
     //Rainbow Eucalyptus
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> RAINBOW_TREE1 = new RainbowEucalyptusTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> RAINBOW_LARGE_TREE1 = new LargeRainbowEucalyptus(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> RAINBOW_TREE1 = new RainbowEucalyptusTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> RAINBOW_LARGE_TREE1 = new LargeRainbowEucalyptus(BYGTreeFeatureConfig.CODEC);
 
     //RedWood
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE1 = new RedwoodTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE2 = new RedwoodTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> REDWOOD_TREE3 = new RedwoodTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> REDWOOD_TREE1 = new RedwoodTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> REDWOOD_TREE2 = new RedwoodTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> REDWOOD_TREE3 = new RedwoodTree3(BYGTreeFeatureConfig.CODEC);
     //Seasonal Oaks
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> OAK_BROWN_TREE1 = new BrownOakTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> OAK_ORANGE_TREE1 = new OrangeOakTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> OAK_RED_TREE1 = new RedOakTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_BROWN_TREE1 = new BrownOakTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_ORANGE_TREE1 = new OrangeOakTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_RED_TREE1 = new RedOakTree(BYGTreeFeatureConfig.CODEC);
 
     //Shrubs
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SHRUB = new BYGShrub(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SHRUB_MEADOW1 = new MeadowShrub(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SHRUB_MEADOW2 = new MeadowShrub2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SHRUB_PRAIRIE1 = new PrairieShrub(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SHRUB_PRAIRIE2 = new PrairieShrub2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB = new BYGShrub(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB_MEADOW1 = new MeadowShrub(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB_MEADOW2 = new MeadowShrub2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB_PRAIRIE1 = new PrairieShrub(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB_PRAIRIE2 = new PrairieShrub2(BYGTreeFeatureConfig.CODEC);
 
     //Skyris
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SKYRIS_TREE1 = new SkyrisTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SKYRIS_TREE2 = new SkyrisTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SKYRIS_TREE3 = new SkyrisTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE1 = new SkyrisTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE2 = new SkyrisTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE3 = new SkyrisTree3(BYGTreeFeatureConfig.CODEC);
 
     //Old Spruce
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_GIANT_SPRUCE_TREE = new GiantBlueSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_TALL_SPRUCE_TREE = new TallBlueSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_SPRUCE_TREE = new BlueSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> BLUE_SMALL_SPRUCE_TREE = new SmallBlueTaigaTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORANGE_GIANT_SPRUCE_TREE = new GiantOrangeSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORANGE_TALL_SPRUCE_TREE = new TallOrangeSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORANGE_SPRUCE_TREE = new OrangeSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ORANGE_SMALL_SPRUCE_TREE = new SmallOrangeSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> RED_GIANT_SPRUCE_TREE = new GiantRedSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> RED_TALL_SPRUCE_TREE = new TallRedSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> RED_SPRUCE_TREE = new RedSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> RED_SMALL_SPRUCE_TREE = new SmallRedSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOW_GIANT_SPRUCE_TREE = new GiantYellowSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOW_TALL_SPRUCE_TREE = new TallYellowSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOW_SPRUCE_TREE = new YellowSpruceTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> YELLOW_SMALL_SPRUCE_TREE = new SmallYellowTaigaTree(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BLUE_GIANT_SPRUCE_TREE = new GiantBlueSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BLUE_TALL_SPRUCE_TREE = new TallBlueSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BLUE_SPRUCE_TREE = new BlueSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BLUE_SMALL_SPRUCE_TREE = new SmallBlueTaigaTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ORANGE_GIANT_SPRUCE_TREE = new GiantOrangeSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ORANGE_TALL_SPRUCE_TREE = new TallOrangeSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ORANGE_SPRUCE_TREE = new OrangeSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ORANGE_SMALL_SPRUCE_TREE = new SmallOrangeSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> RED_GIANT_SPRUCE_TREE = new GiantRedSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> RED_TALL_SPRUCE_TREE = new TallRedSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> RED_SPRUCE_TREE = new RedSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> RED_SMALL_SPRUCE_TREE = new SmallRedSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> YELLOW_GIANT_SPRUCE_TREE = new GiantYellowSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> YELLOW_TALL_SPRUCE_TREE = new TallYellowSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> YELLOW_SPRUCE_TREE = new YellowSpruceTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> YELLOW_SMALL_SPRUCE_TREE = new SmallYellowTaigaTree(BYGTreeFeatureConfig.CODEC);
 
     //Spruce
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE_LARGE1 = new SpruceTreeLarge1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE_LARGE1 = new SpruceTreeLarge1(BYGTreeFeatureConfig.CODEC);
     
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE_MEDIUM1 = new SpruceTreeMedium1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE_MEDIUM2 = new SpruceTreeMedium2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE_MEDIUM3 = new SpruceTreeMedium3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE_MEDIUM4 = new SpruceTreeMedium4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE_MEDIUM1 = new SpruceTreeMedium1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE_MEDIUM2 = new SpruceTreeMedium2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE_MEDIUM3 = new SpruceTreeMedium3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE_MEDIUM4 = new SpruceTreeMedium4(BYGTreeFeatureConfig.CODEC);
     
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE1 = new SpruceTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE2 = new SpruceTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE3 = new SpruceTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_TREE4 = new SpruceTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE1 = new SpruceTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE2 = new SpruceTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE3 = new SpruceTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE4 = new SpruceTree4(BYGTreeFeatureConfig.CODEC);
 
     //Red Spruce
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE_LARGE1 = new SpruceRedTreeLarge1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_RED_TREE_LARGE1 = new SpruceRedTreeLarge1(BYGTreeFeatureConfig.CODEC);
 
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE_MEDIUM1 = new SpruceRedTreeMedium1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE_MEDIUM2 = new SpruceRedTreeMedium2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE_MEDIUM3 = new SpruceRedTreeMedium3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE_MEDIUM4 = new SpruceRedTreeMedium4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_RED_TREE_MEDIUM1 = new SpruceRedTreeMedium1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_RED_TREE_MEDIUM2 = new SpruceRedTreeMedium2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_RED_TREE_MEDIUM3 = new SpruceRedTreeMedium3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_RED_TREE_MEDIUM4 = new SpruceRedTreeMedium4(BYGTreeFeatureConfig.CODEC);
 
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE1 = new SpruceRedTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE2 = new SpruceRedTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE3 = new SpruceRedTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_RED_TREE4 = new SpruceRedTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_RED_TREE1 = new SpruceRedTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_RED_TREE2 = new SpruceRedTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_RED_TREE3 = new SpruceRedTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_RED_TREE4 = new SpruceRedTree4(BYGTreeFeatureConfig.CODEC);
     
     //Orange Spruce
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE_LARGE1 = new SpruceOrangeTreeLarge1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_ORANGE_TREE_LARGE1 = new SpruceOrangeTreeLarge1(BYGTreeFeatureConfig.CODEC);
 
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM1 = new SpruceOrangeTreeMedium1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM2 = new SpruceOrangeTreeMedium2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM3 = new SpruceOrangeTreeMedium3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM4 = new SpruceOrangeTreeMedium4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM1 = new SpruceOrangeTreeMedium1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM2 = new SpruceOrangeTreeMedium2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM3 = new SpruceOrangeTreeMedium3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_ORANGE_TREE_MEDIUM4 = new SpruceOrangeTreeMedium4(BYGTreeFeatureConfig.CODEC);
 
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE1 = new SpruceOrangeTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE2 = new SpruceOrangeTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE3 = new SpruceOrangeTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_ORANGE_TREE4 = new SpruceOrangeTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_ORANGE_TREE1 = new SpruceOrangeTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_ORANGE_TREE2 = new SpruceOrangeTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_ORANGE_TREE3 = new SpruceOrangeTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_ORANGE_TREE4 = new SpruceOrangeTree4(BYGTreeFeatureConfig.CODEC);
     
     //Blue Spruce
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE_LARGE1 = new SpruceBlueTreeLarge1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_BLUE_TREE_LARGE1 = new SpruceBlueTreeLarge1(BYGTreeFeatureConfig.CODEC);
 
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM1 = new SpruceBlueTreeMedium1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM2 = new SpruceBlueTreeMedium2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM3 = new SpruceBlueTreeMedium3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM4 = new SpruceBlueTreeMedium4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM1 = new SpruceBlueTreeMedium1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM2 = new SpruceBlueTreeMedium2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM3 = new SpruceBlueTreeMedium3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_BLUE_TREE_MEDIUM4 = new SpruceBlueTreeMedium4(BYGTreeFeatureConfig.CODEC);
 
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE1 = new SpruceBlueTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE2 = new SpruceBlueTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE3 = new SpruceBlueTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_BLUE_TREE4 = new SpruceBlueTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_BLUE_TREE1 = new SpruceBlueTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_BLUE_TREE2 = new SpruceBlueTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_BLUE_TREE3 = new SpruceBlueTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_BLUE_TREE4 = new SpruceBlueTree4(BYGTreeFeatureConfig.CODEC);
     
     //Yellow Spruce
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE_LARGE1 = new SpruceYellowTreeLarge1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_YELLOW_TREE_LARGE1 = new SpruceYellowTreeLarge1(BYGTreeFeatureConfig.CODEC);
 
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM1 = new SpruceYellowTreeMedium1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM2 = new SpruceYellowTreeMedium2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM3 = new SpruceYellowTreeMedium3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM4 = new SpruceYellowTreeMedium4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM1 = new SpruceYellowTreeMedium1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM2 = new SpruceYellowTreeMedium2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM3 = new SpruceYellowTreeMedium3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_YELLOW_TREE_MEDIUM4 = new SpruceYellowTreeMedium4(BYGTreeFeatureConfig.CODEC);
 
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE1 = new SpruceYellowTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE2 = new SpruceYellowTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE3 = new SpruceYellowTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> SPRUCE_YELLOW_TREE4 = new SpruceYellowTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_YELLOW_TREE1 = new SpruceYellowTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_YELLOW_TREE2 = new SpruceYellowTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_YELLOW_TREE3 = new SpruceYellowTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_YELLOW_TREE4 = new SpruceYellowTree4(BYGTreeFeatureConfig.CODEC);
     
     //Tropical
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> TROPICAL_TREE1 = new TropicalRainForestTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> TROPICAL_SHORT_TREE1 = new ShortTropicalRainForestTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> TROPICAL_SHRUB1 = new TropicalShrub(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> TROPICAL_TREE1 = new TropicalRainForestTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> TROPICAL_SHORT_TREE1 = new ShortTropicalRainForestTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> TROPICAL_SHRUB1 = new TropicalShrub(BYGTreeFeatureConfig.CODEC);
 
     //Mahogany
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE1 = new MahoganyTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE2 = new MahoganyTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE3 = new MahoganyTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE4 = new MahoganyTree4(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> MAHOGANY_TREE5 = new MahoganyTree5(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAHOGANY_TREE1 = new MahoganyTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAHOGANY_TREE2 = new MahoganyTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAHOGANY_TREE3 = new MahoganyTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAHOGANY_TREE4 = new MahoganyTree4(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAHOGANY_TREE5 = new MahoganyTree5(BYGTreeFeatureConfig.CODEC);
 
     //Woodlands
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> WOODLANDS_TREE1 = new WoodlandsTree1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WOODLANDS_TREE1 = new WoodlandsTree1(BYGTreeFeatureConfig.CODEC);
 
     //Willow
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> WILLOW_DEAD_TREE1 = new WillowDeadTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> WILLOW_M_TREE1 = new WillowTreeM1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> WILLOW_M_TREE2 = new WillowTreeM2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> WILLOW_TREE1 = new WillowTree1(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> WILLOW_TREE2 = new WillowTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> WILLOW_TREE3 = new WillowTree3(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> WILLOW_TREE4 = new WillowTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WILLOW_DEAD_TREE1 = new WillowDeadTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WILLOW_M_TREE1 = new WillowTreeM1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WILLOW_M_TREE2 = new WillowTreeM2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WILLOW_TREE1 = new WillowTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WILLOW_TREE2 = new WillowTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WILLOW_TREE3 = new WillowTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WILLOW_TREE4 = new WillowTree4(BYGTreeFeatureConfig.CODEC);
 
     //Zelkova
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE1 = new ZelkovaTree(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE2 = new ZelkovaTree2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<NoFeatureConfig> ZELKOVA_TREE3 = new ZelkovaTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ZELKOVA_TREE1 = new ZelkovaTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ZELKOVA_TREE2 = new ZelkovaTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ZELKOVA_TREE3 = new ZelkovaTree3(BYGTreeFeatureConfig.CODEC);
 
 
     public static class RegisterFeatures {
@@ -748,7 +744,7 @@ public class BYGFeatureList {
             registerFeature(ASPEN_TREE2, "aspen_tree2");
             registerFeature(ASPEN_TREE3, "aspen_tree3");
             registerFeature(BAOBAB_TREE1, "baobab_tree1");
-            registerFeature(BIRCH_BROWN_TREE1, "brown_birch_tree1");
+            registerFeature(BASIC_TREE, "brown_birch_tree1");
             registerFeature(BIRCH_ORANGE_TREE1, "orange_birch_tree1");
             registerFeature(BIRCH_RED_TREE1, "red_birch_tree1");
             registerFeature(BIRCH_YELLOW_TREE1, "yellow_birch_tree1");
@@ -757,8 +753,8 @@ public class BYGFeatureList {
             registerFeature(BLUFF_TREE3, "bluff_tree3");
             registerFeature(BOREAL_TREE1, "boreal_tree1");
             registerFeature(BOREAL_TREE2, "boreal_tree2");
-            registerFeature(CHERRY_PINK_TREE1, "pink_cherry_tree1");
-            registerFeature(CHERRY_PINK_TREE2, "pink_cherry_tree2");
+            registerFeature(CHERRY_TREE1, "pink_cherry_tree1");
+            registerFeature(CHERRY_TREE2, "pink_cherry_tree2");
             registerFeature(CHERRY_WHITE_TREE1, "white_cherry_tree1");
             registerFeature(CHERRY_WHITE_TREE2, "white_cherry_tree2");
             registerFeature(CIKA_TREE1, "cika_tree1");

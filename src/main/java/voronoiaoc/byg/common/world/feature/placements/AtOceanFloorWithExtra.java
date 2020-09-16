@@ -19,6 +19,7 @@ public class AtOceanFloorWithExtra extends Placement<AtSurfaceWithExtraConfig> {
     public AtOceanFloorWithExtra(Codec<AtSurfaceWithExtraConfig> config) {
         super(config);
     }
+
     public Stream<BlockPos> func_241857_a(WorldDecoratingHelper decoratorContext, Random random, AtSurfaceWithExtraConfig config, BlockPos pos) {
         int i = config.count;
         if (random.nextFloat() < config.extraChance) {

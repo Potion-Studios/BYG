@@ -12,15 +12,16 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //public class TreeName extends AbstractTreeFeature<NoFeatureConfig> {
 //    //BYGBlockRenders used for the tree.
-//    private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
-//    private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
+//    //private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
+//    //private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
 //
 //    public TreeName() {
 //        super(null, true);
 //    }
 //
-//    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
-//
+//    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+        BlockState LOG=config.getTrunkProvider().getBlockState(rand,pos);
+                BlockState LEAVES=config.getLeavesProvider().getBlockState(rand,pos);//
 //        int randTreeHeight = rand.nextInt(3) + rand.nextInt(3) + 10;
 //        //Positions
 //        int posX = pos.getX();
@@ -37,14 +38,14 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 
 //                Direction direction = Direction.Plane
 //.HORIZONTAL.random(rand);
-//                int randTreeHeight2 = randTreeHeight - rand.nextInt(1);//Crashes on 0.
-//                int posY2 = 2 - rand.nextInt(1);//Crashes on 0.
+//                int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
+//                int posY2 = 2 - rand.nextInt(1);
 //                int posX2 = posX;
 //                int posZ2 = posZ;
 //                int topTrunkHeight = posY + randTreeHeight - 1;
 //
 //                for (int trunkBottom = 0; trunkBottom < randTreeHeight; ++trunkBottom) {
-//                    if (trunkBottom >= randTreeHeight2 && posY2 < 0) { //Unknown
+//                    if (trunkBottom >= randTreeHeight2 && posY2 < 0) {
 //                        posX2 += direction.getXOffset();
 //                        posZ2 += direction.getZOffset();
 //                        ++posY2;
@@ -53,27 +54,27 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //
 //                    BlockPos trunkPos1 = new BlockPos(posX2, logplacer, posZ2);
-//                    this.treelog(changedBlocks, worldIn, trunkPos1, boundsIn);
-//                    this.treelog(changedBlocks, worldIn, trunkPos1.north(), boundsIn);
-//                    this.treelog(changedBlocks, worldIn, trunkPos1.east(), boundsIn);
-//                    this.treelog(changedBlocks, worldIn, trunkPos1.north().east(), boundsIn);
+//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1, boundsIn);
+//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.north(), boundsIn);
+//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.east(), boundsIn);
+//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.north().east(), boundsIn);
 //
 //
-//                    this.treelog(changedBlocks, worldIn, trunkPos1, boundsIn);
-//                    this.treelog(changedBlocks, worldIn, trunkPos1.north(5), boundsIn);
-//                    this.treelog(changedBlocks, worldIn, trunkPos1.east(1), boundsIn);
-//                    this.treelog(changedBlocks, worldIn, trunkPos1.north(1).east(1), boundsIn);
+//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1, boundsIn);
+//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.north(5), boundsIn);
+//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.east(1), boundsIn);
+//                    placeLog(LOG, changedBlocks, worldIn, trunkPos1.north(1).east(1), boundsIn);
 //                }
 //                for (int posXLeafSize = -2; posXLeafSize <= 2; ++posXLeafSize) {
 //                    for (int posZLeafSize = -2; posZLeafSize <= 2; ++posZLeafSize) {
 //                        //This places our leaf square on the center of the tree. In line with the top block of the trunk.
-//                        this.leafs(worldIn, posX2 + posXLeafSize, topTrunkHeight, posZ2 + posZLeafSize, boundsIn, changedBlocks);
+//                        placeLeaves(LEAVES, worldIn, posX2 + posXLeafSize, topTrunkHeight, posZ2 + posZLeafSize, boundsIn, changedBlocks);
 //                        //This places a leaf plus above the trunk above the trunk.
-//                        this.leafs(worldIn, posX2, topTrunkHeight + 1, posZ2, boundsIn, changedBlocks);
-//                        this.leafs(worldIn, posX2 + 1, topTrunkHeight + 1, posZ2, boundsIn, changedBlocks);
-//                        this.leafs(worldIn, posX2 - 1, topTrunkHeight + 1, posZ2, boundsIn, changedBlocks);
-//                        this.leafs(worldIn, posX2, topTrunkHeight + 1, posZ2 + 1, boundsIn, changedBlocks);
-//                        this.leafs(worldIn, posX2, topTrunkHeight + 1, posZ2 - 1, boundsIn, changedBlocks);
+//                        placeLeaves(LEAVES, worldIn, posX2, topTrunkHeight + 1, posZ2, boundsIn, changedBlocks);
+//                        placeLeaves(LEAVES, worldIn, posX2 + 1, topTrunkHeight + 1, posZ2, boundsIn, changedBlocks);
+//                        placeLeaves(LEAVES, worldIn, posX2 - 1, topTrunkHeight + 1, posZ2, boundsIn, changedBlocks);
+//                        placeLeaves(LEAVES, worldIn, posX2, topTrunkHeight + 1, posZ2 + 1, boundsIn, changedBlocks);
+//                        placeLeaves(LEAVES, worldIn, posX2, topTrunkHeight + 1, posZ2 - 1, boundsIn, changedBlocks);
 //                    }
 //                }
 //            }
@@ -106,7 +107,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //        return true;
 //    }
 //
-//    //Log Placement
+//    
 //    private void treelog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
 //        if (canTreePlace(reader, pos)) {
 //            this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
@@ -114,7 +115,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //    }
 //
-//    //Leaves Placement
+//
 //    private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
 //        BlockPos leafpos = new BlockPos(x, y, z);
 //        if (isAir(reader, leafpos)) {

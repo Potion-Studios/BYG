@@ -89,60 +89,50 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                         chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
-                }
-                else if (canyonCarverNoise < 9.12) {
+                } else if (canyonCarverNoise < 9.12) {
                     if (yPos < groundHeight - 13 - simulateErosion)
                         chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
-                }
-                else if (canyonCarverNoise < 9.18) {
+                } else if (canyonCarverNoise < 9.18) {
                     if (yPos < groundHeight - 16 - simulateErosion)
                         chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
-                }
-                else if (canyonCarverNoise < 9.24) {
+                } else if (canyonCarverNoise < 9.24) {
                     if (yPos < groundHeight - 19 - simulateErosion)
                         chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
-                }
-                else if (canyonCarverNoise < 9.45) {
+                } else if (canyonCarverNoise < 9.45) {
                     if (yPos < groundHeight - 22 - simulateErosion)
                         chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
-                }
-                else if (canyonCarverNoise < 9.51) {
+                } else if (canyonCarverNoise < 9.51) {
                     if (yPos < groundHeight - 32 - simulateErosion)
                         chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
-                }
-                else if (canyonCarverNoise < 9.57) {
+                } else if (canyonCarverNoise < 9.57) {
                     if (yPos < groundHeight - 35 - simulateErosion)
                         chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
-                }
-                else if (canyonCarverNoise < 9.63) {
+                } else if (canyonCarverNoise < 9.63) {
                     if (yPos < groundHeight - 38 - simulateErosion)
                         chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
-                }
-                else if (canyonCarverNoise < 9.69) {
+                } else if (canyonCarverNoise < 9.69) {
                     if (yPos < groundHeight - 41 - simulateErosion)
                         chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
-                }
-                else {
+                } else {
                     if (yPos > seaLevel) {
                         chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
-                    }
-                    else
+                    } else
                         chunkIn.setBlockState(mutable, Blocks.WATER.getDefaultState(), false);
                 }
             }
@@ -270,7 +260,7 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         int randomizer = random.nextInt(7);
         if (randomizer == 1) {
             return BYGSBList.BYGSBConfigList.BLUE_ICE_CF;
-        } else if(randomizer == 2 || randomizer == 3)
+        } else if (randomizer == 2 || randomizer == 3)
             return BYGSBList.BYGSBConfigList.PACKED_ICE_CF;
 
         else
@@ -280,7 +270,7 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     public void setStrataLayerBlock(int yPos) {
         if (yPos % 5 == 0)
             layerBlock = Blocks.SNOW_BLOCK.getDefaultState();
-        else if(yPos % 2 == 0)
+        else if (yPos % 2 == 0)
             layerBlock = Blocks.PACKED_ICE.getDefaultState();
         else if (yPos % 7 == 0)
             layerBlock = Blocks.BLUE_ICE.getDefaultState();

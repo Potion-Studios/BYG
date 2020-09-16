@@ -16,7 +16,7 @@ public class WeepingRootsPlant extends Feature<NoFeatureConfig> {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader worldIn,  ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         int randLength = rand.nextInt(7) + 3;
 
         if (!worldIn.isAirBlock(pos)) {

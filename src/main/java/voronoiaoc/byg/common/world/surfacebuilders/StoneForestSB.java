@@ -47,8 +47,7 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 else
                     chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
             }
-        }
-        else if (sampleNoise < 0.48) {
+        } else if (sampleNoise < 0.48) {
             for (int yPos = startHeight + 44; yPos >= groundLevel; --yPos) {
                 block.setPos(xPos, yPos, zPos);
                 if (yPos == startHeight + 44)
@@ -56,8 +55,7 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 else
                     chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
             }
-        }
-        else
+        } else
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.GRASSSTONEMOUNTAIN_CF);
     }
 

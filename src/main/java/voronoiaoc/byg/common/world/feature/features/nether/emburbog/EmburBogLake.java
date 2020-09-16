@@ -17,7 +17,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
@@ -46,7 +45,7 @@ public class EmburBogLake extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader world,  ChunkGenerator chunkSettings, Random random, BlockPos position, NoFeatureConfig configBlock) {
+    public boolean func_241855_a(ISeedReader world, ChunkGenerator chunkSettings, Random random, BlockPos position, NoFeatureConfig configBlock) {
         setSeed(world.getSeed());
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position.down(2));
 

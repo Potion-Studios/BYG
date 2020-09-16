@@ -1,6 +1,7 @@
 package voronoiaoc.byg.core.byglists;
 
 import com.google.common.collect.ImmutableList;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -9,62 +10,64 @@ import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
+import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 import voronoiaoc.byg.common.world.feature.placements.UnderGroundPlacement;
 
 public class BYGConfiguredTreeFeatures {
     /***********************************************************Configured Features********************************************************/
-    public static final ConfiguredFeature<?, ?> ACACIA_TREE1 = newConfiguredFeature("acacia_tree1", BYGFeatureList.ACACIA_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> ANCIENT_TREE1 = newConfiguredFeature("ancient_tree1", BYGFeatureList.ANCIENT_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> ANCIENT_TREE2 = newConfiguredFeature("ancient_tree2", BYGFeatureList.ANCIENT_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> ANCIENT_TREE3 = newConfiguredFeature("ancient_tree3", BYGFeatureList.ANCIENT_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+//    public static final ConfiguredFeature<?, ?> ACACIA_TREE1 = newConfiguredFeature("acacia_tree1", BYGFeatureList.ACACIA_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
-    public static final ConfiguredFeature<?, ?> ASPEN_SHRUB1 = newConfiguredFeature("aspen_shrub1", BYGFeatureList.ASPEN_SHRUB1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> ASPEN_SHRUB2 = newConfiguredFeature("aspen_shrub2", BYGFeatureList.ASPEN_SHRUB2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> ASPEN_TREE1 = newConfiguredFeature("aspen_tree1", BYGFeatureList.ASPEN_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> ASPEN_TREE2 = newConfiguredFeature("aspen_tree2", BYGFeatureList.ASPEN_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> ASPEN_TREE3 = newConfiguredFeature("aspen_tree3", BYGFeatureList.ASPEN_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> ANCIENT_TREE1 = newConfiguredFeature("ancient_tree1", BYGFeatureList.ANCIENT_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(25).setMinHeight(15).build()));
+    public static final ConfiguredFeature<?, ?> ANCIENT_TREE2 = newConfiguredFeature("ancient_tree2", BYGFeatureList.ANCIENT_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(25).setMinHeight(15).build()));
+    public static final ConfiguredFeature<?, ?> ANCIENT_TREE3 = newConfiguredFeature("ancient_tree3", BYGFeatureList.ANCIENT_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(25).setMinHeight(15).build()));
 
-    public static final ConfiguredFeature<?, ?> BAOBAB_TREE1 = newConfiguredFeature("baobab_tree1", BYGFeatureList.BAOBAB_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> ASPEN_SHRUB1 = newConfiguredFeature("aspen_shrub1", BYGFeatureList.ASPEN_SHRUB1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMaxHeight(0).setMinHeight(2).build()));
+    public static final ConfiguredFeature<?, ?> ASPEN_SHRUB2 = newConfiguredFeature("aspen_shrub2", BYGFeatureList.ASPEN_SHRUB2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMaxHeight(0).setMinHeight(1).build()));
+    public static final ConfiguredFeature<?, ?> ASPEN_TREE1 = newConfiguredFeature("aspen_tree1", BYGFeatureList.ASPEN_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMaxHeight(0).setMinHeight(1).build()));
+    public static final ConfiguredFeature<?, ?> ASPEN_TREE2 = newConfiguredFeature("aspen_tree2", BYGFeatureList.ASPEN_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMaxHeight(16).setMinHeight(12).build()));
+    public static final ConfiguredFeature<?, ?> ASPEN_TREE3 = newConfiguredFeature("aspen_tree3", BYGFeatureList.ASPEN_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ASPEN_LOG).setLeavesBlock(BYGBlockList.ASPEN_LEAVES).setMaxHeight(16).setMinHeight(9).build()));
 
-    public static final ConfiguredFeature<?, ?> BIRCH_BROWN_TREE1 = newConfiguredFeature("brown_birch_tree1", BYGFeatureList.BIRCH_BROWN_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> BIRCH_ORANGE_TREE1 = newConfiguredFeature("orange_birch_tree1", BYGFeatureList.BIRCH_ORANGE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> BIRCH_RED_TREE1 = newConfiguredFeature("red_birch_tree1", BYGFeatureList.BIRCH_RED_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> BIRCH_YELLOW_TREE1 = newConfiguredFeature("yellow_birch_tree1", BYGFeatureList.BIRCH_YELLOW_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> BAOBAB_TREE1 = newConfiguredFeature("baobab_tree1", BYGFeatureList.BAOBAB_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.BAOBAB_LOG).setLeavesBlock(BYGBlockList.BAOBAB_LEAVES).setMaxHeight(28).setMinHeight(20).build()));
 
-    public static final ConfiguredFeature<?, ?> BLUFF_TREE1 = newConfiguredFeature("bluff_tree1", BYGFeatureList.BLUFF_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> BLUFF_TREE2 = newConfiguredFeature("bluff_tree2", BYGFeatureList.BLUFF_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> BLUFF_TREE3 = newConfiguredFeature("bluff_tree3", BYGFeatureList.BLUFF_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> BIRCH_BROWN_TREE1 = newConfiguredFeature("brown_birch_tree1", BYGFeatureList.BASIC_TREE.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.BIRCH_LOG).setLeavesBlock(BYGBlockList.BROWN_BIRCH_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
+    public static final ConfiguredFeature<?, ?> BIRCH_ORANGE_TREE1 = newConfiguredFeature("orange_birch_tree1", BYGFeatureList.BASIC_TREE.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.BIRCH_LOG).setLeavesBlock(BYGBlockList.ORANGE_BIRCH_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
+    public static final ConfiguredFeature<?, ?> BIRCH_RED_TREE1 = newConfiguredFeature("red_birch_tree1", BYGFeatureList.BASIC_TREE.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.BIRCH_LOG).setLeavesBlock(BYGBlockList.RED_BIRCH_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
+    public static final ConfiguredFeature<?, ?> BIRCH_YELLOW_TREE1 = newConfiguredFeature("yellow_birch_tree1", BYGFeatureList.BASIC_TREE.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.BIRCH_LOG).setLeavesBlock(BYGBlockList.YELLOW_BIRCH_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
 
-    public static final ConfiguredFeature<?, ?> BOREAL_TREE1 = newConfiguredFeature("boreal_tree1", BYGFeatureList.BOREAL_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> BOREAL_TREE2 = newConfiguredFeature("boreal_tree2", BYGFeatureList.BOREAL_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> BLUFF_TREE1 = newConfiguredFeature("bluff_tree1", BYGFeatureList.BLUFF_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(21).setMinHeight(17).build()));
+    public static final ConfiguredFeature<?, ?> BLUFF_TREE2 = newConfiguredFeature("bluff_tree2", BYGFeatureList.BLUFF_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
+    public static final ConfiguredFeature<?, ?> BLUFF_TREE3 = newConfiguredFeature("bluff_tree3", BYGFeatureList.BLUFF_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(21).setMinHeight(16).build()));
 
-    public static final ConfiguredFeature<?, ?> CHERRY_PINK_TREE1 = newConfiguredFeature("pink_cherry_tree1", BYGFeatureList.CHERRY_PINK_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CHERRY_PINK_TREE2 = newConfiguredFeature("pink_cherry_tree2", BYGFeatureList.CHERRY_PINK_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CHERRY_WHITE_TREE1 = newConfiguredFeature("white_cherry_tree1", BYGFeatureList.CHERRY_WHITE_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CHERRY_WHITE_TREE2 = newConfiguredFeature("white_cherry_tree2", BYGFeatureList.CHERRY_WHITE_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> BOREAL_TREE1 = newConfiguredFeature("boreal_tree1", BYGFeatureList.BOREAL_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(15).setMinHeight(9).build()));
+    public static final ConfiguredFeature<?, ?> BOREAL_TREE2 = newConfiguredFeature("boreal_tree2", BYGFeatureList.BOREAL_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(15).setMinHeight(11).build()));
 
-    public static final ConfiguredFeature<?, ?> CIKA_TREE1 = newConfiguredFeature("cika_tree1", BYGFeatureList.CIKA_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CIKA_TREE2 = newConfiguredFeature("cika_tree2", BYGFeatureList.CIKA_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CIKA_TREE3 = newConfiguredFeature("cika_tree3", BYGFeatureList.CIKA_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> CHERRY_PINK_TREE1 = newConfiguredFeature("pink_cherry_tree1", BYGFeatureList.CHERRY_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.PINK_CHERRY_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
+    public static final ConfiguredFeature<?, ?> CHERRY_PINK_TREE2 = newConfiguredFeature("pink_cherry_tree2", BYGFeatureList.CHERRY_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.PINK_CHERRY_LEAVES).setMaxHeight(13).setMinHeight(8).build()));
+    public static final ConfiguredFeature<?, ?> CHERRY_WHITE_TREE1 = newConfiguredFeature("white_cherry_tree1", BYGFeatureList.CHERRY_WHITE_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.WHITE_CHERRY_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
+    public static final ConfiguredFeature<?, ?> CHERRY_WHITE_TREE2 = newConfiguredFeature("white_cherry_tree2", BYGFeatureList.CHERRY_WHITE_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.WHITE_CHERRY_LEAVES).setMaxHeight(13).setMinHeight(8).build()));
 
-    public static final ConfiguredFeature<?, ?> CONIFER_TREE1 = newConfiguredFeature("conifer_tree1", BYGFeatureList.CONIFER_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CONIFER_TREE2 = newConfiguredFeature("conifer_tree2", BYGFeatureList.CONIFER_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CONIFER_TREE3 = newConfiguredFeature("conifer_tree3", BYGFeatureList.CONIFER_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CONIFER_TREE4 = newConfiguredFeature("conifer_tree4", BYGFeatureList.CONIFER_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CONIFER_TREE5 = newConfiguredFeature("conifer_tree5", BYGFeatureList.CONIFER_TREE5.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CONIFER_TREE6 = newConfiguredFeature("conifer_tree6", BYGFeatureList.CONIFER_TREE6.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CONIFER_TREE7 = newConfiguredFeature("conifer_tree7", BYGFeatureList.CONIFER_TREE7.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CONIFER_TREE8 = newConfiguredFeature("conifer_tree8", BYGFeatureList.CONIFER_TREE8.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> CIKA_TREE1 = newConfiguredFeature("cika_tree1", BYGFeatureList.CIKA_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CIKA_LOG).setLeavesBlock(BYGBlockList.CIKA_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
+    public static final ConfiguredFeature<?, ?> CIKA_TREE2 = newConfiguredFeature("cika_tree2", BYGFeatureList.CIKA_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CIKA_LOG).setLeavesBlock(BYGBlockList.CIKA_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
+    public static final ConfiguredFeature<?, ?> CIKA_TREE3 = newConfiguredFeature("cika_tree3", BYGFeatureList.CIKA_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CIKA_LOG).setLeavesBlock(BYGBlockList.CIKA_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
 
-    public static final ConfiguredFeature<?, ?> CYPRESS_TREE1 = newConfiguredFeature("cypress_tree1", BYGFeatureList.CYPRESS_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CYPRESS_TREE2 = newConfiguredFeature("cypress_tree2", BYGFeatureList.CYPRESS_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CYPRESS_TREE3 = newConfiguredFeature("cypress_tree3", BYGFeatureList.CYPRESS_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> CONIFER_TREE1 = newConfiguredFeature("conifer_tree1", BYGFeatureList.CONIFER_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.FIR_LOG).setLeavesBlock(BYGBlockList.FIR_LEAVES).setMaxHeight(25).setMinHeight(19).build()));
+    public static final ConfiguredFeature<?, ?> CONIFER_TREE2 = newConfiguredFeature("conifer_tree2", BYGFeatureList.CONIFER_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.FIR_LOG).setLeavesBlock(BYGBlockList.FIR_LEAVES).setMaxHeight(30).setMinHeight(23).build()));
+    public static final ConfiguredFeature<?, ?> CONIFER_TREE3 = newConfiguredFeature("conifer_tree3", BYGFeatureList.CONIFER_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.FIR_LOG).setLeavesBlock(BYGBlockList.FIR_LEAVES).setMaxHeight(35).setMinHeight(26).build()));
+    public static final ConfiguredFeature<?, ?> CONIFER_TREE4 = newConfiguredFeature("conifer_tree4", BYGFeatureList.CONIFER_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.FIR_LOG).setLeavesBlock(BYGBlockList.FIR_LEAVES).setMaxHeight(35).setMinHeight(25).build()));
+    public static final ConfiguredFeature<?, ?> CONIFER_TREE5 = newConfiguredFeature("conifer_tree5", BYGFeatureList.CONIFER_TREE5.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.FIR_LOG).setLeavesBlock(BYGBlockList.FIR_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
+    public static final ConfiguredFeature<?, ?> CONIFER_TREE6 = newConfiguredFeature("conifer_tree6", BYGFeatureList.CONIFER_TREE6.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.FIR_LOG).setLeavesBlock(BYGBlockList.FIR_LEAVES).setMaxHeight(17).setMinHeight(11).build()));
+    public static final ConfiguredFeature<?, ?> CONIFER_TREE7 = newConfiguredFeature("conifer_tree7", BYGFeatureList.CONIFER_TREE7.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.FIR_LOG).setLeavesBlock(BYGBlockList.FIR_LEAVES).setMaxHeight(28).setMinHeight(18).build()));
+    public static final ConfiguredFeature<?, ?> CONIFER_TREE8 = newConfiguredFeature("conifer_tree8", BYGFeatureList.CONIFER_TREE8.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.FIR_LOG).setLeavesBlock(BYGBlockList.FIR_LEAVES).setMaxHeight(28).setMinHeight(16).build()));
 
-    public static final ConfiguredFeature<?, ?> DEAD_HAZEL_TREE1 = newConfiguredFeature("dead_hazel_tree1", BYGFeatureList.DEAD_HAZEL_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> DEAD_HAZEL_TREE2 = newConfiguredFeature("dead_hazel_tree2", BYGFeatureList.DEAD_HAZEL_TREE2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> DEAD_HAZEL_TREE3 = newConfiguredFeature("dead_hazel_tree3", BYGFeatureList.DEAD_HAZEL_TREE3.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> DEAD_HAZEL_TREE4 = newConfiguredFeature("dead_hazel_tree4", BYGFeatureList.DEAD_HAZEL_TREE4.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> CYPRESS_TREE1 = newConfiguredFeature("cypress_tree1", BYGFeatureList.CYPRESS_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CYPRESS_LOG).setLeavesBlock(BYGBlockList.CYPRESS_LEAVES).setMinHeight(10).build()));
+    public static final ConfiguredFeature<?, ?> CYPRESS_TREE2 = newConfiguredFeature("cypress_tree2", BYGFeatureList.CYPRESS_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CYPRESS_LOG).setLeavesBlock(BYGBlockList.CYPRESS_LEAVES).setMaxHeight(20).setMinHeight(15).build()));
+    public static final ConfiguredFeature<?, ?> CYPRESS_TREE3 = newConfiguredFeature("cypress_tree3", BYGFeatureList.CYPRESS_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CYPRESS_LOG).setLeavesBlock(BYGBlockList.CYPRESS_LEAVES).setMaxHeight(20).setMinHeight(15).build()));
+
+    public static final ConfiguredFeature<?, ?> DEAD_HAZEL_TREE1 = newConfiguredFeature("dead_hazel_tree1", BYGFeatureList.DEAD_HAZEL_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WITCH_HAZEL_LOG).setLeavesBlock(BYGBlockList.WITCH_HAZEL_LEAVES).setMaxHeight(15).setMinHeight(6).build()));
+    public static final ConfiguredFeature<?, ?> DEAD_HAZEL_TREE2 = newConfiguredFeature("dead_hazel_tree2", BYGFeatureList.DEAD_HAZEL_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WITCH_HAZEL_LOG).setLeavesBlock(BYGBlockList.WITCH_HAZEL_LEAVES).setMaxHeight(12).setMinHeight(7).build()));
+    public static final ConfiguredFeature<?, ?> DEAD_HAZEL_TREE3 = newConfiguredFeature("dead_hazel_tree3", BYGFeatureList.DEAD_HAZEL_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WITCH_HAZEL_LOG).setLeavesBlock(BYGBlockList.WITCH_HAZEL_LEAVES).setMaxHeight(16).setMinHeight(11).build()));
+    public static final ConfiguredFeature<?, ?> DEAD_HAZEL_TREE4 = newConfiguredFeature("dead_hazel_tree4", BYGFeatureList.DEAD_HAZEL_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WITCH_HAZEL_LOG).setLeavesBlock(BYGBlockList.WITCH_HAZEL_LEAVES).setMaxHeight(7).setMinHeight(5).build()));
 
     public static final ConfiguredFeature<?, ?> DECIDUOUS_TREE = newConfiguredFeature("deciduous_tree1", BYGFeatureList.DECIDUOUS_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static final ConfiguredFeature<?, ?> DECIDUOUS_BROWN_TREE = newConfiguredFeature("brown_deciduous_tree1", BYGFeatureList.DECIDUOUS_BROWN_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
@@ -271,7 +274,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> MAHOGANY_TREE5 = newConfiguredFeature("mahogany_tree5", BYGFeatureList.MAHOGANY_TREE5.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
 
-    public static final ConfiguredFeature<?, ?> WOODLANDS_TREE1 = newConfiguredFeature("woodlands_tree1", BYGFeatureList.WOODLANDS_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> WOODLANDS_TREE1 = newConfiguredFeature("woodlands_tree1", BYGFeatureList.WOODLANDS_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(5).setMinHeight(25).setTrunkBlock(Blocks.OAK_LOG).build()));
 
     public static final ConfiguredFeature<?, ?> DUMMY_TREE = newConfiguredFeature("dummy_tree", BYGFeatureList.DUMMY_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 

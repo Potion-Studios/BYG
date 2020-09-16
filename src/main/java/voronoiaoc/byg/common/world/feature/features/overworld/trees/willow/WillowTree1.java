@@ -1,13 +1,14 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.willow;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -17,14 +18,16 @@ import java.util.Set;
 import static net.minecraft.util.Direction.*;
 
 
-public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
-    public WillowTree1(Codec<NoFeatureConfig> configIn) {
+    public WillowTree1(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.BLUE_SPRUCE_SAPLING);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
+    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+        BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
+        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
         int randChance = rand.nextInt(2);
         int randTreeHeight = rand.nextInt(6) + 8;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
@@ -130,7 +133,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         return true;
     }
 
-    //Log Placement
+
     private void setWillowLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHereWater(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.WILLOW_LOG.getDefaultState(), boundingBox);
@@ -138,7 +141,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
 
     }
 
-    //Leaves Placement
+
     private void setWillowLeaves(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().setPos(pos);
         if (isAirOrWater(reader, blockpos)) {

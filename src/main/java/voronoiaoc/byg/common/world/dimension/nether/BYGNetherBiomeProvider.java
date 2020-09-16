@@ -6,7 +6,6 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryLookupCodec;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
-
 import net.minecraft.world.gen.layer.Layer;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
 

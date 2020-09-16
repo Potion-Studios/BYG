@@ -22,6 +22,7 @@ public class SmallVolcanoFeature extends Feature<NoFeatureConfig> {
     private final int seedModifier;
 
     private FastNoise noiseGen = null;
+
     public void setSeed(long seed) {
         if (noiseGen == null) {
             noiseGen = new FastNoise((int) seed);

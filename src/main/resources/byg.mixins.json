@@ -8,6 +8,7 @@
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinSlimeEntity",
     "common.world.MixinVanillaBiomeLayers",
+    "common.world.feature.MixinBasaltColumnFeature",
     "common.world.layers.MixinShoreLayer"
   ],
   "client": [
