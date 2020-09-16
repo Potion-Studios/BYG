@@ -83,7 +83,7 @@ public class SnowyDeciduousForest extends Biome implements BiomeTools  {
         DefaultBiomeFeatures.func_243717_aa(GENERATION_SETTINGS);
         BYGTreeFeatures.addDeciduousTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.func_243730_an(GENERATION_SETTINGS);
-
+        BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addAnemones(GENERATION_SETTINGS);
         BYGFeatures.addCrocus(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);

@@ -286,8 +286,8 @@ public class BYGConfiguredFeatures {
             SHORT_GRASS)).withPlacement(Features.Placements.field_244001_l).func_242731_b(10));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BYG_FERN_GRASS = newConfiguredFeature("rs_byg_fern_grass", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            SHORT_GRASS.withChance(0.50F)),
-            Features.field_243846_as)).withPlacement(Features.Placements.field_244001_l).func_242731_b(10));
+            SHORT_GRASS.withChance(0.45F)),
+            Features.field_243846_as)).withPlacement(Features.Placements.field_244001_l).func_242731_b(5));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM = newConfiguredFeature("rs_glowshroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLUE_GLOWSHROOM.withChance(0.50F)),
