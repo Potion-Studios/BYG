@@ -7,7 +7,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
@@ -27,7 +26,7 @@ public class PalmTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = 3 + rand.nextInt(3);
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(3);
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
@@ -83,26 +82,4 @@ public class PalmTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             return false;
         }
     }
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            int distance = 0;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-
 }

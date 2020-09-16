@@ -14,13 +14,13 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbst
 import java.util.Random;
 import java.util.Set;
 
-public class MeadowShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class Shrub2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     //BYGBlockRenders used for the tree.
     //private static final BlockState LOG = Blocks.DARK_OAK_LOG.getDefaultState();
     //private static final BlockState LEAVES = Blocks.DARK_OAK_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public MeadowShrub(Codec<BYGTreeFeatureConfig> configIn) {
+    public Shrub2(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RAINBOW_EUCALYPTUS_SAPLING);
     }
@@ -29,12 +29,12 @@ public class MeadowShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = rand.nextInt(1) + 2;
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         //Positions
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
 
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
@@ -70,6 +70,7 @@ public class MeadowShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     //Sets Logs
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
 
+
                 }
 
 
@@ -78,13 +79,12 @@ public class MeadowShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
 
 
-//                        //Top Leaves
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight + 1, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1 - 1, topTrunkHeight, posZ1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1 + 1, topTrunkHeight, posZ1, boundsIn, changedBlocks);
+                        placeLeaves(LEAVES, worldIn, posX1 + 1, topTrunkHeight, posZ1 + 1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight, posZ1 + 1, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight, posZ1 - 1, boundsIn, changedBlocks);
-
                     }
                 }
             }

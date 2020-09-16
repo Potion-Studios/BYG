@@ -7,7 +7,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
@@ -15,29 +14,20 @@ import java.util.Random;
 import java.util.Set;
 
 public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
-    //BYGBlockRenders used for the tree.
-    //private static final BlockState LOG = BYGBlockList.PALO_VERDE_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlockList.PALO_VERDE_LEAVES.getDefaultState();
-    //private static final BlockState LEAVES2 = BYGBlockList.FLOWERING_PALO_VERDE_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
-    Random random = new Random();
 
     public PaloVerdeTree(Codec<BYGTreeFeatureConfig> configIn, int beeHiveChance) {
         super(configIn);
-        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.PALO_VERDE_SAPLING);
     }
 
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = rand.nextInt(1) + 1;
-        //Positions
+        int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
-            BlockPos blockpos = pos.down();
+        if (posY + randTreeHeight + 1 < worldIn.getHeight()) {
             if (worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.RED_SAND && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.COARSE_DIRT) {
                 return false;
             } else {
@@ -134,39 +124,5 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
         } else {
             return false;
         }
-    }
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 4;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-
-    private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
-        BlockPos blockpos = new BlockPos(x, y, z);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, this.randomizer(), boundingBox);
-        }
-
-    }
-
-    private BlockState randomizer() {
-        return (random.nextInt(3) == 0) ? LEAVES2 : LEAVES;
     }
 }

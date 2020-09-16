@@ -15,16 +15,16 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import java.util.Random;
 import java.util.Set;
 
-public class SilverMapleTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class MapleTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
-    public SilverMapleTree1(Codec<BYGTreeFeatureConfig> configIn) {
+    public MapleTree1(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
         BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
-        int randTreeHeight = 4 + rand.nextInt(5);
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
@@ -320,7 +320,7 @@ public class SilverMapleTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfi
     private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().setPos(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.SILVER_MAPLE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.MAPLE_LEAVES.getDefaultState(), boundingBox);
         }
     }
 

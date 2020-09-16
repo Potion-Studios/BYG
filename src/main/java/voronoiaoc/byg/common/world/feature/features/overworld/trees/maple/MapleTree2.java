@@ -15,9 +15,9 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import java.util.Random;
 import java.util.Set;
 
-public class MapleTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class MapleTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
-    public MapleTree(Codec<BYGTreeFeatureConfig> configIn) {
+    public MapleTree2(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
     }
 
@@ -320,7 +320,7 @@ public class MapleTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().setPos(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.MAPLE_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.RED_MAPLE_LEAVES.getDefaultState(), boundingBox);
         }
     }
 

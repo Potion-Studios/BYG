@@ -12,9 +12,9 @@ import net.minecraft.world.gen.feature.IFeatureConfig;
 public class BYGTreeFeatureConfig implements IFeatureConfig {
 
     public static final Codec<BYGTreeFeatureConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.field_236796_a_.fieldOf("trunk_provider").forGetter((config) -> {
+        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("trunk_provider").forGetter((config) -> {
             return config.trunkProvider;
-        }), BlockStateProvider.field_236796_a_.fieldOf("leaves_provider").forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("leaves_provider").forGetter((config) -> {
             return config.leavesProvider;
         }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
             return config.minHeight;

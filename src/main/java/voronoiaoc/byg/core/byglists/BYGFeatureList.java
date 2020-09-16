@@ -104,11 +104,8 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.palm.PalmTre
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.*;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.prairie.PrairieShrub;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.prairie.PrairieShrub2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.PumpkinPatch1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.PumpkinPatch2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pumpkins.PumpkinPatch3;
+import voronoiaoc.byg.common.world.feature.features.overworld.pumpkins.LargePumpkin1;
+import voronoiaoc.byg.common.world.feature.features.overworld.pumpkins.LargePumpkin2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.LargeRainbowEucalyptus;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree1;
@@ -221,9 +218,9 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> VINES = new VinePlacer(NoFeatureConfig.field_236558_a_);
 
     //Pumpkins
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PUMPKIN_PATCH1 = new PumpkinPatch1(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PUMPKIN_PATCH1 = new LargePumpkin1(NoFeatureConfig.field_236558_a_);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PUMPKIN_PATCH2 = new PumpkinPatch2(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PUMPKIN_PATCH3 = new PumpkinPatch3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PUMPKIN_PATCH3 = new LargePumpkin2(NoFeatureConfig.field_236558_a_);
 
     /********************************************************************Carvers**************************************************************************/
     public static final WorldCarver<ProbabilityConfig> VOLCANIC_CARVER = new VolcanicCarver(ProbabilityConfig.field_236576_b_, 256);
@@ -455,11 +452,11 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MANGROVE_TREE5 = new MangroveTree5(BYGTreeFeatureConfig.CODEC);
 
     //Maple
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_RED_TREE1 = new RedMapleTree1(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_RED_TREE2 = new RedMapleTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_TREE2 = new MapleTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_TREE3 = new MapleTree3(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_SILVER_TREE1 = new SilverMapleTree1(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_SILVER_TREE2 = new SilverMapleTree2(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_TREE = new MapleTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MAPLE_TREE1 = new MapleTree1(BYGTreeFeatureConfig.CODEC);
 
     //Meadow
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MEADOW_TREE1 = new MeadowTree1(BYGTreeFeatureConfig.CODEC);
@@ -492,18 +489,10 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> REDWOOD_TREE1 = new RedwoodTree1(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> REDWOOD_TREE2 = new RedwoodTree2(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> REDWOOD_TREE3 = new RedwoodTree3(BYGTreeFeatureConfig.CODEC);
-    //Seasonal Oaks
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_BROWN_TREE1 = new BrownOakTree(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_ORANGE_TREE1 = new OrangeOakTree(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_RED_TREE1 = new RedOakTree(BYGTreeFeatureConfig.CODEC);
 
     //Shrubs
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB = new BYGShrub(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB_MEADOW1 = new MeadowShrub(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB_MEADOW2 = new MeadowShrub2(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB_PRAIRIE1 = new PrairieShrub(BYGTreeFeatureConfig.CODEC);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB_PRAIRIE2 = new PrairieShrub2(BYGTreeFeatureConfig.CODEC);
-
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB1 = new Shrub1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB2 = new Shrub2(BYGTreeFeatureConfig.CODEC);
     //Skyris
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE1 = new SkyrisTree(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE2 = new SkyrisTree2(BYGTreeFeatureConfig.CODEC);
@@ -791,11 +780,11 @@ public class BYGFeatureList {
             registerFeature(MANGROVE_TREE3, "mangrove_tree3");
             registerFeature(MANGROVE_TREE4, "mangrove_tree4");
             registerFeature(MANGROVE_TREE5, "mangrove_tree5");
-            registerFeature(MAPLE_RED_TREE1, "red_maple_tree1");
-            registerFeature(MAPLE_RED_TREE2, "red_maple_tree2");
+            registerFeature(MAPLE_TREE2, "red_maple_tree1");
+            registerFeature(MAPLE_TREE3, "red_maple_tree2");
             registerFeature(MAPLE_SILVER_TREE1, "silver_maple_tree1");
             registerFeature(MAPLE_SILVER_TREE2, "silver_maple_tree2");
-            registerFeature(MAPLE_TREE, "maple_tree1");
+            registerFeature(MAPLE_TREE1, "maple_tree1");
             registerFeature(MEADOW_TREE1, "meadow_tree1");
             registerFeature(MEADOW_TREE2, "meadow_tree2");
             registerFeature(MEADOW_TREE3, "meadow_tree3");
@@ -820,8 +809,8 @@ public class BYGFeatureList {
             registerFeature(SCORCHED_BUSH, "scorched_bush");
             registerFeature(SCORCHED_GRASS, "scorched_grass");
             registerFeature(SHRUB, "shrub1");
-            registerFeature(SHRUB_MEADOW1, "meadow_shrub1");
-            registerFeature(SHRUB_MEADOW2, "meadow_shrub2");
+            registerFeature(SHRUB1, "meadow_shrub1");
+            registerFeature(SHRUB2, "meadow_shrub2");
             registerFeature(SHRUB_PRAIRIE1, "prairie_shrub1");
             registerFeature(SHRUB_PRAIRIE2, "prairie_shrub2");
             registerFeature(SKYRIS_TREE1, "skyris_tree1");

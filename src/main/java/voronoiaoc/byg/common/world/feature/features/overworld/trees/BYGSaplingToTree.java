@@ -235,7 +235,7 @@ public class BYGSaplingToTree {
     public static class MapleSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<BYGTreeFeatureConfig> getTreeFeature(Random random) {
-            return BYGFeatureList.MAPLE_TREE;
+            return BYGFeatureList.MAPLE_TREE1;
         }
 
     }
@@ -243,7 +243,7 @@ public class BYGSaplingToTree {
     public static class RedMapleSaplingToTree extends BYGTree {
         @Nullable
         public BYGAbstractTreeFeature<BYGTreeFeatureConfig> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? BYGFeatureList.MAPLE_RED_TREE1 : BYGFeatureList.MAPLE_RED_TREE2;
+            return random.nextInt(2) == 0 ? BYGFeatureList.MAPLE_TREE2 : BYGFeatureList.MAPLE_TREE3;
         }
 
     }
