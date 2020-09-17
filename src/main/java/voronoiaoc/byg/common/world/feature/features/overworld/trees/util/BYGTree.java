@@ -29,6 +29,5 @@ public abstract class BYGTree {
                 return false;
             }
         }
-
     }
 }

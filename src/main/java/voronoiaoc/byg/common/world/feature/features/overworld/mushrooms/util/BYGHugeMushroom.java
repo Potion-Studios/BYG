@@ -7,26 +7,24 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import voronoiaoc.byg.BYG;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import voronoiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
 public abstract class BYGHugeMushroom {
     @Nullable
-    protected abstract BYGAbstractTreeFeature<NoFeatureConfig> getHugeMushroomFeature(Random random);
+    protected abstract ConfiguredFeature<BYGMushroomFeatureConfig, ?> getHugeMushroomFeature(Random random);
 
-    public boolean func_242575_a(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
-        BYGAbstractTreeFeature<NoFeatureConfig> abstracttreefeature = this.getHugeMushroomFeature(random);
-        if (abstracttreefeature == null) {
+    public boolean withSpawner(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+        ConfiguredFeature<BYGMushroomFeatureConfig, ?> abstractMushroomFeature = this.getHugeMushroomFeature(random);
+        if (abstractMushroomFeature == null) {
             return false;
         } else {
-            BYG.LOGGER.info("NOTNULL");
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-            if (abstracttreefeature.func_241855_a(worldIn, chunkGenerator, random, pos, IFeatureConfig.NO_FEATURE_CONFIG)) {
+            abstractMushroomFeature.config.forcePlacement();
+            if (abstractMushroomFeature.func_242765_a(worldIn, chunkGenerator, random, pos)) {
                 return true;
             } else {
                 worldIn.setBlockState(pos, blockUnder, 4);
@@ -42,7 +40,7 @@ public abstract class BYGHugeMushroom {
             return block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset + 1)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset + 1)).getBlock();
         }
 
-        public boolean func_242575_a(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+        public boolean withSpawner(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
             for (int i = 0; i >= -1; --i) {
                 for (int j = 0; j >= -1; --j) {
                     if (canMassiveMushroomSpawnAt(blockUnder, worldIn, pos, i, j)) {
@@ -51,15 +49,15 @@ public abstract class BYGHugeMushroom {
                 }
             }
 
-            return super.func_242575_a(worldIn, chunkGenerator, pos, blockUnder, random);
+            return super.withSpawner(worldIn, chunkGenerator, pos, blockUnder, random);
         }
 
         @Nullable
-        protected abstract BYGAbstractTreeFeature<NoFeatureConfig> getMassiveMushroomFeature(Random random);
+        protected abstract ConfiguredFeature<BYGMushroomFeatureConfig, ?> getMassiveMushroomFeature(Random random);
 
         public boolean massiveMushroom(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
-            BYGAbstractTreeFeature<NoFeatureConfig> abstracttreefeature = this.getMassiveMushroomFeature(random);
-            if (abstracttreefeature == null) {
+            ConfiguredFeature<BYGMushroomFeatureConfig, ?> abstractMushroomFeature = this.getMassiveMushroomFeature(random);
+            if (abstractMushroomFeature == null) {
                 return false;
             } else {
                 BlockState blockstate = Blocks.AIR.getDefaultState();
@@ -67,7 +65,8 @@ public abstract class BYGHugeMushroom {
                 worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset), blockstate, 4);
                 worldIn.setBlockState(pos.add(xOffset, 0, zOffset + 1), blockstate, 4);
                 worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset + 1), blockstate, 4);
-                if (abstracttreefeature.func_241855_a(worldIn, chunkGenerator, random, pos.add(xOffset, 0, zOffset), IFeatureConfig.NO_FEATURE_CONFIG)) {
+                abstractMushroomFeature.config.forcePlacement();
+                if (abstractMushroomFeature.func_242765_a(worldIn, chunkGenerator, random, pos.add(xOffset, 0, zOffset))) {
                     return true;
                 } else {
                     worldIn.setBlockState(pos.add(xOffset, 0, zOffset), blockUnder, 4);

@@ -11,7 +11,7 @@ import java.util.HashMap;
 public interface BiomeTools {
 
     default Biome getRiver() {
-        return WorldGenRegistries.field_243657_i.func_243576_d(Biomes.RIVER);
+        return WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER);
     }
 
     default HashMap<Biome, Integer> getHills() {

@@ -16,7 +16,7 @@ public class MixinBasaltColumnFeature {
 
     @Inject(at = @At("HEAD"), method = "func_236247_a_(Lnet/minecraft/world/IWorld;ILnet/minecraft/util/math/BlockPos;)Z", cancellable = true)
     private static void injectWater(IWorld world, int topY, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        if (world.func_230315_m_() == DimensionType.OVERWORLD_TYPE) {
+        if (world.getDimensionType() == DimensionType.OVERWORLD_TYPE) {
             cir.cancel();
             BlockState blockstate = world.getBlockState(pos);
             cir.setReturnValue(blockstate.isAir() || blockstate.isIn(Blocks.WATER) || blockstate.isIn(Blocks.LAVA) && pos.getY() <= topY);

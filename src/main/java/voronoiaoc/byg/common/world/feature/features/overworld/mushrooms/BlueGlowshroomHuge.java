@@ -1,25 +1,34 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.mushrooms;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
+import voronoiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
+import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.Set;
 
-public class BlueGlowshroomHuge extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class BlueGlowshroomHuge extends BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> {
 
-    public BlueGlowshroomHuge(Codec<NoFeatureConfig> configIn) {
+    public BlueGlowshroomHuge(Codec<BYGMushroomFeatureConfig> configIn) {
         super(configIn);
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
+    protected boolean placeMushroom(ISeedReader worldIn, Random rand, BlockPos pos, boolean isMushroom, BYGMushroomFeatureConfig config) {
+        BlockState STEM = config.getStemProvider().getBlockState(rand, pos);
+        BlockState MUSHROOM = config.getMushroomProvider().getBlockState(rand, pos);
+        BlockState MUSHROOM2 = config.getMushroom2Provider().getBlockState(rand, pos);
+        BlockState MUSHROOM3 = config.getMushroom3Provider().getBlockState(rand, pos);
+        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);BlockState STEM = config.getStemProvider().getBlockState(rand, pos);
+        BlockState MUSHROOM = config.getMushroomProvider().getBlockState(rand, pos);
+        BlockState MUSHROOM2 = config.getMushroom2Provider().getBlockState(rand, pos);
+        BlockState MUSHROOM3 = config.getMushroom3Provider().getBlockState(rand, pos);
+        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);
+
         int randTreeHeight = 5 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
@@ -30,79 +39,79 @@ public class BlueGlowshroomHuge extends BYGAbstractTreeFeature<NoFeatureConfig> 
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;
             } else {
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 5, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 5, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 5, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 5, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 5, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 5, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 5, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 5, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 5, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 5, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 5, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 5, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 5, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 5, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 5, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 5, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 5, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 5, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 6, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 6, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 6, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 6, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 6, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 6, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 6, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 6, 3), boundsIn);
+                placeStem(STEM, worldIn, mainmutable.add(0, 0, 0));
+                placeStem(STEM, worldIn, mainmutable.add(0, 1, 0));
+                placeStem(STEM, worldIn, mainmutable.add(0, 2, 0));
+                placeStem(STEM, worldIn, mainmutable.add(0, 3, 0));
+                placeStem(STEM, worldIn, mainmutable.add(0, 4, 0));
+                placeStem(STEM, worldIn, mainmutable.add(0, 5, 0));
+                this.leafs(worldIn, mainmutable.add(-2, 5, -3));
+                this.leafs(worldIn, mainmutable.add(-1, 5, -3));
+                this.leafs(worldIn, mainmutable.add(1, 5, -3));
+                this.leafs(worldIn, mainmutable.add(2, 5, -3));
+                this.leafs(worldIn, mainmutable.add(-3, 5, -2));
+                this.leafs(worldIn, mainmutable.add(-2, 5, -2));
+                this.leafs(worldIn, mainmutable.add(2, 5, -2));
+                this.leafs(worldIn, mainmutable.add(3, 5, -2));
+                this.leafs(worldIn, mainmutable.add(-3, 5, -1));
+                this.leafs(worldIn, mainmutable.add(3, 5, -1));
+                this.leafs(worldIn, mainmutable.add(-3, 5, 1));
+                this.leafs(worldIn, mainmutable.add(3, 5, 1));
+                this.leafs(worldIn, mainmutable.add(-3, 5, 2));
+                this.leafs(worldIn, mainmutable.add(-2, 5, 2));
+                this.leafs(worldIn, mainmutable.add(2, 5, 2));
+                this.leafs(worldIn, mainmutable.add(3, 5, 2));
+                this.leafs(worldIn, mainmutable.add(-2, 5, 3));
+                this.leafs(worldIn, mainmutable.add(-1, 5, 3));
+                this.leafs(worldIn, mainmutable.add(1, 5, 3));
+                this.leafs(worldIn, mainmutable.add(2, 5, 3));
+                this.leafs(worldIn, mainmutable.add(0, 6, -3));
+                this.leafs(worldIn, mainmutable.add(-1, 6, -2));
+                this.leafs(worldIn, mainmutable.add(0, 6, -2));
+                this.leafs(worldIn, mainmutable.add(1, 6, -2));
+                this.leafs(worldIn, mainmutable.add(-2, 6, -1));
+                this.leafs(worldIn, mainmutable.add(-1, 6, -1));
+                this.leafs(worldIn, mainmutable.add(0, 6, -1));
+                this.leafs(worldIn, mainmutable.add(1, 6, -1));
+                this.leafs(worldIn, mainmutable.add(2, 6, -1));
+                this.leafs(worldIn, mainmutable.add(-3, 6, 0));
+                this.leafs(worldIn, mainmutable.add(-2, 6, 0));
+                this.leafs(worldIn, mainmutable.add(-1, 6, 0));
+                this.leafs(worldIn, mainmutable.add(0, 6, 0));
+                this.leafs(worldIn, mainmutable.add(1, 6, 0));
+                this.leafs(worldIn, mainmutable.add(2, 6, 0));
+                this.leafs(worldIn, mainmutable.add(-2, 6, 1));
+                this.leafs(worldIn, mainmutable.add(-1, 6, 1));
+                this.leafs(worldIn, mainmutable.add(0, 6, 1));
+                this.leafs(worldIn, mainmutable.add(1, 6, 1));
+                this.leafs(worldIn, mainmutable.add(2, 6, 1));
+                this.leafs(worldIn, mainmutable.add(-1, 6, 2));
+                this.leafs(worldIn, mainmutable.add(0, 6, 2));
+                this.leafs(worldIn, mainmutable.add(1, 6, 2));
+                this.leafs(worldIn, mainmutable.add(0, 6, 3));
             }
         }
         return true;
     }
 
     //Log Placement
-    private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void treeLog(ISeedReader reader, BlockPos pos) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.YELLOW_GLOWSHROOM_STEM.getDefaultState(), boundingBox);
+            this.setFinalBlockState(reader, pos, BYGBlockList.YELLOW_GLOWSHROOM_STEM.getDefaultState());
         }
     }
 
     //Log Placement
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void treeBranch(ISeedReader reader, BlockPos pos) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.YELLOW_GLOWSHROOM_STEM.getDefaultState(), boundingBox);
+            this.setFinalBlockState(reader, pos, BYGBlockList.YELLOW_GLOWSHROOM_STEM.getDefaultState());
         }
     }
 
     //Leaves Placement
-    private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void leafs(ISeedReader reader, BlockPos pos) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.BLUE_GLOWSHROOM_BLOCK.getDefaultState(), boundingBox);
+            this.setFinalBlockState(reader, pos, BYGBlockList.BLUE_GLOWSHROOM_BLOCK.getDefaultState());
         }
     }
 

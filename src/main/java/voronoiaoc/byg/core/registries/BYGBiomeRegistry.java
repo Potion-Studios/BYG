@@ -193,42 +193,42 @@ public class BYGBiomeRegistry {
     }
 
     private static void registerBiome(Biome biome, String name) {
-        Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
+        Registry.register(WorldGenRegistries.BIOME, new ResourceLocation(BYG.MOD_ID, name), biome);
         biomeList.add(biome);
 
-//        if (func_242575_a) {
+//        if (withSpawner) {
 //            BiomeManager.addSpawnBiome(biome);
 //        }
     }
 
     private static void registerBYGBiome(Biome biome, String name) {
-        Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
+        Registry.register(WorldGenRegistries.BIOME, new ResourceLocation(BYG.MOD_ID, name), biome);
         biomeList.add(biome);
 
     }
 
     private static void registerBYGEndBiome(Biome biome, String name) {
-        Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
+        Registry.register(WorldGenRegistries.BIOME, new ResourceLocation(BYG.MOD_ID, name), biome);
         BYGEndBiomeProvider.bygEndBiomeList.add(biome);
         biomeList.add(biome);
     }
 
     private static void registerNetherBiome(Biome biome, String name) {
-        Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
+        Registry.register(WorldGenRegistries.BIOME, new ResourceLocation(BYG.MOD_ID, name), biome);
         biomeList.add(biome);
     }
 
 
     private static void registerBYGSubBiome(Biome biome, String name) {
-        Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
+        Registry.register(WorldGenRegistries.BIOME, new ResourceLocation(BYG.MOD_ID, name), biome);
         biomeList.add(biome);
     }
 
     public static void addBiomeNumericalIDsForLayerSampler() {
         for (Biome biome : biomeList) {
-            Optional<RegistryKey<Biome>> key = WorldGenRegistries.field_243657_i.func_230519_c_(biome);
+            Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.func_230519_c_(biome);
             if (key.isPresent())
-                key.ifPresent(biomeRegistryKey -> BiomeRegistry.field_244202_c.put(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_243576_d(key.get())), biomeRegistryKey));
+                key.ifPresent(biomeRegistryKey -> BiomeRegistry.field_244202_c.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
         }
     }
 }

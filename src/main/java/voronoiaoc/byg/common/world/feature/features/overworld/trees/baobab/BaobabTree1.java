@@ -159,12 +159,12 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(7).up(4).south(), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(7).up(5).south(), boundsIn);
-//                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(7).up(6).south(), boundsIn);
+//                    placeStem(LOG, changedBlocks, worldIn, blockpos2.west(7).up(6).south(), boundsIn);
 
 
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().up(), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().up(2), boundsIn);
-//                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().up(2), boundsIn);
+//                    placeStem(LOG, changedBlocks, worldIn, blockpos2.north().up(2), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).up(3), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).up(4), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(3).up(5), boundsIn);

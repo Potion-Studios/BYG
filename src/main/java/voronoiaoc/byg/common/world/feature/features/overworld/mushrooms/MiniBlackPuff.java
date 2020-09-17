@@ -7,21 +7,25 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.IWorldGenerationReader;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
+import voronoiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
+import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
 
-public class MiniBlackPuff extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class MiniBlackPuff extends BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> {
 
-    public MiniBlackPuff(Codec<NoFeatureConfig> configIn) {
+    public MiniBlackPuff(Codec<BYGMushroomFeatureConfig> configIn) {
         super(configIn);
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
-        int randTreeHeight = 1 + rand.nextInt(2);
+    protected boolean placeMushroom(ISeedReader worldIn, Random rand, BlockPos pos, boolean isMushroom, BYGMushroomFeatureConfig config) {
+        BlockState STEM = config.getStemProvider().getBlockState(rand, pos);
+        BlockState MUSHROOM = config.getMushroomProvider().getBlockState(rand, pos);
+        BlockState MUSHROOM2 = config.getMushroom2Provider().getBlockState(rand, pos);
+        BlockState MUSHROOM3 = config.getMushroom3Provider().getBlockState(rand, pos);
+        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);int randTreeHeight = 1 + rand.nextInt(2);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
@@ -31,16 +35,16 @@ public class MiniBlackPuff extends BYGAbstractTreeFeature<NoFeatureConfig> {
             } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;
             } else {
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
-                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 1, -1), boundsIn);
-                this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 1, 0), boundsIn);
-                this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 1, 0), boundsIn);
-                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 1, 1), boundsIn);
-                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 2, -1), boundsIn);
-                this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 2, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
+                placeStem(STEM, worldIn, mainmutable.add(0, 0, 0));
+                this.treeBranch(worldIn, mainmutable.add(0, 1, -1));
+                this.treeBranch(worldIn, mainmutable.add(-1, 1, 0));
+                this.treeBranch(worldIn, mainmutable.add(1, 1, 0));
+                this.treeBranch(worldIn, mainmutable.add(0, 1, 1));
+                this.treeBranch(worldIn, mainmutable.add(0, 2, -1));
+                this.treeBranch(worldIn, mainmutable.add(0, 2, 1));
+                this.leafs(worldIn, mainmutable.add(0, 1, 0));
+                this.leafs(worldIn, mainmutable.add(0, 2, 0));
+                this.leafs(worldIn, mainmutable.add(0, 3, 0));
             }
         }
         return true;

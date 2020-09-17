@@ -116,8 +116,8 @@ public class SkyrisTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                         //Bottom Leaves
                         placeLeaves(LEAVES, worldIn, posX3 - 1 + posXLeafWidth, topTrunkHeight3 - 7, posZ3 + posZLeafWidthL0, boundsIn, changedBlocks);
                         placeLeaves(LEAVES, worldIn, posX3 - 1 + posXLeafWidth, topTrunkHeight3 - 7, posZ3 + posZLeafWidthL0, boundsIn, changedBlocks);
-//                        placeLeaves(LEAVES, worldIn, posX3 + posXLeafWidth - 1, topTrunkHeight3 - 1, posZ3 + posZLeafWidthL0 +1, boundsIn, changedBlocks);
-//                        placeLeaves(LEAVES, worldIn, posX3 + posXLeafWidth - 1, topTrunkHeight3 - 1, posZ3 + posZLeafWidthL0 -1, boundsIn, changedBlocks);
+//                        placePetal(LEAVES, worldIn, posX3 + posXLeafWidth - 1, topTrunkHeight3 - 1, posZ3 + posZLeafWidthL0 +1, boundsIn, changedBlocks);
+//                        placePetal(LEAVES, worldIn, posX3 + posXLeafWidth - 1, topTrunkHeight3 - 1, posZ3 + posZLeafWidthL0 -1, boundsIn, changedBlocks);
 
                         //3x3
                         if (posXLeafWidth <= 1 && posZLeafWidthL0 <= 1 && posZLeafWidthL0 >= -1 && posXLeafWidth >= -1) {

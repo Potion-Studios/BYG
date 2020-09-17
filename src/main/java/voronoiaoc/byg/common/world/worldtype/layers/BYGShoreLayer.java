@@ -13,7 +13,7 @@
 //    INSTANCE;
 //
 //    public int apply(INoiseRandom rand, int n, int e, int s, int w, int centre) {
-//        Biome biome = Registry.field_243657_i.func_243576_dByValue(centre);
+//        Biome biome = Registry.BIOME.getOrThrowByValue(centre);
 //        if (centre == BYGBiomeGetter.ALPS) {
 //            if (ClimateBooleans.isOcean(n) || ClimateBooleans.isOcean(e) || ClimateBooleans.isOcean(s) || ClimateBooleans.isOcean(w)) {
 //                return BYGBiomeGetter.SNOWYROCKYBLACKBEACH;

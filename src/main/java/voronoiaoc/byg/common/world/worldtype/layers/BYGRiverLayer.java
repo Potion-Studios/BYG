@@ -8,7 +8,7 @@
 //public enum BYGRiverLayer implements ICastleTransformer {
 //    INSTANCE;
 //
-//    public static final int RIVER = Registry.field_243657_i.func_243576_dId(Biomes.RIVER);
+//    public static final int RIVER = Registry.BIOME.getOrThrowId(Biomes.RIVER);
 //
 //    public int apply(INoiseRandom context, int north, int west, int south, int east, int center) {
 //        int i = riverFilter(center);

@@ -9,7 +9,8 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
-import voronoiaoc.byg.common.world.feature.config.BYGPumpkinConfig;
+import voronoiaoc.byg.common.world.feature.config.BYGGiantFlowerFeatureConfig;
+import voronoiaoc.byg.common.world.feature.config.BYGPumpkinFeatureConfig;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.RiverThingy;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
@@ -33,6 +34,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.Angel
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.DandelionGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.IrisGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.RoseGiant;
+import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.pumpkins.LargePumpkin1;
 import voronoiaoc.byg.common.world.feature.features.overworld.pumpkins.LargePumpkin2;
@@ -114,7 +116,6 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.SpruceTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.small.SpruceTree4;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical.ShortTropicalRainForestTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical.TropicalRainForestTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical.TropicalShrub;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.willow.WillowTree1;
@@ -155,18 +156,18 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> VINES = new VinePlacer(NoFeatureConfig.field_236558_a_);
 
     //Pumpkins
-    public static final Feature<BYGPumpkinConfig> LARGE_PUMPKIN1 = new LargePumpkin1(BYGPumpkinConfig.CODEC);
-    public static final Feature<BYGPumpkinConfig> LARGE_PUMPKIN2 = new LargePumpkin2(BYGPumpkinConfig.CODEC);
+    public static final Feature<BYGPumpkinFeatureConfig> LARGE_PUMPKIN1 = new LargePumpkin1(BYGPumpkinFeatureConfig.CODEC);
+    public static final Feature<BYGPumpkinFeatureConfig> LARGE_PUMPKIN2 = new LargePumpkin2(BYGPumpkinFeatureConfig.CODEC);
 
     /********************************************************************Carvers**************************************************************************/
     public static final WorldCarver<ProbabilityConfig> VOLCANIC_CARVER = new VolcanicCarver(ProbabilityConfig.field_236576_b_, 256);
 
 
     /*********************************************************************Large Flower Features***********************************************************/
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> GIANT_ANGELICA_FLOWER = new AngelicaGiant(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> GIANT_DANDELION_FLOWER = new DandelionGiant(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> GIANT_IRIS_FLOWER = new IrisGiant(NoFeatureConfig.field_236558_a_);
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> GIANT_ROSE_FLOWER = new RoseGiant(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractGiantFlowerFeature<BYGGiantFlowerFeatureConfig> GIANT_ANGELICA_FLOWER = new AngelicaGiant(BYGGiantFlowerFeatureConfig.CODEC);
+    public static final BYGAbstractGiantFlowerFeature<BYGGiantFlowerFeatureConfig> GIANT_DANDELION_FLOWER = new DandelionGiant(BYGGiantFlowerFeatureConfig.CODEC);
+    public static final BYGAbstractGiantFlowerFeature<BYGGiantFlowerFeatureConfig> GIANT_IRIS_FLOWER = new IrisGiant(BYGGiantFlowerFeatureConfig.CODEC);
+    public static final BYGAbstractGiantFlowerFeature<BYGGiantFlowerFeatureConfig> GIANT_ROSE_FLOWER = new RoseGiant(BYGGiantFlowerFeatureConfig.CODEC);
 
 
     /*********************************************************************Large Mushroom Features*********************************************************/
@@ -435,7 +436,6 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE4 = new SpruceTree4(BYGTreeFeatureConfig.CODEC);
 
     //Tropical
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> TROPICAL_TREE1 = new TropicalRainForestTree(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> TROPICAL_SHORT_TREE1 = new ShortTropicalRainForestTree(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> TROPICAL_SHRUB1 = new TropicalShrub(BYGTreeFeatureConfig.CODEC);
 
@@ -639,7 +639,6 @@ public class BYGFeatureList {
             registerFeature(SPRUCE_TREE_MEDIUM3, "spruce_tree_medium3");
             registerFeature(SPRUCE_TREE_MEDIUM4, "spruce_tree_medium4");
             registerFeature(SPRUCE_TREE_LARGE1, "spruce_tree_large1");
-            registerFeature(TROPICAL_TREE1, "tropical_tree1");
             registerFeature(TROPICAL_SHORT_TREE1, "tropical_short_tree1");
             registerFeature(TROPICAL_SHRUB1, "tropical_shrub1");
             registerFeature(MAHOGANY_TREE1, "mahogany_tree1");

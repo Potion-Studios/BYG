@@ -17,12 +17,12 @@ import java.util.List;
 @SuppressWarnings("deprecation")
 public class BYGEndBiomeCatch {
 
-    public static final int IVISFIELDS = WorldGenRegistries.field_243657_i.getId(BYGBiomeList.IVISFIELDS);
-    public static final int SMALLENDISLANDS = WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.SMALL_END_ISLANDS));
-    public static final int ENDBARRENS = WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.END_BARRENS));
-    public static final int ENDHIGHLANDS = WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.END_HIGHLANDS));
-    public static final int ENDMIDLANDS = WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.END_MIDLANDS));
-    public static final int POISEFOREST = WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation("endergetic:poise_forest")).orElse(WorldGenRegistries.field_243657_i.getByValue(SMALLENDISLANDS)));
+    public static final int IVISFIELDS = WorldGenRegistries.BIOME.getId(BYGBiomeList.IVISFIELDS);
+    public static final int SMALLENDISLANDS = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.SMALL_END_ISLANDS));
+    public static final int ENDBARRENS = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.END_BARRENS));
+    public static final int ENDHIGHLANDS = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.END_HIGHLANDS));
+    public static final int ENDMIDLANDS = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.END_MIDLANDS));
+    public static final int POISEFOREST = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.func_241873_b(new ResourceLocation("endergetic:poise_forest")).orElse(WorldGenRegistries.BIOME.getByValue(SMALLENDISLANDS)));
 
     static String biomeRegistries = BYGWorldConfig.externalEndBiomes.get();
     public static String configBiomes = biomeRegistries.trim().replace(" ", "");
@@ -36,16 +36,16 @@ public class BYGEndBiomeCatch {
         if (biomeList.size() > 0) {
             int[] getConfigArray = new int[biomeList.size()];
             for (int index = 0; index < biomeList.size(); ++index) {
-                final Biome configResource = WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation(biomeList.get(index))).orElse(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.THE_END));
+                final Biome configResource = WorldGenRegistries.BIOME.func_241873_b(new ResourceLocation(biomeList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
                 if (configResource == null) {
                     BYG.LOGGER.warn("Illegal registry name! You put: " + biomeList.get(index));
                 } else if (configResource != null) {
-                    getConfigArray[index] = WorldGenRegistries.field_243657_i.getId(configResource);
-                    Biome biome = WorldGenRegistries.field_243657_i.getByValue(getConfigArray[index]);
+                    getConfigArray[index] = WorldGenRegistries.BIOME.getId(configResource);
+                    Biome biome = WorldGenRegistries.BIOME.getByValue(getConfigArray[index]);
                     if (biome == null) {
                     } else {
                         BYGEndBiomeProvider.bygEndBiomeList.add(biome);
-                        endBiomeIDs.add(WorldGenRegistries.field_243657_i.getId(biome));
+                        endBiomeIDs.add(WorldGenRegistries.BIOME.getId(biome));
                     }
                 }
             }

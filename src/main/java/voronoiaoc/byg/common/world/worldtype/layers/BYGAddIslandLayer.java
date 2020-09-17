@@ -14,9 +14,9 @@
 //public enum BYGAddIslandLayer implements Merge1Layer, IDimOffset1Transformer {
 //    INSTANCE;
 //
-//    public static final int DEEP_WARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_WARM_OCEAN);
-//    public static final int DEEP_LUKEWARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_LUKEWARM_OCEAN);
-//    public static final int DEEP_FROZEN_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_FROZEN_OCEAN);
+//    public static final int DEEP_WARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_WARM_OCEAN);
+//    public static final int DEEP_LUKEWARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_LUKEWARM_OCEAN);
+//    public static final int DEEP_FROZEN_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_FROZEN_OCEAN);
 //
 //    public BYGBiomeGroup getTropIslandBiome() {
 //        return BYGBiomeGroup.OCEAN_ISLANDS_TROPICAL;
@@ -41,11 +41,11 @@
 //            int l = area1Value;
 //            if (!ClimateBooleans.isShallowOcean(area1Value + 1) || !ClimateBooleans.isShallowOcean(area1Value - 1)) {
 //                if (area1Value == DEEP_WARM_OCEAN) {
-//                    l = Registry.field_243657_i.func_243576_dId(getTropIslandBiome().pickBiome(context));
+//                    l = Registry.BIOME.getOrThrowId(getTropIslandBiome().pickBiome(context));
 //                } else if (area1Value == DEEP_FROZEN_OCEAN) {
-//                    l = Registry.field_243657_i.func_243576_dId(getSnowyIslandBiome().pickBiome(context));
+//                    l = Registry.BIOME.getOrThrowId(getSnowyIslandBiome().pickBiome(context));
 //                } else if (area1Value == DEEP_LUKEWARM_OCEAN) {
-//                    l = Registry.field_243657_i.func_243576_dId(getTemperateIslandBiome().pickBiome(context));
+//                    l = Registry.BIOME.getOrThrowId(getTemperateIslandBiome().pickBiome(context));
 //                }
 //
 //                if (l != area1Value) {

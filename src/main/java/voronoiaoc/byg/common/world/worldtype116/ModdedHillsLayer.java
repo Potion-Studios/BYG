@@ -57,11 +57,11 @@ public enum ModdedHillsLayer implements IAreaTransformer2, IDimOffset1Transforme
             if (rand.random(3) == 0 || k == 0) {
                 int l = i;
 
-                Biome biome = WorldGenRegistries.field_243657_i.getByValue(i);
+                Biome biome = WorldGenRegistries.BIOME.getByValue(i);
                 if (biome != null) {
                     if (biome instanceof BiomeTools) {
                         Biome hill = ((BiomeTools) biome).getHill(rand);
-                        if (hill != null) l = WorldGenRegistries.field_243657_i.getId(hill);
+                        if (hill != null) l = WorldGenRegistries.BIOME.getId(hill);
                     }
                 }
 

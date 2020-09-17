@@ -3,7 +3,6 @@ package voronoiaoc.byg.common.properties.blocks;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -12,7 +11,6 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGHugeMushroom;
-import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -46,7 +44,7 @@ public class BYGMushroomBlock extends BushBlock implements IGrowable {
         BlockPos blockpos = pos.down();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (blockstate.isIn(BlockTags.field_242171_aD)) {
+        if (blockstate.isIn(BlockTags.MUSHROOM_GROW_BLOCK)) {
             return true;
         } else {
             return worldIn.getLightSubtracted(pos, 0) < 13 && blockstate.canSustainPlant(worldIn, blockpos, net.minecraft.util.Direction.UP, this);
@@ -87,7 +85,7 @@ public class BYGMushroomBlock extends BushBlock implements IGrowable {
 
     public void grow(ServerWorld worldIn, BlockPos pos, BlockState state, Random rand) {
         worldIn.removeBlock(pos, false);
-        this.mushroom.func_242575_a(worldIn, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
+        this.mushroom.withSpawner(worldIn, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
     }
 
     @Override

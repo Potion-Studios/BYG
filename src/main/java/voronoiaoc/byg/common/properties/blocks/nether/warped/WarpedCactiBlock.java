@@ -59,7 +59,7 @@ public class WarpedCactiBlock extends CactusBlock {
                 return false;
             }
         }
-        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.WARPED_CACTUS && !worldIn.getBlockState(pos.up()).getMaterial().isLiquid() && worldIn.func_230315_m_().func_236040_e_();
+        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.WARPED_CACTUS && !worldIn.getBlockState(pos.up()).getMaterial().isLiquid() && worldIn.getDimensionType().func_236040_e_();
     }
 
     @Override

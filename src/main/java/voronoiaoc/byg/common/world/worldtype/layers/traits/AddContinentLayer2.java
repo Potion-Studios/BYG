@@ -13,8 +13,8 @@
 //@SuppressWarnings("deprecation")
 //public class AddContinentLayer2 extends InitMerge1 implements IDimOffset1Transformer {
 //
-//    public static final int PLAINS = Registry.field_243657_i.func_243576_dId(Biomes.PLAINS);
-//    public static final int OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.OCEAN);
+//    public static final int PLAINS = Registry.BIOME.getOrThrowId(Biomes.PLAINS);
+//    public static final int OCEAN = Registry.BIOME.getOrThrowId(Biomes.OCEAN);
 //
 //    static int continentChance = BYGBiomeLayers.continentChance;
 //

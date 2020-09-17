@@ -10,16 +10,16 @@
 //import voronoiaoc.byg.core.byglists.BYGBiomeList;
 //
 //public class ClimateBooleans {
-//    public static final int WARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.WARM_OCEAN);
-//    public static final int LUKEWARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.LUKEWARM_OCEAN);
-//    public static final int OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.OCEAN);
-//    public static final int COLD_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.COLD_OCEAN);
-//    public static final int FROZEN_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.FROZEN_OCEAN);
-//    public static final int DEEP_WARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_WARM_OCEAN);
-//    public static final int DEEP_LUKEWARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_LUKEWARM_OCEAN);
-//    public static final int DEEP_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_OCEAN);
-//    public static final int DEEP_COLD_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_COLD_OCEAN);
-//    public static final int DEEP_FROZEN_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_FROZEN_OCEAN);
+//    public static final int WARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.WARM_OCEAN);
+//    public static final int LUKEWARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.LUKEWARM_OCEAN);
+//    public static final int OCEAN = Registry.BIOME.getOrThrowId(Biomes.OCEAN);
+//    public static final int COLD_OCEAN = Registry.BIOME.getOrThrowId(Biomes.COLD_OCEAN);
+//    public static final int FROZEN_OCEAN = Registry.BIOME.getOrThrowId(Biomes.FROZEN_OCEAN);
+//    public static final int DEEP_WARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_WARM_OCEAN);
+//    public static final int DEEP_LUKEWARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_LUKEWARM_OCEAN);
+//    public static final int DEEP_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_OCEAN);
+//    public static final int DEEP_COLD_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_COLD_OCEAN);
+//    public static final int DEEP_FROZEN_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_FROZEN_OCEAN);
 //    public static ForgeRegistry<Biome> biomeRegistry = ((ForgeRegistry<Biome>) ForgeRegistries.BIOMES);
 //    //BYG
 //    public static final int ALLIUMFIELDS = biomeRegistry.getID(BYGBiomeList.ALLIUMFIELDS);
@@ -129,7 +129,7 @@
 //    }
 //
 //    public static boolean isIslandBiome(int biome, INoiseRandom random) {
-//        return biome == Registry.field_243657_i.func_243576_dId(getTropIslandBiome().pickBiome(random)) || biome == Registry.field_243657_i.func_243576_dId(getTemperateIslandBiome().pickBiome(random)) || biome == Registry.field_243657_i.func_243576_dId(getSnowyIslandBiome().pickBiome(random));
+//        return biome == Registry.BIOME.getOrThrowId(getTropIslandBiome().pickBiome(random)) || biome == Registry.BIOME.getOrThrowId(getTemperateIslandBiome().pickBiome(random)) || biome == Registry.BIOME.getOrThrowId(getSnowyIslandBiome().pickBiome(random));
 //    }
 //
 //    public static BYGBiomeGroup getTropIslandBiome() {

@@ -65,7 +65,7 @@ public class VolcanoFeature extends Feature<NoFeatureConfig> {
         for (int x = -32; x <= 32; x++) {
             for (int z = -32; z <= 32; z++) {
                 mutable.setPos(position.getX() + x, world.getSeaLevel(), position.getZ() + z);
-                Optional<RegistryKey<Biome>> key = WorldGenRegistries.field_243657_i.func_230519_c_(BYGBiomeList.VOLCANO);
+                Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.func_230519_c_(BYGBiomeList.VOLCANO);
                 if (key.isPresent()) {
                     if (world.func_242406_i(mutable).equals(key)) {
                         foundVolcanoBiome = false;

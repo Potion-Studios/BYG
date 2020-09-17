@@ -33,8 +33,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> extends Feature<T> {
-    public static boolean doBlockNotify;
+public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> extends Feature<T>   {
 
     public BYGAbstractTreeFeature(Codec<T> configCodec) {
         super(configCodec);
@@ -62,26 +61,25 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
         });
     }
 
-
-    public void placeTrunk(BlockState logBlockState, Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeTrunk(BlockState logBlockState, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, logBlockState, boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, logBlockState, boundingBox);
         }
     }
 
-    public void placeBranch(BlockState logBlockState, Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeBranch(BlockState logBlockState, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, logBlockState, boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, logBlockState, boundingBox);
         }
     }
 
-    public void placeLeaves(BlockState leavesBlockState, Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeLeaves(BlockState leavesBlockState, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, leavesBlockState, boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, leavesBlockState, boundingBox);
         }
     }
 
-    //TODO: Ensure all our trees use the method above.
+    //TODO: Make all our trees use the method above.
     public void placeLeaves(BlockState leavesBlockState, ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {

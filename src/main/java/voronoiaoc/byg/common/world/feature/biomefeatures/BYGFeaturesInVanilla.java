@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 public class BYGFeaturesInVanilla {
     public static void addBYGFeaturesToBiomes() {
-        for (Biome biome : WorldGenRegistries.field_243657_i) {
+        for (Biome biome : WorldGenRegistries.BIOME) {
             if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_ROCKY_STONE);
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);

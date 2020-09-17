@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
@@ -28,7 +29,7 @@ public class WailingVine extends Feature<NoFeatureConfig> {
         BlockState storedState = BYGBlockList.WAILING_VINES.getDefaultState();
         if (!worldIn.isAirBlock(pos)) {
             return false;
-        } else if (!worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.NETHERRACK) || !worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.STONE) && !worldIn.func_230315_m_().func_236040_e_()) {
+        } else if (!worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.NETHERRACK) || !worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.STONE) && !(worldIn.getDimensionType() == DimensionType.OVERWORLD_TYPE)) {
             return false;
         } else {
             for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {

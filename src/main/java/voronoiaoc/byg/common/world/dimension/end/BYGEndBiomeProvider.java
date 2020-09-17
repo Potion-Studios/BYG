@@ -47,7 +47,7 @@ public class BYGEndBiomeProvider extends BiomeProvider {
         int i = x >> 2;
         int j = z >> 2;
         if ((long) i * (long) i + (long) j * (long) j <= 4096L) {
-            return biomeRegistry.func_243576_d(Biomes.THE_END);
+            return biomeRegistry.getOrThrow(Biomes.THE_END);
         } else {
             //TODO: REIMPLEMENT BIOME LAYERS
             return biomeLayer.func_242936_a(biomeRegistry, x, z);

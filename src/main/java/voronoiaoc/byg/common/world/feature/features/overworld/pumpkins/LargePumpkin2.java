@@ -8,19 +8,19 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
-import voronoiaoc.byg.common.world.feature.config.BYGPumpkinConfig;
+import voronoiaoc.byg.common.world.feature.config.BYGPumpkinFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.FeatureUtil;
 
 import java.util.Random;
 
-public class LargePumpkin2 extends Feature<BYGPumpkinConfig> {
+public class LargePumpkin2 extends Feature<BYGPumpkinFeatureConfig> {
 
-    public LargePumpkin2(Codec<BYGPumpkinConfig> configIn) {
+    public LargePumpkin2(Codec<BYGPumpkinFeatureConfig> configIn) {
         super(configIn);
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, BYGPumpkinConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, BYGPumpkinFeatureConfig config) {
         BlockState pumpkinState = config.getPumpkinProvider().getBlockState(rand, pos);
         BlockState stemState = config.getStemProvider().getBlockState(rand, pos);
 

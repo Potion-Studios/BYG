@@ -105,8 +105,8 @@ public class BYG {
         }
 
 
-        for (Biome biome : WorldGenRegistries.field_243657_i) {
-            String biomeID = Objects.requireNonNull(WorldGenRegistries.field_243657_i.getKey(biome)).toString();
+        for (Biome biome : WorldGenRegistries.BIOME) {
+            String biomeID = Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(biome)).toString();
 
             if (biomeID.contains(MOD_ID))
                 biomeIDList.add(biomeID.replace(MOD_ID + ":", ""));

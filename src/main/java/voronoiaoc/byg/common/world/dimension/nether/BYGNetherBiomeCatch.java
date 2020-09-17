@@ -26,18 +26,18 @@ public class BYGNetherBiomeCatch {
         if (biomeList.size() > 0) {
             int[] getConfigArray = new int[biomeList.size()];
             for (int index = 0; index < biomeList.size(); ++index) {
-                final Biome configResource = WorldGenRegistries.field_243657_i.func_241873_b(new ResourceLocation(biomeList.get(index))).orElse(WorldGenRegistries.field_243657_i.func_243576_d(Biomes.THE_END));
+                final Biome configResource = WorldGenRegistries.BIOME.func_241873_b(new ResourceLocation(biomeList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
                 if (configResource == null) {
                     BYG.LOGGER.error("Illegal registry name! You put: " + biomeList.get(index));
                 } else if (configResource != null) {
-                    getConfigArray[index] = WorldGenRegistries.field_243657_i.getId(configResource);
-                    Biome biome = WorldGenRegistries.field_243657_i.getByValue(getConfigArray[index]);
+                    getConfigArray[index] = WorldGenRegistries.BIOME.getId(configResource);
+                    Biome biome = WorldGenRegistries.BIOME.getByValue(getConfigArray[index]);
 
                     if (biome == null) {
                         BYG.LOGGER.error("Illegal registry name! You put: " + biomeList.get(index));
                     } else {
                         BYGNetherBiomeProvider.biomeList.add(biome);
-                        netherBiomeIDS.add(WorldGenRegistries.field_243657_i.getId(biome));
+                        netherBiomeIDS.add(WorldGenRegistries.BIOME.getId(biome));
                     }
                 }
             }

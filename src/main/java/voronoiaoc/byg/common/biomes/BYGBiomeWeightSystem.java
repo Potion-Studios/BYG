@@ -21,26 +21,26 @@ public class BYGBiomeWeightSystem {
     public static void addBiomesToWeightSystem() {
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
 //        if (BYGWorldConfig.vanillaBiomes.get()) {
-//            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.DESERT)));
-//            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.DESERT)));
-//            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SAVANNA)));
-//            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SAVANNA)));
-//            HOT.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.PLAINS)));
-//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.FOREST)));
-//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.DARK_FOREST)));
-//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.MOUNTAINS)));
-//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.PLAINS)));
-//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.BIRCH_FOREST)));
-//            WARM.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SWAMP)));
-//            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.FOREST)));
-//            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.MOUNTAINS)));
-//            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.TAIGA)));
-//            COOL.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.PLAINS)));
-//            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
-//            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
-//            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
-//            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TUNDRA)));
-//            ICY.add(WorldGenRegistries.field_243657_i.getId(WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SNOWY_TAIGA)));
+//            HOT.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.DESERT)));
+//            HOT.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.DESERT)));
+//            HOT.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SAVANNA)));
+//            HOT.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SAVANNA)));
+//            HOT.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.PLAINS)));
+//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.FOREST)));
+//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.DARK_FOREST)));
+//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.MOUNTAINS)));
+//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.PLAINS)));
+//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.BIRCH_FOREST)));
+//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SWAMP)));
+//            COOL.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.FOREST)));
+//            COOL.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.MOUNTAINS)));
+//            COOL.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.TAIGA)));
+//            COOL.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.PLAINS)));
+//            ICY.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SNOWY_TUNDRA)));
+//            ICY.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SNOWY_TUNDRA)));
+//            ICY.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SNOWY_TUNDRA)));
+//            ICY.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SNOWY_TUNDRA)));
+//            ICY.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SNOWY_TAIGA)));
 //        }
 
         BYG.LOGGER.debug("BYG: Adding biome entries with their respective weights...");
@@ -125,13 +125,13 @@ public class BYGBiomeWeightSystem {
     public static void addBiomeEntry(Biome biome, int weight, OverworldClimate type) {
         if (weight > 0) {
             if (type == OverworldClimate.WARM)
-                WARM.add(WorldGenRegistries.field_243657_i.getId(biome));
+                WARM.add(WorldGenRegistries.BIOME.getId(biome));
             if (type == OverworldClimate.COOL)
-                COOL.add(WorldGenRegistries.field_243657_i.getId(biome));
+                COOL.add(WorldGenRegistries.BIOME.getId(biome));
             if (type == OverworldClimate.DESERT)
-                HOT.add(WorldGenRegistries.field_243657_i.getId(biome));
+                HOT.add(WorldGenRegistries.BIOME.getId(biome));
             if (type == OverworldClimate.ICY)
-                ICY.add(WorldGenRegistries.field_243657_i.getId(biome));
+                ICY.add(WorldGenRegistries.BIOME.getId(biome));
         }
     }
 

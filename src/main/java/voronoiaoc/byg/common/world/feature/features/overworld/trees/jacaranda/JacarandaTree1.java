@@ -259,7 +259,7 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig>
 
                                     placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
                                     placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight - 3, posZ1 + 2, boundsIn, changedBlocks);
-                                    //placeLeaves(LEAVES, worldIn, posX1 -1, topTrunkHeight + 3, posZ1 + 2, boundsIn, changedBlocks);
+                                    //placePetal(LEAVES, worldIn, posX1 -1, topTrunkHeight + 3, posZ1 + 2, boundsIn, changedBlocks);
 
                                     placeLeaves(LEAVES, worldIn, posX1 - 3, topTrunkHeight + 1, posZ1 + 2, boundsIn, changedBlocks);
                                     placeLeaves(LEAVES, worldIn, posX1 - 3, topTrunkHeight + 1, posZ1 + 1, boundsIn, changedBlocks);
@@ -290,7 +290,7 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig>
                                     placeLeaves(LEAVES, worldIn, posX1 - 2, topTrunkHeight - 1, posZ1 - 2, boundsIn, changedBlocks);
                                     placeLeaves(LEAVES, worldIn, posX1 - 2, topTrunkHeight - 1, posZ1 - 3, boundsIn, changedBlocks);
 
-                                    //placeLeaves(LEAVES, worldIn, posX1 - 3, topTrunkHeight + 5, posZ1 + 3, boundsIn, changedBlocks);
+                                    //placePetal(LEAVES, worldIn, posX1 - 3, topTrunkHeight + 5, posZ1 + 3, boundsIn, changedBlocks);
 
 
                                 }

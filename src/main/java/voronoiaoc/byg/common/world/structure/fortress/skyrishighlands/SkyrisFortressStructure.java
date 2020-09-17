@@ -17,7 +17,7 @@
 //import java.util.List;
 //
 //public class SkyrisFortressStructure extends FortressStructure {
-//    private static final List<Biome.SpawnListEntry> func_242575_aList = Lists.newArrayList(new Biome.SpawnListEntry(EntityType.PILLAGER, 1, 1, 1), new Biome.SpawnListEntry(EntityType.WITCH, 5, 4, 4), new Biome.SpawnListEntry(EntityType.VEX, 8, 5, 5), new Biome.SpawnListEntry(EntityType.ILLUSIONER, 2, 5, 5), new Biome.SpawnListEntry(EntityType.EVOKER, 3, 4, 4));
+//    private static final List<Biome.SpawnListEntry> withSpawnerList = Lists.newArrayList(new Biome.SpawnListEntry(EntityType.PILLAGER, 1, 1, 1), new Biome.SpawnListEntry(EntityType.WITCH, 5, 4, 4), new Biome.SpawnListEntry(EntityType.VEX, 8, 5, 5), new Biome.SpawnListEntry(EntityType.ILLUSIONER, 2, 5, 5), new Biome.SpawnListEntry(EntityType.EVOKER, 3, 4, 4));
 //
 //    public SkyrisFortressStructure(Codec<NoFeatureConfig> config) {
 //        super(config);
@@ -36,7 +36,7 @@
 //    }
 //
 //    public List<Biome.SpawnListEntry> getSpawnList() {
-//        return func_242575_aList;
+//        return withSpawnerList;
 //    }
 //
 //    public static class Start extends StructureStart {

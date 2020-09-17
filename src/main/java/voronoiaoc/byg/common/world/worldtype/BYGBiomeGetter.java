@@ -14,16 +14,16 @@
 //@SuppressWarnings("deprecation")
 //public class BYGBiomeGetter {
 //    //OceanBiomes
-//    public static final int WARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.WARM_OCEAN);
-//    public static final int LUKEWARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.LUKEWARM_OCEAN);
-//    public static final int OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.OCEAN);
-//    public static final int COLD_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.COLD_OCEAN);
-//    public static final int FROZEN_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.FROZEN_OCEAN);
-//    public static final int DEEP_WARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_WARM_OCEAN);
-//    public static final int DEEP_LUKEWARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_LUKEWARM_OCEAN);
-//    public static final int DEEP_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_OCEAN);
-//    public static final int DEEP_COLD_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_COLD_OCEAN);
-//    public static final int DEEP_FROZEN_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_FROZEN_OCEAN);
+//    public static final int WARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.WARM_OCEAN);
+//    public static final int LUKEWARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.LUKEWARM_OCEAN);
+//    public static final int OCEAN = Registry.BIOME.getOrThrowId(Biomes.OCEAN);
+//    public static final int COLD_OCEAN = Registry.BIOME.getOrThrowId(Biomes.COLD_OCEAN);
+//    public static final int FROZEN_OCEAN = Registry.BIOME.getOrThrowId(Biomes.FROZEN_OCEAN);
+//    public static final int DEEP_WARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_WARM_OCEAN);
+//    public static final int DEEP_LUKEWARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_LUKEWARM_OCEAN);
+//    public static final int DEEP_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_OCEAN);
+//    public static final int DEEP_COLD_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_COLD_OCEAN);
+//    public static final int DEEP_FROZEN_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_FROZEN_OCEAN);
 //    public static ForgeRegistry<Biome> biomeRegistry = ((ForgeRegistry<Biome>) ForgeRegistries.BIOMES);
 //    public static final int ALLIUMFIELDS = biomeRegistry.getID(BYGBiomeList.ALLIUMFIELDS);
 //    public static final int ALPS = biomeRegistry.getID(BYGBiomeList.ALPS);

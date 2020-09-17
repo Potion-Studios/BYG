@@ -11,7 +11,6 @@ import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
-import voronoiaoc.byg.common.world.feature.config.BYGPumpkinConfig;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 import voronoiaoc.byg.common.world.feature.placements.UnderGroundPlacement;
@@ -46,8 +45,8 @@ public class BYGConfiguredTreeFeatures {
 
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CHERRY_PINK_TREE1 = newConfiguredFeature("pink_cherry_tree1", BYGFeatureList.CHERRY_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.PINK_CHERRY_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CHERRY_PINK_TREE2 = newConfiguredFeature("pink_cherry_tree2", BYGFeatureList.CHERRY_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.PINK_CHERRY_LEAVES).setMaxHeight(13).setMinHeight(8).build()));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CHERRY_WHITE_TREE1 = newConfiguredFeature("white_cherry_tree1", BYGFeatureList.CHERRY_WHITE_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.WHITE_CHERRY_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CHERRY_WHITE_TREE2 = newConfiguredFeature("white_cherry_tree2", BYGFeatureList.CHERRY_WHITE_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.WHITE_CHERRY_LEAVES).setMaxHeight(13).setMinHeight(8).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CHERRY_WHITE_TREE1 = newConfiguredFeature("white_cherry_tree1", BYGFeatureList.CHERRY_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.WHITE_CHERRY_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CHERRY_WHITE_TREE2 = newConfiguredFeature("white_cherry_tree2", BYGFeatureList.CHERRY_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.WHITE_CHERRY_LEAVES).setMaxHeight(13).setMinHeight(8).build()));
 
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CIKA_TREE1 = newConfiguredFeature("cika_tree1", BYGFeatureList.CIKA_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CIKA_LOG).setLeavesBlock(BYGBlockList.CIKA_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CIKA_TREE2 = newConfiguredFeature("cika_tree2", BYGFeatureList.CIKA_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CIKA_LOG).setLeavesBlock(BYGBlockList.CIKA_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
@@ -166,10 +165,6 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SHRUB_MEADOW2 = newConfiguredFeature("meadow_shrub2", BYGFeatureList.SHRUB2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.DARK_OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMinHeight(2).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SHRUB_PRAIRIE1 = newConfiguredFeature("prairie_shrub1", BYGFeatureList.SHRUB1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMinHeight(2).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SHRUB_PRAIRIE2 = newConfiguredFeature("prairie_shrub2", BYGFeatureList.SHRUB2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMinHeight(2).build()));
-
-    public static final ConfiguredFeature<BYGPumpkinConfig, ?> PUMPKIN1 = newConfiguredFeature("pumpkin1", BYGFeatureList.LARGE_PUMPKIN1.withConfiguration(new BYGPumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.OAK_LOG).build()));
-    public static final ConfiguredFeature<BYGPumpkinConfig, ?> PUMPKIN2 = newConfiguredFeature("pumpkin2", BYGFeatureList.LARGE_PUMPKIN2.withConfiguration(new BYGPumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.OAK_LOG).build()));
-
 
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SKYRIS_TREE1 = newConfiguredFeature("skyris_tree1", BYGFeatureList.SKYRIS_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.SKYRIS_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE.getDefaultState(), 1).addWeightedBlockstate(BYGBlockList.SKYRIS_LEAVES.getDefaultState(), 4)).setMaxHeight(9).setMinHeight(6).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> SKYRIS_TREE2 = newConfiguredFeature("skyris_tree2", BYGFeatureList.SKYRIS_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.SKYRIS_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE.getDefaultState(), 1).addWeightedBlockstate(BYGBlockList.SKYRIS_LEAVES.getDefaultState(), 4)).setMaxHeight(6).setMinHeight(3).build()));
@@ -711,12 +706,6 @@ public class BYGConfiguredTreeFeatures {
             SHRUB_PRAIRIE1.withChance(0.1F)),
             Features.SWAMP_TREE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(3, 0.4F, 2))));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN_PATCH = newConfiguredFeature("rs_pumpkin_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            PUMPKIN1.withChance(0.45F),
-            PUMPKIN2.withChance(0.45F)),
-            PUMPKIN2)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_TREE = newConfiguredFeature("rs_enchanted_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ENCHANTED_BLUE_TREE2.withChance(0.2F),

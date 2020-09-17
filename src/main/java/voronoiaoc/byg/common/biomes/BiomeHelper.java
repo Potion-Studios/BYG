@@ -17,7 +17,7 @@ public class BiomeHelper {
     }
 
     public static ConfiguredSurfaceBuilder<?> newConfiguredSurfaceBuilder(String id, ConfiguredSurfaceBuilder<?> configuredSurfaceBuilder) {
-        Registry.register(WorldGenRegistries.field_243651_c, new ResourceLocation(BYG.MOD_ID, id), configuredSurfaceBuilder);
+        Registry.register(WorldGenRegistries.CONFIGURED_SURFACE_BUILDER, new ResourceLocation(BYG.MOD_ID, id), configuredSurfaceBuilder);
         return configuredSurfaceBuilder;
     }
 

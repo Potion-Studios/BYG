@@ -19,7 +19,7 @@ import java.util.Random;
 public class BayouTree2 extends Feature<NoFeatureConfig> {
     public static boolean doBlockNotify;
 
-    public BayouTree2(Codec<BYGTreeFeatureConfig> function) {
+    public BayouTree2(Codec<NoFeatureConfig> function) {
         super(function);
     }
 

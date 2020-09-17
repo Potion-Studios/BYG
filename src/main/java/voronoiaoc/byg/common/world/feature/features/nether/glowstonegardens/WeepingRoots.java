@@ -20,7 +20,7 @@ public class WeepingRoots extends Feature<NoFeatureConfig> {
 
         if (!worldIn.isAirBlock(pos)) {
             return false;
-        } else if (!worldIn.isAirBlock(pos) || !worldIn.getBlockState(pos.up()).getBlock().isIn(Tags.Blocks.STONE) || !worldIn.getBlockState(pos.up()).getBlock().isIn(Tags.Blocks.NETHERRACK) && !worldIn.func_230315_m_().func_236040_e_()) {
+        } else if (!worldIn.isAirBlock(pos) || !worldIn.getBlockState(pos.up()).getBlock().isIn(Tags.Blocks.STONE) || !worldIn.getBlockState(pos.up()).getBlock().isIn(Tags.Blocks.NETHERRACK) && !(worldIn.getDimensionType() == DimensionType.OVERWORLD_TYPE)) {
             return false;
         } else {
 

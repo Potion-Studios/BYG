@@ -14,16 +14,10 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbst
 import java.util.Random;
 import java.util.Set;
 
-//THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
 public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
-    //BYGBlockRenders used for the tree.
-    //private static final BlockState LOG = BYGBlockList.MAHOGANY_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlockList.MAHOGANY_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
     public ShortTropicalRainForestTree(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
-        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.MAHOGANY_SAPLING);
     }
 
     protected static boolean canTreePlace(IWorldGenerationBaseReader genBaseReader, BlockPos blockPos) {
@@ -75,10 +69,10 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<BYGTreeF
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east().up(), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().up(), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south().up(), boundsIn);
-//                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(2).up(1), boundsIn);
-//                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(2).up(1), boundsIn);
-//                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(2).up(1), boundsIn);
-//                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.south(2).up(1), boundsIn);
+//                    placeStem(LOG, changedBlocks, worldIn, blockpos2.west(2).up(1), boundsIn);
+//                    placeStem(LOG, changedBlocks, worldIn, blockpos2.east(2).up(1), boundsIn);
+//                    placeStem(LOG, changedBlocks, worldIn, blockpos2.north(2).up(1), boundsIn);
+//                    placeStem(LOG, changedBlocks, worldIn, blockpos2.south(2).up(1), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.west(2).up(2), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.east(2).up(2), boundsIn);
                     placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north(2).up(2), boundsIn);
@@ -142,11 +136,11 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<BYGTreeF
                                 placeLeaves(LEAVES, worldIn, posX1 + posXLeafWidth, topTrunkHeight + 8, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
 
 
-//                                placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight + 9, posZ1, boundsIn, changedBlocks);
-//                                placeLeaves(LEAVES, worldIn, posX1 - 1, topTrunkHeight + 9, posZ1, boundsIn, changedBlocks);
-//                                placeLeaves(LEAVES, worldIn, posX1 + 1, topTrunkHeight + 9, posZ1, boundsIn, changedBlocks);
-//                                placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight + 9, posZ1 - 1, boundsIn, changedBlocks);
-//                                placeLeaves(LEAVES, worldIn, posX1, topTrunkHeight + 9, posZ1 + 1, boundsIn, changedBlocks);
+//                                placePetal(LEAVES, worldIn, posX1, topTrunkHeight + 9, posZ1, boundsIn, changedBlocks);
+//                                placePetal(LEAVES, worldIn, posX1 - 1, topTrunkHeight + 9, posZ1, boundsIn, changedBlocks);
+//                                placePetal(LEAVES, worldIn, posX1 + 1, topTrunkHeight + 9, posZ1, boundsIn, changedBlocks);
+//                                placePetal(LEAVES, worldIn, posX1, topTrunkHeight + 9, posZ1 - 1, boundsIn, changedBlocks);
+//                                placePetal(LEAVES, worldIn, posX1, topTrunkHeight + 9, posZ1 + 1, boundsIn, changedBlocks);
                             }
                         }
                     } else if (leavePreset == 2) {
@@ -173,43 +167,5 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<BYGTreeF
         } else {
             return false;
         }
-    }
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 0;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canTreePlace(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-
-    private void treelog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canTreePlace(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, LOG, boundingBox);
-        }
-
-    }
-
-
-    private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
-        BlockPos leafpos = new BlockPos(x, y, z);
-        if (isAir(reader, leafpos)) {
-            this.setFinalBlockState(blockPos, reader, leafpos, LEAVES, boundingBox);
-        }
-
     }
 }

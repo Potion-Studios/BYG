@@ -14,9 +14,9 @@
 //@SuppressWarnings("deprecation")
 //public class BYGAddHillsLayer extends InitMerge1 implements IDimOffset1Transformer {
 //
-//    public static final int DEEP_WARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_WARM_OCEAN);
-//    public static final int DEEP_LUKEWARM_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_LUKEWARM_OCEAN);
-//    public static final int DEEP_FROZEN_OCEAN = Registry.field_243657_i.func_243576_dId(Biomes.DEEP_FROZEN_OCEAN);
+//    public static final int DEEP_WARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_WARM_OCEAN);
+//    public static final int DEEP_LUKEWARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_LUKEWARM_OCEAN);
+//    public static final int DEEP_FROZEN_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_FROZEN_OCEAN);
 //
 //    public BYGAddHillsLayer(BiomeGroupManager manager) {
 //        super(manager);
@@ -43,9 +43,9 @@
 //
 //        if (context.random(hillChance) == 0) {
 //            int l = area1Value;
-//            Biome biome = Registry.field_243657_i.func_243576_dByValue(area1Value);
+//            Biome biome = Registry.BIOME.getOrThrowByValue(area1Value);
 //            Biome hill = biome == null ? null : biome.getHill(context);
-//            if (hill != null) l = Registry.field_243657_i.func_243576_dId(hill);
+//            if (hill != null) l = Registry.BIOME.getOrThrowId(hill);
 //
 //            if (l != area1Value) {
 //                int i1 = 0;

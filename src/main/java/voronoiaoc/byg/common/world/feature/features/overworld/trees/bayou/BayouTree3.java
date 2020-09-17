@@ -20,7 +20,7 @@ import java.util.Random;
 public class BayouTree3 extends Feature<NoFeatureConfig> {
     public static boolean doBlockNotify;
 
-    public BayouTree3(Codec<BYGTreeFeatureConfig> config) {
+    public BayouTree3(Codec<NoFeatureConfig> config) {
         super(config);
     }
 

@@ -492,7 +492,7 @@
 //
 //            } catch (Exception e) {
 //                CrashReport crashreport = CrashReport.makeCrashReport(e, "Biome decoration");
-//                crashreport.makeCategory("Generation").addDetail("CenterX", Integer.valueOf(i)).addDetail("CenterZ", Integer.valueOf(j)).addDetail("Step", stage).addDetail("Seed", Long.valueOf(i1)).addDetail("Biome", Registry.field_243657_i.func_243576_dKey(biome));
+//                crashreport.makeCategory("Generation").addDetail("CenterX", Integer.valueOf(i)).addDetail("CenterZ", Integer.valueOf(j)).addDetail("Step", stage).addDetail("Seed", Long.valueOf(i1)).addDetail("Biome", Registry.BIOME.getOrThrowKey(biome));
 //                throw new ReportedException(crashreport);
 //            }
 //        }
