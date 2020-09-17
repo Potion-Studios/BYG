@@ -11,7 +11,7 @@ logoFile="logo_text.png"
 credits="Translators: Dimiral(Russian), Godzmoline(Simplified Chinese)"
 authors="AOCAWOL & Corgi Taco"
 description='''
-An Adventure and Exploration mod with over 60 new biomes!
+An Adventure and Exploration mod with over 70 new biomes!
 '''
 [[dependencies.byg]]
     modId="forge"
