@@ -60,29 +60,29 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
         });
     }
 
-    public void placeTrunk(BlockState logBlockState, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeTrunk(BYGTreeFeatureConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(blockSet, reader, pos, logBlockState, boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
         }
     }
 
-    public void placeBranch(BlockState logBlockState, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeBranch(BYGTreeFeatureConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(blockSet, reader, pos, logBlockState, boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
         }
     }
 
-    public void placeLeaves(BlockState leavesBlockState, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeLeaves(BYGTreeFeatureConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockSet, reader, pos, leavesBlockState, boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, config.getLeavesProvider().getBlockState(random, pos), boundingBox);
         }
     }
 
     //TODO: Make all our trees use the method above.
-    public void placeLeaves(BlockState leavesBlockState, ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
-        BlockPos blockpos = new BlockPos(x, y, z);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, leavesBlockState, boundingBox);
+    public void placeLeaves(BYGTreeFeatureConfig config, Random random, ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
+        BlockPos pos = new BlockPos(x, y, z);
+        if (isAir(reader, pos)) {
+            this.setFinalBlockState(blockPos, reader, pos, config.getLeavesProvider().getBlockState(random, pos), boundingBox);
         }
     }
 

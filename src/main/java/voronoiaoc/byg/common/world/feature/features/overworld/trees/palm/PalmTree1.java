@@ -24,7 +24,7 @@ public class PalmTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
-        BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
+        
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
         int randTreeHeight = config.getMinHeight() + rand.nextInt(3);
         int posX = pos.getX();
@@ -60,8 +60,8 @@ public class PalmTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
-                    placeTrunk(LOG, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeTrunk(LOG, changedBlocks, worldIn, blockpos2.north().west(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().west(), boundsIn);
 
                 }
                 int leavePreset = rand.nextInt(1) + 1;

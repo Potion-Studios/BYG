@@ -31,6 +31,10 @@ public class BYGFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BYG_FERN_GRASS);
     }
 
+    public static void addStackedBoulders(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.STACKED_BOULDERS);
+    }
+
     public static void addBYGDesertPlants(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DESERT_PLANTS);
     }

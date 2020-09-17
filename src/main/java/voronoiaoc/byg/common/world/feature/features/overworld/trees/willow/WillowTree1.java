@@ -24,7 +24,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
-        BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
+        
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
         int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
@@ -42,7 +42,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 //Trunk
                 for (int i = 3; i <= randTreeHeight; i++) {
                     BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(block);
-                    placeTrunk(LOG, changedBlocks, worldIn, mutable.move(UP, i), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, mutable.move(UP, i), boundsIn);
                 }
 
                 for (int baseSize = 0; baseSize < 4; baseSize++) {
@@ -50,71 +50,71 @@ public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     for (Direction direction : Direction.Plane.HORIZONTAL) {
                         mutable.setPos(block.up(3).offset(direction, baseSize));
                         if (worldIn.getBlockState(mutable).getBlock() != Blocks.DIRT)
-                            placeTrunk(LOG, changedBlocks, worldIn, mutable.move(DOWN, baseSize), boundsIn);
+                            placeTrunk(config, rand, changedBlocks, worldIn, mutable.move(DOWN, baseSize), boundsIn);
                     }
                 }
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 1).move(SOUTH).move(EAST), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(DOWN), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP, 2).move(EAST), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 1).move(SOUTH).move(EAST), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(DOWN), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP, 2).move(EAST), boundsIn);
                 mainMutable.setPos(block);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 1).move(WEST), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(WEST).move(UP).move(NORTH), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 1).move(WEST), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(WEST).move(UP).move(NORTH), boundsIn);
                 mainMutable.setPos(block);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(NORTH), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP).move(NORTH), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(NORTH), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP).move(NORTH), boundsIn);
                 mainMutable.setPos(block);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(NORTH, 2).move(WEST), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(WEST).move(NORTH), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(NORTH, 2).move(WEST), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(WEST).move(NORTH), boundsIn);
                 mainMutable.setPos(block);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(NORTH, 2).move(EAST), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(NORTH), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(NORTH, 2).move(EAST), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(NORTH), boundsIn);
                 mainMutable.setPos(block);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(NORTH).move(EAST, 2), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(EAST), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(NORTH).move(EAST, 2), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(EAST), boundsIn);
                 mainMutable.setPos(block);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(EAST), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(SOUTH), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(SOUTH), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(EAST).move(SOUTH), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(WEST, 2), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP).move(EAST), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(EAST), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(SOUTH), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(SOUTH), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(EAST).move(SOUTH), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(WEST, 2), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP).move(EAST), boundsIn);
                 mainMutable.setPos(block);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(WEST), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(WEST), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(WEST).move(UP), boundsIn);
-                placeTrunk(LOG, changedBlocks, worldIn, mainMutable.move(EAST, 2).move(NORTH).move(DOWN), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight - 2).move(WEST), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(WEST), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(WEST).move(UP), boundsIn);
+                placeTrunk(config, rand, changedBlocks, worldIn, mainMutable.move(EAST, 2).move(NORTH).move(DOWN), boundsIn);
 
                 mainMutable.setPos(block);
 
 
-                placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.move(UP, randTreeHeight), boundsIn);
                 for (int placeX = -3; placeX <= 3; placeX++) {
                     for (int placeZ = -3; placeZ <= 3; placeZ++) {
                         if (placeX <= 2 && placeX >= -2 && placeZ <= 2 && placeZ >= -2) {
-                            placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(placeX, 0, placeZ), boundsIn);
-                            placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(3, 0, placeZ), boundsIn);
-                            placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(-3, 0, placeZ), boundsIn);
-                            placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(placeX, 0, 3), boundsIn);
-                            placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(placeX, 0, -3), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 0, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(3, 0, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(-3, 0, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 0, 3), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 0, -3), boundsIn);
 
                             for (int placeY = -1; placeY >= -(rand.nextInt(4) + 2); placeY--) {
-                                placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(4, placeY, placeZ), boundsIn);
-                                placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(-4, placeY, placeZ), boundsIn);
-                                placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(placeX, placeY, 4), boundsIn);
-                                placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(placeX, placeY, -4), boundsIn);
-                                placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(3, placeY, 3), boundsIn);
-                                placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(-3, placeY, 3), boundsIn);
-                                placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(3, placeY, -3), boundsIn);
-                                placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(-3, placeY, -3), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(4, placeY, placeZ), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(-4, placeY, placeZ), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, placeY, 4), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, placeY, -4), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(3, placeY, 3), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(-3, placeY, 3), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(3, placeY, -3), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(-3, placeY, -3), boundsIn);
                             }
                         }
 
                         if (placeX <= 1 && placeX >= -1 && placeZ <= 1 && placeZ >= -1) {
-                            placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(placeX, 1, placeZ), boundsIn);
-                            placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(placeX, 1, 2), boundsIn);
-                            placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(placeX, 1, -2), boundsIn);
-                            placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(2, 1, placeZ), boundsIn);
-                            placeLeaves(LEAVES, changedBlocks, worldIn, mainMutable.add(-2, 1, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 1, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 1, 2), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 1, -2), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(2, 1, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(-2, 1, placeZ), boundsIn);
                         }
                     }
                 }
