@@ -7,6 +7,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -14,6 +16,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -37,6 +40,7 @@ import voronoiaoc.byg.config.BYGWorldConfig;
 import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGEntityList;
 import voronoiaoc.byg.core.registries.BYGBiomeRegistry;
+import voronoiaoc.byg.data.BYGDataGenerator;
 import voronoiaoc.byg.data.BlockDataHelperCleanedUp;
 
 import java.util.ArrayList;
@@ -57,6 +61,7 @@ public class BYG {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::bygCommonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::bygClientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::bygLoadComplete);
+        MinecraftForge.EVENT_BUS.register(new SubscribeEvents());
     }
 
     private void bygCommonSetup(FMLCommonSetupEvent event) {
@@ -135,5 +140,14 @@ public class BYG {
         BYGFlammables.flammablesBYG();
         BYGStrippables.strippableLogsBYG();
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
+    }
+
+    public static class SubscribeEvents {
+        @SubscribeEvent
+        public void commandRegisterEvent(FMLServerStartingEvent event) {
+            LOGGER.debug("BYG: \"Server Starting\" Event Starting...");
+            BYGDataGenerator.dataGenCommand(event.getServer().getCommandManager().getDispatcher());
+            LOGGER.info("BYG: \"Server Starting\" Event Complete!");
+        }
     }
 }

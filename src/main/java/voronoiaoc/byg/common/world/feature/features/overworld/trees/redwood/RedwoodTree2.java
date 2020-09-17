@@ -2036,7 +2036,6 @@ public class RedwoodTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(2, 62, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 62, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(1, 62, 1), boundsIn);
-
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 64, -1), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 64, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 64, 0), boundsIn);
@@ -2056,49 +2055,6 @@ public class RedwoodTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(1, 65, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(0, 65, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(0, 66, 0), boundsIn);
-            }
-        }
-        return true;
-    }
-
-
-    private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.REDWOOD_LOG.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.REDWOOD_LOG.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.REDWOOD_LEAVES.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 0;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
             }
         }
         return true;

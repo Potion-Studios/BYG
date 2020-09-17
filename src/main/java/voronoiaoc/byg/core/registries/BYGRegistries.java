@@ -8,21 +8,13 @@ import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.core.byglists.BYGFeatureList;
 
 @Mod.EventBusSubscriber(modid = BYG.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class BYGFeatureRegistry {
+public class BYGRegistries {
 
     @SubscribeEvent
-    public static void bygRegisterFeatures(RegistryEvent.Register<Feature<?>> event) {
+    public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
         BYG.LOGGER.debug("BYG: Registering Features...");
         BYGFeatureList.RegisterFeatures.registerBYGFeatures();
         BYG.LOGGER.info("BYG: Features Registered!");
         BYGBiomeRegistry.registerBYGBiomes();
-
     }
-
-//    @SubscribeEvent
-//    public static void bygRegisterBiomeProviderTypes(RegistryEvent.Register<BiomeProviderType<?, ?>> event) {
-//        event.getRegistry().registerAll(
-//                EndDimensionHook.BYG_END.setRegistryName("end_byg")
-//        );
-//    }
 }

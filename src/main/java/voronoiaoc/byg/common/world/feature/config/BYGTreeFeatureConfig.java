@@ -19,8 +19,8 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
             return config.leavesProvider;
         }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
             return config.minHeight;
-        }), Codec.INT.fieldOf("max_possible_height").orElse(1).forGetter((config) -> {
-            return config.maxPossibleHeight;
+        }), Codec.INT.fieldOf("max_height").orElse(1).forGetter((config) -> {
+            return config.maxHeight;
         })).apply(codecRecorder, BYGTreeFeatureConfig::new);
     });
 
@@ -28,16 +28,16 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
     private final BlockStateProvider trunkProvider;
     private final BlockStateProvider leavesProvider;
     private final int minHeight;
-    private final int maxPossibleHeight;
+    private final int maxHeight;
 
     private boolean forcedPlacement = false;
 
 
-    BYGTreeFeatureConfig(BlockStateProvider trunkProvider, BlockStateProvider leavesProvider, int minHeight, int maxPossibleHeight) {
+    BYGTreeFeatureConfig(BlockStateProvider trunkProvider, BlockStateProvider leavesProvider, int minHeight, int maxHeight) {
         this.trunkProvider = trunkProvider;
         this.leavesProvider = leavesProvider;
         this.minHeight = minHeight;
-        this.maxPossibleHeight = maxPossibleHeight;
+        this.maxHeight = maxHeight;
     }
 
     /**
@@ -61,7 +61,7 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
     }
 
     public int getMaxPossibleHeight() {
-        int returnValue = this.maxPossibleHeight - minHeight;
+        int returnValue = this.maxHeight - minHeight;
         if (returnValue <= 0)
             returnValue = 1;
 
@@ -138,7 +138,7 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
         }
 
         public Builder copy(BYGTreeFeatureConfig config) {
-            this.maxPossibleHeight = config.maxPossibleHeight;
+            this.maxPossibleHeight = config.maxHeight;
             this.minHeight = config.minHeight;
             this.trunkProvider = config.trunkProvider;
             this.leavesProvider = config.leavesProvider;
