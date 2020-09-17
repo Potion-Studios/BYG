@@ -17,9 +17,9 @@ public class BYGHoeables {
     public static void hoeablesBYG() {
         BYG.LOGGER.debug("BYG: Adding Hoeable Blocks...");
 
-        hoeableBlock(BYGBlockList.OVERGROWN_STONE, Blocks.FARMLAND.getDefaultState());
-        hoeableBlock(BYGBlockList.OVERGROWN_DACITE, Blocks.FARMLAND.getDefaultState());
-        hoeableBlock(BYGBlockList.PODZOL_DACITE, Blocks.FARMLAND.getDefaultState());
+//        hoeableBlock(BYGBlockList.OVERGROWN_STONE, Blocks.FARMLAND.getDefaultState());
+//        hoeableBlock(BYGBlockList.OVERGROWN_DACITE, Blocks.FARMLAND.getDefaultState());
+//        hoeableBlock(BYGBlockList.PODZOL_DACITE, Blocks.FARMLAND.getDefaultState());
         hoeableBlock(BYGBlockList.MEADOW_GRASSBLOCK, Blocks.FARMLAND.getDefaultState());
         hoeableBlock(BYGBlockList.MEADOW_DIRT, Blocks.FARMLAND.getDefaultState());
         hoeableBlock(BYGBlockList.PEAT, Blocks.FARMLAND.getDefaultState());
