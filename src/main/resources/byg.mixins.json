@@ -4,11 +4,12 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
-    "common.world.layers.MixinDimensionType",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinSlimeEntity",
-    "common.world.MixinVanillaBiomeLayers",
     "common.world.feature.MixinBasaltColumnFeature",
+    "common.world.layers.MixinDimensionType",
+    "common.world.layers.MixinHillsLayer",
+    "common.world.layers.MixinMixOceansLayer",
     "common.world.layers.MixinShoreLayer"
   ],
   "client": [

@@ -29,7 +29,7 @@ public abstract class MixinVanillaBiomeLayers {
 
     @Inject(at = @At("RETURN"), method = "<init>(JZZLnet/minecraft/util/registry/Registry;)V", cancellable = true)
     private void replaceVanillaHillLayer(long seed, boolean oldBiomes, boolean largeBiomes, Registry<Biome> keys, CallbackInfo ci) {
-        genBiomes =  stackLayers(seed, oldBiomes, largeBiomes ? 6 : 4);
+//        genBiomes =  stackLayers(seed, oldBiomes, largeBiomes ? 6 : 4);
     }
 
 
