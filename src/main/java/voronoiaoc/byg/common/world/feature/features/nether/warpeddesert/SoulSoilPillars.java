@@ -1,7 +1,6 @@
 package voronoiaoc.byg.common.world.feature.features.nether.warpeddesert;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -29,7 +28,7 @@ public class SoulSoilPillars extends Feature<NoFeatureConfig> {
             boolean flag2 = true;
             boolean flag3 = true;
 
-            while(p_241855_1_.isAirBlock(blockpos$mutable)) {
+            while (p_241855_1_.isAirBlock(blockpos$mutable)) {
                 if (World.isOutsideBuildHeight(blockpos$mutable)) {
                     return true;
                 }
@@ -50,14 +49,14 @@ public class SoulSoilPillars extends Feature<NoFeatureConfig> {
             blockpos$mutable.move(Direction.DOWN);
             BlockPos.Mutable blockpos$mutable2 = new BlockPos.Mutable();
 
-            for(int i = -3; i < 4; ++i) {
-                for(int j = -3; j < 4; ++j) {
+            for (int i = -3; i < 4; ++i) {
+                for (int j = -3; j < 4; ++j) {
                     int k = MathHelper.abs(i) * MathHelper.abs(j);
                     if (p_241855_3_.nextInt(10) < 10 - k) {
                         blockpos$mutable2.setPos(blockpos$mutable.add(i, 0, j));
                         int l = 3;
 
-                        while(p_241855_1_.isAirBlock(blockpos$mutable1.setAndMove(blockpos$mutable2, Direction.DOWN))) {
+                        while (p_241855_1_.isAirBlock(blockpos$mutable1.setAndMove(blockpos$mutable2, Direction.DOWN))) {
                             blockpos$mutable2.move(Direction.DOWN);
                             --l;
                             if (l <= 0) {

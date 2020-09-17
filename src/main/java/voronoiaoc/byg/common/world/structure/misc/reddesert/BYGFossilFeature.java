@@ -12,7 +12,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.template.*;
 import net.minecraft.world.server.ServerWorld;
 
@@ -33,12 +32,12 @@ public class BYGFossilFeature extends Feature<NoFeatureConfig> {
         super(p_i49873_1_);
     }
 
-    public boolean func_241855_a(ISeedReader worldIn,  ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         Random random = worldIn.getRandom();
         Rotation[] arotation = Rotation.values();
         Rotation rotation = arotation[random.nextInt(arotation.length)];
         int i = random.nextInt(FOSSILS.length);
-        TemplateManager templatemanager = ((ServerWorld) worldIn.getWorld()).getStructureTemplateManager();
+        TemplateManager templatemanager = worldIn.getWorld().getStructureTemplateManager();
         Template template = templatemanager.getTemplateDefaulted(FOSSILS[i]);
         ChunkPos chunkpos = new ChunkPos(pos);
         MutableBoundingBox mutableboundingbox = new MutableBoundingBox(chunkpos.getXStart(), 0, chunkpos.getZStart(), chunkpos.getXEnd(), 256, chunkpos.getZEnd());

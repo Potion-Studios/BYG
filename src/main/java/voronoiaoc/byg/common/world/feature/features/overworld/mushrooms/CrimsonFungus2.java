@@ -324,7 +324,6 @@ public class CrimsonFungus2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     }
 
 
-
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
         int x = blockPos.getX();
         int y = blockPos.getY();

@@ -1,26 +1,28 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.mahogany;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
 
-public class MahoganyTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
+public class MahoganyTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
-    public MahoganyTree1(Codec<NoFeatureConfig> configIn) {
+    public MahoganyTree1(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
-        int randTreeHeight = 13 + rand.nextInt(5);
+    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+        BlockState LOG = config.getTrunkProvider().getBlockState(rand, pos);
+        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
+        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
@@ -31,11 +33,11 @@ public class MahoganyTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
-                this.treeLog(changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 1, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
+                placeTrunk(LOG, changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(-1, 0, 0), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 0, 1), boundsIn);
@@ -86,229 +88,192 @@ public class MahoganyTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 13, -1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(0, 13, 1), boundsIn);
                 this.treeBranch(changedBlocks, worldIn, mainmutable.add(1, 13, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 7, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 7, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 7, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 7, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 8, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 8, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 8, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 8, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-6, 10, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-6, 10, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-6, 10, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 10, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 10, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 10, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 10, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 10, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 10, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 10, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 10, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 10, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 10, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 10, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 10, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 10, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 10, -5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 10, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 10, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 10, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 10, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 10, 5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 10, -5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 10, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 10, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 10, 5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, -6), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, -5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, 5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 10, 6), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, -6), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, -5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, 5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 10, 6), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, -6), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, -5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, 5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 10, 6), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, -5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 10, 5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, -5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 10, 5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 10, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 10, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 10, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 10, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 10, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 10, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 10, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 10, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 10, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 10, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 10, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 10, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 10, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 10, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 10, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(6, 10, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-5, 11, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 11, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 11, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 11, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 11, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-4, 11, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 11, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 11, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 11, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 11, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 11, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 11, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 11, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 11, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 11, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 11, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 11, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 11, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 11, -5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 11, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 11, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 11, 5), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 11, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 11, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 11, -4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 11, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 11, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 11, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 11, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 11, 4), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 11, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 11, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 11, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 11, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 11, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 11, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 11, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 11, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(4, 11, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(5, 11, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 12, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 12, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-3, 12, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 12, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 12, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 12, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 12, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 12, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 12, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 12, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 12, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 12, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 12, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 12, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 12, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 12, -3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 12, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 12, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 12, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 12, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 12, 3), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 12, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 12, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 12, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 12, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 12, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 12, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(3, 12, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 13, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 13, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 13, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 13, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 13, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 13, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 13, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 13, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 13, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 13, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 13, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 13, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 13, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 13, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 13, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 13, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-2, 14, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 14, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 14, -2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 14, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 14, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 14, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 14, 2), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 14, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(2, 14, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(-1, 15, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 15, -1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 15, 0), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(0, 15, 1), boundsIn);
-                this.leafs(changedBlocks, worldIn, mainmutable.add(1, 15, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 7, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 7, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 7, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 7, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 7, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 7, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 7, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 8, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 8, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 8, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 8, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 8, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 8, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 8, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 8, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 8, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-6, 10, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-6, 10, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-6, 10, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-5, 10, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-5, 10, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-5, 10, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-5, 10, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-5, 10, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-5, 10, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-5, 10, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 10, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 10, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 10, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 10, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 10, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 10, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 10, -5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 10, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 10, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 10, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 10, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 10, 5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 10, -5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 10, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 10, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 10, 5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 10, -6), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 10, -5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 10, 5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 10, 6), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 10, -6), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 10, -5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 10, 5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 10, 6), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 10, -6), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 10, -5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 10, 5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 10, 6), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 10, -5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 10, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 10, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 10, 5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 10, -5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 10, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 10, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 10, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 10, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 10, 5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 10, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 10, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 10, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 10, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 10, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 10, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(5, 10, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(5, 10, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(5, 10, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(5, 10, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(5, 10, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(5, 10, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(5, 10, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(6, 10, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(6, 10, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(6, 10, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-5, 11, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 11, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 11, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 11, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 11, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-4, 11, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 11, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 11, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 11, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 11, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 11, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 11, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 11, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 11, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 11, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 11, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 11, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 11, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 11, -5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 11, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 11, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 11, 5), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 11, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 11, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 11, -4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 11, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 11, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 11, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 11, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 11, 4), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 11, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 11, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 11, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 11, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 11, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 11, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 11, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 11, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(4, 11, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(5, 11, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 12, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 12, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-3, 12, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 12, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 12, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 12, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 12, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 12, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 12, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 12, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 12, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 12, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 12, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 12, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 12, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 12, -3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 12, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 12, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 12, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 12, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 12, 3), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 12, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 12, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 12, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 12, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 12, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 12, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(3, 12, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 13, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 13, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 13, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 13, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 13, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 13, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 13, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 13, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 13, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 13, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 13, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 13, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 13, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 13, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 13, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 13, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-2, 14, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 14, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 14, -2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 14, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 14, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 14, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 14, 2), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 14, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(2, 14, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(-1, 15, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 15, -1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 15, 0), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(0, 15, 1), boundsIn);
+                placeLeaves(LEAVES, changedBlocks, worldIn, mainmutable.add(1, 15, 0), boundsIn);
             }
         }
         return true;
     }
 
-    //Log Placement
-    private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.MAHOGANY_LOG.getDefaultState(), boundingBox);
-        }
-    }
-
-    //Log Placement
     private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.MAHOGANY_LOG.getDefaultState(), boundingBox);
         }
-    }
-
-    //Leaves Placement
-    private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.MAHOGANY_LEAVES.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 0;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
     }
 }

@@ -37,7 +37,7 @@ public class ObsidianSpike extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader world,  ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader world, ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig config) {
         setSeed(world.getSeed());
         int randLightHeight = rand.nextInt(25);
         int randChance = rand.nextInt(26);

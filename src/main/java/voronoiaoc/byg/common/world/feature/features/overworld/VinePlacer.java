@@ -18,7 +18,7 @@ public class VinePlacer extends Feature<NoFeatureConfig> {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader worldIn,  ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
         BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);
         BlockPos.Mutable mainMutable = new BlockPos.Mutable().setPos(block);

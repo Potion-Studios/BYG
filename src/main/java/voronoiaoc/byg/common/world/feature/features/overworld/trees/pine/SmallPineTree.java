@@ -13,7 +13,6 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
-import net.minecraft.world.server.ServerWorld;
 import voronoiaoc.byg.BYG;
 
 import java.util.Random;
@@ -36,7 +35,7 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
                 }
             }
 
-            TemplateManager templatemanager = ((ServerWorld) world.getWorld()).getStructureTemplateManager();
+            TemplateManager templatemanager = world.getWorld().getStructureTemplateManager();
             Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/crimson_fungus_tree1"));
             Template template2 = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/crimson_fungus_tree1"));
 

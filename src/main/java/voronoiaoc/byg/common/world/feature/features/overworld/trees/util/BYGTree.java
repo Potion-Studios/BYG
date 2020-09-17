@@ -5,23 +5,24 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
 public abstract class BYGTree {
     @Nullable
-    protected abstract BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random);
+    protected abstract ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random);
 
     public boolean tree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
-        BYGAbstractTreeFeature<NoFeatureConfig> abstracttreefeature = this.getTreeFeature(random);
-        if (abstracttreefeature == null) {
+        ConfiguredFeature<BYGTreeFeatureConfig, ?> configuredTreeFeature = this.getTreeFeature(random);
+        if (configuredTreeFeature == null) {
             return false;
         } else {
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-            if (abstracttreefeature.placeTree(worldIn, chunkGenerator, random, pos, IFeatureConfig.NO_FEATURE_CONFIG, true)) {
+            configuredTreeFeature.config.forcePlacement();
+            if (configuredTreeFeature.func_242765_a(worldIn, chunkGenerator, random, pos)) {
                 return true;
             } else {
                 worldIn.setBlockState(pos, blockUnder, 4);

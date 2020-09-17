@@ -1,7 +1,6 @@
 package voronoiaoc.byg.common.world.feature.features.nether.crimsongardens;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Blocks;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
@@ -22,7 +21,7 @@ public class TallCrimsonRoots extends Feature<NoFeatureConfig> {
 
     public static final EnumProperty<DoubleBlockHalf> HALF;
 
-    public boolean func_241855_a(ISeedReader worldIn,  ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         if (!worldIn.isAirBlock(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_CRIMSON_BLACKSTONE) {
             return false;
         } else {

@@ -2,7 +2,7 @@
 //
 //import net.minecraft.entity.EntityClassification;
 //import net.minecraft.util.SharedSeedRandom;
-//import net.minecraft.util.Util;
+//import net.minecraft.util.FeatureUtil;
 //import net.minecraft.util.math.BlockPos;
 //import net.minecraft.util.math.ChunkPos;
 //import net.minecraft.util.math.MathHelper;
@@ -24,7 +24,7 @@
 //import java.util.List;
 //
 //public class Worley3DOverworldChunkGenerator extends Cubic2DNoiseChunkGenerator<OverworldGenSettings> {
-//    private static final float[] field_222576_h = Util.make(new float[25], (p_222575_0_) -> {
+//    private static final float[] field_222576_h = FeatureUtil.make(new float[25], (p_222575_0_) -> {
 //        for (int i = -2; i <= 2; ++i) {
 //            for (int j = -2; j <= 2; ++j) {
 //                float f = 10.0F / MathHelper.sqrt((float) (i * i + j * j) + 0.2F);

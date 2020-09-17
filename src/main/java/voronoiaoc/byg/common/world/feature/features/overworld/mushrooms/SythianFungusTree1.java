@@ -149,7 +149,6 @@ public class SythianFungusTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> 
     }
 
 
-
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
         int x = blockPos.getX();
         int y = blockPos.getY();

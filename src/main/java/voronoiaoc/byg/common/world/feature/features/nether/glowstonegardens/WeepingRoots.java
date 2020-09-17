@@ -16,7 +16,7 @@ public class WeepingRoots extends Feature<NoFeatureConfig> {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader worldIn,  ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 
         if (!worldIn.isAirBlock(pos)) {
             return false;

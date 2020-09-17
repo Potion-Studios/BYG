@@ -20,7 +20,7 @@ import java.util.Random;
 public class BayouTree3 extends Feature<NoFeatureConfig> {
     public static boolean doBlockNotify;
 
-    public BayouTree3(Codec<NoFeatureConfig> config) {
+    public BayouTree3(Codec<BYGTreeFeatureConfig> config) {
         super(config);
     }
 
@@ -41,8 +41,7 @@ public class BayouTree3 extends Feature<NoFeatureConfig> {
 
             for (int baseSize = 0; baseSize < 4; baseSize++) {
                 BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(block.up(3));
-                for (Direction direction : Direction.Plane
-.HORIZONTAL) {
+                for (Direction direction : Direction.Plane.HORIZONTAL) {
                     mutable.setPos(block.up(3).offset(direction, baseSize));
                     if (worldIn.getBlockState(mutable).getBlock() != Blocks.DIRT)
                         this.setWillowLog(worldIn, mutable.move(Direction.DOWN, baseSize));

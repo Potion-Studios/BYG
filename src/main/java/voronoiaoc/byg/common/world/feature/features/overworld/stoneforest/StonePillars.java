@@ -37,7 +37,7 @@ public class StonePillars extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader world,  ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader world, ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig config) {
         setSeed(world.getSeed());
         double noise;
         double noise2;

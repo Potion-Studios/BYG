@@ -9,7 +9,7 @@
 //import net.minecraft.crash.CrashReport;
 //import net.minecraft.crash.ReportedException;
 //import net.minecraft.util.SharedSeedRandom;
-//import net.minecraft.util.Util;
+//import net.minecraft.util.FeatureUtil;
 //import net.minecraft.util.math.BlockPos;
 //import net.minecraft.util.math.ChunkPos;
 //import net.minecraft.util.math.MathHelper;
@@ -44,7 +44,7 @@
 //    private static final double BLEND_NOISE_MAIN_AMPLITUDE = 6.35 * 0.87890625;
 //    private static final double OUTPUT_NOISE_MAIN_AMPLITUDE = 64.0 * 0.87890625;
 //
-//    private static final float[] field_222561_h = Util.make(new float[13824], (p_222557_0_) -> {
+//    private static final float[] field_222561_h = FeatureUtil.make(new float[13824], (p_222557_0_) -> {
 //        for (int i = 0; i < 24; ++i) {
 //            for (int j = 0; j < 24; ++j) {
 //                for (int k = 0; k < 24; ++k) {

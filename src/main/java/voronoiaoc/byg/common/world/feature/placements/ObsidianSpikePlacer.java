@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class ObsidianSpikePlacer extends Placement<AtSurfaceWithExtraConfig> {
-    public static final Placement<AtSurfaceWithExtraConfig> OBBY_SPIKE = BiomeHelper.newDecorator( "obsidian_spike_placer" ,new ObsidianSpikePlacer(AtSurfaceWithExtraConfig.field_236973_a_));
+    public static final Placement<AtSurfaceWithExtraConfig> OBBY_SPIKE = BiomeHelper.newDecorator("obsidian_spike_placer", new ObsidianSpikePlacer(AtSurfaceWithExtraConfig.field_236973_a_));
 
     public ObsidianSpikePlacer(Codec<AtSurfaceWithExtraConfig> config) {
         super(config);
