@@ -226,9 +226,9 @@ public class BYGBiomeRegistry {
 
     public static void addBiomeNumericalIDsForLayerSampler() {
         for (Biome biome : biomeList) {
-            Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.func_230519_c_(biome);
+            Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
             if (key.isPresent())
-                key.ifPresent(biomeRegistryKey -> BiomeRegistry.field_244202_c.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+                key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
         }
     }
 }

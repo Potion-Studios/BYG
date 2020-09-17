@@ -48,7 +48,7 @@ public class BYGOvergrownNetherrackBlock extends SpreadableOvergrownNetherrack i
 
                     BlockState blockstate1;
                     if (rand.nextInt(8) == 0) {
-                        List<ConfiguredFeature<?, ?>> list = world.getBiome(blockpos1).func_242440_e().func_242496_b();
+                        List<ConfiguredFeature<?, ?>> list = world.getBiome(blockpos1).getGenerationSettings().getFlowerFeatures();
                         if (list.isEmpty()) {
                             continue;
                         }

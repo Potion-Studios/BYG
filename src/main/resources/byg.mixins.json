@@ -4,7 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
-    "MixinDimensionType",
+    "common.world.layers.MixinDimensionType",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinSlimeEntity",
     "common.world.MixinVanillaBiomeLayers",

@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.config.BYGGiantFlowerFeatureConfig;
+import voronoiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
 import voronoiaoc.byg.common.world.feature.config.BYGPumpkinFeatureConfig;
 import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.RiverThingy;
@@ -36,6 +37,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.IrisG
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.RoseGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.*;
+import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import voronoiaoc.byg.common.world.feature.features.overworld.pumpkins.LargePumpkin1;
 import voronoiaoc.byg.common.world.feature.features.overworld.pumpkins.LargePumpkin2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.acacia.AcaciaTree1;
@@ -171,20 +173,20 @@ public class BYGFeatureList {
 
 
     /*********************************************************************Large Mushroom Features*********************************************************/
-    public static final Feature<NoFeatureConfig> GREEN_MUSHROOM_HUGE = new GreenMushroomHuge(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> WOOD_BLEWIT_HUGE = new WoodBlewitHuge(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> WEEPING_MILKCAP_HUGE = new WeepingMilkcapHuge(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> BLACK_PUFF_HUGE = new BlackPuffHuge(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> BLUE_GLOWSHROOM_HUGE = new BlueGlowshroomHuge(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> PURPLE_GLOWSHROOM_HUGE = new PurpleGlowshroomHuge(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> GREEN_MUSHROOM_HUGE = new GreenMushroomHuge(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> WOOD_BLEWIT_HUGE = new WoodBlewitHuge(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> WEEPING_MILKCAP_HUGE = new WeepingMilkcapHuge(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> BLACK_PUFF_HUGE = new BlackPuffHuge(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> BLUE_GLOWSHROOM_HUGE = new BlueGlowshroomHuge(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> PURPLE_GLOWSHROOM_HUGE = new PurpleGlowshroomHuge(BYGMushroomFeatureConfig.CODEC);
 
     /*********************************************************************Mini Mushroom Features*********************************************************/
-    public static final Feature<NoFeatureConfig> MINI_GREEN_MUSHROOM = new MiniGreenMushroom(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> MINI_RED_MUSHROOM = new MiniRedMushroom(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> MINI_BROWN_MUSHROOM = new MiniBrownMushroom(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> MINI_WEEPING_MILKCAP = new MiniWeepingMilkcap(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> MINI_BLACK_PUFF = new MiniBlackPuff(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> MINI_WOOD_BLEWIT = new MiniWoodBlewit(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> MINI_GREEN_MUSHROOM = new MiniGreenMushroom(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> MINI_RED_MUSHROOM = new MiniRedMushroom(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> MINI_BROWN_MUSHROOM = new MiniBrownMushroom(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> MINI_WEEPING_MILKCAP = new MiniWeepingMilkcap(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> MINI_BLACK_PUFF = new MiniBlackPuff(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> MINI_WOOD_BLEWIT = new MiniWoodBlewit(BYGMushroomFeatureConfig.CODEC);
 
     /********************************************************************Nether Features********************************************************************/
 
@@ -195,25 +197,25 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> NETHER_BRISTLE = new NetherBristle(NoFeatureConfig.field_236558_a_);
 
     //SoulShroom
-    public static final Feature<NoFeatureConfig> SOUL_SHROOM_TREE1 = new SoulShroomTree1(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> SOUL_SHROOM_TREE2 = new SoulShroomTree2(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> SOUL_SHROOM_TREE3 = new SoulShroomTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SOUL_SHROOM_TREE1 = new SoulShroomTree1(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SOUL_SHROOM_TREE2 = new SoulShroomTree2(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SOUL_SHROOM_TREE3 = new SoulShroomTree3(BYGMushroomFeatureConfig.CODEC);
     public static final Feature<NoFeatureConfig> SOUL_SHROOM_SPORES_HANGING = new SoulShroomSporeFeature(NoFeatureConfig.field_236558_a_);
 
     //DeathCap
-    public static final Feature<NoFeatureConfig> DEATH_CAP_TREE1 = new DeathCapTree1(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> DEATH_CAP_TREE2 = new DeathCapTree2(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> DEATH_CAP_TREE3 = new DeathCapTree3(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> DEATH_CAP_TREE1 = new DeathCapTree1(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> DEATH_CAP_TREE2 = new DeathCapTree2(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> DEATH_CAP_TREE3 = new DeathCapTree3(BYGMushroomFeatureConfig.CODEC);
 
     //Sythian
     public static final Feature<NoFeatureConfig> SYTHIAN_SPROUT = new SythianSprout(NoFeatureConfig.field_236558_a_);
     public static final Feature<ProbabilityConfig> SYTHIAN_STALK = new SythianStalk(ProbabilityConfig.field_236576_b_);
     public static final Feature<NoFeatureConfig> SYTHIAN_ROOTS = new SythianRoots(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS = new SythianFungus(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS_TREE1 = new SythianFungusTree1(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS_TREE2 = new SythianFungusTree2(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS_TREE3 = new SythianFungusTree3(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS_TREE4 = new SythianFungusTree4(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SYTHIAN_FUNGUS_TREE1 = new SythianFungusTree1(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SYTHIAN_FUNGUS_TREE2 = new SythianFungusTree2(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SYTHIAN_FUNGUS_TREE3 = new SythianFungusTree3(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SYTHIAN_FUNGUS_TREE4 = new SythianFungusTree4(BYGMushroomFeatureConfig.CODEC);
     public static final Feature<NoFeatureConfig> SYTHIAN_HANGING_ROOTS = new HangingSythianRootsFeature(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> MOSSY_NETHERRACK_PILLARS = new MossyNetherrackPillars(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> SYTHIAN_FUNGUS_PILLARS = new SythianFungusPillars(NoFeatureConfig.field_236558_a_);
@@ -232,10 +234,10 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> TALL_CRIMSON_ROOTS = new TallCrimsonRoots(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> CRIMSON_BERRY_BUSH = new CrimsonBerryBush(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> WEEPING_VINE_BLACKSTONE = new WeepingVineFeatureBlackstone(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> CRIMSON_FUNGUS_TREE1 = new CrimsonFungus1(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> CRIMSON_FUNGUS_TREE2 = new CrimsonFungus2(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> WARPED_FUNGUS_TREE1 = new WarpedFungus1(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> WARPED_FUNGUS_TREE2 = new WarpedFungus2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> CRIMSON_FUNGUS_TREE1 = new CrimsonFungus1(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> CRIMSON_FUNGUS_TREE2 = new CrimsonFungus2(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> WARPED_FUNGUS_TREE1 = new WarpedFungus1(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> WARPED_FUNGUS_TREE2 = new WarpedFungus2(BYGMushroomFeatureConfig.CODEC);
 
     //Whaling
     public static final Feature<NoFeatureConfig> WAILING_VINES = new WailingVine(NoFeatureConfig.field_236558_a_);
@@ -256,8 +258,8 @@ public class BYGFeatureList {
 
     //Embur
     public static final Feature<NoFeatureConfig> EMBURLAKE = new EmburBogLake(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> EMBUR_MUSHROOM = new EmburMushroom(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> EMBUR_MUSHROOM2 = new EmburMushroom2(NoFeatureConfig.field_236558_a_);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> EMBUR_MUSHROOM = new EmburMushroom(BYGMushroomFeatureConfig.CODEC);
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> EMBUR_MUSHROOM2 = new EmburMushroom2(BYGMushroomFeatureConfig.CODEC);
     public static final Feature<NoFeatureConfig> EMBUR_GEL_VINES = new EmburGelVines(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> EMBUR_ROOTS = new EmburRoots(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> TALL_EMBUR_ROOTS = new TallEmburRoots(NoFeatureConfig.field_236558_a_);

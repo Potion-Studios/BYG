@@ -29,11 +29,11 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomFeatureCon
     }
 
     public static boolean canStemPlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant((World) worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant( worldReader, blockPos);
     }
 
     public boolean canStemPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant((World) worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant( worldReader, blockPos);
     }
 
     public boolean isAnotherMushroomHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
@@ -294,24 +294,24 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomFeatureCon
      * @param pos        The given pos of either the feature during world gen or the sapling.
      * @param treeHeight The height of the given tree.
      * @param distance   Checks the surrounding pos
-     * @param logBlock   The log block we're checking for.
-     * @param leafBlock  The leaf block we're checking for.
-     * @param isSapling  Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
+     * @param stemBlock   The log block we're checking for.
+     * @param mushroomBlock  The leaf block we're checking for.
+     * @param isMushroom  Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
      * @return Determines whether or not the tree we're searching for is within the given distance.
      */
 
-    public boolean isAnotherMushroomLikeThisNearby(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int distance, Block logBlock, Block leafBlock, boolean isSapling) {
+    public boolean isAnotherMushroomLikeThisNearby(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int distance, Block stemBlock, Block mushroomBlock, boolean isMushroom) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         //Skip if tree is being spawned with a sapling.
-        if (!isSapling) {
+        if (!isMushroom) {
             for (int yOffset = 0; yOffset <= treeHeight + 1; ++yOffset) {
                 for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                     for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                        if (!isAnotherMushroomLikeThisHere(reader, mutable.setPos(x + xOffset, y + yOffset, z + zOffset), logBlock, leafBlock)) {
+                        if (!isAnotherMushroomLikeThisHere(reader, mutable.setPos(x + xOffset, y + yOffset, z + zOffset), stemBlock, mushroomBlock)) {
                             return false;
                         }
                     }

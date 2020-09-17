@@ -65,7 +65,7 @@ public class VolcanoFeature extends Feature<NoFeatureConfig> {
         for (int x = -32; x <= 32; x++) {
             for (int z = -32; z <= 32; z++) {
                 mutable.setPos(position.getX() + x, world.getSeaLevel(), position.getZ() + z);
-                Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.func_230519_c_(BYGBiomeList.VOLCANO);
+                Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(BYGBiomeList.VOLCANO);
                 if (key.isPresent()) {
                     if (world.func_242406_i(mutable).equals(key)) {
                         foundVolcanoBiome = false;
@@ -115,10 +115,10 @@ public class VolcanoFeature extends Feature<NoFeatureConfig> {
                                 if (!biome.getCategory().equals(Category.DESERT) && biome.getCategory().equals(Category.MESA)) {
                                     world.setBlockState(mutable, PODZOL, 2);
                                 } else {
-                                    world.setBlockState(mutable, biome.func_242440_e().func_242502_e().getUnder(), 2);
+                                    world.setBlockState(mutable, biome.getGenerationSettings().getSurfaceBuilderConfig().getUnder(), 2);
                                 }
                             } else if (y + noise2 > 75) {
-                                world.setBlockState(mutable, biome.func_242440_e().func_242502_e().getTop(), 2);
+                                world.setBlockState(mutable, biome.getGenerationSettings().getSurfaceBuilderConfig().getTop(), 2);
                             } else if (y + noise2 / 3 > 63) {
                                 world.setBlockState(mutable, SAND, 2);
                             } else {

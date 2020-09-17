@@ -32,7 +32,7 @@ public class MyceliumNetherrackBlock extends SpreadableMyceliumNetherrackBlock {
 //        BlockState blockstate = worldIn.getBlockState(pos);
 //        BlockPos blockpos = pos.up();
 //        if (blockstate.isIn(BYGBlockList.MYCELIUM_NETHERRACK)) {
-//            NetherVegetationFeature.func_236325_a_(worldIn, rand, blockpos, Features.Configs.field_243987_k, 3, 1);
+//            NetherVegetationFeature.func_236325_a_(worldIn, rand, blockpos, Features.Configs.CRIMSON_FOREST_VEGETATION_CONFIG, 3, 1);
 //        }
 //    }
 

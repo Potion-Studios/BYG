@@ -29,11 +29,11 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends BYGGiantFlowerFeat
     }
 
     public static boolean canStemPlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant((World) worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant( worldReader, blockPos);
     }
 
     public boolean canStemPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant((World) worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant( worldReader, blockPos);
     }
 
     public boolean isAnotherFlowerHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {

@@ -19,7 +19,6 @@ import net.minecraft.util.math.shapes.VoxelShapePart;
 import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
@@ -40,11 +39,11 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
     }
 
     public static boolean canLogPlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant((World) worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean canLogPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant((World) worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean isAnotherTreeHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {

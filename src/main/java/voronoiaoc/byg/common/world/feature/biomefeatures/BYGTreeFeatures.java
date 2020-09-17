@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.world.feature.biomefeatures;
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
+import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 import voronoiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
 
 public class BYGTreeFeatures {
@@ -133,12 +134,12 @@ public class BYGTreeFeatures {
 
     public static void addRainForestTrees(BiomeGenerationSettings.Builder biome) {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_RAINFOREST_TREE);
-        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243788_N);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.VINES);
     }
 
     public static void addStoneForestTrees(BiomeGenerationSettings.Builder biome) {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_STONEFOREST_TREE);
-        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243788_N);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.VINES);
     }
 
     public static void addFungalRainForestTrees(BiomeGenerationSettings.Builder biome) {
@@ -147,7 +148,7 @@ public class BYGTreeFeatures {
 
     public static void addSparseRainforestTrees(BiomeGenerationSettings.Builder biome) {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_RAINFOREST_SPARSE_TREE);
-        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.field_243788_N);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.VINES);
     }
 
     public static void addRainbowTrees(BiomeGenerationSettings.Builder biome) {
@@ -232,14 +233,13 @@ public class BYGTreeFeatures {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_ENCHANTED_TREE);
     }
 
-    //TODO: Configured Pumpkin Random Selector
     public static void addLargePumpkins(BiomeGenerationSettings.Builder biome) {
-        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_PUMPKIN_PATCH);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PUMPKIN_PATCH);
     }
 
     //TODO: Configured Pumpkin Random Selector
     public static void addWitchPumpkins(BiomeGenerationSettings.Builder biome) {
-        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_PUMPKIN_PATCH);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PUMPKIN_PATCH);
     }
 
     public static void addMarshTrees(BiomeGenerationSettings.Builder biome) {
@@ -351,6 +351,6 @@ public class BYGTreeFeatures {
     }
 
     public static void addDummyTree(BiomeGenerationSettings.Builder biome) {
-        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_DUMMY_TREE);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_WOODLAND_TREE);
     }
 }

@@ -62,7 +62,7 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
 
     public int getMaxPossibleHeight() {
         int returnValue = this.maxPossibleHeight - minHeight;
-        if (returnValue == 0)
+        if (returnValue <= 0)
             returnValue = 1;
 
         return returnValue;

@@ -23,7 +23,7 @@ public class MixinSlimeEntity {
     private static void injectSwampCategory(EntityType<SlimeEntity> entity, IWorld world, SpawnReason reason, BlockPos withSpawnerPos, Random randomIn, CallbackInfoReturnable<Boolean> cir) {
         if (world.getDifficulty() != Difficulty.PEACEFUL) {
             Biome biome = world.getBiome(withSpawnerPos);
-            if (biome.getCategory() == Biome.Category.SWAMP && biome != WorldGenRegistries.BIOME.getValueForKey(Biomes.SWAMP) && withSpawnerPos.getY() > 50 && withSpawnerPos.getY() < 70 && randomIn.nextFloat() < 0.5F && randomIn.nextFloat() < world.func_242413_ae() && world.getLight(withSpawnerPos) <= randomIn.nextInt(8)) {
+            if (biome.getCategory() == Biome.Category.SWAMP && biome != WorldGenRegistries.BIOME.getValueForKey(Biomes.SWAMP) && withSpawnerPos.getY() > 50 && withSpawnerPos.getY() < 70 && randomIn.nextFloat() < 0.5F && randomIn.nextFloat() < world.getMoonFactor() && world.getLight(withSpawnerPos) <= randomIn.nextInt(8)) {
                cir.setReturnValue(MobEntity.canSpawnOn(entity, world, reason, withSpawnerPos, randomIn));
             }
         }

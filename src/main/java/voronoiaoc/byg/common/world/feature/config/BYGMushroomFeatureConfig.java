@@ -87,7 +87,7 @@ public class BYGMushroomFeatureConfig implements IFeatureConfig {
 
     public int getMaxPossibleHeight() {
         int returnValue = this.maxPossibleHeight - minHeight;
-        if (returnValue == 0)
+        if (returnValue <= 0)
             returnValue = 1;
 
         return returnValue;
@@ -143,7 +143,7 @@ public class BYGMushroomFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public Builder setmMushroomBlock(WeightedBlockStateProvider statesList) {
+        public Builder setMushroomBlock(WeightedBlockStateProvider statesList) {
             if (statesList != null)
                 mushroomProvider = statesList;
             else

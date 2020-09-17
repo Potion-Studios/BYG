@@ -38,7 +38,7 @@ public class SierraSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         int i = x & 15;
         int j = z & 15;
         BlockState blockstate = TERRACOTTA;
-        BlockState blockstate1 = biomeIn.func_242440_e().func_242502_e().getUnder();
+        BlockState blockstate1 = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnder();
         int k = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int l = -1;
@@ -60,7 +60,7 @@ public class SierraSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                             blockstate1 = defaultBlock;
                         } else if (j1 >= seaLevel - 4 && j1 <= seaLevel + 1) {
                             blockstate = TERRACOTTA;
-                            blockstate1 = biomeIn.func_242440_e().func_242502_e().getUnder();
+                            blockstate1 = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnder();
                         }
 
                         if (j1 < seaLevel && (blockstate == null || blockstate.isAir())) {
@@ -83,7 +83,7 @@ public class SierraSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
                                 chunkIn.setBlockState(blockpos$mutable, blockstate3, false);
                             } else {
-                                chunkIn.setBlockState(blockpos$mutable, biomeIn.func_242440_e().func_242502_e().getTop(), false);
+                                chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getTop(), false);
                                 flag1 = true;
                             }
                         } else {

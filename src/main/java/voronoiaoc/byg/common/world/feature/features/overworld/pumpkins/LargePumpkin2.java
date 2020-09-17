@@ -94,7 +94,7 @@ public class LargePumpkin2 extends Feature<BYGPumpkinFeatureConfig> {
     }
 
     private void setPumpkinState(BlockPos pos, BlockState pumpkinState, ISeedReader world) {
-        if (world.isAirBlock(pos) || FeatureUtil.isPlant((World) world, pos)) {
+        if (world.isAirBlock(pos) || FeatureUtil.isPlant( world, pos)) {
             world.setBlockState(pos, pumpkinState, 2);
         }
     }

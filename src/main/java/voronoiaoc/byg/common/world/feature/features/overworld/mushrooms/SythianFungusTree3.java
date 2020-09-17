@@ -1,17 +1,15 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.mushrooms;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import voronoiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
-import java.util.Set;
 
 public class SythianFungusTree3 extends BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> {
 
@@ -24,14 +22,16 @@ public class SythianFungusTree3 extends BYGAbstractMushroomFeature<BYGMushroomFe
         BlockState MUSHROOM = config.getMushroomProvider().getBlockState(rand, pos);
         BlockState MUSHROOM2 = config.getMushroom2Provider().getBlockState(rand, pos);
         BlockState MUSHROOM3 = config.getMushroom3Provider().getBlockState(rand, pos);
-        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);int randTreeHeight = 9 + rand.nextInt(5);
+        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);
+        int randTreeHeight = 9 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, BYGBlockList.SYTHIAN_NYLIUM)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
-            } else if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
+            } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {
+                return false;
+            } else if (!this.doesMushroomHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isMushroom)) {
                 return false;
             } else {
                 placeStem(STEM, worldIn, mainmutable.add(0, 0, 0));
@@ -42,146 +42,102 @@ public class SythianFungusTree3 extends BYGAbstractMushroomFeature<BYGMushroomFe
                 placeStem(STEM, worldIn, mainmutable.add(0, 5, 0));
                 placeStem(STEM, worldIn, mainmutable.add(0, 6, 0));
                 placeStem(STEM, worldIn, mainmutable.add(0, 7, 0));
-                this.treeBranch(worldIn, mainmutable.add(0, 7, -1));
-                this.treeBranch(worldIn, mainmutable.add(0, 7, 1));
-                this.treeBranch(worldIn, mainmutable.add(0, 8, -1));
-                this.treeBranch(worldIn, mainmutable.add(0, 8, 1));
-                this.treeBranch(worldIn, mainmutable.add(0, 9, -1));
-                this.treeBranch(worldIn, mainmutable.add(0, 9, 1));
-                this.leafs(worldIn, mainmutable.add(-1, 1, -1));
-                this.leafs(worldIn, mainmutable.add(0, 1, -1));
-                this.leafs(worldIn, mainmutable.add(1, 1, -1));
-                this.leafs(worldIn, mainmutable.add(-1, 1, 0));
-                this.leafs(worldIn, mainmutable.add(1, 1, 0));
-                this.leafs(worldIn, mainmutable.add(-1, 1, 1));
-                this.leafs(worldIn, mainmutable.add(0, 1, 1));
-                this.leafs(worldIn, mainmutable.add(1, 1, 1));
-                this.leafs(worldIn, mainmutable.add(-1, 3, -1));
-                this.leafs(worldIn, mainmutable.add(0, 3, -1));
-                this.leafs(worldIn, mainmutable.add(1, 3, -1));
-                this.leafs(worldIn, mainmutable.add(-1, 3, 0));
-                this.leafs(worldIn, mainmutable.add(1, 3, 0));
-                this.leafs(worldIn, mainmutable.add(-1, 3, 1));
-                this.leafs(worldIn, mainmutable.add(0, 3, 1));
-                this.leafs(worldIn, mainmutable.add(1, 3, 1));
-                this.vines(worldIn, mainmutable.add(0, 3, 2));
-                this.vines(worldIn, mainmutable.add(-1, 4, -2));
-                this.vinesplant(worldIn, mainmutable.add(0, 4, 2));
-                this.vines(worldIn, mainmutable.add(1, 4, 2));
-                this.vinesplant(worldIn, mainmutable.add(-1, 5, -2));
-                this.vines(worldIn, mainmutable.add(1, 5, -2));
-                this.leafs(worldIn, mainmutable.add(-1, 5, -1));
-                this.leafs(worldIn, mainmutable.add(0, 5, -1));
-                this.leafs(worldIn, mainmutable.add(1, 5, -1));
-                this.leafs(worldIn, mainmutable.add(-1, 5, 0));
-                this.leafs(worldIn, mainmutable.add(1, 5, 0));
-                this.shroomlight(worldIn, mainmutable.add(-2, 5, 1));
-                this.leafs(worldIn, mainmutable.add(-1, 5, 1));
-                this.leafs(worldIn, mainmutable.add(0, 5, 1));
-                this.leafs(worldIn, mainmutable.add(1, 5, 1));
-                this.vinesplant(worldIn, mainmutable.add(0, 5, 2));
-                this.vinesplant(worldIn, mainmutable.add(1, 5, 2));
-                this.vinesplant(worldIn, mainmutable.add(-1, 6, -2));
-                this.vines(worldIn, mainmutable.add(0, 6, -2));
-                this.vinesplant(worldIn, mainmutable.add(1, 6, -2));
-                this.shroomlight(worldIn, mainmutable.add(-1, 6, 1));
-                this.shroomlight(worldIn, mainmutable.add(0, 6, 1));
-                this.shroomlight(worldIn, mainmutable.add(-1, 6, 2));
-                this.vinesplant(worldIn, mainmutable.add(0, 6, 2));
-                this.vinesplant(worldIn, mainmutable.add(1, 6, 2));
-                this.leafs(worldIn, mainmutable.add(-1, 7, -2));
-                this.leafs(worldIn, mainmutable.add(0, 7, -2));
-                this.leafs(worldIn, mainmutable.add(1, 7, -2));
-                this.leafs(worldIn, mainmutable.add(-1, 7, -1));
-                this.leafs(worldIn, mainmutable.add(1, 7, -1));
-                this.leafs(worldIn, mainmutable.add(-1, 7, 1));
-                this.leafs(worldIn, mainmutable.add(1, 7, 1));
-                this.leafs(worldIn, mainmutable.add(-1, 7, 2));
-                this.leafs(worldIn, mainmutable.add(0, 7, 2));
-                this.leafs(worldIn, mainmutable.add(1, 7, 2));
-                this.shroomlight(worldIn, mainmutable.add(0, 8, -2));
-                this.shroomlight(worldIn, mainmutable.add(1, 8, -1));
-                this.leafs(worldIn, mainmutable.add(-1, 9, -2));
-                this.leafs(worldIn, mainmutable.add(0, 9, -2));
-                this.leafs(worldIn, mainmutable.add(1, 9, -2));
-                this.leafs(worldIn, mainmutable.add(-1, 9, -1));
-                this.leafs(worldIn, mainmutable.add(1, 9, -1));
-                this.shroomlight(worldIn, mainmutable.add(2, 9, -1));
-                this.leafs(worldIn, mainmutable.add(0, 9, 0));
-                this.shroomlight(worldIn, mainmutable.add(1, 9, 0));
-                this.leafs(worldIn, mainmutable.add(-1, 9, 1));
-                this.leafs(worldIn, mainmutable.add(1, 9, 1));
-                this.leafs(worldIn, mainmutable.add(-1, 9, 2));
-                this.leafs(worldIn, mainmutable.add(0, 9, 2));
-                this.leafs(worldIn, mainmutable.add(1, 9, 2));
-                this.leafs(worldIn, mainmutable.add(0, 10, -1));
-                this.leafs(worldIn, mainmutable.add(0, 10, 1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(0, 7, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(0, 7, 1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(0, 8, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(0, 8, 1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(0, 9, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(0, 9, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 1, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 1, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 1, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 1, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 1, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 1, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 1, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 1, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 3, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 3, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 3, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 3, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 3, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 3, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 3, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 3, 1));
+                this.hangingSythianRoots(worldIn, mainmutable.add(0, 3, 2));
+                this.hangingSythianRoots(worldIn, mainmutable.add(-1, 4, -2));
+                this.hangingSythianRootsPlant(worldIn, mainmutable.add(0, 4, 2));
+                this.hangingSythianRoots(worldIn, mainmutable.add(1, 4, 2));
+                this.hangingSythianRootsPlant(worldIn, mainmutable.add(-1, 5, -2));
+                this.hangingSythianRoots(worldIn, mainmutable.add(1, 5, -2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 5, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 5, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 5, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 5, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 5, 0));
+                this.shroomLight(worldIn, mainmutable.add(-2, 5, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 5, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 5, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 5, 1));
+                this.hangingSythianRootsPlant(worldIn, mainmutable.add(0, 5, 2));
+                this.hangingSythianRootsPlant(worldIn, mainmutable.add(1, 5, 2));
+                this.hangingSythianRootsPlant(worldIn, mainmutable.add(-1, 6, -2));
+                this.hangingSythianRoots(worldIn, mainmutable.add(0, 6, -2));
+                this.hangingSythianRootsPlant(worldIn, mainmutable.add(1, 6, -2));
+                this.shroomLight(worldIn, mainmutable.add(-1, 6, 1));
+                this.shroomLight(worldIn, mainmutable.add(0, 6, 1));
+                this.shroomLight(worldIn, mainmutable.add(-1, 6, 2));
+                this.hangingSythianRootsPlant(worldIn, mainmutable.add(0, 6, 2));
+                this.hangingSythianRootsPlant(worldIn, mainmutable.add(1, 6, 2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 7, -2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 7, -2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 7, -2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 7, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 7, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 7, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 7, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 7, 2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 7, 2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 7, 2));
+                this.shroomLight(worldIn, mainmutable.add(0, 8, -2));
+                this.shroomLight(worldIn, mainmutable.add(1, 8, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 9, -2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 9, -2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 9, -2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 9, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 9, -1));
+                this.shroomLight(worldIn, mainmutable.add(2, 9, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 9, 0));
+                this.shroomLight(worldIn, mainmutable.add(1, 9, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 9, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 9, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(-1, 9, 2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 9, 2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 9, 2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 10, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 10, 1));
             }
         }
         return true;
     }
 
-    //Log Placement
-    private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.SYTHIAN_STEM.getDefaultState(), boundingBox);
-        }
-    }
-
-    //Log Placement
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.SYTHIAN_STEM.getDefaultState(), boundingBox);
+    private void hangingSythianRoots(ISeedReader reader, BlockPos pos) {
+        if (isAir(reader, pos)) {
+            this.setFinalBlockState(reader, pos, BYGBlockList.HANGING_SYTHIAN_ROOTS.getDefaultState());
         }
     }
 
     //Leaves Placement
-    private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void hangingSythianRootsPlant(ISeedReader reader, BlockPos pos) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.SYTHIAN_WART_BLOCK.getDefaultState(), boundingBox);
+            this.setFinalBlockState(reader, pos, BYGBlockList.HANGING_SYTHIAN_ROOTS_PLANT.getDefaultState());
         }
     }
 
     //Leaves Placement
-    private void vines(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void shroomLight(ISeedReader reader, BlockPos pos) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.HANGING_SYTHIAN_ROOTS.getDefaultState(), boundingBox);
+            this.setFinalBlockState(reader, pos, Blocks.SHROOMLIGHT.getDefaultState());
         }
-    }
-
-    //Leaves Placement
-    private void vinesplant(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlockList.HANGING_SYTHIAN_ROOTS_PLANT.getDefaultState(), boundingBox);
-        }
-    }
-
-    //Leaves Placement
-    private void shroomlight(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, Blocks.SHROOMLIGHT.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 0;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
     }
 }

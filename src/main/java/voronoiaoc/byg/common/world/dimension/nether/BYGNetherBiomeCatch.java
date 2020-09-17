@@ -26,7 +26,7 @@ public class BYGNetherBiomeCatch {
         if (biomeList.size() > 0) {
             int[] getConfigArray = new int[biomeList.size()];
             for (int index = 0; index < biomeList.size(); ++index) {
-                final Biome configResource = WorldGenRegistries.BIOME.func_241873_b(new ResourceLocation(biomeList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
+                final Biome configResource = WorldGenRegistries.BIOME.getOptional(new ResourceLocation(biomeList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
                 if (configResource == null) {
                     BYG.LOGGER.error("Illegal registry name! You put: " + biomeList.get(index));
                 } else if (configResource != null) {

@@ -23,7 +23,7 @@ public class BYGFeaturesInVanilla {
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SOAP_STONE);
 
-                if (biome == WorldGenRegistries.field_243657_i.getValueForKey(Biomes.SOUL_SAND_VALLEY)) {
+                if (biome == WorldGenRegistries.BIOME.getValueForKey(Biomes.SOUL_SAND_VALLEY)) {
                     addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
                 }
             }
@@ -34,7 +34,7 @@ public class BYGFeaturesInVanilla {
     //Use these to add our features to vanilla's biomes.
     public static void addFeatureToBiome(Biome biome, GenerationStage.Decoration feature, ConfiguredFeature<?, ?> configuredFeature) {
         ConvertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.func_242440_e().field_242484_f;
+        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.getGenerationSettings().features;
         while (biomeFeatures.size() <= feature.ordinal()) {
             biomeFeatures.add(Lists.newArrayList());
         }
@@ -43,8 +43,8 @@ public class BYGFeaturesInVanilla {
     }
 
     private static void ConvertImmutableFeatures(Biome biome) {
-        if (biome.func_242440_e().field_242484_f instanceof ImmutableList) {
-            biome.func_242440_e().field_242484_f = biome.func_242440_e().field_242484_f.stream().map(Lists::newArrayList).collect(Collectors.toList());
+        if (biome.getGenerationSettings().features instanceof ImmutableList) {
+            biome.getGenerationSettings().features = biome.getGenerationSettings().features.stream().map(Lists::newArrayList).collect(Collectors.toList());
         }
     }
 }

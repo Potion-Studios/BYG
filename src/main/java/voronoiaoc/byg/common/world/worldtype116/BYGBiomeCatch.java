@@ -35,7 +35,7 @@
 //        if (biomeICYList.size() > 0) {
 //            int[] getConfigArray = new int[biomeICYList.size()];
 //            for (int index = 0; index < biomeICYList.size(); ++index) {
-//                final Biome configResource = WorldGenRegistries.BIOME.func_241873_b(new ResourceLocation(biomeICYList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
+//                final Biome configResource = WorldGenRegistries.BIOME.getOptional(new ResourceLocation(biomeICYList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
 //                if (configResource == null) {
 //                    BYG.LOGGER.warn("Illegal registry name! You put: " + biomeICYList.get(index));
 //                } else if (configResource != null) {
@@ -52,7 +52,7 @@
 //        if (biomeCOOLList.size() > 0) {
 //            int[] getConfigArray = new int[biomeCOOLList.size()];
 //            for (int index = 0; index < biomeCOOLList.size(); ++index) {
-//                final Biome configResource = WorldGenRegistries.BIOME.func_241873_b(new ResourceLocation(biomeCOOLList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
+//                final Biome configResource = WorldGenRegistries.BIOME.getOptional(new ResourceLocation(biomeCOOLList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
 //                if (configResource == null) {
 //                    BYG.LOGGER.warn("Illegal registry name! You put: " + biomeCOOLList.get(index));
 //                } else if (configResource != null) {
@@ -69,7 +69,7 @@
 //        if (biomeWARMList.size() > 0) {
 //            int[] getConfigArray = new int[biomeWARMList.size()];
 //            for (int index = 0; index < biomeWARMList.size(); ++index) {
-//                final Biome configResource = WorldGenRegistries.BIOME.func_241873_b(new ResourceLocation(biomeWARMList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
+//                final Biome configResource = WorldGenRegistries.BIOME.getOptional(new ResourceLocation(biomeWARMList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
 //                if (configResource == null) {
 //                    BYG.LOGGER.warn("Illegal registry name! You put: " + biomeWARMList.get(index));
 //                } else if (configResource != null) {
@@ -86,7 +86,7 @@
 //        if (biomeHOTList.size() > 0) {
 //            int[] getConfigArray = new int[biomeHOTList.size()];
 //            for (int index = 0; index < biomeHOTList.size(); ++index) {
-//                final Biome configResource = WorldGenRegistries.BIOME.func_241873_b(new ResourceLocation(biomeHOTList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
+//                final Biome configResource = WorldGenRegistries.BIOME.getOptional(new ResourceLocation(biomeHOTList.get(index))).orElse(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
 //                if (configResource == null) {
 //                    BYG.LOGGER.warn("Illegal registry name! You put: " + biomeHOTList.get(index));
 //                } else if (configResource != null) {
