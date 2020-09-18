@@ -67,11 +67,11 @@ public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements IGrowa
     @Override
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.HOGLIN && entityIn.getType() != EntityType.PIGLIN && entityIn.getType() != EntityType.ZOMBIFIED_PIGLIN) {
-            entityIn.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));
+            entityIn.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
             if (!worldIn.isRemote && state.get(AGE) > 0 && (entityIn.lastTickPosX != entityIn.getPosX() || entityIn.lastTickPosZ != entityIn.getPosZ())) {
                 double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
                 double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);
-                if (d0 >= (double)0.003F || d1 >= (double)0.003F) {
+                if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
                     entityIn.attackEntityFrom(DamageSource.SWEET_BERRY_BUSH, 1.0F);
                 }
             }

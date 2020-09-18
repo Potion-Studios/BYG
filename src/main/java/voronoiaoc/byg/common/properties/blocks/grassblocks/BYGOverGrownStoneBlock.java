@@ -55,7 +55,7 @@ public class BYGOverGrownStoneBlock extends SpreadableSnowyOvergrownStoneBlock i
                         }
 
                         ConfiguredFeature<?, ?> configuredfeature = list.get(0);
-                        FlowersFeature flowersfeature = (FlowersFeature)configuredfeature.feature;
+                        FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
                         blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.func_242767_c());
                     } else {
                         blockstate1 = blockstate;

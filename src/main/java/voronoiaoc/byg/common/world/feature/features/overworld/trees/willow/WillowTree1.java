@@ -1,7 +1,6 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.willow;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -24,8 +23,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
-        
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
+
         int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
         BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);

@@ -11,7 +11,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
@@ -29,11 +28,11 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends BYGGiantFlowerFeat
     }
 
     public static boolean canStemPlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant( worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean canStemPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant( worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean isAnotherFlowerHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {

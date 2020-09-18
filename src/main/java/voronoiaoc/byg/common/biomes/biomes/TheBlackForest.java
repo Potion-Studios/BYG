@@ -14,7 +14,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.HashMap;
 
-public class TheBlackForest extends Biome implements BiomeTools  {
+public class TheBlackForest extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("the_black_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.TAIGA;

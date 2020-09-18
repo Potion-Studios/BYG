@@ -15,7 +15,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class GrassLandPlateau extends Biome implements BiomeTools  {
+public class GrassLandPlateau extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("grassland_plateau", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.PLAINS;

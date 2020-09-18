@@ -33,7 +33,7 @@ public class BYGBiomeList {
     public static final Biome COLDSWAMPLANDS = new ColdSwamplands();
     public static final Biome CRAGGARDENS = new CragGardens();
     public static final Biome REDROCKCANYON = new Canyons();
-//    public static final Biome CANYONCORRIDORS = new CanyonCorridors();
+    //    public static final Biome CANYONCORRIDORS = new CanyonCorridors();
     public static final Biome CYPRESSSWAMPLANDS = new CypressSwampland();
     public static final Biome DUMMY_BIOME = new DummyBiome();
     public static final Biome CHERRYBLOSSOMFOREST = new CherryBlossomForest();

@@ -10,7 +10,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class DoverMountains extends Biome implements BiomeTools  {
+public class DoverMountains extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("dover_mountains", new ConfiguredSurfaceBuilder<>(BYGSBList.DOVER_SB, BYGSBList.BYGSBConfigList.PODZOLDOVERMOUNTAIN_CF));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.EXTREME_HILLS;

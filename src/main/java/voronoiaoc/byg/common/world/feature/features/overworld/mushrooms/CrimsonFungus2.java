@@ -21,7 +21,8 @@ public class CrimsonFungus2 extends BYGAbstractMushroomFeature<BYGMushroomFeatur
         BlockState MUSHROOM = config.getMushroomProvider().getBlockState(rand, pos);
         BlockState MUSHROOM2 = config.getMushroom2Provider().getBlockState(rand, pos);
         BlockState MUSHROOM3 = config.getMushroom3Provider().getBlockState(rand, pos);
-        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);int randTreeHeight = 12 + rand.nextInt(5);
+        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);
+        int randTreeHeight = 12 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
@@ -286,7 +287,7 @@ public class CrimsonFungus2 extends BYGAbstractMushroomFeature<BYGMushroomFeatur
     //Leaves Placement
     private void vines(ISeedReader reader, BlockPos pos) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState( reader, pos, Blocks.WEEPING_VINES.getDefaultState());
+            this.setFinalBlockState(reader, pos, Blocks.WEEPING_VINES.getDefaultState());
         }
     }
 

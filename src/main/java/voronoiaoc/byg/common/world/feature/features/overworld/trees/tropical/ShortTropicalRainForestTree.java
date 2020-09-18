@@ -1,7 +1,6 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.tropical;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -27,8 +26,7 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<BYGTreeF
     }
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
-        
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
+
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 3;
         //Positions
         int posX = pos.getX();

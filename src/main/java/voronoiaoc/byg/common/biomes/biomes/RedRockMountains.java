@@ -15,7 +15,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.HashMap;
 
-public class RedRockMountains extends Biome implements BiomeTools  {
+public class RedRockMountains extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("red_rock_mountains", new ConfiguredSurfaceBuilder<>(BYGSBList.RED_ROCK_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.PLAINS;

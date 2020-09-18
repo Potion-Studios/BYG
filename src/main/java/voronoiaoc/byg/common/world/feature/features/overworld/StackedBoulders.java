@@ -32,20 +32,20 @@ public class StackedBoulders extends Feature<NoFeatureConfig> {
         int stackHeight = random.nextInt(5) + 2;
         int radius = random.nextInt(5) + 3 + stackHeight;
 
-        for(int rockNum = 0; rockNum < stackHeight; rockNum++){
+        for (int rockNum = 0; rockNum < stackHeight; rockNum++) {
             blockpos$Mutable.move(
                     random.nextInt(3) - 1,
-                    (int)(random.nextInt(radius) * 0.2f + radius * 0.8f) - 1,
+                    (int) (random.nextInt(radius) * 0.2f + radius * 0.8f) - 1,
                     random.nextInt(3) - 1);
 
-            for(int x = -radius; x <= radius; x++){
-                for(int y = -radius; y <= radius; y++){
-                    for(int z = -radius; z <= radius; z++){
+            for (int x = -radius; x <= radius; x++) {
+                for (int y = -radius; y <= radius; y++) {
+                    for (int z = -radius; z <= radius; z++) {
 
-                        int squaredDistance = x*x + y*y + z*z;
+                        int squaredDistance = x * x + y * y + z * z;
                         if (squaredDistance <= radius * radius) {
 
-                            blockpos$Mutable2.setPos(blockpos$Mutable).move(x,y,z);
+                            blockpos$Mutable2.setPos(blockpos$Mutable).move(x, y, z);
 
                             // Rough the surface of the boulders a bit
                             double noiseValue = noiseGen.GetNoise(blockpos$Mutable2.getX() * 0.04F, blockpos$Mutable2.getY() * 0.01F, blockpos$Mutable2.getZ() * 0.04F);
@@ -55,18 +55,18 @@ public class StackedBoulders extends Feature<NoFeatureConfig> {
                             }
 
                             BlockState blockState = world.getBlockState(blockpos$Mutable2);
-                            if(this.canBlockPlaceHere(blockState))
+                            if (this.canBlockPlaceHere(blockState))
                                 world.setBlockState(blockpos$Mutable2, Blocks.ANDESITE.getDefaultState(), 3);
                         }
                     }
                 }
             }
 
-            while(blockpos$Mutable.getY() < world.getHeight() && !world.getBlockState(blockpos$Mutable).isAir()){
+            while (blockpos$Mutable.getY() < world.getHeight() && !world.getBlockState(blockpos$Mutable).isAir()) {
                 blockpos$Mutable.move(Direction.UP);
             }
 
-            radius = (int) (radius * (0.5f + ((1 - stackHeight/6f) * 0.5f)) + 1);
+            radius = (int) (radius * (0.5f + ((1 - stackHeight / 6f) * 0.5f)) + 1);
         }
 
         return true;

@@ -15,7 +15,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.HashMap;
 
-public class AncientForest extends Biome implements BiomeTools  {
+public class AncientForest extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("ancient_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;

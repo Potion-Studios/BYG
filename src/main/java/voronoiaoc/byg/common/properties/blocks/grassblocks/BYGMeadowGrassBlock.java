@@ -54,7 +54,7 @@ public class BYGMeadowGrassBlock extends SpreadableSnowyMeadowDirtBlock implemen
                         }
 
                         ConfiguredFeature<?, ?> configuredfeature = list.get(0);
-                        FlowersFeature flowersfeature = (FlowersFeature)configuredfeature.feature;
+                        FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
                         blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.func_242767_c());
                         blockstate1 = ((FlowersFeature) configuredfeature.feature).getFlowerToPlace(rand, blockpos1, configuredfeature.config);
                     } else {

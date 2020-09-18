@@ -14,7 +14,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.HashMap;
 
-public class DeciduousForest extends Biome implements BiomeTools  {
+public class DeciduousForest extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("deciduous_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;

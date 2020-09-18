@@ -1,7 +1,6 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.boreal;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -22,7 +21,6 @@ public class BorealForestTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConf
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         int posX = pos.getX();
         int posY = pos.getY();

@@ -17,6 +17,7 @@ import java.util.Optional;
 public class BYGBiomeRegistry {
 
     public static List<Biome> biomeList = new ArrayList<>();
+
     public static void registerBYGBiomes() {
         BYG.LOGGER.debug("BYG: Registering Biomes...");
         registerBiome(BYGBiomeList.DUMMY_BIOME, "dummy_biome");

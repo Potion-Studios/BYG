@@ -290,7 +290,7 @@ public class CrimsonFungus1 extends BYGAbstractMushroomFeature<BYGMushroomFeatur
         }
         return true;
     }
-    
+
     //Leaves Placement
     private void vines(ISeedReader reader, BlockPos pos) {
         if (isAir(reader, pos)) {
@@ -301,7 +301,7 @@ public class CrimsonFungus1 extends BYGAbstractMushroomFeature<BYGMushroomFeatur
     //Leaves Placement
     private void vinesplant(ISeedReader reader, BlockPos pos) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState( reader, pos, Blocks.WEEPING_VINES_PLANT.getDefaultState());
+            this.setFinalBlockState(reader, pos, Blocks.WEEPING_VINES_PLANT.getDefaultState());
         }
     }
 

@@ -353,7 +353,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_PILLARS_FEATURE = newConfiguredFeature("sythian_fungus_pillars", BYGFeatureList.SYTHIAN_FUNGUS_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
 
 
-
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS = newConfiguredFeature("rs_weeping_roots", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             WEEPING_ROOTS.withChance(0.3F)),
             WEEPING_ROOTS_PLANT)).func_242733_d(128).func_242728_a().func_242731_b(80));

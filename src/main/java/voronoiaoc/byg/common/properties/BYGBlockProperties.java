@@ -12,15 +12,15 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolType;
 import voronoiaoc.byg.client.textures.BYGMaterials;
 import voronoiaoc.byg.common.properties.blocks.*;
+import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
 import voronoiaoc.byg.common.properties.blocks.nether.BYGOvergrownNetherrackBlock;
+import voronoiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBlackstoneBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
-import voronoiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburNyliumBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;
-import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
 import voronoiaoc.byg.common.properties.blocks.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.properties.blocks.nether.scorched.ScorchedPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.sythian.*;
@@ -895,7 +895,7 @@ public class BYGBlockProperties {
     }
 
     public static class BYGThatch extends HayBlock {
-        public BYGThatch (String registryName) {
+        public BYGThatch(String registryName) {
             super(Block.Properties.create(Material.ORGANIC)
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.5f)
@@ -905,7 +905,7 @@ public class BYGBlockProperties {
     }
 
     public static class ThatchCarpet extends CarpetBlock {
-        public ThatchCarpet (String registryName) {
+        public ThatchCarpet(String registryName) {
             super(DyeColor.BROWN, Block.Properties.create(Material.ORGANIC)
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.5f)
@@ -915,7 +915,7 @@ public class BYGBlockProperties {
     }
 
     public static class ThatchStairs extends StairsBlock {
-        public ThatchStairs (String registryName) {
+        public ThatchStairs(String registryName) {
             super(BYGBlockList.REED_THATCH.getDefaultState(), Block.Properties.from(BYGBlockList.REED_THATCH)
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.5f)
@@ -1064,7 +1064,7 @@ public class BYGBlockProperties {
 
     public static class BoricCampfire extends CampfireBlock {
         public BoricCampfire(String registryName) {
-            super(true, 5, AbstractBlock.Properties.create( Material.WOOD, MaterialColor.OBSIDIAN)
+            super(true, 5, AbstractBlock.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN)
                     .hardnessAndResistance(2.0F)
                     .sound(SoundType.WOOD)
                     .tickRandomly()

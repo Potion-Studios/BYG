@@ -14,7 +14,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.HashMap;
 
-public class LushTundra extends Biome implements BiomeTools  {
+public class LushTundra extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("lush_tundra", new ConfiguredSurfaceBuilder<>(BYGSBList.LUSH_TUNDRA_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.ICY;

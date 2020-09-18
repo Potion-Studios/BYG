@@ -43,7 +43,7 @@ public class BYGGiantFlowerFeatureConfig implements IFeatureConfig {
     private boolean forcedPlacement = false;
 
 
-    BYGGiantFlowerFeatureConfig(BlockStateProvider stemProvider,  BlockStateProvider petalProvider, BlockStateProvider petal2Provider, BlockStateProvider petal3Provider, BlockStateProvider pollenProvider, int minHeight, int maxPossibleHeight) {
+    BYGGiantFlowerFeatureConfig(BlockStateProvider stemProvider, BlockStateProvider petalProvider, BlockStateProvider petal2Provider, BlockStateProvider petal3Provider, BlockStateProvider pollenProvider, int minHeight, int maxPossibleHeight) {
         this.stemProvider = stemProvider;
         this.petalProvider = petalProvider;
         this.petal2Provider = petal2Provider;

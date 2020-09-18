@@ -1,6 +1,8 @@
 package voronoiaoc.byg.common.properties.blocks.nether.embur;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.IGrowable;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -26,7 +28,7 @@ public class BlueNetherrackBlock extends Block implements IGrowable {
         if (!worldIn.getBlockState(pos.up()).propagatesSkylightDown(worldIn, pos)) {
             return false;
         } else {
-            for(BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-1, -1, -1), pos.add(1, 1, 1))) {
+            for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-1, -1, -1), pos.add(1, 1, 1))) {
                 if (worldIn.getBlockState(blockpos).isIn(BlockTags.NYLIUM)) {
                     return true;
                 }
@@ -44,7 +46,7 @@ public class BlueNetherrackBlock extends Block implements IGrowable {
         boolean flag = false;
         boolean flag1 = false;
 
-        for(BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-1, -1, -1), pos.add(1, 1, 1))) {
+        for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-1, -1, -1), pos.add(1, 1, 1))) {
             BlockState blockstate = worldIn.getBlockState(blockpos);
             if (blockstate.isIn(BYGBlockList.EMBUR_NYLIUM)) {
                 flag1 = true;

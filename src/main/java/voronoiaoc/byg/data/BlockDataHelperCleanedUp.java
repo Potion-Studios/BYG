@@ -21,9 +21,9 @@ public class BlockDataHelperCleanedUp {
     public static final Logger LOGGER = LogManager.getLogger();
 
     /**
-     * @param langPath    The absolute path of the file along with the file name. I.E: "D:\Coding\src\main\resources\assets\modid\lang\en_us.json"
-     * @param modID       Your mod's ID.
-     * @param idList      A string list with your blocks/items
+     * @param langPath The absolute path of the file along with the file name. I.E: "D:\Coding\src\main\resources\assets\modid\lang\en_us.json"
+     * @param modID    Your mod's ID.
+     * @param idList   A string list with your blocks/items
      */
     public static void createLangFile(String langPath, String modID, List<String> idList, List<String> biomeIDs, List<String> itemIDs) {
 

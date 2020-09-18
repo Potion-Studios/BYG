@@ -13,7 +13,6 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.template.*;
-import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 

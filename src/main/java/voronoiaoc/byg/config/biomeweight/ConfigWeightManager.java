@@ -84,9 +84,9 @@ public class ConfigWeightManager {
     private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 
     public static void buildConfig() {
-        biomeWeights.forEach(o ->{
+        biomeWeights.forEach(o -> {
             o.apply(COMMON_BUILDER);
-        COMMON_CONFIG = COMMON_BUILDER.build();
+            COMMON_CONFIG = COMMON_BUILDER.build();
         });
     }
 

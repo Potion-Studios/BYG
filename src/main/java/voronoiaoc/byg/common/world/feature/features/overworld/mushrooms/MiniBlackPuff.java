@@ -21,7 +21,8 @@ public class MiniBlackPuff extends BYGAbstractMushroomFeature<BYGMushroomFeature
         BlockState MUSHROOM = config.getMushroomProvider().getBlockState(rand, pos);
         BlockState MUSHROOM2 = config.getMushroom2Provider().getBlockState(rand, pos);
         BlockState MUSHROOM3 = config.getMushroom3Provider().getBlockState(rand, pos);
-        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);int randTreeHeight = 1 + rand.nextInt(2);
+        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);
+        int randTreeHeight = 1 + rand.nextInt(2);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
@@ -33,12 +34,12 @@ public class MiniBlackPuff extends BYGAbstractMushroomFeature<BYGMushroomFeature
                 return false;
             } else {
                 placeStem(STEM, worldIn, mainmutable.add(0, 0, 0));
-                placeStemBranch(STEM,worldIn, mainmutable.add(0, 1, -1));
-                placeStemBranch(STEM,worldIn, mainmutable.add(-1, 1, 0));
-                placeStemBranch(STEM,worldIn, mainmutable.add(1, 1, 0));
-                placeStemBranch(STEM,worldIn, mainmutable.add(0, 1, 1));
-                placeStemBranch(STEM,worldIn, mainmutable.add(0, 2, -1));
-                placeStemBranch(STEM,worldIn, mainmutable.add(0, 2, 1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(0, 1, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(-1, 1, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.add(1, 1, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.add(0, 1, 1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(0, 2, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(0, 2, 1));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 1, 0));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 2, 0));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 3, 0));

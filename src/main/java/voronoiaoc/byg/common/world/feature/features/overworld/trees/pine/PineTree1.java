@@ -28,8 +28,7 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     }
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
-        
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
+
         Biome biome = worldIn.getBiome(pos);
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         //Positions

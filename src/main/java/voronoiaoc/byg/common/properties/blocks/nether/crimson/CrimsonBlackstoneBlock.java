@@ -5,7 +5,8 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.NetherVegetationFeature;
 import net.minecraft.world.server.ServerWorld;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 

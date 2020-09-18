@@ -16,7 +16,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.HashMap;
 
-public class WeepingWitchForest extends Biome implements BiomeTools , BiomeFog {
+public class WeepingWitchForest extends Biome implements BiomeTools, BiomeFog {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("weeping_witch_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;

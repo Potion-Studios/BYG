@@ -22,8 +22,7 @@ public class DeadHazel3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     }
 
     protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
-        
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
+
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
 

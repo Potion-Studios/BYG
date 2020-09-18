@@ -22,7 +22,8 @@ public class GreenMushroomHuge extends BYGAbstractMushroomFeature<BYGMushroomFea
         BlockState MUSHROOM = config.getMushroomProvider().getBlockState(rand, pos);
         BlockState MUSHROOM2 = config.getMushroom2Provider().getBlockState(rand, pos);
         BlockState MUSHROOM3 = config.getMushroom3Provider().getBlockState(rand, pos);
-        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);int randTreeHeight = 6 + rand.nextInt(5);
+        BlockState POLLEN = config.getPollenProvider().getBlockState(rand, pos);
+        int randTreeHeight = 6 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
@@ -40,20 +41,20 @@ public class GreenMushroomHuge extends BYGAbstractMushroomFeature<BYGMushroomFea
                 placeStem(STEM, worldIn, mainmutable.add(0, 4, 0));
                 placeStem(STEM, worldIn, mainmutable.add(0, 5, 0));
                 placeStem(STEM, worldIn, mainmutable.add(0, 6, 0));
-                placeStemBranch(STEM,worldIn, mainmutable.add(1, 3, 1));
-                placeStemBranch(STEM,worldIn, mainmutable.add(2, 4, 2));
-                placeStemBranch(STEM,worldIn, mainmutable.add(2, 5, 2));
-                placeStemBranch(STEM,worldIn, mainmutable.add(-1, 6, -1));
-                placeStemBranch(STEM,worldIn, mainmutable.add(2, 6, 2));
-                placeStemBranch(STEM,worldIn, mainmutable.add(-1, 7, -1));
-                placeStemBranch(STEM,worldIn, mainmutable.add(3, 7, 3));
-                placeStemBranch(STEM,worldIn, mainmutable.add(-1, 8, -1));
-                placeStemBranch(STEM,worldIn, mainmutable.add(3, 8, 3));
-                placeStemBranch(STEM,worldIn, mainmutable.add(-1, 9, -1));
-                placeStemBranch(STEM,worldIn, mainmutable.add(3, 9, 3));
-                placeStemBranch(STEM,worldIn, mainmutable.add(-1, 10, -1));
-                placeStemBranch(STEM,worldIn, mainmutable.add(-1, 11, -1));
-                placeStemBranch(STEM,worldIn, mainmutable.add(-1, 12, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(1, 3, 1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(2, 4, 2));
+                placeStemBranch(STEM, worldIn, mainmutable.add(2, 5, 2));
+                placeStemBranch(STEM, worldIn, mainmutable.add(-1, 6, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(2, 6, 2));
+                placeStemBranch(STEM, worldIn, mainmutable.add(-1, 7, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(3, 7, 3));
+                placeStemBranch(STEM, worldIn, mainmutable.add(-1, 8, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(3, 8, 3));
+                placeStemBranch(STEM, worldIn, mainmutable.add(-1, 9, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(3, 9, 3));
+                placeStemBranch(STEM, worldIn, mainmutable.add(-1, 10, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(-1, 11, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.add(-1, 12, -1));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.add(1, 8, 0));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.add(2, 8, 0));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.add(3, 8, 0));

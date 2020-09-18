@@ -11,7 +11,7 @@ import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class ShatteredGlacier extends Biome implements BiomeTools  {
+public class ShatteredGlacier extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("shattered_glacier", new ConfiguredSurfaceBuilder<>(BYGSBList.SHATTEREDGLACIER_SB2, new SurfaceBuilderConfig(Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState())));
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.ICY;
@@ -35,8 +35,6 @@ public class ShatteredGlacier extends Biome implements BiomeTools  {
         return this;
     }
 
-
-    
 
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.IGLOO);

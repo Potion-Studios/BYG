@@ -15,7 +15,7 @@ public class SoulShroomSporeBlock extends AbstractBodyPlantBlock {
     }
 
     protected AbstractTopPlantBlock getTopPlantBlock() {
-        return (AbstractTopPlantBlock)BYGBlockList.SOUL_SHROOM_SPORE_END;
+        return (AbstractTopPlantBlock) BYGBlockList.SOUL_SHROOM_SPORE_END;
     }
 }
 

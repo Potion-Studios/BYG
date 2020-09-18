@@ -37,7 +37,6 @@ public class BYGPumpkinFeatureConfig implements IFeatureConfig {
     }
 
 
-
     public static class Builder {
         private BlockStateProvider pumpkinProvider = new SimpleBlockStateProvider(Blocks.PUMPKIN.getDefaultState());
         private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());

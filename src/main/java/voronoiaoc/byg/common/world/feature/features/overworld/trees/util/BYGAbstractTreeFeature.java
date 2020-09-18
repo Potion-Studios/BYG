@@ -3,7 +3,6 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.util;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -32,14 +31,14 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> extends Feature<T>   {
+public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> extends Feature<T> {
 
     public BYGAbstractTreeFeature(Codec<T> configCodec) {
         super(configCodec);
     }
 
     public static boolean canLogPlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean canLogPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {

@@ -25,7 +25,9 @@ import java.util.function.LongFunction;
 public abstract class MixinVanillaBiomeLayers {
 
     @Mutable
-    @Shadow @Final private Layer genBiomes;
+    @Shadow
+    @Final
+    private Layer genBiomes;
 
     @Inject(at = @At("RETURN"), method = "<init>(JZZLnet/minecraft/util/registry/Registry;)V", cancellable = true)
     private void replaceVanillaHillLayer(long seed, boolean oldBiomes, boolean largeBiomes, Registry<Biome> keys, CallbackInfo ci) {

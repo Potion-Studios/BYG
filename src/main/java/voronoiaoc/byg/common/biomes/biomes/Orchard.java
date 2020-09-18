@@ -18,7 +18,7 @@ import voronoiaoc.byg.core.byglists.BYGBiomeList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class Orchard extends Biome implements BiomeTools  {
+public class Orchard extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("orchard", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.PLAINS;

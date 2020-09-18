@@ -1,7 +1,6 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees.joshua;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -20,8 +19,7 @@ public class JoshuaTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
-        
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
+
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         //Positions
         int posX = pos.getX();

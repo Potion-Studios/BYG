@@ -11,7 +11,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
@@ -29,11 +28,11 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomFeatureCon
     }
 
     public static boolean canStemPlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant( worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean canStemPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant( worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean isAnotherMushroomHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
@@ -290,13 +289,13 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomFeatureCon
      * Checks the area surrounding the pos for a tree matching its wood/leaves block.
      * Called only during world gen
      *
-     * @param reader     Gives us access to world
-     * @param pos        The given pos of either the feature during world gen or the sapling.
-     * @param treeHeight The height of the given tree.
-     * @param distance   Checks the surrounding pos
-     * @param stemBlock   The log block we're checking for.
-     * @param mushroomBlock  The leaf block we're checking for.
-     * @param isMushroom  Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
+     * @param reader        Gives us access to world
+     * @param pos           The given pos of either the feature during world gen or the sapling.
+     * @param treeHeight    The height of the given tree.
+     * @param distance      Checks the surrounding pos
+     * @param stemBlock     The log block we're checking for.
+     * @param mushroomBlock The leaf block we're checking for.
+     * @param isMushroom    Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
      * @return Determines whether or not the tree we're searching for is within the given distance.
      */
 

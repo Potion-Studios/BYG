@@ -15,7 +15,7 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.HashMap;
 
-public class SnowyConiferousForest extends Biome implements BiomeTools  {
+public class SnowyConiferousForest extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("snowy_coniferous_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF));
     static final RainType PRECIPATATION = RainType.SNOW;
     static final Category CATEGORY = Category.TAIGA;

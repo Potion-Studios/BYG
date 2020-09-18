@@ -5,7 +5,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import voronoiaoc.byg.common.world.feature.config.BYGPumpkinFeatureConfig;
@@ -94,7 +93,7 @@ public class LargePumpkin2 extends Feature<BYGPumpkinFeatureConfig> {
     }
 
     private void setPumpkinState(BlockPos pos, BlockState pumpkinState, ISeedReader world) {
-        if (world.isAirBlock(pos) || FeatureUtil.isPlant( world, pos)) {
+        if (world.isAirBlock(pos) || FeatureUtil.isPlant(world, pos)) {
             world.setBlockState(pos, pumpkinState, 2);
         }
     }

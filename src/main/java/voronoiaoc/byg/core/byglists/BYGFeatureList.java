@@ -427,7 +427,7 @@ public class BYGFeatureList {
 
     //Spruce
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE_LARGE1 = new SpruceTreeLarge1(BYGTreeFeatureConfig.CODEC);
-    
+
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE_MEDIUM1 = new SpruceTreeMedium1(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE_MEDIUM2 = new SpruceTreeMedium2(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE_MEDIUM3 = new SpruceTreeMedium3(BYGTreeFeatureConfig.CODEC);

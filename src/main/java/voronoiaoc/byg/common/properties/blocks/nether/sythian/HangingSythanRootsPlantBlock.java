@@ -20,7 +20,7 @@ public class HangingSythanRootsPlantBlock extends AbstractBodyPlantBlock {
     }
 
     protected AbstractTopPlantBlock getTopPlantBlock() {
-        return (AbstractTopPlantBlock)BYGBlockList.HANGING_SYTHIAN_ROOTS;
+        return (AbstractTopPlantBlock) BYGBlockList.HANGING_SYTHIAN_ROOTS;
     }
 
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {

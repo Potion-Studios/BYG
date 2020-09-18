@@ -28,7 +28,6 @@ public class PrairieShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
         int randTreeHeight = rand.nextInt(1) + 2;
         //Positions
         int posX = pos.getX();

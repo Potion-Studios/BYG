@@ -21,7 +21,7 @@ import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class GuianaShield extends Biome implements BiomeTools  {
+public class GuianaShield extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("guiana_shield", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState())));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.JUNGLE;

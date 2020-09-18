@@ -27,7 +27,6 @@ public class BayouTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
     protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);
         int randChance = rand.nextInt(2);
         int randTreeHeight = rand.nextInt(6) + 8;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());

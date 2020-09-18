@@ -34,7 +34,7 @@ public class EmburPlantBlock extends BushBlock implements IGrowable {
     }
 
     public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-        DoublePlantBlock doubleplantblock = (DoublePlantBlock)(this == BYGBlockList.EMBUR_ROOTS ? BYGBlockList.TALL_EMBUR_ROOTS : BYGBlockList.TALL_EMBUR_ROOTS);
+        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlockList.EMBUR_ROOTS ? BYGBlockList.TALL_EMBUR_ROOTS : BYGBlockList.TALL_EMBUR_ROOTS);
         if (doubleplantblock.getDefaultState().isValidPosition(worldIn, pos) && worldIn.isAirBlock(pos.up())) {
             doubleplantblock.placeAt(worldIn, pos, 2);
         }

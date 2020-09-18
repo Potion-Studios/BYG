@@ -13,7 +13,7 @@ import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class DeadSea extends Biome implements BiomeTools , BiomeFog {
+public class DeadSea extends Biome implements BiomeTools, BiomeFog {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("dead_sea", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSBList.BYGSBConfigList.BLACKSAND));
     static final RainType PRECIPATATION = RainType.NONE;
     static final Category CATEGORY = Category.OCEAN;
