@@ -40,7 +40,7 @@ public class MixinHillsLayer {
             }
             cir.setReturnValue(l);
         }
-        if (rand.random(3) == 0 || k == 0) {
+        if (rand.random(8) == 0 || k == 0) {
             int l = i;
             Biome biome = WorldGenRegistries.BIOME.getByValue(i);
             if (oceanBiomeList.contains(biome))

@@ -9,10 +9,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
-import voronoiaoc.byg.common.world.feature.config.BYGGiantFlowerFeatureConfig;
-import voronoiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
-import voronoiaoc.byg.common.world.feature.config.BYGPumpkinFeatureConfig;
-import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import voronoiaoc.byg.common.world.feature.config.*;
 import voronoiaoc.byg.common.world.feature.features.RiverThingy;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.LargeChain;
@@ -139,7 +136,7 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> HUH = new RiverThingy(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> VOLCANO = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_, 2375866);
     public static final Feature<NoFeatureConfig> VOLCANO2 = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_, 929445895);
-    public static final Feature<NoFeatureConfig> STACKED_BOULDERS = new StackedBoulders(NoFeatureConfig.field_236558_a_);
+    public static final Feature<BYGBoulderFeatureConfig> STACKED_BOULDERS = new StackableBoulders(BYGBoulderFeatureConfig.CODEC);
 
     /********************************************************************Features*************************************************************************/
     //DeadSea

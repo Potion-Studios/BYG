@@ -9,14 +9,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import voronoiaoc.byg.common.world.feature.config.BYGBoulderFeatureConfig;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
 
 import java.util.Random;
 
-public class StackedBoulders extends Feature<NoFeatureConfig> {
+public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
 
-    public StackedBoulders(Codec<NoFeatureConfig> configCodec) {
+    public StackableBoulders(Codec<BYGBoulderFeatureConfig> configCodec) {
         super(configCodec);
     }
 
@@ -24,13 +24,13 @@ public class StackedBoulders extends Feature<NoFeatureConfig> {
     protected static FastNoise noiseGen;
 
     @Override
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, BYGBoulderFeatureConfig config) {
         setSeed(world.getSeed());
 
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position.down(6));
+        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position.down(2 + random.nextInt(10)));
         BlockPos.Mutable blockpos$Mutable2 = new BlockPos.Mutable().setPos(blockpos$Mutable);
-        int stackHeight = random.nextInt(5) + 2;
-        int radius = random.nextInt(5) + 3 + stackHeight;
+        int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
+        int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinHeight();
 
         for (int rockNum = 0; rockNum < stackHeight; rockNum++) {
             blockpos$Mutable.move(

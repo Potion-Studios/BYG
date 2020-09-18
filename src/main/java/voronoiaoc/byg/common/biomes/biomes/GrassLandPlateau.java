@@ -46,8 +46,6 @@ public class GrassLandPlateau extends Biome implements BiomeTools {
 
 
     static {
-        //        //this.add//StructureFeature(BYGFeatureList.BYGVILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("byg:village/grassland/town_centers"), 6)));
-        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
         BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
@@ -63,7 +61,7 @@ public class GrassLandPlateau extends Biome implements BiomeTools {
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGFeatures.addAnemones(GENERATION_SETTINGS);
         BYGFeatures.addSages(GENERATION_SETTINGS);
-//        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("byg:village/grassland/town_centers"), 6));
+        BYGFeatures.addStackedBoulders(GENERATION_SETTINGS);
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));
