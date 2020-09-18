@@ -27,6 +27,15 @@ public class MixinHillsLayer {
             cancellable = true,
             locals = LocalCapture.CAPTURE_FAILHARD)
     private void injectApply(INoiseRandom rand, IArea area1, IArea area2, int x, int z, CallbackInfoReturnable<Integer> cir, int i, int j, int k) {
+
+        if (rand.random(9) == 0 || k == 0) {
+            int l = i;
+            Biome biome = WorldGenRegistries.BIOME.getByValue(i);
+            if (oceanBiomeList.contains(biome))
+                l = WorldGenRegistries.BIOME.getId(BYGBiomeList.TROPICALISLAND);
+            cir.setReturnValue(l);
+        }
+
         if (rand.random(3) == 0 || k == 0) {
             int l = i;
             Biome biome = WorldGenRegistries.BIOME.getByValue(i);
@@ -35,16 +44,7 @@ public class MixinHillsLayer {
                     Biome hill = ((BiomeTools) biome).getHill(rand);
                     if (hill != null) l = WorldGenRegistries.BIOME.getId(hill);
                 }
-                if (oceanBiomeList.contains(biome))
-                    l = WorldGenRegistries.BIOME.getId(BYGBiomeList.TROPICALISLAND);
-            }
-            cir.setReturnValue(l);
         }
-        if (rand.random(8) == 0 || k == 0) {
-            int l = i;
-            Biome biome = WorldGenRegistries.BIOME.getByValue(i);
-            if (oceanBiomeList.contains(biome))
-                l = WorldGenRegistries.BIOME.getId(BYGBiomeList.TROPICALISLAND);
             cir.setReturnValue(l);
         }
     }

@@ -9,6 +9,7 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
+import voronoiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -25,6 +26,10 @@ public class BYGFeaturesInVanilla {
 
                 if (biome == WorldGenRegistries.BIOME.getValueForKey(Biomes.SOUL_SAND_VALLEY)) {
                     addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
+                }
+
+                if (biome == WorldGenRegistries.BIOME.getValueForKey(Biomes.BEACH)) {
+                    addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_PALM_TREE);
                 }
             }
         }

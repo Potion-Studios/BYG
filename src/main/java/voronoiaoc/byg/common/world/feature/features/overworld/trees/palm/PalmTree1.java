@@ -70,6 +70,52 @@ public class PalmTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                         for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
                             for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
 
+                                int posX2 = posX1 + 1;
+                                int posZ2 = posZ1 - 3;
+
+                                //Bottom Leaves
+//                        this.placeLeaves(worldIn, posX1 + posXLeafWidth, topTrunkHeight + 1, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
+//                        this.placeLeaves(worldIn, posX1 + posXLeafWidth - 2, topTrunkHeight + 1, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
+//                        this.placeLeaves(worldIn, posX1 + posXLeafWidth - 1, topTrunkHeight + 1, posZ1 + posZLeafWidthL0 + 1, boundsIn, changedBlocks);
+//                        this.placeLeaves(worldIn, posX1 + posXLeafWidth - 1, topTrunkHeight + 1, posZ1 + posZLeafWidthL0 - 1, boundsIn, changedBlocks);
+
+                                //3x3
+                                if (posXLeafWidth <= 1 && posZLeafWidthL0 <= 1 && posZLeafWidthL0 >= -1 && posXLeafWidth >= -1) {
+
+                                    this.placeLeaves(config, rand, worldIn, posX1 + posXLeafWidth, topTrunkHeight + 6, posZ2 + posZLeafWidthL0, boundsIn, changedBlocks);
+                                }
+
+                                //2x3
+                                if (posXLeafWidth <= 0 && posZLeafWidthL0 <= 1 && posZLeafWidthL0 >= -1 && posXLeafWidth >= -1) {
+                                }
+
+                                //Bottom Leaves
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 7, posZ2, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 7, posZ2 + 1, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 7, posZ2 - 1, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight + 7, posZ2, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight + 7, posZ2, boundsIn, changedBlocks);
+
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 6, posZ2 + 2, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 6, posZ2 - 2, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight + 6, posZ2, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight + 6, posZ2, boundsIn, changedBlocks);
+
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 6, posZ2 + 3, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 6, posZ2 - 3, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight + 6, posZ2, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1 + 3, topTrunkHeight + 6, posZ2, boundsIn, changedBlocks);
+
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 5, posZ2 + 3, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 5, posZ2 - 3, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight + 5, posZ2, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1 + 3, topTrunkHeight + 5, posZ2, boundsIn, changedBlocks);
+
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 5, posZ2 + 4, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 5, posZ2 - 4, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1 - 4, topTrunkHeight + 5, posZ2, boundsIn, changedBlocks);
+                                this.placeLeaves(config, rand, worldIn, posX1 + 4, topTrunkHeight + 5, posZ2, boundsIn, changedBlocks);
+
 
                             }
                         }
