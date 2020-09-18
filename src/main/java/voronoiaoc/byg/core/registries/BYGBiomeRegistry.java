@@ -167,6 +167,8 @@ public class BYGBiomeRegistry {
         registerBYGSubBiome(BYGBiomeList.ZELKOVAFORESTHILLS, "zelkova_forest_hills");
         registerBYGSubBiome(BYGBiomeList.FLOWERINGMEADOW, "flowering_meadow");
         registerBYGSubBiome(BYGBiomeList.WOODEDMEADOW, "wooded_meadow");
+        registerBYGSubBiome(BYGBiomeList.TROPICAL_ISLAND_CLEARING, "tropical_island_clearing");
+        registerBYGSubBiome(BYGBiomeList.TROPICAL_ISLAND_MOUNTAINS, "tropical_island_mountains");
 
 
         //NonDefault Biomes.

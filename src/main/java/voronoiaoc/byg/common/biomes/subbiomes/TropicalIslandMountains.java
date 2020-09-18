@@ -1,10 +1,9 @@
-package voronoiaoc.byg.common.biomes.biomes;
+package voronoiaoc.byg.common.biomes.subbiomes;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -13,15 +12,13 @@ import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import voronoiaoc.byg.core.byglists.BYGBiomeList;
+import voronoiaoc.byg.core.byglists.BYGBlockList;
 
-import java.util.HashMap;
-
-public class TropicalIslands extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("tropical_islands", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+public class TropicalIslandMountains extends Biome implements BiomeTools {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("tropical_island_mountains", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState())));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.OCEAN;
-    static final float DEPTH = 0.05F;
+    static final float DEPTH = 4.5F;
     static final float SCALE = 0.35F;
     static final float TEMPERATURE = 0.95F;
     static final float DOWNFALL = 0.9F;
@@ -32,7 +29,7 @@ public class TropicalIslands extends Biome implements BiomeTools {
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
-    public TropicalIslands() {
+    public TropicalIslandMountains() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
@@ -42,33 +39,8 @@ public class TropicalIslands extends Biome implements BiomeTools {
     }
 
     @Override
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.TROPICAL_ISLAND_MOUNTAINS, 1);
-        map.put(BYGBiomeList.TROPICAL_ISLAND_CLEARING, 1);
-        return map;
-    }
-
-    @Override
     public Biome getRiver() {
         return this;
-    }
-
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return randomSubBiome(rand);
-    }
-
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
-        if (randomPicker == 0)
-            return BYGBiomeList.TROPICAL_ISLAND_MOUNTAINS;
-        else if (randomPicker == 1)
-            return BYGBiomeList.TROPICAL_ISLAND_MOUNTAINS;
-        else if (randomPicker == 2)
-            return BYGBiomeList.TROPICAL_ISLAND_CLEARING;
-        else
-            return BYGBiomeList.TROPICAL_ISLAND_CLEARING;
     }
 
     static {

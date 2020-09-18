@@ -295,7 +295,7 @@ public class BYGTreeFeatures {
     }
 
     public static void addPalmTree(BiomeGenerationSettings.Builder biome) {
-        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.PALM_TREE1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.4F, 1))));
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_PALM_TREE);
     }
 
     public static void addCherryTrees(BiomeGenerationSettings.Builder biome) {

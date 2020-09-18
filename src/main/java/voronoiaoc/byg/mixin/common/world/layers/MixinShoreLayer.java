@@ -56,7 +56,7 @@ public abstract class MixinShoreLayer {
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.ROCKYBEACH));
 
-            if (biome == BYGBiomeList.TROPICALISLAND)
+            if (biome == BYGBiomeList.TROPICALISLAND || biome == BYGBiomeList.TROPICAL_ISLAND_MOUNTAINS || biome == BYGBiomeList.TROPICAL_ISLAND_CLEARING)
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.RAINBOWBEACH));
 

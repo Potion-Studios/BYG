@@ -74,7 +74,6 @@ public class CragGardens extends Biome implements BiomeTools, BiomeFog {
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGTreeFeatures.addRainForestTrees(GENERATION_SETTINGS);
         BYGTreeFeatures.addCragRainbowTrees(GENERATION_SETTINGS);
         BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMelonPatchesAndVines(GENERATION_SETTINGS);

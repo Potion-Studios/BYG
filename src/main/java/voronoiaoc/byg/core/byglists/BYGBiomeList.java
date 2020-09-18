@@ -146,6 +146,8 @@ public class BYGBiomeList {
     public static final Biome JACARANDA_CLEARING = new JacarandaClearing();
     public static final Biome SNOWY_CONIFEROUS_CLEARING = new SnowyConiferousClearing();
     public static final Biome SNOWY_DECIDUOUS_CLEARING = new SnowyDeciduousClearing();
+    public static final Biome TROPICAL_ISLAND_CLEARING = new TropicalIslandClearing();
+    public static final Biome TROPICAL_ISLAND_MOUNTAINS = new TropicalIslandMountains();
 
     public static final Biome WOODEDMEADOW = new WoodedMeadow();
     public static final Biome FLOWERINGMEADOW = new FloweringMeadow();
