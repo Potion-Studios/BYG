@@ -54,7 +54,6 @@ public class EmburBog extends Biome {
     }
 
     static {
-        //TODO: Reenable Embur Bog lake.
         GENERATION_SETTINGS.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.EMBUR_LAKE);
         GENERATION_SETTINGS.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         GENERATION_SETTINGS.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, Features.SPRING_CLOSED);
