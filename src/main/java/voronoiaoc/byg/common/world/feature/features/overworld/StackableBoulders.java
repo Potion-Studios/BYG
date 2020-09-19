@@ -2,13 +2,13 @@ package voronoiaoc.byg.common.world.feature.features.overworld;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.config.BYGBoulderFeatureConfig;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
 
@@ -21,22 +21,33 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
     }
 
     protected long seed;
-    protected static FastNoise noiseGen;
+    protected static FastNoise fastNoise;
+
+    public static int stopSpamInt = 0;
 
     @Override
     public boolean func_241855_a(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, BYGBoulderFeatureConfig config) {
         setSeed(world.getSeed());
 
-        BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position.down(2 + random.nextInt(10)));
-        BlockPos.Mutable blockpos$Mutable2 = new BlockPos.Mutable().setPos(blockpos$Mutable);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position.down(2 + random.nextInt(10)));
+        BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
-        int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinHeight();
+        int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
 
-        for (int rockNum = 0; rockNum < stackHeight; rockNum++) {
-            blockpos$Mutable.move(
-                    random.nextInt(3) - 1,
-                    (int) (random.nextInt(radius) * 0.2f + radius * 0.8f) - 1,
-                    random.nextInt(3) - 1);
+
+        for (int boulderIDX = 0; boulderIDX <= stackHeight; boulderIDX++) {
+            //Randomize the movement.
+            int moveOnX = random.nextInt(4);
+
+            if (random.nextInt(2) == 0)
+                moveOnX = -moveOnX;
+
+            int moveOnZ = random.nextInt(4);
+
+            if (random.nextInt(2) == 1)
+                moveOnZ = -moveOnZ;
+
+            mutable.move(moveOnX,(int) (random.nextInt(Math.abs(radius) + 1) * 0.2f + radius * 0.8f) - 2, moveOnZ);
 
             for (int x = -radius; x <= radius; x++) {
                 for (int y = -radius; y <= radius; y++) {
@@ -45,38 +56,48 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
                         int squaredDistance = x * x + y * y + z * z;
                         if (squaredDistance <= radius * radius) {
 
-                            blockpos$Mutable2.setPos(blockpos$Mutable).move(x, y, z);
+                            mutable2.setPos(mutable).move(x, y, z);
 
                             // Rough the surface of the boulders a bit
-                            double noiseValue = noiseGen.GetNoise(blockpos$Mutable2.getX() * 0.04F, blockpos$Mutable2.getY() * 0.01F, blockpos$Mutable2.getZ() * 0.04F);
-                            if (squaredDistance > radius * radius * 0.8f &&
-                                    noiseValue > -0.3D && noiseValue < 0.3D) {
-                                continue;
-                            }
+                            double boulderRoughnessNoise = fastNoise.GetNoise(mutable2.getX() * 0.04F, mutable2.getY() * 0.01F, mutable2.getZ() * 0.04F);
 
-                            BlockState blockState = world.getBlockState(blockpos$Mutable2);
+                            if (squaredDistance > radius * radius * 0.8f && boulderRoughnessNoise > -0.3D && boulderRoughnessNoise < 0.3D)
+                                continue;
+
+
+                            BlockState blockState = world.getBlockState(mutable2);
                             if (this.canBlockPlaceHere(blockState))
-                                world.setBlockState(blockpos$Mutable2, Blocks.ANDESITE.getDefaultState(), 3);
+                                world.setBlockState(mutable2, config.getBlockProvider().getBlockState(random, mutable2), 3);
                         }
                     }
                 }
             }
 
-            while (blockpos$Mutable.getY() < world.getHeight() && !world.getBlockState(blockpos$Mutable).isAir()) {
-                blockpos$Mutable.move(Direction.UP);
+            while (mutable.getY() < world.getHeight() && !world.getBlockState(mutable).isAir()) {
+                mutable.move(Direction.UP);
             }
 
-            radius = (int) (radius * (0.5f + ((1 - stackHeight / 6f) * 0.5f)) + 1);
-        }
+            if (random.nextInt(9) == 0)
+                radius = (int) (radius * 1.75);
+            else
+                radius = (int) (radius / 1.2);
 
+            if (3 > radius) {
+                if (stopSpamInt == 0) {
+                    BYG.LOGGER.debug("BYG: Boulder Radius is too small to continue stacking! Stack stopping at stack height: " + boulderIDX + "\nPlease lower the stack height or increase the boulder radius.");
+                    stopSpamInt++;
+                }
+                break;
+            }
+        }
         return true;
     }
 
 
     public void setSeed(long seed) {
-        if (this.seed != seed || noiseGen == null) {
-            noiseGen = new FastNoise((int) seed);
-            noiseGen.SetNoiseType(FastNoise.NoiseType.Simplex);
+        if (this.seed != seed || fastNoise == null) {
+            fastNoise = new FastNoise((int) seed);
+            fastNoise.SetNoiseType(FastNoise.NoiseType.Simplex);
             this.seed = seed;
         }
     }
