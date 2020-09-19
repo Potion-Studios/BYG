@@ -9,12 +9,13 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.server.ServerWorld;
 import voronoiaoc.byg.common.properties.blocks.nether.sythian.SpreadableSythianBlock;
+import voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks.SpreadableIvisBlock;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.List;
 import java.util.Random;
 
-public class BYGIvisPhyliumBlock extends SpreadableSythianBlock implements IGrowable {
+public class BYGIvisPhyliumBlock extends SpreadableIvisBlock implements IGrowable {
     public BYGIvisPhyliumBlock(Properties properties) {
         super(properties);
     }
