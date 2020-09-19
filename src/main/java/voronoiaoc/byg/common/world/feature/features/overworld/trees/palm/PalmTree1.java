@@ -59,9 +59,15 @@ public class PalmTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().west(), boundsIn);
+                    this.placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
+                    this.placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north(), boundsIn);
+                    this.placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().up(), boundsIn);
 
+                    this.placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north(2).up(2), boundsIn);
+                    this.placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north(2).up(3), boundsIn);
+
+                    this.placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north(3).up(4), boundsIn);
+                    this.placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north(3).up(5), boundsIn);
                 }
                 int leavePreset = rand.nextInt(1) + 1;
                 {

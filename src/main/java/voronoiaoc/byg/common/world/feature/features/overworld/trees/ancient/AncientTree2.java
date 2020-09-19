@@ -184,8 +184,6 @@ public class AncientTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 16, 6), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 16, 6), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 16, 7), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(-3, 8, -3), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(-5, 8, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-6, 9, -4), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-5, 9, -4), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-4, 9, -4), boundsIn);
@@ -224,8 +222,6 @@ public class AncientTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-3, 10, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-6, 10, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-5, 10, 0), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(-2, 12, 1), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(-1, 12, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-3, 13, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 13, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 13, 3), boundsIn);
@@ -237,10 +233,7 @@ public class AncientTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 13, 7), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 13, 8), boundsIn);
                 this.leafs2(changedBlocks, worldIn, mainmutable.add(-1, 13, 2), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(-5, 13, 4), boundsIn);
                 this.leafs2(changedBlocks, worldIn, mainmutable.add(-1, 13, 4), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(2, 13, 4), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(0, 13, 5), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 14, -3), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 14, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 14, -2), boundsIn);

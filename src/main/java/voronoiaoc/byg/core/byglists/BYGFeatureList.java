@@ -102,9 +102,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_euca
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree3;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.SkyrisTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.skyris.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.giant.SpruceTreeLarge1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.SpruceTreeMedium1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.spruce.medium.SpruceTreeMedium2;
@@ -418,9 +416,11 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB1 = new Shrub1(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SHRUB2 = new Shrub2(BYGTreeFeatureConfig.CODEC);
     //Skyris
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE1 = new SkyrisTree(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE1 = new SkyrisTree1(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE2 = new SkyrisTree2(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE3 = new SkyrisTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE4 = new SkyrisTree4(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SKYRIS_TREE5 = new SkyrisTree5(BYGTreeFeatureConfig.CODEC);
 
     //Spruce
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> SPRUCE_TREE_LARGE1 = new SpruceTreeLarge1(BYGTreeFeatureConfig.CODEC);
@@ -631,6 +631,8 @@ public class BYGFeatureList {
             registerFeature(SKYRIS_TREE1, "skyris_tree1");
             registerFeature(SKYRIS_TREE2, "skyris_tree2");
             registerFeature(SKYRIS_TREE3, "skyris_tree3");
+            registerFeature(SKYRIS_TREE4, "skyris_tree4");
+            registerFeature(SKYRIS_TREE5, "skyris_tree5");
             registerFeature(SPRUCE_TREE1, "spruce_tree1");
             registerFeature(SPRUCE_TREE2, "spruce_tree2");
             registerFeature(SPRUCE_TREE3, "spruce_tree3");

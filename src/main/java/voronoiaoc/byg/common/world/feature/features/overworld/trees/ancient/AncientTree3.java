@@ -173,17 +173,7 @@ public class AncientTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 14, 4), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(2, 14, 4), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 14, 5), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(0, 12, -6), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(-4, 12, -3), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(4, 12, -3), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(1, 12, -1), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(6, 12, 2), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(-2, 12, 4), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(3, 12, 5), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(-4, 13, 0), boundsIn);
                 this.leafs2(changedBlocks, worldIn, mainmutable.add(-2, 13, 2), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(0, 13, 4), boundsIn);
-                this.roots(changedBlocks, worldIn, mainmutable.add(1, 13, 4), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 14, -7), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 14, -7), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(0, 14, -7), boundsIn);
