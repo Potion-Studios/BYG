@@ -32,17 +32,17 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position.down(2 + random.nextInt(10)));
         BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
-        int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinHeight();
+        int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
 
 
         for (int boulderIDX = 0; boulderIDX <= stackHeight; boulderIDX++) {
             //Randomize the movement.
-            int moveOnX = random.nextInt(3);
+            int moveOnX = random.nextInt(4);
 
             if (random.nextInt(2) == 0)
                 moveOnX = -moveOnX;
 
-            int moveOnZ = random.nextInt(3);
+            int moveOnZ = random.nextInt(4);
 
             if (random.nextInt(2) == 1)
                 moveOnZ = -moveOnZ;
@@ -76,11 +76,15 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
             while (mutable.getY() < world.getHeight() && !world.getBlockState(mutable).isAir()) {
                 mutable.move(Direction.UP);
             }
-            radius = (int) (radius / 1.2);
+
+            if (random.nextInt(9) == 0)
+                radius = (int) (radius * 1.75);
+            else
+                radius = (int) (radius / 1.2);
 
             if (3 > radius) {
                 if (stopSpamInt == 0) {
-                    BYG.LOGGER.warn("BYG: Boulder Radius is too small to continue stacking! Stack stopping at stack height: " + boulderIDX + "\nPlease lower the stack height or increase the boulder radius.");
+                    BYG.LOGGER.debug("BYG: Boulder Radius is too small to continue stacking! Stack stopping at stack height: " + boulderIDX + "\nPlease lower the stack height or increase the boulder radius.");
                     stopSpamInt++;
                 }
                 break;
