@@ -56,7 +56,7 @@ public class BYGFeatureConfigs {
     public static final BlockClusterFeatureConfig BLACK_PUFF_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.BLACK_PUFF.getDefaultState()), SimpleBlockPlacer.PLACER)).tries(64).func_227317_b_().build();
     public static final BlockClusterFeatureConfig WEEPING_MILKCAP_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.WEEPING_MILKCAP.getDefaultState()), SimpleBlockPlacer.PLACER)).tries(64).func_227317_b_().build();
     public static final BlockClusterFeatureConfig WOOD_BLEWIT_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.WOOD_BLEWIT.getDefaultState()), SimpleBlockPlacer.PLACER)).tries(64).func_227317_b_().build();
-    public static final BlockClusterFeatureConfig GREEN_MUSHROOM_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.GREEN_MUSHSHROOM.getDefaultState()), SimpleBlockPlacer.PLACER)).tries(64).func_227317_b_().build();
+    public static final BlockClusterFeatureConfig GREEN_MUSHROOM_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.GREEN_MUSHROOM.getDefaultState()), SimpleBlockPlacer.PLACER)).tries(64).func_227317_b_().build();
     public static final BlockClusterFeatureConfig BEGONIA_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.BEGONIA.getDefaultState()), new SimpleBlockPlacer())).tries(10).build();
     public static final BlockClusterFeatureConfig BISTORT_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.BISTORT.getDefaultState()), new SimpleBlockPlacer())).tries(10).build();
     public static final BlockClusterFeatureConfig GUZMANIA_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.GUZMANIA.getDefaultState()), new SimpleBlockPlacer())).tries(10).build();
@@ -180,10 +180,14 @@ public class BYGFeatureConfigs {
     public static final BlockClusterFeatureConfig OSIRIA_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.ORSIRIA_ROSE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, GRASS_BLOCK)).func_227317_b_().build();
     public static final BlockClusterFeatureConfig FAIRYSLIPPER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.FAIRY_SLIPPER.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.OVERGROWN_STONE, GRASS_BLOCK)).func_227317_b_().build();
 
-    public static final BlockStateProvidingFeatureConfig EMBUR_ROOTS = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlockList.EMBUR_ROOTS.getDefaultState(), 87).addWeightedBlockstate(BYGBlockList.EMBUR_SPROUTS.getDefaultState(), 11).addWeightedBlockstate(BYGBlockList.EMBUR_WART.getDefaultState(), 11));
-
-
     public static final BlockClusterFeatureConfig IVIS_ROOTS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.IVIS_ROOTS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
     public static final BlockClusterFeatureConfig IVIS_SPROUT = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.IVIS_SPROUT.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
 
+
+    public static class SpreadableBlockConfigs {
+        public static final BlockStateProvidingFeatureConfig EMBUR_ROOTS = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlockList.EMBUR_ROOTS.getDefaultState(), 87).addWeightedBlockstate(BYGBlockList.EMBUR_SPROUTS.getDefaultState(), 11).addWeightedBlockstate(BYGBlockList.EMBUR_WART.getDefaultState(), 11));
+        public static final BlockStateProvidingFeatureConfig SYTHIAN_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlockList.WOOD_BLEWIT.getDefaultState(), 50).addWeightedBlockstate(BYGBlockList.GREEN_MUSHROOM.getDefaultState(), 50).addWeightedBlockstate(BYGBlockList.EMBUR_WART.getDefaultState(), 11));
+
+        public static void init() {}
+    }
 }

@@ -134,7 +134,7 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> HUH = new RiverThingy(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> VOLCANO = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_, 2375866);
     public static final Feature<NoFeatureConfig> VOLCANO2 = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_, 929445895);
-    public static final Feature<BYGBoulderFeatureConfig> STACKED_BOULDERS = new StackableBoulders(BYGBoulderFeatureConfig.CODEC);
+    public static final Feature<BYGBoulderFeatureConfig> STACKABLE_BOULDERS = new StackableBoulders(BYGBoulderFeatureConfig.CODEC);
 
     /********************************************************************Features*************************************************************************/
     //DeadSea
@@ -467,7 +467,7 @@ public class BYGFeatureList {
     public static class RegisterFeatures {
         public static void registerBYGFeatures() {
             registerFeature(DEADSEASPIKES, "dead_sea_spike");
-            registerFeature(STACKED_BOULDERS, "stacked_boulder");
+            registerFeature(STACKABLE_BOULDERS, "stacked_boulder");
             registerFeature(TALLDEADSEASPIKES, "dead_sea_spike_tall");
             registerFeature(OBBYSPIKES, "obsidian_spike");
             registerFeature(CACTUS, "canyon_cactus");

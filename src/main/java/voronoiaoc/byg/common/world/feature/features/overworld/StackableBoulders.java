@@ -8,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraftforge.common.Tags;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.config.BYGBoulderFeatureConfig;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
@@ -35,7 +36,7 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
         int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
 
 
-        for (int boulderIDX = 0; boulderIDX <= stackHeight; boulderIDX++) {
+        for (int boulderIDX = 0; boulderIDX < stackHeight; boulderIDX++) {
             //Randomize the movement.
             int moveOnX = random.nextInt(4);
 
@@ -102,10 +103,10 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
         }
     }
 
-    private boolean canBlockPlaceHere(BlockState blockState) {
-        return blockState.isAir() || blockState.getMaterial() == Material.EARTH || blockState.getMaterial() == Material.PLANTS ||
-                blockState.getMaterial() == Material.TALL_PLANTS || blockState.getMaterial() == Material.LEAVES ||
-                blockState.getMaterial() == Material.SAND || blockState.getMaterial() == Material.BAMBOO || blockState.getMaterial() == Material.CACTUS
-                || blockState.getMaterial() == Material.WATER || blockState.getMaterial() == Material.LAVA;
+    private boolean canBlockPlaceHere(BlockState state) {
+        return state.isAir() || state.getMaterial() == Material.EARTH || state.getMaterial() == Material.PLANTS ||
+                state.getMaterial() == Material.TALL_PLANTS || state.getMaterial() == Material.LEAVES ||
+                state.getMaterial() == Material.SAND || state.getMaterial() == Material.BAMBOO || state.getMaterial() == Material.CACTUS
+                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || state.isIn(Tags.Blocks.DIRT);
     }
 }

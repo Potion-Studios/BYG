@@ -19,7 +19,7 @@ public class GreenMushroom extends Feature<NoFeatureConfig> {
         if (!worldIn.isAirBlock(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.OVERGROWN_NETHERRACK) {
             return false;
         } else {
-            worldIn.setBlockState(pos, BYGBlockList.GREEN_MUSHSHROOM.getDefaultState(), 10);
+            worldIn.setBlockState(pos, BYGBlockList.GREEN_MUSHROOM.getDefaultState(), 10);
             return true;
         }
     }
