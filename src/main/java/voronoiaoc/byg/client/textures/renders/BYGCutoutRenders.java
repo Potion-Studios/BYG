@@ -189,7 +189,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.BLACK_PUFF.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.WEEPING_MILKCAP.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.WOOD_BLEWIT.getBlock(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BYGBlockList.GREEN_MUSHSHROOM.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.GREEN_MUSHROOM.getBlock(), RenderType.getCutoutMipped());
 
 
         //FlowerBlocks

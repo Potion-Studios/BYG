@@ -415,7 +415,7 @@ public class BYGBlockList {
     public static Block WOOD_BLEWIT;
     public static Block PURPLE_GLOWSHROOM;
     public static Block BLUE_GLOWSHROOM;
-    public static Block GREEN_MUSHSHROOM;
+    public static Block GREEN_MUSHROOM;
 
 
     //GemBlocks

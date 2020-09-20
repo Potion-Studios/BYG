@@ -18,7 +18,6 @@ import voronoiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBlackstoneBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
-import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburNyliumBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.glowstonegardens.*;
@@ -27,6 +26,7 @@ import voronoiaoc.byg.common.properties.blocks.nether.sythian.*;
 import voronoiaoc.byg.common.properties.blocks.nether.wailing.HangingBonesBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.wailing.WhalingGrassBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.warped.*;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.function.ToIntFunction;
@@ -410,13 +410,13 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BlockOvergrownStoneBlock extends BYGOverGrownStoneBlock {
+    public static class BlockOvergrownStoneBlock extends SpreadableBlock {
         public BlockOvergrownStoneBlock(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE)
+                    .harvestTool(ToolType.PICKAXE), Blocks.STONE
 
 
             );
@@ -424,13 +424,13 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BlockOvergrownDaciteBlock extends BYGOverGrownDaciteBlock {
+    public static class BlockOvergrownDaciteBlock extends SpreadableBlock {
         public BlockOvergrownDaciteBlock(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE)
+                    .harvestTool(ToolType.PICKAXE), Blocks.STONE
 
 
             );
@@ -461,27 +461,27 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGMeadowGrass extends BYGMeadowGrassBlock {
+    public static class BYGMeadowGrass extends SpreadableBlock {
         public BYGMeadowGrass(String registryName) {
             super(Block.Properties.create(Material.ORGANIC)
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.6f)
-                    .tickRandomly()
+                    .tickRandomly(), BYGBlockList.MEADOW_DIRT
             );
             setRegistryName(registryName);
         }
     }
 
-    public static class MyceliumNetherrack extends MyceliumNetherrackBlock {
-        public MyceliumNetherrack(String registryName) {
-            super(Block.Properties.create(Material.ORGANIC)
-                    .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.4f)
-                    .tickRandomly()
-            );
-            setRegistryName(registryName);
-        }
-    }
+//    public static class MyceliumNetherrack extends SpreadableBlock {
+//        public MyceliumNetherrack(String registryName) {
+//            super(Block.Properties.create(Material.ORGANIC)
+//                    .sound(SoundType.PLANT)
+//                    .hardnessAndResistance(0.4f)
+//                    .tickRandomly(),
+//            );
+//            setRegistryName(registryName);
+//        }
+//    }
 
     public static class BYGGlowcelium extends BYGGlowCeliumBlock {
         public BYGGlowcelium(String registryName) {
@@ -753,13 +753,13 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGEmberNylium extends EmburNyliumBlock {
+    public static class BYGEmberNylium extends SpreadableBlock {
         public BYGEmberNylium(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.4F)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE)
+                    .harvestTool(ToolType.PICKAXE), BYGBlockList.BLUE_NETHERRACK, BYGFeatureConfigs.SpreadableBlockConfigs.EMBUR_ROOTS
 
             );
             setRegistryName(registryName);
@@ -793,13 +793,13 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGSythianNylium extends BYGSythianNyliumBlock {
+    public static class BYGSythianNylium extends SpreadableBlock {
         public BYGSythianNylium(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE)
+                    .harvestTool(ToolType.PICKAXE), Blocks.NETHERRACK, BYGFeatureConfigs.SpreadableBlockConfigs.SYTHIAN_CONFIG
 
             );
             setRegistryName(registryName);
@@ -856,13 +856,13 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGIvisPhylium extends BYGIvisPhyliumBlock {
+    public static class BYGIvisPhylium extends SpreadableBlock {
         public BYGIvisPhylium(String registryName) {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE)
+                    .harvestTool(ToolType.PICKAXE), Blocks.END_STONE
 
             );
             setRegistryName(registryName);

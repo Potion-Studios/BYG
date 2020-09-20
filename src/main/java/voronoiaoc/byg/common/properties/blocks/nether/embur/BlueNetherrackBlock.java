@@ -25,17 +25,15 @@ public class BlueNetherrackBlock extends Block implements IGrowable {
      * Whether this IGrowable can grow
      */
     public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        if (!worldIn.getBlockState(pos.up()).propagatesSkylightDown(worldIn, pos)) {
-            return false;
-        } else {
+        if (worldIn.getBlockState(pos.up()).propagatesSkylightDown(worldIn, pos)) {
             for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-1, -1, -1), pos.add(1, 1, 1))) {
                 if (worldIn.getBlockState(blockpos).isIn(BlockTags.NYLIUM)) {
                     return true;
                 }
             }
 
-            return false;
         }
+        return false;
     }
 
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {

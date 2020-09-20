@@ -79,7 +79,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
 
     public static class Builder {
         private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
-        private int minStackHeight = 15;
+        private int minStackHeight = 1;
         private int maxStackHeight = 1;
         private int minRadius = 1;
         private int maxRadius = 3;
@@ -89,7 +89,6 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
                 blockProvider = new SimpleBlockStateProvider(block.getDefaultState());
             else
                 blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
-
             return this;
         }
 

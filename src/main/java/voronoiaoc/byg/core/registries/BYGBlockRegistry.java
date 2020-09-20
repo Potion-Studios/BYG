@@ -298,7 +298,6 @@ public class BYGBlockRegistry {
 
                 //Ground Blocks
                 BYGBlockList.PEAT = new BYGBlockProperties.BYGDirt("peat"),
-                BYGBlockList.MEADOW_GRASSBLOCK = new BYGBlockProperties.BYGMeadowGrass("meadow_grass_block"),
                 BYGBlockList.GLOWCELIUM = new BYGBlockProperties.BYGGlowcelium("glowcelium_block"),
                 BYGBlockList.MEADOW_DIRT = new BYGBlockProperties.BYGDirt("meadow_dirt"),
                 BYGBlockList.MUD_BLOCK = new BYGBlockProperties.BYGMud("mud_block"),
@@ -448,11 +447,9 @@ public class BYGBlockRegistry {
                 BYGBlockList.ANTHRACITE_ORE = new BYGBlockProperties.AnthraciteOre("anthracite_ore"),
 
                 BYGBlockList.MYCELIUM_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("mycelium_netherrack"),
-                BYGBlockList.OVERGROWN_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("overgrown_netherrack"),
                 BYGBlockList.NETHER_BRISTLE = new BYGBlockProperties.BYGDoubleDamagePlant("nether_bristle"),
                 BYGBlockList.MOSSY_NETHERRACK = new BYGBlockProperties.BYGNetherrack("mossy_netherrack"),
 
-                BYGBlockList.OVERGROWN_CRIMSON_BLACKSTONE = new BYGBlockProperties.OvergrownCrimsonBlackstone("overgrown_crimson_blackstone"),
                 BYGBlockList.CRIMSON_BERRY_BUSH = new BYGBlockProperties.CrimsonBerryBush("crimson_berry_bush"),
                 BYGBlockList.TALL_CRIMSON_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_crimson_roots"),
 
@@ -478,7 +475,6 @@ public class BYGBlockRegistry {
                 BYGBlockList.NYLIUM_SOUL_SOIL = new BYGBlockProperties.BYGNyliumSoulSoil("nylium_soul_soil"),
 
                 BYGBlockList.SYTHIAN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("sythian_wart_block"),
-                BYGBlockList.SYTHIAN_NYLIUM = new BYGBlockProperties.BYGSythianNylium("sythian_nylium"),
                 BYGBlockList.SYTHIAN_ROOTS = new BYGBlockProperties.SythianPlant("sythian_roots"),
                 BYGBlockList.SYTHIAN_SPROUT = new BYGBlockProperties.SythianPlant("sythian_sprout"),
                 BYGBlockList.SYTHIAN_STALK_BLOCK = new BYGBlockProperties.SythianStalk("sythian_stalk_block"),
@@ -490,7 +486,6 @@ public class BYGBlockRegistry {
                 BYGBlockList.EMBUR_LILY = new BYGBlockProperties.BYGEmburLily("embur_lily"),
                 BYGBlockList.EMBUR_GEL_BLOCK = new BYGBlockProperties.BYGEmburGelBlock("embur_gel_block"),
                 BYGBlockList.EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines"),
-                BYGBlockList.EMBUR_NYLIUM = new BYGBlockProperties.BYGEmberNylium("embur_nylium"),
                 BYGBlockList.EMBUR_SPROUTS = new BYGBlockProperties.BYGEmburPlant("embur_sprouts"),
                 BYGBlockList.EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots"),
                 BYGBlockList.EMBUR_WART = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart"),
@@ -500,7 +495,6 @@ public class BYGBlockRegistry {
                 BYGBlockList.BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGNetherrack("blue_nether_bricks"),
 
                 //End Blocks
-                BYGBlockList.IVIS_PHYLIUM = new BYGBlockProperties.BYGIvisPhylium("ivis_phylium"),
                 BYGBlockList.IVIS_ROOTS = new BYGBlockProperties.BYGIvisPlant("ivis_roots"),
                 BYGBlockList.IVIS_SPROUT = new BYGBlockProperties.BYGIvisPlant("ivis_sprout"),
 
@@ -617,7 +611,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.BLACK_PUFF = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.BlackPuff(), "black_puff"),
                 BYGBlockList.WEEPING_MILKCAP = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.WeepingMilkCap(), "weeping_milkcap"),
                 BYGBlockList.WOOD_BLEWIT = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.WoodBlewit(), "wood_blewit"),
-                BYGBlockList.GREEN_MUSHSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.GreenMushroom(), "green_mushroom"),
+                BYGBlockList.GREEN_MUSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.GreenMushroom(), "green_mushroom"),
                 BYGBlockList.BLUE_GLOWSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.BlueGlowshroom(), "blue_glowshroom"),
                 BYGBlockList.PURPLE_GLOWSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.PurpleGlowshroom(), "purple_glowshroom"),
 
@@ -682,8 +676,6 @@ public class BYGBlockRegistry {
 
                 BYGBlockList.PODZOL_DACITE = new BYGBlockProperties.BlockOvergrownDaciteBlock("podzol_dacite"),
                 BYGBlockList.DACITE_FARMLAND = new BYGBlockProperties.BYGDaciteFarmland("dacite_farmland"),
-                BYGBlockList.OVERGROWN_DACITE = new BYGBlockProperties.BlockOvergrownDaciteBlock("overgrown_dacite"),
-                BYGBlockList.OVERGROWN_STONE = new BYGBlockProperties.BlockOvergrownStoneBlock("overgrown_stone"),
                 BYGBlockList.STONE_FARMLAND = new BYGBlockProperties.BYGStoneFarmland("stone_farmland"),
                 BYGBlockList.ROCKY_STONE = new BYGBlockProperties.BYGStone("rocky_stone"),
                 BYGBlockList.ROCKY_SLAB = new BYGBlockProperties.BYGStoneSlab("rocky_stone_slab"),
@@ -837,8 +829,20 @@ public class BYGBlockRegistry {
                 BYGBlockList.WINTER_ROSE = new BYGBlockProperties.BYGSnowyPlant("winter_rose"),
                 BYGBlockList.WINTER_SCILLA = new BYGBlockProperties.BYGSnowyPlant("winter_scilla"),
                 BYGBlockList.YELLOW_DAFFODIL = new BYGBlockProperties.BYGFlower("yellow_daffodil"),
-                BYGBlockList.YELLOW_TULIP = new BYGBlockProperties.BYGFlower("yellow_tulip")
+                BYGBlockList.YELLOW_TULIP = new BYGBlockProperties.BYGFlower("yellow_tulip"),
+
+
+                //Register Spreadable blocks last.
+                BYGBlockList.OVERGROWN_DACITE = new BYGBlockProperties.BlockOvergrownDaciteBlock("overgrown_dacite"),
+                BYGBlockList.OVERGROWN_STONE = new BYGBlockProperties.BlockOvergrownStoneBlock("overgrown_stone"),
+                BYGBlockList.OVERGROWN_CRIMSON_BLACKSTONE = new BYGBlockProperties.OvergrownCrimsonBlackstone("overgrown_crimson_blackstone"),
+                BYGBlockList.OVERGROWN_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("overgrown_netherrack"),
+                BYGBlockList.IVIS_PHYLIUM = new BYGBlockProperties.BYGIvisPhylium("ivis_phylium"),
+                BYGBlockList.EMBUR_NYLIUM = new BYGBlockProperties.BYGEmberNylium("embur_nylium"),
+                BYGBlockList.SYTHIAN_NYLIUM = new BYGBlockProperties.BYGSythianNylium("sythian_nylium"),
+                BYGBlockList.MEADOW_GRASSBLOCK = new BYGBlockProperties.BYGMeadowGrass("meadow_grass_block")
         );
+
         BYG.LOGGER.info("BYG: Blocks Registered!");
     }
 }

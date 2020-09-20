@@ -823,7 +823,7 @@ public class BYGItemRegistry {
 
 
                 //Mushrooms
-                BYGItemList.GREEN_MUSHSHROOM = new BlockItem(BYGBlockList.GREEN_MUSHSHROOM, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.6f).build())).setRegistryName(BYGBlockList.GREEN_MUSHSHROOM.getRegistryName()),
+                BYGItemList.GREEN_MUSHSHROOM = new BlockItem(BYGBlockList.GREEN_MUSHROOM, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.6f).build())).setRegistryName(BYGBlockList.GREEN_MUSHROOM.getRegistryName()),
                 BYGItemList.GREEN_MUSHROOM_BLOCK = new BlockItem(BYGBlockList.GREEN_MUSHROOM_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.GREEN_MUSHROOM_BLOCK.getRegistryName()),
                 BYGItemList.WEEPING_MILKCAP = new BlockItem(BYGBlockList.WEEPING_MILKCAP, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.6f).build())).setRegistryName(BYGBlockList.WEEPING_MILKCAP.getRegistryName()),
                 BYGItemList.MILKCAP_MUSHROOM_BLOCK = new BlockItem(BYGBlockList.MILKCAP_MUSHROOM_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MILKCAP_MUSHROOM_BLOCK.getRegistryName()),
