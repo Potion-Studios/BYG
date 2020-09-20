@@ -343,12 +343,7 @@ public class BYGSaplingToTree {
 
     }
 
-    public static class PalmSaplingToTree extends BYGHugeTree {
-        @Nullable
-        public ConfiguredFeature<BYGTreeFeatureConfig, ?> getBigTreeFeature(Random random) {
-            return BYGConfiguredTreeFeatures.PALM_TREE4;
-        }
-
+    public static class PalmSaplingToTree extends BYGTree {
         @Nullable
         public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {
             return random.nextInt(2) == 0 ? BYGConfiguredTreeFeatures.PALM_TREE1 : BYGConfiguredTreeFeatures.PALM_TREE2;

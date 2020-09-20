@@ -256,14 +256,18 @@ public class BYGTreeFeatures {
 
     public static void addAspenTrees(BiomeGenerationSettings.Builder biome) {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_ASPEN_TREE);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_ASPEN_SHRUB);
+
     }
 
     public static void addSparseClearingAspenTrees(BiomeGenerationSettings.Builder biome) {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPARSE_ASPEN_TREE);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_ASPEN_SHRUB);
     }
 
     public static void addSparseAspenTrees(BiomeGenerationSettings.Builder biome) {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPARSE_ASPEN_TREE);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_ASPEN_SHRUB);
     }
 
     public static void addZelkovaTrees(BiomeGenerationSettings.Builder biome) {

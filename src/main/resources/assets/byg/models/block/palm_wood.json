@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "byg:block/palm_wood",
-    "end": "byg:block/palm_wood_top"
+    "side": "byg:block/palm_log",
+    "end": "byg:block/palm_log"
   }
 }

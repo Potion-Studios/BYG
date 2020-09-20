@@ -93,6 +93,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.MAHOGANY_DOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.MANGROVE_DOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.MAPLE_DOOR.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.PALM_DOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.PINE_DOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.RAINBOW_EUCALYPTUS_DOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.REDWOOD_DOOR.getBlock(), RenderType.getCutoutMipped());
@@ -117,6 +118,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.MAHOGANY_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.MANGROVE_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.MAPLE_TRAPDOOR.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.PALM_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.PINE_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.RAINBOW_EUCALYPTUS_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.REDWOOD_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
@@ -167,6 +169,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.ORANGE_OAK_SAPLING.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.ORANGE_SPRUCE_SAPLING.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.ORCHARD_SAPLING.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.PALM_SAPLING.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.PALO_VERDE_SAPLING.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.PINE_SAPLING.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.PINK_CHERRY_SAPLING.getBlock(), RenderType.getCutoutMipped());
