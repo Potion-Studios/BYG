@@ -185,8 +185,9 @@ public class BYGFeatureConfigs {
 
 
     public static class SpreadableBlockConfigs {
-        public static final BlockStateProvidingFeatureConfig EMBUR_ROOTS = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlockList.EMBUR_ROOTS.getDefaultState(), 87).addWeightedBlockstate(BYGBlockList.EMBUR_SPROUTS.getDefaultState(), 11).addWeightedBlockstate(BYGBlockList.EMBUR_WART.getDefaultState(), 11));
-        public static final BlockStateProvidingFeatureConfig SYTHIAN_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlockList.WOOD_BLEWIT.getDefaultState(), 50).addWeightedBlockstate(BYGBlockList.GREEN_MUSHROOM.getDefaultState(), 50).addWeightedBlockstate(BYGBlockList.EMBUR_WART.getDefaultState(), 11));
+        public static final BlockStateProvidingFeatureConfig EMBUR_ROOTS = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlockList.EMBUR_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlockList.EMBUR_SPROUTS.getDefaultState(), 35).addWeightedBlockstate(BYGBlockList.EMBUR_WART.getDefaultState(), 11));
+        public static final BlockStateProvidingFeatureConfig SYTHIAN_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlockList.SYTHIAN_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlockList.SYTHIAN_SPROUT.getDefaultState(), 50).addWeightedBlockstate(BYGBlockList.SYTHIAN_FUNGUS.getDefaultState(), 11));
+        public static final BlockStateProvidingFeatureConfig IVIS_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlockList.IVIS_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlockList.IVIS_SPROUT.getDefaultState(), 50));
 
         public static void init() {}
     }

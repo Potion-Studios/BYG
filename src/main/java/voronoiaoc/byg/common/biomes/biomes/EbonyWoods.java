@@ -17,8 +17,8 @@ public class EbonyWoods extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("ebony_woods", new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;
-    static final float DEPTH = 0.6F;
-    static final float SCALE = 0.1F;
+    static final float DEPTH = 0.2F;
+    static final float SCALE = 0.15F;
     static final float TEMPERATURE = 0.8F;
     static final float DOWNFALL = 0.8F;
     static final int WATER_COLOR = 4159204;

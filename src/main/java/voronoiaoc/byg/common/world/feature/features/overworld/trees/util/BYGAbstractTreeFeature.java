@@ -134,6 +134,22 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
     /**
      * @param reader             Gives us access to world.
      * @param pos                Position to check.
+     * @param desiredGroundBlock Allows to add other blocks that do not have the sand tag.
+     * @return Determines if the pos is of the sand tag or another block.
+     */
+    public static boolean isDesiredGroundwSandTag(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+        return reader.hasBlockState(pos, (state) -> {
+            Block block = state.getBlock();
+            for (Block block1 : desiredGroundBlock) {
+                return block.isIn(Tags.Blocks.SAND) || block == block1;
+            }
+            return block.isIn(Tags.Blocks.SAND);
+        });
+    }
+
+    /**
+     * @param reader             Gives us access to world.
+     * @param pos                Position to check.
      * @param desiredGroundBlock Add a blacklist of blocks that we want.
      * @return Determines if the pos contains a block from our whitelist.
      */

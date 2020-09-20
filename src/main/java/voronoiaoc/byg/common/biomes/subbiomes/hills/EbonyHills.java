@@ -15,7 +15,7 @@ public class EbonyHills extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("ebony_hills", new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;
-    static final float DEPTH = 0.4F;
+    static final float DEPTH = 0.6F;
     static final float SCALE = 0.35F;
     static final float TEMPERATURE = 0.8F;
     static final float DOWNFALL = 0.8F;

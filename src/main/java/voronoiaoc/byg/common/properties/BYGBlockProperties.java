@@ -862,7 +862,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), Blocks.END_STONE
+                    .harvestTool(ToolType.PICKAXE), Blocks.END_STONE, BYGFeatureConfigs.SpreadableBlockConfigs.IVIS_CONFIG
 
             );
             setRegistryName(registryName);
