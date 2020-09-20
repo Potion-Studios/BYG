@@ -62,9 +62,9 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CONIFER_TREE7 = newConfiguredFeature("conifer_tree7", BYGFeatureList.CONIFER_TREE7.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.FIR_LOG).setLeavesBlock(BYGBlockList.FIR_LEAVES).setMaxHeight(28).setMinHeight(18).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CONIFER_TREE8 = newConfiguredFeature("conifer_tree8", BYGFeatureList.CONIFER_TREE8.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.FIR_LOG).setLeavesBlock(BYGBlockList.FIR_LEAVES).setMaxHeight(28).setMinHeight(16).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CYPRESS_TREE1 = newConfiguredFeature("cypress_tree1", BYGFeatureList.CYPRESS_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CYPRESS_LOG).setLeavesBlock(BYGBlockList.CYPRESS_LEAVES).setMinHeight(10).build()));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CYPRESS_TREE2 = newConfiguredFeature("cypress_tree2", BYGFeatureList.CYPRESS_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CYPRESS_LOG).setLeavesBlock(BYGBlockList.CYPRESS_LEAVES).setMaxHeight(20).setMinHeight(15).build()));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CYPRESS_TREE3 = newConfiguredFeature("cypress_tree3", BYGFeatureList.CYPRESS_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CYPRESS_LOG).setLeavesBlock(BYGBlockList.CYPRESS_LEAVES).setMaxHeight(20).setMinHeight(15).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CYPRESS_TREE1 = newConfiguredFeature("cypress_tree1", BYGFeatureList.CYPRESS_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CYPRESS_LOG).setLeavesBlock(BYGBlockList.CYPRESS_LEAVES).setMaxHeight(30).setMinHeight(20).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CYPRESS_TREE2 = newConfiguredFeature("cypress_tree2", BYGFeatureList.CYPRESS_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CYPRESS_LOG).setLeavesBlock(BYGBlockList.CYPRESS_LEAVES).setMaxHeight(30).setMinHeight(20).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CYPRESS_TREE3 = newConfiguredFeature("cypress_tree3", BYGFeatureList.CYPRESS_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CYPRESS_LOG).setLeavesBlock(BYGBlockList.CYPRESS_LEAVES).setMaxHeight(30).setMinHeight(20).build()));
 
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> DEAD_HAZEL_TREE1 = newConfiguredFeature("dead_hazel_tree1", BYGFeatureList.DEAD_HAZEL_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WITCH_HAZEL_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES.getDefaultState(), 1).addWeightedBlockstate(BYGBlockList.WITCH_HAZEL_LEAVES.getDefaultState(), 4)).setMaxHeight(15).setMinHeight(6).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> DEAD_HAZEL_TREE2 = newConfiguredFeature("dead_hazel_tree2", BYGFeatureList.DEAD_HAZEL_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WITCH_HAZEL_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES.getDefaultState(), 1).addWeightedBlockstate(BYGBlockList.WITCH_HAZEL_LEAVES.getDefaultState(), 4)).setMaxHeight(12).setMinHeight(7).build()));
@@ -384,10 +384,10 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLACK_FOREST_TREE = newConfiguredFeature("rs_black_forest", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ASPEN_TREE3.withChance(0.2F),
-            ASPEN_TREE2.withChance(0.2F),
-            CONIFER_TREE6.withChance(0.1F),
-            CONIFER_TREE7.withChance(0.1F),
+            ASPEN_TREE3.withChance(0.05F),
+            ASPEN_TREE2.withChance(0.05F),
+            CONIFER_TREE6.withChance(0.05F),
+            CONIFER_TREE7.withChance(0.05F),
             PINE_LARGE_TREE1.withChance(0.5F),
             PINE_LARGE_TREE2.withChance(0.5F),
             PINE_TREE1.withChance(0.5F)),

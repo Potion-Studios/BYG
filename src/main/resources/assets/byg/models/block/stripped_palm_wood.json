@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "byg:block/stripped_palm_wood",
+    "end": "byg:block/stripped_palm_wood_top"
+  }
+}

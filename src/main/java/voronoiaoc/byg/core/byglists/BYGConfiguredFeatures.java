@@ -371,11 +371,11 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_SWAMP_PLANTS = newConfiguredFeature("rs_swamp_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             TINY_LILY_PAD.withChance(0.50F)),
-            WATER_SILK)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(5));
+            WATER_SILK)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(3));
 
     public static final ConfiguredFeature<?, ?> RANDOM_LILY_PADS = newConfiguredFeature("rs_lily_pads", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             TINY_LILY_PAD.withChance(0.50F)),
-            Features.PATCH_WATERLILLY)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(5));
+            Features.PATCH_WATERLILLY)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(3));
 
     public static final ConfiguredFeature<?, ?> RANDOM_AZALEA = newConfiguredFeature("rs_azalea", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             AZALEA.withChance(0.5F)),

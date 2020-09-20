@@ -41,6 +41,7 @@ public class BYGItemList {
     public static Item ZELKOVA_FENCE;
     public static Item SYTHIAN_FENCE;
     public static Item EMBUR_FENCE;
+    public static Item PALM_FENCE;
     //BoatItem
     public static Item ASPEN_BOAT;
     public static Item BAOBAB_BOAT;
@@ -63,6 +64,7 @@ public class BYGItemList {
     public static Item WILLOW_BOAT;
     public static Item WITCH_HAZEL_BOAT;
     public static Item ZELKOVA_BOAT;
+    public static Item PALM_BOAT;
 
     //Trapdoors
     public static Item ASPEN_TRAPDOOR;
@@ -88,6 +90,7 @@ public class BYGItemList {
     public static Item ZELKOVA_TRAPDOOR;
     public static Item SYTHIAN_TRAPDOOR;
     public static Item EMBUR_TRAPDOOR;
+    public static Item PALM_TRAPDOOR;
     //Pressure Plate
     public static Item ASPEN_PRESSURE_PLATE;
     public static Item BAOBAB_PRESSURE_PLATE;
@@ -112,7 +115,7 @@ public class BYGItemList {
     public static Item ZELKOVA_PRESSURE_PLATE;
     public static Item SYTHIAN_PRESSURE_PLATE;
     public static Item EMBUR_PRESSURE_PLATE;
-
+    public static Item PALM_PRESSURE_PLATE;
     //Buttons
     public static Item ASPEN_BUTTON;
     public static Item BAOBAB_BUTTON;
@@ -137,7 +140,7 @@ public class BYGItemList {
     public static Item ZELKOVA_BUTTON;
     public static Item SYTHIAN_BUTTON;
     public static Item EMBUR_BUTTON;
-
+    public static Item PALM_BUTTON;
     //Doors
     public static Item ASPEN_DOOR;
     public static Item BAOBAB_DOOR;
@@ -162,7 +165,7 @@ public class BYGItemList {
     public static Item ZELKOVA_DOOR;
     public static Item SYTHIAN_DOOR;
     public static Item EMBUR_DOOR;
-
+    public static Item PALM_DOOR;
     //Fence Gates
     public static Item ASPEN_FENCE_GATE;
     public static Item BAOBAB_FENCE_GATE;
@@ -187,7 +190,7 @@ public class BYGItemList {
     public static Item ZELKOVA_FENCE_GATE;
     public static Item SYTHIAN_FENCE_GATE;
     public static Item EMBUR_FENCE_GATE;
-
+    public static Item PALM_FENCE_GATE;
     //Crafting Tables
     public static Item ASPEN_CRAFTING_TABLE;
     public static Item BAOBAB_CRAFTING_TABLE;
@@ -212,6 +215,7 @@ public class BYGItemList {
     public static Item ZELKOVA_CRAFTING_TABLE;
     public static Item SYTHIAN_CRAFTING_TABLE;
     public static Item EMBUR_CRAFTING_TABLE;
+    public static Item PALM_CRAFTING_TABLE;
 
     //Flowers
     public static Item ALPINE_BELLFLOWER;
@@ -369,7 +373,7 @@ public class BYGItemList {
     public static Item SKYRIS_LEAVES;
     public static Item ZELKOVA_LEAVES;
     public static Item SYTHIAN_WART_BLOCK;
-
+    public static Item PALM_LEAVES;
     //LogItems
     public static Item ASPEN_LOG;
     public static Item BAOBAB_LOG;
@@ -394,7 +398,7 @@ public class BYGItemList {
     public static Item WITCH_HAZEL_LOG;
     public static Item ZELKOVA_LOG;
     public static Item SYTHIAN_STEM;
-
+    public static Item PALM_LOG;
     //WoodItems
     public static Item ASPEN_WOOD;
     public static Item BAOBAB_WOOD;
@@ -420,7 +424,7 @@ public class BYGItemList {
     public static Item ZELKOVA_WOOD;
     public static Item SYTHIAN_HYPHAE;
     public static Item EMBUR_HYPHAE;
-
+    public static Item PALM_WOOD;
     //StrippedWoodItems
     public static Item STRIPPED_BAOBAB_WOOD;
     public static Item STRIPPED_ASPEN_WOOD;
@@ -446,7 +450,7 @@ public class BYGItemList {
     public static Item STRIPPED_ZELKOVA_WOOD;
     public static Item STRIPPED_SYTHIAN_HYPHAE;
     public static Item STRIPPED_EMBUR_HYPHAE;
-
+    public static Item STRIPPED_PALM_WOOD;
     //GlowshroomsBlocks
     public static Item PURPLE_GLOWSHROOM_BLOCK;
     public static Item BLUE_GLOWSHROOM_BLOCK;
@@ -513,7 +517,7 @@ public class BYGItemList {
     public static Item ZELKOVA_BOOKSHELF;
     public static Item SYTHIAN_BOOKSHELF;
     public static Item EMBUR_BOOKSHELF;
-
+    public static Item PALM_BOOKSHELF;
     //PlankItems
     public static Item ASPEN_PLANKS;
     public static Item BAOBAB_PLANKS;
@@ -538,7 +542,7 @@ public class BYGItemList {
     public static Item ZELKOVA_PLANKS;
     public static Item SYTHIAN_PLANKS;
     public static Item EMBUR_PLANKS;
-
+    public static Item PALM_PLANKS;
     //PetalBlocks
     public static Item WHITE_PETAL;
     public static Item RED_PETAL;
@@ -712,7 +716,7 @@ public class BYGItemList {
     public static Item YELLOW_BIRCH_SAPLING;
     public static Item YELLOW_SPRUCE_SAPLING;
     public static Item ZELKOVA_SAPLING;
-
+    public static Item PALM_SAPLING;
     //SlabItems
     public static Item ASPEN_SLAB;
     public static Item BAOBAB_SLAB;
@@ -737,7 +741,7 @@ public class BYGItemList {
     public static Item ZELKOVA_SLAB;
     public static Item SYTHIAN_SLAB;
     public static Item EMBUR_SLAB;
-
+    public static Item PALM_SLAB;
     //StairItems
     public static Item ASPEN_STAIRS;
     public static Item BAOBAB_STAIRS;
@@ -762,7 +766,7 @@ public class BYGItemList {
     public static Item ZELKOVA_STAIRS;
     public static Item SYTHIAN_STAIRS;
     public static Item EMBUR_STAIRS;
-
+    public static Item PALM_STAIRS;
     //StoneItems
     public static Item DACITE;
     public static Item DACITE_SLAB;
@@ -874,7 +878,7 @@ public class BYGItemList {
     public static Item STRIPPED_ZELKOVA_LOG;
     public static Item STRIPPED_SYTHIAN_STEM;
     public static Item STRIPPED_EMBUR_PEDU;
-
+    public static Item STRIPPED_PALM_LOG;
     //Gems Items
     public static Item PENDORITE_SCRAPS;
     public static Item AMETRINE_GEMS;

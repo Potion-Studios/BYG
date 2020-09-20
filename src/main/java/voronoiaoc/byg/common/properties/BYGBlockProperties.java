@@ -430,7 +430,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), Blocks.STONE
+                    .harvestTool(ToolType.PICKAXE), BYGBlockList.DACITE
 
 
             );

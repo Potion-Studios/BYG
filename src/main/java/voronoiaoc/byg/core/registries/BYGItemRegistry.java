@@ -483,6 +483,26 @@ public class BYGItemRegistry {
                 BYGItemList.MAPLE_BUTTON = new BlockItem(BYGBlockList.MAPLE_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAPLE_BUTTON.getRegistryName()),
                 BYGItemList.MAPLE_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("maple_boat"),
 
+                //Palm Woodtype
+                BYGItemList.PALM_SAPLING = new BlockItem(BYGBlockList.PALM_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_SAPLING.getRegistryName()),
+                BYGItemList.PALM_LEAVES = new BlockItem(BYGBlockList.PALM_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_LEAVES.getRegistryName()),
+                BYGItemList.PALM_LOG = new BlockItem(BYGBlockList.PALM_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_LOG.getRegistryName()),
+                BYGItemList.PALM_WOOD = new BlockItem(BYGBlockList.PALM_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_WOOD.getRegistryName()),
+                BYGItemList.STRIPPED_PALM_LOG = new BlockItem(BYGBlockList.STRIPPED_PALM_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.STRIPPED_PALM_LOG.getRegistryName()),
+                BYGItemList.STRIPPED_PALM_WOOD = new BlockItem(BYGBlockList.STRIPPED_PALM_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.STRIPPED_PALM_WOOD.getRegistryName()),
+                BYGItemList.PALM_PLANKS = new BlockItem(BYGBlockList.PALM_PLANKS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_PLANKS.getRegistryName()),
+                BYGItemList.PALM_BOOKSHELF = new BlockItem(BYGBlockList.PALM_BOOKSHELF, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_BOOKSHELF.getRegistryName()),
+                BYGItemList.PALM_CRAFTING_TABLE = new BlockItem(BYGBlockList.PALM_CRAFTING_TABLE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_CRAFTING_TABLE.getRegistryName()),
+                BYGItemList.PALM_STAIRS = new BlockItem(BYGBlockList.PALM_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_STAIRS.getRegistryName()),
+                BYGItemList.PALM_SLAB = new BlockItem(BYGBlockList.PALM_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_SLAB.getRegistryName()),
+                BYGItemList.PALM_FENCE = new BlockItem(BYGBlockList.PALM_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_FENCE.getRegistryName()),
+                BYGItemList.PALM_FENCE_GATE = new BlockItem(BYGBlockList.PALM_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_FENCE_GATE.getRegistryName()),
+                BYGItemList.PALM_DOOR = new TallBlockItem(BYGBlockList.PALM_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_DOOR.getRegistryName()),
+                BYGItemList.PALM_TRAPDOOR = new BlockItem(BYGBlockList.PALM_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_TRAPDOOR.getRegistryName()),
+                BYGItemList.PALM_PRESSURE_PLATE = new BlockItem(BYGBlockList.PALM_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.PALM_BUTTON = new BlockItem(BYGBlockList.PALM_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALM_BUTTON.getRegistryName()),
+                BYGItemList.PALM_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.PALM, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("palm_boat"),
+
                 //Palo Verde Woodtype
                 BYGItemList.FLOWERING_PALO_VERDE_LEAVES = new BlockItem(BYGBlockList.FLOWERING_PALO_VERDE_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FLOWERING_PALO_VERDE_LEAVES.getRegistryName()),
                 BYGItemList.PALO_VERDE_SAPLING = new BlockItem(BYGBlockList.PALO_VERDE_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PALO_VERDE_SAPLING.getRegistryName()),

@@ -96,6 +96,8 @@ public class BYGBoatEntity extends BoatEntity {
                 return BYGItemList.WITCH_HAZEL_BOAT;
             case ZELKOVA:
                 return BYGItemList.ZELKOVA_BOAT;
+            case PALM:
+                return BYGItemList.PALM_BOAT;
         }
     }
 
@@ -143,6 +145,8 @@ public class BYGBoatEntity extends BoatEntity {
                 return BYGBlockList.WITCH_HAZEL_PLANKS;
             case ZELKOVA:
                 return BYGBlockList.ZELKOVA_PLANKS;
+            case PALM:
+                return BYGBlockList.PALM_PLANKS;
         }
     }
 
@@ -266,6 +270,7 @@ public class BYGBoatEntity extends BoatEntity {
         MAHOGANY("mahogony"),
         MANGROVE("mangrove"),
         MAPLE("maple"),
+        PALM("palm"),
         PINE("pine"),
         RAINBOW_EUCALYPTUS("rainbow_eucalyptus"),
         REDWOOD("redwood"),
