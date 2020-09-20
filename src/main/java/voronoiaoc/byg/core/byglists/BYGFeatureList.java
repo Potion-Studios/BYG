@@ -612,7 +612,7 @@ public class BYGFeatureList {
             registerFeature(ORCHARD_TREE1, "orchard_tree1");
             registerFeature(ORCHARD_TREE2, "orchard_tree2");
             registerFeature(ORCHARD_TREE3, "orchard_tree3");
-            registerFeature(PALM_TREE1, "palm_tree3");
+            registerFeature(PALM_TREE1, "palm_tree1");
             registerFeature(PINE_LARGE_TREE1, "large_pine_tree1");
             registerFeature(PINE_LARGE_TREE2, "large_pine_tree2");
             registerFeature(PINE_TREE1, "pine_tree1");
