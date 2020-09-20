@@ -91,6 +91,9 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.orchard.Orch
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.orchard.OrchardTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.orchard.OrchardTree3;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palm.PalmTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.palm.PalmTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.palm.PalmTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.palm.PalmTree4;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.LargePineTree1;
@@ -392,6 +395,9 @@ public class BYGFeatureList {
 
     //Palm
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PALM_TREE1 = new PalmTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PALM_TREE2 = new PalmTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PALM_TREE3 = new PalmTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PALM_TREE4 = new PalmTree4(BYGTreeFeatureConfig.CODEC);
 
     //Pine
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> PINE_LARGE_TREE1 = new LargePineTree1(BYGTreeFeatureConfig.CODEC);
@@ -613,6 +619,9 @@ public class BYGFeatureList {
             registerFeature(ORCHARD_TREE2, "orchard_tree2");
             registerFeature(ORCHARD_TREE3, "orchard_tree3");
             registerFeature(PALM_TREE1, "palm_tree1");
+            registerFeature(PALM_TREE2, "palm_tree2");
+            registerFeature(PALM_TREE3, "palm_tree3");
+            registerFeature(PALM_TREE4, "palm_tree4");
             registerFeature(PINE_LARGE_TREE1, "large_pine_tree1");
             registerFeature(PINE_LARGE_TREE2, "large_pine_tree2");
             registerFeature(PINE_TREE1, "pine_tree1");
