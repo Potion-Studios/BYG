@@ -83,7 +83,7 @@ public class RedwoodTropics extends Biome implements BiomeTools {
         BYGFeatures.addFernGrass(GENERATION_SETTINGS);
         BYGFeatures.addLeafPile(GENERATION_SETTINGS);
         BYGTreeFeatures.addRedwoodTrees(GENERATION_SETTINGS);
-        BYGFeatures.addStackedBoulders(GENERATION_SETTINGS);
+        BYGFeatures.addGrasslandBoulders(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
