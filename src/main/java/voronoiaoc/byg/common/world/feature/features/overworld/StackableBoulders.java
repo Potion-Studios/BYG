@@ -36,7 +36,11 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
 
-        if (world.getBlockState(position).isIn(BlockTags.LEAVES) || world.getBlockState(position).isIn(BlockTags.LOGS))
+        BlockState blockStateDown = world.getBlockState(position.down());
+        BlockState blockStateAtPosition = world.getBlockState(position);
+
+
+        if (blockStateDown.isIn(BlockTags.LEAVES) || blockStateDown.isIn(BlockTags.LOGS) || blockStateAtPosition.isIn(BlockTags.LEAVES) || blockStateAtPosition.isIn(BlockTags.LOGS))
             return false;
 
         for (int boulderIDX = 0; boulderIDX < stackHeight; boulderIDX++) {
