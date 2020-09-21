@@ -1,7 +1,7 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.trees;
 
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGHugeTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGTree;
 import voronoiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;

@@ -1,7 +1,7 @@
 package voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util;
 
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import voronoiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGMushroomFeatureConfig;
 import voronoiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
 
 import javax.annotation.Nullable;

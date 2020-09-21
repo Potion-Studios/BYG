@@ -6,7 +6,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
 
 import javax.annotation.Nullable;
 import java.util.Random;

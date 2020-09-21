@@ -23,7 +23,7 @@ import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraftforge.common.Tags;
-import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.FeatureUtil;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 

@@ -5,7 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import voronoiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGMushroomFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 
 import java.util.Random;

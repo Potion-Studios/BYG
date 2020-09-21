@@ -5,7 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import voronoiaoc.byg.common.world.feature.config.BYGGiantFlowerFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGGiantFlowerFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
 
 import java.util.Random;

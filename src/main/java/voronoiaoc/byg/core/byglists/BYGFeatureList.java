@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
-import voronoiaoc.byg.common.world.feature.config.*;
+import voronoiaoc.byg.common.world.feature.featureconfig.*;
 import voronoiaoc.byg.common.world.feature.features.RiverThingy;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.LargeChain;
@@ -26,8 +26,7 @@ import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WailingV
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WhalingGrass;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.*;
-import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.DeadSeaSpikes;
-import voronoiaoc.byg.common.world.feature.features.overworld.deadsea.TallDeadSeaSpikes;
+import voronoiaoc.byg.common.world.feature.features.overworld.PointyRockFeature;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.AngelicaGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.DandelionGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.IrisGiant;
@@ -143,8 +142,7 @@ public class BYGFeatureList {
 
     /********************************************************************Features*************************************************************************/
     //DeadSea
-    public static final Feature<NoFeatureConfig> DEADSEASPIKES = new DeadSeaSpikes(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> TALLDEADSEASPIKES = new TallDeadSeaSpikes(NoFeatureConfig.field_236558_a_);
+    public static final Feature<PointyRockFeatureConfig> POINTY_ROCK = new PointyRockFeature(PointyRockFeatureConfig.CODEC);
 
     public static final Feature<NoFeatureConfig> OBBYSPIKES = new ObsidianSpike(NoFeatureConfig.field_236558_a_);
 
@@ -478,9 +476,8 @@ public class BYGFeatureList {
 
     public static class RegisterFeatures {
         public static void registerBYGFeatures() {
-            registerFeature(DEADSEASPIKES, "dead_sea_spike");
+            registerFeature(POINTY_ROCK, "dead_sea_spike");
             registerFeature(STACKABLE_BOULDERS, "stacked_boulder");
-            registerFeature(TALLDEADSEASPIKES, "dead_sea_spike_tall");
             registerFeature(OBBYSPIKES, "obsidian_spike");
             registerFeature(CACTUS, "canyon_cactus");
             registerFeature(CHAINS, "chains");
@@ -490,7 +487,7 @@ public class BYGFeatureList {
             registerFeature(LAKE_LAVA_WIDE_SHALLOW, "lava_lake_wide_shallow");
             registerFeature(VINES, "vines");
             registerFeature(LARGE_PUMPKIN1, "pumpkin");
-            registerFeature(LARGE_PUMPKIN2, "pumpkin3");
+            registerFeature(LARGE_PUMPKIN2, "pumpkin2");
             registerFeature(GIANT_ANGELICA_FLOWER, "giant_angelica_flower");
             registerFeature(GIANT_DANDELION_FLOWER, "giant_dandelion_flower");
             registerFeature(GIANT_IRIS_FLOWER, "giant_iris_flower");

@@ -3,11 +3,10 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.palm;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
 import java.util.Random;

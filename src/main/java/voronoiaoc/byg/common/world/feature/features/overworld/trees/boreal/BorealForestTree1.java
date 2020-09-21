@@ -6,7 +6,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 

@@ -15,7 +15,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.Tags;
-import voronoiaoc.byg.common.world.feature.config.BYGGiantFlowerFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGGiantFlowerFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.FeatureUtil;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 

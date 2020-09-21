@@ -11,9 +11,10 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placement.*;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
-import voronoiaoc.byg.common.world.feature.config.BYGBoulderFeatureConfig;
-import voronoiaoc.byg.common.world.feature.config.BYGGiantFlowerFeatureConfig;
-import voronoiaoc.byg.common.world.feature.config.BYGPumpkinFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGBoulderFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGGiantFlowerFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGPumpkinFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.PointyRockFeatureConfig;
 import voronoiaoc.byg.common.world.feature.placements.AnyWaterOrSolidSurfaceSurface;
 import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 import voronoiaoc.byg.common.world.feature.placements.ObsidianSpikePlacer;
@@ -174,8 +175,8 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> SOUL_SHROOM = newConfiguredFeature("soul_shroom", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SOUL_SHROOM_CONFIG));
     public static ConfiguredFeature<?, ?> DEATH_CAP = newConfiguredFeature("death_cap", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.DEATH_CAP_CONFIG));
 
-    public static ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = newConfiguredFeature("dead_sea_spike", BYGFeatureList.DEADSEASPIKES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static ConfiguredFeature<?, ?> DEAD_SEA_SPIKE_TALL = newConfiguredFeature("dead_sea_tall_spike", BYGFeatureList.TALLDEADSEASPIKES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = newConfiguredFeature("dead_sea_spike", BYGFeatureList.POINTY_ROCK.withConfiguration(new PointyRockFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.ROCKY_STONE.getDefaultState(), 5).addWeightedBlockstate(Blocks.STONE.getDefaultState(), 3).addWeightedBlockstate(Blocks.ANDESITE.getDefaultState(), 2)).setRockHeight(65).build()));
+    public static ConfiguredFeature<?, ?> DEAD_SEA_SPIKE_TALL = newConfiguredFeature("dead_sea_tall_spike", BYGFeatureList.POINTY_ROCK.withConfiguration(new PointyRockFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.ROCKY_STONE.getDefaultState(), 5).addWeightedBlockstate(Blocks.STONE.getDefaultState(), 3).addWeightedBlockstate(Blocks.ANDESITE.getDefaultState(), 2)).setRockHeight(85).build()));
 
     public static ConfiguredFeature<?, ?> ORE_PERVADED_NETHERRACK = newConfiguredFeature("ore_pervaded_netherrack", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241883_b, BYGBlockList.PERVADED_NETHERRACK.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).func_242728_a().func_242731_b(16));
 

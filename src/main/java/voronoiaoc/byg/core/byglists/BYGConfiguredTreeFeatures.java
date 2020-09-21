@@ -11,8 +11,8 @@ import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
-import voronoiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
-import voronoiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGMushroomFeatureConfig;
+import voronoiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.placements.AtOceanFloorWithExtra;
 import voronoiaoc.byg.common.world.feature.placements.UnderGroundPlacement;
 

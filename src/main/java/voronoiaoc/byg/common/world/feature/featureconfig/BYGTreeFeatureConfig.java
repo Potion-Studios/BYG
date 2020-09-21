@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.config;
+package voronoiaoc.byg.common.world.feature.featureconfig;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
