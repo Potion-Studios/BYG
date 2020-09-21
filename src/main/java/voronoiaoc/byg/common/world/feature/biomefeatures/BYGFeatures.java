@@ -91,6 +91,10 @@ public class BYGFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_AZALEA);
     }
 
+    public static void addSunFlowers(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SUNFLOWER);
+    }
+
     public static void addDelphinium(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DELPHINIUM);
     }
@@ -313,6 +317,10 @@ public class BYGFeatures {
 
     public static void addRockyStoneBoulder(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BOULDERS);
+    }
+
+    public static void addGiantLunaBoulders(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_LUNA_BOULDERS);
     }
 
     public static void addTerracottaBoulder(BiomeGenerationSettings.Builder gen) {

@@ -268,7 +268,7 @@ public class BYGConfiguredTreeFeatures {
 
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_BROWN_TREE1 = newConfiguredFeature("zelkova_brown_tree1", BYGFeatureList.ZELKOVA_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.BROWN_ZELKOVA_LEAVES).setMaxHeight(21).setMinHeight(11).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_BROWN_TREE2 = newConfiguredFeature("zelkova_brown_tree2", BYGFeatureList.ZELKOVA_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.BROWN_ZELKOVA_LEAVES).setMaxHeight(20).setMinHeight(10).build()));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_BROWN_TREE3 = newConfiguredFeature("zelkova_brown_tree3", BYGFeatureList.ZELKOVA_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.BROWN_ZELKOVA_LEAVES).setMaxHeight(24).setMinHeight(12).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_BROWN_TREE3 = newConfiguredFeature("zelkova_brown_tree3", BYGFeatureList.ZELKOVA_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.BROWN_ZELKOVA_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
 
 
     //Vanilla Tree Features

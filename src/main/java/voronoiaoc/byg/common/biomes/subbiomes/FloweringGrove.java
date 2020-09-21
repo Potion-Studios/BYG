@@ -54,6 +54,8 @@ public class FloweringGrove extends Biome implements BiomeTools {
         BYGFeatures.addAnemones(GENERATION_SETTINGS);
         BYGFeatures.addSages(GENERATION_SETTINGS);
         BYGFeatures.addTulips(GENERATION_SETTINGS);
+        BYGFeatures.addSunFlowers(GENERATION_SETTINGS);
+
 
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

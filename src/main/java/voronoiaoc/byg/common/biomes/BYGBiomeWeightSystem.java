@@ -108,6 +108,7 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.TROPICALRAINFOREST, ConfigWeightManager.TROPICALRAINFOREST.getWeight(), OverworldClimate.WARM);
         addBiomeEntry(BYGBiomeList.TWILIGHT_VALLEY, ConfigWeightManager.TWILIGHT_VALLEY.getWeight(), OverworldClimate.COOL);
         addBiomeEntry(BYGBiomeList.VIBRANTSWAMPLANDS, ConfigWeightManager.VIBRANTSWAMPLANDS.getWeight(), OverworldClimate.WARM);
+        addBiomeEntry(BYGBiomeList.VALLE_DE_LUNA, ConfigWeightManager.VALLE_DE_LUNA.getWeight(), OverworldClimate.DESERT);
         addBiomeEntry(BYGBiomeList.SIERRAVALLEY, ConfigWeightManager.SIERRAVALLEY.getWeight(), OverworldClimate.DESERT);
         addBiomeEntry(BYGBiomeList.WEEPINGWITCHFOREST, ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight(), OverworldClimate.COOL);
         addBiomeEntry(BYGBiomeList.WOODLANDS, ConfigWeightManager.WOODLANDS.getWeight(), OverworldClimate.WARM);

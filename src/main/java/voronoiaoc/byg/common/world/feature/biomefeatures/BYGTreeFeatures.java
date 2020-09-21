@@ -207,7 +207,7 @@ public class BYGTreeFeatures {
     }
 
     public static void addSparseAraucariaTrees(BiomeGenerationSettings.Builder biome) {
-        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_ARAUCARIA_TREE);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPARSE_ARAUCARIA_TREE);
     }
 
     public static void addBrownZelkovaTrees(BiomeGenerationSettings.Builder biome) {

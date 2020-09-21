@@ -15,17 +15,17 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class TwilightValleyHills extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("twilight_valley_hills", new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("twilight_valley_hills", new ConfiguredSurfaceBuilder<>(BYGSBList.TWILIGHT_VALLEY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.FOREST;
-    static final float DEPTH = 0.5F;
+    static final float DEPTH = 0.6F;
     static final float SCALE = 0.05F;
     static final float TEMPERATURE = 0.25F;
     static final float DOWNFALL = 0.8F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
-    static final int GRASS_COLOR = 5011004;
-    static final int FOLIAGE_COLOR = 6589494;
+    static final int GRASS_COLOR = 9470285;
+    static final int FOLIAGE_COLOR = 9470285;
     static final String PARENT = null;
     static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
@@ -37,7 +37,7 @@ public class TwilightValleyHills extends Biome implements BiomeTools {
                 .setFogColor(12638463).withGrassColor(GRASS_COLOR)
                 .withFoliageColor(FOLIAGE_COLOR)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D))
-                .setParticle(new ParticleEffectAmbience(ParticleTypes.END_ROD, 0.00428F))
+                .setParticle(new ParticleEffectAmbience(ParticleTypes.END_ROD, 0.00028F))
                 .withSkyColor(BiomeHelper.calcSkyColor(0.8F))
                 .setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }

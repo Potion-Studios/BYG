@@ -78,10 +78,10 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
                 mutable.move(Direction.UP);
             }
 
-            if (random.nextInt(9) == 0)
-                radius = (int) (radius * 1.75);
-            else
-                radius = (int) (radius / 1.2);
+//            if (random.nextInt(9) == 0)
+//                radius = (int) (radius * 1.75);
+//            else
+                radius = (int) (radius / 1.5);
 
             if (3 > radius) {
                 if (stopSpamInt == 0) {

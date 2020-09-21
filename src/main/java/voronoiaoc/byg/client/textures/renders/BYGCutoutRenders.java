@@ -187,6 +187,8 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.ZELKOVA_SAPLING.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.YELLOW_BIRCH_SAPLING.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.YELLOW_SPRUCE_SAPLING.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.BROWN_ZELKOVA_SAPLING.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.ARAUCARIA_SAPLING.getBlock(), RenderType.getCutoutMipped());
 
         //Mushrooms
         RenderTypeLookup.setRenderLayer(BYGBlockList.BLACK_PUFF.getBlock(), RenderType.getCutoutMipped());

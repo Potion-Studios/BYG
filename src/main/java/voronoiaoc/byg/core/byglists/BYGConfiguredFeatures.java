@@ -204,6 +204,11 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> OBBY_SPIKE = newConfiguredFeature("obsidian_spire", BYGFeatureList.OBBYSPIKES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(ObsidianSpikePlacer.OBBY_SPIKE.configure(new AtSurfaceWithExtraConfig(2000, 0, 0))));
     public static ConfiguredFeature<?, ?> STACKED_BOULDERS = newConfiguredFeature("stacked_boulders", BYGFeatureList.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.STONE.getDefaultState(), 3).addWeightedBlockstate(Blocks.DIORITE.getDefaultState(), 2)).setMinStackHeight(10).setMaxHeight(15).setMinRadius(8).setMaxRadius(28).build()).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.15F, 1))));
     public static ConfiguredFeature<?, ?> GRASSLAND_BOULDER = newConfiguredFeature("grassland_boulder", BYGFeatureList.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.ROCKY_STONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlockList.MOSSY_STONE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
+    public static ConfiguredFeature<?, ?> RED_ROCK_BOULDER = newConfiguredFeature("red_rock_boulder", BYGFeatureList.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.RED_ROCK.getDefaultState(), 3).addWeightedBlockstate(BYGBlockList.RED_ROCK.getDefaultState(), 2)).setMinStackHeight(2).setMaxHeight(8).setMinRadius(4).setMaxRadius(6).build()));
+    public static ConfiguredFeature<?, ?> WHITE_SANDSTONE_BOULDER = newConfiguredFeature("white_sandstone_boulder", BYGFeatureList.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlockList.WHITE_SANDSTONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlockList.WHITE_SANDSTONE.getDefaultState(), 2)).setMinStackHeight(2).setMaxHeight(8).setMinRadius(4).setMaxRadius(6).build()));
+    public static ConfiguredFeature<?, ?> TERRACOTTA_BOULDER = newConfiguredFeature("terracotta_boulder", BYGFeatureList.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.TERRACOTTA.getDefaultState(), 3).addWeightedBlockstate(Blocks.TERRACOTTA.getDefaultState(), 2)).setMinStackHeight(2).setMaxHeight(8).setMinRadius(4).setMaxRadius(6).build()));
+
+
     public static ConfiguredFeature<?, ?> RIVER = newConfiguredFeature("river_aheehee", BYGFeatureList.HUH.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
     public static ConfiguredFeature<?, ?> VOLCANO = newConfiguredFeature("volcano", BYGFeatureList.VOLCANO.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
     public static ConfiguredFeature<?, ?> VOLCANO2 = newConfiguredFeature("volcano2", BYGFeatureList.VOLCANO2.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
@@ -247,6 +252,12 @@ public class BYGConfiguredFeatures {
             PRICKLY_PEAR_CACTI.withChance(0.3F),
             GOLDEN_SPINED_CACTI.withChance(0.3F)),
             FIRECRACKER_BUSH)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+
+
+    public static final ConfiguredFeature<?, ?> RANDOM_LUNA_BOULDERS = newConfiguredFeature("rs_luna_boulders", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            WHITE_SANDSTONE_BOULDER.withChance(0.35F),
+            RED_ROCK_BOULDER.withChance(0.35F)),
+            TERRACOTTA_BOULDER)).withPlacement(AtOceanFloorWithExtra.OCEANFLOOR.configure(new AtSurfaceWithExtraConfig(1, 0.2F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLACKSTONE_BOULDERS = newConfiguredFeature("rs_blackstone_boulders", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLACKSTONE_BOULDER.withChance(0.5F)),
@@ -380,6 +391,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_AZALEA = newConfiguredFeature("rs_azalea", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             AZALEA.withChance(0.5F)),
             AZALEA)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SUNFLOWER = newConfiguredFeature("rs_sunflower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            Features.PATCH_SUNFLOWER.withChance(0.5F)),
+            Features.PATCH_SUNFLOWER)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JAPANESE_ORCHID = newConfiguredFeature("rs_japanese_orchid", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             JAPANESE_ORCHID.withChance(0.5F)),
