@@ -699,7 +699,7 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_ARAUCARIA_TREE = newConfiguredFeature("rs_araucaria_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ARAUCARIA_TREE2.withChance(0.5F)),
             ARAUCARIA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(2, 0.4F, 3))));
+            new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_ARAUCARIA_TREE = newConfiguredFeature("rs_sparse_araucaria_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ARAUCARIA_TREE2.withChance(0.5F)),
