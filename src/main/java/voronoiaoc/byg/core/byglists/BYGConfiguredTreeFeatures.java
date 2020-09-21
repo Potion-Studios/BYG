@@ -44,7 +44,8 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> BLUFF_TREE2 = newConfiguredFeature("bluff_tree2", BYGFeatureList.BLUFF_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> BLUFF_TREE3 = newConfiguredFeature("bluff_tree3", BYGFeatureList.BLUFF_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(21).setMinHeight(16).build()));
 
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> BOREAL_TREE1 = newConfiguredFeature("boreal_tree1", BYGFeatureList.BOREAL_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.BIRCH_LEAVES).setLeavesBlock(BYGBlockList.YELLOW_BIRCH_LEAVES).setMaxHeight(15).setMinHeight(9).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> BIRCH_BOREAL_TREE1 = newConfiguredFeature("birch_boreal_tree1", BYGFeatureList.BOREAL_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.BIRCH_LOG).setLeavesBlock(BYGBlockList.YELLOW_BIRCH_LEAVES).setMaxHeight(15).setMinHeight(9).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> BIRCH_YELLOW_BOREAL_TREE1 = newConfiguredFeature("birch_yellow_boreal_tree1", BYGFeatureList.BOREAL_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.BIRCH_LOG).setLeavesBlock(Blocks.BIRCH_LEAVES).setMaxHeight(15).setMinHeight(9).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> BOREAL_TREE2 = newConfiguredFeature("boreal_tree2", BYGFeatureList.BOREAL_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.SPRUCE_LOG).setLeavesBlock(Blocks.SPRUCE_LEAVES).setMaxHeight(15).setMinHeight(11).build()));
 
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> CHERRY_PINK_TREE1 = newConfiguredFeature("pink_cherry_tree1", BYGFeatureList.CHERRY_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.CHERRY_LOG).setLeavesBlock(BYGBlockList.PINK_CHERRY_LEAVES).setMaxHeight(21).setMinHeight(14).build()));
@@ -382,12 +383,14 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(12, 0.3F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_TREE = newConfiguredFeature("rs_boreal", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            BOREAL_TREE1.withChance(0.5F)),
+            BIRCH_YELLOW_BOREAL_TREE1.withChance(0.3F),
+            BIRCH_BOREAL_TREE1.withChance(0.3F)),
             BOREAL_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(20, 0.5F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_SPARSE_TREE = newConfiguredFeature("rs_sparse_boreal", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            BOREAL_TREE1.withChance(0.5F)),
+            BIRCH_YELLOW_BOREAL_TREE1.withChance(0.3F),
+            BIRCH_BOREAL_TREE1.withChance(0.3F)),
             BOREAL_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
 
@@ -724,8 +727,8 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(3, 0.5F, 4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GROVE_TREE = newConfiguredFeature("rs_grove_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            BOREAL_TREE1.withChance(0.1F)),
-            BOREAL_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            BIRCH_YELLOW_BOREAL_TREE1.withChance(0.5F)),
+            BIRCH_BOREAL_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_GROVE_TREE = newConfiguredFeature("rs_enchanted_grove_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
