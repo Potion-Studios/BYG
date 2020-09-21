@@ -84,7 +84,7 @@ public class TwilightValley extends Biome implements BiomeTools {
         BYGFeatures.addFernGrass(GENERATION_SETTINGS);
         BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
         BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
-        BYGFeatures.addGrasslandBoulders(GENERATION_SETTINGS);
+        BYGFeatures.addGraniteBoulder(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.FOX, 8, 2, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

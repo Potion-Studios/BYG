@@ -39,6 +39,10 @@ public class BYGFeatures {
         gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.GRASSLAND_BOULDER);
     }
 
+    public static void addGraniteBoulder(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.GRANITE_BOULDER);
+    }
+
     public static void addBYGDesertPlants(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DESERT_PLANTS);
     }
