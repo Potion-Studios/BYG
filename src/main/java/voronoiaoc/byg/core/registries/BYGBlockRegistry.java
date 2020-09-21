@@ -314,12 +314,14 @@ public class BYGBlockRegistry {
                 BYGBlockList.MUD_BRICKS = new BYGBlockProperties.BYGDirt("mud_bricks"),
 
                 //Sapling Blocks
+                BYGBlockList.ARAUCARIA_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.AraucariaSaplingToTree(), "araucaria_sapling"),
                 BYGBlockList.ASPEN_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.AspenSaplingToTree(), "aspen_sapling"),
                 BYGBlockList.BAOBAB_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BaobabSaplingToTree(), "baobab_sapling"),
                 BYGBlockList.BLUE_ENCHANTED_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BlueEnchantedSaplingToTree(), "blue_enchanted_sapling"),
                 BYGBlockList.BLUE_SPRUCE_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BlueSpruceSaplingToTree(), "blue_spruce_sapling"),
                 BYGBlockList.BROWN_BIRCH_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BrownBirchSaplingToTree(), "brown_birch_sapling"),
                 BYGBlockList.BROWN_OAK_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BrownOakSaplingToTree(), "brown_oak_sapling"),
+                BYGBlockList.BROWN_ZELKOVA_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.BrownZelkovaSaplingToTree(), "brown_zelkova_sapling"),
                 BYGBlockList.CIKA_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.CikaSaplingToTree(), "cika_sapling"),
                 BYGBlockList.CYPRESS_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.CypressSaplingToTree(), "cypress_sapling"),
                 BYGBlockList.EBONY_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.EbonySaplingToTree(), "ebony_sapling"),
@@ -356,6 +358,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.PALM_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.PalmSaplingToTree(), "palm_sapling"),
 
                 //Leaf Blocks
+                BYGBlockList.ARAUCARIA_LEAVES = new BYGBlockProperties.BYGLeaves("araucaria_leaves"),
                 BYGBlockList.ASPEN_LEAVES = new BYGBlockProperties.BYGLeaves("aspen_leaves"),
                 BYGBlockList.BAOBAB_LEAVES = new BYGBlockProperties.BYGLeaves("baobab_leaves"),
                 BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES = new BYGBlockProperties.BYGBloomingWitchhazelLeaves("blooming_witch_hazel_leaves"),
@@ -363,6 +366,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.BLUE_SPRUCE_LEAVES = new BYGBlockProperties.BYGLeaves("blue_spruce_leaves"),
                 BYGBlockList.BROWN_BIRCH_LEAVES = new BYGBlockProperties.BYGLeaves("brown_birch_leaves"),
                 BYGBlockList.BROWN_OAK_LEAVES = new BYGBlockProperties.BYGLeaves("brown_oak_leaves"),
+                BYGBlockList.BROWN_ZELKOVA_LEAVES = new BYGBlockProperties.BYGLeaves("brown_zelkova_leaves"),
                 BYGBlockList.CIKA_LEAVES = new BYGBlockProperties.BYGLeaves("cika_leaves"),
                 BYGBlockList.CYPRESS_LEAVES = new BYGBlockProperties.BYGLeaves("cypress_leaves"),
                 BYGBlockList.EBONY_LEAVES = new BYGBlockProperties.BYGLeaves("ebony_leaves"),

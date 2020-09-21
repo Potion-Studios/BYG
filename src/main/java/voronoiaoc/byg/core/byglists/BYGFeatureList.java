@@ -41,6 +41,8 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.acacia.Acaci
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.ancient.AncientTree3;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.araucaria.AraucariaTree1;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.araucaria.AraucariaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.aspen.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.baobab.BaobabTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.birch.BasicTree;
@@ -274,6 +276,10 @@ public class BYGFeatureList {
 
 
     /********************************************************************Tree Features********************************************************************/
+   //Araucaria
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ARAUCARIA_TREE1 = new AraucariaTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ARAUCARIA_TREE2 = new AraucariaTree2(BYGTreeFeatureConfig.CODEC);
+
     //Acacia
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ACACIA_TREE1 = new AcaciaTree1(BYGTreeFeatureConfig.CODEC);
 //    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ACACIA_TREE2 = new AcaciaTree2(BYGTreeFeatureConfig.CODEC);
@@ -549,6 +555,8 @@ public class BYGFeatureList {
             registerFeature(EMBUR_SPROUTS, "embur_sprouts");
             registerFeature(EMBUR_WART, "embur_wart");
             registerFeature(EMBUR_LILY, "embur_lily");
+            registerFeature(ARAUCARIA_TREE1, "araucaria_tree1");
+            registerFeature(ARAUCARIA_TREE2, "araucaria_tree2");
             registerFeature(ACACIA_TREE1, "acacia_tree1");
             registerFeature(ANCIENT_TREE1, "ancient_tree1");
             registerFeature(ANCIENT_TREE2, "ancient_tree2");

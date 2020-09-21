@@ -20,6 +20,9 @@ public class BYGConfiguredTreeFeatures {
     /***********************************************************Configured Features********************************************************/
 //    public static final ConfiguredFeature<?, ?> ACACIA_TREE1 = newConfiguredFeature("acacia_tree1", BYGFeatureList.ACACIA_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ARAUCARIA_TREE1 = newConfiguredFeature("araucaria_tree1", BYGFeatureList.ARAUCARIA_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.PINE_LOG).setLeavesBlock(BYGBlockList.ARAUCARIA_LEAVES).setMaxHeight(30).setMinHeight(20).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ARAUCARIA_TREE2 = newConfiguredFeature("araucaria_tree2", BYGFeatureList.ARAUCARIA_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.PINE_LOG).setLeavesBlock(BYGBlockList.ARAUCARIA_LEAVES).setMaxHeight(28).setMinHeight(18).build()));
+
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ANCIENT_TREE1 = newConfiguredFeature("ancient_tree1", BYGFeatureList.ANCIENT_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(Blocks.DARK_OAK_LOG).setLeavesBlock(Blocks.DARK_OAK_LEAVES).setMaxHeight(25).setMinHeight(15).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ANCIENT_TREE2 = newConfiguredFeature("ancient_tree2", BYGFeatureList.ANCIENT_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.EBONY_LOG).setLeavesBlock(BYGBlockList.EBONY_LEAVES).setMaxHeight(25).setMinHeight(15).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ANCIENT_TREE3 = newConfiguredFeature("ancient_tree3", BYGFeatureList.ANCIENT_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.MAPLE_LOG).setLeavesBlock(BYGBlockList.SILVER_MAPLE_LEAVES).setMaxHeight(25).setMinHeight(15).build()));
@@ -262,6 +265,11 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_TREE1 = newConfiguredFeature("zelkova_tree1", BYGFeatureList.ZELKOVA_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.ZELKOVA_LEAVES).setMaxHeight(20).setMinHeight(13).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_TREE2 = newConfiguredFeature("zelkova_tree2", BYGFeatureList.ZELKOVA_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.ZELKOVA_LEAVES).setMaxHeight(28).setMinHeight(18).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_TREE3 = newConfiguredFeature("zelkova_tree3", BYGFeatureList.ZELKOVA_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.ZELKOVA_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_BROWN_TREE1 = newConfiguredFeature("zelkova_brown_tree1", BYGFeatureList.ZELKOVA_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.BROWN_ZELKOVA_LEAVES).setMaxHeight(21).setMinHeight(11).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_BROWN_TREE2 = newConfiguredFeature("zelkova_brown_tree2", BYGFeatureList.ZELKOVA_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.BROWN_ZELKOVA_LEAVES).setMaxHeight(20).setMinHeight(10).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ZELKOVA_BROWN_TREE3 = newConfiguredFeature("zelkova_brown_tree3", BYGFeatureList.ZELKOVA_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.ZELKOVA_LOG).setLeavesBlock(BYGBlockList.BROWN_ZELKOVA_LEAVES).setMaxHeight(24).setMinHeight(12).build()));
+
 
     //Vanilla Tree Features
     public static final ConfiguredFeature<?, ?> MC_TROPICAL_GROUND_BUSH = newConfiguredFeature("mc_tropical_ground_bush", Feature.TREE.withConfiguration(BYGFeatureConfigs.TROPGROUNDBUSH_CONFIG));
@@ -784,6 +792,7 @@ public class BYGConfiguredTreeFeatures {
             new AtSurfaceWithExtraConfig(0, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PALM_TREE = newConfiguredFeature("rs_palm_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            PALM_TREE4.withChance(0.05F),
             PALM_TREE3.withChance(0.35F),
             PALM_TREE2.withChance(0.35F)),
             PALM_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(

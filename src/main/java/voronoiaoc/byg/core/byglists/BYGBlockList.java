@@ -300,6 +300,7 @@ public class BYGBlockList {
 
 
     //LeaveBlocks
+    public static Block ARAUCARIA_LEAVES;
     public static Block ASPEN_LEAVES;
     public static Block BAOBAB_LEAVES;
     public static Block BLOOMING_WITCH_HAZEL_LEAVES;
@@ -307,6 +308,7 @@ public class BYGBlockList {
     public static Block BLUE_SPRUCE_LEAVES;
     public static Block BROWN_BIRCH_LEAVES;
     public static Block BROWN_OAK_LEAVES;
+    public static Block BROWN_ZELKOVA_LEAVES;
     public static Block CIKA_LEAVES;
     public static Block CYPRESS_LEAVES;
     public static Block EBONY_LEAVES;
@@ -614,12 +616,14 @@ public class BYGBlockList {
     public static Block WHITE_CHERRY_FOLIAGE;
 
     //SaplingBlocks
+    public static Block ARAUCARIA_SAPLING;
     public static Block ASPEN_SAPLING;
     public static Block BAOBAB_SAPLING;
     public static Block BLUE_ENCHANTED_SAPLING;
     public static Block BLUE_SPRUCE_SAPLING;
     public static Block BROWN_BIRCH_SAPLING;
     public static Block BROWN_OAK_SAPLING;
+    public static Block BROWN_ZELKOVA_SAPLING;
     public static Block CIKA_SAPLING;
     public static Block CYPRESS_SAPLING;
     public static Block EBONY_SAPLING;

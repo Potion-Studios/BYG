@@ -180,6 +180,13 @@ public class BYGSaplingToTree {
         }
     }
 
+    public static class AraucariaSaplingToTree extends BYGTree {
+        @Nullable
+        public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGConfiguredTreeFeatures.ARAUCARIA_TREE1 : BYGConfiguredTreeFeatures.ARAUCARIA_TREE2;
+        }
+    }
+
     public static class AspenSaplingToTree extends BYGTree {
         @Nullable
         public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {
@@ -191,6 +198,14 @@ public class BYGSaplingToTree {
         @Nullable
         public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {
             return random.nextInt(2) == 0 ? BYGConfiguredTreeFeatures.ZELKOVA_TREE1 : BYGConfiguredTreeFeatures.ZELKOVA_TREE2;
+        }
+
+    }
+
+    public static class BrownZelkovaSaplingToTree extends BYGTree {
+        @Nullable
+        public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGConfiguredTreeFeatures.ZELKOVA_BROWN_TREE1 : BYGConfiguredTreeFeatures.ZELKOVA_BROWN_TREE3;
         }
 
     }

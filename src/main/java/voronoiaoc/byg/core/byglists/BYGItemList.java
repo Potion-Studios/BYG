@@ -1,5 +1,6 @@
 package voronoiaoc.byg.core.byglists;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 public class BYGItemList {
@@ -326,12 +327,14 @@ public class BYGItemList {
     public static Item PURPLE_SMOOTH_SANDSTONE;
 
     //LeaveItems
+    public static Item ARAUCARIA_LEAVES;
     public static Item BAOBAB_LEAVES;
     public static Item BLOOMING_WITCH_HAZEL_LEAVES;
     public static Item BLUE_ENCHANTED_LEAVES;
     public static Item BLUE_SPRUCE_LEAVES;
     public static Item BROWN_BIRCH_LEAVES;
     public static Item BROWN_OAK_LEAVES;
+    public static Item BROWN_ZELKOVA_LEAVES;
     public static Item CIKA_LEAVES;
     public static Item CYPRESS_LEAVES;
     public static Item EBONY_LEAVES;
@@ -677,12 +680,14 @@ public class BYGItemList {
     public static Item WHITE_CHERRY_FOLIAGE;
 
     //SaplingItems
+    public static Item ARAUCARIA_SAPLING;
     public static Item ASPEN_SAPLING;
     public static Item BAOBAB_SAPLING;
     public static Item BLUE_ENCHANTED_SAPLING;
     public static Item BLUE_SPRUCE_SAPLING;
     public static Item BROWN_BIRCH_SAPLING;
     public static Item BROWN_OAK_SAPLING;
+    public static Item BROWN_ZELKOVA_SAPLING;
     public static Item CIKA_SAPLING;
     public static Item CYPRESS_SAPLING;
     public static Item EBONY_SAPLING;

@@ -697,6 +697,9 @@ public class BYGItemRegistry {
                 BYGItemList.EMBUR_BUTTON = new BlockItem(BYGBlockList.EMBUR_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_BUTTON.getRegistryName()),
 
                 //SaplingItems
+                BYGItemList.ARAUCARIA_SAPLING = new BlockItem(BYGBlockList.ARAUCARIA_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ARAUCARIA_SAPLING.getRegistryName()),
+                BYGItemList.ARAUCARIA_LEAVES = new BlockItem(BYGBlockList.ARAUCARIA_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ARAUCARIA_LEAVES.getRegistryName()),
+
                 BYGItemList.BLUE_SPRUCE_SAPLING = new BlockItem(BYGBlockList.BLUE_SPRUCE_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_SPRUCE_SAPLING.getRegistryName()),
                 BYGItemList.BLUE_SPRUCE_LEAVES = new BlockItem(BYGBlockList.BLUE_SPRUCE_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLUE_SPRUCE_LEAVES.getRegistryName()),
 
@@ -705,6 +708,9 @@ public class BYGItemRegistry {
 
                 BYGItemList.BROWN_OAK_SAPLING = new BlockItem(BYGBlockList.BROWN_OAK_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BROWN_OAK_SAPLING.getRegistryName()),
                 BYGItemList.BROWN_OAK_LEAVES = new BlockItem(BYGBlockList.BROWN_OAK_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BROWN_OAK_LEAVES.getRegistryName()),
+
+                BYGItemList.BROWN_ZELKOVA_SAPLING = new BlockItem(BYGBlockList.BROWN_ZELKOVA_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BROWN_ZELKOVA_SAPLING.getRegistryName()),
+                BYGItemList.BROWN_ZELKOVA_LEAVES = new BlockItem(BYGBlockList.BROWN_ZELKOVA_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BROWN_ZELKOVA_LEAVES.getRegistryName()),
 
                 BYGItemList.JOSHUA_SAPLING = new BlockItem(BYGBlockList.JOSHUA_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JOSHUA_SAPLING.getRegistryName()),
                 BYGItemList.JOSHUA_LEAVES = new BlockItem(BYGBlockList.JOSHUA_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JOSHUA_LEAVES.getRegistryName()),
