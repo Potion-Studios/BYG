@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -35,6 +36,8 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
 
+        if (world.getBlockState(position).isIn(BlockTags.LEAVES) || world.getBlockState(position).isIn(BlockTags.LOGS))
+            return false;
 
         for (int boulderIDX = 0; boulderIDX < stackHeight; boulderIDX++) {
             //Randomize the movement.
