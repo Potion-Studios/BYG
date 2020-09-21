@@ -62,7 +62,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
         if (returnValue <= 0)
             returnValue = 1;
 
-        return Math.abs(returnValue);
+        return returnValue;
     }
 
     public int getMinRadius() {
@@ -91,7 +91,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
         private int maxStackHeight = 1;
         private int minRadius = 1;
         private int maxRadius = 3;
-        private double radiusDivisorPerStack = 3;
+        private double radiusDivisorPerStack = 1.2;
 
         public Builder setBlock(Block block) {
             if (block != null)
@@ -127,9 +127,9 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
 
         public Builder setMaxHeight(int maxPossibleHeight) {
             if (maxPossibleHeight <= 0)
-                this.maxStackHeight = maxPossibleHeight + 1;
+                this.maxStackHeight = minStackHeight + 1;
             else
-                this.maxStackHeight = 1;
+                this.maxStackHeight = maxPossibleHeight + 1;
             return this;
         }
 
