@@ -53,6 +53,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight REDDESERT = new ConfigWeight("Red_Desert", 6);
     public static final ConfigWeight REDOAKFOREST = new ConfigWeight("Red_Oak_Forest", 6);
     public static final ConfigWeight REDROCKMOUNTAINS = new ConfigWeight("Red_Rock_Mountains", 5);
+    public static final ConfigWeight ROSE_FIELDS = new ConfigWeight("Rose_Fields", 2);
     public static final ConfigWeight SEASONALDECIDUOUSFOREST = new ConfigWeight("Seasonal_Deciduous_Forest", 6);
     public static final ConfigWeight SEASONALFOREST = new ConfigWeight("Seasonal_Forest", 6);
     public static final ConfigWeight SEASONALBIRCHFOREST = new ConfigWeight("Seasonal_Birch_Forest", 6);

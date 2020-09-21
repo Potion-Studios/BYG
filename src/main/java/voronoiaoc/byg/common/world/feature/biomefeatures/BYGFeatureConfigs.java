@@ -72,6 +72,7 @@ public class BYGFeatureConfigs {
     public static final BlockClusterFeatureConfig PURPLE_GLOWSHROOM_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.PURPLE_GLOWSHROOM.getDefaultState()), new SimpleBlockPlacer())).tries(18).func_227317_b_().build();
     public static final BlockClusterFeatureConfig SOUL_SHROOM_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.SOUL_SHROOM.getDefaultState()), SimpleBlockPlacer.PLACER)).tries(64).func_227317_b_().build();
     public static final BlockClusterFeatureConfig DEATH_CAP_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.DEATH_CAP.getDefaultState()), SimpleBlockPlacer.PLACER)).tries(64).func_227317_b_().build();
+    public static final BlockClusterFeatureConfig ROSE_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.ROSE_BUSH.getDefaultState()), new DoublePlantBlockPlacer())).tries(48).func_227317_b_().build();
 
     public static final BlockClusterFeatureConfig PRICKLY_PEAR_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.PRICKLY_PEAR_CACTUS.getDefaultState()), new SimpleBlockPlacer())).tries(5).build();
     public static final BlockClusterFeatureConfig GOLDEN_SPINED_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlockList.GOLDEN_SPINED_CACTUS.getDefaultState()), new SimpleBlockPlacer())).tries(5).build();

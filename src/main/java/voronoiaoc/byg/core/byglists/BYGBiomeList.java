@@ -66,6 +66,7 @@ public class BYGBiomeList {
     public static final Biome REDDESERTDUNES = new RedDesertDunes();
     public static final Biome REDOAKFOREST = new RedOakForest();
     public static final Biome RED_ROCK_MOUNTAINS = new RedRockMountains();
+    public static final Biome ROSE_FIELDS = new RoseFields();
     public static final Biome SAVANNACANOPY = new SavannaCanopy();
     public static final Biome SEASONALBIRCHFOREST = new SeasonalBirchForest();
     public static final Biome SEASONALDECIDUOUSFOREST = new SeasonalDeciduousForest();
@@ -104,6 +105,7 @@ public class BYGBiomeList {
     public static final Biome ROCKYBEACH = new RockyBeach();
 
     //Sub Biomes
+    public static final Biome RED_SPRUCE_TAIGA = new RedSpruceTaiga();
     public static final Biome TWILIGHT_VALLEY_HILLS = new TwilightValleyHills();
     public static final Biome ARAUCARIA_FOREST = new AraucariaForest();
     public static final Biome FUNGAL_PATCH = new FungalPatch();

@@ -178,6 +178,10 @@ public class BYGTreeFeatures {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_TREE);
     }
 
+    public static void addRedSpruceTrees(BiomeGenerationSettings.Builder biome) {
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPRUCE_RED_TREE);
+    }
+
     public static void addSmallSpruceTrees(BiomeGenerationSettings.Builder biome) {
         //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.TREE.configure(SPRUCE_TREE_CONFIG).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
     }

@@ -76,6 +76,8 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> PRAIRIE_TALL_GRASS = newConfiguredFeature("tall_prairie_grass", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.TALLPRAIRIEGRASS_CONFIG));
     public static ConfiguredFeature<?, ?> BLUE_GLOWSHROOM = newConfiguredFeature("blue_glowshroom", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.BLUE_GLOWSHROOM_CONFIG));
     public static ConfiguredFeature<?, ?> PURPLE_GLOWSHROOM = newConfiguredFeature("purple_glowshroom", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.PURPLE_GLOWSHROOM_CONFIG));
+    public static ConfiguredFeature<?, ?> ROSE_BUSH = newConfiguredFeature("rose_bush", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.ROSE_BUSH_CONFIG));
+
 
     public static ConfiguredFeature<?, ?> PRICKLY_PEAR_CACTI = newConfiguredFeature("prickly_pear_cacti", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.PRICKLY_PEAR_CONFIG));
     public static ConfiguredFeature<?, ?> GOLDEN_SPINED_CACTI = newConfiguredFeature("golden_spined_cacti", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.GOLDEN_SPINED_CONFIG));
@@ -235,6 +237,12 @@ public class BYGConfiguredFeatures {
             AMARANTH_MAGENTA.withChance(0.2F),
             AMARANTH_ORANGE.withChance(0.2F)),
             AMARANTH_PURPLE)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(60));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ROSE_FIELD_FLOWER = newConfiguredFeature("rs_rose_field_flower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            ROSE_OSIRIA.withChance(0.25F),
+            ROSE.withChance(0.25F),
+            ROSE_BUSH.withChance(0.25F)),
+            ROSE_BUSH)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CALIFORNIA_POPPY = newConfiguredFeature("rs_california_poppy", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CALIFORNIA_POPPY.withChance(0.50F)),

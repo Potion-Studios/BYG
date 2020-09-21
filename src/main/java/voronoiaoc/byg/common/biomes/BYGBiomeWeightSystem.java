@@ -88,6 +88,7 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.REDOAKFOREST, ConfigWeightManager.REDOAKFOREST.getWeight(), OverworldClimate.WARM);
         addBiomeEntry(BYGBiomeList.RED_ROCK_MOUNTAINS, ConfigWeightManager.REDROCKMOUNTAINS.getWeight(), OverworldClimate.DESERT);
         addBiomeEntry(BYGBiomeList.REDWOOD_TROPICS, ConfigWeightManager.REDWOOD_TROPICS.getWeight(), OverworldClimate.WARM);
+        addBiomeEntry(BYGBiomeList.ROSE_FIELDS, ConfigWeightManager.ROSE_FIELDS.getWeight(), OverworldClimate.COOL);
         addBiomeEntry(BYGBiomeList.SEASONALBIRCHFOREST, ConfigWeightManager.SEASONALBIRCHFOREST.getWeight(), OverworldClimate.COOL);
         addBiomeEntry(BYGBiomeList.SEASONALDECIDUOUSFOREST, ConfigWeightManager.SEASONALDECIDUOUSFOREST.getWeight(), OverworldClimate.COOL);
         addBiomeEntry(BYGBiomeList.SEASONALFOREST, ConfigWeightManager.SEASONALFOREST.getWeight(), OverworldClimate.COOL);

@@ -66,6 +66,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.REDDESERTDUNES, "red_desert_dunes");
         registerBiome(BYGBiomeList.REDOAKFOREST, "red_oak_forest");
         registerBiome(BYGBiomeList.RED_ROCK_MOUNTAINS, "red_rock_mountains");
+        registerBiome(BYGBiomeList.ROSE_FIELDS, "rose_fields");
         registerBiome(BYGBiomeList.SEASONALBIRCHFOREST, "seasonal_birch_forest");
         registerBiome(BYGBiomeList.SEASONALDECIDUOUSFOREST, "seasonal_deciduous_forest");
         registerBiome(BYGBiomeList.SEASONALFOREST, "seasonal_forest");
@@ -103,6 +104,7 @@ public class BYGBiomeRegistry {
         registerBYGSubBiome(BYGBiomeList.FLOWERING_ANCIENT_FOREST, "flowering_ancient_forest");
 
         //Sub Biomes
+        registerBYGSubBiome(BYGBiomeList.RED_SPRUCE_TAIGA, "red_spruce_taiga");
         registerBYGSubBiome(BYGBiomeList.TWILIGHT_VALLEY_HILLS, "twilight_valley_hills");
         registerBYGSubBiome(BYGBiomeList.ARAUCARIA_FOREST, "araucaria_forest");
         registerBYGSubBiome(BYGBiomeList.SNOWY_EVERGREEN_CLEARING, "snowy_evergreen_clearing");
