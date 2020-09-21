@@ -143,9 +143,9 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
 
         public Builder setMaxRadius(int maxRadius) {
             if (maxRadius <= 0)
-                this.maxRadius = maxRadius + 1;
+                this.maxRadius = minRadius + 1;
             else
-                this.maxRadius = 1;
+                this.maxRadius = maxRadius + 1;
             return this;
         }
 
