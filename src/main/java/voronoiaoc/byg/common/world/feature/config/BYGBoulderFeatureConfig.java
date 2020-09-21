@@ -20,8 +20,10 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             return config.maxHeight;
         }), Codec.INT.fieldOf("min_radius").orElse(15).forGetter((config) -> {
             return config.minRadius;
-        }),Codec.INT.fieldOf("max_radius").orElse(1).forGetter((config) -> {
-            return config.maxRadius;
+        }), Codec.INT.fieldOf("max_radius").orElse(15).forGetter((config) -> {
+            return config.minRadius;
+        }), Codec.DOUBLE.fieldOf("radius_divisor_per_stack").orElse(1.2).forGetter((config) -> {
+            return config.radiusDivisorPerStack;
         })).apply(codecRecorder, BYGBoulderFeatureConfig::new);
     });
 
@@ -31,14 +33,16 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
     private final int maxHeight;
     private final int minRadius;
     private final int maxRadius;
+    private final double radiusDivisorPerStack;
 
 
-    BYGBoulderFeatureConfig(BlockStateProvider blockProvider, int minHeight, int maxHeight, int minRadius, int maxRadius) {
+    BYGBoulderFeatureConfig(BlockStateProvider blockProvider, int minHeight, int maxHeight, int minRadius, int maxRadius, double radiusDivisorPerStack) {
         this.blockProvider = blockProvider;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
         this.minRadius = minRadius;
         this.maxRadius = maxRadius;
+        this.radiusDivisorPerStack = radiusDivisorPerStack;
     }
 
     public BlockStateProvider getBlockProvider() {
@@ -77,12 +81,17 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
         return Math.abs(returnValue);
     }
 
+    public double getRadiusDivisorPerStack() {
+        return this.radiusDivisorPerStack;
+    }
+
     public static class Builder {
         private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
         private int minStackHeight = 1;
         private int maxStackHeight = 1;
         private int minRadius = 1;
         private int maxRadius = 3;
+        private double radiusDivisorPerStack = 3;
 
         public Builder setBlock(Block block) {
             if (block != null)
@@ -140,6 +149,10 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             return this;
         }
 
+        public Builder setRadiusDivisor(double radiusDivisorPerStack) {
+            this.radiusDivisorPerStack = radiusDivisorPerStack;
+            return this;
+        }
 
         public Builder copy(BYGBoulderFeatureConfig config) {
             this.blockProvider = config.blockProvider;
@@ -147,11 +160,12 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             this.maxStackHeight = config.maxHeight;
             this.minRadius = config.minRadius;
             this.maxRadius = config.maxRadius;
+            this.radiusDivisorPerStack = config.radiusDivisorPerStack;
             return this;
         }
 
         public BYGBoulderFeatureConfig build() {
-            return new BYGBoulderFeatureConfig(this.blockProvider, this.minStackHeight, this.maxStackHeight, this.minRadius, this.maxRadius);
+            return new BYGBoulderFeatureConfig(this.blockProvider, this.minStackHeight, this.maxStackHeight, this.minRadius, this.maxRadius, this.radiusDivisorPerStack);
         }
     }
 }

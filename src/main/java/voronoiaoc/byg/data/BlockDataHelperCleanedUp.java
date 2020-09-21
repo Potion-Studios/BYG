@@ -100,7 +100,7 @@ public class BlockDataHelperCleanedUp {
             if (modifiedID.contains("_boat")) {
                 if (hasBoat)
                     woodTypes.add(modifiedID);
-            } else if (modifiedID.contains("_craft_table")) {
+            } else if (modifiedID.contains("_crafting_table")) {
                 if (hasCraftingTable)
                     woodTypes.add(modifiedID);
             } else if (modifiedID.contains("_sign")) {

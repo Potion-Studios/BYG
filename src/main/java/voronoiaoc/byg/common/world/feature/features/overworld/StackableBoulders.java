@@ -48,7 +48,7 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
             if (random.nextInt(2) == 1)
                 moveOnZ = -moveOnZ;
 
-            mutable.move(moveOnX,(int) (random.nextInt(Math.abs(radius) + 1) * 0.2f + radius * 0.8f) - 2, moveOnZ);
+            mutable.move(moveOnX,(int) (random.nextInt(Math.abs(radius) + 1) * 0.2f + radius * 0.8f) - 3 + -random.nextInt(5), moveOnZ);
 
             for (int x = -radius; x <= radius; x++) {
                 for (int y = -radius; y <= radius; y++) {
@@ -81,7 +81,7 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
 //            if (random.nextInt(9) == 0)
 //                radius = (int) (radius * 1.75);
 //            else
-                radius = (int) (radius / 1.5);
+                radius = (int) (radius / config.getRadiusDivisorPerStack());
 
             if (3 > radius) {
                 if (stopSpamInt == 0) {

@@ -15,10 +15,10 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class ValleDeLuna extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("valle_de_luna", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSBList.BYGSBConfigList.WHITESAND));
-    static final RainType PRECIPATATION = RainType.RAIN;
+    static final RainType PRECIPATATION = RainType.NONE;
     static final Category CATEGORY = Category.DESERT;
-    static final float DEPTH = 0.1F;
-    static final float SCALE = 0.02F;
+    static final float DEPTH = 0.9F;
+    static final float SCALE = 0.32F;
     static final float TEMPERATURE = 2.0F;
     static final float DOWNFALL = 0.0F;
     static final int WATER_COLOR = 4159204;
@@ -34,10 +34,10 @@ public class ValleDeLuna extends Biome implements BiomeTools {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder())
                 .setWaterColor(WATER_COLOR)
                 .setWaterFogColor(WATER_FOG_COLOR)
-                .setFogColor(12638463)
+                .setFogColor(12665870)
                 .withGrassColor(GRASS_COLOR)
                 .withFoliageColor(FOLIAGE_COLOR)
-                .withSkyColor(BiomeHelper.calcSkyColor(0.8F))
+                .withSkyColor(12665870)
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.00528F))
                 .setMoodSound(MoodSoundAmbience.DEFAULT_CAVE)
                 .build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());

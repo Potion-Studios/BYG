@@ -320,7 +320,9 @@ public class BYGFeatures {
     }
 
     public static void addGiantLunaBoulders(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_LUNA_BOULDERS);
+//        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_LUNA_BOULDERS);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WHITE_SANDSTONE_BOULDER);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WHITE_SANDSTONE_BOULDER_XL);
     }
 
     public static void addTerracottaBoulder(BiomeGenerationSettings.Builder gen) {

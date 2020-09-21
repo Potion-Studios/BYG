@@ -53,7 +53,7 @@ public class BYG {
     public static boolean isClient = false;
     public static Logger LOGGER = LogManager.getLogger();
     public static boolean isUsingMixin;
-    private static final String langPath = "D:\\Coding\\BYG - Forge 1.16.X\\src\\main\\resources\\assets\\byg\\lang\\en_us.json";
+    private static final String filePath = "C:\\Users\\aaron\\Downloads\\yuh";
 
     public BYG() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BYGConfig.COMMON_CONFIG);
@@ -85,8 +85,7 @@ public class BYG {
         BYGBiomeWeightSystem.addBYGBiomesToVanillaOverworld();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
 
-//        makeBYGLangFile();
-
+        BlockDataHelperCleanedUp.createWoodRecipeGenerator(filePath, MOD_ID, "glacial_oak", true, true, true);
     }
 
 
@@ -117,7 +116,7 @@ public class BYG {
                 biomeIDList.add(biomeID.replace(MOD_ID + ":", ""));
         }
 
-        BlockDataHelperCleanedUp.createLangFile(langPath, MOD_ID, blockIDList, biomeIDList, itemIDList);
+        BlockDataHelperCleanedUp.createLangFile(filePath, MOD_ID, blockIDList, biomeIDList, itemIDList);
 
 
     }
