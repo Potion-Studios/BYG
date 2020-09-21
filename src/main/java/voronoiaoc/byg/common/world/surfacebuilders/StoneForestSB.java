@@ -24,6 +24,7 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     }
 
     public static FastNoise noiseGen = null;
+    public static FastNoise noiseGen3D = null;
 
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         setSeed(random.nextLong());
@@ -48,12 +49,16 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                     chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
             }
         } else if (sampleNoise < 0.48) {
-            for (int yPos = startHeight + 44; yPos >= groundLevel; --yPos) {
+            int topHeight = startHeight + 44;
+            for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
                 block.setPos(xPos, yPos, zPos);
-                if (yPos == startHeight + 44)
+                if (yPos == topHeight)
                     chunkIn.setBlockState(block, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
-                else
-                    chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                else {
+                    double noise3D = noiseGen3D.GetNoise(x, yPos, z);
+                    if (noise3D < 0.6)
+                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                }
             }
         } else
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.GRASSSTONEMOUNTAIN_CF);
@@ -65,10 +70,17 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             noiseGen = new FastNoise((int) seed);
             noiseGen.SetFractalType(FastNoise.FractalType.RigidMulti);
             noiseGen.SetNoiseType(FastNoise.NoiseType.SimplexFractal);
-            noiseGen.SetGradientPerturbAmp(1000);
-            noiseGen.SetFractalOctaves(5);
+            noiseGen.SetGradientPerturbAmp(5);
+            noiseGen.SetFractalOctaves(1);
             noiseGen.SetFractalGain(0.3f);
             noiseGen.SetFrequency(0.02f);
+        }
+
+        if (noiseGen3D == null) {
+            noiseGen3D = new FastNoise((int) seed);
+            noiseGen3D.SetNoiseType(FastNoise.NoiseType.Value);
+            noiseGen3D.SetFractalGain(0.001f);
+            noiseGen3D.SetFrequency(0.7f);
         }
     }
 }
