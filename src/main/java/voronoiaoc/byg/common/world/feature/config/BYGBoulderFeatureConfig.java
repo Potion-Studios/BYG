@@ -62,7 +62,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
         if (returnValue <= 0)
             returnValue = 1;
 
-        return returnValue;
+        return returnValue + 1;
     }
 
     public int getMinRadius() {
@@ -129,7 +129,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             if (maxPossibleHeight <= 0)
                 this.maxStackHeight = minStackHeight + 1;
             else
-                this.maxStackHeight = maxPossibleHeight + 1;
+                this.maxStackHeight = maxPossibleHeight;
             return this;
         }
 
@@ -145,7 +145,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             if (maxRadius <= 0)
                 this.maxRadius = minRadius + 1;
             else
-                this.maxRadius = maxRadius + 1;
+                this.maxRadius = maxRadius;
             return this;
         }
 
