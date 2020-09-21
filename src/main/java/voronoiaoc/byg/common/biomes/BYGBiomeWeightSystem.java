@@ -49,6 +49,7 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.AMARANTHFIELDS, ConfigWeightManager.AMARANTHFIELDS.getWeight(), OverworldClimate.WARM);
         addBiomeEntry(BYGBiomeList.AUTUMNAL_VALLEY, ConfigWeightManager.AUTUMNALVALLEY.getWeight(), OverworldClimate.COOL);
         addBiomeEntry(BYGBiomeList.ANCIENTFOREST, ConfigWeightManager.ANCIENTFOREST.getWeight(), OverworldClimate.WARM);
+        addBiomeEntry(BYGBiomeList.ARAUCARIA_SAVANNA, ConfigWeightManager.ARAUCARIA_SAVANNA.getWeight(), OverworldClimate.DESERT);
         addBiomeEntry(BYGBiomeList.ASPENFOREST, ConfigWeightManager.ASPENFOREST.getWeight(), OverworldClimate.WARM);
         addBiomeEntry(BYGBiomeList.BAOBABSAVANNA, ConfigWeightManager.BAOBABSAVANNA.getWeight(), OverworldClimate.DESERT);
         addBiomeEntry(BYGBiomeList.BAYOU, ConfigWeightManager.BAYOU.getWeight(), OverworldClimate.WARM);
@@ -105,6 +106,7 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.THE_BLACK_FOREST, ConfigWeightManager.THE_BLACK_FOREST.getWeight(), OverworldClimate.COOL);
         addBiomeEntry(BYGBiomeList.TROPICALFUNGALRAINFOREST, ConfigWeightManager.TROPICALFUNGALFOREST.getWeight(), OverworldClimate.WARM);
         addBiomeEntry(BYGBiomeList.TROPICALRAINFOREST, ConfigWeightManager.TROPICALRAINFOREST.getWeight(), OverworldClimate.WARM);
+        addBiomeEntry(BYGBiomeList.TWILIGHT_VALLEY, ConfigWeightManager.TWILIGHT_VALLEY.getWeight(), OverworldClimate.COOL);
         addBiomeEntry(BYGBiomeList.VIBRANTSWAMPLANDS, ConfigWeightManager.VIBRANTSWAMPLANDS.getWeight(), OverworldClimate.WARM);
         addBiomeEntry(BYGBiomeList.SIERRAVALLEY, ConfigWeightManager.SIERRAVALLEY.getWeight(), OverworldClimate.DESERT);
         addBiomeEntry(BYGBiomeList.WEEPINGWITCHFOREST, ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight(), OverworldClimate.COOL);

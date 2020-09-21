@@ -202,6 +202,18 @@ public class BYGTreeFeatures {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SKYRIS_TREE);
     }
 
+    public static void addAraucariaTrees(BiomeGenerationSettings.Builder biome) {
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_ARAUCARIA_TREE);
+    }
+
+    public static void addSparseAraucariaTrees(BiomeGenerationSettings.Builder biome) {
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_ARAUCARIA_TREE);
+    }
+
+    public static void addBrownZelkovaTrees(BiomeGenerationSettings.Builder biome) {
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_BROWN_ZELKOVA_TREE);
+    }
+
     public static void addBaobabTrees(BiomeGenerationSettings.Builder biome) {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_BAOBAB_TREE);
     }

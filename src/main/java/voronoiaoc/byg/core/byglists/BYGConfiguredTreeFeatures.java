@@ -696,6 +696,22 @@ public class BYGConfiguredTreeFeatures {
             BAOBAB_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_ARAUCARIA_TREE = newConfiguredFeature("rs_araucaria_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            ARAUCARIA_TREE2.withChance(0.5F)),
+            ARAUCARIA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(2, 0.4F, 3))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_ARAUCARIA_TREE = newConfiguredFeature("rs_sparse_araucaria_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            ARAUCARIA_TREE2.withChance(0.5F)),
+            ARAUCARIA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(0, 0.4F, 3))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_BROWN_ZELKOVA_TREE = newConfiguredFeature("rs_brown_zelkova_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            ZELKOVA_BROWN_TREE3.withChance(0.35F),
+            ZELKOVA_BROWN_TREE2.withChance(0.35F)),
+            ZELKOVA_BROWN_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
+
     public static final ConfiguredFeature<?, ?> RANDOM_MEADOW_SHRUB = newConfiguredFeature("rs_meadow_shrub", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB_MEADOW.withChance(0.1F)),
             SHRUB_PRAIRIE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(

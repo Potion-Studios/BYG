@@ -15,6 +15,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight ALPS = new ConfigWeight("Alps", 5);
     public static final ConfigWeight ANCIENTFOREST = new ConfigWeight("ancientForest", 1);
     public static final ConfigWeight AMARANTHFIELDS = new ConfigWeight("Amaranth_Fields", 2);
+    public static final ConfigWeight ARAUCARIA_SAVANNA = new ConfigWeight("Araucaria_Savanna", 5);
     public static final ConfigWeight ASPENFOREST = new ConfigWeight("Aspen_Forest", 6);
     public static final ConfigWeight AUTUMNALVALLEY = new ConfigWeight("Autumnal_Valley", 5);
     public static final ConfigWeight BAOBABSAVANNA = new ConfigWeight("Baobab_Savanna", 6);
@@ -72,6 +73,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight THE_BLACK_FOREST = new ConfigWeight("The_Black_Forest", 5);
     public static final ConfigWeight TROPICALFUNGALFOREST = new ConfigWeight("Tropical_Fungal_Forest", 5);
     public static final ConfigWeight TROPICALRAINFOREST = new ConfigWeight("Tropical_Rain_Forest", 6);
+    public static final ConfigWeight TWILIGHT_VALLEY = new ConfigWeight("Twilight_Valley", 2);
     public static final ConfigWeight CRAGGARDENS = new ConfigWeight("Crag_Gardens", 1);
     public static final ConfigWeight VIBRANTSWAMPLANDS = new ConfigWeight("Vibrant_Swamplands", 6);
     //    public static final ConfigWeight VOLCANO = new ConfigWeight("VolcanoFeature", 1);

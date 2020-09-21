@@ -19,6 +19,7 @@ public class BYGBiomeList {
     public static final Biome ALPS = new Alps();
     public static final Biome AMARANTHFIELDS = new AmaranthFields();
     public static final Biome ANCIENTFOREST = new AncientForest();
+    public static final Biome ARAUCARIA_SAVANNA = new AraucariaSavanna();
     public static final Biome ASPENFOREST = new AspenForest();
     public static final Biome AUTUMNAL_VALLEY = new AutumnalValley();
     public static final Biome BAOBABSAVANNA = new BaobabSavanna();
@@ -87,6 +88,7 @@ public class BYGBiomeList {
     public static final Biome TROPICALFUNGALRAINFOREST = new TropicalFungalRainForest();
     public static final Biome TROPICALISLAND = new TropicalIslands();
     public static final Biome TROPICALRAINFOREST = new TropicalRainForest();
+    public static final Biome TWILIGHT_VALLEY = new TwilightValley();
     public static final Biome VIBRANTSWAMPLANDS = new VibrantSwamplands();
     public static final Biome VOLCANO = new Volcano();
     public static final Biome WEEPINGWITCHFOREST = new WeepingWitchForest();
@@ -101,6 +103,8 @@ public class BYGBiomeList {
     public static final Biome ROCKYBEACH = new RockyBeach();
 
     //Sub Biomes
+    public static final Biome TWILIGHT_VALLEY_HILLS = new TwilightValleyHills();
+    public static final Biome ARAUCARIA_FOREST = new AraucariaForest();
     public static final Biome FUNGAL_PATCH = new FungalPatch();
     public static final Biome LUSHREDDESERT = new LushRedDesert();
     public static final Biome SIERRARANGE = new SierraRange();

@@ -25,6 +25,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.ALPS, "alps");
         registerBiome(BYGBiomeList.AMARANTHFIELDS, "amaranth_fields");
         registerBiome(BYGBiomeList.ANCIENTFOREST, "ancient_forest");
+        registerBiome(BYGBiomeList.ARAUCARIA_SAVANNA, "araucaria_savanna");
         registerBiome(BYGBiomeList.ASPENFOREST, "aspen_forest");
         registerBiome(BYGBiomeList.AUTUMNAL_VALLEY, "autumnal_valley");
         registerBiome(BYGBiomeList.BAOBABSAVANNA, "baobab_savanna");
@@ -85,6 +86,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.THE_BLACK_FOREST, "the_black_forest");
         registerBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, "tropical_fungal_forest");
         registerBiome(BYGBiomeList.TROPICALRAINFOREST, "tropical_rainforest");
+        registerBiome(BYGBiomeList.TWILIGHT_VALLEY, "twilight_valley");
         registerBiome(BYGBiomeList.VIBRANTSWAMPLANDS, "vibrant_swamplands");
 //        registerBiome(BYGBiomeList.VOLCANO, "volcano");
         registerBiome(BYGBiomeList.SIERRAVALLEY, "sierra_valley");
@@ -100,6 +102,8 @@ public class BYGBiomeRegistry {
         registerBYGSubBiome(BYGBiomeList.FLOWERING_ANCIENT_FOREST, "flowering_ancient_forest");
 
         //Sub Biomes
+        registerBYGSubBiome(BYGBiomeList.TWILIGHT_VALLEY_HILLS, "twilight_valley_hills");
+        registerBYGSubBiome(BYGBiomeList.ARAUCARIA_FOREST, "araucaria_forest");
         registerBYGSubBiome(BYGBiomeList.SNOWY_EVERGREEN_CLEARING, "snowy_evergreen_clearing");
         registerBYGSubBiome(BYGBiomeList.SNOWY_EVERGREEN_HILLS, "snowy_evergreen_hills");
         registerBYGSubBiome(BYGBiomeList.ENCHANTED_FOREST_HILLS, "enchanted_forest_hills");
