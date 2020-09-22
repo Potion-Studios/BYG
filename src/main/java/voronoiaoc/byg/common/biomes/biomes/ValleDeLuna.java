@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -11,6 +12,7 @@ import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class ValleDeLuna extends Biome implements BiomeTools {
@@ -18,7 +20,7 @@ public class ValleDeLuna extends Biome implements BiomeTools {
     static final RainType PRECIPATATION = RainType.NONE;
     static final Category CATEGORY = Category.DESERT;
     static final float DEPTH = 0.9F;
-    static final float SCALE = 0.32F;
+    static final float SCALE = 0.0F;
     static final float TEMPERATURE = 2.0F;
     static final float DOWNFALL = 0.0F;
     static final int WATER_COLOR = 4159204;
@@ -66,10 +68,11 @@ public class ValleDeLuna extends Biome implements BiomeTools {
         DefaultBiomeFeatures.withDesertWells(GENERATION_SETTINGS);
         BYGTreeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addGiantLunaBoulders(GENERATION_SETTINGS);
+        BYGFeatures.addGiantLunaRocks(GENERATION_SETTINGS);
         BYGFeatures.addTerracottaBoulder(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addBYGDesertPlants(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.VOLCANO);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
         SPAWN_SETTINGS.withSpawner(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));

@@ -57,8 +57,11 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
 
             mutable.move(moveOnX,(int) (random.nextInt(Math.abs(radius) + 1) * 0.2f + radius * 0.8f) - 3 + -random.nextInt(5), moveOnZ);
 
+
+            int yPositiveRadius = (config.isTopBoulderFlat() && boulderIDX + 1 == stackHeight) ? 0 : radius;
+
             for (int x = -radius; x <= radius; x++) {
-                for (int y = -radius; y <= radius; y++) {
+                for (int y = -radius; y <= yPositiveRadius; y++) {
                     for (int z = -radius; z <= radius; z++) {
 
                         int squaredDistance = x * x + y * y + z * z;

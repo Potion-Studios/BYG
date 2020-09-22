@@ -26,7 +26,6 @@ import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WailingV
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WhalingGrass;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.*;
-import voronoiaoc.byg.common.world.feature.features.overworld.PointyRockFeature;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.AngelicaGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.DandelionGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.IrisGiant;

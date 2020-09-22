@@ -3,10 +3,12 @@ package voronoiaoc.byg.core.byglists;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.surfacebuilders.*;
+import voronoiaoc.byg.common.world.surfacebuilders.sbconfig.FillSurfaceSurfaceBuilderConfig;
 
 public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL_SB = newSurfaceBuilder("boreal", new BorealForestSB(SurfaceBuilderConfig.field_237203_a_));
@@ -42,11 +44,12 @@ public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> GLOWSTONE_GARDENS_SB = newSurfaceBuilder("glowstone_gardens", new GlowstoneGardensSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> TWILIGHT_VALLEY_SB = newSurfaceBuilder("twilight_valley", new TwilightValleySB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> ERODED_LUNA_SB = newSurfaceBuilder("eroded_luna", new ErodedLunaSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<FillSurfaceSurfaceBuilderConfig> FILLER_SB = newSurfaceBuilder("filler", new FillerSurfaceBuilder(FillSurfaceSurfaceBuilderConfig.CODEC));
 
     //End
     public static final SurfaceBuilder<SurfaceBuilderConfig> IVISFIELDS_SB = newSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderConfig.field_237203_a_));
 
-    public static SurfaceBuilder<SurfaceBuilderConfig> newSurfaceBuilder(String id, SurfaceBuilder<SurfaceBuilderConfig> surfaceBuilder) {
+    public static <SBC extends ISurfaceBuilderConfig> SurfaceBuilder<SBC> newSurfaceBuilder(String id, SurfaceBuilder<SBC> surfaceBuilder) {
         Registry.register(Registry.SURFACE_BUILDER, new ResourceLocation(BYG.MOD_ID, id), surfaceBuilder);
         return surfaceBuilder;
     }

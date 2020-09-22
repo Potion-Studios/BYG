@@ -22,8 +22,10 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             return config.minRadius;
         }), Codec.INT.fieldOf("max_radius").orElse(15).forGetter((config) -> {
             return config.minRadius;
-        }), Codec.DOUBLE.fieldOf("radius_divisor_per_stack").orElse(1.2).forGetter((config) -> {
+        }), Codec.DOUBLE.fieldOf("radius_divisor_per_stack").orElse(1.1).forGetter((config) -> {
             return config.radiusDivisorPerStack;
+        }),  Codec.BOOL.fieldOf("flatten_top_boulder").orElse(false).forGetter((config) -> {
+            return config.flattenTopBoulder;
         })).apply(codecRecorder, BYGBoulderFeatureConfig::new);
     });
 
@@ -34,15 +36,17 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
     private final int minRadius;
     private final int maxRadius;
     private final double radiusDivisorPerStack;
+    private final boolean flattenTopBoulder;
 
 
-    BYGBoulderFeatureConfig(BlockStateProvider blockProvider, int minHeight, int maxHeight, int minRadius, int maxRadius, double radiusDivisorPerStack) {
+    BYGBoulderFeatureConfig(BlockStateProvider blockProvider, int minHeight, int maxHeight, int minRadius, int maxRadius, double radiusDivisorPerStack, boolean flattenTopBoulder) {
         this.blockProvider = blockProvider;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
         this.minRadius = minRadius;
         this.maxRadius = maxRadius;
         this.radiusDivisorPerStack = radiusDivisorPerStack;
+        this.flattenTopBoulder = flattenTopBoulder;
     }
 
     public BlockStateProvider getBlockProvider() {
@@ -85,6 +89,11 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
         return this.radiusDivisorPerStack;
     }
 
+    public boolean isTopBoulderFlat() {
+        return this.flattenTopBoulder;
+    }
+
+
     public static class Builder {
         private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
         private int minStackHeight = 1;
@@ -92,6 +101,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
         private int minRadius = 1;
         private int maxRadius = 3;
         private double radiusDivisorPerStack = 1.2;
+        private boolean flattenTopBoulder = false;
 
         public Builder setBlock(Block block) {
             if (block != null)
@@ -154,6 +164,11 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             return this;
         }
 
+        public Builder flattenTopBoulder() {
+            this.flattenTopBoulder = true;
+            return this;
+        }
+
         public Builder copy(BYGBoulderFeatureConfig config) {
             this.blockProvider = config.blockProvider;
             this.minStackHeight = config.minHeight;
@@ -165,7 +180,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
         }
 
         public BYGBoulderFeatureConfig build() {
-            return new BYGBoulderFeatureConfig(this.blockProvider, this.minStackHeight, this.maxStackHeight, this.minRadius, this.maxRadius, this.radiusDivisorPerStack);
+            return new BYGBoulderFeatureConfig(this.blockProvider, this.minStackHeight, this.maxStackHeight, this.minRadius, this.maxRadius, this.radiusDivisorPerStack, this.flattenTopBoulder);
         }
     }
 }
