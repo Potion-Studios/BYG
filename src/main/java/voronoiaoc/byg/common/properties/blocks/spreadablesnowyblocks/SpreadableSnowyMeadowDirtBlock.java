@@ -38,7 +38,7 @@ public class SpreadableSnowyMeadowDirtBlock extends SnowyDirtBlock {
     public void animateTick(BlockState state, Level worldIn, BlockPos pos, Random rand) {
         if (!canSurvive(state, worldIn, pos)) {
             if (!SpreadableSythianBlock.isAreaLoaded(pos, 3, worldIn))
-                return; // Forge: prevent loading unloaded chunks when checking neighbor's light and spreading
+                return;
             worldIn.setBlockAndUpdate(pos, BYGBlockList.MEADOW_DIRT.defaultBlockState());
         } else {
             if (worldIn.getBrightness(pos.above()) >= 9) {

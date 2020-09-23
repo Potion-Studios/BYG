@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 
 @Mixin(DimensionType.class)
@@ -25,10 +24,10 @@ public class MixinDimensionType {
             cir.setReturnValue(new NoiseBasedChunkGenerator(new BYGNetherBiomeProvider(registry, seed), seed, () -> chunkGenRegistry.getOrThrow(NoiseGeneratorSettings.NETHER)));
         }
     }
-
-
-    @Inject(at = @At("HEAD"), method = "defaultEndGenerator(Lnet/minecraft/core/Registry;Lnet/minecraft/core/Registry;J)Lnet/minecraft/world/level/chunk/ChunkGenerator;", cancellable = true, require = 0)
-    private static void yeetTheEnd(Registry<Biome> registry, Registry<NoiseGeneratorSettings> chunkGenRegistry, long seed, CallbackInfoReturnable<ChunkGenerator> cir) {
-        cir.setReturnValue(new NoiseBasedChunkGenerator(new BYGEndBiomeProvider(registry, seed), seed, () -> chunkGenRegistry.getOrThrow(NoiseGeneratorSettings.END)));
-    }
+//
+//
+//    @Inject(at = @At("HEAD"), method = "defaultEndGenerator(Lnet/minecraft/core/Registry;Lnet/minecraft/core/Registry;J)Lnet/minecraft/world/level/chunk/ChunkGenerator;", cancellable = true, require = 0)
+//    private static void yeetTheEnd(Registry<Biome> registry, Registry<NoiseGeneratorSettings> chunkGenRegistry, long seed, CallbackInfoReturnable<ChunkGenerator> cir) {
+//        cir.setReturnValue(new NoiseBasedChunkGenerator(new BYGEndBiomeProvider(registry, seed), seed, () -> chunkGenRegistry.getOrThrow(NoiseGeneratorSettings.END)));
+//    }
 }
