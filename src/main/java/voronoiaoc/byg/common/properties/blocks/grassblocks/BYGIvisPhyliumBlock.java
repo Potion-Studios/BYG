@@ -1,5 +1,6 @@
 package voronoiaoc.byg.common.properties.blocks.grassblocks;
 
+import voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks.SpreadableIvisBlock;
 import voronoiaoc.byg.common.properties.blocks.spreadablesnowyblocks.SpreadableSythianBlock;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
@@ -15,7 +16,7 @@ import net.minecraft.world.level.levelgen.feature.AbstractFlowerFeature;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.DecoratedFeatureConfiguration;
 
-public class BYGIvisPhyliumBlock extends SpreadableSythianBlock implements BonemealableBlock {
+public class BYGIvisPhyliumBlock extends SpreadableIvisBlock implements BonemealableBlock {
     public BYGIvisPhyliumBlock(Properties properties) {
         super(properties);
     }
