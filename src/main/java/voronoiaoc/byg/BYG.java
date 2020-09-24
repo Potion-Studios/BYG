@@ -65,7 +65,7 @@ public class BYG {
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGBiomeRegistry.addBiomeNumericalIDsForLayerSampler();
         BYGBiomeWeightSystem.addBiomesToWeightSystem();
-        BYGBiomeWeightSystem.addBYGBiomesToVanillaOverworld();
+//        BYGBiomeWeightSystem.addBYGBiomesToVanillaOverworld();
 //        BYGBlockProperties.BYGFlower.pottedListIDs.forEach(o -> BYG.LOGGER.info("byg:" + o));
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
