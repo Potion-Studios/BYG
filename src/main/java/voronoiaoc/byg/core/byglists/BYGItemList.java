@@ -583,7 +583,8 @@ public class BYGItemList {
     public static Item BLACK_ICE;
     public static Item PACKED_BLACK_ICE;
     public static Item FROST_MAGMA;
-
+    public static Item SUBZERO_ASH;
+    public static Item SUBZERO_ASH_BLOCK;
 
     public static Item WEED_GRASS;
     public static Item WILTED_GRASS;

@@ -786,6 +786,10 @@ public class BYGItemRegistry {
                 BYGItemList.NYLIUM_SOUL_SAND = new BlockItem(BYGBlockList.NYLIUM_SOUL_SAND, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.NYLIUM_SOUL_SAND.getRegistryName()),
                 BYGItemList.NYLIUM_SOUL_SOIL = new BlockItem(BYGBlockList.NYLIUM_SOUL_SOIL, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.NYLIUM_SOUL_SOIL.getRegistryName()),
 
+                BYGItemList.FROST_MAGMA = new BlockItem(BYGBlockList.FROST_MAGMA, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FROST_MAGMA.getRegistryName()),
+                BYGItemList.SUBZERO_ASH = new BlockItem(BYGBlockList.SUBZERO_ASH, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SUBZERO_ASH.getRegistryName()),
+                BYGItemList.SUBZERO_ASH_BLOCK = new BlockItem(BYGBlockList.SUBZERO_ASH_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SUBZERO_ASH_BLOCK.getRegistryName()),
+
                 BYGItemList.ANTHRACITE = new AnthraciteItem(new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName("anthracite"),
                 BYGItemList.ANTHRACITE_BLOCK = new AnthraciteBlockItem(BYGBlockList.ANTHRACITE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ANTHRACITE_BLOCK.getRegistryName()),
                 BYGItemList.ANTHRACITE_ORE = new BlockItem(BYGBlockList.ANTHRACITE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ANTHRACITE_ORE.getRegistryName()),
@@ -845,8 +849,6 @@ public class BYGItemRegistry {
                 //Ice
                 BYGItemList.BLACK_ICE = new BlockItem(BYGBlockList.BLACK_ICE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.BLACK_ICE.getRegistryName()),
                 BYGItemList.PACKED_BLACK_ICE = new BlockItem(BYGBlockList.PACKED_BLACK_ICE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.PACKED_BLACK_ICE.getRegistryName()),
-                BYGItemList.FROST_MAGMA = new BlockItem(BYGBlockList.FROST_MAGMA, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.FROST_MAGMA.getRegistryName()),
-
 
                 //Mushrooms
                 BYGItemList.GREEN_MUSHSHROOM = new BlockItem(BYGBlockList.GREEN_MUSHROOM, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.6f).build())).setRegistryName(BYGBlockList.GREEN_MUSHROOM.getRegistryName()),

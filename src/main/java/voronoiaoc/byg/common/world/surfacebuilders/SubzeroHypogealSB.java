@@ -50,13 +50,13 @@ public class SubzeroHypogealSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 BlockState airCheck = chunkIn.getBlockState(block.down());
 
                 if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck == Blocks.AIR.getDefaultState())
-                    chunkIn.setBlockState(block, BYGBlockList.FROST_MAGMA.getDefaultState(), false);
+                    chunkIn.setBlockState(block, BYGBlockList.SUBZERO_ASH_BLOCK.getDefaultState(), false);
                 for (Direction direction : Direction.Plane.HORIZONTAL) {
                     BlockState airCheck2 = chunkIn.getBlockState(block.offset(direction));
 
 
                     if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck2 == Blocks.AIR.getDefaultState())
-                        chunkIn.setBlockState(block, BYGBlockList.FROST_MAGMA.getDefaultState(), false);
+                        chunkIn.setBlockState(block, BYGBlockList.SUBZERO_ASH_BLOCK.getDefaultState(), false);
                 }
             }
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.SUBZERO_ASH);

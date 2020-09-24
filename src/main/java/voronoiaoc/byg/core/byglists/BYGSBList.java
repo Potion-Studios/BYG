@@ -96,7 +96,7 @@ public class BYGSBList {
         public static final SurfaceBuilderConfig MAGMA_BLOCK = new SurfaceBuilderConfig(Blocks.MAGMA_BLOCK.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState());
         public static final SurfaceBuilderConfig BRIMSTONE = new SurfaceBuilderConfig(BYGBlockList.BRIMSTONE.getDefaultState(), BYGBlockList.BRIMSTONE.getDefaultState(), BYGBlockList.BRIMSTONE.getDefaultState());
         public static final SurfaceBuilderConfig FROST_MAGMA = new SurfaceBuilderConfig(BYGBlockList.FROST_MAGMA.getDefaultState(), BYGBlockList.FROST_MAGMA.getDefaultState(), BYGBlockList.FROST_MAGMA.getDefaultState());
-        public static final SurfaceBuilderConfig SUBZERO_ASH = new SurfaceBuilderConfig(BYGBlockList.FROST_MAGMA.getDefaultState(), BYGBlockList.FROST_MAGMA.getDefaultState(), BYGBlockList.FROST_MAGMA.getDefaultState());
+        public static final SurfaceBuilderConfig SUBZERO_ASH = new SurfaceBuilderConfig(BYGBlockList.SUBZERO_ASH_BLOCK.getDefaultState(), BYGBlockList.SUBZERO_ASH_BLOCK.getDefaultState(), BYGBlockList.SUBZERO_ASH_BLOCK.getDefaultState());
 
 
         public static final SurfaceBuilderConfig PODZOLDOVERMOUNTAIN_CF = new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());

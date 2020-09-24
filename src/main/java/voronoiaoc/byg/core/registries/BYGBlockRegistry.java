@@ -528,6 +528,9 @@ public class BYGBlockRegistry {
                 BYGBlockList.PACKED_BLACK_ICE = new BYGBlockProperties.BYGPackedIceBlock("packed_black_ice"),
                 BYGBlockList.BLACK_ICE = new BYGBlockProperties.BYGIceBlock("black_ice"),
                 BYGBlockList.FROST_MAGMA = new BYGBlockProperties.BYGFrostMagma("frost_magma"),
+                BYGBlockList.SUBZERO_ASH = new BYGBlockProperties.BYGSubzeroAsh("subzero_ash"),
+                BYGBlockList.SUBZERO_ASH_BLOCK = new BYGBlockProperties.BYGSubzeroAshBlock("subzero_ash_block"),
+
                 BYGBlockList.PINK_CHERRY_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("pink_cherry_foliage"),
                 BYGBlockList.WHITE_CHERRY_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("white_cherry_foliage"),
 

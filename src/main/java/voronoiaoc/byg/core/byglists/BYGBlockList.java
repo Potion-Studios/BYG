@@ -536,6 +536,8 @@ public class BYGBlockList {
     public static Block BLACK_ICE;
     public static Block PACKED_BLACK_ICE;
     public static Block FROST_MAGMA;
+    public static Block SUBZERO_ASH;
+    public static Block SUBZERO_ASH_BLOCK;
 
 
     public static Block WEED_GRASS;

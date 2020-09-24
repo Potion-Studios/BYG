@@ -22,6 +22,7 @@ import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.properties.blocks.nether.scorched.ScorchedPlantBlock;
+import voronoiaoc.byg.common.properties.blocks.nether.subzerohypogeal.SubzeroAshBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.sythian.*;
 import voronoiaoc.byg.common.properties.blocks.nether.wailing.HangingBonesBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.wailing.WhalingGrassBlock;
@@ -382,6 +383,28 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 10)
                     .harvestTool(ToolType.PICKAXE)
 
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGSubzeroAsh extends SubzeroAshBlock {
+        public BYGSubzeroAsh(String registryName) {
+            super(Block.Properties.create(Material.SNOW)
+                    .sound(SoundType.SAND)
+                    .hardnessAndResistance(0.1f)
+                    .harvestTool(ToolType.SHOVEL)
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGSubzeroAshBlock extends Block {
+        public BYGSubzeroAshBlock(String registryName) {
+            super(Block.Properties.create(Material.SNOW_BLOCK)
+                    .sound(SoundType.SAND)
+                    .hardnessAndResistance(0.2f)
+                    .harvestTool(ToolType.SHOVEL)
             );
             setRegistryName(registryName);
         }
