@@ -9,6 +9,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BYGBiomeBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
@@ -45,7 +46,9 @@ public class EmburBog extends BYGBiomeBuilder implements BiomeTools {
     }
 
     static {
-        //TODO: Reenable Embur Bog lake.
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244153_s); //Bastion Remnent
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244149_o); //Nether Fortress
+        GENERATION_SETTINGS.func_242516_a(StructureFeatures.field_244134_E); //Ruined Portal Nether
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.EMBUR_LAKE);
         GENERATION_SETTINGS.func_242512_a(GenerationStage.Carving.AIR, ConfiguredCarvers.field_243772_f);
         GENERATION_SETTINGS.func_242513_a(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.field_243830_ac);
