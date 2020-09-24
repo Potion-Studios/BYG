@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.biomes.netherbiome;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.Carvers;
 import net.minecraft.data.worldgen.Features;
+import net.minecraft.data.worldgen.StructureFeatures;
 import net.minecraft.sounds.Musics;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
@@ -54,6 +55,9 @@ public class EmburBog extends Biome {
     }
 
     static {
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.NETHER_BRIDGE);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.BASTION_REMNANT);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_NETHER);
         GENERATION_SETTINGS.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.EMBUR_LAKE);
         GENERATION_SETTINGS.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         GENERATION_SETTINGS.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, Features.SPRING_CLOSED);
