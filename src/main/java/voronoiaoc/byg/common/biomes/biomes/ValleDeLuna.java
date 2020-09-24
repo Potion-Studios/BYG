@@ -19,7 +19,7 @@ public class ValleDeLuna extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("valle_de_luna", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSBList.BYGSBConfigList.WHITESAND));
     static final RainType PRECIPATATION = RainType.NONE;
     static final Category CATEGORY = Category.DESERT;
-    static final float DEPTH = 0.9F;
+    static final float DEPTH = 0.0F;
     static final float SCALE = 0.0F;
     static final float TEMPERATURE = 2.0F;
     static final float DOWNFALL = 0.0F;

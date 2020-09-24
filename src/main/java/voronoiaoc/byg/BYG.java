@@ -84,7 +84,6 @@ public class BYG {
         BYGBiomeWeightSystem.addBiomesToWeightSystem();
         BYGBiomeWeightSystem.addBYGBiomesToVanillaOverworld();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
-
 //        BlockDataHelperCleanedUp.createWoodRecipeGenerator(filePath, MOD_ID, "glacial_oak", true, true, true);
     }
 

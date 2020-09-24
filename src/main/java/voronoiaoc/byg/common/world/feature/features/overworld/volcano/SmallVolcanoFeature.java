@@ -25,17 +25,8 @@ public class SmallVolcanoFeature extends Feature<NoFeatureConfig> {
             noiseGen.SetFractalType(FastNoise.FractalType.RigidMulti);
             noiseGen.SetNoiseType(FastNoise.NoiseType.SimplexFractal);
             noiseGen.SetFractalOctaves(1);
-            noiseGen.SetFractalGain(0.3f);
-            noiseGen.SetFrequency(0.006f);
-        }
-
-        if (noiseGen2 == null) {
-            noiseGen2 = new FastNoise((int) seed);
-            noiseGen2.SetFractalType(FastNoise.FractalType.RigidMulti);
-            noiseGen2.SetNoiseType(FastNoise.NoiseType.SimplexFractal);
-            noiseGen2.SetFractalOctaves(1);
-            noiseGen2.SetFractalGain(0.3f);
-            noiseGen2.SetFrequency(0.007f);
+            noiseGen.SetFractalGain(0.1f);
+            noiseGen.SetFrequency(0.004f);
         }
     }
 
@@ -68,11 +59,10 @@ public class SmallVolcanoFeature extends Feature<NoFeatureConfig> {
             for (int z = 0; z < 16; z++) {
                 mutable.setPos(pos.getX() + x, 0, pos.getZ() + z);
                 double noise = noiseGen.GetNoise(mutable.getX(), mutable.getZ()) * 2;
-                double noise2 = noiseGen2.GetNoise(mutable.getX(), mutable.getZ()) * 2;
                 int terrainHeight = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ());
 
-                if (noise < 0.5) {
-                    int topHeight = (int) (Math.abs((int) (noise * 55D) * 1.4) + terrainHeight);
+                if (noise <= 0.46) {
+                    int topHeight = (int) (Math.abs((int) (noise * 11D) * 1.4) + terrainHeight);
                     mutable.move(Direction.UP, topHeight);
                     for (int y = topHeight; y >= terrainHeight; y--) {
                         world.setBlockState(mutable, Blocks.DIAMOND_BLOCK.getDefaultState(), 2);
@@ -80,8 +70,11 @@ public class SmallVolcanoFeature extends Feature<NoFeatureConfig> {
                     }
                 }
 
-                else if (noise < 0.6) {
-                    int topHeight = (int) (Math.abs((int) (noise * 55D) * 1.4) + terrainHeight);
+                else if (noise <= 0.63) {
+                    int valueToReverse = (int) (Math.abs((int) (noise * 55D) * 1.4));
+                    int topHeight = (int) ((valueToReverse - Math.abs(((-noise * 55D) * 1.4 - valueToReverse))) + (terrainHeight * 1.8));
+
+                    System.out.println(topHeight);
                     mutable.move(Direction.UP, topHeight);
                     for (int y = topHeight; y >= terrainHeight; y--) {
                         world.setBlockState(mutable, Blocks.REDSTONE_BLOCK.getDefaultState(), 2);
