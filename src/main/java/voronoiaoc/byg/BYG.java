@@ -12,7 +12,6 @@ import voronoiaoc.byg.common.properties.vanilla.BYGCompostables;
 import voronoiaoc.byg.common.properties.vanilla.BYGFlammables;
 import voronoiaoc.byg.common.properties.vanilla.BYGHoeables;
 import voronoiaoc.byg.common.properties.vanilla.BYGStrippables;
-import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
 import voronoiaoc.byg.config.ConfigWeightManager;
@@ -59,7 +58,7 @@ public class BYG implements ModInitializer {
         BYGCompostables.compostablesBYG();
         BYGNetherBiomeProvider.addNetherBiomesForProvider();
         Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MODID, "byg_nether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
-        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MODID, "byg_end"), BYGEndBiomeProvider.BYGENDCODEC);
+//        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MODID, "byg_end"), BYGEndBiomeProvider.BYGENDCODEC);
 
         BYGDataGenerator.dataGenCommand();
         LOGGER.info("Initialized BYG!");
