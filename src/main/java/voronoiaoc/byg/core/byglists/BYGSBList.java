@@ -45,6 +45,8 @@ public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> TWILIGHT_VALLEY_SB = newSurfaceBuilder("twilight_valley", new TwilightValleySB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> ERODED_LUNA_SB = newSurfaceBuilder("eroded_luna", new ErodedLunaSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<FillSurfaceSurfaceBuilderConfig> FILLER_SB = newSurfaceBuilder("filler", new FillerSurfaceBuilder(FillSurfaceSurfaceBuilderConfig.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> BRIMSTONE_CAVERNS_SB = newSurfaceBuilder("brimstone_caverns", new BrimstoneCavernsSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> MAGMA_WASTES_SB = newSurfaceBuilder("magma_wastes", new MagmaWastesSB(SurfaceBuilderConfig.field_237203_a_));
 
     //End
     public static final SurfaceBuilder<SurfaceBuilderConfig> IVISFIELDS_SB = newSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderConfig.field_237203_a_));
@@ -89,6 +91,11 @@ public class BYGSBList {
         public static final SurfaceBuilderConfig EMBURNYLIUM = new SurfaceBuilderConfig(BYGBlockList.EMBUR_NYLIUM.getDefaultState(), BYGBlockList.BLUE_NETHERRACK.getDefaultState(), BYGBlockList.BLUE_NETHERRACK.getDefaultState());
         public static final SurfaceBuilderConfig SOULSAND = new SurfaceBuilderConfig(Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
         public static final SurfaceBuilderConfig SOUL_SOIL = new SurfaceBuilderConfig(Blocks.SOUL_SOIL.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
+        public static final SurfaceBuilderConfig MAGMATIC_STONE = new SurfaceBuilderConfig(BYGBlockList.MAGMATIC_STONE.getDefaultState(), BYGBlockList.MAGMATIC_STONE.getDefaultState(), BYGBlockList.MAGMATIC_STONE.getDefaultState());
+        public static final SurfaceBuilderConfig MAGMA_BLOCK = new SurfaceBuilderConfig(Blocks.MAGMA_BLOCK.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState());
+        public static final SurfaceBuilderConfig BRIMSTONE = new SurfaceBuilderConfig(BYGBlockList.BRIMSTONE.getDefaultState(), BYGBlockList.BRIMSTONE.getDefaultState(), BYGBlockList.BRIMSTONE.getDefaultState());
+        public static final SurfaceBuilderConfig FROST_MAGMA = new SurfaceBuilderConfig(BYGBlockList.FROST_MAGMA.getDefaultState(), BYGBlockList.FROST_MAGMA.getDefaultState(), BYGBlockList.FROST_MAGMA.getDefaultState());
+        public static final SurfaceBuilderConfig SUBZERO_ASH = new SurfaceBuilderConfig(BYGBlockList.FROST_MAGMA.getDefaultState(), BYGBlockList.FROST_MAGMA.getDefaultState(), BYGBlockList.FROST_MAGMA.getDefaultState());
 
 
         public static final SurfaceBuilderConfig PODZOLDOVERMOUNTAIN_CF = new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState(), BYGBlockList.DACITE.getDefaultState());
