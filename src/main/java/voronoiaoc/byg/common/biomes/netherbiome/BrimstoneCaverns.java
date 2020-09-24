@@ -35,9 +35,9 @@ public class BrimstoneCaverns extends Biome implements BiomeTools {
 
     public BrimstoneCaverns() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
-                .setFogColor(15110510)
+                .setFogColor(4738078)
                 .withSkyColor(BiomeHelper.calcSkyColor(2.0F))
-                .setParticle(new ParticleEffectAmbience(ParticleTypes.FLAME, 0.01428F))
+                .setParticle(new ParticleEffectAmbience(ParticleTypes.ASH, 0.01428F))
                 .setAmbientSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
@@ -63,9 +63,10 @@ public class BrimstoneCaverns extends Biome implements BiomeTools {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
-        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_EMBUR_MUSHROOM);
-        BYGFeatures.addEmburBogVines(GENERATION_SETTINGS);
-        BYGFeatures.addEmburBogVegetation(GENERATION_SETTINGS);
+//        BYGFeatures.addEmburBogVines(GENERATION_SETTINGS);
+//        BYGFeatures.addEmburBogVegetation(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_ANTHRACITE);
+        BYGFeatures.addSoulFireWarped(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.BLAZE, 40, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));

@@ -22,45 +22,15 @@ public class MagmaWastesSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     }
 
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-        BlockPos.Mutable block = new BlockPos.Mutable();
-        int xPos = x & 15;
-        int zPos = z & 15;
+        int randomizer = random.nextInt(5);
 
-        if (noise > 1.5) {
-            for (int yPos = 256; yPos >= seaLevel; --yPos) {
-                block.setPos(xPos, yPos, zPos);
-                BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-                BlockState airCheck = chunkIn.getBlockState(block.down());
-
-                if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck == Blocks.AIR.getDefaultState())
-                    chunkIn.setBlockState(block, BYGBlockList.MAGMATIC_STONE.getDefaultState(), false);
-                for (Direction direction : Direction.Plane.HORIZONTAL) {
-                    BlockState airCheck2 = chunkIn.getBlockState(block.offset(direction));
-
-
-                    if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck2 == Blocks.AIR.getDefaultState())
-                        chunkIn.setBlockState(block, BYGBlockList.MAGMATIC_STONE.getDefaultState(), false);
-                }
-            }
+        if (randomizer <= 1)
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.MAGMATIC_STONE);
-        } else {
-            for (int yPos = 256; yPos >= seaLevel; --yPos) {
-                block.setPos(xPos, yPos, zPos);
-                BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-                BlockState airCheck = chunkIn.getBlockState(block.down());
-
-                if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck == Blocks.AIR.getDefaultState())
-                    chunkIn.setBlockState(block, Blocks.MAGMA_BLOCK.getDefaultState(), false);
-                for (Direction direction : Direction.Plane.HORIZONTAL) {
-                    BlockState airCheck2 = chunkIn.getBlockState(block.offset(direction));
-
-
-                    if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck2 == Blocks.AIR.getDefaultState())
-                        chunkIn.setBlockState(block, Blocks.MAGMA_BLOCK.getDefaultState(), false);
-                }
-            }
+        if (randomizer <= 2)
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.MAGMATIC_STONE);
+        if (randomizer == 3)
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.MAGMATIC_STONE);
+        if (randomizer == 4)
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.MAGMA_BLOCK);
-        }
-
     }
 }

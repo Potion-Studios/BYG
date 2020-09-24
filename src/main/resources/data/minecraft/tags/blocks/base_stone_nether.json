@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "byg:blue_netherrack",
-    "byg:brimstone"
+    "byg:brimstone",
+    "byg:magmatic_stone"
   ]
 }

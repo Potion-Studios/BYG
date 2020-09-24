@@ -189,6 +189,9 @@ public class BYGBiomeList {
     public static final Biome EMBURBOG = new EmburBog();
     public static final Biome WAILING_GARTH = new WailingGarth();
     public static final Biome CRIMSON_GARDENS = new CrimsonGardens();
+    public static final Biome MAGMA_WASTES = new MagmaWastes();
+    public static final Biome BRIMSTONE_CAVERNS = new BrimstoneCaverns();
+    public static final Biome SUBZERO_HYPOGEAL = new SubzeroHypogeal();
 
     //End
     public static final Biome IVISFIELDS = new IvisFields();

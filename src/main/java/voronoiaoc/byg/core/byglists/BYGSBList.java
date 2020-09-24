@@ -47,6 +47,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<FillSurfaceSurfaceBuilderConfig> FILLER_SB = newSurfaceBuilder("filler", new FillerSurfaceBuilder(FillSurfaceSurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> BRIMSTONE_CAVERNS_SB = newSurfaceBuilder("brimstone_caverns", new BrimstoneCavernsSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> MAGMA_WASTES_SB = newSurfaceBuilder("magma_wastes", new MagmaWastesSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> SUBZERO_HYPOGEAL_SB = newSurfaceBuilder("subzero_hypogeal", new SubzeroHypogealSB(SurfaceBuilderConfig.field_237203_a_));
 
     //End
     public static final SurfaceBuilder<SurfaceBuilderConfig> IVISFIELDS_SB = newSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderConfig.field_237203_a_));

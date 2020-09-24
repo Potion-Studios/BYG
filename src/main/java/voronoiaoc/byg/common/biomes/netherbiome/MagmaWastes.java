@@ -33,9 +33,9 @@ public class MagmaWastes extends Biome implements BiomeTools {
 
     public MagmaWastes() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
-                .setFogColor(328985)
+                .setFogColor(4794404)
                 .withSkyColor(BiomeHelper.calcSkyColor(2.0F))
-                .setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.01428F))
+                .setParticle(new ParticleEffectAmbience(ParticleTypes.ASH, 0.01428F))
                 .setAmbientSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D))
@@ -58,8 +58,8 @@ public class MagmaWastes extends Biome implements BiomeTools {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244150_p); //Nether Fossils
 
-        BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
-        BYGFeatures.addSoulFireWarped(GENERATION_SETTINGS);
+//        BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
+//        BYGFeatures.addSoulFireWarped(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));

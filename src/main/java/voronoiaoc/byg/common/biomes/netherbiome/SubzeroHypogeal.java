@@ -17,7 +17,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class SubzeroHypogeal extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("subzero_hypogeal", new ConfiguredSurfaceBuilder<>(BYGSBList.WARPEDDESERT_SB, BYGSBList.BYGSBConfigList.WARPEDDESERT));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("subzero_hypogeal", new ConfiguredSurfaceBuilder<>(BYGSBList.SUBZERO_HYPOGEAL_SB, BYGSBList.BYGSBConfigList.FROST_MAGMA));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.NETHER;
     static final float DEPTH = 0.125F;
@@ -33,7 +33,7 @@ public class SubzeroHypogeal extends Biome implements BiomeTools {
 
     public SubzeroHypogeal() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
-                .setFogColor(328985)
+                .setFogColor(1929343)
                 .withSkyColor(BiomeHelper.calcSkyColor(2.0F))
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.01428F))
                 .setAmbientSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)
@@ -59,7 +59,7 @@ public class SubzeroHypogeal extends Biome implements BiomeTools {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244150_p); //Nether Fossils
 
-        BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
+//        BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
         BYGFeatures.addSoulFireWarped(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
