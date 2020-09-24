@@ -7,7 +7,6 @@
     "MixinDimensionType",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinSlimeEntity",
-    ,
     "common.world.layers.MixinHillsLayer",
     "common.world.layers.MixinShoreLayer"
   ],
