@@ -41,6 +41,7 @@ public class BYG implements ModInitializer {
         BYGBiomeRegistry.registerBiomes();
         BYGBiomeRegistry.registerNetherBiomes();
         BYGBiomeRegistry.registerEndBiomes();
+        BYGBiomeRegistry.addEndBiomeKeysToBiomeLayerSampler();
         BYGBiomeRegistry.addBiomeNumericalIDs();
 
         BYGEntityRegistry.registerEntities();
@@ -59,7 +60,7 @@ public class BYG implements ModInitializer {
         BYGCompostables.compostablesBYG();
         BYGNetherBiomeProvider.addNetherBiomesForProvider();
         Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MODID, "byg_nether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
-        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MODID, "byg_end"), BYGEndBiomeProvider.BYGENDCODEC);
+        Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MODID, "byg_end"), BYGEndBiomeProvider.BYG_END_CODEC);
 
         BYGDataGenerator.dataGenCommand();
         LOGGER.info("Initialized BYG!");

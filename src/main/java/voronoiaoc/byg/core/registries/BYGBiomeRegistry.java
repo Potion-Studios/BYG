@@ -256,6 +256,18 @@ public class BYGBiomeRegistry {
         BYG.LOGGER.info("BYG: Registered End Biomes!");
     }
 
+    public static void addEndBiomeKeysToBiomeLayerSampler() {
+        for (Biome biome : BuiltinRegistries.BIOME) {
+            if (biome.getBiomeCategory() == Biome.BiomeCategory.THEEND) {
+                Optional<ResourceKey<Biome>> key = BuiltinRegistries.BIOME.getResourceKey(biome);
+                if (key.isPresent())
+                    key.ifPresent(biomeRegistryKey -> net.minecraft.data.worldgen.biome.Biomes.TO_NAME.put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+            }
+        }
+
+
+    }
+
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate type) {
         Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MODID, id), biome);
         biomeList.add(biome);
@@ -339,7 +351,7 @@ public class BYGBiomeRegistry {
     private static void registerEndBiome(Biome biome, String id) {
         if (biome != null) {
             Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MODID, id), biome);
-            biomeList.add(biome);
+//            biomeList.add(biome);
         }
     }
 
