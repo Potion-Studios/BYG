@@ -1098,6 +1098,18 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BoricFire extends SoulFireBlock {
+        public BoricFire(String registryName) {
+            super(AbstractBlock.Properties.create(Material.FIRE, MaterialColor.GREEN)
+                    .sound(SoundType.CLOTH)
+                    .doesNotBlockMovement()
+                    .zeroHardnessAndResistance()
+                    .setLightLevel((state) -> 14)
+            );
+            setRegistryName(registryName);
+        }
+    }
+
     public static class BYGWood extends RotatedPillarBlock {
         public BYGWood(String registryName) {
             super(Block.Properties.create(Material.WOOD)

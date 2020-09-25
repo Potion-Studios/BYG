@@ -473,6 +473,7 @@ public class BYGBlockRegistry {
                 BYGBlockList.BRIMSTONE = new BYGBlockProperties.BYGNetherrack("brimstone"),
                 BYGBlockList.YELLOW_NETHER_BRICKS = new BYGBlockProperties.BYGNetherrack("yellow_nether_bricks"),
                 BYGBlockList.BORIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("boric_campfire"),
+                BYGBlockList.BORIC_FIRE = new BYGBlockProperties.BoricFire("boric_fire"),
 
                 BYGBlockList.HANGING_BONE = new BYGBlockProperties.HangingBones("hanging_bones"),
                 BYGBlockList.WAILING_VINES = new BYGBlockProperties.WailingVines("whaling_vine"),
