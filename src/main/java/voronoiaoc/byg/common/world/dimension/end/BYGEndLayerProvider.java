@@ -1,13 +1,14 @@
 package voronoiaoc.byg.common.world.dimension.end;
 
 
-import java.util.function.LongFunction;
 import net.minecraft.world.level.newbiome.area.AreaFactory;
 import net.minecraft.world.level.newbiome.area.LazyArea;
 import net.minecraft.world.level.newbiome.context.BigContext;
 import net.minecraft.world.level.newbiome.context.LazyAreaContext;
 import net.minecraft.world.level.newbiome.layer.Layer;
 import net.minecraft.world.level.newbiome.layer.ZoomLayer;
+
+import java.util.function.LongFunction;
 
 public class BYGEndLayerProvider {
     public static Layer stackLayers(long seed) {

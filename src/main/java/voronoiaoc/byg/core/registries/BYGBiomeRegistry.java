@@ -10,6 +10,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.newbiome.layer.BiomeInitLayer;
 import voronoiaoc.byg.BYG;
+import voronoiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import voronoiaoc.byg.config.ConfigWeightManager;
 import voronoiaoc.byg.core.byglists.BYGBiomeList;
@@ -236,24 +237,36 @@ public class BYGBiomeRegistry {
         BYG.LOGGER.info("BYG: Registered Nether Biomes!");
     }
 
-//    public static void registerEndBiomes() {
-//        BYG.LOGGER.debug("BYG: Registering End BuiltInBiomes...");
-//        /**********EndBiomes - 1**********/
-//        registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
-//        // Register existing End biomes
-//        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
-//        // newDecorator future biomes
-//        RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
-//            if (biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)) {
-//                BYGEndBiomeProvider.bygEndBiomeList.add(biome);
-//            }
-//        });
-//        //This should never happen, but just in case...
-//        RegistryEntryRemovedCallback.event(BuiltinRegistries.BIOME).register((rawid, id, biome) -> {
-//            BYGEndBiomeProvider.bygEndBiomeList.removeIf(biome::equals);
-//        });
-//        BYG.LOGGER.info("BYG: Registered End Biomes!");
-//    }
+    public static void registerEndBiomes() {
+        BYG.LOGGER.debug("BYG: Registering End BuiltInBiomes...");
+        /**********EndBiomes - 1**********/
+        registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
+        // Register existing End biomes
+        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
+        // newDecorator future biomes
+        RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
+            if (biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)) {
+                BYGEndBiomeProvider.bygEndBiomeList.add(biome);
+            }
+        });
+        //This should never happen, but just in case...
+        RegistryEntryRemovedCallback.event(BuiltinRegistries.BIOME).register((rawid, id, biome) -> {
+            BYGEndBiomeProvider.bygEndBiomeList.removeIf(biome::equals);
+        });
+        BYG.LOGGER.info("BYG: Registered End Biomes!");
+    }
+
+    public static void addEndBiomeKeysToBiomeLayerSampler() {
+        for (Biome biome : BuiltinRegistries.BIOME) {
+            if (biome.getBiomeCategory() == Biome.BiomeCategory.THEEND) {
+                Optional<ResourceKey<Biome>> key = BuiltinRegistries.BIOME.getResourceKey(biome);
+                if (key.isPresent())
+                    key.ifPresent(biomeRegistryKey -> net.minecraft.data.worldgen.biome.Biomes.TO_NAME.put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+            }
+        }
+
+
+    }
 
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate type) {
         Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MODID, id), biome);
@@ -338,7 +351,7 @@ public class BYGBiomeRegistry {
     private static void registerEndBiome(Biome biome, String id) {
         if (biome != null) {
             Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MODID, id), biome);
-            biomeList.add(biome);
+//            biomeList.add(biome);
         }
     }
 
