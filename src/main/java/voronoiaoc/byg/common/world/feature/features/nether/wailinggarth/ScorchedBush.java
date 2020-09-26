@@ -19,7 +19,7 @@ public class ScorchedBush extends Feature<NoFeatureConfig> {
     public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         if (!worldIn.isAirBlock(pos)) {
             return false;
-        } else if ((worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.OVERGROWN_NETHERRACK) || (worldIn.getBlockState(pos.down()).getBlock() == Blocks.SOUL_SAND) || (worldIn.getBlockState(pos.down()).getBlock() == Blocks.SOUL_SOIL)) {
+        } else if ((worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.OVERGROWN_NETHERRACK) || (worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.MAGMATIC_STONE) || (worldIn.getBlockState(pos.down()).getBlock() == Blocks.MAGMA_BLOCK) || (worldIn.getBlockState(pos.down()).getBlock() == Blocks.SOUL_SAND) || (worldIn.getBlockState(pos.down()).getBlock() == Blocks.SOUL_SOIL)) {
             worldIn.setBlockState(pos, BYGBlockList.SCORCHED_BUSH.getDefaultState(), 2);
             return true;
         }

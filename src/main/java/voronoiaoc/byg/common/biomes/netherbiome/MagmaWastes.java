@@ -58,12 +58,13 @@ public class MagmaWastes extends Biome implements BiomeTools {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244150_p); //Nether Fossils
 
-//        BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
-//        BYGFeatures.addSoulFireWarped(GENERATION_SETTINGS);
+        BYGFeatures.addMagmaFire(GENERATION_SETTINGS);
+        BYGFeatures.addMagmaPillars(GENERATION_SETTINGS);
+        BYGFeatures.addScorchedPlants(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.MAGMA_CUBE, 2, 4, 4));
+        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.MAGMA_CUBE, 100, 2, 5));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 1, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.PIGLIN, 15, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.STRIDER, 60, 1, 2));

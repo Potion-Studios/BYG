@@ -66,9 +66,9 @@ public class BrimstoneCaverns extends Biome implements BiomeTools {
 //        BYGFeatures.addEmburBogVines(GENERATION_SETTINGS);
 //        BYGFeatures.addEmburBogVegetation(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_ANTHRACITE);
-        BYGFeatures.addSoulFireWarped(GENERATION_SETTINGS);
+        BYGFeatures.addBoricFire(GENERATION_SETTINGS);
+        BYGFeatures.addBrimstonePillars(GENERATION_SETTINGS);
 
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.BLAZE, 40, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.MAGMA_CUBE, 100, 2, 5));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.PIGLIN, 15, 4, 4));

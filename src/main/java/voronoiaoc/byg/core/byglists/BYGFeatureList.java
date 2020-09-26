@@ -13,12 +13,15 @@ import voronoiaoc.byg.common.world.feature.featureconfig.*;
 import voronoiaoc.byg.common.world.feature.features.RiverThingy;
 import voronoiaoc.byg.common.world.feature.features.end.obsidianspires.ObsidianSpike;
 import voronoiaoc.byg.common.world.feature.features.nether.LargeChain;
+import voronoiaoc.byg.common.world.feature.features.nether.brimstonecaverns.BrimstonePillars;
 import voronoiaoc.byg.common.world.feature.features.nether.crimsongardens.CrimsonBerryBush;
 import voronoiaoc.byg.common.world.feature.features.nether.crimsongardens.TallCrimsonRoots;
 import voronoiaoc.byg.common.world.feature.features.nether.crimsongardens.WeepingVineFeatureBlackstone;
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
+import voronoiaoc.byg.common.world.feature.features.nether.magmawastes.MagmaPillars;
 import voronoiaoc.byg.common.world.feature.features.nether.soulsandvalley.SoulShroomSporeFeature;
+import voronoiaoc.byg.common.world.feature.features.nether.subzerohypo.FrostMagmaPillars;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.*;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedBush;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedGrass;
@@ -264,6 +267,15 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> EMBUR_WART = new EmburWart(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> EMBUR_SPROUTS = new EmburSprouts(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> EMBUR_LILY = new EmburLily(NoFeatureConfig.field_236558_a_);
+
+    //Subzero Hypogeal
+    public static final Feature<NoFeatureConfig> FROST_MAGMA_PILLARS = new FrostMagmaPillars(NoFeatureConfig.field_236558_a_);
+
+    //MagmaWastes
+    public static final Feature<NoFeatureConfig> MAGMA_PILLARS = new MagmaPillars(NoFeatureConfig.field_236558_a_);
+
+    //BrimstoneCaverns
+    public static final Feature<NoFeatureConfig> BRIMSTONE_PILLARS = new BrimstonePillars(NoFeatureConfig.field_236558_a_);
 
 
     /********************************************************************Structures***********************************************************************/
@@ -551,6 +563,9 @@ public class BYGFeatureList {
             registerFeature(EMBUR_SPROUTS, "embur_sprouts");
             registerFeature(EMBUR_WART, "embur_wart");
             registerFeature(EMBUR_LILY, "embur_lily");
+            registerFeature(FROST_MAGMA_PILLARS, "frost_magma_pillars");
+            registerFeature(MAGMA_PILLARS, "magma_pillars");
+            registerFeature(BRIMSTONE_PILLARS, "brimstone_pillars");
             registerFeature(ARAUCARIA_TREE1, "araucaria_tree1");
             registerFeature(ARAUCARIA_TREE2, "araucaria_tree2");
             registerFeature(ACACIA_TREE1, "acacia_tree1");

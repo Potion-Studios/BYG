@@ -59,8 +59,9 @@ public class SubzeroHypogeal extends Biome implements BiomeTools {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244150_p); //Nether Fossils
 
-//        BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
         BYGFeatures.addSoulFireWarped(GENERATION_SETTINGS);
+        BYGFeatures.addFrostMagmaPillars(GENERATION_SETTINGS);
+        BYGFeatures.addSubzeroAsh(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));

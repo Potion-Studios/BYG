@@ -38,6 +38,10 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> SHORT_GRASS = newConfiguredFeature("short_grass", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SHORT_GRASS_CONFIG));
     public static ConfiguredFeature<?, ?> TALL_GRASS = newConfiguredFeature("tall_grass", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.TALL_GRASS_CONFIG));
     public static ConfiguredFeature<?, ?> SOUL_FIRE_ON_NYLIUM = newConfiguredFeature("soul_fire_on_nylium", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SOULFIREONNYLIUM));
+    public static ConfiguredFeature<?, ?> BORIC_FIRE = newConfiguredFeature("boric_fire", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.BORIC_FIRE));
+    public static ConfiguredFeature<?, ?> MAGMA_FIRE = newConfiguredFeature("magma_fire", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.MAGMA_FIRE));
+    public static ConfiguredFeature<?, ?> SUBZERO_ASH = newConfiguredFeature("subzero_ash", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SUBZERO_ASH));
+    public static ConfiguredFeature<?, ?> SUBZERO_ASH_BLOCK = newConfiguredFeature("subzero_ash_block", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SUBZERO_ASH_BLOCK));
 
     //Giant Flowers
     public static ConfiguredFeature<BYGGiantFlowerFeatureConfig, ?> GIANT_ANGELICA_FLOWER = newConfiguredFeature("giant_angelica", BYGFeatureList.GIANT_ANGELICA_FLOWER.withConfiguration(new BYGGiantFlowerFeatureConfig.Builder().setStemBlock(BYGBlockList.PLANT_STEM).setPetalBlock(BYGBlockList.WHITE_PETAL).setMaxHeight(18).setMinHeight(12).build()));
@@ -364,10 +368,25 @@ public class BYGConfiguredFeatures {
             SOUL_FIRE_ON_NYLIUM.withChance(0.5F)),
             SOUL_FIRE_ON_NYLIUM)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_BORIC_FIRE_PATCH = newConfiguredFeature("patch_boric_fire", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            BORIC_FIRE.withChance(0.5F)),
+            BORIC_FIRE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_MAGMA_FIRE_PATCH = newConfiguredFeature("patch_magma_fire", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            MAGMA_FIRE.withChance(0.5F)),
+            MAGMA_FIRE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SUBZERO_ASH_PATCH = newConfiguredFeature("patch_subzero_ash", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            SUBZERO_ASH.withChance(0.6F)),
+            SUBZERO_ASH_BLOCK)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(3))));
+
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_VINE_BLACKSTONE = newConfiguredFeature("weeping_vines_blackstone", BYGFeatureList.WEEPING_VINE_BLACKSTONE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS_FEATURE = newConfiguredFeature("weeping_roots_feature", BYGFeatureList.WEEPING_ROOTS_FEATURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
     public static final ConfiguredFeature<?, ?> RANDOM_SOUL_SOIL_PILLARS = newConfiguredFeature("soul_soil_pillars", BYGFeatureList.SOUL_SOIL_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
+    public static final ConfiguredFeature<?, ?> RANDOM_FROST_MAGMA_PILLARS = newConfiguredFeature("frost_magma_pillars", BYGFeatureList.FROST_MAGMA_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
+    public static final ConfiguredFeature<?, ?> RANDOM_MAGMA_PILLARS = newConfiguredFeature("magma_pillars", BYGFeatureList.MAGMA_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(65));
+    public static final ConfiguredFeature<?, ?> RANDOM_BRIMSTONE_PILLARS = newConfiguredFeature("brimstone_pillars", BYGFeatureList.BRIMSTONE_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_GEL_VINES = newConfiguredFeature("rs_embur_gel_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_GEL_VINES.withChance(0.3F)),
@@ -450,6 +469,10 @@ public class BYGConfiguredFeatures {
             WARPED_CORAL.withChance(0.25F),
             WARPED_CORAL_FAN.withChance(0.25F)),
             WARPED_CACTI)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(16))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SCORCHED_PLANT = newConfiguredFeature("rs_scorched_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            SCORCHED_GRASS.withChance(0.6F)),
+            SCORCHED_BUSH)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WAILING_VEGETATION = newConfiguredFeature("rs_wailing_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SCORCHED_BUSH.withChance(0.2F),
