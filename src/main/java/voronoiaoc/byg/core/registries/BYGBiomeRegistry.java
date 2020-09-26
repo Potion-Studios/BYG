@@ -238,14 +238,20 @@ public class BYGBiomeRegistry {
     }
 
     public static void registerEndBiomes() {
+        //Avoid adding to the list with already spawning end biomes.
+        List<Biome> endBiomeBlackList = new ArrayList<>();
+        endBiomeBlackList.add(BuiltinRegistries.BIOME.get(Biomes.END_BARRENS));
+        endBiomeBlackList.add(BuiltinRegistries.BIOME.get(Biomes.THE_END));
+        endBiomeBlackList.add(BuiltinRegistries.BIOME.get(Biomes.SMALL_END_ISLANDS));
+
         BYG.LOGGER.debug("BYG: Registering End BuiltInBiomes...");
         /**********EndBiomes - 1**********/
         registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
         // Register existing End biomes
-        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
+        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND) && !endBiomeBlackList.contains(biome)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
         // newDecorator future biomes
         RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
-            if (biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)) {
+            if (biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)&& !endBiomeBlackList.contains(biome)) {
                 BYGEndBiomeProvider.bygEndBiomeList.add(biome);
             }
         });
@@ -257,15 +263,26 @@ public class BYGBiomeRegistry {
     }
 
     public static void addEndBiomeKeysToBiomeLayerSampler() {
+        //Avoid adding to the list with already spawning end biomes.
+        List<Biome> endBiomeBlackList = new ArrayList<>();
+        endBiomeBlackList.add(BuiltinRegistries.BIOME.get(Biomes.END_BARRENS));
+        endBiomeBlackList.add(BuiltinRegistries.BIOME.get(Biomes.THE_END));
+        endBiomeBlackList.add(BuiltinRegistries.BIOME.get(Biomes.SMALL_END_ISLANDS));
+
         for (Biome biome : BuiltinRegistries.BIOME) {
-            if (biome.getBiomeCategory() == Biome.BiomeCategory.THEEND) {
+            if (biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND) && !endBiomeBlackList.contains(biome)) {
                 Optional<ResourceKey<Biome>> key = BuiltinRegistries.BIOME.getResourceKey(biome);
                 if (key.isPresent())
                     key.ifPresent(biomeRegistryKey -> net.minecraft.data.worldgen.biome.Biomes.TO_NAME.put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
             }
         }
-
-
+        RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
+            if (biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND) && biome != BuiltinRegistries.BIOME.get(Biomes.END_HIGHLANDS)) {
+                Optional<ResourceKey<Biome>> key = BuiltinRegistries.BIOME.getResourceKey(biome);
+                if (key.isPresent())
+                    key.ifPresent(biomeRegistryKey -> net.minecraft.data.worldgen.biome.Biomes.TO_NAME.put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+            }
+        });
     }
 
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate type) {

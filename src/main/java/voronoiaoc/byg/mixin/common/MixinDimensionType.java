@@ -18,7 +18,7 @@ import voronoiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 public class MixinDimensionType {
 
     @Inject(at = @At("HEAD"), method = "defaultNetherGenerator(Lnet/minecraft/core/Registry;Lnet/minecraft/core/Registry;J)Lnet/minecraft/world/level/chunk/ChunkGenerator;", cancellable = true)
-    private static void yeetTheNether(Registry<Biome> registry, Registry<NoiseGeneratorSettings> chunkGenRegistry, long seed, CallbackInfoReturnable<ChunkGenerator> cir) {
+    private static void bygControlsNether(Registry<Biome> registry, Registry<NoiseGeneratorSettings> chunkGenRegistry, long seed, CallbackInfoReturnable<ChunkGenerator> cir) {
         if (FabricLoader.getInstance().isModLoaded("smolder") || FabricLoader.getInstance().isModLoaded("betternether")) {
 
         } else {
@@ -27,8 +27,8 @@ public class MixinDimensionType {
     }
 
 
-    @Inject(at = @At("HEAD"), method = "defaultEndGenerator(Lnet/minecraft/core/Registry;Lnet/minecraft/core/Registry;J)Lnet/minecraft/world/level/chunk/ChunkGenerator;", cancellable = true, require = 0)
-    private static void yeetTheEnd(Registry<Biome> registry, Registry<NoiseGeneratorSettings> chunkGenRegistry, long seed, CallbackInfoReturnable<ChunkGenerator> cir) {
+    @Inject(at = @At("HEAD"), method = "defaultEndGenerator(Lnet/minecraft/core/Registry;Lnet/minecraft/core/Registry;J)Lnet/minecraft/world/level/chunk/ChunkGenerator;", cancellable = true)
+    private static void bygControlsTheEnd(Registry<Biome> registry, Registry<NoiseGeneratorSettings> chunkGenRegistry, long seed, CallbackInfoReturnable<ChunkGenerator> cir) {
         cir.setReturnValue(new NoiseBasedChunkGenerator(new BYGEndBiomeProvider(registry, seed), seed, () -> chunkGenRegistry.getOrThrow(NoiseGeneratorSettings.END)));
     }
 }

@@ -47,19 +47,17 @@ public class BYGEndBiomeProvider extends BiomeSource {
     }
 
     @Override
-    public Biome getNoiseBiome(int x, int biomeY, int z) {
+    public Biome getNoiseBiome(int x, int y, int z) {
         int xBitOffset = x >> 2;
         int zBitOffset = z >> 2;
         if ((long) xBitOffset * (long) xBitOffset + (long) zBitOffset * (long) zBitOffset <= 4096L) {
             return biomeRegistry.get(Biomes.THE_END);
         } else {
             float f = TheEndBiomeSource.getHeightValue(this.islandNoise, xBitOffset * 2 + 1, zBitOffset * 2 + 1);
-            if (f > 40.0F) {
-                return biomeRegistry.getOrThrow(Biomes.END_HIGHLANDS);
-            } else if (f >= 0.0F) {
-                return biomeRegistry.getOrThrow(Biomes.END_MIDLANDS);
+            if (f >= 0.0F) {
+                return biomeLayer.get(biomeRegistry, x, z);
             } else {
-                return f < -20.0F ? biomeRegistry.getOrThrow(Biomes.SMALL_END_ISLANDS) : biomeLayer.get(biomeRegistry, x, z);
+                return f < -20.0F ? biomeRegistry.getOrThrow(Biomes.SMALL_END_ISLANDS) : biomeRegistry.getOrThrow(Biomes.END_BARRENS);
             }
         }
     }
