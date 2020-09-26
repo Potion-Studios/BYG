@@ -54,6 +54,7 @@ public class BaobabSavanna extends Biome implements BiomeTools {
         BiomeDefaultFeatures.addDefaultExtraVegetation(GENERATION_SETTINGS);
         BiomeDefaultFeatures.addDefaultSprings(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
+        BYGTreeFeatures.addBaobabTrees(GENERATION_SETTINGS);
 
 
         SPAWN_SETTINGS.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
