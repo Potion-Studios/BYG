@@ -397,7 +397,7 @@ public class BYGConfiguredFeatures {
             SYTHIAN_ROOTS.withChance(0.46F)),
             SYTHIAN_FUNGUS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
 
-    public static final ConfiguredFeature<?, ?> HANGING_SOUL_SHROOM_SPORES = newConfiguredFeature("hanging_soul_shroom_spores_feature", BYGFeatureList.SOUL_SHROOM_SPORES_HANGING.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(60));
+    public static final ConfiguredFeature<?, ?> HANGING_SOUL_SHROOM_SPORES = newConfiguredFeature("hanging_soul_shroom_spores_feature", BYGFeatureList.SOUL_SHROOM_SPORES_HANGING.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(45));
     public static final ConfiguredFeature<?, ?> HANGING_SYTHIAN_ROOTS = newConfiguredFeature("hanging_sythian_roots_feature", BYGFeatureList.SYTHIAN_HANGING_ROOTS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
     public static final ConfiguredFeature<?, ?> MOSSY_NETHERRACK_PILLARS_FEATURE = newConfiguredFeature("mossy_netherrack_pillars", BYGFeatureList.MOSSY_NETHERRACK_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
     public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_PILLARS_FEATURE = newConfiguredFeature("sythian_fungus_pillars", BYGFeatureList.SYTHIAN_FUNGUS_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
@@ -485,7 +485,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_CHAINS = newConfiguredFeature("rs_chains", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CHAINS.withChance(0.5F)),
-            CHAINS)).func_242733_d(128).func_242728_a().func_242731_b(5));
+            CHAINS)).func_242733_d(128).func_242728_a().func_242731_b(4));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUEBERRY_BUSH = newConfiguredFeature("rs_blueberry_bush", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLUE_BERRY_BUSH.withChance(0.5F)),
