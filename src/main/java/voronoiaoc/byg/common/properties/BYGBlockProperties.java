@@ -394,6 +394,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.SAND)
                     .hardnessAndResistance(0.1f)
                     .harvestTool(ToolType.SHOVEL)
+                    .speedFactor(0.6F)
             );
             setRegistryName(registryName);
         }

@@ -35,7 +35,7 @@ public class SubzeroHypogeal extends Biome implements BiomeTools {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
                 .setFogColor(1929343)
                 .withSkyColor(BiomeHelper.calcSkyColor(2.0F))
-                .setParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.01428F))
+                .setParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.12428F))
                 .setAmbientSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D))
