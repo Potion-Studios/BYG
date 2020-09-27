@@ -697,8 +697,8 @@ public class BYGBlockRegistry {
                 BYGBlockList.MOSSY_STONE_WALL = new BYGBlockProperties.BYGStoneWall("mossy_stone_wall"),
 
                 BYGBlockList.PODZOL_DACITE = new BYGBlockProperties.BlockOvergrownDaciteBlock("podzol_dacite"),
-                BYGBlockList.DACITE_FARMLAND = new BYGBlockProperties.BYGDaciteFarmland("dacite_farmland"),
-                BYGBlockList.STONE_FARMLAND = new BYGBlockProperties.BYGStoneFarmland("stone_farmland"),
+//                BYGBlockList.DACITE_FARMLAND = new BYGBlockProperties.BYGDaciteFarmland("dacite_farmland"),
+//                BYGBlockList.STONE_FARMLAND = new BYGBlockProperties.BYGStoneFarmland("stone_farmland"),
                 BYGBlockList.ROCKY_STONE = new BYGBlockProperties.BYGStone("rocky_stone"),
                 BYGBlockList.ROCKY_SLAB = new BYGBlockProperties.BYGStoneSlab("rocky_stone_slab"),
                 BYGBlockList.ROCKY_STAIRS = new BYGBlockProperties.BYGStoneStairs("rocky_stone_stairs"),
