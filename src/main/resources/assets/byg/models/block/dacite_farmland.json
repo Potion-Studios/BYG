@@ -1,8 +1,0 @@
-{
-  "parent": "block/template_farmland",
-  "textures": {
-    "particle": "byg:block/dacite",
-    "dirt": "byg:block/dacite",
-    "top": "byg:block/dacite_farmland"
-  }
-}

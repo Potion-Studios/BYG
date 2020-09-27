@@ -411,29 +411,6 @@ public class BYGBlockProperties {
         }
     }
 
-
-    public static class BYGStoneFarmland extends BYGStoneFarmlandBlock {
-        public BYGStoneFarmland(String registryName) {
-            super(Block.Properties.create(Material.EARTH)
-                    .sound(SoundType.STONE)
-                    .hardnessAndResistance(0.2f)
-                    .tickRandomly()
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGDaciteFarmland extends BYGDaciteFarmlandBlock {
-        public BYGDaciteFarmland(String registryName) {
-            super(Block.Properties.create(Material.EARTH)
-                    .sound(SoundType.STONE)
-                    .hardnessAndResistance(0.2f)
-                    .tickRandomly()
-            );
-            setRegistryName(registryName);
-        }
-    }
-
     public static class BlockOvergrownStoneBlock extends SpreadableBlock {
         public BlockOvergrownStoneBlock(String registryName) {
             super(Block.Properties.create(Material.ROCK)
