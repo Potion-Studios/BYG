@@ -1,12 +1,11 @@
 package voronoiaoc.byg.common.properties.blocks.nether;
 
 import net.minecraft.block.*;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
+import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 public class BoricFireBlock extends AbstractFireBlock {
 
@@ -19,11 +18,11 @@ public class BoricFireBlock extends AbstractFireBlock {
     }
 
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        return shouldLightSoulFire(worldIn.getBlockState(pos.down()).getBlock());
+        return shouldLightBoricFire(worldIn.getBlockState(pos.down()).getBlock());
     }
 
-    public static boolean shouldLightSoulFire(Block block) {
-        return block.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS);
+    public static boolean shouldLightBoricFire(Block block) {
+        return block == BYGBlockList.BRIMSTONE;
     }
 
     protected boolean canBurn(BlockState state) {

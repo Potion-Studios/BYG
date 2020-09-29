@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
+    "common.block.MixinAbstractFireBlock",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinSlimeEntity",
     "common.world.feature.MixinBasaltColumnFeature",

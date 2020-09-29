@@ -14,6 +14,7 @@ import voronoiaoc.byg.client.textures.BYGMaterials;
 import voronoiaoc.byg.common.properties.blocks.*;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
 import voronoiaoc.byg.common.properties.blocks.nether.BYGOvergrownNetherrackBlock;
+import voronoiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBlackstoneBlock;
@@ -142,6 +143,19 @@ public class BYGBlockProperties {
                             .doesNotBlockMovement()
                             .notSolid()
                             .setLightLevel((state) -> 8)
+            );
+            setRegistryName(registryName);
+
+        }
+    }
+
+    public static class BYGBoricFireBlock extends BoricFireBlock {
+        public BYGBoricFireBlock(String registryName) {
+            super(AbstractBlock.Properties.create(Material.FIRE, MaterialColor.LIGHT_BLUE)
+                    .doesNotBlockMovement()
+                    .zeroHardnessAndResistance()
+                    .setLightLevel((state) -> 10)
+                    .sound(SoundType.CLOTH)
             );
             setRegistryName(registryName);
 
@@ -1076,7 +1090,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BoricFire extends SoulFireBlock {
+    public static class BoricFire extends BoricFireBlock {
         public BoricFire(String registryName) {
             super(AbstractBlock.Properties.create(Material.FIRE, MaterialColor.GREEN)
                     .sound(SoundType.CLOTH)

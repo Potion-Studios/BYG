@@ -854,7 +854,6 @@ public class BYGBlockRegistry {
                 BYGBlockList.YELLOW_DAFFODIL = new BYGBlockProperties.BYGFlower("yellow_daffodil"),
                 BYGBlockList.YELLOW_TULIP = new BYGBlockProperties.BYGFlower("yellow_tulip"),
 
-
                 //Register Spreadable blocks last.
                 BYGBlockList.OVERGROWN_DACITE = new BYGBlockProperties.BlockOvergrownDaciteBlock("overgrown_dacite"),
                 BYGBlockList.OVERGROWN_STONE = new BYGBlockProperties.BlockOvergrownStoneBlock("overgrown_stone"),
