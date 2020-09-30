@@ -45,9 +45,9 @@ public class EmburPlantBlock extends BushBlock implements IGrowable {
         return OffsetType.XZ;
     }
 
-    public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
-        Vector3d lvt_5_1_ = p_220053_1_.getOffset(p_220053_2_, p_220053_3_);
-        return SHAPE.withOffset(lvt_5_1_.x, lvt_5_1_.y, lvt_5_1_.z);
+    public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext ctx) {
+        Vector3d vector = state.getOffset(reader, pos);
+        return SHAPE.withOffset(vector.x, vector.y, vector.z);
     }
 
     @Override

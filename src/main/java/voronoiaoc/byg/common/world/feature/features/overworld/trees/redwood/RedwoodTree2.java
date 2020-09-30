@@ -31,6 +31,8 @@ public class RedwoodTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
+                buildTrunkBase(changedBlocks, worldIn, config.getTrunkProvider().getBlockState(rand, pos).getBlock(), Blocks.DIRT, boundsIn, mainmutable.add(0, 0, -1), mainmutable.add(-1, 0, 0), mainmutable.add(0, 0, 0), mainmutable.add(1, 0, 0), mainmutable.add(0, 0, 1), mainmutable.add(0, 0, -3), mainmutable.add(-1, 0, -2), mainmutable.add(0, 0, -2), mainmutable.add(1, 0, -2), mainmutable.add(-2, 0, -1), mainmutable.add(-1, 0, -1), mainmutable.add(1, 0, -1), mainmutable.add(2, 0, -1), mainmutable.add(-3, 0, 0), mainmutable.add(-2, 0, 0), mainmutable.add(2, 0, 0), mainmutable.add(3, 0, 0), mainmutable.add(-2, 0, 1), mainmutable.add(-1, 0, 1), mainmutable.add(1, 0, 1), mainmutable.add(2, 0, 1), mainmutable.add(-1, 0, 2), mainmutable.add(0, 0, 2), mainmutable.add(1, 0, 2), mainmutable.add(0, 0, 3));
+
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 0, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 0, 0), boundsIn);
@@ -189,6 +191,7 @@ public class RedwoodTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 31, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(1, 31, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 31, 1), boundsIn);
+
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 0, -3), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 0, -2), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 0, -2), boundsIn);

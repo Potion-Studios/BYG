@@ -190,7 +190,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
                 if (!canSaplingGrowHere(reader, mutable.setPos(x, y + yOffSet, z))) {
                     return false;
                 }
-                //If the list of trunk poss(other than the center trunk) is greater than 0, we check each of these trunk poss from the bottom to the tree height.
+                //If the list of trunk positions(other than the center trunk) is greater than 0, we check each of these trunk positions from the bottom to the tree height.
                 if (trunkPositions.length > 0) {
                     for (BlockPos trunkPos : trunkPositions) {
                         if (!canSaplingGrowHere(reader, mutable.setPos(trunkPos.getX(), trunkPos.getY() + yOffSet, trunkPos.getZ()))) {
@@ -347,7 +347,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
      * @param trunkPositions List of trunk poss where the base is built under the given poss.
      */
 
-    public void buildTrunk(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, Block fillerBlock, Block earthBlock, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
+    public void buildTrunkBase(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, Block fillerBlock, Block earthBlock, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
@@ -359,7 +359,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
                         else
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
                     } else {
-                        if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
+                        if (!isDesiredGround(reader, mutableTrunk, earthBlock))
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
                         fill = 15;
                     }
@@ -375,12 +375,12 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
      * @param treeBlocksSet       Gives us access to the tree block set where we add our trees blocks.
      * @param reader              Gives us access to world
      * @param earthBlockThreshold Used to specify when earthBlock starts placing.
-     * @param fillerBlock         Typically this is the log of the tree we're trying to fill the base of.
+     * @param trunkBlock         Typically this is the log of the tree we're trying to fill the base of.
      * @param earthBlock          The block used under logs. Typically a block found in the dirt tag
      * @param boundingBox         Bounding Box of our tree.
-     * @param trunkPositions      List of trunk poss where the base is built under the given poss.
+     * @param trunkPositions      List of trunk positions where the base is built under the given positions.
      */
-    public void buildBase(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, int earthBlockThreshold, Block fillerBlock, Block earthBlock, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
+    public void buildTrunkBase(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, int earthBlockThreshold, Block trunkBlock, Block earthBlock, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
@@ -388,12 +388,12 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
                 for (int fill = 1; fill <= 15; fill++) {
                     if (canLogPlaceHere(reader, mutableTrunk)) {
                         if (fill <= earthBlockThreshold)
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, fillerBlock.getDefaultState(), boundingBox);
+                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, trunkBlock.getDefaultState(), boundingBox);
                         else
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
                     } else {
                         if (canLogPlaceHere(reader, mutableTrunk)) {
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, fillerBlock.getDefaultState(), boundingBox);
+                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, trunkBlock.getDefaultState(), boundingBox);
                         } else {
                             if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
                                 setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);

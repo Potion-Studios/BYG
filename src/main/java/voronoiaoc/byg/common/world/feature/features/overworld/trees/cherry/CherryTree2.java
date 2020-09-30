@@ -34,7 +34,7 @@ public class CherryTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 8, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunk(changedBlocks, worldIn, BYGBlockList.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable);
+                buildTrunkBase(changedBlocks, worldIn, BYGBlockList.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable);
 
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable, boundsIn);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {

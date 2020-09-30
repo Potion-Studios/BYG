@@ -37,7 +37,7 @@ public class LargeRainbowEucalyptus extends BYGAbstractTreeFeature<BYGTreeFeatur
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunk(changedBlocks, worldIn, BYGBlockList.RAINBOW_EUCALYPTUS_LOG, Blocks.DIRT, boundsIn, mainmutable, mainmutable2, mainmutable3, mainmutable4);
+                buildTrunkBase(changedBlocks, worldIn, BYGBlockList.RAINBOW_EUCALYPTUS_LOG, Blocks.DIRT, boundsIn, mainmutable, mainmutable2, mainmutable3, mainmutable4);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     if (buildTrunk < randTreeHeight - 2) {
                         placeTrunk(config, rand, changedBlocks, worldIn, mainmutable, boundsIn);
