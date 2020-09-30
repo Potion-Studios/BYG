@@ -371,6 +371,6 @@ public class BYGTreeFeatures {
     }
 
     public static void addDummyTree(BiomeGenerationSettings.Builder biome) {
-        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_WOODLAND_TREE);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.DUMMY_TREE);
     }
 }

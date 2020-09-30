@@ -18,7 +18,7 @@ import voronoiaoc.byg.common.world.feature.placements.UnderGroundPlacement;
 
 public class BYGConfiguredTreeFeatures {
     /***********************************************************Configured Features********************************************************/
-//    public static final ConfiguredFeature<?, ?> ACACIA_TREE1 = newConfiguredFeature("acacia_tree1", BYGFeatureList.ACACIA_TREE1.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> DUMMY_TREE = newConfiguredFeature("dummy_tree", BYGFeatureList.DUMMY_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(new AtSurfaceWithExtraConfig(16, 0.4F, 8))));
 
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ARAUCARIA_TREE1 = newConfiguredFeature("araucaria_tree1", BYGFeatureList.ARAUCARIA_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.PINE_LOG).setLeavesBlock(BYGBlockList.ARAUCARIA_LEAVES).setMaxHeight(30).setMinHeight(20).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ARAUCARIA_TREE2 = newConfiguredFeature("araucaria_tree2", BYGFeatureList.ARAUCARIA_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.PINE_LOG).setLeavesBlock(BYGBlockList.ARAUCARIA_LEAVES).setMaxHeight(28).setMinHeight(18).build()));

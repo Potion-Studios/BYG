@@ -36,17 +36,15 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
             }
 
             TemplateManager templatemanager = world.getWorld().getStructureTemplateManager();
-            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/crimson_fungus_tree1"));
-            Template template2 = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/crimson_fungus_tree1"));
+            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/black_puff"));
 
-            if (template == null || template2 == null) {
+            if (template == null) {
                 BYG.LOGGER.warn("NBT does not exist!");
                 return false;
             }
 
             PlacementSettings placementsettings = (new PlacementSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunk(null);
             template.func_237144_a_(world, pos, placementsettings, rand);
-            template2.func_237144_a_(world, pos.up(32), placementsettings, rand);
             return true;
         }
         return false;

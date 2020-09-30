@@ -99,10 +99,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.palm.PalmTre
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palm.PalmTree4;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.palo_verde.PaloVerdeTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.LargePineTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.LargePineTree2;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree1;
-import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.PineTree2;
+import voronoiaoc.byg.common.world.feature.features.overworld.trees.pine.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.LargeRainbowEucalyptus;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.redwood.RedwoodTree1;
@@ -136,6 +133,8 @@ import voronoiaoc.byg.common.world.feature.features.overworld.volcano.SmallVolca
 
 
 public class BYGFeatureList {
+
+    public static final Feature<NoFeatureConfig> DUMMY_TREE = new SmallPineTree(NoFeatureConfig.field_236558_a_);
 
     public static final Feature<NoFeatureConfig> HUH = new RiverThingy(NoFeatureConfig.field_236558_a_);
     public static final Feature<NoFeatureConfig> VOLCANO = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_, 2375866);
@@ -487,6 +486,7 @@ public class BYGFeatureList {
 
     public static class RegisterFeatures {
         public static void registerBYGFeatures() {
+            registerFeature(DUMMY_TREE, "dummy_tree");
             registerFeature(POINTY_ROCK, "dead_sea_spike");
             registerFeature(STACKABLE_BOULDERS, "stacked_boulder");
             registerFeature(OBBYSPIKES, "obsidian_spike");

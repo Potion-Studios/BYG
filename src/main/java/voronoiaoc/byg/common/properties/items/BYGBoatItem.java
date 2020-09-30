@@ -14,7 +14,6 @@ import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
-import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.entity.boat.BYGBoatEntity;
 
 import java.util.List;
@@ -51,7 +50,6 @@ public class BYGBoatItem extends Item {
 
             if (raytraceresult.getType() == RayTraceResult.Type.BLOCK) {
                 BYGBoatEntity bygBoatEntity = new BYGBoatEntity(worldIn, raytraceresult.getHitVec().x, raytraceresult.getHitVec().y, raytraceresult.getHitVec().z);
-                BYG.LOGGER.info("BOAT ENTITY: " + bygBoatEntity.getEntityString());
                 bygBoatEntity.setBYGBoatType(this.type);
                 bygBoatEntity.rotationYaw = playerIn.rotationYaw;
                 if (!worldIn.hasNoCollisions(bygBoatEntity, bygBoatEntity.getBoundingBox().grow(-0.1D))) {
