@@ -414,7 +414,6 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
     /**
      * Use this to set the soil under small trunked trees.
      */
-
     public void setSoil(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, Block soil, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
@@ -428,7 +427,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
 
 
     public void setDisk(ISeedReader world, Random random, BlockPos pos, BYGTreeFeatureConfig config) {
-        if (config.isPlacementForced() || config.getDiskRadius() > 0)
+        if (config.isPlacementForced() || config.getDiskRadius() <= 0)
             return;
 
         setSeed(world.getSeed());

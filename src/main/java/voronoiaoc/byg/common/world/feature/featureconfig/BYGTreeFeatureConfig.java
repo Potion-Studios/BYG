@@ -7,7 +7,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 
 public class BYGTreeFeatureConfig implements IFeatureConfig {
@@ -155,7 +154,7 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public Builder setLeavesBlock(WeightedBlockStateProvider statesList) {
+        public Builder setLeavesBlock(BlockStateProvider statesList) {
             if (statesList != null)
                 leavesProvider = statesList;
             else
