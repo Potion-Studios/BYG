@@ -25,6 +25,7 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraftforge.common.Tags;
 import voronoiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.FeatureUtil;
+import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.List;
@@ -32,6 +33,10 @@ import java.util.Random;
 import java.util.Set;
 
 public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> extends Feature<T> {
+
+    protected static FastNoise fastNoise;
+    protected long seed;
+
 
     public BYGAbstractTreeFeature(Codec<T> configCodec) {
         super(configCodec);
@@ -375,7 +380,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
      * @param treeBlocksSet       Gives us access to the tree block set where we add our trees blocks.
      * @param reader              Gives us access to world
      * @param earthBlockThreshold Used to specify when earthBlock starts placing.
-     * @param trunkBlock         Typically this is the log of the tree we're trying to fill the base of.
+     * @param trunkBlock          Typically this is the log of the tree we're trying to fill the base of.
      * @param earthBlock          The block used under logs. Typically a block found in the dirt tag
      * @param boundingBox         Bounding Box of our tree.
      * @param trunkPositions      List of trunk positions where the base is built under the given positions.
@@ -420,6 +425,47 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
             }
         }
     }
+
+
+    public void setDisk(ISeedReader world, Random random, BlockPos pos, BYGTreeFeatureConfig config) {
+        if (config.isPlacementForced() || config.getDiskRadius() > 0)
+            return;
+
+        setSeed(world.getSeed());
+        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
+
+        int diskRadius = config.getDiskRadius();
+        for (int x = -diskRadius; x <= diskRadius; x++) {
+            for (int z = -diskRadius; z <= diskRadius; z++) {
+
+                int squaredDistance = x * x + z * z;
+                if (squaredDistance <= diskRadius * diskRadius) {
+
+                    mutable.setPos(pos).move(x, 0, z);
+
+                    //Roughen the radius of the disks a bit
+                    double diskRoughnessNoise = fastNoise.GetNoise(mutable.getX() * 0.04F, mutable.getY() * 0.01F, mutable.getZ() * 0.04F);
+
+                    if (squaredDistance > diskRadius * diskRadius * 0.8f && diskRoughnessNoise > -0.3D && diskRoughnessNoise < 0.3D)
+                        continue;
+
+                    if (FeatureUtil.isTerrainOrRock(world, mutable)) {
+                        if (world.getBlockState(mutable.up()).isAir() || FeatureUtil.isPlant(world, mutable.up()))
+                            world.setBlockState(mutable, config.getDiskProvider().getBlockState(random, mutable), 2);
+                    }
+                }
+            }
+        }
+    }
+
+    public void setSeed(long seed) {
+        if (this.seed != seed || fastNoise == null) {
+            fastNoise = new FastNoise((int) seed);
+            fastNoise.SetNoiseType(FastNoise.NoiseType.Simplex);
+            this.seed = seed;
+        }
+    }
+
 
     public final void setFinalBlockState(Set<BlockPos> changedBlocks, IWorldWriter worldIn, BlockPos pos, BlockState blockState, MutableBoundingBox boundingBox) {
         this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
@@ -513,6 +559,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
             }
 
             Template.func_222857_a(worldIn, 3, voxelshapepart, mutableboundingbox.minX, mutableboundingbox.minY, mutableboundingbox.minZ);
+            setDisk(worldIn, rand, pos.down(), config);
             return flag;
         }
     }

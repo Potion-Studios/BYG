@@ -5,7 +5,6 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 
 public class DummyBiome extends Biome implements BiomeTools {
@@ -29,18 +28,17 @@ public class DummyBiome extends Biome implements BiomeTools {
 
     static {
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
-        BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withNormalGrassPatch(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withPlainGrassVegetation(GENERATION_SETTINGS);
+//        BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
+//        BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
+//        DefaultBiomeFeatures.withNormalGrassPatch(GENERATION_SETTINGS);
+//        DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
+//        DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
+//        DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
+//        DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
+//        DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
+//        DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
+//        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
+//        DefaultBiomeFeatures.withPlainGrassVegetation(GENERATION_SETTINGS);
         BYGTreeFeatures.addDummyTree(GENERATION_SETTINGS);
-
     }
 }
