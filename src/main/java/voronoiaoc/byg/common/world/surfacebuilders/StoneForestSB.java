@@ -17,7 +17,6 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 import java.util.Random;
 
 public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
-    public static final BlockState SAND = Blocks.SAND.getDefaultState();
 
     public StoneForestSB(Codec<SurfaceBuilderConfig> codec) {
         super(codec);
