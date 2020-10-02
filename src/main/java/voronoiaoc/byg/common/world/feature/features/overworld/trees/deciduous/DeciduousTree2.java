@@ -5,7 +5,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import voronoiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
@@ -221,49 +220,6 @@ public class DeciduousTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig>
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(0, 19, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(1, 19, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(0, 20, 1), boundsIn);
-            }
-        }
-        return true;
-    }
-
-
-    private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, Blocks.DARK_OAK_LOG.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, Blocks.DARK_OAK_LOG.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, Blocks.DARK_OAK_LEAVES.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 0;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
             }
         }
         return true;

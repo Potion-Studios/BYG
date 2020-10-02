@@ -19,8 +19,8 @@ import java.util.Random;
 public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     public static final BlockState SAND = Blocks.SAND.getDefaultState();
 
-    public StoneForestSB(Codec<SurfaceBuilderConfig> p_i51312_1_) {
-        super(p_i51312_1_);
+    public StoneForestSB(Codec<SurfaceBuilderConfig> codec) {
+        super(codec);
     }
 
     public static FastNoise noiseGen = null;
@@ -56,7 +56,7 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                     chunkIn.setBlockState(block, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
                 else {
                     double noise3D = noiseGen3D.GetNoise(x, yPos, z);
-                    if (noise3D < 0.6)
+                    if (noise3D < 0.4)
                         chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
                 }
             }
@@ -78,8 +78,8 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         if (noiseGen3D == null) {
             noiseGen3D = new FastNoise((int) seed);
-            noiseGen3D.SetNoiseType(FastNoise.NoiseType.Value);
-            noiseGen3D.SetFractalGain(0.001f);
+            noiseGen3D.SetNoiseType(FastNoise.NoiseType.Simplex);
+            noiseGen3D.SetFractalGain(0.006f);
             noiseGen3D.SetFrequency(0.7f);
         }
     }

@@ -138,7 +138,7 @@ public class BYGTreeFeatures {
     }
 
     public static void addStoneForestTrees(BiomeGenerationSettings.Builder biome) {
-        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_STONEFOREST_TREE);
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_STONE_FOREST_TREE);
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.VINES);
     }
 

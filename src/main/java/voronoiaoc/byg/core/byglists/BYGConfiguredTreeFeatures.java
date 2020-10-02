@@ -678,7 +678,7 @@ public class BYGConfiguredTreeFeatures {
             MAHOGANY_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(45, 0.1F, 10))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_STONEFOREST_TREE = newConfiguredFeature("rs_stoneforest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_STONE_FOREST_TREE = newConfiguredFeature("rs_stone_forest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EBONY_TREE1.withChance(0.1F),
             EBONY_TREE2.withChance(0.1F),
             Features.JUNGLE_BUSH.withChance(0.1F),

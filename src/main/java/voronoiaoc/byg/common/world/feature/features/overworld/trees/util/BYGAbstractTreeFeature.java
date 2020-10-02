@@ -250,7 +250,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
                     return false;
                 }
 
-                //If the list of trunk poss(other than the center trunk) is greater than 0, we check each of these trunk poss from the bottom to the tree height.
+                //If the list of trunk pos(other than the center trunk) is greater than 0, we check each of these trunk pos from the bottom to the tree height.
                 if (trunkPositions.length > 0) {
                     for (BlockPos trunkPos : trunkPositions) {
                         if (!canSaplingGrowHere(reader, mutable.setPos(trunkPos.getX(), trunkPos.getY() + yOffSet, trunkPos.getZ()))) {
@@ -335,6 +335,29 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
                             return false;
                         }
                     }
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean isCliff(IWorldGenerationBaseReader reader, BlockPos... trunkPositions) {
+        return isCliff(reader, 5, trunkPositions);
+    }
+
+
+    public boolean isCliff(IWorldGenerationBaseReader reader, int checkDownRange, BlockPos... trunkPositions) {
+        if (trunkPositions.length > 0) {
+            BlockPos.Mutable mutable = new BlockPos.Mutable();
+
+            for (BlockPos trunkPos : trunkPositions) {
+                mutable.setPos(trunkPos);
+
+                for (int moveDown = 0; moveDown <= checkDownRange; moveDown++) {
+                    if (!isAirOrWater(reader, mutable)) {
+                        return false;
+                    }
+                    mutable.move(Direction.DOWN);
                 }
             }
         }
@@ -485,10 +508,10 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
 
     @Override
     public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
-        return placeTree(worldIn, generator, rand, pos, config);
+        return placeTree(worldIn, rand, pos, config);
     }
 
-    public boolean placeTree(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public boolean placeTree(ISeedReader worldIn, Random rand, BlockPos pos, T config) {
         Set<BlockPos> set = Sets.newHashSet();
         MutableBoundingBox mutableboundingbox = MutableBoundingBox.getNewBoundingBox();
         boolean flag = this.place(set, worldIn, rand, pos, mutableboundingbox, config.isPlacementForced(), config);

@@ -33,6 +33,8 @@ public class EbonyTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 20, 5, 5, isSapling)) {
                 return false;
+            } else if(this.isCliff(worldIn, mutable.add(0, 0, -2), mutable.add(-1, 0, -1), mutable.add(0, 0, -1), mutable.add(1, 0, -1), mutable.add(-2, 0, 0), mutable.add(-1, 0, 0), mutable.add(1, 0, 0), mutable.add(-1, 0, 1), mutable.add(0, 0, 1))) {
+                return false;
             } else {
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
