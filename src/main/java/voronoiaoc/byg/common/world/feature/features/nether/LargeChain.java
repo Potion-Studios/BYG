@@ -41,14 +41,14 @@ public class LargeChain extends Feature<NoFeatureConfig> {
                     BlockPos.Mutable mutable4 = new BlockPos.Mutable().setPos(mutable3.add(0, -4, 0));
 
                     if (canReplaceBlock(worldIn, mutable1))
-                        worldIn.setBlockState(mutable1, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+                        worldIn.setBlockState(mutable1, BYGBlockList.MEADOW_DIRT.getDefaultState(), 2);
                     if (canReplaceBlock(worldIn, mutable2))
-                        worldIn.setBlockState(mutable2, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+                        worldIn.setBlockState(mutable2, BYGBlockList.MEADOW_DIRT.getDefaultState(), 2);
 
                     if (canReplaceBlock(worldIn, mutable3))
-                        worldIn.setBlockState(mutable3, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+                        worldIn.setBlockState(mutable3, BYGBlockList.MEADOW_DIRT.getDefaultState(), 2);
                     if (canReplaceBlock(worldIn, mutable4))
-                        worldIn.setBlockState(mutable4, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+                        worldIn.setBlockState(mutable4, BYGBlockList.MEADOW_DIRT.getDefaultState(), 2);
 
 
                     BlockPos.Mutable mutable5 = new BlockPos.Mutable(mainMutable1.getX() + 2, (mainMutable1.getY() - 2) + move, mainMutable1.getZ());

@@ -305,12 +305,12 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomFeatureCon
         int z = pos.getZ();
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        //Skip if tree is being spawned with a sapling.
+        //Skip if mushroom is being spawned with a small mushroom/fungus.
         if (!isMushroom) {
             for (int yOffset = 0; yOffset <= treeHeight + 1; ++yOffset) {
                 for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                     for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                        if (!isAnotherMushroomLikeThisHere(reader, mutable.setPos(x + xOffset, y + yOffset, z + zOffset), stemBlock, mushroomBlock)) {
+                        if (isAnotherMushroomLikeThisHere(reader, mutable.setPos(x + xOffset, y + yOffset, z + zOffset), stemBlock, mushroomBlock)) {
                             return false;
                         }
                     }

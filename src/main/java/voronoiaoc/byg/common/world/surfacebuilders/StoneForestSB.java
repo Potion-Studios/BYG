@@ -40,9 +40,10 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         int groundLevel = chunkIn.getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
 
         if (sampleNoise < 0.43) {
-            for (int yPos = startHeight + 55; yPos >= groundLevel; --yPos) {
+            int topHeight = startHeight + 55;
+            for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
                 block.setPos(xPos, yPos, zPos);
-                if (yPos == startHeight + 55)
+                if (yPos == topHeight)
                     chunkIn.setBlockState(block, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
                 else
                     chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
