@@ -37,7 +37,6 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
     protected static FastNoise fastNoise;
     protected long seed;
 
-
     public BYGAbstractTreeFeature(Codec<T> configCodec) {
         super(configCodec);
     }
@@ -347,6 +346,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
 
 
     public boolean isCliff(IWorldGenerationBaseReader reader, int checkDownRange, BlockPos... trunkPositions) {
+        int positionsThatHaveGround = 0;
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
 
@@ -355,13 +355,14 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
 
                 for (int moveDown = 0; moveDown <= checkDownRange; moveDown++) {
                     if (!isAirOrWater(reader, mutable)) {
-                        return false;
+                        positionsThatHaveGround++;
+                        break;
                     }
                     mutable.move(Direction.DOWN);
                 }
             }
         }
-        return true;
+        return positionsThatHaveGround != trunkPositions.length;
     }
 
     /**
