@@ -40,6 +40,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> WARPEDDESERT_SB = newSurfaceBuilder("warped_desert", new WarpedDesertSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> WAILING_GARTH_SB = newSurfaceBuilder("wailing_garth", new WailingGarthSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> STONE_FOREST_SB = newSurfaceBuilder("stone_forest", new StoneForestSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> POINTY_STONE_FOREST_SB = newSurfaceBuilder("pointy_stone_forest", new PointyStoneForestSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> CRIMSON_GARDENS = newSurfaceBuilder("crimson_gardens", new CrimsonGardenSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> GLOWSTONE_GARDENS_SB = newSurfaceBuilder("glowstone_gardens", new GlowstoneGardensSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> TWILIGHT_VALLEY_SB = newSurfaceBuilder("twilight_valley", new TwilightValleySB(SurfaceBuilderConfig.field_237203_a_));

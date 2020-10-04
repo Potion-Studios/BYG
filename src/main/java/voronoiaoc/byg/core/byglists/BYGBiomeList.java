@@ -125,6 +125,7 @@ public class BYGBiomeList {
     public static final Biome JACARANDAFORESTHILLS = new JacarandaForestHills();
     public static final Biome NORTHERN_FOREST = new NorthernForest();
     public static final Biome FOREST_FAULT = new ForestFault();
+    public static final Biome POINTY_STONE_FOREST = new PointyStoneForest();
     public static final Biome BLACK_FOREST_HILLS = new BlackForestHills();
     public static final Biome BAMBOO_FOREST = new BambooForest();
     public static final Biome MAPLE_HILLS = new MapleHills();
