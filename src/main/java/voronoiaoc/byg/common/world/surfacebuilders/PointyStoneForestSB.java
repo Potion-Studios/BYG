@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.Heightmap;
@@ -39,19 +40,24 @@ public class PointyStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         int groundLevel = chunkIn.getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
 
+
+
+
         if (sampleNoise < 0.43) {
             int valueToReverse = (int) (Math.abs((int) (sampleNoise * 645D) * 1.8));
-            int topHeight = (int) ((valueToReverse - Math.abs(((-sampleNoise * 645D) * 1.8 - valueToReverse))) + (seaLevel) * 9.5D);
+            int topHeight = (int) ((valueToReverse - Math.abs(((-sampleNoise * 645D) * 1.8 - valueToReverse))) + (63) * 9.5D);
 
-            for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
-                mutable.setPos(xPos, yPos, zPos);
+            topHeight = redistribute(topHeight, groundLevel);
 
-//                BYG.LOGGER.info(mutable.toString() + " Noise: " + sampleNoise);
-                if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getHeight()) {
-                    if (yPos == topHeight)
-                        chunkIn.setBlockState(mutable, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
-                    else
-                        chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
+            if (topHeight > groundLevel) {
+                for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
+                    mutable.setPos(xPos, yPos, zPos);
+                    if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getHeight()) {
+                        if (yPos == topHeight)
+                            chunkIn.setBlockState(mutable, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
+                        else
+                            chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
+                    }
                 }
             }
         }
@@ -77,5 +83,12 @@ public class PointyStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             noiseGen3D.SetFractalGain(0.006f);
             noiseGen3D.SetFrequency(0.7f);
         }
+    }
+
+    private static int redistribute(float height, float groundLevel) {
+        float halfG = groundLevel * 0.5f;
+        height = (height - 125 - halfG) / 80;
+        float sigmoid = height / (1 + MathHelper.abs(height)); // or Math.abs, whichever one can return a float
+        return (int) ((170 - groundLevel) * sigmoid + halfG + 125);
     }
 }
