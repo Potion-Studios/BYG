@@ -17,9 +17,9 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
 
-public class PointyStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
+public class PointedStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
-    public PointyStoneForestSB(Codec<SurfaceBuilderConfig> codec) {
+    public PointedStoneForestSB(Codec<SurfaceBuilderConfig> codec) {
         super(codec);
     }
 
@@ -40,13 +40,11 @@ public class PointyStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         int groundLevel = chunkIn.getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
 
-
-
-
         if (sampleNoise < 0.43) {
             int valueToReverse = (int) (Math.abs((int) (sampleNoise * 645D) * 1.8));
             int topHeight = (int) ((valueToReverse - Math.abs(((-sampleNoise * 645D) * 1.8 - valueToReverse))) + (63) * 9.5D);
 
+            //Some magic to stop spires going over the world limit. Point should always occur under world limit(<256).
             topHeight = redistribute(topHeight, groundLevel);
 
             if (topHeight > groundLevel) {
