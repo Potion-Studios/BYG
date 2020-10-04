@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.world.surfacebuilders;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
@@ -28,9 +29,9 @@ public class PointedStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         setSeed(random.nextLong());
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
         int xPos = x & 15;
         int zPos = z & 15;
+        BlockPos.Mutable mutable = new BlockPos.Mutable(xPos, 0, zPos);
 
         FNVector3f fnVector3f = new FNVector3f(x, 0, z);
 
@@ -48,14 +49,15 @@ public class PointedStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             topHeight = redistribute(topHeight, groundLevel);
 
             if (topHeight > groundLevel) {
+                mutable.move(Direction.UP, topHeight);
                 for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
-                    mutable.setPos(xPos, yPos, zPos);
                     if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getHeight()) {
                         if (yPos == topHeight)
                             chunkIn.setBlockState(mutable, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
                         else
                             chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                     }
+                    mutable.move(Direction.DOWN);
                 }
             }
         }

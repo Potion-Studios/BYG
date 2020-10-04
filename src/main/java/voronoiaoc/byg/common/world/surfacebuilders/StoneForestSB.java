@@ -3,6 +3,7 @@ package voronoiaoc.byg.common.world.surfacebuilders;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
@@ -27,9 +28,9 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         setSeed(random.nextLong());
-        BlockPos.Mutable block = new BlockPos.Mutable();
         int xPos = x & 15;
         int zPos = z & 15;
+        BlockPos.Mutable mutable = new BlockPos.Mutable(xPos, 0, zPos);
 
         FNVector3f fnVector3f = new FNVector3f(x, 0, z);
 
@@ -41,24 +42,27 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         if (sampleNoise < 0.43) {
             int topHeight = startHeight + 55;
+            mutable.move(Direction.UP, topHeight);
             for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
-                block.setPos(xPos, yPos, zPos);
                 if (yPos == topHeight)
-                    chunkIn.setBlockState(block, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
+                    chunkIn.setBlockState(mutable, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
                 else
-                    chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                    chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
+
+                mutable.move(Direction.DOWN);
             }
         } else if (sampleNoise < 0.48) {
             int topHeight = startHeight + 44;
+            mutable.move(Direction.UP, topHeight);
             for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
-                block.setPos(xPos, yPos, zPos);
                 if (yPos == topHeight)
-                    chunkIn.setBlockState(block, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
+                    chunkIn.setBlockState(mutable, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
                 else {
                     double noise3D = noiseGen3D.GetNoise(x, yPos, z);
                     if (noise3D < 0.4)
-                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                        chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
                 }
+                mutable.move(Direction.DOWN);
             }
         } else
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.GRASSSTONEMOUNTAIN_CF);
