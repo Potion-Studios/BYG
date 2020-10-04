@@ -158,7 +158,7 @@ public class BYGBiomeRegistry {
         registerBYGSubBiome(BYGBiomeList.SEASONALDECIDUOUSFORESTHILLS, "seasonal_deciduous_forest_hills");
         registerBYGSubBiome(BYGBiomeList.SEASONALFORESTHILLS, "seasonal_forest_hills");
         registerBYGSubBiome(BYGBiomeList.SEASONALGIANTTAIGA, "seasonal_giant_taiga");
-        registerBYGSubBiome(BYGBiomeList.POINTY_STONE_FOREST, "pointy_stone_forest");
+        registerBYGSubBiome(BYGBiomeList.POINTY_STONE_FOREST, "pointed_stone_forest");
         registerBYGSubBiome(BYGBiomeList.SEASONALTAIGAHILLS, "seasonal_taiga_hills");
         registerBYGSubBiome(BYGBiomeList.SNOWYBLUEGIANTTAIGA, "snowy_blue_giant_taiga");
         registerBYGSubBiome(BYGBiomeList.SNOWYBLUETAIGAHILLS, "snowy_blue_taiga_hills");
