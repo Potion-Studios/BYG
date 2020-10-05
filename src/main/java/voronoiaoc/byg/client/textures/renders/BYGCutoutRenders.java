@@ -43,6 +43,9 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.SOUL_SHROOM_SPORE_END.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.SOUL_SHROOM.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.DEATH_CAP.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.LAMENT_VINE.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.LAMENT_VINE_PLANT.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.LAMENT_SPROUTS.getBlock(), RenderType.getCutoutMipped());
 
         RenderTypeLookup.setRenderLayer(BYGBlockList.TALL_CRIMSON_ROOTS.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.CRIMSON_BERRY_BUSH.getBlock(), RenderType.getCutoutMipped());

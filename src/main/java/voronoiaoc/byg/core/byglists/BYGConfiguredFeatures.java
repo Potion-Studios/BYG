@@ -104,6 +104,9 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> WAILING_GRASS = newConfiguredFeature("wailing_grass", BYGFeatureList.WAILING_GRASS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
     public static ConfiguredFeature<?, ?> WAILING_VINES = newConfiguredFeature("wailing_vines", BYGFeatureList.WAILING_VINES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
+    public static ConfiguredFeature<?, ?> LAMENT_SPROUTS = newConfiguredFeature("lament_sprouts", BYGFeatureList.LAMENT_SPROUTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+
+
     public static ConfiguredFeature<?, ?> BLUE_BERRY_BUSH = newConfiguredFeature("blue_berry_bush", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.BLUEBERRY_BUSH_CONFIG));
     public static ConfiguredFeature<?, ?> ROSE = newConfiguredFeature("rose", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.ROSE_CONFIG));
     public static ConfiguredFeature<?, ?> ANGELICA = newConfiguredFeature("angelica", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.ANGELICA_CONFIG));
@@ -407,7 +410,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> HANGING_SYTHIAN_ROOTS = newConfiguredFeature("hanging_sythian_roots_feature", BYGFeatureList.SYTHIAN_HANGING_ROOTS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
     public static final ConfiguredFeature<?, ?> MOSSY_NETHERRACK_PILLARS_FEATURE = newConfiguredFeature("mossy_netherrack_pillars", BYGFeatureList.MOSSY_NETHERRACK_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
     public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_PILLARS_FEATURE = newConfiguredFeature("sythian_fungus_pillars", BYGFeatureList.SYTHIAN_FUNGUS_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
-    public static final ConfiguredFeature<?, ?> HANGING_BONE_FEATURE = newConfiguredFeature("hanging_bone_feature", BYGFeatureList.HANGING_BONE_FEATURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> HANGING_BONE_FEATURE = newConfiguredFeature("hanging_bone_feature", BYGFeatureList.HANGING_BONE_FEATURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(70));
+    public static final ConfiguredFeature<?, ?> LAMENT_VINE_FEATURE = newConfiguredFeature("lament_vine_feature", BYGFeatureList.LAMENT_VINE_FEATURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(70));
 
 
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS = newConfiguredFeature("rs_weeping_roots", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -480,6 +484,11 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_SCORCHED_PLANT = newConfiguredFeature("rs_scorched_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SCORCHED_GRASS.withChance(0.6F)),
             SCORCHED_BUSH)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_LAMENT_VEGETATION = newConfiguredFeature("rs_lament_vegetation", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            SCORCHED_BUSH.withChance(0.2F),
+            SCORCHED_GRASS.withChance(0.2F)),
+            LAMENT_SPROUTS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WAILING_VEGETATION = newConfiguredFeature("rs_wailing_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SCORCHED_BUSH.withChance(0.2F),

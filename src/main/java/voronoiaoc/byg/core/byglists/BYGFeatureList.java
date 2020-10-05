@@ -33,6 +33,8 @@ import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.Scorched
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WailingVine;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WhalingGrass;
 import voronoiaoc.byg.common.world.feature.features.nether.warpeddesert.*;
+import voronoiaoc.byg.common.world.feature.features.nether.weepingmire.LamentSprouts;
+import voronoiaoc.byg.common.world.feature.features.nether.weepingmire.LamentVineFeature;
 import voronoiaoc.byg.common.world.feature.features.overworld.*;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.AngelicaGiant;
 import voronoiaoc.byg.common.world.feature.features.overworld.giantflowers.DandelionGiant;
@@ -302,6 +304,11 @@ public class BYGFeatureList {
     //QuartzDesert
     public static final Feature<ColumnConfig> QUARTZ_COLUMNS = new RawQuartzColumnFeature(ColumnConfig.CODEC);
     public static final Feature<NoFeatureConfig> QUARTZ_CRYSTAL = new QuartzCrystals(NoFeatureConfig.field_236558_a_);
+
+    //WeepingMire
+    public static final Feature<NoFeatureConfig> LAMENT_SPROUTS = new LamentSprouts(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> LAMENT_VINE_FEATURE = new LamentVineFeature(NoFeatureConfig.field_236558_a_);
+
 
     /********************************************************************Structures***********************************************************************/
 //    public static final //StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillage//StructureFeature(StructurePoolFeatureConfig.field_236558_a_);
@@ -605,6 +612,8 @@ public class BYGFeatureList {
             registerFeature(BRIMSTONE_PILLARS, "brimstone_pillars");
             registerFeature(QUARTZ_COLUMNS, "quartz_columns");
             registerFeature(QUARTZ_CRYSTAL, "quartz_crystals");
+            registerFeature(LAMENT_SPROUTS, "lament_sprouts");
+            registerFeature(LAMENT_VINE_FEATURE, "lament_vine_feature");
             registerFeature(ARAUCARIA_TREE1, "araucaria_tree1");
             registerFeature(ARAUCARIA_TREE2, "araucaria_tree2");
             registerFeature(ACACIA_TREE1, "acacia_tree1");
