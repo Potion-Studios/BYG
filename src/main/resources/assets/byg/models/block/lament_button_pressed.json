@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button_pressed",
   "textures": {
-    "texture": "byg:block/lament"
+    "texture": "byg:block/lament_planks"
   }
 }
