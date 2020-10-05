@@ -11,8 +11,8 @@ import voronoiaoc.byg.core.byglists.BYGSBList;
 import java.util.Random;
 
 public class RockyBlackBeachSB extends SurfaceBuilder<SurfaceBuilderConfig> {
-    public RockyBlackBeachSB(Codec<SurfaceBuilderConfig> p_i51312_1_) {
-        super(p_i51312_1_);
+    public RockyBlackBeachSB(Codec<SurfaceBuilderConfig> codec) {
+        super(codec);
     }
 
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {

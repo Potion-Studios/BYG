@@ -12,6 +12,7 @@ import voronoiaoc.byg.common.world.surfacebuilders.sbconfig.FillSurfaceSurfaceBu
 
 public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL_SB = newSurfaceBuilder("boreal", new BorealForestSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> BASALT_BARRERA_SB = newSurfaceBuilder("basalt_barrera", new BasaltBarreraSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> CONIFEROUS_SB = newSurfaceBuilder("coniferous", new ConiferousForestSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> SHATTEREDGLACIER_SB2 = newSurfaceBuilder("shattered_glacier", new ShatteredGlacierSB2(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> MARSHLAND_SB = newSurfaceBuilder("marshland", new MarshlandSB(SurfaceBuilderConfig.field_237203_a_));

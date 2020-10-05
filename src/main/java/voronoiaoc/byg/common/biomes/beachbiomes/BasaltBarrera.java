@@ -11,7 +11,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class BasaltBarrera extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("basalt_barrera", new ConfiguredSurfaceBuilder<>(BYGSBList.ROCKYBLACKBEACH_SB, BYGSBList.BYGSBConfigList.BLACKSAND));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("basalt_barrera", new ConfiguredSurfaceBuilder<>(BYGSBList.BASALT_BARRERA_SB, BYGSBList.BYGSBConfigList.BLACKSAND));
     static final RainType PRECIPITATION = RainType.RAIN;
     static final Biome.Category CATEGORY = Category.BEACH;
     static final float DEPTH = -0.2F;

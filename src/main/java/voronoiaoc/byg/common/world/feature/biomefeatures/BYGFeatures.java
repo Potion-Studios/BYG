@@ -17,6 +17,7 @@ public class BYGFeatures {
 //        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_SPRING);
         gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.LARGE_BASALT_COLUMN);
         gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.SMALL_BASALT_COLUMN);
+        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_DELTA);
     }
 
     public static void addAmaranthFieldFlowers(BiomeGenerationSettings.Builder gen) {

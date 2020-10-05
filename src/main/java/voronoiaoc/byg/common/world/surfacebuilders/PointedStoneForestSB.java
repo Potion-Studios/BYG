@@ -5,7 +5,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.Heightmap;
@@ -88,7 +87,7 @@ public class PointedStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     private static int redistribute(float height, float groundLevel) {
         float halfG = groundLevel * 0.5f;
         height = (height - 125 - halfG) / 80;
-        float sigmoid = height / (1 + MathHelper.abs(height)); // or Math.abs, whichever one can return a float
+        float sigmoid = height / (1 + Math.abs(height)); // or Math.abs, whichever one can return a float
         return (int) ((170 - groundLevel) * sigmoid + halfG + 125);
     }
 }
