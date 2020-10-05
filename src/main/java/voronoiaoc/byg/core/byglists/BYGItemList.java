@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 
 public class BYGItemList {
 
-    //BYG Blocks
+    //BYG Items
     public static Item SONORAN_CACTUS;
 
     //BYG LOGO
@@ -43,6 +43,7 @@ public class BYGItemList {
     public static Item SYTHIAN_FENCE;
     public static Item EMBUR_FENCE;
     public static Item PALM_FENCE;
+    public static Item LAMENT_FENCE;
     //BoatItem
     public static Item ASPEN_BOAT;
     public static Item BAOBAB_BOAT;
@@ -92,6 +93,8 @@ public class BYGItemList {
     public static Item SYTHIAN_TRAPDOOR;
     public static Item EMBUR_TRAPDOOR;
     public static Item PALM_TRAPDOOR;
+    public static Item LAMENT_TRAPDOOR;
+
     //Pressure Plate
     public static Item ASPEN_PRESSURE_PLATE;
     public static Item BAOBAB_PRESSURE_PLATE;
@@ -117,6 +120,8 @@ public class BYGItemList {
     public static Item SYTHIAN_PRESSURE_PLATE;
     public static Item EMBUR_PRESSURE_PLATE;
     public static Item PALM_PRESSURE_PLATE;
+    public static Item LAMENT_PRESSURE_PLATE;
+
     //Buttons
     public static Item ASPEN_BUTTON;
     public static Item BAOBAB_BUTTON;
@@ -142,6 +147,8 @@ public class BYGItemList {
     public static Item SYTHIAN_BUTTON;
     public static Item EMBUR_BUTTON;
     public static Item PALM_BUTTON;
+    public static Item LAMENT_BUTTON;
+    
     //Doors
     public static Item ASPEN_DOOR;
     public static Item BAOBAB_DOOR;
@@ -167,6 +174,8 @@ public class BYGItemList {
     public static Item SYTHIAN_DOOR;
     public static Item EMBUR_DOOR;
     public static Item PALM_DOOR;
+    public static Item LAMENT_DOOR;
+
     //Fence Gates
     public static Item ASPEN_FENCE_GATE;
     public static Item BAOBAB_FENCE_GATE;
@@ -192,6 +201,8 @@ public class BYGItemList {
     public static Item SYTHIAN_FENCE_GATE;
     public static Item EMBUR_FENCE_GATE;
     public static Item PALM_FENCE_GATE;
+    public static Item LAMENT_FENCE_GATE;
+
     //Crafting Tables
     public static Item ASPEN_CRAFTING_TABLE;
     public static Item BAOBAB_CRAFTING_TABLE;
@@ -217,6 +228,7 @@ public class BYGItemList {
     public static Item SYTHIAN_CRAFTING_TABLE;
     public static Item EMBUR_CRAFTING_TABLE;
     public static Item PALM_CRAFTING_TABLE;
+    public static Item LAMENT_CRAFTING_TABLE;
 
     //Flowers
     public static Item ALPINE_BELLFLOWER;
@@ -377,6 +389,8 @@ public class BYGItemList {
     public static Item ZELKOVA_LEAVES;
     public static Item SYTHIAN_WART_BLOCK;
     public static Item PALM_LEAVES;
+    public static Item LAMENT_LEAVES;
+    public static Item WITHERING_OAK_LEAVES;
     //LogItems
     public static Item ASPEN_LOG;
     public static Item BAOBAB_LOG;
@@ -402,6 +416,8 @@ public class BYGItemList {
     public static Item ZELKOVA_LOG;
     public static Item SYTHIAN_STEM;
     public static Item PALM_LOG;
+    public static Item LAMENT_LOG;
+    public static Item WITHERING_OAK_LOG;
     //WoodItems
     public static Item ASPEN_WOOD;
     public static Item BAOBAB_WOOD;
@@ -428,6 +444,8 @@ public class BYGItemList {
     public static Item SYTHIAN_HYPHAE;
     public static Item EMBUR_HYPHAE;
     public static Item PALM_WOOD;
+    public static Item LAMENT_WOOD;
+    public static Item WITHERING_OAK_WOOD;
     //StrippedWoodItems
     public static Item STRIPPED_BAOBAB_WOOD;
     public static Item STRIPPED_ASPEN_WOOD;
@@ -454,7 +472,8 @@ public class BYGItemList {
     public static Item STRIPPED_SYTHIAN_HYPHAE;
     public static Item STRIPPED_EMBUR_HYPHAE;
     public static Item STRIPPED_PALM_WOOD;
-    //GlowshroomsBlocks
+    public static Item STRIPPED_LAMENT_WOOD;
+    //GlowshroomsItems
     public static Item PURPLE_GLOWSHROOM_BLOCK;
     public static Item BLUE_GLOWSHROOM_BLOCK;
     public static Item RED_GLOWSHROOM_STEM;
@@ -521,6 +540,7 @@ public class BYGItemList {
     public static Item SYTHIAN_BOOKSHELF;
     public static Item EMBUR_BOOKSHELF;
     public static Item PALM_BOOKSHELF;
+    public static Item LAMENT_BOOKSHELF;
     //PlankItems
     public static Item ASPEN_PLANKS;
     public static Item BAOBAB_PLANKS;
@@ -546,7 +566,8 @@ public class BYGItemList {
     public static Item SYTHIAN_PLANKS;
     public static Item EMBUR_PLANKS;
     public static Item PALM_PLANKS;
-    //PetalBlocks
+    public static Item LAMENT_PLANKS;
+    //PetalItems
     public static Item WHITE_PETAL;
     public static Item RED_PETAL;
     public static Item YELLOW_PETAL;
@@ -655,7 +676,7 @@ public class BYGItemList {
     public static Item IVIS_SPROUT;
 
 
-    //Glowcane Block
+    //Glowcane Item
 
     public static Item BLUE_GLOWCANE;
     public static Item RED_GLOWCANE;
@@ -667,7 +688,7 @@ public class BYGItemList {
     public static Item PINK_GLOWCANE_DUST;
     public static Item PURPLE_GLOWCANE_DUST;
 
-    //Glowcane Block
+    //Glowcane Item
 
     public static Item BLUE_GLOWCANE_BLOCK;
     public static Item RED_GLOWCANE_BLOCK;
@@ -723,6 +744,8 @@ public class BYGItemList {
     public static Item YELLOW_SPRUCE_SAPLING;
     public static Item ZELKOVA_SAPLING;
     public static Item PALM_SAPLING;
+    public static Item LAMENT_SAPLING;
+    public static Item WITHERING_OAK_SAPLING;
     //SlabItems
     public static Item ASPEN_SLAB;
     public static Item BAOBAB_SLAB;
@@ -748,6 +771,7 @@ public class BYGItemList {
     public static Item SYTHIAN_SLAB;
     public static Item EMBUR_SLAB;
     public static Item PALM_SLAB;
+    public static Item LAMENT_SLAB;
     //StairItems
     public static Item ASPEN_STAIRS;
     public static Item BAOBAB_STAIRS;
@@ -773,6 +797,7 @@ public class BYGItemList {
     public static Item SYTHIAN_STAIRS;
     public static Item EMBUR_STAIRS;
     public static Item PALM_STAIRS;
+    public static Item LAMENT_STAIRS;
     //StoneItems
     public static Item DACITE;
     public static Item DACITE_SLAB;
@@ -885,6 +910,7 @@ public class BYGItemList {
     public static Item STRIPPED_SYTHIAN_STEM;
     public static Item STRIPPED_EMBUR_PEDU;
     public static Item STRIPPED_PALM_LOG;
+    public static Item STRIPPED_LAMENT_LOG;
     //Gems Items
     public static Item PENDORITE_SCRAPS;
     public static Item AMETRINE_GEMS;

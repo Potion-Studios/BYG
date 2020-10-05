@@ -419,6 +419,25 @@ public class BYGItemRegistry {
                 BYGItemList.JACARANDA_BUTTON = new BlockItem(BYGBlockList.JACARANDA_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.JACARANDA_BUTTON.getRegistryName()),
                 BYGItemList.JACARANDA_BOAT = new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)).setRegistryName("jacaranda_boat"),
 
+                //Lament Woodtype
+                BYGItemList.LAMENT_SAPLING = new BlockItem(BYGBlockList.LAMENT_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_SAPLING.getRegistryName()),
+                BYGItemList.LAMENT_LEAVES = new BlockItem(BYGBlockList.LAMENT_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_LEAVES.getRegistryName()),
+                BYGItemList.LAMENT_LOG = new BlockItem(BYGBlockList.LAMENT_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_LOG.getRegistryName()),
+                BYGItemList.LAMENT_WOOD = new BlockItem(BYGBlockList.LAMENT_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_WOOD.getRegistryName()),
+                BYGItemList.STRIPPED_LAMENT_LOG = new BlockItem(BYGBlockList.STRIPPED_LAMENT_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.STRIPPED_LAMENT_LOG.getRegistryName()),
+                BYGItemList.STRIPPED_LAMENT_WOOD = new BlockItem(BYGBlockList.STRIPPED_LAMENT_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.STRIPPED_LAMENT_WOOD.getRegistryName()),
+                BYGItemList.LAMENT_PLANKS = new BlockItem(BYGBlockList.LAMENT_PLANKS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_PLANKS.getRegistryName()),
+                BYGItemList.LAMENT_BOOKSHELF = new BlockItem(BYGBlockList.LAMENT_BOOKSHELF, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_BOOKSHELF.getRegistryName()),
+                BYGItemList.LAMENT_CRAFTING_TABLE = new BlockItem(BYGBlockList.LAMENT_CRAFTING_TABLE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_CRAFTING_TABLE.getRegistryName()),
+                BYGItemList.LAMENT_STAIRS = new BlockItem(BYGBlockList.LAMENT_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_STAIRS.getRegistryName()),
+                BYGItemList.LAMENT_SLAB = new BlockItem(BYGBlockList.LAMENT_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_SLAB.getRegistryName()),
+                BYGItemList.LAMENT_FENCE = new BlockItem(BYGBlockList.LAMENT_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_FENCE.getRegistryName()),
+                BYGItemList.LAMENT_FENCE_GATE = new BlockItem(BYGBlockList.LAMENT_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_FENCE_GATE.getRegistryName()),
+                BYGItemList.LAMENT_DOOR = new TallBlockItem(BYGBlockList.LAMENT_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_DOOR.getRegistryName()),
+                BYGItemList.LAMENT_TRAPDOOR = new BlockItem(BYGBlockList.LAMENT_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_TRAPDOOR.getRegistryName()),
+                BYGItemList.LAMENT_PRESSURE_PLATE = new BlockItem(BYGBlockList.LAMENT_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_PRESSURE_PLATE.getRegistryName()),
+                BYGItemList.LAMENT_BUTTON = new BlockItem(BYGBlockList.LAMENT_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_BUTTON.getRegistryName()),
+
                 //Mahogany Woodtype
                 BYGItemList.MAHOGANY_SAPLING = new BlockItem(BYGBlockList.MAHOGANY_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_SAPLING.getRegistryName()),
                 BYGItemList.MAHOGANY_LEAVES = new BlockItem(BYGBlockList.MAHOGANY_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAHOGANY_LEAVES.getRegistryName()),
@@ -697,6 +716,11 @@ public class BYGItemRegistry {
                 BYGItemList.EMBUR_BUTTON = new BlockItem(BYGBlockList.EMBUR_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.EMBUR_BUTTON.getRegistryName()),
 
                 //SaplingItems
+                BYGItemList.WITHERING_OAK_SAPLING = new BlockItem(BYGBlockList.WITHERING_OAK_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITHERING_OAK_SAPLING.getRegistryName()),
+                BYGItemList.WITHERING_OAK_LEAVES = new BlockItem(BYGBlockList.WITHERING_OAK_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITHERING_OAK_LEAVES.getRegistryName()),
+                BYGItemList.WITHERING_OAK_LOG = new BlockItem(BYGBlockList.WITHERING_OAK_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITHERING_OAK_LOG.getRegistryName()),
+                BYGItemList.WITHERING_OAK_WOOD = new BlockItem(BYGBlockList.WITHERING_OAK_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WITHERING_OAK_WOOD.getRegistryName()),
+
                 BYGItemList.ARAUCARIA_SAPLING = new BlockItem(BYGBlockList.ARAUCARIA_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ARAUCARIA_SAPLING.getRegistryName()),
                 BYGItemList.ARAUCARIA_LEAVES = new BlockItem(BYGBlockList.ARAUCARIA_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.ARAUCARIA_LEAVES.getRegistryName()),
 

@@ -32,7 +32,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_FENCE;
     public static Block EMBUR_FENCE;
     public static Block PALM_FENCE;
-
+    public static Block LAMENT_FENCE;
     //TrapdoorBlocks
     public static Block ASPEN_TRAPDOOR;
     public static Block BAOBAB_TRAPDOOR;
@@ -58,6 +58,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_TRAPDOOR;
     public static Block EMBUR_TRAPDOOR;
     public static Block PALM_TRAPDOOR;
+    public static Block LAMENT_TRAPDOOR;
 
     //PressurePlates
     public static Block ASPEN_PRESSURE_PLATE;
@@ -84,6 +85,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_PRESSURE_PLATE;
     public static Block EMBUR_PRESSURE_PLATE;
     public static Block PALM_PRESSURE_PLATE;
+    public static Block LAMENT_PRESSURE_PLATE;
 
     //Buttons
     public static Block ASPEN_BUTTON;
@@ -110,6 +112,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_BUTTON;
     public static Block EMBUR_BUTTON;
     public static Block PALM_BUTTON;
+    public static Block LAMENT_BUTTON;
 
     //DoorBlocks
     public static Block ASPEN_DOOR;
@@ -136,6 +139,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_DOOR;
     public static Block EMBUR_DOOR;
     public static Block PALM_DOOR;
+    public static Block LAMENT_DOOR;
 
     //Fence Gates
     public static Block ASPEN_FENCE_GATE;
@@ -162,6 +166,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_FENCE_GATE;
     public static Block EMBUR_FENCE_GATE;
     public static Block PALM_FENCE_GATE;
+    public static Block LAMENT_FENCE_GATE;
 
     //Crafting Tables
     public static Block ASPEN_CRAFTING_TABLE;
@@ -188,6 +193,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_CRAFTING_TABLE;
     public static Block EMBUR_CRAFTING_TABLE;
     public static Block PALM_CRAFTING_TABLE;
+    public static Block LAMENT_CRAFTING_TABLE;
 
     //FlowerBlocks
     public static Block ALPINE_BELLFLOWER;
@@ -350,6 +356,8 @@ public class BYGBlockList {
     public static Block ZELKOVA_LEAVES;
     public static Block SYTHIAN_WART_BLOCK;
     public static Block PALM_LEAVES;
+    public static Block LAMENT_LEAVES;
+    public static Block WITHERING_OAK_LEAVES;
 
     //LogBlocks
     public static Block ASPEN_LOG;
@@ -376,6 +384,8 @@ public class BYGBlockList {
     public static Block ZELKOVA_LOG;
     public static Block SYTHIAN_STEM;
     public static Block PALM_LOG;
+    public static Block LAMENT_LOG;
+    public static Block WITHERING_OAK_LOG;
 
     //WoodBlocks
     public static Block ASPEN_WOOD;
@@ -403,6 +413,8 @@ public class BYGBlockList {
     public static Block SYTHIAN_HYPHAE;
     public static Block EMBUR_HYPHAE;
     public static Block PALM_WOOD;
+    public static Block LAMENT_WOOD;
+    public static Block WITHERING_OAK_WOOD;
 
     //GlowshroomsBlocks
     public static Block PURPLE_GLOWSHROOM_BLOCK;
@@ -471,6 +483,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_BOOKSHELF;
     public static Block EMBUR_BOOKSHELF;
     public static Block PALM_BOOKSHELF;
+    public static Block LAMENT_BOOKSHELF;
     //PlankBlocks
     public static Block ASPEN_PLANKS;
     public static Block BAOBAB_PLANKS;
@@ -496,6 +509,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_PLANKS;
     public static Block EMBUR_PLANKS;
     public static Block PALM_PLANKS;
+    public static Block LAMENT_PLANKS;
     //PetalBlocks
     public static Block WHITE_PETAL;
     public static Block RED_PETAL;
@@ -661,6 +675,8 @@ public class BYGBlockList {
     public static Block YELLOW_SPRUCE_SAPLING;
     public static Block ZELKOVA_SAPLING;
     public static Block PALM_SAPLING;
+    public static Block LAMENT_SAPLING;
+    public static Block WITHERING_OAK_SAPLING;
 
     //SlabBlocks
     public static Block ASPEN_SLAB;
@@ -687,7 +703,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_SLAB;
     public static Block EMBUR_SLAB;
     public static Block PALM_SLAB;
-
+    public static Block LAMENT_SLAB;
     //StairBlocks
     public static Block ASPEN_STAIRS;
     public static Block BAOBAB_STAIRS;
@@ -713,6 +729,7 @@ public class BYGBlockList {
     public static Block SYTHIAN_STAIRS;
     public static Block EMBUR_STAIRS;
     public static Block PALM_STAIRS;
+    public static Block LAMENT_STAIRS;
 
     //StoneBlocks
     public static Block DACITE;
@@ -826,6 +843,8 @@ public class BYGBlockList {
     public static Block STRIPPED_SYTHIAN_STEM;
     public static Block STRIPPED_EMBUR_PEDU;
     public static Block STRIPPED_PALM_LOG;
+    public static Block STRIPPED_LAMENT_LOG;
+
     //StrippedWoodBlocks
     public static Block STRIPPED_BAOBAB_WOOD;
     public static Block STRIPPED_ASPEN_WOOD;
@@ -852,4 +871,6 @@ public class BYGBlockList {
     public static Block STRIPPED_SYTHIAN_HYPHAE;
     public static Block STRIPPED_EMBUR_HYPHAE;
     public static Block STRIPPED_PALM_WOOD;
+    public static Block STRIPPED_LAMENT_WOOD;
+
 }
