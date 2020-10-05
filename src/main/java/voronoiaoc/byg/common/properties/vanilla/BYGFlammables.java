@@ -35,6 +35,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlockList.WILLOW_LOG, 5, 5);
         flammableBlock(BYGBlockList.WITCH_HAZEL_LOG, 5, 5);
         flammableBlock(BYGBlockList.ZELKOVA_LOG, 5, 5);
+        flammableBlock(BYGBlockList.PALM_LOG, 5, 5);
 
         //Stripped Logs
         flammableBlock(BYGBlockList.STRIPPED_ASPEN_LOG, 5, 5);
@@ -57,6 +58,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlockList.STRIPPED_WILLOW_LOG, 5, 5);
         flammableBlock(BYGBlockList.STRIPPED_WITCH_HAZEL_LOG, 5, 5);
         flammableBlock(BYGBlockList.STRIPPED_ZELKOVA_LOG, 5, 5);
+        flammableBlock(BYGBlockList.STRIPPED_PALM_LOG, 5, 5);
 
         //BookShelves
         flammableBlock(BYGBlockList.ASPEN_BOOKSHELF, 5, 20);
@@ -80,6 +82,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlockList.WILLOW_BOOKSHELF, 5, 20);
         flammableBlock(BYGBlockList.WITCH_HAZEL_BOOKSHELF, 5, 20);
         flammableBlock(BYGBlockList.ZELKOVA_BOOKSHELF, 5, 20);
+        flammableBlock(BYGBlockList.PALM_BOOKSHELF, 5, 20);
 
         //Slabs
         flammableBlock(BYGBlockList.ASPEN_SLAB, 5, 20);
@@ -103,6 +106,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlockList.WILLOW_SLAB, 5, 20);
         flammableBlock(BYGBlockList.WITCH_HAZEL_SLAB, 5, 20);
         flammableBlock(BYGBlockList.ZELKOVA_SLAB, 5, 20);
+        flammableBlock(BYGBlockList.PALM_SLAB, 5, 20);
 
         //Stairs
         flammableBlock(BYGBlockList.ASPEN_STAIRS, 5, 20);
@@ -125,6 +129,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlockList.SKYRIS_STAIRS, 5, 20);
         flammableBlock(BYGBlockList.WILLOW_STAIRS, 5, 20);
         flammableBlock(BYGBlockList.WITCH_HAZEL_STAIRS, 5, 20);
+        flammableBlock(BYGBlockList.ZELKOVA_STAIRS, 5, 20);
         flammableBlock(BYGBlockList.ZELKOVA_STAIRS, 5, 20);
 
         //Planks
@@ -149,6 +154,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlockList.WILLOW_PLANKS, 5, 20);
         flammableBlock(BYGBlockList.WITCH_HAZEL_PLANKS, 5, 20);
         flammableBlock(BYGBlockList.ZELKOVA_PLANKS, 5, 20);
+        flammableBlock(BYGBlockList.PALM_PLANKS, 5, 20);
 
         //Fences
         flammableBlock(BYGBlockList.ASPEN_FENCE, 5, 20);
@@ -171,6 +177,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlockList.SKYRIS_FENCE, 5, 20);
         flammableBlock(BYGBlockList.WILLOW_FENCE, 5, 20);
         flammableBlock(BYGBlockList.WITCH_HAZEL_FENCE, 5, 20);
+        flammableBlock(BYGBlockList.ZELKOVA_FENCE, 5, 20);
         flammableBlock(BYGBlockList.ZELKOVA_FENCE, 5, 20);
 
         //Leaves
@@ -211,6 +218,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlockList.WITCH_HAZEL_LEAVES, 30, 60);
         flammableBlock(BYGBlockList.YELLOW_BIRCH_LEAVES, 30, 60);
         flammableBlock(BYGBlockList.YELLOW_SPRUCE_LEAVES, 30, 60);
+        flammableBlock(BYGBlockList.PALM_LEAVES, 30, 60);
 
         //Flowers
         flammableBlock(BYGBlockList.ALLIUM_FLOWER_BUSH, 60, 100);
