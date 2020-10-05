@@ -103,6 +103,8 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.ZELKOVA_DOOR.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.SYTHIAN_DOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.EMBUR_DOOR.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.LAMENT_DOOR.getBlock(), RenderType.getCutoutMipped());
+
         //Trapdoors
         RenderTypeLookup.setRenderLayer(BYGBlockList.ASPEN_TRAPDOOR.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.BAOBAB_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
@@ -128,6 +130,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.ZELKOVA_TRAPDOOR.getBlock(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlockList.SYTHIAN_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.EMBUR_TRAPDOOR.getBlock(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.LAMENT_TRAPDOOR.getBlock(), RenderType.getCutoutMipped());
 
         //Grass
         RenderTypeLookup.setRenderLayer(BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES.getBlock(), RenderType.getTranslucent());
@@ -189,6 +192,8 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlockList.YELLOW_SPRUCE_SAPLING.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.BROWN_ZELKOVA_SAPLING.getBlock(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlockList.ARAUCARIA_SAPLING.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.LAMENT_SAPLING.getBlock(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlockList.WITHERING_OAK_SAPLING.getBlock(), RenderType.getCutoutMipped());
 
         //Mushrooms
         RenderTypeLookup.setRenderLayer(BYGBlockList.BLACK_PUFF.getBlock(), RenderType.getCutoutMipped());
