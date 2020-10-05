@@ -376,7 +376,7 @@ public class BYGTreeFeatures {
 
     public static void addLamentTrees(BiomeGenerationSettings.Builder biome) {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_TWISTY_LAMENT_TREE);
-        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_WEEPING_LAMENT_TREE);
+//        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_WEEPING_LAMENT_TREE);
     }
 
     public static void addWitheringOakTrees(BiomeGenerationSettings.Builder biome) {

@@ -29,7 +29,10 @@ import voronoiaoc.byg.common.properties.blocks.nether.sythian.*;
 import voronoiaoc.byg.common.properties.blocks.nether.wailing.HangingBonesBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.wailing.WhalingGrassBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.warped.*;
+import voronoiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVineBlock;
+import voronoiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVinePlantBlock;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
+import voronoiaoc.byg.common.world.feature.features.nether.emburbog.EmburSprouts;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.function.ToIntFunction;
@@ -749,6 +752,43 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ORGANIC)
                     .sound(SoundType.WART)
                     .hardnessAndResistance(1.0F)
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGLamentPlant extends NetherSproutsBlock {
+        public BYGLamentPlant(String registryName) {
+            super(Block.Properties.create(Material.PLANTS)
+                    .sound(SoundType.ROOT)
+                    .hardnessAndResistance(0.0F)
+                    .doesNotBlockMovement()
+                    .notSolid()
+            );
+            setRegistryName(registryName);
+
+        }
+    }
+
+    public static class BYGLamentVinePlant extends LamentVinePlantBlock {
+        public BYGLamentVinePlant(String registryName) {
+            super(Block.Properties.create(Material.LEAVES)
+                    .sound(SoundType.NETHER_VINE)
+                    .hardnessAndResistance(0.2f)
+                    .tickRandomly()
+                    .doesNotBlockMovement()
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGLamentVine extends LamentVineBlock {
+        public BYGLamentVine(String registryName) {
+            super(Block.Properties.create(Material.LEAVES)
+                    .sound(SoundType.NETHER_VINE)
+                    .hardnessAndResistance(0.2f)
+                    .tickRandomly()
+                    .doesNotBlockMovement()
             );
             setRegistryName(registryName);
         }

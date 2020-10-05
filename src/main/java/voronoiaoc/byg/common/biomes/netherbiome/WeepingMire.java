@@ -18,7 +18,7 @@ import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class WeepingMire extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("weeping_mire", new ConfiguredSurfaceBuilder<>(BYGSBList.WAILING_GARTH_SB, BYGSBList.BYGSBConfigList.SOULSAND));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("weeping_mire", new ConfiguredSurfaceBuilder<>(BYGSBList.WEEPING_MIRE_SB, BYGSBList.BYGSBConfigList.SOULSAND));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.NETHER;
     static final float DEPTH = 0.125F;
@@ -27,8 +27,8 @@ public class WeepingMire extends Biome implements BiomeTools {
     static final float DOWNFALL = 0.4F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
-    static final int GRASS_COLOR = 5849791;
-    static final int FOLIAGE_COLOR = 5849791;
+    static final int GRASS_COLOR = 10831985;
+    static final int FOLIAGE_COLOR = 10831985;
     static final String PARENT = null;
     static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
@@ -38,14 +38,13 @@ public class WeepingMire extends Biome implements BiomeTools {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
                 .withGrassColor(GRASS_COLOR)
                 .withFoliageColor(FOLIAGE_COLOR)
-                .setFogColor(4529794)
+                .setFogColor(5318201)
                 .withSkyColor(BiomeHelper.calcSkyColor(2.0F))
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.01428F))
                 .setAmbientSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D))
                 .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_NETHER_SOUL_SAND_VALLEY)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
-
     }
 
     static {
@@ -63,11 +62,9 @@ public class WeepingMire extends Biome implements BiomeTools {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244150_p); //Nether Fossils
-
         BYGTreeFeatures.addLamentTrees(GENERATION_SETTINGS);
         BYGFeatures.addMiniNetherMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addWailingVegetation(GENERATION_SETTINGS);
+        BYGFeatures.addWeepigMireVegetation(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));

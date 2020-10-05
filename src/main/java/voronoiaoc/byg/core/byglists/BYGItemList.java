@@ -624,6 +624,12 @@ public class BYGItemList {
     public static Item QUARTZ_CRYSTAL;
     public static Item QUARTZITE_SAND;
     public static Item RAW_QUARTZ_BLOCK;
+
+    public static Item WITHERED_ROSE_BUSH;
+    public static Item LAMENT_VINE;
+    public static Item LAMENT_VINE_PLANT;
+    public static Item LAMENT_SPROUTS;
+
     public static Item WHALING_VINES;
     public static Item WHALING_GRASS;
     public static Item MAGMATIC_STONE;

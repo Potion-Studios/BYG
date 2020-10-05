@@ -422,6 +422,8 @@ public class BYGItemRegistry {
                 //Lament Woodtype
                 BYGItemList.LAMENT_SAPLING = new BlockItem(BYGBlockList.LAMENT_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_SAPLING.getRegistryName()),
                 BYGItemList.LAMENT_LEAVES = new BlockItem(BYGBlockList.LAMENT_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_LEAVES.getRegistryName()),
+                BYGItemList.LAMENT_VINE = new BlockItem(BYGBlockList.LAMENT_VINE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_VINE.getRegistryName()),
+                BYGItemList.LAMENT_SPROUTS = new BlockItem(BYGBlockList.LAMENT_SPROUTS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_SPROUTS.getRegistryName()),
                 BYGItemList.LAMENT_LOG = new BlockItem(BYGBlockList.LAMENT_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_LOG.getRegistryName()),
                 BYGItemList.LAMENT_WOOD = new BlockItem(BYGBlockList.LAMENT_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.LAMENT_WOOD.getRegistryName()),
                 BYGItemList.STRIPPED_LAMENT_LOG = new BlockItem(BYGBlockList.STRIPPED_LAMENT_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.STRIPPED_LAMENT_LOG.getRegistryName()),

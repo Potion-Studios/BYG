@@ -571,6 +571,11 @@ public class BYGBlockList {
     public static Block QUARTZITE_SAND;
     public static Block RAW_QUARTZ_BLOCK;
 
+    public static Block WITHERED_ROSE_BUSH;
+    public static Block LAMENT_VINE;
+    public static Block LAMENT_VINE_PLANT;
+    public static Block LAMENT_SPROUTS;
+
     public static Block WAILING_VINES;
     public static Block WHALING_GRASS;
     public static Block MAGMATIC_STONE;

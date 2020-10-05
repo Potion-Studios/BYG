@@ -549,6 +549,9 @@ public class BYGBlockRegistry {
                 BYGBlockList.FROST_MAGMA = new BYGBlockProperties.BYGFrostMagma("frost_magma"),
                 BYGBlockList.SUBZERO_ASH = new BYGBlockProperties.BYGSubzeroAsh("subzero_ash"),
                 BYGBlockList.SUBZERO_ASH_BLOCK = new BYGBlockProperties.BYGSubzeroAshBlock("subzero_ash_block"),
+                BYGBlockList.LAMENT_SPROUTS = new BYGBlockProperties.BYGLamentPlant("lament_sprouts"),
+                BYGBlockList.LAMENT_VINE = new BYGBlockProperties.BYGLamentVine("lament_vine"),
+                BYGBlockList.LAMENT_VINE_PLANT = new BYGBlockProperties.BYGLamentVinePlant("lament_vine_plant"),
 
                 BYGBlockList.PINK_CHERRY_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("pink_cherry_foliage"),
                 BYGBlockList.WHITE_CHERRY_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("white_cherry_foliage"),
