@@ -11,7 +11,6 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FNVector3f;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
-import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
 
@@ -59,7 +58,7 @@ public class PointedStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             }
         }
         else
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.GRASSSTONEMOUNTAIN_CF);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(config.getTop(), config.getUnder(), config.getUnderWaterMaterial()));
     }
 
     @Override
