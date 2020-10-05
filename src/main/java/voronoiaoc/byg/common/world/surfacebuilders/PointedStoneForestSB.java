@@ -2,7 +2,6 @@ package voronoiaoc.byg.common.world.surfacebuilders;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -12,7 +11,6 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FNVector3f;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
-import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Random;
@@ -52,9 +50,9 @@ public class PointedStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
                     if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getHeight()) {
                         if (yPos == topHeight)
-                            chunkIn.setBlockState(mutable, BYGBlockList.OVERGROWN_STONE.getDefaultState(), false);
+                            chunkIn.setBlockState(mutable, config.getTop(), false);
                         else
-                            chunkIn.setBlockState(mutable, Blocks.STONE.getDefaultState(), false);
+                            chunkIn.setBlockState(mutable, config.getUnder(), false);
                     }
                     mutable.move(Direction.DOWN);
                 }
