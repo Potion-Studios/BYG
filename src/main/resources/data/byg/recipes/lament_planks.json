@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "byg:lament_logs"
+    }
+  ],
+  "result": {
+    "item": "byg:lament_planks",
+    "count": 4
+  }
+}

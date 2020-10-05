@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.properties.vanilla;
 
 import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.AxeItem;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
@@ -39,6 +40,8 @@ public class BYGStrippables {
         strippableBlock(BYGBlockList.ZELKOVA_LOG, BYGBlockList.STRIPPED_ZELKOVA_LOG);
         strippableBlock(BYGBlockList.SYTHIAN_STEM, BYGBlockList.STRIPPED_SYTHIAN_STEM);
         strippableBlock(BYGBlockList.PALM_LOG, BYGBlockList.STRIPPED_PALM_LOG);
+        strippableBlock(BYGBlockList.LAMENT_LOG, BYGBlockList.STRIPPED_LAMENT_LOG);
+        strippableBlock(BYGBlockList.WITHERING_OAK_LOG, Blocks.STRIPPED_OAK_LOG);
 
         strippableBlock(BYGBlockList.ASPEN_WOOD, BYGBlockList.STRIPPED_ASPEN_WOOD);
         strippableBlock(BYGBlockList.BAOBAB_WOOD, BYGBlockList.STRIPPED_BAOBAB_WOOD);
@@ -64,6 +67,8 @@ public class BYGStrippables {
         strippableBlock(BYGBlockList.ZELKOVA_WOOD, BYGBlockList.STRIPPED_ZELKOVA_WOOD);
         strippableBlock(BYGBlockList.SYTHIAN_HYPHAE, BYGBlockList.STRIPPED_SYTHIAN_HYPHAE);
         strippableBlock(BYGBlockList.PALM_WOOD, BYGBlockList.STRIPPED_PALM_WOOD);
+        strippableBlock(BYGBlockList.LAMENT_WOOD, BYGBlockList.STRIPPED_LAMENT_WOOD);
+        strippableBlock(BYGBlockList.WITHERING_OAK_WOOD, Blocks.STRIPPED_OAK_WOOD);
 
         BYG.LOGGER.info("BYG: Added strippable Blocks...");
 
