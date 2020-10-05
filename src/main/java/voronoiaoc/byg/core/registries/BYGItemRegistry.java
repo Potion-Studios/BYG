@@ -825,6 +825,10 @@ public class BYGItemRegistry {
                 BYGItemList.MAGMATIC_STONE = new BlockItem(BYGBlockList.MAGMATIC_STONE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.MAGMATIC_STONE.getRegistryName()),
 
                 BYGItemList.HANGING_BONE = new BlockItem(BYGBlockList.HANGING_BONE, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.HANGING_BONE.getRegistryName()),
+                BYGItemList.QUARTZ_CRYSTAL = new BlockItem(BYGBlockList.QUARTZ_CRYSTAL, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.QUARTZ_CRYSTAL.getRegistryName()),
+                BYGItemList.QUARTZITE_SAND = new BlockItem(BYGBlockList.QUARTZITE_SAND, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.QUARTZITE_SAND.getRegistryName()),
+                BYGItemList.RAW_QUARTZ_BLOCK = new BlockItem(BYGBlockList.RAW_QUARTZ_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.RAW_QUARTZ_BLOCK.getRegistryName()),
+                
                 BYGItemList.WHALING_VINES = new BlockItem(BYGBlockList.WAILING_VINES, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WAILING_VINES.getRegistryName()),
                 BYGItemList.WHALING_GRASS = new BlockItem(BYGBlockList.WHALING_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.WHALING_GRASS.getRegistryName()),
                 BYGItemList.SCORCHED_BUSH = new BlockItem(BYGBlockList.SCORCHED_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)).setRegistryName(BYGBlockList.SCORCHED_BUSH.getRegistryName()),

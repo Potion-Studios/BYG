@@ -567,6 +567,10 @@ public class BYGBlockList {
     public static Block BORIC_CAMPFIRE;
     public static Block BORIC_FIRE;
     public static Block HANGING_BONE;
+    public static Block QUARTZ_CRYSTAL;
+    public static Block QUARTZITE_SAND;
+    public static Block RAW_QUARTZ_BLOCK;
+
     public static Block WAILING_VINES;
     public static Block WHALING_GRASS;
     public static Block MAGMATIC_STONE;

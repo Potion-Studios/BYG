@@ -42,6 +42,7 @@ public class BYGConfiguredFeatures {
     public static ConfiguredFeature<?, ?> MAGMA_FIRE = newConfiguredFeature("magma_fire", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.MAGMA_FIRE));
     public static ConfiguredFeature<?, ?> SUBZERO_ASH = newConfiguredFeature("subzero_ash", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SUBZERO_ASH));
     public static ConfiguredFeature<?, ?> SUBZERO_ASH_BLOCK = newConfiguredFeature("subzero_ash_block", Feature.RANDOM_PATCH.withConfiguration(BYGFeatureConfigs.SUBZERO_ASH_BLOCK));
+    public static ConfiguredFeature<?, ?> QUARTZ_CRYSTAL = newConfiguredFeature("quartz_crystal", BYGFeatureList.QUARTZ_CRYSTAL.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
     //Giant Flowers
     public static ConfiguredFeature<BYGGiantFlowerFeatureConfig, ?> GIANT_ANGELICA_FLOWER = newConfiguredFeature("giant_angelica", BYGFeatureList.GIANT_ANGELICA_FLOWER.withConfiguration(new BYGGiantFlowerFeatureConfig.Builder().setStemBlock(BYGBlockList.PLANT_STEM).setPetalBlock(BYGBlockList.WHITE_PETAL).setMaxHeight(18).setMinHeight(12).build()));
@@ -380,6 +381,10 @@ public class BYGConfiguredFeatures {
             SUBZERO_ASH.withChance(0.6F)),
             SUBZERO_ASH_BLOCK)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(3))));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_QUARTZ_CRYSTAL_PATCH = newConfiguredFeature("rs_quartz_crystal", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            QUARTZ_CRYSTAL.withChance(0.6F)),
+            QUARTZ_CRYSTAL)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_VINE_BLACKSTONE = newConfiguredFeature("weeping_vines_blackstone", BYGFeatureList.WEEPING_VINE_BLACKSTONE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS_FEATURE = newConfiguredFeature("weeping_roots_feature", BYGFeatureList.WEEPING_ROOTS_FEATURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
@@ -387,6 +392,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_FROST_MAGMA_PILLARS = newConfiguredFeature("frost_magma_pillars", BYGFeatureList.FROST_MAGMA_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
     public static final ConfiguredFeature<?, ?> RANDOM_MAGMA_PILLARS = newConfiguredFeature("magma_pillars", BYGFeatureList.MAGMA_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(65));
     public static final ConfiguredFeature<?, ?> RANDOM_BRIMSTONE_PILLARS = newConfiguredFeature("brimstone_pillars", BYGFeatureList.BRIMSTONE_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> QUARTZ_COLUMNS = newConfiguredFeature("quartz_columns", BYGFeatureList.QUARTZ_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(1, 3))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_GEL_VINES = newConfiguredFeature("rs_embur_gel_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_GEL_VINES.withChance(0.3F)),
@@ -401,6 +407,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> HANGING_SYTHIAN_ROOTS = newConfiguredFeature("hanging_sythian_roots_feature", BYGFeatureList.SYTHIAN_HANGING_ROOTS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
     public static final ConfiguredFeature<?, ?> MOSSY_NETHERRACK_PILLARS_FEATURE = newConfiguredFeature("mossy_netherrack_pillars", BYGFeatureList.MOSSY_NETHERRACK_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
     public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_PILLARS_FEATURE = newConfiguredFeature("sythian_fungus_pillars", BYGFeatureList.SYTHIAN_FUNGUS_PILLARS.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(50));
+    public static final ConfiguredFeature<?, ?> HANGING_BONE_FEATURE = newConfiguredFeature("hanging_bone_feature", BYGFeatureList.HANGING_BONE_FEATURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(80));
 
 
     public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS = newConfiguredFeature("rs_weeping_roots", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(

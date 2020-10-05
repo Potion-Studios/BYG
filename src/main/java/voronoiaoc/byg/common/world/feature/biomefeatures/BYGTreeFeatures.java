@@ -383,4 +383,8 @@ public class BYGTreeFeatures {
         biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_WITHERING_OAK_TREE);
     }
 
+    public static void addSparseWitheringOakTrees(BiomeGenerationSettings.Builder biome) {
+        biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_SPARSE_WITHERING_OAK_TREE);
+    }
+
 }

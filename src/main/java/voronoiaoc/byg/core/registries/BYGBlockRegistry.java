@@ -490,6 +490,10 @@ public class BYGBlockRegistry {
                 BYGBlockList.BORIC_FIRE = new BYGBlockProperties.BoricFire("boric_fire"),
 
                 BYGBlockList.HANGING_BONE = new BYGBlockProperties.HangingBones("hanging_bones"),
+                BYGBlockList.QUARTZ_CRYSTAL = new BYGBlockProperties.BYGQuartzCrystal("quartz_crystal"),
+                BYGBlockList.QUARTZITE_SAND = new BYGBlockProperties.BYGQuartziteSand("quartzite_sand"),
+                BYGBlockList.RAW_QUARTZ_BLOCK = new BYGBlockProperties.BYGStone("raw_quartz_block"),
+                
                 BYGBlockList.WAILING_VINES = new BYGBlockProperties.WailingVines("whaling_vine"),
                 BYGBlockList.WHALING_GRASS = new BYGBlockProperties.WhalingGrass("whaling_grass"),
                 BYGBlockList.MAGMATIC_STONE = new BYGBlockProperties.BYGNetherrack("magmatic_stone"),

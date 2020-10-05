@@ -190,10 +190,12 @@ public class BYGBiomeRegistry {
         registerNetherBiome(BYGBiomeList.EMBURBOG, "embur_bog");
         registerNetherBiome(BYGBiomeList.WAILING_GARTH, "wailing_garth");
         registerNetherBiome(BYGBiomeList.CRIMSON_GARDENS, "crimson_gardens");
-
         registerNetherBiome(BYGBiomeList.MAGMA_WASTES, "magma_wastes");
         registerNetherBiome(BYGBiomeList.BRIMSTONE_CAVERNS, "brimstone_caverns");
         registerNetherBiome(BYGBiomeList.SUBZERO_HYPOGEAL, "subzero_hypogeal");
+        registerNetherBiome(BYGBiomeList.WITHERING_WOODS, "withering_woods");
+        registerNetherBiome(BYGBiomeList.WEEPING_MIRE, "weeping_mire");
+        registerNetherBiome(BYGBiomeList.QUARTZ_DESERT, "quartz_desert");
 
         //End
         registerBYGEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");

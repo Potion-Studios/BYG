@@ -621,6 +621,9 @@ public class BYGItemList {
     public static Item YELLOW_NETHER_BRICK;
     public static Item BORIC_CAMPFIRE;
     public static Item HANGING_BONE;
+    public static Item QUARTZ_CRYSTAL;
+    public static Item QUARTZITE_SAND;
+    public static Item RAW_QUARTZ_BLOCK;
     public static Item WHALING_VINES;
     public static Item WHALING_GRASS;
     public static Item MAGMATIC_STONE;

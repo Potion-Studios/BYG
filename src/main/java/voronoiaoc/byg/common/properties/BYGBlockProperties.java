@@ -14,6 +14,7 @@ import voronoiaoc.byg.client.textures.BYGMaterials;
 import voronoiaoc.byg.common.properties.blocks.*;
 import voronoiaoc.byg.common.properties.blocks.grassblocks.*;
 import voronoiaoc.byg.common.properties.blocks.nether.BYGOvergrownNetherrackBlock;
+import voronoiaoc.byg.common.properties.blocks.nether.BYGQuartzCrystalBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import voronoiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
@@ -590,6 +591,28 @@ public class BYGBlockProperties {
             setRegistryName(registryName);
         }
 
+    }
+
+    public static class BYGQuartzCrystal extends BYGQuartzCrystalBlock {
+        public BYGQuartzCrystal(String registryName) {
+            super(Block.Properties.create(Material.ROCK)
+                    .sound(SoundType.STONE)
+                    .hardnessAndResistance(0.1F)
+                    .doesNotBlockMovement()
+                    .notSolid()
+            );
+            setRegistryName(registryName);
+        }
+    }
+
+    public static class BYGQuartziteSand extends Block {
+        public BYGQuartziteSand(String registryName) {
+            super(Block.Properties.create(Material.SAND)
+                    .sound(SoundType.SAND)
+                    .hardnessAndResistance(0.2f)
+            );
+            setRegistryName(registryName);
+        }
     }
 
     public static class HangingBones extends HangingBonesBlock {

@@ -51,6 +51,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> MAGMA_WASTES_SB = newSurfaceBuilder("magma_wastes", new MagmaWastesSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> SUBZERO_HYPOGEAL_SB = newSurfaceBuilder("subzero_hypogeal", new SubzeroHypogealSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> WITHERING_WOODS_SB = newSurfaceBuilder("withering_woods", new WitheringWoodsSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> QUARTZ_DESERT_SB = newSurfaceBuilder("quartz_desert", new QuartzDesertSB(SurfaceBuilderConfig.field_237203_a_));
 
     //End
     public static final SurfaceBuilder<SurfaceBuilderConfig> IVISFIELDS_SB = newSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderConfig.field_237203_a_));

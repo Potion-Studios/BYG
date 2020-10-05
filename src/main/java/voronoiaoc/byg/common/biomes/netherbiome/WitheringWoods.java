@@ -14,6 +14,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
 public class WitheringWoods extends Biome implements BiomeTools {
@@ -62,8 +63,8 @@ public class WitheringWoods extends Biome implements BiomeTools {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244150_p); //Nether Fossils
 
+        BYGTreeFeatures.addWitheringOakTrees(GENERATION_SETTINGS);
         BYGFeatures.addMagmaFire(GENERATION_SETTINGS);
-        BYGFeatures.addMagmaPillars(GENERATION_SETTINGS);
         BYGFeatures.addScorchedPlants(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));

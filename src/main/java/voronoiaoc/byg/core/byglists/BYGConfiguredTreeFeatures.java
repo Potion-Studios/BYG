@@ -353,9 +353,9 @@ public class BYGConfiguredTreeFeatures {
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> LAMENT_TWISTY_TREE1 = newConfiguredFeature("lament_twisty_tree1", BYGFeatureList.LAMENT_TWISTY_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.LAMENT_LOG).setLeavesBlock(BYGBlockList.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> LAMENT_TWISTY_TREE2 = newConfiguredFeature("lament_twisty_tree2", BYGFeatureList.LAMENT_TWISTY_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.LAMENT_LOG).setLeavesBlock(BYGBlockList.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> LAMENT_TWISTY_TREE3 = newConfiguredFeature("lament_twisty_tree3", BYGFeatureList.LAMENT_TWISTY_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.LAMENT_LOG).setLeavesBlock(BYGBlockList.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> LAMENT_WEEPING_TREE1 = newConfiguredFeature("lament_weeping_tree1", BYGFeatureList.LAMENT_TWISTY_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.LAMENT_LOG).setLeavesBlock(BYGBlockList.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> LAMENT_WEEPING_TREE2 = newConfiguredFeature("lament_weeping_tree2", BYGFeatureList.LAMENT_TWISTY_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.LAMENT_LOG).setLeavesBlock(BYGBlockList.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
-    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> LAMENT_WEEPING_TREE3 = newConfiguredFeature("lament_weeping_tree3", BYGFeatureList.LAMENT_TWISTY_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.LAMENT_LOG).setLeavesBlock(BYGBlockList.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> LAMENT_WEEPING_TREE1 = newConfiguredFeature("lament_weeping_tree1", BYGFeatureList.LAMENT_WEEPING_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.LAMENT_LOG).setLeavesBlock(BYGBlockList.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> LAMENT_WEEPING_TREE2 = newConfiguredFeature("lament_weeping_tree2", BYGFeatureList.LAMENT_WEEPING_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.LAMENT_LOG).setLeavesBlock(BYGBlockList.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> LAMENT_WEEPING_TREE3 = newConfiguredFeature("lament_weeping_tree3", BYGFeatureList.LAMENT_WEEPING_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.LAMENT_LOG).setLeavesBlock(BYGBlockList.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
 
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WITHERING_OAK_TREE1 = newConfiguredFeature("withering_oak_tree1", BYGFeatureList.WITHERING_OAK_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WITHERING_OAK_LOG).setLeavesBlock(BYGBlockList.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WITHERING_OAK_TREE2 = newConfiguredFeature("withering_oak_tree2", BYGFeatureList.WITHERING_OAK_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlockList.WITHERING_OAK_LOG).setLeavesBlock(BYGBlockList.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
@@ -1013,6 +1013,11 @@ public class BYGConfiguredTreeFeatures {
             WITHERING_OAK_TREE2.withChance(0.25F)),
             WITHERING_OAK_TREE1)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
             new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_WITHERING_OAK_TREE = newConfiguredFeature("rs_sparse_withering_oak_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            WITHERING_OAK_TREE3.withChance(0.25F)),
+            WITHERING_OAK_TREE1)).withPlacement(UnderGroundPlacement.UGPLACER.configure(
+            new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_TWISTY_LAMENT_TREE = newConfiguredFeature("rs_twisty_lament_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             LAMENT_TWISTY_TREE3.withChance(0.35F),

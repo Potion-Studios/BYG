@@ -3,10 +3,7 @@ package voronoiaoc.byg.core.byglists;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.carver.WorldCarver;
-import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.feature.*;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.carver.VolcanicCarver;
 import voronoiaoc.byg.common.world.feature.featureconfig.*;
@@ -20,6 +17,9 @@ import voronoiaoc.byg.common.world.feature.features.nether.crimsongardens.Weepin
 import voronoiaoc.byg.common.world.feature.features.nether.emburbog.*;
 import voronoiaoc.byg.common.world.feature.features.nether.glowstonegardens.*;
 import voronoiaoc.byg.common.world.feature.features.nether.magmawastes.MagmaPillars;
+import voronoiaoc.byg.common.world.feature.features.nether.quartzdesert.HangingBoneFeature;
+import voronoiaoc.byg.common.world.feature.features.nether.quartzdesert.QuartzCrystals;
+import voronoiaoc.byg.common.world.feature.features.nether.quartzdesert.RawQuartzColumnFeature;
 import voronoiaoc.byg.common.world.feature.features.nether.soulsandvalley.SoulShroomSporeFeature;
 import voronoiaoc.byg.common.world.feature.features.nether.subzerohypo.FrostMagmaPillars;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.*;
@@ -227,6 +227,9 @@ public class BYGFeatureList {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WITHERING_OAK_TREE3 = new WitheringOakTree3(BYGTreeFeatureConfig.CODEC);
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WITHERING_OAK_TREE4 = new WitheringOakTree4(BYGTreeFeatureConfig.CODEC);
 
+    //QuartzDesert
+    public static final Feature<NoFeatureConfig> HANGING_BONE_FEATURE = new HangingBoneFeature(NoFeatureConfig.field_236558_a_);
+
     //Sythian
     public static final Feature<NoFeatureConfig> SYTHIAN_SPROUT = new SythianSprout(NoFeatureConfig.field_236558_a_);
     public static final Feature<ProbabilityConfig> SYTHIAN_STALK = new SythianStalk(ProbabilityConfig.field_236576_b_);
@@ -296,6 +299,9 @@ public class BYGFeatureList {
     //BrimstoneCaverns
     public static final Feature<NoFeatureConfig> BRIMSTONE_PILLARS = new BrimstonePillars(NoFeatureConfig.field_236558_a_);
 
+    //QuartzDesert
+    public static final Feature<ColumnConfig> QUARTZ_COLUMNS = new RawQuartzColumnFeature(ColumnConfig.CODEC);
+    public static final Feature<NoFeatureConfig> QUARTZ_CRYSTAL = new QuartzCrystals(NoFeatureConfig.field_236558_a_);
 
     /********************************************************************Structures***********************************************************************/
 //    public static final //StructureFeature<StructurePoolFeatureConfig> BYGVILLAGE = new BYGVillage//StructureFeature(StructurePoolFeatureConfig.field_236558_a_);
@@ -561,6 +567,7 @@ public class BYGFeatureList {
             registerFeature(WITHERING_OAK_TREE2, "withering_oak_tree2");
             registerFeature(WITHERING_OAK_TREE3, "withering_oak_tree3");
             registerFeature(WITHERING_OAK_TREE4, "withering_oak_tree4");
+            registerFeature(HANGING_BONE_FEATURE, "hanging_bone_feature");
             registerFeature(SYTHIAN_SPROUT, "sythian_sprout");
             registerFeature(SYTHIAN_STALK, "sythian_stalk");
             registerFeature(SYTHIAN_ROOTS, "sythian_roots");
@@ -596,6 +603,8 @@ public class BYGFeatureList {
             registerFeature(FROST_MAGMA_PILLARS, "frost_magma_pillars");
             registerFeature(MAGMA_PILLARS, "magma_pillars");
             registerFeature(BRIMSTONE_PILLARS, "brimstone_pillars");
+            registerFeature(QUARTZ_COLUMNS, "quartz_columns");
+            registerFeature(QUARTZ_CRYSTAL, "quartz_crystals");
             registerFeature(ARAUCARIA_TREE1, "araucaria_tree1");
             registerFeature(ARAUCARIA_TREE2, "araucaria_tree2");
             registerFeature(ACACIA_TREE1, "acacia_tree1");
