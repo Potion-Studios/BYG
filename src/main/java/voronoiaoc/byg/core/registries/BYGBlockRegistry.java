@@ -367,8 +367,8 @@ public class BYGBlockRegistry {
                 BYGBlockList.YELLOW_SPRUCE_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.YellowSpruceSaplingToTree(), "yellow_spruce_sapling"),
                 BYGBlockList.ZELKOVA_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.ZelkovaSaplingToTree(), "zelkova_sapling"),
                 BYGBlockList.PALM_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.PalmSaplingToTree(), "palm_sapling"),
-                BYGBlockList.LAMENT_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.PalmSaplingToTree(), "lament_sapling"),
-                BYGBlockList.WITHERING_OAK_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.PalmSaplingToTree(), "withering_oak_sapling"),
+                BYGBlockList.LAMENT_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.LamentSaplingToTree(), "lament_sapling"),
+                BYGBlockList.WITHERING_OAK_SAPLING = new BYGSaplingProperties(new BYGSaplingToTree.WitheringOakSaplingToTree(), "withering_oak_sapling"),
 
                 //Leaf Blocks
                 BYGBlockList.ARAUCARIA_LEAVES = new BYGBlockProperties.BYGLeaves("araucaria_leaves"),

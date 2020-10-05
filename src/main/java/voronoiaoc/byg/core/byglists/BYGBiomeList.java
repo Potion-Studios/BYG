@@ -36,7 +36,7 @@ public class BYGBiomeList {
     public static final Biome REDROCKCANYON = new Canyons();
     //    public static final Biome CANYONCORRIDORS = new CanyonCorridors();
     public static final Biome CYPRESSSWAMPLANDS = new CypressSwampland();
-    public static final Biome DUMMY_BIOME = new DummyBiome();
+//    public static final Biome DUMMY_BIOME = new DummyBiome();
     public static final Biome CHERRYBLOSSOMFOREST = new CherryBlossomForest();
     public static final Biome REDWOOD_TROPICS = new RedwoodTropics();
     public static final Biome CONIFEROUSFOREST = new ConiferousForest();
@@ -193,6 +193,10 @@ public class BYGBiomeList {
     public static final Biome MAGMA_WASTES = new MagmaWastes();
     public static final Biome BRIMSTONE_CAVERNS = new BrimstoneCaverns();
     public static final Biome SUBZERO_HYPOGEAL = new SubzeroHypogeal();
+
+    public static final Biome WITHERING_WOODS = new WitheringWoods();
+    public static final Biome WEEPING_MIRE = new WeepingMire();
+    public static final Biome QUARTZ_DESERT = new QuartzDesert();
 
     //End
     public static final Biome IVISFIELDS = new IvisFields();

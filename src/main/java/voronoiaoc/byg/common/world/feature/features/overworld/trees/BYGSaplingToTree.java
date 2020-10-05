@@ -247,6 +247,22 @@ public class BYGSaplingToTree {
 
     }
 
+    public static class LamentSaplingToTree extends BYGTree {
+        @Nullable
+        public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGConfiguredTreeFeatures.LAMENT_TWISTY_TREE1 : BYGConfiguredTreeFeatures.LAMENT_WEEPING_TREE2;
+        }
+
+    }
+
+    public static class WitheringOakSaplingToTree extends BYGTree {
+        @Nullable
+        public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGConfiguredTreeFeatures.WITHERING_OAK_TREE1 : BYGConfiguredTreeFeatures.WITHERING_OAK_TREE4;
+        }
+
+    }
+
     public static class MapleSaplingToTree extends BYGTree {
         @Nullable
         public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {

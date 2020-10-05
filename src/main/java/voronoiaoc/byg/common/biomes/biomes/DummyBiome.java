@@ -27,7 +27,7 @@ public class DummyBiome extends Biome implements BiomeTools {
     }
 
     static {
-        DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
+//        DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
 //        BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
 //        BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
 //        DefaultBiomeFeatures.withNormalGrassPatch(GENERATION_SETTINGS);
@@ -39,6 +39,6 @@ public class DummyBiome extends Biome implements BiomeTools {
 //        DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
 //        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
 //        DefaultBiomeFeatures.withPlainGrassVegetation(GENERATION_SETTINGS);
-        BYGTreeFeatures.addDummyTree(GENERATION_SETTINGS);
+//        BYGTreeFeatures.addDummyTree(GENERATION_SETTINGS);
     }
 }

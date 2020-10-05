@@ -20,7 +20,7 @@ public class BYGBiomeRegistry {
 
     public static void registerBYGBiomes() {
         BYG.LOGGER.debug("BYG: Registering Biomes...");
-        registerBiome(BYGBiomeList.DUMMY_BIOME, "dummy_biome");
+//        registerBiome(BYGBiomeList.DUMMY_BIOME, "dummy_biome");
         registerBiome(BYGBiomeList.ALLIUMFIELDS, "allium_fields");
         registerBiome(BYGBiomeList.ALPS, "alps");
         registerBiome(BYGBiomeList.AMARANTHFIELDS, "amaranth_fields");

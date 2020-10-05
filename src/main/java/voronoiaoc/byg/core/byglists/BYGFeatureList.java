@@ -23,6 +23,11 @@ import voronoiaoc.byg.common.world.feature.features.nether.magmawastes.MagmaPill
 import voronoiaoc.byg.common.world.feature.features.nether.soulsandvalley.SoulShroomSporeFeature;
 import voronoiaoc.byg.common.world.feature.features.nether.subzerohypo.FrostMagmaPillars;
 import voronoiaoc.byg.common.world.feature.features.nether.sythiantorrids.*;
+import voronoiaoc.byg.common.world.feature.features.nether.trees.lament.*;
+import voronoiaoc.byg.common.world.feature.features.nether.trees.withering.WitheringOakTree1;
+import voronoiaoc.byg.common.world.feature.features.nether.trees.withering.WitheringOakTree2;
+import voronoiaoc.byg.common.world.feature.features.nether.trees.withering.WitheringOakTree3;
+import voronoiaoc.byg.common.world.feature.features.nether.trees.withering.WitheringOakTree4;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedBush;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.ScorchedGrass;
 import voronoiaoc.byg.common.world.feature.features.nether.wailinggarth.WailingVine;
@@ -206,6 +211,21 @@ public class BYGFeatureList {
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> DEATH_CAP_TREE1 = new DeathCapTree1(BYGMushroomFeatureConfig.CODEC);
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> DEATH_CAP_TREE2 = new DeathCapTree2(BYGMushroomFeatureConfig.CODEC);
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> DEATH_CAP_TREE3 = new DeathCapTree3(BYGMushroomFeatureConfig.CODEC);
+
+    //Lament
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> LAMENT_WEEPING_TREE1 = new LamentWeepingTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> LAMENT_WEEPING_TREE2 = new LamentWeepingTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> LAMENT_WEEPING_TREE3 = new LamentWeepingTree3(BYGTreeFeatureConfig.CODEC);
+
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> LAMENT_TWISTY_TREE1 = new LamentTwistyTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> LAMENT_TWISTY_TREE2 = new LamentTwistyTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> LAMENT_TWISTY_TREE3 = new LamentTwistyTree3(BYGTreeFeatureConfig.CODEC);
+
+    //Withering Oak
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WITHERING_OAK_TREE1 = new WitheringOakTree1(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WITHERING_OAK_TREE2 = new WitheringOakTree2(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WITHERING_OAK_TREE3 = new WitheringOakTree3(BYGTreeFeatureConfig.CODEC);
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WITHERING_OAK_TREE4 = new WitheringOakTree4(BYGTreeFeatureConfig.CODEC);
 
     //Sythian
     public static final Feature<NoFeatureConfig> SYTHIAN_SPROUT = new SythianSprout(NoFeatureConfig.field_236558_a_);
@@ -531,6 +551,16 @@ public class BYGFeatureList {
             registerFeature(DEATH_CAP_TREE1, "death_cap_tree1");
             registerFeature(DEATH_CAP_TREE2, "death_cap_tree2");
             registerFeature(DEATH_CAP_TREE3, "death_cap_tree3");
+            registerFeature(LAMENT_TWISTY_TREE1, "lament_twisty_tree1");
+            registerFeature(LAMENT_TWISTY_TREE2, "lament_twisty_tree2");
+            registerFeature(LAMENT_TWISTY_TREE3, "lament_twisty_tree3");
+            registerFeature(LAMENT_WEEPING_TREE1, "lament_weeping_tree1");
+            registerFeature(LAMENT_WEEPING_TREE2, "lament_weeping_tree2");
+            registerFeature(LAMENT_WEEPING_TREE3, "lament_weeping_tree3");
+            registerFeature(WITHERING_OAK_TREE1, "withering_oak_tree1");
+            registerFeature(WITHERING_OAK_TREE2, "withering_oak_tree2");
+            registerFeature(WITHERING_OAK_TREE3, "withering_oak_tree3");
+            registerFeature(WITHERING_OAK_TREE4, "withering_oak_tree4");
             registerFeature(SYTHIAN_SPROUT, "sythian_sprout");
             registerFeature(SYTHIAN_STALK, "sythian_stalk");
             registerFeature(SYTHIAN_ROOTS, "sythian_roots");
