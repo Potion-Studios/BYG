@@ -85,7 +85,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.TWILIGHT_VALLEY, "twilight_valley");
         registerBiome(BYGBiomeList.VIBRANTSWAMPLANDS, "vibrant_swamplands");
         registerBiome(BYGBiomeList.VALLE_DE_LUNA, "valle_de_luna");
-//        registerBiome(BYGBiomeList.VOLCANO, "volcano");
+        registerBiome(BYGBiomeList.VOLCANO, "volcano");
         registerBiome(BYGBiomeList.SIERRAVALLEY, "sierra_valley");
         registerBiome(BYGBiomeList.WEEPINGWITCHFOREST, "weeping_witch_forest");
         registerBiome(BYGBiomeList.WOODLANDS, "woodlands");

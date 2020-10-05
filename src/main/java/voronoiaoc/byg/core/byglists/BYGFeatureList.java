@@ -142,8 +142,8 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> DUMMY_TREE = new SmallPineTree(NoFeatureConfig.field_236558_a_);
 
     public static final Feature<NoFeatureConfig> HUH = new RiverThingy(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> VOLCANO = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_, 2375866);
-    public static final Feature<NoFeatureConfig> VOLCANO2 = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_, 929445895);
+    public static final Feature<NoFeatureConfig> VOLCANO = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> VOLCANO2 = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_);
     public static final Feature<BYGBoulderFeatureConfig> STACKABLE_BOULDERS = new StackableBoulders(BYGBoulderFeatureConfig.CODEC);
 
     /********************************************************************Features*************************************************************************/
