@@ -14,10 +14,9 @@ import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
 
 import java.util.Random;
 
-public class SmallVolcanoFeature extends Feature<NoFeatureConfig> {
+public class NoiseVolcano extends Feature<NoFeatureConfig> {
 
     private FastNoise noiseGen = null;
-    private FastNoise noiseGen2 = null;
 
     public void setSeed(long seed) {
         if (noiseGen == null) {
@@ -31,7 +30,7 @@ public class SmallVolcanoFeature extends Feature<NoFeatureConfig> {
     }
 
 
-    public SmallVolcanoFeature(Codec<NoFeatureConfig> config) {
+    public NoiseVolcano(Codec<NoFeatureConfig> config) {
         super(config);
     }
 

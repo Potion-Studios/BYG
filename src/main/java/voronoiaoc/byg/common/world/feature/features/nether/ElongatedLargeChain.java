@@ -22,7 +22,7 @@
 //    }
 //
 //    //TODO: Make this actually Elongated.
-//    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+//    public boolean buildStructure(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 //        int randChainLength = 2 + rand.nextInt(5);
 //
 //        BlockPos.Mutable mainMutable1 = new BlockPos.Mutable(pos);
