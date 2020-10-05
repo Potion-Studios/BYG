@@ -30,7 +30,7 @@
 //    }
 //
 //    @Override
-//    public boolean func_241855_a(ISeedReader world,  ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig p_212245_5_) {
+//    public boolean buildStructure(ISeedReader world,  ChunkGenerator changedBlock, Random rand, BlockPos position, NoFeatureConfig p_212245_5_) {
 //        if (rand.nextInt(10) == 0) {
 //            int y = world.getHeight(Heightmap.Type.WORLD_SURFACE_WG, position).getY();
 //            BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable().setPos(position.up(y).down(27));

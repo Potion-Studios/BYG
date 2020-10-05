@@ -117,8 +117,6 @@ public class BYG {
         }
 
         BlockDataHelperCleanedUp.createLangFile(filePath, MOD_ID, blockIDList, biomeIDList, itemIDList);
-
-
     }
 
 

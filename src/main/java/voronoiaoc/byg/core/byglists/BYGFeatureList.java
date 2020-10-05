@@ -134,7 +134,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.woodlands.Wo
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree1;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree2;
 import voronoiaoc.byg.common.world.feature.features.overworld.trees.zelkova.ZelkovaTree3;
-import voronoiaoc.byg.common.world.feature.features.overworld.volcano.SmallVolcanoFeature;
+import voronoiaoc.byg.common.world.feature.features.overworld.volcano.NoiseVolcano;
 
 
 public class BYGFeatureList {
@@ -142,8 +142,8 @@ public class BYGFeatureList {
     public static final Feature<NoFeatureConfig> DUMMY_TREE = new SmallPineTree(NoFeatureConfig.field_236558_a_);
 
     public static final Feature<NoFeatureConfig> HUH = new RiverThingy(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> VOLCANO = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_);
-    public static final Feature<NoFeatureConfig> VOLCANO2 = new SmallVolcanoFeature(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> VOLCANO = new NoiseVolcano(NoFeatureConfig.field_236558_a_);
+    public static final Feature<NoFeatureConfig> VOLCANO2 = new NoiseVolcano(NoFeatureConfig.field_236558_a_);
     public static final Feature<BYGBoulderFeatureConfig> STACKABLE_BOULDERS = new StackableBoulders(BYGBoulderFeatureConfig.CODEC);
 
     /********************************************************************Features*************************************************************************/
