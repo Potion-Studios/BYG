@@ -9,21 +9,22 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import voronoiaoc.byg.common.world.surfacebuilders.sbconfig.PointedSBConfig;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FNVector3f;
 import voronoiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
 
 import java.util.Random;
 
-public class PointedStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
+public class PointedSB extends SurfaceBuilder<PointedSBConfig> {
 
-    public PointedStoneForestSB(Codec<SurfaceBuilderConfig> codec) {
+    public PointedSB(Codec<PointedSBConfig> codec) {
         super(codec);
     }
 
     public static FastNoise noiseGen = null;
     public static FastNoise noiseGen3D = null;
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, PointedSBConfig config) {
         setSeed(random.nextLong());
         int xPos = x & 15;
         int zPos = z & 15;
@@ -42,23 +43,23 @@ public class PointedStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             int topHeight = (int) ((valueToReverse - Math.abs(((-sampleNoise * 645D) * 1.8 - valueToReverse))) + (63) * 9.5D);
 
             //Some magic to stop spires going over the world limit. Point should always occur under world limit(<256).
-            topHeight = redistribute(topHeight, groundLevel);
+            topHeight = redistribute(topHeight, groundLevel, config.getSpikeHeight());
 
             if (topHeight > groundLevel) {
                 mutable.move(Direction.UP, topHeight);
                 for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
                     if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getHeight()) {
                         if (yPos == topHeight)
-                            chunkIn.setBlockState(mutable, config.getTop(), false);
+                            chunkIn.setBlockState(mutable, config.getSpikeTopBlockProvider().getBlockState(random, mutable), false);
                         else
-                            chunkIn.setBlockState(mutable, config.getUnder(), false);
+                            chunkIn.setBlockState(mutable, config.getSpikeProvider().getBlockState(random, mutable), false);
                     }
                     mutable.move(Direction.DOWN);
                 }
             }
         }
         else
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(config.getTop(), config.getUnder(), config.getUnderWaterMaterial()));
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(config.getTop(), config.getUnder(), config.getUnder()));
     }
 
     @Override
@@ -81,10 +82,10 @@ public class PointedStoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         }
     }
 
-    private static int redistribute(float height, float groundLevel) {
+    private static int redistribute(float height, float groundLevel, int configHeight) {
         float halfG = groundLevel * 0.5f;
         height = (height - 125 - halfG) / 80;
         float sigmoid = height / (1 + Math.abs(height)); // or Math.abs, whichever one can return a float
-        return (int) ((170 - groundLevel) * sigmoid + halfG + 125);
+        return (int) ((configHeight - groundLevel) * sigmoid + halfG + 125);
     }
 }

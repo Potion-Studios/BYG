@@ -28,6 +28,7 @@ public class BYGBiomeList {
     public static final Biome BLUEGIANTTAIGA = new BlueGiantTaiga();
     public static final Biome BLUETAIGA = new BlueTaiga();
     public static final Biome CIKA_WOODS = new CikaWoods();
+    public static final Biome COLOSSAL_ICE_SPIKES = new ColossalIceSpikes();
     public static final Biome BLUFFSTEEPS = new BluffSteeps();
     public static final Biome BOG = new Bog();
     public static final Biome BOREALFOREST = new BorealForest();
@@ -125,7 +126,7 @@ public class BYGBiomeList {
     public static final Biome JACARANDAFORESTHILLS = new JacarandaForestHills();
     public static final Biome NORTHERN_FOREST = new NorthernForest();
     public static final Biome FOREST_FAULT = new ForestFault();
-    public static final Biome POINTY_STONE_FOREST = new PointyStoneForest();
+    public static final Biome POINTY_STONE_FOREST = new PointedStoneForest();
     public static final Biome BLACK_FOREST_HILLS = new BlackForestHills();
     public static final Biome BAMBOO_FOREST = new BambooForest();
     public static final Biome MAPLE_HILLS = new MapleHills();

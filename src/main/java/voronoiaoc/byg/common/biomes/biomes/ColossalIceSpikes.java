@@ -1,42 +1,46 @@
-package voronoiaoc.byg.common.biomes.subbiomes;
+package voronoiaoc.byg.common.biomes.biomes;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.common.biomes.BiomeHelper;
 import voronoiaoc.byg.common.biomes.BiomeTools;
 import voronoiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import voronoiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import voronoiaoc.byg.common.world.surfacebuilders.sbconfig.PointedSBConfig;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 import voronoiaoc.byg.core.byglists.BYGConfiguredFeatures;
 import voronoiaoc.byg.core.byglists.BYGSBList;
 
-public class PointyStoneForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("pointy_stone_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.POINTY_STONE_FOREST_SB, new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState())));
+public class ColossalIceSpikes extends Biome implements BiomeTools {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("colossal_ice_spikes", new ConfiguredSurfaceBuilder<>(BYGSBList.POINTED_SB, new PointedSBConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.PACKED_ICE.getDefaultState(), 3).addWeightedBlockstate(Blocks.BLUE_ICE.getDefaultState(), 2), new SimpleBlockStateProvider(Blocks.SNOW_BLOCK.getDefaultState()), 100)));
     static final RainType PRECIPATATION = RainType.RAIN;
     static final Category CATEGORY = Category.TAIGA;
     static final float DEPTH = 0.8F;
     static final float SCALE = 0.15F;
-    static final float TEMPERATURE = 0.25F;
+    static final float TEMPERATURE = -0.5F;
     static final float DOWNFALL = 0.8F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
-    static final int GRASS_COLOR = 10145074;
-    static final int FOLIAGE_COLOR = 10145074;
+    static final int GRASS_COLOR = 10044989;
+    static final int FOLIAGE_COLOR = 10044989;
     static final String PARENT = null;
     static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
-    public PointyStoneForest() {
+    public ColossalIceSpikes() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
     static {
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, Features.ICE_SPIKE);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, Features.ICE_PATCH);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
 //        this.addStructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
@@ -46,9 +50,8 @@ public class PointyStoneForest extends Biome implements BiomeTools {
         DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withWarmFlowers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
-        BYGTreeFeatures.addStoneForestTrees(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
+//        BYGTreeFeatures.addNorthernForestTrees(GENERATION_SETTINGS);
         BYGFeatures.addGrass(GENERATION_SETTINGS);
         BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
         BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);

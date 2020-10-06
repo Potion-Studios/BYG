@@ -12,7 +12,7 @@ public class Canyons extends Biome implements BiomeTools {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("canyons", new ConfiguredSurfaceBuilder<>(BYGSBList.CANYONS, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final RainType PRECIPATATION = RainType.NONE;
     static final Category CATEGORY = Category.DESERT;
-    static final float DEPTH = 5.0F;
+    static final float DEPTH = 3.5F;
     static final float SCALE = 0.05F;
     static final float TEMPERATURE = 1.5F;
     static final float DOWNFALL = 0.9F;

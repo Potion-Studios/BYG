@@ -35,6 +35,7 @@ public class BYGBiomeRegistry {
         registerBiome(BYGBiomeList.BOREALFOREST, "boreal_forest");
         registerBiome(BYGBiomeList.REDROCKCANYON, "canyons");
         registerBiome(BYGBiomeList.COLDSWAMPLANDS, "cold_swamplands");
+        registerBiome(BYGBiomeList.COLOSSAL_ICE_SPIKES, "colossal_ice_spikes");
         registerBiome(BYGBiomeList.CRAGGARDENS, "crag_gardens");
         registerBiome(BYGBiomeList.CIKA_WOODS, "cika_woods");
         registerBiome(BYGBiomeList.CHERRYBLOSSOMFOREST, "cherry_blossom_forest");

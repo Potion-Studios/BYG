@@ -9,6 +9,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import voronoiaoc.byg.BYG;
 import voronoiaoc.byg.common.world.surfacebuilders.*;
 import voronoiaoc.byg.common.world.surfacebuilders.sbconfig.FillSurfaceSurfaceBuilderConfig;
+import voronoiaoc.byg.common.world.surfacebuilders.sbconfig.PointedSBConfig;
 
 public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL_SB = newSurfaceBuilder("boreal", new BorealForestSB(SurfaceBuilderConfig.field_237203_a_));
@@ -41,7 +42,7 @@ public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> WARPEDDESERT_SB = newSurfaceBuilder("warped_desert", new WarpedDesertSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> WAILING_GARTH_SB = newSurfaceBuilder("wailing_garth", new WailingGarthSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> STONE_FOREST_SB = newSurfaceBuilder("stone_forest", new StoneForestSB(SurfaceBuilderConfig.field_237203_a_));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> POINTY_STONE_FOREST_SB = newSurfaceBuilder("pointy_stone_forest", new PointedStoneForestSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<PointedSBConfig> POINTED_SB = newSurfaceBuilder("pointed_stone_forest", new PointedSB(PointedSBConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> CRIMSON_GARDENS = newSurfaceBuilder("crimson_gardens", new CrimsonGardenSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> GLOWSTONE_GARDENS_SB = newSurfaceBuilder("glowstone_gardens", new GlowstoneGardensSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> TWILIGHT_VALLEY_SB = newSurfaceBuilder("twilight_valley", new TwilightValleySB(SurfaceBuilderConfig.field_237203_a_));
