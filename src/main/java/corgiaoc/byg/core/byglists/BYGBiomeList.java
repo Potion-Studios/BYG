@@ -1,17 +1,17 @@
 package corgiaoc.byg.core.byglists;
 
 import net.minecraft.world.biome.Biome;
-import corgiaoc.byg.common.biomes.beachbiomes.*;
-import corgiaoc.byg.common.biomes.biomes.*;
-import corgiaoc.byg.common.biomes.endbiomes.IvisFields;
-import corgiaoc.byg.common.biomes.netherbiome.*;
-import corgiaoc.byg.common.biomes.subbiomes.*;
-import corgiaoc.byg.common.biomes.subbiomes.clearings.*;
-import corgiaoc.byg.common.biomes.subbiomes.hills.*;
-import corgiaoc.byg.common.biomes.subbiomes.lakes.FreshWaterLake;
-import corgiaoc.byg.common.biomes.subbiomes.lakes.FrozenLake;
-import corgiaoc.byg.common.biomes.subbiomes.lakes.Oasis;
-import corgiaoc.byg.common.biomes.subbiomes.lakes.PollutedLake;
+import corgiaoc.byg.common.world.biome.overworld.beach.*;
+import corgiaoc.byg.common.world.biome.overworld.*;
+import corgiaoc.byg.common.world.biome.end.IvisFields;
+import corgiaoc.byg.common.world.biome.nether.*;
+import corgiaoc.byg.common.world.biome.overworld.sub.*;
+import corgiaoc.byg.common.world.biome.overworld.sub.clearings.*;
+import corgiaoc.byg.common.world.biome.overworld.sub.hills.*;
+import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FreshWaterLake;
+import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FrozenLake;
+import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
+import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
 
 public class BYGBiomeList {
 

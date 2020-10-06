@@ -12,7 +12,7 @@ import net.minecraft.world.gen.layer.traits.IAreaTransformer2;
 import net.minecraft.world.gen.layer.traits.IDimOffset1Transformer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import corgiaoc.byg.common.biomes.BiomeTools;
+import corgiaoc.byg.common.world.biome.BiomeTools;
 
 public enum ModdedHillsLayer implements IAreaTransformer2, IDimOffset1Transformer {
     INSTANCE;

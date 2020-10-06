@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
-import corgiaoc.byg.common.biomes.BiomeTools;
+import corgiaoc.byg.common.world.biome.BiomeTools;
 import corgiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;

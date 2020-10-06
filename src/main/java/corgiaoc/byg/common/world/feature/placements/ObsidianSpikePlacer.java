@@ -5,7 +5,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.WorldDecoratingHelper;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
-import corgiaoc.byg.common.biomes.BiomeHelper;
+import corgiaoc.byg.common.world.biome.BiomeHelper;
 
 import java.util.Random;
 import java.util.stream.IntStream;

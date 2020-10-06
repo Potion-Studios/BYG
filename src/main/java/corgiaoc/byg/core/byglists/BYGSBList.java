@@ -7,9 +7,9 @@ import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.world.surfacebuilders.*;
-import corgiaoc.byg.common.world.surfacebuilders.sbconfig.FillSurfaceSurfaceBuilderConfig;
-import corgiaoc.byg.common.world.surfacebuilders.sbconfig.PointedSBConfig;
+import corgiaoc.byg.common.world.surfacebuilder.*;
+import corgiaoc.byg.common.world.surfacebuilder.sbconfig.FillSurfaceSurfaceBuilderConfig;
+import corgiaoc.byg.common.world.surfacebuilder.sbconfig.PointedSBConfig;
 
 public class BYGSBList {
     public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL_SB = newSurfaceBuilder("boreal", new BorealForestSB(SurfaceBuilderConfig.field_237203_a_));
