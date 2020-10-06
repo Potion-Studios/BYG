@@ -7,7 +7,7 @@ import net.minecraft.world.IWorldReader;
 
 public class BookshelfBlock extends Block {
 
-    protected BookshelfBlock(Properties builder) {
+    public BookshelfBlock(Properties builder) {
         super(builder);
 
     }

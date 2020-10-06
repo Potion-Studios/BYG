@@ -1,7 +1,8 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGTree;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -11,26 +12,18 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGTree;
-import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 
-public class BYGSaplingProperties extends BushBlock implements IGrowable {
+public class BYGSapling extends BushBlock implements IGrowable {
     public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
     public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
     private final BYGTree tree;
 
-    public BYGSaplingProperties(BYGTree tree, String registryName) {
-        super(Block.Properties.create(Material.PLANTS)
-                .sound(SoundType.PLANT)
-                .hardnessAndResistance(0.0f)
-                .doesNotBlockMovement()
-                .tickRandomly()
-        );
+    public BYGSapling(Properties properties, BYGTree tree) {
+        super(properties);
         this.tree = tree;
         this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, Integer.valueOf(0)));
-        setRegistryName(registryName);
     }
 
     @Override

@@ -37,105 +37,6 @@ import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
 import java.util.function.ToIntFunction;
 
 public class BYGBlockProperties {
-    public static class BYGFence extends FenceBlock {
-        public BYGFence(String registryName) {
-            super(Block.Properties.create(Material.WOOD)
-                    .sound(SoundType.WOOD)
-                    .hardnessAndResistance(2.0f, 3.0f)
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGSand extends SandBlock {
-        public BYGSand(int dustColor, String registryName) {
-            super(dustColor, Block.Properties.create(Material.SAND)
-                    .sound(SoundType.SAND)
-                    .hardnessAndResistance(0.2f)
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGFenceGate extends FenceGateBlock {
-        public BYGFenceGate(String registryName) {
-            super(Block.Properties.create(Material.WOOD)
-                    .sound(SoundType.WOOD)
-                    .hardnessAndResistance(2.0f, 3.0f)
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGWoodSlab extends SlabBlock {
-        public BYGWoodSlab(String registryName) {
-            super(Block.Properties.create(Material.WOOD)
-                    .sound(SoundType.WOOD)
-                    .hardnessAndResistance(2.0f, 3.0f)
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGStoneSlab extends SlabBlock {
-        public BYGStoneSlab(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
-                    .hardnessAndResistance(2.0f, 6.0f)
-                    .harvestTool(ToolType.PICKAXE)
-
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGStoneWall extends WallBlock {
-        public BYGStoneWall(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
-                    .hardnessAndResistance(2.0f, 6.0f)
-                    .harvestTool(ToolType.PICKAXE)
-
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGPressurePlate extends PressurePlateBlock {
-        public BYGPressurePlate(String registryName) {
-            super(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD)
-                    .sound(SoundType.WOOD)
-                    .doesNotBlockMovement()
-                    .hardnessAndResistance(0.5F)
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGButtons extends WoodButtonBlock {
-        public BYGButtons(String registryName) {
-            super(Block.Properties.create(Material.MISCELLANEOUS)
-                    .sound(SoundType.WOOD)
-                    .doesNotBlockMovement()
-                    .hardnessAndResistance(0.5F)
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGFlower extends FlowerBlock {
-        public BYGFlower(String registryName) {
-            super(Effects.SATURATION, 7,
-                    Block.Properties.create(Material.PLANTS)
-                            .sound(SoundType.PLANT)
-                            .hardnessAndResistance(0.0f)
-                            .doesNotBlockMovement()
-                            .notSolid()
-            );
-            setRegistryName(registryName);
-
-        }
-    }
 
     public static class BYGFairySlipperFlower extends BYGFairySlipperBlock {
         public BYGFairySlipperFlower(String registryName) {
@@ -146,19 +47,6 @@ public class BYGBlockProperties {
                             .doesNotBlockMovement()
                             .notSolid()
                             .setLightLevel((state) -> 8)
-            );
-            setRegistryName(registryName);
-
-        }
-    }
-
-    public static class BYGBoricFireBlock extends BoricFireBlock {
-        public BYGBoricFireBlock(String registryName) {
-            super(AbstractBlock.Properties.create(Material.FIRE, MaterialColor.LIGHT_BLUE)
-                    .doesNotBlockMovement()
-                    .zeroHardnessAndResistance()
-                    .setLightLevel((state) -> 10)
-                    .sound(SoundType.CLOTH)
             );
             setRegistryName(registryName);
 
@@ -490,17 +378,6 @@ public class BYGBlockProperties {
         }
     }
 
-//    public static class MyceliumNetherrack extends SpreadableBlock {
-//        public MyceliumNetherrack(String registryName) {
-//            super(Block.Properties.create(Material.ORGANIC)
-//                    .sound(SoundType.PLANT)
-//                    .hardnessAndResistance(0.4f)
-//                    .tickRandomly(),
-//            );
-//            setRegistryName(registryName);
-//        }
-//    }
-
     public static class BYGGlowcelium extends BYGGlowCeliumBlock {
         public BYGGlowcelium(String registryName) {
             super(Block.Properties.create(BYGMaterials.GLOWCELIUM)
@@ -525,20 +402,6 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
             );
             setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGLeaves extends LeavesBlock {
-        public BYGLeaves(String registryName) {
-            super(Block.Properties.create(Material.LEAVES)
-                    .hardnessAndResistance(0.2F)
-                    .tickRandomly()
-                    .sound(SoundType.PLANT)
-                    .notSolid()
-                    .harvestTool(ToolType.HOE)
-            );
-            setRegistryName(registryName);
-            this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)));
         }
     }
 
@@ -1117,21 +980,9 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGLog extends LogBlock {
-        public BYGLog(String registryName) {
-            super(
-                    Block.Properties.create(Material.WOOD)
-                            .sound(SoundType.WOOD)
-                            .hardnessAndResistance(2.0f)
-            );
-            setRegistryName(registryName);
-        }
-    }
-
     public static class BYGNetherLog extends LogBlock {
         public BYGNetherLog(String registryName) {
-            super(
-                    Block.Properties.create(Material.NETHER_WOOD)
+            super(Block.Properties.create(Material.NETHER_WOOD)
                             .sound(SoundType.HYPHAE)
                             .hardnessAndResistance(2.0f)
             );
@@ -1159,16 +1010,6 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .zeroHardnessAndResistance()
                     .setLightLevel((state) -> 14)
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGWood extends RotatedPillarBlock {
-        public BYGWood(String registryName) {
-            super(Block.Properties.create(Material.WOOD)
-                    .sound(SoundType.WOOD)
-                    .hardnessAndResistance(2.0f)
             );
             setRegistryName(registryName);
         }
@@ -1442,55 +1283,11 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGDoors extends DoorBlock {
-        public BYGDoors(String registryName) {
-            super(Block.Properties.create(Material.WOOD, MaterialColor.BROWN)
-                    .sound(SoundType.WOOD)
-                    .hardnessAndResistance(2.0f, 3.0f)
-                    .notSolid()
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGTrapdoors extends TrapDoorBlock {
-        public BYGTrapdoors(String registryName) {
-            super(Block.Properties.create(Material.WOOD, MaterialColor.BROWN)
-                    .sound(SoundType.WOOD)
-                    .hardnessAndResistance(2.0f, 3.0f)
-                    .notSolid()
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-    public static class BYGWoodStairs extends StairsBlock {
-        public BYGWoodStairs(String registryName) {
-            super(Blocks.OAK_PLANKS.getDefaultState(), Block.Properties.from(Blocks.OAK_PLANKS)
-                    .sound(SoundType.WOOD)
-                    .hardnessAndResistance(2.0f, 3.0f)
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-
     public static class BYGStoneStairs extends StairsBlock {
         public BYGStoneStairs(String registryName) {
             super(Blocks.COBBLESTONE.getDefaultState(), Block.Properties.from(Blocks.COBBLESTONE)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(2.0f, 6.0f)
-            );
-            setRegistryName(registryName);
-        }
-    }
-
-
-    public static class BlockBookshelf extends BookshelfBlock {
-        public BlockBookshelf(String registryName) {
-            super(Block.Properties.create(Material.WOOD, MaterialColor.BROWN)
-                    .sound(SoundType.WOOD)
-                    .hardnessAndResistance(2.0f, 3.0f)
             );
             setRegistryName(registryName);
         }
@@ -1567,8 +1364,7 @@ public class BYGBlockProperties {
 
     public static class BYGStrippedLog extends LogBlock {
         public BYGStrippedLog(String registryName) {
-            super(
-                    Block.Properties.create(Material.WOOD, MaterialColor.WOOD)
+            super(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)
                             .sound(SoundType.WOOD)
                             .hardnessAndResistance(2.0f)
             );
@@ -1592,9 +1388,7 @@ public class BYGBlockProperties {
     }
 
     private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
-        return (state) -> {
-            return state.get(BlockStateProperties.LIT) ? lightValue : 0;
-        };
+        return (state) -> state.get(BlockStateProperties.LIT) ? lightValue : 0;
     }
 }
 
