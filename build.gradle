@@ -18,7 +18,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = "${mod_version}"
-group = "voronoiaoc.${modid}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "corgiaoc.${modid}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "${modid}"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
@@ -94,7 +94,7 @@ jar {
                 "Implementation-Vendor" :"${modid}",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
                 "MixinConfigs": "${modid}.mixins.json",
-                "MixinConnector":"voronoiaoc.byg.mixin.MixinConnector"
+                "MixinConnector":"corgiaoc.byg.mixin.MixinConnector"
         ])
     }
 }

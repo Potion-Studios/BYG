@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "voronoiaoc.byg.mixin",
+  "package": "corgiaoc.byg.mixin",
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
