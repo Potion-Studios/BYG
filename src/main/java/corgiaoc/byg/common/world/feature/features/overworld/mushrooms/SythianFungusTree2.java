@@ -6,7 +6,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import corgiaoc.byg.common.world.feature.features.config.BYGMushroomFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGAbstractMushroomFeature;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 

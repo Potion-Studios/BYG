@@ -1,7 +1,7 @@
 package corgiaoc.byg.client.textures;
 
-import corgiaoc.byg.core.byglists.BYGBlocks;
-import corgiaoc.byg.core.byglists.BYGItems;
+import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.core.BYGItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;

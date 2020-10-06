@@ -10,7 +10,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 

@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.dimension.nether;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryLookupCodec;
 import net.minecraft.world.biome.Biome;

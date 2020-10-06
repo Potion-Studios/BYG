@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -11,7 +11,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import corgiaoc.byg.common.world.biome.BYGBiome;import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
+import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 
 import java.util.Collections;
 import java.util.HashMap;

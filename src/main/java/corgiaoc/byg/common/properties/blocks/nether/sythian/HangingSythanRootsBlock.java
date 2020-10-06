@@ -10,7 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 

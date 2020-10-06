@@ -1,6 +1,7 @@
-package corgiaoc.byg.core.byglists;
+package corgiaoc.byg.core.world;
 
 import com.google.common.collect.ImmutableList;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;

@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.clearings;
 
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;

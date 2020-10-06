@@ -1,6 +1,6 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
-import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;

@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.overworld.mushrooms.util;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

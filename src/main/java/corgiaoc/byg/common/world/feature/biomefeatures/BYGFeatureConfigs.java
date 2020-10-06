@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.feature.biomefeatures;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.Heightmap;

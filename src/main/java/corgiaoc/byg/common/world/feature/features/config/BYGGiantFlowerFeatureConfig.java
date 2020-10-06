@@ -9,7 +9,7 @@ import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.IFeatureConfig;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 
 public class BYGGiantFlowerFeatureConfig implements IFeatureConfig {
 

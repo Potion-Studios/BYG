@@ -5,7 +5,7 @@ import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;

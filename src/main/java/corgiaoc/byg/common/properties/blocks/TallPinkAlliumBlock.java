@@ -6,7 +6,7 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.block.TallGrassBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 

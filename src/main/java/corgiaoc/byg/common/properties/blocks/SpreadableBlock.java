@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.gen.feature.NetherVegetationFeature;
 import net.minecraft.world.lighting.LightEngine;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.List;
 import java.util.Random;

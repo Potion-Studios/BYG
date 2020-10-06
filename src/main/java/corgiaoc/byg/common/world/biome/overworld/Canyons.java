@@ -3,7 +3,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
+import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;

@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether;
 
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IGrowable;
 import net.minecraft.util.math.BlockPos;

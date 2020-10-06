@@ -3,7 +3,7 @@ package corgiaoc.byg.common.world.biome.nether;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
+import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;

@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.world.dimension.end;
 
-import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;

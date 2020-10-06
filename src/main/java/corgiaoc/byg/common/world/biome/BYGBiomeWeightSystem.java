@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.biome;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
-import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;

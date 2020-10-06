@@ -8,8 +8,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import corgiaoc.byg.core.byglists.BYGConfiguredFeatures;
-import corgiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
+import corgiaoc.byg.core.world.BYGConfiguredFeatures;
+import corgiaoc.byg.core.world.BYGConfiguredTreeFeatures;
 
 import java.util.List;
 import java.util.function.Supplier;

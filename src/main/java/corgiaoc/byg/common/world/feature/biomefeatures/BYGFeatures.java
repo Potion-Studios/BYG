@@ -3,8 +3,8 @@ package corgiaoc.byg.common.world.feature.biomefeatures;
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
-import corgiaoc.byg.core.byglists.BYGConfiguredFeatures;
-import corgiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
+import corgiaoc.byg.core.world.BYGConfiguredFeatures;
+import corgiaoc.byg.core.world.BYGConfiguredTreeFeatures;
 
 public class BYGFeatures {
     public static void addAlliumFieldFlowers(BiomeGenerationSettings.Builder gen) {

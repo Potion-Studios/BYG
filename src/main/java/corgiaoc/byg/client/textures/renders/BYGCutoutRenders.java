@@ -1,6 +1,6 @@
 package corgiaoc.byg.client.textures.renders;
 
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import corgiaoc.byg.BYG;

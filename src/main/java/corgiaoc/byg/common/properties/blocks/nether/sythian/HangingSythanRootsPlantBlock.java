@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.sythian;
 
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.AbstractBodyPlantBlock;
 import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.Block;

@@ -8,7 +8,7 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 import java.util.Set;

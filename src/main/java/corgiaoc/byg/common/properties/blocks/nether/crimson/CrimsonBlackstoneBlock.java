@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.NetherVegetationFeature;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 

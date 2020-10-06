@@ -1,8 +1,8 @@
 package corgiaoc.byg.common.world.feature.features.overworld.trees.aspen;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.core.byglists.BYGBiomes;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;

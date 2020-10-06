@@ -1,4 +1,4 @@
-package corgiaoc.byg.core.byglists;
+package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.BYGBlockProperties;

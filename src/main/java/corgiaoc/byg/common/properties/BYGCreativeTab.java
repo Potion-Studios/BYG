@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.properties;
 
-import corgiaoc.byg.core.byglists.BYGItems;
+import corgiaoc.byg.core.BYGItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import corgiaoc.byg.BYG;

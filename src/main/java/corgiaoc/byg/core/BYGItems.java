@@ -1,4 +1,4 @@
-package corgiaoc.byg.core.byglists;
+package corgiaoc.byg.core;
 
 import corgiaoc.byg.common.entity.boat.BYGBoatEntity;
 import corgiaoc.byg.common.properties.BYGCreativeTab;

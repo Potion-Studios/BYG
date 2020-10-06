@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.properties.vanilla;
 
-import corgiaoc.byg.core.byglists.BYGItems;
+import corgiaoc.byg.core.BYGItems;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.util.IItemProvider;
 import corgiaoc.byg.BYG;

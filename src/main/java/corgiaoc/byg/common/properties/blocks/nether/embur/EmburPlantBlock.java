@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.embur;
 
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;

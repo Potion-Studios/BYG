@@ -1,7 +1,9 @@
-package corgiaoc.byg.core.registries;
+package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.core.byglists.*;
+import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.world.BYGDecorators;
+import corgiaoc.byg.core.world.BYGFeatures;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;

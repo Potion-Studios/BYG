@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.sythian;
 
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

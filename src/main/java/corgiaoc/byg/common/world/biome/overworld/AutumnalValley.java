@@ -1,8 +1,8 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
-import corgiaoc.byg.core.byglists.BYGBiomes;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.registry.WorldGenRegistries;

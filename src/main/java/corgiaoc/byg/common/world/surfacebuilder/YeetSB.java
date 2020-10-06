@@ -8,7 +8,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
+import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 
 import java.util.Random;
 

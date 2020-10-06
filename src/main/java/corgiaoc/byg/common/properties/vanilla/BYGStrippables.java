@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.properties.vanilla;
 
 import com.google.common.collect.Maps;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.AxeItem;

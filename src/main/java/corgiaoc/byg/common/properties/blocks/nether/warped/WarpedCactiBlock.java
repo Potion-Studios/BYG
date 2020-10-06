@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.warped;
 
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CactusBlock;
 import net.minecraft.block.material.Material;

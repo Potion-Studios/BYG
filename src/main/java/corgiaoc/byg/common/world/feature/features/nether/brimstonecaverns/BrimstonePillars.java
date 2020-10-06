@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.nether.brimstonecaverns;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;

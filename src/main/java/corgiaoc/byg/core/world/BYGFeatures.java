@@ -1,4 +1,4 @@
-package corgiaoc.byg.core.byglists;
+package corgiaoc.byg.core.world;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;

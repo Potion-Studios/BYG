@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.nether.emburbog;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;

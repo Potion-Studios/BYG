@@ -4,7 +4,7 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGHugeTree;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGTree;
-import corgiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
+import corgiaoc.byg.core.world.BYGConfiguredTreeFeatures;
 
 import javax.annotation.Nullable;
 import java.util.Random;

@@ -3,7 +3,7 @@ package corgiaoc.byg.common.properties.items.itemtiers;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
-import corgiaoc.byg.core.byglists.BYGItems;
+import corgiaoc.byg.core.BYGItems;
 
 import java.util.function.Supplier;
 

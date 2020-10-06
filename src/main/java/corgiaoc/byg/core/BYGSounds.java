@@ -1,4 +1,4 @@
-package corgiaoc.byg.core.byglists;
+package corgiaoc.byg.core;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;

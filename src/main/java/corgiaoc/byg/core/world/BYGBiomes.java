@@ -1,4 +1,4 @@
-package corgiaoc.byg.core.byglists;
+package corgiaoc.byg.core.world;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.end.IvisFields;

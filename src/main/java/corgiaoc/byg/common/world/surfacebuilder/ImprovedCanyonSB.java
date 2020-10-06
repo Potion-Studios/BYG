@@ -11,7 +11,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import corgiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
 import corgiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
-import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
+import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 
 import java.util.Random;
 

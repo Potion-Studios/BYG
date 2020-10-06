@@ -1,4 +1,4 @@
-package corgiaoc.byg.core.byglists;
+package corgiaoc.byg.core.world;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -11,7 +11,7 @@ import corgiaoc.byg.common.world.feature.features.config.PointyRockFeatureConfig
 import corgiaoc.byg.common.world.feature.decorator.AtOceanFloorWithExtra;
 import corgiaoc.byg.common.world.feature.decorator.ObsidianSpikePlacer;
 import corgiaoc.byg.common.world.feature.decorator.UnderGroundPlacement;
-import corgiaoc.byg.core.registries.BYGDecorators;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;

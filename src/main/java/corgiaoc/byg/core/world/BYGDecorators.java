@@ -1,13 +1,10 @@
-package corgiaoc.byg.core.registries;
+package corgiaoc.byg.core.world;
 
-import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.common.world.feature.decorator.AnyWaterOrSolidSurfaceSurface;
 import net.minecraft.world.gen.feature.FeatureSpreadConfig;
 import net.minecraft.world.gen.placement.Placement;
-import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = BYG.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BYGDecorators {
 
     public static void init() {}

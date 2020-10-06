@@ -20,7 +20,7 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 
 public class BYGLilyItem extends BlockItem {
     public BYGLilyItem(Block blockIn, Item.Properties builder) {

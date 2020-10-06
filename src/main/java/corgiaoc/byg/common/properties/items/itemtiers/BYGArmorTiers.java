@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.properties.items.itemtiers;
 
-import corgiaoc.byg.core.byglists.BYGItems;
+import corgiaoc.byg.core.BYGItems;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;

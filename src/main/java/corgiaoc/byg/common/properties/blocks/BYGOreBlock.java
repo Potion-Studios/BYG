@@ -7,7 +7,7 @@ import net.minecraft.block.OreBlock;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.common.extensions.IForgeBlock;
-import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 
