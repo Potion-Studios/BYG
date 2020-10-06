@@ -1,14 +1,14 @@
 package corgiaoc.byg.common.world.feature.features.overworld.trees.aspen;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -71,7 +71,7 @@ public class AspenShrub2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
     private void treelog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.ASPEN_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.ASPEN_LOG.getDefaultState(), boundingBox);
         }
 
     }
@@ -79,7 +79,7 @@ public class AspenShrub2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos blockpos = new BlockPos(x, y, z);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.ASPEN_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.ASPEN_LEAVES.getDefaultState(), boundingBox);
         }
     }
 }

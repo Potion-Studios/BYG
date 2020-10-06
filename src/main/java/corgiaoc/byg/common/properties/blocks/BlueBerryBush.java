@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.core.byglists.BYGItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IGrowable;
@@ -17,7 +18,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import corgiaoc.byg.core.byglists.BYGItemList;
 
 public class BlueBerryBush extends SweetBerryBushBlock implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_0_3;
@@ -29,7 +29,7 @@ public class BlueBerryBush extends SweetBerryBushBlock implements IGrowable {
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItemList.BLUE_BERRY);
+        return new ItemStack(BYGItems.BLUE_BERRY);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class BlueBerryBush extends SweetBerryBushBlock implements IGrowable {
             return ActionResultType.PASS;
         } else if (i > 1) {
             int j = 1 + worldIn.rand.nextInt(2);
-            spawnAsEntity(worldIn, pos, new ItemStack(BYGItemList.BLUE_BERRY, j + (flag ? 1 : 0)));
+            spawnAsEntity(worldIn, pos, new ItemStack(BYGItems.BLUE_BERRY, j + (flag ? 1 : 0)));
             worldIn.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
             return ActionResultType.SUCCESS;

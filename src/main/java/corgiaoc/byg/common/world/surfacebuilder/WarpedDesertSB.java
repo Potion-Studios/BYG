@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.surfacebuilder;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -9,8 +10,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
-import corgiaoc.byg.core.byglists.BYGSBList;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 
 import java.util.Random;
 
@@ -33,16 +33,16 @@ public class WarpedDesertSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 BlockState airCheck = chunkIn.getBlockState(block.down());
 
                 if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck == Blocks.AIR.getDefaultState())
-                    chunkIn.setBlockState(block, BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState(), false);
+                    chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), false);
                 for (Direction direction : Direction.Plane.HORIZONTAL) {
                     BlockState airCheck2 = chunkIn.getBlockState(block.offset(direction));
 
 
                     if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck2 == Blocks.AIR.getDefaultState())
-                        chunkIn.setBlockState(block, BYGBlockList.NYLIUM_SOUL_SAND.getDefaultState(), false);
+                        chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.WARPEDDESERT);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.WARPEDDESERT);
         } else {
             for (int yPos = 256; yPos >= seaLevel; --yPos) {
                 block.setPos(xPos, yPos, zPos);
@@ -50,16 +50,16 @@ public class WarpedDesertSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 BlockState airCheck = chunkIn.getBlockState(block.down());
 
                 if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck == Blocks.AIR.getDefaultState())
-                    chunkIn.setBlockState(block, BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), false);
+                    chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), false);
                 for (Direction direction : Direction.Plane.HORIZONTAL) {
                     BlockState airCheck2 = chunkIn.getBlockState(block.offset(direction));
 
 
                     if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck2 == Blocks.AIR.getDefaultState())
-                        chunkIn.setBlockState(block, BYGBlockList.NYLIUM_SOUL_SOIL.getDefaultState(), false);
+                        chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.WARPEDDESERT_SOIL);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.WARPEDDESERT_SOIL);
         }
 
     }

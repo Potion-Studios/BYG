@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGGiantFlowerFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGGiantFlowerFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
 
 import java.util.Random;

@@ -1,15 +1,15 @@
 package corgiaoc.byg.common.world.feature.features.overworld.trees.deadhazel;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -360,7 +360,7 @@ public class DeadHazel2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
     private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.WITCH_HAZEL_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.WITCH_HAZEL_LOG.getDefaultState(), boundingBox);
         }
     }
 
@@ -368,10 +368,10 @@ public class DeadHazel2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         Random random = new Random();
         int randomizer = random.nextInt(25);
         if (randomizer == 1)
-            return BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES.getDefaultState();
+            return BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.getDefaultState();
         else if (randomizer == 0)
-            return BYGBlockList.BLOOMING_WITCH_HAZEL_LEAVES.getDefaultState();
+            return BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.getDefaultState();
         else
-            return BYGBlockList.WITCH_HAZEL_LEAVES.getDefaultState();
+            return BYGBlocks.WITCH_HAZEL_LEAVES.getDefaultState();
     }
 }

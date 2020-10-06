@@ -1,6 +1,12 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -9,20 +15,14 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGBiomeList;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Collections;
 import java.util.HashMap;
 
-public class BluffSteeps extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("bluff_steeps", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState())));
-    static final RainType PRECIPATATION = RainType.SNOW;
-    static final Category CATEGORY = Category.EXTREME_HILLS;
+public class BluffSteeps extends BYGBiome {
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("bluff_steeps", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlocks.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState())));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
+    static final Biome.Category CATEGORY = Biome.Category.EXTREME_HILLS;
     static final float DEPTH = 2.5F;
     static final float SCALE = 0.2F;
     static final float TEMPERATURE = 0.25F;
@@ -30,27 +30,25 @@ public class BluffSteeps extends Biome implements BiomeTools {
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
     public BluffSteeps() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
     @Override
     public Biome getRiver() {
-        return this;
+        return this.getBiome();
     }
 
-    @Override
     public HashMap<Biome, Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.BLUFFPEAKS, 1));
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.BLUFFPEAKS, 1));
     }
 
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return BYGBiomeList.BLUFFPEAKS;
+    public Biome getHills(INoiseRandom rand) {
+        return BYGBiomes.BLUFFPEAKS;
     }
 
     static {

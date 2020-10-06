@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -20,7 +20,7 @@ public class MixinAnimalEntity {
     @Inject(at = @At("HEAD"), method = "canAnimalSpawn(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/IWorld;Lnet/minecraft/entity/SpawnReason;Lnet/minecraft/util/math/BlockPos;Ljava/util/Random;)Z", cancellable = true)
     private static void addModdedGrass(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random, CallbackInfoReturnable<Boolean> cir) {
         BlockState state = worldIn.getBlockState(pos.down());
-        if (state.getBlock() == BYGBlockList.OVERGROWN_STONE || state.getBlock() == BYGBlockList.OVERGROWN_DACITE || state.getBlock() == BYGBlockList.MEADOW_GRASSBLOCK) {
+        if (state.getBlock() == BYGBlocks.OVERGROWN_STONE || state.getBlock() == BYGBlocks.OVERGROWN_DACITE || state.getBlock() == BYGBlocks.MEADOW_GRASSBLOCK) {
             cir.setReturnValue(worldIn.getLightSubtracted(pos, 0) > 8);
         }
     }

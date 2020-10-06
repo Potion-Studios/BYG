@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.surfacebuilder;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,7 +13,6 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -20,7 +20,7 @@ import java.util.Random;
 public class RRSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.getDefaultState();
     private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.getDefaultState();
-    private static final BlockState TERRACOTTA = BYGBlockList.RED_ROCK.getDefaultState();
+    private static final BlockState TERRACOTTA = BYGBlocks.RED_ROCK.getDefaultState();
     private static final BlockState YELLOW_TERRACOTTA = Blocks.YELLOW_TERRACOTTA.getDefaultState();
     private static final BlockState BROWN_TERRACOTTA = Blocks.BROWN_TERRACOTTA.getDefaultState();
     private static final BlockState RED_TERRACOTTA = Blocks.RED_TERRACOTTA.getDefaultState();

@@ -11,7 +11,7 @@
 //import net.minecraft.world.gen.feature.Feature;
 //import net.minecraft.world.gen.feature.NoFeatureConfig;
 //import net.minecraftforge.common.Tags;
-//import voronoiaoc.byg.core.byglists.BYGBlockList;
+//import voronoiaoc.byg.core.byglists.BYGBlocks;
 //
 //import java.util.Random;
 //import java.util.function.Function;
@@ -44,28 +44,28 @@
 //                    BlockPos.Mutable mutable4 = new BlockPos.Mutable(mutable3.add(0, -4, 0));
 //
 //                    if (canReplaceBlock(worldIn, mutable1))
-//                        worldIn.setBlockState(mutable1, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+//                        worldIn.setBlockState(mutable1, BYGBlocks.SOAPSTONE.getDefaultState(), 2);
 //                    if (canReplaceBlock(worldIn, mutable2))
-//                        worldIn.setBlockState(mutable2, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+//                        worldIn.setBlockState(mutable2, BYGBlocks.SOAPSTONE.getDefaultState(), 2);
 //
 //                    if (canReplaceBlock(worldIn, mutable3))
-//                        worldIn.setBlockState(mutable3, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+//                        worldIn.setBlockState(mutable3, BYGBlocks.SOAPSTONE.getDefaultState(), 2);
 //                    if (canReplaceBlock(worldIn, mutable4))
-//                        worldIn.setBlockState(mutable4, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+//                        worldIn.setBlockState(mutable4, BYGBlocks.SOAPSTONE.getDefaultState(), 2);
 //
 //
 //
 //                    BlockPos.Mutable mutable5 = new BlockPos.Mutable(mainMutable1.getX() + 2, (mainMutable1.getY() - 2) + move, mainMutable1.getZ());
 //                    BlockPos.Mutable mutable6 = new BlockPos.Mutable(mainMutable2.getX(), (mainMutable2.getY() - 5) + move, mainMutable2.getZ() + 2);
 //                    if (canReplaceBlock(worldIn, mutable5))
-//                        worldIn.setBlockState(mutable5, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+//                        worldIn.setBlockState(mutable5, BYGBlocks.SOAPSTONE.getDefaultState(), 2);
 //                    if (worldIn.getBlockState(mutable5.west(4)).isAir())
-//                        worldIn.setBlockState(mutable5.west(4), BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+//                        worldIn.setBlockState(mutable5.west(4), BYGBlocks.SOAPSTONE.getDefaultState(), 2);
 //
 //                    if (canReplaceBlock(worldIn, mutable6))
-//                        worldIn.setBlockState(mutable6, BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+//                        worldIn.setBlockState(mutable6, BYGBlocks.SOAPSTONE.getDefaultState(), 2);
 //                    if (worldIn.getBlockState(mutable6.north(4)).isAir())
-//                        worldIn.setBlockState(mutable6.north(4), BYGBlockList.SOAPSTONE.getDefaultState(), 2);
+//                        worldIn.setBlockState(mutable6.north(4), BYGBlocks.SOAPSTONE.getDefaultState(), 2);
 //
 //                }
 //                moveDown++;

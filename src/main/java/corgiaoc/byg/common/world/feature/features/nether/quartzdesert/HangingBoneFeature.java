@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.nether.quartzdesert;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -11,7 +12,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -27,7 +27,7 @@ public class HangingBoneFeature extends Feature<NoFeatureConfig> {
             return false;
         } else {
             BlockState blockstate = p_241855_1_.getBlockState(p_241855_4_.up());
-            if (!blockstate.isIn(BYGBlockList.QUARTZITE_SAND) && !blockstate.isIn(Blocks.BONE_BLOCK)) {
+            if (!blockstate.isIn(BYGBlocks.QUARTZITE_SAND) && !blockstate.isIn(Blocks.BONE_BLOCK)) {
                 return false;
             } else {
                 this.func_236428_a_(p_241855_1_, p_241855_3_, p_241855_4_);
@@ -49,7 +49,7 @@ public class HangingBoneFeature extends Feature<NoFeatureConfig> {
 
                 for (Direction direction : field_236426_a_) {
                     BlockState blockstate = p_236428_1_.getBlockState(blockpos$mutable1.setAndMove(blockpos$mutable, direction));
-                    if (blockstate.isIn(BYGBlockList.QUARTZITE_SAND) || blockstate.isIn(Blocks.BONE_BLOCK)) {
+                    if (blockstate.isIn(BYGBlocks.QUARTZITE_SAND) || blockstate.isIn(Blocks.BONE_BLOCK)) {
                         ++j;
                     }
 
@@ -73,7 +73,7 @@ public class HangingBoneFeature extends Feature<NoFeatureConfig> {
             blockpos$mutable.setAndOffset(p_236429_3_, p_236429_2_.nextInt(8) - p_236429_2_.nextInt(8), p_236429_2_.nextInt(2) - p_236429_2_.nextInt(7), p_236429_2_.nextInt(8) - p_236429_2_.nextInt(8));
             if (p_236429_1_.isAirBlock(blockpos$mutable)) {
                 BlockState blockstate = p_236429_1_.getBlockState(blockpos$mutable.up());
-                if (blockstate.isIn(BYGBlockList.QUARTZITE_SAND) || blockstate.isIn(Blocks.BONE_BLOCK)) {
+                if (blockstate.isIn(BYGBlocks.QUARTZITE_SAND) || blockstate.isIn(Blocks.BONE_BLOCK)) {
                     int j = MathHelper.nextInt(p_236429_2_, 1, 8);
                     if (p_236429_2_.nextInt(6) == 0) {
                         j *= 2;
@@ -96,11 +96,11 @@ public class HangingBoneFeature extends Feature<NoFeatureConfig> {
         for (int i = 0; i <= p_236427_3_; ++i) {
             if (p_236427_0_.isAirBlock(p_236427_2_)) {
                 if (i == p_236427_3_ || !p_236427_0_.isAirBlock(p_236427_2_.down())) {
-                    p_236427_0_.setBlockState(p_236427_2_, BYGBlockList.HANGING_BONE.getDefaultState(), 2);
+                    p_236427_0_.setBlockState(p_236427_2_, BYGBlocks.HANGING_BONE.getDefaultState(), 2);
                     break;
                 }
 
-                p_236427_0_.setBlockState(p_236427_2_, BYGBlockList.HANGING_BONE.getDefaultState(), 2);
+                p_236427_0_.setBlockState(p_236427_2_, BYGBlocks.HANGING_BONE.getDefaultState(), 2);
             }
 
             p_236427_2_.move(Direction.DOWN);

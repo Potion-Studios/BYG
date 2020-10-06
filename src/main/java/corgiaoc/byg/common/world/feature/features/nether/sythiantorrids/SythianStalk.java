@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.nether.sythiantorrids;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.properties.BambooLeaves;
@@ -11,7 +12,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -30,7 +30,7 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
         BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(pos);
         if (world.isAirBlock(mutable)) {
-            if (BYGBlockList.SYTHIAN_STALK_BLOCK.getDefaultState().isValidPosition(world, mutable)) {
+            if (BYGBlocks.SYTHIAN_STALK_BLOCK.getDefaultState().isValidPosition(world, mutable)) {
                 int randSpawnHeight = rand.nextInt(12) + 5;
                 int randNextInt;
                 if (rand.nextFloat() < config.probability) {
@@ -43,7 +43,7 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
                             if (lvt_13_1_ * lvt_13_1_ + lvt_14_1_ * lvt_14_1_ <= randNextInt * randNextInt) {
                                 mutable2.setPos(x, world.getHeight(Heightmap.Type.WORLD_SURFACE, x, z) - 1, z);
                                 if (isDirt(world.getBlockState(mutable2).getBlock())) {
-                                    world.setBlockState(mutable2, BYGBlockList.SYTHIAN_NYLIUM.getDefaultState(), 2);
+                                    world.setBlockState(mutable2, BYGBlocks.SYTHIAN_NYLIUM.getDefaultState(), 2);
                                 }
                             }
                         }
@@ -69,7 +69,7 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
     }
 
     static {
-        BAMBOO_BASE = BYGBlockList.SYTHIAN_STALK_BLOCK.getDefaultState().with(BambooBlock.PROPERTY_AGE, 1).with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.NONE).with(BambooBlock.PROPERTY_STAGE, 0);
+        BAMBOO_BASE = BYGBlocks.SYTHIAN_STALK_BLOCK.getDefaultState().with(BambooBlock.PROPERTY_AGE, 1).with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.NONE).with(BambooBlock.PROPERTY_STAGE, 0);
         BAMBOO_LARGE_LEAVES_GROWN = BAMBOO_BASE.with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.LARGE).with(BambooBlock.PROPERTY_STAGE, 1);
         BAMBOO_LARGE_LEAVES = BAMBOO_BASE.with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.LARGE);
         BAMBOO_SMALL_LEAVES = BAMBOO_BASE.with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.SMALL);

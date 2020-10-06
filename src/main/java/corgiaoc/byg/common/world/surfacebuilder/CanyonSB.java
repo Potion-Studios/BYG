@@ -10,7 +10,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.common.Tags;
 import corgiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
-import corgiaoc.byg.core.byglists.BYGSBList;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 
 import java.util.Random;
 
@@ -114,11 +114,11 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             }
         }
         if (noiseSample > 8.8F && noiseSample <= 9.0F)
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.GRASSMOUNTAIN_CF);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.GRASSMOUNTAIN_CF);
 
         if (noiseSample < 8.8F) {
             if (noise < 1)
-                SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.GRASSMOUNTAIN_CF);
+                SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.GRASSMOUNTAIN_CF);
             else
                 SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, randomSurfaceConfig(random));
         }
@@ -178,12 +178,12 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     public static SurfaceBuilderConfig randomSurfaceConfig(Random random) {
         int randomizer = random.nextInt(7);
         if (randomizer == 1) {
-            return BYGSBList.BYGSBConfigList.GRASSMOUNTAIN_CF;
+            return BYGSurfaceBuilders.BYGSBConfigList.GRASSMOUNTAIN_CF;
         } else if(randomizer == 2 || randomizer == 3)
-            return BYGSBList.BYGSBConfigList.GRASSMOUNTAIN_CF;
+            return BYGSurfaceBuilders.BYGSBConfigList.GRASSMOUNTAIN_CF;
 
         else
-            return BYGSBList.BYGSBConfigList.GRASSMOUNTAIN_CF;
+            return BYGSurfaceBuilders.BYGSBConfigList.GRASSMOUNTAIN_CF;
     }
 
     public void setStrataLayerBlock(int yPos) {

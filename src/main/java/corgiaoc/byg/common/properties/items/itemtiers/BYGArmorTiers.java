@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.items.itemtiers;
 
+import corgiaoc.byg.core.byglists.BYGItems;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
@@ -8,16 +9,15 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import corgiaoc.byg.core.byglists.BYGItemList;
 
 import java.util.function.Supplier;
 
 public enum BYGArmorTiers implements IArmorMaterial {
     AMETRINE("ametrine", 39, new int[]{4, 7, 9, 4}, 15, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.2F, () -> {
-        return Ingredient.fromItems(BYGItemList.AMETRINE_GEMS);
+        return Ingredient.fromItems(BYGItems.AMETRINE_GEMS);
     }),
     PENDORITE("pendorite", 15, new int[]{1, 4, 5, 2}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F, () -> {
-        return Ingredient.fromItems(BYGItemList.PENDORITE_SCRAPS);
+        return Ingredient.fromItems(BYGItems.PENDORITE_SCRAPS);
     });
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};

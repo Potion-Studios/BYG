@@ -6,9 +6,9 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 import java.util.Set;
@@ -30,14 +30,14 @@ public class LargeRainbowEucalyptus extends BYGAbstractTreeFeature<BYGTreeFeatur
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, BYGBlockList.MOSSY_STONE)) {
+            if (!isDesiredGroundwDirtTag(worldIn, blockpos, BYGBlocks.MOSSY_STONE)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, BYGBlockList.RAINBOW_EUCALYPTUS_LOG, Blocks.DIRT, boundsIn, mainmutable, mainmutable2, mainmutable3, mainmutable4);
+                buildTrunkBase(changedBlocks, worldIn, BYGBlocks.RAINBOW_EUCALYPTUS_LOG, Blocks.DIRT, boundsIn, mainmutable, mainmutable2, mainmutable3, mainmutable4);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     if (buildTrunk < randTreeHeight - 2) {
                         placeTrunk(config, rand, changedBlocks, worldIn, mainmutable, boundsIn);
@@ -1081,7 +1081,7 @@ public class LargeRainbowEucalyptus extends BYGAbstractTreeFeature<BYGTreeFeatur
 
     private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.RAINBOW_EUCALYPTUS_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.RAINBOW_EUCALYPTUS_LOG.getDefaultState(), boundingBox);
         }
     }
 }

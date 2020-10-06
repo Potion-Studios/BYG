@@ -1,5 +1,10 @@
 package corgiaoc.byg.common.world.biome.nether;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.core.byglists.BYGConfiguredFeatures;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -11,16 +16,11 @@ import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.core.byglists.BYGConfiguredFeatures;
-import corgiaoc.byg.core.byglists.BYGSBList;
 
-public class GlowstoneGardens extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("glowstone_gardens", new ConfiguredSurfaceBuilder<>(BYGSBList.GLOWSTONE_GARDENS_SB, BYGSBList.BYGSBConfigList.GLOWSTONEGARDENS));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.NETHER;
+public class GlowstoneGardens extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("glowstone_gardens", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GLOWSTONE_GARDENS_SB, BYGSurfaceBuilders.BYGSBConfigList.GLOWSTONEGARDENS));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.NETHER;
     static final float DEPTH = 0.125F;
     static final float SCALE = 0.05F;
     static final float TEMPERATURE = 0.8F;
@@ -30,7 +30,7 @@ public class GlowstoneGardens extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 1356933;
     static final int FOLIAGE_COLOR = 1356933;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
@@ -39,7 +39,7 @@ public class GlowstoneGardens extends Biome implements BiomeTools {
                 .withGrassColor(GRASS_COLOR)
                 .withFoliageColor(FOLIAGE_COLOR)
                 .setFogColor(2064220)
-                .withSkyColor(BiomeHelper.calcSkyColor(2.0F))
+                .withSkyColor(BiomeUtil.calcSkyColor(2.0F))
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.MYCELIUM, 0.01428F))
                 .setAmbientSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))

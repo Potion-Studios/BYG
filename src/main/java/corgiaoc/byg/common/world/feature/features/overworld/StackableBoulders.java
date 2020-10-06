@@ -11,7 +11,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.Tags;
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGBoulderFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGBoulderFeatureConfig;
 import corgiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
 
 import java.util.Random;

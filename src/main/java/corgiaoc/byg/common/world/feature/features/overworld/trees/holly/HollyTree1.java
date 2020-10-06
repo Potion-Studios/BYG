@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.overworld.trees.holly;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -8,9 +9,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -287,14 +287,14 @@ public class HollyTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
     private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.HOLLY_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.HOLLY_LOG.getDefaultState(), boundingBox);
         }
     }
 
 
     private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.HOLLY_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.HOLLY_LOG.getDefaultState(), boundingBox);
         }
     }
 
@@ -310,11 +310,11 @@ public class HollyTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         Random random = new Random();
         int randomizer = random.nextInt(25);
         if (randomizer == 1)
-            return BYGBlockList.HOLLY_BERRY_LEAVES.getDefaultState();
+            return BYGBlocks.HOLLY_BERRY_LEAVES.getDefaultState();
         else if (randomizer == 0)
-            return BYGBlockList.HOLLY_LEAVES.getDefaultState();
+            return BYGBlocks.HOLLY_LEAVES.getDefaultState();
         else
-            return BYGBlockList.HOLLY_LEAVES.getDefaultState();
+            return BYGBlocks.HOLLY_LEAVES.getDefaultState();
     }
 
 

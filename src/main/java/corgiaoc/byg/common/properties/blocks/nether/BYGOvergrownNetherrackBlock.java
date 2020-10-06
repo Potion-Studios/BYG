@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IGrowable;
 import net.minecraft.util.math.BlockPos;
@@ -8,7 +9,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.List;
 import java.util.Random;
@@ -28,7 +28,7 @@ public class BYGOvergrownNetherrackBlock extends SpreadableOvergrownNetherrack i
 
     public void grow(ServerWorld world, Random rand, BlockPos blockPos, BlockState state) {
         BlockPos blockpos = blockPos.up();
-        BlockState blockstate = BYGBlockList.WEED_GRASS.getDefaultState();
+        BlockState blockstate = BYGBlocks.WEED_GRASS.getDefaultState();
 
 
         for (int i = 0; i < 128; ++i) {

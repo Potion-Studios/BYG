@@ -1,23 +1,23 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import corgiaoc.byg.core.byglists.BYGBiomes;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.HashMap;
 
-public class ShrubLands extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("shrublands", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.DESERT;
+public class ShrubLands extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("shrublands", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.DESERT;
     static final float DEPTH = 0.1F;
     static final float SCALE = 0.1F;
     static final float TEMPERATURE = 2.0F;
@@ -27,31 +27,29 @@ public class ShrubLands extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 9874031;
     static final int FOLIAGE_COLOR = 7048739;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
     public ShrubLands() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
 
     @Override
     public Biome getRiver() {
-        return this;
+        return this.getBiome();
     }
 
-    @Override
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.POLLUTEDLAKE, 1);
-        map.put(BYGBiomeList.SHRUBLANDS, 4);
+        map.put(BYGBiomes.POLLUTEDLAKE, 1);
+        map.put(BYGBiomes.SHRUBLANDS, 4);
         return map;
     }
 
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomeList.POLLUTEDLAKE : BYGBiomeList.SHRUBLANDS;
+    public Biome getHills(INoiseRandom rand) {
+        return (rand.random(5) == 0) ? BYGBiomes.POLLUTEDLAKE : BYGBiomes.SHRUBLANDS;
     }
 
     static {

@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.wailing;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -14,7 +15,6 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import javax.annotation.Nullable;
 
@@ -39,12 +39,12 @@ public class HangingBonesBlock extends Block {
             BlockState blockStateUP = ctx.getWorld().getBlockState(ctx.getPos().up());
             if (blockStateUP.getBlock() == Blocks.BONE_BLOCK) {
                 Block blockUP = blockStateUP.getBlock();
-                if (blockUP == BYGBlockList.HANGING_BONE) {
+                if (blockUP == BYGBlocks.HANGING_BONE) {
                     return this.getDefaultState();
                 } else if (blockUP == this) {
                     return this.getDefaultState();
                 } else {
-                    return BYGBlockList.HANGING_BONE.getDefaultState();
+                    return BYGBlocks.HANGING_BONE.getDefaultState();
                 }
             } else {
                 return null;

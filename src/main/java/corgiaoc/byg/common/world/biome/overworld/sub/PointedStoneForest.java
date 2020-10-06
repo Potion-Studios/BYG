@@ -1,5 +1,13 @@
 package corgiaoc.byg.common.world.biome.overworld.sub;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import corgiaoc.byg.common.world.surfacebuilder.config.PointedSBConfig;
+import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.byglists.BYGConfiguredFeatures;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -8,19 +16,11 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.common.world.surfacebuilder.sbconfig.PointedSBConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
-import corgiaoc.byg.core.byglists.BYGConfiguredFeatures;
-import corgiaoc.byg.core.byglists.BYGSBList;
 
-public class PointedStoneForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("pointed_stone_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.POINTED_SB, new PointedSBConfig(BYGBlockList.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.PACKED_ICE.getDefaultState(), 3).addWeightedBlockstate(Blocks.BLUE_ICE.getDefaultState(), 2), new SimpleBlockStateProvider(BYGBlockList.OVERGROWN_STONE.getDefaultState()), 170)));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.TAIGA;
+public class PointedStoneForest extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("pointed_stone_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.POINTED_SB, new PointedSBConfig(BYGBlocks.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.PACKED_ICE.getDefaultState(), 3).addWeightedBlockstate(Blocks.BLUE_ICE.getDefaultState(), 2), new SimpleBlockStateProvider(BYGBlocks.OVERGROWN_STONE.getDefaultState()), 170)));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.TAIGA;
     static final float DEPTH = 0.8F;
     static final float SCALE = 0.15F;
     static final float TEMPERATURE = 0.25F;
@@ -30,12 +30,12 @@ public class PointedStoneForest extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 10145074;
     static final int FOLIAGE_COLOR = 10145074;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
     public PointedStoneForest() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
     static {

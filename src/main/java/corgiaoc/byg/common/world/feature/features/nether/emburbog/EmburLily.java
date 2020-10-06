@@ -7,7 +7,7 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -20,7 +20,7 @@ public class EmburLily extends Feature<NoFeatureConfig> {
         if (!worldIn.isAirBlock(pos) || !worldIn.getFluidState(pos.down()).isTagged(FluidTags.LAVA)) {
             return false;
         } else {
-            worldIn.setBlockState(pos, BYGBlockList.EMBUR_LILY.getDefaultState(), 10);
+            worldIn.setBlockState(pos, BYGBlocks.EMBUR_LILY.getDefaultState(), 10);
             return true;
         }
     }

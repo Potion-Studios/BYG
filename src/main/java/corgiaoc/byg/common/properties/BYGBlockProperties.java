@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -32,7 +33,6 @@ import corgiaoc.byg.common.properties.blocks.nether.warped.*;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVineBlock;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVinePlantBlock;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.function.ToIntFunction;
 
@@ -448,7 +448,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), BYGBlockList.DACITE
+                    .harvestTool(ToolType.PICKAXE), BYGBlocks.DACITE
 
 
             );
@@ -484,7 +484,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ORGANIC)
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.6f)
-                    .tickRandomly(), BYGBlockList.MEADOW_DIRT
+                    .tickRandomly(), BYGBlocks.MEADOW_DIRT
             );
             setRegistryName(registryName);
         }
@@ -697,7 +697,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
                     .notSolid()
-                    .lootFrom(BYGBlockList.WARPED_CORAL)
+                    .lootFrom(BYGBlocks.WARPED_CORAL)
                     .setLightLevel((state) -> 8)
             );
             setRegistryName(registryName);
@@ -711,7 +711,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
                     .notSolid()
-                    .lootFrom(BYGBlockList.WARPED_CORAL)
+                    .lootFrom(BYGBlocks.WARPED_CORAL)
                     .setLightLevel((state) -> 8)
             );
             setRegistryName(registryName);
@@ -836,7 +836,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.4F)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), BYGBlockList.BLUE_NETHERRACK, BYGFeatureConfigs.SpreadableBlockConfigs.EMBUR_ROOTS
+                    .harvestTool(ToolType.PICKAXE), BYGBlocks.BLUE_NETHERRACK, BYGFeatureConfigs.SpreadableBlockConfigs.EMBUR_ROOTS
 
             );
             setRegistryName(registryName);
@@ -993,7 +993,7 @@ public class BYGBlockProperties {
 
     public static class ThatchStairs extends StairsBlock {
         public ThatchStairs(String registryName) {
-            super(BYGBlockList.REED_THATCH.getDefaultState(), Block.Properties.from(BYGBlockList.REED_THATCH)
+            super(BYGBlocks.REED_THATCH.getDefaultState(), Block.Properties.from(BYGBlocks.REED_THATCH)
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.5f)
             );

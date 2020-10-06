@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
 import java.util.Random;
@@ -22,7 +22,7 @@ public class PrairieShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
     public PrairieShrub(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
-        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.RAINBOW_EUCALYPTUS_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING);
     }
 
 
@@ -43,7 +43,7 @@ public class PrairieShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 return false;
             } else {
 
-                //this.setGroundBlockAt(worldIn, blockpos, pos, BYGBlockList.MEADOW_DIRT.getDefaultState());
+                //this.setGroundBlockAt(worldIn, blockpos, pos, BYGBlocks.MEADOW_DIRT.getDefaultState());
 
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);

@@ -1,10 +1,10 @@
 package corgiaoc.byg.common.properties.blocks.nether.warped;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DeadCoralWallFanBlock;
 import net.minecraft.util.Direction;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 public class BYGWarpedCoralWallFanBlock extends DeadCoralWallFanBlock {
     protected BYGWarpedCoralWallFanBlock(Block.Properties block) {
@@ -14,6 +14,6 @@ public class BYGWarpedCoralWallFanBlock extends DeadCoralWallFanBlock {
 
     protected boolean isValidGround(BlockState state) {
         Block block = state.getBlock();
-        return block == BYGBlockList.NYLIUM_SOUL_SAND || block == BYGBlockList.NYLIUM_SOUL_SOIL;
+        return block == BYGBlocks.NYLIUM_SOUL_SAND || block == BYGBlocks.NYLIUM_SOUL_SOIL;
     }
 }

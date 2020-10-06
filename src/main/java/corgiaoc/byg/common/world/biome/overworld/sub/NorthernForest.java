@@ -1,20 +1,20 @@
 package corgiaoc.byg.common.world.biome.overworld.sub;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGSBList;
 
-public class NorthernForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("northern_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.BOREAL_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
-    static final RainType PRECIPATATION = RainType.SNOW;
-    static final Category CATEGORY = Category.ICY;
+public class NorthernForest extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("northern_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BOREAL_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
+    static final Biome.Category CATEGORY = Biome.Category.ICY;
     static final float DEPTH = 0.15F;
     static final float SCALE = 0.1F;
     static final float TEMPERATURE = -0.15F;
@@ -24,23 +24,13 @@ public class NorthernForest extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 10044989;
     static final int FOLIAGE_COLOR = 10044989;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
     public NorthernForest() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
-
-    @Override
-    public int getFoliageColor() {
-        return 10044989;
-    }
-
-//    @Override
-//    public Biome getRiver() {
-//        return WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER;
-//    }
 
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);

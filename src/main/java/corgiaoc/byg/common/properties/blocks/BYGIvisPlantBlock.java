@@ -8,7 +8,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 public class BYGIvisPlantBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -30,7 +30,7 @@ public class BYGIvisPlantBlock extends BushBlock {
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == BYGBlockList.IVIS_PHYLIUM;
+        return block == BYGBlocks.IVIS_PHYLIUM;
     }
 }
 

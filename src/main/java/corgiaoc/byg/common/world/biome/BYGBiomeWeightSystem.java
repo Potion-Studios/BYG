@@ -1,16 +1,17 @@
 package corgiaoc.byg.common.world.biome;
 
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.layer.BiomeLayer;
-import net.minecraftforge.fml.loading.FMLPaths;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
-import corgiaoc.byg.core.byglists.BYGBiomeList;
+import corgiaoc.byg.core.byglists.BYGBiomes;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class BYGBiomeWeightSystem {
     public static List<Integer> HOT = new ArrayList<>();
@@ -20,141 +21,80 @@ public class BYGBiomeWeightSystem {
 
     public static void addBiomesToWeightSystem() {
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
-//        if (BYGWorldConfig.vanillaBiomes.get()) {
-//            HOT.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.DESERT)));
-//            HOT.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.DESERT)));
-//            HOT.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SAVANNA)));
-//            HOT.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SAVANNA)));
-//            HOT.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.PLAINS)));
-//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.FOREST)));
-//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.DARK_FOREST)));
-//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.MOUNTAINS)));
-//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.PLAINS)));
-//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.BIRCH_FOREST)));
-//            WARM.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SWAMP)));
-//            COOL.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.FOREST)));
-//            COOL.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.MOUNTAINS)));
-//            COOL.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.TAIGA)));
-//            COOL.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.PLAINS)));
-//            ICY.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SNOWY_TUNDRA)));
-//            ICY.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SNOWY_TUNDRA)));
-//            ICY.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SNOWY_TUNDRA)));
-//            ICY.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SNOWY_TUNDRA)));
-//            ICY.add(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.SNOWY_TAIGA)));
-//        }
-
         BYG.LOGGER.debug("BYG: Adding biome entries with their respective weights...");
-        addBiomeEntry(BYGBiomeList.ALLIUMFIELDS, ConfigWeightManager.ALLIUMFIELDS.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.ALPS, ConfigWeightManager.ALPS.getWeight(), OverworldClimate.ICY);
-        addBiomeEntry(BYGBiomeList.AMARANTHFIELDS, ConfigWeightManager.AMARANTHFIELDS.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.AUTUMNAL_VALLEY, ConfigWeightManager.AUTUMNALVALLEY.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.ANCIENTFOREST, ConfigWeightManager.ANCIENTFOREST.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.ARAUCARIA_SAVANNA, ConfigWeightManager.ARAUCARIA_SAVANNA.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.ASPENFOREST, ConfigWeightManager.ASPENFOREST.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.BAOBABSAVANNA, ConfigWeightManager.BAOBABSAVANNA.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.BAYOU, ConfigWeightManager.BAYOU.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.BLUETAIGA, ConfigWeightManager.BLUETAIGA.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.BLUFFSTEEPS, ConfigWeightManager.BLUFFSTEEPS.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.BOREALFOREST, ConfigWeightManager.BOREALFOREST.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.COLDSWAMPLANDS, ConfigWeightManager.COLDSWAMPLANDS.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.CIKA_WOODS, ConfigWeightManager.CIKA_WOODS.getWeight(), OverworldClimate.COOL);
-//        addBiomeEntry(BYGBiomeList.REDROCKCANYON, ConfigWeightManager.CANYONS.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.CYPRESSSWAMPLANDS, ConfigWeightManager.CYPRESS_SWAMPLAND.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.CHERRYBLOSSOMFOREST, ConfigWeightManager.CHERRY_BLOSSOM_FOREST.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.CONIFEROUSFOREST, ConfigWeightManager.CONIFEROUSFOREST.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.DOVERMOUNTAINS, ConfigWeightManager.DOVERMOUNTAINS.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.DEADSEA, ConfigWeightManager.DEADSEA.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.DECIDUOUSFOREST, ConfigWeightManager.DECIDUOUSFOREST.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.DUNES, ConfigWeightManager.DUNES.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.EBONYWOODS, ConfigWeightManager.EBONY_WOODS.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.ENCHANTEDFOREST, ConfigWeightManager.ENCHANTED_FOREST.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.EVERGREENTAIGA, ConfigWeightManager.EVERGREEN_TAIGA.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.GLOWSHROOMBAYOU, ConfigWeightManager.GLOWSHROOMBAYOU.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.GRASSLANDPLATEAU, ConfigWeightManager.GRASSLANDPLATEAU.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.GREATLAKES, ConfigWeightManager.GREATLAKES.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.GUIANASHIELD, ConfigWeightManager.GUIANASHIELD.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.GROVE, ConfigWeightManager.GROVE.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.ENCHANTED_GROVE, ConfigWeightManager.ENCHANTED_GROVE.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.JACARANDAFOREST, ConfigWeightManager.JACARANDAFOREST.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.CRAGGARDENS, ConfigWeightManager.CRAGGARDENS.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.MANGROVEMARSHES, ConfigWeightManager.MANGROVE_MARSHES.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.MAPLETAIGA, ConfigWeightManager.MAPLE_TAIGA.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.MEADOW, ConfigWeightManager.MEADOW.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.MOJAVE_DESERT, ConfigWeightManager.MOJAVEDESERT.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.LUSH_TUNDRA, ConfigWeightManager.LUSH_TUNDRA.getWeight(), OverworldClimate.ICY);
-        addBiomeEntry(BYGBiomeList.ORCHARD, ConfigWeightManager.ORCHARD.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.PRAIRIE, ConfigWeightManager.PRAIRIE.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.REDDESERT, ConfigWeightManager.REDDESERT.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.REDOAKFOREST, ConfigWeightManager.REDOAKFOREST.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.RED_ROCK_MOUNTAINS, ConfigWeightManager.REDROCKMOUNTAINS.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.REDWOOD_TROPICS, ConfigWeightManager.REDWOOD_TROPICS.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.ROSE_FIELDS, ConfigWeightManager.ROSE_FIELDS.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.SEASONALBIRCHFOREST, ConfigWeightManager.SEASONALBIRCHFOREST.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.SEASONALDECIDUOUSFOREST, ConfigWeightManager.SEASONALDECIDUOUSFOREST.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.SEASONALFOREST, ConfigWeightManager.SEASONALFOREST.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.SEASONALTAIGA, ConfigWeightManager.SEASONALTAIGA.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.SHATTEREDGLACIER, ConfigWeightManager.SHATTEREDGLACIER.getWeight(), OverworldClimate.ICY);
-        addBiomeEntry(BYGBiomeList.SHRUBLANDS, ConfigWeightManager.SHRUBLANDS.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.SKYRISHIGHLANDS, ConfigWeightManager.SKYRISHIGHLANDS.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.SNOWYBLUETAIGA, ConfigWeightManager.SNOWYBLUETAIGA.getWeight(), OverworldClimate.ICY);
-        addBiomeEntry(BYGBiomeList.SNOWYCONIFEROUSFOREST, ConfigWeightManager.SNOWYCONIFEROUSFOREST.getWeight(), OverworldClimate.ICY);
-        addBiomeEntry(BYGBiomeList.SNOWYDECIDUOUSFOREST, ConfigWeightManager.SNOWYDECIDUOUSFOREST.getWeight(), OverworldClimate.ICY);
-        addBiomeEntry(BYGBiomeList.SNOWYEVERGREENTAIGA, ConfigWeightManager.SNOWY_EVERGREEN_TAIGA.getWeight(), OverworldClimate.ICY);
-//        addBiomeEntry(BYGBiomeList.SONORANDESERT, ConfigWeightManager.amaranthFields.getWeight(), OverworldClimate.WARM);
-//        addBiomeEntry(BYGBiomeList.STONEBRUSHLANDS, ConfigWeightManager.amaranthFields.getWeight(), OverworldClimate.WARM);
-//        addBiomeEntry(BYGBiomeList.STONEFOREST, ConfigWeightManager.amaranthFields.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.STONE_FOREST, ConfigWeightManager.STONE_FOREST.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.THE_BLACK_FOREST, ConfigWeightManager.THE_BLACK_FOREST.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.TROPICALFUNGALRAINFOREST, ConfigWeightManager.TROPICALFUNGALFOREST.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.TROPICALRAINFOREST, ConfigWeightManager.TROPICALRAINFOREST.getWeight(), OverworldClimate.WARM);
-        addBiomeEntry(BYGBiomeList.TWILIGHT_VALLEY, ConfigWeightManager.TWILIGHT_VALLEY.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.VIBRANTSWAMPLANDS, ConfigWeightManager.VIBRANTSWAMPLANDS.getWeight(), OverworldClimate.WARM);
-//        addBiomeEntry(BYGBiomeList.VALLE_DE_LUNA, ConfigWeightManager.VALLE_DE_LUNA.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.SIERRAVALLEY, ConfigWeightManager.SIERRAVALLEY.getWeight(), OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.WEEPINGWITCHFOREST, ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight(), OverworldClimate.COOL);
-        addBiomeEntry(BYGBiomeList.WOODLANDS, ConfigWeightManager.WOODLANDS.getWeight(), OverworldClimate.WARM);
-//        addBiomeEntry(BYGBiomeList.VOLCANO, 1, OverworldClimate.DESERT);
-        addBiomeEntry(BYGBiomeList.ZELKOVAFOREST, ConfigWeightManager.ZELKOVAFOREST.getWeight(), OverworldClimate.COOL);
+        addBiomeEntry(BYGBiomes.ALLIUMFIELDS, ConfigWeightManager.ALLIUMFIELDS.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.ALPS, ConfigWeightManager.ALPS.getWeight(), BiomeManager.BiomeType.ICY);
+        addBiomeEntry(BYGBiomes.AMARANTHFIELDS, ConfigWeightManager.AMARANTHFIELDS.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.AUTUMNAL_VALLEY, ConfigWeightManager.AUTUMNALVALLEY.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.ANCIENTFOREST, ConfigWeightManager.ANCIENTFOREST.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.ASPENFOREST, ConfigWeightManager.ASPENFOREST.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.BAOBABSAVANNA, ConfigWeightManager.BAOBABSAVANNA.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.BAYOU, ConfigWeightManager.BAYOU.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.BLUETAIGA, ConfigWeightManager.BLUETAIGA.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.BLUFFSTEEPS, ConfigWeightManager.BLUFFSTEEPS.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.BOREALFOREST, ConfigWeightManager.BOREALFOREST.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.COLDSWAMPLANDS, ConfigWeightManager.COLDSWAMPLANDS.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.CIKA_WOODS, ConfigWeightManager.CIKA_WOODS.getWeight(), BiomeManager.BiomeType.COOL);
+//        addBiomeEntry(BYGBiomes.REDROCKCANYON, ConfigWeightManager.CANYONS.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.CYPRESSSWAMPLANDS, ConfigWeightManager.CYPRESS_SWAMPLAND.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.CHERRYBLOSSOMFOREST, ConfigWeightManager.CHERRY_BLOSSOM_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.CONIFEROUSFOREST, ConfigWeightManager.CONIFEROUSFOREST.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.DOVERMOUNTAINS, ConfigWeightManager.DOVERMOUNTAINS.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.DEADSEA, ConfigWeightManager.DEADSEA.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.DECIDUOUSFOREST, ConfigWeightManager.DECIDUOUSFOREST.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.DUNES, ConfigWeightManager.DUNES.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.EBONYWOODS, ConfigWeightManager.EBONY_WOODS.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.ENCHANTEDFOREST, ConfigWeightManager.ENCHANTED_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.EVERGREENTAIGA, ConfigWeightManager.EVERGREEN_TAIGA.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.GLOWSHROOMBAYOU, ConfigWeightManager.GLOWSHROOMBAYOU.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.GRASSLANDPLATEAU, ConfigWeightManager.GRASSLANDPLATEAU.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.GREATLAKES, ConfigWeightManager.GREATLAKES.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.GUIANASHIELD, ConfigWeightManager.GUIANASHIELD.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.GROVE, ConfigWeightManager.GROVE.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.ENCHANTED_GROVE, ConfigWeightManager.ENCHANTED_GROVE.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.JACARANDAFOREST, ConfigWeightManager.JACARANDAFOREST.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.CRAGGARDENS, ConfigWeightManager.CRAGGARDENS.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.MANGROVEMARSHES, ConfigWeightManager.MANGROVE_MARSHES.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.MAPLETAIGA, ConfigWeightManager.MAPLE_TAIGA.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.MEADOW, ConfigWeightManager.MEADOW.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.MOJAVE_DESERT, ConfigWeightManager.MOJAVEDESERT.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.LUSH_TUNDRA, ConfigWeightManager.LUSH_TUNDRA.getWeight(), BiomeManager.BiomeType.ICY);
+        addBiomeEntry(BYGBiomes.ORCHARD, ConfigWeightManager.ORCHARD.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.PRAIRIE, ConfigWeightManager.PRAIRIE.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.REDDESERT, ConfigWeightManager.REDDESERT.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.REDOAKFOREST, ConfigWeightManager.REDOAKFOREST.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.RED_ROCK_MOUNTAINS, ConfigWeightManager.REDROCKMOUNTAINS.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.REDWOOD_TROPICS, ConfigWeightManager.REDWOOD_TROPICS.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.SEASONALBIRCHFOREST, ConfigWeightManager.SEASONALBIRCHFOREST.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.SEASONALDECIDUOUSFOREST, ConfigWeightManager.SEASONALDECIDUOUSFOREST.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.SEASONALFOREST, ConfigWeightManager.SEASONALFOREST.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.SEASONALTAIGA, ConfigWeightManager.SEASONALTAIGA.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.SHATTEREDGLACIER, ConfigWeightManager.SHATTEREDGLACIER.getWeight(), BiomeManager.BiomeType.ICY);
+        addBiomeEntry(BYGBiomes.SHRUBLANDS, ConfigWeightManager.SHRUBLANDS.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.SKYRISHIGHLANDS, ConfigWeightManager.SKYRISHIGHLANDS.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.SNOWYBLUETAIGA, ConfigWeightManager.SNOWYBLUETAIGA.getWeight(), BiomeManager.BiomeType.ICY);
+        addBiomeEntry(BYGBiomes.SNOWYCONIFEROUSFOREST, ConfigWeightManager.SNOWYCONIFEROUSFOREST.getWeight(), BiomeManager.BiomeType.ICY);
+        addBiomeEntry(BYGBiomes.SNOWYDECIDUOUSFOREST, ConfigWeightManager.SNOWYDECIDUOUSFOREST.getWeight(), BiomeManager.BiomeType.ICY);
+        addBiomeEntry(BYGBiomes.SNOWYEVERGREENTAIGA, ConfigWeightManager.SNOWY_EVERGREEN_TAIGA.getWeight(), BiomeManager.BiomeType.ICY);
+//        addBiomeEntry(BYGBiomes.SONORANDESERT, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
+//        addBiomeEntry(BYGBiomes.STONEBRUSHLANDS, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
+//        addBiomeEntry(BYGBiomes.STONEFOREST, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.THE_BLACK_FOREST, ConfigWeightManager.THE_BLACK_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.TROPICALFUNGALRAINFOREST, ConfigWeightManager.TROPICALFUNGALFOREST.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.TROPICALRAINFOREST, ConfigWeightManager.TROPICALRAINFOREST.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.VIBRANTSWAMPLANDS, ConfigWeightManager.VIBRANTSWAMPLANDS.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.SIERRAVALLEY, ConfigWeightManager.SIERRAVALLEY.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.WEEPINGWITCHFOREST, ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.WOODLANDS, ConfigWeightManager.WOODLANDS.getWeight(), BiomeManager.BiomeType.WARM);
+//        addBiomeEntry(BYGBiomes.VOLCANO, 1, BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.ZELKOVAFOREST, ConfigWeightManager.ZELKOVAFOREST.getWeight(), BiomeManager.BiomeType.COOL);
 
         BYG.LOGGER.debug("BYG: Added biome entries with their respective weights!");
     }
 
-    public enum OverworldClimate {
-        ICY,
-        COOL,
-        WARM,
-        DESERT
-    }
-
-    public static void addBiomeEntry(Biome biome, int weight, OverworldClimate type) {
+    public static void addBiomeEntry(Biome biome, int weight, BiomeManager.BiomeType type) {
         if (weight > 0) {
-            if (type == OverworldClimate.WARM)
-                WARM.add(WorldGenRegistries.BIOME.getId(biome));
-            if (type == OverworldClimate.COOL)
-                COOL.add(WorldGenRegistries.BIOME.getId(biome));
-            if (type == OverworldClimate.DESERT)
-                HOT.add(WorldGenRegistries.BIOME.getId(biome));
-            if (type == OverworldClimate.ICY)
-                ICY.add(WorldGenRegistries.BIOME.getId(biome));
+            BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(ForgeRegistries.BIOMES.getKey(biome))), weight));
         }
     }
-
-    public static void addBYGBiomesToVanillaOverworld() {
-        for (int integer : HOT)
-            BiomeLayer.field_202744_r = addElement(BiomeLayer.field_202744_r, integer);
-        for (int integer : WARM)
-            BiomeLayer.field_202745_s = addElement(BiomeLayer.field_202745_s, integer);
-        for (int integer : COOL)
-            BiomeLayer.field_202746_t = addElement(BiomeLayer.field_202746_t, integer);
-        for (int integer : ICY)
-            BiomeLayer.field_202747_u = addElement(BiomeLayer.field_202747_u, integer);
-    }
-
-
-    static int[] addElement(int[] a, int e) {
-        a = Arrays.copyOf(a, a.length + 1);
-        a[a.length - 1] = e;
-        return a;
-    }
-
 }

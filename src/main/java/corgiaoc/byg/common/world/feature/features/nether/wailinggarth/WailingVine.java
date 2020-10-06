@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.nether.wailinggarth;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.VineBlock;
@@ -12,7 +13,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.Tags;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -26,7 +26,7 @@ public class WailingVine extends Feature<NoFeatureConfig> {
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
         BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);
         BlockPos.Mutable mainMutable = new BlockPos.Mutable().setPos(block);
-        BlockState storedState = BYGBlockList.WAILING_VINES.getDefaultState();
+        BlockState storedState = BYGBlocks.WAILING_VINES.getDefaultState();
         if (!worldIn.isAirBlock(pos)) {
             return false;
         } else if (!worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.NETHERRACK) || !worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.STONE) && !(worldIn.getDimensionType() == DimensionType.OVERWORLD_TYPE)) {

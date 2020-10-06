@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.nether.subzerohypo;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -10,7 +11,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -33,7 +33,7 @@ public class FrostMagmaPillars extends Feature<NoFeatureConfig> {
                     return true;
                 }
 
-                p_241855_1_.setBlockState(blockpos$mutable, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
+                p_241855_1_.setBlockState(blockpos$mutable, BYGBlocks.FROST_MAGMA.getDefaultState(), 2);
                 flag = flag && this.func_236253_b_(p_241855_1_, p_241855_3_, blockpos$mutable1.setAndMove(blockpos$mutable, Direction.NORTH));
                 flag1 = flag1 && this.func_236253_b_(p_241855_1_, p_241855_3_, blockpos$mutable1.setAndMove(blockpos$mutable, Direction.SOUTH));
                 flag2 = flag2 && this.func_236253_b_(p_241855_1_, p_241855_3_, blockpos$mutable1.setAndMove(blockpos$mutable, Direction.WEST));
@@ -65,7 +65,7 @@ public class FrostMagmaPillars extends Feature<NoFeatureConfig> {
                         }
 
                         if (!p_241855_1_.isAirBlock(blockpos$mutable1.setAndMove(blockpos$mutable2, Direction.DOWN))) {
-                            p_241855_1_.setBlockState(blockpos$mutable2, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
+                            p_241855_1_.setBlockState(blockpos$mutable2, BYGBlocks.FROST_MAGMA.getDefaultState(), 2);
                         }
                     }
                 }
@@ -79,14 +79,14 @@ public class FrostMagmaPillars extends Feature<NoFeatureConfig> {
 
     private void func_236252_a_(IWorld p_236252_1_, Random p_236252_2_, BlockPos p_236252_3_) {
         if (p_236252_2_.nextBoolean()) {
-            p_236252_1_.setBlockState(p_236252_3_, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
+            p_236252_1_.setBlockState(p_236252_3_, BYGBlocks.FROST_MAGMA.getDefaultState(), 2);
         }
 
     }
 
     private boolean func_236253_b_(IWorld p_236253_1_, Random p_236253_2_, BlockPos p_236253_3_) {
         if (p_236253_2_.nextInt(10) != 0) {
-            p_236253_1_.setBlockState(p_236253_3_, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
+            p_236253_1_.setBlockState(p_236253_3_, BYGBlocks.FROST_MAGMA.getDefaultState(), 2);
             return true;
         } else {
             return false;

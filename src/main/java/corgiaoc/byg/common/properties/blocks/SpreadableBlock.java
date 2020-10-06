@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.gen.feature.NetherVegetationFeature;
 import net.minecraft.world.lighting.LightEngine;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.List;
 import java.util.Random;
@@ -80,7 +80,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
     @Override
     public void grow(ServerWorld world, Random rand, BlockPos blockPos, BlockState state) {
         BlockPos blockpos = blockPos.up();
-        BlockState thisBlockState = (rand.nextInt(2) == 0) ? Blocks.GRASS.getDefaultState() : BYGBlockList.SHORT_GRASS.getDefaultState();
+        BlockState thisBlockState = (rand.nextInt(2) == 0) ? Blocks.GRASS.getDefaultState() : BYGBlocks.SHORT_GRASS.getDefaultState();
 
 
         for (int i = 0; i < world.getHeight(); ++i) {

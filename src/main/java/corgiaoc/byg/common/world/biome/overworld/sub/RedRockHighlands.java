@@ -1,20 +1,19 @@
 package corgiaoc.byg.common.world.biome.overworld.sub;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGSBList;
 
-public class RedRockHighlands extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("red_rock_highlands", new ConfiguredSurfaceBuilder<>(BYGSBList.RED_ROCK_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.PLAINS;
+public class RedRockHighlands extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("red_rock_highlands", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.RED_ROCK_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.PLAINS;
     static final float DEPTH = 3.5F;
     static final float SCALE = 0.5F;
     static final float TEMPERATURE = 1.2F;
@@ -24,21 +23,16 @@ public class RedRockHighlands extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 10855786;
     static final int FOLIAGE_COLOR = 10855786;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
     public RedRockHighlands() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 10855786;
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
     static {
-        //////this.add//StructureFeature(BYGFeatureList.BYGVILLAGE.configure(new VillageConfig("byg:village/adobe/town_centers"), 6));
+        //////this.add//StructureFeature(BYGFeatures.BYGVILLAGE.configure(new VillageConfig("byg:village/adobe/town_centers"), 6));
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
@@ -52,12 +46,12 @@ public class RedRockHighlands extends Biome implements BiomeTools {
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGFeatures.addTerracottaBoulder(GENERATION_SETTINGS);
+        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addTerracottaBoulder(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withForestGrass(GENERATION_SETTINGS);
         BYGTreeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addFirecracker(GENERATION_SETTINGS);
+        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addGrass(GENERATION_SETTINGS);
+        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addFirecracker(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
         SPAWN_SETTINGS.withSpawner(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));

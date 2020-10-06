@@ -29,7 +29,7 @@
 //    }
 //
 //    public BYGBiomeGroup getInlandBiomeGroup(int layerX, int layerZ) {
-//        TempSection tempCategory = this.getTempCategory(layerX, layerZ);
+//        TempSection tempBiome.Category = this.getTempCategory(layerX, layerZ);
 //        double humidity = this.getHumidity(layerX, layerZ);
 //
 //        switch (tempCategory) {
@@ -48,7 +48,7 @@
 //    }
 //
 //    public BYGBiomeGroup getBiomeGroup(int layerX, int layerZ) {
-//        TempSection tempCategory = this.getTempCategory(layerX, layerZ);
+//        TempSection tempBiome.Category = this.getTempCategory(layerX, layerZ);
 //        double humidity = this.getHumidity(layerX, layerZ);
 //
 //        switch (tempCategory) {
@@ -67,7 +67,7 @@
 //    }
 //
 //    public BYGBiomeGroup getCoastalBiomeGroup(int layerX, int layerZ) {
-//        TempSection tempCategory = this.getTempCategory(layerX, layerZ);
+//        TempSection tempBiome.Category = this.getTempCategory(layerX, layerZ);
 //        double humidity = this.getHumidity(layerX, layerZ);
 //
 //        switch (tempCategory) {

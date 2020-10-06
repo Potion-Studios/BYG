@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.overworld.giantflowers.util;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -15,9 +16,8 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.Tags;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGGiantFlowerFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGGiantFlowerFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.FeatureUtil;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -341,7 +341,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends BYGGiantFlowerFeat
                         else
                             setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
                     } else {
-                        if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
+                        if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
                             setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
                         fill = 15;
                     }
@@ -375,7 +375,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends BYGGiantFlowerFeat
                         if (canStemPlaceHere(reader, mutableTrunk)) {
                             setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.getDefaultState());
                         } else {
-                            if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
+                            if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
                                 setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
                             fill = 15;
                         }
@@ -395,7 +395,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends BYGGiantFlowerFeat
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.setPos(trunkPos);
-                if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
+                if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
                     setFinalBlockState((IWorldWriter) reader, mutableTrunk.move(Direction.DOWN), soil.getDefaultState());
             }
         }

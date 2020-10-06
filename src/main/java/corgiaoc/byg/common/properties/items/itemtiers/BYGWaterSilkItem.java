@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.properties.items.itemtiers;
 
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -19,7 +20,6 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 public class BYGWaterSilkItem extends BlockItem {
     public BYGWaterSilkItem(Block blockIn, Properties builder) {
@@ -52,7 +52,7 @@ public class BYGWaterSilkItem extends BlockItem {
 
                     // special case for handling block placement with water lilies
                     net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.create(worldIn.getDimensionKey(), worldIn, blockpos1);
-                    worldIn.setBlockState(blockpos1, BYGBlockList.WATER_SILK.getDefaultState(), 11);
+                    worldIn.setBlockState(blockpos1, BYGBlocks.WATER_SILK.getDefaultState(), 11);
                     if (net.minecraftforge.event.ForgeEventFactory.onBlockPlace(playerIn, blocksnapshot, Direction.UP)) {
                         blocksnapshot.restore(true, false);
                         return new ActionResult<ItemStack>(ActionResultType.FAIL, itemstack);

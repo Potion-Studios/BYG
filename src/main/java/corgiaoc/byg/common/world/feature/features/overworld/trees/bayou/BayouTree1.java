@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.overworld.trees.bayou;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -10,9 +11,8 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.IWorldWriter;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -33,7 +33,7 @@ public class BayouTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);
         BlockPos.Mutable mainMutable = new BlockPos.Mutable().setPos(block);
 
-        if (!this.checkArea(worldIn, pos, 5) || worldIn.getBlockState(pos.down()).getBlock() != Blocks.DIRT && worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.MUD_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.GLOWCELIUM) {
+        if (!this.checkArea(worldIn, pos, 5) || worldIn.getBlockState(pos.down()).getBlock() != Blocks.DIRT && worldIn.getBlockState(pos.down()).getBlock() != BYGBlocks.MUD_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != BYGBlocks.GLOWCELIUM) {
             return false;
         } else {
             //Trunk
@@ -103,13 +103,13 @@ public class BayouTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     }
 
     protected void setWillowLog(IWorldWriter worldIn, BlockPos pos) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LOG.getDefaultState());
+        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlocks.WILLOW_LOG.getDefaultState());
     }
 
     protected void setWillowLeaves(IWorldWriter worldIn, BlockPos pos) {
         if ((worldIn instanceof IWorldReader)) {
-            if (((IWorldReader) worldIn).getBlockState(pos).getBlock() != BYGBlockList.WILLOW_LOG)
-                this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1));
+            if (((IWorldReader) worldIn).getBlockState(pos).getBlock() != BYGBlocks.WILLOW_LOG)
+                this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlocks.WILLOW_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1));
         }
     }
 
@@ -126,7 +126,7 @@ public class BayouTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             for (int checkZ = -radius; checkZ <= radius; checkZ++) {
                 BlockPos checkArea = new BlockPos(posX + checkX, posY, posZ + checkZ);
 
-                if (world.getBlockState(checkArea).getBlock() == BYGBlockList.WILLOW_LOG) return false;
+                if (world.getBlockState(checkArea).getBlock() == BYGBlocks.WILLOW_LOG) return false;
 
             }
         }

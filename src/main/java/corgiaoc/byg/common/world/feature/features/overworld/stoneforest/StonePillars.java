@@ -13,7 +13,7 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import corgiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -50,7 +50,7 @@ public class StonePillars extends Feature<NoFeatureConfig> {
 //            return false;
 //        }
 
-        if (world.getBlockState(position.down()).getBlock() == BYGBlockList.OVERGROWN_STONE) {
+        if (world.getBlockState(position.down()).getBlock() == BYGBlocks.OVERGROWN_STONE) {
             for (int x = 0; x < 16; x++) {
                 for (int z = 0; z < 16; z++) {
                     mutable.setPos(position.getX() + x, 0, position.getZ() + z);
@@ -77,7 +77,7 @@ public class StonePillars extends Feature<NoFeatureConfig> {
     }
 
     protected void setCoralBlock(IWorldWriter worldIn, BlockPos pos) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WARPED_CORAL_BLOCK.getDefaultState());
+        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlocks.WARPED_CORAL_BLOCK.getDefaultState());
     }
 
     private void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState) {

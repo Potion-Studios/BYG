@@ -1,5 +1,10 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.particles.ParticleTypes;
@@ -7,16 +12,11 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGSBList;
 
-public class ValleDeLuna extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("valle_de_luna", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSBList.BYGSBConfigList.WHITESAND));
-    static final RainType PRECIPATATION = RainType.NONE;
-    static final Category CATEGORY = Category.DESERT;
+public class ValleDeLuna extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("valle_de_luna", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.BYGSBConfigList.WHITESAND));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
+    static final Biome.Category CATEGORY = Biome.Category.DESERT;
     static final float DEPTH = 0.0F;
     static final float SCALE = 0.0F;
     static final float TEMPERATURE = 2.0F;
@@ -26,7 +26,7 @@ public class ValleDeLuna extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 10855786;
     static final int FOLIAGE_COLOR = 10855786;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
@@ -41,11 +41,6 @@ public class ValleDeLuna extends Biome implements BiomeTools {
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.00528F))
                 .setMoodSound(MoodSoundAmbience.DEFAULT_CAVE)
                 .build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
-    }
-
-    @Override
-    public int getFoliageColor() {
-        return 10855786;
     }
 
     static {

@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.feature.features.nether.quartzdesert;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,7 +13,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.ColumnConfig;
 import net.minecraft.world.gen.feature.Feature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -58,11 +58,11 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
 
                 for(BlockPos.Mutable blockpos$mutable = blockpos1.toMutable(); j >= 0; --j) {
                     if (func_236247_a_(p_236248_1_, p_236248_2_, blockpos$mutable)) {
-                        this.setBlockState(p_236248_1_, blockpos$mutable, BYGBlockList.RAW_QUARTZ_BLOCK.getDefaultState());
+                        this.setBlockState(p_236248_1_, blockpos$mutable, BYGBlocks.RAW_QUARTZ_BLOCK.getDefaultState());
                         blockpos$mutable.move(Direction.UP);
                         flag = true;
                     } else {
-                        if (!p_236248_1_.getBlockState(blockpos$mutable).isIn(BYGBlockList.RAW_QUARTZ_BLOCK)) {
+                        if (!p_236248_1_.getBlockState(blockpos$mutable).isIn(BYGBlocks.RAW_QUARTZ_BLOCK)) {
                             break;
                         }
 

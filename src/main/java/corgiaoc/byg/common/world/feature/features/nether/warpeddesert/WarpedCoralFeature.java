@@ -10,7 +10,7 @@ import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -34,7 +34,7 @@ public class WarpedCoralFeature extends Feature<NoFeatureConfig> {
 
         if (!checkArea(worldIn, pos)) {
             return false;
-        } else if ((worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND) || (worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL)) {
+        } else if ((worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.NYLIUM_SOUL_SAND) || (worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.NYLIUM_SOUL_SOIL)) {
             for (int i = 0; i <= randCoralHeight; i++) {
                 BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(block);
 
@@ -51,7 +51,7 @@ public class WarpedCoralFeature extends Feature<NoFeatureConfig> {
     }
 
     protected void setCoralBlock(IWorldWriter worldIn, BlockPos pos) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WARPED_CORAL_BLOCK.getDefaultState());
+        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlocks.WARPED_CORAL_BLOCK.getDefaultState());
     }
 
     private void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState) {
@@ -72,7 +72,7 @@ public class WarpedCoralFeature extends Feature<NoFeatureConfig> {
                 BlockPos checkArea = new BlockPos(posX + checkX, posY, posZ + checkZ);
 
                 if (!world.isAirBlock(checkArea)) return false;
-                if (world.getBlockState(checkArea).getBlock() == BYGBlockList.WARPED_CORAL_BLOCK) return false;
+                if (world.getBlockState(checkArea).getBlock() == BYGBlocks.WARPED_CORAL_BLOCK) return false;
 
             }
         }

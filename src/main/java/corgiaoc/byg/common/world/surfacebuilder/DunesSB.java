@@ -8,7 +8,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.core.byglists.BYGSBList;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 
 import java.util.Random;
 
@@ -30,6 +30,6 @@ public class DunesSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 chunkIn.setBlockState(block, SAND, true);
             }
         }
-        SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.SAND_CF);
+        SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.SAND_CF);
     }
 }

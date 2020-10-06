@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.worldtype;
 
 //
-//public class BYGBiomeProvider extends BiomeProvider {
+//public class BYGBiomeProvider extends BYGBiomeProvider {
 //    private final Layer layer;
 //
 //    public BYGBiomeProvider(Set<Biome> biomes, long seed) {

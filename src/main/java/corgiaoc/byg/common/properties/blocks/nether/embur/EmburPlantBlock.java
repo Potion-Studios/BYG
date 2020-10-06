@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.embur;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
@@ -10,7 +11,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -34,7 +34,7 @@ public class EmburPlantBlock extends BushBlock implements IGrowable {
     }
 
     public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlockList.EMBUR_ROOTS ? BYGBlockList.TALL_EMBUR_ROOTS : BYGBlockList.TALL_EMBUR_ROOTS);
+        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.EMBUR_ROOTS ? BYGBlocks.TALL_EMBUR_ROOTS : BYGBlocks.TALL_EMBUR_ROOTS);
         if (doubleplantblock.getDefaultState().isValidPosition(worldIn, pos) && worldIn.isAirBlock(pos.up())) {
             doubleplantblock.placeAt(worldIn, pos, 2);
         }

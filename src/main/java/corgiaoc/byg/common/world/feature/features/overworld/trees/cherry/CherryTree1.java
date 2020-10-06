@@ -1,14 +1,14 @@
 package corgiaoc.byg.common.world.feature.features.overworld.trees.cherry;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -35,7 +35,7 @@ public class CherryTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, randTreeHeight - 10, 5, 5, 5, 5, isSapling, mainmutable, mainmutable2, mainmutable3, mainmutable4)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, BYGBlockList.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable, mainmutable2, mainmutable3, mainmutable4);
+                buildTrunkBase(changedBlocks, worldIn, BYGBlocks.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable, mainmutable2, mainmutable3, mainmutable4);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight + 1; buildTrunk++) {
                     placeTrunk(config, rand, changedBlocks, worldIn, mainmutable, boundsIn);
                     placeTrunk(config, rand, changedBlocks, worldIn, mainmutable2, boundsIn);

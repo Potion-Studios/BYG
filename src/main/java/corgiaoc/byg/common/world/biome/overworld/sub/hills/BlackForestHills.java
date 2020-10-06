@@ -1,19 +1,23 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.hills;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGSBList;
 
-public class BlackForestHills extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("black_forest_hills", new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.TAIGA;
+import javax.annotation.Nullable;
+
+public class BlackForestHills extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("black_forest_hills", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CONIFEROUS_SB, BYGSurfaceBuilders.BYGSBConfigList.PEATGRASS_CF));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.TAIGA;
     static final float DEPTH = 1.0F;
     static final float SCALE = 0.15F;
     static final float TEMPERATURE = 0.25F;
@@ -23,12 +27,12 @@ public class BlackForestHills extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 5011004;
     static final int FOLIAGE_COLOR = 2263842;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
     public BlackForestHills() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
 //    @Override
@@ -37,28 +41,24 @@ public class BlackForestHills extends Biome implements BiomeTools {
 //    }
 
 
+
+    @Nullable
     @Override
-    public int getFoliageColor() {
-        return 2263842;
+    public Biome getHills(INoiseRandom rand) {
+        return randomSubBiome(rand);
     }
 
-//    @Nullable
-//    @Override
-//    public Biome getHill(INoiseRandom rand) {
-//        return randomSubBiome(rand);
-//    }
-//
-//    public Biome randomSubBiome(INoiseRandom random) {
-//        int randomPicker = random.random(4);
-//        if (randomPicker == 0)
-//            return BYGBiomeList.CONIFEROUSFORESTHILLS;
-//        else if (randomPicker == 1)
-//            return BYGBiomeList.CONIFEROUS_CLEARING;
-//        else if (randomPicker == 2)
-//            return BYGBiomeList.CONIFEROUS_CLEARING;
-//        else
-//            return BYGBiomeList.FRESHWATERLAKE;
-//    }
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
+        if (randomPicker == 0)
+            return BYGBiomes.CONIFEROUSFORESTHILLS;
+        else if (randomPicker == 1)
+            return BYGBiomes.CONIFEROUS_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomes.CONIFEROUS_CLEARING;
+        else
+            return BYGBiomes.FRESHWATERLAKE;
+    }
 
     static {
         //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));

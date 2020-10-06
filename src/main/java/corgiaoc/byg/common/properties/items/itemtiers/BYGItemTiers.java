@@ -3,16 +3,16 @@ package corgiaoc.byg.common.properties.items.itemtiers;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
-import corgiaoc.byg.core.byglists.BYGItemList;
+import corgiaoc.byg.core.byglists.BYGItems;
 
 import java.util.function.Supplier;
 
 public enum BYGItemTiers implements IItemTier {
     AMETRINE(4, 64, 16.0F, 0.8F, 25, () -> {
-        return Ingredient.fromItems(BYGItemList.AMETRINE_GEMS);
+        return Ingredient.fromItems(BYGItems.AMETRINE_GEMS);
     }),
     PENDORITE(5, 2500, 9.5F, 4.0F, 15, () -> {
-        return Ingredient.fromItems(BYGItemList.PENDORITE_SCRAPS);
+        return Ingredient.fromItems(BYGItems.PENDORITE_SCRAPS);
     });
 
     private final int harvestLevel;

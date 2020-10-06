@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.end.obsidianspires;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -13,7 +14,6 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import corgiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -48,11 +48,11 @@ public class ObsidianSpike extends Feature<NoFeatureConfig> {
         int terrainHeight;
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        if (!checkArea(world, position) || world.getBlockState(position.down()).getBlock() != BYGBlockList.IVIS_PHYLIUM) {
+        if (!checkArea(world, position) || world.getBlockState(position.down()).getBlock() != BYGBlocks.IVIS_PHYLIUM) {
             return false;
         }
 
-        if (world.getBlockState(position.down()).getBlock() == BYGBlockList.IVIS_PHYLIUM) {
+        if (world.getBlockState(position.down()).getBlock() == BYGBlocks.IVIS_PHYLIUM) {
             for (int x = 0; x < 16; x++) {
                 for (int z = 0; z < 16; z++) {
                     mutable.setPos(position.getX() + x, 0, position.getZ() + z);

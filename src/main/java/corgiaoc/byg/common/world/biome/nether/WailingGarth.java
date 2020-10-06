@@ -1,5 +1,9 @@
 package corgiaoc.byg.common.world.biome.nether;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -11,15 +15,11 @@ import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.core.byglists.BYGSBList;
 
-public class WailingGarth extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("wailing_garth", new ConfiguredSurfaceBuilder<>(BYGSBList.WAILING_GARTH_SB, BYGSBList.BYGSBConfigList.SOULSAND));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.NETHER;
+public class WailingGarth extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("wailing_garth", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.WAILING_GARTH_SB, BYGSurfaceBuilders.BYGSBConfigList.SOULSAND));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.NETHER;
     static final float DEPTH = 0.125F;
     static final float SCALE = 0.05F;
     static final float TEMPERATURE = 0.8F;
@@ -29,7 +29,7 @@ public class WailingGarth extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 5849791;
     static final int FOLIAGE_COLOR = 5849791;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
@@ -38,7 +38,7 @@ public class WailingGarth extends Biome implements BiomeTools {
                 .withGrassColor(GRASS_COLOR)
                 .withFoliageColor(FOLIAGE_COLOR)
                 .setFogColor(4529794)
-                .withSkyColor(BiomeHelper.calcSkyColor(2.0F))
+                .withSkyColor(BiomeUtil.calcSkyColor(2.0F))
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.01428F))
                 .setAmbientSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D))

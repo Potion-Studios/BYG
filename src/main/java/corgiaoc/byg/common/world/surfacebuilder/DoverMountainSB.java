@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.surfacebuilder;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -8,8 +9,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
-import corgiaoc.byg.core.byglists.BYGSBList;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 
 import java.util.Random;
 
@@ -26,15 +26,15 @@ public class DoverMountainSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             block.setPos(xPos, yPos, zPos);
             BlockState currentBlockToReplace = chunkIn.getBlockState(block);
             if (currentBlockToReplace == Blocks.STONE.getDefaultState()) {
-                chunkIn.setBlockState(block, BYGBlockList.DACITE.getDefaultState(), false);
+                chunkIn.setBlockState(block, BYGBlocks.DACITE.getDefaultState(), false);
             }
         }
         if (noise > 1.75D) {
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.COARSEDIRTDOVERMOUNTAIN_CF);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.COARSEDIRTDOVERMOUNTAIN_CF);
         } else if (noise > -0.95D) {
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.PODZOLDOVERMOUNTAIN_CF);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.PODZOLDOVERMOUNTAIN_CF);
         } else {
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.GRASSDOVERMOUNTAIN_CF);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.GRASSDOVERMOUNTAIN_CF);
         }
 
     }

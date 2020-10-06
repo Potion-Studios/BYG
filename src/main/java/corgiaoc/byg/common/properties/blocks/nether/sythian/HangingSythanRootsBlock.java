@@ -10,7 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -30,7 +30,7 @@ public class HangingSythanRootsBlock extends AbstractTopPlantBlock {
     }
 
     protected Block getBodyPlantBlock() {
-        return BYGBlockList.HANGING_SYTHIAN_ROOTS_PLANT;
+        return BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT;
     }
 
     protected boolean canGrowIn(BlockState state) {

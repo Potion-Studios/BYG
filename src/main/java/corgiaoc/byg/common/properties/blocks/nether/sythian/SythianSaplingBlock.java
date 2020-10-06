@@ -1,5 +1,7 @@
 package corgiaoc.byg.common.properties.blocks.nether.sythian;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.byglists.BYGItems;
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.BambooSaplingBlock;
 import net.minecraft.block.BlockState;
@@ -13,8 +15,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlockList;
-import corgiaoc.byg.core.byglists.BYGItemList;
 
 import java.util.Random;
 
@@ -25,7 +25,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.SYTHIAN_NYLIUM;
+        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.SYTHIAN_NYLIUM;
     }
 
     @Override
@@ -33,8 +33,8 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
         if (!stateIn.isValidPosition(worldIn, currentPos)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            if (facing == Direction.UP && facingState.getBlock() == BYGBlockList.SYTHIAN_STALK_BLOCK) {
-                worldIn.setBlockState(currentPos, BYGBlockList.SYTHIAN_STALK_BLOCK.getDefaultState(), 2);
+            if (facing == Direction.UP && facingState.getBlock() == BYGBlocks.SYTHIAN_STALK_BLOCK) {
+                worldIn.setBlockState(currentPos, BYGBlocks.SYTHIAN_STALK_BLOCK.getDefaultState(), 2);
             }
 
             return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
@@ -51,10 +51,10 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItemList.SYTHIAN_STALK);
+        return new ItemStack(BYGItems.SYTHIAN_STALK);
     }
 
     protected void func_220087_a(World world, BlockPos pos) {
-        world.setBlockState(pos.up(), BYGBlockList.SYTHIAN_STALK_BLOCK.getDefaultState().with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.SMALL), 3);
+        world.setBlockState(pos.up(), BYGBlocks.SYTHIAN_STALK_BLOCK.getDefaultState().with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.SMALL), 3);
     }
 }

@@ -10,7 +10,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -30,7 +30,7 @@ public class HangingVinesBlock extends AbstractTopPlantBlock {
     }
 
     protected Block getBodyPlantBlock() {
-        return BYGBlockList.WEEPING_ROOTS_PLANT;
+        return BYGBlocks.WEEPING_ROOTS_PLANT;
     }
 
     protected boolean canGrowIn(BlockState state) {

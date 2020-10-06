@@ -218,7 +218,7 @@ public class BYGFeatures {
     }
 
     public static void addMudDisks(BiomeGenerationSettings.Builder biomeIn) {
-//        biomeIn.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configure(new DiskFeatureConfig(BYGBlockList.MUD_BLOCK.getDefaultState(), 4, 1, Lists.newArrayList(Blocks.DIRT.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()))).decorate(Decorator.COUNT_TOP_SOLID.configure(new CountDecoratorConfig(1))));
+//        biomeIn.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configure(new DiskFeatureConfig(BYGBlocks.MUD_BLOCK.getDefaultState(), 4, 1, Lists.newArrayList(Blocks.DIRT.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()))).decorate(Decorator.COUNT_TOP_SOLID.configure(new CountDecoratorConfig(1))));
     }
 
     public static void addBYGMushrooms(BiomeGenerationSettings.Builder gen) {
@@ -447,9 +447,9 @@ public class BYGFeatures {
     }
 
     public static void addGiantFlowerFeatures(BiomeGenerationSettings.Builder gen) {
-        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.GIANT_ANGELICA_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, -1))));
-        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.GIANT_DANDELION_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, -1))));
-        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.GIANT_IRIS_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, -1))));
-        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.GIANT_ROSE_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, -1))));
+        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.GIANT_ANGELICA_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, -1))));
+        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.GIANT_DANDELION_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, -1))));
+        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.GIANT_IRIS_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, -1))));
+        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.GIANT_ROSE_FLOWER.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, -1))));
     }
 }

@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.nether.soulsandvalley;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.tags.BlockTags;
@@ -12,7 +13,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -28,7 +28,7 @@ public class SoulShroomSporeFeature extends Feature<NoFeatureConfig> {
             return false;
         } else {
             BlockState blockstate = p_241855_1_.getBlockState(p_241855_4_.up());
-            if (!blockstate.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) && !blockstate.isIn(BYGBlockList.SOUL_SHROOM_BLOCK)) {
+            if (!blockstate.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) && !blockstate.isIn(BYGBlocks.SOUL_SHROOM_BLOCK)) {
                 return false;
             } else {
                 this.func_236428_a_(p_241855_1_, p_241855_3_, p_241855_4_);
@@ -39,7 +39,7 @@ public class SoulShroomSporeFeature extends Feature<NoFeatureConfig> {
     }
 
     private void func_236428_a_(IWorld p_236428_1_, Random p_236428_2_, BlockPos p_236428_3_) {
-        p_236428_1_.setBlockState(p_236428_3_, BYGBlockList.SOUL_SHROOM_BLOCK.getDefaultState(), 2);
+        p_236428_1_.setBlockState(p_236428_3_, BYGBlocks.SOUL_SHROOM_BLOCK.getDefaultState(), 2);
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
         BlockPos.Mutable blockpos$mutable1 = new BlockPos.Mutable();
 
@@ -50,7 +50,7 @@ public class SoulShroomSporeFeature extends Feature<NoFeatureConfig> {
 
                 for (Direction direction : field_236426_a_) {
                     BlockState blockstate = p_236428_1_.getBlockState(blockpos$mutable1.setAndMove(blockpos$mutable, direction));
-                    if (blockstate.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) || blockstate.isIn(BYGBlockList.SOUL_SHROOM_BLOCK)) {
+                    if (blockstate.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) || blockstate.isIn(BYGBlocks.SOUL_SHROOM_BLOCK)) {
                         ++j;
                     }
 
@@ -60,7 +60,7 @@ public class SoulShroomSporeFeature extends Feature<NoFeatureConfig> {
                 }
 
                 if (j == 1) {
-                    p_236428_1_.setBlockState(blockpos$mutable, BYGBlockList.SOUL_SHROOM_BLOCK.getDefaultState(), 2);
+                    p_236428_1_.setBlockState(blockpos$mutable, BYGBlocks.SOUL_SHROOM_BLOCK.getDefaultState(), 2);
                 }
             }
         }
@@ -74,7 +74,7 @@ public class SoulShroomSporeFeature extends Feature<NoFeatureConfig> {
             blockpos$mutable.setAndOffset(p_236429_3_, p_236429_2_.nextInt(8) - p_236429_2_.nextInt(8), p_236429_2_.nextInt(2) - p_236429_2_.nextInt(7), p_236429_2_.nextInt(8) - p_236429_2_.nextInt(8));
             if (p_236429_1_.isAirBlock(blockpos$mutable)) {
                 BlockState blockstate = p_236429_1_.getBlockState(blockpos$mutable.up());
-                if (blockstate.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) || blockstate.isIn(BYGBlockList.SOUL_SHROOM_BLOCK)) {
+                if (blockstate.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) || blockstate.isIn(BYGBlocks.SOUL_SHROOM_BLOCK)) {
                     int j = MathHelper.nextInt(p_236429_2_, 1, 8);
                     if (p_236429_2_.nextInt(6) == 0) {
                         j *= 2;
@@ -97,11 +97,11 @@ public class SoulShroomSporeFeature extends Feature<NoFeatureConfig> {
         for (int i = 0; i <= p_236427_3_; ++i) {
             if (p_236427_0_.isAirBlock(p_236427_2_)) {
                 if (i == p_236427_3_ || !p_236427_0_.isAirBlock(p_236427_2_.down())) {
-                    p_236427_0_.setBlockState(p_236427_2_, BYGBlockList.SOUL_SHROOM_SPORE_END.getDefaultState().with(AbstractTopPlantBlock.AGE, Integer.valueOf(MathHelper.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
+                    p_236427_0_.setBlockState(p_236427_2_, BYGBlocks.SOUL_SHROOM_SPORE_END.getDefaultState().with(AbstractTopPlantBlock.AGE, Integer.valueOf(MathHelper.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
                     break;
                 }
 
-                p_236427_0_.setBlockState(p_236427_2_, BYGBlockList.SOUL_SHROOM_SPORE.getDefaultState(), 2);
+                p_236427_0_.setBlockState(p_236427_2_, BYGBlocks.SOUL_SHROOM_SPORE.getDefaultState(), 2);
             }
 
             p_236427_2_.move(Direction.DOWN);

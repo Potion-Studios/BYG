@@ -9,9 +9,9 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraftforge.common.Tags;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 import java.util.Set;
@@ -26,7 +26,7 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeFeatureCon
     protected static boolean isDirtOrPeatBlock(IWorldGenerationBaseReader worldIn, BlockPos pos) {
         return worldIn.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
-            return block.isIn(Tags.Blocks.DIRT) || block == BYGBlockList.PEAT;
+            return block.isIn(Tags.Blocks.DIRT) || block == BYGBlocks.PEAT;
         });
     }
 

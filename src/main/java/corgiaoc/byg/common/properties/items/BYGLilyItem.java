@@ -20,7 +20,7 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 public class BYGLilyItem extends BlockItem {
     public BYGLilyItem(Block blockIn, Item.Properties builder) {
@@ -53,7 +53,7 @@ public class BYGLilyItem extends BlockItem {
 
                     // special case for handling block placement with water lilies
                     net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.create(worldIn.getDimensionKey(), worldIn, blockpos1);
-                    worldIn.setBlockState(blockpos1, BYGBlockList.TINY_LILYPADS.getDefaultState(), 11);
+                    worldIn.setBlockState(blockpos1, BYGBlocks.TINY_LILYPADS.getDefaultState(), 11);
                     if (net.minecraftforge.event.ForgeEventFactory.onBlockPlace(playerIn, blocksnapshot, net.minecraft.util.Direction.UP)) {
                         blocksnapshot.restore(true, false);
                         return new ActionResult<ItemStack>(ActionResultType.FAIL, itemstack);

@@ -20,7 +20,7 @@
 //import net.minecraft.world.gen.feature.structure.IStructurePieceType;
 //import net.minecraft.world.gen.feature.structure.StructurePiece;
 //import net.minecraft.world.gen.feature.template.TemplateManager;
-//import voronoiaoc.byg.core.byglists.BYGBlockList;
+//import voronoiaoc.byg.core.byglists.BYGBlocks;
 //
 //import javax.annotation.Nullable;
 //import java.util.List;
@@ -30,8 +30,8 @@
 //    private static final SkyrisFortressPieces.PieceWeight[] PRIMARY_COMPONENTS = new SkyrisFortressPieces.PieceWeight[]{new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Straight.class, 30, 0, true), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Crossing3.class, 10, 4), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Crossing.class, 10, 4), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Stairs.class, 10, 3), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Throne.class, 5, 2), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Entrance.class, 5, 1)};
 //    private static final SkyrisFortressPieces.PieceWeight[] SECONDARY_COMPONENTS = new SkyrisFortressPieces.PieceWeight[]{new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Corridor5.class, 25, 0, true), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Crossing2.class, 15, 5), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Corridor2.class, 5, 10), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Corridor.class, 5, 10), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Corridor3.class, 10, 3, true), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.Corridor4.class, 7, 2), new SkyrisFortressPieces.PieceWeight(SkyrisFortressPieces.NetherStalkRoom.class, 5, 2)};
 //
-//    public static BlockState DACITEBRICKS = BYGBlockList.DACITE_BRICKS.getDefaultState();
-//    public static BlockState DACITEBRICKSTAIRS = BYGBlockList.DACITE_BRICK_STAIRS.getDefaultState();
+//    public static BlockState DACITEBRICKS = BYGBlocks.DACITE_BRICKS.getDefaultState();
+//    public static BlockState DACITEBRICKSTAIRS = BYGBlocks.DACITE_BRICK_STAIRS.getDefaultState();
 //    public static BlockState IRONBARS = Blocks.IRON_BARS.getDefaultState();
 //
 //    private static SkyrisFortressPieces.Piece findAndCreateBridgePieceFactory(SkyrisFortressPieces.PieceWeight pieceWeight, List<StructurePiece> structurePieceList, Random rand, int p_175887_3_, int p_175887_4_, int p_175887_5_, Direction direction, int p_175887_7_) {

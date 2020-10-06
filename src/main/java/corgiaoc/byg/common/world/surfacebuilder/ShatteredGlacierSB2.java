@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.surfacebuilder;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -8,14 +9,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
-    private static final BlockState PACKED_ICE = BYGBlockList.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE = BYGBlockList.BLACK_ICE.getDefaultState();
+    private static final BlockState PACKED_ICE = BYGBlocks.PACKED_BLACK_ICE.getDefaultState();
+    private static final BlockState BLUE_ICE = BYGBlocks.BLACK_ICE.getDefaultState();
     private static final BlockState BLUE_ICE2 = Blocks.SNOW_BLOCK.getDefaultState();
 
     public ShatteredGlacierSB2(Codec<SurfaceBuilderConfig> config) {

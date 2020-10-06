@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.world.dimension.end;
 
+import corgiaoc.byg.core.byglists.BYGBiomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -8,7 +9,6 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraftforge.fml.ModList;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.config.BYGWorldConfig;
-import corgiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +17,7 @@ import java.util.List;
 @SuppressWarnings("deprecation")
 public class BYGEndBiomeCatch {
 
-    public static final int IVISFIELDS = WorldGenRegistries.BIOME.getId(BYGBiomeList.IVISFIELDS);
+    public static final int IVISFIELDS = WorldGenRegistries.BIOME.getId(BYGBiomes.IVISFIELDS);
     public static final int SMALLENDISLANDS = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.SMALL_END_ISLANDS));
     public static final int ENDBARRENS = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.END_BARRENS));
     public static final int ENDHIGHLANDS = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.END_HIGHLANDS));

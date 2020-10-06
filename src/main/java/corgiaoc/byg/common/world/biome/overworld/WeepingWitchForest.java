@@ -1,24 +1,24 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGBiomeList;
-import corgiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.HashMap;
 
-public class WeepingWitchForest extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("weeping_witch_forest", new ConfiguredSurfaceBuilder<>(BYGSBList.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.FOREST;
+public class WeepingWitchForest extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("weeping_witch_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.EBONY_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.FOREST;
     static final float DEPTH = 0.35F;
     static final float SCALE = 0.05F;
     static final float TEMPERATURE = 0.25F;
@@ -28,25 +28,23 @@ public class WeepingWitchForest extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 5406551;
     static final int FOLIAGE_COLOR = 6589494;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
     public WeepingWitchForest() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
-    @Override
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.PUMPKIN_FOREST, 1);
-        map.put(BYGBiomeList.WEEPING_WTICH_CLEARING, 4);
+        map.put(BYGBiomes.PUMPKIN_FOREST, 1);
+        map.put(BYGBiomes.WEEPING_WTICH_CLEARING, 4);
         return map;
     }
 
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomeList.PUMPKIN_FOREST : BYGBiomeList.WEEPING_WTICH_CLEARING;
+    public Biome getHills(INoiseRandom rand) {
+        return (rand.random(5) == 0) ? BYGBiomes.PUMPKIN_FOREST : BYGBiomes.WEEPING_WTICH_CLEARING;
     }
 
     static {

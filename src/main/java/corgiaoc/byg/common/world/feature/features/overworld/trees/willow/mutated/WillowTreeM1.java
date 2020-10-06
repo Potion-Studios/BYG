@@ -1,15 +1,15 @@
 package corgiaoc.byg.common.world.feature.features.overworld.trees.willow.mutated;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -305,14 +305,14 @@ public class WillowTreeM1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
     private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHereWater(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.WILLOW_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.WILLOW_LOG.getDefaultState(), boundingBox);
         }
     }
 
 
     private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHereWater(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.WILLOW_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.WILLOW_LOG.getDefaultState(), boundingBox);
         }
     }
 
@@ -320,7 +320,7 @@ public class WillowTreeM1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().setPos(pos);
         if (isAirOrWater(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.WILLOW_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.WILLOW_LEAVES.getDefaultState(), boundingBox);
         }
     }
 
@@ -328,7 +328,7 @@ public class WillowTreeM1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     private void stem(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().setPos(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.RED_GLOWSHROOM_STEM.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.RED_GLOWSHROOM_STEM.getDefaultState(), boundingBox);
         }
     }
 
@@ -336,7 +336,7 @@ public class WillowTreeM1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     private void glowshroom(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().setPos(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.PURPLE_GLOWSHROOM_BLOCK.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.PURPLE_GLOWSHROOM_BLOCK.getDefaultState(), boundingBox);
         }
     }
 

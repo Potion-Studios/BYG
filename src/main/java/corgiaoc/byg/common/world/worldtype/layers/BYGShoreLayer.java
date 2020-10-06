@@ -7,7 +7,7 @@
 //import net.minecraft.world.gen.layer.traits.ICastleTransformer;
 //import voronoiaoc.byg.common.world.worldtype.BYGBiomeGetter;
 //import voronoiaoc.byg.common.world.worldtype.ClimateBooleans;
-//import voronoiaoc.byg.core.byglists.BYGBiomeList;
+//import voronoiaoc.byg.core.byglists.BYGBiomes;
 //
 //public enum BYGShoreLayer implements ICastleTransformer {
 //    INSTANCE;
@@ -24,22 +24,22 @@
 //                return BYGBiomeGetter.WHITEBEACH;
 //            }
 //        }
-//        if (biome != null && biome.getRainType() == Biome.RainType.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH) {
+//        if (biome != null && biome.getBiome.RainType() == Biome.Biome.RainType.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH) {
 //            if (ClimateBooleans.isOcean(n) || ClimateBooleans.isOcean(e) || ClimateBooleans.isOcean(s) || ClimateBooleans.isOcean(w)) {
 //                return BYGBiomeGetter.SNOWYBLACKBEACH;
 //            }
 //        }
-//        if (biome != null && biome.getRainType() == Biome.RainType.RAIN && biome != BYGBiomeList.DOVERMOUNTAINS && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH && biome != BYGBiomeList.GRASSLANDPLATEAU && biome != BYGBiomeList.TROPICALISLAND && biome.getCategory() != Biome.Category.SWAMP && biome != BYGBiomeList.MARSHLANDS && biome.getCategory() != Biome.Category.MUSHROOM) {
+//        if (biome != null && biome.getBiome.RainType() == Biome.Biome.RainType.RAIN && biome != BYGBiomes.DOVERMOUNTAINS && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH && biome != BYGBiomes.GRASSLANDPLATEAU && biome != BYGBiomes.TROPICALISLAND && biome.getCategory() != Biome.Category.SWAMP && biome != BYGBiomes.MARSHLANDS && biome.getCategory() != Biome.Category.MUSHROOM) {
 //            if (ClimateBooleans.isOcean(n) || ClimateBooleans.isOcean(e) || ClimateBooleans.isOcean(s) || ClimateBooleans.isOcean(w)) {
 //                return BYGBiomeGetter.VANILLABEACH;
 //            }
 //        }
-//        if (biome == BYGBiomeList.GRASSLANDPLATEAU) {
+//        if (biome == BYGBiomes.GRASSLANDPLATEAU) {
 //            if (ClimateBooleans.isOcean(n) || ClimateBooleans.isOcean(e) || ClimateBooleans.isOcean(s) || ClimateBooleans.isOcean(w)) {
 //                return BYGBiomeGetter.ROCKYBEACH;
 //            }
 //        }
-//        if (biome == BYGBiomeList.TROPICALISLAND) {
+//        if (biome == BYGBiomes.TROPICALISLAND) {
 //            if (ClimateBooleans.isOcean(n) || ClimateBooleans.isOcean(e) || ClimateBooleans.isOcean(s) || ClimateBooleans.isOcean(w)) {
 //                return BYGBiomeGetter.RAINBOWBEACH;
 //            }

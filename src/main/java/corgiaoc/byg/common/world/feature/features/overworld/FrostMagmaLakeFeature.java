@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.overworld;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
@@ -12,7 +13,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -106,10 +106,10 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
                             lvt_12_5_ = blockPos.add(lvt_9_5_, lvt_11_4_ - 1, lvt_10_5_);
                             if (isDirt(world.getBlockState(lvt_12_5_).getBlock()) && world.getLightFor(LightType.SKY, blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
                                 Biome lvt_13_2_ = world.getBiome(lvt_12_5_);
-                                if (lvt_13_2_.getGenerationSettings().getSurfaceBuilderConfig().getTop().getBlock() == BYGBlockList.FROST_MAGMA) {
-                                    world.setBlockState(lvt_12_5_, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
+                                if (lvt_13_2_.getGenerationSettings().getSurfaceBuilderConfig().getTop().getBlock() == BYGBlocks.FROST_MAGMA) {
+                                    world.setBlockState(lvt_12_5_, BYGBlocks.FROST_MAGMA.getDefaultState(), 2);
                                 } else {
-                                    world.setBlockState(lvt_12_5_, BYGBlockList.FROST_MAGMA.getDefaultState(), 2);
+                                    world.setBlockState(lvt_12_5_, BYGBlocks.FROST_MAGMA.getDefaultState(), 2);
                                 }
                             }
                         }
@@ -123,7 +123,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
                         for (lvt_11_4_ = 0; lvt_11_4_ < 8; ++lvt_11_4_) {
                             lvt_12_4_ = !flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_] && (lvt_9_5_ < 15 && flagArray[((lvt_9_5_ + 1) * 16 + lvt_10_5_) * 8 + lvt_11_4_] || lvt_9_5_ > 0 && flagArray[((lvt_9_5_ - 1) * 16 + lvt_10_5_) * 8 + lvt_11_4_] || lvt_10_5_ < 15 && flagArray[(lvt_9_5_ * 16 + lvt_10_5_ + 1) * 8 + lvt_11_4_] || lvt_10_5_ > 0 && flagArray[(lvt_9_5_ * 16 + (lvt_10_5_ - 1)) * 8 + lvt_11_4_] || lvt_11_4_ < 7 && flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_ + 1] || lvt_11_4_ > 0 && flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + (lvt_11_4_ - 1)]);
                             if (lvt_12_4_ && (lvt_11_4_ < 4 || rand.nextInt(2) != 0) && world.getBlockState(blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_)).getMaterial().isSolid()) {
-                                world.setBlockState(blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_), BYGBlockList.PACKED_BLACK_ICE.getDefaultState(), 2);
+                                world.setBlockState(blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_), BYGBlocks.PACKED_BLACK_ICE.getDefaultState(), 2);
                             }
                         }
                     }

@@ -14,7 +14,7 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import corgiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
-import corgiaoc.byg.core.byglists.BYGBiomeList;
+import corgiaoc.byg.core.byglists.BYGBiomes;
 
 import java.util.Optional;
 import java.util.Random;
@@ -70,7 +70,7 @@ public class VolcanoFeature extends Feature<NoFeatureConfig> {
         for (int x = -32; x <= 32; x++) {
             for (int z = -32; z <= 32; z++) {
                 mutable.setPos(position.getX() + x, world.getSeaLevel(), position.getZ() + z);
-                Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(BYGBiomeList.VOLCANO);
+                Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(BYGBiomes.VOLCANO);
                 if (key.isPresent()) {
                     if (world.func_242406_i(mutable).equals(key)) {
                         foundVolcanoBiome = false;

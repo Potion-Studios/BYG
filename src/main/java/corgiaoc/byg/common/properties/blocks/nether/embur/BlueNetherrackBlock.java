@@ -9,7 +9,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -46,7 +46,7 @@ public class BlueNetherrackBlock extends Block implements IGrowable {
 
         for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-1, -1, -1), pos.add(1, 1, 1))) {
             BlockState blockstate = worldIn.getBlockState(blockpos);
-            if (blockstate.isIn(BYGBlockList.EMBUR_NYLIUM)) {
+            if (blockstate.isIn(BYGBlocks.EMBUR_NYLIUM)) {
                 flag1 = true;
             }
 
@@ -56,11 +56,11 @@ public class BlueNetherrackBlock extends Block implements IGrowable {
         }
 
         if (flag1 && flag) {
-            worldIn.setBlockState(pos, rand.nextBoolean() ? BYGBlockList.EMBUR_NYLIUM.getDefaultState() : BYGBlockList.EMBUR_NYLIUM.getDefaultState(), 3);
+            worldIn.setBlockState(pos, rand.nextBoolean() ? BYGBlocks.EMBUR_NYLIUM.getDefaultState() : BYGBlocks.EMBUR_NYLIUM.getDefaultState(), 3);
         } else if (flag1) {
-            worldIn.setBlockState(pos, BYGBlockList.EMBUR_NYLIUM.getDefaultState(), 3);
+            worldIn.setBlockState(pos, BYGBlocks.EMBUR_NYLIUM.getDefaultState(), 3);
         } else if (flag) {
-            worldIn.setBlockState(pos, BYGBlockList.EMBUR_NYLIUM.getDefaultState(), 3);
+            worldIn.setBlockState(pos, BYGBlocks.EMBUR_NYLIUM.getDefaultState(), 3);
         }
 
     }

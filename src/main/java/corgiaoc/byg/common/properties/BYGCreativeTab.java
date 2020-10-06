@@ -1,15 +1,15 @@
 package corgiaoc.byg.common.properties;
 
+import corgiaoc.byg.core.byglists.BYGItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.core.byglists.BYGItemList;
 
 public class BYGCreativeTab {
     public static ItemGroup creativeTab = new ItemGroup("byg") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(BYGItemList.BYG_LOGO);
+            return new ItemStack(BYGItems.BYG_LOGO);
         }
 
         @Override

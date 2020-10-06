@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 @Mixin(AbstractFireBlock.class)
 public abstract class MixinAbstractFireBlock {
@@ -20,7 +20,7 @@ public abstract class MixinAbstractFireBlock {
         BlockState blockstate = reader.getBlockState(blockpos);
         if (BoricFireBlock.shouldLightBoricFire(blockstate.getBlock())) {
             cir.cancel();
-            cir.setReturnValue(BYGBlockList.BORIC_FIRE.getDefaultState());
+            cir.setReturnValue(BYGBlocks.BORIC_FIRE.getDefaultState());
         }
     }
 }

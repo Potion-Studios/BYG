@@ -1,11 +1,11 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 public class BYGBeachGrassBlock extends TallGrassBlock implements IGrowable {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
@@ -17,7 +17,7 @@ public class BYGBeachGrassBlock extends TallGrassBlock implements IGrowable {
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.SAND || block == Blocks.RED_SAND || block == BYGBlockList.BLUE_SAND || block == BYGBlockList.PINK_SAND || block == BYGBlockList.PURPLE_SAND || block == BYGBlockList.BLACK_SAND || block == BYGBlockList.WHITE_SAND;
+        return block == Blocks.SAND || block == Blocks.RED_SAND || block == BYGBlocks.BLUE_SAND || block == BYGBlocks.PINK_SAND || block == BYGBlocks.PURPLE_SAND || block == BYGBlocks.BLACK_SAND || block == BYGBlocks.WHITE_SAND;
     }
 
     @Override

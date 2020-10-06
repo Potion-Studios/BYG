@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.sythian;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -12,7 +13,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -32,15 +32,15 @@ public class SythianStalkBlock extends BambooBlock {
             return null;
         } else {
             BlockState blockStateDOWN = ctx.getWorld().getBlockState(ctx.getPos().down());
-            if (blockStateDOWN.getBlock() == BYGBlockList.SYTHIAN_NYLIUM) {
+            if (blockStateDOWN.getBlock() == BYGBlocks.SYTHIAN_NYLIUM) {
                 Block blockDOWN = blockStateDOWN.getBlock();
-                if (blockDOWN == BYGBlockList.SYTHIAN_SAPLING) {
+                if (blockDOWN == BYGBlocks.SYTHIAN_SAPLING) {
                     return this.getDefaultState().with(PROPERTY_AGE, 0);
                 } else if (blockDOWN == this) {
                     int getPropertyAge = blockStateDOWN.get(PROPERTY_AGE) > 0 ? 1 : 0;
                     return this.getDefaultState().with(PROPERTY_AGE, getPropertyAge);
                 } else {
-                    return BYGBlockList.SYTHIAN_SAPLING.getDefaultState();
+                    return BYGBlocks.SYTHIAN_SAPLING.getDefaultState();
                 }
             } else {
                 return null;
@@ -104,7 +104,7 @@ public class SythianStalkBlock extends BambooBlock {
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.SYTHIAN_NYLIUM || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.SYTHIAN_STALK_BLOCK;
+        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.SYTHIAN_NYLIUM || worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.SYTHIAN_STALK_BLOCK;
     }
 
 }

@@ -20,7 +20,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import corgiaoc.byg.core.byglists.BYGItemList;
+import corgiaoc.byg.core.byglists.BYGItems;
 
 public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_0_3;
@@ -32,7 +32,7 @@ public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements IGrowa
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItemList.CRIMSON_BERRIES);
+        return new ItemStack(BYGItems.CRIMSON_BERRIES);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements IGrowa
             return ActionResultType.PASS;
         } else if (i > 1) {
             int j = 1 + worldIn.rand.nextInt(2);
-            spawnAsEntity(worldIn, pos, new ItemStack(BYGItemList.CRIMSON_BERRIES, j + (flag ? 1 : 0)));
+            spawnAsEntity(worldIn, pos, new ItemStack(BYGItems.CRIMSON_BERRIES, j + (flag ? 1 : 0)));
             worldIn.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
             return ActionResultType.SUCCESS;

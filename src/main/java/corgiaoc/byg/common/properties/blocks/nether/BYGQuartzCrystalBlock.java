@@ -17,7 +17,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.Tags;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 public class BYGQuartzCrystalBlock extends Block {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
@@ -56,6 +56,6 @@ public class BYGQuartzCrystalBlock extends Block {
     }
 
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(Tags.Blocks.STONE) || state.isIn(Tags.Blocks.DIRT) || state.isIn(Tags.Blocks.SAND) || state.isIn(BYGBlockList.QUARTZITE_SAND) || state.isIn(BYGBlockList.RAW_QUARTZ_BLOCK);
+        return state.isIn(Tags.Blocks.STONE) || state.isIn(Tags.Blocks.DIRT) || state.isIn(Tags.Blocks.SAND) || state.isIn(BYGBlocks.QUARTZITE_SAND) || state.isIn(BYGBlocks.RAW_QUARTZ_BLOCK);
     }
 }

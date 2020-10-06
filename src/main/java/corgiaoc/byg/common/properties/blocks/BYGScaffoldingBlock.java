@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
@@ -13,7 +14,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -32,7 +32,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
         BlockPos.Mutable blockpos$mutable = (new BlockPos.Mutable().setPos(pos)).move(Direction.DOWN);
         BlockState blockstate = blockReader.getBlockState(blockpos$mutable);
         int i = 7;
-        if (blockstate.getBlock() == BYGBlockList.SYTHIAN_SCAFFOLDING) {
+        if (blockstate.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING) {
             i = blockstate.get(DISTANCE);
         } else if (blockstate.isSolidSide(blockReader, blockpos$mutable, Direction.UP)) {
             return 0;
@@ -40,7 +40,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
 
         for (Direction direction : Direction.Plane.HORIZONTAL) {
             BlockState blockstate1 = blockReader.getBlockState(blockpos$mutable.setPos(pos).move(direction));
-            if (blockstate1.getBlock() == BYGBlockList.SYTHIAN_SCAFFOLDING) {
+            if (blockstate1.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING) {
                 i = Math.min(i, blockstate1.get(DISTANCE) + 1);
                 if (i == 1) {
                     break;

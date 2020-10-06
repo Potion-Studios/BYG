@@ -1,21 +1,25 @@
 package corgiaoc.byg.common.world.biome.overworld.sub;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.byglists.BYGConfiguredFeatures;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGConfiguredFeatures;
-import corgiaoc.byg.core.byglists.BYGSBList;
 
-public class ForestFault extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("forest_fault", new ConfiguredSurfaceBuilder<>(BYGSBList.CONIFEROUS_SB, BYGSBList.BYGSBConfigList.PEATGRASS_CF));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.TAIGA;
+import javax.annotation.Nullable;
+
+public class ForestFault extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("forest_fault", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CONIFEROUS_SB, BYGSurfaceBuilders.BYGSBConfigList.PEATGRASS_CF));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.TAIGA;
     static final float DEPTH = 0.2F;
     static final float SCALE = 0.2F;
     static final float TEMPERATURE = 0.25F;
@@ -25,12 +29,12 @@ public class ForestFault extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 5011004;
     static final int FOLIAGE_COLOR = 2263842;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
     public ForestFault() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
 
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
@@ -76,33 +80,25 @@ public class ForestFault extends Biome implements BiomeTools {
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
     }
 
-//    @Override
-//    public Biome getRiver() {
-//        return WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER;
-//    }
 
+
+    @Nullable
     @Override
-    public int getFoliageColor() {
-        return 2263842;
+    public Biome getHills(INoiseRandom rand) {
+        return randomSubBiome(rand);
     }
 
-//    @Nullable
-//    @Override
-//    public Biome getHill(INoiseRandom rand) {
-//        return randomSubBiome(rand);
-//    }
-
-//    public Biome randomSubBiome(INoiseRandom random) {
-//        int randomPicker = random.random(4);
-//        if (randomPicker == 0)
-//            return BYGBiomeList.CONIFEROUSFORESTHILLS;
-//        else if (randomPicker == 1)
-//            return BYGBiomeList.CONIFEROUS_CLEARING;
-//        else if (randomPicker == 2)
-//            return BYGBiomeList.CONIFEROUS_CLEARING;
-//        else
-//            return BYGBiomeList.FRESHWATERLAKE;
-//    }
+    public Biome randomSubBiome(INoiseRandom random) {
+        int randomPicker = random.random(4);
+        if (randomPicker == 0)
+            return BYGBiomes.CONIFEROUSFORESTHILLS;
+        else if (randomPicker == 1)
+            return BYGBiomes.CONIFEROUS_CLEARING;
+        else if (randomPicker == 2)
+            return BYGBiomes.CONIFEROUS_CLEARING;
+        else
+            return BYGBiomes.FRESHWATERLAKE;
+    }
 
     static {
         ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));

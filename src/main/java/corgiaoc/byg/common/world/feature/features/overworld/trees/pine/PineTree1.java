@@ -9,7 +9,7 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
 import java.util.Random;
@@ -17,14 +17,14 @@ import java.util.Set;
 
 public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     //Blocks used for the tree.
-    //private static final BlockState LOG = BYGBlockList.PINE_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlockList.PINE_LEAVES.getDefaultState();
+    //private static final BlockState LOG = BYGBlocks.PINE_LOG.getDefaultState();
+    //private static final BlockState LEAVES = BYGBlocks.PINE_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
     Random random = new Random();
 
     public PineTree1(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
-        //setSapling((net.minecraftforge.common.IPlantable) BYGBlockList.PINE_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlocks.PINE_SAPLING);
     }
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {

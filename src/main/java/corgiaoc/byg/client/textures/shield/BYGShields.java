@@ -11,7 +11,7 @@
 //import net.minecraft.item.ShieldItem;
 //import net.minecraft.tileentity.BannerTileEntity;
 //import net.minecraft.util.ResourceLocation;
-//import sporeaoc.sporeaoc.byg.catalogs.BYGItemList;
+//import sporeaoc.sporeaoc.byg.catalogs.BYGItems;
 //
 //public class BYGShields {
 //    public static class BYGShieldResourceLocations extends BannerTextures {
@@ -25,7 +25,7 @@
 //        @Overrider
 //        public void renderByItem(ItemStack itemStack) {
 //            Item item = itemStack.getItem();
-//            if (item == BYGItemList.AMETRINE_SHIELD) {
+//            if (item == BYGItems.AMETRINE_SHIELD) {
 //                if (itemStack.getChildTag("BlockEntityTag") != null) {
 //                    this.banner.loadFromItemStack(itemStack, ShieldItem.getColor(itemStack));
 //                    Minecraft.getInstance().getTextureManager().bindTexture(BannerTextures.SHIELD_DESIGNS.getResourceLocation(this.banner.getPatternResourceLocation(), this.banner.getPatternList(), this.banner.getColorList()));

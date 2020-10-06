@@ -1,21 +1,21 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.core.byglists.BYGBiomeList;
-import corgiaoc.byg.core.byglists.BYGSBList;
 
 import java.util.Collections;
 import java.util.HashMap;
 
-public class Dunes extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("dunes", new ConfiguredSurfaceBuilder<>(BYGSBList.DUNES_SB, BYGSBList.BYGSBConfigList.SAND_CF));
-    static final RainType PRECIPATATION = RainType.NONE;
-    static final Category CATEGORY = Category.DESERT;
+public class Dunes extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("dunes", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.DUNES_SB, BYGSurfaceBuilders.BYGSBConfigList.SAND_CF));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
+    static final Biome.Category CATEGORY = Biome.Category.DESERT;
     static final float DEPTH = 1.3F;
     static final float SCALE = 0.5F;
     static final float TEMPERATURE = 2.00F;
@@ -23,23 +23,21 @@ public class Dunes extends Biome implements BiomeTools {
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
     public Dunes() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
 
-    @Override
     public HashMap<Biome, Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomeList.OASIS, 1));
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.OASIS, 1));
     }
 
-    @Override
-    public Biome getHill(INoiseRandom rand) {
-        return BYGBiomeList.OASIS;
+    public Biome getHills(INoiseRandom rand) {
+        return BYGBiomes.OASIS;
     }
 
     static {

@@ -14,7 +14,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.IPlantable;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -76,7 +76,7 @@ public class BYGGlowcane extends Block implements IPlantable {
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         if (isAir(state, worldIn, pos.down()))
             return false;
-        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.GLOWCELIUM || worldIn.getBlockState(pos.down()).getBlock() == this;
+        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.GLOWCELIUM || worldIn.getBlockState(pos.down()).getBlock() == this;
 
     }
 

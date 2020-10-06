@@ -1,5 +1,6 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
+import corgiaoc.byg.core.byglists.BYGBiomes;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -9,7 +10,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import corgiaoc.byg.core.byglists.BYGBiomeList;
 
 @Mixin(ShoreLayer.class)
 public abstract class MixinShoreLayer {
@@ -32,17 +32,17 @@ public abstract class MixinShoreLayer {
         Biome biome = WorldGenRegistries.BIOME.getByValue(centre);
 
         for (int idx : ArrayNESW) {
-            if (biome == BYGBiomeList.ALPS)
-                if (idx != WorldGenRegistries.BIOME.getId(BYGBiomeList.ALPS))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.ALPINEFOOTHILLS));
+            if (biome == BYGBiomes.ALPS)
+                if (idx != WorldGenRegistries.BIOME.getId(BYGBiomes.ALPS))
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ALPINEFOOTHILLS));
 
-            if (biome == BYGBiomeList.ALPS)
+            if (biome == BYGBiomes.ALPS)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.SNOWYBLACKBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.SNOWYBLACKBEACH));
 
-            if (biome == BYGBiomeList.DOVERMOUNTAINS)
+            if (biome == BYGBiomes.DOVERMOUNTAINS)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.WHITEBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.WHITEBEACH));
 
             if (biome != null && biome.getCategory() == Biome.Category.SWAMP)
                 if (isOcean(idx))
@@ -50,44 +50,47 @@ public abstract class MixinShoreLayer {
 
             if (biome != null && biome.getPrecipitation() == Biome.RainType.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.SNOWYBLACKBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.SNOWYBLACKBEACH));
 
-            if (biome == BYGBiomeList.GRASSLANDPLATEAU)
+            if (biome == BYGBiomes.GRASSLANDPLATEAU)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.ROCKYBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKYBEACH));
 
-            if (biome == BYGBiomeList.TROPICALISLAND || biome == BYGBiomeList.TROPICAL_ISLAND_MOUNTAINS || biome == BYGBiomeList.TROPICAL_ISLAND_CLEARING)
+            if (biome == BYGBiomes.TROPICALISLAND || biome == BYGBiomes.TROPICAL_ISLAND_MOUNTAINS || biome == BYGBiomes.TROPICAL_ISLAND_CLEARING)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.RAINBOWBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOWBEACH));
 
-            if (biome == BYGBiomeList.TROPICALRAINFOREST || biome == BYGBiomeList.TROPICALRAINFORESTHILLS)
+            if (biome == BYGBiomes.TROPICALRAINFOREST || biome == BYGBiomes.TROPICALRAINFORESTHILLS)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.RAINBOWBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOWBEACH));
 
-            if (biome == BYGBiomeList.TROPICALFUNGALRAINFOREST || biome == BYGBiomeList.TROPICALFUNGALRAINFORESTHILLS || biome == BYGBiomeList.FUNGAL_PATCH)
+            if (biome == BYGBiomes.TROPICALFUNGALRAINFOREST || biome == BYGBiomes.TROPICALFUNGALRAINFORESTHILLS || biome == BYGBiomes.FUNGAL_PATCH)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.RAINBOWBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOWBEACH));
 
-            if (biome == BYGBiomeList.GUIANASHIELD || biome == BYGBiomeList.GUIANA_CLEARING)
+            if (biome == BYGBiomes.GUIANASHIELD || biome == BYGBiomes.GUIANA_CLEARING)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.ROCKYBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKYBEACH));
 
-            if (biome == BYGBiomeList.SKYRISHIGHLANDS)
+            if (biome == BYGBiomes.SKYRISHIGHLANDS)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.ROCKYBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKYBEACH));
 
             if (biome != null && biome.getDepth() > 2.0F)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.BASALT_BARRERA));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.BASALT_BARRERA));
 
 
-            if (biome == BYGBiomeList.THE_BLACK_FOREST || biome == BYGBiomeList.BLACK_FOREST_CLEARING || biome == BYGBiomeList.BLACK_FOREST_HILLS || biome == BYGBiomeList.FOREST_FAULT)
+            if (biome == BYGBiomes.THE_BLACK_FOREST || biome == BYGBiomes.BLACK_FOREST_CLEARING || biome == BYGBiomes.BLACK_FOREST_HILLS || biome == BYGBiomes.FOREST_FAULT)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomeList.ROCKYBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKYBEACH));
         }
     }
 
     private static boolean isOcean(int biome) {
         return biome == WARM_OCEAN || biome == LUKEWARM_OCEAN || biome == OCEAN || biome == COLD_OCEAN || biome == FROZEN_OCEAN || biome == DEEP_WARM_OCEAN || biome == DEEP_LUKEWARM_OCEAN || biome == DEEP_OCEAN || biome == DEEP_COLD_OCEAN || biome == DEEP_FROZEN_OCEAN;
     }
+
+
+
 }

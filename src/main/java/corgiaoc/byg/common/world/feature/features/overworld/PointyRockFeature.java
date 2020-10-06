@@ -7,7 +7,7 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
-import corgiaoc.byg.common.world.feature.featureconfig.PointyRockFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.PointyRockFeatureConfig;
 import corgiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 
 import java.util.Random;

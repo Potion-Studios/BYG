@@ -5,7 +5,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 public class BoricFireBlock extends AbstractFireBlock {
 
@@ -22,7 +22,7 @@ public class BoricFireBlock extends AbstractFireBlock {
     }
 
     public static boolean shouldLightBoricFire(Block block) {
-        return block == BYGBlockList.BRIMSTONE;
+        return block == BYGBlocks.BRIMSTONE;
     }
 
     protected boolean canBurn(BlockState state) {

@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.overworld.trees.bayou;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -12,7 +13,6 @@ import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -31,7 +31,7 @@ public class BayouTree3 extends Feature<NoFeatureConfig> {
         BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);
         BlockPos.Mutable mainMutable = new BlockPos.Mutable().setPos(block);
 
-        if (!this.checkArea(worldIn, pos, 5) || worldIn.getBlockState(pos.down()).getBlock() != Blocks.DIRT && worldIn.getBlockState(pos.down()).getBlock() != BYGBlockList.MUD_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK) {
+        if (!this.checkArea(worldIn, pos, 5) || worldIn.getBlockState(pos.down()).getBlock() != Blocks.DIRT && worldIn.getBlockState(pos.down()).getBlock() != BYGBlocks.MUD_BLOCK && worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK) {
             return false;
         } else {
             for (int i = 3; i <= randTreeHeight; i++) {
@@ -100,13 +100,13 @@ public class BayouTree3 extends Feature<NoFeatureConfig> {
     }
 
     protected void setWillowLog(IWorldWriter worldIn, BlockPos pos) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LOG.getDefaultState());
+        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlocks.WILLOW_LOG.getDefaultState());
     }
 
     protected void setWillowLeaves(IWorldWriter worldIn, BlockPos pos) {
         if ((worldIn instanceof IWorldReader)) {
-            if (((IWorldReader) worldIn).getBlockState(pos).getBlock() != BYGBlockList.WILLOW_LOG)
-                this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlockList.WILLOW_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, Integer.valueOf(1)));
+            if (((IWorldReader) worldIn).getBlockState(pos).getBlock() != BYGBlocks.WILLOW_LOG)
+                this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlocks.WILLOW_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, Integer.valueOf(1)));
         }
     }
 
@@ -123,7 +123,7 @@ public class BayouTree3 extends Feature<NoFeatureConfig> {
             for (int checkZ = -radius; checkZ <= radius; checkZ++) {
                 BlockPos checkArea = new BlockPos(posX + checkX, posY, posZ + checkZ);
 
-                if (world.getBlockState(checkArea).getBlock() == BYGBlockList.WILLOW_LOG) return false;
+                if (world.getBlockState(checkArea).getBlock() == BYGBlocks.WILLOW_LOG) return false;
 
             }
         }

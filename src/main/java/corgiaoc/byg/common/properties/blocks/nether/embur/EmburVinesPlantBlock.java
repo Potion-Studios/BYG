@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.embur;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -21,7 +22,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -58,15 +58,15 @@ public class EmburVinesPlantBlock extends Block implements IGrowable {
             return null;
         } else {
             BlockState blockStateUP = ctx.getWorld().getBlockState(ctx.getPos().up());
-            if (blockStateUP.getBlock() == BYGBlockList.EMBUR_GEL_BLOCK) {
+            if (blockStateUP.getBlock() == BYGBlocks.EMBUR_GEL_BLOCK) {
                 Block blockUP = blockStateUP.getBlock();
-                if (blockUP == BYGBlockList.EMBUR_GEL_VINES) {
+                if (blockUP == BYGBlocks.EMBUR_GEL_VINES) {
                     return this.getDefaultState().with(PROPERTY_AGE, 0);
                 } else if (blockUP == this) {
                     int getPropertyAge = blockStateUP.get(PROPERTY_AGE) > 0 ? 1 : 0;
                     return this.getDefaultState().with(PROPERTY_AGE, getPropertyAge);
                 } else {
-                    return BYGBlockList.EMBUR_GEL_VINES.getDefaultState();
+                    return BYGBlocks.EMBUR_GEL_VINES.getDefaultState();
                 }
             } else {
                 return null;
@@ -86,8 +86,8 @@ public class EmburVinesPlantBlock extends Block implements IGrowable {
         if (!stateIn.isValidPosition(worldIn, currentPos)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            if (facing == Direction.DOWN && facingState.getBlock() == BYGBlockList.EMBUR_GEL_BLOCK) {
-                worldIn.setBlockState(currentPos, BYGBlockList.EMBUR_GEL_BLOCK.getDefaultState(), 2);
+            if (facing == Direction.DOWN && facingState.getBlock() == BYGBlocks.EMBUR_GEL_BLOCK) {
+                worldIn.setBlockState(currentPos, BYGBlocks.EMBUR_GEL_BLOCK.getDefaultState(), 2);
             }
 
             return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
@@ -107,7 +107,7 @@ public class EmburVinesPlantBlock extends Block implements IGrowable {
     }
 
     protected void func_220087_a(World world, BlockPos pos) {
-        world.setBlockState(pos.down(), BYGBlockList.EMBUR_GEL_VINES.getDefaultState(), 3);
+        world.setBlockState(pos.down(), BYGBlocks.EMBUR_GEL_VINES.getDefaultState(), 3);
     }
 
     public float getPlayerRelativeBlockHardness(BlockState state, PlayerEntity player, IBlockReader worldIn, BlockPos pos) {
@@ -118,7 +118,7 @@ public class EmburVinesPlantBlock extends Block implements IGrowable {
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         if (isAir(worldIn.getBlockState(pos.up()), worldIn, pos))
             return false;
-        return worldIn.getBlockState(pos.up()).getBlock() == BYGBlockList.EMBUR_GEL_VINES || worldIn.getBlockState(pos.up()).getBlock() == BYGBlockList.EMBUR_GEL_BLOCK;
+        return worldIn.getBlockState(pos.up()).getBlock() == BYGBlocks.EMBUR_GEL_VINES || worldIn.getBlockState(pos.up()).getBlock() == BYGBlocks.EMBUR_GEL_BLOCK;
 
     }
 

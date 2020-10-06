@@ -1,13 +1,13 @@
 package corgiaoc.byg.common.world.feature.features.overworld.mushrooms;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGMushroomFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGMushroomFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGAbstractMushroomFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -322,14 +322,14 @@ public class SoulShroomTree3 extends BYGAbstractMushroomFeature<BYGMushroomFeatu
 
     private void soulShroomSporeEnd(ISeedReader reader, BlockPos pos) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(reader, pos, BYGBlockList.SOUL_SHROOM_SPORE_END.getDefaultState());
+            this.setFinalBlockState(reader, pos, BYGBlocks.SOUL_SHROOM_SPORE_END.getDefaultState());
         }
     }
 
     //Leaves Placement
     private void soulShroomSpore(ISeedReader reader, BlockPos pos) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(reader, pos, BYGBlockList.SOUL_SHROOM_SPORE.getDefaultState());
+            this.setFinalBlockState(reader, pos, BYGBlocks.SOUL_SHROOM_SPORE.getDefaultState());
         }
     }
 }

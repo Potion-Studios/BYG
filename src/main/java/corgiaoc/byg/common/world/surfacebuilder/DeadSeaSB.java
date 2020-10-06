@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.surfacebuilder;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.tags.FluidTags;
@@ -12,7 +13,6 @@ import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import corgiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -20,7 +20,7 @@ public class DeadSeaSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     protected ChunkFastSimplexStyleNoise noiseGen;
     protected long seed;
     protected PerlinNoiseGenerator perlin1;
-    BlockState[] blockStateArray = {BYGBlockList.ROCKY_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), BYGBlockList.MOSSY_STONE.getDefaultState()};
+    BlockState[] blockStateArray = {BYGBlocks.ROCKY_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), BYGBlocks.MOSSY_STONE.getDefaultState()};
 
     public DeadSeaSB(Codec<SurfaceBuilderConfig> config) {
         super(config);
@@ -54,7 +54,7 @@ public class DeadSeaSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 mutable.move(Direction.UP, maximumHeight);
                 for (int y = maximumHeight; y >= 0; y--) {
                     if (chunk.getBlockState(mutable).isAir() || chunk.getBlockState(mutable).getFluidState().isTagged(FluidTags.WATER) || chunk.getBlockState(mutable).getBlock() == Blocks.WATER) {
-                        chunk.setBlockState(mutable, BYGBlockList.ROCKY_STONE.getDefaultState(), false);
+                        chunk.setBlockState(mutable, BYGBlocks.ROCKY_STONE.getDefaultState(), false);
                     }
                     mutable.move(Direction.DOWN);
                 }

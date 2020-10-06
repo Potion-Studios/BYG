@@ -10,7 +10,7 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import corgiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGHugeMushroom;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -44,7 +44,7 @@ public class BYGMushroomProperties extends BushBlock implements IGrowable {
         BlockPos blockpos = pos.down();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        if (block != Blocks.MYCELIUM && block != Blocks.PODZOL && block != BYGBlockList.GLOWCELIUM) {
+        if (block != Blocks.MYCELIUM && block != Blocks.PODZOL && block != BYGBlocks.GLOWCELIUM) {
             return worldIn.getLightSubtracted(pos, 0) < 13 && blockstate.canSustainPlant(worldIn, blockpos, net.minecraft.util.Direction.UP, this);
         } else {
             return true;

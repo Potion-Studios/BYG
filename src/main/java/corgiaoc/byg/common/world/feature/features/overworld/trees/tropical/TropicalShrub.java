@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
 
 import java.util.Random;
@@ -17,8 +17,8 @@ import java.util.Set;
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
 public class TropicalShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     //BYGBlockRenders used for the tree.
-    //private static final BlockState LOG = BYGBlockList.MAHOGANY_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlockList.MAHOGANY_LEAVES.getDefaultState();
+    //private static final BlockState LOG = BYGBlocks.MAHOGANY_LOG.getDefaultState();
+    //private static final BlockState LEAVES = BYGBlocks.MAHOGANY_LEAVES.getDefaultState();
 
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 

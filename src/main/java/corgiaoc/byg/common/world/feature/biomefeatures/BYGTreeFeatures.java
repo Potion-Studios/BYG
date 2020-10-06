@@ -152,7 +152,7 @@ public class BYGTreeFeatures {
     }
 
     public static void addRainbowTrees(BiomeGenerationSettings.Builder biome) {
-        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.RAINBOW_TREE1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(5, 0.5F, -4))));
+        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.RAINBOW_TREE1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(5, 0.5F, -4))));
     }
 
     public static void addCragRainbowTrees(BiomeGenerationSettings.Builder biome) {
@@ -164,9 +164,9 @@ public class BYGTreeFeatures {
     }
 
     public static void addIslandRainbowTrees(BiomeGenerationSettings.Builder biome) {
-        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.RAINBOW_TREE1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.5F, 10))));
+        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.RAINBOW_TREE1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.5F, 10))));
         //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.BAMBOO.configure(new ProbabilityConfig(0.05F)).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(64))));
-        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(4, 0.1F, -1))));
+        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.SHRUB.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(4, 0.1F, -1))));
         //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.configure(LILY_PAD_CONFIG).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(4))));
     }
 
@@ -304,14 +304,14 @@ public class BYGTreeFeatures {
 
     //TODO: Random Selector Mojave Shrubs
     public static void addBushes(BiomeGenerationSettings.Builder biome) {
-        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_PRAIRIE1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 2))));
-        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.SHRUB_PRAIRIE2.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 2))));
+        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.SHRUB_PRAIRIE1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 2))));
+        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.SHRUB_PRAIRIE2.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.8F, 2))));
     }
 
     public static void addRedRockCanyonVegetation(BiomeGenerationSettings.Builder biome) {
-        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.JOSHUA_TREE1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.JOSHUA_TREE2.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
-        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatureList.CACTUS.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(8))));
+        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.JOSHUA_TREE1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.JOSHUA_TREE2.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+        //biome.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGFeatures.CACTUS.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new CountDecoratorConfig(8))));
     }
 
     public static void addPalmTree(BiomeGenerationSettings.Builder biome) {

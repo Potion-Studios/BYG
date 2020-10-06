@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.weepingmire;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -14,7 +15,6 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -34,7 +34,7 @@ public class LamentVineBlock extends AbstractTopPlantBlock {
     }
 
     protected Block getBodyPlantBlock() {
-        return BYGBlockList.LAMENT_VINE_PLANT;
+        return BYGBlocks.LAMENT_VINE_PLANT;
     }
 
     protected boolean canGrowIn(BlockState state) {

@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.feature.features.overworld.trees.util;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -23,10 +24,9 @@ import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraftforge.common.Tags;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.FeatureUtil;
 import corgiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.List;
 import java.util.Random;
@@ -424,7 +424,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
                         if (canLogPlaceHere(reader, mutableTrunk)) {
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, trunkBlock.getDefaultState(), boundingBox);
                         } else {
-                            if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
+                            if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
                                 setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
                             fill = 15;
                         }
@@ -443,7 +443,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.setPos(trunkPos);
-                if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlockList.PODZOL_DACITE, BYGBlockList.OVERGROWN_STONE, BYGBlockList.GLOWCELIUM))
+                if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
                     setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk.move(Direction.DOWN), soil.getDefaultState(), boundingBox);
             }
         }

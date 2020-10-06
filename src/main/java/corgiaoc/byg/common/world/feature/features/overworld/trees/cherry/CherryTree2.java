@@ -1,15 +1,15 @@
 package corgiaoc.byg.common.world.feature.features.overworld.trees.cherry;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -34,7 +34,7 @@ public class CherryTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 8, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, BYGBlockList.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable);
+                buildTrunkBase(changedBlocks, worldIn, BYGBlocks.CHERRY_LOG, Blocks.DIRT, boundsIn, mainmutable);
 
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable, boundsIn);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
@@ -189,14 +189,14 @@ public class CherryTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
     private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.CHERRY_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.CHERRY_LOG.getDefaultState(), boundingBox);
         }
     }
 
 
     private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlockList.CHERRY_LOG.getDefaultState(), boundingBox);
+            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.CHERRY_LOG.getDefaultState(), boundingBox);
         }
     }
 
@@ -204,7 +204,7 @@ public class CherryTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().setPos(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlockList.PINK_CHERRY_LEAVES.getDefaultState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.PINK_CHERRY_LEAVES.getDefaultState(), boundingBox);
         }
     }
 

@@ -1,5 +1,11 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
+import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -7,19 +13,13 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.common.world.biome.BiomeHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
-import corgiaoc.byg.core.byglists.BYGBiomeList;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.HashMap;
 
-public class Meadow extends Biome implements BiomeTools {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeHelper.newConfiguredSurfaceBuilder("meadow", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlockList.MEADOW_GRASSBLOCK.getDefaultState(), BYGBlockList.MEADOW_DIRT.getDefaultState(), BYGBlockList.MEADOW_DIRT.getDefaultState())));
-    static final RainType PRECIPATATION = RainType.RAIN;
-    static final Category CATEGORY = Category.PLAINS;
+public class Meadow extends BYGBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("meadow", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), BYGBlocks.MEADOW_DIRT.getDefaultState(), BYGBlocks.MEADOW_DIRT.getDefaultState())));
+    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.Category CATEGORY = Biome.Category.PLAINS;
     static final float DEPTH = 0.15F;
     static final float SCALE = 0.1F;
     static final float TEMPERATURE = 0.8F;
@@ -29,39 +29,37 @@ public class Meadow extends Biome implements BiomeTools {
     static final int GRASS_COLOR = 5406551;
     static final int FOLIAGE_COLOR = 6589494;
     static final String PARENT = null;
-    static final Climate WEATHER = new Climate(PRECIPATATION, TEMPERATURE, TemperatureModifier.NONE, DOWNFALL);
+    static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
     public Meadow() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeHelper.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
-    @Override
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomeList.FLOWERINGMEADOW, 1);
-        map.put(BYGBiomeList.WOODEDMEADOW, 1);
-        map.put(BYGBiomeList.FRESHWATERLAKE, 2);
+        map.put(BYGBiomes.FLOWERINGMEADOW, 1);
+        map.put(BYGBiomes.WOODEDMEADOW, 1);
+        map.put(BYGBiomes.FRESHWATERLAKE, 2);
         return map;
     }
 
 
-    @Override
-    public Biome getHill(INoiseRandom rand) {
+    public Biome getHills(INoiseRandom rand) {
         return randomSubBiome(rand);
     }
 
     public Biome randomSubBiome(INoiseRandom random) {
         int randomPicker = random.random(4);
         if (randomPicker == 0)
-            return BYGBiomeList.FLOWERINGMEADOW;
+            return BYGBiomes.FLOWERINGMEADOW;
         else if (randomPicker == 1)
-            return BYGBiomeList.WOODEDMEADOW;
+            return BYGBiomes.WOODEDMEADOW;
         else if (randomPicker == 2)
-            return BYGBiomeList.FRESHWATERLAKE;
+            return BYGBiomes.FRESHWATERLAKE;
         else
-            return BYGBiomeList.FRESHWATERLAKE;
+            return BYGBiomes.FRESHWATERLAKE;
     }
 
     static {

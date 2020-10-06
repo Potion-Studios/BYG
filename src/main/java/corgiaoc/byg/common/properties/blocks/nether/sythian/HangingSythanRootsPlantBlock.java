@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.sythian;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.AbstractBodyPlantBlock;
 import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.Block;
@@ -10,7 +11,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 public class HangingSythanRootsPlantBlock extends AbstractBodyPlantBlock {
     public static final VoxelShape field_235637_d_ = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
@@ -20,7 +20,7 @@ public class HangingSythanRootsPlantBlock extends AbstractBodyPlantBlock {
     }
 
     protected AbstractTopPlantBlock getTopPlantBlock() {
-        return (AbstractTopPlantBlock) BYGBlockList.HANGING_SYTHIAN_ROOTS;
+        return (AbstractTopPlantBlock) BYGBlocks.HANGING_SYTHIAN_ROOTS;
     }
 
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {

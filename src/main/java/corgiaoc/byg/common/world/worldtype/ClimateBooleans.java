@@ -7,7 +7,7 @@
 //import net.minecraftforge.registries.ForgeRegistries;
 //import net.minecraftforge.registries.ForgeRegistry;
 //import voronoiaoc.byg.common.world.worldtype.math.BYGBiomeGroup;
-//import voronoiaoc.byg.core.byglists.BYGBiomeList;
+//import voronoiaoc.byg.core.byglists.BYGBiomes;
 //
 //public class ClimateBooleans {
 //    public static final int WARM_OCEAN = Registry.BIOME.getOrThrowId(Biomes.WARM_OCEAN);
@@ -22,35 +22,35 @@
 //    public static final int DEEP_FROZEN_OCEAN = Registry.BIOME.getOrThrowId(Biomes.DEEP_FROZEN_OCEAN);
 //    public static ForgeRegistry<Biome> biomeRegistry = ((ForgeRegistry<Biome>) ForgeRegistries.BIOMES);
 //    //BYG
-//    public static final int ALLIUMFIELDS = biomeRegistry.getID(BYGBiomeList.ALLIUMFIELDS);
-//    public static final int ALPS = biomeRegistry.getID(BYGBiomeList.ALPS);
-//    public static final int AMARANTHFIELDS = biomeRegistry.getID(BYGBiomeList.AMARANTHFIELDS);
-//    public static final int BLUEGIANTTAIGA = biomeRegistry.getID(BYGBiomeList.BLUEGIANTTAIGA);
-//    public static final int BLUETAIGA = biomeRegistry.getID(BYGBiomeList.BLUETAIGA);
-//    public static final int BOREALFOREST = biomeRegistry.getID(BYGBiomeList.BOREALFOREST);
-//    public static final int CONIFEROUSFOREST = biomeRegistry.getID(BYGBiomeList.CONIFEROUSFOREST);
-//    public static final int DECIDUOUSFOREST = biomeRegistry.getID(BYGBiomeList.DECIDUOUSFOREST);
-//    public static final int DOVERMOUNTAINS = biomeRegistry.getID(BYGBiomeList.DOVERMOUNTAINS);
-//    public static final int DUNES = biomeRegistry.getID(BYGBiomeList.DUNES);
-//    public static final int GRASSLANDPLATEAU = biomeRegistry.getID(BYGBiomeList.GRASSLANDPLATEAU);
-//    public static final int GUIANASHIELD = biomeRegistry.getID(BYGBiomeList.GUIANASHIELD);
-//    public static final int JACARANDAFOREST = biomeRegistry.getID(BYGBiomeList.JACARANDAFOREST);
-//    public static final int PRAIRIE = biomeRegistry.getID(BYGBiomeList.PRAIRIE);
-//    public static final int REDDESERT = biomeRegistry.getID(BYGBiomeList.REDDESERT);
-//    public static final int REDDESERTDUNES = biomeRegistry.getID(BYGBiomeList.REDDESERTDUNES);
-//    public static final int REDOAKFOREST = biomeRegistry.getID(BYGBiomeList.REDOAKFOREST);
-//    public static final int SEASONALBIRCHFOREST = biomeRegistry.getID(BYGBiomeList.SEASONALBIRCHFOREST);
-//    public static final int SEASONALDECIDUOUSFOREST = biomeRegistry.getID(BYGBiomeList.SEASONALDECIDUOUSFOREST);
-//    public static final int SEASONALFOREST = biomeRegistry.getID(BYGBiomeList.SEASONALFOREST);
-//    public static final int SEASONALGIANTTAIGA = biomeRegistry.getID(BYGBiomeList.SEASONALGIANTTAIGA);
-//    public static final int SEASONALTAIGA = biomeRegistry.getID(BYGBiomeList.SEASONALTAIGA);
-//    public static final int SHRUBLANDS = biomeRegistry.getID(BYGBiomeList.SHRUBLANDS);
-//    public static final int SNOWYBLUEGIANTTAIGA = biomeRegistry.getID(BYGBiomeList.SNOWYBLUEGIANTTAIGA);
-//    public static final int SNOWYBLUETAIGA = biomeRegistry.getID(BYGBiomeList.SNOWYBLUETAIGA);
-//    public static final int SNOWYCONIFEROUSFOREST = biomeRegistry.getID(BYGBiomeList.SNOWYCONIFEROUSFOREST);
-//    public static final int TROPICALFUNGALRAINFOREST = biomeRegistry.getID(BYGBiomeList.TROPICALFUNGALRAINFOREST);
-//    public static final int TROPICALRAINFOREST = biomeRegistry.getID(BYGBiomeList.TROPICALRAINFOREST);
-//    public static final int CRAGGARDENS = biomeRegistry.getID(BYGBiomeList.CRAGGARDENS);
+//    public static final int ALLIUMFIELDS = biomeRegistry.getID(BYGBiomes.ALLIUMFIELDS);
+//    public static final int ALPS = biomeRegistry.getID(BYGBiomes.ALPS);
+//    public static final int AMARANTHFIELDS = biomeRegistry.getID(BYGBiomes.AMARANTHFIELDS);
+//    public static final int BLUEGIANTTAIGA = biomeRegistry.getID(BYGBiomes.BLUEGIANTTAIGA);
+//    public static final int BLUETAIGA = biomeRegistry.getID(BYGBiomes.BLUETAIGA);
+//    public static final int BOREALFOREST = biomeRegistry.getID(BYGBiomes.BOREALFOREST);
+//    public static final int CONIFEROUSFOREST = biomeRegistry.getID(BYGBiomes.CONIFEROUSFOREST);
+//    public static final int DECIDUOUSFOREST = biomeRegistry.getID(BYGBiomes.DECIDUOUSFOREST);
+//    public static final int DOVERMOUNTAINS = biomeRegistry.getID(BYGBiomes.DOVERMOUNTAINS);
+//    public static final int DUNES = biomeRegistry.getID(BYGBiomes.DUNES);
+//    public static final int GRASSLANDPLATEAU = biomeRegistry.getID(BYGBiomes.GRASSLANDPLATEAU);
+//    public static final int GUIANASHIELD = biomeRegistry.getID(BYGBiomes.GUIANASHIELD);
+//    public static final int JACARANDAFOREST = biomeRegistry.getID(BYGBiomes.JACARANDAFOREST);
+//    public static final int PRAIRIE = biomeRegistry.getID(BYGBiomes.PRAIRIE);
+//    public static final int REDDESERT = biomeRegistry.getID(BYGBiomes.REDDESERT);
+//    public static final int REDDESERTDUNES = biomeRegistry.getID(BYGBiomes.REDDESERTDUNES);
+//    public static final int REDOAKFOREST = biomeRegistry.getID(BYGBiomes.REDOAKFOREST);
+//    public static final int SEASONALBIRCHFOREST = biomeRegistry.getID(BYGBiomes.SEASONALBIRCHFOREST);
+//    public static final int SEASONALDECIDUOUSFOREST = biomeRegistry.getID(BYGBiomes.SEASONALDECIDUOUSFOREST);
+//    public static final int SEASONALFOREST = biomeRegistry.getID(BYGBiomes.SEASONALFOREST);
+//    public static final int SEASONALGIANTTAIGA = biomeRegistry.getID(BYGBiomes.SEASONALGIANTTAIGA);
+//    public static final int SEASONALTAIGA = biomeRegistry.getID(BYGBiomes.SEASONALTAIGA);
+//    public static final int SHRUBLANDS = biomeRegistry.getID(BYGBiomes.SHRUBLANDS);
+//    public static final int SNOWYBLUEGIANTTAIGA = biomeRegistry.getID(BYGBiomes.SNOWYBLUEGIANTTAIGA);
+//    public static final int SNOWYBLUETAIGA = biomeRegistry.getID(BYGBiomes.SNOWYBLUETAIGA);
+//    public static final int SNOWYCONIFEROUSFOREST = biomeRegistry.getID(BYGBiomes.SNOWYCONIFEROUSFOREST);
+//    public static final int TROPICALFUNGALRAINFOREST = biomeRegistry.getID(BYGBiomes.TROPICALFUNGALRAINFOREST);
+//    public static final int TROPICALRAINFOREST = biomeRegistry.getID(BYGBiomes.TROPICALRAINFOREST);
+//    public static final int CRAGGARDENS = biomeRegistry.getID(BYGBiomes.CRAGGARDENS);
 //
 //    public static boolean isBaseBiome(int biome) {
 //        return biome == ALLIUMFIELDS || biome == AMARANTHFIELDS || biome == BLUEGIANTTAIGA || biome == BLUETAIGA || biome == BOREALFOREST || biome == CONIFEROUSFOREST || biome == DECIDUOUSFOREST || biome == DOVERMOUNTAINS || biome == GRASSLANDPLATEAU || biome == REDOAKFOREST || biome == SEASONALBIRCHFOREST || biome == SEASONALDECIDUOUSFOREST || biome == SEASONALFOREST || biome == SEASONALGIANTTAIGA || biome == SEASONALTAIGA;

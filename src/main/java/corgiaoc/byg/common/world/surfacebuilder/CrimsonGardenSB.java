@@ -8,7 +8,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -28,7 +28,7 @@ public class CrimsonGardenSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && !(checkAirForSB.getBlock() == Blocks.AIR))
                 chunkIn.setBlockState(block, Blocks.BLACKSTONE.getDefaultState(), false);
             if (currentBlockToReplace.getBlock() == Blocks.NETHERRACK && checkAirForSB.getBlock() == Blocks.AIR)
-                chunkIn.setBlockState(block, BYGBlockList.OVERGROWN_CRIMSON_BLACKSTONE.getDefaultState(), false);
+                chunkIn.setBlockState(block, BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.getDefaultState(), false);
         }
     }
 }

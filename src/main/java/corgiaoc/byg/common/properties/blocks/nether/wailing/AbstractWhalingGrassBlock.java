@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.wailing;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -19,7 +20,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.Tags;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import javax.annotation.Nullable;
 
@@ -57,7 +57,7 @@ public class AbstractWhalingGrassBlock extends Block implements IWaterLoggable {
     }
 
     protected boolean isValidGround(BlockState state) {
-        return state.getBlock() == Blocks.SOUL_SAND || isIn(Tags.Blocks.NETHERRACK) || state.getBlock() == BYGBlockList.MAGMATIC_STONE || state.getBlock() == BYGBlockList.OVERGROWN_NETHERRACK;
+        return state.getBlock() == Blocks.SOUL_SAND || isIn(Tags.Blocks.NETHERRACK) || state.getBlock() == BYGBlocks.MAGMATIC_STONE || state.getBlock() == BYGBlocks.OVERGROWN_NETHERRACK;
     }
 
     @Override

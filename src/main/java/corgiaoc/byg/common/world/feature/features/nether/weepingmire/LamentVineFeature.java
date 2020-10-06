@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.nether.weepingmire;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,7 +13,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -97,11 +97,11 @@ public class LamentVineFeature extends Feature<NoFeatureConfig> {
         for (int i = 0; i <= p_236427_3_; ++i) {
             if (p_236427_0_.isAirBlock(p_236427_2_)) {
                 if (i == p_236427_3_ || !p_236427_0_.isAirBlock(p_236427_2_.down())) {
-                    p_236427_0_.setBlockState(p_236427_2_, BYGBlockList.LAMENT_VINE.getDefaultState().with(AbstractTopPlantBlock.AGE, Integer.valueOf(MathHelper.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
+                    p_236427_0_.setBlockState(p_236427_2_, BYGBlocks.LAMENT_VINE.getDefaultState().with(AbstractTopPlantBlock.AGE, Integer.valueOf(MathHelper.nextInt(p_236427_1_, p_236427_4_, p_236427_5_))), 2);
                     break;
                 }
 
-                p_236427_0_.setBlockState(p_236427_2_, BYGBlockList.LAMENT_VINE_PLANT.getDefaultState(), 2);
+                p_236427_0_.setBlockState(p_236427_2_, BYGBlocks.LAMENT_VINE_PLANT.getDefaultState(), 2);
             }
 
             p_236427_2_.move(Direction.DOWN);

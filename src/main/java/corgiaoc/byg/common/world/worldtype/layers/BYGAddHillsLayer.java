@@ -44,7 +44,7 @@
 //        if (context.random(hillChance) == 0) {
 //            int l = area1Value;
 //            Biome biome = Registry.BIOME.getOrThrowByValue(area1Value);
-//            Biome hill = biome == null ? null : biome.getHill(context);
+//            Biome hill = biome == null ? null : biome.getHills(context);
 //            if (hill != null) l = Registry.BIOME.getOrThrowId(hill);
 //
 //            if (l != area1Value) {

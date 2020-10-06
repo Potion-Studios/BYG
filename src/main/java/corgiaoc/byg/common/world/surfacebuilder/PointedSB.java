@@ -9,7 +9,7 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.common.world.surfacebuilder.sbconfig.PointedSBConfig;
+import corgiaoc.byg.common.world.surfacebuilder.config.PointedSBConfig;
 import corgiaoc.byg.common.world.worldtype.noise.fastnoise.FNVector3f;
 import corgiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
 

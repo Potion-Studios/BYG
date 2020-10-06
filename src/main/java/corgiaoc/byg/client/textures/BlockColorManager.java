@@ -1,5 +1,7 @@
 package corgiaoc.byg.client.textures;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.byglists.BYGItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -13,8 +15,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import corgiaoc.byg.core.byglists.BYGBlockList;
-import corgiaoc.byg.core.byglists.BYGItemList;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BlockColorManager {
@@ -26,8 +26,8 @@ public class BlockColorManager {
         BlockColors blockColors = event.getBlockColors();
 
         //registers the colors for blocks that changes colors based on biome
-        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getGrassColor(lightReader, pos) : GrassColors.get(0.5D, 1.0D), BYGBlockList.MEADOW_GRASSBLOCK, BYGBlockList.OVERGROWN_STONE, BYGBlockList.OVERGROWN_NETHERRACK, BYGBlockList.SHORT_GRASS, BYGBlockList.TINY_LILYPADS, BYGBlockList.OVERGROWN_DACITE, BYGBlockList.GLOWCELIUM, BYGBlockList.WILTED_GRASS, BYGBlockList.WEED_GRASS, BYGBlockList.NETHER_BRISTLE, BYGBlockList.WATER_SILK);
-        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getFoliageColor(lightReader, pos) : FoliageColors.get(0.5D, 1.0D), BYGBlockList.MAHOGANY_LEAVES, BYGBlockList.POISON_IVY, BYGBlockList.LEAF_PILE, BYGBlockList.ORCHARD_LEAVES, BYGBlockList.FLOWERING_ORCHARD_LEAVES, BYGBlockList.RIPE_ORCHARD_LEAVES, BYGBlockList.RAINBOW_EUCALYPTUS_LEAVES, BYGBlockList.WILLOW_LEAVES, BYGBlockList.MAPLE_LEAVES, BYGBlockList.JOSHUA_LEAVES, BYGBlockList.RIPE_JOSHUA_LEAVES, BYGBlockList.MOSSY_NETHERRACK);
+        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getGrassColor(lightReader, pos) : GrassColors.get(0.5D, 1.0D), BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_STONE, BYGBlocks.OVERGROWN_NETHERRACK, BYGBlocks.SHORT_GRASS, BYGBlocks.TINY_LILYPADS, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.GLOWCELIUM, BYGBlocks.WILTED_GRASS, BYGBlocks.WEED_GRASS, BYGBlocks.NETHER_BRISTLE, BYGBlocks.WATER_SILK);
+        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getFoliageColor(lightReader, pos) : FoliageColors.get(0.5D, 1.0D), BYGBlocks.MAHOGANY_LEAVES, BYGBlocks.POISON_IVY, BYGBlocks.LEAF_PILE, BYGBlocks.ORCHARD_LEAVES, BYGBlocks.FLOWERING_ORCHARD_LEAVES, BYGBlocks.RIPE_ORCHARD_LEAVES, BYGBlocks.RAINBOW_EUCALYPTUS_LEAVES, BYGBlocks.WILLOW_LEAVES, BYGBlocks.MAPLE_LEAVES, BYGBlocks.JOSHUA_LEAVES, BYGBlocks.RIPE_JOSHUA_LEAVES, BYGBlocks.MOSSY_NETHERRACK);
     }
 
     /**
@@ -46,6 +46,6 @@ public class BlockColorManager {
         };
 
         itemColors.register(itemBlockColourHandler,
-                BYGItemList.MEADOW_GRASSBLOCK, BYGItemList.OVERGROWN_NETHERRACK, BYGItemList.MAHOGANY_LEAVES, BYGItemList.POISON_IVY, BYGItemList.OVERGROWN_STONE, BYGItemList.SHORT_GRASS, BYGItemList.TINY_LILYPADS, BYGItemList.NETHER_BRISTLE, BYGItemList.OVERGROWN_DACITE, BYGItemList.GLOWCELIUM, BYGItemList.WILTED_GRASS, BYGItemList.WEED_GRASS, BYGItemList.LEAF_PILE, BYGItemList.ORCHARD_LEAVES, BYGItemList.FLOWERING_ORCHARD_LEAVES, BYGItemList.RIPE_ORCHARD_LEAVES, BYGItemList.RAINBOW_EUCALYPTUS_LEAVES, BYGItemList.WILLOW_LEAVES, BYGItemList.WATER_SILK, BYGItemList.MAPLE_LEAVES, BYGItemList.JOSHUA_LEAVES, BYGItemList.RIPE_JOSHUA_LEAVES, BYGBlockList.MOSSY_NETHERRACK);
+                BYGItems.MEADOW_GRASSBLOCK, BYGItems.OVERGROWN_NETHERRACK, BYGItems.MAHOGANY_LEAVES, BYGItems.POISON_IVY, BYGItems.OVERGROWN_STONE, BYGItems.SHORT_GRASS, BYGItems.TINY_LILYPADS, BYGItems.NETHER_BRISTLE, BYGItems.OVERGROWN_DACITE, BYGItems.GLOWCELIUM, BYGItems.WILTED_GRASS, BYGItems.WEED_GRASS, BYGItems.LEAF_PILE, BYGItems.ORCHARD_LEAVES, BYGItems.FLOWERING_ORCHARD_LEAVES, BYGItems.RIPE_ORCHARD_LEAVES, BYGItems.RAINBOW_EUCALYPTUS_LEAVES, BYGItems.WILLOW_LEAVES, BYGItems.WATER_SILK, BYGItems.MAPLE_LEAVES, BYGItems.JOSHUA_LEAVES, BYGItems.RIPE_JOSHUA_LEAVES, BYGBlocks.MOSSY_NETHERRACK);
     }
 }

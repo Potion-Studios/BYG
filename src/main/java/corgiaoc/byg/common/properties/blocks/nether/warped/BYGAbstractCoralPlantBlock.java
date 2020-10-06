@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.warped;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -18,7 +19,6 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import javax.annotation.Nullable;
 
@@ -56,7 +56,7 @@ public class BYGAbstractCoralPlantBlock extends Block implements IWaterLoggable 
     }
 
     protected boolean isValidGround(BlockState state) {
-        return state.getBlock() == BYGBlockList.NYLIUM_SOUL_SAND || state.getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL;
+        return state.getBlock() == BYGBlocks.NYLIUM_SOUL_SAND || state.getBlock() == BYGBlocks.NYLIUM_SOUL_SOIL;
     }
 
     @Override

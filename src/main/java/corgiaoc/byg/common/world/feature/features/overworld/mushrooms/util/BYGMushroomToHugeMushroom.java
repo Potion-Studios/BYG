@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.overworld.mushrooms.util;
 
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGMushroomFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGMushroomFeatureConfig;
 import corgiaoc.byg.core.byglists.BYGConfiguredTreeFeatures;
 
 import javax.annotation.Nullable;

@@ -1,5 +1,7 @@
 package corgiaoc.byg.common.entity.boat;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
+import corgiaoc.byg.core.byglists.BYGItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -24,9 +26,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.FMLPlayMessages;
 import net.minecraftforge.fml.network.NetworkHooks;
-import corgiaoc.byg.core.byglists.BYGBlockList;
-import corgiaoc.byg.core.byglists.BYGEntityList;
-import corgiaoc.byg.core.byglists.BYGItemList;
+import corgiaoc.byg.core.byglists.BYGEntities;
 
 @SuppressWarnings("EntityConstructor")
 public class BYGBoatEntity extends BoatEntity {
@@ -34,7 +34,7 @@ public class BYGBoatEntity extends BoatEntity {
 
 
     public BYGBoatEntity(World worldIn, double x, double y, double z) {
-        this(BYGEntityList.BYGBOAT, worldIn);
+        this(BYGEntities.BYGBOAT, worldIn);
         this.setPosition(x, y, z);
         this.setMotion(Vector3d.ZERO);
         this.prevPosX = x;
@@ -47,7 +47,7 @@ public class BYGBoatEntity extends BoatEntity {
     }
 
     public BYGBoatEntity(FMLPlayMessages.SpawnEntity packet, World world) {
-        super(BYGEntityList.BYGBOAT, world);
+        super(BYGEntities.BYGBOAT, world);
     }
 
 
@@ -55,98 +55,98 @@ public class BYGBoatEntity extends BoatEntity {
     public Item getItemBoat() {
         switch (this.getBYGBoatType()) {
             default:
-                return BYGItemList.ASPEN_BOAT;
+                return BYGItems.ASPEN_BOAT;
             case BAOBAB:
-                return BYGItemList.BAOBAB_BOAT;
+                return BYGItems.BAOBAB_BOAT;
             case BLUE_ENCHANTED:
-                return BYGItemList.BLUE_ENCHANTED_BOAT;
+                return BYGItems.BLUE_ENCHANTED_BOAT;
             case CHERRY:
-                return BYGItemList.CHERRY_BOAT;
+                return BYGItems.CHERRY_BOAT;
             case CIKA:
-                return BYGItemList.CIKA_BOAT;
+                return BYGItems.CIKA_BOAT;
             case CYPRESS:
-                return BYGItemList.CYPRESS_BOAT;
+                return BYGItems.CYPRESS_BOAT;
             case EBONY:
-                return BYGItemList.EBONY_BOAT;
+                return BYGItems.EBONY_BOAT;
             case FIR:
-                return BYGItemList.FIR_BOAT;
+                return BYGItems.FIR_BOAT;
             case GREEN_ENCHANTED:
-                return BYGItemList.GREEN_ENCHANTED_BOAT;
+                return BYGItems.GREEN_ENCHANTED_BOAT;
             case HOLLY:
-                return BYGItemList.HOLLY_BOAT;
+                return BYGItems.HOLLY_BOAT;
             case JACARANDA:
-                return BYGItemList.JACARANDA_BOAT;
+                return BYGItems.JACARANDA_BOAT;
             case MAHOGANY:
-                return BYGItemList.MAHOGANY_BOAT;
+                return BYGItems.MAHOGANY_BOAT;
             case MANGROVE:
-                return BYGItemList.MANGROVE_BOAT;
+                return BYGItems.MANGROVE_BOAT;
             case MAPLE:
-                return BYGItemList.MAPLE_BOAT;
+                return BYGItems.MAPLE_BOAT;
             case PINE:
-                return BYGItemList.PINE_BOAT;
+                return BYGItems.PINE_BOAT;
             case RAINBOW_EUCALYPTUS:
-                return BYGItemList.RAINBOW_EUCALYPTUS_BOAT;
+                return BYGItems.RAINBOW_EUCALYPTUS_BOAT;
             case REDWOOD:
-                return BYGItemList.REDWOOD_BOAT;
+                return BYGItems.REDWOOD_BOAT;
             case SKYRIS:
-                return BYGItemList.SKYRIS_BOAT;
+                return BYGItems.SKYRIS_BOAT;
             case WILLOW:
-                return BYGItemList.WILLOW_BOAT;
+                return BYGItems.WILLOW_BOAT;
             case WITCH_HAZEL:
-                return BYGItemList.WITCH_HAZEL_BOAT;
+                return BYGItems.WITCH_HAZEL_BOAT;
             case ZELKOVA:
-                return BYGItemList.ZELKOVA_BOAT;
+                return BYGItems.ZELKOVA_BOAT;
             case PALM:
-                return BYGItemList.PALM_BOAT;
+                return BYGItems.PALM_BOAT;
         }
     }
 
     public Block getPlanks() {
         switch (this.getBYGBoatType()) {
             default:
-                return BYGBlockList.ASPEN_PLANKS;
+                return BYGBlocks.ASPEN_PLANKS;
             case BAOBAB:
-                return BYGBlockList.BAOBAB_PLANKS;
+                return BYGBlocks.BAOBAB_PLANKS;
             case BLUE_ENCHANTED:
-                return BYGBlockList.BLUE_ENCHANTED_PLANKS;
+                return BYGBlocks.BLUE_ENCHANTED_PLANKS;
             case CHERRY:
-                return BYGBlockList.CHERRY_PLANKS;
+                return BYGBlocks.CHERRY_PLANKS;
             case CIKA:
-                return BYGBlockList.CIKA_PLANKS;
+                return BYGBlocks.CIKA_PLANKS;
             case CYPRESS:
-                return BYGBlockList.CYPRESS_PLANKS;
+                return BYGBlocks.CYPRESS_PLANKS;
             case EBONY:
-                return BYGBlockList.EBONY_PLANKS;
+                return BYGBlocks.EBONY_PLANKS;
             case FIR:
-                return BYGBlockList.FIR_PLANKS;
+                return BYGBlocks.FIR_PLANKS;
             case GREEN_ENCHANTED:
-                return BYGBlockList.GREEN_ENCHANTED_PLANKS;
+                return BYGBlocks.GREEN_ENCHANTED_PLANKS;
             case HOLLY:
-                return BYGBlockList.HOLLY_PLANKS;
+                return BYGBlocks.HOLLY_PLANKS;
             case JACARANDA:
-                return BYGBlockList.JACARANDA_PLANKS;
+                return BYGBlocks.JACARANDA_PLANKS;
             case MAHOGANY:
-                return BYGBlockList.MAHOGANY_PLANKS;
+                return BYGBlocks.MAHOGANY_PLANKS;
             case MANGROVE:
-                return BYGBlockList.MANGROVE_PLANKS;
+                return BYGBlocks.MANGROVE_PLANKS;
             case MAPLE:
-                return BYGBlockList.MAPLE_PLANKS;
+                return BYGBlocks.MAPLE_PLANKS;
             case PINE:
-                return BYGBlockList.PINE_PLANKS;
+                return BYGBlocks.PINE_PLANKS;
             case RAINBOW_EUCALYPTUS:
-                return BYGBlockList.RAINBOW_EUCALYPTUS_PLANKS;
+                return BYGBlocks.RAINBOW_EUCALYPTUS_PLANKS;
             case REDWOOD:
-                return BYGBlockList.REDWOOD_PLANKS;
+                return BYGBlocks.REDWOOD_PLANKS;
             case SKYRIS:
-                return BYGBlockList.SKYRIS_PLANKS;
+                return BYGBlocks.SKYRIS_PLANKS;
             case WILLOW:
-                return BYGBlockList.WILLOW_PLANKS;
+                return BYGBlocks.WILLOW_PLANKS;
             case WITCH_HAZEL:
-                return BYGBlockList.WITCH_HAZEL_PLANKS;
+                return BYGBlocks.WITCH_HAZEL_PLANKS;
             case ZELKOVA:
-                return BYGBlockList.ZELKOVA_PLANKS;
+                return BYGBlocks.ZELKOVA_PLANKS;
             case PALM:
-                return BYGBlockList.PALM_PLANKS;
+                return BYGBlocks.PALM_PLANKS;
         }
     }
 

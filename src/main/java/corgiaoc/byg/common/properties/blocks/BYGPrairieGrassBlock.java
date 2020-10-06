@@ -1,10 +1,10 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -17,7 +17,7 @@ public class BYGPrairieGrassBlock extends TallGrassBlock implements IGrowable {
 
     @Override
     public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
-        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlockList.PRAIRIE_GRASS ? BYGBlockList.TALL_PRAIRIE_GRASS : BYGBlockList.TALL_PRAIRIE_GRASS);
+        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.PRAIRIE_GRASS ? BYGBlocks.TALL_PRAIRIE_GRASS : BYGBlocks.TALL_PRAIRIE_GRASS);
         if (doubleplantblock.getDefaultState().isValidPosition(world, pos) && world.isAirBlock(pos.up())) {
             doubleplantblock.placeAt(world, pos, 2);
         }

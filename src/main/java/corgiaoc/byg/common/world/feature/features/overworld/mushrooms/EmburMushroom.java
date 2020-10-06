@@ -5,9 +5,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import corgiaoc.byg.common.world.feature.featureconfig.BYGMushroomFeatureConfig;
+import corgiaoc.byg.common.world.feature.features.config.BYGMushroomFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGAbstractMushroomFeature;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -27,7 +27,7 @@ public class EmburMushroom extends BYGAbstractMushroomFeature<BYGMushroomFeature
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), BYGBlockList.EMBUR_NYLIUM)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), BYGBlocks.EMBUR_NYLIUM)) {
                 return false;
             }
             else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {

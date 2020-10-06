@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.surfacebuilder;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,20 +13,19 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Arrays;
 import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
-    private static final BlockState PACKED_ICE = BYGBlockList.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE = BYGBlockList.BLACK_ICE.getDefaultState();
-    private static final BlockState PACKED_ICE2 = BYGBlockList.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE2 = BYGBlockList.BLACK_ICE.getDefaultState();
-    private static final BlockState PACKED_ICE3 = BYGBlockList.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE3 = BYGBlockList.BLACK_ICE.getDefaultState();
-    private static final BlockState PACKED_ICE4 = BYGBlockList.PACKED_BLACK_ICE.getDefaultState();
+    private static final BlockState PACKED_ICE = BYGBlocks.PACKED_BLACK_ICE.getDefaultState();
+    private static final BlockState BLUE_ICE = BYGBlocks.BLACK_ICE.getDefaultState();
+    private static final BlockState PACKED_ICE2 = BYGBlocks.PACKED_BLACK_ICE.getDefaultState();
+    private static final BlockState BLUE_ICE2 = BYGBlocks.BLACK_ICE.getDefaultState();
+    private static final BlockState PACKED_ICE3 = BYGBlocks.PACKED_BLACK_ICE.getDefaultState();
+    private static final BlockState BLUE_ICE3 = BYGBlocks.BLACK_ICE.getDefaultState();
+    private static final BlockState PACKED_ICE4 = BYGBlocks.PACKED_BLACK_ICE.getDefaultState();
     protected BlockState[] blockState;
     protected long seed;
     protected PerlinNoiseGenerator perlin1;

@@ -16,8 +16,8 @@ import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
-import corgiaoc.byg.core.byglists.BYGEntityList;
-import corgiaoc.byg.core.registries.BYGBiomeRegistry;
+import corgiaoc.byg.core.byglists.BYGBiomes;
+import corgiaoc.byg.core.byglists.BYGEntities;
 import corgiaoc.byg.data.BYGDataGenerator;
 import corgiaoc.byg.data.BlockDataHelperCleanedUp;
 import net.minecraft.block.Block;
@@ -70,15 +70,9 @@ public class BYG {
         BYGFeaturesInVanilla.addBYGFeaturesToBiomes();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
-//        Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygworld"), BYGBiomeProvider116.BYGBPCODEC);
-//        BYGAdobeVillagePools.init();
-//        BYGGrasslandVillagePools.init();
-//        BYGGuianaVillagePools.init();
-//        BYGJungleVillagePools.init();
-//        BYGSkyrisVillagePools.init();
-        BYGBiomeRegistry.addBiomeNumericalIDsForLayerSampler();
+        BYGBiomes.addBiomeNumericalIDsForLayerSampler();
         BYGBiomeWeightSystem.addBiomesToWeightSystem();
-        BYGBiomeWeightSystem.addBYGBiomesToVanillaOverworld();
+        BYGBiomeWeightSystem.addBiomesToWeightSystem();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
 //        BlockDataHelperCleanedUp.createWoodRecipeGenerator(filePath, MOD_ID, "glacial_oak", true, true, true);
 //        makeBYGLangFile();
@@ -121,7 +115,7 @@ public class BYG {
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
         BYGCutoutRenders.renderCutOuts();
 //        MainMenuBYG.mainMenuPanorama();
-        RenderingRegistry.registerEntityRenderingHandler(BYGEntityList.BYGBOAT, BYGBoatRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BYGBOAT, BYGBoatRenderer::new);
 //        WorldType116.addGenerator();
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }

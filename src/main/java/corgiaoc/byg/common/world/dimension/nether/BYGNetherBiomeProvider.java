@@ -2,12 +2,12 @@ package corgiaoc.byg.common.world.dimension.nether;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgiaoc.byg.core.byglists.BYGBiomes;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryLookupCodec;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.layer.Layer;
-import corgiaoc.byg.core.byglists.BYGBiomeList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
 
 
     static {
-        biomeList.add(BYGBiomeList.SYTHIANTORRIDS);
+        biomeList.add(BYGBiomes.SYTHIANTORRIDS);
     }
 
     @Override

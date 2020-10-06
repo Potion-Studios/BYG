@@ -63,7 +63,7 @@
 //                        pwr.setColor(x, z, Color.hsb(temp, 1.0, humid));
 //                        break;
 //                    case 3: // TEMPERATURE BANDS
-//                        BiomeGroupManager.TempSection tempCategory = manager.getTempCategory(genX, genZ);
+//                        BiomeGroupManager.TempSection tempBiome.Category = manager.getTempCategory(genX, genZ);
 //                        switch (tempCategory) {
 //                            case HOT:
 //                                pwr.setColor(x, z, Color.WHITE);

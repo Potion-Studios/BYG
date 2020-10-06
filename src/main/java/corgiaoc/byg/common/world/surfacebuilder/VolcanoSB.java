@@ -11,7 +11,7 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import corgiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
-import corgiaoc.byg.core.byglists.BYGSBList;
+import corgiaoc.byg.core.byglists.BYGSurfaceBuilders;
 
 import java.util.Random;
 
@@ -46,7 +46,7 @@ public class VolcanoSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             }
         }
         if (noise < 1)
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSBList.BYGSBConfigList.BLACKSAND);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.BLACKSAND);
         else
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, randomSurfaceConfig(random));
     }
@@ -79,9 +79,9 @@ public class VolcanoSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         int randomizer = random.nextInt(3);
 
         if (randomizer == 1) {
-            return BYGSBList.BYGSBConfigList.ROCKY;
+            return BYGSurfaceBuilders.BYGSBConfigList.ROCKY;
         } else
-            return BYGSBList.BYGSBConfigList.STONEBLACKSAND;
+            return BYGSurfaceBuilders.BYGSBConfigList.STONEBLACKSAND;
 
     }
 }

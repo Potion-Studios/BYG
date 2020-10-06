@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.features.overworld;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SnowyDirtBlock;
@@ -12,7 +13,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -34,7 +34,7 @@ public class BlackIceAndSnowFeature extends Feature<NoFeatureConfig> {
                 blockpos$mutable1.setPos(blockpos$mutable).move(Direction.DOWN, 1);
                 Biome biome = worldIn.getBiome(blockpos$mutable);
                 if (biome.doesWaterFreeze(worldIn, blockpos$mutable1, false)) {
-                    worldIn.setBlockState(blockpos$mutable1, BYGBlockList.BLACK_ICE.getDefaultState(), 2);
+                    worldIn.setBlockState(blockpos$mutable1, BYGBlocks.BLACK_ICE.getDefaultState(), 2);
                 }
 
                 if (biome.doesSnowGenerate(worldIn, blockpos$mutable)) {

@@ -11,7 +11,7 @@
 //import net.minecraft.world.gen.feature.structure.VillageStructure;
 //import net.minecraft.world.gen.feature.template.TemplateManager;
 //import voronoiaoc.byg.BYG;
-//import voronoiaoc.byg.core.byglists.BYGFeatureList;
+//import voronoiaoc.byg.core.byglists.BYGFeatures;
 //
 //import javax.annotation.ParametersAreNonnullByDefault;
 //import java.util.function.Function;
@@ -43,7 +43,7 @@
 //
 //        @ParametersAreNonnullByDefault
 //        public void init(ChunkGenerator chunkGen, TemplateManager template, int x, int z, Biome biome) {
-//            VillageConfig villageConfig = chunkGen.getStructureConfig(biome, BYGFeatureList.BYGVILLAGE);
+//            VillageConfig villageConfig = chunkGen.getStructureConfig(biome, BYGFeatures.BYGVILLAGE);
 //            BlockPos blockPos = new BlockPos(x * 16, 0, z * 16);
 //            assert villageConfig != null;
 //            BYGVillagePieces.addPieces(chunkGen, template, blockPos, this.components, this.rand, villageConfig);

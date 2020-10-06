@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.feature.features.nether.emburbog;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
@@ -17,7 +18,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 import java.util.Set;
@@ -159,7 +159,7 @@ public class EmburBogLake extends Feature<NoFeatureConfig> {
                 if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.LAVA.getStillFluidState(false)) {
                     return false;
                 }
-                if (blockState.getBlock() == BYGBlockList.EMBUR_GEL_BLOCK || blockState.getBlock() == BYGBlockList.EMBUR_PEDU) {
+                if (blockState.getBlock() == BYGBlocks.EMBUR_GEL_BLOCK || blockState.getBlock() == BYGBlocks.EMBUR_PEDU) {
                     return false;
                 }
             }

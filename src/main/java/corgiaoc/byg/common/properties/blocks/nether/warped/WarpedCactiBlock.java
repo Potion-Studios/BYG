@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.warped;
 
+import corgiaoc.byg.core.byglists.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CactusBlock;
 import net.minecraft.block.material.Material;
@@ -9,7 +10,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
 
@@ -59,7 +59,7 @@ public class WarpedCactiBlock extends CactusBlock {
                 return false;
             }
         }
-        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SAND || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.NYLIUM_SOUL_SOIL || worldIn.getBlockState(pos.down()).getBlock() == BYGBlockList.WARPED_CACTUS && !worldIn.getBlockState(pos.up()).getMaterial().isLiquid() && worldIn.getDimensionType().isUltrawarm();
+        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.NYLIUM_SOUL_SAND || worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.NYLIUM_SOUL_SOIL || worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.WARPED_CACTUS && !worldIn.getBlockState(pos.up()).getMaterial().isLiquid() && worldIn.getDimensionType().isUltrawarm();
     }
 
     @Override

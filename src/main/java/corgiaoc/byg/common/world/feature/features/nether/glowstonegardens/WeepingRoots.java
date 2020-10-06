@@ -8,7 +8,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.Tags;
-import corgiaoc.byg.core.byglists.BYGBlockList;
+import corgiaoc.byg.core.byglists.BYGBlocks;
 
 import java.util.Random;
 
@@ -25,7 +25,7 @@ public class WeepingRoots extends Feature<NoFeatureConfig> {
             return false;
         } else {
 
-            worldIn.setBlockState(pos, BYGBlockList.WEEPING_ROOTS.getDefaultState(), 10);
+            worldIn.setBlockState(pos, BYGBlocks.WEEPING_ROOTS.getDefaultState(), 10);
 
             return true;
         }

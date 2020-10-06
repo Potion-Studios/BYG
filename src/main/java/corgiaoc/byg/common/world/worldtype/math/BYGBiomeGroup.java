@@ -5,7 +5,7 @@
 //import net.minecraft.world.gen.INoiseRandom;
 //import voronoiaoc.byg.common.world.worldtype.BYGWorldType;
 //import voronoiaoc.byg.config.biomeweight.ConfigWeightManager;
-//import voronoiaoc.byg.core.byglists.BYGBiomeList;
+//import voronoiaoc.byg.core.byglists.BYGBiomes;
 //
 //import java.util.ArrayList;
 //import java.util.List;
@@ -68,73 +68,73 @@
 //    public static void initBYGBiomes() {
 //
 //        // inland tropical
-//        TROPICAL_DESERT.addBiome(BYGBiomeList.DUNES, ConfigWeightManager.DUNES.getWeight());
-//        TROPICAL_DESERT.addBiome(BYGBiomeList.REDDESERT, ConfigWeightManager.REDDESERT.getWeight());
-//        TROPICAL_STEPPE.addBiome(BYGBiomeList.AMARANTHFIELDS, ConfigWeightManager.AMARANTHFIELDS.getWeight());
-//        TROPICAL_STEPPE.addBiome(BYGBiomeList.SHRUBLANDS, ConfigWeightManager.SHRUBLANDS.getWeight());
+//        TROPICAL_DESERT.addBiome(BYGBiomes.DUNES, ConfigWeightManager.DUNES.getWeight());
+//        TROPICAL_DESERT.addBiome(BYGBiomes.REDDESERT, ConfigWeightManager.REDDESERT.getWeight());
+//        TROPICAL_STEPPE.addBiome(BYGBiomes.AMARANTHFIELDS, ConfigWeightManager.AMARANTHFIELDS.getWeight());
+//        TROPICAL_STEPPE.addBiome(BYGBiomes.SHRUBLANDS, ConfigWeightManager.SHRUBLANDS.getWeight());
 //
-//        TROPICAL_RAINFOREST.addBiome(BYGBiomeList.GUIANASHIELD, ConfigWeightManager.GUIANASHIELD.getWeight());
-//        TROPICAL_RAINFOREST.addBiome(BYGBiomeList.TROPICALRAINFOREST, ConfigWeightManager.TROPICALRAINFOREST.getWeight());
-//        TROPICAL_RAINFOREST.addBiome(BYGBiomeList.TROPICALFUNGALRAINFOREST, ConfigWeightManager.TROPICALFUNGALFOREST.getWeight());
-//        TROPICAL_RAINFOREST.addBiome(BYGBiomeList.JACARANDAFOREST, ConfigWeightManager.JACARANDAFOREST.getWeight());
+//        TROPICAL_RAINFOREST.addBiome(BYGBiomes.GUIANASHIELD, ConfigWeightManager.GUIANASHIELD.getWeight());
+//        TROPICAL_RAINFOREST.addBiome(BYGBiomes.TROPICALRAINFOREST, ConfigWeightManager.TROPICALRAINFOREST.getWeight());
+//        TROPICAL_RAINFOREST.addBiome(BYGBiomes.TROPICALFUNGALRAINFOREST, ConfigWeightManager.TROPICALFUNGALFOREST.getWeight());
+//        TROPICAL_RAINFOREST.addBiome(BYGBiomes.JACARANDAFOREST, ConfigWeightManager.JACARANDAFOREST.getWeight());
 //
 //        // inland temperate
-//        TEMPERATE_DRY.addBiome(BYGBiomeList.PRAIRIE, ConfigWeightManager.PRAIRIE.getWeight());
-//        TEMPERATE_DRY.addBiome(BYGBiomeList.DECIDUOUSFOREST, ConfigWeightManager.DECIDUOUSFOREST.getWeight());
-//        TEMPERATE_DRY.addBiome(BYGBiomeList.BAOBABSAVANNA, ConfigWeightManager.BAOBABSAVANNA.getWeight());
+//        TEMPERATE_DRY.addBiome(BYGBiomes.PRAIRIE, ConfigWeightManager.PRAIRIE.getWeight());
+//        TEMPERATE_DRY.addBiome(BYGBiomes.DECIDUOUSFOREST, ConfigWeightManager.DECIDUOUSFOREST.getWeight());
+//        TEMPERATE_DRY.addBiome(BYGBiomes.BAOBABSAVANNA, ConfigWeightManager.BAOBABSAVANNA.getWeight());
 //
-//        //TEMPERATE_LUSH.addBiome(BYGBiomeList.WOODLANDS, 10);
-//        //TEMPERATE_LUSH.addBiome(BYGBiomeList.ASPENFOREST, 10);
-//        //TEMPERATE_LUSH.addBiome(BYGBiomeList.FLOWERINGPLAINS, 10);
-//        TEMPERATE_HUMID.addBiome(BYGBiomeList.VIBRANTSWAMPLANDS, ConfigWeightManager.VIBRANTSWAMPLANDS.getWeight());
-//        TEMPERATE_HUMID.addBiome(BYGBiomeList.ALLIUMFIELDS, ConfigWeightManager.ALLIUMFIELDS.getWeight());
-//        //TEMPERATE_LUSH.addBiome(BYGBiomeList.ANCIENTFOREST, 10);
-//        TEMPERATE_HUMID.addBiome(BYGBiomeList.REDOAKFOREST, ConfigWeightManager.REDOAKFOREST.getWeight());
-//        //TEMPERATE_LUSH.addBiome(BYGBiomeList.BAYOU, 10);
-//        //TEMPERATE_LUSH.addBiome(BYGBiomeList.MANGROVEMARSHES, 10);
-//        //TEMPERATE_LUSH.addBiome(BYGBiomeList.GLOWSHROOMBAYOU, 10);
-//        //TEMPERATE_LUSH.addBiome(BYGBiomeList.ORCHARD, 10);
-//        TEMPERATE_HUMID.addBiome(BYGBiomeList.MEADOW, ConfigWeightManager.MEADOW.getWeight());
-//        //TEMPERATE_LUSH.addBiome(BYGBiomeList.ENCHANTEDFOREST, 10);
-//        //TEMPERATE_LUSH.addBiome(BYGBiomeList.QUAGMIRE, 10);
+//        //TEMPERATE_LUSH.addBiome(BYGBiomes.WOODLANDS, 10);
+//        //TEMPERATE_LUSH.addBiome(BYGBiomes.ASPENFOREST, 10);
+//        //TEMPERATE_LUSH.addBiome(BYGBiomes.FLOWERINGPLAINS, 10);
+//        TEMPERATE_HUMID.addBiome(BYGBiomes.VIBRANTSWAMPLANDS, ConfigWeightManager.VIBRANTSWAMPLANDS.getWeight());
+//        TEMPERATE_HUMID.addBiome(BYGBiomes.ALLIUMFIELDS, ConfigWeightManager.ALLIUMFIELDS.getWeight());
+//        //TEMPERATE_LUSH.addBiome(BYGBiomes.ANCIENTFOREST, 10);
+//        TEMPERATE_HUMID.addBiome(BYGBiomes.REDOAKFOREST, ConfigWeightManager.REDOAKFOREST.getWeight());
+//        //TEMPERATE_LUSH.addBiome(BYGBiomes.BAYOU, 10);
+//        //TEMPERATE_LUSH.addBiome(BYGBiomes.MANGROVEMARSHES, 10);
+//        //TEMPERATE_LUSH.addBiome(BYGBiomes.GLOWSHROOMBAYOU, 10);
+//        //TEMPERATE_LUSH.addBiome(BYGBiomes.ORCHARD, 10);
+//        TEMPERATE_HUMID.addBiome(BYGBiomes.MEADOW, ConfigWeightManager.MEADOW.getWeight());
+//        //TEMPERATE_LUSH.addBiome(BYGBiomes.ENCHANTEDFOREST, 10);
+//        //TEMPERATE_LUSH.addBiome(BYGBiomes.QUAGMIRE, 10);
 //
 //
-//        //INLAND_COOL_DRY.addBiome(BYGBiomeList.ZELKOVAFOREST, 10);
-//        COOL_DRY.addBiome(BYGBiomeList.BLUETAIGA, ConfigWeightManager.BLUETAIGA.getWeight());
-//        COOL_DRY.addBiome(BYGBiomeList.SEASONALTAIGA, ConfigWeightManager.SEASONALTAIGA.getWeight());
-//        COOL_DRY.addBiome(BYGBiomeList.SEASONALFOREST, ConfigWeightManager.SEASONALFOREST.getWeight());
-//        COOL_DRY.addBiome(BYGBiomeList.SEASONALDECIDUOUSFOREST, ConfigWeightManager.SEASONALDECIDUOUSFOREST.getWeight());
-//        COOL_DRY.addBiome(BYGBiomeList.SEASONALBIRCHFOREST, ConfigWeightManager.SEASONALBIRCHFOREST.getWeight());
-//        COOL_DRY.addBiome(BYGBiomeList.BLUEGIANTTAIGA, ConfigWeightManager.GIANTBLUETAIGA.getWeight());
-//        COOL_DRY.addBiome(BYGBiomeList.SEASONALGIANTTAIGA, ConfigWeightManager.SEASONALGIANTTAIGA.getWeight());
+//        //INLAND_COOL_DRY.addBiome(BYGBiomes.ZELKOVAFOREST, 10);
+//        COOL_DRY.addBiome(BYGBiomes.BLUETAIGA, ConfigWeightManager.BLUETAIGA.getWeight());
+//        COOL_DRY.addBiome(BYGBiomes.SEASONALTAIGA, ConfigWeightManager.SEASONALTAIGA.getWeight());
+//        COOL_DRY.addBiome(BYGBiomes.SEASONALFOREST, ConfigWeightManager.SEASONALFOREST.getWeight());
+//        COOL_DRY.addBiome(BYGBiomes.SEASONALDECIDUOUSFOREST, ConfigWeightManager.SEASONALDECIDUOUSFOREST.getWeight());
+//        COOL_DRY.addBiome(BYGBiomes.SEASONALBIRCHFOREST, ConfigWeightManager.SEASONALBIRCHFOREST.getWeight());
+//        COOL_DRY.addBiome(BYGBiomes.BLUEGIANTTAIGA, ConfigWeightManager.GIANTBLUETAIGA.getWeight());
+//        COOL_DRY.addBiome(BYGBiomes.SEASONALGIANTTAIGA, ConfigWeightManager.SEASONALGIANTTAIGA.getWeight());
 //
-//        COOL_HUMID.addBiome(BYGBiomeList.SKYRISHIGHLANDS, ConfigWeightManager.SKYRISHIGHLANDS.getWeight());
-//        COOL_HUMID.addBiome(BYGBiomeList.BOREALFOREST, ConfigWeightManager.BOREALFOREST.getWeight());
-//        //COOL_LUSH.addBiome(BYGBiomeList.MAPLETAIGA, 10);
-//        //COOL_LUSH.addBiome(BYGBiomeList.PINEMOUNTAINS, 10);
-//        COOL_HUMID.addBiome(BYGBiomeList.CONIFEROUSFOREST, ConfigWeightManager.CONIFEROUSFOREST.getWeight());
-//        //COOL_LUSH.addBiome(BYGBiomeList.EVERGREENTAIGA, 10);
-//        //COOL_LUSH.addBiome(BYGBiomeList.WEEPINGWITCHFOREST, 10);
-//        COOL_HUMID.addBiome(BYGBiomeList.COLDSWAMPLANDS, ConfigWeightManager.COLDSWAMPLANDS.getWeight());
-//        //COOL_LUSH.addBiome(BYGBiomeList.GREATLAKES, 10);
-//        COOL_HUMID.addBiome(BYGBiomeList.CRAGGARDENS, ConfigWeightManager.CRAGGARDENS.getWeight());
+//        COOL_HUMID.addBiome(BYGBiomes.SKYRISHIGHLANDS, ConfigWeightManager.SKYRISHIGHLANDS.getWeight());
+//        COOL_HUMID.addBiome(BYGBiomes.BOREALFOREST, ConfigWeightManager.BOREALFOREST.getWeight());
+//        //COOL_LUSH.addBiome(BYGBiomes.MAPLETAIGA, 10);
+//        //COOL_LUSH.addBiome(BYGBiomes.PINEMOUNTAINS, 10);
+//        COOL_HUMID.addBiome(BYGBiomes.CONIFEROUSFOREST, ConfigWeightManager.CONIFEROUSFOREST.getWeight());
+//        //COOL_LUSH.addBiome(BYGBiomes.EVERGREENTAIGA, 10);
+//        //COOL_LUSH.addBiome(BYGBiomes.WEEPINGWITCHFOREST, 10);
+//        COOL_HUMID.addBiome(BYGBiomes.COLDSWAMPLANDS, ConfigWeightManager.COLDSWAMPLANDS.getWeight());
+//        //COOL_LUSH.addBiome(BYGBiomes.GREATLAKES, 10);
+//        COOL_HUMID.addBiome(BYGBiomes.CRAGGARDENS, ConfigWeightManager.CRAGGARDENS.getWeight());
 //
-//        COLD.addBiome(BYGBiomeList.ALPS, ConfigWeightManager.ALPS.getWeight());
-//        COLD.addBiome(BYGBiomeList.SNOWYCONIFEROUSFOREST, ConfigWeightManager.SNOWYCONIFEROUSFOREST.getWeight());
-//        COLD.addBiome(BYGBiomeList.SNOWYDECIDUOUSFOREST, ConfigWeightManager.SNOWYDECIDUOUSFOREST.getWeight());
-//        //COLD.addBiome(BYGBiomeList.SNOWYEVERGREENTAIGA, 10);
-//        //COLD.addBiome(BYGBiomeList.SNOWYPINEMOUNTAINS, 10);
-//        //COLD.addBiome(BYGBiomeList.SNOWYDECIDUOUSFOREST, 10);
-//        //COLD.addBiome(BYGBiomeList.EVERGREENTAIGA, 10);
-//        COLD.addBiome(BYGBiomeList.SHATTEREDGLACIER, ConfigWeightManager.SHATTEREDGLACIER.getWeight());
-//        COLD.addBiome(BYGBiomeList.SNOWYBLUETAIGA, ConfigWeightManager.SNOWYBLUETAIGA.getWeight());
-//        COLD.addBiome(BYGBiomeList.SNOWYBLUEGIANTTAIGA, ConfigWeightManager.SNOWYGIANTBLUETAIGA.getWeight());
+//        COLD.addBiome(BYGBiomes.ALPS, ConfigWeightManager.ALPS.getWeight());
+//        COLD.addBiome(BYGBiomes.SNOWYCONIFEROUSFOREST, ConfigWeightManager.SNOWYCONIFEROUSFOREST.getWeight());
+//        COLD.addBiome(BYGBiomes.SNOWYDECIDUOUSFOREST, ConfigWeightManager.SNOWYDECIDUOUSFOREST.getWeight());
+//        //COLD.addBiome(BYGBiomes.SNOWYEVERGREENTAIGA, 10);
+//        //COLD.addBiome(BYGBiomes.SNOWYPINEMOUNTAINS, 10);
+//        //COLD.addBiome(BYGBiomes.SNOWYDECIDUOUSFOREST, 10);
+//        //COLD.addBiome(BYGBiomes.EVERGREENTAIGA, 10);
+//        COLD.addBiome(BYGBiomes.SHATTEREDGLACIER, ConfigWeightManager.SHATTEREDGLACIER.getWeight());
+//        COLD.addBiome(BYGBiomes.SNOWYBLUETAIGA, ConfigWeightManager.SNOWYBLUETAIGA.getWeight());
+//        COLD.addBiome(BYGBiomes.SNOWYBLUEGIANTTAIGA, ConfigWeightManager.SNOWYGIANTBLUETAIGA.getWeight());
 //
 //        // islands
-//        OCEAN_ISLANDS_TROPICAL.addBiome(BYGBiomeList.TROPICALISLAND, 5);
-//        OCEAN_ISLANDS_TROPICAL.addBiome(BYGBiomeList.DEADSEA, 1);
-//        OCEAN_ISLANDS_TEMPERATE.addBiome(BYGBiomeList.DECIDUOUSFOREST, ConfigWeightManager.DECIDUOUSFOREST.getWeight());
-//        OCEAN_ISLANDS_SNOWY.addBiome(BYGBiomeList.SNOWYCONIFEROUSFOREST, ConfigWeightManager.SNOWYCONIFEROUSFOREST.getWeight());
+//        OCEAN_ISLANDS_TROPICAL.addBiome(BYGBiomes.TROPICALISLAND, 5);
+//        OCEAN_ISLANDS_TROPICAL.addBiome(BYGBiomes.DEADSEA, 1);
+//        OCEAN_ISLANDS_TEMPERATE.addBiome(BYGBiomes.DECIDUOUSFOREST, ConfigWeightManager.DECIDUOUSFOREST.getWeight());
+//        OCEAN_ISLANDS_SNOWY.addBiome(BYGBiomes.SNOWYCONIFEROUSFOREST, ConfigWeightManager.SNOWYCONIFEROUSFOREST.getWeight());
 //
 //        HOT_OCEAN.addBiome(Biomes.WARM_OCEAN, 10);
 //        TEMPERATE_OCEAN.addBiome(Biomes.LUKEWARM_OCEAN, 10);
