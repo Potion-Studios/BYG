@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.common.world.feature.end.EndVegetationFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItemUseContext;
@@ -7,10 +8,7 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.FlowersFeature;
@@ -24,26 +22,21 @@ import java.util.Random;
 public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
 
     private final Block blockToSpreadToo;
-    private final boolean isNetherSpreadable;
-    private final BlockStateProvidingFeatureConfig netherFeatureConfig;
+    private final BlockStateProvidingFeatureConfig featureConfig;
+    private final ForDimension forDimension;
 
-    public SpreadableBlock(Properties properties, Block blockToSpreadToo, BlockStateProvidingFeatureConfig netherFeatureConfig) {
+
+
+    public SpreadableBlock(Properties properties, Block blockToSpreadToo, ForDimension type, BlockStateProvidingFeatureConfig featureConfig) {
         super(properties);
         this.blockToSpreadToo = blockToSpreadToo;
-        this.isNetherSpreadable = true;
-        this.netherFeatureConfig = netherFeatureConfig;
-    }
-
-    public SpreadableBlock(Properties properties, Block blockToSpreadToo) {
-        super(properties);
-        this.blockToSpreadToo = blockToSpreadToo;
-        this.isNetherSpreadable = false;
-        netherFeatureConfig = null;
+        this.featureConfig = featureConfig;
+        this.forDimension = type;
     }
 
     @Override
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (isNetherSpreadable) {
+        if (this.forDimension == ForDimension.NETHER) {
             if (!areConditionsGood(state, worldIn, pos))
                 worldIn.setBlockState(pos, blockToSpreadToo.getDefaultState());
         } else {
@@ -89,7 +82,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
             while (true) {
                 if (j >= i / 16) {
                     BlockState blockstate2 = world.getBlockState(blockpos1);
-                    if (!isNetherSpreadable) {
+                    if (this.forDimension == ForDimension.OVERWORLD) {
                         if (blockstate2 == thisBlockState && rand.nextInt(10) == 0) {
                             ((IGrowable) thisBlockState.getBlock()).grow(world, rand, blockpos1, blockstate2);
                         }
@@ -99,8 +92,13 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
                         break;
                     }
 
-                    if (isNetherSpreadable) {
-                        NetherVegetationFeature.func_236325_a_(world, rand, blockpos1, this.netherFeatureConfig, 3, 1);
+                    if (forDimension == ForDimension.NETHER) {
+                        NetherVegetationFeature.func_236325_a_(world, rand, blockpos1, this.featureConfig, 3, 1);
+                        break;
+                    }
+
+                    if (forDimension == ForDimension.END) {
+                        EndVegetationFeature.placeBonemeal(world, rand, blockpos1, this.featureConfig, 3, 1);
                         break;
                     }
 
@@ -135,13 +133,13 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        if (!isNetherSpreadable)
+        if (this.forDimension == ForDimension.OVERWORLD)
             super.fillStateContainer(builder);
     }
 
     @Override
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (!isNetherSpreadable)
+        if (this.forDimension == ForDimension.OVERWORLD)
             return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         else
             return this.getDefaultState();
@@ -149,7 +147,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        if (!isNetherSpreadable)
+        if (this.forDimension == ForDimension.OVERWORLD)
             return super.getStateForPlacement(context);
         else
             return this.getDefaultState();
@@ -159,7 +157,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
     private boolean areConditionsGood(BlockState state, IWorldReader worldReader, BlockPos pos) {
         BlockPos blockpos = pos.up();
         BlockState blockstate = worldReader.getBlockState(blockpos);
-        if (!this.isNetherSpreadable) {
+        if (this.forDimension == ForDimension.OVERWORLD) {
             if (blockstate.isIn(Blocks.SNOW) && blockstate.get(SnowBlock.LAYERS) == 1) {
                 return true;
             } else if (blockstate.getFluidState().getLevel() == 8) {
@@ -174,5 +172,22 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
     private boolean areConditionsGoodAndNotUnderWater(BlockState state, IWorldReader worldReader, BlockPos pos) {
         BlockPos blockpos = pos.up();
         return areConditionsGood(state, worldReader, pos) && !worldReader.getFluidState(blockpos).isTagged(FluidTags.WATER);
+    }
+
+
+    public enum ForDimension {
+        OVERWORLD(DimensionType.OVERWORLD_TYPE),
+        NETHER(DimensionType.NETHER_TYPE),
+        END(DimensionType.END_TYPE);
+
+        final DimensionType dimensionType;
+
+        ForDimension(DimensionType dimensionType) {
+            this.dimensionType = dimensionType;
+        }
+
+        public DimensionType getDimType() {
+            return this.dimensionType;
+        }
     }
 }

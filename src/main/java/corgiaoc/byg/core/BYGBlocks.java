@@ -2,19 +2,18 @@ package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
-import corgiaoc.byg.common.properties.blocks.BYGCraftingTableBlock;
-import corgiaoc.byg.common.properties.blocks.BYGMushroomBlock;
-import corgiaoc.byg.common.properties.blocks.BYGSapling;
-import corgiaoc.byg.common.properties.blocks.BookshelfBlock;
+import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import corgiaoc.byg.common.world.feature.overworld.trees.BYGSaplingToTree;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGTree;
+import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraftforge.common.ToolType;
 
 import java.util.ArrayList;
@@ -311,11 +310,11 @@ public class BYGBlocks {
     public static final Block PALM_FENCE = createFence("palm_fence");
     public static final Block LAMENT_FENCE = createFence("lament_fence");
 
-    public static final Block PEAT = new BYGBlockProperties.BYGDirt("peat");
+    public static final Block PEAT = createDirt("peat");
     public static final Block GLOWCELIUM = new BYGBlockProperties.BYGGlowcelium("glowcelium_block");
-    public static final Block MEADOW_DIRT = new BYGBlockProperties.BYGDirt("meadow_dirt");
+    public static final Block MEADOW_DIRT = createDirt("meadow_dirt");
     public static final Block MUD_BLOCK = new BYGBlockProperties.BYGMud("mud_block");
-    public static final Block MUD_BRICKS = new BYGBlockProperties.BYGDirt("mud_bricks");
+    public static final Block MUD_BRICKS = createDirt("mud_bricks");
 
     public static final Block ARAUCARIA_SAPLING = createSapling(new BYGSaplingToTree.AraucariaSaplingToTree(), "araucaria_sapling");
     public static final Block ASPEN_SAPLING = createSapling(new BYGSaplingToTree.AspenSaplingToTree(), "aspen_sapling");
@@ -696,7 +695,6 @@ public class BYGBlocks {
     public static final Block MOSSY_STONE_SLAB = createStoneSlab("mossy_stone_slab");
     public static final Block MOSSY_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("mossy_stone_stairs");
     public static final Block MOSSY_STONE_WALL = createStoneWall("mossy_stone_wall");
-    public static final Block PODZOL_DACITE = new BYGBlockProperties.BlockOvergrownDaciteBlock("podzol_dacite");
 
     public static final Block ROCKY_STONE = new BYGBlockProperties.BYGStone("rocky_stone");
     public static final Block ROCKY_SLAB = createStoneSlab("rocky_stone_slab");
@@ -852,14 +850,16 @@ public class BYGBlocks {
     public static final Block YELLOW_DAFFODIL = createFlower("yellow_daffodil");
     public static final Block YELLOW_TULIP = createFlower("yellow_tulip");
 
-    public static final Block OVERGROWN_DACITE = new BYGBlockProperties.BlockOvergrownDaciteBlock("overgrown_dacite");
-    public static final Block OVERGROWN_STONE = new BYGBlockProperties.BlockOvergrownStoneBlock("overgrown_stone");
-    public static final Block OVERGROWN_CRIMSON_BLACKSTONE = new BYGBlockProperties.OvergrownCrimsonBlackstone("overgrown_crimson_blackstone");
-    public static final Block OVERGROWN_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("overgrown_netherrack");
-    public static final Block IVIS_PHYLIUM = new BYGBlockProperties.BYGIvisPhylium("ivis_phylium");
-    public static final Block EMBUR_NYLIUM = new BYGBlockProperties.BYGEmberNylium("embur_nylium");
-    public static final Block SYTHIAN_NYLIUM = new BYGBlockProperties.BYGSythianNylium("sythian_nylium");
-    public static final Block MEADOW_GRASSBLOCK = new BYGBlockProperties.BYGMeadowGrass("meadow_grass_block");
+
+    public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, "podzol_dacite");
+    public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, "overgrown_dacite");
+    public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, "overgrown_stone");
+    public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "overgrown_crimson_blackstone");
+    public static final Block OVERGROWN_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "overgrown_netherrack");
+    public static final Block IVIS_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG,  "ivis_phylium");
+    public static final Block EMBUR_NYLIUM = createNetherSpreadable(BYGBlocks.BLUE_NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS, "embur_nylium");
+    public static final Block SYTHIAN_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "sythian_nylium");
+    public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, "meadow_grass_block");
 
 
     static Block createFence(String id) {
@@ -990,6 +990,43 @@ public class BYGBlocks {
         return leaves;
     }
 
+    static Block createDirt(String id) {
+        Block dirt = new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.SHOVEL));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), dirt);
+        return dirt;
+    }
+
+    static Block createDirtSpreadable(Block blockToSpreadToo, String id) {
+        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.SHOVEL), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
+        return spreadableDirt;
+    }
+
+    static Block createStoneSpreadable(Block blockToSpreadToo, String id) {
+        Block spreadableStone = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5f, 6.0f).tickRandomly().harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableStone);
+        return spreadableStone;
+    }
+
+
+    static Block createEndSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
+        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
+        return spreadableDirt;
+    }
+
+    static Block createNetherSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
+        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4F).tickRandomly().harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
+        return spreadableDirt;
+    }
+
+    static Block createNetherStoneSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
+        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
+        return spreadableDirt;
+    }
+    
     public static void init() {
     }
 }

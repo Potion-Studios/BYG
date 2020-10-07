@@ -107,7 +107,7 @@
 //            // because we want sand/gravel (default depth=2) to be able to generate under clay (default depth=1).
 //            for (int i = 0; i < configs.maxDepth; i++) {
 //
-//                // If this block wins over what we already have, set this as what we're going to place instead.
+//                // If this block wins over what we already have, set this as what we're going to placeBonemeal instead.
 //                if (i < config.depth && noiseValue > currentBestValues[i]) {
 //                    currentBestValues[i] = noiseValue;
 //                    newBlocks[i] = config.blockType;

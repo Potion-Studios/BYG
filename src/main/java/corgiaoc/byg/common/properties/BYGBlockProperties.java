@@ -26,7 +26,6 @@ import corgiaoc.byg.common.properties.blocks.nether.warped.*;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVineBlock;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVinePlantBlock;
 import corgiaoc.byg.core.BYGBlocks;
-import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -320,63 +319,12 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BlockOvergrownStoneBlock extends SpreadableBlock {
-        public BlockOvergrownStoneBlock(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
-                    .hardnessAndResistance(1.5f, 6.0f)
-                    .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), Blocks.STONE
-
-
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
-    public static class BlockOvergrownDaciteBlock extends SpreadableBlock {
-        public BlockOvergrownDaciteBlock(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
-                    .hardnessAndResistance(1.5f, 6.0f)
-                    .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), BYGBlocks.DACITE
-
-
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
-    public static class BYGDirt extends Block {
-        public BYGDirt(String registryName) {
-            super(Block.Properties.create(Material.EARTH)
-                    .sound(SoundType.GROUND)
-                    .hardnessAndResistance(0.2f)
-                    .tickRandomly()
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
-
     public static class BYGMud extends Block {
         public BYGMud(String registryName) {
             super(Block.Properties.create(Material.EARTH)
                     .sound(SoundType.GROUND)
                     .hardnessAndResistance(0.2f)
                     .speedFactor(0.4F)
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
-    public static class BYGMeadowGrass extends SpreadableBlock {
-        public BYGMeadowGrass(String registryName) {
-            super(Block.Properties.create(Material.ORGANIC)
-                    .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.6f)
-                    .tickRandomly(), BYGBlocks.MEADOW_DIRT
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
@@ -697,19 +645,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGEmberNylium extends SpreadableBlock {
-        public BYGEmberNylium(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.NYLIUM)
-                    .hardnessAndResistance(0.4F)
-                    .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), BYGBlocks.BLUE_NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS
-
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
     public static class SythianSapling extends SythianSaplingBlock {
         public SythianSapling(String registryName) {
             super(Block.Properties.create(Material.BAMBOO_SAPLING)
@@ -734,32 +669,6 @@ public class BYGBlockProperties {
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
-        }
-    }
-
-    public static class BYGSythianNylium extends SpreadableBlock {
-        public BYGSythianNylium(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.NYLIUM)
-                    .hardnessAndResistance(0.2f)
-                    .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG
-
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
-    public static class OvergrownCrimsonBlackstone extends CrimsonBlackstoneBlock {
-        public OvergrownCrimsonBlackstone(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.NYLIUM)
-                    .hardnessAndResistance(0.2f)
-                    .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE)
-
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -797,19 +706,6 @@ public class BYGBlockProperties {
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
-        }
-    }
-
-    public static class BYGIvisPhylium extends SpreadableBlock {
-        public BYGIvisPhylium(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.NYLIUM)
-                    .hardnessAndResistance(0.2f)
-                    .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG
-
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
