@@ -14,7 +14,7 @@ import java.util.Set;
 
 public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
-    public PaloVerdeTree(Codec<BYGTreeFeatureConfig> configIn, int beeHiveChance) {
+    public PaloVerdeTree(Codec<BYGTreeFeatureConfig> configIn) {
         super(configIn);
     }
 
