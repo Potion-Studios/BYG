@@ -8,7 +8,6 @@ import corgiaoc.byg.common.properties.vanilla.BYGCompostables;
 import corgiaoc.byg.common.properties.vanilla.BYGFlammables;
 import corgiaoc.byg.common.properties.vanilla.BYGHoeables;
 import corgiaoc.byg.common.properties.vanilla.BYGStrippables;
-import corgiaoc.byg.common.world.biome.BYGBiomeWeightSystem;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeCatch;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeCatch;
@@ -71,10 +70,10 @@ public class BYG {
         BYGEndBiomeCatch.endBiomeConfigCollection();
         BYGNetherBiomeCatch.netherBiomeConfigCollection();
         BYGFeaturesInVanilla.addBYGFeaturesToBiomes();
+        BYGBiomes.addBiomeNumericalIDsForLayerSampler();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
-        BYGBiomes.addBiomeNumericalIDsForLayerSampler();
-        BYGBiomeWeightSystem.addBiomesToWeightSystem();
+        BYGBiomes.addBiomesToWeightSystem();
 //        BlockDataGenerator.makeBYGLangFile(FILE_PATH);
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
