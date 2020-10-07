@@ -34,7 +34,7 @@ public class BYGBoatEntity extends BoatEntity {
 
 
     public BYGBoatEntity(World worldIn, double x, double y, double z) {
-        this(BYGEntities.BYGBOAT, worldIn);
+        this(BYGEntities.BOAT, worldIn);
         this.setPosition(x, y, z);
         this.setMotion(Vector3d.ZERO);
         this.prevPosX = x;
@@ -47,7 +47,7 @@ public class BYGBoatEntity extends BoatEntity {
     }
 
     public BYGBoatEntity(FMLPlayMessages.SpawnEntity packet, World world) {
-        super(BYGEntities.BYGBOAT, world);
+        super(BYGEntities.BOAT, world);
     }
 
 

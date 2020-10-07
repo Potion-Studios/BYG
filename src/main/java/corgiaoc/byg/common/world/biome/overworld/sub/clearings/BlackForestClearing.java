@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld.sub.clearings;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.core.RegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
@@ -12,7 +13,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class BlackForestClearing extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("black_forest_clearing", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CONIFEROUS_SB, BYGSurfaceBuilders.BYGSBConfigList.PEATGRASS_CF));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("black_forest_clearing", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CONIFEROUS_SB, BYGSurfaceBuilders.BYGSBConfigList.PEATGRASS_CF));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.TAIGA;
     static final float DEPTH = 0.2F;

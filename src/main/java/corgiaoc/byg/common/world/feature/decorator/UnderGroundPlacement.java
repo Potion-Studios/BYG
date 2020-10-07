@@ -7,7 +7,6 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.WorldDecoratingHelper;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
-import corgiaoc.byg.common.world.biome.BiomeUtil;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -16,8 +15,6 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class UnderGroundPlacement extends Placement<AtSurfaceWithExtraConfig> {
-
-    public static final Placement<AtSurfaceWithExtraConfig> UGPLACER = BiomeUtil.newDecorator("underground_count_extra_decorator", new UnderGroundPlacement(AtSurfaceWithExtraConfig.field_236973_a_));
 
     public UnderGroundPlacement(Codec<AtSurfaceWithExtraConfig> codec) {
         super(codec);

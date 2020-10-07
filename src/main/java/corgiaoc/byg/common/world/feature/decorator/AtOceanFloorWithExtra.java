@@ -6,15 +6,12 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.WorldDecoratingHelper;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
-import corgiaoc.byg.common.world.biome.BiomeUtil;
 
 import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class AtOceanFloorWithExtra extends Placement<AtSurfaceWithExtraConfig> {
-
-    public static final Placement<AtSurfaceWithExtraConfig> OCEANFLOOR = BiomeUtil.newDecorator("ocean_floor_count_extra", new AtOceanFloorWithExtra(AtSurfaceWithExtraConfig.field_236973_a_));
 
     public AtOceanFloorWithExtra(Codec<AtSurfaceWithExtraConfig> config) {
         super(config);

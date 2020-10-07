@@ -115,7 +115,7 @@ public class BYG {
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
         BYGCutoutRenders.renderCutOuts();
 //        MainMenuBYG.mainMenuPanorama();
-        RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BYGBOAT, BYGBoatRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BOAT, BYGBoatRenderer::new);
 //        WorldType116.addGenerator();
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }

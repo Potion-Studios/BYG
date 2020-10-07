@@ -23,10 +23,7 @@ import java.util.List;
 @SuppressWarnings("deprecation")
 public class BYGBlocks {
 
-    public static void init() {}
-
     public static List<Block> flowerPotBlocks = new ArrayList<>();
-
 
     public static final Block ASPEN_PLANKS = createPlanks("aspen_planks");
     public static final Block BAOBAB_PLANKS = createPlanks("baobab_planks");
@@ -991,4 +988,6 @@ public class BYGBlocks {
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), leaves);
         return leaves;
     }
+
+    public static void init() {}
 }

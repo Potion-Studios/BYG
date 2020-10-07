@@ -11,8 +11,8 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 
-public class WhalingGrass extends Feature<NoFeatureConfig> {
-    public WhalingGrass(Codec<NoFeatureConfig> config) {
+public class WailingGrass extends Feature<NoFeatureConfig> {
+    public WailingGrass(Codec<NoFeatureConfig> config) {
         super(config);
     }
 

@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.core.RegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
@@ -10,7 +11,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class DoverMountains extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("dover_mountains", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.DOVER_SB, BYGSurfaceBuilders.BYGSBConfigList.PODZOLDOVERMOUNTAIN_CF));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("dover_mountains", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.DOVER_SB, BYGSurfaceBuilders.BYGSBConfigList.PODZOLDOVERMOUNTAIN_CF));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.EXTREME_HILLS;
     static final float DEPTH = 2.0F;

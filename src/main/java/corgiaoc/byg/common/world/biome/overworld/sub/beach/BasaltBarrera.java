@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld.sub.beach;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.core.RegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
@@ -11,7 +12,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class BasaltBarrera extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("basalt_barrera", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BASALT_BARRERA_SB, BYGSurfaceBuilders.BYGSBConfigList.BLACKSAND));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("basalt_barrera", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BASALT_BARRERA_SB, BYGSurfaceBuilders.BYGSBConfigList.BLACKSAND));
     static final Biome.RainType PRECIPITATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.BEACH;
     static final float DEPTH = -0.2F;

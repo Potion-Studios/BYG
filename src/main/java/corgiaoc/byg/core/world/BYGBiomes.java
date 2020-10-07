@@ -212,7 +212,6 @@ public class BYGBiomes {
 
 
     public static void registerBYGBiomes() {
-        BYG.LOGGER.debug("BYG: Registering Biomes...");
         registerBiome(BYGBiomes.ALLIUMFIELDS, "allium_fields");
         registerBiome(BYGBiomes.ALPS, "alps");
         registerBiome(BYGBiomes.AMARANTHFIELDS, "amaranth_fields");
@@ -392,9 +391,6 @@ public class BYGBiomes {
 
         //End
         registerBYGEndBiome(BYGBiomes.IVISFIELDS, "ivis_fields");
-
-        BYG.LOGGER.info("BYG: Biomes Registered!");
-
     }
 
     private static void registerBiome(Biome biome, String name) {

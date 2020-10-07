@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld.sub.beach;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.core.RegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
@@ -10,7 +11,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class RockyBeach extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = BiomeUtil.newConfiguredSurfaceBuilder("rocky_beach", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.ROCKYBEACH_SB, BYGSurfaceBuilders.BYGSBConfigList.ROCKY));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("rocky_beach", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.ROCKYBEACH_SB, BYGSurfaceBuilders.BYGSBConfigList.ROCKY));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.BEACH;
     static final float DEPTH = 0.0F;
