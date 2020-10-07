@@ -14,6 +14,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
+import javax.annotation.Nullable;
 import java.util.HashMap;
 
 public class CikaWoods extends BYGBiome {
@@ -42,6 +43,17 @@ public class CikaWoods extends BYGBiome {
         map.put(BYGBiomes.CIKA_MOUNTAINS, 3);
         map.put(BYGBiomes.FRESHWATERLAKE, 1);
         return map;
+    }
+
+    @Nullable
+    @Override
+    public Biome getEdges(INoiseRandom rand, Biome north, Biome west, Biome south, Biome east) {
+        Biome[] edgeArray = {north, west, south, east};
+        for (Biome biome : edgeArray) {
+            if (BiomeUtil.isOcean(biome))
+                return BYGBiomes.BASALT_BARRERA;
+        }
+        return super.getEdges(rand, north, west, south, east);
     }
 
     public Biome getHills(INoiseRandom rand) {
