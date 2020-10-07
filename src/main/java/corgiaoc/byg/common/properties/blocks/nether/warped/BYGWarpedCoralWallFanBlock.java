@@ -9,7 +9,7 @@ import net.minecraft.util.Direction;
 public class BYGWarpedCoralWallFanBlock extends DeadCoralWallFanBlock {
     protected BYGWarpedCoralWallFanBlock(Block.Properties block) {
         super(block);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
     protected boolean isValidGround(BlockState state) {

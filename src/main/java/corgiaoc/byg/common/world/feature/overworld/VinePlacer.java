@@ -31,7 +31,7 @@ public class VinePlacer extends Feature<NoFeatureConfig> {
                 return false;
             } else if (currentBlockToReplace == Blocks.AIR.getDefaultState() && stoneCheck == Blocks.STONE.getDefaultState()) {
                 for (int placeY = 0; placeY <= rand.nextInt(66) + 10; placeY++) {
-                    worldIn.setBlockState(mainMutable.move(Direction.DOWN, placeY), Blocks.VINE.getDefaultState().with(VineBlock.getPropertyFor(direction.getOpposite()), Boolean.valueOf(true)), 2);
+                    worldIn.setBlockState(mainMutable.move(Direction.DOWN, placeY), Blocks.VINE.getDefaultState().with(VineBlock.getPropertyFor(direction.getOpposite()), true), 2);
                 }
             }
         }

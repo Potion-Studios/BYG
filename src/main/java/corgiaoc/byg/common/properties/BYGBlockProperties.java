@@ -42,6 +42,7 @@ import net.minecraftforge.common.ToolType;
 
 import java.util.function.ToIntFunction;
 
+@SuppressWarnings("deprecation")
 public class BYGBlockProperties {
 
     public static class BYGFairySlipperFlower extends BYGFairySlipperBlock {
@@ -421,7 +422,7 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 12)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)));
+            this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, 7).with(PERSISTENT, false));
         }
     }
 
@@ -1003,7 +1004,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.WOOD)
                     .tickRandomly()
                     .notSolid()
-                    .setLightLevel(getLightValueLit(14))
+                    .setLightLevel((state) -> 14)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
@@ -1142,17 +1143,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGCrop extends CropsBlock {
-        public BYGCrop(String registryName) {
-            super(Block.Properties.create(Material.PLANTS)
-                    .sound(SoundType.PLANT)
-                    .hardnessAndResistance(1.5f, 6.0f)
-                    .notSolid()
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
     public static class BlockCattail extends BYGRiverPlantBlock {
         public BlockCattail(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
@@ -1186,7 +1176,7 @@ public class BYGBlockProperties {
                     .notSolid()
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
+            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
     }
 
@@ -1198,7 +1188,7 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 12)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
+            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
 
         @OnlyIn(Dist.CLIENT)
@@ -1214,7 +1204,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2F)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
+            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
 
         @OnlyIn(Dist.CLIENT)
@@ -1232,7 +1222,7 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 12)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
+            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
 
         @OnlyIn(Dist.CLIENT)
@@ -1249,22 +1239,12 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 12)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
+            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
 
         @OnlyIn(Dist.CLIENT)
         public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
             return adjacentBlockState.getBlock() == this || super.isSideInvisible(state, adjacentBlockState, side);
-        }
-    }
-
-    public static class BYGPlanks extends Block {
-        public BYGPlanks(String registryName) {
-            super(Block.Properties.create(Material.WOOD, MaterialColor.BROWN)
-                    .sound(SoundType.WOOD)
-                    .hardnessAndResistance(2.0f, 3.0f)
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1276,14 +1256,6 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .variableOpacity()
                     .setLightLevel((state) -> 12)
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
-    public static class BYGCraftingTable extends BYGCraftingTableBlock {
-        public BYGCraftingTable(String registryName) {
-            super(Block.Properties.from(Blocks.CRAFTING_TABLE)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
@@ -1346,18 +1318,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGNetherBricks extends Block {
-        public BYGNetherBricks(String registryName) {
-            super(Block.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
-                    .sound(SoundType.NETHER_BRICK)
-                    .hardnessAndResistance(0.4F, 0.4F)
-                    .harvestTool(ToolType.PICKAXE)
-
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
     public static class BYGPillar extends RotatedPillarBlock {
         public BYGPillar(String registryName) {
             super(Block.Properties.create(Material.ROCK)
@@ -1365,17 +1325,6 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(1.5f, 6.0f)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
-    public static class BYGStrippedLog extends LogBlock {
-        public BYGStrippedLog(String registryName) {
-            super(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)
-                    .sound(SoundType.WOOD)
-                    .hardnessAndResistance(2.0f)
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-
         }
     }
 
@@ -1391,10 +1340,6 @@ public class BYGBlockProperties {
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
-    }
-
-    private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
-        return (state) -> state.get(BlockStateProperties.LIT) ? lightValue : 0;
     }
 }
 

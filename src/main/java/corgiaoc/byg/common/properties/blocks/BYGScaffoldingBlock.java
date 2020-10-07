@@ -65,7 +65,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
         BlockState blockstate = state.with(DISTANCE, Integer.valueOf(i)).with(BOTTOM, Boolean.valueOf(this.shouldBeBOTTOM(worldIn, pos, i)));
         if (blockstate.get(DISTANCE) == 7) {
             if (state.get(DISTANCE) == 7) {
-                worldIn.addEntity(new FallingBlockEntity(worldIn, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, blockstate.with(WATERLOGGED, Boolean.valueOf(false))));
+                worldIn.addEntity(new FallingBlockEntity(worldIn, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, blockstate.with(WATERLOGGED, false)));
             } else {
                 worldIn.destroyBlock(pos, true);
             }

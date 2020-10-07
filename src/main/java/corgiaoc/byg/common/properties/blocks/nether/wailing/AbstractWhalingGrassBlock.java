@@ -29,7 +29,7 @@ public class AbstractWhalingGrassBlock extends Block implements IWaterLoggable {
 
     protected AbstractWhalingGrassBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.valueOf(true)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, true));
     }
 
     @Nullable

@@ -41,7 +41,7 @@ public class BlackIceAndSnowFeature extends Feature<NoFeatureConfig> {
                     worldIn.setBlockState(blockpos$mutable, Blocks.SNOW.getDefaultState(), 2);
                     BlockState blockstate = worldIn.getBlockState(blockpos$mutable1);
                     if (blockstate.get(SnowyDirtBlock.SNOWY)) {
-                        worldIn.setBlockState(blockpos$mutable1, blockstate.with(SnowyDirtBlock.SNOWY, Boolean.valueOf(true)), 2);
+                        worldIn.setBlockState(blockpos$mutable1, blockstate.with(SnowyDirtBlock.SNOWY, true), 2);
                     }
                 }
             }

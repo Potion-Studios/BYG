@@ -15,7 +15,7 @@ public class BYGWarpedCoralPlantBlock extends AbstractCoralPlantBlock {
 
     protected BYGWarpedCoralPlantBlock(Block.Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, false));
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos blockPos, ISelectionContext context) {
