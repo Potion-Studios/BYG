@@ -438,7 +438,7 @@ public class BYGBlocks {
     public static final Block PRICKLY_PEAR_CACTUS = new BYGBlockProperties.BYGDesertPlant("prickly_pear_cactus");
     public static final Block WINTER_SUCCULENT = createFlower("winter_succulent");
     public static final Block SHORT_GRASS = new BYGBlockProperties.BYGTallGrass("short_grass");
-    public static final Block TALL_PRAIRIE_GRASS = new BYGBlockProperties.BYGDoublePlant("tall_prairie_grass");
+    public static final Block TALL_PRAIRIE_GRASS = createTallFlower("tall_prairie_grass");
     public static final Block BLUE_GLOWCANE = new BYGBlockProperties.BYGBLUEGlowCane("blue_glowcane");
     public static final Block RED_GLOWCANE = new BYGBlockProperties.BYGREDGlowCane("red_glowcane");
     public static final Block PURPLE_GLOWCANE = new BYGBlockProperties.BYGPURPLEGlowCane("purple_glowcane");
@@ -786,13 +786,13 @@ public class BYGBlocks {
     public static final Block STRIPPED_PALM_WOOD = createWood("stripped_palm_wood");
     public static final Block STRIPPED_LAMENT_WOOD = createWood("stripped_lament_wood");
 
-    public static final Block TALL_ALLIUM = new BYGBlockProperties.BYGDoublePlant("tall_allium");
-    public static final Block TALL_PINK_ALLIUM = new BYGBlockProperties.BYGDoublePlant("tall_pink_allium");
+    public static final Block TALL_ALLIUM = createTallFlower("tall_allium");
+    public static final Block TALL_PINK_ALLIUM = createTallFlower("tall_pink_allium");
     public static final Block ALLIUM_FLOWER_BUSH = new BYGBlockProperties.BYGAllium("allium_flower_bush");
     public static final Block ALPINE_BELLFLOWER = createFlower("alpine_bellflower");
     public static final Block AMARANTH = new BYGBlockProperties.BYGAmaranth("amaranth");
     public static final Block ANGELICA = createFlower("angelica");
-    public static final Block AZALEA = new BYGBlockProperties.BYGDoublePlant("azalea");
+    public static final Block AZALEA = createTallFlower("azalea");
     public static final Block BEGONIA = createFlower("begonia");
     public static final Block BISTORT = createFlower("bistort");
     public static final Block BLUE_SAGE = createFlower("blue_sage");
@@ -803,16 +803,16 @@ public class BYGBlocks {
     public static final Block CYAN_ROSE = createFlower("cyan_rose");
     public static final Block CYAN_TULIP = createFlower("cyan_tulip");
     public static final Block DAFFODIL = createFlower("daffodil");
-    public static final Block DELPHINIUM = new BYGBlockProperties.BYGDoublePlant("delphinium");
+    public static final Block DELPHINIUM = createTallFlower("delphinium");
     public static final Block FAIRY_SLIPPER = new BYGBlockProperties.BYGFairySlipperFlower("fairy_slipper");
     public static final Block FIRECRACKER_FLOWER_BUSH = createFlower("firecracker_flower_bush");
-    public static final Block FOXGLOVE = new BYGBlockProperties.BYGDoublePlant("foxglove");
+    public static final Block FOXGLOVE = createTallFlower("foxglove");
     public static final Block GOLDEN_SPINED_CACTUS = new BYGBlockProperties.BYGDesertPlant("golden_spined_cactus");
     public static final Block GREEN_TULIP = createFlower("green_tulip");
     public static final Block GUZMANIA = createFlower("guzmania");
     public static final Block INCAN_LILY = createFlower("incan_lily");
     public static final Block IRIS = createFlower("iris");
-    public static final Block JAPANESE_ORCHID = new BYGBlockProperties.BYGDoublePlant("japanese_orchid");
+    public static final Block JAPANESE_ORCHID = createTallFlower("japanese_orchid");
     public static final Block KOVAN_FLOWER = createFlower("kovan_flower");
     public static final Block LAZARUS_BELLFLOWER = createFlower("lazarus_bellflower");
     public static final Block LOLIPOP_FLOWER = createFlower("lolipop_flower");
@@ -848,7 +848,6 @@ public class BYGBlocks {
     public static final Block WINTER_SCILLA = new BYGBlockProperties.BYGSnowyPlant("winter_scilla");
     public static final Block YELLOW_DAFFODIL = createFlower("yellow_daffodil");
     public static final Block YELLOW_TULIP = createFlower("yellow_tulip");
-
 
     public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, "podzol_dacite");
     public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, "overgrown_dacite");
@@ -968,6 +967,12 @@ public class BYGBlocks {
         Block flower = new FlowerBlock(Effects.SATURATION, 7, Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), flower);
 //        createPottedBlock(flower, "potted_" + id);
+        return flower;
+    }
+
+    static Block createTallFlower(String id) {
+        Block flower = new TallFlowerBlock(Block.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), flower);
         return flower;
     }
 

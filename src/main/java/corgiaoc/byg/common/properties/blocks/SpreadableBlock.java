@@ -33,7 +33,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
         this.featureConfig = featureConfig;
         this.forDimension = type;
 
-        isNotOverworld = featureConfig != null;
+        isNotOverworld = forDimension != ForDimension.OVERWORLD;
 
     }
 

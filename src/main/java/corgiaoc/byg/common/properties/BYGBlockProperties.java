@@ -53,20 +53,7 @@ public class BYGBlockProperties {
 
         }
     }
-
-    public static class BYGDoublePlant extends TallFlowerBlock {
-        public BYGDoublePlant(String registryName) {
-            super(Block.Properties.create(Material.TALL_PLANTS)
-                    .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.0f)
-                    .doesNotBlockMovement()
-                    .notSolid()
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-
-        }
-    }
-
+    
     public static class BYGDoubleNetherPlant extends DoubleNetherPlantBlock {
         public BYGDoubleNetherPlant(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
