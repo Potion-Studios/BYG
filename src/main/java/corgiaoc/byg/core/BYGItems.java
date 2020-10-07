@@ -989,7 +989,7 @@ public class BYGItems {
             Registry.register(Registry.ITEM, id, item);
             return item;
         } else {
-            return BYG_LOGO;
+            return null;
         }
     }
 
