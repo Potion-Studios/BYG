@@ -1,4 +1,4 @@
-package corgiaoc.byg.data.command;
+package corgiaoc.byg.server.command;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
