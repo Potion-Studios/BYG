@@ -32,15 +32,12 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.DyeColor;
 import net.minecraft.potion.Effects;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolType;
-
-import java.util.function.ToIntFunction;
 
 @SuppressWarnings("deprecation")
 public class BYGBlockProperties {
@@ -1336,7 +1333,6 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 15)
                     .notSolid()
                     .harvestTool(ToolType.PICKAXE)
-
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
