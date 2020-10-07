@@ -1,7 +1,6 @@
 package corgiaoc.byg.common.world.feature.decorator;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.core.RegistrationHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.WorldDecoratingHelper;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;

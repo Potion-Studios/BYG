@@ -28,7 +28,7 @@ public class RedDunesSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             if (currentBlockToReplace.getBlock().isIn(Tags.Blocks.STONE) || currentBlockToReplace == Blocks.RED_SANDSTONE.getDefaultState()) {
                 chunkIn.setBlockState(block, Blocks.RED_SAND.getDefaultState(), false);
             }
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.REDSAND_CF);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.REDSAND_CF);
         }
     }
 }

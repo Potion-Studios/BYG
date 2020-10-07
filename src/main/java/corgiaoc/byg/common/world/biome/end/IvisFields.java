@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.biome.end;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.world.biome.*;
@@ -11,7 +11,7 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class IvisFields extends BYGBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("ivis_fields", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.IVISFIELDS_SB, BYGSurfaceBuilders.BYGSBConfigList.END));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("ivis_fields", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.IVIS_FIELDS, BYGSurfaceBuilders.Configs.END));
     static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.THEEND;
     static final float DEPTH = 0.55F;

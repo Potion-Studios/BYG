@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
@@ -16,7 +16,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import java.util.HashMap;
 
 public class LushTundra extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("lush_tundra", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.LUSH_TUNDRA_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("lush_tundra", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.LUSH_TUNDRA, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
     static final Biome.Category CATEGORY = Biome.Category.ICY;
     static final float DEPTH = 0.15F;

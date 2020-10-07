@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 
+@SuppressWarnings("deprecation")
 public class BYGEntities {
     public static final EntityType<BYGBoatEntity> BOAT = createEntity("boat", EntityType.Builder.<BYGBoatEntity>create(BYGBoatEntity::new, EntityClassification.MISC).size(1.375F, 0.5625F).build(BYG.MOD_ID + ":boat"));
 

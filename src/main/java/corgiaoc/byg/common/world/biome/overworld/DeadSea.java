@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
@@ -14,7 +14,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class DeadSea extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("dead_sea", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.BYGSBConfigList.BLACKSAND));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("dead_sea", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.Configs.BLACK_SAND));
     static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.OCEAN;
     static final float DEPTH = -1.05F;

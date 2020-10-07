@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
@@ -17,7 +17,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import java.util.HashMap;
 
 public class Volcano extends BYGBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("volcano", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.BYGSBConfigList.BLACKSAND));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("volcano", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.Configs.BLACK_SAND));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.DESERT;
     static final float DEPTH = 0.2F;

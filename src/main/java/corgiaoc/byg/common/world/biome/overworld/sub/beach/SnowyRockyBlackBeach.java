@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld.sub.beach;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
@@ -11,7 +11,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class SnowyRockyBlackBeach extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("snowy_rock_black_beach", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.ROCKYBLACKBEACH_SB, BYGSurfaceBuilders.BYGSBConfigList.BLACKSAND));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("snowy_rock_black_beach", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.ROCKY_BLACK_BEACH, BYGSurfaceBuilders.Configs.BLACK_SAND));
     static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
     static final Biome.Category CATEGORY = Biome.Category.BEACH;
     static final float DEPTH = 0.0F;

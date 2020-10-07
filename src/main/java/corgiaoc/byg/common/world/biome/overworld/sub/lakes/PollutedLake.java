@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.lakes;
 
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -8,11 +9,9 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import corgiaoc.byg.common.world.biome.BYGBiome;import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
-import corgiaoc.byg.common.world.biome.BiomeTools;
 
 public class PollutedLake extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("polluted_lake", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("polluted_lake", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.SWAMP;
     static final float DEPTH = -0.4F;

@@ -46,7 +46,7 @@ public class VolcanoSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             }
         }
         if (noise < 1)
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.BLACKSAND);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.BLACK_SAND);
         else
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, randomSurfaceConfig(random));
     }
@@ -79,9 +79,9 @@ public class VolcanoSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         int randomizer = random.nextInt(3);
 
         if (randomizer == 1) {
-            return BYGSurfaceBuilders.BYGSBConfigList.ROCKY;
+            return BYGSurfaceBuilders.Configs.ROCKY;
         } else
-            return BYGSurfaceBuilders.BYGSBConfigList.STONEBLACKSAND;
+            return BYGSurfaceBuilders.Configs.STONE_BLACK_SAND;
 
     }
 }

@@ -16,17 +16,25 @@ import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
-import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGEntities;
-import corgiaoc.byg.data.BYGDataGenerator;
-import corgiaoc.byg.data.BlockDataHelperCleanedUp;
+import corgiaoc.byg.core.BYGItems;
+import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.world.BYGDecorators;
+import corgiaoc.byg.core.world.BYGFeatures;
+import corgiaoc.byg.core.world.BYGSurfaceBuilders;
+import corgiaoc.byg.data.command.GenDataCommand;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -36,13 +44,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 @Mod("byg")
 public class BYG {
@@ -50,17 +53,17 @@ public class BYG {
     public static boolean isClient = false;
     public static Logger LOGGER = LogManager.getLogger();
     public static boolean isUsingMixin;
-    private static final String filePath = "kachow";
+    public static final String FILE_PATH = "kachow";
 
     public BYG() {
         BYGWorldConfig.loadConfig(BYGWorldConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MOD_ID + "-world-common.toml"));
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::bygCommonSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::bygClientSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::bygLoadComplete);
-        MinecraftForge.EVENT_BUS.register(new SubscribeEvents());
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
+        MinecraftForge.EVENT_BUS.register(new ForgeEvents());
     }
 
-    private void bygCommonSetup(FMLCommonSetupEvent event) {
+    private void commonSetup(FMLCommonSetupEvent event) {
         ConfigWeightManager.buildConfig();
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
@@ -72,55 +75,19 @@ public class BYG {
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGBiomes.addBiomeNumericalIDsForLayerSampler();
         BYGBiomeWeightSystem.addBiomesToWeightSystem();
-        BYGBiomeWeightSystem.addBiomesToWeightSystem();
+//        BlockDataGenerator.makeBYGLangFile(FILE_PATH);
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
-//        BlockDataHelperCleanedUp.createWoodRecipeGenerator(filePath, MOD_ID, "glacial_oak", true, true, true);
-//        makeBYGLangFile();
     }
 
-
-    public static void makeBYGLangFile() {
-        List<String> blockIDList = new ArrayList<>();
-        List<String> itemIDList = new ArrayList<>();
-        List<String> biomeIDList = new ArrayList<>();
-
-        for (Block block : ForgeRegistries.BLOCKS) {
-            String blockID = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).toString();
-
-            if (blockID.contains(MOD_ID))
-                blockIDList.add(blockID.replace(MOD_ID + ":", ""));
-        }
-
-        for (Item item : ForgeRegistries.ITEMS) {
-            String itemID = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).toString();
-
-            if (itemID.contains(MOD_ID))
-                itemIDList.add(itemID.replace(MOD_ID + ":", ""));
-        }
-
-
-        for (Biome biome : WorldGenRegistries.BIOME) {
-            String biomeID = Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(biome)).toString();
-
-            if (biomeID.contains(MOD_ID))
-                biomeIDList.add(biomeID.replace(MOD_ID + ":", ""));
-        }
-
-        BlockDataHelperCleanedUp.createLangFile(filePath, MOD_ID, blockIDList, biomeIDList, itemIDList);
-    }
-
-
-    private void bygClientSetup(FMLClientSetupEvent event) {
+    private void clientSetup(FMLClientSetupEvent event) {
         isClient = true;
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
         BYGCutoutRenders.renderCutOuts();
-//        MainMenuBYG.mainMenuPanorama();
         RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BOAT, BYGBoatRenderer::new);
-//        WorldType116.addGenerator();
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
 
-    private void bygLoadComplete(FMLLoadCompleteEvent event) {
+    private void loadComplete(FMLLoadCompleteEvent event) {
         LOGGER.debug("BYG: \"Load Complete Event\" Starting...");
         BYGCompostables.compostablesBYG();
         BYGHoeables.hoeablesBYG();
@@ -129,11 +96,66 @@ public class BYG {
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
     }
 
-    public static class SubscribeEvents {
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class Registries {
+        @SubscribeEvent
+        public static void registerBlocks(RegistryEvent.Register<Block> event) {
+            BYG.LOGGER.debug("BYG: Registering blocks...");
+            BYGBlocks.init();
+            BYG.LOGGER.info("BYG: Blocks Registered!");
+        }
+
+        @SubscribeEvent
+        public static void registerItems(RegistryEvent.Register<Item> event) {
+            BYG.LOGGER.debug("BYG: Registering items...");
+            BYGItems.init();
+            BYG.LOGGER.info("BYG: Items Registered!");
+        }
+
+        @SubscribeEvent
+        public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
+            BYG.LOGGER.debug("BYG: Registering entities...");
+            BYGEntities.init();
+            BYG.LOGGER.info("BYG: Entities Registered!");
+        }
+    }
+
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class WorldGenRegistries {
+        @SubscribeEvent
+        public static void registerBiomes(RegistryEvent.Register<Biome> event) {
+            BYG.LOGGER.debug("BYG: Registering biomes...");
+            BYGBiomes.registerBYGBiomes();
+            BYG.LOGGER.info("BYG: Biomes Registered!");
+        }
+
+        @SubscribeEvent
+        public static void registerDecorators(RegistryEvent.Register<Placement<?>> event) {
+            BYG.LOGGER.debug("BYG: Registering decorators...");
+            BYGDecorators.init();
+            BYG.LOGGER.info("BYG: Decorators registered!");
+        }
+
+        @SubscribeEvent
+        public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
+            BYG.LOGGER.debug("BYG: Registering features...");
+            BYGFeatures.init();
+            BYG.LOGGER.info("BYG: Features Registered!");
+        }
+
+        @SubscribeEvent
+        public static void registerSurfaceBuilders(RegistryEvent.Register<SurfaceBuilder<?>> event) {
+            BYG.LOGGER.debug("BYG: Registering surface builders...");
+            BYGSurfaceBuilders.init();
+            BYG.LOGGER.info("BYG: Surface builders Registered!");
+        }
+    }
+
+    public static class ForgeEvents {
         @SubscribeEvent
         public void commandRegisterEvent(FMLServerStartingEvent event) {
             LOGGER.debug("BYG: \"Server Starting\" Event Starting...");
-            BYGDataGenerator.dataGenCommand(event.getServer().getCommandManager().getDispatcher());
+            GenDataCommand.dataGenCommand(event.getServer().getCommandManager().getDispatcher());
             LOGGER.info("BYG: \"Server Starting\" Event Complete!");
         }
     }

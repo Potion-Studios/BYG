@@ -3,7 +3,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.block.Blocks;
@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class Bayou extends BYGBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("bayou", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bayou", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.SWAMP;
     static final float DEPTH = -0.38F;

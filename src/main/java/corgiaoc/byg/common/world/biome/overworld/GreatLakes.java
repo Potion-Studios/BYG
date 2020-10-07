@@ -3,7 +3,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
@@ -19,7 +19,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class GreatLakes extends BYGBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("great_lakes", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GREAT_LAKES_SB, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.GRAVEL.getDefaultState())));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("great_lakes", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GREAT_LAKES, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.GRAVEL.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.TAIGA;
     static final float DEPTH = -0.55F;

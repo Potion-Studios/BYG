@@ -38,11 +38,11 @@ public class SubterraneanCave extends SurfaceBuilder<SurfaceBuilderConfig> {
                     chunkIn.setBlockState(block, Blocks.GLASS.getDefaultState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.TERRACOTTA_CF);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.TERRACOTTA_CF);
         } else {
 //            BYG.LOGGER.info(biomeIn.getRegistryName().toString());
 
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.COARSE);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.COARSE);
         }
     }
 

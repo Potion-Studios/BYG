@@ -42,7 +42,7 @@ public class SubzeroHypogealSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                         chunkIn.setBlockState(block, BYGBlocks.FROST_MAGMA.getDefaultState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.FROST_MAGMA);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.FROST_MAGMA);
         } else {
             for (int yPos = 256; yPos >= seaLevel; --yPos) {
                 block.setPos(xPos, yPos, zPos);
@@ -59,7 +59,7 @@ public class SubzeroHypogealSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                         chunkIn.setBlockState(block, BYGBlocks.SUBZERO_ASH_BLOCK.getDefaultState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.SUBZERO_ASH);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.SUBZERO_ASH);
         }
 
     }

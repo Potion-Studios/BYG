@@ -30,6 +30,6 @@ public class DunesSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 chunkIn.setBlockState(block, SAND, true);
             }
         }
-        SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.SAND_CF);
+        SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.SAND_CF);
     }
 }

@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.biome.nether;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
@@ -18,7 +18,7 @@ import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class WailingGarth extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("wailing_garth", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.WAILING_GARTH_SB, BYGSurfaceBuilders.BYGSBConfigList.SOULSAND));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("wailing_garth", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.WAILING_GARTH, BYGSurfaceBuilders.Configs.SOULSAND));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.NETHER;
     static final float DEPTH = 0.125F;

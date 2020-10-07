@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld.sub;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.common.world.surfacebuilder.config.PointedSBConfig;
@@ -19,7 +19,7 @@ import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class PointedStoneForest extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("pointed_stone_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.POINTED_SB, new PointedSBConfig(BYGBlocks.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.PACKED_ICE.getDefaultState(), 3).addWeightedBlockstate(Blocks.BLUE_ICE.getDefaultState(), 2), new SimpleBlockStateProvider(BYGBlocks.OVERGROWN_STONE.getDefaultState()), 170)));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("pointed_stone_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.POINTED, new PointedSBConfig(BYGBlocks.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.PACKED_ICE.getDefaultState(), 3).addWeightedBlockstate(Blocks.BLUE_ICE.getDefaultState(), 2), new SimpleBlockStateProvider(BYGBlocks.OVERGROWN_STONE.getDefaultState()), 170)));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.TAIGA;
     static final float DEPTH = 0.8F;

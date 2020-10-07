@@ -42,7 +42,7 @@ public class WarpedDesertSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                         chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.WARPEDDESERT);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WARPEDDESERT);
         } else {
             for (int yPos = 256; yPos >= seaLevel; --yPos) {
                 block.setPos(xPos, yPos, zPos);
@@ -59,7 +59,7 @@ public class WarpedDesertSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                         chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.WARPEDDESERT_SOIL);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WARPEDDESERT_SOIL);
         }
 
     }

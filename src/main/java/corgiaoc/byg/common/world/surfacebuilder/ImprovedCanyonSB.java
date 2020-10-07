@@ -49,7 +49,7 @@ public class ImprovedCanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         if (noise < 1)
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);
         else
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.BYGSBConfigList.COARSE);
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.COARSE);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class ImprovedCanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         if (randomizer == 1) {
             return SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG;
         } else
-            return BYGSurfaceBuilders.BYGSBConfigList.COARSE;
+            return BYGSurfaceBuilders.Configs.COARSE;
 
     }
 }

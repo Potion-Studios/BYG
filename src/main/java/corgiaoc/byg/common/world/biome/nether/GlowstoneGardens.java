@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.biome.nether;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
@@ -19,7 +19,7 @@ import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class GlowstoneGardens extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("glowstone_gardens", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GLOWSTONE_GARDENS_SB, BYGSurfaceBuilders.BYGSBConfigList.GLOWSTONEGARDENS));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("glowstone_gardens", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GLOWSTONE_GARDENS, BYGSurfaceBuilders.Configs.GLOWSTONE_GARDENS));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.NETHER;
     static final float DEPTH = 0.125F;

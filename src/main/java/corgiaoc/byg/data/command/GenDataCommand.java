@@ -1,4 +1,4 @@
-package corgiaoc.byg.data;
+package corgiaoc.byg.data.command;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,7 +39,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-public class BYGDataGenerator {
+public class GenDataCommand {
     //Have this load after everything else.
 
     public static void dataGenBiome(String filePath, String modId, CommandContext<CommandSource> source) throws IOException {
@@ -139,7 +139,7 @@ public class BYGDataGenerator {
 
         LiteralCommandNode<CommandSource> source = dispatcher.register(Commands.literal(commandString).then(Commands.argument("modid", StringArgumentType.string()).suggests((ctx, sb) -> ISuggestionProvider.suggest(modIdList.stream(), sb)).executes(cs -> {
             try {
-                BYGDataGenerator.dataGenBiome(cs.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS).toString(), cs.getArgument("modid", String.class), cs);
+                GenDataCommand.dataGenBiome(cs.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS).toString(), cs.getArgument("modid", String.class), cs);
             } catch (IOException e) {
                 cs.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.failed", cs.getArgument("modid", String.class)).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.RED))), false);
             }

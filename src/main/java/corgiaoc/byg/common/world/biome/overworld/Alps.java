@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.RegistrationHelper;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -14,7 +14,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class Alps extends BYGBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = RegistrationHelper.createConfiguredSurfaceBuilder("alps", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState())));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("alps", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
     static final Biome.Category CATEGORY = Biome.Category.ICY;
     static final float DEPTH = 6.0F;
