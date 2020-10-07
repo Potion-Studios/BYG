@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/cypress_leaves" }
+    "": {
+      "model": "byg:block/cypress_leaves"
+    }
   }
 }

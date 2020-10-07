@@ -1,5 +1,7 @@
 package corgiaoc.byg.common.world.dimension.end;
 
+import corgiaoc.byg.BYG;
+import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -7,8 +9,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraftforge.fml.ModList;
-import corgiaoc.byg.BYG;
-import corgiaoc.byg.config.BYGWorldConfig;
 
 import java.util.ArrayList;
 import java.util.Arrays;

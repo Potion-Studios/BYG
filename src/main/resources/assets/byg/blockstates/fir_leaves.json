@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/fir_leaves" }
+    "": {
+      "model": "byg:block/fir_leaves"
+    }
   }
 }

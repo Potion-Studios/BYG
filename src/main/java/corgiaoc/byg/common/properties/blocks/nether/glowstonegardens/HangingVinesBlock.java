@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.glowstonegardens;
 
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.Direction;
@@ -10,7 +11,6 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 

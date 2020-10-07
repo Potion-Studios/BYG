@@ -24,7 +24,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             return config.minRadius;
         }), Codec.DOUBLE.fieldOf("radius_divisor_per_stack").orElse(1.1).forGetter((config) -> {
             return config.radiusDivisorPerStack;
-        }),  Codec.BOOL.fieldOf("flatten_top_boulder").orElse(false).forGetter((config) -> {
+        }), Codec.BOOL.fieldOf("flatten_top_boulder").orElse(false).forGetter((config) -> {
             return config.flattenTopBoulder;
         })).apply(codecRecorder, BYGBoulderFeatureConfig::new);
     });

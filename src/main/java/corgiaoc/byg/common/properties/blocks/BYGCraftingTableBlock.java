@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.client.gui.BYGWorkbenchContainer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
 import net.minecraft.inventory.container.INamedContainerProvider;
@@ -9,7 +10,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import corgiaoc.byg.client.gui.BYGWorkbenchContainer;
 
 public class BYGCraftingTableBlock extends CraftingTableBlock {
     private static final ITextComponent GUI_TITLE = new TranslationTextComponent("container.crafting");

@@ -36,7 +36,6 @@
                     "bonusMultiplier": 2
                   }
                 },
-
                 {
                   "function": "minecraft:explosion_decay"
                 }

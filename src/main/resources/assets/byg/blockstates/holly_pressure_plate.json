@@ -1,6 +1,10 @@
 {
   "variants": {
-    "powered=false": { "model": "byg:block/holly_pressure_plate" },
-    "powered=true": { "model": "byg:block/holly_pressure_plate_down" }
+    "powered=false": {
+      "model": "byg:block/holly_pressure_plate"
+    },
+    "powered=true": {
+      "model": "byg:block/holly_pressure_plate_down"
+    }
   }
 }

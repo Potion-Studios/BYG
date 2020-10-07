@@ -1,7 +1,13 @@
 {
   "variants": {
-    "type=bottom": { "model": "byg:block/rainbow_eucalyptus_slab" },
-    "type=top": { "model": "byg:block/rainbow_eucalyptus_slab_top" },
-    "type=double": { "model": "byg:block/rainbow_eucalyptus_planks" }
+    "type=bottom": {
+      "model": "byg:block/rainbow_eucalyptus_slab"
+    },
+    "type=top": {
+      "model": "byg:block/rainbow_eucalyptus_slab_top"
+    },
+    "type=double": {
+      "model": "byg:block/rainbow_eucalyptus_planks"
+    }
   }
 }

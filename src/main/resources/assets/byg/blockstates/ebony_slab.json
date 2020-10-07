@@ -1,7 +1,13 @@
 {
   "variants": {
-    "type=bottom": { "model": "byg:block/ebony_slab" },
-    "type=top": { "model": "byg:block/ebony_slab_top" },
-    "type=double": { "model": "byg:block/ebony_planks" }
+    "type=bottom": {
+      "model": "byg:block/ebony_slab"
+    },
+    "type=top": {
+      "model": "byg:block/ebony_slab_top"
+    },
+    "type=double": {
+      "model": "byg:block/ebony_planks"
+    }
   }
 }

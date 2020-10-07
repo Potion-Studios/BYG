@@ -1,13 +1,13 @@
 package corgiaoc.byg.common.world.dimension.nether;
 
 
+import corgiaoc.byg.config.BYGWorldConfig;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
 import net.minecraft.world.gen.LazyAreaLayerContext;
 import net.minecraft.world.gen.area.IAreaFactory;
 import net.minecraft.world.gen.area.LazyArea;
 import net.minecraft.world.gen.layer.Layer;
 import net.minecraft.world.gen.layer.ZoomLayer;
-import corgiaoc.byg.config.BYGWorldConfig;
 
 import java.util.function.LongFunction;
 

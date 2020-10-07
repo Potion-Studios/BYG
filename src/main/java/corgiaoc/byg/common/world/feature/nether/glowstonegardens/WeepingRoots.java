@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.nether.glowstonegardens;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.ISeedReader;
@@ -8,7 +9,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.Tags;
-import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/blooming_witch_hazel_leaves" }
+    "": {
+      "model": "byg:block/blooming_witch_hazel_leaves"
+    }
   }
 }

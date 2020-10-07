@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.entity.boat;
 
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.BYGItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,7 +27,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.FMLPlayMessages;
 import net.minecraftforge.fml.network.NetworkHooks;
-import corgiaoc.byg.core.BYGEntities;
 
 @SuppressWarnings("EntityConstructor")
 public class BYGBoatEntity extends BoatEntity {

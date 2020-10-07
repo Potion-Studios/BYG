@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/holly_berry_leaves" }
+    "": {
+      "model": "byg:block/holly_berry_leaves"
+    }
   }
 }

@@ -20,8 +20,8 @@ import java.util.Random;
 public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
     private static final ImmutableList<Block> field_236245_a_ = ImmutableList.of(Blocks.LAVA, Blocks.BEDROCK, Blocks.MAGMA_BLOCK, Blocks.SOUL_SAND, Blocks.NETHER_BRICKS, Blocks.NETHER_BRICK_FENCE, Blocks.NETHER_BRICK_STAIRS, Blocks.NETHER_WART, Blocks.CHEST, Blocks.SPAWNER);
 
-    public  RawQuartzColumnFeature(
-    Codec<ColumnConfig> p_i231925_1_) {
+    public RawQuartzColumnFeature(
+            Codec<ColumnConfig> p_i231925_1_) {
         super(p_i231925_1_);
     }
 
@@ -36,7 +36,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
             int l = flag ? 50 : 15;
             boolean flag1 = false;
 
-            for(BlockPos blockpos : BlockPos.getRandomPositions(p_241855_3_, l, p_241855_4_.getX() - k, p_241855_4_.getY(), p_241855_4_.getZ() - k, p_241855_4_.getX() + k, p_241855_4_.getY(), p_241855_4_.getZ() + k)) {
+            for (BlockPos blockpos : BlockPos.getRandomPositions(p_241855_3_, l, p_241855_4_.getX() - k, p_241855_4_.getY(), p_241855_4_.getZ() - k, p_241855_4_.getX() + k, p_241855_4_.getY(), p_241855_4_.getZ() + k)) {
                 int i1 = j - blockpos.manhattanDistance(p_241855_4_);
                 if (i1 >= 0) {
                     flag1 |= this.func_236248_a_(p_241855_1_, i, blockpos, i1, p_241855_5_.func_242794_am_().func_242259_a(p_241855_3_));
@@ -50,13 +50,13 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
     private boolean func_236248_a_(IWorld p_236248_1_, int p_236248_2_, BlockPos p_236248_3_, int p_236248_4_, int p_236248_5_) {
         boolean flag = false;
 
-        for(BlockPos blockpos : BlockPos.getAllInBoxMutable(p_236248_3_.getX() - p_236248_5_, p_236248_3_.getY(), p_236248_3_.getZ() - p_236248_5_, p_236248_3_.getX() + p_236248_5_, p_236248_3_.getY(), p_236248_3_.getZ() + p_236248_5_)) {
+        for (BlockPos blockpos : BlockPos.getAllInBoxMutable(p_236248_3_.getX() - p_236248_5_, p_236248_3_.getY(), p_236248_3_.getZ() - p_236248_5_, p_236248_3_.getX() + p_236248_5_, p_236248_3_.getY(), p_236248_3_.getZ() + p_236248_5_)) {
             int i = blockpos.manhattanDistance(p_236248_3_);
             BlockPos blockpos1 = func_236247_a_(p_236248_1_, p_236248_2_, blockpos) ? func_236246_a_(p_236248_1_, p_236248_2_, blockpos.toMutable(), i) : func_236249_a_(p_236248_1_, blockpos.toMutable(), i);
             if (blockpos1 != null) {
                 int j = p_236248_4_ - i / 2;
 
-                for(BlockPos.Mutable blockpos$mutable = blockpos1.toMutable(); j >= 0; --j) {
+                for (BlockPos.Mutable blockpos$mutable = blockpos1.toMutable(); j >= 0; --j) {
                     if (func_236247_a_(p_236248_1_, p_236248_2_, blockpos$mutable)) {
                         this.setBlockState(p_236248_1_, blockpos$mutable, BYGBlocks.RAW_QUARTZ_BLOCK.getDefaultState());
                         blockpos$mutable.move(Direction.UP);
@@ -77,7 +77,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
 
     @Nullable
     private static BlockPos func_236246_a_(IWorld p_236246_0_, int p_236246_1_, BlockPos.Mutable p_236246_2_, int p_236246_3_) {
-        while(p_236246_2_.getY() > 1 && p_236246_3_ > 0) {
+        while (p_236246_2_.getY() > 1 && p_236246_3_ > 0) {
             --p_236246_3_;
             if (func_242762_a(p_236246_0_, p_236246_1_, p_236246_2_)) {
                 return p_236246_2_;
@@ -101,7 +101,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
 
     @Nullable
     private static BlockPos func_236249_a_(IWorld p_236249_0_, BlockPos.Mutable p_236249_1_, int p_236249_2_) {
-        while(p_236249_1_.getY() < p_236249_0_.getHeight() && p_236249_2_ > 0) {
+        while (p_236249_1_.getY() < p_236249_0_.getHeight() && p_236249_2_ > 0) {
             --p_236249_2_;
             BlockState blockstate = p_236249_0_.getBlockState(p_236249_1_);
             if (field_236245_a_.contains(blockstate.getBlock())) {

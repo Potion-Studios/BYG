@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/baobab_leaves" }
+    "": {
+      "model": "byg:block/baobab_leaves"
+    }
   }
 }

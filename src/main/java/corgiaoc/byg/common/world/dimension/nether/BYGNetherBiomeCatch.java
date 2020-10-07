@@ -1,12 +1,12 @@
 package corgiaoc.byg.common.world.dimension.nether;
 
+import corgiaoc.byg.BYG;
+import corgiaoc.byg.config.BYGWorldConfig;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
-import corgiaoc.byg.BYG;
-import corgiaoc.byg.config.BYGWorldConfig;
 
 import java.util.ArrayList;
 import java.util.Arrays;

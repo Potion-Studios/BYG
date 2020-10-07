@@ -1,5 +1,7 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
@@ -9,8 +11,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
-import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 

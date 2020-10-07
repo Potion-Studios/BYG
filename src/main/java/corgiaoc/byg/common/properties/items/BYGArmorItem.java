@@ -1,11 +1,11 @@
 package corgiaoc.byg.common.properties.items;
 
+import corgiaoc.byg.BYG;
+import corgiaoc.byg.common.properties.items.itemtiers.BYGArmorTiers;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.properties.items.itemtiers.BYGArmorTiers;
 
 import javax.annotation.Nullable;
 

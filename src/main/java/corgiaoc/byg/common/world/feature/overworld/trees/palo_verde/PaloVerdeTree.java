@@ -1,13 +1,13 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.palo_verde;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
-import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 
 import java.util.Random;
 import java.util.Set;
@@ -26,7 +26,7 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
         int posY = pos.getY();
         int posZ = pos.getZ();
         if (posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.RED_SAND && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.COARSE_DIRT&& (worldIn).getBlockState(pos.down()).getBlock() != Blocks.TERRACOTTA) {
+            if (worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.RED_SAND && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.COARSE_DIRT && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.TERRACOTTA) {
                 return false;
             } else {
 

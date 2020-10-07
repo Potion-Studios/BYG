@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/maple_leaves" }
+    "": {
+      "model": "byg:block/maple_leaves"
+    }
   }
 }

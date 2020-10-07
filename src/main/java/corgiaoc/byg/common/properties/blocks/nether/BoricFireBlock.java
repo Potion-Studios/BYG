@@ -1,15 +1,15 @@
 package corgiaoc.byg.common.properties.blocks.nether;
 
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
-import corgiaoc.byg.core.BYGBlocks;
 
 public class BoricFireBlock extends AbstractFireBlock {
 
-    protected BoricFireBlock(AbstractBlock.Properties properties)  {
+    protected BoricFireBlock(AbstractBlock.Properties properties) {
         super(properties, 3.5F);
     }
 

@@ -1,6 +1,10 @@
 {
   "variants": {
-    "half=lower": { "model": "byg:block/japanese_orchid_bottom" },
-    "half=upper":    { "model": "byg:block/japanese_orchid_top" }
+    "half=lower": {
+      "model": "byg:block/japanese_orchid_bottom"
+    },
+    "half=upper": {
+      "model": "byg:block/japanese_orchid_top"
+    }
   }
 }

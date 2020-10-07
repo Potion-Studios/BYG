@@ -1,9 +1,9 @@
 package corgiaoc.byg.common.properties;
 
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import corgiaoc.byg.BYG;
 import net.minecraft.util.ResourceLocation;
 
 public class BYGCreativeTab {

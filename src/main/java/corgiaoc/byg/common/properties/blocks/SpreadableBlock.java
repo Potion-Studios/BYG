@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.StateContainer;
@@ -16,7 +17,6 @@ import net.minecraft.world.gen.feature.FlowersFeature;
 import net.minecraft.world.gen.feature.NetherVegetationFeature;
 import net.minecraft.world.lighting.LightEngine;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.List;
 import java.util.Random;
@@ -46,8 +46,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
         if (isNetherSpreadable) {
             if (!areConditionsGood(state, worldIn, pos))
                 worldIn.setBlockState(pos, blockToSpreadToo.getDefaultState());
-        }
-        else {
+        } else {
             if (!areConditionsGood(state, worldIn, pos)) {
                 if (!worldIn.isAreaLoaded(pos, 3))
                     return;
@@ -113,7 +112,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
                         }
 
                         ConfiguredFeature<?, ?> configuredfeature = flowerListForBiome.get(0);
-                        FlowersFeature flowersfeature = (FlowersFeature)configuredfeature.feature;
+                        FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
                         flowerState = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.func_242767_c());
                     } else {
                         flowerState = thisBlockState;
@@ -155,7 +154,6 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
         else
             return this.getDefaultState();
     }
-
 
 
     private boolean areConditionsGood(BlockState state, IWorldReader worldReader, BlockPos pos) {

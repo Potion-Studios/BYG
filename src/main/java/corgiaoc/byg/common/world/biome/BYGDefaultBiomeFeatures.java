@@ -435,13 +435,14 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MUSHROOM);
     }
 
-    public static void addIvisPlants(BiomeGenerationSettings.Builder gen) {}
+    public static void addIvisPlants(BiomeGenerationSettings.Builder gen) {
+    }
 
     public static void addExtraCanyons(BiomeGenerationSettings.Builder gen) {
     }
 
-    public static void addGiantFlowerFeatures(BiomeGenerationSettings.Builder gen) {}
-
+    public static void addGiantFlowerFeatures(BiomeGenerationSettings.Builder gen) {
+    }
 
 
     /*****Trees*****/

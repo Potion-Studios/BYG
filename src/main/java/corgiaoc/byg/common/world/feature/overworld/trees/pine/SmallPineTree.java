@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.pine;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.BYG;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
@@ -13,7 +14,6 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
-import corgiaoc.byg.BYG;
 
 import java.util.Random;
 

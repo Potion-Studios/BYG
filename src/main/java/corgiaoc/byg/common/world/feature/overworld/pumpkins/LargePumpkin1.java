@@ -1,13 +1,13 @@
 package corgiaoc.byg.common.world.feature.overworld.pumpkins;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.world.feature.FeatureUtil;
+import corgiaoc.byg.common.world.feature.config.BYGPumpkinFeatureConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
-import corgiaoc.byg.common.world.feature.config.BYGPumpkinFeatureConfig;
-import corgiaoc.byg.common.world.feature.FeatureUtil;
 
 import java.util.Random;
 

@@ -1,8 +1,20 @@
 {
   "variants": {
-    "facing=east": { "model": "byg:block/warped_coral_wall_fan", "y": 90 },
-    "facing=south": { "model": "byg:block/warped_coral_wall_fan", "y": 180 },
-    "facing=west": { "model": "byg:block/warped_coral_wall_fan", "y": 270 },
-    "facing=north": { "model": "byg:block/warped_coral_wall_fan", "y": 0 }
+    "facing=east": {
+      "model": "byg:block/warped_coral_wall_fan",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "byg:block/warped_coral_wall_fan",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "byg:block/warped_coral_wall_fan",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "byg:block/warped_coral_wall_fan",
+      "y": 0
+    }
   }
 }

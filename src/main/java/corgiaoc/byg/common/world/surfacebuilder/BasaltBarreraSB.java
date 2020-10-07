@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.surfacebuilder;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -10,7 +11,6 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 
 import java.util.Random;
 
@@ -37,8 +37,7 @@ public class BasaltBarreraSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         if (simplexNoise > 0) {
             topHeight = Math.abs((int) (sampleNoise * 2) * 2) + groundLevel;
-        }
-        else {
+        } else {
             topHeight = Math.abs((int) (sampleNoise * 2)) + groundLevel;
         }
 

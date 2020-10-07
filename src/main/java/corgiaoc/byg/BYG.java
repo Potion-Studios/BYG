@@ -73,7 +73,6 @@ public class BYG {
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGBiomes.addBiomesToWeightSystem();
-//        BlockDataGenerator.makeBYGLangFile(FILE_PATH);
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

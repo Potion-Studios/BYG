@@ -1,14 +1,14 @@
 package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.world.feature.config.PointyRockFeatureConfig;
+import corgiaoc.byg.util.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
-import corgiaoc.byg.common.world.feature.config.PointyRockFeatureConfig;
-import corgiaoc.byg.util.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 
 import java.util.Random;
 

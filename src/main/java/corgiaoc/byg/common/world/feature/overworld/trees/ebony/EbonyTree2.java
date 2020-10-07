@@ -1,6 +1,8 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.ebony;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -8,8 +10,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
-import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 
 import java.util.Random;
 import java.util.Set;
@@ -33,9 +33,9 @@ public class EbonyTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 20, 5, 5, isSapling)) {
                 return false;
-            } else if (this.isCliff(worldIn, mutable.add(-1, 0, -1), mutable.add(0, 0, -1), mutable.add(1, 0, -1), mutable.add(-2, 0, 0), mutable.add(-1, 0, 0), mutable.add(1, 0, 0), mutable.add(-2, 0, 1), mutable.add(-1, 0, 1), mutable.add(0, 0, 1), mutable.add(1, 0, 1), mutable.add(-1, 0, 2), mutable.add(0, 0, 2) )) {
+            } else if (this.isCliff(worldIn, mutable.add(-1, 0, -1), mutable.add(0, 0, -1), mutable.add(1, 0, -1), mutable.add(-2, 0, 0), mutable.add(-1, 0, 0), mutable.add(1, 0, 0), mutable.add(-2, 0, 1), mutable.add(-1, 0, 1), mutable.add(0, 0, 1), mutable.add(1, 0, 1), mutable.add(-1, 0, 2), mutable.add(0, 0, 2))) {
                 return false;
-            } else  {
+            } else {
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(config, rand, changedBlocks, worldIn, mutable.move(Direction.UP), boundsIn);
                 }

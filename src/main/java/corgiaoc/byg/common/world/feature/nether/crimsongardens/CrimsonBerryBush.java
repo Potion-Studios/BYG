@@ -1,13 +1,13 @@
 package corgiaoc.byg.common.world.feature.nether.crimsongardens;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 
 import java.util.Random;
 

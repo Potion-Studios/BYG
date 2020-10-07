@@ -1,6 +1,9 @@
 package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.BYG;
+import corgiaoc.byg.common.world.feature.config.BYGBoulderFeatureConfig;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.tags.BlockTags;
@@ -10,9 +13,6 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.Tags;
-import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.world.feature.config.BYGBoulderFeatureConfig;
-import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 
 import java.util.Random;
 
@@ -55,7 +55,7 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
             if (random.nextInt(2) == 1)
                 moveOnZ = -moveOnZ;
 
-            mutable.move(moveOnX,(int) (random.nextInt(Math.abs(radius) + 1) * 0.2f + radius * 0.8f) - 3 + -random.nextInt(5), moveOnZ);
+            mutable.move(moveOnX, (int) (random.nextInt(Math.abs(radius) + 1) * 0.2f + radius * 0.8f) - 3 + -random.nextInt(5), moveOnZ);
 
 
             int yPositiveRadius = (config.isTopBoulderFlat() && boulderIDX + 1 == stackHeight) ? 0 : radius;
@@ -91,7 +91,7 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
 //            if (random.nextInt(9) == 0)
 //                radius = (int) (radius * 1.75);
 //            else
-                radius = (int) (radius / config.getRadiusDivisorPerStack());
+            radius = (int) (radius / config.getRadiusDivisorPerStack());
 
             if (3 > radius) {
                 if (stopSpamInt == 0) {

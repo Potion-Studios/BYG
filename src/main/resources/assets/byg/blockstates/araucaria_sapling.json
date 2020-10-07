@@ -1,5 +1,7 @@
 {
-"variants": {
-"": { "model": "byg:block/araucaria_sapling" }
-}
+  "variants": {
+    "": {
+      "model": "byg:block/araucaria_sapling"
+    }
+  }
 }

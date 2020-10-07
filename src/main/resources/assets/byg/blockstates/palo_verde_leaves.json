@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/palo_verde_leaves" }
+    "": {
+      "model": "byg:block/palo_verde_leaves"
+    }
   }
 }

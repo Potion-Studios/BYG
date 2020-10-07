@@ -1,6 +1,5 @@
 package corgiaoc.byg.core.world;
 
-import corgiaoc.byg.common.world.feature.overworld.RiverThingy;
 import corgiaoc.byg.common.world.feature.config.*;
 import corgiaoc.byg.common.world.feature.end.obsidianspires.ObsidianSpike;
 import corgiaoc.byg.common.world.feature.nether.LargeChain;

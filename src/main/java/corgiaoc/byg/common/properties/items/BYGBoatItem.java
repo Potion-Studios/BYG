@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.properties.items;
 
 
+import corgiaoc.byg.common.entity.boat.BYGBoatEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -14,7 +15,6 @@ import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
-import corgiaoc.byg.common.entity.boat.BYGBoatEntity;
 
 import java.util.List;
 import java.util.function.Predicate;

@@ -1,6 +1,8 @@
 package corgiaoc.byg.common.world.feature.overworld.giantflowers.util;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.world.feature.FeatureUtil;
+import corgiaoc.byg.common.world.feature.config.BYGGiantFlowerFeatureConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -16,8 +18,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.Tags;
-import corgiaoc.byg.common.world.feature.config.BYGGiantFlowerFeatureConfig;
-import corgiaoc.byg.common.world.feature.FeatureUtil;
 
 import java.util.Random;
 

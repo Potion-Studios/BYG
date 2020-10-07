@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.volcano;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
@@ -10,7 +11,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 
 import java.util.Random;
 
@@ -53,9 +53,7 @@ public class NoiseVolcano extends Feature<NoFeatureConfig> {
                         world.getPendingFluidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
                         mutable.move(Direction.DOWN);
                     }
-                }
-
-                else if (noise <= 0.34) {
+                } else if (noise <= 0.34) {
                     int valueToReverse = (int) (Math.abs((int) (noise * 55D) * 1.4));
                     int topHeight = (int) ((valueToReverse - Math.abs(((-noise * 55D) * 1.4 - valueToReverse))) + (world.getSeaLevel() * 1.8));
 
@@ -70,11 +68,7 @@ public class NoiseVolcano extends Feature<NoFeatureConfig> {
                         }
                         mutable.move(Direction.DOWN);
                     }
-                }
-
-
-
-                else if (noise <= 0.63) {
+                } else if (noise <= 0.63) {
                     int valueToReverse = (int) (Math.abs((int) (noise * 55D) * 1.4));
                     int topHeight = (int) ((valueToReverse - Math.abs(((-noise * 55D) * 1.4 - valueToReverse))) + (world.getSeaLevel() * 1.8));
 

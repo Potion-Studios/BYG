@@ -989,8 +989,8 @@ public class BYGBlockProperties {
     public static class BYGNetherLog extends LogBlock {
         public BYGNetherLog(String registryName) {
             super(Block.Properties.create(Material.NETHER_WOOD)
-                            .sound(SoundType.HYPHAE)
-                            .hardnessAndResistance(2.0f)
+                    .sound(SoundType.HYPHAE)
+                    .hardnessAndResistance(2.0f)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
@@ -1371,8 +1371,8 @@ public class BYGBlockProperties {
     public static class BYGStrippedLog extends LogBlock {
         public BYGStrippedLog(String registryName) {
             super(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)
-                            .sound(SoundType.WOOD)
-                            .hardnessAndResistance(2.0f)
+                    .sound(SoundType.WOOD)
+                    .hardnessAndResistance(2.0f)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 

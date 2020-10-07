@@ -1,10 +1,10 @@
 package corgiaoc.byg.common.world.feature.overworld.trees;
 
-import corgiaoc.byg.core.world.BYGConfiguredFeatures;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGHugeTree;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGTree;
+import corgiaoc.byg.core.world.BYGConfiguredFeatures;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 import javax.annotation.Nullable;
 import java.util.Random;

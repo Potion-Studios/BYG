@@ -1,13 +1,13 @@
 package corgiaoc.byg.common.world.feature.overworld.mushrooms;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
+import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import corgiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
-import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
-import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;
 
@@ -29,11 +29,9 @@ public class EmburMushroom extends BYGAbstractMushroomFeature<BYGMushroomFeature
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), BYGBlocks.EMBUR_NYLIUM)) {
                 return false;
-            }
-            else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {
+            } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {
                 return false;
-            }
-            else if (!this.doesMushroomHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isMushroom)) {
+            } else if (!this.doesMushroomHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isMushroom)) {
                 return false;
             } else {
                 placeStem(STEM, worldIn, mainmutable.add(0, 0, 0));

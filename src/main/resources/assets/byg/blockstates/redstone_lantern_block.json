@@ -1,13 +1,20 @@
 {
   "variants": {
     "hanging=false": [
-      { "model": "byg:block/redstone_lantern" }
+      {
+        "model": "byg:block/redstone_lantern"
+      }
     ],
-    "hanging=true":  { "model": "byg:block/hanging_redstone_lantern" },
-
+    "hanging=true": {
+      "model": "byg:block/hanging_redstone_lantern"
+    },
     "hanging_lit=false": [
-      { "model": "byg:block/redstone_lantern_on" }
+      {
+        "model": "byg:block/redstone_lantern_on"
+      }
     ],
-    "hanging_lit=true":  { "model": "byg:block/hanging_redstone_lantern_on" }
+    "hanging_lit=true": {
+      "model": "byg:block/hanging_redstone_lantern_on"
+    }
   }
 }

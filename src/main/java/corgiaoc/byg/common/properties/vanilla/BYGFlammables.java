@@ -1,10 +1,10 @@
 package corgiaoc.byg.common.properties.vanilla;
 
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FireBlock;
-import corgiaoc.byg.BYG;
 
 public class BYGFlammables {
     public static void flammableBlock(Block block, int encouragement, int flammability) {

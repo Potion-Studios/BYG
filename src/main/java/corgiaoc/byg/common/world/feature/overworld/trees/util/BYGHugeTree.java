@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.util;
 
+import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -8,7 +9,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 
 import javax.annotation.Nullable;
 import java.util.Random;

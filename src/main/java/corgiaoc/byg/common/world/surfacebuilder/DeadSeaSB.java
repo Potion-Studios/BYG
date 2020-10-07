@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.surfacebuilder;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.util.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.tags.FluidTags;
@@ -12,7 +13,6 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.PerlinNoiseGenerator;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.util.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 
 import java.util.Random;
 

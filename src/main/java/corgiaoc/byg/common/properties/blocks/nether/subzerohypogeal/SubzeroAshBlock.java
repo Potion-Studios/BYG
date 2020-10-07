@@ -1,6 +1,9 @@
 package corgiaoc.byg.common.properties.blocks.nether.subzerohypogeal;
 
-import net.minecraft.block.*;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.IntegerProperty;
@@ -27,7 +30,7 @@ public class SubzeroAshBlock extends Block {
     }
 
     public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-        switch(type) {
+        switch (type) {
             case LAND:
                 return state.get(LAYERS) < 5;
             case WATER:

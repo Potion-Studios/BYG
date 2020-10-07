@@ -1,6 +1,8 @@
 package corgiaoc.byg.common.world.feature.overworld.volcano;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.util.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -13,8 +15,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import corgiaoc.byg.util.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
-import corgiaoc.byg.core.world.BYGBiomes;
 
 import java.util.Optional;
 import java.util.Random;
