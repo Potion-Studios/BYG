@@ -42,8 +42,6 @@ public class BYGNetherBiomeCatch {
                 }
             }
         }
-
-        BYG.LOGGER.info(biomeList.size());
         BYG.LOGGER.debug("BYG: Nether Biome Config Collection completed!");
     }
 
@@ -52,6 +50,3 @@ public class BYGNetherBiomeCatch {
     }
 
 }
-
-
-

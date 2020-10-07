@@ -101,21 +101,21 @@ public class BYG {
         public static void registerBlocks(RegistryEvent.Register<Block> event) {
             BYG.LOGGER.debug("BYG: Registering blocks...");
             BYGBlocks.init();
-            BYG.LOGGER.info("BYG: Blocks Registered!");
+            BYG.LOGGER.info("BYG: Blocks registered!");
         }
 
         @SubscribeEvent
         public static void registerItems(RegistryEvent.Register<Item> event) {
             BYG.LOGGER.debug("BYG: Registering items...");
             BYGItems.init();
-            BYG.LOGGER.info("BYG: Items Registered!");
+            BYG.LOGGER.info("BYG: Items registered!");
         }
 
         @SubscribeEvent
         public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
             BYG.LOGGER.debug("BYG: Registering entities...");
             BYGEntities.init();
-            BYG.LOGGER.info("BYG: Entities Registered!");
+            BYG.LOGGER.info("BYG: Entities registered!");
         }
     }
 
@@ -125,7 +125,7 @@ public class BYG {
         public static void registerBiomes(RegistryEvent.Register<Biome> event) {
             BYG.LOGGER.debug("BYG: Registering biomes...");
             BYGBiomes.registerBYGBiomes();
-            BYG.LOGGER.info("BYG: Biomes Registered!");
+            BYG.LOGGER.info("BYG: Biomes registered!");
         }
 
         @SubscribeEvent
@@ -139,7 +139,7 @@ public class BYG {
         public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
             BYG.LOGGER.debug("BYG: Registering features...");
             BYGFeatures.init();
-            BYG.LOGGER.info("BYG: Features Registered!");
+            BYG.LOGGER.info("BYG: Features registered!");
         }
 
         @SubscribeEvent
