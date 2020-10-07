@@ -11,9 +11,9 @@ import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class AnyWaterOrSolidSurfaceSurface extends Placement<FeatureSpreadConfig> {
+public class AnyWaterOrSolidSurface extends Placement<FeatureSpreadConfig> {
 
-    public AnyWaterOrSolidSurfaceSurface(Codec<FeatureSpreadConfig> config) {
+    public AnyWaterOrSolidSurface(Codec<FeatureSpreadConfig> config) {
         super(config);
     }
 
