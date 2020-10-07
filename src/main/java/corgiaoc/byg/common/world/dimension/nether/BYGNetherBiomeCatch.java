@@ -17,7 +17,7 @@ public class BYGNetherBiomeCatch {
     public static String configBiomes = biomeRegistries.trim();
     public static List<String> biomeList = Arrays.asList(configBiomes.split(","));
 
-    public static void netherBiomeConfigCollection() {
+    public static void collectNetherBiomes() {
         BYG.LOGGER.debug("BYG: Nether Biome Config Collection starting...");
         if (biomeList.size() > 0) {
             int[] getConfigArray = new int[biomeList.size()];

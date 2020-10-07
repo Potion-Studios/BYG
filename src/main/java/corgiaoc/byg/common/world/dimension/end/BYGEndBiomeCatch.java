@@ -1,7 +1,6 @@
 package corgiaoc.byg.common.world.dimension.end;
 
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.BYGWorldConfig;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -19,7 +18,7 @@ public class BYGEndBiomeCatch {
     public static String configBiomes = biomeRegistries.trim().replace(" ", "");
     public static List<String> biomeList = Arrays.asList(configBiomes.split(","));
 
-    public static void endBiomeConfigCollection() {
+    public static void collectEndBiomes() {
         BYG.LOGGER.debug("BYG: End Biome Config Collection starting...");
 
         if (biomeList.size() > 0) {

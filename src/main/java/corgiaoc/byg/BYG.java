@@ -66,8 +66,8 @@ public class BYG {
         ConfigWeightManager.buildConfig();
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         BYGCreativeTab.init();
-        BYGEndBiomeCatch.endBiomeConfigCollection();
-        BYGNetherBiomeCatch.netherBiomeConfigCollection();
+        BYGEndBiomeCatch.collectEndBiomes();
+        BYGNetherBiomeCatch.collectNetherBiomes();
         BYGBiomes.addBYGFeaturesToBiomes();
         BYGBiomes.addBiomeNumericalIDsForLayerSampler();
         BYGBiomes.addEndBiomeNumericalIDsForLayerSampler();
