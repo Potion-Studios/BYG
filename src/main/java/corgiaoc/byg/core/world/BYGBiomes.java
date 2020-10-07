@@ -418,7 +418,7 @@ public class BYGBiomes {
 
     private static void registerBYGEndBiome(Biome biome, String name) {
         Registry.register(WorldGenRegistries.BIOME, new ResourceLocation(BYG.MOD_ID, name), biome);
-        BYGEndBiomeProvider.bygEndBiomeList.add(biome);
+        BYGEndBiomeProvider.endBiomeList.add(biome);
         biomeList.add(biome);
     }
 
@@ -520,6 +520,22 @@ public class BYGBiomes {
         }
     }
 
+    public static void addEndBiomeNumericalIDsForLayerSampler() {
+        //Avoid adding to the list with already spawning end biomes.
+        List<Biome> endBiomeBlackList = new ArrayList<>();
+        endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.END_BARRENS));
+        endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
+        endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.SMALL_END_ISLANDS));
+
+        for (Biome biome : WorldGenRegistries.BIOME) {
+            if (biome.getCategory().equals(Biome.Category.THEEND) && !endBiomeBlackList.contains(biome)) {
+                Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
+                if (key.isPresent())
+                    key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+            }
+        }
+    }
+
     public static void addBYGFeaturesToBiomes() {
         for (Biome biome : WorldGenRegistries.BIOME) {
             if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
@@ -537,7 +553,6 @@ public class BYGBiomes {
             }
         }
     }
-
 
     //Use these to add our features to vanilla's biomes.
     public static void addFeatureToBiome(Biome biome, GenerationStage.Decoration feature, ConfiguredFeature<?, ?> configuredFeature) {

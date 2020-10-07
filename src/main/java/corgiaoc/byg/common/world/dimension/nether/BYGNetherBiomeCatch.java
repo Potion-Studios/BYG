@@ -8,7 +8,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,9 +16,6 @@ public class BYGNetherBiomeCatch {
     static String biomeRegistries = BYGWorldConfig.netherBiomes.get();
     public static String configBiomes = biomeRegistries.trim();
     public static List<String> biomeList = Arrays.asList(configBiomes.split(","));
-
-    public static ArrayList<Integer> netherBiomeIDS = new ArrayList<>();
-
 
     public static void netherBiomeConfigCollection() {
         BYG.LOGGER.debug("BYG: Nether Biome Config Collection starting...");
@@ -36,8 +32,7 @@ public class BYGNetherBiomeCatch {
                     if (biome == null) {
                         BYG.LOGGER.error("Illegal registry name! You put: " + biomeList.get(index));
                     } else {
-                        BYGNetherBiomeProvider.biomeList.add(biome);
-                        netherBiomeIDS.add(WorldGenRegistries.BIOME.getId(biome));
+                        BYGNetherBiomeProvider.netherBiomeList.add(biome);
                     }
                 }
             }
@@ -46,7 +41,6 @@ public class BYGNetherBiomeCatch {
     }
 
     public static int getRandomNetherBiomes(INoiseRandom rand) {
-        return netherBiomeIDS.get(rand.random(netherBiomeIDS.size()));
+        return WorldGenRegistries.BIOME.getId(BYGNetherBiomeProvider.netherBiomeList.get(rand.random(BYGNetherBiomeProvider.netherBiomeList.size())));
     }
-
 }

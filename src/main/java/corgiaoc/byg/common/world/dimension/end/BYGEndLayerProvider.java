@@ -15,14 +15,14 @@ public class BYGEndLayerProvider {
     public static Layer stackLayers(long seed) {
         LongFunction<IExtendedNoiseRandom<LazyArea>> randomProvider = salt -> new LazyAreaLayerContext(1, seed, salt);
 
-        IAreaFactory<LazyArea> endFactory = BYGEndMasterLayer.INSTANCE.apply(randomProvider.apply(1000L));
+        IAreaFactory<LazyArea> endLayer = BYGEndMasterLayer.INSTANCE.apply(randomProvider.apply(1000L));
 
         for (int netherBiomeSize = 0; netherBiomeSize <= BYGWorldConfig.biomeSizeEND.get(); netherBiomeSize++) {
-            endFactory = ZoomLayer.NORMAL.apply(randomProvider.apply(1000L + netherBiomeSize), endFactory);
+            endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(1000L + netherBiomeSize), endLayer);
         }
-        endFactory = ZoomLayer.FUZZY.apply(randomProvider.apply(1000L), endFactory);
-        endFactory = ZoomLayer.NORMAL.apply(randomProvider.apply(1000L), endFactory);
+        endLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(1000L), endLayer);
+        endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(1000L), endLayer);
 
-        return new Layer(endFactory);
+        return new Layer(endLayer);
     }
 }
