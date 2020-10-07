@@ -34,14 +34,14 @@ public class BYGForgeRegistries {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         BYG.LOGGER.debug("BYG: Registering blocks...");
-        BYGBlocks.registerBlocks(event.getRegistry());
+        BYGBlocks.init();
         BYG.LOGGER.info("BYG: Blocks Registered!");
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         BYG.LOGGER.debug("BYG: Registering items...");
-        BYGItems.registerItems(event.getRegistry());
+        BYGItems.init();
         BYG.LOGGER.info("BYG: Items Registered!");
     }
 

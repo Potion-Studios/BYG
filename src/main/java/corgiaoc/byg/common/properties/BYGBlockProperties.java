@@ -1,19 +1,9 @@
 package corgiaoc.byg.common.properties;
 
-import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.item.DyeColor;
-import net.minecraft.potion.Effects;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.ToolType;
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.blocks.*;
-import corgiaoc.byg.common.properties.blocks.grassblocks.*;
+import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BYGOvergrownNetherrackBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BYGQuartzCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
@@ -23,7 +13,10 @@ import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBlackstoneBlo
 import corgiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;
-import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.*;
+import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.HangingVinesBlock;
+import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.HangingVinesPlantBlock;
+import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.SoulShroomSporeBlock;
+import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.SoulShroomSporeEndBlock;
 import corgiaoc.byg.common.properties.blocks.nether.scorched.ScorchedPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.subzerohypogeal.SubzeroAshBlock;
 import corgiaoc.byg.common.properties.blocks.nether.sythian.*;
@@ -33,6 +26,19 @@ import corgiaoc.byg.common.properties.blocks.nether.warped.*;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVineBlock;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVinePlantBlock;
 import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
+import corgiaoc.byg.core.BYGBlocks;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
+import net.minecraft.item.DyeColor;
+import net.minecraft.potion.Effects;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ToolType;
 
 import java.util.function.ToIntFunction;
 
@@ -48,7 +54,7 @@ public class BYGBlockProperties {
                             .notSolid()
                             .setLightLevel((state) -> 8)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -61,7 +67,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -74,7 +80,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -87,7 +93,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -100,7 +106,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -113,7 +119,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -126,7 +132,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -138,7 +144,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -149,7 +155,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -162,7 +168,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -174,7 +180,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -187,7 +193,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -199,7 +205,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -211,7 +217,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -223,7 +229,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -235,7 +241,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -247,7 +253,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -260,7 +266,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .slipperiness(0.98F)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -273,7 +279,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .slipperiness(0.98F)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -289,7 +295,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -301,7 +307,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.SHOVEL)
                     .speedFactor(0.6F)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -312,7 +318,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .harvestTool(ToolType.SHOVEL)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -326,7 +332,7 @@ public class BYGBlockProperties {
 
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -340,7 +346,7 @@ public class BYGBlockProperties {
 
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -351,7 +357,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -363,7 +369,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .speedFactor(0.4F)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -374,7 +380,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.6f)
                     .tickRandomly(), BYGBlocks.MEADOW_DIRT
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -387,7 +393,7 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 10)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -401,7 +407,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -414,7 +420,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .setLightLevel((state) -> 12)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, Integer.valueOf(7)).with(PERSISTENT, Boolean.valueOf(false)));
         }
     }
@@ -426,7 +432,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -439,7 +445,7 @@ public class BYGBlockProperties {
                     .speedFactor(0.6F)
                     .harvestTool(ToolType.SHOVEL)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
 
     }
@@ -453,7 +459,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.SHOVEL)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
 
     }
@@ -466,7 +472,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -476,7 +482,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.SAND)
                     .hardnessAndResistance(0.2f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -487,7 +493,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -499,7 +505,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -511,7 +517,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -523,7 +529,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -536,7 +542,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .setLightLevel((state) -> 8)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -549,7 +555,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .setLightLevel((state) -> 8)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -563,7 +569,7 @@ public class BYGBlockProperties {
                     .lootFrom(BYGBlocks.WARPED_CORAL)
                     .setLightLevel((state) -> 8)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -577,7 +583,7 @@ public class BYGBlockProperties {
                     .lootFrom(BYGBlocks.WARPED_CORAL)
                     .setLightLevel((state) -> 8)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -590,7 +596,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .setLightLevel((state) -> 8)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -604,7 +610,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .setLightLevel((state) -> 8)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -615,7 +621,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.WART)
                     .hardnessAndResistance(1.0F)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -627,7 +633,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -640,7 +646,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -652,7 +658,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -664,7 +670,7 @@ public class BYGBlockProperties {
                     .speedFactor(1.6F)
                     .slipperiness(0.6F)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -676,7 +682,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -688,7 +694,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -702,7 +708,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE), BYGBlocks.BLUE_NETHERRACK, BYGFeatureConfigs.SpreadableBlockConfigs.EMBUR_ROOTS
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -715,7 +721,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .tickRandomly()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -728,7 +734,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -742,7 +748,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE), Blocks.NETHERRACK, BYGFeatureConfigs.SpreadableBlockConfigs.SYTHIAN_CONFIG
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -755,7 +761,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -766,7 +772,7 @@ public class BYGBlockProperties {
                     .zeroHardnessAndResistance()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -779,7 +785,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -791,7 +797,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -805,7 +811,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE), Blocks.END_STONE, BYGFeatureConfigs.SpreadableBlockConfigs.IVIS_CONFIG
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -816,7 +822,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .setLightLevel((state) -> 8)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -830,7 +836,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .setLightLevel((state) -> 9)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -840,7 +846,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.5f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -850,7 +856,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.5f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -860,7 +866,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.5f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -870,7 +876,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.5f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -882,7 +888,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -894,7 +900,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -908,7 +914,7 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 14)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -920,7 +926,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -934,7 +940,7 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 14)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -946,7 +952,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -958,7 +964,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -970,7 +976,7 @@ public class BYGBlockProperties {
                     .tickRandomly()
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -986,7 +992,7 @@ public class BYGBlockProperties {
                             .sound(SoundType.HYPHAE)
                             .hardnessAndResistance(2.0f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -999,7 +1005,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .setLightLevel(getLightValueLit(14))
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1011,7 +1017,7 @@ public class BYGBlockProperties {
                     .zeroHardnessAndResistance()
                     .setLightLevel((state) -> 14)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1021,7 +1027,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.HYPHAE)
                     .hardnessAndResistance(2.0f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1040,7 +1046,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1053,7 +1059,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1067,7 +1073,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1080,7 +1086,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1093,7 +1099,7 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 10)
                     .tickRandomly()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1106,7 +1112,7 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 10)
                     .tickRandomly()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1119,7 +1125,7 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 10)
                     .tickRandomly()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1132,7 +1138,7 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 10)
                     .tickRandomly()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1143,7 +1149,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(1.5f, 6.0f)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1156,7 +1162,7 @@ public class BYGBlockProperties {
                     .doesNotBlockMovement()
                     .tickRandomly()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1167,7 +1173,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.0f, 0.0f)
                     .doesNotBlockMovement()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1179,7 +1185,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2F)
                     .notSolid()
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
         }
     }
@@ -1191,7 +1197,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2F)
                     .setLightLevel((state) -> 12)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
         }
 
@@ -1207,7 +1213,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.HYPHAE)
                     .hardnessAndResistance(0.2F)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
         }
 
@@ -1225,7 +1231,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .setLightLevel((state) -> 12)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
         }
 
@@ -1242,7 +1248,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2F)
                     .setLightLevel((state) -> 12)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, Boolean.valueOf(true)).with(EAST, Boolean.valueOf(true)).with(SOUTH, Boolean.valueOf(true)).with(WEST, Boolean.valueOf(true)).with(UP, Boolean.valueOf(true)).with(DOWN, Boolean.valueOf(true)));
         }
 
@@ -1258,7 +1264,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.WOOD)
                     .hardnessAndResistance(2.0f, 3.0f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1271,7 +1277,7 @@ public class BYGBlockProperties {
                     .variableOpacity()
                     .setLightLevel((state) -> 12)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1279,7 +1285,7 @@ public class BYGBlockProperties {
         public BYGCraftingTable(String registryName) {
             super(Block.Properties.from(Blocks.CRAFTING_TABLE)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1289,7 +1295,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(2.0f, 6.0f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1300,7 +1306,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.3F)
                     .setLightLevel((state) -> 15)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1312,7 +1318,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1324,7 +1330,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1336,7 +1342,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1348,7 +1354,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1358,7 +1364,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 
@@ -1368,7 +1374,7 @@ public class BYGBlockProperties {
                             .sound(SoundType.WOOD)
                             .hardnessAndResistance(2.0f)
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
 
         }
     }
@@ -1383,7 +1389,7 @@ public class BYGBlockProperties {
                     .harvestTool(ToolType.PICKAXE)
 
             );
-            setRegistryName(registryName);
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
         }
     }
 

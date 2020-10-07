@@ -51,7 +51,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
 
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItems.SYTHIAN_STALK);
+        return new ItemStack(BYGItems.SYTHIAN_STALK_BLOCK);
     }
 
     protected void func_220087_a(World world, BlockPos pos) {
