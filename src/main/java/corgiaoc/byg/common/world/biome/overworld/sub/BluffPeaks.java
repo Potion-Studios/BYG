@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -51,13 +50,13 @@ public class BluffPeaks extends BYGBiome {
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGTreeFeatures.addBluffTrees(GENERATION_SETTINGS);
-        BYGTreeFeatures.addSpruceTrees(GENERATION_SETTINGS);
-        BYGTreeFeatures.addSparseAspenTrees(GENERATION_SETTINGS);
-        BYGFeatures.addAnemones(GENERATION_SETTINGS);
-        BYGFeatures.addSages(GENERATION_SETTINGS);
-        BYGFeatures.addBlueberries(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBluffTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSpruceTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSparseAspenTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addAnemones(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSages(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBlueberries(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

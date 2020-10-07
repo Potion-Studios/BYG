@@ -25,8 +25,8 @@ import corgiaoc.byg.common.properties.blocks.nether.wailing.WhalingGrassBlock;
 import corgiaoc.byg.common.properties.blocks.nether.warped.*;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVineBlock;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVinePlantBlock;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatureConfigs;
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -705,7 +705,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.4F)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), BYGBlocks.BLUE_NETHERRACK, BYGFeatureConfigs.SpreadableBlockConfigs.EMBUR_ROOTS
+                    .harvestTool(ToolType.PICKAXE), BYGBlocks.BLUE_NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS
 
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -745,7 +745,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), Blocks.NETHERRACK, BYGFeatureConfigs.SpreadableBlockConfigs.SYTHIAN_CONFIG
+                    .harvestTool(ToolType.PICKAXE), Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG
 
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -808,7 +808,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.NYLIUM)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE), Blocks.END_STONE, BYGFeatureConfigs.SpreadableBlockConfigs.IVIS_CONFIG
+                    .harvestTool(ToolType.PICKAXE), Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG
 
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);

@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.block.Blocks;
@@ -51,10 +52,10 @@ public class ShatteredGlacier extends BYGBiome {
         DefaultBiomeFeatures.withTaigaGrassVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addWinterGrass(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addWinterRose(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addFrostMagmaLakes(GENERATION_SETTINGS);
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, BYGFeatures.BLACKICESNOW.configure(FeatureConfig.DEFAULT));
+        BYGDefaultBiomeFeatures.addWinterGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWinterRose(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addFrostMagmaLakes(GENERATION_SETTINGS);
+//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, BYGDefaultBiomeFeatures.BLACKICESNOW.configure(FeatureConfig.DEFAULT));
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 10, 2, 3));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.POLAR_BEAR, 1, 1, 2));

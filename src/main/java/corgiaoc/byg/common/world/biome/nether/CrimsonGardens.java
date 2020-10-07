@@ -3,7 +3,7 @@ package corgiaoc.byg.common.world.biome.nether;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
@@ -67,7 +67,7 @@ public class CrimsonGardens extends BYGBiome {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CRIMSON_FOREST_VEGETATION); //Crimson Forest Vegetation
 //        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.field_243949_i); //Basalt Columns Large
 
-        BYGFeatures.addCrimsonGardensVegetation(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCrimsonGardensVegetation(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.HOGLIN, 9, 3, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));

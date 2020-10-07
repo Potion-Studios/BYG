@@ -2,9 +2,9 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -46,8 +46,8 @@ public class GrassLandPlateau extends BYGBiome {
 
     static {
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
-        BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalGrassPatch(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
@@ -57,10 +57,10 @@ public class GrassLandPlateau extends BYGBiome {
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withPlainGrassVegetation(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addAnemones(GENERATION_SETTINGS);
-        BYGFeatures.addSages(GENERATION_SETTINGS);
-        BYGFeatures.addGrasslandBoulders(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addAnemones(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSages(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrasslandBoulders(GENERATION_SETTINGS);
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));

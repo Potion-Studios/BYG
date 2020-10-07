@@ -2,9 +2,8 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.entity.EntityClassification;
@@ -67,7 +66,7 @@ public class Meadow extends BYGBiome {
         ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
 //        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        BYGTreeFeatures.addMeadowShrubs(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMeadowShrubs(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
@@ -76,11 +75,11 @@ public class Meadow extends BYGBiome {
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addCloverFlowerPatch(GENERATION_SETTINGS);
-        BYGFeatures.addAnemones(GENERATION_SETTINGS);
-        BYGFeatures.addAzalea(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCloverFlowerPatch(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addAnemones(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addAzalea(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

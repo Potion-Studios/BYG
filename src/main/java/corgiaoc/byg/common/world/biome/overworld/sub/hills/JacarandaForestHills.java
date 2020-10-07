@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.hills;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -46,16 +45,16 @@ public class JacarandaForestHills extends BYGBiome {
         DefaultBiomeFeatures.withForestGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
-        BYGTreeFeatures.addJacarandaTrees(GENERATION_SETTINGS);
-        BYGFeatures.addBYGBambooJungleVegetation(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addJacarandaTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGBambooJungleVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMelonPatchesAndVines(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSavannaGrass(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addDelphinium(GENERATION_SETTINGS);
-        BYGFeatures.addDelphinium(GENERATION_SETTINGS);
-        BYGFeatures.addLeafPile(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addDelphinium(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addDelphinium(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addLeafPile(GENERATION_SETTINGS);
 
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

@@ -2,10 +2,9 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -57,7 +56,7 @@ public class Bayou extends BYGBiome {
     }
 
     static {
-        BYGTreeFeatures.addBayouVegetation(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBayouVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
@@ -67,15 +66,15 @@ public class Bayou extends BYGBiome {
         DefaultBiomeFeatures.withSwampSugarcaneAndPumpkin(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_NORMAL);
-        BYGFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addCattails(GENERATION_SETTINGS);
-        BYGFeatures.addPeachleatherflower(GENERATION_SETTINGS);
-        BYGFeatures.addVioletleatherflower(GENERATION_SETTINGS);
-        BYGFeatures.addRedorchid(GENERATION_SETTINGS);
-        BYGFeatures.addPurpleOrchid(GENERATION_SETTINGS);
-        BYGFeatures.addPinkOrchid(GENERATION_SETTINGS);
-        BYGFeatures.addMudDisks(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPeachleatherflower(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addVioletleatherflower(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRedorchid(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPurpleOrchid(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPinkOrchid(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMudDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.hills;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -43,15 +42,15 @@ public class AspenForestHills extends BYGBiome {
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
-        BYGTreeFeatures.addAspenTrees(GENERATION_SETTINGS);
-        BYGTreeFeatures.addSpruceTrees(GENERATION_SETTINGS);
-        BYGFeatures.addLeafPile(GENERATION_SETTINGS);
-        BYGFeatures.addRose(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addYellowDaffodil(GENERATION_SETTINGS);
-        BYGFeatures.addOrangeDaisy(GENERATION_SETTINGS);
-        BYGFeatures.addPumpkinPatch(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addAspenTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSpruceTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addLeafPile(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRose(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addYellowDaffodil(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addOrangeDaisy(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPumpkinPatch(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

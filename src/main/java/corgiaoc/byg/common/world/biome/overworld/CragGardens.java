@@ -2,10 +2,9 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
@@ -59,12 +58,12 @@ public class CragGardens extends BYGBiome {
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        BYGFeatures.addLargeLake(GENERATION_SETTINGS);
-        BYGFeatures.addCattails(GENERATION_SETTINGS);
-        BYGFeatures.addBYGLilyPad(GENERATION_SETTINGS);
-        BYGFeatures.addMarshGrass(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addGlowcane(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addLargeLake(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGLilyPad(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMarshGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGlowcane(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
@@ -72,8 +71,8 @@ public class CragGardens extends BYGBiome {
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGTreeFeatures.addCragRainbowTrees(GENERATION_SETTINGS);
-        BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCragRainbowTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMelonPatchesAndVines(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_NORMAL);
 

@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.hills;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -47,7 +46,7 @@ public class TropicalFungalRainforestHills extends BYGBiome {
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMelonPatchesAndVines(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGTreeFeatures.addRainForestTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRainForestTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSavannaGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMushroomBiomeVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMushroomBiomeVegetation(GENERATION_SETTINGS);
@@ -56,11 +55,11 @@ public class TropicalFungalRainforestHills extends BYGBiome {
         DefaultBiomeFeatures.withMushroomBiomeVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
-        BYGFeatures.addWeedGrass(GENERATION_SETTINGS);
-        BYGFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWeedGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
 
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

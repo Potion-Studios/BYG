@@ -2,9 +2,9 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.block.Blocks;
@@ -73,8 +73,8 @@ public class GreatLakes extends BYGBiome {
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMountainEdgeTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMountainEdgeTrees(GENERATION_SETTINGS);
-        BYGFeatures.addBYGLilyPad(GENERATION_SETTINGS);
-        BYGFeatures.addCattails(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGLilyPad(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));

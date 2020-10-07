@@ -1,9 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.hills;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -33,7 +33,7 @@ public class BlueTaigaHills extends BYGBiome {
         //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/taiga/town_centers"), 6));
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        BYGTreeFeatures.addBlueTaigaTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBlueTaigaTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLargeFern(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
 
@@ -48,12 +48,12 @@ public class BlueTaigaHills extends BYGBiome {
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSparseBerries(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addBlueberries(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addCrocus(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addIris(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addShortGrass(GENERATION_SETTINGS);
-//        GENERATION_SETTINGS.carver(GenerationStep.Carving.AIR, Biome.createCarver(BYGFeatures.DEFAULT_CAVE, new ProbabilityConfig(0.25F)));
+        BYGDefaultBiomeFeatures.addBlueberries(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCrocus(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addIris(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addShortGrass(GENERATION_SETTINGS);
+//        GENERATION_SETTINGS.carver(GenerationStep.Carving.AIR, Biome.createCarver(BYGDefaultBiomeFeatures.DEFAULT_CAVE, new ProbabilityConfig(0.25F)));
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

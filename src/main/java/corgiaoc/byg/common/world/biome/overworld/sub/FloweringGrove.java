@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -35,7 +34,7 @@ public class FloweringGrove extends BYGBiome {
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        BYGTreeFeatures.addGroveTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGroveTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
@@ -44,13 +43,13 @@ public class FloweringGrove extends BYGBiome {
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addCloverFlowerPatch(GENERATION_SETTINGS);
-        BYGFeatures.addAnemones(GENERATION_SETTINGS);
-        BYGFeatures.addSages(GENERATION_SETTINGS);
-        BYGFeatures.addTulips(GENERATION_SETTINGS);
-        BYGFeatures.addSunFlowers(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCloverFlowerPatch(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addAnemones(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSages(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addTulips(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSunFlowers(GENERATION_SETTINGS);
 
 
 

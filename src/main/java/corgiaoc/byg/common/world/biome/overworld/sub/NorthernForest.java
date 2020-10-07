@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -43,13 +42,13 @@ public class NorthernForest extends BYGBiome {
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addWinterScilla(GENERATION_SETTINGS);
-        BYGFeatures.addWinterRose(GENERATION_SETTINGS);
-        BYGFeatures.addSnowdrops(GENERATION_SETTINGS);
-        BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
-        BYGTreeFeatures.addNorthernForestTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWinterScilla(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWinterRose(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSnowdrops(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addNorthernForestTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SNOW_GOLEM, 1, 1, 2));

@@ -1,9 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.beach;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -40,7 +40,7 @@ public class WhiteBeach extends BYGBiome {
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withBadlandsGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
-        BYGFeatures.addBeachGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBeachGrass(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));

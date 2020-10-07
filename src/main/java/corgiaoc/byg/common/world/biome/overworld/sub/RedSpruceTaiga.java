@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -36,9 +35,9 @@ public class RedSpruceTaiga extends BYGBiome {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS); //Strongholds & Mineshafts
-        BYGFeatures.addBlueberries(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBlueberries(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
@@ -46,11 +45,11 @@ public class RedSpruceTaiga extends BYGBiome {
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGFeatures.addCrocus(GENERATION_SETTINGS);
-        BYGFeatures.addIris(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCrocus(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addIris(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLargeFern(GENERATION_SETTINGS);
-        BYGTreeFeatures.addSpruceTrees(GENERATION_SETTINGS);
-        BYGTreeFeatures.addRedSpruceTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSpruceTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRedSpruceTrees(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.FOX, 8, 2, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

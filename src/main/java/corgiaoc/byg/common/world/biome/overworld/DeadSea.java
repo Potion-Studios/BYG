@@ -2,8 +2,8 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -40,7 +40,7 @@ public class DeadSea extends BYGBiome {
 
     static {
         DefaultBiomeFeatures.withOceanStructures(GENERATION_SETTINGS);
-        BYGFeatures.addDeadSeaSpires(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addDeadSeaSpires(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);

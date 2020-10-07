@@ -2,9 +2,9 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
@@ -76,11 +76,11 @@ public class ColdSwamplands extends BYGBiome {
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_NORMAL);
         DefaultBiomeFeatures.withSwampVegetation(GENERATION_SETTINGS);
-        BYGFeatures.addMarshGrass(GENERATION_SETTINGS);
-        BYGFeatures.addWiltedGrass(GENERATION_SETTINGS);
-        BYGFeatures.addWiltedGrass(GENERATION_SETTINGS);
-        BYGFeatures.addReeds(GENERATION_SETTINGS);
-        BYGFeatures.addMudDisks(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMarshGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWiltedGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWiltedGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addReeds(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMudDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

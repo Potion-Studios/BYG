@@ -2,10 +2,9 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -61,15 +60,15 @@ public class MojaveDesert extends BYGBiome {
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withDesertWells(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGFeatures.addMiniCactus(GENERATION_SETTINGS);
-        BYGTreeFeatures.addJoshuaTrees(GENERATION_SETTINGS);
-        BYGFeatures.addBYGDesertPlants(GENERATION_SETTINGS);
-        BYGFeatures.addFirecracker(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMiniCactus(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addJoshuaTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGDesertPlants(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addFirecracker(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withDesertVegetation(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withBadlandsGrassAndBush(GENERATION_SETTINGS);
-        BYGTreeFeatures.addBushes(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBushes(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.WATER_AMBIENT, new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 4, 2, 3));
         SPAWN_SETTINGS.withSpawner(EntityClassification.WATER_AMBIENT, new MobSpawnInfo.Spawners(EntityType.SALMON, 10, 8, 8));

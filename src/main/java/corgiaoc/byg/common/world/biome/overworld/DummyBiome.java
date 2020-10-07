@@ -28,8 +28,8 @@ public class DummyBiome extends BYGBiome {
 
     static {
 //        DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-//        BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
-//        BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
+//        BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
+//        BYGDefaultBiomeFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
 //        DefaultBiomeFeatures.withNormalGrassPatch(GENERATION_SETTINGS);
 //        DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
 //        DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
@@ -39,6 +39,6 @@ public class DummyBiome extends BYGBiome {
 //        DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
 //        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
 //        DefaultBiomeFeatures.withPlainGrassVegetation(GENERATION_SETTINGS);
-//        BYGTreeFeatures.addDummyTree(GENERATION_SETTINGS);
+//        BYGDefaultBiomeFeatures.addDummyTree(GENERATION_SETTINGS);
     }
 }

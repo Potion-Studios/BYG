@@ -2,8 +2,8 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -52,15 +52,15 @@ public class DoverMountains extends BYGBiome {
         DefaultBiomeFeatures.withGiantTaigaGrassVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withForestRocks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLargeFern(GENERATION_SETTINGS);
-        BYGTreeFeatures.addDoverMTrees(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addBlueberries(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addCrocus(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addIris(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addDoverMTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBlueberries(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCrocus(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addIris(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
 
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addWinterSucculent(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWinterSucculent(GENERATION_SETTINGS);
 //        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SPRING_FEATURE.configure(DefaultBiomeFeatures.WATER_SPRING_CONFIG).decorate(Decorator.COUNT_BIASED_RANGE.configure(new RangeDecoratorConfig(50, 8, 8, 256))));
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGFeatures.DOVERQUARRY.configure(FeatureConfig.DEFAULT).decorate(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
+//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGDefaultBiomeFeatures.DOVERQUARRY.configure(FeatureConfig.DEFAULT).decorate(Decorator.NOPE.configure(DecoratorConfig.DEFAULT)));
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

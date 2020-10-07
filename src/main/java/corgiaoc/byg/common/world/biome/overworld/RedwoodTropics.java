@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -76,13 +75,13 @@ public class RedwoodTropics extends BYGBiome {
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLargeFern(GENERATION_SETTINGS);
-        BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
-        BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addFernGrass(GENERATION_SETTINGS);
-        BYGFeatures.addLeafPile(GENERATION_SETTINGS);
-        BYGTreeFeatures.addRedwoodTrees(GENERATION_SETTINGS);
-        BYGFeatures.addGrasslandBoulders(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addFernGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addLeafPile(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRedwoodTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrasslandBoulders(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

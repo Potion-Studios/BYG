@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.lakes;
 
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -9,7 +10,6 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import corgiaoc.byg.common.world.biome.BYGBiome;import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 
 public class FrozenLake extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("frozen_lake", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
@@ -44,7 +44,7 @@ public class FrozenLake extends BYGBiome {
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
-        BYGFeatures.addCattails(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
 //        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Feature.ICE_SPIKE.configure(FeatureConfig.DEFAULT).decorate(Decorator.COUNT_HEIGHTMAP.configure(new CountDecoratorConfig(2))));
         //GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(48, 0.4D)).decorate(Decorator.TOP_SOLID_HEIGHTMAP.configure(DecoratorConfig.DEFAULT)));
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);

@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.clearings;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -50,15 +49,15 @@ public class SnowyEvergreenClearing extends BYGBiome {
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSparseBerries(GENERATION_SETTINGS);
-        BYGTreeFeatures.addSparseHollyTrees(GENERATION_SETTINGS);
-        BYGFeatures.addLushBlueberries(GENERATION_SETTINGS);
-        BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
-        BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
-        BYGFeatures.addCrocus(GENERATION_SETTINGS);
-        BYGFeatures.addIris(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addWinterSucculent(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSparseHollyTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addLushBlueberries(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCrocus(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addIris(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWinterSucculent(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

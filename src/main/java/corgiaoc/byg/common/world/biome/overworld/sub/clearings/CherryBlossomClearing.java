@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.clearings;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -46,13 +45,13 @@ public class CherryBlossomClearing extends BYGBiome {
         DefaultBiomeFeatures.withDefaultFlowers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
-        BYGTreeFeatures.addSparseCherryTrees(GENERATION_SETTINGS);
-        BYGFeatures.addJapaneseOrchid(GENERATION_SETTINGS);
-        BYGFeatures.addJapaneseOrchid(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addLeafPile(GENERATION_SETTINGS);
-        BYGFeatures.addCloverFlowerPatch(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSparseCherryTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addJapaneseOrchid(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addJapaneseOrchid(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addLeafPile(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCloverFlowerPatch(GENERATION_SETTINGS);
 
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

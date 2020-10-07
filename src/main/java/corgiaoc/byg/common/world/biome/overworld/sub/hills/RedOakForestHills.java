@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.hills;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -44,14 +43,14 @@ public class RedOakForestHills extends BYGBiome {
         DefaultBiomeFeatures.withForestGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
-        BYGTreeFeatures.addRedOakForestTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRedOakForestTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withForestBirchTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withForestBirchTrees(GENERATION_SETTINGS);
-        BYGFeatures.addShortGrass(GENERATION_SETTINGS);
-        BYGFeatures.addLeafPile(GENERATION_SETTINGS);
-        BYGFeatures.addAzalea(GENERATION_SETTINGS);
-        BYGFeatures.addHorseweed(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addShortGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addLeafPile(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addAzalea(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addHorseweed(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

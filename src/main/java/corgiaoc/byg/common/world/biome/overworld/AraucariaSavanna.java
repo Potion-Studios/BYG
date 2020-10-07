@@ -3,9 +3,8 @@ package corgiaoc.byg.common.world.biome.overworld;
 import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -52,7 +51,7 @@ public class AraucariaSavanna extends BYGBiome {
     }
 
     static {
-        BYGTreeFeatures.addSparseAraucariaTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSparseAraucariaTrees(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244156_v); //Savanna Village
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
@@ -69,9 +68,9 @@ public class AraucariaSavanna extends BYGBiome {
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addFirecracker(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addFirecracker(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

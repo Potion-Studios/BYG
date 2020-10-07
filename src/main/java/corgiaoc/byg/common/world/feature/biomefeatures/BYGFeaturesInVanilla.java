@@ -3,13 +3,12 @@ package corgiaoc.byg.common.world.feature.biomefeatures;//package voronoiaoc.byg
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import corgiaoc.byg.core.world.BYGConfiguredFeatures;
-import corgiaoc.byg.core.world.BYGConfiguredTreeFeatures;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -29,7 +28,7 @@ public class BYGFeaturesInVanilla {
                 }
 
                 if (biome == WorldGenRegistries.BIOME.getValueForKey(Biomes.BEACH)) {
-                    addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredTreeFeatures.RANDOM_PALM_TREE);
+                    addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
                 }
             }
         }

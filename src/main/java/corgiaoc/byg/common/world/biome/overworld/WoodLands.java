@@ -1,10 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -51,9 +50,9 @@ public class WoodLands extends BYGBiome {
 
     static {
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        BYGTreeFeatures.addWoodlandTrees(GENERATION_SETTINGS);
-        BYGTreeFeatures.addMeadowTrees(GENERATION_SETTINGS);
-        BYGTreeFeatures.addHugeMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWoodlandTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMeadowTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addHugeMushrooms(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
@@ -62,13 +61,13 @@ public class WoodLands extends BYGBiome {
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addAnemones(GENERATION_SETTINGS);
-        BYGFeatures.addAzalea(GENERATION_SETTINGS);
-        BYGFeatures.addRose(GENERATION_SETTINGS);
-        BYGFeatures.addFairyslipper(GENERATION_SETTINGS);
-        BYGFeatures.addLushBlueberries(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addAnemones(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addAzalea(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRose(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addFairyslipper(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addLushBlueberries(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

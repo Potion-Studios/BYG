@@ -2,10 +2,9 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.block.Blocks;
@@ -54,8 +53,8 @@ public class Bog extends BYGBiome {
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        BYGTreeFeatures.addMarshTrees(GENERATION_SETTINGS);
-        BYGTreeFeatures.addMarshTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMarshTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMarshTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLavaAndWaterLakes(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
@@ -66,11 +65,11 @@ public class Bog extends BYGBiome {
         DefaultBiomeFeatures.withSwampSugarcaneAndPumpkin(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_NORMAL);
-        BYGFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
-        BYGFeatures.addMarshGrass(GENERATION_SETTINGS);
-        BYGFeatures.addWiltedGrass(GENERATION_SETTINGS);
-        BYGFeatures.addWiltedGrass(GENERATION_SETTINGS);
-        BYGFeatures.addReeds(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMarshGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWiltedGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWiltedGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addReeds(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

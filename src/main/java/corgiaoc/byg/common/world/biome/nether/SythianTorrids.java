@@ -1,9 +1,9 @@
 package corgiaoc.byg.common.world.biome.nether;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
@@ -59,7 +59,7 @@ public class SythianTorrids extends BYGBiome {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.BROWN_MUSHROOM_NETHER);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.RED_MUSHROOM_NETHER);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.ORE_MAGMA);
-        BYGFeatures.addSythianVegetation(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSythianVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonNetherBlocks(GENERATION_SETTINGS); //Ores
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244149_o); //Fortress

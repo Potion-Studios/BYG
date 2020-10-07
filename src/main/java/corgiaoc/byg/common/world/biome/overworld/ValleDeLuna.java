@@ -1,9 +1,8 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -59,12 +58,12 @@ public class ValleDeLuna extends BYGBiome {
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFossils(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withDesertWells(GENERATION_SETTINGS);
-        BYGTreeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
-        BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        BYGFeatures.addGiantLunaRocks(GENERATION_SETTINGS);
-        BYGFeatures.addTerracottaBoulder(GENERATION_SETTINGS);
-        BYGFeatures.addGrass(GENERATION_SETTINGS);
-        BYGFeatures.addBYGDesertPlants(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGiantLunaRocks(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addTerracottaBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGDesertPlants(GENERATION_SETTINGS);
 //        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.VOLCANO);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));

@@ -1,9 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -30,11 +30,11 @@ public class WoodedGrasslandPlateau extends BYGBiome {
     }
 
     static {
-        //////this.add//StructureFeature(BYGFeatures.BYGVILLAGE.configure(new VillageConfig("byg:village/grassland/town_centers"), 6));
+        //////this.add//StructureFeature(BYGDefaultBiomeFeatures.BYGVILLAGE.configure(new VillageConfig("byg:village/grassland/town_centers"), 6));
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalGrassPatch(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
 
@@ -44,11 +44,11 @@ public class WoodedGrasslandPlateau extends BYGBiome {
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        BYGTreeFeatures.addSpruceTrees(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addGrass(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addAnemones(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addSages(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSpruceTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addAnemones(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSages(GENERATION_SETTINGS);
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));

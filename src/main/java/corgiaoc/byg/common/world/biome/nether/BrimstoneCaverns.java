@@ -2,10 +2,10 @@ package corgiaoc.byg.common.world.biome.nether;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -58,11 +58,11 @@ public class BrimstoneCaverns extends BYGBiome {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
-//        BYGFeatures.addEmburBogVines(GENERATION_SETTINGS);
-//        BYGFeatures.addEmburBogVegetation(GENERATION_SETTINGS);
+//        BYGDefaultBiomeFeatures.addEmburBogVines(GENERATION_SETTINGS);
+//        BYGDefaultBiomeFeatures.addEmburBogVegetation(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_ANTHRACITE);
-        BYGFeatures.addBoricFire(GENERATION_SETTINGS);
-        BYGFeatures.addBrimstonePillars(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBoricFire(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBrimstonePillars(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.MAGMA_CUBE, 100, 2, 5));

@@ -1,11 +1,10 @@
 package corgiaoc.byg.common.world.biome.nether;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
-import corgiaoc.byg.core.world.BYGConfiguredTreeFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
@@ -61,9 +60,9 @@ public class EmburBog extends BYGBiome {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
-        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredTreeFeatures.RANDOM_EMBUR_MUSHROOM);
-        BYGFeatures.addEmburBogVines(GENERATION_SETTINGS);
-        BYGFeatures.addEmburBogVegetation(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_MUSHROOM);
+        BYGDefaultBiomeFeatures.addEmburBogVines(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addEmburBogVegetation(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.BLAZE, 40, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));

@@ -1,9 +1,9 @@
 package corgiaoc.byg.common.world.biome.nether;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.client.audio.BackgroundMusicTracks;
 import net.minecraft.entity.EntityClassification;
@@ -60,8 +60,8 @@ public class WarpedDesert extends BYGBiome {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244150_p); //Nether Fossils
 
-        BYGFeatures.addWarpedVegetation(GENERATION_SETTINGS);
-        BYGFeatures.addSoulFireWarped(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWarpedVegetation(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSoulFireWarped(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));

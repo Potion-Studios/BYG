@@ -1,9 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld.sub;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGTreeFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -33,7 +33,7 @@ public class RedRockLowlands extends BYGBiome {
     }
 
     static {
-        //////this.add//StructureFeature(BYGFeatures.BYGVILLAGE.configure(new VillageConfig("byg:village/adobe/town_centers"), 6));
+        //////this.add//StructureFeature(BYGDefaultBiomeFeatures.BYGVILLAGE.configure(new VillageConfig("byg:village/adobe/town_centers"), 6));
         //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
@@ -47,14 +47,14 @@ public class RedRockLowlands extends BYGBiome {
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addTerracottaBoulder(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addTerracottaBoulder(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withForestGrass(GENERATION_SETTINGS);
-        BYGTreeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addGrass(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addFirecracker(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addFirecracker(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withDesertVegetation(GENERATION_SETTINGS);
-        corgiaoc.byg.common.world.feature.biomefeatures.BYGFeatures.addBYGDesertPlants(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBYGDesertPlants(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
         SPAWN_SETTINGS.withSpawner(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
