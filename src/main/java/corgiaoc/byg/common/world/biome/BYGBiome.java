@@ -40,8 +40,8 @@ public class BYGBiome {
     }
 
     @Nullable
-    public Biome getEdges(int n, int e, int s, int w) {
-        return biome;
+    public Biome getEdges(INoiseRandom rand, Biome north, Biome west, Biome south, Biome east) {
+        return null;
     }
 
 

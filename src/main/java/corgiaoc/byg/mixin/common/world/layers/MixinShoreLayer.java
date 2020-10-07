@@ -1,5 +1,6 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
+import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -10,6 +11,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import javax.annotation.Nullable;
 
 @Mixin(ShoreLayer.class)
 public abstract class MixinShoreLayer {
@@ -27,9 +30,14 @@ public abstract class MixinShoreLayer {
     private static final int DEEP_FROZEN_OCEAN = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.DEEP_FROZEN_OCEAN));
 
     @Inject(at = @At("HEAD"), method = "apply(Lnet/minecraft/world/gen/INoiseRandom;IIIII)I", cancellable = true)
-    private void apply(INoiseRandom context, int n, int w, int s, int e, int centre, CallbackInfoReturnable<Integer> cir) {
+    private void apply(INoiseRandom rand, int n, int w, int s, int e, int centre, CallbackInfoReturnable<Integer> cir) {
         final int[] ArrayNESW = {n, w, s, e};
         Biome biome = WorldGenRegistries.BIOME.getByValue(centre);
+
+        Biome bygEdgeBiome = getEdgeBiomeValue(rand, n, w, s, e, centre);
+
+        if (bygEdgeBiome != null)
+            cir.setReturnValue(WorldGenRegistries.BIOME.getId(bygEdgeBiome));
 
         for (int idx : ArrayNESW) {
             if (biome == BYGBiomes.ALPS)
@@ -91,5 +99,12 @@ public abstract class MixinShoreLayer {
         return biome == WARM_OCEAN || biome == LUKEWARM_OCEAN || biome == OCEAN || biome == COLD_OCEAN || biome == FROZEN_OCEAN || biome == DEEP_WARM_OCEAN || biome == DEEP_LUKEWARM_OCEAN || biome == DEEP_OCEAN || biome == DEEP_COLD_OCEAN || biome == DEEP_FROZEN_OCEAN;
     }
 
-
+    @Nullable
+    private static Biome getEdgeBiomeValue(INoiseRandom rand, int n, int w, int s, int e, int centre) {
+        for (BYGBiome bygBiome : BYGBiome.bygBiomes) {
+            if (bygBiome.getBiome() == WorldGenRegistries.BIOME.getByValue(centre))
+                return bygBiome.getEdges(rand, WorldGenRegistries.BIOME.getByValue(n), WorldGenRegistries.BIOME.getByValue(w), WorldGenRegistries.BIOME.getByValue(s), WorldGenRegistries.BIOME.getByValue(e));
+        }
+        return null;
+    }
 }
