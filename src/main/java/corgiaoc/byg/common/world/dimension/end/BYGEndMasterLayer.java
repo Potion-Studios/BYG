@@ -7,11 +7,8 @@ public enum BYGEndMasterLayer implements IAreaTransformer0 {
     INSTANCE;
 
     @Override
-    public int apply(INoiseRandom context, int x, int y) {
-        return pickRandomBiomeID(context);
+    public int apply(INoiseRandom rand, int x, int y) {
+        return BYGEndBiomeCatch.getRandomEndBiomes(rand);
     }
 
-    public int pickRandomBiomeID(INoiseRandom randomnessSource) {
-        return BYGEndBiomeCatch.getRandomEndBiomes(randomnessSource);
-    }
 }
