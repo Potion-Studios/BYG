@@ -57,9 +57,9 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGDoublePlant extends DoublePlantBlock {
+    public static class BYGDoublePlant extends TallFlowerBlock {
         public BYGDoublePlant(String registryName) {
-            super(Block.Properties.create(Material.PLANTS)
+            super(Block.Properties.create(Material.TALL_PLANTS)
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
