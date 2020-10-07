@@ -998,5 +998,6 @@ public class BYGItems {
         return item;
     }
 
-    public static void init() {}
+    public static void init() {
+    }
 }

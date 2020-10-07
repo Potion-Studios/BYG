@@ -9,7 +9,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import corgiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGHugeMushroom;
+import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
 import corgiaoc.byg.core.BYGBlocks;
 
 import java.util.Random;

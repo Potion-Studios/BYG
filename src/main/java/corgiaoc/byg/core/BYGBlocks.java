@@ -6,9 +6,9 @@ import corgiaoc.byg.common.properties.blocks.BYGCraftingTableBlock;
 import corgiaoc.byg.common.properties.blocks.BYGMushroomBlock;
 import corgiaoc.byg.common.properties.blocks.BYGSapling;
 import corgiaoc.byg.common.properties.blocks.BookshelfBlock;
-import corgiaoc.byg.common.world.feature.features.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
-import corgiaoc.byg.common.world.feature.features.overworld.trees.BYGSaplingToTree;
-import corgiaoc.byg.common.world.feature.features.overworld.trees.util.BYGTree;
+import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
+import corgiaoc.byg.common.world.feature.overworld.trees.BYGSaplingToTree;
+import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGTree;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -499,7 +499,8 @@ public class BYGBlocks {
     public static final Block SYTHIAN_SPROUT = new BYGBlockProperties.SythianPlant("sythian_sprout");
     public static final Block SYTHIAN_STALK_BLOCK = new BYGBlockProperties.SythianStalk("sythian_stalk_block");
     public static final Block SYTHIAN_SCAFFOLDING = new BYGBlockProperties.BYGScaffolding("sythian_scaffolding");
-    public static final Block SYTHIAN_SAPLING = new BYGBlockProperties.SythianSapling("sythian_sapling");;
+    public static final Block SYTHIAN_SAPLING = new BYGBlockProperties.SythianSapling("sythian_sapling");
+    ;
     public static final Block HANGING_SYTHIAN_ROOTS = new BYGBlockProperties.BYGSythianHangingRoots("hanging_sythian_roots");
     public static final Block HANGING_SYTHIAN_ROOTS_PLANT = new BYGBlockProperties.BYGSythianHangingRootsPlant("hanging_sythian_roots_plant");
 
@@ -557,7 +558,7 @@ public class BYGBlocks {
     public static final Block WHITE_CHISELED_SANDSTONE = new BYGBlockProperties.BYGStone("white_chiseled_sandstone");
     public static final Block WHITE_CUT_SANDSTONE = new BYGBlockProperties.BYGStone("white_cut_sandstone");
     public static final Block WHITE_SMOOTH_SANDSTONE = new BYGBlockProperties.BYGStone("white_smooth_sandstone");
-    
+
     public static final Block BLUE_SAND = createSand(13559021, "blue_sand");
     public static final Block BLUE_SANDSTONE = new BYGBlockProperties.BYGStone("blue_sandstone");
     public static final Block BLUE_CHISELED_SANDSTONE = new BYGBlockProperties.BYGStone("blue_chiseled_sandstone");
@@ -576,7 +577,7 @@ public class BYGBlocks {
     public static final Block PINK_CUT_SANDSTONE = new BYGBlockProperties.BYGStone("pink_cut_sandstone");
     public static final Block PINK_SMOOTH_SANDSTONE = new BYGBlockProperties.BYGStone("pink_smooth_sandstone");
 
-    
+
     public static final Block ASPEN_LOG = createLog("aspen_log");
     public static final Block BAOBAB_LOG = createLog("baobab_log");
     public static final Block BLUE_ENCHANTED_LOG = createLog("blue_enchanted_log");
@@ -989,5 +990,6 @@ public class BYGBlocks {
         return leaves;
     }
 
-    public static void init() {}
+    public static void init() {
+    }
 }

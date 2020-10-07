@@ -1,9 +1,9 @@
 package corgiaoc.byg.client.textures.renders;
 
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import corgiaoc.byg.BYG;
 
 public class BYGCutoutRenders {
     public static void renderCutOuts() {

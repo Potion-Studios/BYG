@@ -3,8 +3,8 @@ package corgiaoc.byg.common.world.biome.overworld.sub.clearings;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -41,7 +41,7 @@ public class WeepingWitchClearing extends BYGBiome {
     @Nullable
     @Override
     public Biome getHills(INoiseRandom rand) {
-        return  BYGBiomes.FRESHWATERLAKE;
+        return BYGBiomes.FRESHWATERLAKE;
     }
 
     @Override

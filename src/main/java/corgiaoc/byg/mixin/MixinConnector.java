@@ -1,8 +1,8 @@
 package corgiaoc.byg.mixin;
 
+import corgiaoc.byg.BYG;
 import org.spongepowered.asm.mixin.Mixins;
 import org.spongepowered.asm.mixin.connect.IMixinConnector;
-import corgiaoc.byg.BYG;
 
 public class MixinConnector implements IMixinConnector {
 

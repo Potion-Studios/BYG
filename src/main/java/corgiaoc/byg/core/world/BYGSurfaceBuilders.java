@@ -57,7 +57,8 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<SurfaceBuilderConfig> IVIS_FIELDS = WorldGenRegistrationHelper.createSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderConfig.field_237203_a_));
 
 
-    public static void init() {}
+    public static void init() {
+    }
 
     public static class Configs {
         public static final SurfaceBuilderConfig BLACK_SAND = new SurfaceBuilderConfig(BYGBlocks.BLACK_SAND.getDefaultState(), BYGBlocks.BLACK_SAND.getDefaultState(), BYGBlocks.BLACK_SANDSTONE.getDefaultState());

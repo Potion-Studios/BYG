@@ -1,5 +1,8 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
+import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
+import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
+import corgiaoc.byg.config.BYGWorldConfig;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
@@ -10,9 +13,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
-import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
-import corgiaoc.byg.config.BYGWorldConfig;
 
 @Mixin(DimensionType.class)
 public class MixinDimensionType {

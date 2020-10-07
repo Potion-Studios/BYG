@@ -12,7 +12,6 @@ import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeCatch;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeCatch;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
-import corgiaoc.byg.common.world.feature.biomefeatures.BYGFeaturesInVanilla;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
 import corgiaoc.byg.core.BYGBlocks;
@@ -69,7 +68,7 @@ public class BYG {
         BYGCreativeTab.init();
         BYGEndBiomeCatch.endBiomeConfigCollection();
         BYGNetherBiomeCatch.netherBiomeConfigCollection();
-        BYGFeaturesInVanilla.addBYGFeaturesToBiomes();
+        BYGBiomes.addBYGFeaturesToBiomes();
         BYGBiomes.addBiomeNumericalIDsForLayerSampler();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);

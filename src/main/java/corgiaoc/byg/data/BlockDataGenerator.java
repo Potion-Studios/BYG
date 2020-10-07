@@ -58,7 +58,6 @@ public class BlockDataGenerator {
     }
 
 
-
     /**
      * @param langPath The absolute path of the file along with the file name. I.E: "D:\Coding\src\main\resources\assets\modid\lang\en_us.json"
      * @param modID    Your mod's ID.

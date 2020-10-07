@@ -3,7 +3,7 @@ package corgiaoc.byg.core.world;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import corgiaoc.byg.common.properties.blocks.BlueBerryBush;
-import corgiaoc.byg.common.world.feature.features.config.*;
+import corgiaoc.byg.common.world.feature.config.*;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Block;
@@ -638,8 +638,6 @@ public class BYGConfiguredFeatures {
             PUMPKIN2.withChance(0.45F)),
             PUMPKIN2)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
-
-
 
 
     /***********************************************************Configured Tree Features********************************************************/
@@ -1656,7 +1654,6 @@ public class BYGConfiguredFeatures {
             LAMENT_WEEPING_TREE2.withChance(0.35F)),
             LAMENT_WEEPING_TREE1)).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(8, 0.5F, 2))));
-
 
 
     //TODO: Remove these fields and in line them instead.

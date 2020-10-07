@@ -3,8 +3,8 @@ package corgiaoc.byg.common.world.biome.overworld.sub;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -54,7 +54,6 @@ public class FloweringMeadow extends BYGBiome {
         BYGDefaultBiomeFeatures.addAzalea(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addTulips(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addSunFlowers(GENERATION_SETTINGS);
-
 
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

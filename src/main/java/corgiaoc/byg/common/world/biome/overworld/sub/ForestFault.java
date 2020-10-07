@@ -81,7 +81,6 @@ public class ForestFault extends BYGBiome {
     }
 
 
-
     @Nullable
     @Override
     public Biome getHills(INoiseRandom rand) {

@@ -4,9 +4,9 @@ import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
+import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
@@ -51,9 +51,7 @@ public class CragGardens extends BYGBiome {
         return Maps.newHashMap(Collections.singletonMap(BYGBiomes.CRAGGARDENS, 1));
     }
 
-    
-    
-    
+
     static {
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
         //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
