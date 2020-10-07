@@ -4,12 +4,10 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
-import corgiaoc.byg.common.properties.blocks.nether.BYGOvergrownNetherrackBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BYGQuartzCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
 import corgiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
-import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBlackstoneBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;
@@ -683,18 +681,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class OvergrownNetherrack extends BYGOvergrownNetherrackBlock {
-        public OvergrownNetherrack(String registryName) {
-            super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.NYLIUM)
-                    .hardnessAndResistance(0.2f)
-                    .tickRandomly()
-                    .harvestTool(ToolType.PICKAXE)
-
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
 
     public static class BYGIvisPlant extends BYGIvisPlantBlock {
         public BYGIvisPlant(String registryName) {

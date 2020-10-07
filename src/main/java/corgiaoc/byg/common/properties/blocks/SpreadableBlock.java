@@ -25,18 +25,21 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
     private final BlockStateProvidingFeatureConfig featureConfig;
     private final ForDimension forDimension;
 
-
+    private final boolean isNotOverworld;
 
     public SpreadableBlock(Properties properties, Block blockToSpreadToo, ForDimension type, BlockStateProvidingFeatureConfig featureConfig) {
         super(properties);
         this.blockToSpreadToo = blockToSpreadToo;
         this.featureConfig = featureConfig;
         this.forDimension = type;
+
+        isNotOverworld = featureConfig != null;
+
     }
 
     @Override
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
-        if (this.forDimension == ForDimension.NETHER) {
+        if (isNotOverworld) {
             if (!areConditionsGood(state, worldIn, pos))
                 worldIn.setBlockState(pos, blockToSpreadToo.getDefaultState());
         } else {
@@ -82,7 +85,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
             while (true) {
                 if (j >= i / 16) {
                     BlockState blockstate2 = world.getBlockState(blockpos1);
-                    if (this.forDimension == ForDimension.OVERWORLD) {
+                    if (isNotOverworld) {
                         if (blockstate2 == thisBlockState && rand.nextInt(10) == 0) {
                             ((IGrowable) thisBlockState.getBlock()).grow(world, rand, blockpos1, blockstate2);
                         }
@@ -133,13 +136,13 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        if (this.forDimension == ForDimension.OVERWORLD)
+        if (!isNotOverworld)
             super.fillStateContainer(builder);
     }
 
     @Override
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (this.forDimension == ForDimension.OVERWORLD)
+        if (!isNotOverworld)
             return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         else
             return this.getDefaultState();
@@ -147,7 +150,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        if (this.forDimension == ForDimension.OVERWORLD)
+        if (!isNotOverworld)
             return super.getStateForPlacement(context);
         else
             return this.getDefaultState();
@@ -157,7 +160,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
     private boolean areConditionsGood(BlockState state, IWorldReader worldReader, BlockPos pos) {
         BlockPos blockpos = pos.up();
         BlockState blockstate = worldReader.getBlockState(blockpos);
-        if (this.forDimension == ForDimension.OVERWORLD) {
+        if (!isNotOverworld) {
             if (blockstate.isIn(Blocks.SNOW) && blockstate.get(SnowBlock.LAYERS) == 1) {
                 return true;
             } else if (blockstate.getFluidState().getLevel() == 8) {

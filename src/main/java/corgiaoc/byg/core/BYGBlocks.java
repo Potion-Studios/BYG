@@ -462,7 +462,6 @@ public class BYGBlocks {
     public static final Block ANTHRACITE_BLOCK = new BYGBlockProperties.AnthraciteOre("anthracite_block");
     public static final Block ANTHRACITE_ORE = new BYGBlockProperties.AnthraciteOre("anthracite_ore");
 
-    public static final Block MYCELIUM_NETHERRACK = new BYGBlockProperties.OvergrownNetherrack("mycelium_netherrack");
     public static final Block NETHER_BRISTLE = new BYGBlockProperties.BYGDoubleDamagePlant("nether_bristle");
     public static final Block MOSSY_NETHERRACK = new BYGBlockProperties.BYGNetherrack("mossy_netherrack");
 
@@ -855,9 +854,10 @@ public class BYGBlocks {
     public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, "overgrown_dacite");
     public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, "overgrown_stone");
     public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "overgrown_crimson_blackstone");
+    public static final Block MYCELIUM_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "mycelium_netherrack");
     public static final Block OVERGROWN_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "overgrown_netherrack");
     public static final Block IVIS_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG,  "ivis_phylium");
-    public static final Block EMBUR_NYLIUM = createNetherSpreadable(BYGBlocks.BLUE_NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS, "embur_nylium");
+    public static final Block EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS, "embur_nylium");
     public static final Block SYTHIAN_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "sythian_nylium");
     public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, "meadow_grass_block");
 

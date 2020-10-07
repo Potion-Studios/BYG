@@ -20,7 +20,6 @@ import corgiaoc.byg.core.BYGItems;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGDecorators;
 import corgiaoc.byg.core.world.BYGFeatures;
-import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -30,7 +29,6 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.placement.Placement;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -141,12 +139,12 @@ public class BYG {
             BYG.LOGGER.info("BYG: Features registered!");
         }
 
-        @SubscribeEvent
-        public static void registerSurfaceBuilders(RegistryEvent.Register<SurfaceBuilder<?>> event) {
-            BYG.LOGGER.debug("BYG: Registering surface builders...");
-            BYGSurfaceBuilders.init();
-            BYG.LOGGER.info("BYG: Surface builders Registered!");
-        }
+//        @SubscribeEvent
+//        public static void registerSurfaceBuilders(RegistryEvent.Register<SurfaceBuilder<?>> event) {
+//            BYG.LOGGER.debug("BYG: Registering surface builders...");
+//            BYGSurfaceBuilders.init();
+//            BYG.LOGGER.info("BYG: Surface builders Registered!");
+//        }
     }
 
     public static class ForgeEvents {
