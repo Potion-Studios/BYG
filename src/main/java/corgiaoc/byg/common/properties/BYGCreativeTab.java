@@ -4,6 +4,7 @@ import corgiaoc.byg.core.BYGItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import corgiaoc.byg.BYG;
+import net.minecraft.util.ResourceLocation;
 
 public class BYGCreativeTab {
     public static ItemGroup creativeTab = new ItemGroup("byg") {
@@ -20,6 +21,11 @@ public class BYGCreativeTab {
         @Override
         public boolean hasScrollbar() {
             return true;
+        }
+
+        @Override
+        public ResourceLocation getBackgroundImage() {
+            return new ResourceLocation("minecraft", "textures/gui/container/creative_inventory/tab_item_search.png");
         }
     };
 

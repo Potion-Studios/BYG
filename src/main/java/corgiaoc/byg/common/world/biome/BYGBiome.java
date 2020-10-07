@@ -44,7 +44,6 @@ public class BYGBiome {
         return null;
     }
 
-
     public HashMap<Biome, Integer> getHills() {
         return new HashMap<>();
     }
