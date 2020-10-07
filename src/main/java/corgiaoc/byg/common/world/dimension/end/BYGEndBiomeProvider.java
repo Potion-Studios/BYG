@@ -36,7 +36,7 @@ public class BYGEndBiomeProvider extends BiomeProvider {
 
     @Override
     protected Codec<? extends BiomeProvider> getBiomeProviderCodec() {
-        return BYGENDCODEC.stable();
+        return BYGENDCODEC;
     }
 
     @Override

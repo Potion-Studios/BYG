@@ -41,11 +41,6 @@ public class PaloVerdeTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig>
 
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
-                    if (buildTrunk >= randTreeHeight2 && posY1 < 0) {
-                        posX1 += direction.getXOffset();
-                        posZ1 += direction.getZOffset();
-                        ++posY1;
-                    }
 
                     int logplacer = posY + buildTrunk;
                     int logplacer2 = posY + randTreeHeight;

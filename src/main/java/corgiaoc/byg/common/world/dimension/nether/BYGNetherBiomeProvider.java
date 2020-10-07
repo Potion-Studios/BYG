@@ -30,7 +30,7 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
 
     @Override
     protected Codec<? extends BiomeProvider> getBiomeProviderCodec() {
-        return BYGNETHERCODEC.stable();
+        return BYGNETHERCODEC;
     }
 
     @Override
