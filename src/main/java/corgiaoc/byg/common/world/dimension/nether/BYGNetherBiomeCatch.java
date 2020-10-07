@@ -13,11 +13,17 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class BYGNetherBiomeCatch {
-    static String biomeRegistries = BYGWorldConfig.netherBiomes.get();
+    public static String biomeRegistries = BYGWorldConfig.netherBiomes.get();
     public static String configBiomes = biomeRegistries.trim();
     public static List<String> biomeList = Arrays.asList(configBiomes.split(","));
+    public static boolean useAllNetherBiomes = false;
 
     public static void collectNetherBiomes() {
+        if (biomeRegistries.equals("all")) {
+            useAllNetherBiomes = true;
+            return;
+        }
+
         BYG.LOGGER.debug("BYG: Nether Biome Config Collection starting...");
         if (biomeList.size() > 0) {
             int[] getConfigArray = new int[biomeList.size()];

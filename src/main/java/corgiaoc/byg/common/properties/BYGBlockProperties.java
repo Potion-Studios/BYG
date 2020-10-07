@@ -53,7 +53,7 @@ public class BYGBlockProperties {
 
         }
     }
-    
+
     public static class BYGDoubleNetherPlant extends DoubleNetherPlantBlock {
         public BYGDoubleNetherPlant(String registryName) {
             super(Block.Properties.create(Material.PLANTS)

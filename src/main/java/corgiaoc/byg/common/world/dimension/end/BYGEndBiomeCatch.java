@@ -14,13 +14,19 @@ import java.util.List;
 @SuppressWarnings("deprecation")
 public class BYGEndBiomeCatch {
 
-    static String biomeRegistries = BYGWorldConfig.externalEndBiomes.get();
+    public static String biomeRegistries = BYGWorldConfig.externalEndBiomes.get();
     public static String configBiomes = biomeRegistries.trim().replace(" ", "");
     public static List<String> biomeList = Arrays.asList(configBiomes.split(","));
 
-    public static void collectEndBiomes() {
-        BYG.LOGGER.debug("BYG: End Biome Config Collection starting...");
+    public static boolean useAllEndBiomes = false;
 
+    public static void collectEndBiomes() {
+        if (biomeRegistries.equals("all")) {
+            useAllEndBiomes = true;
+            return;
+        }
+
+        BYG.LOGGER.debug("BYG: End Biome Config Collection starting...");
         if (biomeList.size() > 0) {
             int[] getConfigArray = new int[biomeList.size()];
             for (int index = 0; index < biomeList.size(); ++index) {

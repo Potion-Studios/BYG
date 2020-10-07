@@ -1,8 +1,10 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BushBlock;
+import net.minecraft.block.IGrowable;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -14,19 +16,13 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-public class BYGMushroomBlock extends BushBlock implements IGrowable {
+public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
     private final BYGHugeMushroom mushroom;
 
-    public BYGMushroomBlock(BYGHugeMushroom mushroom, String registryName) {
-        super(Properties.create(Material.PLANTS)
-                .sound(SoundType.PLANT)
-                .hardnessAndResistance(0.0f)
-                .doesNotBlockMovement()
-                .tickRandomly()
-        );
+    public BYGMushroomPlantBlock(Properties properties, BYGHugeMushroom mushroom) {
+        super(properties);
         this.mushroom = mushroom;
-        setRegistryName(registryName);
     }
 
     @Override
@@ -43,7 +39,6 @@ public class BYGMushroomBlock extends BushBlock implements IGrowable {
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         BlockPos blockpos = pos.down();
         BlockState blockstate = worldIn.getBlockState(blockpos);
-        Block block = blockstate.getBlock();
         if (blockstate.isIn(BlockTags.MUSHROOM_GROW_BLOCK)) {
             return true;
         } else {

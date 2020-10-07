@@ -14,7 +14,10 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FreshWaterLake;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FrozenLake;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
+import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeCatch;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
+import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeCatch;
+import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
@@ -527,11 +530,43 @@ public class BYGBiomes {
         endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
         endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.SMALL_END_ISLANDS));
 
-        for (Biome biome : WorldGenRegistries.BIOME) {
-            if (biome.getCategory().equals(Biome.Category.THEEND) && !endBiomeBlackList.contains(biome)) {
-                Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
-                if (key.isPresent())
-                    key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+        if (BYGEndBiomeCatch.useAllEndBiomes) {
+            for (Biome biome : WorldGenRegistries.BIOME) {
+                if (biome.getCategory().equals(Biome.Category.THEEND) && !endBiomeBlackList.contains(biome)) {
+                    Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
+                    if (key.isPresent())
+                        key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+                }
+            }
+        }
+        else {
+            for (Biome biome : BYGEndBiomeProvider.endBiomeList) {
+                if (biome.getCategory().equals(Biome.Category.THEEND) && !endBiomeBlackList.contains(biome)) {
+                    Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
+                    if (key.isPresent())
+                        key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+                }
+            }
+        }
+    }
+
+    public static void addNetherBiomeNumericalIDsForLayerSampler() {
+        if (BYGNetherBiomeCatch.useAllNetherBiomes) {
+            for (Biome biome : WorldGenRegistries.BIOME) {
+                if (biome.getCategory().equals(Biome.Category.NETHER)) {
+                    Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
+                    if (key.isPresent())
+                        key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+                }
+            }
+        }
+        else {
+            for (Biome biome : BYGNetherBiomeProvider.netherBiomeList) {
+                if (biome.getCategory().equals(Biome.Category.NETHER)) {
+                    Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
+                    if (key.isPresent())
+                        key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+                }
             }
         }
     }

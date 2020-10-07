@@ -3,6 +3,7 @@ package corgiaoc.byg.core;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.blocks.*;
+import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import corgiaoc.byg.common.world.feature.overworld.trees.BYGSaplingToTree;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGTree;
@@ -23,6 +24,7 @@ import java.util.List;
 public class BYGBlocks {
 
     public static List<Block> flowerPotBlocks = new ArrayList<>();
+    public static List<String> flowerIDs = new ArrayList<>();
 
     public static final Block ASPEN_PLANKS = createPlanks("aspen_planks");
     public static final Block BAOBAB_PLANKS = createPlanks("baobab_planks");
@@ -507,7 +509,7 @@ public class BYGBlocks {
     public static final Block EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines");
     public static final Block EMBUR_SPROUTS = new BYGBlockProperties.BYGEmburPlant("embur_sprouts");
     public static final Block EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots");
-    public static final Block EMBUR_WART = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
+    public static final Block EMBUR_WART = createMushroomPlant(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
     public static final Block TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_embur_roots");
 
     public static final Block BLUE_NETHERRACK = new BYGBlockProperties.BYGBlueNetherrack("blue_netherrack");
@@ -632,16 +634,16 @@ public class BYGBlocks {
     public static final Block LAMENT_WOOD = createWood("lament_wood");
     public static final Block WITHERING_OAK_WOOD = createWood("withering_oak_wood");
 
-    public static final Block BLACK_PUFF = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.BlackPuff(), "black_puff");
-    public static final Block WEEPING_MILKCAP = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.WeepingMilkCap(), "weeping_milkcap");
-    public static final Block WOOD_BLEWIT = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.WoodBlewit(), "wood_blewit");
-    public static final Block GREEN_MUSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.GreenMushroom(), "green_mushroom");
-    public static final Block BLUE_GLOWSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.BlueGlowshroom(), "blue_glowshroom");
-    public static final Block PURPLE_GLOWSHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.PurpleGlowshroom(), "purple_glowshroom");
+    public static final Block BLACK_PUFF = createMushroomPlant(new BYGMushroomToHugeMushroom.BlackPuff(), "black_puff");
+    public static final Block WEEPING_MILKCAP = createMushroomPlant(new BYGMushroomToHugeMushroom.WeepingMilkCap(), "weeping_milkcap");
+    public static final Block WOOD_BLEWIT = createMushroomPlant(new BYGMushroomToHugeMushroom.WoodBlewit(), "wood_blewit");
+    public static final Block GREEN_MUSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.GreenMushroom(), "green_mushroom");
+    public static final Block BLUE_GLOWSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.BlueGlowshroom(), "blue_glowshroom");
+    public static final Block PURPLE_GLOWSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleGlowshroom(), "purple_glowshroom");
 
-    public static final Block SYTHIAN_FUNGUS = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
-    public static final Block SOUL_SHROOM = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
-    public static final Block DEATH_CAP = new BYGMushroomBlock(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
+    public static final Block SYTHIAN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
+    public static final Block SOUL_SHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
+    public static final Block DEATH_CAP = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
 
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");
@@ -963,10 +965,17 @@ public class BYGBlocks {
         return log;
     }
 
+    static Block createMushroomPlant(BYGHugeMushroom mushroom, String id) {
+        Block mushroomPlant = new BYGMushroomPlantBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), mushroom);
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), mushroomPlant);
+        createPottedBlock(mushroomPlant, id);
+        return mushroomPlant;
+    }
+
     static Block createFlower(String id) {
         Block flower = new FlowerBlock(Effects.SATURATION, 7, Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), flower);
-//        createPottedBlock(flower, "potted_" + id);
+        createPottedBlock(flower, id);
         return flower;
     }
 
@@ -979,14 +988,15 @@ public class BYGBlocks {
     static Block createSapling(BYGTree tree, String id) {
         Block sapling = new BYGSapling(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), tree);
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), sapling);
-//        createPottedBlock(sapling, "potted_" + id);
+        createPottedBlock(sapling, id);
         return sapling;
     }
 
     public static void createPottedBlock(Block blockForPot, String id) {
         Block flowerPot = new FlowerPotBlock(blockForPot, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), flowerPot);
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID,"potted_" + id), flowerPot);
         flowerPotBlocks.add(flowerPot);
+        flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id).toString());
     }
 
     static Block createLeaves(String id) {
@@ -1012,7 +1022,6 @@ public class BYGBlocks {
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableStone);
         return spreadableStone;
     }
-
 
     static Block createEndSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
         Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);

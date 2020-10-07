@@ -33,13 +33,13 @@ public class BYGWorldConfig {
     static {
         COMMON_BUILDER.comment("Dimension Settings").push("Dimension_Settings").push("The_End");
         controlEnd = COMMON_BUILDER.comment("Does BYG control The End?").define("ControlEnd", true);
-        externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry names in a commented list.").define("ExternalEndBiomes", "");
-        biomeSizeEND = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").defineInRange("EndBiomeSize", 3, 0, 10);
+        externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry ID's in a commented list.\n Adding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available end biomes in the registry.\nDefault: \"all\"").define("ExternalEndBiomes", "all");
+        biomeSizeEND = COMMON_BUILDER.comment("End Biome Size\nResults vary.\nDefault: 1").defineInRange("EndBiomeSize", 1, 0, 10);
         COMMON_BUILDER.pop();
         COMMON_BUILDER.push("The_Nether");
         controlNether = COMMON_BUILDER.comment("Does BYG control The Nether?").define("ControlNether", true);
-        netherBiomes = COMMON_BUILDER.comment("Add Nether biomes by their registry names(IDs) in a commented list.\n Adding a biome several times gives it more weight in generation.\n Default: \"byg:embur_bog,byg:glowstone_gardens,byg:sythian_torrids,byg:warped_desert,minecraft:basalt_deltas,minecraft:crimson_forest,minecraft:nether_wastes,minecraft:soul_sand_valley,minecraft:warped_forest\".").define("NetherBiomes", "byg:quartz_desert,byg:weeping_mire,byg:withering_woods,byg:brimstone_caverns,byg:subzero_hypogeal,byg:magma_wastes,byg:embur_bog,byg:crimson_gardens,byg:embur_bog,byg:wailing_garth,byg:glowstone_gardens,byg:sythian_torrids,byg:warped_desert,minecraft:basalt_deltas,minecraft:crimson_forest,minecraft:nether_wastes,minecraft:soul_sand_valley,minecraft:warped_forest");
-        biomeSizeNETHER = COMMON_BUILDER.comment("Add external Nether biomes by their registry names in a commented list.").defineInRange("NetherBiomeSize", 3, 0, 10);
+        netherBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry ID's in a commented list.\n Adding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available end biomes in the registry.\nDefault: \"all\".").define("NetherBiomes", "all");
+        biomeSizeNETHER = COMMON_BUILDER.comment("Nether Biome Size\nDefault: 3").defineInRange("NetherBiomeSize", 3, 0, 10);
         COMMON_BUILDER.pop();
 
         COMMON_CONFIG = COMMON_BUILDER.build();
