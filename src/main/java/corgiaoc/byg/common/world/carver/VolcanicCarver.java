@@ -8,8 +8,8 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
-import corgiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
-import corgiaoc.byg.common.world.worldtype.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
+import corgiaoc.byg.util.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 
 import java.util.BitSet;
 import java.util.Random;

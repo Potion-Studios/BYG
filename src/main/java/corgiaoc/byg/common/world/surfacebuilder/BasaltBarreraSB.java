@@ -10,7 +10,7 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import corgiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 
 import java.util.Random;
 

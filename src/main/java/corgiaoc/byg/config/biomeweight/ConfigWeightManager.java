@@ -67,9 +67,6 @@ public class ConfigWeightManager {
     public static final ConfigWeight SNOWYDECIDUOUSFOREST = new ConfigWeight("Snowy_Deciduous_Forest", 6);
     public static final ConfigWeight SNOWY_EVERGREEN_TAIGA = new ConfigWeight("Snowy_Evergreen_Taiga", 6);
     public static final ConfigWeight SNOWYBLUETAIGA = new ConfigWeight("Snowy_Blue_Taiga", 6);
-    //    public static final ConfigWeight sonorandesert = new ConfigWeight("sonorandesert", 10);
-//    public static final ConfigWeight stonebrushlands = new ConfigWeight("stonebrushlands", 10);
-//    public static final ConfigWeight stoneforest = new ConfigWeight("stoneforest", 10);
     public static final ConfigWeight STONE_FOREST = new ConfigWeight("Stone_Forest", 2);
     public static final ConfigWeight THE_BLACK_FOREST = new ConfigWeight("The_Black_Forest", 5);
     public static final ConfigWeight TROPICALFUNGALFOREST = new ConfigWeight("Tropical_Fungal_Forest", 5);
@@ -77,8 +74,6 @@ public class ConfigWeightManager {
     public static final ConfigWeight TWILIGHT_VALLEY = new ConfigWeight("Twilight_Valley", 2);
     public static final ConfigWeight CRAGGARDENS = new ConfigWeight("Crag_Gardens", 1);
     public static final ConfigWeight VIBRANTSWAMPLANDS = new ConfigWeight("Vibrant_Swamplands", 6);
-//    public static final ConfigWeight VALLE_DE_LUNA = new ConfigWeight("Valle_de_Luna", 1);
-    //    public static final ConfigWeight VOLCANO = new ConfigWeight("VolcanoFeature", 1);
     public static final ConfigWeight WEEPING_WITCH_FOREST = new ConfigWeight("Weeping_Witch_Forest", 1);
     public static final ConfigWeight WOODLANDS = new ConfigWeight("Woodlands", 4);
     public static final ConfigWeight ZELKOVAFOREST = new ConfigWeight("Zelkova_Forest", 6);

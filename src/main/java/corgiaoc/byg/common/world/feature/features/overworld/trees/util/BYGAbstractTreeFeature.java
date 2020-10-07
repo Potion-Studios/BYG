@@ -26,7 +26,7 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraftforge.common.Tags;
 import corgiaoc.byg.common.world.feature.features.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.features.FeatureUtil;
-import corgiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 
 import java.util.List;
 import java.util.Random;

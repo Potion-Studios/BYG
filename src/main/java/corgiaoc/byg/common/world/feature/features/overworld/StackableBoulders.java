@@ -12,7 +12,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.Tags;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.feature.features.config.BYGBoulderFeatureConfig;
-import corgiaoc.byg.common.world.worldtype.noise.fastnoise.FastNoise;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 
 import java.util.Random;
 
