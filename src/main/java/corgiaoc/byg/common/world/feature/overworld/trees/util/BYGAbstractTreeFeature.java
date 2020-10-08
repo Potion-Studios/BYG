@@ -5,7 +5,6 @@ import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
-import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -370,13 +369,13 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
      *
      * @param treeBlocksSet  Gives us access to the tree block set where we add our trees blocks.
      * @param reader         Gives us access to world
-     * @param fillerBlock    Typically this is the log of the tree we're trying to fill the base of.
-     * @param earthBlock     The block used under logs. Typically a block found in the dirt tag
+     * @param config    Typically this is the log of the tree we're trying to fill the base of.
+     * @param rand     The block used under logs. Typically a block found in the dirt tag
      * @param boundingBox    Bounding Box of our tree.
      * @param trunkPositions List of trunk poss where the base is built under the given poss.
      */
 
-    public void buildTrunkBase(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, Block fillerBlock, Block earthBlock, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
+    public void buildTrunkBase(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, BYGTreeFeatureConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
@@ -384,12 +383,12 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
                 for (int fill = 1; fill <= 15; fill++) {
                     if (canLogPlaceHere(reader, mutableTrunk)) {
                         if (fill <= 7)
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, fillerBlock.getDefaultState(), boundingBox);
+                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk), boundingBox);
                         else
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
+                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getGroundReplacementProvider().getBlockState(rand, mutableTrunk), boundingBox);
                     } else {
-                        if (!isDesiredGround(reader, mutableTrunk, earthBlock))
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
+                        if (!isDesiredGround(reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk).getBlock()))
+                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getGroundReplacementProvider().getBlockState(rand, mutableTrunk), boundingBox);
                         fill = 15;
                     }
                     mutableTrunk.move(Direction.DOWN);
@@ -401,13 +400,13 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
     /**
      * Use this to set the soil under small trunked trees.
      */
-    public void setSoil(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, Block soil, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
+    public void setSoil(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, BYGTreeFeatureConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.setPos(trunkPos);
-                if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                    setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk.move(Direction.DOWN), soil.getDefaultState(), boundingBox);
+                if (!isDesiredGround(reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk).getBlock()))
+                    setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk.move(Direction.DOWN), config.getTrunkProvider().getBlockState(rand, mutableTrunk), boundingBox);
             }
         }
     }

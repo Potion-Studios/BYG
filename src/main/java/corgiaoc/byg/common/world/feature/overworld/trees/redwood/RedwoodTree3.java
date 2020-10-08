@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
@@ -33,7 +32,7 @@ public class RedwoodTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config.getTrunkProvider().getBlockState(rand, pos).getBlock(), Blocks.DIRT, boundsIn, mainmutable.add(0, 0, -1), mainmutable.add(-1, 0, 0), mainmutable.add(0, 0, 0), mainmutable.add(1, 0, 0), mainmutable.add(0, 0, 1), mainmutable.add(0, 0, -2), mainmutable.add(-1, 0, -1), mainmutable.add(1, 0, -1), mainmutable.add(-2, 0, 0), mainmutable.add(2, 0, 0), mainmutable.add(-1, 0, 1), mainmutable.add(1, 0, 1), mainmutable.add(0, 0, 2));
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.add(0, 0, -1), mainmutable.add(-1, 0, 0), mainmutable.add(0, 0, 0), mainmutable.add(1, 0, 0), mainmutable.add(0, 0, 1), mainmutable.add(0, 0, -2), mainmutable.add(-1, 0, -1), mainmutable.add(1, 0, -1), mainmutable.add(-2, 0, 0), mainmutable.add(2, 0, 0), mainmutable.add(-1, 0, 1), mainmutable.add(1, 0, 1), mainmutable.add(0, 0, 2));
 
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 0, 0), boundsIn);
