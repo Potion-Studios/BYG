@@ -1,13 +1,19 @@
 package corgiaoc.byg.common.world.feature.config;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.IFeatureConfig;
+
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class BYGTreeFeatureConfig implements IFeatureConfig {
 
@@ -24,6 +30,8 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
             return config.maxHeight;
         }), Codec.INT.fieldOf("disk_radius").orElse(0).forGetter((config) -> {
             return config.diskRadius;
+        }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
+            return config.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList());
         })).apply(codecRecorder, BYGTreeFeatureConfig::new);
     });
 
@@ -34,17 +42,17 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
     private final int minHeight;
     private final int maxHeight;
     private final int diskRadius;
-
+    private final Set<Block> whitelist;
     private boolean forcedPlacement = false;
 
-
-    BYGTreeFeatureConfig(BlockStateProvider trunkProvider, BlockStateProvider leavesProvider, BlockStateProvider diskProvider, int minHeight, int maxHeight, int diskRadius) {
+    BYGTreeFeatureConfig(BlockStateProvider trunkProvider, BlockStateProvider leavesProvider, BlockStateProvider diskProvider, int minHeight, int maxHeight, int diskRadius, List<BlockState> whitelist) {
         this.trunkProvider = trunkProvider;
         this.leavesProvider = leavesProvider;
         this.diskProvider = diskProvider;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
         this.diskRadius = diskRadius;
+        this.whitelist = whitelist.stream().map(AbstractBlock.AbstractBlockState::getBlock).collect(Collectors.toSet());
     }
 
     /**
@@ -79,6 +87,10 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
         return diskRadius;
     }
 
+    public Set<Block> getWhitelist() {
+        return whitelist;
+    }
+
     public int getMaxPossibleHeight() {
         int returnValue = this.maxHeight - minHeight;
         if (returnValue <= 0)
@@ -96,6 +108,7 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
         private BlockStateProvider trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
         private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
         private BlockStateProvider diskProvider = new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState());
+        private List<Block> whiteList = ImmutableList.of(Blocks.GRASS_BLOCK);
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
         private int diskRadius = 0;
@@ -181,17 +194,23 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
             return this;
         }
 
+        public Builder setWhiteList(ImmutableList<Block> whiteList) {
+            this.whiteList = whiteList;
+            return this;
+        }
+
         public Builder copy(BYGTreeFeatureConfig config) {
             this.maxPossibleHeight = config.maxHeight;
             this.minHeight = config.minHeight;
             this.trunkProvider = config.trunkProvider;
             this.leavesProvider = config.leavesProvider;
             this.diskRadius = config.diskRadius;
+            this.whiteList = ImmutableList.copyOf(config.whitelist);
             return this;
         }
 
         public BYGTreeFeatureConfig build() {
-            return new BYGTreeFeatureConfig(this.trunkProvider, this.leavesProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius);
+            return new BYGTreeFeatureConfig(this.trunkProvider, this.leavesProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius, this.whiteList.stream().map(Block::getDefaultState).collect(Collectors.toList()));
         }
     }
 }

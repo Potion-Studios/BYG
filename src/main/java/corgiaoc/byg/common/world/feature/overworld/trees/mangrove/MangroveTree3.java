@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -27,7 +26,7 @@ public class MangroveTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.GRASS_BLOCK, BYGBlocks.MOSSY_STONE)) {
+            if (!isDesiredGroundwDirtTag(worldIn, blockpos, config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;

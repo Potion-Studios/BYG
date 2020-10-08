@@ -32,7 +32,7 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.DIRT)) {
+            if (!isDesiredGroundwDirtTag(worldIn, blockpos, config)) {
                 return false;
             }
             if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {

@@ -122,13 +122,13 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
     /**
      * @param reader             Gives us access to world.
      * @param pos                Position to check.
-     * @param desiredGroundBlock Allows to add other blocks that do not have the dirt tag.
+     * @param config Allows to add other blocks that do not have the dirt tag.
      * @return Determines if the pos is of the dirt tag or another block.
      */
-    public static boolean isDesiredGroundwDirtTag(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+    public static boolean isDesiredGroundwDirtTag(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeFeatureConfig config) {
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
-            for (Block block1 : desiredGroundBlock) {
+            for (Block block1 : config.getWhitelist()) {
                 return block.isIn(Tags.Blocks.DIRT) || block == block1;
             }
             return block.isIn(Tags.Blocks.DIRT);
@@ -138,13 +138,13 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
     /**
      * @param reader             Gives us access to world.
      * @param pos                Position to check.
-     * @param desiredGroundBlock Allows to add other blocks that do not have the sand tag.
+     * @param config Allows to add other blocks that do not have the sand tag.
      * @return Determines if the pos is of the sand tag or another block.
      */
-    public static boolean isDesiredGroundwSandTag(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+    public static boolean isDesiredGroundwSandTag(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeFeatureConfig config) {
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
-            for (Block block1 : desiredGroundBlock) {
+            for (Block block1 : config.getWhitelist()) {
                 return block.isIn(Tags.Blocks.SAND) || block == block1;
             }
             return block.isIn(Tags.Blocks.SAND);
@@ -391,43 +391,6 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
                         if (!isDesiredGround(reader, mutableTrunk, earthBlock))
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
                         fill = 15;
-                    }
-                    mutableTrunk.move(Direction.DOWN);
-                }
-            }
-        }
-    }
-
-    /**
-     * Use this to set the soil under large trunked trees. Has an extra parameter to specify when the earth block should start placing. I.E: Baobab or Redwood.
-     *
-     * @param treeBlocksSet       Gives us access to the tree block set where we add our trees blocks.
-     * @param reader              Gives us access to world
-     * @param earthBlockThreshold Used to specify when earthBlock starts placing.
-     * @param trunkBlock          Typically this is the log of the tree we're trying to fill the base of.
-     * @param earthBlock          The block used under logs. Typically a block found in the dirt tag
-     * @param boundingBox         Bounding Box of our tree.
-     * @param trunkPositions      List of trunk positions where the base is built under the given positions.
-     */
-    public void buildTrunkBase(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, int earthBlockThreshold, Block trunkBlock, Block earthBlock, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
-        if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
-            for (BlockPos trunkPos : trunkPositions) {
-                mutableTrunk.setPos(trunkPos);
-                for (int fill = 1; fill <= 15; fill++) {
-                    if (canLogPlaceHere(reader, mutableTrunk)) {
-                        if (fill <= earthBlockThreshold)
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, trunkBlock.getDefaultState(), boundingBox);
-                        else
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
-                    } else {
-                        if (canLogPlaceHere(reader, mutableTrunk)) {
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, trunkBlock.getDefaultState(), boundingBox);
-                        } else {
-                            if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                                setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState(), boundingBox);
-                            fill = 15;
-                        }
                     }
                     mutableTrunk.move(Direction.DOWN);
                 }

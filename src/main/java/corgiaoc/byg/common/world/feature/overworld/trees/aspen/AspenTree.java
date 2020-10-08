@@ -34,7 +34,7 @@ public class AspenTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;

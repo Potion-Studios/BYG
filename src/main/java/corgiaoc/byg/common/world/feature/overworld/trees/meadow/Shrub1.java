@@ -35,7 +35,7 @@ public class Shrub1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         int posZ = pos.getZ();
         if (posY + randTreeHeight + 1 < worldIn.getHeight()) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;

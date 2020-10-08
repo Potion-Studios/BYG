@@ -27,7 +27,7 @@ public class PalmTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (!isDesiredGroundwSandTag(worldIn, pos.down(), Blocks.SAND)) {
+            if (!isDesiredGroundwSandTag(worldIn, pos.down(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;

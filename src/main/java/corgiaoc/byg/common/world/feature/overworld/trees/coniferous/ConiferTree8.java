@@ -29,7 +29,7 @@ public class ConiferTree8 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos checkGround = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, checkGround, config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;

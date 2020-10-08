@@ -28,7 +28,7 @@ public class CherryTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         BlockPos.Mutable mainmutable4 = new BlockPos.Mutable().setPos(pos.offset(Direction.EAST).offset(Direction.SOUTH));
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
