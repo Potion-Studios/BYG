@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.PointyRockFeatureConfig;
-import corgiaoc.byg.util.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -14,8 +14,8 @@ import java.util.Random;
 
 public class PointyRockFeature extends Feature<PointyRockFeatureConfig> {
     protected long seed;
-    protected ChunkFastSimplexStyleNoise noiseGen;
-    protected ChunkFastSimplexStyleNoise noiseGen2;
+    protected FastNoise noiseGen;
+    protected FastNoise noiseGen2;
 
     public PointyRockFeature(Codec<PointyRockFeatureConfig> config) {
         super(config);
@@ -36,8 +36,8 @@ public class PointyRockFeature extends Feature<PointyRockFeatureConfig> {
             for (int z = 0; z < 16; z++) {
                 mutable.setPos(position.getX() + x, 0, position.getZ() + z);
 
-                noise2 = (noiseGen.noise3_Classic(mutable.getX() * 0.04D, mutable.getY() * 0.04D, mutable.getZ() * 0.04D) + 1D) * 5D;
-                noise = Math.pow(Math.abs(noiseGen.sample2D(mutable.getX() * 0.013D, mutable.getZ() * 0.013D)) + noise2 * 0.005D, 7);
+                noise2 = (noiseGen.GetSimplex(mutable.getX() * 0.04F, mutable.getY() * 0.04F, mutable.getZ() * 0.04F) + 1D) * 5D;
+                noise = Math.pow(Math.abs(noiseGen.GetSimplex(mutable.getX() * 0.013F, mutable.getZ() * 0.013F)) + noise2 * 0.005D, 7);
 
                 maximumHeight = (int) (noise * config.getHeight());
                 terrainHeight = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ());
@@ -54,10 +54,12 @@ public class PointyRockFeature extends Feature<PointyRockFeatureConfig> {
     }
 
     public void setSeed(long seed) {
-        if (this.seed != seed || this.noiseGen == null) {
-            this.noiseGen = new ChunkFastSimplexStyleNoise(seed + 193895856);
-            this.noiseGen2 = new ChunkFastSimplexStyleNoise(seed + 294856869);
-            this.seed = seed;
+        if (this.noiseGen == null) {
+            this.noiseGen = new FastNoise((int) (seed + 193895856));
+        }
+
+        if (this.noiseGen2 == null) {
+            this.noiseGen2 = new FastNoise((int) (seed + 294856869));
         }
     }
 }
