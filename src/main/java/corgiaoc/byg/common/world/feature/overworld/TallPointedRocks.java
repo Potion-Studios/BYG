@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.PointyRockFeatureConfig;
 import corgiaoc.byg.util.noise.fastnoise.FNVector3f;
-import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -18,21 +17,18 @@ public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockFeatureC
         super(codec);
     }
 
-    private FastNoise noiseGen = null;
-
-
     @Override
     public boolean generate(ISeedReader world, Random random, IChunk chunkIn, int x, int z, PointyRockFeatureConfig config) {
-        setSeed(world.getSeed() + config.getSeed());
+        config.setUpNoise(world.getSeed());
         int xPos = x & 15;
         int zPos = z & 15;
         BlockPos.Mutable mutable = new BlockPos.Mutable(xPos, 0, zPos);
 
         FNVector3f fnVector3f = new FNVector3f(x, 0, z);
 
-        noiseGen.GradientPerturb(fnVector3f);
+        config.getNoiseGen().GradientPerturb(fnVector3f);
 
-        float sampleNoise = noiseGen.GetNoise(fnVector3f.x, fnVector3f.z);
+        float sampleNoise = config.getNoiseGen().GetNoise(fnVector3f.x, fnVector3f.z);
 
         int groundLevel = chunkIn.getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
 
@@ -56,18 +52,6 @@ public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockFeatureC
             }
         }
         return true;
-    }
-
-    public void setSeed(long seed) {
-        if (noiseGen == null) {
-            noiseGen = new FastNoise((int) seed);
-            noiseGen.SetFractalType(FastNoise.FractalType.RigidMulti);
-            noiseGen.SetNoiseType(FastNoise.NoiseType.SimplexFractal);
-            noiseGen.SetGradientPerturbAmp(5);
-            noiseGen.SetFractalOctaves(1);
-            noiseGen.SetFractalGain(0.3f);
-            noiseGen.SetFrequency(0.02f);
-        }
     }
 
     private static int redistribute(float height, float groundLevel) {

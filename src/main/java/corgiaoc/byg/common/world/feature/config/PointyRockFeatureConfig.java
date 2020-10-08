@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.feature.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -44,6 +45,26 @@ public class PointyRockFeatureConfig implements IFeatureConfig {
         return this.heightMultiplier;
     }
 
+    private FastNoise noiseGen = null;
+
+    public void setUpNoise(long worldSeed) {
+        if (noiseGen == null) {
+            noiseGen = new FastNoise((int) (worldSeed + seed));
+            noiseGen.SetFractalType(FastNoise.FractalType.RigidMulti);
+            noiseGen.SetNoiseType(FastNoise.NoiseType.SimplexFractal);
+            noiseGen.SetGradientPerturbAmp(5);
+            noiseGen.SetFractalOctaves(1);
+            noiseGen.SetFractalGain(0.3f);
+            noiseGen.SetFrequency(0.02f);
+        }
+    }
+
+    public FastNoise getNoiseGen() {
+        if (noiseGen == null)
+            throw new NullPointerException("Initialize the noiseGen variable with \"setupNoise\" in your feature!");
+        else
+            return this.noiseGen;
+    }
 
     public static class Builder {
         private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
