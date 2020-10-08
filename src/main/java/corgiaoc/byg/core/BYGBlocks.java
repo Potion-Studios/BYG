@@ -876,7 +876,7 @@ public class BYGBlocks {
     }
 
     static Block createSand(int dustColor, String id) {
-        Block sandBlock = new SandBlock(dustColor, Block.Properties.create(Material.SAND).sound(SoundType.SAND).hardnessAndResistance(0.2f));
+        Block sandBlock = new SandBlock(dustColor, Block.Properties.create(Material.SAND).sound(SoundType.SAND).hardnessAndResistance(0.2f).harvestTool(ToolType.SHOVEL));
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), sandBlock);
         return sandBlock;
     }
