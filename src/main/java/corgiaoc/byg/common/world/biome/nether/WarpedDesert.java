@@ -58,7 +58,6 @@ public class WarpedDesert extends BYGBiome {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244150_p); //Nether Fossils
 
         BYGDefaultBiomeFeatures.addWarpedVegetation(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addSoulFireWarped(GENERATION_SETTINGS);
