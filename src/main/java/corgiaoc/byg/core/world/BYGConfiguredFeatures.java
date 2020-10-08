@@ -1825,5 +1825,10 @@ public class BYGConfiguredFeatures {
         public static final BlockStateProvidingFeatureConfig EMBUR_ROOTS = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.EMBUR_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.EMBUR_SPROUTS.getDefaultState(), 35).addWeightedBlockstate(BYGBlocks.EMBUR_WART.getDefaultState(), 11));
         public static final BlockStateProvidingFeatureConfig SYTHIAN_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.SYTHIAN_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.SYTHIAN_SPROUT.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.SYTHIAN_FUNGUS.getDefaultState(), 11));
         public static final BlockStateProvidingFeatureConfig IVIS_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.IVIS_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.IVIS_SPROUT.getDefaultState(), 50));
+        public static final BlockStateProvidingFeatureConfig OVERGROWN_BLACKSTONE_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(Blocks.CRIMSON_ROOTS.getDefaultState(), 80).addWeightedBlockstate(Blocks.CRIMSON_FUNGUS.getDefaultState(), 15).addWeightedBlockstate(BYGBlocks.CRIMSON_BERRY_BUSH.getDefaultState(), 5));
+        public static final BlockStateProvidingFeatureConfig OVERGROWN_NETHERRACK_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(Blocks.NETHER_SPROUTS.getDefaultState(), 90).addWeightedBlockstate(BYGBlocks.SOUL_SHROOM.getDefaultState(), 5).addWeightedBlockstate(BYGBlocks.DEATH_CAP.getDefaultState(), 5));
+        public static final BlockStateProvidingFeatureConfig MYCELIUM_NETHERRACK_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.SOUL_SHROOM.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.DEATH_CAP.getDefaultState(), 50));
+
+
     }
 }
