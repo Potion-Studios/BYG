@@ -356,17 +356,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGPetal extends Block {
-        public BYGPetal(String registryName) {
-            super(Block.Properties.create(Material.LEAVES)
-                    .sound(SoundType.PLANT)
-                    .hardnessAndResistance(0.2f)
-                    .notSolid()
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
     public static class BYGNyliumSoulSand extends Block {
 
         public BYGNyliumSoulSand(String registryName) {
