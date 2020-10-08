@@ -51,6 +51,9 @@ public class BYGBlocks {
     public static final Block EMBUR_PLANKS = createPlanks("embur_planks");
     public static final Block PALM_PLANKS = createPlanks("palm_planks");
     public static final Block LAMENT_PLANKS = createPlanks("lament_planks");
+    public static final Block BULBIS_PLANKS = createPlanks("bulbis_planks");
+    public static final Block NIGHTSHADE_PLANKS = createPlanks("nightshade_planks");
+    public static final Block ETHER_PLANKS = createPlanks("ether_planks");
 
     public static final Block ASPEN_BOOKSHELF = createBookshelf("aspen_bookshelf");
     public static final Block BAOBAB_BOOKSHELF = createBookshelf("baobab_bookshelf");
@@ -77,6 +80,9 @@ public class BYGBlocks {
     public static final Block EMBUR_BOOKSHELF = createBookshelf("embur_bookshelf");
     public static final Block PALM_BOOKSHELF = createBookshelf("palm_bookshelf");
     public static final Block LAMENT_BOOKSHELF = createBookshelf("lament_bookshelf");
+    public static final Block BULBIS_BOOKSHELF = createBookshelf("bulbis_bookshelf");
+    public static final Block NIGHTSHADE_BOOKSHELF = createBookshelf("nightshade_bookshelf");
+    public static final Block ETHER_BOOKSHELF = createBookshelf("ether_bookshelf");
 
     public static final Block ASPEN_DOOR = createDoor("aspen_door");
     public static final Block BAOBAB_DOOR = createDoor("baobab_door");
@@ -103,7 +109,10 @@ public class BYGBlocks {
     public static final Block EMBUR_DOOR = createDoor("embur_door");
     public static final Block PALM_DOOR = createDoor("palm_door");
     public static final Block LAMENT_DOOR = createDoor("lament_door");
-
+    public static final Block BULBIS_DOOR = createDoor("bulbis_door");
+    public static final Block NIGHTSHADE_DOOR = createDoor("nightshade_door");
+    public static final Block ETHER_DOOR = createDoor("ether_door");
+    
     public static final Block ASPEN_PRESSURE_PLATE = createWoodPressurePlate("aspen_pressure_plate");
     public static final Block BAOBAB_PRESSURE_PLATE = createWoodPressurePlate("baobab_pressure_plate");
     public static final Block BLUE_ENCHANTED_PRESSURE_PLATE = createWoodPressurePlate("blue_enchanted_pressure_plate");
@@ -129,6 +138,9 @@ public class BYGBlocks {
     public static final Block EMBUR_PRESSURE_PLATE = createWoodPressurePlate("embur_pressure_plate");
     public static final Block PALM_PRESSURE_PLATE = createWoodPressurePlate("palm_pressure_plate");
     public static final Block LAMENT_PRESSURE_PLATE = createWoodPressurePlate("lament_pressure_plate");
+    public static final Block BULBIS_PRESSURE_PLATE = createWoodPressurePlate("bulbis_pressure_plate");
+    public static final Block NIGHTSHADE_PRESSURE_PLATE = createWoodPressurePlate("nightshade_pressure_plate");
+    public static final Block ETHER_PRESSURE_PLATE = createWoodPressurePlate("ether_pressure_plate");
 
     public static final Block ASPEN_BUTTON = createWoodButton("aspen_button");
     public static final Block BAOBAB_BUTTON = createWoodButton("baobab_button");
@@ -155,6 +167,9 @@ public class BYGBlocks {
     public static final Block EMBUR_BUTTON = createWoodButton("embur_button");
     public static final Block PALM_BUTTON = createWoodButton("palm_button");
     public static final Block LAMENT_BUTTON = createWoodButton("lament_button");
+    public static final Block BULBIS_BUTTON = createWoodButton("bulbis_button");
+    public static final Block NIGHTSHADE_BUTTON = createWoodButton("nightshade_button");
+    public static final Block ETHER_BUTTON = createWoodButton("ether_button");
 
     public static final Block ASPEN_TRAPDOOR = createTrapDoor("aspen_trapdoor");
     public static final Block BAOBAB_TRAPDOOR = createTrapDoor("baobab_trapdoor");
@@ -181,6 +196,9 @@ public class BYGBlocks {
     public static final Block EMBUR_TRAPDOOR = createTrapDoor("embur_trapdoor");
     public static final Block PALM_TRAPDOOR = createTrapDoor("palm_trapdoor");
     public static final Block LAMENT_TRAPDOOR = createTrapDoor("lament_trapdoor");
+    public static final Block BULBIS_TRAPDOOR = createTrapDoor("bulbis_trapdoor");
+    public static final Block NIGHTSHADE_TRAPDOOR = createTrapDoor("nightshade_trapdoor");
+    public static final Block ETHER_TRAPDOOR = createTrapDoor("ether_trapdoor");
 
     public static final Block ASPEN_CRAFTING_TABLE = createCraftingTable("aspen_crafting_table");
     public static final Block BAOBAB_CRAFTING_TABLE = createCraftingTable("baobab_crafting_table");
@@ -207,6 +225,9 @@ public class BYGBlocks {
     public static final Block EMBUR_CRAFTING_TABLE = createCraftingTable("embur_crafting_table");
     public static final Block PALM_CRAFTING_TABLE = createCraftingTable("palm_crafting_table");
     public static final Block LAMENT_CRAFTING_TABLE = createCraftingTable("lament_crafting_table");
+    public static final Block BULBIS_CRAFTING_TABLE = createCraftingTable("bulbis_crafting_table");
+    public static final Block NIGHTSHADE_CRAFTING_TABLE = createCraftingTable("nightshade_crafting_table");
+    public static final Block ETHER_CRAFTING_TABLE = createCraftingTable("ether_crafting_table");
 
     public static final Block ASPEN_FENCE_GATE = createFenceGate("aspen_fence_gate");
     public static final Block BAOBAB_FENCE_GATE = createFenceGate("baobab_fence_gate");
@@ -233,7 +254,10 @@ public class BYGBlocks {
     public static final Block EMBUR_FENCE_GATE = createFenceGate("embur_fence_gate");
     public static final Block PALM_FENCE_GATE = createFenceGate("palm_fence_gate");
     public static final Block LAMENT_FENCE_GATE = createFenceGate("lament_fence_gate");
-
+    public static final Block BULBIS_FENCE_GATE = createFenceGate("bulbis_fence_gate");
+    public static final Block NIGHTSHADE_FENCE_GATE = createFenceGate("nightshade_fence_gate");
+    public static final Block ETHER_FENCE_GATE = createFenceGate("ether_fence_gate");
+    
     public static final Block ASPEN_SLAB = createWoodSlab("aspen_slab");
     public static final Block BAOBAB_SLAB = createWoodSlab("baobab_slab");
     public static final Block BLUE_ENCHANTED_SLAB = createWoodSlab("blue_enchanted_slab");
@@ -259,6 +283,9 @@ public class BYGBlocks {
     public static final Block EMBUR_SLAB = createWoodSlab("embur_slab");
     public static final Block PALM_SLAB = createWoodSlab("palm_slab");
     public static final Block LAMENT_SLAB = createWoodSlab("lament_slab");
+    public static final Block BULBIS_SLAB = createWoodSlab("bulbis_slab");
+    public static final Block NIGHTSHADE_SLAB = createWoodSlab("nightshade_slab");
+    public static final Block ETHER_SLAB = createWoodSlab("ether_slab");
 
     public static final Block ASPEN_STAIRS = createWoodStairs("aspen_stairs");
     public static final Block BAOBAB_STAIRS = createWoodStairs("baobab_stairs");
@@ -285,6 +312,9 @@ public class BYGBlocks {
     public static final Block EMBUR_STAIRS = createWoodStairs("embur_stairs");
     public static final Block PALM_STAIRS = createWoodStairs("palm_stairs");
     public static final Block LAMENT_STAIRS = createWoodStairs("lament_stairs");
+    public static final Block BULBIS_STAIRS = createWoodStairs("bulbis_stairs");
+    public static final Block NIGHTSHADE_STAIRS = createWoodStairs("nightshade_stairs");
+    public static final Block ETHER_STAIRS = createWoodStairs("ether_stairs");
 
     public static final Block ASPEN_FENCE = createFence("aspen_fence");
     public static final Block BAOBAB_FENCE = createFence("baobab_fence");
@@ -311,10 +341,14 @@ public class BYGBlocks {
     public static final Block EMBUR_FENCE = createFence("embur_fence");
     public static final Block PALM_FENCE = createFence("palm_fence");
     public static final Block LAMENT_FENCE = createFence("lament_fence");
+    public static final Block BULBIS_FENCE = createFence("bulbis_fence");
+    public static final Block NIGHTSHADE_FENCE = createFence("nightshade_fence");
+    public static final Block ETHER_FENCE = createFence("ether_fence");
 
     public static final Block PEAT = createDirt("peat");
     public static final Block GLOWCELIUM = new BYGBlockProperties.BYGGlowcelium("glowcelium_block");
     public static final Block MEADOW_DIRT = createDirt("meadow_dirt");
+    public static final Block ETHER_SOIL = createDirt("ether_soil");
     public static final Block MUD_BLOCK = new BYGBlockProperties.BYGMud("mud_block");
     public static final Block MUD_BRICKS = createDirt("mud_bricks");
 
@@ -362,6 +396,8 @@ public class BYGBlocks {
     public static final Block PALM_SAPLING = createSapling(new BYGSaplingToTree.PalmSaplingToTree(), "palm_sapling");
     public static final Block LAMENT_SAPLING = createSapling(new BYGSaplingToTree.LamentSaplingToTree(), "lament_sapling");
     public static final Block WITHERING_OAK_SAPLING = createSapling(new BYGSaplingToTree.WitheringOakSaplingToTree(), "withering_oak_sapling");
+    public static final Block ETHER_SAPLING = createSapling(new BYGSaplingToTree.WitheringOakSaplingToTree(), "ether_sapling");
+    public static final Block NIGHTSHADE_SAPLING = createSapling(new BYGSaplingToTree.WitheringOakSaplingToTree(), "nightshade_sapling");
 
     public static final Block ARAUCARIA_LEAVES = createLeaves("araucaria_leaves");
     public static final Block ASPEN_LEAVES = createLeaves("aspen_leaves");
@@ -414,6 +450,9 @@ public class BYGBlocks {
     public static final Block PALM_LEAVES = createLeaves("palm_leaves");
     public static final Block LAMENT_LEAVES = createLeaves("lament_leaves");
     public static final Block WITHERING_OAK_LEAVES = createLeaves("withering_oak_leaves");
+    public static final Block FLOWERING_NIGHTSHADE_LEAVES = createGlowingLeaves("flowering_nightshade_leaves");
+    public static final Block NIGHTSHADE_LEAVES = createLeaves("nightshade_leaves");
+    public static final Block ETHER_LEAVES = createLeaves("ether_leaves");
 
     public static final Block GREEN_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("green_mushroom_block");
     public static final Block MILKCAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("weeping_milkcap_mushroom_block");
@@ -428,6 +467,7 @@ public class BYGBlocks {
     public static final Block SOUL_SHROOM_STEM = new BYGBlockProperties.BlockHugeNetherMushroomStem("soul_shroom_stem");
     public static final Block SOUL_SHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("soul_shroom_block");
     public static final Block DEATH_CAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("death_cap_mushroom_block");
+    public static final Block BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("bulbis_shell");
 
     public static final Block CATTAIL = new BYGBlockProperties.BlockCattail("cattail");
     public static final Block REEDS = new BYGBlockProperties.BlockCattail("reeds");
@@ -515,8 +555,18 @@ public class BYGBlocks {
     public static final Block BLUE_NETHERRACK = new BYGBlockProperties.BYGBlueNetherrack("blue_netherrack");
     public static final Block BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGNetherrack("blue_nether_bricks");
 
-    public static final Block IVIS_ROOTS = new BYGBlockProperties.BYGIvisPlant("ivis_roots");
-    public static final Block IVIS_SPROUT = new BYGBlockProperties.BYGIvisPlant("ivis_sprout");
+    public static final Block IVIS_ROOTS = new BYGBlockProperties.EndPlant("ivis_roots");
+    public static final Block IVIS_SPROUT = new BYGBlockProperties.EndPlant("ivis_sprout");
+
+    public static final Block ETHER_GRASS = new BYGBlockProperties.EndPlant("ether_grass");
+    public static final Block ETHER_BUSH = new BYGBlockProperties.EndPlant("ether_bush");
+    public static final Block THEREAL_BELLFLOWER = new BYGBlockProperties.EndPlant("thereal_bellflower");
+    public static final Block NIGHTSHADE_SPROUTS = new BYGBlockProperties.EndPlant("nightshade_sprouts");
+
+    public static final Block PURPUR_STONE = new BYGBlockProperties.BYGStone("purpur_stone");
+    public static final Block ETHER_STONE = new BYGBlockProperties.BYGStone("ether_stone");
+    public static final Block LIGNITE_BLOCK = new BYGBlockProperties.AnthraciteOre("lignite_block");
+    public static final Block LIGNITE_ORE = new BYGBlockProperties.AnthraciteOre("lignite_ore");
 
     public static final Block BLUE_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("blue_glowcane_block");
     public static final Block RED_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("red_glowcane_block");
@@ -605,6 +655,10 @@ public class BYGBlocks {
     public static final Block PALM_LOG = createLog("palm_log");
     public static final Block LAMENT_LOG = createLog("lament_log");
     public static final Block WITHERING_OAK_LOG = createLog("withering_oak_log");
+    public static final Block BULBIS_STEM = new BYGBlockProperties.BYGNetherLog("bulbis_stem");
+    public static final Block NIGHTSHADE_LOG = createLog("nightshade_log");
+    public static final Block ETHER_LOG = createLog("ether_log");
+
 
     public static final Block ASPEN_WOOD = createWood("aspen_wood");
     public static final Block BAOBAB_WOOD = createWood("baobab_wood");
@@ -633,6 +687,9 @@ public class BYGBlocks {
     public static final Block PALM_WOOD = createWood("palm_wood");
     public static final Block LAMENT_WOOD = createWood("lament_wood");
     public static final Block WITHERING_OAK_WOOD = createWood("withering_oak_wood");
+    public static final Block BULBIS_WOOD = new BYGBlockProperties.BYGNetherWood("bulbis_wood");
+    public static final Block NIGHTSHADE_WOOD = createWood("nightshade_wood");
+    public static final Block ETHER_WOOD = createWood("ether_wood");
 
     public static final Block BLACK_PUFF = createMushroomPlant(new BYGMushroomToHugeMushroom.BlackPuff(), "black_puff");
     public static final Block WEEPING_MILKCAP = createMushroomPlant(new BYGMushroomToHugeMushroom.WeepingMilkCap(), "weeping_milkcap");
@@ -644,6 +701,7 @@ public class BYGBlocks {
     public static final Block SYTHIAN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
     public static final Block SOUL_SHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
     public static final Block DEATH_CAP = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
+    public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "bulbis_oddity");
 
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");
@@ -760,6 +818,9 @@ public class BYGBlocks {
     public static final Block STRIPPED_EMBUR_PEDU = new BYGBlockProperties.BYGNetherLog("stripped_embur_pedu");
     public static final Block STRIPPED_PALM_LOG = createStrippedLog("stripped_palm_log");
     public static final Block STRIPPED_LAMENT_LOG = createStrippedLog("stripped_lament_log");
+    public static final Block STRIPPED_BULBIS_LOG = new BYGBlockProperties.BYGNetherLog("stripped_bulbis_stem");
+    public static final Block STRIPPED_NIGHTSHADE_LOG = createStrippedLog("stripped_nightshade_log");
+    public static final Block STRIPPED_ETHER_LOG = createStrippedLog("stripped_ether_log");
 
     public static final Block STRIPPED_ASPEN_WOOD = createWood("stripped_aspen_wood");
     public static final Block STRIPPED_BAOBAB_WOOD = createWood("stripped_baobab_wood");
@@ -787,6 +848,9 @@ public class BYGBlocks {
     public static final Block STRIPPED_EMBUR_HYPHAE = new BYGBlockProperties.BYGNetherWood("stripped_embur_hyphae");
     public static final Block STRIPPED_PALM_WOOD = createWood("stripped_palm_wood");
     public static final Block STRIPPED_LAMENT_WOOD = createWood("stripped_lament_wood");
+    public static final Block STRIPPED_BULBIS_WOOD = new BYGBlockProperties.BYGNetherWood("stripped_bulbis_wood");
+    public static final Block STRIPPED_NIGHTSHADE_WOOD = createWood("stripped_nightshade_wood");
+    public static final Block STRIPPED_ETHER_WOOD = createWood("stripped_ether_wood");
 
     public static final Block TALL_ALLIUM = createTallFlower("tall_allium");
     public static final Block TALL_PINK_ALLIUM = createTallFlower("tall_pink_allium");
@@ -861,7 +925,8 @@ public class BYGBlocks {
     public static final Block EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS, "embur_nylium");
     public static final Block SYTHIAN_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "sythian_nylium");
     public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, "meadow_grass_block");
-
+    public static final Block NIGHTSHADE_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG,  "nightshade_phylium");
+    public static final Block ETHER_PHYLIUM = createEndSpreadable(BYGBlocks.ETHER_SOIL, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG,  "ether_phylium");
 
     static Block createFence(String id) {
         Block fence = new FenceBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));

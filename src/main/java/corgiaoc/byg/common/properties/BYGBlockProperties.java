@@ -3,6 +3,7 @@ package corgiaoc.byg.common.properties;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.blocks.*;
+import corgiaoc.byg.common.properties.blocks.end.EndPlantBlock;
 import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BYGQuartzCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
@@ -644,8 +645,8 @@ public class BYGBlockProperties {
     }
 
 
-    public static class BYGIvisPlant extends BYGIvisPlantBlock {
-        public BYGIvisPlant(String registryName) {
+    public static class EndPlant extends EndPlantBlock {
+        public EndPlant(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.ROOT)
                     .hardnessAndResistance(0.0f)

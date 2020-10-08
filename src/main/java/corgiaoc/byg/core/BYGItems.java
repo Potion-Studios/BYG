@@ -7,6 +7,7 @@ import corgiaoc.byg.common.properties.items.*;
 import corgiaoc.byg.common.properties.items.itemtiers.BYGArmorTiers;
 import corgiaoc.byg.common.properties.items.itemtiers.BYGItemTiers;
 import corgiaoc.byg.common.properties.items.itemtiers.BYGWaterSilkItem;
+import corgiaoc.byg.common.properties.items.itemtiers.LigniteItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
@@ -237,6 +238,26 @@ public class BYGItems {
     public static final Item BLUE_ENCHANTED_BUTTON = createItem(new BlockItem(BYGBlocks.BLUE_ENCHANTED_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BLUE_ENCHANTED_BUTTON));
     public static final Item BLUE_ENCHANTED_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.BLUE_ENCHANTED, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)), "blue_enchanted_boat");
 
+    //Bulbis Woodtype
+    public static final Item BULBIS_ODDITY = createItem(new BlockItem(BYGBlocks.BULBIS_ODDITY, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_ODDITY));
+    public static final Item BULBIS_SHELL = createItem(new BlockItem(BYGBlocks.BULBIS_SHELL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_SHELL));
+    public static final Item BULBIS_STEM = createItem(new BlockItem(BYGBlocks.BULBIS_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_STEM));
+    public static final Item BULBIS_WOOD = createItem(new BlockItem(BYGBlocks.BULBIS_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_WOOD));
+    public static final Item STRIPPED_BULBIS_LOG = createItem(new BlockItem(BYGBlocks.STRIPPED_BULBIS_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.STRIPPED_BULBIS_LOG));
+    public static final Item STRIPPED_BULBIS_WOOD = createItem(new BlockItem(BYGBlocks.STRIPPED_BULBIS_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.STRIPPED_BULBIS_WOOD));
+    public static final Item BULBIS_PLANKS = createItem(new BlockItem(BYGBlocks.BULBIS_PLANKS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_PLANKS));
+    public static final Item BULBIS_BOOKSHELF = createItem(new BlockItem(BYGBlocks.BULBIS_BOOKSHELF, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_BOOKSHELF));
+    public static final Item BULBIS_CRAFTING_TABLE = createItem(new BlockItem(BYGBlocks.BULBIS_CRAFTING_TABLE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_CRAFTING_TABLE));
+    public static final Item BULBIS_STAIRS = createItem(new BlockItem(BYGBlocks.BULBIS_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_STAIRS));
+    public static final Item BULBIS_SLAB = createItem(new BlockItem(BYGBlocks.BULBIS_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_SLAB));
+    public static final Item BULBIS_FENCE = createItem(new BlockItem(BYGBlocks.BULBIS_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_FENCE));
+    public static final Item BULBIS_FENCE_GATE = createItem(new BlockItem(BYGBlocks.BULBIS_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_FENCE_GATE));
+    public static final Item BULBIS_DOOR = createItem(new TallBlockItem(BYGBlocks.BULBIS_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_DOOR));
+    public static final Item BULBIS_TRAPDOOR = createItem(new BlockItem(BYGBlocks.BULBIS_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_TRAPDOOR));
+    public static final Item BULBIS_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.BULBIS_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_PRESSURE_PLATE));
+    public static final Item BULBIS_BUTTON = createItem(new BlockItem(BYGBlocks.BULBIS_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_BUTTON));
+
+
     //Cherry Woodtype
     public static final Item PINK_CHERRY_SAPLING = createItem(new BlockItem(BYGBlocks.PINK_CHERRY_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PINK_CHERRY_SAPLING));
     public static final Item PINK_CHERRY_FOLIAGE = createItem(new BlockItem(BYGBlocks.PINK_CHERRY_FOLIAGE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PINK_CHERRY_FOLIAGE));
@@ -321,6 +342,25 @@ public class BYGItems {
     public static final Item EBONY_BUTTON = createItem(new BlockItem(BYGBlocks.EBONY_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EBONY_BUTTON));
     public static final Item EBONY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)), "ebony_boat");
 
+    //Ether Woodtype
+    public static final Item ETHER_SAPLING = createItem(new BlockItem(BYGBlocks.ETHER_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_SAPLING));
+    public static final Item ETHER_LEAVES = createItem(new BlockItem(BYGBlocks.ETHER_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_LEAVES));
+    public static final Item ETHER_LOG = createItem(new BlockItem(BYGBlocks.ETHER_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_LOG));
+    public static final Item ETHER_WOOD = createItem(new BlockItem(BYGBlocks.ETHER_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_WOOD));
+    public static final Item STRIPPED_ETHER_LOG = createItem(new BlockItem(BYGBlocks.STRIPPED_ETHER_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.STRIPPED_ETHER_LOG));
+    public static final Item STRIPPED_ETHER_WOOD = createItem(new BlockItem(BYGBlocks.STRIPPED_ETHER_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.STRIPPED_ETHER_WOOD));
+    public static final Item ETHER_PLANKS = createItem(new BlockItem(BYGBlocks.ETHER_PLANKS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_PLANKS));
+    public static final Item ETHER_BOOKSHELF = createItem(new BlockItem(BYGBlocks.ETHER_BOOKSHELF, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_BOOKSHELF));
+    public static final Item ETHER_CRAFTING_TABLE = createItem(new BlockItem(BYGBlocks.ETHER_CRAFTING_TABLE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_CRAFTING_TABLE));
+    public static final Item ETHER_STAIRS = createItem(new BlockItem(BYGBlocks.ETHER_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_STAIRS));
+    public static final Item ETHER_SLAB = createItem(new BlockItem(BYGBlocks.ETHER_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_SLAB));
+    public static final Item ETHER_FENCE = createItem(new BlockItem(BYGBlocks.ETHER_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_FENCE));
+    public static final Item ETHER_FENCE_GATE = createItem(new BlockItem(BYGBlocks.ETHER_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_FENCE_GATE));
+    public static final Item ETHER_DOOR = createItem(new TallBlockItem(BYGBlocks.ETHER_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_DOOR));
+    public static final Item ETHER_TRAPDOOR = createItem(new BlockItem(BYGBlocks.ETHER_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_TRAPDOOR));
+    public static final Item ETHER_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.ETHER_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_PRESSURE_PLATE));
+    public static final Item ETHER_BUTTON = createItem(new BlockItem(BYGBlocks.ETHER_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_BUTTON));
+    
     //Fir Woodtype
     public static final Item FIR_SAPLING = createItem(new BlockItem(BYGBlocks.FIR_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FIR_SAPLING));
     public static final Item FIR_LEAVES = createItem(new BlockItem(BYGBlocks.FIR_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FIR_LEAVES));
@@ -490,6 +530,26 @@ public class BYGItems {
     public static final Item MAPLE_BUTTON = createItem(new BlockItem(BYGBlocks.MAPLE_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.MAPLE_BUTTON));
     public static final Item MAPLE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)), "maple_boat");
 
+    //Nightshade Woodtype
+    public static final Item NIGHTSHADE_SAPLING = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_SAPLING));
+    public static final Item FLOWERING_NIGHTSHADE_LEAVES = createItem(new BlockItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES));
+    public static final Item NIGHTSHADE_LEAVES = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_LEAVES));
+    public static final Item NIGHTSHADE_LOG = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_LOG));
+    public static final Item NIGHTSHADE_WOOD = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_WOOD));
+    public static final Item STRIPPED_NIGHTSHADE_LOG = createItem(new BlockItem(BYGBlocks.STRIPPED_NIGHTSHADE_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.STRIPPED_NIGHTSHADE_LOG));
+    public static final Item STRIPPED_NIGHTSHADE_WOOD = createItem(new BlockItem(BYGBlocks.STRIPPED_NIGHTSHADE_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.STRIPPED_NIGHTSHADE_WOOD));
+    public static final Item NIGHTSHADE_PLANKS = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_PLANKS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_PLANKS));
+    public static final Item NIGHTSHADE_BOOKSHELF = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_BOOKSHELF, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_BOOKSHELF));
+    public static final Item NIGHTSHADE_CRAFTING_TABLE = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_CRAFTING_TABLE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_CRAFTING_TABLE));
+    public static final Item NIGHTSHADE_STAIRS = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_STAIRS));
+    public static final Item NIGHTSHADE_SLAB = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_SLAB));
+    public static final Item NIGHTSHADE_FENCE = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_FENCE));
+    public static final Item NIGHTSHADE_FENCE_GATE = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_FENCE_GATE));
+    public static final Item NIGHTSHADE_DOOR = createItem(new TallBlockItem(BYGBlocks.NIGHTSHADE_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_DOOR));
+    public static final Item NIGHTSHADE_TRAPDOOR = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_TRAPDOOR));
+    public static final Item NIGHTSHADE_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_PRESSURE_PLATE));
+    public static final Item NIGHTSHADE_BUTTON = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_BUTTON));
+    
     //Palm Woodtype
     public static final Item PALM_SAPLING = createItem(new BlockItem(BYGBlocks.PALM_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PALM_SAPLING));
     public static final Item PALM_LEAVES = createItem(new BlockItem(BYGBlocks.PALM_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PALM_LEAVES));
@@ -861,6 +921,21 @@ public class BYGItems {
     public static final Item IVIS_PHYLIUM = createItem(new BlockItem(BYGBlocks.IVIS_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IVIS_PHYLIUM));
     public static final Item IVIS_ROOTS = createItem(new BlockItem(BYGBlocks.IVIS_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IVIS_ROOTS));
     public static final Item IVIS_SPROUT = createItem(new BlockItem(BYGBlocks.IVIS_SPROUT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IVIS_SPROUT));
+
+    public static final Item ETHER_PHYLIUM = createItem(new BlockItem(BYGBlocks.ETHER_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_PHYLIUM));
+    public static final Item ETHER_SOIL = createItem(new BlockItem(BYGBlocks.ETHER_SOIL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_SOIL));
+    public static final Item ETHER_STONE = createItem(new BlockItem(BYGBlocks.ETHER_STONE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_STONE));
+    public static final Item LIGNITE_ORE = createItem(new BlockItem(BYGBlocks.LIGNITE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.LIGNITE_ORE));
+    public static final Item LIGNITE = createItem(new LigniteItem(new Item.Properties().group(BYGCreativeTab.creativeTab)), "lignite");
+    public static final Item LIGNITE_BLOCK = createItem(new LigniteBlockItem(BYGBlocks.LIGNITE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.LIGNITE_BLOCK));
+
+    public static final Item ETHER_GRASS = createItem(new BlockItem(BYGBlocks.ETHER_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_GRASS));
+    public static final Item ETHER_BUSH = createItem(new BlockItem(BYGBlocks.ETHER_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_BUSH));
+    public static final Item THEREAL_BELLFLOWER = createItem(new BlockItem(BYGBlocks.THEREAL_BELLFLOWER, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THEREAL_BELLFLOWER));
+
+    public static final Item NIGHTSHADE_PHYLIUM = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_PHYLIUM));
+    public static final Item NIGHTSHADE_SPROUTS = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_SPROUTS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_SPROUTS));
+    public static final Item PURPUR_STONE = createItem(new BlockItem(BYGBlocks.PURPUR_STONE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PURPUR_STONE));
 
     //Ice
     public static final Item BLACK_ICE = createItem(new BlockItem(BYGBlocks.BLACK_ICE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BLACK_ICE));
