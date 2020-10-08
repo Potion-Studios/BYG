@@ -538,12 +538,12 @@ public class BYGBlocks {
     public static final Block PINK_CHERRY_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("pink_cherry_foliage");
     public static final Block WHITE_CHERRY_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("white_cherry_foliage");
 
-    public static final Block WHITE_PETAL = new BYGBlockProperties.BYGPetal("white_petal_block");
-    public static final Block RED_PETAL = new BYGBlockProperties.BYGPetal("red_petal_block");
-    public static final Block PURPLE_PETAL = new BYGBlockProperties.BYGPetal("purple_petal_block");
-    public static final Block BLUE_PETAL = new BYGBlockProperties.BYGPetal("blue_petal_block");
-    public static final Block LIGHT_BLUE_PETAL = new BYGBlockProperties.BYGPetal("light_blue_petal_block");
-    public static final Block YELLOW_PETAL = new BYGBlockProperties.BYGPetal("yellow_petal_block");
+    public static final Block WHITE_PETAL = createPetal("white_petal_block");
+    public static final Block RED_PETAL = createPetal("red_petal_block");
+    public static final Block PURPLE_PETAL = createPetal("purple_petal_block");
+    public static final Block BLUE_PETAL = createPetal("blue_petal_block");
+    public static final Block LIGHT_BLUE_PETAL = createPetal("light_blue_petal_block");
+    public static final Block YELLOW_PETAL = createPetal("yellow_petal_block");
     public static final Block PLANT_STEM = createLog("plant_stem");
     public static final Block POLLEN_BLOCK = new BYGBlockProperties.BYGPollen("pollen_block");
 
@@ -1003,6 +1003,12 @@ public class BYGBlocks {
         Block leaves = new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().harvestTool(ToolType.HOE));
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), leaves);
         return leaves;
+    }
+
+    static Block createPetal(String id) {
+        Block petal = new Block(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2f).notSolid().harvestTool(ToolType.HOE));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), petal);
+        return petal;
     }
 
     static Block createDirt(String id) {
