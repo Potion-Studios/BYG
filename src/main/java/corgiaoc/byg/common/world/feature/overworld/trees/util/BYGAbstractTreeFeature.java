@@ -32,12 +32,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> extends Feature<T> {
+public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> extends Feature<TFC> {
 
     protected static FastNoise fastNoise;
     protected long seed;
 
-    public BYGAbstractTreeFeature(Codec<T> configCodec) {
+    public BYGAbstractTreeFeature(Codec<TFC> configCodec) {
         super(configCodec);
     }
 
@@ -508,11 +508,11 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
         return placeTree(worldIn, rand, pos, config);
     }
 
-    public boolean placeTree(ISeedReader worldIn, Random rand, BlockPos pos, T config) {
+    public boolean placeTree(ISeedReader worldIn, Random rand, BlockPos pos, TFC config) {
         Set<BlockPos> set = Sets.newHashSet();
         MutableBoundingBox mutableboundingbox = MutableBoundingBox.getNewBoundingBox();
         boolean flag = this.generate(set, worldIn, rand, pos, mutableboundingbox, config.isPlacementForced(), config);
@@ -587,7 +587,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
         }
     }
 
-    protected abstract boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, T config);
+    protected abstract boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, TFC config);
 
     public static final class PooledMutable extends BlockPos.Mutable implements AutoCloseable {
         private boolean free;
