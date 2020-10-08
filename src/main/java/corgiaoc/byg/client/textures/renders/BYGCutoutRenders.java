@@ -69,7 +69,14 @@ public class BYGCutoutRenders {
         //End
         RenderTypeLookup.setRenderLayer(BYGBlocks.IVIS_ROOTS, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.IVIS_SPROUT, RenderType.getCutoutMipped());
-
+        RenderTypeLookup.setRenderLayer(BYGBlocks.NIGHTSHADE_SPROUTS, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.ETHER_BUSH, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.ETHER_GRASS, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.THEREAL_BELLFLOWER, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.ETHER_SAPLING, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.NIGHTSHADE_SAPLING, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.BULBIS_ODDITY, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.BULBIS_SHELL, RenderType.getTranslucent());
 
         //Sea Plants
         RenderTypeLookup.setRenderLayer(BYGBlocks.CATTAIL, RenderType.getCutoutMipped());
@@ -109,6 +116,9 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.SYTHIAN_DOOR, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.EMBUR_DOOR, RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.LAMENT_DOOR, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.BULBIS_DOOR, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.ETHER_DOOR, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.NIGHTSHADE_DOOR, RenderType.getCutoutMipped());
 
         //Trapdoors
         RenderTypeLookup.setRenderLayer(BYGBlocks.ASPEN_TRAPDOOR, RenderType.getTranslucent());
@@ -136,6 +146,9 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.SYTHIAN_TRAPDOOR, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.EMBUR_TRAPDOOR, RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.LAMENT_TRAPDOOR, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.BULBIS_TRAPDOOR, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.ETHER_TRAPDOOR, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.NIGHTSHADE_TRAPDOOR, RenderType.getCutoutMipped());
 
         //Grass
         RenderTypeLookup.setRenderLayer(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES, RenderType.getTranslucent());

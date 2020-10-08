@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/nightshade_slab"
+    },
+    "type=double": {
+      "model": "byg:block/nightshade"
+    },
+    "type=top": {
+      "model": "byg:block/nightshade_slab_top"
+    }
+  }
+}

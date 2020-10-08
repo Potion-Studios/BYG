@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_rh",
+  "textures": {
+    "bottom": "byg:block/ether_door_bottom",
+    "top": "byg:block/ether_door_top"
+  }
+}

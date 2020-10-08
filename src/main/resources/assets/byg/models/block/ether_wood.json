@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "byg:block/ether_log",
+    "side": "byg:block/ether_log"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "byg:block/ether_crafting_table_front",
+    "down": "byg:block/ether_planks",
+    "up": "byg:block/ether_crafting_table_top",
+    "north": "byg:block/ether_crafting_table_front",
+    "east": "byg:block/ether_crafting_table_side",
+    "south": "byg:block/ether_crafting_table_side",
+    "west": "byg:block/ether_crafting_table_front"
+  }
+}
