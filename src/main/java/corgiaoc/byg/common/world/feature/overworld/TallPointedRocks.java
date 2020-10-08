@@ -36,8 +36,7 @@ public class TallPointedRocks extends Feature<PointyRockFeatureConfig> {
         return true;
     }
 
-    public static FastNoise noiseGen = null;
-    public static FastNoise noiseGen3D = null;
+    private FastNoise noiseGen = null;
 
     public void buildPointedRock(long seed, Random random, IChunk chunkIn, int x, int z, PointyRockFeatureConfig config) {
         setSeed(seed + config.getSeed());
@@ -83,13 +82,6 @@ public class TallPointedRocks extends Feature<PointyRockFeatureConfig> {
             noiseGen.SetFractalOctaves(1);
             noiseGen.SetFractalGain(0.3f);
             noiseGen.SetFrequency(0.02f);
-        }
-
-        if (noiseGen3D == null) {
-            noiseGen3D = new FastNoise((int) seed);
-            noiseGen3D.SetNoiseType(FastNoise.NoiseType.Simplex);
-            noiseGen3D.SetFractalGain(0.006f);
-            noiseGen3D.SetFrequency(0.7f);
         }
     }
 
