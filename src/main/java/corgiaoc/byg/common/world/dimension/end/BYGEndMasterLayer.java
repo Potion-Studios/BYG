@@ -10,5 +10,4 @@ public enum BYGEndMasterLayer implements IAreaTransformer0 {
     public int apply(INoiseRandom rand, int x, int y) {
         return BYGEndBiomeCatch.getRandomEndBiomes(rand);
     }
-
 }

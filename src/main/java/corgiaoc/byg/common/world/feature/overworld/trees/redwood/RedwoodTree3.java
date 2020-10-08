@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
@@ -19,21 +18,21 @@ public class RedwoodTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         super(configIn);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config.getTrunkProvider().getBlockState(rand, pos).getBlock(), Blocks.DIRT, boundsIn, mainmutable.add(0, 0, -1), mainmutable.add(-1, 0, 0), mainmutable.add(0, 0, 0), mainmutable.add(1, 0, 0), mainmutable.add(0, 0, 1), mainmutable.add(0, 0, -2), mainmutable.add(-1, 0, -1), mainmutable.add(1, 0, -1), mainmutable.add(-2, 0, 0), mainmutable.add(2, 0, 0), mainmutable.add(-1, 0, 1), mainmutable.add(1, 0, 1), mainmutable.add(0, 0, 2));
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.add(0, 0, -1), mainmutable.add(-1, 0, 0), mainmutable.add(0, 0, 0), mainmutable.add(1, 0, 0), mainmutable.add(0, 0, 1), mainmutable.add(0, 0, -2), mainmutable.add(-1, 0, -1), mainmutable.add(1, 0, -1), mainmutable.add(-2, 0, 0), mainmutable.add(2, 0, 0), mainmutable.add(-1, 0, 1), mainmutable.add(1, 0, 1), mainmutable.add(0, 0, 2));
 
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 0, -1), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 0, 0), boundsIn);

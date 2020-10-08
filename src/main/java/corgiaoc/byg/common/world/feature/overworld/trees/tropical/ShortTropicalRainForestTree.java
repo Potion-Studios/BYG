@@ -25,7 +25,7 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<BYGTreeF
         );
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 3;
         //Positions
@@ -34,7 +34,7 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<BYGTreeF
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
             BlockPos checkGround = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, checkGround, Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(worldIn, checkGround, config)) {
                 return false;
             } else {
                 //this.setGroundBlockAt(worldIn, checkGround, pos, Blocks.STONE.getDefaultState());

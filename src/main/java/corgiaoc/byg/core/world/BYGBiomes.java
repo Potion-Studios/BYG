@@ -537,6 +537,9 @@ public class BYGBiomes {
                     Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
                     if (key.isPresent())
                         key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+
+                    if (!BYGEndBiomeProvider.endBiomeList.contains(biome))
+                        BYGEndBiomeProvider.endBiomeList.add(biome);
                 }
             }
         }
@@ -558,6 +561,9 @@ public class BYGBiomes {
                     Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
                     if (key.isPresent())
                         key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+
+                    if (!BYGNetherBiomeProvider.netherBiomeList.contains(biome))
+                        BYGNetherBiomeProvider.netherBiomeList.add(biome);
                 }
             }
         }

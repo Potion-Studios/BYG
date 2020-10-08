@@ -15,14 +15,13 @@ public class BYGNetherLayerProvider {
     public static Layer stackLayers(long seed) {
         LongFunction<IExtendedNoiseRandom<LazyArea>> randomProvider = salt -> new LazyAreaLayerContext(1, seed, salt);
 
-
-        IAreaFactory<LazyArea> netherLayer = BYGNetherMasterLayer.INSTANCE.apply(randomProvider.apply(1000L));
+        IAreaFactory<LazyArea> netherLayer = BYGNetherMasterLayer.INSTANCE.apply(randomProvider.apply(485868686L));
 
         for (int netherBiomeSize = 0; netherBiomeSize <= BYGWorldConfig.biomeSizeNETHER.get(); netherBiomeSize++) {
-            netherLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(1000L + netherBiomeSize), netherLayer);
+            netherLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(28585L + netherBiomeSize), netherLayer);
         }
-        netherLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(1000L), netherLayer);
-        netherLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(1000L), netherLayer);
+        netherLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(958687L), netherLayer);
+        netherLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(19375756L), netherLayer);
 
         return new Layer(netherLayer);
     }

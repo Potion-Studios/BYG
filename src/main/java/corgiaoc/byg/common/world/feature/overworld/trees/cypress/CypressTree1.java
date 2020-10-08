@@ -21,7 +21,7 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         super(configIn);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
         int randTreeHeight = config.getMinHeight();
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
@@ -32,7 +32,7 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, Blocks.DIRT)) {
+            if (!isDesiredGroundwDirtTag(worldIn, blockpos, config)) {
                 return false;
             }
             if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
