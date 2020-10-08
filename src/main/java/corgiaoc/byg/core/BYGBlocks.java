@@ -366,8 +366,8 @@ public class BYGBlocks {
     public static final Block ARAUCARIA_LEAVES = createLeaves("araucaria_leaves");
     public static final Block ASPEN_LEAVES = createLeaves("aspen_leaves");
     public static final Block BAOBAB_LEAVES = createLeaves("baobab_leaves");
-    public static final Block BLOOMING_WITCH_HAZEL_LEAVES = new BYGBlockProperties.BYGBloomingWitchhazelLeaves("blooming_witch_hazel_leaves");
-    public static final Block BLUE_ENCHANTED_LEAVES = new BYGBlockProperties.BYGBloomingWitchhazelLeaves("blue_enchanted_leaves");
+    public static final Block BLOOMING_WITCH_HAZEL_LEAVES = createGlowingLeaves("blooming_witch_hazel_leaves");
+    public static final Block BLUE_ENCHANTED_LEAVES = createGlowingLeaves("blue_enchanted_leaves");
     public static final Block BLUE_SPRUCE_LEAVES = createLeaves("blue_spruce_leaves");
     public static final Block BROWN_BIRCH_LEAVES = createLeaves("brown_birch_leaves");
     public static final Block BROWN_OAK_LEAVES = createLeaves("brown_oak_leaves");
@@ -378,7 +378,7 @@ public class BYGBlocks {
     public static final Block FIR_LEAVES = createLeaves("fir_leaves");
     public static final Block FLOWERING_ORCHARD_LEAVES = createLeaves("flowering_orchard_leaves");
     public static final Block FLOWERING_PALO_VERDE_LEAVES = createLeaves("flowering_palo_verde_leaves");
-    public static final Block GREEN_ENCHANTED_LEAVES = new BYGBlockProperties.BYGBloomingWitchhazelLeaves("green_enchanted_leaves");
+    public static final Block GREEN_ENCHANTED_LEAVES = createGlowingLeaves("green_enchanted_leaves");
     public static final Block HOLLY_BERRY_LEAVES = createLeaves("holly_berry_leaves");
     public static final Block HOLLY_LEAVES = createLeaves("holly_leaves");
     public static final Block JACARANDA_LEAVES = createLeaves("jacaranda_leaves");
@@ -1001,6 +1001,16 @@ public class BYGBlocks {
 
     static Block createLeaves(String id) {
         Block leaves = new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().harvestTool(ToolType.HOE));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), leaves);
+        return leaves;
+    }
+
+    static Block createGlowingLeaves(String id) {
+        return createGlowingLeaves(15, id);
+    }
+
+    static Block createGlowingLeaves(int lightLevel, String id) {
+        Block leaves = new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setLightLevel((state) -> lightLevel).harvestTool(ToolType.HOE));
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), leaves);
         return leaves;
     }

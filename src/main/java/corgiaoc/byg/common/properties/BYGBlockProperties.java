@@ -342,20 +342,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGBloomingWitchhazelLeaves extends LeavesBlock {
-        public BYGBloomingWitchhazelLeaves(String registryName) {
-            super(Block.Properties.create(Material.LEAVES)
-                    .hardnessAndResistance(0.2F)
-                    .tickRandomly()
-                    .sound(SoundType.PLANT)
-                    .notSolid()
-                    .setLightLevel((state) -> 12)
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            this.setDefaultState(this.stateContainer.getBaseState().with(DISTANCE, 7).with(PERSISTENT, false));
-        }
-    }
-
     public static class BYGNyliumSoulSand extends Block {
 
         public BYGNyliumSoulSand(String registryName) {
