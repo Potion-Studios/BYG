@@ -20,7 +20,7 @@ public class BluffTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
     }
 
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
         int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + worldIn.getHeight();
         //Positions

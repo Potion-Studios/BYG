@@ -21,7 +21,7 @@ public class AspenTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         super(configIn);
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
         int minHeight = config.getMinHeight();
         Biome biome = worldIn.getBiome(pos);

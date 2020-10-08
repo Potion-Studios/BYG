@@ -515,7 +515,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
     public boolean placeTree(ISeedReader worldIn, Random rand, BlockPos pos, T config) {
         Set<BlockPos> set = Sets.newHashSet();
         MutableBoundingBox mutableboundingbox = MutableBoundingBox.getNewBoundingBox();
-        boolean flag = this.place(set, worldIn, rand, pos, mutableboundingbox, config.isPlacementForced(), config);
+        boolean flag = this.generate(set, worldIn, rand, pos, mutableboundingbox, config.isPlacementForced(), config);
         if (mutableboundingbox.minX > mutableboundingbox.maxX) {
             return false;
         } else {
@@ -587,7 +587,7 @@ public abstract class BYGAbstractTreeFeature<T extends BYGTreeFeatureConfig> ext
         }
     }
 
-    protected abstract boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, T config);
+    protected abstract boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, T config);
 
     public static final class PooledMutable extends BlockPos.Mutable implements AutoCloseable {
         private boolean free;

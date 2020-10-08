@@ -6,40 +6,24 @@ import corgiaoc.byg.util.noise.fastnoise.FNVector3f;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class TallPointedRocks extends Feature<PointyRockFeatureConfig> {
+public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockFeatureConfig> {
 
     public TallPointedRocks(Codec<PointyRockFeatureConfig> codec) {
         super(codec);
     }
 
-    @Override
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, PointyRockFeatureConfig config) {
-        ChunkPos chunk = world.getChunk(pos).getPos();
-        int xStart = chunk.getXStart();
-        int zStart = chunk.getZStart();
-        for(int xMove = 0; xMove < 16; ++xMove) {
-            for (int zMove = 0; zMove < 16; ++zMove) {
-                int x = xStart + xMove;
-                int z = zStart + zMove;
-                buildPointedRock(world.getSeed(), rand, world.getChunk(pos), x, z, config);
-            }
-        }
-        return true;
-    }
-
     private FastNoise noiseGen = null;
 
-    public void buildPointedRock(long seed, Random random, IChunk chunkIn, int x, int z, PointyRockFeatureConfig config) {
-        setSeed(seed + config.getSeed());
+
+    @Override
+    public boolean generate(ISeedReader world, Random random, IChunk chunkIn, int x, int z, PointyRockFeatureConfig config) {
+        setSeed(world.getSeed() + config.getSeed());
         int xPos = x & 15;
         int zPos = z & 15;
         BlockPos.Mutable mutable = new BlockPos.Mutable(xPos, 0, zPos);
@@ -71,6 +55,7 @@ public class TallPointedRocks extends Feature<PointyRockFeatureConfig> {
                 }
             }
         }
+        return true;
     }
 
     public void setSeed(long seed) {

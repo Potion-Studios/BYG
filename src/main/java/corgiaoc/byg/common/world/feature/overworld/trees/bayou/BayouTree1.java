@@ -25,7 +25,7 @@ public class BayouTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         super(configIn);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
         int randChance = rand.nextInt(2);
         int randTreeHeight = rand.nextInt(6) + 8;

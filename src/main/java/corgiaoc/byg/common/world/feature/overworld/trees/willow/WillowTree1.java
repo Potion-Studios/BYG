@@ -22,7 +22,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlocks.BLUE_SPRUCE_SAPLING);
     }
 
-    protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
         int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());

@@ -25,7 +25,7 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<BYGTreeF
         );
     }
 
-    public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
 
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 3;
         //Positions
