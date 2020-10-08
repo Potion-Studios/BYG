@@ -39,7 +39,7 @@ public class PointyRockFeature extends Feature<PointyRockFeatureConfig> {
                 noise2 = (noiseGen.GetSimplex(mutable.getX() * 0.04F, mutable.getY() * 0.04F, mutable.getZ() * 0.04F) + 1D) * 5D;
                 noise = Math.pow(Math.abs(noiseGen.GetSimplex(mutable.getX() * 0.013F, mutable.getZ() * 0.013F)) + noise2 * 0.005D, 7);
 
-                maximumHeight = (int) (noise * config.getHeight());
+                maximumHeight = (int) (noise * config.getSeed());
                 terrainHeight = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ());
 
                 mutable.move(Direction.UP, maximumHeight);

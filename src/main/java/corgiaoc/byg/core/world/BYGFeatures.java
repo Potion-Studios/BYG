@@ -144,7 +144,8 @@ public class BYGFeatures {
 
     /********************************************************************Features*************************************************************************/
     //DeadSea
-    public static final Feature<PointyRockFeatureConfig> POINTY_ROCK = WorldGenRegistrationHelper.createFeature("point_rock", new PointyRockFeature(PointyRockFeatureConfig.CODEC.stable()));
+    public static final Feature<PointyRockFeatureConfig> POINTY_ROCK = WorldGenRegistrationHelper.createFeature("pointed_rock", new PointyRockFeature(PointyRockFeatureConfig.CODEC.stable()));
+    public static final Feature<PointyRockFeatureConfig> TALL_POINTED_ROCK = WorldGenRegistrationHelper.createFeature("tall_pointed_rock", new TallPointedRocks(PointyRockFeatureConfig.CODEC.stable()));
 
     public static final Feature<NoFeatureConfig> OBBYSPIKES = WorldGenRegistrationHelper.createFeature("obsidian_spike", new ObsidianSpike(NoFeatureConfig.field_236558_a_.stable()));
 
