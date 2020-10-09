@@ -240,9 +240,6 @@ public class BYGFeatures {
 
     //Whaling
     public static final Feature<NoFeatureConfig> WAILING_VINES = WorldGenRegistrationHelper.createFeature("wailing_vine", new WailingVine(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> WAILING_GRASS = WorldGenRegistrationHelper.createFeature("wailing_grass", new WailingGrass(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> SCORCHED_GRASS = WorldGenRegistrationHelper.createFeature("scorched_grass", new ScorchedGrass(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> SCORCHED_BUSH = WorldGenRegistrationHelper.createFeature("scorched_bush", new ScorchedBush(NoFeatureConfig.field_236558_a_.stable()));
 
     //Weeping Roots
     public static final Feature<NoFeatureConfig> WEEPING_ROOTS = WorldGenRegistrationHelper.createFeature("weeping_roots", new WeepingRoots(NoFeatureConfig.field_236558_a_.stable()));

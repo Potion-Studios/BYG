@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SixWayBlock;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -38,14 +39,14 @@ public class WailingVine extends Feature<NoFeatureConfig> {
                     for (Direction direction : Direction.values()) {
                         if (direction != Direction.DOWN) {
                             if (worldIn.getBlockState(pos).isOpaqueCube(worldIn, pos.offset(direction))) {
-                                storedState = storedState.with(VineBlock.getPropertyFor(direction.getOpposite()), true);
+                                if (storedState.hasProperty(SixWayBlock.UP) && storedState.hasProperty(SixWayBlock.DOWN) && storedState.hasProperty(SixWayBlock.EAST) && storedState.hasProperty(SixWayBlock.WEST) && storedState.hasProperty(SixWayBlock.NORTH) && storedState.hasProperty(SixWayBlock.SOUTH))
+                                    storedState = storedState.with(VineBlock.getPropertyFor(direction.getOpposite()), true);
                             }
                         }
                     }
                     worldIn.setBlockState(mainMutable, storedState, 2);
                     mainMutable.move(Direction.DOWN);
                 }
-
             }
             return true;
         }
