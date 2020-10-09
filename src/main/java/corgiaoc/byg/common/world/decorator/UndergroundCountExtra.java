@@ -14,9 +14,9 @@ import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class UnderGroundPlacement extends Placement<AtSurfaceWithExtraConfig> {
+public class UndergroundCountExtra extends Placement<AtSurfaceWithExtraConfig> {
 
-    public UnderGroundPlacement(Codec<AtSurfaceWithExtraConfig> codec) {
+    public UndergroundCountExtra(Codec<AtSurfaceWithExtraConfig> codec) {
         super(codec);
     }
 

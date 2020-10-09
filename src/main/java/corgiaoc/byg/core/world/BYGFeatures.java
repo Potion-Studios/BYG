@@ -257,11 +257,7 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> EMBUR_MUSHROOM = WorldGenRegistrationHelper.createFeature("embur_mushroom1", new EmburMushroom(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> EMBUR_MUSHROOM2 = WorldGenRegistrationHelper.createFeature("embur_mushroom2", new EmburMushroom2(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final Feature<NoFeatureConfig> EMBUR_GEL_VINES = WorldGenRegistrationHelper.createFeature("embur_gel_vines", new EmburGelVines(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> EMBUR_ROOTS = WorldGenRegistrationHelper.createFeature("embur_roots", new EmburRoots(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<NoFeatureConfig> TALL_EMBUR_ROOTS = WorldGenRegistrationHelper.createFeature("tall_embur_roots", new TallEmburRoots(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> EMBUR_WART = WorldGenRegistrationHelper.createFeature("embur_wart", new EmburWart(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> EMBUR_SPROUTS = WorldGenRegistrationHelper.createFeature("embur_sprouts", new EmburSprouts(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> EMBUR_LILY = WorldGenRegistrationHelper.createFeature("embur_lily", new EmburLily(NoFeatureConfig.field_236558_a_.stable()));
 
     //QuartzDesert
     public static final Feature<ColumnConfig> QUARTZ_COLUMNS = WorldGenRegistrationHelper.createFeature("quartz_columns", new RawQuartzColumnFeature(ColumnConfig.CODEC.stable()));
