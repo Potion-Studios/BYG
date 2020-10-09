@@ -222,7 +222,7 @@ public class BYGConfiguredFeatures {
     /***********************************************************Configured & Decorated Features***********************************************************/
 
     public static final ConfiguredFeature<?, ?> FROST_MAGMA_LAKE = WorldGenRegistrationHelper.createConfiguredFeature("frost_magma_lake", BYGFeatures.FROSTED_LAKE.withConfiguration(new BlockStateFeatureConfig(BYGBlocks.FROST_MAGMA.getDefaultState())).withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(4))));
-    public static final ConfiguredFeature<?, ?> WARPED_CORAL_PLANT = WorldGenRegistrationHelper.createConfiguredFeature("warped_coral_plant", BYGFeatures.HUGE_WARPED_CORAL_PLANT.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.2F, 1))));
+    public static final ConfiguredFeature<?, ?> WARPED_CORAL_PLANT = WorldGenRegistrationHelper.createConfiguredFeature("warped_coral_plant", BYGFeatures.HUGE_WARPED_CORAL_PLANT.withConfiguration(new WhiteListedSimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.WARPED_CORAL_BLOCK.getDefaultState()), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState()))).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.2F, 1))));
     public static final ConfiguredFeature<?, ?> SYTHIAN_STALK = WorldGenRegistrationHelper.createConfiguredFeature("sythian_stalk", BYGFeatures.SYTHIAN_STALK.withConfiguration(new ProbabilityConfig(0.9F)).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.5F, 8))));
     public static final ConfiguredFeature<?, ?> EMBUR_LILY = WorldGenRegistrationHelper.createConfiguredFeature("embur_lily", BYGFeatures.EMBUR_LILY.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 2))));
     public static final ConfiguredFeature<?, ?> CRAG_LAKE = WorldGenRegistrationHelper.createConfiguredFeature("crag_lake", BYGFeatures.LAKE_WIDE_SHALLOW.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(BYGDecorators.ANY_WATER_OR_SOLID_SURFACE.configure(new FeatureSpreadConfig(4))));
@@ -1831,7 +1831,5 @@ public class BYGConfiguredFeatures {
         public static final BlockStateProvidingFeatureConfig MYCELIUM_NETHERRACK_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.SOUL_SHROOM.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.DEATH_CAP.getDefaultState(), 50));
         public static final BlockStateProvidingFeatureConfig ETHER_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.ETHER_GRASS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.ETHER_BUSH.getDefaultState(), 45).addWeightedBlockstate(BYGBlocks.THEREAL_BELLFLOWER.getDefaultState(), 5));
         public static final BlockStateProvidingFeatureConfig NIGHTSHADE_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState(), 50));
-
-
     }
 }

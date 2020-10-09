@@ -7,11 +7,15 @@ import corgiaoc.byg.common.world.feature.nether.LargeChain;
 import corgiaoc.byg.common.world.feature.nether.crimsongardens.TallCrimsonRoots;
 import corgiaoc.byg.common.world.feature.nether.crimsongardens.WeepingVineFeatureBlackstone;
 import corgiaoc.byg.common.world.feature.nether.emburbog.*;
-import corgiaoc.byg.common.world.feature.nether.glowstonegardens.*;
+import corgiaoc.byg.common.world.feature.nether.glowstonegardens.NetherBristle;
+import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRoots;
+import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRootsFeature;
+import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRootsPlant;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.HangingBoneFeature;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.RawQuartzColumnFeature;
 import corgiaoc.byg.common.world.feature.nether.soulsandvalley.SoulShroomSporeFeature;
-import corgiaoc.byg.common.world.feature.nether.sythiantorrids.*;
+import corgiaoc.byg.common.world.feature.nether.sythiantorrids.HangingSythianRootsFeature;
+import corgiaoc.byg.common.world.feature.nether.sythiantorrids.SythianStalk;
 import corgiaoc.byg.common.world.feature.nether.trees.lament.*;
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree1;
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree2;
@@ -21,7 +25,7 @@ import corgiaoc.byg.common.world.feature.nether.wailinggarth.ScorchedBush;
 import corgiaoc.byg.common.world.feature.nether.wailinggarth.ScorchedGrass;
 import corgiaoc.byg.common.world.feature.nether.wailinggarth.WailingGrass;
 import corgiaoc.byg.common.world.feature.nether.wailinggarth.WailingVine;
-import corgiaoc.byg.common.world.feature.nether.warpeddesert.*;
+import corgiaoc.byg.common.world.feature.nether.warpeddesert.WarpedCoralFeature;
 import corgiaoc.byg.common.world.feature.nether.weepingmire.LamentVineFeature;
 import corgiaoc.byg.common.world.feature.overworld.*;
 import corgiaoc.byg.common.world.feature.overworld.giantflowers.AngelicaGiant;
@@ -223,7 +227,7 @@ public class BYGFeatures {
     public static final Feature<NoFeatureConfig> SYTHIAN_HANGING_ROOTS = WorldGenRegistrationHelper.createFeature("hanging_sythian_roots", new HangingSythianRootsFeature(NoFeatureConfig.field_236558_a_.stable()));
 
     //Warped
-    public static final Feature<NoFeatureConfig> HUGE_WARPED_CORAL_PLANT = WorldGenRegistrationHelper.createFeature("warped_coral_plant", new WarpedCoralFeature(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<WhiteListedSimpleBlockProviderConfig> HUGE_WARPED_CORAL_PLANT = WorldGenRegistrationHelper.createFeature("warped_coral_plant", new WarpedCoralFeature(WhiteListedSimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> PILLARS = WorldGenRegistrationHelper.createFeature("pillar", new ConfigurablePillar(SimpleBlockProviderConfig.CODEC.stable()));
 
     //Chains

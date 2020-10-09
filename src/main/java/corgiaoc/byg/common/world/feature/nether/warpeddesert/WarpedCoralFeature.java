@@ -1,48 +1,39 @@
 package corgiaoc.byg.common.world.feature.nether.warpeddesert;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.BlockState;
+import corgiaoc.byg.common.world.feature.config.WhiteListedSimpleBlockProviderConfig;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 
 import java.util.Random;
 
 import static net.minecraft.util.Direction.Plane;
 import static net.minecraft.util.Direction.UP;
 
-public class WarpedCoralFeature extends Feature<NoFeatureConfig> {
-    public static boolean doBlockNotify;
+public class WarpedCoralFeature extends Feature<WhiteListedSimpleBlockProviderConfig> {
 
-    public WarpedCoralFeature(Codec<NoFeatureConfig> config) {
+    public WarpedCoralFeature(Codec<WhiteListedSimpleBlockProviderConfig> config) {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        int posX = pos.getX();
-        int posY = pos.getY();
-        int posZ = pos.getZ();
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, WhiteListedSimpleBlockProviderConfig config) {
         int randCoralHeight = rand.nextInt(7) + 16 / 2;
-        BlockPos blockPos = new BlockPos(posX, posY, posZ);
-        BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);
 
-        if (!checkArea(worldIn, pos)) {
+        if (!checkArea(worldIn, pos, rand, config)) {
             return false;
-        } else if ((worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.NYLIUM_SOUL_SAND) || (worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.NYLIUM_SOUL_SOIL)) {
+        } else if (config.getWhitelist().contains(worldIn.getBlockState(pos.down()).getBlock())) {
             for (int i = 0; i <= randCoralHeight; i++) {
-                BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(block);
+                BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
 
-                this.setCoralBlock(worldIn, mutable);
-                this.setCoralBlock(worldIn, mutable.move(UP, i));
+                worldIn.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable),  2);
+                worldIn.setBlockState(mutable.move(UP, i), config.getBlockProvider().getBlockState(rand, mutable),  2);
 
                 for (Direction direction : Plane.HORIZONTAL) {
-                    this.setCoralBlock(worldIn, mutable.offset(direction, i / 2));
+                    worldIn.setBlockState(mutable.offset(direction, i / 2), config.getBlockProvider().getBlockState(rand, mutable), 2);
 
                 }
             }
@@ -50,29 +41,21 @@ public class WarpedCoralFeature extends Feature<NoFeatureConfig> {
         return true;
     }
 
-    protected void setCoralBlock(IWorldWriter worldIn, BlockPos pos) {
-        this.setBlockStateWithoutUpdates(worldIn, pos, BYGBlocks.WARPED_CORAL_BLOCK.getDefaultState());
-    }
 
-    private void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState) {
-        if (doBlockNotify) {
-            worldWriter.setBlockState(blockPos, blockState, 19);
-        } else {
-            worldWriter.setBlockState(blockPos, blockState, 18);
-        }
-    }
-
-    private boolean checkArea(IWorld world, BlockPos pos) {
+    private boolean checkArea(IWorld world, BlockPos pos, Random rand, WhiteListedSimpleBlockProviderConfig config) {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         for (int checkX = -2; checkX <= 2; checkX++) {
             for (int checkZ = -2; checkZ <= 2; checkZ++) {
-                BlockPos checkArea = new BlockPos(posX + checkX, posY, posZ + checkZ);
+                mutable.setPos(posX + checkX, posY, posZ + checkZ);
 
-                if (!world.isAirBlock(checkArea)) return false;
-                if (world.getBlockState(checkArea).getBlock() == BYGBlocks.WARPED_CORAL_BLOCK) return false;
+                if (!world.isAirBlock(mutable))
+                    return false;
+                if (world.getBlockState(mutable) == config.getBlockProvider().getBlockState(rand, mutable))
+                    return false;
 
             }
         }
