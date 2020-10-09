@@ -1659,7 +1659,7 @@ public class BYGConfiguredFeatures {
 
 
     //TODO: Remove these fields and in line them instead.
-    public static final Class FeatureConfigs {
+    public static class FeatureConfigs {
         public static final BlockClusterFeatureConfig TALL_ALLIUM_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_ALLIUM.getDefaultState()), new DoublePlantBlockPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build();
         public static final BlockClusterFeatureConfig TALL_PINK_ALLIUM_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_PINK_ALLIUM.getDefaultState()), new DoublePlantBlockPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build();
 
@@ -1822,7 +1822,7 @@ public class BYGConfiguredFeatures {
         public static final BlockClusterFeatureConfig IVIS_SPROUT = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.IVIS_SPROUT.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
     }
 
-    public static final Class SpreadableBlockConfigs {
+    public static class SpreadableBlockConfigs {
         public static final BlockStateProvidingFeatureConfig EMBUR_ROOTS = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.EMBUR_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.EMBUR_SPROUTS.getDefaultState(), 35).addWeightedBlockstate(BYGBlocks.EMBUR_WART.getDefaultState(), 11));
         public static final BlockStateProvidingFeatureConfig SYTHIAN_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.SYTHIAN_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.SYTHIAN_SPROUT.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.SYTHIAN_FUNGUS.getDefaultState(), 11));
         public static final BlockStateProvidingFeatureConfig IVIS_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.IVIS_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.IVIS_SPROUT.getDefaultState(), 50));
