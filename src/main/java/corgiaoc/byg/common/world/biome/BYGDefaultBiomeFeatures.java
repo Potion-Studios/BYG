@@ -349,7 +349,7 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WARPED_CORAL_PLANT);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WARPED_DESERT_VEGETATION);
-        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_SOUL_SOIL_PILLARS);
+        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.SOUL_SOIL_PILLARS);
     }
 
     public static void addSoulFireWarped(BiomeGenerationSettings.Builder gen) {
@@ -357,15 +357,15 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addFrostMagmaPillars(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_FROST_MAGMA_PILLARS);
+        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.FROST_MAGMA_PILLARS);
     }
 
     public static void addMagmaPillars(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_MAGMA_PILLARS);
+        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.MAGMA_PILLARS);
     }
 
     public static void addBrimstonePillars(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_BRIMSTONE_PILLARS);
+        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.BRIMSTONE_PILLARS);
     }
 
     public static void addBoricFire(BiomeGenerationSettings.Builder gen) {
