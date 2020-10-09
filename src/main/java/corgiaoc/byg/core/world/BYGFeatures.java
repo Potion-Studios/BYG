@@ -21,9 +21,6 @@ import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree2;
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree3;
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree4;
-import corgiaoc.byg.common.world.feature.nether.wailinggarth.ScorchedBush;
-import corgiaoc.byg.common.world.feature.nether.wailinggarth.ScorchedGrass;
-import corgiaoc.byg.common.world.feature.nether.wailinggarth.WailingGrass;
 import corgiaoc.byg.common.world.feature.nether.wailinggarth.WailingVine;
 import corgiaoc.byg.common.world.feature.nether.warpeddesert.WarpedCoralFeature;
 import corgiaoc.byg.common.world.feature.nether.weepingmire.LamentVineFeature;

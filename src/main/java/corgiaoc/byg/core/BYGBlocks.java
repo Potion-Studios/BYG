@@ -520,7 +520,7 @@ public class BYGBlocks {
     public static final Block RAW_QUARTZ_BLOCK = new BYGBlockProperties.BYGStone("raw_quartz_block");
 
     public static final Block WAILING_VINES = new BYGBlockProperties.WailingVines("whaling_vine");
-    public static final Block WHALING_GRASS = new BYGBlockProperties.WhalingGrass("whaling_grass");
+    public static final Block WAILING_GRASS = new BYGBlockProperties.WhalingGrass("whaling_grass");
     public static final Block MAGMATIC_STONE = new BYGBlockProperties.BYGNetherrack("magmatic_stone");
     public static final Block SCORCHED_BUSH = new BYGBlockProperties.ScorchedPlant("scorched_bush");
     public static final Block SCORCHED_GRASS = new BYGBlockProperties.ScorchedPlant("scorched_grass");

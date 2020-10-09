@@ -42,7 +42,6 @@ public class WailingVine extends Feature<NoFeatureConfig> {
                             }
                         }
                     }
-
                     worldIn.setBlockState(mainMutable, storedState, 2);
                     mainMutable.move(Direction.DOWN);
                 }
