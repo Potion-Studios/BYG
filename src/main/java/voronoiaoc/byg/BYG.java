@@ -42,6 +42,7 @@ public class BYG implements ModInitializer {
         BYGBiomeRegistry.registerNetherBiomes();
         BYGBiomeRegistry.registerEndBiomes();
         BYGBiomeRegistry.addEndBiomeKeysToBiomeLayerSampler();
+        BYGBiomeRegistry.addNetherBiomeKeysToBiomeLayerSampler();
         BYGBiomeRegistry.addBiomeNumericalIDs();
 
         BYGEntityRegistry.registerEntities();

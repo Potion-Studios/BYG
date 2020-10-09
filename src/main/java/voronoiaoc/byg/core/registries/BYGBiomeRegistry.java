@@ -248,7 +248,8 @@ public class BYGBiomeRegistry {
         /**********EndBiomes - 1**********/
         registerEndBiome(BYGBiomeList.IVISFIELDS, "ivis_fields");
         // Register existing End biomes
-        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND) && !endBiomeBlackList.contains(biome)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
+        BuiltinRegistries.BIOME.stream().filter(biome -> biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)
+                && !endBiomeBlackList.contains(biome)).forEach(BYGEndBiomeProvider.bygEndBiomeList::add);
         // newDecorator future biomes
         RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
             if (biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND)&& !endBiomeBlackList.contains(biome)) {
@@ -273,7 +274,8 @@ public class BYGBiomeRegistry {
             if (biome.getBiomeCategory().equals(Biome.BiomeCategory.THEEND) && !endBiomeBlackList.contains(biome)) {
                 Optional<ResourceKey<Biome>> key = BuiltinRegistries.BIOME.getResourceKey(biome);
                 if (key.isPresent())
-                    key.ifPresent(biomeRegistryKey -> net.minecraft.data.worldgen.biome.Biomes.TO_NAME.put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+                    key.ifPresent(biomeRegistryKey ->
+                            net.minecraft.data.worldgen.biome.Biomes.TO_NAME.put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
             }
         }
         RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
@@ -284,6 +286,25 @@ public class BYGBiomeRegistry {
             }
         });
     }
+
+    public static void addNetherBiomeKeysToBiomeLayerSampler() {
+        for (Biome biome : BuiltinRegistries.BIOME) {
+            if (biome.getBiomeCategory().equals(Biome.BiomeCategory.NETHER)) {
+                Optional<ResourceKey<Biome>> key = BuiltinRegistries.BIOME.getResourceKey(biome);
+                if (key.isPresent())
+                    key.ifPresent(biomeRegistryKey ->
+                            net.minecraft.data.worldgen.biome.Biomes.TO_NAME.put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+            }
+        }
+        RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
+            if (biome.getBiomeCategory().equals(Biome.BiomeCategory.NETHER) ) {
+                Optional<ResourceKey<Biome>> key = BuiltinRegistries.BIOME.getResourceKey(biome);
+                if (key.isPresent())
+                    key.ifPresent(biomeRegistryKey -> net.minecraft.data.worldgen.biome.Biomes.TO_NAME.put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+            }
+        });
+    }
+
 
     private static void registerBiome(Biome biome, String id, boolean spawn, float weight, OverworldClimate type) {
         Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MODID, id), biome);
