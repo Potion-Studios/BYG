@@ -32,7 +32,7 @@ public class ShortTropicalRainForestTree extends BYGAbstractTreeFeature<BYGTreeF
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
             BlockPos checkGround = pos.down();
             if (!isDesiredGroundwDirtTag(worldIn, checkGround, config)) {
                 return false;

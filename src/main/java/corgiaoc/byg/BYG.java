@@ -75,9 +75,6 @@ public class BYG {
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGBiomes.addBiomesToWeightSystem();
-
-
-        BYGBlocks.flowerIDs.forEach(System.out::println);
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

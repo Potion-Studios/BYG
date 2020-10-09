@@ -33,7 +33,7 @@ public class PrairieShrub2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
 
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;

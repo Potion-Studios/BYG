@@ -23,44 +23,44 @@ public class LamentWeepingTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureCon
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
+            if (!isDesiredGroundwNetherTags(worldIn, pos.down(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
-                placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
-                placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 0, -1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 0, 1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 0, -1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 0, 1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 1, -1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 1, 1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 1, -1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 1, 1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 2, -1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 2, 1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 2, -1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 2, 1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 4, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 4, -1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 4, 1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 4, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 5, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 5, -2), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 5, 2), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(2, 5, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-3, 6, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 6, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 6, -3), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 6, -2), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 6, 2), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 6, 3), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(2, 6, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.add(3, 6, 0), boundsIn);
+                placeNetherTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 2, 0), boundsIn);
+                placeNetherTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 3, 0), boundsIn);
+                placeNetherTrunk(config, rand, changedBlocks, worldIn, mainmutable.add(0, 4, 0), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 0, -1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 0, 1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 0, -1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 0, 1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 1, -1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 1, 1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 1, -1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 1, 1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 2, -1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 2, 1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 2, -1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 2, 1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 4, 0), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 4, -1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 4, 1), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(1, 4, 0), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 5, 0), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 5, -2), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 5, 2), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(2, 5, 0), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-3, 6, 0), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(-2, 6, 0), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 6, -3), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 6, -2), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 6, 2), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(0, 6, 3), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(2, 6, 0), boundsIn);
+                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.add(3, 6, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-3, 3, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(-1, 3, 3), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.add(1, 3, -3), boundsIn);

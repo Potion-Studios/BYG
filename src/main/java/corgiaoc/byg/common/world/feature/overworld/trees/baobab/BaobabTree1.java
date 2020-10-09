@@ -4,8 +4,6 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
@@ -22,7 +20,6 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
 
     public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
-
         int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int randCorner1 = randTreeHeight - rand.nextInt(12) - 7;
         int randCorner2 = randTreeHeight - rand.nextInt(12) - 7;
@@ -42,8 +39,7 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < 256) {
-            BlockPos posDown = pos.down();
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
@@ -51,11 +47,6 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 30, 5, 5, isSapling)) {
                 return false;
             } else {
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
-                int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
-                int posY1 = 2 - rand.nextInt(1);
-                int posX1 = posX;
-                int posZ1 = posZ;
                 int topTrunkHeight2 = posY + randTreeHeight + 2;
                 int topTrunkHeight3 = posY + randTreeHeight + 5;
                 int topTrunkHeight4 = posY + randTreeHeight + 4;
@@ -67,17 +58,12 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 int topTrunkHeight10 = posY + randTreeHeight + 2;
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
-                    if (buildTrunk >= randTreeHeight2 && posY1 < 0) {
-                        posX1 += direction.getXOffset();
-                        posZ1 += direction.getZOffset();
-                        ++posY1;
-                    }
 
                     int logplacerY = posY + buildTrunk;
                     int topTreeHeight = posY + randTreeHeight - 1;
 
-                    BlockPos blockpos1 = new BlockPos(posX1, logplacerY, posZ1);
-                    BlockPos blockpos2 = new BlockPos(posX1, topTreeHeight, posZ1);
+                    BlockPos blockpos1 = new BlockPos(posX, logplacerY, posZ);
+                    BlockPos blockpos2 = new BlockPos(posX, topTreeHeight, posZ);
 
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos1.north(), boundsIn);
@@ -184,24 +170,24 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 int leavessquarespos = 2;
                 for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
                     for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
-                        int posX2 = posX1 + 5;
-                        int posZ2 = posZ1 + 1;
-                        int posX3 = posX1 + 3;
-                        int posZ3 = posZ1 - 2;
-                        int posX4 = posX1 - 1;
-                        int posZ4 = posZ1 + 4;
-                        int posX5 = posX1 - 7;
-                        int posZ5 = posZ1 + 1;
-                        int posX6 = posX1 - 5;
-                        int posZ6 = posZ1 - 3;
-                        int posX7 = posX1;
-                        int posZ7 = posZ1 - 6;
-                        int posX8 = posX1 - 6;
-                        int posZ8 = posZ1;
-                        int posX9 = posX1;
-                        int posZ9 = posZ1 - 3;
-                        int posX10 = posX1 + 1;
-                        int posZ10 = posZ1 + 4;
+                        int posX2 = posX + 5;
+                        int posZ2 = posZ + 1;
+                        int posX3 = posX + 3;
+                        int posZ3 = posZ - 2;
+                        int posX4 = posX - 1;
+                        int posZ4 = posZ + 4;
+                        int posX5 = posX - 7;
+                        int posZ5 = posZ + 1;
+                        int posX6 = posX - 5;
+                        int posZ6 = posZ - 3;
+                        int posX7 = posX;
+                        int posZ7 = posZ - 6;
+                        int posX8 = posX - 6;
+                        int posZ8 = posZ;
+                        int posX9 = posX;
+                        int posZ9 = posZ - 3;
+                        int posX10 = posX + 1;
+                        int posZ10 = posZ + 4;
 
                         placeLeaves(config, rand, worldIn, posX2 + posXLeafWidth, topTrunkHeight2, posZ2 + posZLeafWidthL0, boundsIn, changedBlocks);
                         placeLeaves(config, rand, worldIn, posX3 + posXLeafWidth, topTrunkHeight3, posZ3 + posZLeafWidthL0, boundsIn, changedBlocks);

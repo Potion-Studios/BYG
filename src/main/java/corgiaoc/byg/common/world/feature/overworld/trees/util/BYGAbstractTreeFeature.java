@@ -48,6 +48,10 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
         return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
+    public boolean canLogPlaceHereNether(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
+        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA) || FeatureUtil.isPlant(worldReader, blockPos);
+    }
+
     public boolean isAnotherTreeHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
         return worldReader.hasBlockState(blockPos, (state) -> {
             Block block = state.getBlock();
@@ -85,6 +89,19 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
         BlockPos pos = new BlockPos(x, y, z);
         if (isAir(reader, pos)) {
             this.setFinalBlockState(blockPos, reader, pos, config.getLeavesProvider().getBlockState(random, pos), boundingBox);
+        }
+    }
+
+
+    public void placeNetherTrunk(BYGTreeFeatureConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        if (canLogPlaceHereNether(reader, pos)) {
+            this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
+        }
+    }
+
+    public void placeNetherBranch(BYGTreeFeatureConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        if (canLogPlaceHereNether(reader, pos)) {
+            this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getBlockState(random, pos), boundingBox);
         }
     }
 
@@ -131,6 +148,16 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
                 return block.isIn(Tags.Blocks.DIRT) || block == block1;
             }
             return block.isIn(Tags.Blocks.DIRT);
+        });
+    }
+
+    public static boolean isDesiredGroundwNetherTags(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeFeatureConfig config) {
+        return reader.hasBlockState(pos, (state) -> {
+            Block block = state.getBlock();
+            for (Block block1 : config.getWhitelist()) {
+                return block.isIn(Tags.Blocks.NETHERRACK) || block.isIn(BlockTags.NYLIUM) || block.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) || block == block1;
+            }
+            return block.isIn(Tags.Blocks.NETHERRACK) || block.isIn(BlockTags.NYLIUM) || block.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS);
         });
     }
 
@@ -273,7 +300,8 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
     }
 
     /**
-     * Checks the area surrounding the pos for any blocks using either the log or leaves tag.
+     * Checks the area surrounding the position for any blocks using either the log or leaves tag.
+     *
      * Called only during world gen.
      *
      * @param reader     Gives us access to world
@@ -281,7 +309,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
      * @param treeHeight The height of the given tree.
      * @param distance   Checks the surrounding pos
      * @param isSapling  Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
-     * @return Determines whether or not any tree is within the givem distance
+     * @return Determines whether or not any tree is within the given distance
      */
     public boolean isAnotherTreeNearby(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int distance, boolean isSapling) {
         int x = pos.getX();
@@ -372,7 +400,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
      * @param config    Typically this is the log of the tree we're trying to fill the base of.
      * @param rand     The block used under logs. Typically a block found in the dirt tag
      * @param boundingBox    Bounding Box of our tree.
-     * @param trunkPositions List of trunk poss where the base is built under the given poss.
+     * @param trunkPositions List of trunk positions where the base is built under the given position.
      */
 
     public void buildTrunkBase(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, BYGTreeFeatureConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
