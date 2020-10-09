@@ -36,16 +36,13 @@ public class UnderGroundPlacement extends Placement<AtSurfaceWithExtraConfig> {
             BlockPos newPos = new BlockPos(pos.add(x, 0, z));
             int height = decoratorContext.func_242893_a(Heightmap.Type.MOTION_BLOCKING, newPos.getX(), newPos.getZ()) - 5;
 
-
             while (height > 15) {
-
                 airBlock = decoratorContext.func_242894_a(pos.add(x, height, z)).isAir();
 
                 //if height is is an air block and previous block was a solid block, store the fact that we are in an air block now
                 if (!airFlag && airBlock) {
                     airFlag = true;
                 }
-
 
                 //if height is an solid block and last block was air block, we are now on the surface of a piece of land. Generate feature now
                 else if (airFlag && !airBlock) {
@@ -57,9 +54,7 @@ public class UnderGroundPlacement extends Placement<AtSurfaceWithExtraConfig> {
                 //move down
                 height--;
             }
-
         }
-
         return IntStream.range(0, blockPosList.size()).mapToObj((integer) -> blockPosList.remove(0)).filter(Objects::nonNull);
     }
 }

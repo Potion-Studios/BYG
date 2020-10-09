@@ -24,9 +24,7 @@ public class WeepingRoots extends Feature<NoFeatureConfig> {
         } else if (!worldIn.isAirBlock(pos) || !worldIn.getBlockState(pos.up()).getBlock().isIn(Tags.Blocks.STONE) || !worldIn.getBlockState(pos.up()).getBlock().isIn(Tags.Blocks.NETHERRACK) && !(worldIn.getDimensionType() == DimensionType.OVERWORLD_TYPE)) {
             return false;
         } else {
-
             worldIn.setBlockState(pos, BYGBlocks.WEEPING_ROOTS.getDefaultState(), 10);
-
             return true;
         }
     }

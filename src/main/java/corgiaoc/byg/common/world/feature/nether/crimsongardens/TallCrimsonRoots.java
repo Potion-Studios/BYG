@@ -19,7 +19,7 @@ public class TallCrimsonRoots extends Feature<NoFeatureConfig> {
         super(config);
     }
 
-    public static final EnumProperty<DoubleBlockHalf> HALF;
+    public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
     public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         if (!worldIn.isAirBlock(pos) || worldIn.getBlockState(pos.down()).getBlock() != BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE) {
@@ -29,9 +29,6 @@ public class TallCrimsonRoots extends Feature<NoFeatureConfig> {
             worldIn.setBlockState(pos.offset(Direction.UP), BYGBlocks.TALL_CRIMSON_ROOTS.getDefaultState().with(HALF, DoubleBlockHalf.UPPER), 10);
             return true;
         }
-    }
 
-    static {
-        HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
     }
 }
