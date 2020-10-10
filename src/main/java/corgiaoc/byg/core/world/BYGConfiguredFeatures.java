@@ -17,14 +17,10 @@ import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.foliageplacer.*;
+import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
+import net.minecraft.world.gen.foliageplacer.FancyFoliagePlacer;
 import net.minecraft.world.gen.placement.*;
-import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
-import net.minecraft.world.gen.treedecorator.LeaveVineTreeDecorator;
-import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunkplacer.FancyTrunkPlacer;
-import net.minecraft.world.gen.trunkplacer.GiantTrunkPlacer;
-import net.minecraft.world.gen.trunkplacer.MegaJungleTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 
 import java.util.OptionalInt;
@@ -237,8 +233,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> STACKED_BOULDERS = WorldGenRegistrationHelper.createConfiguredFeature("stacked_boulders", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.STONE.getDefaultState(), 3).addWeightedBlockstate(Blocks.DIORITE.getDefaultState(), 2)).setMinStackHeight(10).setMaxHeight(15).setMinRadius(8).setMaxRadius(28).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.15F, 1))));
     public static final ConfiguredFeature<?, ?> GRASSLAND_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("grassland_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ROCKY_STONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.MOSSY_STONE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
     public static final ConfiguredFeature<?, ?> GRANITE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("granite_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.GRANITE.getDefaultState(), 3).addWeightedBlockstate(Blocks.POLISHED_GRANITE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(9).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+    public static final ConfiguredFeature<?, ?> ARCH = WorldGenRegistrationHelper.createConfiguredFeature("arch", BYGFeatures.ARCH.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.GRANITE.getDefaultState(), 3).addWeightedBlockstate(Blocks.POLISHED_GRANITE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(9).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.05F, 1))));
     public static final ConfiguredFeature<?, ?> ETHER_STONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("ether_stone_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
-
 
     public static final ConfiguredFeature<?, ?> RED_ROCK_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("red_rock_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.RED_ROCK.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.RED_ROCK.getDefaultState(), 9).addWeightedBlockstate(Blocks.RED_CONCRETE.getDefaultState(), 1)).setMinStackHeight(7).setMaxHeight(12).setMinRadius(8).setMaxRadius(12).build()));
     public static final ConfiguredFeature<?, ?> WHITE_SANDSTONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("white_sandstone_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BYGBoulderFeatureConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SANDSTONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 2).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.WHITE_SAND.getDefaultState(), 5)).setMinStackHeight(3).setMaxHeight(12).setMinRadius(13).setMaxRadius(20).setRadiusDivisor(1.1).flattenTopBoulder().build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.04F, 1))));

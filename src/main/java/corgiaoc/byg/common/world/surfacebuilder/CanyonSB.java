@@ -10,7 +10,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
@@ -103,24 +102,24 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 }
             }
         }
-        if (noiseSample > 8.8F && noiseSample <= 9.0F)
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.GRASSMOUNTAIN_CF);
+//        if (noiseSample > 8.8F && noiseSample <= 9.0F)
+//            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+//
+//        if (noiseSample < 8.8F) {
+//            if (noise < 1)
+//                SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+//            else
+        SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+//    }
 
-        if (noiseSample < 8.8F) {
-            if (noise < 1)
-                SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.GRASSMOUNTAIN_CF);
-            else
-                SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, randomSurfaceConfig(random));
-        }
-
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
-        for (int yPos = groundHeight - 3; yPos >= seaLevel - 15; yPos--) {
-            setStrataLayerBlock(yPos);
-            mutable.setPos(xPos, yPos, zPos);
-
-            if (chunkIn.getBlockState(mutable).isIn(Tags.Blocks.STONE))
-                chunkIn.setBlockState(mutable, layerBlock, false);
-        }
+//        BlockPos.Mutable mutable = new BlockPos.Mutable();
+//        for (int yPos = groundHeight - 3; yPos >= seaLevel - 15; yPos--) {
+//            setStrataLayerBlock(yPos);
+//            mutable.setPos(xPos, yPos, zPos);
+//
+//            if (chunkIn.getBlockState(mutable).isIn(Tags.Blocks.STONE))
+//                chunkIn.setBlockState(mutable, layerBlock, false);
+//        }
     }
 
 

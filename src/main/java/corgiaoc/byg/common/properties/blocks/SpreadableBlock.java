@@ -16,6 +16,7 @@ import net.minecraft.world.gen.feature.NetherVegetationFeature;
 import net.minecraft.world.lighting.LightEngine;
 import net.minecraft.world.server.ServerWorld;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -24,6 +25,8 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
     private final Block blockToSpreadToo;
     private final BlockStateProvidingFeatureConfig featureConfig;
     private final ForDimension forDimension;
+
+
 
     private final boolean isNotOverworld;
 
@@ -175,6 +178,12 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
     private boolean areConditionsGoodAndNotUnderWater(BlockState state, IWorldReader worldReader, BlockPos pos) {
         BlockPos blockpos = pos.up();
         return areConditionsGood(state, worldReader, pos) && !worldReader.getFluidState(blockpos).isTagged(FluidTags.WATER);
+    }
+
+    public static void addGrassBlocksForConsumption() {
+
+
+
     }
 
 

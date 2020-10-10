@@ -36,7 +36,7 @@ public class IvisFields extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder())
                 .setWaterColor(WATER_COLOR)
                 .setWaterFogColor(WATER_FOG_COLOR)
-                .setFogColor(10518688)
+                .setFogColor(8339307)
                 .withSkyColor(0)
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WITCH, 0.00428F))
                 .setAmbientSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
@@ -50,7 +50,7 @@ public class IvisFields extends BYGBiome {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.IVIS_SPIKES);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.IVIS_SPIKES2);
         BYGDefaultBiomeFeatures.addIvisPlants(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addSparseBulbisTrees(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CHORUS_PLANT);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CHORUS_PLANT);
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244151_q).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
 
