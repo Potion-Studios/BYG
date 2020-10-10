@@ -878,7 +878,7 @@ public class BYGItems {
     public static final Item RAW_QUARTZ_BLOCK = createItem(new BlockItem(BYGBlocks.RAW_QUARTZ_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.RAW_QUARTZ_BLOCK));
 
     public static final Item WHALING_VINES = createItem(new BlockItem(BYGBlocks.WAILING_VINES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_VINES));
-    public static final Item WHALING_GRASS = createItem(new BlockItem(BYGBlocks.WHALING_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WHALING_GRASS));
+    public static final Item WHALING_GRASS = createItem(new BlockItem(BYGBlocks.WAILING_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_GRASS));
     public static final Item SCORCHED_BUSH = createItem(new BlockItem(BYGBlocks.SCORCHED_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORCHED_BUSH));
     public static final Item SCORCHED_GRASS = createItem(new BlockItem(BYGBlocks.SCORCHED_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORCHED_GRASS));
 
