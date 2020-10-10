@@ -653,7 +653,7 @@ public class BYGBlocks {
     public static final Block SYTHIAN_STEM = new BYGBlockProperties.BYGNetherLog("sythian_stem");
     public static final Block EMBUR_PEDU = new BYGBlockProperties.BYGNetherLog("embur_pedu");
     public static final Block PALM_LOG = createLog("palm_log");
-    public static final Block LAMENT_LOG = createLog("lament_log");
+    public static final Block LAMENT_LOG = new BYGBlockProperties.BYGNetherLog("lament_log");
     public static final Block WITHERING_OAK_LOG = createLog("withering_oak_log");
     public static final Block BULBIS_STEM = new BYGBlockProperties.BYGNetherLog("bulbis_stem");
     public static final Block NIGHTSHADE_LOG = createLog("nightshade_log");
@@ -685,7 +685,7 @@ public class BYGBlocks {
     public static final Block SYTHIAN_HYPHAE = new BYGBlockProperties.BYGNetherWood("sythian_hyphae");
     public static final Block EMBUR_HYPHAE = new BYGBlockProperties.BYGNetherWood("embur_hyphae");
     public static final Block PALM_WOOD = createWood("palm_wood");
-    public static final Block LAMENT_WOOD = createWood("lament_wood");
+    public static final Block LAMENT_WOOD = new BYGBlockProperties.BYGNetherWood("lament_wood");
     public static final Block WITHERING_OAK_WOOD = createWood("withering_oak_wood");
     public static final Block BULBIS_WOOD = new BYGBlockProperties.BYGNetherWood("bulbis_wood");
     public static final Block NIGHTSHADE_WOOD = createWood("nightshade_wood");
@@ -817,7 +817,7 @@ public class BYGBlocks {
     public static final Block STRIPPED_SYTHIAN_STEM = new BYGBlockProperties.BYGNetherLog("stripped_sythian_stem");
     public static final Block STRIPPED_EMBUR_PEDU = new BYGBlockProperties.BYGNetherLog("stripped_embur_pedu");
     public static final Block STRIPPED_PALM_LOG = createStrippedLog("stripped_palm_log");
-    public static final Block STRIPPED_LAMENT_LOG = createStrippedLog("stripped_lament_log");
+    public static final Block STRIPPED_LAMENT_LOG = new BYGBlockProperties.BYGNetherLog("stripped_lament_log");
     public static final Block STRIPPED_BULBIS_LOG = new BYGBlockProperties.BYGNetherLog("stripped_bulbis_stem");
     public static final Block STRIPPED_NIGHTSHADE_LOG = createStrippedLog("stripped_nightshade_log");
     public static final Block STRIPPED_ETHER_LOG = createStrippedLog("stripped_ether_log");
@@ -847,7 +847,7 @@ public class BYGBlocks {
     public static final Block STRIPPED_SYTHIAN_HYPHAE = new BYGBlockProperties.BYGNetherWood("stripped_sythian_hyphae");
     public static final Block STRIPPED_EMBUR_HYPHAE = new BYGBlockProperties.BYGNetherWood("stripped_embur_hyphae");
     public static final Block STRIPPED_PALM_WOOD = createWood("stripped_palm_wood");
-    public static final Block STRIPPED_LAMENT_WOOD = createWood("stripped_lament_wood");
+    public static final Block STRIPPED_LAMENT_WOOD = new BYGBlockProperties.BYGNetherWood("stripped_lament_wood");
     public static final Block STRIPPED_BULBIS_WOOD = new BYGBlockProperties.BYGNetherWood("stripped_bulbis_wood");
     public static final Block STRIPPED_NIGHTSHADE_WOOD = createWood("stripped_nightshade_wood");
     public static final Block STRIPPED_ETHER_WOOD = createWood("stripped_ether_wood");

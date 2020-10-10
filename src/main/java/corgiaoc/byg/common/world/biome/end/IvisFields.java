@@ -47,6 +47,7 @@ public class IvisFields extends BYGBiome {
 
 
     static {
+        BYGDefaultBiomeFeatures.addLargeLake(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.IVIS_SPIKES);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.IVIS_SPIKES2);
         BYGDefaultBiomeFeatures.addIvisPlants(GENERATION_SETTINGS);
