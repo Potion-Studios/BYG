@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.end.EtherealIslands;
 import corgiaoc.byg.common.world.biome.end.IvisFields;
+import corgiaoc.byg.common.world.biome.end.NightshadeForest;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
 import corgiaoc.byg.common.world.biome.overworld.sub.*;
@@ -227,6 +228,7 @@ public class BYGBiomes {
     //End
     public static final Biome IVISFIELDS = new IvisFields().getBiome();
     public static final Biome ETHEREAL_ISLANDS = new EtherealIslands().getBiome();
+    public static final Biome NIGHTSHADE_FOREST = new NightshadeForest().getBiome();
 
 
     public static void registerBYGBiomes() {
@@ -410,6 +412,7 @@ public class BYGBiomes {
         //End
         registerBYGEndBiome(BYGBiomes.IVISFIELDS, "ivis_fields");
         registerBYGEndBiome(BYGBiomes.ETHEREAL_ISLANDS, "ethereal_islands");
+        registerBYGEndBiome(BYGBiomes.NIGHTSHADE_FOREST, "nightshade_forest");
     }
 
     private static void registerBiome(Biome biome, String name) {

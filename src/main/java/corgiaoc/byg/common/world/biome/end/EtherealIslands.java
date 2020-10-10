@@ -21,7 +21,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class EtherealIslands extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("ethereal_islands", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.Configs.ETHER));
-    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.NETHER;
     static final float DEPTH = 0.125F;
     static final float SCALE = 0.05F;
@@ -44,7 +44,7 @@ public class EtherealIslands extends BYGBiome {
                 .setAmbientSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
-                .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_NETHER_BASALT_DELTAS)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+                .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
     static {

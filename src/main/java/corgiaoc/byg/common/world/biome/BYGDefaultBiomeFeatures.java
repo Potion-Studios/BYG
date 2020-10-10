@@ -444,6 +444,11 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_THEREAL_BELLFLOWER);
     }
 
+    public static void addNightshadePlants(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_NIGHTSHADE_PLANT);
+//        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_THEREAL_BELLFLOWER);
+    }
+
     public static void addExtraCanyons(BiomeGenerationSettings.Builder gen) {
     }
 
@@ -835,5 +840,9 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addEtherTrees(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_TREE);
+    }
+
+    public static void addNightShadeTrees(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_NIGHTSHADE_TREE);
     }
 }

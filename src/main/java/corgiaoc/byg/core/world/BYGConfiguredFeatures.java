@@ -174,6 +174,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ETHER_BUSH = WorldGenRegistrationHelper.createConfiguredFeature("ether_bush", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.ETHER_BUSH));
     public static final ConfiguredFeature<?, ?> THEREAL_BELLFLOWER = WorldGenRegistrationHelper.createConfiguredFeature("thereal_bellflower", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.THEREAL_BELLFLOWER_CONFIG));
 
+    public static final ConfiguredFeature<?, ?> NIGHTSHADE_SPROUTS = WorldGenRegistrationHelper.createConfiguredFeature("nightshade_sprouts", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.NIGHTSHADE_SPROUTS));
+
 
     public static final ConfiguredFeature<?, ?> WEEPING_VINE_BLACKSTONE = WorldGenRegistrationHelper.createConfiguredFeature("weeping_vines_blackstone", BYGFeatures.WEEPING_VINE_BLACKSTONE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
@@ -634,6 +636,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_ETHER_PLANT = WorldGenRegistrationHelper.createConfiguredFeature("rs_ether_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ETHER_BUSH.withChance(0.2F)),
             ETHER_GRASS)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(5));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_NIGHTSHADE_PLANT = WorldGenRegistrationHelper.createConfiguredFeature("rs_nightshade_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            NIGHTSHADE_SPROUTS.withChance(0.2F)),
+            NIGHTSHADE_SPROUTS)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(5));
 
     public static final ConfiguredFeature<?, ?> RANDOM_THEREAL_BELLFLOWER = WorldGenRegistrationHelper.createConfiguredFeature("rs_thereal_bellflower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             THEREAL_BELLFLOWER.withChance(0.5F)),
@@ -1826,6 +1832,7 @@ public class BYGConfiguredFeatures {
         public static final BlockClusterFeatureConfig ETHER_GRASS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ETHER_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
         public static final BlockClusterFeatureConfig ETHER_BUSH = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ETHER_BUSH.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
         public static final BlockClusterFeatureConfig THEREAL_BELLFLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.THEREAL_BELLFLOWER.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.ETHER_PHYLIUM, BYGBlocks.NIGHTSHADE_PHYLIUM, BYGBlocks.IVIS_PHYLIUM, GRASS_BLOCK)).func_227317_b_().build();
+        public static final BlockClusterFeatureConfig NIGHTSHADE_SPROUTS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
 
 
 
