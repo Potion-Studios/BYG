@@ -146,7 +146,7 @@ public class BYGFeatures {
     public static final Feature<NoFeatureConfig> HUH = WorldGenRegistrationHelper.createFeature("river_feature", new RiverThingy(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<NoFeatureConfig> VOLCANO = WorldGenRegistrationHelper.createFeature("noise_volcano", new NoiseVolcano(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<BYGBoulderFeatureConfig> STACKABLE_BOULDERS = WorldGenRegistrationHelper.createFeature("stacked_boulder", new StackableBoulders(BYGBoulderFeatureConfig.CODEC.stable()));
-    public static final Feature<BYGBoulderFeatureConfig> ARCH = WorldGenRegistrationHelper.createFeature("arch", new ArchFeature(BYGBoulderFeatureConfig.CODEC.stable()));
+    public static final Feature<SimpleBlockProviderConfig> ARCH = WorldGenRegistrationHelper.createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
 
     /********************************************************************Features*************************************************************************/
     //DeadSea
