@@ -8,7 +8,7 @@ import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BYGQuartzCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
 import corgiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
-import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
+import corgiaoc.byg.common.properties.blocks.nether.crimson.BerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;
@@ -632,18 +632,6 @@ public class BYGBlockProperties {
 
         }
     }
-
-    public static class CrimsonBerryBush extends CrimsonBerryBushBlock {
-        public CrimsonBerryBush(String registryName) {
-            super(Block.Properties.create(Material.PLANTS)
-                    .sound(SoundType.SWEET_BERRY_BUSH)
-                    .zeroHardnessAndResistance()
-                    .doesNotBlockMovement()
-            );
-            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-        }
-    }
-
 
     public static class EndPlant extends EndPlantBlock {
         public EndPlant(String registryName) {

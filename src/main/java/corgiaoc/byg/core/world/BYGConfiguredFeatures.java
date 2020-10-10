@@ -3,7 +3,7 @@ package corgiaoc.byg.core.world;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import corgiaoc.byg.common.properties.blocks.BlueBerryBush;
-import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
+import corgiaoc.byg.common.properties.blocks.nether.crimson.BerryBushBlock;
 import corgiaoc.byg.common.world.decorator.config.AtOrBelowSeaLevelCountExtraConfig;
 import corgiaoc.byg.common.world.feature.config.*;
 import corgiaoc.byg.core.BYGBlocks;
@@ -185,7 +185,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> EMBUR_SPROUTS = WorldGenRegistrationHelper.createConfiguredFeature("embur_sprouts", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.EMBUR_SPROUTS.getDefaultState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.EMBUR_NYLIUM.getDefaultState()))));
 
     public static final ConfiguredFeature<?, ?> CRIMSON_ROOTS_TALL = WorldGenRegistrationHelper.createConfiguredFeature("tall_crimson_roots", BYGFeatures.TALL_CRIMSON_ROOTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
-    public static final ConfiguredFeature<?, ?> CRIMSON_BERRY_BUSH = WorldGenRegistrationHelper.createConfiguredFeature("crimson_berry_bush", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.CRIMSON_BERRY_BUSH.getDefaultState().with(CrimsonBerryBushBlock.AGE, 3), ImmutableList.of(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.getDefaultState(), Blocks.BLACKSTONE.getDefaultState()))));
+    public static final ConfiguredFeature<?, ?> CRIMSON_BERRY_BUSH = WorldGenRegistrationHelper.createConfiguredFeature("crimson_berry_bush", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.CRIMSON_BERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 3), ImmutableList.of(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.getDefaultState(), Blocks.BLACKSTONE.getDefaultState()))));
 
     public static final ConfiguredFeature<?, ?> SYTHIAN_ROOTS = WorldGenRegistrationHelper.createConfiguredFeature("sythian_root", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.SYTHIAN_ROOTS.getDefaultState(), ImmutableList.of(BYGBlocks.SYTHIAN_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.SYTHIAN_NYLIUM.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> SYTHIAN_SPROUT = WorldGenRegistrationHelper.createConfiguredFeature("sythian_sprout", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.SYTHIAN_SPROUT.getDefaultState(), ImmutableList.of(BYGBlocks.SYTHIAN_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.SYTHIAN_NYLIUM.getDefaultState()))));
@@ -1674,7 +1674,7 @@ public class BYGConfiguredFeatures {
             BULBIS_TREE3.withChance(0.3F),
             BULBIS_TREE2.withChance(0.3F)),
             BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
-            new AtSurfaceWithExtraConfig(0, 0.3F, 2))));
+            new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_NIGHTSHADE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_nightshade_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             NIGHTSHADE_TREE1.withChance(0.7F)),

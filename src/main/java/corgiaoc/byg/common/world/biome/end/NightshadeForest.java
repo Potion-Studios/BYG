@@ -47,9 +47,9 @@ public class NightshadeForest extends BYGBiome {
         BYGDefaultBiomeFeatures.addNightshadePlants(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addNightShadeTrees(GENERATION_SETTINGS);
 
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 15, 1, 2));
+        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 2, 1, 2));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.PHANTOM, 5, 1, 2));
+        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.PHANTOM, 1, 1, 2));
 
     }
 }

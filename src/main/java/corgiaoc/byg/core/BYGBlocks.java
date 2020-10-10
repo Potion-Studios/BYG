@@ -3,6 +3,7 @@ package corgiaoc.byg.core;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.blocks.*;
+import corgiaoc.byg.common.properties.blocks.nether.crimson.BerryBushBlock;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import corgiaoc.byg.common.world.feature.overworld.trees.BYGSaplingToTree;
@@ -11,10 +12,13 @@ import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.entity.EntityType;
+import net.minecraft.item.Item;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.ToolType;
 
 import java.util.ArrayList;
@@ -487,7 +491,7 @@ public class BYGBlocks {
     public static final Block PINK_GLOWCANE = new BYGBlockProperties.BYGPINKGlowCane("pink_glowcane");
     public static final Block POISON_IVY = new BYGBlockProperties.BYGPoisonIvy("poison_ivy");
     public static final Block SKYRIS_VINE = new BYGBlockProperties.BYGSkyrisVine("skyris_vine");
-    public static final Block BLUEBERRY_BUSH = new BYGBlockProperties.BYGBerryBush("blueberry_bush");
+    public static final Block BLUEBERRY_BUSH = createBerryBush(BYGItems.BLUE_BERRY, Tags.Blocks.DIRT, EntityType.FOX, "blueberry_bush");
     public static final Block TINY_LILYPADS = new BYGBlockProperties.BYGLily("tiny_lilypads");
     public static final Block WATER_SILK = new BYGBlockProperties.BYGWaterSilk("water_silk");
     public static final Block WEEPING_ROOTS = new BYGBlockProperties.BYGHangingVine("weeping_roots");
@@ -507,7 +511,7 @@ public class BYGBlocks {
     public static final Block NETHER_BRISTLE = new BYGBlockProperties.BYGDoubleDamagePlant("nether_bristle");
     public static final Block MOSSY_NETHERRACK = new BYGBlockProperties.BYGNetherrack("mossy_netherrack");
 
-    public static final Block CRIMSON_BERRY_BUSH = new BYGBlockProperties.CrimsonBerryBush("crimson_berry_bush");
+    public static final Block CRIMSON_BERRY_BUSH = createBerryBush(BYGItems.CRIMSON_BERRIES, Tags.Blocks.DIRT, EntityType.HOGLIN,"crimson_berry_bush");
     public static final Block TALL_CRIMSON_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_crimson_roots");
     public static final Block BRIMSTONE = new BYGBlockProperties.BYGNetherrack("brimstone");
     public static final Block YELLOW_NETHER_BRICKS = new BYGBlockProperties.BYGNetherrack("yellow_nether_bricks");
@@ -540,7 +544,7 @@ public class BYGBlocks {
     public static final Block SYTHIAN_STALK_BLOCK = new BYGBlockProperties.SythianStalk("sythian_stalk_block");
     public static final Block SYTHIAN_SCAFFOLDING = new BYGBlockProperties.BYGScaffolding("sythian_scaffolding");
     public static final Block SYTHIAN_SAPLING = new BYGBlockProperties.SythianSapling("sythian_sapling");
-    ;
+
     public static final Block HANGING_SYTHIAN_ROOTS = new BYGBlockProperties.BYGSythianHangingRoots("hanging_sythian_roots");
     public static final Block HANGING_SYTHIAN_ROOTS_PLANT = new BYGBlockProperties.BYGSythianHangingRootsPlant("hanging_sythian_roots_plant");
 
@@ -562,6 +566,8 @@ public class BYGBlocks {
     public static final Block ETHER_BUSH = new BYGBlockProperties.EndPlant("ether_bush");
     public static final Block THEREAL_BELLFLOWER = new BYGBlockProperties.EndPlant("thereal_bellflower");
     public static final Block NIGHTSHADE_SPROUTS = new BYGBlockProperties.EndPlant("nightshade_sprouts");
+    public static final Block NIGHTSHADE_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("nightshade_roots");
+    public static final Block NIGHTSHADE_BERRY_BUSH = createBerryBush(BYGItems.NIGHTSHADE_BERRIES, Tags.Blocks.END_STONES, EntityType.ENDERMAN, "nightshade_berry_bush");
 
     public static final Block PURPUR_STONE = new BYGBlockProperties.BYGStone("purpur_stone");
     public static final Block ETHER_STONE = new BYGBlockProperties.BYGStone("ether_stone");
@@ -1048,6 +1054,12 @@ public class BYGBlocks {
         Block flower = new TallFlowerBlock(Block.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), flower);
         return flower;
+    }
+
+    static Block createBerryBush(Item getBerryItem, Tags.IOptionalNamedTag<Block> getGroundBlock, EntityType getEntity, String id) {
+        Block berryBush = new BerryBushBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).zeroHardnessAndResistance().doesNotBlockMovement(), getBerryItem, getGroundBlock, getEntity);
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), berryBush);
+        return berryBush;
     }
 
     static Block createSapling(BYGTree tree, String id) {
