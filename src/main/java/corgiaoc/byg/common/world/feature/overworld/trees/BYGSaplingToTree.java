@@ -263,6 +263,22 @@ public class BYGSaplingToTree {
 
     }
 
+    public static class NightshadeSaplingToTree extends BYGTree {
+        @Nullable
+        public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGConfiguredFeatures.NIGHTSHADE_TREE1 : BYGConfiguredFeatures.NIGHTSHADE_TREE2;
+        }
+
+    }
+
+    public static class EtherSaplingToTree extends BYGTree {
+        @Nullable
+        public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGConfiguredFeatures.ETHER_TREE2 : BYGConfiguredFeatures.ETHER_TREE3;
+        }
+
+    }
+
     public static class MapleSaplingToTree extends BYGTree {
         @Nullable
         public ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random) {

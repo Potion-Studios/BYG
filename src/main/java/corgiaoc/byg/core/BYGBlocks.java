@@ -396,8 +396,8 @@ public class BYGBlocks {
     public static final Block PALM_SAPLING = createSapling(new BYGSaplingToTree.PalmSaplingToTree(), "palm_sapling");
     public static final Block LAMENT_SAPLING = createSapling(new BYGSaplingToTree.LamentSaplingToTree(), "lament_sapling");
     public static final Block WITHERING_OAK_SAPLING = createSapling(new BYGSaplingToTree.WitheringOakSaplingToTree(), "withering_oak_sapling");
-    public static final Block ETHER_SAPLING = createSapling(new BYGSaplingToTree.WitheringOakSaplingToTree(), "ether_sapling");
-    public static final Block NIGHTSHADE_SAPLING = createSapling(new BYGSaplingToTree.WitheringOakSaplingToTree(), "nightshade_sapling");
+    public static final Block ETHER_SAPLING = createSapling(new BYGSaplingToTree.EtherSaplingToTree(), "ether_sapling");
+    public static final Block NIGHTSHADE_SAPLING = createSapling(new BYGSaplingToTree.NightshadeSaplingToTree(), "nightshade_sapling");
 
     public static final Block ARAUCARIA_LEAVES = createLeaves("araucaria_leaves");
     public static final Block ASPEN_LEAVES = createLeaves("aspen_leaves");
@@ -701,7 +701,7 @@ public class BYGBlocks {
     public static final Block SYTHIAN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
     public static final Block SOUL_SHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
     public static final Block DEATH_CAP = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
-    public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "bulbis_oddity");
+    public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "bulbis_oddity");
 
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");

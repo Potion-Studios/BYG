@@ -91,5 +91,12 @@ public class BYGMushroomToHugeMushroom {
             return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.DEATH_CAP_TREE2 : BYGConfiguredFeatures.DEATH_CAP_TREE3;
         }
     }
+
+    public static class Bulbis extends BYGHugeMushroom {
+        @Nullable
+        public ConfiguredFeature<BYGMushroomFeatureConfig, ?> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.BULBIS_TREE2 : BYGConfiguredFeatures.BULBIS_TREE4;
+        }
+    }
 }
 

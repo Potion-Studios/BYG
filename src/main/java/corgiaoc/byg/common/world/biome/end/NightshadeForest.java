@@ -36,7 +36,7 @@ public class NightshadeForest extends BYGBiome {
                 .setWaterFogColor(WATER_FOG_COLOR)
                 .setFogColor(10518688)
                 .withSkyColor(0)
-                .setParticle(new ParticleEffectAmbience(ParticleTypes.CRIMSON_SPORE, 0.00428F))
+                .setParticle(new ParticleEffectAmbience(ParticleTypes.ASH, 0.00428F))
                 .setAmbientSound(SoundEvents.AMBIENT_NETHER_WASTES_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_NETHER_WASTES_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0111D))
@@ -49,7 +49,7 @@ public class NightshadeForest extends BYGBiome {
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 15, 1, 2));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.PHANTOM, 10, 2, 4));
+        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.PHANTOM, 5, 1, 2));
 
     }
 }

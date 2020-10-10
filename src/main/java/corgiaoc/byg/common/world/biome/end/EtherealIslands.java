@@ -52,7 +52,7 @@ public class EtherealIslands extends BYGBiome {
         BYGDefaultBiomeFeatures.addEtherPlants(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEtherTrees(GENERATION_SETTINGS);
 
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 15, 1, 2));
+        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 5, 1, 2));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
     }
 }
