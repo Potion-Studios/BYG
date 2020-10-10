@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "byg:ivis_phylium",
+    "byg:ether_stone",
+    "byg:nightshade_phylium",
+    "byg:ether_soil",
+    "byg:ether_phylium"
+  ]
+}

@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.feature.overworld.mushrooms.util;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -128,6 +129,16 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomFeatureCon
                 return block.isIn(Tags.Blocks.DIRT) || block == block1;
             }
             return block.isIn(Tags.Blocks.DIRT);
+        });
+    }
+
+    public static boolean isDesiredGroundwEndTags(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+        return reader.hasBlockState(pos, (state) -> {
+            Block block = state.getBlock();
+            for (Block block1 : desiredGroundBlock) {
+                return block.isIn(Tags.Blocks.END_STONES) || block == block1;
+            }
+            return block.isIn(Tags.Blocks.END_STONES);
         });
     }
 

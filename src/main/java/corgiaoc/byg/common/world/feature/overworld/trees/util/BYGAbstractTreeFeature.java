@@ -161,6 +161,16 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeFeatureConfig> e
         });
     }
 
+    public static boolean isDesiredGroundwEndTags(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeFeatureConfig config) {
+        return reader.hasBlockState(pos, (state) -> {
+            Block block = state.getBlock();
+            for (Block block1 : config.getWhitelist()) {
+                return block.isIn(Tags.Blocks.END_STONES) || block.isIn(BlockTags.NYLIUM) || block.isIn(Tags.Blocks.NETHERRACK) || block == block1;
+            }
+            return block.isIn(Tags.Blocks.END_STONES) || block.isIn(BlockTags.NYLIUM) || block.isIn(Tags.Blocks.NETHERRACK);
+        });
+    }
+
     /**
      * @param reader             Gives us access to world.
      * @param pos                Position to check.

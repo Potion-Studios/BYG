@@ -3,6 +3,7 @@ package corgiaoc.byg.core.world;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
+import corgiaoc.byg.common.world.biome.end.EtherealIslands;
 import corgiaoc.byg.common.world.biome.end.IvisFields;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
@@ -225,6 +226,7 @@ public class BYGBiomes {
 
     //End
     public static final Biome IVISFIELDS = new IvisFields().getBiome();
+    public static final Biome ETHEREAL_ISLANDS = new EtherealIslands().getBiome();
 
 
     public static void registerBYGBiomes() {
@@ -407,6 +409,7 @@ public class BYGBiomes {
 
         //End
         registerBYGEndBiome(BYGBiomes.IVISFIELDS, "ivis_fields");
+        registerBYGEndBiome(BYGBiomes.ETHEREAL_ISLANDS, "ethereal_islands");
     }
 
     private static void registerBiome(Biome biome, String name) {
@@ -452,6 +455,7 @@ public class BYGBiomes {
         addBiomeEntry(BYGBiomes.ALPS, ConfigWeightManager.ALPS.getWeight(), BiomeManager.BiomeType.ICY);
         addBiomeEntry(BYGBiomes.AMARANTHFIELDS, ConfigWeightManager.AMARANTHFIELDS.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.AUTUMNAL_VALLEY, ConfigWeightManager.AUTUMNALVALLEY.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.ARAUCARIA_SAVANNA, ConfigWeightManager.ARAUCARIA_SAVANNA.getWeight(), BiomeManager.BiomeType.DESERT);
         addBiomeEntry(BYGBiomes.ANCIENTFOREST, ConfigWeightManager.ANCIENTFOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.ASPENFOREST, ConfigWeightManager.ASPENFOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.BAOBABSAVANNA, ConfigWeightManager.BAOBABSAVANNA.getWeight(), BiomeManager.BiomeType.DESERT);
@@ -488,6 +492,7 @@ public class BYGBiomes {
         addBiomeEntry(BYGBiomes.ORCHARD, ConfigWeightManager.ORCHARD.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.PRAIRIE, ConfigWeightManager.PRAIRIE.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.REDDESERT, ConfigWeightManager.REDDESERT.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.ROSE_FIELDS, ConfigWeightManager.ROSE_FIELDS.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomes.REDOAKFOREST, ConfigWeightManager.REDOAKFOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.RED_ROCK_MOUNTAINS, ConfigWeightManager.REDROCKMOUNTAINS.getWeight(), BiomeManager.BiomeType.DESERT);
         addBiomeEntry(BYGBiomes.REDWOOD_TROPICS, ConfigWeightManager.REDWOOD_TROPICS.getWeight(), BiomeManager.BiomeType.WARM);
@@ -508,8 +513,10 @@ public class BYGBiomes {
         addBiomeEntry(BYGBiomes.THE_BLACK_FOREST, ConfigWeightManager.THE_BLACK_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomes.TROPICALFUNGALRAINFOREST, ConfigWeightManager.TROPICALFUNGALFOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.TROPICALRAINFOREST, ConfigWeightManager.TROPICALRAINFOREST.getWeight(), BiomeManager.BiomeType.WARM);
+        addBiomeEntry(BYGBiomes.TWILIGHT_VALLEY, ConfigWeightManager.TWILIGHT_VALLEY.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomes.VIBRANTSWAMPLANDS, ConfigWeightManager.VIBRANTSWAMPLANDS.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.SIERRAVALLEY, ConfigWeightManager.SIERRAVALLEY.getWeight(), BiomeManager.BiomeType.DESERT);
+        addBiomeEntry(BYGBiomes.STONE_FOREST, ConfigWeightManager.STONE_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.WEEPINGWITCHFOREST, ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomes.WOODLANDS, ConfigWeightManager.WOODLANDS.getWeight(), BiomeManager.BiomeType.WARM);
 //        addBiomeEntry(BYGBiomes.VOLCANO, 1, BiomeManager.BiomeType.WARM);

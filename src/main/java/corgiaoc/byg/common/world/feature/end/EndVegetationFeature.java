@@ -6,6 +6,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
+import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
@@ -14,7 +15,7 @@ public class EndVegetationFeature {
 
    public static boolean placeBonemeal(IWorld world, Random rand, BlockPos pos, BlockStateProvidingFeatureConfig config, int spreadRandom1, int spreadRandom2) {
       Block block = world.getBlockState(pos.down()).getBlock();
-      if (block != BYGBlocks.IVIS_PHYLIUM) {
+      if (block != Tags.Blocks.END_STONES) {
          return false;
       } else {
          int i = pos.getY();

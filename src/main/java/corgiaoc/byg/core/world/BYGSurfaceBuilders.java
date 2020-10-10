@@ -115,6 +115,7 @@ public class BYGSurfaceBuilders {
         public static final SurfaceBuilderConfig IVIS_CF = new SurfaceBuilderConfig(BYGBlocks.IVIS_PHYLIUM.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
         public static final SurfaceBuilderConfig END = new SurfaceBuilderConfig(Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
         public static final SurfaceBuilderConfig MYCELIUM = new SurfaceBuilderConfig(Blocks.MYCELIUM.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState());
+        public static final SurfaceBuilderConfig ETHER = new SurfaceBuilderConfig(BYGBlocks.ETHER_PHYLIUM.getDefaultState(), BYGBlocks.ETHER_SOIL.getDefaultState(), BYGBlocks.ETHER_STONE.getDefaultState());
 
 
         public static final SurfaceBuilderConfig SNOW_CF = new SurfaceBuilderConfig(Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState(), Blocks.SNOW_BLOCK.getDefaultState());

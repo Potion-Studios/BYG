@@ -171,6 +171,11 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> IVIS_ROOTS = WorldGenRegistrationHelper.createConfiguredFeature("ivis_roots", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.IVIS_ROOTS));
     public static final ConfiguredFeature<?, ?> IVIS_SPROUT = WorldGenRegistrationHelper.createConfiguredFeature("ivis_sprout", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.IVIS_SPROUT));
 
+    public static final ConfiguredFeature<?, ?> ETHER_GRASS = WorldGenRegistrationHelper.createConfiguredFeature("ether_grass", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.ETHER_GRASS));
+    public static final ConfiguredFeature<?, ?> ETHER_BUSH = WorldGenRegistrationHelper.createConfiguredFeature("ether_bush", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.ETHER_BUSH));
+    public static final ConfiguredFeature<?, ?> THEREAL_BELLFLOWER = WorldGenRegistrationHelper.createConfiguredFeature("thereal_bellflower", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.THEREAL_BELLFLOWER_CONFIG));
+
+
     public static final ConfiguredFeature<?, ?> WEEPING_VINE_BLACKSTONE = WorldGenRegistrationHelper.createConfiguredFeature("weeping_vines_blackstone", BYGFeatures.WEEPING_VINE_BLACKSTONE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
     public static final ConfiguredFeature<?, ?> WEEPING_ROOTS = WorldGenRegistrationHelper.createConfiguredFeature("weeping_roots", BYGFeatures.WEEPING_ROOTS.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
@@ -202,6 +207,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> ORE_PERVADED_NETHERRACK = WorldGenRegistrationHelper.createConfiguredFeature("ore_pervaded_netherrack", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241884_c, BYGBlocks.PERVADED_NETHERRACK.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).func_242728_a().func_242731_b(16));
     public static final ConfiguredFeature<?, ?> ORE_ANTHRACITE = WorldGenRegistrationHelper.createConfiguredFeature("ore_anthracite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241884_c, BYGBlocks.ANTHRACITE_ORE.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).func_242728_a().func_242731_b(16));
+    public static final ConfiguredFeature<?, ?> ORE_LIGNITE = WorldGenRegistrationHelper.createConfiguredFeature("ore_lignite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241884_c, BYGBlocks.LIGNITE_ORE.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).func_242728_a().func_242731_b(16));
 
     public static final ConfiguredFeature<?, ?> ORE_AMETRINE = WorldGenRegistrationHelper.createConfiguredFeature("ore_ametrine", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, BYGBlocks.AMETRINE_ORE.getDefaultState(), 4)).func_242733_d(56).func_242728_a().func_242731_b(10));
     public static final ConfiguredFeature<?, ?> ORE_PENDORITE = WorldGenRegistrationHelper.createConfiguredFeature("ore_pendorite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, BYGBlocks.PENDORITE_ORE.getDefaultState(), 4)).func_242733_d(56).func_242728_a().func_242731_b(10));
@@ -421,11 +427,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> HANGING_BONE_FEATURE = WorldGenRegistrationHelper.createConfiguredFeature("hanging_bone_feature", BYGFeatures.HANGING_BONE_FEATURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(70));
     public static final ConfiguredFeature<?, ?> LAMENT_VINE_FEATURE = WorldGenRegistrationHelper.createConfiguredFeature("lament_vine_feature", BYGFeatures.LAMENT_VINE_FEATURE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).func_242733_d(128).func_242728_a().func_242731_b(70));
 
-
-    public static final ConfiguredFeature<?, ?> RANDOM_WEEPING_ROOTS = WorldGenRegistrationHelper.createConfiguredFeature("rs_weeping_roots", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            WEEPING_ROOTS.withChance(0.3F)),
-            WEEPING_ROOTS_PLANT)).func_242733_d(128).func_242728_a().func_242731_b(80));
-
     public static final ConfiguredFeature<?, ?> RANDOM_JUNGLE_FLOWERS = WorldGenRegistrationHelper.createConfiguredFeature("rs_jungle_flowers", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BISTORT.withChance(0.50F),
             GUZMANIA.withChance(0.50F),
@@ -629,7 +630,15 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_IVIS_PLANTS = WorldGenRegistrationHelper.createConfiguredFeature("rs_ivis_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             IVIS_ROOTS.withChance(0.5F)),
-            IVIS_SPROUT)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(20));
+            IVIS_SPROUT)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(5));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ETHER_PLANT = WorldGenRegistrationHelper.createConfiguredFeature("rs_ether_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            ETHER_BUSH.withChance(0.2F)),
+            ETHER_GRASS)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(5));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_THEREAL_BELLFLOWER = WorldGenRegistrationHelper.createConfiguredFeature("rs_thereal_bellflower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            THEREAL_BELLFLOWER.withChance(0.5F)),
+            THEREAL_BELLFLOWER)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = WorldGenRegistrationHelper.createConfiguredFeature("rs_dead_sea_spike", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_SEA_SPIKE.withChance(0.9F)),
@@ -899,25 +908,6 @@ public class BYGConfiguredFeatures {
 
 
     //Vanilla Tree Features
-    public static final ConfiguredFeature<?, ?> MC_TROPICAL_GROUND_BUSH = WorldGenRegistrationHelper.createConfiguredFeature("mc_tropical_ground_bush", Feature.TREE.withConfiguration(FeatureConfigs.TROPGROUNDBUSH_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_MEGA_TROPICAL_GROUND_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_mega_tropical_jungle_tree", Feature.TREE.withConfiguration(FeatureConfigs.MEGATROPJUNGLETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BLUE_PINE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_blue_pine_tree", Feature.TREE.withConfiguration(FeatureConfigs.BLUEPINETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BLUE_SPRUCE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_blue_spruce_tree", Feature.TREE.withConfiguration(FeatureConfigs.BLUESPRUCETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_RED_PINE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_red_pine_tree", Feature.TREE.withConfiguration(FeatureConfigs.REDPINETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_RED_SPRUCE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_red_spruce_tree", Feature.TREE.withConfiguration(FeatureConfigs.REDSPRUCETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_YELLOW_PINE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_yellow_pine_tree", Feature.TREE.withConfiguration(FeatureConfigs.YELLOWPINETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_YELLOW_SPRUCE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_yellow_spruce_tree", Feature.TREE.withConfiguration(FeatureConfigs.YELLOWSPRUCETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_ORANGE_PINE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_orange_pine_tree", Feature.TREE.withConfiguration(FeatureConfigs.ORANGEPINETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_ORANGE_SPRUCE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_orange_spruce_tree", Feature.TREE.withConfiguration(FeatureConfigs.ORANGESPRUCETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BLUE_MEGA_SPRUCE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_blue_mega_spruce_tree", Feature.TREE.withConfiguration(FeatureConfigs.BLUEMEGASPRUCETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BLUE_MEGA_PINE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_blue_mega_pine_tree", Feature.TREE.withConfiguration(FeatureConfigs.BLUEMEGAPINETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_RED_MEGA_SPRUCE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_red_mega_spruce_tree", Feature.TREE.withConfiguration(FeatureConfigs.REDMEGASPRUCETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_RED_MEGA_PINE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_red_mega_pine_tree", Feature.TREE.withConfiguration(FeatureConfigs.REDMEGAPINETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_YELLOW_MEGA_SPRUCE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_yellow_mega_spruce_tree", Feature.TREE.withConfiguration(FeatureConfigs.YELLOWMEGASPRUCETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_YELLOW_MEGA_PINE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_yellow_mega_pine_tree", Feature.TREE.withConfiguration(FeatureConfigs.YELLOWMEGAPINETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_ORANGE_MEGA_SPRUCE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_orange_mega_spruce_tree", Feature.TREE.withConfiguration(FeatureConfigs.ORANGEMEGASPRUCETREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_ORANGE_MEGA_PINE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_orange_mega_pine_tree", Feature.TREE.withConfiguration(FeatureConfigs.ORANGEMEGAPINETREE_CONFIG));
-
     public static final ConfiguredFeature<?, ?> MC_BIRCH_RED_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_red_birch", Feature.TREE.withConfiguration(FeatureConfigs.REDBIRCHTREE_CONFIG));
     public static final ConfiguredFeature<?, ?> MC_BIRCH_TALL_RED_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_tall_red_birch", Feature.TREE.withConfiguration(FeatureConfigs.TALLREDBIRCHTREE_CONFIG));
     public static final ConfiguredFeature<?, ?> MC_BIRCH_BROWN_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_brown_birch", Feature.TREE.withConfiguration(FeatureConfigs.BROWNBIRCHTREE_CONFIG));
@@ -930,8 +920,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> MC_BROWN_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_brown_oak_tree", Feature.TREE.withConfiguration(FeatureConfigs.BROWNOAKTREE_CONFIG));
     public static final ConfiguredFeature<?, ?> MC_ORANGE_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_orange_oak_tree", Feature.TREE.withConfiguration(FeatureConfigs.ORANGEOAKTREE_CONFIG));
     public static final ConfiguredFeature<?, ?> MC_RED_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_red_oak_tree", Feature.TREE.withConfiguration(FeatureConfigs.REDOAKTREE_CONFIG));
-
-    public static final ConfiguredFeature<?, ?> MC_DOVER_MEGA_SPRUCE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_dover_mega_spruce_tree", Feature.TREE.withConfiguration(FeatureConfigs.DOVERMEGASPRUCETREE_CONFIG));
 
     public static final ConfiguredFeature<?, ?> MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES = WorldGenRegistrationHelper.createConfiguredFeature("mc_fancy_red_oak_with_more_beehives_tree", Feature.TREE.withConfiguration(FeatureConfigs.FANCY_RED_OAK_WITH_MORE_BEEHIVES_CONFIG));
 
@@ -987,6 +975,20 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WITHERING_OAK_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("withering_oak_tree2", BYGFeatures.WITHERING_OAK_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WITHERING_OAK_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("withering_oak_tree3", BYGFeatures.WITHERING_OAK_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> WITHERING_OAK_TREE4 = WorldGenRegistrationHelper.createConfiguredFeature("withering_oak_tree4", BYGFeatures.WITHERING_OAK_TREE4.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+
+    //End Mushrooms
+    public static final ConfiguredFeature<BYGMushroomFeatureConfig, ?> BULBIS_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("bulbis_tree1", BYGFeatures.BULBIS_TREE1.withConfiguration(new BYGMushroomFeatureConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomFeatureConfig, ?> BULBIS_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("bulbis_tree2", BYGFeatures.BULBIS_TREE2.withConfiguration(new BYGMushroomFeatureConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomFeatureConfig, ?> BULBIS_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("bulbis_tree3", BYGFeatures.BULBIS_TREE3.withConfiguration(new BYGMushroomFeatureConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomFeatureConfig, ?> BULBIS_TREE4 = WorldGenRegistrationHelper.createConfiguredFeature("bulbis_tree4", BYGFeatures.BULBIS_TREE4.withConfiguration(new BYGMushroomFeatureConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
+
+    //End Trees
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ETHER_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree1", BYGFeatures.ETHER_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ETHER_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree2", BYGFeatures.ETHER_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ETHER_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree3", BYGFeatures.ETHER_TREE3.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> NIGHTSHADE_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("nightshade_tree1", BYGFeatures.NIGHTSHADE_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlocks.NIGHTSHADE_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.NIGHTSHADE_LEAVES.getDefaultState(), 8)).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> NIGHTSHADE_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("nightshade_tree2", BYGFeatures.NIGHTSHADE_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlocks.NIGHTSHADE_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.NIGHTSHADE_LEAVES.getDefaultState(), 8)).setMaxHeight(30).setMinHeight(22).build()));
 
 
     /***********************************************************Random Selectors***********************************************************/
@@ -1657,6 +1659,30 @@ public class BYGConfiguredFeatures {
             LAMENT_WEEPING_TREE1)).withPlacement(BYGDecorators.AT_OR_BELOW_SEA_LEVEL.configure(
             new AtOrBelowSeaLevelCountExtraConfig(8, 0.5F, 2, 2))));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_BULBIS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_bulbis_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            BULBIS_TREE4.withChance(0.15F),
+            BULBIS_TREE3.withChance(0.3F),
+            BULBIS_TREE2.withChance(0.3F)),
+            BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_BULBIS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_bulbis_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            BULBIS_TREE4.withChance(0.15F),
+            BULBIS_TREE3.withChance(0.3F),
+            BULBIS_TREE2.withChance(0.3F)),
+            BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            new AtSurfaceWithExtraConfig(0, 0.3F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_NIGHTSHADE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_nightshade_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            NIGHTSHADE_TREE1.withChance(0.7F)),
+            NIGHTSHADE_TREE2)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ETHER_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_ether_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            ETHER_TREE3.withChance(0.35F),
+            ETHER_TREE2.withChance(0.35F)),
+            ETHER_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     //TODO: Remove these fields and in line them instead.
     public static class FeatureConfigs {
@@ -1724,27 +1750,6 @@ public class BYGConfiguredFeatures {
 
         public static final BlockClusterFeatureConfig WARPED_CACTUS_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WARPED_CACTUS.getDefaultState()), new ColumnBlockPlacer(1, 2))).tries(10).func_227317_b_().build();
 
-        //    TropJungle
-        public static final BaseTreeFeatureConfig TROPGROUNDBUSH_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.EBONY_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.EBONY_LEAVES.getDefaultState()), new BushFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).func_236702_a_(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build();
-        public static final BaseTreeFeatureConfig MEGATROPJUNGLETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.JUNGLE_LOG.getDefaultState()), new SimpleBlockStateProvider(Blocks.JUNGLE_LEAVES.getDefaultState()), new JungleFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 2), new MegaJungleTrunkPlacer(10, 2, 19), new TwoLayerFeature(1, 1, 2))).func_236703_a_(ImmutableList.of(TrunkVineTreeDecorator.field_236879_b_, LeaveVineTreeDecorator.field_236871_b_)).build();
-        //Taiga
-        public static final BaseTreeFeatureConfig BLUEPINETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.BLUE_SPRUCE_LEAVES.getDefaultState()), new PineFoliagePlacer(FeatureSpread.func_242252_a(1), FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(3, 1)), new StraightTrunkPlacer(6, 4, 0), new TwoLayerFeature(2, 0, 2))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig BLUESPRUCETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.BLUE_SPRUCE_LEAVES.getDefaultState()), new SpruceFoliagePlacer(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(0, 2), FeatureSpread.func_242253_a(1, 1)), new StraightTrunkPlacer(5, 2, 1), new TwoLayerFeature(2, 0, 2))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig REDPINETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_SPRUCE_LEAVES.getDefaultState()), new PineFoliagePlacer(FeatureSpread.func_242252_a(1), FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(3, 1)), new StraightTrunkPlacer(6, 4, 0), new TwoLayerFeature(2, 0, 2))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig REDSPRUCETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_SPRUCE_LEAVES.getDefaultState()), new SpruceFoliagePlacer(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(0, 2), FeatureSpread.func_242253_a(1, 1)), new StraightTrunkPlacer(5, 2, 1), new TwoLayerFeature(2, 0, 2))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig YELLOWPINETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.YELLOW_SPRUCE_LEAVES.getDefaultState()), new PineFoliagePlacer(FeatureSpread.func_242252_a(1), FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(3, 1)), new StraightTrunkPlacer(6, 4, 0), new TwoLayerFeature(2, 0, 2))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig YELLOWSPRUCETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.YELLOW_SPRUCE_LEAVES.getDefaultState()), new SpruceFoliagePlacer(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(0, 2), FeatureSpread.func_242253_a(1, 1)), new StraightTrunkPlacer(5, 2, 1), new TwoLayerFeature(2, 0, 2))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig ORANGEPINETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.ORANGE_SPRUCE_LEAVES.getDefaultState()), new PineFoliagePlacer(FeatureSpread.func_242252_a(1), FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(3, 1)), new StraightTrunkPlacer(6, 4, 0), new TwoLayerFeature(2, 0, 2))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig ORANGESPRUCETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.ORANGE_SPRUCE_LEAVES.getDefaultState()), new SpruceFoliagePlacer(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(0, 2), FeatureSpread.func_242253_a(1, 1)), new StraightTrunkPlacer(5, 2, 1), new TwoLayerFeature(2, 0, 2))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig BLUEMEGASPRUCETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.BLUE_SPRUCE_LEAVES.getDefaultState()), new MegaPineFoliagePlacer(FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(0), FeatureSpread.func_242253_a(13, 4)), new GiantTrunkPlacer(13, 2, 14), new TwoLayerFeature(1, 1, 2))).func_236703_a_(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())))).build();
-        public static final BaseTreeFeatureConfig BLUEMEGAPINETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.BLUE_SPRUCE_LEAVES.getDefaultState()), new MegaPineFoliagePlacer(FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(0), FeatureSpread.func_242253_a(3, 4)), new GiantTrunkPlacer(13, 2, 14), new TwoLayerFeature(1, 1, 2))).func_236703_a_(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())))).build();
-        public static final BaseTreeFeatureConfig REDMEGASPRUCETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_SPRUCE_LEAVES.getDefaultState()), new MegaPineFoliagePlacer(FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(0), FeatureSpread.func_242253_a(13, 4)), new GiantTrunkPlacer(13, 2, 14), new TwoLayerFeature(1, 1, 2))).func_236703_a_(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())))).build();
-        public static final BaseTreeFeatureConfig REDMEGAPINETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_SPRUCE_LEAVES.getDefaultState()), new MegaPineFoliagePlacer(FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(0), FeatureSpread.func_242253_a(3, 4)), new GiantTrunkPlacer(13, 2, 14), new TwoLayerFeature(1, 1, 2))).func_236703_a_(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())))).build();
-        public static final BaseTreeFeatureConfig YELLOWMEGASPRUCETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.YELLOW_SPRUCE_LEAVES.getDefaultState()), new MegaPineFoliagePlacer(FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(0), FeatureSpread.func_242253_a(13, 4)), new GiantTrunkPlacer(13, 2, 14), new TwoLayerFeature(1, 1, 2))).func_236703_a_(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())))).build();
-        public static final BaseTreeFeatureConfig YELLOWMEGAPINETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.YELLOW_SPRUCE_LEAVES.getDefaultState()), new MegaPineFoliagePlacer(FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(0), FeatureSpread.func_242253_a(3, 4)), new GiantTrunkPlacer(13, 2, 14), new TwoLayerFeature(1, 1, 2))).func_236703_a_(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())))).build();
-        public static final BaseTreeFeatureConfig ORANGEMEGASPRUCETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.ORANGE_SPRUCE_LEAVES.getDefaultState()), new MegaPineFoliagePlacer(FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(0), FeatureSpread.func_242253_a(13, 4)), new GiantTrunkPlacer(13, 2, 14), new TwoLayerFeature(1, 1, 2))).func_236703_a_(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())))).build();
-        public static final BaseTreeFeatureConfig ORANGEMEGAPINETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.ORANGE_SPRUCE_LEAVES.getDefaultState()), new MegaPineFoliagePlacer(FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(0), FeatureSpread.func_242253_a(3, 4)), new GiantTrunkPlacer(13, 2, 14), new TwoLayerFeature(1, 1, 2))).func_236703_a_(ImmutableList.of(new AlterGroundTreeDecorator(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())))).build();
-
         //SeasonalBirch
         public static final BaseTreeFeatureConfig REDBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
         public static final BaseTreeFeatureConfig TALLREDBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 6), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
@@ -1759,8 +1764,7 @@ public class BYGConfiguredFeatures {
         public static final BaseTreeFeatureConfig BROWNOAKTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.BROWN_OAK_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
         public static final BaseTreeFeatureConfig ORANGEOAKTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.ORANGE_OAK_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
         public static final BaseTreeFeatureConfig REDOAKTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_OAK_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
-        //Dover
-        public static final BaseTreeFeatureConfig DOVERMEGASPRUCETREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SPRUCE_LOG.getDefaultState()), new SimpleBlockStateProvider(Blocks.SPRUCE_LEAVES.getDefaultState()), new MegaPineFoliagePlacer(FeatureSpread.func_242252_a(0), FeatureSpread.func_242252_a(0), FeatureSpread.func_242253_a(13, 4)), new GiantTrunkPlacer(13, 2, 14), new TwoLayerFeature(1, 1, 2))).build();
+
         //Red Oak
         public static final BaseTreeFeatureConfig FANCY_RED_OAK_WITH_MORE_BEEHIVES_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_OAK_LEAVES.getDefaultState()), new FancyFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(4), 4), new FancyTrunkPlacer(3, 11, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).setIgnoreVines().func_236702_a_(Heightmap.Type.MOTION_BLOCKING).build();
 
@@ -1820,6 +1824,12 @@ public class BYGConfiguredFeatures {
 
         public static final BlockClusterFeatureConfig IVIS_ROOTS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.IVIS_ROOTS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
         public static final BlockClusterFeatureConfig IVIS_SPROUT = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.IVIS_SPROUT.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
+        public static final BlockClusterFeatureConfig ETHER_GRASS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ETHER_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
+        public static final BlockClusterFeatureConfig ETHER_BUSH = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ETHER_BUSH.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
+        public static final BlockClusterFeatureConfig THEREAL_BELLFLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.THEREAL_BELLFLOWER.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.ETHER_PHYLIUM, BYGBlocks.NIGHTSHADE_PHYLIUM, BYGBlocks.IVIS_PHYLIUM, GRASS_BLOCK)).func_227317_b_().build();
+
+
+
     }
 
     public static class SpreadableBlockConfigs {

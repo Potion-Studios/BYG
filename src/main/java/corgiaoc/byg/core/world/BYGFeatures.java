@@ -2,6 +2,15 @@ package corgiaoc.byg.core.world;
 
 import corgiaoc.byg.common.world.feature.config.*;
 import corgiaoc.byg.common.world.feature.end.obsidianspires.ObsidianSpike;
+import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree1;
+import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree2;
+import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree3;
+import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree4;
+import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree1;
+import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree2;
+import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree3;
+import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree1;
+import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree2;
 import corgiaoc.byg.common.world.feature.nether.ConfigurablePillar;
 import corgiaoc.byg.common.world.feature.nether.LargeChain;
 import corgiaoc.byg.common.world.feature.nether.crimsongardens.TallCrimsonRoots;
@@ -184,6 +193,23 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> MINI_WEEPING_MILKCAP = WorldGenRegistrationHelper.createFeature("mini_weeping_milkcap", new MiniWeepingMilkcap(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> MINI_BLACK_PUFF = WorldGenRegistrationHelper.createFeature("mini_black_puff", new MiniBlackPuff(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> MINI_WOOD_BLEWIT = WorldGenRegistrationHelper.createFeature("mini_wood_blewit", new MiniWoodBlewit(BYGMushroomFeatureConfig.CODEC.stable()));
+
+    /********************************************************************End Features********************************************************************/
+    //Bulbis
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> BULBIS_TREE1 = WorldGenRegistrationHelper.createFeature("bulbis_tree1", new BulbisTree1(BYGMushroomFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> BULBIS_TREE2 = WorldGenRegistrationHelper.createFeature("bulbis_tree2", new BulbisTree2(BYGMushroomFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> BULBIS_TREE3 = WorldGenRegistrationHelper.createFeature("bulbis_tree3", new BulbisTree3(BYGMushroomFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> BULBIS_TREE4 = WorldGenRegistrationHelper.createFeature("bulbis_tree4", new BulbisTree4(BYGMushroomFeatureConfig.CODEC.stable()));
+
+    //Ether
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ETHER_TREE1 = WorldGenRegistrationHelper.createFeature("ether_tree1", new EtherTree1(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ETHER_TREE2 = WorldGenRegistrationHelper.createFeature("ether_tree2", new EtherTree2(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ETHER_TREE3 = WorldGenRegistrationHelper.createFeature("ether_tree3", new EtherTree3(BYGTreeFeatureConfig.CODEC.stable()));
+
+    //Nightshade
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> NIGHTSHADE_TREE1 = WorldGenRegistrationHelper.createFeature("nightshade_tree1", new NightshadeTree1(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> NIGHTSHADE_TREE2 = WorldGenRegistrationHelper.createFeature("nightshade_tree2", new NightshadeTree2(BYGTreeFeatureConfig.CODEC.stable()));
+
 
     /********************************************************************Nether Features********************************************************************/
 
