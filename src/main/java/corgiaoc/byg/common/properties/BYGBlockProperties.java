@@ -8,7 +8,6 @@ import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BYGQuartzCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
 import corgiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
-import corgiaoc.byg.common.properties.blocks.nether.crimson.BerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;

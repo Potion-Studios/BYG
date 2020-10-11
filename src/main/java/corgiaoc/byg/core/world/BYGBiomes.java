@@ -385,7 +385,6 @@ public class BYGBiomes {
         registerBYGSubBiome(BYGBiomes.TROPICAL_ISLAND_CLEARING, "tropical_island_clearing");
         registerBYGSubBiome(BYGBiomes.TROPICAL_ISLAND_MOUNTAINS, "tropical_island_mountains");
 
-
         //NonDefault Biomes.
         registerBYGBiome(BYGBiomes.ROCKYBEACH, "rocky_beach");
         registerBYGBiome(BYGBiomes.BASALT_BARRERA, "basalt_barrera");
