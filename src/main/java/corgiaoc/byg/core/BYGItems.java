@@ -936,6 +936,8 @@ public class BYGItems {
     public static final Item NIGHTSHADE_BERRIES = createItem(new BlockNamedItem(BYGBlocks.NIGHTSHADE_BERRY_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(3).saturation(0.4f).build())), "nightshade_berries");
     public static final Item NIGHTSHADE_PHYLIUM = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_PHYLIUM));
     public static final Item NIGHTSHADE_SPROUTS = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_SPROUTS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_SPROUTS));
+    public static final Item NIGHTSHADE_ROOTS = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_ROOTS));
+
     public static final Item PURPUR_STONE = createItem(new BlockItem(BYGBlocks.PURPUR_STONE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PURPUR_STONE));
 
     //Ice

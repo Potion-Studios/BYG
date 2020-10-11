@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/nightshade_roots_bottom",
+    "particle": "byg:block/nightshade_roots_bottom"
+  }
+}
