@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:block/sapling_zelkova_brown",
-    "particle": "byg:block/sapling_zelkova_brown"
+    "cross": "byg:block/brown_zelkova_sapling",
+    "particle": "byg:block/brown_zelkova_sapling"
   }
 }
