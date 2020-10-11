@@ -23,11 +23,11 @@ public class AtOceanFloorWithExtra extends Placement<AtSurfaceWithExtraConfig> {
             i += config.extraCount;
         }
 
-        return IntStream.range(0, i).mapToObj((p_227444_3_) -> {
-            int j = random.nextInt(16) + pos.getX();
-            int k = random.nextInt(16) + pos.getZ();
-            int l = decoratorContext.func_242893_a(Heightmap.Type.OCEAN_FLOOR_WG, j, k);
-            return new BlockPos(j, l, k);
+        return IntStream.range(0, i).mapToObj((streamedInt) -> {
+            int x = random.nextInt(16) + pos.getX();
+            int z = random.nextInt(16) + pos.getZ();
+            int y = decoratorContext.func_242893_a(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
+            return new BlockPos(x, y, z);
         });
     }
 }

@@ -133,3 +133,7 @@ mixin {
 repositories {
     maven { url ='https://www.dogforce-games.com/maven/'}
 }
+
+tasks.withType(JavaCompile) {
+    options.incremental = true
+}
