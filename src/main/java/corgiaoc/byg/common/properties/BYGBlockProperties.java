@@ -573,7 +573,7 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.CLAY)
                     .sound(SoundType.HONEY)
                     .notSolid()
-                    .speedFactor(1.6F)
+                    .speedFactor(1.4F)
                     .slipperiness(0.6F)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);

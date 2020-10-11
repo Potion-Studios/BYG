@@ -587,7 +587,7 @@ public class BYGConfiguredFeatures {
             TULIP_YELLOW.withChance(0.5F),
             TULIP_PURPLE.withChance(0.5F),
             TULIP_CYAN.withChance(0.5F)),
-            TULIP_GREEN)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(5));
+            TULIP_GREEN)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(4));
 
     public static final ConfiguredFeature<?, ?> RANDOM_REEDS = WorldGenRegistrationHelper.createConfiguredFeature("rs_reeds", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             REEDS.withChance(0.5F)),

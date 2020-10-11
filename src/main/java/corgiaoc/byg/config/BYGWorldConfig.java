@@ -38,7 +38,7 @@ public class BYGWorldConfig {
         COMMON_BUILDER.pop();
         COMMON_BUILDER.push("The_Nether");
         controlNether = COMMON_BUILDER.comment("Does BYG control The Nether?").define("ControlNether", true);
-        netherBiomes = COMMON_BUILDER.comment("Add external Nether biomes by their registry ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available end biomes in the registry.\nDefault: \"all\".").define("NetherBiomes", "all");
+        netherBiomes = COMMON_BUILDER.comment("Add external Nether biomes by their registry ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available nether biomes in the registry.\nDefault: \"all\".").define("NetherBiomes", "all");
         biomeSizeNETHER = COMMON_BUILDER.comment("Nether Biome Size\nDefault: 3").defineInRange("NetherBiomeSize", 3, 0, 10);
         COMMON_BUILDER.pop();
 
