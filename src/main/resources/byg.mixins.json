@@ -11,6 +11,7 @@
     "common.world.feature.MixinBasaltColumnFeature",
     "common.world.layers.MixinDimensionType",
     "common.world.layers.MixinHillsLayer",
+    "common.world.layers.MixinRiverLayer",
     "common.world.layers.MixinShoreLayer"
   ],
   "client": [

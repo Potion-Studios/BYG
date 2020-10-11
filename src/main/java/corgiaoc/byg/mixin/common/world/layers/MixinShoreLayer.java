@@ -29,6 +29,7 @@ public abstract class MixinShoreLayer {
     private static final int DEEP_COLD_OCEAN = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.DEEP_COLD_OCEAN));
     private static final int DEEP_FROZEN_OCEAN = WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.DEEP_FROZEN_OCEAN));
 
+
     @Inject(at = @At("HEAD"), method = "apply(Lnet/minecraft/world/gen/INoiseRandom;IIIII)I", cancellable = true)
     private void apply(INoiseRandom rand, int n, int w, int s, int e, int centre, CallbackInfoReturnable<Integer> cir) {
         final int[] ArrayNESW = {n, w, s, e};
@@ -84,7 +85,7 @@ public abstract class MixinShoreLayer {
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKYBEACH));
 
-            if (biome != null && biome.getDepth() > 2.0F)
+            if (biome != null && biome.getDepth() > 2.0F && biome != BYGBiomes.CANYONS && biome != BYGBiomes.CANYON_EDGE)
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.BASALT_BARRERA));
 

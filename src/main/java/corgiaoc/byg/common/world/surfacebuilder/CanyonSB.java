@@ -5,6 +5,7 @@ import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
@@ -95,33 +96,23 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                     else
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
                 } else {
-                    if (yPos > seaLevel) {
+                    if (yPos >= seaLevel - 1) {
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
-                    } else
-                        chunkIn.setBlockState(block, Blocks.WATER.getDefaultState(), false);
+                    }
                 }
             }
         }
-//        if (noiseSample > 8.8F && noiseSample <= 9.0F)
-//            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
-//
-//        if (noiseSample < 8.8F) {
-//            if (noise < 1)
-//                SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
-//            else
         SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
-//    }
 
-//        BlockPos.Mutable mutable = new BlockPos.Mutable();
-//        for (int yPos = groundHeight - 3; yPos >= seaLevel - 15; yPos--) {
-//            setStrataLayerBlock(yPos);
-//            mutable.setPos(xPos, yPos, zPos);
-//
-//            if (chunkIn.getBlockState(mutable).isIn(Tags.Blocks.STONE))
-//                chunkIn.setBlockState(mutable, layerBlock, false);
-//        }
+
+        for (int y = seaLevel - 1; y >= seaLevel - 20; y--) {
+            block.setPos(xPos, y, zPos);
+            if (chunkIn.getBlockState(block).isAir()) {
+                chunkIn.setBlockState(block, Blocks.WATER.getDefaultState(), false);
+                chunkIn.getFluidsToBeTicked().scheduleTick(block, Fluids.WATER, 0);
+            }
+        }
     }
-
 
     public void setSeed(long seed) {
         if (noiseGen == null) {

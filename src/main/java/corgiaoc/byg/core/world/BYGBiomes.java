@@ -65,7 +65,7 @@ public class BYGBiomes {
     public static final Biome BOREALFOREST = new BorealForest().getBiome();
     public static final Biome COLDSWAMPLANDS = new ColdSwamplands().getBiome();
     public static final Biome CRAGGARDENS = new CragGardens().getBiome();
-    public static final Biome REDROCKCANYON = new Canyons().getBiome();
+    public static final Biome CANYONS = new Canyons().getBiome();
     public static final Biome CYPRESSSWAMPLANDS = new CypressSwampland().getBiome();
     public static final Biome CHERRYBLOSSOMFOREST = new CherryBlossomForest().getBiome();
     public static final Biome REDWOOD_TROPICS = new RedwoodTropics().getBiome();
@@ -210,6 +210,9 @@ public class BYGBiomes {
     public static final Biome TROPICALRAINFORESTHILLS = new TropicalRainForestHills().getBiome();
     public static final Biome ZELKOVAFORESTHILLS = new ZelkovaForestHills().getBiome();
 
+    //Edges
+    public static final Biome CANYON_EDGE = new CanyonEdge().getBiome();
+
     //Nether
     public static final Biome WARPEDDESERT = new WarpedDesert().getBiome();
     public static final Biome SYTHIANTORRIDS = new SythianTorrids().getBiome();
@@ -244,7 +247,7 @@ public class BYGBiomes {
         registerBiome(BYGBiomes.BLUETAIGA, "blue_taiga");
         registerBiome(BYGBiomes.BLUFFSTEEPS, "bluff_steeps");
         registerBiome(BYGBiomes.BOREALFOREST, "boreal_forest");
-        registerBiome(BYGBiomes.REDROCKCANYON, "canyons");
+        registerBiome(BYGBiomes.CANYONS, "canyons");
         registerBiome(BYGBiomes.COLDSWAMPLANDS, "cold_swamplands");
         registerBiome(BYGBiomes.COLOSSAL_ICE_SPIKES, "colossal_ice_spikes");
         registerBiome(BYGBiomes.CRAGGARDENS, "crag_gardens");
@@ -335,6 +338,7 @@ public class BYGBiomes {
         registerBYGSubBiome(BYGBiomes.JACARANDA_CLEARING, "jacaranda_clearing");
         registerBYGSubBiome(BYGBiomes.SNOWY_CONIFEROUS_CLEARING, "snowy_coniferous_clearing");
         registerBYGSubBiome(BYGBiomes.SNOWY_DECIDUOUS_CLEARING, "snowy_deciduous_clearing");
+        registerBYGSubBiome(BYGBiomes.CANYON_EDGE, "canyon_edge");
 
         registerBYGSubBiome(BYGBiomes.MAPLE_HILLS, "maple_hills");
         registerBYGSubBiome(BYGBiomes.BLACK_FOREST_CLEARING, "black_forest_clearing");
@@ -467,8 +471,8 @@ public class BYGBiomes {
         addBiomeEntry(BYGBiomes.BLUFFSTEEPS, ConfigWeightManager.BLUFFSTEEPS.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomes.BOREALFOREST, ConfigWeightManager.BOREALFOREST.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomes.COLDSWAMPLANDS, ConfigWeightManager.COLDSWAMPLANDS.getWeight(), BiomeManager.BiomeType.COOL);
+        addBiomeEntry(BYGBiomes.CANYONS, ConfigWeightManager.CANYONS.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomes.CIKA_WOODS, ConfigWeightManager.CIKA_WOODS.getWeight(), BiomeManager.BiomeType.COOL);
-//        addBiomeEntry(BYGBiomes.REDROCKCANYON, ConfigWeightManager.CANYONS.getWeight(), BiomeManager.BiomeType.DESERT);
         addBiomeEntry(BYGBiomes.CYPRESSSWAMPLANDS, ConfigWeightManager.CYPRESS_SWAMPLAND.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.CHERRYBLOSSOMFOREST, ConfigWeightManager.CHERRY_BLOSSOM_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.CONIFEROUSFOREST, ConfigWeightManager.CONIFEROUSFOREST.getWeight(), BiomeManager.BiomeType.COOL);
