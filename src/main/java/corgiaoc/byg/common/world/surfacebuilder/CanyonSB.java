@@ -25,6 +25,7 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     protected FastNoise noiseGen3 = null;
     protected FastNoise noiseGen4 = null;
     protected FastNoise noiseGen5 = null;
+    protected FastNoise noiseGen6 = null;
 
     public BlockState layerBlock = Blocks.TERRACOTTA.getDefaultState();
 
@@ -34,8 +35,8 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         int xPos = x & 15;
         int zPos = z & 15;
 
-
-        double noiseSample = noiseGen.GetNoise(x, z) * 10;
+        double canyonShapingNoise1 = noiseGen.GetNoise(x, z) * 10;
+        double canyonShapingNoise2 = noiseGen6.GetNoise(x, z) * 10;
         double noiseSample2 = noiseGen2.GetNoise(x, z);
         double noiseSample3 = noiseGen3.GetNoise(x, z);
         double noiseSample4 = noiseGen4.GetNoise(x * 1.1F, z * 1.34F);
@@ -45,52 +46,52 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         double simulateErosion = Math.abs((noiseSample2) * 8 + (noiseSample4 * (4 + (noiseSample2 * 3))));
 
         //0.03 is effectively one block w/ the ridged noise sample.
-        if (noiseSample > 9.0) {
+        if (canyonShapingNoise2 > 9.0) {
             for (int yPos = groundHeight; yPos >= seaLevel - totalNoiseSample; --yPos) {
                 block.setPos(xPos, yPos, zPos);
                 double noiseSample5 = noiseGen5.GetNoise(x * 1.1F, yPos, z * 1.34F);
 
-                if (noiseSample < 9.06) {
+                if (canyonShapingNoise2 < 9.06) {
                     if (yPos < groundHeight - 10 - simulateErosion - (noiseSample5 * 6))
                         chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
-                } else if (noiseSample < 9.12) {
+                } else if (canyonShapingNoise2 < 9.12) {
                     if (yPos < groundHeight - 13 - simulateErosion - (noiseSample5 * 6))
                         chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
-                } else if (noiseSample < 9.18) {
+                } else if (canyonShapingNoise2 < 9.18) {
                     if (yPos < groundHeight - 16 - simulateErosion - (noiseSample5 * 6))
                         chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
-                } else if (noiseSample < 9.24) {
+                } else if (canyonShapingNoise2 < 9.24) {
                     if (yPos < groundHeight - 19 - simulateErosion - (noiseSample5 * 6))
                         chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
-                } else if (noiseSample < 9.45) {
+                } else if (canyonShapingNoise2 < 9.45) {
                     if (yPos < groundHeight - 22 - simulateErosion - (noiseSample5 * 6))
                         chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
-                } else if (noiseSample < 9.51) {
+                } else if (canyonShapingNoise2 < 9.51) {
                     if (yPos < groundHeight - 32 - simulateErosion - (noiseSample5 * 6))
                         chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
-                } else if (noiseSample < 9.57) {
+                } else if (canyonShapingNoise2 < 9.57) {
                     if (yPos < groundHeight - 35 - simulateErosion - (noiseSample5 * 6))
                         chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
-                } else if (noiseSample < 9.63) {
+                } else if (canyonShapingNoise2 < 9.63) {
                     if (yPos < groundHeight - 38 - simulateErosion - (noiseSample5 * 6))
                         chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
                     else
                         chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
-                } else if (noiseSample < 9.69) {
+                } else if (canyonShapingNoise2 < 9.69) {
                     if (yPos < groundHeight - 41 - simulateErosion - (noiseSample5 * 6))
                         chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
                     else
@@ -102,6 +103,7 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 }
             }
         }
+
         SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
 
 
@@ -152,6 +154,16 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             noiseGen5.SetFractalOctaves(1);
             noiseGen5.SetFractalGain(0.3f);
             noiseGen5.SetFrequency(0.001F);
+        }
+
+        if (noiseGen6 == null) {
+            noiseGen6 = new FastNoise((int) seed + 395958);
+            noiseGen6.SetFractalType(FastNoise.FractalType.RigidMulti);
+            noiseGen6.SetNoiseType(FastNoise.NoiseType.SimplexFractal);
+            noiseGen6.SetGradientPerturbAmp(1);
+            noiseGen6.SetFractalOctaves(1);
+            noiseGen6.SetFractalGain(0.3f);
+            noiseGen6.SetFrequency(0.0012F);
         }
     }
 
