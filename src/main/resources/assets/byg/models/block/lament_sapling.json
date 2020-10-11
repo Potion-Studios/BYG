@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:block/sapling_lament",
-    "particle": "byg:block/sapling_lament"
+    "cross": "byg:block/lament_sapling",
+    "particle": "byg:block/lament_sapling"
   }
 }

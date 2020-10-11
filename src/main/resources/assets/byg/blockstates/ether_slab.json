@@ -4,7 +4,7 @@
       "model": "byg:block/ether_slab"
     },
     "type=double": {
-      "model": "byg:block/ether"
+      "model": "byg:block/ether_planks"
     },
     "type=top": {
       "model": "byg:block/ether_slab_top"
