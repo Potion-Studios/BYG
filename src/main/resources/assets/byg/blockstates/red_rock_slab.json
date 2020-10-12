@@ -1,7 +1,13 @@
 {
   "variants": {
-    "type=bottom": { "model": "byg:block/red_rock_slab" },
-    "type=top": { "model": "byg:block/red_rock_slab_top" },
-    "type=double": { "model": "byg:block/red_rock" }
+    "type=bottom": {
+      "model": "byg:block/red_rock_slab"
+    },
+    "type=top": {
+      "model": "byg:block/red_rock_slab_top"
+    },
+    "type=double": {
+      "model": "byg:block/red_rock"
+    }
   }
 }

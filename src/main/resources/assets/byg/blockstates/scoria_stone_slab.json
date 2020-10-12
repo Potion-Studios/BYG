@@ -1,7 +1,13 @@
 {
   "variants": {
-    "type=bottom": { "model": "byg:block/scoria_stone_slab" },
-    "type=top": { "model": "byg:block/scoria_stone_slab_top" },
-    "type=double": { "model": "byg:block/scoria_stone" }
+    "type=bottom": {
+      "model": "byg:block/scoria_stone_slab"
+    },
+    "type=top": {
+      "model": "byg:block/scoria_stone_slab_top"
+    },
+    "type=double": {
+      "model": "byg:block/scoria_stone"
+    }
   }
 }

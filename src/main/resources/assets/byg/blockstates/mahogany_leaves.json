@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/mahogany_leaves" }
+    "": {
+      "model": "byg:block/mahogany_leaves"
+    }
   }
 }

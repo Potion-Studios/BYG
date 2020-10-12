@@ -1,10 +1,21 @@
 {
   "variants": {
     "": [
-      { "model": "byg:block/water_silk" },
-      { "model": "byg:block/water_silk", "y": 90 },
-      { "model": "byg:block/water_silk", "y": 180 },
-      { "model": "byg:block/water_silk", "y": 270 }
+      {
+        "model": "byg:block/water_silk"
+      },
+      {
+        "model": "byg:block/water_silk",
+        "y": 90
+      },
+      {
+        "model": "byg:block/water_silk",
+        "y": 180
+      },
+      {
+        "model": "byg:block/water_silk",
+        "y": 270
+      }
     ]
   }
 }

@@ -1,1 +1,1 @@
-MixinConnector: voronoiaoc.byg.mixin.MixinConnector
+MixinConnector: corgiaoc.byg.mixin.MixinConnector

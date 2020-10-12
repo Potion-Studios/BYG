@@ -1,0 +1,68 @@
+{
+  "variants": {
+    "open=true,half=bottom,facing=east": {
+      "model": "byg:block/lament_trapdoor_open",
+      "y": 90
+    },
+    "open=false,half=top,facing=east": {
+      "model": "byg:block/lament_trapdoor_top",
+      "y": 90
+    },
+    "open=true,half=top,facing=west": {
+      "model": "byg:block/lament_trapdoor_open",
+      "x": 180,
+      "y": 90
+    },
+    "open=true,half=top,facing=south": {
+      "model": "byg:block/lament_trapdoor_open",
+      "x": 180
+    },
+    "open=true,half=bottom,facing=south": {
+      "model": "byg:block/lament_trapdoor_open",
+      "y": 180
+    },
+    "open=false,half=top,facing=west": {
+      "model": "byg:block/lament_trapdoor_top",
+      "y": 270
+    },
+    "open=false,half=top,facing=north": {
+      "model": "byg:block/lament_trapdoor_top"
+    },
+    "open=false,half=bottom,facing=east": {
+      "model": "byg:block/lament_trapdoor_bottom",
+      "y": 90
+    },
+    "open=false,half=bottom,facing=south": {
+      "model": "byg:block/lament_trapdoor_bottom",
+      "y": 180
+    },
+    "open=true,half=top,facing=north": {
+      "model": "byg:block/lament_trapdoor_open",
+      "x": 180,
+      "y": 180
+    },
+    "open=true,half=bottom,facing=west": {
+      "model": "byg:block/lament_trapdoor_open",
+      "y": 270
+    },
+    "open=true,half=bottom,facing=north": {
+      "model": "byg:block/lament_trapdoor_open"
+    },
+    "open=true,half=top,facing=east": {
+      "model": "byg:block/lament_trapdoor_open",
+      "x": 180,
+      "y": 270
+    },
+    "open=false,half=bottom,facing=west": {
+      "model": "byg:block/lament_trapdoor_bottom",
+      "y": 270
+    },
+    "open=false,half=bottom,facing=north": {
+      "model": "byg:block/lament_trapdoor_bottom"
+    },
+    "open=false,half=top,facing=south": {
+      "model": "byg:block/lament_trapdoor_top",
+      "y": 180
+    }
+  }
+}

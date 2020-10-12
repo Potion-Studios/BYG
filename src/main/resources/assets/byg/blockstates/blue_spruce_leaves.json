@@ -1,6 +1,8 @@
 {
   "variants": {
-    "": { "model": "byg:block/blue_spruce_leaves" }
+    "": {
+      "model": "byg:block/blue_spruce_leaves"
+    }
   }
 }
 

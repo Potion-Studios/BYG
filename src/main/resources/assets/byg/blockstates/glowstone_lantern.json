@@ -1,6 +1,10 @@
 {
   "variants": {
-    "hanging=true": { "model": "byg:block/hanging_glowstone_lantern"},
-    "hanging=false": { "model": "byg:block/glowstone_lantern"}
+    "hanging=true": {
+      "model": "byg:block/hanging_glowstone_lantern"
+    },
+    "hanging=false": {
+      "model": "byg:block/glowstone_lantern"
+    }
   }
 }

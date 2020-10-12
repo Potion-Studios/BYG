@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "byg:block/hanging_bone",
-    "particle": "byg:block/hanging_bone"
-  }
-}

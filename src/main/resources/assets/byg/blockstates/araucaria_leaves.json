@@ -1,5 +1,7 @@
 {
-"variants": {
-"": { "model": "byg:block/araucaria_leaves" }
-}
+  "variants": {
+    "": {
+      "model": "byg:block/araucaria_leaves"
+    }
+  }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/quartz_crystal",
+    "particle": "byg:block/quartz_crystal"
+  }
+}

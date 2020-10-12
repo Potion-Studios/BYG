@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:block/sapling_zelkova_brown"
+    "layer0": "byg:block/brown_zelkova_sapling"
   }
 }

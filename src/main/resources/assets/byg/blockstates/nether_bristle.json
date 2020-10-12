@@ -1,6 +1,10 @@
 {
   "variants": {
-    "half=lower": { "model": "byg:block/nether_bristle_bottom" },
-    "half=upper":    { "model": "byg:block/nether_bristle_top" }
+    "half=lower": {
+      "model": "byg:block/nether_bristle_bottom"
+    },
+    "half=upper": {
+      "model": "byg:block/nether_bristle_top"
+    }
   }
 }

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/white_cherry_leaves" }
+    "": {
+      "model": "byg:block/white_cherry_leaves"
+    }
   }
 }

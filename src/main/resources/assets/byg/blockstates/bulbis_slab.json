@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/bulbis_slab"
+    },
+    "type=double": {
+      "model": "byg:block/bulbis_planks"
+    },
+    "type=top": {
+      "model": "byg:block/bulbis_slab_top"
+    }
+  }
+}

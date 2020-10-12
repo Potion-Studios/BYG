@@ -1,5 +1,7 @@
 {
-"variants": {
-"": { "model": "byg:block/joshua_leaves" }
-}
+  "variants": {
+    "": {
+      "model": "byg:block/joshua_leaves"
+    }
+  }
 }

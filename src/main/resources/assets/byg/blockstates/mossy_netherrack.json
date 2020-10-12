@@ -1,5 +1,7 @@
 {
-"variants": {
-"": { "model": "byg:block/mossy_netherrack" }
-}
+  "variants": {
+    "": {
+      "model": "byg:block/mossy_netherrack"
+    }
+  }
 }

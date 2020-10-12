@@ -1,7 +1,13 @@
 {
   "variants": {
-    "type=bottom": { "model": "byg:block/dacite_slab" },
-    "type=top": { "model": "byg:block/dacite_slab_top" },
-    "type=double": { "model": "byg:block/dacite" }
+    "type=bottom": {
+      "model": "byg:block/dacite_slab"
+    },
+    "type=top": {
+      "model": "byg:block/dacite_slab_top"
+    },
+    "type=double": {
+      "model": "byg:block/dacite"
+    }
   }
 }

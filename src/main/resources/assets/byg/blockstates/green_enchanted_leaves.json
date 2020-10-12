@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/green_enchanted_leaves" }
+    "": {
+      "model": "byg:block/green_enchanted_leaves"
+    }
   }
 }

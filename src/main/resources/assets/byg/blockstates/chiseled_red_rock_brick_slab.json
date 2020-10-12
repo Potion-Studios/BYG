@@ -1,7 +1,13 @@
 {
   "variants": {
-    "type=bottom": { "model": "byg:block/chiseled_red_rock_brick_slab" },
-    "type=top": { "model": "byg:block/chiseled_red_rock_brick_slab_top" },
-    "type=double": { "model": "byg:block/chiseled_red_rock_bricks" }
+    "type=bottom": {
+      "model": "byg:block/chiseled_red_rock_brick_slab"
+    },
+    "type=top": {
+      "model": "byg:block/chiseled_red_rock_brick_slab_top"
+    },
+    "type=double": {
+      "model": "byg:block/chiseled_red_rock_bricks"
+    }
   }
 }

@@ -1,10 +1,21 @@
 {
   "variants": {
     "": [
-      { "model": "byg:block/white_sand" },
-      { "model": "byg:block/white_sand", "y": 90 },
-      { "model": "byg:block/white_sand", "y": 180 },
-      { "model": "byg:block/white_sand", "y": 270 }
+      {
+        "model": "byg:block/white_sand"
+      },
+      {
+        "model": "byg:block/white_sand",
+        "y": 90
+      },
+      {
+        "model": "byg:block/white_sand",
+        "y": 180
+      },
+      {
+        "model": "byg:block/white_sand",
+        "y": 270
+      }
     ]
   }
 }

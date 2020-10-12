@@ -1,15 +1,17 @@
 {
   "required": true,
-  "package": "voronoiaoc.byg.mixin",
+  "package": "corgiaoc.byg.mixin",
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
     "common.block.MixinAbstractFireBlock",
     "common.entity.MixinAnimalEntity",
+    "common.entity.MixinEatGrassGoal",
     "common.entity.MixinSlimeEntity",
     "common.world.feature.MixinBasaltColumnFeature",
     "common.world.layers.MixinDimensionType",
     "common.world.layers.MixinHillsLayer",
+    "common.world.layers.MixinRiverLayer",
     "common.world.layers.MixinShoreLayer"
   ],
   "client": [

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "byg:bulbis_stem",
+    "byg:stripped_bulbis_stem",
+    "byg:bulbis_wood",
+    "byg:stripped_bulbis_wood"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "byg:block/ether_phylium_top",
+    "bottom": "byg:block/ether_soil",
+    "side": "byg:block/ether_phylium"
+  }
+}
