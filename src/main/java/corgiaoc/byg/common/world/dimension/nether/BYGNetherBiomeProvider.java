@@ -18,14 +18,14 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
     private final Layer biomeLayer;
     private final long seed;
     private final Registry<Biome> biomeRegistry;
-    public static List<Biome> netherBiomeList = new ArrayList<>();
+    public static final List<Biome> NETHER_BIOMES = new ArrayList<>();
 
 
     public BYGNetherBiomeProvider(Registry<Biome> registry, long seed) {
-        super(netherBiomeList);
+        super(NETHER_BIOMES);
         this.seed = seed;
-        this.biomeLayer = BYGNetherLayerProvider.stackLayers(seed);
         biomeRegistry = registry;
+        this.biomeLayer = BYGNetherLayerProvider.stackLayers(this.biomeRegistry, seed);
     }
 
     @Override
@@ -42,4 +42,5 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
     public Biome getNoiseBiome(int x, int y, int z) {
         return biomeLayer.func_242936_a(biomeRegistry, x, z);
     }
+
 }

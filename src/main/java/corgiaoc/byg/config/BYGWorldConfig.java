@@ -16,22 +16,21 @@ public class BYGWorldConfig {
 
     public static ForgeConfigSpec COMMON_CONFIG;
 
-    public static ForgeConfigSpec.IntValue biomeSize;
+    public static ForgeConfigSpec.BooleanValue useDangerousHacks;
+
+
     public static ForgeConfigSpec.IntValue biomeSizeNETHER;
     public static ForgeConfigSpec.IntValue biomeSizeEND;
-
     public static ForgeConfigSpec.IntValue seaLevel;
     public static ForgeConfigSpec.ConfigValue<String> externalEndBiomes;
     public static ForgeConfigSpec.ConfigValue<String> netherBiomes;
-    public static ForgeConfigSpec.ConfigValue<String> externalICYBiomes;
-    public static ForgeConfigSpec.ConfigValue<String> externalWARMBiomes;
-    public static ForgeConfigSpec.ConfigValue<String> externalHOTBiomes;
-    public static ForgeConfigSpec.ConfigValue<String> externalCOOLBiomes;
     public static ForgeConfigSpec.BooleanValue controlNether;
     public static ForgeConfigSpec.BooleanValue controlEnd;
 
     static {
-        COMMON_BUILDER.comment("Dimension Settings").push("Dimension_Settings").push("The_End");
+        COMMON_BUILDER.comment("Dimension Settings").push("Dimension_Settings");
+        useDangerousHacks = COMMON_BUILDER.comment("Allow BYG to do a somewhat(not really) dangerous hack to support datapack biomes.\nUnlikely to crash. \nDefault: true").define("DatapackHacks", true);
+        COMMON_BUILDER.push("The_End");
         controlEnd = COMMON_BUILDER.comment("Does BYG control The End?").define("ControlEnd", true);
         externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available end biomes in the registry.\nDefault: \"all\"").define("ExternalEndBiomes", "all");
         biomeSizeEND = COMMON_BUILDER.comment("End Biome Size\nResults vary.\nDefault: 3").defineInRange("EndBiomeSize", 3, 0, 10);

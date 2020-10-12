@@ -348,13 +348,13 @@ public class BYGBiomes {
                     if (key.isPresent())
                         key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
 
-                    if (!BYGEndBiomeProvider.endBiomeList.contains(biome))
-                        BYGEndBiomeProvider.endBiomeList.add(biome);
+                    if (!BYGEndBiomeProvider.END_BIOMES.contains(biome))
+                        BYGEndBiomeProvider.END_BIOMES.add(biome);
                 }
             }
         }
         else {
-            for (Biome biome : BYGEndBiomeProvider.endBiomeList) {
+            for (Biome biome : BYGEndBiomeProvider.END_BIOMES) {
                 if (biome.getCategory().equals(Biome.Category.THEEND) && !endBiomeBlackList.contains(biome)) {
                     Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
                     if (key.isPresent())
@@ -372,13 +372,13 @@ public class BYGBiomes {
                     if (key.isPresent())
                         key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
 
-                    if (!BYGNetherBiomeProvider.netherBiomeList.contains(biome))
-                        BYGNetherBiomeProvider.netherBiomeList.add(biome);
+                    if (!BYGNetherBiomeProvider.NETHER_BIOMES.contains(biome))
+                        BYGNetherBiomeProvider.NETHER_BIOMES.add(biome);
                 }
             }
         }
         else {
-            for (Biome biome : BYGNetherBiomeProvider.netherBiomeList) {
+            for (Biome biome : BYGNetherBiomeProvider.NETHER_BIOMES) {
                 if (biome.getCategory().equals(Biome.Category.NETHER)) {
                     Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
                     if (key.isPresent())

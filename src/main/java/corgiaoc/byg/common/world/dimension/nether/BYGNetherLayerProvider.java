@@ -2,6 +2,8 @@ package corgiaoc.byg.common.world.dimension.nether;
 
 
 import corgiaoc.byg.config.BYGWorldConfig;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
 import net.minecraft.world.gen.LazyAreaLayerContext;
 import net.minecraft.world.gen.area.IAreaFactory;
@@ -12,10 +14,10 @@ import net.minecraft.world.gen.layer.ZoomLayer;
 import java.util.function.LongFunction;
 
 public class BYGNetherLayerProvider {
-    public static Layer stackLayers(long seed) {
+    public static Layer stackLayers(Registry<Biome> biomeRegistry, long seed) {
         LongFunction<IExtendedNoiseRandom<LazyArea>> randomProvider = salt -> new LazyAreaLayerContext(1, seed, salt);
 
-        IAreaFactory<LazyArea> netherLayer = BYGNetherMasterLayer.INSTANCE.apply(randomProvider.apply(485868686L));
+        IAreaFactory<LazyArea> netherLayer = new BYGNetherMasterLayer(biomeRegistry).apply(randomProvider.apply(485868686L));
 
         for (int netherBiomeSize = 0; netherBiomeSize <= BYGWorldConfig.biomeSizeNETHER.get(); netherBiomeSize++) {
             netherLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(28585L + netherBiomeSize), netherLayer);

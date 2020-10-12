@@ -20,17 +20,18 @@ public class BYGEndBiomeProvider extends BiomeProvider {
 
     private final long seed;
     private final Layer biomeLayer;
-    public static final List<Biome> endBiomeList = new ArrayList<>();
+    public static final List<Biome> END_BIOMES = new ArrayList<>();
     private final Registry<Biome> biomeRegistry;
     private final SimplexNoiseGenerator generator;
 
     public BYGEndBiomeProvider(Registry<Biome> registry, long seed) {
-        super(endBiomeList);
+        super(END_BIOMES);
         this.seed = seed;
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         sharedseedrandom.setSeed(17292);
-        this.biomeLayer = BYGEndLayerProvider.stackLayers(seed);
         biomeRegistry = registry;
+        this.biomeLayer = BYGEndLayerProvider.stackLayers(this.biomeRegistry, seed);
+
         this.generator = new SimplexNoiseGenerator(sharedseedrandom);
     }
 

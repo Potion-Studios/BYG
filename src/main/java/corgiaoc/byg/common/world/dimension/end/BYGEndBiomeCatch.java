@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.dimension.end;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.config.BYGWorldConfig;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -38,7 +39,7 @@ public class BYGEndBiomeCatch {
                     Biome biome = WorldGenRegistries.BIOME.getByValue(getConfigArray[index]);
                     if (biome == null) {
                     } else {
-                        BYGEndBiomeProvider.endBiomeList.add(biome);
+                        BYGEndBiomeProvider.END_BIOMES.add(biome);
                     }
                 }
             }
@@ -46,8 +47,8 @@ public class BYGEndBiomeCatch {
         BYG.LOGGER.debug("BYG: End Biome Config Collection complete!");
     }
 
-    public static int getRandomEndBiomes(INoiseRandom rand) {
-        return WorldGenRegistries.BIOME.getId(BYGEndBiomeProvider.endBiomeList.get(rand.random(BYGEndBiomeProvider.endBiomeList.size())));
+    public static int getRandomEndBiomes(Registry<Biome> biomeRegistry, INoiseRandom rand) {
+        return biomeRegistry.getId(BYGEndBiomeProvider.END_BIOMES.get(rand.random(BYGEndBiomeProvider.END_BIOMES.size())));
     }
 }
 
