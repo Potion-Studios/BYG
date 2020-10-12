@@ -102,7 +102,7 @@ public abstract class MixinShoreLayer {
 
     @Nullable
     private static Biome getEdgeBiomeValue(INoiseRandom rand, int n, int w, int s, int e, int centre) {
-        for (BYGBiome bygBiome : BYGBiome.bygBiomes) {
+        for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES) {
             if (bygBiome.getBiome() == WorldGenRegistries.BIOME.getByValue(centre))
                 return bygBiome.getEdges(rand, WorldGenRegistries.BIOME.getByValue(n), WorldGenRegistries.BIOME.getByValue(w), WorldGenRegistries.BIOME.getByValue(s), WorldGenRegistries.BIOME.getByValue(e));
         }

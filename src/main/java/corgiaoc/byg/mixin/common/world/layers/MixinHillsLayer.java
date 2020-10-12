@@ -49,7 +49,7 @@ public abstract class MixinHillsLayer {
 
     @Nullable
     private static Biome getHillBiomeValue(Biome firstLayerBiomeValue, INoiseRandom random) {
-        for (BYGBiome bygBiome : BYGBiome.bygBiomes) {
+        for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES) {
             if (firstLayerBiomeValue == bygBiome.getBiome())
                 return bygBiome.getHills(random);
         }

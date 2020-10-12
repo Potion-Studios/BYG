@@ -30,7 +30,7 @@ public abstract class MixinRiverLayer {
     }
     @Nullable
     private static Biome getRiverBiomeValue(Biome firstLayerBiomeValue) {
-        for (BYGBiome bygBiome : BYGBiome.bygBiomes) {
+        for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES) {
             if (firstLayerBiomeValue == bygBiome.getBiome())
                 return bygBiome.getRiver();
         }

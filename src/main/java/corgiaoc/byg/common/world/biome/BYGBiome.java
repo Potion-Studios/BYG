@@ -13,17 +13,22 @@ import java.util.List;
 import java.util.Objects;
 
 public class BYGBiome {
-    public static List<BYGBiome> bygBiomes = new ArrayList<>();
+    public static final List<BYGBiome> BYG_BIOMES = new ArrayList<>();
     private final Biome biome;
 
     public BYGBiome(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
         biome = new Biome(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
-        bygBiomes.add(this);
+        BYG_BIOMES.add(this);
     }
 
     public BYGBiome(Biome.Builder builder) {
-        biome = builder.build();
-        bygBiomes.add(this);
+        this.biome = builder.build();
+        BYG_BIOMES.add(this);
+    }
+
+    public BYGBiome(Biome biome) {
+        this.biome = biome;
+        BYG_BIOMES.add(this);
     }
 
     public Biome getBiome() {

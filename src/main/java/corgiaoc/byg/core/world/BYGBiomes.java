@@ -111,7 +111,7 @@ public class BYGBiomes {
     public static final Biome SNOWY_EVERGREEN_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_evergreen_taiga", new SnowyEvergreenTaiga().getBiome());
     public static final Biome STONE_FOREST = WorldGenRegistrationHelper.createBiome("stone_forest", new StoneForest().getBiome());
     public static final Biome THE_BLACK_FOREST = WorldGenRegistrationHelper.createBiome("the_black_forest", new TheBlackForest().getBiome());
-    public static final Biome TROPICAL_FUNGAL_RAINFOREST = WorldGenRegistrationHelper.createBiome("tropical_fungal_rainforest", new TropicalFungalRainForest().getBiome());
+    public static final Biome TROPICAL_FUNGAL_RAINFOREST = WorldGenRegistrationHelper.createBiome("tropical_fungal_forest", new TropicalFungalRainForest().getBiome());
     public static final Biome TROPICAL_ISLAND = WorldGenRegistrationHelper.createBiome("tropical_islands", new TropicalIslands().getBiome());
     public static final Biome TROPICAL_RAINFOREST = WorldGenRegistrationHelper.createBiome("tropical_rainforest", new TropicalRainForest().getBiome());
     public static final Biome TWILIGHT_VALLEY = WorldGenRegistrationHelper.createBiome("twilight_valley", new TwilightValley().getBiome());
@@ -126,7 +126,7 @@ public class BYGBiomes {
     /************Sub Biomes************/
 
     //Beaches
-    public static final Biome SNOWY_ROCKY_BLACK_BEACH = WorldGenRegistrationHelper.createBiome("snowy_rock_black_beach", new SnowyRockyBlackBeach().getBiome());
+    public static final Biome SNOWY_ROCKY_BLACK_BEACH = WorldGenRegistrationHelper.createBiome("snowy_rocky_black_beach", new SnowyRockyBlackBeach().getBiome());
     public static final Biome SNOWY_BLACK_BEACH = WorldGenRegistrationHelper.createBiome("snowy_black_beach", new SnowyBlackBeach().getBiome());
     public static final Biome WHITE_BEACH = WorldGenRegistrationHelper.createBiome("white_beach", new WhiteBeach().getBiome());
     public static final Biome RAINBOW_BEACH = WorldGenRegistrationHelper.createBiome("rainbow_beach", new RainbowBeach().getBiome());
@@ -175,7 +175,7 @@ public class BYGBiomes {
     public static final Biome CONIFEROUS_CLEARING = WorldGenRegistrationHelper.createBiome("coniferous_clearing", new ConiferousClearing().getBiome());
     public static final Biome ZELKOVA_CLEARING = WorldGenRegistrationHelper.createBiome("zelkova_clearing", new ZelkovaClearing().getBiome());
     public static final Biome ASPEN_CLEARING = WorldGenRegistrationHelper.createBiome("aspen_clearing", new AspenClearing().getBiome());
-    public static final Biome BOREALIS_CLEARING = WorldGenRegistrationHelper.createBiome("borealis_clearing", new BorealisClearing().getBiome());
+    public static final Biome BOREAL_CLEARING = WorldGenRegistrationHelper.createBiome("boreal_clearing", new BorealClearing().getBiome());
     public static final Biome DECIDUOUS_CLEARING = WorldGenRegistrationHelper.createBiome("deciduous_clearing", new DeciduousClearing().getBiome());
     public static final Biome SEASONAL_DECIDUOUS_CLEARING = WorldGenRegistrationHelper.createBiome("seasonal_deciduous_clearing", new SeasonalDeciduousClearing().getBiome());
     public static final Biome GUIANA_CLEARING = WorldGenRegistrationHelper.createBiome("guiana_clearing", new GuianaClearing().getBiome());
@@ -208,7 +208,7 @@ public class BYGBiomes {
     public static final Biome SEASONAL_TAIGA_HILLS = WorldGenRegistrationHelper.createBiome("seasonal_taiga_hills", new SeasonalTaigaHills().getBiome());
     public static final Biome SNOWY_BLUE_TAIGA_HILLS = WorldGenRegistrationHelper.createBiome("snowy_blue_taiga_hills", new SnowyBlueTaigaHills().getBiome());
     public static final Biome SNOWY_CONIFEROUS_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("snowy_coniferous_forest_hills", new SnowyConiferousForestHills().getBiome());
-    public static final Biome SNOWY_DECIDUOUS_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("snowy_deciduous_hills", new SnowyDeciduousForestHills().getBiome());
+    public static final Biome SNOWY_DECIDUOUS_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("snowy_deciduous_forest_hills", new SnowyDeciduousForestHills().getBiome());
     public static final Biome TROPICAL_FUNGAL_RAINFOREST_HILLS = WorldGenRegistrationHelper.createBiome("tropical_fungal_rainforest_hills", new TropicalFungalRainforestHills().getBiome());
     public static final Biome TROPICAL_RAINFOREST_HILLS = WorldGenRegistrationHelper.createBiome("tropical_rainforest_hills", new TropicalRainForestHills().getBiome());
     public static final Biome ZELKOVA_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("zelkova_forest_hills", new ZelkovaForestHills().getBiome());
@@ -306,9 +306,6 @@ public class BYGBiomes {
         addBiomeEntry(BYGBiomes.SNOWY_CONIFEROUS_FOREST, ConfigWeightManager.SNOWYCONIFEROUSFOREST.getWeight(), BiomeManager.BiomeType.ICY);
         addBiomeEntry(BYGBiomes.SNOWY_DECIDUOUS_FOREST, ConfigWeightManager.SNOWYDECIDUOUSFOREST.getWeight(), BiomeManager.BiomeType.ICY);
         addBiomeEntry(BYGBiomes.SNOWY_EVERGREEN_TAIGA, ConfigWeightManager.SNOWY_EVERGREEN_TAIGA.getWeight(), BiomeManager.BiomeType.ICY);
-//        addBiomeEntry(BYGBiomes.SONORANDESERT, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
-//        addBiomeEntry(BYGBiomes.STONEBRUSHLANDS, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
-//        addBiomeEntry(BYGBiomes.STONEFOREST, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.THE_BLACK_FOREST, ConfigWeightManager.THE_BLACK_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomes.TROPICAL_FUNGAL_RAINFOREST, ConfigWeightManager.TROPICALFUNGALFOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.TROPICAL_RAINFOREST, ConfigWeightManager.TROPICALRAINFOREST.getWeight(), BiomeManager.BiomeType.WARM);
@@ -318,7 +315,6 @@ public class BYGBiomes {
         addBiomeEntry(BYGBiomes.STONE_FOREST, ConfigWeightManager.STONE_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.WEEPING_WITCH_FOREST, ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomes.WOODLANDS, ConfigWeightManager.WOODLANDS.getWeight(), BiomeManager.BiomeType.WARM);
-//        addBiomeEntry(BYGBiomes.VOLCANO, 1, BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomes.ZELKOVA_FOREST, ConfigWeightManager.ZELKOVAFOREST.getWeight(), BiomeManager.BiomeType.COOL);
 
         BYG.LOGGER.debug("BYG: Added biome entries with their respective weights!");
