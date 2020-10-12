@@ -168,7 +168,7 @@ public class BYGBiomes {
     public static final Biome NORTHERN_FOREST = WorldGenRegistrationHelper.createBiome("northern_forest", new NorthernForest().getBiome());
     public static final Biome POINTY_STONE_FOREST = WorldGenRegistrationHelper.createBiome("pointed_stone_forest", new PointedStoneForest().getBiome());
     public static final Biome PUMPKIN_FOREST = WorldGenRegistrationHelper.createBiome("pumpkin_forest", new PumpkinForest().getBiome());
-    
+
     //Hills
     public static final Biome ALPINE_FOOTHILLS = WorldGenRegistrationHelper.createBiome("alpine_foothills", new AlpineFoothills().getBiome());
     public static final Biome ASPEN_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("aspen_forest_hills", new AspenForestHills().getBiome());
@@ -243,6 +243,7 @@ public class BYGBiomes {
     /************End Biomes************/
     public static final Biome IVIS_FIELDS = WorldGenRegistrationHelper.createBiome("ivis_fields", new IvisFields().getBiome());
     public static final Biome NIGHTSHADE_FOREST = WorldGenRegistrationHelper.createBiome("nightshade_forest", new NightshadeForest().getBiome());
+
 
     public static void init() {
     }
@@ -413,7 +414,6 @@ public class BYGBiomes {
             biomeFeatures.add(Lists.newArrayList());
         }
         biomeFeatures.get(feature.ordinal()).add(() -> configuredFeature);
-
     }
 
     private static void ConvertImmutableFeatures(Biome biome) {

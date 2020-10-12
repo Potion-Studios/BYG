@@ -21,7 +21,6 @@ import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGDecorators;
 import corgiaoc.byg.core.world.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
-import corgiaoc.byg.data.BlockDataGenerator;
 import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -112,7 +111,7 @@ public class BYG {
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class Registries {
+    public static class BYGRegistries {
         @SubscribeEvent
         public static void registerBlocks(RegistryEvent.Register<Block> event) {
             BYG.LOGGER.debug("BYG: Registering blocks...");
@@ -136,7 +135,7 @@ public class BYG {
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class WorldGenRegistries {
+    public static class BYGWorldGenRegistries {
         @SubscribeEvent
         public static void registerBiomes(RegistryEvent.Register<Biome> event) {
             BYG.LOGGER.debug("BYG: Registering biomes...");
