@@ -18,14 +18,12 @@ public class BYGWorldConfig {
 
     public static ForgeConfigSpec.BooleanValue useDangerousHacks;
 
-
-    public static ForgeConfigSpec.IntValue biomeSizeNETHER;
-    public static ForgeConfigSpec.IntValue biomeSizeEND;
-    public static ForgeConfigSpec.IntValue seaLevel;
-    public static ForgeConfigSpec.ConfigValue<String> externalEndBiomes;
-    public static ForgeConfigSpec.ConfigValue<String> netherBiomes;
-    public static ForgeConfigSpec.BooleanValue controlNether;
-    public static ForgeConfigSpec.BooleanValue controlEnd;
+    public static final ForgeConfigSpec.IntValue biomeSizeNETHER;
+    public static final ForgeConfigSpec.IntValue biomeSizeEND;
+    public static final ForgeConfigSpec.ConfigValue<String> externalEndBiomes;
+    public static final ForgeConfigSpec.ConfigValue<String> netherBiomes;
+    public static final ForgeConfigSpec.BooleanValue controlNether;
+    public static final ForgeConfigSpec.BooleanValue controlEnd;
 
     static {
         COMMON_BUILDER.comment("Dimension Settings").push("Dimension_Settings");
