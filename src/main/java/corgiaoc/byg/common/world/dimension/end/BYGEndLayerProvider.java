@@ -19,7 +19,7 @@ public class BYGEndLayerProvider {
 
         IAreaFactory<LazyArea> endLayer = new BYGEndMasterLayer(biomeRegistry).apply(randomProvider.apply(1003958L));
 
-        for (int endBiomeSize = 0; endBiomeSize <= BYGWorldConfig.biomeSizeEND.get(); endBiomeSize++) {
+        for (int endBiomeSize = 0; endBiomeSize <= BYGWorldConfig.BIOME_SIZE_END.get(); endBiomeSize++) {
             endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(49596L + endBiomeSize), endLayer);
         }
         endLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(34885L), endLayer);

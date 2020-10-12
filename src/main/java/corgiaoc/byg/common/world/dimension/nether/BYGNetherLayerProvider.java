@@ -19,7 +19,7 @@ public class BYGNetherLayerProvider {
 
         IAreaFactory<LazyArea> netherLayer = new BYGNetherMasterLayer(biomeRegistry).apply(randomProvider.apply(485868686L));
 
-        for (int netherBiomeSize = 0; netherBiomeSize <= BYGWorldConfig.biomeSizeNETHER.get(); netherBiomeSize++) {
+        for (int netherBiomeSize = 0; netherBiomeSize <= BYGWorldConfig.BIOME_SIZE_NETHER.get(); netherBiomeSize++) {
             netherLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(28585L + netherBiomeSize), netherLayer);
         }
         netherLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(958687L), netherLayer);

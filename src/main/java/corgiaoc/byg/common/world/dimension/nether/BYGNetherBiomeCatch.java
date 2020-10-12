@@ -14,7 +14,7 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class BYGNetherBiomeCatch {
-    public static String biomeRegistries = BYGWorldConfig.netherBiomes.get();
+    public static String biomeRegistries = BYGWorldConfig.NETHER_BIOMES.get();
     public static String configBiomes = biomeRegistries.trim();
     public static List<String> biomeList = Arrays.asList(configBiomes.split(","));
     public static boolean useAllNetherBiomes = false;

@@ -29,7 +29,7 @@ public abstract class MixinLayer {
      */
     @Inject(at = @At("HEAD"), method = "func_242936_a(Lnet/minecraft/util/registry/Registry;II)Lnet/minecraft/world/biome/Biome;", cancellable = true)
     private void useDatapackBiomeRegistry(Registry<Biome> biomeRegistry, int x, int z, CallbackInfoReturnable<Biome> cir) {
-        if (BYGWorldConfig.useDangerousHacks.get()) {
+        if (BYGWorldConfig.DATAPACK_HACKS.get()) {
             cir.cancel();
             int biomeID = this.field_215742_b.getValue(x, z);
             RegistryKey<Biome> registryKey = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, biomeRegistry.getKey(biomeRegistry.getByValue(biomeID)));

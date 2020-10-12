@@ -16,29 +16,28 @@ public class BYGWorldConfig {
 
     public static ForgeConfigSpec COMMON_CONFIG;
 
-    public static ForgeConfigSpec.BooleanValue useDangerousHacks;
+    public static ForgeConfigSpec.BooleanValue DATAPACK_HACKS;
 
-    public static final ForgeConfigSpec.IntValue biomeSizeNETHER;
-    public static final ForgeConfigSpec.IntValue biomeSizeEND;
-    public static final ForgeConfigSpec.ConfigValue<String> externalEndBiomes;
-    public static final ForgeConfigSpec.ConfigValue<String> netherBiomes;
-    public static final ForgeConfigSpec.BooleanValue controlNether;
-    public static final ForgeConfigSpec.BooleanValue controlEnd;
+    public static final ForgeConfigSpec.IntValue BIOME_SIZE_NETHER;
+    public static final ForgeConfigSpec.IntValue BIOME_SIZE_END;
+    public static final ForgeConfigSpec.ConfigValue<String> EXTERNAL_END_BIOMES;
+    public static final ForgeConfigSpec.ConfigValue<String> NETHER_BIOMES;
+    public static final ForgeConfigSpec.BooleanValue CONTROL_NETHER;
+    public static final ForgeConfigSpec.BooleanValue CONTROL_END;
 
     static {
         COMMON_BUILDER.comment("Dimension Settings").push("Dimension_Settings");
-        useDangerousHacks = COMMON_BUILDER.comment("Allow BYG to do a somewhat(not really) dangerous hack to support datapack biomes.\nUnlikely to crash. If it does crash due to \"useDatapackBiomeRegistry\", make this false.\nDefault: true").define("DatapackHacks", true);
+        DATAPACK_HACKS = COMMON_BUILDER.comment("Allow BYG to do a somewhat(not really) dangerous hack to support datapack biomes.\nUnlikely to crash. If it does crash due to \"useDatapackBiomeRegistry\", make this false.\nDefault: true").define("DatapackHacks", true);
         COMMON_BUILDER.push("The_End");
-        controlEnd = COMMON_BUILDER.comment("Does BYG control The End?").define("ControlEnd", true);
-        externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available end biomes in the registry.\nDefault: \"all\"").define("ExternalEndBiomes", "all");
-        biomeSizeEND = COMMON_BUILDER.comment("End Biome Size\nResults vary.\nDefault: 3").defineInRange("EndBiomeSize", 3, 0, 10);
+        CONTROL_END = COMMON_BUILDER.comment("Does BYG control The End?").define("ControlEnd", true);
+        EXTERNAL_END_BIOMES = COMMON_BUILDER.comment("Add external End biomes by their registry ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available end biomes in the registry.\nDefault: \"all\"").define("ExternalEndBiomes", "all");
+        BIOME_SIZE_END = COMMON_BUILDER.comment("End Biome Size\nResults vary.\nDefault: 3").defineInRange("EndBiomeSize", 3, 0, 10);
         COMMON_BUILDER.pop();
         COMMON_BUILDER.push("The_Nether");
-        controlNether = COMMON_BUILDER.comment("Does BYG control The Nether?").define("ControlNether", true);
-        netherBiomes = COMMON_BUILDER.comment("Add external Nether biomes by their registry ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available nether biomes in the registry.\nDefault: \"all\".").define("NetherBiomes", "all");
-        biomeSizeNETHER = COMMON_BUILDER.comment("Nether Biome Size\nDefault: 3").defineInRange("NetherBiomeSize", 3, 0, 10);
+        CONTROL_NETHER = COMMON_BUILDER.comment("Does BYG control The Nether?").define("ControlNether", true);
+        NETHER_BIOMES = COMMON_BUILDER.comment("Add external Nether biomes by their registry ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available nether biomes in the registry.\nDefault: \"all\".").define("NetherBiomes", "all");
+        BIOME_SIZE_NETHER = COMMON_BUILDER.comment("Nether Biome Size\nDefault: 3").defineInRange("NetherBiomeSize", 3, 0, 10);
         COMMON_BUILDER.pop();
-
         COMMON_CONFIG = COMMON_BUILDER.build();
     }
 

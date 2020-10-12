@@ -15,7 +15,7 @@ import java.util.List;
 @SuppressWarnings("deprecation")
 public class BYGEndBiomeCatch {
 
-    public static String biomeRegistries = BYGWorldConfig.externalEndBiomes.get();
+    public static String biomeRegistries = BYGWorldConfig.EXTERNAL_END_BIOMES.get();
     public static String configBiomes = biomeRegistries.trim().replace(" ", "");
     public static List<String> biomeList = Arrays.asList(configBiomes.split(","));
 
