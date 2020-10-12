@@ -5,7 +5,6 @@ import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGBiomes;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -25,7 +24,7 @@ public class AspenTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
 
         int minHeight = config.getMinHeight();
         Biome biome = worldIn.getBiome(pos);
-        if (biome == BYGBiomes.ASPENFORESTHILLS)
+        if (biome == BYGBiomes.ASPEN_FOREST_HILLS)
             minHeight = config.getMinHeight() + 5;
 
         int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + minHeight;

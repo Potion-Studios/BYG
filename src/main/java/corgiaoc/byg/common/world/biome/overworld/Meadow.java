@@ -39,9 +39,9 @@ public class Meadow extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.FLOWERINGMEADOW, 1);
-        map.put(BYGBiomes.WOODEDMEADOW, 1);
-        map.put(BYGBiomes.FRESHWATERLAKE, 2);
+        map.put(BYGBiomes.FLOWERING_MEADOW, 1);
+        map.put(BYGBiomes.WOODED_MEADOW, 1);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 2);
         return map;
     }
 
@@ -53,13 +53,13 @@ public class Meadow extends BYGBiome {
     public Biome randomSubBiome(INoiseRandom random) {
         int randomPicker = random.random(4);
         if (randomPicker == 0)
-            return BYGBiomes.FLOWERINGMEADOW;
+            return BYGBiomes.FLOWERING_MEADOW;
         else if (randomPicker == 1)
-            return BYGBiomes.WOODEDMEADOW;
+            return BYGBiomes.WOODED_MEADOW;
         else if (randomPicker == 2)
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
         else
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
     }
 
     static {

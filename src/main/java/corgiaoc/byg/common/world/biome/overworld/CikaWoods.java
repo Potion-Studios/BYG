@@ -41,7 +41,7 @@ public class CikaWoods extends BYGBiome {
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
         map.put(BYGBiomes.CIKA_MOUNTAINS, 3);
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
         return map;
     }
 
@@ -69,7 +69,7 @@ public class CikaWoods extends BYGBiome {
         else if (randomPicker == 2)
             return BYGBiomes.CIKA_MOUNTAINS;
         else
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
     }
 
     static {

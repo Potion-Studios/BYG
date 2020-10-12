@@ -43,9 +43,9 @@ public class SnowyDeciduousForest extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.SNOWYDECIDUOUSFORESTHILLS, 1);
+        map.put(BYGBiomes.SNOWY_DECIDUOUS_FOREST_HILLS, 1);
         map.put(BYGBiomes.SNOWY_DECIDUOUS_CLEARING, 2);
-        map.put(BYGBiomes.FROZENLAKE, 1);
+        map.put(BYGBiomes.FROZEN_LAKE, 1);
         return map;
     }
 
@@ -56,13 +56,13 @@ public class SnowyDeciduousForest extends BYGBiome {
     public Biome randomSubBiome(INoiseRandom random) {
         int randomPicker = random.random(4);
         if (randomPicker == 0)
-            return BYGBiomes.SNOWYDECIDUOUSFORESTHILLS;
+            return BYGBiomes.SNOWY_DECIDUOUS_FOREST_HILLS;
         else if (randomPicker == 1)
             return BYGBiomes.SNOWY_DECIDUOUS_CLEARING;
         else if (randomPicker == 2)
             return BYGBiomes.SNOWY_DECIDUOUS_CLEARING;
         else
-            return BYGBiomes.FROZENLAKE;
+            return BYGBiomes.FROZEN_LAKE;
     }
 
     static {

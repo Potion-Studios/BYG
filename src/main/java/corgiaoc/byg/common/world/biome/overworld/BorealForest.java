@@ -39,9 +39,9 @@ public class BorealForest extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.BOREALFORESTHILLS, 1);
+        map.put(BYGBiomes.BOREAL_FOREST_HILLS, 1);
         map.put(BYGBiomes.BOREALIS_CLEARING, 2);
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
         return map;
     }
 
@@ -57,13 +57,13 @@ public class BorealForest extends BYGBiome {
     public Biome randomSubBiome(INoiseRandom random) {
         int randomPicker = random.random(4);
         if (randomPicker == 0)
-            return BYGBiomes.BOREALFORESTHILLS;
+            return BYGBiomes.BOREAL_FOREST_HILLS;
         else if (randomPicker == 1)
             return BYGBiomes.BOREALIS_CLEARING;
         else if (randomPicker == 2)
             return BYGBiomes.BOREALIS_CLEARING;
         else
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
     }
 
     static {

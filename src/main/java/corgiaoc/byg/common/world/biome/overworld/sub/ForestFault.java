@@ -90,13 +90,13 @@ public class ForestFault extends BYGBiome {
     public Biome randomSubBiome(INoiseRandom random) {
         int randomPicker = random.random(4);
         if (randomPicker == 0)
-            return BYGBiomes.CONIFEROUSFORESTHILLS;
+            return BYGBiomes.CONIFEROUS_FOREST_HILLS;
         else if (randomPicker == 1)
             return BYGBiomes.CONIFEROUS_CLEARING;
         else if (randomPicker == 2)
             return BYGBiomes.CONIFEROUS_CLEARING;
         else
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
     }
 
     static {

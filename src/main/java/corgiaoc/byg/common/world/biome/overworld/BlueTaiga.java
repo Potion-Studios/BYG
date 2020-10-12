@@ -36,9 +36,9 @@ public class BlueTaiga extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
-        map.put(BYGBiomes.BLUEGIANTTAIGA, 2);
-        map.put(BYGBiomes.BLUETAIGAHILLS, 2);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
+        map.put(BYGBiomes.BLUE_GIANT_TAIGA, 2);
+        map.put(BYGBiomes.BLUE_TAIGA_HILLS, 2);
         return map;
     }
 
@@ -48,11 +48,11 @@ public class BlueTaiga extends BYGBiome {
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESHWATERLAKE : pickRandomSubBiome(rand);
+        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : pickRandomSubBiome(rand);
     }
 
     public Biome pickRandomSubBiome(INoiseRandom rand) {
-        return (rand.random(2) == 0) ? BYGBiomes.BLUEGIANTTAIGA : BYGBiomes.BLUETAIGAHILLS;
+        return (rand.random(2) == 0) ? BYGBiomes.BLUE_GIANT_TAIGA : BYGBiomes.BLUE_TAIGA_HILLS;
     }
 
     static {

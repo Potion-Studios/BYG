@@ -1,9 +1,11 @@
 package corgiaoc.byg.core.world.util;
 
 import corgiaoc.byg.BYG;
+import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
@@ -39,5 +41,11 @@ public class WorldGenRegistrationHelper {
     public static <DC extends IPlacementConfig, D extends Placement<DC>> D createDecorator(String id, D decorator) {
         Registry.register(Registry.DECORATOR, new ResourceLocation(BYG.MOD_ID, id), decorator);
         return decorator;
+    }
+
+    public static Biome createBiome(String id, Biome biome) {
+        Registry.register(WorldGenRegistries.BIOME, new ResourceLocation(BYG.MOD_ID, id), biome);
+        BYGBiomes.biomeList.add(biome);
+        return biome;
     }
 }

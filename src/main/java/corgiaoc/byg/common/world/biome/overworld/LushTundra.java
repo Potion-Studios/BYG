@@ -38,13 +38,13 @@ public class LushTundra extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.FROZENLAKE, 1);
+        map.put(BYGBiomes.FROZEN_LAKE, 1);
         map.put(BYGBiomes.NORTHERN_FOREST, 4);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FROZENLAKE : BYGBiomes.NORTHERN_FOREST;
+        return (rand.random(5) == 0) ? BYGBiomes.FROZEN_LAKE : BYGBiomes.NORTHERN_FOREST;
     }
 
     static {

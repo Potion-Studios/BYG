@@ -38,11 +38,11 @@ public class GrassLandPlateau extends BYGBiome {
     }
 
     public HashMap<Biome, Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.WOODEDGRASSLANDPLATEAU, 1));
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.WOODED_GRASSLAND_PLATEAU, 1));
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return BYGBiomes.WOODEDGRASSLANDPLATEAU;
+        return BYGBiomes.WOODED_GRASSLAND_PLATEAU;
     }
 
 

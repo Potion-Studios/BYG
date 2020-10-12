@@ -35,13 +35,13 @@ public class RedOakForest extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
-        map.put(BYGBiomes.REDOAKFORESTHILLS, 4);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
+        map.put(BYGBiomes.RED_OAK_FOREST_HILLS, 4);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESHWATERLAKE : BYGBiomes.REDOAKFORESTHILLS;
+        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.RED_OAK_FOREST_HILLS;
     }
 
     static {

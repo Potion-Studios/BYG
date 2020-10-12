@@ -46,7 +46,7 @@ public class SnowyEvergreenTaiga extends BYGBiome {
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
         map.put(BYGBiomes.SNOWY_EVERGREEN_HILLS, 1);
-        map.put(BYGBiomes.FROZENLAKE, 1);
+        map.put(BYGBiomes.FROZEN_LAKE, 1);
         map.put(BYGBiomes.SNOWY_EVERGREEN_CLEARING, 2);
         return map;
     }
@@ -64,7 +64,7 @@ public class SnowyEvergreenTaiga extends BYGBiome {
         else if (randomPicker == 2)
             return BYGBiomes.SNOWY_EVERGREEN_CLEARING;
         else
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
     }
 
     static {

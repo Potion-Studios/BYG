@@ -36,13 +36,13 @@ public class AlliumFields extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = Maps.newHashMap();
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
-        map.put(BYGBiomes.REDOAKFOREST, 4);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
+        map.put(BYGBiomes.RED_OAK_FOREST, 4);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESHWATERLAKE : BYGBiomes.REDOAKFOREST;
+        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.RED_OAK_FOREST;
     }
 
     static {

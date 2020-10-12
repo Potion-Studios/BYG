@@ -42,7 +42,7 @@ public class CherryBlossomForest extends BYGBiome {
         HashMap<Biome, Integer> map = new HashMap<>();
         map.put(BYGBiomes.CHERRY_BLOSSOM_CLEARING, 1);
         map.put(BYGBiomes.BAMBOO_FOREST, 1);
-        map.put(BYGBiomes.FRESHWATERLAKE, 2);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 2);
         return map;
     }
 
@@ -58,9 +58,9 @@ public class CherryBlossomForest extends BYGBiome {
         else if (randomPicker == 1)
             return BYGBiomes.BAMBOO_FOREST;
         else if (randomPicker == 2)
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
         else
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
     }
 
     static {

@@ -41,11 +41,11 @@ public class AutumnalValley extends BYGBiome {
     }
 
     public HashMap<Biome, Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.FRESHWATERLAKE, 1));
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.FRESH_WATER_LAKE, 1));
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return BYGBiomes.FRESHWATERLAKE;
+        return BYGBiomes.FRESH_WATER_LAKE;
     }
 
     @Override

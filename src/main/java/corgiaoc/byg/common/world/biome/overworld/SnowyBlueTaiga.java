@@ -41,13 +41,13 @@ public class SnowyBlueTaiga extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.SNOWYBLUETAIGAHILLS, 1);
-        map.put(BYGBiomes.SNOWYBLUEGIANTTAIGA, 1);
+        map.put(BYGBiomes.SNOWY_BLUE_TAIGA_HILLS, 1);
+        map.put(BYGBiomes.SNOWY_BLUE_GIANT_TAIGA, 1);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(2) == 0) ? BYGBiomes.SNOWYBLUETAIGAHILLS : BYGBiomes.SNOWYBLUEGIANTTAIGA;
+        return (rand.random(2) == 0) ? BYGBiomes.SNOWY_BLUE_TAIGA_HILLS : BYGBiomes.SNOWY_BLUE_GIANT_TAIGA;
     }
 
     static {

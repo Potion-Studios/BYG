@@ -43,13 +43,13 @@ public class ShrubLands extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.POLLUTEDLAKE, 1);
+        map.put(BYGBiomes.POLLUTED_LAKE, 1);
         map.put(BYGBiomes.SHRUBLANDS, 4);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.POLLUTEDLAKE : BYGBiomes.SHRUBLANDS;
+        return (rand.random(5) == 0) ? BYGBiomes.POLLUTED_LAKE : BYGBiomes.SHRUBLANDS;
     }
 
     static {

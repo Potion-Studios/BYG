@@ -32,7 +32,7 @@ public abstract class MixinHillsLayer {
             int l = i;
             Biome biome = WorldGenRegistries.BIOME.getByValue(i);
             if (oceanBiomeList.contains(biome))
-                l = WorldGenRegistries.BIOME.getId(BYGBiomes.TROPICALISLAND);
+                l = WorldGenRegistries.BIOME.getId(BYGBiomes.TROPICAL_ISLAND);
             cir.setReturnValue(l);
         }
 

@@ -41,11 +41,11 @@ public class GreatLakes extends BYGBiome {
 
     @Override
     public Biome getRiver() {
-        return BYGBiomes.GREATLAKEISLES;
+        return BYGBiomes.GREAT_LAKE_ISLES;
     }
 
     public HashMap<Biome, Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.GREATLAKEISLES, 1));
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.GREAT_LAKE_ISLES, 1));
     }
 
     @Override
@@ -54,7 +54,7 @@ public class GreatLakes extends BYGBiome {
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return BYGBiomes.GREATLAKEISLES;
+        return BYGBiomes.GREAT_LAKE_ISLES;
     }
 
     static {

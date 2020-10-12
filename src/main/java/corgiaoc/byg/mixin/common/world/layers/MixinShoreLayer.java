@@ -31,7 +31,7 @@ public abstract class MixinShoreLayer {
 
 
     @Inject(at = @At("HEAD"), method = "apply(Lnet/minecraft/world/gen/INoiseRandom;IIIII)I", cancellable = true)
-    private void apply(INoiseRandom rand, int n, int w, int s, int e, int centre, CallbackInfoReturnable<Integer> cir) {
+    private void injectBYGEdges(INoiseRandom rand, int n, int w, int s, int e, int centre, CallbackInfoReturnable<Integer> cir) {
         final int[] ArrayNESW = {n, w, s, e};
         Biome biome = WorldGenRegistries.BIOME.getByValue(centre);
 
@@ -43,15 +43,15 @@ public abstract class MixinShoreLayer {
         for (int idx : ArrayNESW) {
             if (biome == BYGBiomes.ALPS)
                 if (idx != WorldGenRegistries.BIOME.getId(BYGBiomes.ALPS))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ALPINEFOOTHILLS));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ALPINE_FOOTHILLS));
 
             if (biome == BYGBiomes.ALPS)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.SNOWYBLACKBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.SNOWY_BLACK_BEACH));
 
-            if (biome == BYGBiomes.DOVERMOUNTAINS)
+            if (biome == BYGBiomes.DOVER_MOUNTAINS)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.WHITEBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.WHITE_BEACH));
 
             if (biome != null && biome.getCategory() == Biome.Category.SWAMP)
                 if (isOcean(idx))
@@ -59,31 +59,31 @@ public abstract class MixinShoreLayer {
 
             if (biome != null && biome.getPrecipitation() == Biome.RainType.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.SNOWYBLACKBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.SNOWY_BLACK_BEACH));
 
-            if (biome == BYGBiomes.GRASSLANDPLATEAU)
+            if (biome == BYGBiomes.GRASSLAND_PLATEAU)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKYBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKY_BEACH));
 
-            if (biome == BYGBiomes.TROPICALISLAND || biome == BYGBiomes.TROPICAL_ISLAND_MOUNTAINS || biome == BYGBiomes.TROPICAL_ISLAND_CLEARING)
+            if (biome == BYGBiomes.TROPICAL_ISLAND || biome == BYGBiomes.TROPICAL_ISLAND_MOUNTAINS || biome == BYGBiomes.TROPICAL_ISLAND_CLEARING)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOWBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOW_BEACH));
 
-            if (biome == BYGBiomes.TROPICALRAINFOREST || biome == BYGBiomes.TROPICALRAINFORESTHILLS)
+            if (biome == BYGBiomes.TROPICAL_RAINFOREST || biome == BYGBiomes.TROPICAL_RAINFOREST_HILLS)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOWBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOW_BEACH));
 
-            if (biome == BYGBiomes.TROPICALFUNGALRAINFOREST || biome == BYGBiomes.TROPICALFUNGALRAINFORESTHILLS || biome == BYGBiomes.FUNGAL_PATCH)
+            if (biome == BYGBiomes.TROPICAL_FUNGAL_RAINFOREST || biome == BYGBiomes.TROPICAL_FUNGAL_RAINFOREST_HILLS || biome == BYGBiomes.FUNGAL_PATCH)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOWBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOW_BEACH));
 
-            if (biome == BYGBiomes.GUIANASHIELD || biome == BYGBiomes.GUIANA_CLEARING)
+            if (biome == BYGBiomes.GUIANA_SHIELD || biome == BYGBiomes.GUIANA_CLEARING)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKYBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKY_BEACH));
 
-            if (biome == BYGBiomes.SKYRISHIGHLANDS)
+            if (biome == BYGBiomes.SKYRIS_HIGHLANDS)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKYBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKY_BEACH));
 
             if (biome != null && biome.getDepth() > 2.0F && biome != BYGBiomes.CANYONS && biome != BYGBiomes.CANYON_EDGE)
                 if (isOcean(idx))
@@ -92,7 +92,7 @@ public abstract class MixinShoreLayer {
 
             if (biome == BYGBiomes.THE_BLACK_FOREST || biome == BYGBiomes.BLACK_FOREST_CLEARING || biome == BYGBiomes.BLACK_FOREST_HILLS || biome == BYGBiomes.FOREST_FAULT)
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKYBEACH));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKY_BEACH));
         }
     }
 

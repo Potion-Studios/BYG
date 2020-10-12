@@ -41,13 +41,13 @@ public class AraucariaSavanna extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = Maps.newHashMap();
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
         map.put(BYGBiomes.ARAUCARIA_FOREST, 4);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESHWATERLAKE : BYGBiomes.ARAUCARIA_FOREST;
+        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.ARAUCARIA_FOREST;
     }
 
     static {

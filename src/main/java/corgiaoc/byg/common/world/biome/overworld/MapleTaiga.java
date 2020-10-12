@@ -45,7 +45,7 @@ public class MapleTaiga extends BYGBiome {
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESHWATERLAKE : BYGBiomes.MAPLE_HILLS;
+        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.MAPLE_HILLS;
     }
 
     static {

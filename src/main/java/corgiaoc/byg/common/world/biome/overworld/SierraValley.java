@@ -39,8 +39,8 @@ public class SierraValley extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
-        map.put(BYGBiomes.SIERRARANGE, 3);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
+        map.put(BYGBiomes.SIERRA_RANGE, 3);
         return map;
     }
 
@@ -51,13 +51,13 @@ public class SierraValley extends BYGBiome {
     public Biome randomSubBiome(INoiseRandom random) {
         int randomPicker = random.random(4);
         if (randomPicker == 0)
-            return BYGBiomes.SIERRARANGE;
+            return BYGBiomes.SIERRA_RANGE;
         else if (randomPicker == 1)
-            return BYGBiomes.SIERRARANGE;
+            return BYGBiomes.SIERRA_RANGE;
         else if (randomPicker == 2)
-            return BYGBiomes.SIERRARANGE;
+            return BYGBiomes.SIERRA_RANGE;
         else
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
     }
 
     static {

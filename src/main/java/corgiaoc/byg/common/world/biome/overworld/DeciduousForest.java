@@ -37,9 +37,9 @@ public class DeciduousForest extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.DECIDUOUSFORESTHILLS, 1);
+        map.put(BYGBiomes.DECIDUOUS_FOREST_HILLS, 1);
         map.put(BYGBiomes.DECIDUOUS_CLEARING, 2);
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
         return map;
     }
 
@@ -50,13 +50,13 @@ public class DeciduousForest extends BYGBiome {
     public Biome randomSubBiome(INoiseRandom random) {
         int randomPicker = random.random(4);
         if (randomPicker == 0)
-            return BYGBiomes.DECIDUOUSFORESTHILLS;
+            return BYGBiomes.DECIDUOUS_FOREST_HILLS;
         else if (randomPicker == 1)
             return BYGBiomes.DECIDUOUS_CLEARING;
         else if (randomPicker == 2)
             return BYGBiomes.DECIDUOUS_CLEARING;
         else
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
     }
 
     static {

@@ -50,13 +50,13 @@ public class TwilightValley extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = Maps.newHashMap();
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
         map.put(BYGBiomes.TWILIGHT_VALLEY_HILLS, 4);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESHWATERLAKE : BYGBiomes.TWILIGHT_VALLEY_HILLS;
+        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.TWILIGHT_VALLEY_HILLS;
     }
 
     static {

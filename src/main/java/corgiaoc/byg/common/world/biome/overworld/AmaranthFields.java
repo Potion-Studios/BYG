@@ -36,13 +36,13 @@ public class AmaranthFields extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
-        map.put(BYGBiomes.JACARANDAFOREST, 4);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
+        map.put(BYGBiomes.JACARANDA_FOREST, 4);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESHWATERLAKE : BYGBiomes.JACARANDAFOREST;
+        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.JACARANDA_FOREST;
     }
 
     @Override

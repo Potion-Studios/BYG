@@ -46,7 +46,7 @@ public class RedRockMountains extends BYGBiome {
         HashMap<Biome, Integer> map = new HashMap<>();
         map.put(BYGBiomes.RED_ROCK_LOWLANDS, 1);
         map.put(BYGBiomes.RED_ROCK_HIGHLANDS, 2);
-        map.put(BYGBiomes.WOODEDREDROCKMOUNTAINS, 1);
+        map.put(BYGBiomes.WOODED_RED_ROCK_MOUNTAINS, 1);
         return map;
     }
 
@@ -64,7 +64,7 @@ public class RedRockMountains extends BYGBiome {
         else if (randomPicker == 2)
             return BYGBiomes.RED_ROCK_HIGHLANDS;
         else
-            return BYGBiomes.WOODEDREDROCKMOUNTAINS;
+            return BYGBiomes.WOODED_RED_ROCK_MOUNTAINS;
     }
 
     static {

@@ -41,7 +41,7 @@ public class TheBlackForest extends BYGBiome {
         map.put(BYGBiomes.BLACK_FOREST_HILLS, 1);
         map.put(BYGBiomes.BLACK_FOREST_CLEARING, 1);
         map.put(BYGBiomes.FOREST_FAULT, 1);
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
         return map;
     }
 
@@ -58,7 +58,7 @@ public class TheBlackForest extends BYGBiome {
         else if (randomPicker == 2)
             return BYGBiomes.FOREST_FAULT;
         else
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
     }
 
     static {

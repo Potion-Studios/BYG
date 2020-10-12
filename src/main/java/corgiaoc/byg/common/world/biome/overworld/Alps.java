@@ -33,12 +33,12 @@ public class Alps extends BYGBiome {
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return BYGBiomes.ALPINEFOOTHILLS;
+        return BYGBiomes.ALPINE_FOOTHILLS;
     }
 
     @Override
     public Biome getRiver() {
-        return BYGBiomes.ALPINEFOOTHILLS;
+        return BYGBiomes.ALPINE_FOOTHILLS;
     }
 
     static {

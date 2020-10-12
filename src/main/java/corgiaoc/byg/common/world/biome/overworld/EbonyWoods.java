@@ -40,7 +40,7 @@ public class EbonyWoods extends BYGBiome {
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESHWATERLAKE : BYGBiomes.EBONY_HILLS;
+        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.EBONY_HILLS;
     }
 
     static {

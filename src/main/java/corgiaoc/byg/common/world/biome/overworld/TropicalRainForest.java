@@ -38,13 +38,13 @@ public class TropicalRainForest extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
-        map.put(BYGBiomes.TROPICALFUNGALRAINFORESTHILLS, 4);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
+        map.put(BYGBiomes.TROPICAL_FUNGAL_RAINFOREST_HILLS, 4);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESHWATERLAKE : BYGBiomes.TROPICALFUNGALRAINFORESTHILLS;
+        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.TROPICAL_FUNGAL_RAINFOREST_HILLS;
     }
 
     static {

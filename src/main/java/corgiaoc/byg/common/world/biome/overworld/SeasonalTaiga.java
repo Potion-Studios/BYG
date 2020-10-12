@@ -38,13 +38,13 @@ public class SeasonalTaiga extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.SEASONALTAIGAHILLS, 1);
-        map.put(BYGBiomes.SEASONALGIANTTAIGA, 1);
+        map.put(BYGBiomes.SEASONAL_TAIGA_HILLS, 1);
+        map.put(BYGBiomes.SEASONAL_GIANT_TAIGA, 1);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return (rand.random(2) == 0) ? BYGBiomes.SEASONALTAIGAHILLS : BYGBiomes.SEASONALGIANTTAIGA;
+        return (rand.random(2) == 0) ? BYGBiomes.SEASONAL_TAIGA_HILLS : BYGBiomes.SEASONAL_GIANT_TAIGA;
     }
 
     static {

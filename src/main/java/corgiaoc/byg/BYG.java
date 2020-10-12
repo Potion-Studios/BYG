@@ -139,7 +139,7 @@ public class BYG {
         @SubscribeEvent
         public static void registerBiomes(RegistryEvent.Register<Biome> event) {
             BYG.LOGGER.debug("BYG: Registering biomes...");
-            BYGBiomes.registerBYGBiomes();
+            BYGBiomes.init();
             BYG.LOGGER.info("BYG: Biomes registered!");
         }
 

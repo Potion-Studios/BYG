@@ -37,13 +37,13 @@ public class RedDesert extends BYGBiome {
 
     public HashMap<Biome, Integer> getHills() {
         HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.LUSHREDDESERT, 1);
-        map.put(BYGBiomes.REDDESERTDUNES, 1);
+        map.put(BYGBiomes.LUSH_RED_DESERT, 1);
+        map.put(BYGBiomes.RED_DESERT_DUNES, 1);
         return map;
     }
 
     public Biome getHills(INoiseRandom rand) {
-        return BYGBiomes.LUSHREDDESERT;
+        return BYGBiomes.LUSH_RED_DESERT;
     }
 
     static {

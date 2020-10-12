@@ -43,12 +43,12 @@ public class CragGardens extends BYGBiome {
 
     @Override
     public HashMap<Biome, Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.CRAGGARDENS, 1));
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.CRAG_GARDENS, 1));
     }
 
     @Override
     public HashMap<Biome, Integer> getEdges() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.CRAGGARDENS, 1));
+        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.CRAG_GARDENS, 1));
     }
 
 

@@ -41,7 +41,7 @@ public class RedwoodTropics extends BYGBiome {
         HashMap<Biome, Integer> map = new HashMap<>();
         map.put(BYGBiomes.REDWOOD_MOUNTAINS, 2);
         map.put(BYGBiomes.REDWOOD_CLEARING, 1);
-        map.put(BYGBiomes.FRESHWATERLAKE, 1);
+        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
         return map;
     }
 
@@ -59,7 +59,7 @@ public class RedwoodTropics extends BYGBiome {
         else if (randomPicker == 2)
             return BYGBiomes.REDWOOD_MOUNTAINS;
         else
-            return BYGBiomes.FRESHWATERLAKE;
+            return BYGBiomes.FRESH_WATER_LAKE;
     }
 
 
