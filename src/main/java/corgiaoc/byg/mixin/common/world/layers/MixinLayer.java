@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Layer.class)
-public class MixinLayer {
+public abstract class MixinLayer {
 
     @Shadow @Final private LazyArea field_215742_b;
 

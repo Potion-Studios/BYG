@@ -29,7 +29,7 @@ public class BYGWorldConfig {
 
     static {
         COMMON_BUILDER.comment("Dimension Settings").push("Dimension_Settings");
-        useDangerousHacks = COMMON_BUILDER.comment("Allow BYG to do a somewhat(not really) dangerous hack to support datapack biomes.\nUnlikely to crash. \nDefault: true").define("DatapackHacks", true);
+        useDangerousHacks = COMMON_BUILDER.comment("Allow BYG to do a somewhat(not really) dangerous hack to support datapack biomes.\nUnlikely to crash. If it does crash due to \"useDatapackBiomeRegistry\", make this false.\nDefault: true").define("DatapackHacks", true);
         COMMON_BUILDER.push("The_End");
         controlEnd = COMMON_BUILDER.comment("Does BYG control The End?").define("ControlEnd", true);
         externalEndBiomes = COMMON_BUILDER.comment("Add external End biomes by their registry ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available end biomes in the registry.\nDefault: \"all\"").define("ExternalEndBiomes", "all");
