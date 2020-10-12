@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BasaltColumnFeature.class)
-public class MixinBasaltColumnFeature {
+public abstract class MixinBasaltColumnFeature {
 
     @Inject(at = @At("HEAD"), method = "func_236247_a_(Lnet/minecraft/world/IWorld;ILnet/minecraft/util/math/BlockPos;)Z", cancellable = true)
     private static void injectWater(IWorld world, int topY, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
