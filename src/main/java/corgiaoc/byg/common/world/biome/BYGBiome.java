@@ -1,10 +1,10 @@
 package corgiaoc.byg.common.world.biome;
 
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
+@SuppressWarnings("deprecation")
 public class BYGBiome {
     public static final List<BYGBiome> BYG_BIOMES = new ArrayList<>();
     private final Biome biome;
@@ -58,6 +59,6 @@ public class BYGBiome {
     }
 
     public RegistryKey<Biome> getKey() {
-        return RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(ForgeRegistries.BIOMES.getKey(this.biome)));
+        return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
     }
 }
