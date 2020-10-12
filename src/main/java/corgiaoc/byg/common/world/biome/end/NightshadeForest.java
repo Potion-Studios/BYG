@@ -18,7 +18,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 public class NightshadeForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("nightshade_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.Configs.NIGHTSHADE));
     static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
-    static final Biome.Category CATEGORY = Biome.Category.NETHER;
+    static final Biome.Category CATEGORY = Biome.Category.THEEND;
     static final float DEPTH = 0.125F;
     static final float SCALE = 0.05F;
     static final float TEMPERATURE = 0.8F;

@@ -644,7 +644,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_NIGHTSHADE_BERRIES = WorldGenRegistrationHelper.createConfiguredFeature("rs_nightshade_berries", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             NIGHTSHADE_BERRY_BUSH.withChance(0.50F)),
-            NIGHTSHADE_BERRY_BUSH)).withPlacement(Features.Placements.PATCH_PLACEMENT));
+            NIGHTSHADE_BERRY_BUSH)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242729_a(8));
 
     public static final ConfiguredFeature<?, ?> RANDOM_THEREAL_BELLFLOWER = WorldGenRegistrationHelper.createConfiguredFeature("rs_thereal_bellflower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             THEREAL_BELLFLOWER.withChance(0.5F)),
