@@ -2,9 +2,12 @@ package corgiaoc.byg.common.world.dimension.end;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgiaoc.byg.core.world.BYGBiomes;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryLookupCodec;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
@@ -56,7 +59,7 @@ public class BYGEndBiomeProvider extends BiomeProvider {
             if (f >= 0.0F) {
                 return biomeLayer.func_242936_a(biomeRegistry, x, z);
             } else {
-                return f < -20.0F ? biomeRegistry.getOrThrow(Biomes.SMALL_END_ISLANDS) : biomeRegistry.getOrThrow(Biomes.END_BARRENS);
+                return f < -20.0F ? biomeRegistry.getOrThrow(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(BYGBiomes.VISCAL_ISLES))) : biomeRegistry.getOrThrow(Biomes.END_BARRENS);
             }
         }
     }

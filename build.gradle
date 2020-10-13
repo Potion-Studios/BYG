@@ -71,7 +71,9 @@ repositories{
         url = "https://modmaven.k-4u.nl"
     }
 
-    maven {url='https://dist.creeper.host/Sponge/maven'}
+    maven {url = 'https://repo.spongepowered.org/maven/'}
+
+    maven {url = 'https://dist.creeper.host/Sponge/maven'}
     jcenter()
     mavenCentral()
 
@@ -79,7 +81,7 @@ repositories{
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-
+    implementation 'org.spongepowered:noise:2.0.0-SNAPSHOT'
     compile 'org.spongepowered:mixin:0.8'
 }
 

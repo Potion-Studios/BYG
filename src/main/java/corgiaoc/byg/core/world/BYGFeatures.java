@@ -1,6 +1,10 @@
 package corgiaoc.byg.core.world;
 
 import corgiaoc.byg.common.world.feature.config.*;
+import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands1;
+import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands2;
+import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands3;
+import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands4;
 import corgiaoc.byg.common.world.feature.end.obsidianspires.ObsidianSpike;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree1;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree2;
@@ -15,7 +19,9 @@ import corgiaoc.byg.common.world.feature.nether.ConfigurablePillar;
 import corgiaoc.byg.common.world.feature.nether.LargeChain;
 import corgiaoc.byg.common.world.feature.nether.crimsongardens.TallCrimsonRoots;
 import corgiaoc.byg.common.world.feature.nether.crimsongardens.WeepingVineFeatureBlackstone;
-import corgiaoc.byg.common.world.feature.nether.emburbog.*;
+import corgiaoc.byg.common.world.feature.nether.emburbog.EmburBogLake;
+import corgiaoc.byg.common.world.feature.nether.emburbog.EmburGelVines;
+import corgiaoc.byg.common.world.feature.nether.emburbog.TallEmburRoots;
 import corgiaoc.byg.common.world.feature.nether.glowstonegardens.NetherBristle;
 import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRoots;
 import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRootsFeature;
@@ -207,6 +213,12 @@ public class BYGFeatures {
     //Nightshade
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> NIGHTSHADE_TREE1 = WorldGenRegistrationHelper.createFeature("nightshade_tree1", new NightshadeTree1(BYGTreeFeatureConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> NIGHTSHADE_TREE2 = WorldGenRegistrationHelper.createFeature("nightshade_tree2", new NightshadeTree2(BYGTreeFeatureConfig.CODEC.stable()));
+
+
+    public static final Feature<NoFeatureConfig> FLOATING_ISLAND1 = WorldGenRegistrationHelper.createFeature("floating_island1", new FloatingIslands1(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<NoFeatureConfig> FLOATING_ISLAND2 = WorldGenRegistrationHelper.createFeature("floating_island2", new FloatingIslands2(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<NoFeatureConfig> FLOATING_ISLAND3 = WorldGenRegistrationHelper.createFeature("floating_island3", new FloatingIslands3(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<NoFeatureConfig> FLOATING_ISLAND4 = WorldGenRegistrationHelper.createFeature("floating_island4", new FloatingIslands4(NoFeatureConfig.field_236558_a_.stable()));
 
 
     /********************************************************************Nether Features********************************************************************/

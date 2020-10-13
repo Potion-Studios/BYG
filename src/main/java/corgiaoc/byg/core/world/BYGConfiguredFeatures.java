@@ -220,6 +220,12 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> BLACKSTONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("blackstone_boulder", Feature.FOREST_ROCK.withConfiguration(new BlockStateFeatureConfig(Blocks.BLACKSTONE.getDefaultState())));
     public static final ConfiguredFeature<?, ?> ORANGE_TERRACOTTA_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("orange_terracotta_boulder", Feature.FOREST_ROCK.withConfiguration(new BlockStateFeatureConfig(Blocks.ORANGE_TERRACOTTA.getDefaultState())));
 
+    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND1 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island1", BYGFeatures.FLOATING_ISLAND1.withConfiguration(new NoFeatureConfig()));
+    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND2 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island2", BYGFeatures.FLOATING_ISLAND2.withConfiguration(new NoFeatureConfig()));
+    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND3 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island3", BYGFeatures.FLOATING_ISLAND3.withConfiguration(new NoFeatureConfig()));
+    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND4 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island4", BYGFeatures.FLOATING_ISLAND4.withConfiguration(new NoFeatureConfig()));
+
+
     public static final ConfiguredFeature<BYGPumpkinFeatureConfig, ?> PUMPKIN1 = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin1", BYGFeatures.LARGE_PUMPKIN1.withConfiguration(new BYGPumpkinFeatureConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.OAK_LOG).build()));
     public static final ConfiguredFeature<BYGPumpkinFeatureConfig, ?> PUMPKIN2 = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin2", BYGFeatures.LARGE_PUMPKIN2.withConfiguration(new BYGPumpkinFeatureConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.OAK_LOG).build()));
 
@@ -1693,6 +1699,12 @@ public class BYGConfiguredFeatures {
             ETHER_TREE2.withChance(0.35F)),
             ETHER_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
             new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ISLAND = WorldGenRegistrationHelper.createConfiguredFeature("rs_floating_island", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            FLOATING_ISLAND1.withChance(0.25F),
+            FLOATING_ISLAND2.withChance(0.25F),
+            FLOATING_ISLAND3.withChance(0.25F)),
+            FLOATING_ISLAND4)).withPlacement(Placement.END_ISLAND.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 
     //TODO: Remove these fields and in line them instead.
     public static class FeatureConfigs {
