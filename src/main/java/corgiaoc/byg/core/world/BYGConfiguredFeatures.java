@@ -663,7 +663,7 @@ public class BYGConfiguredFeatures {
 
     /***********************************************************Configured Tree Features********************************************************/
 
-    public static final ConfiguredFeature<?, ?> DUMMY_TREE = WorldGenRegistrationHelper.createConfiguredFeature("dummy_tree", BYGFeatures.DUMMY_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(new AtSurfaceWithExtraConfig(16, 0.4F, 8))));
+    public static final ConfiguredFeature<?, ?> DUMMY_TREE = WorldGenRegistrationHelper.createConfiguredFeature("dummy_tree", BYGFeatures.DUMMY_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(new AtSurfaceWithExtraConfig(10000, 0.4F, 8))));
 
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ARAUCARIA_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("araucaria_tree1", BYGFeatures.ARAUCARIA_TREE1.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlocks.PINE_LOG).setLeavesBlock(BYGBlocks.ARAUCARIA_LEAVES).setMaxHeight(30).setMinHeight(20).build()));
     public static final ConfiguredFeature<BYGTreeFeatureConfig, ?> ARAUCARIA_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("araucaria_tree2", BYGFeatures.ARAUCARIA_TREE2.withConfiguration(new BYGTreeFeatureConfig.Builder().setTrunkBlock(BYGBlocks.PINE_LOG).setLeavesBlock(BYGBlocks.ARAUCARIA_LEAVES).setMaxHeight(28).setMinHeight(18).build()));

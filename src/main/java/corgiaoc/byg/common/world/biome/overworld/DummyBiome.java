@@ -2,8 +2,10 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
@@ -27,18 +29,6 @@ public class DummyBiome extends BYGBiome {
     }
 
     static {
-//        DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-//        BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
-//        BYGDefaultBiomeFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
-//        DefaultBiomeFeatures.withNormalGrassPatch(GENERATION_SETTINGS);
-//        DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
-//        DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
-//        DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
-//        DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
-//        DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
-//        DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
-//        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-//        DefaultBiomeFeatures.withPlainGrassVegetation(GENERATION_SETTINGS);
-//        BYGDefaultBiomeFeatures.addDummyTree(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.DUMMY_TREE);
     }
 }

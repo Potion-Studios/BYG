@@ -48,6 +48,6 @@ public class BYGNetherBiomeCatch {
     }
 
     public static int getRandomNetherBiomes(Registry<Biome> biomeRegistry, INoiseRandom rand) {
-        return biomeRegistry.getId(BYGNetherBiomeProvider.NETHER_BIOMES.get(rand.random(BYGNetherBiomeProvider.NETHER_BIOMES.size())));
+        return WorldGenRegistries.BIOME.getId(BYGNetherBiomeProvider.NETHER_BIOMES.get(rand.random(BYGNetherBiomeProvider.NETHER_BIOMES.size())));
     }
 }

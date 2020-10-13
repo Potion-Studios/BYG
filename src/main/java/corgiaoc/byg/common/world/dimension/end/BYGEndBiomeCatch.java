@@ -48,7 +48,7 @@ public class BYGEndBiomeCatch {
     }
 
     public static int getRandomEndBiomes(Registry<Biome> biomeRegistry, INoiseRandom rand) {
-        return biomeRegistry.getId(BYGEndBiomeProvider.END_BIOMES.get(rand.random(BYGEndBiomeProvider.END_BIOMES.size())));
+        return WorldGenRegistries.BIOME.getId(BYGEndBiomeProvider.END_BIOMES.get(rand.random(BYGEndBiomeProvider.END_BIOMES.size())));
     }
 }
 

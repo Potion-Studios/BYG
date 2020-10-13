@@ -44,6 +44,8 @@ import java.util.stream.Collectors;
 public class BYGBiomes {
     public static List<Biome> biomeList = new ArrayList<>();
 
+    public static final Biome DUMMY_BIOME = WorldGenRegistrationHelper.createBiome("dummy", new DummyBiome().getBiome());
+
 
     /************Primary Biomes************/
     public static final Biome ALLIUM_FIELDS = WorldGenRegistrationHelper.createBiome("allium_fields", new AlliumFields().getBiome());

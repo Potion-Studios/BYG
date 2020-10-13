@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
+    "MixinTemplate",
     "common.block.MixinAbstractFireBlock",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinEatGrassGoal",
@@ -11,10 +12,8 @@
     "common.world.feature.MixinBasaltColumnFeature",
     "common.world.layers.MixinDimensionType",
     "common.world.layers.MixinHillsLayer",
-    "common.world.layers.MixinLayer",
     "common.world.layers.MixinRiverLayer",
-    "common.world.layers.MixinShoreLayer",
-    "server.MixinMinecraftServer"
+    "common.world.layers.MixinShoreLayer"
   ],
   "client": [
     "client.MixinMinecraft"
