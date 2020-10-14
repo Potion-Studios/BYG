@@ -221,10 +221,10 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> NIGHTSHADE_TREE2 = WorldGenRegistrationHelper.createFeature("nightshade_tree2", new NightshadeTree2(BYGTreeFeatureConfig.CODEC.stable()));
 
 
-    public static final Feature<NoFeatureConfig> FLOATING_ISLAND1 = WorldGenRegistrationHelper.createFeature("floating_island1", new FloatingIslands1(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> FLOATING_ISLAND2 = WorldGenRegistrationHelper.createFeature("floating_island2", new FloatingIslands2(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> FLOATING_ISLAND3 = WorldGenRegistrationHelper.createFeature("floating_island3", new FloatingIslands3(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> FLOATING_ISLAND4 = WorldGenRegistrationHelper.createFeature("floating_island4", new FloatingIslands4(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<FloatingIslandConfig> FLOATING_ISLAND1 = WorldGenRegistrationHelper.createFeature("floating_island1", new FloatingIslands1(FloatingIslandConfig.CODEC.stable()));
+    public static final Feature<FloatingIslandConfig> FLOATING_ISLAND2 = WorldGenRegistrationHelper.createFeature("floating_island2", new FloatingIslands2(FloatingIslandConfig.CODEC.stable()));
+    public static final Feature<FloatingIslandConfig> FLOATING_ISLAND3 = WorldGenRegistrationHelper.createFeature("floating_island3", new FloatingIslands3(FloatingIslandConfig.CODEC.stable()));
+    public static final Feature<FloatingIslandConfig> FLOATING_ISLAND4 = WorldGenRegistrationHelper.createFeature("hollow_floating_island", new FloatingIslands4(FloatingIslandConfig.CODEC.stable()));
 
 
     /********************************************************************Nether Features********************************************************************/

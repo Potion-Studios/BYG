@@ -18,10 +18,10 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             return config.minHeight;
         }), Codec.INT.fieldOf("max_stack_height").orElse(15).forGetter((config) -> {
             return config.maxHeight;
-        }), Codec.INT.fieldOf("min_radius").orElse(15).forGetter((config) -> {
+        }), Codec.INT.fieldOf("min_radius").orElse(11).forGetter((config) -> {
             return config.minRadius;
         }), Codec.INT.fieldOf("max_radius").orElse(15).forGetter((config) -> {
-            return config.minRadius;
+            return config.maxRadius;
         }), Codec.DOUBLE.fieldOf("radius_divisor_per_stack").orElse(1.1).forGetter((config) -> {
             return config.radiusDivisorPerStack;
         }), Codec.BOOL.fieldOf("flatten_top_boulder").orElse(false).forGetter((config) -> {

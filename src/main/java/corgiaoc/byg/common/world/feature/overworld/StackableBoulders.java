@@ -40,7 +40,7 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
         BlockState blockStateAtPosition = world.getBlockState(position);
 
 
-        if (blockStateDown.isIn(BlockTags.LEAVES) || blockStateDown.isIn(BlockTags.LOGS) || blockStateAtPosition.isIn(BlockTags.LEAVES) || blockStateAtPosition.isIn(BlockTags.LOGS))
+        if (blockStateDown.isIn(BlockTags.LEAVES) || blockStateDown.isIn(BlockTags.LOGS) || blockStateAtPosition.isIn(BlockTags.LEAVES) || blockStateAtPosition.isIn(BlockTags.LOGS) || blockStateAtPosition.getMaterial() == Material.AIR)
             return false;
 
         for (int boulderIDX = 0; boulderIDX < stackHeight; boulderIDX++) {

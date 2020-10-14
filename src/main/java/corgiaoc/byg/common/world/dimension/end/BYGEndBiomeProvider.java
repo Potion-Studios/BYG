@@ -56,8 +56,10 @@ public class BYGEndBiomeProvider extends BiomeProvider {
             return biomeRegistry.getOrThrow(Biomes.THE_END);
         } else {
             float f = EndBiomeProvider.getRandomNoise(this.generator, xBitOffset * 2 + 1, zBitOffset * 2 + 1);
-            if (f >= 0.0F) {
-                return biomeLayer.func_242936_a(biomeRegistry, x, z);
+            if (f > 40.0F) {
+                return this.biomeLayer.func_242936_a(biomeRegistry, x, z);
+            } else if (f >= 0.0F) {
+                return this.biomeLayer.func_242936_a(biomeRegistry, x, z);
             } else {
                 return f < -20.0F ? biomeRegistry.getOrThrow(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(BYGBiomes.VISCAL_ISLES))) : biomeRegistry.getOrThrow(Biomes.END_BARRENS);
             }

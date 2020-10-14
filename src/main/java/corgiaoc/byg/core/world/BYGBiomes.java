@@ -24,6 +24,7 @@ import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeRegistry;
@@ -344,10 +345,10 @@ public class BYGBiomes {
         endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.END_BARRENS));
         endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
         endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.SMALL_END_ISLANDS));
-        endBiomeBlackList.add(BYGBiomes.VISCAL_ISLES);
+        endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(BYGBiomes.VISCAL_ISLES))));
         if (BYGEndBiomeCatch.useAllEndBiomes) {
             for (Biome biome : WorldGenRegistries.BIOME) {
-                if (biome.getCategory().equals(Biome.Category.THEEND) && !endBiomeBlackList.contains(biome)) {
+                if (biome.getCategory().equals(Biome.Category.FOREST) && !endBiomeBlackList.contains(biome)) {
                     Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
                     if (key.isPresent())
                         key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));

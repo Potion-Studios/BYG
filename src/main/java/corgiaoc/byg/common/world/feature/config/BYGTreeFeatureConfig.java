@@ -111,7 +111,6 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
         return forcedPlacement;
     }
 
-
     public static class Builder {
         private BlockStateProvider trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
         private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
