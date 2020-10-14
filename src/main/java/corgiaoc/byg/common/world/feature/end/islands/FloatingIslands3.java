@@ -1,6 +1,8 @@
 package corgiaoc.byg.common.world.feature.end.islands;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.world.feature.FeatureUtil;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -25,20 +27,14 @@ public class FloatingIslands3 extends Feature<NoFeatureConfig> {
         setSeed(world.getSeed());
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
-
-        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
-            return false;
-
-
         double diameter = 11;
         double size = diameter / 3;
-        double radius = diameter / 2;
-        int randInt = rand.nextInt(2);
+
+        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4 )
+            return false;
 
         for (double x = -diameter - 2; x <= diameter + 2; x++) {
-
             for (double y = -diameter - 2; y <= diameter + 2; y++) {
-
                 for (double z = -diameter - 2; z <= diameter + 2; z++) {
                     double squareNoise1 = perlin.getValue(x, y, z) * 12 - 6;
                     double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
@@ -46,7 +42,8 @@ public class FloatingIslands3 extends Feature<NoFeatureConfig> {
                         mutable.setPos(pos).move((int)x, (int)y, (int)z);
 
                         if (y <= 1) {
-                            world.setBlockState(mutable, Blocks.END_STONE.getDefaultState(), 2);
+                            //Top Block
+                            world.setBlockState(mutable, BYGBlocks.NIGHTSHADE_PHYLIUM.getDefaultState(), 2);
                             if (y <= 0) {
                                 world.setBlockState(mutable, Blocks.END_STONE.getDefaultState(), 2);
                                 if (y <= -2) {
@@ -59,7 +56,7 @@ public class FloatingIslands3 extends Feature<NoFeatureConfig> {
             }
         }
 
-        // code for the bottom of the island!!!
+        //Island Bottom
         for (double x = -size; x <= 0; x++) {
             for (double y = -size; y <= 0; y++) {
                 for (double z = -size; z <= 0; z++) {

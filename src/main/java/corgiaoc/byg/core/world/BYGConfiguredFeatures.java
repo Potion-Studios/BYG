@@ -1704,7 +1704,8 @@ public class BYGConfiguredFeatures {
             FLOATING_ISLAND1.withChance(0.25F),
             FLOATING_ISLAND2.withChance(0.25F),
             FLOATING_ISLAND3.withChance(0.25F)),
-            FLOATING_ISLAND4)).withPlacement(Placement.END_ISLAND.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+            FLOATING_ISLAND4)).withPlacement(BYGDecorators.ISLAND.configure(
+            new AtSurfaceWithExtraConfig(0, 0.13F, 1))));
 
     //TODO: Remove these fields and in line them instead.
     public static class FeatureConfigs {

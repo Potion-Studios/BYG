@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.end.islands;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -24,28 +25,24 @@ public class FloatingIslands4 extends Feature<NoFeatureConfig> {
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         setSeed(world.getSeed());
 
+        double diameter = 13;
+        double size = diameter / 3;
+        double radius = diameter / 2;
 
         if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
 
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
 
-        double diameter = 11;
-        double size = diameter / 3;
-        double radius = diameter / 2;
-        int randInt = 3;
-
-
         for (double x = -diameter - 2; x <= diameter + 2; x++) {
-
             for (double y = -diameter - 2; y <= diameter + 2; y++) {
-
                 for (double z = -diameter - 2; z <= diameter + 2; z++) {
                     double squareNoise1 = perlin.getValue(x, y, z) * 12 - 6;
                     double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
                     if (distanceSqt1 <= diameter * diameter) {
                         if (y <= 1) {
-                            world.setBlockState(mutable.add(x, y, z), Blocks.END_STONE.getDefaultState(), 2);
+                            //TopBlock
+                            world.setBlockState(mutable.add(x, y, z), BYGBlocks.NIGHTSHADE_PHYLIUM.getDefaultState(), 2);
                             if (y <= 0) {
                                 world.setBlockState(mutable.add(x, y, z), Blocks.END_STONE.getDefaultState(), 2);
                                 if (y <= -2) {
@@ -83,20 +80,14 @@ public class FloatingIslands4 extends Feature<NoFeatureConfig> {
             }
         }
 
-        for (double x = -radius - 2; x <= radius + 2; x++) {
-
-            for (double y = -size - 2; y <= size + 2; y++) {
-
-                for (double z = -radius - 2; z <= radius + 2; z++) {
-                    double distanceSqt1 = x * x + y * y + z * z;
-                    if (distanceSqt1 <= radius * radius) {
-                        if (y <= 2) {
-                            world.setBlockState(mutable.add(x, y, z), Blocks.WATER.getDefaultState(), 2);
-                        }
-                    }
-                }
-            }
-        }
+//        for (double x = -radius - 2; x <= radius + 2; x++) {
+//            for (double y = -size - 2; y <= size + 2; y++) {
+//                for (double z = -radius - 2; z <= radius + 2; z++) {
+//                    double distanceSqt1 = x * x + y * y + z * z;
+//                    if (distanceSqt1 <= radius * radius) {}
+//                }
+//            }
+//        }
 
         return false;
     }

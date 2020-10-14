@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.end.islands;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -25,11 +26,8 @@ public class FloatingIslands1 extends Feature<NoFeatureConfig> {
         setSeed(world.getSeed());
 
         double diameter = 11;
-        double size = diameter / 3;
-        double radius = diameter / 2;
-        int randInt = rand.nextInt(2);
 
-        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
+        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4 )
             return false;
 
         for (double x = -diameter - 2; x <= diameter + 2; x++) {
@@ -43,7 +41,8 @@ public class FloatingIslands1 extends Feature<NoFeatureConfig> {
                             if (y >= 20) {
                                 world.setBlockState(pos.add(x, y - 22, z), Blocks.END_STONE.getDefaultState(), 2);
                                 if (y >= 22) {
-                                    world.setBlockState(pos.add(x, y - 22, z), Blocks.END_STONE.getDefaultState(), 2);
+                                    //Top block
+                                    world.setBlockState(pos.add(x, y - 22, z), BYGBlocks.NIGHTSHADE_PHYLIUM.getDefaultState(), 2);
                                 }
                             }
                         }

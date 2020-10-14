@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.end.islands;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -24,18 +25,17 @@ public class FloatingIslands2 extends Feature<NoFeatureConfig> {
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         setSeed(world.getSeed());
 
-        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
-            return false;
-
         double diameter = 11;
         double size = diameter / 3;
         double radius = diameter / 2;
         int randInt = rand.nextInt(2);
+        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4 )
+            return false;
+
+
 
         for (double x = -radius - 2; x <= radius + 8; x++) {
-
             for (double y = -diameter - 2; y <= diameter + 8; y++) {
-
                 for (double z = -radius - 2; z <= radius + 8; z++) {
                     double squareNoise1 = perlin.getValue(x, y, z) * 12 - 6;
                     double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
@@ -43,7 +43,8 @@ public class FloatingIslands2 extends Feature<NoFeatureConfig> {
                         if (y >= 1) {
                             world.setBlockState(pos.add(x, y, z), Blocks.END_STONE.getDefaultState(), 2);
                             if (y >= 2) {
-                                world.setBlockState(pos.add(x, y, z), Blocks.END_STONE.getDefaultState(), 2);
+                                //TopBlock
+                                world.setBlockState(pos.add(x, y, z), BYGBlocks.NIGHTSHADE_PHYLIUM.getDefaultState(), 2);
                             }
                         }
                     }
@@ -77,9 +78,7 @@ public class FloatingIslands2 extends Feature<NoFeatureConfig> {
             double noise = perlin.getValue(x, y, z) * 12;
             double scaledNoise = noise + x + y + z;
             if (scaledNoise >= 0.5) {
-                if (y == 23) {
-                    world.setBlockState(pos.add(x, y - 22, z), Blocks.LAVA.getDefaultState(), 2);
-                }
+                world.setBlockState(pos.add(x, y - 22, z), Blocks.END_STONE.getDefaultState(), 2);
             }
         }
 

@@ -344,7 +344,7 @@ public class BYGBiomes {
         endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.END_BARRENS));
         endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
         endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.SMALL_END_ISLANDS));
-
+        endBiomeBlackList.add(BYGBiomes.VISCAL_ISLES);
         if (BYGEndBiomeCatch.useAllEndBiomes) {
             for (Biome biome : WorldGenRegistries.BIOME) {
                 if (biome.getCategory().equals(Biome.Category.THEEND) && !endBiomeBlackList.contains(biome)) {

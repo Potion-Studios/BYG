@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.world.feature;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.tags.BlockTags;
@@ -18,6 +19,31 @@ public class FeatureUtil {
     public static boolean isTerrainOrRock(IWorldGenerationBaseReader world, BlockPos pos) {
         return world.hasBlockState(pos, (state) -> state.isIn(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.ROCK || state.isIn(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.EARTH || state.isIn(BlockTags.SAND) || state.isIn(Tags.Blocks.SAND) || state.isIn(Tags.Blocks.SAND_COLORLESS) || state.isIn(Tags.Blocks.SAND_RED) || state.isIn(Tags.Blocks.SANDSTONE) || state.getMaterial() == Material.SAND || state.getBlock() == Blocks.GRASS_BLOCK);
     }
+
+    public static boolean isAir(IWorldGenerationBaseReader reader, BlockPos pos) {
+        return reader.hasBlockState(pos, BlockState::isAir);
+    }
+
+    public static boolean isAirInRange(IWorldGenerationBaseReader world, BlockPos pos, int xRange, int yRange, int zRange) {
+        return isAirInRange(world, pos, xRange, yRange, zRange, xRange, yRange, zRange);
+    }
+
+    public static boolean isAirInRange(IWorldGenerationBaseReader world, BlockPos pos, int xNegRange, int yNegRange, int zNegRange, int xPosRange, int yPosRange, int zPosRange) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        for (int x = -xNegRange; x <= xPosRange; x++) {
+            for (int y = -yNegRange; y <= yPosRange; y++) {
+                for (int z = -zNegRange; z <= zPosRange; z++) {
+                    mutable.setPos(pos.add(x, y, z));
+                    if (!isAir(world, mutable))
+                        return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+
 
     public static void transformMutable(BlockPos.Mutable pos, Mirror mirrorIn, Rotation rotationIn)
     {
