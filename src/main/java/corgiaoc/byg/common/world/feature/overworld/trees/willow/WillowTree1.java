@@ -89,30 +89,30 @@ public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 for (int placeX = -3; placeX <= 3; placeX++) {
                     for (int placeZ = -3; placeZ <= 3; placeZ++) {
                         if (placeX <= 2 && placeX >= -2 && placeZ <= 2 && placeZ >= -2) {
-                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 0, placeZ), boundsIn);
-                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(3, 0, placeZ), boundsIn);
-                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(-3, 0, placeZ), boundsIn);
-                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 0, 3), boundsIn);
-                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 0, -3), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, 0, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(3, 0, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(-3, 0, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, 0, 3), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, 0, -3), boundsIn);
 
                             for (int placeY = -1; placeY >= -(rand.nextInt(4) + 2); placeY--) {
-                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(4, placeY, placeZ), boundsIn);
-                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(-4, placeY, placeZ), boundsIn);
-                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, placeY, 4), boundsIn);
-                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, placeY, -4), boundsIn);
-                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(3, placeY, 3), boundsIn);
-                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(-3, placeY, 3), boundsIn);
-                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(3, placeY, -3), boundsIn);
-                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(-3, placeY, -3), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(4, placeY, placeZ), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(-4, placeY, placeZ), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, placeY, 4), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, placeY, -4), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(3, placeY, 3), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(-3, placeY, 3), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(3, placeY, -3), boundsIn);
+                                placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(-3, placeY, -3), boundsIn);
                             }
                         }
 
                         if (placeX <= 1 && placeX >= -1 && placeZ <= 1 && placeZ >= -1) {
-                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 1, placeZ), boundsIn);
-                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 1, 2), boundsIn);
-                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(placeX, 1, -2), boundsIn);
-                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(2, 1, placeZ), boundsIn);
-                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.add(-2, 1, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, 1, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, 1, 2), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, 1, -2), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(2, 1, placeZ), boundsIn);
+                            placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(-2, 1, placeZ), boundsIn);
                         }
                     }
                 }

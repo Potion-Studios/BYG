@@ -65,35 +65,35 @@ public class BayouTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             for (int placeX = -3; placeX <= 3; placeX++) {
                 for (int placeZ = -3; placeZ <= 3; placeZ++) {
                     if (placeX <= 2 && placeX >= -2 && placeZ <= 2 && placeZ >= -2) {
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 0, placeZ));
-                        this.setWillowLeaves(worldIn, mainMutable.add(3, 0, placeZ));
-                        this.setWillowLeaves(worldIn, mainMutable.add(-3, 0, placeZ));
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 0, 3));
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 0, -3));
+                        this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(placeX, 0, placeZ));
+                        this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(3, 0, placeZ));
+                        this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(-3, 0, placeZ));
+                        this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(placeX, 0, 3));
+                        this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(placeX, 0, -3));
 
                         for (int placeY = -1; placeY >= -(rand.nextInt(4) + 2); placeY--) {
-                            this.setWillowLeaves(worldIn, mainMutable.add(4, placeY, placeZ));
-                            this.setWillowLeaves(worldIn, mainMutable.add(-4, placeY, placeZ));
-                            this.setWillowLeaves(worldIn, mainMutable.add(placeX, placeY, 4));
-                            this.setWillowLeaves(worldIn, mainMutable.add(placeX, placeY, -4));
-                            this.setWillowLeaves(worldIn, mainMutable.add(3, placeY, 3));
-                            this.setWillowLeaves(worldIn, mainMutable.add(-3, placeY, 3));
-                            this.setWillowLeaves(worldIn, mainMutable.add(3, placeY, -3));
-                            this.setWillowLeaves(worldIn, mainMutable.add(-3, placeY, -3));
+                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(4, placeY, placeZ));
+                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(-4, placeY, placeZ));
+                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(placeX, placeY, 4));
+                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(placeX, placeY, -4));
+                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(3, placeY, 3));
+                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(-3, placeY, 3));
+                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(3, placeY, -3));
+                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(-3, placeY, -3));
                         }
                     }
 
                     if (placeX <= 1 && placeX >= -1 && placeZ <= 1 && placeZ >= -1) {
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 1, placeZ));
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 1, 2));
-                        this.setWillowLeaves(worldIn, mainMutable.add(placeX, 1, -2));
-                        this.setWillowLeaves(worldIn, mainMutable.add(2, 1, placeZ));
-                        this.setWillowLeaves(worldIn, mainMutable.add(-2, 1, placeZ));
+                        this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(placeX, 1, placeZ));
+                        this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(placeX, 1, 2));
+                        this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(placeX, 1, -2));
+                        this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(2, 1, placeZ));
+                        this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(-2, 1, placeZ));
 //                        if (randChance == 0) {
-//                            this.setWillowLeaves(worldIn, mainMutable.add(placeX, 0, 4));
-//                            this.setWillowLeaves(worldIn, mainMutable.add(placeX, 0, -4));
-//                            this.setWillowLeaves(worldIn, mainMutable.add(4, 0, placeZ));
-//                            this.setWillowLeaves(worldIn, mainMutable.add(-4, 0, placeZ));
+//                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(placeX, 0, 4));
+//                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(placeX, 0, -4));
+//                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(4, 0, placeZ));
+//                            this.setWillowLeaves(worldIn, mainMutable.setPos(pos).move(-4, 0, placeZ));
 //                        }
                     }
                 }

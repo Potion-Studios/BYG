@@ -33,16 +33,16 @@ public class MiniBlackPuff extends BYGAbstractMushroomFeature<BYGMushroomFeature
             } else if (!this.doesMushroomHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isMushroom)) {
                 return false;
             } else {
-                placeStem(STEM, worldIn, mainmutable.add(0, 0, 0));
-                placeStemBranch(STEM, worldIn, mainmutable.add(0, 1, -1));
-                placeStemBranch(STEM, worldIn, mainmutable.add(-1, 1, 0));
-                placeStemBranch(STEM, worldIn, mainmutable.add(1, 1, 0));
-                placeStemBranch(STEM, worldIn, mainmutable.add(0, 1, 1));
-                placeStemBranch(STEM, worldIn, mainmutable.add(0, 2, -1));
-                placeStemBranch(STEM, worldIn, mainmutable.add(0, 2, 1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 1, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 2, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.add(0, 3, 0));
+                placeStem(STEM, worldIn, mainmutable.setPos(pos).move(0, 0, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.setPos(pos).move(0, 1, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.setPos(pos).move(-1, 1, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.setPos(pos).move(1, 1, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.setPos(pos).move(0, 1, 1));
+                placeStemBranch(STEM, worldIn, mainmutable.setPos(pos).move(0, 2, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.setPos(pos).move(0, 2, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.setPos(pos).move(0, 1, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.setPos(pos).move(0, 2, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.setPos(pos).move(0, 3, 0));
             }
         }
         return true;
