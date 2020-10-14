@@ -25,21 +25,20 @@ public class FloatingIslands4 extends Feature<NoFeatureConfig> {
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         setSeed(world.getSeed());
 
-        double diameter = 13;
-        double size = diameter / 3;
-        double radius = diameter / 2;
+        double radius = 13;
+        double size = radius / 3;
 
         if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
 
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
 
-        for (double x = -diameter - 2; x <= diameter + 2; x++) {
-            for (double y = -diameter - 2; y <= diameter + 2; y++) {
-                for (double z = -diameter - 2; z <= diameter + 2; z++) {
+        for (double x = -radius - 2; x <= radius + 2; x++) {
+            for (double y = -radius - 2; y <= radius + 2; y++) {
+                for (double z = -radius - 2; z <= radius + 2; z++) {
                     double squareNoise1 = perlin.getValue(x, y, z) * 12 - 6;
                     double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
-                    if (distanceSqt1 <= diameter * diameter) {
+                    if (distanceSqt1 <= radius * radius) {
                         if (y <= 1) {
                             //TopBlock
                             world.setBlockState(mutable.add(x, y, z), BYGBlocks.NIGHTSHADE_PHYLIUM.getDefaultState(), 2);
@@ -61,7 +60,7 @@ public class FloatingIslands4 extends Feature<NoFeatureConfig> {
                 for (double z = -size; z <= 0; z++) {
                     double squareNoise2 = perlin.getValue(x, y, z) * 12 - 6;
                     double distanceSqt2 = x * x + y * y + z * z + squareNoise2 * squareNoise2;
-                    if (distanceSqt2 <= diameter * (size + 2)) {
+                    if (distanceSqt2 <= radius * (size + 2)) {
                         if (y <= 1 && y >= -1) {
                             if (x <= 1 && x >= -2) {
                                 if (z <= 1 && z >= -2) {

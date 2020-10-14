@@ -57,7 +57,7 @@ import corgiaoc.byg.common.world.feature.overworld.trees.araucaria.AraucariaTree
 import corgiaoc.byg.common.world.feature.overworld.trees.araucaria.AraucariaTree2;
 import corgiaoc.byg.common.world.feature.overworld.trees.aspen.*;
 import corgiaoc.byg.common.world.feature.overworld.trees.baobab.BaobabTree1;
-import corgiaoc.byg.common.world.feature.overworld.trees.birch.BasicTree;
+import corgiaoc.byg.common.world.feature.overworld.trees.birch.*;
 import corgiaoc.byg.common.world.feature.overworld.trees.bluff.BluffTree;
 import corgiaoc.byg.common.world.feature.overworld.trees.bluff.BluffTree2;
 import corgiaoc.byg.common.world.feature.overworld.trees.bluff.BluffTree3;
@@ -101,6 +101,12 @@ import corgiaoc.byg.common.world.feature.overworld.trees.maple.MapleTree1;
 import corgiaoc.byg.common.world.feature.overworld.trees.maple.MapleTree2;
 import corgiaoc.byg.common.world.feature.overworld.trees.maple.MapleTree3;
 import corgiaoc.byg.common.world.feature.overworld.trees.meadow.*;
+import corgiaoc.byg.common.world.feature.overworld.trees.oak.OakTree1;
+import corgiaoc.byg.common.world.feature.overworld.trees.oak.OakTree2;
+import corgiaoc.byg.common.world.feature.overworld.trees.oak.OakTree3;
+import corgiaoc.byg.common.world.feature.overworld.trees.oak.large.OakTreeLarge1;
+import corgiaoc.byg.common.world.feature.overworld.trees.oak.large.OakTreeLarge2;
+import corgiaoc.byg.common.world.feature.overworld.trees.oak.large.OakTreeLarge3;
 import corgiaoc.byg.common.world.feature.overworld.trees.orchard.OrchardTree1;
 import corgiaoc.byg.common.world.feature.overworld.trees.orchard.OrchardTree2;
 import corgiaoc.byg.common.world.feature.overworld.trees.orchard.OrchardTree3;
@@ -303,6 +309,10 @@ public class BYGFeatures {
 
 
     /********************************************************************Tree Features********************************************************************/
+
+    //Default
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BASIC_TREE = WorldGenRegistrationHelper.createFeature("tree", new BasicTree(BYGTreeFeatureConfig.CODEC.stable()));
+
     //Araucaria
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ARAUCARIA_TREE1 = WorldGenRegistrationHelper.createFeature("araucaria_tree1", new AraucariaTree1(BYGTreeFeatureConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ARAUCARIA_TREE2 = WorldGenRegistrationHelper.createFeature("araucaria_tree2", new AraucariaTree2(BYGTreeFeatureConfig.CODEC.stable()));
@@ -326,9 +336,12 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BAOBAB_TREE1 = WorldGenRegistrationHelper.createFeature("baobab_tree1", new BaobabTree1(BYGTreeFeatureConfig.CODEC.stable()));
 
     //Birch
-    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BASIC_TREE = WorldGenRegistrationHelper.createFeature("tree", new BasicTree(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BIRCH_TREE1 = WorldGenRegistrationHelper.createFeature("birch_tree1", new BirchTree1(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BIRCH_TREE2 = WorldGenRegistrationHelper.createFeature("birch_tree2", new BirchTree2(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BIRCH_TREE3 = WorldGenRegistrationHelper.createFeature("birch_tree3", new BirchTree3(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BIRCH_TREE4 = WorldGenRegistrationHelper.createFeature("birch_tree4", new BirchTree4(BYGTreeFeatureConfig.CODEC.stable()));
 
-
+    //Bluff
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BLUFF_TREE1 = WorldGenRegistrationHelper.createFeature("bluff_tree1", new BluffTree(BYGTreeFeatureConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BLUFF_TREE2 = WorldGenRegistrationHelper.createFeature("bluff_tree2", new BluffTree2(BYGTreeFeatureConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> BLUFF_TREE3 = WorldGenRegistrationHelper.createFeature("bluff_tree3", new BluffTree3(BYGTreeFeatureConfig.CODEC.stable()));
@@ -415,6 +428,15 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MEADOW_TREE1 = WorldGenRegistrationHelper.createFeature("meadow_tree1", new MeadowTree1(BYGTreeFeatureConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MEADOW_TREE2 = WorldGenRegistrationHelper.createFeature("meadow_tree2", new MeadowTree2(BYGTreeFeatureConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> MEADOW_TREE3 = WorldGenRegistrationHelper.createFeature("meadow_tree3", new MeadowTree3(BYGTreeFeatureConfig.CODEC.stable()));
+
+    //Oak
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_TREE1 = WorldGenRegistrationHelper.createFeature("oak_tree1", new OakTree1(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_TREE2 = WorldGenRegistrationHelper.createFeature("oak_tree2", new OakTree2(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_TREE3 = WorldGenRegistrationHelper.createFeature("oak_tree3", new OakTree3(BYGTreeFeatureConfig.CODEC.stable()));
+
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_TREE_LARGE1 = WorldGenRegistrationHelper.createFeature("large_oak_tree1", new OakTreeLarge1(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_TREE_LARGE2 = WorldGenRegistrationHelper.createFeature("large_oak_tree2", new OakTreeLarge2(BYGTreeFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> OAK_TREE_LARGE3 = WorldGenRegistrationHelper.createFeature("large_oak_tree3", new OakTreeLarge3(BYGTreeFeatureConfig.CODEC.stable()));
 
     //Orchard
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> ORCHARD_TREE1 = WorldGenRegistrationHelper.createFeature("orchard_tree1", new OrchardTree1(BYGTreeFeatureConfig.CODEC.stable()));
