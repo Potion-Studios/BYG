@@ -27,7 +27,7 @@ public class FloatingIslands1 extends Feature<NoFeatureConfig> {
 
         double diameter = 11;
 
-        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4 )
+        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
 
         for (double x = -diameter - 2; x <= diameter + 2; x++) {

@@ -29,9 +29,8 @@ public class FloatingIslands2 extends Feature<NoFeatureConfig> {
         double size = diameter / 3;
         double radius = diameter / 2;
         int randInt = rand.nextInt(2);
-        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4 )
+        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
-
 
 
         for (double x = -radius - 2; x <= radius + 8; x++) {

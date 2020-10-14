@@ -55,23 +55,17 @@ public class FloatingIslands4 extends Feature<NoFeatureConfig> {
             }
         }
 
-        // code for the bottom of the island!!!
+        //Island Bottom
         for (double x = -size; x <= 0; x++) {
             for (double y = -size; y <= 0; y++) {
                 for (double z = -size; z <= 0; z++) {
-                    for (double w = -diameter - 2; w <= diameter + 2; w++) {
-                        for (double v = -diameter - 2; v <= diameter + 2; v++) {
-                            for (double u = -diameter - 2; u <= diameter + 2; u++) {
-                                double squareNoise2 = perlin.getValue(x, y, z) * 12 - 6;
-                                double distanceSqt2 = x * x + y * y + z * z + squareNoise2 * squareNoise2;
-                                if (distanceSqt2 <= diameter * (size + 2)) {
-                                    if (y <= 1 && y >= -1) {
-                                        if (x <= 1 && x >= -2) {
-                                            if (z <= 1 && z >= -2) {
-                                                world.setBlockState(mutable.add(x + 1, y - 9, z + 1), Blocks.END_STONE.getDefaultState(), 2);
-                                            }
-                                        }
-                                    }
+                    double squareNoise2 = perlin.getValue(x, y, z) * 12 - 6;
+                    double distanceSqt2 = x * x + y * y + z * z + squareNoise2 * squareNoise2;
+                    if (distanceSqt2 <= diameter * (size + 2)) {
+                        if (y <= 1 && y >= -1) {
+                            if (x <= 1 && x >= -2) {
+                                if (z <= 1 && z >= -2) {
+                                    world.setBlockState(mutable.add(x + 1, y - 9, z + 1), Blocks.END_STONE.getDefaultState(), 2);
                                 }
                             }
                         }

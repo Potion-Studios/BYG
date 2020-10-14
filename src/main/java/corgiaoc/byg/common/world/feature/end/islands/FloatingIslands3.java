@@ -1,7 +1,6 @@
 package corgiaoc.byg.common.world.feature.end.islands;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -30,7 +29,7 @@ public class FloatingIslands3 extends Feature<NoFeatureConfig> {
         double diameter = 11;
         double size = diameter / 3;
 
-        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4 )
+        if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
 
         for (double x = -diameter - 2; x <= diameter + 2; x++) {
@@ -39,7 +38,7 @@ public class FloatingIslands3 extends Feature<NoFeatureConfig> {
                     double squareNoise1 = perlin.getValue(x, y, z) * 12 - 6;
                     double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
                     if (distanceSqt1 <= diameter * diameter) {
-                        mutable.setPos(pos).move((int)x, (int)y, (int)z);
+                        mutable.setPos(pos).move((int) x, (int) y, (int) z);
 
                         if (y <= 1) {
                             //Top Block
@@ -69,7 +68,7 @@ public class FloatingIslands3 extends Feature<NoFeatureConfig> {
                                     if (y <= 1 && y >= -1) {
                                         if (x <= 1 && x >= -2) {
                                             if (z <= 1 && z >= -2) {
-                                                mutable.setPos(pos).move((int)x + 1, (int)y - 9, (int)z + 1);
+                                                mutable.setPos(pos).move((int) x + 1, (int) y - 9, (int) z + 1);
                                                 world.setBlockState(mutable, Blocks.END_STONE.getDefaultState(), 2);
                                             }
                                         }
