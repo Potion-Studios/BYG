@@ -13,13 +13,10 @@ import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
-import net.minecraft.entity.EntityType;
-import net.minecraft.item.Item;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.ToolType;
 
 import java.util.ArrayList;
@@ -117,7 +114,7 @@ public class BYGBlocks {
     public static final Block BULBIS_DOOR = createDoor("bulbis_door");
     public static final Block NIGHTSHADE_DOOR = createDoor("nightshade_door");
     public static final Block ETHER_DOOR = createDoor("ether_door");
-    
+
     public static final Block ASPEN_PRESSURE_PLATE = createWoodPressurePlate("aspen_pressure_plate");
     public static final Block BAOBAB_PRESSURE_PLATE = createWoodPressurePlate("baobab_pressure_plate");
     public static final Block BLUE_ENCHANTED_PRESSURE_PLATE = createWoodPressurePlate("blue_enchanted_pressure_plate");
@@ -262,7 +259,7 @@ public class BYGBlocks {
     public static final Block BULBIS_FENCE_GATE = createFenceGate("bulbis_fence_gate");
     public static final Block NIGHTSHADE_FENCE_GATE = createFenceGate("nightshade_fence_gate");
     public static final Block ETHER_FENCE_GATE = createFenceGate("ether_fence_gate");
-    
+
     public static final Block ASPEN_SLAB = createWoodSlab("aspen_slab");
     public static final Block BAOBAB_SLAB = createWoodSlab("baobab_slab");
     public static final Block BLUE_ENCHANTED_SLAB = createWoodSlab("blue_enchanted_slab");
@@ -568,7 +565,7 @@ public class BYGBlocks {
     public static final Block THEREAL_BELLFLOWER = new BYGBlockProperties.EndPlant("thereal_bellflower");
     public static final Block NIGHTSHADE_SPROUTS = new BYGBlockProperties.EndPlant("nightshade_sprouts");
     public static final Block NIGHTSHADE_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("nightshade_roots");
-    public static final Block NIGHTSHADE_BERRY_BUSH = createNightshadeBerryBush( "nightshade_berry_bush");
+    public static final Block NIGHTSHADE_BERRY_BUSH = createNightshadeBerryBush("nightshade_berry_bush");
 
     public static final Block PURPUR_STONE = new BYGBlockProperties.BYGStone("purpur_stone");
     public static final Block ETHER_STONE = new BYGBlockProperties.BYGStone("ether_stone");
@@ -928,12 +925,12 @@ public class BYGBlocks {
     public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, BYGConfiguredFeatures.SpreadableBlockConfigs.OVERGROWN_BLACKSTONE_CONFIG, "overgrown_crimson_blackstone");
     public static final Block MYCELIUM_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.MYCELIUM_NETHERRACK_CONFIG, "mycelium_netherrack");
     public static final Block OVERGROWN_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.OVERGROWN_NETHERRACK_CONFIG, "overgrown_netherrack");
-    public static final Block IVIS_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG,  "ivis_phylium");
+    public static final Block IVIS_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG, "ivis_phylium");
     public static final Block EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS, "embur_nylium");
     public static final Block SYTHIAN_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "sythian_nylium");
     public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, "meadow_grass_block");
-    public static final Block NIGHTSHADE_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG,  "nightshade_phylium");
-    public static final Block ETHER_PHYLIUM = createEndSpreadable(BYGBlocks.ETHER_SOIL, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG,  "ether_phylium");
+    public static final Block NIGHTSHADE_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG, "nightshade_phylium");
+    public static final Block ETHER_PHYLIUM = createEndSpreadable(BYGBlocks.ETHER_SOIL, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
 
     static Block createFence(String id) {
         Block fence = new FenceBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
@@ -1088,7 +1085,7 @@ public class BYGBlocks {
 
     public static void createPottedBlock(Block blockForPot, String id) {
         Block flowerPot = new FlowerPotBlock(blockForPot, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID,"potted_" + id), flowerPot);
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, "potted_" + id), flowerPot);
         flowerPotBlocks.add(flowerPot);
         flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id).toString());
     }
@@ -1150,7 +1147,7 @@ public class BYGBlocks {
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
         return spreadableDirt;
     }
-    
+
     public static void init() {
     }
 }

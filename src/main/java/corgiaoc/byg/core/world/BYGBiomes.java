@@ -356,8 +356,7 @@ public class BYGBiomes {
                         BYGEndBiomeProvider.END_BIOMES.add(biome);
                 }
             }
-        }
-        else {
+        } else {
             for (Biome biome : BYGEndBiomeProvider.END_BIOMES) {
                 if (biome.getCategory().equals(Biome.Category.THEEND) && !endBiomeBlackList.contains(biome)) {
                     Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
@@ -380,8 +379,7 @@ public class BYGBiomes {
                         BYGNetherBiomeProvider.NETHER_BIOMES.add(biome);
                 }
             }
-        }
-        else {
+        } else {
             for (Biome biome : BYGNetherBiomeProvider.NETHER_BIOMES) {
                 if (biome.getCategory().equals(Biome.Category.NETHER)) {
                     Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);

@@ -24,7 +24,7 @@ public class ViscalIsles extends BYGBiome {
     static final float DOWNFALL = 0.4F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
-    static final String PARENT = null;
+
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
@@ -43,17 +43,8 @@ public class ViscalIsles extends BYGBiome {
     }
 
     static {
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.FLOATING_ISLAND1);
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.FLOATING_ISLAND1);
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.FLOATING_ISLAND1);
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.FLOATING_ISLAND2);
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.FLOATING_ISLAND2);
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.FLOATING_ISLAND2);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_ISLAND);
 
-
-//        BYGDefaultBiomeFeatures.addEtherPlants(GENERATION_SETTINGS);
-//        BYGDefaultBiomeFeatures.addEtherTrees(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 5, 1, 2));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));

@@ -24,7 +24,7 @@ public class EnchantedForestHills extends BYGBiome {
     static final int WATER_FOG_COLOR = 329011;
     static final int GRASS_COLOR = 8560845;
     static final int FOLIAGE_COLOR = 11898572;
-    static final String PARENT = null;
+
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);

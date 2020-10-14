@@ -3,8 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.aspen;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -66,20 +64,6 @@ public class AspenShrub2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             return true;
         } else {
             return false;
-        }
-    }
-
-    private void treelog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.ASPEN_LOG.getDefaultState(), boundingBox);
-        }
-
-    }
-
-    private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
-        BlockPos blockpos = new BlockPos(x, y, z);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.ASPEN_LEAVES.getDefaultState(), boundingBox);
         }
     }
 }

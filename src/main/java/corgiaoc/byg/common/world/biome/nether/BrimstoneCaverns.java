@@ -28,7 +28,7 @@ public class BrimstoneCaverns extends BYGBiome {
     static final float DOWNFALL = 0.4F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
-    static final String PARENT = null;
+
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
@@ -58,8 +58,6 @@ public class BrimstoneCaverns extends BYGBiome {
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244134_E); //NetherPortal
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244149_o); //Fortress
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
-//        BYGDefaultBiomeFeatures.addEmburBogVines(GENERATION_SETTINGS);
-//        BYGDefaultBiomeFeatures.addEmburBogVegetation(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_ANTHRACITE);
         BYGDefaultBiomeFeatures.addBoricFire(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBrimstonePillars(GENERATION_SETTINGS);

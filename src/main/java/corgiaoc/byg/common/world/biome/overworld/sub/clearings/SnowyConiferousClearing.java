@@ -22,7 +22,7 @@ public class SnowyConiferousClearing extends BYGBiome {
     static final int WATER_FOG_COLOR = 329011;
     static final int GRASS_COLOR = 5011004;
     static final int FOLIAGE_COLOR = 2263842;
-    static final String PARENT = null;
+
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
@@ -32,9 +32,6 @@ public class SnowyConiferousClearing extends BYGBiome {
     }
 
     static {
-        //this.addStructure(Feature.IGLOO.configure(IFeatureConfig.NO_FEATURE_CONFIG));
-        //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLargeFern(GENERATION_SETTINGS);

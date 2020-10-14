@@ -142,8 +142,6 @@ public class XorShift {
          */
         public void setSeed(long x, long z) {
             this.x = seeds[(int) (fastAbs(x) % SEED_TABLE_SPACE)];
-//			this.y = seeds[(int) (Noise.fastAbs(y) % SEED_TABLE_SPACE)
-//					+ SEED_TABLE_SPACE];
             this.z = seeds[(int) (fastAbs(z) % SEED_TABLE_SPACE)
                     + SEED_TABLE_SPACE + SEED_TABLE_SPACE];
         }

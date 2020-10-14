@@ -3,12 +3,10 @@ package corgiaoc.byg.common.world.feature.overworld.trees.bluff;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 
 import java.util.Random;
 import java.util.Set;
@@ -185,39 +183,13 @@ public class BluffTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                         placeLeaves(config, rand, worldIn, posX1, topTrunkHeight - 14, posZ1 + 2, boundsIn, changedBlocks);
                         placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight - 14, posZ1 + 2, boundsIn, changedBlocks);
                         placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight - 14, posZ1 + 2, boundsIn, changedBlocks);
-
-                        //------
                     }
                 }
             }
 
             return true;
-            //}
         } else {
             return false;
         }
     }
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 2;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-
 }

@@ -29,7 +29,7 @@ public class WeepingWitchClearing extends BYGBiome {
     static final int WATER_FOG_COLOR = 329011;
     static final int GRASS_COLOR = 5406551;
     static final int FOLIAGE_COLOR = 6589494;
-    static final String PARENT = null;
+
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
@@ -50,8 +50,6 @@ public class WeepingWitchClearing extends BYGBiome {
     }
 
     static {
-        //this.addStructure(Feature.MINESHAFT.configure(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-        //this.addStructure(Feature.STRONGHOLD.configure(IFeatureConfig.NO_FEATURE_CONFIG));
         BYGDefaultBiomeFeatures.addSparseDeadHazelTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

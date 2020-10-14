@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.aspen;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -36,7 +35,6 @@ public class AspenShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
                     if (buildTrunk >= randTreeHeight2 && posY1 < 0) {

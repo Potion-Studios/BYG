@@ -31,8 +31,7 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
         BlockPos.Mutable mainmutable5 = new BlockPos.Mutable().setPos(pos.offset(Direction.EAST));
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, config)) {
+if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             }
             if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {

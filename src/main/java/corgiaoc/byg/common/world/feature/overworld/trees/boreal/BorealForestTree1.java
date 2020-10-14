@@ -24,7 +24,6 @@ public class BorealForestTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConf
         int posY = pos.getY();
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockpos = pos.down();
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             } else {
@@ -52,7 +51,6 @@ public class BorealForestTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConf
 
                 }
 
-                int leaveColor = rand.nextInt(2) + 1;
                 int tHSub5 = 5;
                 int tHSub4 = 4;
                 int tHSub3 = 3;

@@ -7,7 +7,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 
 import java.util.Random;
 
@@ -111,28 +110,6 @@ public class AngelicaGiant extends BYGAbstractGiantFlowerFeature<BYGGiantFlowerF
                 placePetal(PETAL, worldIn, mainmutable.setPos(pos).move(0, 14, -1));
                 placePetal(PETAL, worldIn, mainmutable.setPos(pos).move(0, 14, 0));
                 placePetal(PETAL, worldIn, mainmutable.setPos(pos).move(0, 14, 1));
-            }
-        }
-        return true;
-    }
-
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 0;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canStemPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
             }
         }
         return true;

@@ -39,8 +39,7 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeFeatureCon
         int posY = pos.getY();
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockpos = pos.down();
-            if (!isDirtOrPeatBlock(worldIn, blockpos)) {
+if (!isDirtOrPeatBlock(worldIn, pos.down())) {
                 return false;
             } else {
 

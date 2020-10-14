@@ -3,12 +3,10 @@ package corgiaoc.byg.common.properties.blocks;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 
 public class BYGBeachGrassBlock extends TallGrassBlock implements IGrowable {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
     protected BYGBeachGrassBlock(Block.Properties properties) {
         super(properties);

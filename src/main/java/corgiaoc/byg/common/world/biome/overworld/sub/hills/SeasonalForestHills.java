@@ -22,7 +22,7 @@ public class SeasonalForestHills extends BYGBiome {
     static final int WATER_FOG_COLOR = 329011;
     static final int GRASS_COLOR = 12435265;
     static final int FOLIAGE_COLOR = 12435265;
-    static final String PARENT = null;
+
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);//

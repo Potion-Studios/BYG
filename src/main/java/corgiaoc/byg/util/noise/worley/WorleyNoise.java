@@ -128,10 +128,6 @@ public class WorleyNoise extends Noise {
                     vd2 += dnx2;
                 else if (i > 0)
                     vd2 += dpx2;
-//					if(j < 0)
-//						vd2 += dny2;
-//					else if(j > 0)
-//						vd2 += dpy2;
                 if (k < 0)
                     vd2 += dnz2;
                 else if (k > 0)
@@ -168,10 +164,6 @@ public class WorleyNoise extends Noise {
         // reset random number generator for the voxel
         r.setSeed(x, z);
         // each voxel always has one point
-//		Point created = new Point(
-//				x + r.nextDouble(),
-//				y + r.nextDouble(),
-//				z + r.nextDouble());
         Point created = new Point(
                 x + r.nextDouble(),
                 z + r.nextDouble());

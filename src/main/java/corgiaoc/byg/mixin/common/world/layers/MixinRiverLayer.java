@@ -28,6 +28,7 @@ public abstract class MixinRiverLayer {
                 cir.setReturnValue(WorldGenRegistries.BIOME.getId(biome));
         }
     }
+
     @Nullable
     private static Biome getRiverBiomeValue(Biome firstLayerBiomeValue) {
         for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES) {

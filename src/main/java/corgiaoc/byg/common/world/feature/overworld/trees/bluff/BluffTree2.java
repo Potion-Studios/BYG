@@ -3,12 +3,10 @@ package corgiaoc.byg.common.world.feature.overworld.trees.bluff;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 
 import java.util.Random;
 import java.util.Set;
@@ -44,7 +42,6 @@ public class BluffTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
 
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
@@ -57,7 +54,6 @@ public class BluffTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                     int logplacer = posY + buildTrunk;
                     int logplacer2 = posY + randTreeHeight;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
-                    BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
                     //Sets Logs
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
@@ -69,15 +65,6 @@ public class BluffTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                 int leavessquarespos = 2;
                 for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
                     for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
-
-                        int posX2 = posX1 + 1;
-                        int posZ2 = posZ1 + 1;
-
-                        //Bottom Leaves
-//                        placePetal(LEAVES, worldIn, posX1 + posXLeafWidth, topTrunkHeight + 1, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
-//                        placePetal(LEAVES, worldIn, posX1 + posXLeafWidth - 2, topTrunkHeight + 1, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
-//                        placePetal(LEAVES, worldIn, posX1 + posXLeafWidth - 1, topTrunkHeight + 1, posZ1 + posZLeafWidthL0 + 1, boundsIn, changedBlocks);
-//                        placePetal(LEAVES, worldIn, posX1 + posXLeafWidth - 1, topTrunkHeight + 1, posZ1 + posZLeafWidthL0 - 1, boundsIn, changedBlocks);
 
                         //3x3
                         if (posXLeafWidth <= 1 && posZLeafWidthL0 <= 1 && posZLeafWidthL0 >= -1 && posXLeafWidth >= -1) {
@@ -234,38 +221,13 @@ public class BluffTree2 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
                         placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight - 14, posZ1 + 2, boundsIn, changedBlocks);
                         placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight - 14, posZ1 + 2, boundsIn, changedBlocks);
 
-                        //------
                     }
                 }
             }
 
             return true;
-            //}
         } else {
             return false;
         }
     }
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 2;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-
 }

@@ -27,10 +27,6 @@ public class SplerpBaseSimplex {
             allWeights[baseIndex + 3] = (t * t * t * (-2 + t * (3.5 + t * -1.5)));
 
             // Cubic
-            /*allWeights[baseIndex + 0] = t * (-0.5 + t * (1 + t * -0.5));
-            allWeights[baseIndex + 1] = 1 + t * t * (-2.5 + t * 1.5);
-            allWeights[baseIndex + 2] = t * (0.5 + t * (2 + t * -1.5));
-            allWeights[baseIndex + 3] = 0.5 * t * t * (t - 1);*/
         }
     }
 

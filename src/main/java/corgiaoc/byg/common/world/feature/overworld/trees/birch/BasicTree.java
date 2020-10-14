@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.birch;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -191,26 +190,8 @@ public class BasicTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
             }
 
             return true;
-            //}
         } else {
             return false;
         }
-    }
-
-
-    private void treelog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, Blocks.BIRCH_LOG.getDefaultState(), boundingBox);
-        }
-
-    }
-
-
-    private void leafs(ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
-        BlockPos blockpos = new BlockPos(x, y, z);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, Blocks.BIRCH_LEAVES.getDefaultState(), boundingBox);
-        }
-
     }
 }

@@ -25,8 +25,7 @@ public class MangroveTree4 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> 
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos blockpos = pos.down();
-            if (!isDesiredGroundwDirtTag(worldIn, blockpos, config)) {
+if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;

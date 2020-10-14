@@ -360,7 +360,7 @@ public class BYGItems {
     public static final Item ETHER_TRAPDOOR = createItem(new BlockItem(BYGBlocks.ETHER_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_TRAPDOOR));
     public static final Item ETHER_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.ETHER_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_PRESSURE_PLATE));
     public static final Item ETHER_BUTTON = createItem(new BlockItem(BYGBlocks.ETHER_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_BUTTON));
-    
+
     //Fir Woodtype
     public static final Item FIR_SAPLING = createItem(new BlockItem(BYGBlocks.FIR_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FIR_SAPLING));
     public static final Item FIR_LEAVES = createItem(new BlockItem(BYGBlocks.FIR_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FIR_LEAVES));
@@ -549,7 +549,7 @@ public class BYGItems {
     public static final Item NIGHTSHADE_TRAPDOOR = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_TRAPDOOR));
     public static final Item NIGHTSHADE_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_PRESSURE_PLATE));
     public static final Item NIGHTSHADE_BUTTON = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_BUTTON));
-    
+
     //Palm Woodtype
     public static final Item PALM_SAPLING = createItem(new BlockItem(BYGBlocks.PALM_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PALM_SAPLING));
     public static final Item PALM_LEAVES = createItem(new BlockItem(BYGBlocks.PALM_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PALM_LEAVES));
