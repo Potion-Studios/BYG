@@ -15,7 +15,7 @@ import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree3;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree1;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree2;
 import corgiaoc.byg.common.world.feature.nether.ConfigurablePillar;
-import corgiaoc.byg.common.world.feature.nether.LargeChain;
+import corgiaoc.byg.common.world.feature.nether.Chain;
 import corgiaoc.byg.common.world.feature.nether.crimsongardens.TallCrimsonRoots;
 import corgiaoc.byg.common.world.feature.nether.emburbog.EmburGelVines;
 import corgiaoc.byg.common.world.feature.nether.emburbog.TallEmburRoots;
@@ -258,7 +258,7 @@ public class BYGFeatures {
     public static final Feature<SimpleBlockProviderConfig> PILLARS = WorldGenRegistrationHelper.createFeature("pillar", new ConfigurablePillar(SimpleBlockProviderConfig.CODEC.stable()));
 
     //Chains
-    public static final Feature<NoFeatureConfig> CHAINS = WorldGenRegistrationHelper.createFeature("chains", new LargeChain(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<ChainFeatureConfig> CHAIN = WorldGenRegistrationHelper.createFeature("chain", new Chain(ChainFeatureConfig.CODEC.stable()));
 
     //Crimson Gardens
     public static final Feature<NoFeatureConfig> TALL_CRIMSON_ROOTS = WorldGenRegistrationHelper.createFeature("tall_crimson_roots", new TallCrimsonRoots(NoFeatureConfig.field_236558_a_.stable()));
