@@ -25,8 +25,6 @@ import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRoots;
 import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRootsPlant;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.HangingFeature;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.RawQuartzColumnFeature;
-import corgiaoc.byg.common.world.feature.nether.soulsandvalley.SoulShroomSporeFeature;
-import corgiaoc.byg.common.world.feature.nether.sythiantorrids.HangingSythianRootsFeature;
 import corgiaoc.byg.common.world.feature.nether.sythiantorrids.SythianStalk;
 import corgiaoc.byg.common.world.feature.nether.trees.lament.*;
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree1;
@@ -228,7 +226,6 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SOUL_SHROOM_TREE1 = WorldGenRegistrationHelper.createFeature("soul_shroom_tree1", new SoulShroomTree1(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SOUL_SHROOM_TREE2 = WorldGenRegistrationHelper.createFeature("soul_shroom_tree2", new SoulShroomTree2(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SOUL_SHROOM_TREE3 = WorldGenRegistrationHelper.createFeature("soul_shroom_tree3", new SoulShroomTree3(BYGMushroomFeatureConfig.CODEC.stable()));
-    public static final Feature<NoFeatureConfig> SOUL_SHROOM_SPORES_HANGING = WorldGenRegistrationHelper.createFeature("hanging_soul_shroom_spore_feature", new SoulShroomSporeFeature(NoFeatureConfig.field_236558_a_.stable()));
 
     //DeathCap
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> DEATH_CAP_TREE1 = WorldGenRegistrationHelper.createFeature("death_cap_tree1", new DeathCapTree1(BYGMushroomFeatureConfig.CODEC.stable()));
@@ -259,7 +256,6 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SYTHIAN_FUNGUS_TREE2 = WorldGenRegistrationHelper.createFeature("sythian_fungus_tree2", new SythianFungusTree2(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SYTHIAN_FUNGUS_TREE3 = WorldGenRegistrationHelper.createFeature("sythian_fungus_tree3", new SythianFungusTree3(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SYTHIAN_FUNGUS_TREE4 = WorldGenRegistrationHelper.createFeature("sythian_fungus_tree4", new SythianFungusTree4(BYGMushroomFeatureConfig.CODEC.stable()));
-    public static final Feature<NoFeatureConfig> SYTHIAN_HANGING_ROOTS = WorldGenRegistrationHelper.createFeature("hanging_sythian_roots", new HangingSythianRootsFeature(NoFeatureConfig.field_236558_a_.stable()));
 
     //Warped
     public static final Feature<WhiteListedSimpleBlockProviderConfig> HUGE_WARPED_CORAL_PLANT = WorldGenRegistrationHelper.createFeature("warped_coral_plant", new WarpedCoralFeature(WhiteListedSimpleBlockProviderConfig.CODEC.stable()));
