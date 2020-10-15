@@ -12,6 +12,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
+import net.minecraftforge.common.Tags;
 
 public class EndPlantBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -32,7 +33,7 @@ public class EndPlantBlock extends BushBlock {
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(BYGBlocks.IVIS_PHYLIUM) || state.isIn(BYGBlocks.ETHER_PHYLIUM) || state.isIn(BYGBlocks.NIGHTSHADE_PHYLIUM) || super.isValidGround(state, worldIn, pos);
+        return state.isIn(BYGBlocks.IVIS_PHYLIUM) || state.isIn(BYGBlocks.ETHER_PHYLIUM) || state.isIn(BYGBlocks.NIGHTSHADE_PHYLIUM) || state.isIn(Tags.Blocks.SAND) || super.isValidGround(state, worldIn, pos);
     }
 
     @Override

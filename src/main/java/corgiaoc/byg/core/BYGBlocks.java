@@ -4,7 +4,9 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.nightshade.NightshadeBerryBushBlock;
+import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
+import corgiaoc.byg.common.properties.blocks.nether.warped.WarpedCactusBlock;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import corgiaoc.byg.common.world.feature.overworld.trees.BYGSaplingToTree;
@@ -517,7 +519,7 @@ public class BYGBlocks {
     public static final Block BORIC_FIRE = new BYGBlockProperties.BoricFire("boric_fire");
 
     public static final Block HANGING_BONE = new BYGBlockProperties.HangingBones("hanging_bones");
-    public static final Block QUARTZ_CRYSTAL = new BYGBlockProperties.BYGQuartzCrystal("quartz_crystal");
+    public static final Block QUARTZ_CRYSTAL = createDullCrystal("quartz_crystal");
     public static final Block QUARTZITE_SAND = new BYGBlockProperties.BYGQuartziteSand("quartzite_sand");
     public static final Block RAW_QUARTZ_BLOCK = new BYGBlockProperties.BYGStone("raw_quartz_block");
 
@@ -527,7 +529,7 @@ public class BYGBlocks {
     public static final Block SCORCHED_BUSH = new BYGBlockProperties.ScorchedPlant("scorched_bush");
     public static final Block SCORCHED_GRASS = new BYGBlockProperties.ScorchedPlant("scorched_grass");
 
-    public static final Block WARPED_CACTUS = new BYGBlockProperties.BYGWarpedCacti("warped_cactus");
+    public static final Block WARPED_CACTUS = createWarpedCactus("warped_cactus");
     public static final Block WARPED_BUSH = new BYGBlockProperties.BYGWarpedBush("warped_bush");
     public static final Block WARPED_CORAL_BLOCK = new BYGBlockProperties.BYGWarpedCoralBlock("warped_coral_block");
     public static final Block WARPED_CORAL = new BYGBlockProperties.BYGWarpedCoral("warped_coral");
@@ -571,6 +573,14 @@ public class BYGBlocks {
     public static final Block ETHER_STONE = new BYGBlockProperties.BYGStone("ether_stone");
     public static final Block LIGNITE_BLOCK = new BYGBlockProperties.AnthraciteOre("lignite_block");
     public static final Block LIGNITE_ORE = new BYGBlockProperties.AnthraciteOre("lignite_ore");
+
+    public static final Block ODDITY_CACTUS = createOddityCactus("oddity_cactus");
+    public static final Block ODDITY_BUSH = new BYGBlockProperties.EndPlant("oddity_bush");
+
+    public static final Block VERMILION_SCULK_GROWTH = new BYGBlockProperties.BYGLeafPile("vermilion_sculk_growth");
+    public static final Block THERIUM_CRYSTAL = createCrystal("therium_crystal");
+    public static final Block THERIUM_LANTERN = new BYGBlockProperties.BYGLantern("therium_lantern");
+    public static final Block THERIUM_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("therium_lamp");
 
     public static final Block BLUE_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("blue_glowcane_block");
     public static final Block RED_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("red_glowcane_block");
@@ -931,6 +941,7 @@ public class BYGBlocks {
     public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, "meadow_grass_block");
     public static final Block NIGHTSHADE_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG, "nightshade_phylium");
     public static final Block ETHER_PHYLIUM = createEndSpreadable(BYGBlocks.ETHER_SOIL, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
+    public static final Block VERMILION_SCULK = createEndSpreadable(BYGBlocks.ETHER_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "vermilion_sculk");
 
     static Block createFence(String id) {
         Block fence = new FenceBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
@@ -1052,6 +1063,30 @@ public class BYGBlocks {
         Block flower = new TallFlowerBlock(Block.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), flower);
         return flower;
+    }
+
+    static Block createCrystal(String id) {
+        Block crystal = new CrystalBlock(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(0.1f).notSolid().doesNotBlockMovement().setLightLevel((state) -> 6));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), crystal);
+        return crystal;
+    }
+
+    static Block createDullCrystal(String id) {
+        Block crystal = new CrystalBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(0.1f).notSolid().doesNotBlockMovement());
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), crystal);
+        return crystal;
+    }
+
+    static Block createWarpedCactus(String id) {
+        Block cactus = new WarpedCactusBlock(Block.Properties.create(Material.CACTUS).sound(SoundType.CLOTH).hardnessAndResistance(0.2f).tickRandomly().notSolid().setLightLevel((state) -> 8));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), cactus);
+        return cactus;
+    }
+
+    static Block createOddityCactus(String id) {
+        Block cactus = new WarpedCactusBlock(Block.Properties.create(Material.CACTUS).sound(SoundType.CLOTH).hardnessAndResistance(0.2f).tickRandomly().notSolid().setLightLevel((state) -> 8));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), cactus);
+        return cactus;
     }
 
     static Block createCrimsonBerryBush(String id) {
