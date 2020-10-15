@@ -2,6 +2,7 @@ package corgiaoc.byg.client.textures.renders;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.core.BYGItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -79,6 +80,12 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.BULBIS_SHELL, RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.NIGHTSHADE_BERRY_BUSH, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.NIGHTSHADE_ROOTS, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.VERMILION_SCULK_GROWTH, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.THERIUM_LANTERN, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.ODDITY_CACTUS, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.ODDITY_BUSH, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.THERIUM_CRYSTAL, RenderType.getCutoutMipped());
+
         //Sea Plants
         RenderTypeLookup.setRenderLayer(BYGBlocks.CATTAIL, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.REEDS, RenderType.getCutoutMipped());

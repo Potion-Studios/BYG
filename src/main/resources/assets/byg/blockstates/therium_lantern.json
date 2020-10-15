@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=true": {
+      "model": "byg:block/hanging_therium_lantern"
+    },
+    "hanging=false": {
+      "model": "byg:block/therium_lantern"
+    }
+  }
+}

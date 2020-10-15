@@ -19,10 +19,10 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.Tags;
 
-public class BYGQuartzCrystalBlock extends Block {
+public class CrystalBlock extends Block {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
-    protected BYGQuartzCrystalBlock(Properties builder) {
+    public CrystalBlock(Properties builder) {
         super(builder);
 
     }
@@ -37,7 +37,7 @@ public class BYGQuartzCrystalBlock extends Block {
     }
 
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.GHAST && entityIn.getType() != EntityType.HOGLIN) {
+        if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.GHAST && entityIn.getType() != EntityType.HOGLIN && entityIn.getType() != EntityType.ENDERMAN) {
             double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
             double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
@@ -53,10 +53,10 @@ public class BYGQuartzCrystalBlock extends Block {
 
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         BlockPos blockpos = pos.down();
-        return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
+        return this.isValidGround(worldIn.getBlockState(blockpos));
     }
 
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(Tags.Blocks.STONE) || state.isIn(Tags.Blocks.DIRT) || state.isIn(Tags.Blocks.SAND) || state.isIn(BYGBlocks.QUARTZITE_SAND) || state.isIn(BYGBlocks.RAW_QUARTZ_BLOCK);
+    protected boolean isValidGround(BlockState state) {
+        return state.isIn(Tags.Blocks.STONE) || state.isIn(Tags.Blocks.END_STONES) || state.isIn(Tags.Blocks.DIRT) || state.isIn(Tags.Blocks.SAND) || state.isIn(BYGBlocks.QUARTZITE_SAND) || state.isIn(BYGBlocks.RAW_QUARTZ_BLOCK);
     }
 }

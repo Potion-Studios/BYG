@@ -5,7 +5,7 @@ import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.EndPlantBlock;
 import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
-import corgiaoc.byg.common.properties.blocks.nether.BYGQuartzCrystalBlock;
+import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
 import corgiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
@@ -119,7 +119,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGLily extends BYGLilyPadBlock {
+    public static class BYGLily extends LilyPadBlock {
         public BYGLily(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.PLANT)
@@ -370,10 +370,10 @@ public class BYGBlockProperties {
 
     }
 
-    public static class BYGQuartzCrystal extends BYGQuartzCrystalBlock {
-        public BYGQuartzCrystal(String registryName) {
+    public static class Crystal extends CrystalBlock {
+        public Crystal(String registryName) {
             super(Block.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
+                    .sound(SoundType.GLASS)
                     .hardnessAndResistance(0.1F)
                     .doesNotBlockMovement()
                     .notSolid()
@@ -439,8 +439,8 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGWarpedCacti extends WarpedCactiBlock {
-        public BYGWarpedCacti(String registryName) {
+    public static class BYGWarpedCactus extends WarpedCactusBlock {
+        public BYGWarpedCactus(String registryName) {
             super(Block.Properties.create(Material.CACTUS)
                     .sound(SoundType.CLOTH)
                     .hardnessAndResistance(0.2f)
