@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.tropical;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,19 +15,19 @@ import java.util.Random;
 import java.util.Set;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
-public class TropicalShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class TropicalShrub extends BYGAbstractTreeFeature<BYGTreeConfig> {
     //BYGBlockRenders used for the tree.
     //private static final BlockState LOG = BYGBlocks.MAHOGANY_LOG.getDefaultState();
     //private static final BlockState LEAVES = BYGBlocks.MAHOGANY_LEAVES.getDefaultState();
 
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public TropicalShrub(Codec<BYGTreeFeatureConfig> configIn) {
+    public TropicalShrub(Codec<BYGTreeConfig> configIn) {
         super(configIn);
     }
 
 
-    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = 1;
         //Positions

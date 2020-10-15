@@ -9,9 +9,9 @@ import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 
-public class BYGBoulderFeatureConfig implements IFeatureConfig {
+public class BoulderConfig implements IFeatureConfig {
 
-    public static final Codec<BYGBoulderFeatureConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
+    public static final Codec<BoulderConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
             return config.blockProvider;
         }), Codec.INT.fieldOf("min_stack_height").orElse(15).forGetter((config) -> {
@@ -26,7 +26,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             return config.radiusDivisorPerStack;
         }), Codec.BOOL.fieldOf("flatten_top_boulder").orElse(false).forGetter((config) -> {
             return config.flattenTopBoulder;
-        })).apply(codecRecorder, BYGBoulderFeatureConfig::new);
+        })).apply(codecRecorder, BoulderConfig::new);
     });
 
 
@@ -39,7 +39,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
     private final boolean flattenTopBoulder;
 
 
-    BYGBoulderFeatureConfig(BlockStateProvider blockProvider, int minHeight, int maxHeight, int minRadius, int maxRadius, double radiusDivisorPerStack, boolean flattenTopBoulder) {
+    BoulderConfig(BlockStateProvider blockProvider, int minHeight, int maxHeight, int minRadius, int maxRadius, double radiusDivisorPerStack, boolean flattenTopBoulder) {
         this.blockProvider = blockProvider;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
@@ -169,7 +169,7 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public Builder copy(BYGBoulderFeatureConfig config) {
+        public Builder copy(BoulderConfig config) {
             this.blockProvider = config.blockProvider;
             this.minStackHeight = config.minHeight;
             this.maxStackHeight = config.maxHeight;
@@ -179,8 +179,8 @@ public class BYGBoulderFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public BYGBoulderFeatureConfig build() {
-            return new BYGBoulderFeatureConfig(this.blockProvider, this.minStackHeight, this.maxStackHeight, this.minRadius, this.maxRadius, this.radiusDivisorPerStack, this.flattenTopBoulder);
+        public BoulderConfig build() {
+            return new BoulderConfig(this.blockProvider, this.minStackHeight, this.maxStackHeight, this.minRadius, this.maxRadius, this.radiusDivisorPerStack, this.flattenTopBoulder);
         }
     }
 }

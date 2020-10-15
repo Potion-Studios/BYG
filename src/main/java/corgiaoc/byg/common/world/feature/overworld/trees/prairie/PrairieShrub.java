@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.prairie;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -14,19 +14,19 @@ import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import java.util.Random;
 import java.util.Set;
 
-public class PrairieShrub extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class PrairieShrub extends BYGAbstractTreeFeature<BYGTreeConfig> {
     //BYGBlockRenders used for the tree.
     //private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
     //private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
-    public PrairieShrub(Codec<BYGTreeFeatureConfig> configIn) {
+    public PrairieShrub(Codec<BYGTreeConfig> configIn) {
         super(configIn);
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING);
     }
 
 
-    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = rand.nextInt(1) + 2;
         //Positions

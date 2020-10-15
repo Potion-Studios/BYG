@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.feature.overworld.giantflowers.util;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
-import corgiaoc.byg.common.world.feature.config.BYGGiantFlowerFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.GiantFlowerConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -21,7 +21,7 @@ import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
-public abstract class BYGAbstractGiantFlowerFeature<T extends BYGGiantFlowerFeatureConfig> extends Feature<T> {
+public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig> extends Feature<T> {
 
     public BYGAbstractGiantFlowerFeature(Codec<T> configCodec) {
         super(configCodec);

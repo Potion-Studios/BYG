@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.aspen;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.util.Direction;
@@ -13,13 +13,13 @@ import net.minecraft.world.biome.Biome;
 import java.util.Random;
 import java.util.Set;
 
-public class AspenTree3 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class AspenTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
-    public AspenTree3(Codec<BYGTreeFeatureConfig> configIn) {
+    public AspenTree3(Codec<BYGTreeConfig> configIn) {
         super(configIn);
     }
 
-    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int minHeight = config.getMinHeight();
         Biome biome = worldIn.getBiome(pos);

@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.giantflowers;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGGiantFlowerFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.GiantFlowerConfig;
 import corgiaoc.byg.common.world.feature.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -10,13 +10,13 @@ import net.minecraft.world.ISeedReader;
 
 import java.util.Random;
 
-public class RoseGiant extends BYGAbstractGiantFlowerFeature<BYGGiantFlowerFeatureConfig> {
+public class RoseGiant extends BYGAbstractGiantFlowerFeature<GiantFlowerConfig> {
 
-    public RoseGiant(Codec<BYGGiantFlowerFeatureConfig> configIn) {
+    public RoseGiant(Codec<GiantFlowerConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean placeFlower(ISeedReader worldIn, Random rand, BlockPos pos, boolean isFlower, BYGGiantFlowerFeatureConfig config) {
+    protected boolean placeFlower(ISeedReader worldIn, Random rand, BlockPos pos, boolean isFlower, GiantFlowerConfig config) {
         BlockState STEM = config.getStemProvider().getBlockState(rand, pos);
         BlockState PETAL = config.getPetalProvider().getBlockState(rand, pos);
         BlockState PETAL2 = config.getPetal2Provider().getBlockState(rand, pos);

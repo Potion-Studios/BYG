@@ -12,21 +12,21 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class WhiteListedSimpleBlockProviderConfig implements IFeatureConfig {
+public class WhitelistedSimpleBlockProviderConfig implements IFeatureConfig {
 
-    public static final Codec<WhiteListedSimpleBlockProviderConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
+    public static final Codec<WhitelistedSimpleBlockProviderConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
             return config.blockProvider;
         }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
             return config.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList());
-        })).apply(codecRecorder, WhiteListedSimpleBlockProviderConfig::new);
+        })).apply(codecRecorder, WhitelistedSimpleBlockProviderConfig::new);
     });
 
     private final BlockStateProvider blockProvider;
     private final Set<Block> whitelist;
 
 
-    public WhiteListedSimpleBlockProviderConfig(BlockStateProvider blockProvider, List<BlockState> whitelist) {
+    public WhitelistedSimpleBlockProviderConfig(BlockStateProvider blockProvider, List<BlockState> whitelist) {
         this.blockProvider = blockProvider;
         this.whitelist = whitelist.stream().map(AbstractBlock.AbstractBlockState::getBlock).collect(Collectors.toSet());
 

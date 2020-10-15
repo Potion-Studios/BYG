@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.pine;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,19 +15,19 @@ import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import java.util.Random;
 import java.util.Set;
 
-public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
     //Blocks used for the tree.
     //private static final BlockState LOG = BYGBlocks.PINE_LOG.getDefaultState();
     //private static final BlockState LEAVES = BYGBlocks.PINE_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
     Random random = new Random();
 
-    public PineTree1(Codec<BYGTreeFeatureConfig> configIn) {
+    public PineTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlocks.PINE_SAPLING);
     }
 
-    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         Biome biome = worldIn.getBiome(pos);
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());

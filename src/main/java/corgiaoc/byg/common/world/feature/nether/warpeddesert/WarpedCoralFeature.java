@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.nether.warpeddesert;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.WhiteListedSimpleBlockProviderConfig;
+import corgiaoc.byg.common.world.feature.config.WhitelistedSimpleBlockProviderConfig;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -14,13 +14,13 @@ import java.util.Random;
 import static net.minecraft.util.Direction.Plane;
 import static net.minecraft.util.Direction.UP;
 
-public class WarpedCoralFeature extends Feature<WhiteListedSimpleBlockProviderConfig> {
+public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderConfig> {
 
-    public WarpedCoralFeature(Codec<WhiteListedSimpleBlockProviderConfig> config) {
+    public WarpedCoralFeature(Codec<WhitelistedSimpleBlockProviderConfig> config) {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, WhiteListedSimpleBlockProviderConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, WhitelistedSimpleBlockProviderConfig config) {
         int randCoralHeight = rand.nextInt(7) + 16 / 2;
 
         if (!checkArea(worldIn, pos, rand, config)) {
@@ -41,13 +41,13 @@ public class WarpedCoralFeature extends Feature<WhiteListedSimpleBlockProviderCo
         return true;
     }
 
-    private void placeCoral(ISeedReader world, BlockPos pos, Random rand, WhiteListedSimpleBlockProviderConfig config) {
+    private void placeCoral(ISeedReader world, BlockPos pos, Random rand, WhitelistedSimpleBlockProviderConfig config) {
         if (world.isAirBlock(pos))
             world.setBlockState(pos, config.getBlockProvider().getBlockState(rand, pos), 2);
     }
 
 
-    private boolean checkArea(IWorld world, BlockPos pos, Random rand, WhiteListedSimpleBlockProviderConfig config) {
+    private boolean checkArea(IWorld world, BlockPos pos, Random rand, WhitelistedSimpleBlockProviderConfig config) {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();

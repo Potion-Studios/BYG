@@ -2,8 +2,7 @@ package corgiaoc.byg.common.world.feature.overworld.mushrooms.util;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
-import corgiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -22,7 +21,7 @@ import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
-public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomFeatureConfig> extends Feature<T> {
+public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> extends Feature<T> {
 
     public BYGAbstractMushroomFeature(Codec<T> configCodec) {
         super(configCodec);

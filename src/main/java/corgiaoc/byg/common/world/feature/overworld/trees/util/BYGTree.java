@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.util;
 
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -13,10 +13,10 @@ import java.util.Random;
 
 public abstract class BYGTree {
     @Nullable
-    protected abstract ConfiguredFeature<BYGTreeFeatureConfig, ?> getTreeFeature(Random random);
+    protected abstract ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random);
 
     public boolean tree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
-        ConfiguredFeature<BYGTreeFeatureConfig, ?> configuredTreeFeature = this.getTreeFeature(random);
+        ConfiguredFeature<BYGTreeConfig, ?> configuredTreeFeature = this.getTreeFeature(random);
         if (configuredTreeFeature == null) {
             return false;
         } else {

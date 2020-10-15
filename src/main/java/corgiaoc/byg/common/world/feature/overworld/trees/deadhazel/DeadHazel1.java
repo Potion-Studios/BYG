@@ -1,11 +1,10 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.deadhazel;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -14,13 +13,13 @@ import net.minecraft.world.ISeedReader;
 import java.util.Random;
 import java.util.Set;
 
-public class DeadHazel1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class DeadHazel1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
-    public DeadHazel1(Codec<BYGTreeFeatureConfig> configIn) {
+    public DeadHazel1(Codec<BYGTreeConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);

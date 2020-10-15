@@ -9,21 +9,21 @@ import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 
-public class BYGPumpkinFeatureConfig implements IFeatureConfig {
+public class PumpkinConfig implements IFeatureConfig {
 
-    public static final Codec<BYGPumpkinFeatureConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
+    public static final Codec<PumpkinConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("pumpkin_provider").forGetter((config) -> {
             return config.pumpkinProvider;
         }), BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> {
             return config.stemProvider;
-        })).apply(codecRecorder, BYGPumpkinFeatureConfig::new);
+        })).apply(codecRecorder, PumpkinConfig::new);
     });
 
 
     private final BlockStateProvider pumpkinProvider;
     private final BlockStateProvider stemProvider;
 
-    BYGPumpkinFeatureConfig(BlockStateProvider pumpkinProvider, BlockStateProvider stemProvider) {
+    PumpkinConfig(BlockStateProvider pumpkinProvider, BlockStateProvider stemProvider) {
         this.pumpkinProvider = pumpkinProvider;
         this.stemProvider = stemProvider;
     }
@@ -61,8 +61,8 @@ public class BYGPumpkinFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public BYGPumpkinFeatureConfig build() {
-            return new BYGPumpkinFeatureConfig(this.pumpkinProvider, this.stemProvider);
+        public PumpkinConfig build() {
+            return new PumpkinConfig(this.pumpkinProvider, this.stemProvider);
         }
     }
 }

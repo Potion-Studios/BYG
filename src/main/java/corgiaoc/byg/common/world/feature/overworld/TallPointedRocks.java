@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.PointyRockFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.PointyRockConfig;
 import corgiaoc.byg.util.noise.fastnoise.FNVector3f;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -11,14 +11,14 @@ import net.minecraft.world.gen.Heightmap;
 
 import java.util.Random;
 
-public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockFeatureConfig> {
+public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> {
 
-    public TallPointedRocks(Codec<PointyRockFeatureConfig> codec) {
+    public TallPointedRocks(Codec<PointyRockConfig> codec) {
         super(codec);
     }
 
     @Override
-    public boolean generate(ISeedReader world, Random random, IChunk chunkIn, int x, int z, PointyRockFeatureConfig config) {
+    public boolean generate(ISeedReader world, Random random, IChunk chunkIn, int x, int z, PointyRockConfig config) {
         config.setUpNoise(world.getSeed());
         int xPos = x & 15;
         int zPos = z & 15;

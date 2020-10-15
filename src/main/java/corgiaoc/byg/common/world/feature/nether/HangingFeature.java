@@ -1,7 +1,7 @@
-package corgiaoc.byg.common.world.feature.nether.quartzdesert;
+package corgiaoc.byg.common.world.feature.nether;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.SimpleHangingFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.HangingColumnWithBaseConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -13,14 +13,14 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class HangingFeature extends Feature<SimpleHangingFeatureConfig> {
+public class HangingFeature extends Feature<HangingColumnWithBaseConfig> {
     private static final Direction[] DIRECTIONS = Direction.values();
 
-    public HangingFeature(Codec<SimpleHangingFeatureConfig> codec) {
+    public HangingFeature(Codec<HangingColumnWithBaseConfig> codec) {
         super(codec);
     }
 
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleHangingFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         if (!world.isAirBlock(pos)) {
             return false;
         } else {
@@ -35,7 +35,7 @@ public class HangingFeature extends Feature<SimpleHangingFeatureConfig> {
         }
     }
 
-    private void generateBase(IWorld world, Random rand, BlockPos pos, SimpleHangingFeatureConfig config) {
+    private void generateBase(IWorld world, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         world.setBlockState(pos, config.getBaseBlockProvider().getBlockState(rand, pos), 2);
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         BlockPos.Mutable mutable2 = new BlockPos.Mutable();
@@ -64,7 +64,7 @@ public class HangingFeature extends Feature<SimpleHangingFeatureConfig> {
 
     }
 
-    private void generateVinesInArea(IWorld world, Random rand, BlockPos pos, SimpleHangingFeatureConfig config) {
+    private void generateVinesInArea(IWorld world, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         for (int i = 0; i < 100; ++i) {
@@ -87,7 +87,7 @@ public class HangingFeature extends Feature<SimpleHangingFeatureConfig> {
 
     }
 
-    public static void generateLength(IWorld world, BlockPos.Mutable mutable, int length, Random rand, SimpleHangingFeatureConfig config) {
+    public static void generateLength(IWorld world, BlockPos.Mutable mutable, int length, Random rand, HangingColumnWithBaseConfig config) {
         for (int i = 0; i <= length; ++i) {
             if (world.isAirBlock(mutable)) {
                 if (i == length || !world.isAirBlock(mutable.down())) {

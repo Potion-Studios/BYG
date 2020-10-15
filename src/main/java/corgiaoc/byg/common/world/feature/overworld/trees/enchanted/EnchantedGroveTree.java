@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.enchanted;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
@@ -16,9 +16,9 @@ import net.minecraftforge.common.Tags;
 import java.util.Random;
 import java.util.Set;
 
-public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
-    public EnchantedGroveTree(Codec<BYGTreeFeatureConfig> configIn) {
+    public EnchantedGroveTree(Codec<BYGTreeConfig> configIn) {
         super(configIn);
     }
 
@@ -30,7 +30,7 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeFeatureCon
         });
     }
 
-    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);//This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 9;

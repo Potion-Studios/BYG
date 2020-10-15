@@ -15,9 +15,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class SimpleHangingFeatureConfig implements IFeatureConfig {
+public class HangingColumnWithBaseConfig implements IFeatureConfig {
 
-    public static final Codec<SimpleHangingFeatureConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
+    public static final Codec<HangingColumnWithBaseConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("base_block_provider").forGetter((config) -> {
             return config.baseBlockProvider;
         }), BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
@@ -30,7 +30,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return config.maxLength;
         }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
             return config.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList());
-        })).apply(codecRecorder, SimpleHangingFeatureConfig::new);
+        })).apply(codecRecorder, HangingColumnWithBaseConfig::new);
     });
 
     private final BlockStateProvider baseBlockProvider;
@@ -41,7 +41,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
     private final Set<Block> whitelist;
 
 
-    SimpleHangingFeatureConfig(BlockStateProvider baseBlockProvider, BlockStateProvider blockProvider, BlockStateProvider endBlockProvider, int minLength, int maxLength, List<BlockState> whitelist) {
+    HangingColumnWithBaseConfig(BlockStateProvider baseBlockProvider, BlockStateProvider blockProvider, BlockStateProvider endBlockProvider, int minLength, int maxLength, List<BlockState> whitelist) {
         this.baseBlockProvider = baseBlockProvider;
         this.blockProvider = blockProvider;
         this.endBlockProvider = endBlockProvider;
@@ -71,6 +71,14 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
         return minLength;
     }
 
+    public int getMaxPossibleLength() {
+        int returnValue = this.minLength - maxLength;
+        if (returnValue <= 0)
+            returnValue = 1;
+
+        return returnValue;
+    }
+
     public Set<Block> getWhitelist() {
         return whitelist;
     }
@@ -83,7 +91,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
         private int minLength = 1;
         private int maxLength = 9;
 
-        public SimpleHangingFeatureConfig.Builder setBaseBlock(Block block) {
+        public HangingColumnWithBaseConfig.Builder setBaseBlock(Block block) {
             if (block != null)
                 baseBlockProvider = new SimpleBlockStateProvider(block.getDefaultState());
             else
@@ -91,7 +99,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setBaseBlock(BlockState state) {
+        public HangingColumnWithBaseConfig.Builder setBaseBlock(BlockState state) {
             if (state != null)
                 baseBlockProvider = new SimpleBlockStateProvider(state);
             else
@@ -99,7 +107,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setBaseBlock(BlockStateProvider provider) {
+        public HangingColumnWithBaseConfig.Builder setBaseBlock(BlockStateProvider provider) {
             if (provider != null)
                 baseBlockProvider = provider;
             else
@@ -107,7 +115,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setBlock(Block block) {
+        public HangingColumnWithBaseConfig.Builder setBlock(Block block) {
             if (block != null)
                 blockProvider = new SimpleBlockStateProvider(block.getDefaultState());
             else
@@ -115,7 +123,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setBlock(BlockState state) {
+        public HangingColumnWithBaseConfig.Builder setBlock(BlockState state) {
             if (state != null)
                 blockProvider = new SimpleBlockStateProvider(state);
             else
@@ -123,7 +131,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setBlock(BlockStateProvider provider) {
+        public HangingColumnWithBaseConfig.Builder setBlock(BlockStateProvider provider) {
             if (provider != null)
                 blockProvider = provider;
             else
@@ -131,7 +139,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setEndBlock(Block block) {
+        public HangingColumnWithBaseConfig.Builder setEndBlock(Block block) {
             if (block != null)
                 endBlockProvider = new SimpleBlockStateProvider(block.getDefaultState());
             else
@@ -139,7 +147,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setEndBlock(BlockState state) {
+        public HangingColumnWithBaseConfig.Builder setEndBlock(BlockState state) {
             if (state != null)
                 endBlockProvider = new SimpleBlockStateProvider(state);
             else
@@ -147,7 +155,7 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setEndBlock(BlockStateProvider provider) {
+        public HangingColumnWithBaseConfig.Builder setEndBlock(BlockStateProvider provider) {
             if (provider != null)
                 endBlockProvider = provider;
             else
@@ -155,12 +163,12 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setMinLength(int minLength) {
+        public HangingColumnWithBaseConfig.Builder setMinLength(int minLength) {
             this.minLength = minLength;
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setMaxLength(int maxPossibleHeight) {
+        public HangingColumnWithBaseConfig.Builder setMaxLength(int maxPossibleHeight) {
             if (maxPossibleHeight != 0)
                 this.maxLength = maxPossibleHeight + 1;
             else
@@ -168,12 +176,12 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder setWhitelist(ImmutableList<Block> whitelist) {
+        public HangingColumnWithBaseConfig.Builder setWhitelist(ImmutableList<Block> whitelist) {
             this.whitelist = whitelist;
             return this;
         }
 
-        public SimpleHangingFeatureConfig.Builder copy(SimpleHangingFeatureConfig config) {
+        public HangingColumnWithBaseConfig.Builder copy(HangingColumnWithBaseConfig config) {
             this.baseBlockProvider = config.baseBlockProvider;
             this.blockProvider = config.blockProvider;
             this.endBlockProvider = config.endBlockProvider;
@@ -183,8 +191,8 @@ public class SimpleHangingFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public SimpleHangingFeatureConfig build() {
-            return new SimpleHangingFeatureConfig(baseBlockProvider, blockProvider, endBlockProvider, minLength, maxLength, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
+        public HangingColumnWithBaseConfig build() {
+            return new HangingColumnWithBaseConfig(baseBlockProvider, blockProvider, endBlockProvider, minLength, maxLength, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
         }
     }
 }

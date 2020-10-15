@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.feature.overworld.pumpkins;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
-import corgiaoc.byg.common.world.feature.config.BYGPumpkinFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.PumpkinConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -12,14 +12,14 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class LargePumpkin2 extends Feature<BYGPumpkinFeatureConfig> {
+public class LargePumpkin2 extends Feature<PumpkinConfig> {
 
-    public LargePumpkin2(Codec<BYGPumpkinFeatureConfig> configIn) {
+    public LargePumpkin2(Codec<PumpkinConfig> configIn) {
         super(configIn);
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, BYGPumpkinFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, PumpkinConfig config) {
         BlockState pumpkinState = config.getPumpkinProvider().getBlockState(rand, pos);
         BlockState stemState = config.getStemProvider().getBlockState(rand, pos);
 

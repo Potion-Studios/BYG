@@ -2,7 +2,7 @@ package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.world.feature.config.BYGBoulderFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BoulderConfig;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
@@ -16,9 +16,9 @@ import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
-public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
+public class StackableBoulders extends Feature<BoulderConfig> {
 
-    public StackableBoulders(Codec<BYGBoulderFeatureConfig> configCodec) {
+    public StackableBoulders(Codec<BoulderConfig> configCodec) {
         super(configCodec);
     }
 
@@ -28,7 +28,7 @@ public class StackableBoulders extends Feature<BYGBoulderFeatureConfig> {
     public static int stopSpamInt = 0;
 
     @Override
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, BYGBoulderFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, BoulderConfig config) {
         setSeed(world.getSeed());
 
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position.down(2 + random.nextInt(10)));

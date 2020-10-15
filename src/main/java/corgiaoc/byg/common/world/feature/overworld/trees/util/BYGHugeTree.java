@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.util;
 
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -32,10 +32,10 @@ public abstract class BYGHugeTree extends BYGTree {
     }
 
     @Nullable
-    protected abstract ConfiguredFeature<BYGTreeFeatureConfig, ?> getBigTreeFeature(Random random);
+    protected abstract ConfiguredFeature<BYGTreeConfig, ?> getBigTreeFeature(Random random);
 
     public boolean bigTree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
-        ConfiguredFeature<BYGTreeFeatureConfig, ?> configuredTreeFeature = this.getBigTreeFeature(random);
+        ConfiguredFeature<BYGTreeConfig, ?> configuredTreeFeature = this.getBigTreeFeature(random);
         if (configuredTreeFeature == null) {
             return false;
         } else {

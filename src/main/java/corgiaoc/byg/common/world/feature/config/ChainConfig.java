@@ -15,9 +15,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class ChainFeatureConfig implements IFeatureConfig {
+public class ChainConfig implements IFeatureConfig {
 
-    public static final Codec<ChainFeatureConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
+    public static final Codec<ChainConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("x_axis_block_provider").forGetter((config) -> {
             return config.xAxisBlockProvider;
         }), BlockStateProvider.CODEC.fieldOf("z_axis_block_provider").forGetter((config) -> {
@@ -28,7 +28,7 @@ public class ChainFeatureConfig implements IFeatureConfig {
             return config.maxLength;
         }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
             return config.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList());
-        })).apply(codecRecorder, ChainFeatureConfig::new);
+        })).apply(codecRecorder, ChainConfig::new);
     });
 
     private final BlockStateProvider xAxisBlockProvider;
@@ -38,7 +38,7 @@ public class ChainFeatureConfig implements IFeatureConfig {
     private final Set<Block> whitelist;
 
 
-    ChainFeatureConfig(BlockStateProvider baseBlockProvider, BlockStateProvider blockProvider, int minLength, int maxLength, List<BlockState> whitelist) {
+    ChainConfig(BlockStateProvider baseBlockProvider, BlockStateProvider blockProvider, int minLength, int maxLength, List<BlockState> whitelist) {
         this.xAxisBlockProvider = baseBlockProvider;
         this.zAxisBlockProvider = blockProvider;
         this.minLength = minLength;
@@ -62,7 +62,7 @@ public class ChainFeatureConfig implements IFeatureConfig {
         return maxLength;
     }
 
-    public int getMaxPossibleHeight() {
+    public int getMaxPossibleLength() {
         int returnValue = this.minLength - maxLength;
         if (returnValue <= 0)
             returnValue = 1;
@@ -81,7 +81,7 @@ public class ChainFeatureConfig implements IFeatureConfig {
         private int minLength = 1;
         private int maxLength = 9;
 
-        public ChainFeatureConfig.Builder setXAxisBlock(Block block) {
+        public ChainConfig.Builder setXAxisBlock(Block block) {
             if (block != null)
                 xAxisBlockProvider = new SimpleBlockStateProvider(block.getDefaultState());
             else
@@ -89,7 +89,7 @@ public class ChainFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public ChainFeatureConfig.Builder setXAxisBlock(BlockState state) {
+        public ChainConfig.Builder setXAxisBlock(BlockState state) {
             if (state != null)
                 xAxisBlockProvider = new SimpleBlockStateProvider(state);
             else
@@ -97,7 +97,7 @@ public class ChainFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public ChainFeatureConfig.Builder setXAxisBlock(BlockStateProvider provider) {
+        public ChainConfig.Builder setXAxisBlock(BlockStateProvider provider) {
             if (provider != null)
                 xAxisBlockProvider = provider;
             else
@@ -105,7 +105,7 @@ public class ChainFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public ChainFeatureConfig.Builder setZAxisBlock(Block block) {
+        public ChainConfig.Builder setZAxisBlock(Block block) {
             if (block != null)
                 zAxisBlockProvider = new SimpleBlockStateProvider(block.getDefaultState());
             else
@@ -113,7 +113,7 @@ public class ChainFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public ChainFeatureConfig.Builder setZAxisBlock(BlockState state) {
+        public ChainConfig.Builder setZAxisBlock(BlockState state) {
             if (state != null)
                 zAxisBlockProvider = new SimpleBlockStateProvider(state);
             else
@@ -121,7 +121,7 @@ public class ChainFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public ChainFeatureConfig.Builder setZAxisBlock(BlockStateProvider provider) {
+        public ChainConfig.Builder setZAxisBlock(BlockStateProvider provider) {
             if (provider != null)
                 zAxisBlockProvider = provider;
             else
@@ -129,12 +129,12 @@ public class ChainFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public ChainFeatureConfig.Builder setMinLength(int minLength) {
+        public ChainConfig.Builder setMinLength(int minLength) {
             this.minLength = minLength;
             return this;
         }
 
-        public ChainFeatureConfig.Builder setMaxLength(int maxPossibleHeight) {
+        public ChainConfig.Builder setMaxLength(int maxPossibleHeight) {
             if (maxPossibleHeight != 0)
                 this.maxLength = maxPossibleHeight + 1;
             else
@@ -142,12 +142,12 @@ public class ChainFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public ChainFeatureConfig.Builder setWhitelist(ImmutableList<Block> whitelist) {
+        public ChainConfig.Builder setWhitelist(ImmutableList<Block> whitelist) {
             this.whitelist = whitelist;
             return this;
         }
 
-        public ChainFeatureConfig.Builder copy(ChainFeatureConfig config) {
+        public ChainConfig.Builder copy(ChainConfig config) {
             this.xAxisBlockProvider = config.xAxisBlockProvider;
             this.zAxisBlockProvider = config.zAxisBlockProvider;
             this.minLength = config.minLength;
@@ -156,8 +156,8 @@ public class ChainFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public ChainFeatureConfig build() {
-            return new ChainFeatureConfig(xAxisBlockProvider, zAxisBlockProvider, minLength, maxLength, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
+        public ChainConfig build() {
+            return new ChainConfig(xAxisBlockProvider, zAxisBlockProvider, minLength, maxLength, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
         }
     }
 }

@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.world.feature.overworld.mushrooms.util;
 
-import corgiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,10 +15,10 @@ import java.util.Random;
 
 public abstract class BYGHugeMushroom {
     @Nullable
-    protected abstract ConfiguredFeature<BYGMushroomFeatureConfig, ?> getHugeMushroomFeature(Random random);
+    protected abstract ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random);
 
     public boolean withSpawner(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
-        ConfiguredFeature<BYGMushroomFeatureConfig, ?> abstractMushroomFeature = this.getHugeMushroomFeature(random);
+        ConfiguredFeature<BYGMushroomConfig, ?> abstractMushroomFeature = this.getHugeMushroomFeature(random);
         if (abstractMushroomFeature == null) {
             return false;
         } else {
@@ -53,10 +53,10 @@ public abstract class BYGHugeMushroom {
         }
 
         @Nullable
-        protected abstract ConfiguredFeature<BYGMushroomFeatureConfig, ?> getMassiveMushroomFeature(Random random);
+        protected abstract ConfiguredFeature<BYGMushroomConfig, ?> getMassiveMushroomFeature(Random random);
 
         public boolean massiveMushroom(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
-            ConfiguredFeature<BYGMushroomFeatureConfig, ?> abstractMushroomFeature = this.getMassiveMushroomFeature(random);
+            ConfiguredFeature<BYGMushroomConfig, ?> abstractMushroomFeature = this.getMassiveMushroomFeature(random);
             if (abstractMushroomFeature == null) {
                 return false;
             } else {

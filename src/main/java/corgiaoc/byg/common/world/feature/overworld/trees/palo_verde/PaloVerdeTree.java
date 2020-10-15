@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.palo_verde;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -12,14 +12,14 @@ import net.minecraft.world.ISeedReader;
 import java.util.Random;
 import java.util.Set;
 
-public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
-    public PaloVerdeTree(Codec<BYGTreeFeatureConfig> configIn) {
+    public PaloVerdeTree(Codec<BYGTreeConfig> configIn) {
         super(configIn);
     }
 
 
-    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int posX = pos.getX();

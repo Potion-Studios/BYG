@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.PointyRockFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.PointyRockConfig;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -12,17 +12,17 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class PointyRockFeature extends Feature<PointyRockFeatureConfig> {
+public class PointyRockFeature extends Feature<PointyRockConfig> {
     protected long seed;
     protected FastNoise noiseGen;
     protected FastNoise noiseGen2;
 
-    public PointyRockFeature(Codec<PointyRockFeatureConfig> config) {
+    public PointyRockFeature(Codec<PointyRockConfig> config) {
         super(config);
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockFeatureConfig config) {
+    public boolean func_241855_a(ISeedReader world, ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockConfig config) {
         long randomLong = rand.nextLong();
         setSeed(world.getSeed() + 215465128 + randomLong);
         double noise;

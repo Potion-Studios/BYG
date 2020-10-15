@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.mushrooms;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
@@ -12,13 +12,13 @@ import net.minecraft.world.gen.IWorldGenerationReader;
 
 import java.util.Random;
 
-public class EmburMushroom2 extends BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> {
+public class EmburMushroom2 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
 
-    public EmburMushroom2(Codec<BYGMushroomFeatureConfig> configIn) {
+    public EmburMushroom2(Codec<BYGMushroomConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean placeMushroom(ISeedReader worldIn, Random rand, BlockPos pos, boolean isMushroom, BYGMushroomFeatureConfig config) {
+    protected boolean placeMushroom(ISeedReader worldIn, Random rand, BlockPos pos, boolean isMushroom, BYGMushroomConfig config) {
         BlockState STEM = config.getStemProvider().getBlockState(rand, pos);
         BlockState MUSHROOM = config.getMushroomProvider().getBlockState(rand, pos);
         BlockState MUSHROOM2 = config.getMushroom2Provider().getBlockState(rand, pos);

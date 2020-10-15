@@ -10,16 +10,16 @@ import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 
-public class PointyRockFeatureConfig implements IFeatureConfig {
+public class PointyRockConfig implements IFeatureConfig {
 
-    public static final Codec<PointyRockFeatureConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
+    public static final Codec<PointyRockConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
             return config.blockProvider;
         }), Codec.INT.fieldOf("seed").orElse(0).forGetter((config) -> {
             return config.seed;
         }), Codec.DOUBLE.fieldOf("height_multiplier").orElse(1.0).forGetter((config) -> {
             return config.heightMultiplier;
-        })).apply(codecRecorder, PointyRockFeatureConfig::new);
+        })).apply(codecRecorder, PointyRockConfig::new);
     });
 
 
@@ -27,7 +27,7 @@ public class PointyRockFeatureConfig implements IFeatureConfig {
     private final int seed;
     private final double heightMultiplier;
 
-    PointyRockFeatureConfig(BlockStateProvider blockProvider, int seed, double heightMultiplier) {
+    PointyRockConfig(BlockStateProvider blockProvider, int seed, double heightMultiplier) {
         this.blockProvider = blockProvider;
         this.seed = seed;
         this.heightMultiplier = heightMultiplier;
@@ -97,8 +97,8 @@ public class PointyRockFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public PointyRockFeatureConfig build() {
-            return new PointyRockFeatureConfig(this.blockProvider, this.seed, this.heightMultiplier);
+        public PointyRockConfig build() {
+            return new PointyRockConfig(this.blockProvider, this.seed, this.heightMultiplier);
         }
     }
 }

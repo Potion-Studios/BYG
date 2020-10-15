@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.redwood;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.math.BlockPos;
@@ -11,13 +11,13 @@ import net.minecraft.world.ISeedReader;
 import java.util.Random;
 import java.util.Set;
 
-public class RedwoodTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class RedwoodTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
-    public RedwoodTree1(Codec<BYGTreeFeatureConfig> configIn) {
+    public RedwoodTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = config.getMinHeight();
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);

@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.willow;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGTreeFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -15,14 +15,14 @@ import java.util.Set;
 import static net.minecraft.util.Direction.*;
 
 
-public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeFeatureConfig> {
+public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
-    public WillowTree1(Codec<BYGTreeFeatureConfig> configIn) {
+    public WillowTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlocks.BLUE_SPRUCE_SAPLING);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeFeatureConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());

@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.nether;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.ChainFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.ChainConfig;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
@@ -13,13 +13,13 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class Chain extends Feature<ChainFeatureConfig> {
-    public Chain(Codec<ChainFeatureConfig> config) {
+public class Chain extends Feature<ChainConfig> {
+    public Chain(Codec<ChainConfig> config) {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, ChainFeatureConfig config) {
-        int randChainLength = config.getMinLength() + rand.nextInt(config.getMaxPossibleHeight());
+    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, ChainConfig config) {
+        int randChainLength = config.getMinLength() + rand.nextInt(config.getMaxPossibleLength());
 
         BlockPos.Mutable mainMutable1 = new BlockPos.Mutable().setPos(pos);
         BlockPos.Mutable mainMutable2 = new BlockPos.Mutable().setPos(pos);

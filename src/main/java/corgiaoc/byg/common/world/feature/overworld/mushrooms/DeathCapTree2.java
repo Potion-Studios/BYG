@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld.mushrooms;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.BYGMushroomFeatureConfig;
+import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -10,13 +10,13 @@ import net.minecraft.world.ISeedReader;
 
 import java.util.Random;
 
-public class DeathCapTree2 extends BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> {
+public class DeathCapTree2 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
 
-    public DeathCapTree2(Codec<BYGMushroomFeatureConfig> configIn) {
+    public DeathCapTree2(Codec<BYGMushroomConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean placeMushroom(ISeedReader worldIn, Random rand, BlockPos pos, boolean isMushroom, BYGMushroomFeatureConfig config) {
+    protected boolean placeMushroom(ISeedReader worldIn, Random rand, BlockPos pos, boolean isMushroom, BYGMushroomConfig config) {
         BlockState STEM = config.getStemProvider().getBlockState(rand, pos);
         BlockState MUSHROOM = config.getMushroomProvider().getBlockState(rand, pos);
         BlockState MUSHROOM2 = config.getMushroom2Provider().getBlockState(rand, pos);

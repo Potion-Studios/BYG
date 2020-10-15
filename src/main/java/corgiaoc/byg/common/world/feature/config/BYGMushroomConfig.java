@@ -11,31 +11,31 @@ import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 
-public class BYGGiantFlowerFeatureConfig implements IFeatureConfig {
+public class BYGMushroomConfig implements IFeatureConfig {
 
-    public static final Codec<BYGGiantFlowerFeatureConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
+    public static final Codec<BYGMushroomConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> {
             return config.stemProvider;
-        }), BlockStateProvider.CODEC.fieldOf("petal_provider").forGetter((config) -> {
-            return config.petalProvider;
-        }), BlockStateProvider.CODEC.fieldOf("petal2_provider").forGetter((config) -> {
-            return config.petalProvider;
-        }), BlockStateProvider.CODEC.fieldOf("petal3_provider").forGetter((config) -> {
-            return config.petalProvider;
+        }), BlockStateProvider.CODEC.fieldOf("mushroom_provider").forGetter((config) -> {
+            return config.mushroomProvider;
+        }), BlockStateProvider.CODEC.fieldOf("mushroom2_provider").forGetter((config) -> {
+            return config.mushroomProvider;
+        }), BlockStateProvider.CODEC.fieldOf("mushroom3_provider").forGetter((config) -> {
+            return config.mushroomProvider;
         }), BlockStateProvider.CODEC.fieldOf("pollen_provider").forGetter((config) -> {
             return config.pollenProvider;
         }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
             return config.minHeight;
         }), Codec.INT.fieldOf("max_height").orElse(1).forGetter((config) -> {
             return config.maxPossibleHeight;
-        })).apply(codecRecorder, BYGGiantFlowerFeatureConfig::new);
+        })).apply(codecRecorder, BYGMushroomConfig::new);
     });
 
 
     private final BlockStateProvider stemProvider;
-    private final BlockStateProvider petalProvider;
-    private final BlockStateProvider petal2Provider;
-    private final BlockStateProvider petal3Provider;
+    private final BlockStateProvider mushroomProvider;
+    private final BlockStateProvider mushroom2Provider;
+    private final BlockStateProvider mushroom3Provider;
     private final BlockStateProvider pollenProvider;
     private final int minHeight;
     private final int maxPossibleHeight;
@@ -43,11 +43,11 @@ public class BYGGiantFlowerFeatureConfig implements IFeatureConfig {
     private boolean forcedPlacement = false;
 
 
-    BYGGiantFlowerFeatureConfig(BlockStateProvider stemProvider, BlockStateProvider petalProvider, BlockStateProvider petal2Provider, BlockStateProvider petal3Provider, BlockStateProvider pollenProvider, int minHeight, int maxPossibleHeight) {
+    BYGMushroomConfig(BlockStateProvider stemProvider, BlockStateProvider mushroomProvider, BlockStateProvider mushroom2Provider, BlockStateProvider mushroom3Provider, BlockStateProvider pollenProvider, int minHeight, int maxPossibleHeight) {
         this.stemProvider = stemProvider;
-        this.petalProvider = petalProvider;
-        this.petal2Provider = petal2Provider;
-        this.petal3Provider = petal3Provider;
+        this.mushroomProvider = mushroomProvider;
+        this.mushroom2Provider = mushroom2Provider;
+        this.mushroom3Provider = mushroom3Provider;
         this.pollenProvider = pollenProvider;
         this.minHeight = minHeight;
         this.maxPossibleHeight = maxPossibleHeight;
@@ -65,16 +65,16 @@ public class BYGGiantFlowerFeatureConfig implements IFeatureConfig {
         return this.stemProvider;
     }
 
-    public BlockStateProvider getPetalProvider() {
-        return this.petalProvider;
+    public BlockStateProvider getMushroomProvider() {
+        return this.mushroomProvider;
     }
 
-    public BlockStateProvider getPetal2Provider() {
-        return this.petal2Provider;
+    public BlockStateProvider getMushroom2Provider() {
+        return this.mushroom2Provider;
     }
 
-    public BlockStateProvider getPetal3Provider() {
-        return this.petal3Provider;
+    public BlockStateProvider getMushroom3Provider() {
+        return this.mushroom3Provider;
     }
 
     public BlockStateProvider getPollenProvider() {
@@ -100,9 +100,9 @@ public class BYGGiantFlowerFeatureConfig implements IFeatureConfig {
 
     public static class Builder {
         private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
-        private BlockStateProvider petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
-        private BlockStateProvider petal2Provider = this.petalProvider;
-        private BlockStateProvider petal3Provider = this.petalProvider;
+        private BlockStateProvider mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+        private BlockStateProvider mushroom2Provider = this.mushroomProvider;
+        private BlockStateProvider mushroom3Provider = this.mushroomProvider;
         private BlockStateProvider pollenProvider = new SimpleBlockStateProvider(BYGBlocks.POLLEN_BLOCK.getDefaultState());
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
@@ -125,82 +125,82 @@ public class BYGGiantFlowerFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public Builder setPetalBlock(Block block) {
+        public Builder setMushroomBlock(Block block) {
             if (block != null)
-                petalProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                mushroomProvider = new SimpleBlockStateProvider(block.getDefaultState());
             else
-                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
 
             return this;
         }
 
-        public Builder setPetalBlock(BlockState state) {
+        public Builder setMushroomBlock(BlockState state) {
             if (state != null)
-                petalProvider = new SimpleBlockStateProvider(state);
+                mushroomProvider = new SimpleBlockStateProvider(state);
             else
-                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
 
             return this;
         }
 
-        public Builder setPetalBlock(WeightedBlockStateProvider statesList) {
+        public Builder setMushroomBlock(WeightedBlockStateProvider statesList) {
             if (statesList != null)
-                petalProvider = statesList;
+                mushroomProvider = statesList;
             else
-                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
 
             return this;
         }
 
-        public Builder setPetal2Block(Block block) {
+        public Builder setMushroom2Block(Block block) {
             if (block != null)
-                petal2Provider = new SimpleBlockStateProvider(block.getDefaultState());
+                mushroom2Provider = new SimpleBlockStateProvider(block.getDefaultState());
             else
-                petal2Provider = this.petalProvider;
+                mushroom2Provider = this.mushroomProvider;
 
             return this;
         }
 
-        public Builder setPetal2Block(BlockState state) {
+        public Builder setMushroom2Block(BlockState state) {
             if (state != null)
-                petal2Provider = new SimpleBlockStateProvider(state);
+                mushroom2Provider = new SimpleBlockStateProvider(state);
             else
-                petal2Provider = this.petalProvider;
+                mushroom2Provider = this.mushroomProvider;
 
             return this;
         }
 
-        public Builder setPetal3Block(Block block) {
+        public Builder setMushroom3Block(Block block) {
             if (block != null)
-                petal3Provider = new SimpleBlockStateProvider(block.getDefaultState());
+                mushroom3Provider = new SimpleBlockStateProvider(block.getDefaultState());
             else
-                petal3Provider = this.petalProvider;
+                mushroom3Provider = this.mushroomProvider;
 
             return this;
         }
 
-        public Builder setPetal3Block(BlockState state) {
+        public Builder setMushroom3Block(BlockState state) {
             if (state != null)
-                petal3Provider = new SimpleBlockStateProvider(state);
+                mushroom3Provider = new SimpleBlockStateProvider(state);
             else
-                petal3Provider = this.petalProvider;
+                mushroom3Provider = this.mushroomProvider;
 
             return this;
         }
 
         public Builder setPollenBlock(Block block) {
             if (block != null)
-                petal3Provider = new SimpleBlockStateProvider(block.getDefaultState());
+                mushroom3Provider = new SimpleBlockStateProvider(block.getDefaultState());
             else
-                petal3Provider = this.petalProvider;
+                mushroom3Provider = this.mushroomProvider;
             return this;
         }
 
         public Builder setPollenBlock(BlockState state) {
             if (state != null)
-                petal3Provider = new SimpleBlockStateProvider(state);
+                mushroom3Provider = new SimpleBlockStateProvider(state);
             else
-                petal3Provider = this.petalProvider;
+                mushroom3Provider = this.mushroomProvider;
             return this;
         }
 
@@ -217,19 +217,19 @@ public class BYGGiantFlowerFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public Builder copy(BYGGiantFlowerFeatureConfig config) {
+        public Builder copy(BYGMushroomConfig config) {
             this.maxPossibleHeight = config.maxPossibleHeight;
             this.minHeight = config.minHeight;
             this.stemProvider = config.stemProvider;
-            this.petalProvider = config.petalProvider;
-            this.petal2Provider = config.petal2Provider;
-            this.petal3Provider = config.petal3Provider;
+            this.mushroomProvider = config.mushroomProvider;
+            this.mushroom2Provider = config.mushroom2Provider;
+            this.mushroom3Provider = config.mushroom3Provider;
             this.pollenProvider = config.pollenProvider;
             return this;
         }
 
-        public BYGGiantFlowerFeatureConfig build() {
-            return new BYGGiantFlowerFeatureConfig(this.stemProvider, this.petalProvider, this.petal2Provider, this.petal3Provider, this.pollenProvider, this.minHeight, this.maxPossibleHeight);
+        public BYGMushroomConfig build() {
+            return new BYGMushroomConfig(this.stemProvider, this.mushroomProvider, this.mushroom2Provider, this.mushroom3Provider, this.pollenProvider, this.minHeight, this.maxPossibleHeight);
         }
     }
 }
