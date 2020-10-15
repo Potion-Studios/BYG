@@ -29,16 +29,21 @@ public class WarpedCoralFeature extends Feature<WhiteListedSimpleBlockProviderCo
             for (int i = 0; i <= randCoralHeight; i++) {
                 BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
 
-                worldIn.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable),  2);
-                worldIn.setBlockState(mutable.move(UP, i), config.getBlockProvider().getBlockState(rand, mutable),  2);
+                placeCoral(worldIn, mutable, rand, config);
+                placeCoral(worldIn, mutable.move(UP, i), rand, config);
 
                 for (Direction direction : Plane.HORIZONTAL) {
-                    worldIn.setBlockState(mutable.offset(direction, i / 2), config.getBlockProvider().getBlockState(rand, mutable), 2);
+                    placeCoral(worldIn, mutable.offset(direction, i / 2), rand, config);
 
                 }
             }
         }
         return true;
+    }
+
+    private void placeCoral(ISeedReader world, BlockPos pos, Random rand, WhiteListedSimpleBlockProviderConfig config) {
+        if (world.isAirBlock(pos))
+            world.setBlockState(pos, config.getBlockProvider().getBlockState(rand, pos), 2);
     }
 
 

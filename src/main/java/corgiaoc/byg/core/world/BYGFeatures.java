@@ -14,12 +14,9 @@ import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree2;
 import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree3;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree1;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree2;
-import corgiaoc.byg.common.world.feature.nether.ConfigurablePillar;
 import corgiaoc.byg.common.world.feature.nether.Chain;
-import corgiaoc.byg.common.world.feature.nether.crimsongardens.TallCrimsonRoots;
+import corgiaoc.byg.common.world.feature.nether.ConfigurablePillar;
 import corgiaoc.byg.common.world.feature.nether.emburbog.EmburGelVines;
-import corgiaoc.byg.common.world.feature.nether.emburbog.TallEmburRoots;
-import corgiaoc.byg.common.world.feature.nether.glowstonegardens.NetherBristle;
 import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRoots;
 import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRootsPlant;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.HangingFeature;
@@ -216,8 +213,6 @@ public class BYGFeatures {
 
     /********************************************************************Nether Features********************************************************************/
 
-    public static final Feature<NoFeatureConfig> NETHER_BRISTLE = WorldGenRegistrationHelper.createFeature("nether_bristle", new NetherBristle(NoFeatureConfig.field_236558_a_.stable()));
-
     //SoulShroom
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SOUL_SHROOM_TREE1 = WorldGenRegistrationHelper.createFeature("soul_shroom_tree1", new SoulShroomTree1(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> SOUL_SHROOM_TREE2 = WorldGenRegistrationHelper.createFeature("soul_shroom_tree2", new SoulShroomTree2(BYGMushroomFeatureConfig.CODEC.stable()));
@@ -261,7 +256,6 @@ public class BYGFeatures {
     public static final Feature<ChainFeatureConfig> CHAIN = WorldGenRegistrationHelper.createFeature("chain", new Chain(ChainFeatureConfig.CODEC.stable()));
 
     //Crimson Gardens
-    public static final Feature<NoFeatureConfig> TALL_CRIMSON_ROOTS = WorldGenRegistrationHelper.createFeature("tall_crimson_roots", new TallCrimsonRoots(NoFeatureConfig.field_236558_a_.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> CRIMSON_FUNGUS_TREE1 = WorldGenRegistrationHelper.createFeature("crimson_fungus_tree1", new CrimsonFungus1(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> CRIMSON_FUNGUS_TREE2 = WorldGenRegistrationHelper.createFeature("crimson_fungus_tree2", new CrimsonFungus2(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> WARPED_FUNGUS_TREE1 = WorldGenRegistrationHelper.createFeature("warped_fungus_tree1", new WarpedFungus1(BYGMushroomFeatureConfig.CODEC.stable()));
@@ -278,7 +272,6 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> EMBUR_MUSHROOM = WorldGenRegistrationHelper.createFeature("embur_mushroom1", new EmburMushroom(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> EMBUR_MUSHROOM2 = WorldGenRegistrationHelper.createFeature("embur_mushroom2", new EmburMushroom2(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final Feature<NoFeatureConfig> EMBUR_GEL_VINES = WorldGenRegistrationHelper.createFeature("embur_gel_vines", new EmburGelVines(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> TALL_EMBUR_ROOTS = WorldGenRegistrationHelper.createFeature("tall_embur_roots", new TallEmburRoots(NoFeatureConfig.field_236558_a_.stable()));
 
     //QuartzDesert
     public static final Feature<ColumnConfig> QUARTZ_COLUMNS = WorldGenRegistrationHelper.createFeature("quartz_columns", new RawQuartzColumnFeature(ColumnConfig.CODEC.stable()));
