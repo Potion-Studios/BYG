@@ -5,7 +5,6 @@ import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands1;
 import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands2;
 import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands3;
 import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands4;
-import corgiaoc.byg.common.world.feature.end.obsidianspires.ObsidianSpike;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree1;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree2;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree3;
@@ -18,15 +17,13 @@ import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree2;
 import corgiaoc.byg.common.world.feature.nether.ConfigurablePillar;
 import corgiaoc.byg.common.world.feature.nether.LargeChain;
 import corgiaoc.byg.common.world.feature.nether.crimsongardens.TallCrimsonRoots;
-import corgiaoc.byg.common.world.feature.nether.crimsongardens.WeepingVineFeatureBlackstone;
 import corgiaoc.byg.common.world.feature.nether.emburbog.EmburBogLake;
 import corgiaoc.byg.common.world.feature.nether.emburbog.EmburGelVines;
 import corgiaoc.byg.common.world.feature.nether.emburbog.TallEmburRoots;
 import corgiaoc.byg.common.world.feature.nether.glowstonegardens.NetherBristle;
 import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRoots;
-import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRootsFeature;
 import corgiaoc.byg.common.world.feature.nether.glowstonegardens.WeepingRootsPlant;
-import corgiaoc.byg.common.world.feature.nether.quartzdesert.HangingBoneFeature;
+import corgiaoc.byg.common.world.feature.nether.quartzdesert.HangingFeature;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.RawQuartzColumnFeature;
 import corgiaoc.byg.common.world.feature.nether.soulsandvalley.SoulShroomSporeFeature;
 import corgiaoc.byg.common.world.feature.nether.sythiantorrids.HangingSythianRootsFeature;
@@ -38,7 +35,6 @@ import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree4;
 import corgiaoc.byg.common.world.feature.nether.wailinggarth.WailingVine;
 import corgiaoc.byg.common.world.feature.nether.warpeddesert.WarpedCoralFeature;
-import corgiaoc.byg.common.world.feature.nether.weepingmire.LamentVineFeature;
 import corgiaoc.byg.common.world.feature.overworld.*;
 import corgiaoc.byg.common.world.feature.overworld.giantflowers.AngelicaGiant;
 import corgiaoc.byg.common.world.feature.overworld.giantflowers.DandelionGiant;
@@ -165,15 +161,12 @@ public class BYGFeatures {
     public static final Feature<PointyRockFeatureConfig> POINTY_ROCK = WorldGenRegistrationHelper.createFeature("pointed_rock", new PointyRockFeature(PointyRockFeatureConfig.CODEC.stable()));
     public static final Feature<PointyRockFeatureConfig> TALL_POINTED_ROCK = WorldGenRegistrationHelper.createFeature("tall_pointed_rock", new TallPointedRocks(PointyRockFeatureConfig.CODEC.stable()));
 
-    public static final Feature<NoFeatureConfig> OBBYSPIKES = WorldGenRegistrationHelper.createFeature("obsidian_spike", new ObsidianSpike(NoFeatureConfig.field_236558_a_.stable()));
-
     public static final Feature<NoFeatureConfig> CACTUS = WorldGenRegistrationHelper.createFeature("canyon_cactus", new CanyonCactus(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<NoFeatureConfig> BLACK_ICE_SNOW = WorldGenRegistrationHelper.createFeature("black_ice_and_snow", new BlackIceAndSnowFeature(NoFeatureConfig.field_236558_a_.stable()));
 
     //Lakes
     public static final Feature<BlockStateFeatureConfig> FROSTED_LAKE = WorldGenRegistrationHelper.createFeature("frosted_lake", new FrostMagmaLakeFeature(BlockStateFeatureConfig.field_236455_a_.stable()));
     public static final Feature<NoFeatureConfig> LAKE_WIDE_SHALLOW = WorldGenRegistrationHelper.createFeature("lake_wide_shallow", new LakeWideShallow(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> LAKE_LAVA_WIDE_SHALLOW = WorldGenRegistrationHelper.createFeature("lava_lake_wide_shallow", new LavaLakeWideShallow(NoFeatureConfig.field_236558_a_.stable()));
     //Vines
     public static final Feature<NoFeatureConfig> VINES = WorldGenRegistrationHelper.createFeature("vines", new VinePlacer(NoFeatureConfig.field_236558_a_.stable()));
 
@@ -258,7 +251,7 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeFeatureConfig> WITHERING_OAK_TREE4 = WorldGenRegistrationHelper.createFeature("withering_oak_tree4", new WitheringOakTree4(BYGTreeFeatureConfig.CODEC.stable()));
 
     //QuartzDesert
-    public static final Feature<NoFeatureConfig> HANGING_BONE_FEATURE = WorldGenRegistrationHelper.createFeature("hanging_bone_feature", new HangingBoneFeature(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<SimpleHangingFeatureConfig> HANGING_FEATURE = WorldGenRegistrationHelper.createFeature("hanging_feature", new HangingFeature(SimpleHangingFeatureConfig.CODEC.stable()));
 
     //Sythian
     public static final Feature<ProbabilityConfig> SYTHIAN_STALK = WorldGenRegistrationHelper.createFeature("sythian_stalk", new SythianStalk(ProbabilityConfig.field_236576_b_.stable()));
@@ -277,7 +270,6 @@ public class BYGFeatures {
 
     //Crimson Gardens
     public static final Feature<NoFeatureConfig> TALL_CRIMSON_ROOTS = WorldGenRegistrationHelper.createFeature("tall_crimson_roots", new TallCrimsonRoots(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> WEEPING_VINE_BLACKSTONE = WorldGenRegistrationHelper.createFeature("weeping_vine_blackstone", new WeepingVineFeatureBlackstone(NoFeatureConfig.field_236558_a_.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> CRIMSON_FUNGUS_TREE1 = WorldGenRegistrationHelper.createFeature("crimson_fungus_tree1", new CrimsonFungus1(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> CRIMSON_FUNGUS_TREE2 = WorldGenRegistrationHelper.createFeature("crimson_fungus_tree2", new CrimsonFungus2(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> WARPED_FUNGUS_TREE1 = WorldGenRegistrationHelper.createFeature("warped_fungus_tree1", new WarpedFungus1(BYGMushroomFeatureConfig.CODEC.stable()));
@@ -289,7 +281,6 @@ public class BYGFeatures {
     //Weeping Roots
     public static final Feature<NoFeatureConfig> WEEPING_ROOTS = WorldGenRegistrationHelper.createFeature("weeping_roots", new WeepingRoots(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<NoFeatureConfig> WEEPING_ROOTS_PLANT = WorldGenRegistrationHelper.createFeature("weeping_roots_plant", new WeepingRootsPlant(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> WEEPING_ROOTS_FEATURE = WorldGenRegistrationHelper.createFeature("weeping_roots_feature", new WeepingRootsFeature(NoFeatureConfig.field_236558_a_.stable()));
 
     //Embur
     public static final Feature<NoFeatureConfig> EMBURLAKE = WorldGenRegistrationHelper.createFeature("embur_lake", new EmburBogLake(NoFeatureConfig.field_236558_a_.stable()));
@@ -300,9 +291,6 @@ public class BYGFeatures {
 
     //QuartzDesert
     public static final Feature<ColumnConfig> QUARTZ_COLUMNS = WorldGenRegistrationHelper.createFeature("quartz_columns", new RawQuartzColumnFeature(ColumnConfig.CODEC.stable()));
-
-    //WeepingMire
-    public static final Feature<NoFeatureConfig> LAMENT_VINE_FEATURE = WorldGenRegistrationHelper.createFeature("lament_vine_feature", new LamentVineFeature(NoFeatureConfig.field_236558_a_.stable()));
 
 
     /********************************************************************Structures***********************************************************************/

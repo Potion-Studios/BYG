@@ -116,7 +116,7 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
         private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
         private BlockStateProvider groundReplacementProvider = new SimpleBlockStateProvider(Blocks.DIRT.getDefaultState());
         private BlockStateProvider diskProvider = new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState());
-        private List<Block> whiteList = ImmutableList.of(Blocks.GRASS_BLOCK);
+        private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
         private int diskRadius = 0;
@@ -241,8 +241,8 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
             return this;
         }
 
-        public Builder setWhiteList(ImmutableList<Block> whiteList) {
-            this.whiteList = whiteList;
+        public Builder setWhitelist(ImmutableList<Block> whitelist) {
+            this.whitelist = whitelist;
             return this;
         }
 
@@ -254,12 +254,12 @@ public class BYGTreeFeatureConfig implements IFeatureConfig {
             this.maxPossibleHeight = config.maxHeight;
             this.minHeight = config.minHeight;
             this.diskRadius = config.diskRadius;
-            this.whiteList = ImmutableList.copyOf(config.whitelist);
+            this.whitelist = ImmutableList.copyOf(config.whitelist);
             return this;
         }
 
         public BYGTreeFeatureConfig build() {
-            return new BYGTreeFeatureConfig(this.trunkProvider, this.leavesProvider, this.groundReplacementProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius, this.whiteList.stream().map(Block::getDefaultState).collect(Collectors.toList()));
+            return new BYGTreeFeatureConfig(this.trunkProvider, this.leavesProvider, this.groundReplacementProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
         }
     }
 }
