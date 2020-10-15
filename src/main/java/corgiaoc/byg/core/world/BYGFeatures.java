@@ -17,7 +17,6 @@ import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree2;
 import corgiaoc.byg.common.world.feature.nether.ConfigurablePillar;
 import corgiaoc.byg.common.world.feature.nether.LargeChain;
 import corgiaoc.byg.common.world.feature.nether.crimsongardens.TallCrimsonRoots;
-import corgiaoc.byg.common.world.feature.nether.emburbog.EmburBogLake;
 import corgiaoc.byg.common.world.feature.nether.emburbog.EmburGelVines;
 import corgiaoc.byg.common.world.feature.nether.emburbog.TallEmburRoots;
 import corgiaoc.byg.common.world.feature.nether.glowstonegardens.NetherBristle;
@@ -159,14 +158,11 @@ public class BYGFeatures {
     public static final Feature<PointyRockFeatureConfig> POINTY_ROCK = WorldGenRegistrationHelper.createFeature("pointed_rock", new PointyRockFeature(PointyRockFeatureConfig.CODEC.stable()));
     public static final Feature<PointyRockFeatureConfig> TALL_POINTED_ROCK = WorldGenRegistrationHelper.createFeature("tall_pointed_rock", new TallPointedRocks(PointyRockFeatureConfig.CODEC.stable()));
 
-    public static final Feature<NoFeatureConfig> CACTUS = WorldGenRegistrationHelper.createFeature("canyon_cactus", new CanyonCactus(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<NoFeatureConfig> BLACK_ICE_SNOW = WorldGenRegistrationHelper.createFeature("black_ice_and_snow", new BlackIceAndSnowFeature(NoFeatureConfig.field_236558_a_.stable()));
 
     //Lakes
     public static final Feature<BlockStateFeatureConfig> FROSTED_LAKE = WorldGenRegistrationHelper.createFeature("frosted_lake", new FrostMagmaLakeFeature(BlockStateFeatureConfig.field_236455_a_.stable()));
-    public static final Feature<NoFeatureConfig> LAKE_WIDE_SHALLOW = WorldGenRegistrationHelper.createFeature("lake_wide_shallow", new LakeWideShallow(NoFeatureConfig.field_236558_a_.stable()));
-    //Vines
-    public static final Feature<NoFeatureConfig> VINES = WorldGenRegistrationHelper.createFeature("vines", new VinePlacer(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<SimpleBlockProviderConfig> WIDE_LAKE = WorldGenRegistrationHelper.createFeature("wide_lake", new WideLake(SimpleBlockProviderConfig.CODEC.stable()));
 
     //Pumpkins
     public static final Feature<BYGPumpkinFeatureConfig> LARGE_PUMPKIN1 = WorldGenRegistrationHelper.createFeature("pumpkin", new LargePumpkin1(BYGPumpkinFeatureConfig.CODEC.stable()));
@@ -271,7 +267,7 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> WARPED_FUNGUS_TREE1 = WorldGenRegistrationHelper.createFeature("warped_fungus_tree1", new WarpedFungus1(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> WARPED_FUNGUS_TREE2 = WorldGenRegistrationHelper.createFeature("warped_fungus_tree2", new WarpedFungus2(BYGMushroomFeatureConfig.CODEC.stable()));
 
-    //Whaling
+    //Wailing
     public static final Feature<NoFeatureConfig> WAILING_VINES = WorldGenRegistrationHelper.createFeature("wailing_vine", new WailingVine(NoFeatureConfig.field_236558_a_.stable()));
 
     //Weeping Roots
@@ -279,7 +275,6 @@ public class BYGFeatures {
     public static final Feature<NoFeatureConfig> WEEPING_ROOTS_PLANT = WorldGenRegistrationHelper.createFeature("weeping_roots_plant", new WeepingRootsPlant(NoFeatureConfig.field_236558_a_.stable()));
 
     //Embur
-    public static final Feature<NoFeatureConfig> EMBURLAKE = WorldGenRegistrationHelper.createFeature("embur_lake", new EmburBogLake(NoFeatureConfig.field_236558_a_.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> EMBUR_MUSHROOM = WorldGenRegistrationHelper.createFeature("embur_mushroom1", new EmburMushroom(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomFeatureConfig> EMBUR_MUSHROOM2 = WorldGenRegistrationHelper.createFeature("embur_mushroom2", new EmburMushroom2(BYGMushroomFeatureConfig.CODEC.stable()));
     public static final Feature<NoFeatureConfig> EMBUR_GEL_VINES = WorldGenRegistrationHelper.createFeature("embur_gel_vines", new EmburGelVines(NoFeatureConfig.field_236558_a_.stable()));

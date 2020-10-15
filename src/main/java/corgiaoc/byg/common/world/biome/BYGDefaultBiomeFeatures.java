@@ -72,7 +72,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addLargeLake(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.CRAG_LAKE);
+        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.WIDE_WATER_LAKE);
     }
 
     public static void addCrimsonGardensVegetation(BiomeGenerationSettings.Builder gen) {
