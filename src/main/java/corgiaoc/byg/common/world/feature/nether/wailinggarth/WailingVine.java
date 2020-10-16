@@ -22,33 +22,33 @@ public class WailingVine extends Feature<NoFeatureConfig> {
         super(config);
     }
 
+    //place
     public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         int randLength = rand.nextInt(17) + 3;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
         BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);
         BlockPos.Mutable mainMutable = new BlockPos.Mutable().setPos(block);
         BlockState storedState = BYGBlocks.WAILING_VINES.getDefaultState();
-        if (!worldIn.isAirBlock(pos)) {
+
+        for (int i = 0; i < 128; ++i)
+            if (!worldIn.isAirBlock(pos)) {
             return false;
-        } else if (!worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.NETHERRACK) || !worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.STONE) && !(worldIn.getDimensionType() == DimensionType.OVERWORLD_TYPE)) {
+        } else if (!worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.NETHERRACK) && !(worldIn.getDimensionType() == DimensionType.NETHER_TYPE)) {
             return false;
         } else {
             for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {
                 BlockPos.Mutable mutable = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
-                if (worldIn.getBlockState(mutable).getBlock() == Blocks.AIR) {
+                if (worldIn.isAirBlock(mutable)) {
                     for (Direction direction : Direction.values()) {
-                        if (direction != Direction.DOWN) {
-                            if (worldIn.getBlockState(pos).isOpaqueCube(worldIn, pos.offset(direction))) {
-                                if (storedState.hasProperty(SixWayBlock.UP) && storedState.hasProperty(SixWayBlock.DOWN) && storedState.hasProperty(SixWayBlock.EAST) && storedState.hasProperty(SixWayBlock.WEST) && storedState.hasProperty(SixWayBlock.NORTH) && storedState.hasProperty(SixWayBlock.SOUTH))
-                                    storedState = storedState.with(VineBlock.getPropertyFor(direction.getOpposite()), true);
+                        if (direction != Direction.DOWN && VineBlock.canAttachTo(worldIn, mutable, direction)) {
+                            worldIn.setBlockState(mutable, storedState.with(VineBlock.getPropertyFor(direction), Boolean.valueOf(true)), 2);
+                            break;
                             }
                         }
                     }
-                    worldIn.setBlockState(mainMutable, storedState, 2);
                     mainMutable.move(Direction.DOWN);
                 }
             }
             return true;
         }
     }
-}
