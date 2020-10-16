@@ -16,6 +16,6 @@ An Adventure and Exploration mod with over 70 new biomes!
 [[dependencies.byg]]
     modId="forge"
     mandatory=true
-    versionRange="[34.0.21,)"
+    versionRange="[34.1.21,)"
     ordering="NONE"
     side="BOTH"
