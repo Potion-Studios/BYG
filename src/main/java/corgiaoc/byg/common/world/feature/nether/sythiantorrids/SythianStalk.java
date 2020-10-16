@@ -26,7 +26,7 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
     }
 
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
-        int lvt_6_1_ = 0;
+        int aNumber = 0;
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
         BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(pos);
         if (world.isAirBlock(mutable)) {
@@ -38,9 +38,9 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
 
                     for (int x = pos.getX() - randNextInt; x <= pos.getX() + randNextInt; ++x) {
                         for (int z = pos.getZ() - randNextInt; z <= pos.getZ() + randNextInt; ++z) {
-                            int lvt_13_1_ = x - pos.getX();
-                            int lvt_14_1_ = z - pos.getZ();
-                            if (lvt_13_1_ * lvt_13_1_ + lvt_14_1_ * lvt_14_1_ <= randNextInt * randNextInt) {
+                            int xBuild = x - pos.getX();
+                            int zBuild = z - pos.getZ();
+                            if (xBuild * xBuild + zBuild * zBuild <= randNextInt * randNextInt) {
                                 mutable2.setPos(x, world.getHeight(Heightmap.Type.WORLD_SURFACE, x, z) - 1, z);
                                 if (isDirt(world.getBlockState(mutable2).getBlock())) {
                                     world.setBlockState(mutable2, BYGBlocks.SYTHIAN_NYLIUM.getDefaultState(), 2);
@@ -62,10 +62,10 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
                 }
             }
 
-            ++lvt_6_1_;
+            ++aNumber;
         }
 
-        return lvt_6_1_ > 0;
+        return aNumber > 0;
     }
 
     static {

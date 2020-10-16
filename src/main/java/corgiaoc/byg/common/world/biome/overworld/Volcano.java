@@ -21,7 +21,7 @@ public class Volcano extends BYGBiome {
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.DESERT;
     static final float DEPTH = 0.2F;
-    static final float SCALE = 0.2F;
+    static final float SCALE = 0.065F;
     static final float TEMPERATURE = 1.7F;
     static final float DOWNFALL = 0.8F;
     static final int WATER_COLOR = 4159204;

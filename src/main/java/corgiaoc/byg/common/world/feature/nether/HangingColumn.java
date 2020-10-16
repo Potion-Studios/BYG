@@ -1,4 +1,4 @@
-package corgiaoc.byg.common.world.feature.nether.emburbog;
+package corgiaoc.byg.common.world.feature.nether;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.HangingColumnConfig;
