@@ -276,7 +276,7 @@ public class BYGFeatures {
     /********************************************************************Tree Features********************************************************************/
 
     //Default
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> BASIC_TREE = WorldGenRegistrationHelper.createFeature("tree", new BasicTree(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> BASIC_TREE = WorldGenRegistrationHelper.createFeature("spawnTree", new BasicTree(BYGTreeConfig.CODEC.stable()));
 
     //Araucaria
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ARAUCARIA_TREE1 = WorldGenRegistrationHelper.createFeature("araucaria_tree1", new AraucariaTree1(BYGTreeConfig.CODEC.stable()));

@@ -39,6 +39,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("deprecation")
 public class GenDataCommand {
     //Have this load after everything else.
 

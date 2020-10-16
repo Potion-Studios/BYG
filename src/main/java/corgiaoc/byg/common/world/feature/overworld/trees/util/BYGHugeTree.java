@@ -19,7 +19,7 @@ public abstract class BYGHugeTree extends BYGTree {
         return block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset + 1)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset + 1)).getBlock();
     }
 
-    public boolean withSpawner(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+    public boolean spawnTree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
         for (int i = 0; i >= -1; --i) {
             for (int j = 0; j >= -1; --j) {
                 if (canBigTreeSpawnAt(blockUnder, worldIn, pos, i, j)) {
@@ -28,7 +28,7 @@ public abstract class BYGHugeTree extends BYGTree {
             }
         }
 
-        return super.tree(worldIn, chunkGenerator, pos, blockUnder, random);
+        return super.spawnTree(worldIn, chunkGenerator, pos, blockUnder, random);
     }
 
     @Nullable

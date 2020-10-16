@@ -32,7 +32,7 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
     public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);//This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
+        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);//This sets heights for trees. Rand.nextint allows for spawnTree height randomization. The final int value sets the minimum for spawnTree Height.
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 9;
         //Positions
         int posX = pos.getX();

@@ -59,7 +59,7 @@ public class CoralMangroves extends BYGBiome {
         DefaultBiomeFeatures.withTallGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
 
-//         SPAWN_SETTINGS.tree(EntityClassification.WATER_CREATURE, new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 25, 8, 8));
+//         SPAWN_SETTINGS.spawnTree(EntityClassification.WATER_CREATURE, new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 25, 8, 8));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));

@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
-    //Blocks used for the tree.
+    //Blocks used for the spawnTree.
     //private static final BlockState LOG = BYGBlocks.PINE_LOG.getDefaultState();
     //private static final BlockState LEAVES = BYGBlocks.PINE_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
