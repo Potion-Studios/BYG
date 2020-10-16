@@ -35,11 +35,13 @@ public class ConfigurableIceAndSnow extends ChunkCoordinatesFeature<Simple2Block
         if (biome.doesSnowGenerate(world, mutable)) {
             chunkIn.setBlockState(mutable, config.getBlockProvider2().getBlockState(random, mutable), false);
             BlockState blockstate = world.getBlockState(mutable2);
-            if (blockstate.get(BlockStateProperties.SNOWY) && world.getBlockState(mutable2.offset(Direction.UP)).getBlock() == Blocks.SNOW) {
-                chunkIn.setBlockState(mutable2, blockstate.with(BlockStateProperties.SNOWY, true), false);
+            if (blockstate.hasProperty(BlockStateProperties.SNOWY)) {
+                if (blockstate.get(BlockStateProperties.SNOWY) && world.getBlockState(mutable2.offset(Direction.UP)).getBlock() == Blocks.SNOW) {
+                    chunkIn.setBlockState(mutable2, blockstate.with(BlockStateProperties.SNOWY, true), false);
+                }
             }
         }
 
-        return false;
+        return true;
     }
 }
