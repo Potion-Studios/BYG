@@ -13,10 +13,10 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class HangingFeature extends Feature<HangingColumnWithBaseConfig> {
+public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> {
     private static final Direction[] DIRECTIONS = Direction.values();
 
-    public HangingFeature(Codec<HangingColumnWithBaseConfig> codec) {
+    public HangingColumnWithBase(Codec<HangingColumnWithBaseConfig> codec) {
         super(codec);
     }
 

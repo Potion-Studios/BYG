@@ -16,8 +16,8 @@ import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree1;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree2;
 import corgiaoc.byg.common.world.feature.nether.Chain;
 import corgiaoc.byg.common.world.feature.nether.ConfigurablePillar;
-import corgiaoc.byg.common.world.feature.nether.emburbog.HangingColumn;
-import corgiaoc.byg.common.world.feature.nether.HangingFeature;
+import corgiaoc.byg.common.world.feature.nether.HangingColumn;
+import corgiaoc.byg.common.world.feature.nether.HangingColumnWithBase;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.RawQuartzColumnFeature;
 import corgiaoc.byg.common.world.feature.nether.sythiantorrids.SythianStalk;
 import corgiaoc.byg.common.world.feature.nether.trees.lament.*;
@@ -135,6 +135,7 @@ import corgiaoc.byg.common.world.feature.overworld.trees.zelkova.ZelkovaTree1;
 import corgiaoc.byg.common.world.feature.overworld.trees.zelkova.ZelkovaTree2;
 import corgiaoc.byg.common.world.feature.overworld.trees.zelkova.ZelkovaTree3;
 import corgiaoc.byg.common.world.feature.overworld.volcano.NoiseVolcano;
+import corgiaoc.byg.common.world.feature.overworld.volcano.VolcanoFeature;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.world.gen.feature.*;
 
@@ -144,7 +145,8 @@ public class BYGFeatures {
     public static final Feature<NoFeatureConfig> DUMMY_TREE = WorldGenRegistrationHelper.createFeature("dummy_tree", new SmallPineTree(NoFeatureConfig.field_236558_a_.stable()));
 
     public static final Feature<NoFeatureConfig> HUH = WorldGenRegistrationHelper.createFeature("river_feature", new RiverThingy(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> VOLCANO = WorldGenRegistrationHelper.createFeature("noise_volcano", new NoiseVolcano(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<NoFeatureConfig> NOISE_VOLCANO = WorldGenRegistrationHelper.createFeature("noise_volcano", new NoiseVolcano(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<SimpleBlockProviderConfig> VOLCANO = WorldGenRegistrationHelper.createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<BoulderConfig> STACKABLE_BOULDERS = WorldGenRegistrationHelper.createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> ARCH = WorldGenRegistrationHelper.createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
 
@@ -237,7 +239,7 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WITHERING_OAK_TREE4 = WorldGenRegistrationHelper.createFeature("withering_oak_tree4", new WitheringOakTree4(BYGTreeConfig.CODEC.stable()));
 
     //QuartzDesert
-    public static final Feature<HangingColumnWithBaseConfig> HANGING_FEATURE = WorldGenRegistrationHelper.createFeature("hanging_feature", new HangingFeature(HangingColumnWithBaseConfig.CODEC.stable()));
+    public static final Feature<HangingColumnWithBaseConfig> HANGING_FEATURE = WorldGenRegistrationHelper.createFeature("hanging_feature", new HangingColumnWithBase(HangingColumnWithBaseConfig.CODEC.stable()));
 
     //Sythian
     public static final Feature<ProbabilityConfig> SYTHIAN_STALK = WorldGenRegistrationHelper.createFeature("sythian_stalk", new SythianStalk(ProbabilityConfig.field_236576_b_.stable()));
