@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//package sporeaoc.byg.common.world.feature.tree.misc;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//package sporeaoc.byg.common.world.feature.spawnTree.misc;
 //
 //import net.minecraft.block.BlockState;
 //import net.minecraft.block.BYGBlockRenders;
@@ -14,7 +14,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 ////THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
 //public class TreeStructure extends AbstractTreeFeature<NoFeatureConfig> {
-//    //BYGBlockRenders used for the tree.
+//    //BYGBlockRenders used for the spawnTree.
 //    private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
 //    private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
 //
@@ -42,13 +42,13 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //                //this.setGroundBlockAt(worldIn, checkGround, pos, Blocks.DIRT.getDefaultState());
 
-//                //Uncommenting this will allow for a 2x2 dirt patch under the tree.
+//                //Uncommenting this will allow for a 2x2 dirt patch under the spawnTree.
 //                /*//this.setGroundBlockAt(worldIn, checkGround.east(), pos, Blocks.DIRT.getDefaultState());
 
 //                //this.setGroundBlockAt(worldIn, checkGround.south(), pos, Blocks.DIRT.getDefaultState());
 
 //                //this.setGroundBlockAt(worldIn, checkGround.south().east(), pos, Blocks.DIRT.getDefaultState());
-//                //Uncommenting this will allow for a 3x3 dirt patch under the tree.
+//                //Uncommenting this will allow for a 3x3 dirt patch under the spawnTree.
 //                /*//this.setGroundBlockAt(worldIn, checkGround.west(), pos, Blocks.DIRT.getDefaultState());
 
 //                //this.setGroundBlockAt(worldIn, checkGround.south().west(), pos, Blocks.DIRT.getDefaultState());
@@ -110,7 +110,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //                            }
 //                        }
 //                    }
-//                    //This is the BYGTree Maker in action. This would be tree leave Preset 3. I'd suggest commenting this out! SHOULD BE USED ONLY ON 1x1 TREE TRUNKS!
+//                    //This is the BYGTree Maker in action. This would be spawnTree leave Preset 3. I'd suggest commenting this out! SHOULD BE USED ONLY ON 1x1 TREE TRUNKS!
 //                    else if (leavePreset == 3) {
 //                        int leavessquarespos = rand.nextInt(1) + 1;
 //                        for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves

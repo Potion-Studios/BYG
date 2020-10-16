@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda;//package sporeaoc.byg.common.world.feature.tree.jacaranda;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda;//package sporeaoc.byg.common.world.feature.spawnTree.jacaranda;
 //
 //import com.mojang.datafixers.Dynamic;
 //import net.minecraft.block.BlockState;
@@ -7,7 +7,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.jacaranda;/
 //import net.minecraft.util.math.MutableBoundingBox;
 //////import net.minecraft.world.gen.feature.NoFeatureConfig;
 //import sporeaoc.byg.core.byglists.BYGBlockList;
-//import sporeaoc.byg.common.world.feature.tree.util.BYGAbstractTreeFeature;
+//import sporeaoc.byg.common.world.feature.spawnTree.util.BYGAbstractTreeFeature;
 //
 //import java.util.Random;
 //import java.util.Set;

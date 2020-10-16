@@ -15,7 +15,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class MeadowShrub2 extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //BYGBlockRenders used for the tree.
+    //BYGBlockRenders used for the spawnTree.
     private static final BlockState LOG = Blocks.DARK_OAK_LOG.getDefaultState();
     private static final BlockState LEAVES = Blocks.DARK_OAK_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();

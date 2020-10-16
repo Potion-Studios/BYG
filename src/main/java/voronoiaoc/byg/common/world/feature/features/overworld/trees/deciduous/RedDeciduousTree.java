@@ -15,7 +15,7 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import java.util.Random;
 import java.util.Set;
 
-//Copied and Pasted Dark Oak to try and undertstand the logic and math for tree creation.
+//Copied and Pasted Dark Oak to try and undertstand the logic and math for spawnTree creation.
 public class RedDeciduousTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.RED_OAK_LEAVES.getDefaultState();

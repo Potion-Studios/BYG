@@ -14,7 +14,7 @@ import voronoiaoc.byg.common.world.feature.features.overworld.trees.util.BYGAbst
 import java.util.Random;
 import java.util.Set;
 
-//Copied and Pasted Dark Oak to try and undertstand the logic and math for tree creation.
+//Copied and Pasted Dark Oak to try and undertstand the logic and math for spawnTree creation.
 public class DeciduousTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
     private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();

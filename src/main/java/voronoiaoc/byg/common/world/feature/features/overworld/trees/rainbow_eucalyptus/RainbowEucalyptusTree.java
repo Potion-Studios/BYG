@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class RainbowEucalyptusTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //BYGBlockRenders used for the tree.
+    //BYGBlockRenders used for the spawnTree.
     private static final BlockState LOG = BYGBlockList.RAINBOW_EUCALYPTUS_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.RAINBOW_EUCALYPTUS_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();

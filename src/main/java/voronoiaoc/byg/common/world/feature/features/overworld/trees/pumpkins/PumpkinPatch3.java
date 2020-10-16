@@ -15,7 +15,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class PumpkinPatch3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //Blocks used for the tree.
+    //Blocks used for the spawnTree.
     private static final BlockState LOG = Blocks.DARK_OAK_LOG.getDefaultState();
     private static final BlockState LEAVES = Blocks.PUMPKIN.getDefaultState();
     private static final BlockState LEAVES2 = Blocks.DARK_OAK_LEAVES.getDefaultState();
@@ -33,7 +33,7 @@ public class PumpkinPatch3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     }
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
-        //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
+        //This sets heights for trees. Rand.nextint allows for spawnTree height randomization. The final int value sets the minimum for spawnTree Height.
         int randTreeHeight = rand.nextInt(1) + 6;
         //Positions
         int posX = pos.getX();

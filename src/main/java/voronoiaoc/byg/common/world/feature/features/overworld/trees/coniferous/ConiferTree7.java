@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class ConiferTree7 extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //Blocks used for the tree.
+    //Blocks used for the spawnTree.
     private static final BlockState LOG = BYGBlockList.FIR_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.FIR_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
@@ -34,7 +34,7 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<NoFeatureConfig> {
     }
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
-        //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
+        //This sets heights for trees. Rand.nextint allows for spawnTree height randomization. The final int value sets the minimum for spawnTree Height.
         int randTreeHeight = rand.nextInt(5) + rand.nextInt(5) + 18;
         //Positions
         int posX = pos.getX();
@@ -133,7 +133,7 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<NoFeatureConfig> {
         }
     }
 
-    //This Method essentially checks whether or not our tree can generate
+    //This Method essentially checks whether or not our spawnTree can generate
     private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
         int x = blockPos.getX();
         int y = blockPos.getY();

@@ -4,9 +4,9 @@ license="LGPLv3"
 issueTrackerURL="https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId="byg"
-version="1.0.8"
+version="1.0.9"
 displayName="Oh The Biomes You'll Go"
-displayURL="https://biomesyougo.weebly.com/"
+displayURL="https://bygmc.weebly.com/"
 logoFile="logo_text.png"
 credits="Translators: Dimiral(Russian), Godzmoline(Simplified Chinese)"
 authors="AOCAWOL & Corgi Taco"
@@ -16,6 +16,6 @@ An Adventure and Exploration mod with over 70 new biomes!
 [[dependencies.byg]]
     modId="forge"
     mandatory=true
-    versionRange="[34.0.19,)"
+    versionRange="[34.0.21,)"
     ordering="NONE"
     side="BOTH"

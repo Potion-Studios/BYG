@@ -18,7 +18,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class JoshuaTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //BYGBlockRenders used for the tree.
+    //BYGBlockRenders used for the spawnTree.
     private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.JOSHUA_LEAVES.getDefaultState();
     private static final BlockState LEAVES2 = BYGBlockList.RIPE_JOSHUA_LEAVES.getDefaultState();

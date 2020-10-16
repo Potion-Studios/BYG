@@ -9,7 +9,6 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.StructureManager;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -20,22 +19,22 @@ public abstract class BYGHugeTree extends BYGTree {
         return block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset + 1)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset + 1)).getBlock();
     }
 
-    public boolean func_242575_a(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+    public boolean spawnTree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
         for (int i = 0; i >= -1; --i) {
             for (int j = 0; j >= -1; --j) {
                 if (canBigTreeSpawnAt(blockUnder, worldIn, pos, i, j)) {
-                    return this.bigTree(worldIn, structureManager, chunkGenerator, pos, blockUnder, random, i, j);
+                    return this.bigTree(worldIn, chunkGenerator, pos, blockUnder, random, i, j);
                 }
             }
         }
 
-        return super.tree(worldIn, chunkGenerator, pos, blockUnder, random);
+        return super.spawnTree(worldIn, chunkGenerator, pos, blockUnder, random);
     }
 
     @Nullable
     protected abstract BYGAbstractTreeFeature<NoFeatureConfig> getBigTreeFeature(Random random);
 
-    public boolean bigTree(ISeedReader worldIn, StructureManager structureManager, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
+    public boolean bigTree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
         BYGAbstractTreeFeature<NoFeatureConfig> abstracttreefeature = this.getBigTreeFeature(random);
         if (abstracttreefeature == null) {
             return false;

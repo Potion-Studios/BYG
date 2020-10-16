@@ -18,7 +18,7 @@ import java.util.Set;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
 public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //Blocks used for the tree.
+    //Blocks used for the spawnTree.
     private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
     private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
     private static final BlockState LEAVES2 = BYGBlockList.RED_OAK_LEAVES.getDefaultState();
@@ -39,7 +39,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<NoFeatureCon
 
     @Override
     protected boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
-        //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
+        //This sets heights for trees. Rand.nextint allows for spawnTree height randomization. The final int value sets the minimum for spawnTree Height.
         int randTreeHeight = 1;
         //Positions
         int posX = pos.getX();
@@ -56,14 +56,14 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<NoFeatureCon
             } else {
                 //Places dirt under logs where/when necessary.
 
-//Uncommenting this will allow for a 2x2 dirt patch under the tree.
+//Uncommenting this will allow for a 2x2 dirt patch under the spawnTree.
                 /*this.setGroundBlockAt(worldIn, blockpos.east(), pos, Blocks.DIRT.getDefaultState());
 
                 this.setGroundBlockAt(worldIn, blockpos.south(), pos, Blocks.DIRT.getDefaultState());
 
                 this.setGroundBlockAt(worldIn, blockpos.south().east(), pos, Blocks.DIRT.getDefaultState());
 */
-                //Uncommenting this will allow for a 3x3 dirt patch under the tree.
+                //Uncommenting this will allow for a 3x3 dirt patch under the spawnTree.
                 /*this.setGroundBlockAt(worldIn, blockpos.west(), pos, Blocks.DIRT.getDefaultState());
 
                 this.setGroundBlockAt(worldIn, blockpos.south().west(), pos, Blocks.DIRT.getDefaultState());
@@ -315,7 +315,7 @@ public class SeasonalDeciduousShrubs extends BYGAbstractTreeFeature<NoFeatureCon
                             }
                         }
                     }
-                    //This is the BYGTree Maker in action. This would be tree leave Preset 3. I'd suggest commenting this out! SHOULD BE USED ONLY ON 1x1 TREE TRUNKS!
+                    //This is the BYGTree Maker in action. This would be spawnTree leave Preset 3. I'd suggest commenting this out! SHOULD BE USED ONLY ON 1x1 TREE TRUNKS!
                     else if (leavePreset == 3) {
                         int leavessquarespos = rand.nextInt(1) + 1;
                         for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves

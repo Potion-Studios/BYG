@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class PaloVerdeTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //BYGBlockRenders used for the tree.
+    //BYGBlockRenders used for the spawnTree.
     private static final BlockState LOG = BYGBlockList.PALO_VERDE_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.PALO_VERDE_LEAVES.getDefaultState();
     private static final BlockState LEAVES2 = BYGBlockList.FLOWERING_PALO_VERDE_LEAVES.getDefaultState();

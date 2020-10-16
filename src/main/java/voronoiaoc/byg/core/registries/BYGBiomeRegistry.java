@@ -205,7 +205,7 @@ public class BYGBiomeRegistry {
         Registry.register(WorldGenRegistries.field_243657_i, new ResourceLocation(BYG.MOD_ID, name), biome);
         biomeList.add(biome);
 
-//        if (func_242575_a) {
+//        if (spawn) {
 //            BiomeManager.addSpawnBiome(biome);
 //        }
     }

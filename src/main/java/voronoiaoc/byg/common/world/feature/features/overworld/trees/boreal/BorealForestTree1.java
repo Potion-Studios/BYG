@@ -16,7 +16,7 @@ import java.util.Set;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
 public class BorealForestTree1 extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //BYGBlockRenders used for the tree.
+    //BYGBlockRenders used for the spawnTree.
     private static final BlockState LOG = Blocks.BIRCH_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.YELLOW_BIRCH_LEAVES.getDefaultState();
     private static final BlockState LEAVES2 = Blocks.BIRCH_LEAVES.getDefaultState();

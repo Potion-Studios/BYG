@@ -2,6 +2,7 @@ package voronoiaoc.byg.common.biomes;
 
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -35,7 +36,6 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.BOREALFOREST, ConfigWeightManager.BOREALFOREST.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomeList.COLDSWAMPLANDS, ConfigWeightManager.COLDSWAMPLANDS.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomeList.CIKA_WOODS, ConfigWeightManager.CIKA_WOODS.getWeight(), BiomeManager.BiomeType.COOL);
-//        addBiomeEntry(BYGBiomeList.REDROCKCANYON, ConfigWeightManager.CANYONS.getWeight(), BiomeManager.BiomeType.DESERT);
         addBiomeEntry(BYGBiomeList.CYPRESSSWAMPLANDS, ConfigWeightManager.CYPRESS_SWAMPLAND.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.CHERRYBLOSSOMFOREST, ConfigWeightManager.CHERRY_BLOSSOM_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.CONIFEROUSFOREST, ConfigWeightManager.CONIFEROUSFOREST.getWeight(), BiomeManager.BiomeType.COOL);
@@ -76,9 +76,6 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.SNOWYCONIFEROUSFOREST, ConfigWeightManager.SNOWYCONIFEROUSFOREST.getWeight(), BiomeManager.BiomeType.ICY);
         addBiomeEntry(BYGBiomeList.SNOWYDECIDUOUSFOREST, ConfigWeightManager.SNOWYDECIDUOUSFOREST.getWeight(), BiomeManager.BiomeType.ICY);
         addBiomeEntry(BYGBiomeList.SNOWYEVERGREENTAIGA, ConfigWeightManager.SNOWY_EVERGREEN_TAIGA.getWeight(), BiomeManager.BiomeType.ICY);
-//        addBiomeEntry(BYGBiomeList.SONORANDESERT, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
-//        addBiomeEntry(BYGBiomeList.STONEBRUSHLANDS, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
-//        addBiomeEntry(BYGBiomeList.STONEFOREST, ConfigWeightManager.amaranthFields.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.THE_BLACK_FOREST, ConfigWeightManager.THE_BLACK_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomeList.TROPICALFUNGALRAINFOREST, ConfigWeightManager.TROPICALFUNGALFOREST.getWeight(), BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.TROPICALRAINFOREST, ConfigWeightManager.TROPICALRAINFOREST.getWeight(), BiomeManager.BiomeType.WARM);
@@ -86,34 +83,169 @@ public class BYGBiomeWeightSystem {
         addBiomeEntry(BYGBiomeList.SIERRAVALLEY, ConfigWeightManager.SIERRAVALLEY.getWeight(), BiomeManager.BiomeType.DESERT);
         addBiomeEntry(BYGBiomeList.WEEPINGWITCHFOREST, ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
         addBiomeEntry(BYGBiomeList.WOODLANDS, ConfigWeightManager.WOODLANDS.getWeight(), BiomeManager.BiomeType.WARM);
-//        addBiomeEntry(BYGBiomeList.VOLCANO, 1, BiomeManager.BiomeType.WARM);
         addBiomeEntry(BYGBiomeList.ZELKOVAFOREST, ConfigWeightManager.ZELKOVAFOREST.getWeight(), BiomeManager.BiomeType.COOL);
 
         BYG.LOGGER.debug("BYG: Added biome entries with their respective weights!");
     }
+
+
+    public static void addDictionaryValues() {
+        addBiomeDictionaryEntry(BYGBiomeList.ALLIUMFIELDS, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.RARE, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ALPS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.AMARANTHFIELDS, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.RARE, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ANCIENTFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ASPENFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.AUTUMNAL_VALLEY, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.DRY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BAOBABSAVANNA, BiomeDictionary.Type.SAVANNA, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.DRY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BAYOU, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BLUETAIGA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BLUFFSTEEPS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BOREALFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.COLDSWAMPLANDS, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.CRAGGARDENS, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.WET, BiomeDictionary.Type.PLATEAU, BiomeDictionary.Type.RARE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.CIKA_WOODS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.CHERRYBLOSSOMFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.REDWOOD_TROPICS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.CONIFEROUSFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.CYPRESSSWAMPLANDS, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.DOVERMOUNTAINS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.DEADSEA, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.DECIDUOUSFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.DUNES, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.EBONYWOODS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ENCHANTEDFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.RARE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.EVERGREENTAIGA, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.GLOWSHROOMBAYOU, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET,BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.GRASSLANDPLATEAU, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.GREATLAKES, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WATER, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.GROVE, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ENCHANTED_GROVE, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.GUIANASHIELD, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.JACARANDAFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.MANGROVEMARSHES, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.MAPLETAIGA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.MEADOW, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.MOJAVE_DESERT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.LUSH_TUNDRA, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ORCHARD, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.PRAIRIE, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.DRY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.REDDESERT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.REDDESERTDUNES, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.REDOAKFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.RED_ROCK_MOUNTAINS, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SEASONALBIRCHFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SEASONALDECIDUOUSFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SEASONALFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SEASONALTAIGA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SHATTEREDGLACIER, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SHRUBLANDS, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SKYRISHIGHLANDS, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWYBLUETAIGA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWYCONIFEROUSFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWYDECIDUOUSFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWYEVERGREENTAIGA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.THE_BLACK_FOREST, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.TROPICALFUNGALRAINFOREST, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.TROPICALRAINFOREST, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.VIBRANTSWAMPLANDS, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SIERRAVALLEY, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.WEEPINGWITCHFOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.WOODLANDS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ZELKOVAFOREST, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.REDWOOD_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.REDWOOD_MOUNTAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE,BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.CORAL_MANGROVES, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.CIKA_MOUNTAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.GLOWING_ANCIENT_FOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.FLOWERING_ANCIENT_FOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWY_EVERGREEN_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWY_EVERGREEN_HILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ENCHANTED_FOREST_HILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.RARE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.EBONY_HILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE);
+        addBiomeDictionaryEntry(BYGBiomeList.EVERGREEN_CLEARING, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.EVERGREEN_HILLS, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.FUNGAL_PATCH, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.WEEPING_WTICH_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.PUMPKIN_FOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BAMBOO_FOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.CHERRY_BLOSSOM_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.CONIFEROUS_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ZELKOVA_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ASPEN_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BOREALIS_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.DECIDUOUS_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SEASONAL_DECIDUOUS_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.GUIANA_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.JACARANDA_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWY_CONIFEROUS_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWY_DECIDUOUS_CLEARING, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.MAPLE_HILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BLACK_FOREST_CLEARING, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BLACK_FOREST_HILLS, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.FOREST_FAULT, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.FLOWERING_GROVE, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.FLOWERING_ENCHANTED_GROVE, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.NORTHERN_FOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.LUSHREDDESERT, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SIERRARANGE, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ALPINEFOOTHILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ASPENFORESTHILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BLUETAIGAHILLS, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BLUEGIANTTAIGA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BLUFFPEAKS, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BOREALFORESTHILLS, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.BOG, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.DECIDUOUSFORESTHILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.CONIFEROUSFORESTHILLS, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.FRESHWATERLAKE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.FROZENLAKE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.GREATLAKEISLES, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.JACARANDAFORESTHILLS, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.MARSHLANDS, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.OASIS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.POLLUTEDLAKE, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.PRAIRIECLEARING, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.REDOAKFORESTHILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.RED_ROCK_LOWLANDS, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.RED_ROCK_HIGHLANDS, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.WOODEDREDROCKMOUNTAINS, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SEASONALBIRCHFORESTHILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SEASONALDECIDUOUSFORESTHILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SEASONALFORESTHILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SEASONALGIANTTAIGA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.COLD, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SEASONALTAIGAHILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWYBLUEGIANTTAIGA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWYBLUETAIGAHILLS, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWYCONIFERFORESTHILLS, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWYDECIDUOUSFORESTHILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.TROPICALFUNGALRAINFORESTHILLS, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.TROPICALRAINFORESTHILLS, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.WOODEDGRASSLANDPLATEAU, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST,BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ZELKOVAFORESTHILLS, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.FLOWERINGMEADOW, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.WOODEDMEADOW, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.ROCKYBEACH, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWYROCKYBLACKBEACH, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.SNOWYBLACKBEACH, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.WHITEBEACH, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.RAINBOWBEACH, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.WET, BiomeDictionary.Type.OVERWORLD);
+        addBiomeDictionaryEntry(BYGBiomeList.TROPICALISLAND, BiomeDictionary.Type.WET, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.JUNGLE);
+        addBiomeDictionaryEntry(BYGBiomeList.WARPEDDESERT, BiomeDictionary.Type.NETHER);
+        addBiomeDictionaryEntry(BYGBiomeList.SYTHIANTORRIDS, BiomeDictionary.Type.NETHER);
+        addBiomeDictionaryEntry(BYGBiomeList.GLOWSTONEGARDENS, BiomeDictionary.Type.NETHER);
+        addBiomeDictionaryEntry(BYGBiomeList.EMBURBOG, BiomeDictionary.Type.NETHER);
+        addBiomeDictionaryEntry(BYGBiomeList.IVISFIELDS, BiomeDictionary.Type.END);                                                                                                                                                           }
     
-    public static void addBiomeEntry(Biome biome, int weight, BiomeManager.BiomeType type) {
+    public static void addBiomeEntry(Biome biome, int weight, BiomeManager.BiomeType type, BiomeDictionary.Type... types) {
+        RegistryKey<Biome> biomeKey = RegistryKey.func_240903_a_(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(ForgeRegistries.BIOMES.getKey(biome)));
         if (weight > 0) {
-            BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(RegistryKey.func_240903_a_(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(ForgeRegistries.BIOMES.getKey(biome))), weight));
+            BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(biomeKey, weight));
         }
+        BiomeDictionary.addTypes(biomeKey, types);
     }
 
-//    public static void addBYGBiomesToVanillaOverworld() {
-//        for (int integer : HOT)
-//            BiomeLayer.field_202744_r = addElement(BiomeLayer.field_202744_r, integer);
-//        for (int integer : WARM)
-//            BiomeLayer.field_202745_s = addElement(BiomeLayer.field_202745_s, integer);
-//        for (int integer : COOL)
-//            BiomeLayer.field_202746_t = addElement(BiomeLayer.field_202746_t, integer);
-//        for (int integer : ICY)
-//            BiomeLayer.field_202747_u = addElement(BiomeLayer.field_202747_u, integer);
-//    }
-//
-//
-//    static int[] addElement(int[] a, int e) {
-//        a = Arrays.copyOf(a, a.length + 1);
-//        a[a.length - 1] = e;
-//        return a;
-//    }
-
+    public static void addBiomeDictionaryEntry(Biome biome, BiomeDictionary.Type... types) {
+        RegistryKey<Biome> biomeKey = RegistryKey.func_240903_a_(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(ForgeRegistries.BIOMES.getKey(biome)));
+        BiomeDictionary.addTypes(biomeKey, types);
+    }
 }

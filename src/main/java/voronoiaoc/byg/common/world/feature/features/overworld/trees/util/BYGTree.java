@@ -15,7 +15,7 @@ public abstract class BYGTree {
     @Nullable
     protected abstract BYGAbstractTreeFeature<NoFeatureConfig> getTreeFeature(Random random);
 
-    public boolean tree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+    public boolean spawnTree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
         BYGAbstractTreeFeature<NoFeatureConfig> abstracttreefeature = this.getTreeFeature(random);
         if (abstracttreefeature == null) {
             return false;

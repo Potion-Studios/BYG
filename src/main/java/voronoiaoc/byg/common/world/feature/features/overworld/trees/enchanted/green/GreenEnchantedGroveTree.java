@@ -19,7 +19,7 @@ import java.util.Set;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
 public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //Blocks used for the tree.
+    //Blocks used for the spawnTree.
     private static final BlockState LOG = BYGBlockList.GREEN_ENCHANTED_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.GREEN_ENCHANTED_LEAVES.getDefaultState();
     private static final BlockState LEAVES2 = BYGBlockList.GREEN_ENCHANTED_LEAVES.getDefaultState();
@@ -43,7 +43,7 @@ public class GreenEnchantedGroveTree extends BYGAbstractTreeFeature<NoFeatureCon
     }
 
     public boolean place(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling) {
-        //This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
+        //This sets heights for trees. Rand.nextint allows for spawnTree height randomization. The final int value sets the minimum for spawnTree Height.
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 9;
         //Positions
         int posX = pos.getX();

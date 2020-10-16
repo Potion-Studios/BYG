@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class BlackPuff extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //BYGBlockRenders used for the tree.
+    //BYGBlockRenders used for the spawnTree.
     private static final BlockState LOG = BYGBlockList.BROWN_MUSHROOM_STEM.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.PUFF_MUSHROOM_BLOCK.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();

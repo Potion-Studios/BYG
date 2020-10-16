@@ -17,7 +17,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.dead;//pack
 //import java.util.Set;
 //
 //public class DeadTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
-//    //BYGBlockRenders used for the tree.
+//    //BYGBlockRenders used for the spawnTree.
 //    private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
 //    private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
 //    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();

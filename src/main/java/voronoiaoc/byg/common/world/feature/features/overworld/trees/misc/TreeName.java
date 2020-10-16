@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//package sporeaoc.byg.common.world.feature.tree.misc;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//package sporeaoc.byg.common.world.feature.spawnTree.misc;
 //
 //import net.minecraft.block.BlockState;
 //import net.minecraft.block.BYGBlockRenders;
@@ -11,7 +11,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //import java.util.Set;
 //
 //public class TreeName extends AbstractTreeFeature<NoFeatureConfig> {
-//    //BYGBlockRenders used for the tree.
+//    //BYGBlockRenders used for the spawnTree.
 //    private static final BlockState LOG = Blocks.OAK_LOG.getDefaultState();
 //    private static final BlockState LEAVES = Blocks.OAK_LEAVES.getDefaultState();
 //
@@ -66,7 +66,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //                }
 //                for (int posXLeafSize = -2; posXLeafSize <= 2; ++posXLeafSize) {
 //                    for (int posZLeafSize = -2; posZLeafSize <= 2; ++posZLeafSize) {
-//                        //This places our leaf square on the center of the tree. In line with the top block of the trunk.
+//                        //This places our leaf square on the center of the spawnTree. In line with the top block of the trunk.
 //                        this.leafs(worldIn, posX2 + posXLeafSize, topTrunkHeight, posZ2 + posZLeafSize, boundsIn, changedBlocks);
 //                        //This places a leaf plus above the trunk above the trunk.
 //                        this.leafs(worldIn, posX2, topTrunkHeight + 1, posZ2, boundsIn, changedBlocks);
@@ -84,7 +84,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //        }
 //    }
 //
-//    //This Method essentially checks whether or not our tree can generate
+//    //This Method essentially checks whether or not our spawnTree can generate
 //    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
 //        int x = blockPos.getX();
 //        int y = blockPos.getY();

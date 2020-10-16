@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class SkyrisTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //BYGBlockRenders used for the tree.
+    //BYGBlockRenders used for the spawnTree.
     private static final BlockState LOG = BYGBlockList.SKYRIS_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.SKYRIS_LEAVES.getDefaultState();
     private static final BlockState LEAVES2 = BYGBlockList.SKYRIS_LEAVES_GREEN_APPLE.getDefaultState();

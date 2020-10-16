@@ -15,7 +15,7 @@ import voronoiaoc.byg.core.byglists.BYGBlockList;
 import java.util.Random;
 import java.util.Set;
 
-//Copied and Pasted Dark Oak to try and undertstand the logic and math for tree creation.
+//Copied and Pasted Dark Oak to try and undertstand the logic and math for spawnTree creation.
 public class YellowDeciduousTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
     private static final BlockState LOG = Blocks.BIRCH_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.YELLOW_BIRCH_LEAVES.getDefaultState();
@@ -575,7 +575,7 @@ public class YellowDeciduousTree extends BYGAbstractTreeFeature<NoFeatureConfig>
                 /*for(int l3 = -1; l3 <= 2; ++l3) {
                     for(int k4 = -1; k4 <= 2; ++k4) {
                         if ((l3 < 0 || l3 > 1 || k4 < 0 || k4 > 1) && rand.nextInt(3) <= 0) {
-                            int i5 = rand.nextInt(3) + 2; //makes the tree increase both upwards and downwards
+                            int i5 = rand.nextInt(3) + 2; //makes the spawnTree increase both upwards and downwards
 
                             for(int l2 = 0; l2 < i5; ++l2) { //does nothing
                                 this.treelog(changedBlocks, worldIn, new BlockPos(posX , topTrunkHeight, posZ + 1), boundsIn); //creates Branches, number value of 2 or lower does nothing 5 seems to be a good value
@@ -592,7 +592,7 @@ public class YellowDeciduousTree extends BYGAbstractTreeFeature<NoFeatureConfig>
                             /*for(int k5 = -2; k5 <= 2; ++k5) { //changes the X width of the leaves on row 4
                                 for(int l5 = -2; l5 <= 2; ++l5) { //changes the Z width of the leaves on row 4
                                     if (Math.abs(k5) != 2 || Math.abs(l5) != 2) { //does nothing
-                                        this.leafs(worldIn, posX1 + l3 + k5, topTrunkHeight - 1, posZ1 + k4 + l5, boundsIn, changedBlocks); //topTrunkHeight -1 apears to have no change on the tree
+                                        this.leafs(worldIn, posX1 + l3 + k5, topTrunkHeight - 1, posZ1 + k4 + l5, boundsIn, changedBlocks); //topTrunkHeight -1 apears to have no change on the spawnTree
                                     }
                                 }
                            // }*/

@@ -18,7 +18,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class AspenTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //BYGBlockRenders used for the tree.
+    //BYGBlockRenders used for the spawnTree.
     private static final BlockState LOG = BYGBlockList.ASPEN_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.ASPEN_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();

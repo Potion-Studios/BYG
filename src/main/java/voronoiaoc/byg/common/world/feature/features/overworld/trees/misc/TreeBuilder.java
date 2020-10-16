@@ -1,4 +1,4 @@
-package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//package sporeaoc.byg.common.world.feature.tree.misc;
+package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//package sporeaoc.byg.common.world.feature.spawnTree.misc;
 //
 //import net.minecraft.block.BlockState;
 //import net.minecraft.block.BYGBlockRenders;
@@ -60,7 +60,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //
 //
 //                if (this.generateLargeDirtPatch) {
-//                    // 3x3 dirt patch under the tree.
+//                    // 3x3 dirt patch under the spawnTree.
 //                    //this.setGroundBlockAt(worldIn, blockpos.west(), pos, Blocks.DIRT.getDefaultState());
 
 //                    //this.setGroundBlockAt(worldIn, blockpos.south().west(), pos, Blocks.DIRT.getDefaultState());
@@ -72,7 +72,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //                    //this.setGroundBlockAt(worldIn, blockpos.north().west(), pos, Blocks.DIRT.getDefaultState());
 
 //                } else if (this.generateDirtPatch) {
-//                    // 2x2 dirt patch under the tree.
+//                    // 2x2 dirt patch under the spawnTree.
 //                    //this.setGroundBlockAt(worldIn, blockpos.east(), pos, Blocks.DIRT.getDefaultState());
 
 //                    //this.setGroundBlockAt(worldIn, blockpos.south(), pos, Blocks.DIRT.getDefaultState());
@@ -108,17 +108,17 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //                    //Sets Logs
 //                    if (isAir(worldIn, blockpos1)) {
 //                        this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
-//                        //Uncommenting this will create a 2x2 tree trunk.
+//                        //Uncommenting this will create a 2x2 spawnTree trunk.
 //                        /*this.treelog(changedBlocks, worldIn, blockpos1.south(), boundsIn);
 //                        this.treelog(changedBlocks, worldIn, blockpos1.south().east(), boundsIn);
 //                        this.treelog(changedBlocks, worldIn, blockpos1.east(), boundsIn);*/
-//                        //Uncommenting this will create a 3x3 tree trunk.
+//                        //Uncommenting this will create a 3x3 spawnTree trunk.
 //                        /*this.treelog(changedBlocks, worldIn, blockpos1.west(), boundsIn);
 //                        this.treelog(changedBlocks, worldIn, blockpos1.south().west(), boundsIn);
 //                        this.treelog(changedBlocks, worldIn, blockpos1.north(), boundsIn);
 //                        this.treelog(changedBlocks, worldIn, blockpos1.north().east(), boundsIn);
 //                        this.treelog(changedBlocks, worldIn, blockpos1.north().west(), boundsIn);*/
-//                        //Uncommenting this will create a 4x4 tree trunk.
+//                        //Uncommenting this will create a 4x4 spawnTree trunk.
 //                        /*this.treelog(changedBlocks, worldIn, blockposwest1, boundsIn);
 //                        this.treelog(changedBlocks, worldIn, blockposwest1.west(), boundsIn);
 //                        this.treelog(changedBlocks, worldIn, blockposwest1.north().west(), boundsIn);
@@ -159,7 +159,7 @@ package voronoiaoc.byg.common.world.feature.features.overworld.trees.misc;//pack
 //                        }
 //                    }
 //                }
-//                //This is the BYGTree Maker in action. This would be tree leave Preset 3. I'd suggest commenting this out! SHOULD BE USED ONLY ON 1x1 TREE TRUNKS!
+//                //This is the BYGTree Maker in action. This would be spawnTree leave Preset 3. I'd suggest commenting this out! SHOULD BE USED ONLY ON 1x1 TREE TRUNKS!
 //                else if (leavePreset == 3) {
 //                    int leavessquarespos = rand.nextInt(1) + 1;
 //                    for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) { //has to do with leaves

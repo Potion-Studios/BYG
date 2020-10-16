@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class ZelkovaTree3 extends BYGAbstractTreeFeature<NoFeatureConfig> {
-    //BYGBlockRenders used for the tree.
+    //BYGBlockRenders used for the spawnTree.
     private static final BlockState LOG = BYGBlockList.ZELKOVA_LOG.getDefaultState();
     private static final BlockState LEAVES = BYGBlockList.ZELKOVA_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
