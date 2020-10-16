@@ -33,6 +33,7 @@ import corgiaoc.byg.common.world.feature.overworld.giantflowers.DandelionGiant;
 import corgiaoc.byg.common.world.feature.overworld.giantflowers.IrisGiant;
 import corgiaoc.byg.common.world.feature.overworld.giantflowers.RoseGiant;
 import corgiaoc.byg.common.world.feature.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
+import corgiaoc.byg.common.world.feature.overworld.iceburg.IceburgFeature;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.*;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import corgiaoc.byg.common.world.feature.overworld.pumpkins.LargePumpkin1;
@@ -207,6 +208,7 @@ public class BYGFeatures {
     public static final Feature<FloatingIslandConfig> FLOATING_ISLAND3 = WorldGenRegistrationHelper.createFeature("floating_island3", new FloatingIslands3(FloatingIslandConfig.CODEC.stable()));
     public static final Feature<FloatingIslandConfig> FLOATING_ISLAND4 = WorldGenRegistrationHelper.createFeature("hollow_floating_island", new FloatingIslands4(FloatingIslandConfig.CODEC.stable()));
 
+    public static final Feature<SimpleBlockProviderConfig> ICEBURG = WorldGenRegistrationHelper.createFeature("iceburg", new IceburgFeature(SimpleBlockProviderConfig.CODEC.stable()));
 
     /********************************************************************Nether Features********************************************************************/
 

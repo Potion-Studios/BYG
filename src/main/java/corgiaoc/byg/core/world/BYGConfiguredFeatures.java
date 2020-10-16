@@ -232,6 +232,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND4 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island4", BYGFeatures.FLOATING_ISLAND4.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(13).setMaxRadius(17).build()));
 
 
+
     public static final ConfiguredFeature<PumpkinConfig, ?> PUMPKIN1 = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin1", BYGFeatures.LARGE_PUMPKIN1.withConfiguration(new PumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.OAK_LOG).build()));
     public static final ConfiguredFeature<PumpkinConfig, ?> PUMPKIN2 = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin2", BYGFeatures.LARGE_PUMPKIN2.withConfiguration(new PumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.OAK_LOG).build()));
 
@@ -264,6 +265,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> SMALL_BASALT_COLUMN = WorldGenRegistrationHelper.createConfiguredFeature("small_basalt_columns", Feature.BASALT_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(1, 1))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
     public static final ConfiguredFeature<?, ?> LARGE_BASALT_COLUMN = WorldGenRegistrationHelper.createConfiguredFeature("large_basalt_columns", Feature.BASALT_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(1, 1))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
 
+
+    public static final ConfiguredFeature<?, ?> ICEBURG = WorldGenRegistrationHelper.createConfiguredFeature("iceburg", BYGFeatures.ICEBURG.withConfiguration(new SimpleBlockProviderConfig(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.PACKED_ICE.getDefaultState(), 5))).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.01F, 1))));
 
     /***********************************************************Configured Random Selector Features***********************************************************/
 
@@ -1899,8 +1902,6 @@ public class BYGConfiguredFeatures {
         public static final BlockClusterFeatureConfig NIGHTSHADE_SPROUTS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
         public static final BlockClusterFeatureConfig NIGHTSHADE_ROOTS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.NIGHTSHADE_ROOTS.getDefaultState()), new DoublePlantBlockPlacer())).tries(32).build();
         public static final BlockClusterFeatureConfig NIGHTSHADE_BERRY_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.NIGHTSHADE_BERRY_BUSH.getDefaultState().with(BlueBerryBush.AGE, Integer.valueOf(3))), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.NIGHTSHADE_PHYLIUM, BYGBlocks.ETHER_PHYLIUM, BYGBlocks.IVIS_PHYLIUM)).func_227317_b_().build();
-
-
     }
 
     public static class SpreadableBlockConfigs {

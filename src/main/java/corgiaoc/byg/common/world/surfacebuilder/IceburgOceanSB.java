@@ -1,0 +1,34 @@
+package corgiaoc.byg.common.world.surfacebuilder;
+
+import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.world.BYGSurfaceBuilders;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.IChunk;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+
+import java.util.Random;
+
+public class IceburgOceanSB extends SurfaceBuilder<SurfaceBuilderConfig> {
+
+    public static final BlockState WATER = Blocks.WATER.getDefaultState();
+
+    public IceburgOceanSB(Codec<SurfaceBuilderConfig> config) {
+        super(config);
+    }
+
+    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+        if (!(noise < -1.0D) && !(noise > 2.0D)) {
+            if (noise > 1.0D) {
+                SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.SAND_CONFIG);
+            } else {
+                SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WATER);
+            }
+        } else {
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.SAND_CONFIG);
+        }
+
+    }
+}

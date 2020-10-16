@@ -223,6 +223,8 @@ public class BYGBiomes {
     public static final Biome SNOWY_BLUE_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_blue_giant_taiga", new SnowyBlueGiantTaiga().getBiome());
     public static final Biome WOODED_MEADOW = WorldGenRegistrationHelper.createBiome("wooded_meadow", new WoodedMeadow().getBiome());
 
+    //Ocean
+    public static final Biome ICEBURG_OCEAN = WorldGenRegistrationHelper.createBiome("iceburg_ocean", new IceburgOcean().getBiome());
 
     /************Nether Biomes************/
     public static final Biome BRIMSTONE_CAVERNS = WorldGenRegistrationHelper.createBiome("brimstone_caverns", new BrimstoneCaverns().getBiome());

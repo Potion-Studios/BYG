@@ -43,6 +43,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight GUIANA_SHIELD = new ConfigWeight("Guiana_Shield", 5);
     public static final ConfigWeight GROVE = new ConfigWeight("Grove", 5);
     public static final ConfigWeight ENCHANTED_GROVE = new ConfigWeight("Enchanted_Grove", 1);
+    public static final ConfigWeight ICEBURG_OCEAN = new ConfigWeight("Iceburg_Ocean", 4);
     public static final ConfigWeight JACARANDA_FOREST = new ConfigWeight("Jacaranda_Forest", 6);
     public static final ConfigWeight MANGROVE_MARSHES = new ConfigWeight("Mangrove_Marshes", 5);
     public static final ConfigWeight MAPLE_TAIGA = new ConfigWeight("Maple_Taiga", 6);
