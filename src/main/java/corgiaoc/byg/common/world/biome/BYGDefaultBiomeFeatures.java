@@ -462,6 +462,10 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.THERIUM_CRYSTALS);
     }
 
+    public static void addHangingTheriumLanterns(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_THERIUM_LANTERNS);
+    }
+
     public static void addExtraCanyons(BiomeGenerationSettings.Builder gen) {
     }
 

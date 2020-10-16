@@ -11,6 +11,7 @@ import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.LanternBlock;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.blockplacer.ColumnBlockPlacer;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
@@ -435,6 +436,9 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("sythian_fungus_pillars", BYGFeatures.PILLARS.withConfiguration(new SimpleBlockProviderConfig(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.SYTHIAN_HYPHAE.getDefaultState(), 9).addWeightedBlockstate(BYGBlocks.SYTHIAN_HYPHAE.getDefaultState(), 1))).func_242733_d(128).func_242728_a().func_242731_b(50));
     public static final ConfiguredFeature<?, ?> HANGING_BONE_FEATURE = WorldGenRegistrationHelper.createConfiguredFeature("hanging_bone", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.BONE_BLOCK).setBlock(BYGBlocks.HANGING_BONE).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.QUARTZITE_SAND, Blocks.BONE_BLOCK)).build()).func_242733_d(128).func_242728_a().func_242731_b(70));
     public static final ConfiguredFeature<?, ?> LAMENT_VINE_FEATURE = WorldGenRegistrationHelper.createConfiguredFeature("lament_vine", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.NETHERRACK).setBlock(BYGBlocks.LAMENT_VINE_PLANT).setEndBlock(BYGBlocks.LAMENT_VINE.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK)).build()).func_242733_d(128).func_242728_a().func_242731_b(70));
+
+
+    public static final ConfiguredFeature<?, ?> HANGING_THERIUM_LANTERNS = WorldGenRegistrationHelper.createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.ETHER_STONE).setBlock(Blocks.CHAIN.getDefaultState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.getDefaultState().with(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.ETHER_STONE)).build()).func_242733_d(256).func_242728_a().func_242731_b(80));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JUNGLE_FLOWERS = WorldGenRegistrationHelper.createConfiguredFeature("rs_jungle_flowers", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BISTORT.withChance(0.50F),
@@ -1120,7 +1124,7 @@ public class BYGConfiguredFeatures {
             CONIFER_TREE6.withChance(0.2F),
             CONIFER_TREE7.withChance(0.1F)),
             CONIFER_TREE8)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(30, 0.4F, 10))));
+            new AtSurfaceWithExtraConfig(20, 0.4F, 5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_conifer_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CONIFER_TREE1.withChance(0.06F),

@@ -49,6 +49,7 @@ public class ViscalIsles extends BYGBiome {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_ISLAND);
         BYGDefaultBiomeFeatures.addVermilionSculkGrowth(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addTheriumCrystals(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addHangingTheriumLanterns(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244151_q).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 5, 1, 2));

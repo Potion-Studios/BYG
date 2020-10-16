@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "XGX",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:iron_nugget"
+    },
+    "G": {
+      "item": "byg:therium_crystal"
+    }
+  },
+  "result": {
+    "item": "byg:therium_lamp"
+  }
+}
