@@ -16,7 +16,7 @@ import java.util.Set;
 
 //THIS FEATURE MUST BE REGISTERED & ADDED TO A BIOME!
 public class TropicalShrub extends BYGAbstractTreeFeature<BYGTreeConfig> {
-    //BYGBlockRenders used for the spawnTree.
+    //BYGBlockRenders used for the tree.
     //private static final BlockState LOG = BYGBlocks.MAHOGANY_LOG.getDefaultState();
     //private static final BlockState LEAVES = BYGBlocks.MAHOGANY_LEAVES.getDefaultState();
 
