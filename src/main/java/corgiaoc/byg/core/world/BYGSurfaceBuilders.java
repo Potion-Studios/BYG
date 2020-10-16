@@ -25,6 +25,7 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<SurfaceBuilderConfig> RED_ROCK_LOWLANDS = WorldGenRegistrationHelper.createSurfaceBuilder("red_rock_lowlands", new RedRockLowlandsSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> RED_DUNES = WorldGenRegistrationHelper.createSurfaceBuilder("red_dunes", new RedDunesSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> DUNES = WorldGenRegistrationHelper.createSurfaceBuilder("dunes", new DunesSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> ETHEREAL = WorldGenRegistrationHelper.createSurfaceBuilder("ethereal", new FillEtherealStone(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> DOVER = WorldGenRegistrationHelper.createSurfaceBuilder("dover_mountains", new DoverMountainSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> QUAGMIRE = WorldGenRegistrationHelper.createSurfaceBuilder("quagmire", new QuagmireSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> CANYONS = WorldGenRegistrationHelper.createSurfaceBuilder("canyons", new CanyonSB(SurfaceBuilderConfig.field_237203_a_));
