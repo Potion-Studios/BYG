@@ -450,6 +450,18 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_NIGHTSHADE_BERRIES);
     }
 
+    public static void addShatteredDesertPlants(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ODDITY_PLANT);
+    }
+
+    public static void addVermilionSculkGrowth(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.VERMILION_SCULK_GROWTH_PATCH);
+    }
+
+    public static void addTheriumCrystals(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.THERIUM_CRYSTALS);
+    }
+
     public static void addExtraCanyons(BiomeGenerationSettings.Builder gen) {
     }
 

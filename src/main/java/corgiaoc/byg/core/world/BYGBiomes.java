@@ -3,10 +3,7 @@ package corgiaoc.byg.core.world;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.world.biome.end.EtherealIslands;
-import corgiaoc.byg.common.world.biome.end.IvisFields;
-import corgiaoc.byg.common.world.biome.end.NightshadeForest;
-import corgiaoc.byg.common.world.biome.end.ViscalIsles;
+import corgiaoc.byg.common.world.biome.end.*;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
 import corgiaoc.byg.common.world.biome.overworld.sub.*;
@@ -247,6 +244,7 @@ public class BYGBiomes {
     public static final Biome NIGHTSHADE_FOREST = WorldGenRegistrationHelper.createBiome("nightshade_forest", new NightshadeForest().getBiome());
     public static final Biome ETHEREAL_ISLANDS = WorldGenRegistrationHelper.createBiome("ethereal_islands", new EtherealIslands().getBiome());
     public static final Biome VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("viscal_isles", new ViscalIsles().getBiome());
+    public static final Biome SHATTERED_DESERT = WorldGenRegistrationHelper.createBiome("shattered_desert", new ShatteredDesert().getBiome());
 
 
     public static void init() {
