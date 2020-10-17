@@ -592,7 +592,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     protected abstract boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, TFC config);
 
     @Nullable
-    public SaplingData saplingData() {
+    public SaplingData saplingData(BlockPos pos) {
         return new SaplingData(new HashSet<>(), 0);
     }
 

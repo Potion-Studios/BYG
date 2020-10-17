@@ -903,9 +903,8 @@ public class RedwoodTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
     @Nullable
     @Override
-    public SaplingData saplingData() {
+    public SaplingData saplingData(BlockPos pos) {
         if (saplingData == null) {
-            BlockPos pos = BlockPos.ZERO;
             BlockPos[] posArray = {pos.add(0, 0, -2), pos.add(-1, 0, -1), pos.add(1, 0, -1), pos.add(-2, 0, 0), pos.add(2, 0, 0), pos.add(-1, 0, 1), pos.add(1, 0, 1), pos.add(0, 0, 2), pos.add(0, 0, -1), pos.add(-1, 0, 0), pos.add(1, 0, 0), pos.add(0, 0, 1)};
             Set<BlockPos> set = new HashSet<>(Arrays.asList(posArray));
             saplingData = new SaplingData(set, 4);
