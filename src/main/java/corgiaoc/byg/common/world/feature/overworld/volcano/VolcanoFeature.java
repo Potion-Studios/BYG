@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.feature.overworld.volcano;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.SimpleBlockProviderConfig;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.fluid.Fluids;
@@ -10,13 +11,12 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
-import org.spongepowered.noise.module.source.Perlin;
 
 import java.util.Random;
 
 public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
 
-    Perlin perlin = null;
+    FastNoise perlin = null;
 
     public VolcanoFeature(Codec<SimpleBlockProviderConfig> codec) {
         super(codec);
@@ -42,7 +42,7 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
             for (double y = -volcanoConeSize; y <= -1; y++) {
                 for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
                     mutable.setPos(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
-                    double noise = perlin.getValue(mutable.getX(), mutable.getY(), mutable.getZ()) * 12;
+                    double noise = perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()) * 12;
                     double scaledNoise = (noise / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
 
                     if (scaledNoise - lavaLeakage >= 0.5) {
@@ -65,9 +65,9 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
 
     public void setSeed(long seed) {
         if (perlin == null) {
-            perlin = new Perlin();
-            perlin.setSeed((int) seed);
-            perlin.setFrequency(0.2);
+            perlin = new FastNoise((int) seed);
+            perlin.SetNoiseType(FastNoise.NoiseType.Perlin);
+            perlin.SetFrequency(0.2F);
         }
     }
 }
