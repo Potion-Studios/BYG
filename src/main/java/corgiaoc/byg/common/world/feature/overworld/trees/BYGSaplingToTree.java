@@ -421,12 +421,18 @@ public class BYGSaplingToTree {
 
     }
 
-    public static class RedwoodSaplingToTree extends BYGTree {
+    public static class RedwoodSaplingToTree extends BYGHugeTree {
         @Nullable
         public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? BYGConfiguredFeatures.REDWOOD_TREE1 : BYGConfiguredFeatures.REDWOOD_TREE2;
+            return null;
         }
 
+
+        @Nullable
+        @Override
+        protected ConfiguredFeature<BYGTreeConfig, ?> getBigTreeFeature(Random random) {
+            return BYGConfiguredFeatures.REDWOOD_TREE1;
+        }
     }
 }
 

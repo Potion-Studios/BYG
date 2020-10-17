@@ -15,17 +15,17 @@ public abstract class BYGTree {
     @Nullable
     protected abstract ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random);
 
-    public boolean spawnTree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
-        ConfiguredFeature<BYGTreeConfig, ?> configuredTreeFeature = this.getTreeFeature(random);
+    public boolean spawnTree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos bonemealPos, BlockState blockUnder, BlockState saplingState, Random random) {
+        ConfiguredFeature <BYGTreeConfig, ?> configuredTreeFeature = this.getTreeFeature(random);
         if (configuredTreeFeature == null) {
             return false;
         } else {
-            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
+            worldIn.setBlockState(bonemealPos, Blocks.AIR.getDefaultState(), 4);
             configuredTreeFeature.config.forcePlacement();
-            if (configuredTreeFeature.func_242765_a(worldIn, chunkGenerator, random, pos)) {
+            if (configuredTreeFeature.func_242765_a(worldIn, chunkGenerator, random, bonemealPos)) {
                 return true;
             } else {
-                worldIn.setBlockState(pos, blockUnder, 4);
+                worldIn.setBlockState(bonemealPos, blockUnder, 4);
                 return false;
             }
         }
