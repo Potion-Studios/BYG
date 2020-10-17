@@ -64,7 +64,6 @@ public abstract class BYGHugeTree extends BYGTree {
                 for (BlockPos modifiedPos : saplingData.getTrunkOffsetCoordinates()) {
                     if (world.getBlockState(saplingPos.add(modifiedPos)).getBlock().equals(saplingState.getBlock())) {
                         areAllPositionsPresent = true;
-                        System.out.println(saplingPos.add(modifiedPos).toString() + "/" + saplingPos.toString());
                     }
                     else {
                         areAllPositionsPresent = false;
