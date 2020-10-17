@@ -3,23 +3,51 @@ package corgiaoc.byg.common.world.feature.overworld.volcano;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
+import org.spongepowered.noise.module.source.Perlin;
 
 import java.util.Random;
 
 public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
 
-    FastNoise perlin = null;
+    FastNoise fnPerlin = null;
+    Perlin spongePerlin = null;
 
     public VolcanoFeature(Codec<SimpleBlockProviderConfig> codec) {
         super(codec);
+    }
+
+
+    static double perlinMax = 0;
+    static double perlinMin = 100;
+
+    static double perlin2Max = 0;
+    static double perlin2Min = 1000;
+
+
+    public static void getMinAndMax(double perlin1, double perlin2) {
+        if (perlin1 > perlinMax) {
+            System.out.println("Fast Max: " + perlinMax);
+            perlinMax = perlin1;
+        }
+        if (perlin1 < perlinMin) {
+            System.out.println("Fast Min: " + perlinMin);
+            perlinMin = perlin1;
+        }
+
+        if (perlin2 > perlin2Max) {
+            System.out.println("Sponge Max: " + perlin2Max);
+            perlin2Max = perlin2;
+        }
+        if (perlin2 < perlin2Min) {
+            System.out.println("Sponge min: " + perlin2Min);
+            perlin2Min = perlin2;
+        }
     }
 
     @Override
@@ -42,16 +70,11 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
             for (double y = -volcanoConeSize; y <= -1; y++) {
                 for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
                     mutable.setPos(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
-                    double noise = perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()) * 12;
+                    double noise = fnPerlin.GetNoise((float) x, (float)z) * 12;
+                    double noise2 = spongePerlin.getValue(x, y, z) * 12;
+                    getMinAndMax(noise, noise2);
                     double scaledNoise = (noise / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
-
-                    if (scaledNoise - lavaLeakage >= 0.5) {
-                        if (mutable.getY() <= pos.getY() + (volcanoStartHeight - 11)) {
-                            world.setBlockState(mutable, Blocks.LAVA.getDefaultState(), 2);
-                            world.getPendingFluidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
-                        }
-                    }
-                    else if (scaledNoise >= 0.5) {
+                    if (scaledNoise >= 0.5) {
                         if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
                             world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                         }
@@ -64,10 +87,17 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
 
 
     public void setSeed(long seed) {
-        if (perlin == null) {
-            perlin = new FastNoise((int) seed);
-            perlin.SetNoiseType(FastNoise.NoiseType.Perlin);
-            perlin.SetFrequency(0.2F);
+        if (fnPerlin == null) {
+            fnPerlin = new FastNoise((int) seed);
+            fnPerlin.SetNoiseType(FastNoise.NoiseType.PerlinFractal);
+            fnPerlin.SetFractalType(FastNoise.FractalType.FBM);
+            fnPerlin.SetFrequency(0.2F);
+        }
+
+        if (spongePerlin == null) {
+            spongePerlin = new Perlin();
+            spongePerlin.setSeed((int) seed);
+            spongePerlin.setFrequency(0.2F);
         }
     }
 }
