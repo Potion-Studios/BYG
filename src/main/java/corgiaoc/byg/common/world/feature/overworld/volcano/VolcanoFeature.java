@@ -34,7 +34,7 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         double baseRadius = 4;
-        int lavaLeakage = 0;
+        int lavaLeakage = 2;
         int volcanoConeSize = 45;
         int volcanoStartHeight = volcanoConeSize - 5;
 
@@ -44,7 +44,8 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
                     mutable.setPos(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
                     double noise = perlin.getValue(mutable.getX(), mutable.getY(), mutable.getZ()) * 12;
                     double scaledNoise = (noise / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
-                    if (scaledNoise - 2 >= 0.5) {
+
+                    if (scaledNoise - lavaLeakage >= 0.5) {
                         if (mutable.getY() <= pos.getY() + (volcanoStartHeight - 11)) {
                             world.setBlockState(mutable, Blocks.LAVA.getDefaultState(), 2);
                             world.getPendingFluidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
@@ -55,7 +56,6 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
                             world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                         }
                     }
-
                 }
             }
         }

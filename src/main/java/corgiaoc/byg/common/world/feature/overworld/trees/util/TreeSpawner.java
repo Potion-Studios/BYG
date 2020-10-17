@@ -18,7 +18,23 @@ public abstract class TreeSpawner {
     @Nullable
     protected abstract WeightedList<ConfiguredFeature<BYGTreeConfig, ?>> getLargeTreeList();
 
-    public boolean spawnTree(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, BlockState saplingState, Random random) {
+
+    public boolean createTreeSpawner(int taskRange, ISeedReader world, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, BlockState saplingState, Random random) {
+        Set<BlockPos> saplingPosList = new HashSet<>();
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        for (int xOffset = -taskRange; xOffset <= taskRange; xOffset++) {
+            for (int ZOffset = -taskRange; ZOffset <= taskRange; ZOffset++) {
+                mutable.setPos(taskRange).move(xOffset, 0, ZOffset);
+                if (world.getBlockState(mutable).getBlock().equals(saplingState.getBlock()))
+                    saplingPosList.add(mutable.toImmutable());
+            }
+        }
+        return spawnTree(saplingPosList, world, chunkGenerator, pos, blockUnder, saplingState, random);
+    }
+
+
+
+    public boolean spawnTree(Set<BlockPos> foundSaplingPositions, ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, BlockState saplingState, Random random) {
         WeightedList<ConfiguredFeature<BYGTreeConfig, ?>> treeFeatureList = getLargeTreeList();
         if (treeFeatureList == null) {
             return false;
@@ -28,7 +44,7 @@ public abstract class TreeSpawner {
             if (configuredTreeFeature.feature instanceof BYGAbstractTreeFeature) {
                 configuredTreeFeature.config.forcePlacement();
                 SaplingData saplingData = ((BYGAbstractTreeFeature<BYGTreeConfig>) configuredTreeFeature.feature).saplingData(BlockPos.ZERO);
-                BlockPos centerPos = saplingSettings(saplingData, worldIn, pos, saplingState);
+                BlockPos centerPos = largeTreeSaplingSettings(saplingData, foundSaplingPositions, worldIn, pos, saplingState);
 
                 if (centerPos != null)
                     return configuredTreeFeature.func_242765_a(worldIn, chunkGenerator, random, centerPos);
@@ -42,28 +58,17 @@ public abstract class TreeSpawner {
     }
 
     @Nullable
-    public BlockPos saplingSettings(@Nullable SaplingData saplingData, ISeedReader world, BlockPos boneMealPos, BlockState saplingState) {
+    public BlockPos largeTreeSaplingSettings(@Nullable SaplingData saplingData, Set<BlockPos> foundSaplingPositions, ISeedReader world, BlockPos boneMealPos, BlockState saplingState) {
         BlockPos centerPos = null;
 
         if (saplingData != null) {
-            int searchRange = saplingData.getSearchRange();
-            if (searchRange == 0) {
+            if (foundSaplingPositions.size() == 0) {
                 return boneMealPos;
             } else {
-                Set<BlockPos> saplingPosList = new HashSet<>();
                 boolean areAllPositionsPresent = false;
-                BlockPos.Mutable mutable = new BlockPos.Mutable();
-                //Gather Saplings in range
-                for (int xOffset = -searchRange; xOffset <= searchRange; xOffset++) {
-                    for (int ZOffset = -searchRange; ZOffset <= searchRange; ZOffset++) {
-                        mutable.setPos(boneMealPos).move(xOffset, 0, ZOffset);
-                        if (world.getBlockState(mutable).getBlock().equals(saplingState.getBlock()))
-                            saplingPosList.add(mutable.toImmutable());
-                    }
-                }
 
                 //Iterate through all sapling positions and ensure all positions required for a tree to spawn are occupied.
-                for (BlockPos saplingPos : saplingPosList) {
+                for (BlockPos saplingPos : foundSaplingPositions) {
                     for (BlockPos modifiedPos : saplingData.getTrunkOffsetCoordinates()) {
                         if (world.getBlockState(saplingPos.add(modifiedPos)).getBlock().equals(saplingState.getBlock())) {
                             areAllPositionsPresent = true;
