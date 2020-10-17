@@ -267,7 +267,7 @@ public class BYGBlockProperties {
 
     public static class BYGFrostMagma extends BYGFrostMagmaBlock {
         public BYGFrostMagma(String registryName) {
-            super(Block.Properties.create(Material.PACKED_ICE)
+            super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
