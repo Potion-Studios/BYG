@@ -41,34 +41,21 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
         for (double x = -volcanoConeSize; x <= volcanoConeSize; x++) {
             for (double y = -volcanoConeSize; y <= -1; y++) {
                 for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
-                    double noise = perlin.getValue(x, y, z) * 12;
+                    mutable.setPos(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
+                    double noise = perlin.getValue(mutable.getX(), mutable.getY(), mutable.getZ()) * 12;
                     double scaledNoise = (noise / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
-                    if (scaledNoise >= 0.5) {
-                        mutable.setPos(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
-                        if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
-                            world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
-                        }
-                    }
-                }
-            }
-        }
-
-        for (double x = -volcanoConeSize + lavaLeakage; x <= volcanoConeSize - lavaLeakage; x++) {
-            for (double y = -volcanoConeSize + lavaLeakage; y <= 1; y++) {
-                for (double z = -volcanoConeSize + lavaLeakage; z <= volcanoConeSize - lavaLeakage; z++) {
-                    double noise = perlin.getValue(x, y, z) * 12;
-                    double scaledNoise = (noise / 11) * (-(y * (baseRadius - 2)) / ((x * x) + (z * z)));
-                    if (scaledNoise >= 0.5) {
-                        mutable.setPos(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
-
+                    if (scaledNoise - 2 >= 0.5) {
                         if (mutable.getY() <= pos.getY() + (volcanoStartHeight - 11)) {
                             world.setBlockState(mutable, Blocks.LAVA.getDefaultState(), 2);
                             world.getPendingFluidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
                         }
-                        else {
-                            world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
+                    }
+                    else if (scaledNoise >= 0.5) {
+                        if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
+                            world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                         }
                     }
+
                 }
             }
         }
