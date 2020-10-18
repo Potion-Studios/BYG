@@ -851,6 +851,31 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class CrypticFire extends BoricFireBlock {
+        public CrypticFire(String registryName) {
+            super(AbstractBlock.Properties.create(Material.FIRE, MaterialColor.GREEN)
+                    .sound(SoundType.CLOTH)
+                    .doesNotBlockMovement()
+                    .zeroHardnessAndResistance()
+                    .setLightLevel((state) -> 14)
+            );
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
+        }
+    }
+
+    public static class CrypticCampfire extends CampfireBlock {
+        public CrypticCampfire(String registryName) {
+            super(true, 5, AbstractBlock.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN)
+                    .hardnessAndResistance(2.0F)
+                    .sound(SoundType.WOOD)
+                    .tickRandomly()
+                    .notSolid()
+                    .setLightLevel((state) -> 14)
+            );
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
+        }
+    }
+
     public static class BYGNetherWood extends RotatedPillarBlock {
         public BYGNetherWood(String registryName) {
             super(Block.Properties.create(Material.NETHER_WOOD)

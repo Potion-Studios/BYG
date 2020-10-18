@@ -5,6 +5,8 @@ import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.nightshade.NightshadeBerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.end.shattereddesert.OddityCactusBlock;
+import corgiaoc.byg.common.properties.blocks.end.shulkrenforest.ShulkrenVinePlantBlock;
+import corgiaoc.byg.common.properties.blocks.end.shulkrenforest.ShulkrenVineBlock;
 import corgiaoc.byg.common.properties.blocks.end.viscalisle.SculkGrowthBlock;
 import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
@@ -474,7 +476,7 @@ public class BYGBlocks {
     public static final Block SOUL_SHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("soul_shroom_block");
     public static final Block DEATH_CAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("death_cap_mushroom_block");
     public static final Block BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("bulbis_shell");
-//    public static final Block PURPLE_BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("purple_bulbis_shell");
+    public static final Block PURPLE_BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("purple_bulbis_shell");
 
     public static final Block CATTAIL = new BYGBlockProperties.BlockCattail("cattail");
     public static final Block REEDS = new BYGBlockProperties.BlockCattail("reeds");
@@ -585,12 +587,15 @@ public class BYGBlocks {
     public static final Block THERIUM_LANTERN = new BYGBlockProperties.BYGLantern("therium_lantern");
     public static final Block THERIUM_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("therium_lamp");
 
-//    public static final Block CRYPTIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("cryptic_campfire");
-//    public static final Block CRYPTIC_FIRE = new BYGBlockProperties.BoricFire("cryptic_fire");
-//    public static final Block CRYPTIC_MAGMA = new BYGBlockProperties.BYGFrostMagma("cryptic_magma");
-//
-//    public static final Block SHULKREN_MOSS = createSculkGrowth("shulkren_moss");
+    public static final Block CRYPTIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("cryptic_campfire");
+    public static final Block CRYPTIC_FIRE = new BYGBlockProperties.BoricFire("cryptic_fire");
+    public static final Block CRYPTIC_MAGMA_BLOCK = new BYGBlockProperties.BYGFrostMagma("cryptic_magma_block");
 
+    public static final Block SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
+    public static final Block SHULKREN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("shulkren_wart_block");
+    public static final Block SHULKREN_VINE = createShulkrenVine("shulkren_vine");
+    public static final Block SHULKREN_VINE_PLANT = createShulkrenVinePlant("shulkren_vine_plant");
+    public static final Block PURPLE_SHROOMLIGHT = createShroomlight("purple_shroomlight");
 
     public static final Block BLUE_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("blue_glowcane_block");
     public static final Block RED_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("red_glowcane_block");
@@ -726,8 +731,8 @@ public class BYGBlocks {
     public static final Block SOUL_SHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
     public static final Block DEATH_CAP = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
     public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "bulbis_oddity");
-//    public static final Block PURPLE_BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "purple_bulbis_oddity");
-//    public static final Block SHULKREN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "shulkren_fungus");
+    public static final Block PURPLE_BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleBulbis(), "purple_bulbis_oddity");
+    public static final Block SHULKREN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "shulkren_fungus");
 
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");
@@ -954,7 +959,7 @@ public class BYGBlocks {
     public static final Block NIGHTSHADE_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG, "nightshade_phylium");
     public static final Block ETHER_PHYLIUM = createEndSpreadable(BYGBlocks.ETHER_SOIL, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
     public static final Block VERMILION_SCULK = createEndSpreadable(BYGBlocks.ETHER_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
-//    public static final Block SHULKREN_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
+    public static final Block SHULKREN_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
 
     static Block createFence(String id) {
         Block fence = new FenceBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
@@ -1142,6 +1147,24 @@ public class BYGBlocks {
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, "potted_" + id), flowerPot);
         flowerPotBlocks.add(flowerPot);
         flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id).toString());
+    }
+
+    static Block createShroomlight(String id) {
+        Block shroomlight = new Block(AbstractBlock.Properties.create(Material.ORGANIC, MaterialColor.PURPLE).hardnessAndResistance(1.0F).sound(SoundType.SHROOMLIGHT).setLightLevel((state) -> 14));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), shroomlight);
+        return shroomlight;
+    }
+
+    static Block createShulkrenVine(String id) {
+        Block vineTop = new ShulkrenVineBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.NETHER_VINE).doesNotBlockMovement().harvestTool(ToolType.HOE));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), vineTop);
+        return vineTop;
+    }
+
+    static Block createShulkrenVinePlant(String id) {
+        Block vineBody = new ShulkrenVinePlantBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.NETHER_VINE).doesNotBlockMovement().harvestTool(ToolType.HOE));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), vineBody);
+        return vineBody;
     }
 
     static Block createLeaves(String id) {

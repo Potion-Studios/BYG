@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:block/purple_shroomlight",
+    "particle": "byg:block/purple_shroomlight"
+  }
+}

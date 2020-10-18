@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/shulkren_fungus",
+    "particle": "byg:block/shulkren_fungus"
+  }
+}

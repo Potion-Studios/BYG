@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "byg:boric_campfire"
+    "byg:boric_campfire",
+    "byg:cryptic_campfire"
   ]
 }

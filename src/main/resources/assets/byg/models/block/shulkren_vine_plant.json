@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/shulkren_vine_plant",
+    "particle": "byg:block/shulkren_vine_plant"
+  }
+}

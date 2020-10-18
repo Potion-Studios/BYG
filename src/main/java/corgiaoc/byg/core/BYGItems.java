@@ -239,6 +239,8 @@ public class BYGItems {
     public static final Item BLUE_ENCHANTED_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.BLUE_ENCHANTED, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)), "blue_enchanted_boat");
 
     //Bulbis Woodtype
+    public static final Item PURPLE_BULBIS_ODDITY = createItem(new BlockItem(BYGBlocks.PURPLE_BULBIS_ODDITY, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_BULBIS_ODDITY));
+    public static final Item PURPLE_BULBIS_SHELL = createItem(new BlockItem(BYGBlocks.PURPLE_BULBIS_SHELL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_BULBIS_SHELL));
     public static final Item BULBIS_ODDITY = createItem(new BlockItem(BYGBlocks.BULBIS_ODDITY, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_ODDITY));
     public static final Item BULBIS_SHELL = createItem(new BlockItem(BYGBlocks.BULBIS_SHELL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_SHELL));
     public static final Item BULBIS_STEM = createItem(new BlockItem(BYGBlocks.BULBIS_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_STEM));
@@ -946,6 +948,18 @@ public class BYGItems {
     public static final Item THERIUM_LAMP = createItem(new BlockItem(BYGBlocks.THERIUM_LAMP, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_LAMP));
     public static final Item VERMILION_SCULK_GROWTH = createItem(new BlockItem(BYGBlocks.VERMILION_SCULK_GROWTH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.VERMILION_SCULK_GROWTH));
     public static final Item VERMILION_SCULK = createItem(new BlockItem(BYGBlocks.VERMILION_SCULK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.VERMILION_SCULK));
+
+    public static final Item SHULKREN_FUNGUS = createItem(new BlockItem(BYGBlocks.SHULKREN_FUNGUS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHULKREN_FUNGUS));
+    public static final Item SHULKREN_WART_BLOCK = createItem(new BlockItem(BYGBlocks.SHULKREN_WART_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHULKREN_WART_BLOCK));
+    public static final Item SHULKREN_MOSS_BLANKET = createItem(new BlockItem(BYGBlocks.SHULKREN_MOSS_BLANKET, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHULKREN_MOSS_BLANKET));
+    public static final Item SHULKREN_VINE = createItem(new BlockItem(BYGBlocks.SHULKREN_VINE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHULKREN_VINE));
+    public static final Item SHULKREN_PHYLIUM = createItem(new BlockItem(BYGBlocks.SHULKREN_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHULKREN_PHYLIUM));
+    public static final Item PURPLE_SHROOMLIGHT = createItem(new BlockItem(BYGBlocks.PURPLE_SHROOMLIGHT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_SHROOMLIGHT));
+
+    public static final Item CRYPTIC_MAGMA_BLOCK = createItem(new BlockItem(BYGBlocks.CRYPTIC_MAGMA_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_MAGMA_BLOCK));
+    public static final Item CRYPTIC_CAMPFIRE = createItem(new BlockItem(BYGBlocks.CRYPTIC_CAMPFIRE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_CAMPFIRE));
+
+
 
     //Ice
     public static final Item BLACK_ICE = createItem(new BlockItem(BYGBlocks.BLACK_ICE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BLACK_ICE));

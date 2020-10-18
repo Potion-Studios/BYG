@@ -76,6 +76,8 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.THEREAL_BELLFLOWER, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.ETHER_SAPLING, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.NIGHTSHADE_SAPLING, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.PURPLE_BULBIS_ODDITY, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.PURPLE_BULBIS_SHELL, RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.BULBIS_ODDITY, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.BULBIS_SHELL, RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.NIGHTSHADE_BERRY_BUSH, RenderType.getCutoutMipped());
@@ -85,6 +87,11 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.ODDITY_CACTUS, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.ODDITY_BUSH, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.THERIUM_CRYSTAL, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.SHULKREN_MOSS_BLANKET, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.SHULKREN_FUNGUS, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.SHULKREN_VINE, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.SHULKREN_VINE_PLANT, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.CRYPTIC_CAMPFIRE, RenderType.getCutoutMipped());
 
         //Sea Plants
         RenderTypeLookup.setRenderLayer(BYGBlocks.CATTAIL, RenderType.getCutoutMipped());
@@ -294,6 +301,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.BLUE_GLOWSHROOM, RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.BLUE_GLOWSHROOM_BLOCK, RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.BORIC_FIRE, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.CRYPTIC_FIRE, RenderType.getCutoutMipped());
 
         RenderTypeLookup.setRenderLayer(BYGBlocks.BLACK_ICE, RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.BLUEBERRY_BUSH, RenderType.getCutoutMipped());

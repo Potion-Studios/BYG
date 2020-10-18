@@ -852,7 +852,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSparseBulbisTrees(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_BULBIS_TREE);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_PURPLE_BULBIS_TREE);
     }
 
     public static void addEtherTrees(BiomeGenerationSettings.Builder gen) {
