@@ -206,8 +206,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> BLACK_SANDSTONE_SPIKE2 = WorldGenRegistrationHelper.createConfiguredFeature("black_sandstone_spike2", BYGFeatures.TALL_POINTED_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.BLACK_SANDSTONE.getDefaultState(), 24).addWeightedBlockstate(BYGBlocks.BLACK_SMOOTH_SANDSTONE.getDefaultState(), 1)).setSeed(15676).setHeightMultiplier(0.8).build()));
 
 
-    public static final ConfiguredFeature<?, ?> VALLE_DE_LUNA_POINTY_ROCK = WorldGenRegistrationHelper.createConfiguredFeature("valle_de_luna_pointy_rock", BYGFeatures.POINTY_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SAND.getDefaultState(), 5).addWeightedBlockstate(BYGBlocks.WHITE_CUT_SANDSTONE.getDefaultState(), 5)).setSeed(88).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(28, 0.1F, 1))));
-    public static final ConfiguredFeature<?, ?> VALLE_DE_LUNA_POINTY_ROCK_LARGE = WorldGenRegistrationHelper.createConfiguredFeature("valle_de_luna_pointy_rock_large", BYGFeatures.POINTY_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SAND.getDefaultState(), 5).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 5)).setSeed(100).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(4, 0.1F, 1))));
+    public static final ConfiguredFeature<?, ?> VALLE_DE_LUNA_POINTY_ROCK = WorldGenRegistrationHelper.createConfiguredFeature("valle_de_luna_pointy_rock", BYGFeatures.POINTY_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SAND.getDefaultState(), 5).addWeightedBlockstate(BYGBlocks.WHITE_CUT_SANDSTONE.getDefaultState(), 5)).setSeed(88).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(28, 0.1F, 1))));
+    public static final ConfiguredFeature<?, ?> VALLE_DE_LUNA_POINTY_ROCK_LARGE = WorldGenRegistrationHelper.createConfiguredFeature("valle_de_luna_pointy_rock_large", BYGFeatures.POINTY_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SAND.getDefaultState(), 5).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 5)).setSeed(100).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(4, 0.1F, 1))));
 
 
     public static final ConfiguredFeature<?, ?> ORE_PERVADED_NETHERRACK = WorldGenRegistrationHelper.createConfiguredFeature("ore_pervaded_netherrack", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241884_c, BYGBlocks.PERVADED_NETHERRACK.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).func_242728_a().func_242731_b(16));
@@ -248,23 +248,23 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> SYTHIAN_STALK = WorldGenRegistrationHelper.createConfiguredFeature("sythian_stalk", BYGFeatures.SYTHIAN_STALK.withConfiguration(new ProbabilityConfig(0.9F)).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.5F, 8))));
     public static final ConfiguredFeature<?, ?> EMBUR_LILY = WorldGenRegistrationHelper.createConfiguredFeature("embur_lily", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.EMBUR_LILY.getDefaultState(), ImmutableList.of(BYGBlocks.SYTHIAN_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.LAVA.getDefaultState()))).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 2))));
     public static final ConfiguredFeature<?, ?> WIDE_WATER_LAKE = WorldGenRegistrationHelper.createConfiguredFeature("wide_water_lake", BYGFeatures.WIDE_LAKE.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.WATER.getDefaultState()))).withPlacement(BYGDecorators.ANY_WATER_OR_SOLID_SURFACE.configure(new FeatureSpreadConfig(4))));
-    public static final ConfiguredFeature<?, ?> STACKED_BOULDERS = WorldGenRegistrationHelper.createConfiguredFeature("stacked_boulders", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.STONE.getDefaultState(), 3).addWeightedBlockstate(Blocks.DIORITE.getDefaultState(), 2)).setMinStackHeight(10).setMaxHeight(15).setMinRadius(8).setMaxRadius(28).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.15F, 1))));
-    public static final ConfiguredFeature<?, ?> GRASSLAND_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("grassland_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ROCKY_STONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.MOSSY_STONE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
-    public static final ConfiguredFeature<?, ?> GRANITE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("granite_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.GRANITE.getDefaultState(), 3).addWeightedBlockstate(Blocks.POLISHED_GRANITE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(9).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
-    public static final ConfiguredFeature<?, ?> ARCH = WorldGenRegistrationHelper.createConfiguredFeature("arch", BYGFeatures.ARCH.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.DIAMOND_BLOCK.getDefaultState()))).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.015F, 1))));
-    public static final ConfiguredFeature<?, ?> ARCH2 = WorldGenRegistrationHelper.createConfiguredFeature("arch2", BYGFeatures.ARCH.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.EMERALD_BLOCK.getDefaultState()))).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.015F, 1))));
-    public static final ConfiguredFeature<?, ?> ETHER_STONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("ether_stone_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
+    public static final ConfiguredFeature<?, ?> STACKED_BOULDERS = WorldGenRegistrationHelper.createConfiguredFeature("stacked_boulders", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.STONE.getDefaultState(), 3).addWeightedBlockstate(Blocks.DIORITE.getDefaultState(), 2)).setMinStackHeight(10).setMaxHeight(15).setMinRadius(8).setMaxRadius(28).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.15F, 1))));
+    public static final ConfiguredFeature<?, ?> GRASSLAND_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("grassland_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ROCKY_STONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.MOSSY_STONE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
+    public static final ConfiguredFeature<?, ?> GRANITE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("granite_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.GRANITE.getDefaultState(), 3).addWeightedBlockstate(Blocks.POLISHED_GRANITE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(9).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+    public static final ConfiguredFeature<?, ?> ARCH = WorldGenRegistrationHelper.createConfiguredFeature("arch", BYGFeatures.ARCH.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.DIAMOND_BLOCK.getDefaultState()))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.015F, 1))));
+    public static final ConfiguredFeature<?, ?> ARCH2 = WorldGenRegistrationHelper.createConfiguredFeature("arch2", BYGFeatures.ARCH.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.EMERALD_BLOCK.getDefaultState()))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.015F, 1))));
+    public static final ConfiguredFeature<?, ?> ETHER_STONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("ether_stone_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
 
     public static final ConfiguredFeature<?, ?> BLACK_ICE_SNOW = WorldGenRegistrationHelper.createConfiguredFeature("black_ice_snow", BYGFeatures.ICE_SNOW.withConfiguration(new Simple2BlockProviderConfig(new SimpleBlockStateProvider(Blocks.ICE.getDefaultState()), new SimpleBlockStateProvider(Blocks.SNOW.getDefaultState())))).withPlacement(Placement.NOPE.configure(new NoPlacementConfig()));
 
 
     public static final ConfiguredFeature<?, ?> RED_ROCK_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("red_rock_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.RED_ROCK.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.RED_ROCK.getDefaultState(), 9).addWeightedBlockstate(Blocks.RED_CONCRETE.getDefaultState(), 1)).setMinStackHeight(7).setMaxHeight(12).setMinRadius(8).setMaxRadius(12).build()));
-    public static final ConfiguredFeature<?, ?> WHITE_SANDSTONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("white_sandstone_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SANDSTONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 2).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.WHITE_SAND.getDefaultState(), 5)).setMinStackHeight(3).setMaxHeight(12).setMinRadius(13).setMaxRadius(20).setRadiusDivisor(1.1).flattenTopBoulder().build()).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.04F, 1))));
+    public static final ConfiguredFeature<?, ?> WHITE_SANDSTONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("white_sandstone_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SANDSTONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 2).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.WHITE_SAND.getDefaultState(), 5)).setMinStackHeight(3).setMaxHeight(12).setMinRadius(13).setMaxRadius(20).setRadiusDivisor(1.1).flattenTopBoulder().build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.04F, 1))));
     public static final ConfiguredFeature<?, ?> TERRACOTTA_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("terracotta_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.TERRACOTTA.getDefaultState(), 3).addWeightedBlockstate(Blocks.TERRACOTTA.getDefaultState(), 3).addWeightedBlockstate(Blocks.RED_TERRACOTTA.getDefaultState(), 7)).setMinStackHeight(7).setMaxHeight(12).setMinRadius(8).setMaxRadius(12).build()));
 
 
     public static final ConfiguredFeature<?, ?> RIVER = WorldGenRegistrationHelper.createConfiguredFeature("river_aheehee", BYGFeatures.HUH.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
-    public static final ConfiguredFeature<?, ?> VOLCANO = WorldGenRegistrationHelper.createConfiguredFeature("volcano", BYGFeatures.VOLCANO.withConfiguration(new SimpleBlockProviderConfig(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.BLACKSTONE.getDefaultState(), 4).addWeightedBlockstate(Blocks.BLACK_CONCRETE.getDefaultState(), 3).addWeightedBlockstate(Blocks.STONE.getDefaultState(), 2).addWeightedBlockstate(BYGBlocks.MAGMATIC_STONE.getDefaultState(), 1))).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.025F, 1))));
+    public static final ConfiguredFeature<?, ?> VOLCANO = WorldGenRegistrationHelper.createConfiguredFeature("volcano", BYGFeatures.VOLCANO.withConfiguration(new SimpleBlockProviderConfig(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.BLACKSTONE.getDefaultState(), 4).addWeightedBlockstate(Blocks.BLACK_CONCRETE.getDefaultState(), 3).addWeightedBlockstate(Blocks.STONE.getDefaultState(), 2).addWeightedBlockstate(BYGBlocks.MAGMATIC_STONE.getDefaultState(), 1))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.025F, 1))));
     public static final ConfiguredFeature<?, ?> BASALT_DELTA = WorldGenRegistrationHelper.createConfiguredFeature("delta", Feature.DELTA_FEATURE.withConfiguration(new BasaltDeltasFeature(Blocks.WATER.getDefaultState(), Blocks.WATER.getDefaultState(), FeatureSpread.func_242253_a(3, 4), FeatureSpread.func_242253_a(0, 2))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(2))));
     public static final ConfiguredFeature<?, ?> SMALL_BASALT_COLUMN = WorldGenRegistrationHelper.createConfiguredFeature("small_basalt_columns", Feature.BASALT_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(1, 1))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
     public static final ConfiguredFeature<?, ?> LARGE_BASALT_COLUMN = WorldGenRegistrationHelper.createConfiguredFeature("large_basalt_columns", Feature.BASALT_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(1, 1))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
@@ -312,7 +312,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_LUNA_BOULDERS = WorldGenRegistrationHelper.createConfiguredFeature("rs_luna_boulders", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             RED_ROCK_BOULDER.withChance(0.5F)),
-            TERRACOTTA_BOULDER)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(0, 0.3F, 1))));
+            TERRACOTTA_BOULDER)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLACKSTONE_BOULDERS = WorldGenRegistrationHelper.createConfiguredFeature("rs_blackstone_boulders", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLACKSTONE_BOULDER.withChance(0.5F)),
@@ -672,7 +672,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = WorldGenRegistrationHelper.createConfiguredFeature("rs_dead_sea_spike", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_SEA_SPIKE.withChance(0.9F)),
-            DEAD_SEA_SPIKE_TALL)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(new AtSurfaceWithExtraConfig(28, 0.1F, 1))));
+            DEAD_SEA_SPIKE_TALL)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(28, 0.1F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("rs_pumpkin_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PUMPKIN1.withChance(0.5F)),
@@ -1077,13 +1077,13 @@ public class BYGConfiguredFeatures {
             WILLOW_TREE1.withChance(0.25F),
             WILLOW_TREE2.withChance(0.25F),
             WILLOW_TREE3.withChance(0.25F)),
-            WILLOW_TREE4)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            WILLOW_TREE4)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(8, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CORAL_MANGROVE = WorldGenRegistrationHelper.createConfiguredFeature("rs_mg_coral", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             Feature.CORAL_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.25F),
             Feature.CORAL_MUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.25F)),
-            Feature.CORAL_CLAW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            Feature.CORAL_CLAW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(25, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUFF_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_bluff_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1164,7 +1164,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_CYPRESS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_cypress_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CYPRESS_TREE1.withChance(0.5F),
             CYPRESS_TREE2.withChance(0.4F)),
-            CYPRESS_TREE3)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            CYPRESS_TREE3)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(5, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_deciduous_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1471,7 +1471,7 @@ public class BYGConfiguredFeatures {
             WILLOW_TREE3.withChance(0.2F),
             WILLOW_TREE4.withChance(0.2F),
             WILLOW_TREE2.withChance(0.1F)),
-            WILLOW_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            WILLOW_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(8, 0.4F, 3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_aspen_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1591,7 +1591,7 @@ public class BYGConfiguredFeatures {
             MANGROVE_TREE2.withChance(0.2F),
             MANGROVE_TREE3.withChance(0.2F),
             MANGROVE_TREE4.withChance(0.1F)),
-            MANGROVE_TREE5)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            MANGROVE_TREE5)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(15, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MANGROVE_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_mangrove_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1599,7 +1599,7 @@ public class BYGConfiguredFeatures {
             MANGROVE_TREE2.withChance(0.2F),
             MANGROVE_TREE3.withChance(0.2F),
             MANGROVE_TREE4.withChance(0.1F)),
-            MANGROVE_TREE5)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            MANGROVE_TREE5)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.5F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PINE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_pine_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1746,45 +1746,45 @@ public class BYGConfiguredFeatures {
             BULBIS_TREE4.withChance(0.15F),
             BULBIS_TREE3.withChance(0.3F),
             BULBIS_TREE2.withChance(0.3F)),
-            BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_BULBIS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_bulbis_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BULBIS_TREE4.withChance(0.15F),
             BULBIS_TREE3.withChance(0.3F),
             BULBIS_TREE2.withChance(0.3F)),
-            BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PURPLE_BULBIS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_purple_bulbis_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PURPLE_BULBIS_TREE4.withChance(0.15F),
             PURPLE_BULBIS_TREE3.withChance(0.3F),
             PURPLE_BULBIS_TREE2.withChance(0.3F)),
-            PURPLE_BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            PURPLE_BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_PURPLE_BULBIS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_purple_bulbis_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PURPLE_BULBIS_TREE4.withChance(0.15F),
             PURPLE_BULBIS_TREE3.withChance(0.3F),
             PURPLE_BULBIS_TREE2.withChance(0.3F)),
-            PURPLE_BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            PURPLE_BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_NIGHTSHADE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_nightshade_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             NIGHTSHADE_TREE1.withChance(0.7F)),
-            NIGHTSHADE_TREE2)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            NIGHTSHADE_TREE2)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ETHER_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_ether_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ETHER_TREE3.withChance(0.35F),
             ETHER_TREE2.withChance(0.35F)),
-            ETHER_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            ETHER_TREE1)).withPlacement(BYGDecorators.MOTION_BLOCKING_NO_LEAVES_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_ETHER_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_dead_ether_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ETHER_TREE_DEAD1.withChance(0.35F),
             ETHER_TREE_DEAD2.withChance(0.35F)),
-            ETHER_TREE_DEAD3)).withPlacement(BYGDecorators.OCEAN_FLOOR.configure(
+            ETHER_TREE_DEAD3)).withPlacement(BYGDecorators.MOTION_BLOCKING_NO_LEAVES_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ISLAND = WorldGenRegistrationHelper.createConfiguredFeature("rs_floating_island", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(

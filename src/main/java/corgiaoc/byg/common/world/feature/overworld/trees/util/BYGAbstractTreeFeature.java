@@ -43,15 +43,15 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean canLogPlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, (state) -> state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean canLogPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, (state) -> state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean canLogPlaceHereNether(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA) || FeatureUtil.isPlant(worldReader, blockPos);
+        return worldReader.hasBlockState(blockPos, (state) -> state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean isAnotherTreeHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
@@ -426,7 +426,8 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk), boundingBox);
                         else
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getGroundReplacementProvider().getBlockState(rand, mutableTrunk), boundingBox);
-                    } else {
+                    }
+                else {
                         if (!isDesiredGround(reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk).getBlock()))
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getGroundReplacementProvider().getBlockState(rand, mutableTrunk), boundingBox);
                         fill = 15;

@@ -13,7 +13,7 @@ import net.minecraftforge.common.Tags;
 public class FeatureUtil {
 
     public static boolean isPlant(IWorldGenerationBaseReader world, BlockPos pos) {
-        return world.hasBlockState(pos, (state) -> state.isIn(BlockTags.LEAVES) || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.TALL_PLANTS || state.getMaterial() == Material.OCEAN_PLANT);
+        return world.hasBlockState(pos, (state) -> state.isIn(BlockTags.LEAVES) || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.TALL_PLANTS || state.getMaterial() == Material.OCEAN_PLANT || state.getMaterial() == Material.NETHER_PLANTS);
     }
 
     public static boolean isTerrainOrRock(IWorldGenerationBaseReader world, BlockPos pos) {
