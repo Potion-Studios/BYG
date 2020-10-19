@@ -32,7 +32,6 @@ public class SpikeFeature extends Feature<SimpleBlockProviderConfig> {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         double baseRadius = 4;
-        int lavaLeakage = 2;
         int volcanoConeSize = 45;
         int volcanoStartHeight = volcanoConeSize - 5;
 
