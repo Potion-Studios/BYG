@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.FloatingIslandConfig;
 import corgiaoc.byg.util.noise.fastnoise.lite.FastNoiseLite;
 import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -11,6 +12,8 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
+
+//Just disable this one for now!!! It is a thing of water rn!
 
 public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
 
@@ -30,12 +33,12 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
 
-        double radius = 8;
+        double radius = 11;
         double size = radius / 3;
         double radiusHalved = radius / 2;
 
         for (double x = -radius; x <= radius; x++) {
-            for (double y = -radius; y <= -5; y++) {
+            for (double y = -radius; y <= 1; y++) {
                 for (double z = -radius; z <= radius; z++) {
                     double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12 - 6;
                     double distanceSqt1 = x * x + y * y + z * z + noise * noise;
@@ -60,7 +63,8 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
                     double distanceSqt1 = x * x + y * y + z * z;
                     if (distanceSqt1 <= radiusHalved * radiusHalved) {
                         if (y <= 2) {
-                            world.setBlockState(mutable.add(x, y, z), Blocks.AIR.getDefaultState(), 2);
+                            world.setBlockState(mutable.add(x, y, z), Blocks.WATER.getDefaultState(), 2);
+                            world.getPendingFluidTicks().scheduleTick(mutable, Fluids.WATER, 0);
                         }
                     }
                 }
