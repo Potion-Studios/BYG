@@ -2054,5 +2054,6 @@
   "item.byg.zelkova_slab": "Zelkova Slab",
   "item.byg.zelkova_stairs": "Zelkova Stairs",
   "item.byg.zelkova_trapdoor": "Zelkova Trapdoor",
-  "item.byg.zelkova_wood": "Zelkova Wood"
+  "item.byg.zelkova_wood": "Zelkova Wood",
+  "itemGroup.byg": "Biomes You Go"
 }

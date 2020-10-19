@@ -56,7 +56,6 @@ public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
             for (double y = 1; y <= radius + 11; y++) {
                 for (double z = -radius - 8; z <= radius + 8; z++) {
                     mutable.setPos(pos).move((int) x, (int) y - 22, (int) z);
-
                     double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double scaledNoise = (noise) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
