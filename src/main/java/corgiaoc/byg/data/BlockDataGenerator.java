@@ -518,7 +518,27 @@ public class BlockDataGenerator {
                 "  }\n" +
                 "}";
 
+        String wood = "{\n" +
+                "  \"type\": \"minecraft:crafting_shaped\",\n" +
+                "  \"group\": \"bark\",\n" +
+                "  \"pattern\": [\n" +
+                "    \"##\",\n" +
+                "    \"##\"\n" +
+                "  ],\n" +
+                "  \"key\": {\n" +
+                "    \"#\": {\n" +
+                "      \"item\": \"key\"\n" +
+                "    }\n" +
+                "  },\n" +
+                "  \"result\": {\n" +
+                "    \"item\": \"id\",\n" +
+                "    \"count\": 3\n" +
+                "  }\n" +
+                "}";
+
+
         filterRecipeList.add(new Pair<>("_planks", plankRecipe));
+        filterRecipeList.add(new Pair<>("_wood", wood));
         filterRecipeList.add(new Pair<>("_slab", slab));
         filterRecipeList.add(new Pair<>("_stairs", stairs));
         filterRecipeList.add(new Pair<>("_bookshelf", bookShelf));
