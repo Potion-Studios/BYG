@@ -42,7 +42,10 @@ public class BYGStrippables {
         strippableBlock(BYGBlocks.PALM_LOG, BYGBlocks.STRIPPED_PALM_LOG);
         strippableBlock(BYGBlocks.LAMENT_LOG, BYGBlocks.STRIPPED_LAMENT_LOG);
         strippableBlock(BYGBlocks.WITHERING_OAK_LOG, Blocks.STRIPPED_OAK_LOG);
-
+        strippableBlock(BYGBlocks.ETHER_LOG, BYGBlocks.STRIPPED_ETHER_LOG);
+        strippableBlock(BYGBlocks.NIGHTSHADE_LOG, BYGBlocks.STRIPPED_NIGHTSHADE_LOG);
+        strippableBlock(BYGBlocks.BULBIS_STEM, BYGBlocks.STRIPPED_BULBIS_LOG);
+        
         strippableBlock(BYGBlocks.ASPEN_WOOD, BYGBlocks.STRIPPED_ASPEN_WOOD);
         strippableBlock(BYGBlocks.BAOBAB_WOOD, BYGBlocks.STRIPPED_BAOBAB_WOOD);
         strippableBlock(BYGBlocks.BLUE_ENCHANTED_WOOD, BYGBlocks.STRIPPED_BLUE_ENCHANTED_WOOD);
@@ -69,6 +72,9 @@ public class BYGStrippables {
         strippableBlock(BYGBlocks.PALM_WOOD, BYGBlocks.STRIPPED_PALM_WOOD);
         strippableBlock(BYGBlocks.LAMENT_WOOD, BYGBlocks.STRIPPED_LAMENT_WOOD);
         strippableBlock(BYGBlocks.WITHERING_OAK_WOOD, Blocks.STRIPPED_OAK_WOOD);
+        strippableBlock(BYGBlocks.ETHER_WOOD, BYGBlocks.STRIPPED_ETHER_WOOD);
+        strippableBlock(BYGBlocks.NIGHTSHADE_WOOD, BYGBlocks.STRIPPED_NIGHTSHADE_WOOD);
+        strippableBlock(BYGBlocks.BULBIS_WOOD, BYGBlocks.STRIPPED_BULBIS_WOOD);
 
         BYG.LOGGER.info("BYG: Added strippable Blocks...");
 
