@@ -50,7 +50,7 @@ public class BYG {
     public static boolean isClient = false;
     public static Logger LOGGER = LogManager.getLogger();
     public static boolean isUsingMixin;
-    public static String FILE_PATH = "kachow";
+    public static String FILE_PATH = "yeet";
 
     public BYG() {
         BYGWorldConfig.loadConfig(BYGWorldConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MOD_ID + "-world-common.toml"));

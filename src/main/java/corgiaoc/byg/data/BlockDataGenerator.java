@@ -536,7 +536,6 @@ public class BlockDataGenerator {
                 "  }\n" +
                 "}";
 
-
         filterRecipeList.add(new Pair<>("_planks", plankRecipe));
         filterRecipeList.add(new Pair<>("_wood", wood));
         filterRecipeList.add(new Pair<>("_slab", slab));
