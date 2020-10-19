@@ -2,7 +2,7 @@ package corgiaoc.byg.core.world;
 
 import corgiaoc.byg.common.world.biome.overworld.IceburgOcean;
 import corgiaoc.byg.common.world.surfacebuilder.*;
-import corgiaoc.byg.common.world.surfacebuilder.config.FillSurfaceSurfaceBuilderConfig;
+import corgiaoc.byg.common.world.surfacebuilder.config.FillSurfaceBuilderConfig;
 import corgiaoc.byg.common.world.surfacebuilder.config.PointedSBConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
@@ -48,7 +48,7 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<SurfaceBuilderConfig> GLOWSTONE_GARDENS = WorldGenRegistrationHelper.createSurfaceBuilder("glowstone_gardens", new GlowstoneGardensSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> TWILIGHT_VALLEY = WorldGenRegistrationHelper.createSurfaceBuilder("twilight_valley", new TwilightValleySB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> ERODED_LUNA = WorldGenRegistrationHelper.createSurfaceBuilder("eroded_luna", new ErodedLunaSB(SurfaceBuilderConfig.field_237203_a_));
-    public static final SurfaceBuilder<FillSurfaceSurfaceBuilderConfig> FILLER = WorldGenRegistrationHelper.createSurfaceBuilder("filler", new FillerSurfaceBuilder(FillSurfaceSurfaceBuilderConfig.CODEC));
+    public static final SurfaceBuilder<FillSurfaceBuilderConfig> FILL = WorldGenRegistrationHelper.createSurfaceBuilder("fill", new FillerSurfaceBuilder(FillSurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> BRIMSTONE_CAVERNS = WorldGenRegistrationHelper.createSurfaceBuilder("brimstone_caverns", new BrimstoneCavernsSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> MAGMA_WASTES = WorldGenRegistrationHelper.createSurfaceBuilder("magma_wastes", new MagmaWastesSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> SUBZERO_HYPOGEAL = WorldGenRegistrationHelper.createSurfaceBuilder("subzero_hypogeal", new SubzeroHypogealSB(SurfaceBuilderConfig.field_237203_a_));

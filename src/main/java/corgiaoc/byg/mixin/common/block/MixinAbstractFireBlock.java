@@ -1,5 +1,6 @@
 package corgiaoc.byg.mixin.common.block;
 
+import corgiaoc.byg.common.properties.blocks.end.CrypticFireBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.AbstractFireBlock;
@@ -21,6 +22,10 @@ public abstract class MixinAbstractFireBlock {
         if (BoricFireBlock.shouldLightBoricFire(blockstate.getBlock())) {
             cir.cancel();
             cir.setReturnValue(BYGBlocks.BORIC_FIRE.getDefaultState());
+        }
+        if (CrypticFireBlock.shouldLightCrypticFire(blockstate.getBlock())) {
+            cir.cancel();
+            cir.setReturnValue(BYGBlocks.CRYPTIC_FIRE.getDefaultState());
         }
     }
 }

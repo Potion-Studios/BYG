@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import javax.annotation.Nullable;
 
+@SuppressWarnings("deprecation")
 @Mixin(ShoreLayer.class)
 public abstract class MixinShoreLayer {
 
@@ -69,10 +70,6 @@ public abstract class MixinShoreLayer {
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOW_BEACH));
 
-            if (biome == BYGBiomes.TROPICAL_RAINFOREST || biome == BYGBiomes.TROPICAL_RAINFOREST_HILLS)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOW_BEACH));
-
             if (biome == BYGBiomes.TROPICAL_FUNGAL_RAINFOREST || biome == BYGBiomes.TROPICAL_FUNGAL_RAINFOREST_HILLS || biome == BYGBiomes.FUNGAL_PATCH)
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOW_BEACH));
@@ -88,7 +85,6 @@ public abstract class MixinShoreLayer {
             if (biome != null && biome.getDepth() > 2.0F && biome != BYGBiomes.CANYONS && biome != BYGBiomes.CANYON_EDGE)
                 if (isOcean(idx))
                     cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.BASALT_BARRERA));
-
 
             if (biome == BYGBiomes.THE_BLACK_FOREST || biome == BYGBiomes.BLACK_FOREST_CLEARING || biome == BYGBiomes.BLACK_FOREST_HILLS || biome == BYGBiomes.FOREST_FAULT)
                 if (isOcean(idx))

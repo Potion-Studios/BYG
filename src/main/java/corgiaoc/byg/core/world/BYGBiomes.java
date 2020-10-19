@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.end.*;
+import corgiaoc.byg.common.world.biome.end.sub.ShatteredViscalIsles;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
 import corgiaoc.byg.common.world.biome.overworld.sub.*;
@@ -14,16 +15,11 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FreshWaterLake;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FrozenLake;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
-import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeCatch;
-import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
-import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeCatch;
-import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeRegistry;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -34,7 +30,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -42,7 +37,7 @@ import java.util.stream.Collectors;
 public class BYGBiomes {
     public static List<Biome> biomeList = new ArrayList<>();
 
-    public static final Biome DUMMY_BIOME = WorldGenRegistrationHelper.createBiome("dummy", new DummyBiome().getBiome());
+//    public static final Biome DUMMY_BIOME = WorldGenRegistrationHelper.createBiome("dummy", new DummyBiome().getBiome());
 
 
     /************Primary Biomes************/
@@ -56,14 +51,14 @@ public class BYGBiomes {
     public static final Biome BAOBAB_SAVANNA = WorldGenRegistrationHelper.createBiome("baobab_savanna", new BaobabSavanna().getBiome());
     public static final Biome BAYOU = WorldGenRegistrationHelper.createBiome("bayou", new Bayou().getBiome());
     public static final Biome BLUE_TAIGA = WorldGenRegistrationHelper.createBiome("blue_taiga", new BlueTaiga().getBiome());
-    public static final Biome CIKA_WOODS = WorldGenRegistrationHelper.createBiome("cika_woods", new CikaWoods().getBiome());
-    public static final Biome COLOSSAL_ICE_SPIKES = WorldGenRegistrationHelper.createBiome("colossal_ice_spikes", new ColossalIceSpikes().getBiome());
+    //    public static final Biome COLOSSAL_ICE_SPIKES = WorldGenRegistrationHelper.createBiome("colossal_ice_spikes", new ColossalIceSpikes().getBiome());
     public static final Biome BLUFF_STEEPS = WorldGenRegistrationHelper.createBiome("bluff_steeps", new BluffSteeps().getBiome());
     public static final Biome BOG = WorldGenRegistrationHelper.createBiome("bog", new Bog().getBiome());
     public static final Biome BOREAL_FOREST = WorldGenRegistrationHelper.createBiome("boreal_forest", new BorealForest().getBiome());
+    public static final Biome CANYONS = WorldGenRegistrationHelper.createBiome("canyons", new Canyons().getBiome());
+    public static final Biome CIKA_WOODS = WorldGenRegistrationHelper.createBiome("cika_woods", new CikaWoods().getBiome());
     public static final Biome COLD_SWAMPLANDS = WorldGenRegistrationHelper.createBiome("cold_swamplands", new ColdSwamplands().getBiome());
     public static final Biome CRAG_GARDENS = WorldGenRegistrationHelper.createBiome("crag_gardens", new CragGardens().getBiome());
-    public static final Biome CANYONS = WorldGenRegistrationHelper.createBiome("canyons", new Canyons().getBiome());
     public static final Biome CYPRESS_SWAMPLANDS = WorldGenRegistrationHelper.createBiome("cypress_swamplands", new CypressSwampland().getBiome());
     public static final Biome CHERRY_BLOSSOM_FOREST = WorldGenRegistrationHelper.createBiome("cherry_blossom_forest", new CherryBlossomForest().getBiome());
     public static final Biome CONIFEROUS_FOREST = WorldGenRegistrationHelper.createBiome("coniferous_forest", new ConiferousForest().getBiome());
@@ -114,9 +109,9 @@ public class BYGBiomes {
     public static final Biome TROPICAL_ISLAND = WorldGenRegistrationHelper.createBiome("tropical_islands", new TropicalIslands().getBiome());
     public static final Biome TROPICAL_RAINFOREST = WorldGenRegistrationHelper.createBiome("tropical_rainforest", new TropicalRainForest().getBiome());
     public static final Biome TWILIGHT_VALLEY = WorldGenRegistrationHelper.createBiome("twilight_valley", new TwilightValley().getBiome());
-    public static final Biome VALLE_DE_LUNA = WorldGenRegistrationHelper.createBiome("valle_de_luna", new ValleDeLuna().getBiome());
+//    public static final Biome VALLE_DE_LUNA = WorldGenRegistrationHelper.createBiome("valle_de_luna", new ValleDeLuna().getBiome());
     public static final Biome VIBRANT_SWAMPLANDS = WorldGenRegistrationHelper.createBiome("vibrant_swamplands", new VibrantSwamplands().getBiome());
-    public static final Biome VOLCANO = WorldGenRegistrationHelper.createBiome("volcano", new Volcano().getBiome());
+    //    public static final Biome VOLCANO = WorldGenRegistrationHelper.createBiome("volcano", new Volcano().getBiome());
     public static final Biome WEEPING_WITCH_FOREST = WorldGenRegistrationHelper.createBiome("weeping_witch_forest", new WeepingWitchForest().getBiome());
     public static final Biome WOODLANDS = WorldGenRegistrationHelper.createBiome("woodlands", new WoodLands().getBiome());
     public static final Biome ZELKOVA_FOREST = WorldGenRegistrationHelper.createBiome("zelkova_forest", new ZelkovaForest().getBiome());
@@ -246,18 +241,11 @@ public class BYGBiomes {
     public static final Biome NIGHTSHADE_FOREST = WorldGenRegistrationHelper.createBiome("nightshade_forest", new NightshadeForest().getBiome());
     public static final Biome ETHEREAL_ISLANDS = WorldGenRegistrationHelper.createBiome("ethereal_islands", new EtherealIslands().getBiome());
     public static final Biome VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("viscal_isles", new ViscalIsles().getBiome());
+    public static final Biome SHATTERED_VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("shattered_viscal_isles", new ShatteredViscalIsles().getBiome());
     public static final Biome SHATTERED_DESERT = WorldGenRegistrationHelper.createBiome("shattered_desert", new ShatteredDesert().getBiome());
 
 
     public static void init() {
-    }
-
-    public static void addBiomeNumericalIDsForLayerSampler() {
-        for (Biome biome : biomeList) {
-            Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
-            if (key.isPresent())
-                key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
-        }
     }
 
     public static void addBiomesToWeightSystem() {
@@ -338,60 +326,7 @@ public class BYGBiomes {
         }
     }
 
-    public static void addEndBiomeNumericalIDsForLayerSampler() {
-        //Avoid adding to the list with already spawning end biomes.
-        List<Biome> endBiomeBlackList = new ArrayList<>();
-        endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.END_BARRENS));
-        endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.THE_END));
-        endBiomeBlackList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.SMALL_END_ISLANDS));
-        endBiomeBlackList.add(BYGBiomes.VISCAL_ISLES);
-        if (BYGEndBiomeCatch.useAllEndBiomes) {
-            for (Biome biome : WorldGenRegistries.BIOME) {
-                if (biome.getCategory().equals(Biome.Category.THEEND) && !endBiomeBlackList.contains(biome)) {
-                    Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
-                    if (key.isPresent())
-                        key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
-
-                    if (!BYGEndBiomeProvider.END_BIOMES.contains(biome))
-                        BYGEndBiomeProvider.END_BIOMES.add(biome);
-                }
-            }
-        } else {
-            for (Biome biome : BYGEndBiomeProvider.END_BIOMES) {
-                if (biome.getCategory().equals(Biome.Category.THEEND) && !endBiomeBlackList.contains(biome)) {
-                    Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
-                    if (key.isPresent())
-                        key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
-                }
-            }
-        }
-    }
-
-    public static void addNetherBiomeNumericalIDsForLayerSampler() {
-        if (BYGNetherBiomeCatch.useAllNetherBiomes) {
-            for (Biome biome : WorldGenRegistries.BIOME) {
-                if (biome.getCategory().equals(Biome.Category.NETHER)) {
-                    Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
-                    if (key.isPresent())
-                        key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
-
-                    if (!BYGNetherBiomeProvider.NETHER_BIOMES.contains(biome))
-                        BYGNetherBiomeProvider.NETHER_BIOMES.add(biome);
-                }
-            }
-        } else {
-            for (Biome biome : BYGNetherBiomeProvider.NETHER_BIOMES) {
-                if (biome.getCategory().equals(Biome.Category.NETHER)) {
-                    Optional<RegistryKey<Biome>> key = WorldGenRegistries.BIOME.getOptionalKey(biome);
-                    if (key.isPresent())
-                        key.ifPresent(biomeRegistryKey -> BiomeRegistry.idToKeyMap.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
-                }
-            }
-        }
-    }
-
-    public static void addBYGFeaturesToBiomes() {
-        for (Biome biome : WorldGenRegistries.BIOME) {
+    public static void addBYGFeaturesToBiomes(Biome biome) {
             if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_ROCKY_STONE);
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);
@@ -405,7 +340,6 @@ public class BYGBiomes {
                     addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
                 }
             }
-        }
     }
 
     //Use these to add our features to vanilla's biomes.

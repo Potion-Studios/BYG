@@ -27,6 +27,8 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraftforge.common.Tags;
 
+import javax.annotation.Nullable;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -588,6 +590,12 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     protected abstract boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, TFC config);
+
+    @Nullable
+    public SaplingData saplingData(BlockPos pos) {
+        return new SaplingData(new HashSet<>(), 0);
+    }
+
 
     public static final class PooledMutable extends BlockPos.Mutable implements AutoCloseable {
         private boolean free;

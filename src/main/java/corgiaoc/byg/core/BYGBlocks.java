@@ -5,14 +5,16 @@ import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.nightshade.NightshadeBerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.end.shattereddesert.OddityCactusBlock;
+import corgiaoc.byg.common.properties.blocks.end.shulkrenforest.ShulkrenVinePlantBlock;
+import corgiaoc.byg.common.properties.blocks.end.shulkrenforest.ShulkrenVineBlock;
 import corgiaoc.byg.common.properties.blocks.end.viscalisle.SculkGrowthBlock;
 import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.nether.warped.WarpedCactusBlock;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
-import corgiaoc.byg.common.world.feature.overworld.trees.BYGSaplingToTree;
-import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGTree;
+import corgiaoc.byg.common.world.feature.overworld.trees.TreeSpawners;
+import corgiaoc.byg.common.world.feature.overworld.trees.util.TreeSpawner;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -358,52 +360,52 @@ public class BYGBlocks {
     public static final Block MUD_BLOCK = new BYGBlockProperties.BYGMud("mud_block");
     public static final Block MUD_BRICKS = createDirt("mud_bricks");
 
-    public static final Block ARAUCARIA_SAPLING = createSapling(new BYGSaplingToTree.AraucariaSaplingToTree(), "araucaria_sapling");
-    public static final Block ASPEN_SAPLING = createSapling(new BYGSaplingToTree.AspenSaplingToTree(), "aspen_sapling");
-    public static final Block BAOBAB_SAPLING = createSapling(new BYGSaplingToTree.BaobabSaplingToTree(), "baobab_sapling");
-    public static final Block BLUE_ENCHANTED_SAPLING = createSapling(new BYGSaplingToTree.BlueEnchantedSaplingToTree(), "blue_enchanted_sapling");
-    public static final Block BLUE_SPRUCE_SAPLING = createSapling(new BYGSaplingToTree.BlueSpruceSaplingToTree(), "blue_spruce_sapling");
-    public static final Block BROWN_BIRCH_SAPLING = createSapling(new BYGSaplingToTree.BrownBirchSaplingToTree(), "brown_birch_sapling");
-    public static final Block BROWN_OAK_SAPLING = createSapling(new BYGSaplingToTree.BrownOakSaplingToTree(), "brown_oak_sapling");
-    public static final Block BROWN_ZELKOVA_SAPLING = createSapling(new BYGSaplingToTree.BrownZelkovaSaplingToTree(), "brown_zelkova_sapling");
-    public static final Block CIKA_SAPLING = createSapling(new BYGSaplingToTree.CikaSaplingToTree(), "cika_sapling");
-    public static final Block CYPRESS_SAPLING = createSapling(new BYGSaplingToTree.CypressSaplingToTree(), "cypress_sapling");
-    public static final Block EBONY_SAPLING = createSapling(new BYGSaplingToTree.EbonySaplingToTree(), "ebony_sapling");
-    public static final Block FIR_SAPLING = createSapling(new BYGSaplingToTree.FirSaplingToTree(), "fir_sapling");
-    public static final Block GREEN_ENCHANTED_SAPLING = createSapling(new BYGSaplingToTree.GreenEnchantedSaplingToTree(), "green_enchanted_sapling");
-    public static final Block HOLLY_SAPLING = createSapling(new BYGSaplingToTree.HollySaplingToTree(), "holly_sapling");
-    public static final Block JACARANDA_SAPLING = createSapling(new BYGSaplingToTree.JacarandaSaplingToTree(), "jacaranda_sapling");
-    public static final Block INDIGO_JACARANDA_SAPLING = createSapling(new BYGSaplingToTree.IndigoJacarandaSaplingToTree(), "indigo_jacaranda_sapling");
-    public static final Block JOSHUA_SAPLING = createSapling(new BYGSaplingToTree.JoshuaSaplingToTree(), "joshua_sapling");
-    public static final Block MAHOGANY_SAPLING = createSapling(new BYGSaplingToTree.MahogonySaplingToTree(), "mahogany_sapling");
-    public static final Block MANGROVE_SAPLING = createSapling(new BYGSaplingToTree.MangroveSaplingToTree(), "mangrove_sapling");
-    public static final Block MAPLE_SAPLING = createSapling(new BYGSaplingToTree.MapleSaplingToTree(), "maple_sapling");
-    public static final Block ORANGE_BIRCH_SAPLING = createSapling(new BYGSaplingToTree.OrangeBirchSaplingToTree(), "orange_birch_sapling");
-    public static final Block ORANGE_OAK_SAPLING = createSapling(new BYGSaplingToTree.OrangeOakSaplingToTree(), "orange_oak_sapling");
-    public static final Block ORANGE_SPRUCE_SAPLING = createSapling(new BYGSaplingToTree.OrangeSpruceSaplingToTree(), "orange_spruce_sapling");
-    public static final Block ORCHARD_SAPLING = createSapling(new BYGSaplingToTree.OrchardSaplingToTree(), "orchard_sapling");
-    public static final Block PALO_VERDE_SAPLING = createSapling(new BYGSaplingToTree.PaloVerdeSaplingToTree(), "palo_verde_sapling");
-    public static final Block PINE_SAPLING = createSapling(new BYGSaplingToTree.PineSaplingToTree(), "pine_sapling");
-    public static final Block PINK_CHERRY_SAPLING = createSapling(new BYGSaplingToTree.PinkCherrySaplingToTree(), "pink_cherry_sapling");
-    public static final Block RAINBOW_EUCALYPTUS_SAPLING = createSapling(new BYGSaplingToTree.RainbowEucalyptusSaplingToTree(), "rainbow_eucalyptus_sapling");
-    public static final Block RED_BIRCH_SAPLING = createSapling(new BYGSaplingToTree.RedBirchSaplingToTree(), "red_birch_sapling");
-    public static final Block RED_MAPLE_SAPLING = createSapling(new BYGSaplingToTree.RedMapleSaplingToTree(), "red_maple_sapling");
-    public static final Block RED_OAK_SAPLING = createSapling(new BYGSaplingToTree.RedOakSaplingToTree(), "red_oak_sapling");
-    public static final Block RED_SPRUCE_SAPLING = createSapling(new BYGSaplingToTree.RedSpruceSaplingToTree(), "red_spruce_sapling");
-    public static final Block REDWOOD_SAPLING = createSapling(new BYGSaplingToTree.RedwoodSaplingToTree(), "redwood_sapling");
-    public static final Block SILVER_MAPLE_SAPLING = createSapling(new BYGSaplingToTree.SilverMapleSaplingToTree(), "silver_maple_sapling");
-    public static final Block SKYRIS_SAPLING = createSapling(new BYGSaplingToTree.SkyrisSaplingToTree(), "skyris_sapling");
-    public static final Block WHITE_CHERRY_SAPLING = createSapling(new BYGSaplingToTree.WhiteCherrySaplingToTree(), "white_cherry_sapling");
-    public static final Block WILLOW_SAPLING = createSapling(new BYGSaplingToTree.WillowSaplingToTree(), "willow_sapling");
-    public static final Block WITCH_HAZEL_SAPLING = createSapling(new BYGSaplingToTree.WitchHazelSaplingToTree(), "witch_hazel_sapling");
-    public static final Block YELLOW_BIRCH_SAPLING = createSapling(new BYGSaplingToTree.YellowBirchSaplingToTree(), "yellow_birch_sapling");
-    public static final Block YELLOW_SPRUCE_SAPLING = createSapling(new BYGSaplingToTree.YellowSpruceSaplingToTree(), "yellow_spruce_sapling");
-    public static final Block ZELKOVA_SAPLING = createSapling(new BYGSaplingToTree.ZelkovaSaplingToTree(), "zelkova_sapling");
-    public static final Block PALM_SAPLING = createSapling(new BYGSaplingToTree.PalmSaplingToTree(), "palm_sapling");
-    public static final Block LAMENT_SAPLING = createSapling(new BYGSaplingToTree.LamentSaplingToTree(), "lament_sapling");
-    public static final Block WITHERING_OAK_SAPLING = createSapling(new BYGSaplingToTree.WitheringOakSaplingToTree(), "withering_oak_sapling");
-    public static final Block ETHER_SAPLING = createSapling(new BYGSaplingToTree.EtherSaplingToTree(), "ether_sapling");
-    public static final Block NIGHTSHADE_SAPLING = createSapling(new BYGSaplingToTree.NightshadeSaplingToTree(), "nightshade_sapling");
+    public static final Block ARAUCARIA_SAPLING = createSapling(15, new TreeSpawners.Araucaria(), "araucaria_sapling");
+    public static final Block ASPEN_SAPLING = createSapling(10, new TreeSpawners.Aspen(), "aspen_sapling");
+    public static final Block BAOBAB_SAPLING = createSapling(5, new TreeSpawners.Baobab(), "baobab_sapling");
+    public static final Block BLUE_ENCHANTED_SAPLING = createSapling(2, new TreeSpawners.BlueEnchanted(), "blue_enchanted_sapling");
+    public static final Block BLUE_SPRUCE_SAPLING = createSapling(1, new TreeSpawners.BlueSpruce(), "blue_spruce_sapling");
+    public static final Block BROWN_BIRCH_SAPLING = createSapling(1, new TreeSpawners.BrownBirch(), "brown_birch_sapling");
+    public static final Block BROWN_OAK_SAPLING = createSapling(1, new TreeSpawners.BrownOak(), "brown_oak_sapling");
+    public static final Block BROWN_ZELKOVA_SAPLING = createSapling(1, new TreeSpawners.BrownZelkova(), "brown_zelkova_sapling");
+    public static final Block CIKA_SAPLING = createSapling(1, new TreeSpawners.Cika(), "cika_sapling");
+    public static final Block CYPRESS_SAPLING = createSapling(1, new TreeSpawners.Cypress(), "cypress_sapling");
+    public static final Block EBONY_SAPLING = createSapling(1, new TreeSpawners.Ebony(), "ebony_sapling");
+    public static final Block FIR_SAPLING = createSapling(1, new TreeSpawners.Fir(), "fir_sapling");
+    public static final Block GREEN_ENCHANTED_SAPLING = createSapling(1, new TreeSpawners.GreenEnchanted(), "green_enchanted_sapling");
+    public static final Block HOLLY_SAPLING = createSapling(1, new TreeSpawners.Holly(), "holly_sapling");
+    public static final Block JACARANDA_SAPLING = createSapling(1, new TreeSpawners.Jacaranda(), "jacaranda_sapling");
+    public static final Block INDIGO_JACARANDA_SAPLING = createSapling(1, new TreeSpawners.IndigoJacaranda(), "indigo_jacaranda_sapling");
+    public static final Block JOSHUA_SAPLING = createSapling(1, new TreeSpawners.Joshua(), "joshua_sapling");
+    public static final Block MAHOGANY_SAPLING = createSapling(1, new TreeSpawners.Mahogony(), "mahogany_sapling");
+    public static final Block MANGROVE_SAPLING = createSapling(1, new TreeSpawners.Mangrove(), "mangrove_sapling");
+    public static final Block MAPLE_SAPLING = createSapling(1, new TreeSpawners.Maple(), "maple_sapling");
+    public static final Block ORANGE_BIRCH_SAPLING = createSapling(1, new TreeSpawners.OrangeBirch(), "orange_birch_sapling");
+    public static final Block ORANGE_OAK_SAPLING = createSapling(1, new TreeSpawners.OrangeOak(), "orange_oak_sapling");
+    public static final Block ORANGE_SPRUCE_SAPLING = createSapling(1, new TreeSpawners.OrangeSpruce(), "orange_spruce_sapling");
+    public static final Block ORCHARD_SAPLING = createSapling(1, new TreeSpawners.Orchard(), "orchard_sapling");
+    public static final Block PALO_VERDE_SAPLING = createSapling(1, new TreeSpawners.PaloVerde(), "palo_verde_sapling");
+    public static final Block PINE_SAPLING = createSapling(1, new TreeSpawners.Pine(), "pine_sapling");
+    public static final Block PINK_CHERRY_SAPLING = createSapling(1, new TreeSpawners.PinkCherry(), "pink_cherry_sapling");
+    public static final Block RAINBOW_EUCALYPTUS_SAPLING = createSapling(1, new TreeSpawners.RainbowEucalyptus(), "rainbow_eucalyptus_sapling");
+    public static final Block RED_BIRCH_SAPLING = createSapling(1, new TreeSpawners.RedBirch(), "red_birch_sapling");
+    public static final Block RED_MAPLE_SAPLING = createSapling(1, new TreeSpawners.RedMaple(), "red_maple_sapling");
+    public static final Block RED_OAK_SAPLING = createSapling(1, new TreeSpawners.RedOak(), "red_oak_sapling");
+    public static final Block RED_SPRUCE_SAPLING = createSapling(1, new TreeSpawners.RedSpruce(), "red_spruce_sapling");
+    public static final Block REDWOOD_SAPLING = createSapling(1, new TreeSpawners.Redwood(), "redwood_sapling");
+    public static final Block SILVER_MAPLE_SAPLING = createSapling(1, new TreeSpawners.SilverMaple(), "silver_maple_sapling");
+    public static final Block SKYRIS_SAPLING = createSapling(1, new TreeSpawners.Skyris(), "skyris_sapling");
+    public static final Block WHITE_CHERRY_SAPLING = createSapling(1, new TreeSpawners.WhiteCherry(), "white_cherry_sapling");
+    public static final Block WILLOW_SAPLING = createSapling(1, new TreeSpawners.Willow(), "willow_sapling");
+    public static final Block WITCH_HAZEL_SAPLING = createSapling(1, new TreeSpawners.WitchHazel(), "witch_hazel_sapling");
+    public static final Block YELLOW_BIRCH_SAPLING = createSapling(1, new TreeSpawners.YellowBirch(), "yellow_birch_sapling");
+    public static final Block YELLOW_SPRUCE_SAPLING = createSapling(1, new TreeSpawners.YellowSpruce(), "yellow_spruce_sapling");
+    public static final Block ZELKOVA_SAPLING = createSapling(1, new TreeSpawners.Zelkova(), "zelkova_sapling");
+    public static final Block PALM_SAPLING = createSapling(1, new TreeSpawners.Palm(), "palm_sapling");
+    public static final Block LAMENT_SAPLING = createSapling(1, new TreeSpawners.Lament(), "lament_sapling");
+    public static final Block WITHERING_OAK_SAPLING = createSapling(1, new TreeSpawners.WitheringOak(), "withering_oak_sapling");
+    public static final Block ETHER_SAPLING = createSapling(1, new TreeSpawners.Ether(), "ether_sapling");
+    public static final Block NIGHTSHADE_SAPLING = createSapling(1, new TreeSpawners.Nightshade(), "nightshade_sapling");
 
     public static final Block ARAUCARIA_LEAVES = createLeaves("araucaria_leaves");
     public static final Block ASPEN_LEAVES = createLeaves("aspen_leaves");
@@ -474,6 +476,7 @@ public class BYGBlocks {
     public static final Block SOUL_SHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("soul_shroom_block");
     public static final Block DEATH_CAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("death_cap_mushroom_block");
     public static final Block BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("bulbis_shell");
+    public static final Block PURPLE_BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("purple_bulbis_shell");
 
     public static final Block CATTAIL = new BYGBlockProperties.BlockCattail("cattail");
     public static final Block REEDS = new BYGBlockProperties.BlockCattail("reeds");
@@ -583,6 +586,16 @@ public class BYGBlocks {
     public static final Block THERIUM_CRYSTAL = createCrystal("therium_crystal");
     public static final Block THERIUM_LANTERN = new BYGBlockProperties.BYGLantern("therium_lantern");
     public static final Block THERIUM_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("therium_lamp");
+
+    public static final Block CRYPTIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("cryptic_campfire");
+    public static final Block CRYPTIC_FIRE = new BYGBlockProperties.BoricFire("cryptic_fire");
+    public static final Block CRYPTIC_MAGMA_BLOCK = new BYGBlockProperties.BYGFrostMagma("cryptic_magma_block");
+
+    public static final Block SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
+    public static final Block SHULKREN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("shulkren_wart_block");
+    public static final Block SHULKREN_VINE = createShulkrenVine("shulkren_vine");
+    public static final Block SHULKREN_VINE_PLANT = createShulkrenVinePlant("shulkren_vine_plant");
+    public static final Block PURPLE_SHROOMLIGHT = createShroomlight("purple_shroomlight");
 
     public static final Block BLUE_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("blue_glowcane_block");
     public static final Block RED_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("red_glowcane_block");
@@ -718,6 +731,8 @@ public class BYGBlocks {
     public static final Block SOUL_SHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
     public static final Block DEATH_CAP = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
     public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "bulbis_oddity");
+    public static final Block PURPLE_BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleBulbis(), "purple_bulbis_oddity");
+    public static final Block SHULKREN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "shulkren_fungus");
 
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");
@@ -944,6 +959,7 @@ public class BYGBlocks {
     public static final Block NIGHTSHADE_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG, "nightshade_phylium");
     public static final Block ETHER_PHYLIUM = createEndSpreadable(BYGBlocks.ETHER_SOIL, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
     public static final Block VERMILION_SCULK = createEndSpreadable(BYGBlocks.ETHER_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
+    public static final Block SHULKREN_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
 
     static Block createFence(String id) {
         Block fence = new FenceBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
@@ -1119,8 +1135,8 @@ public class BYGBlocks {
         return berryBush;
     }
 
-    static Block createSapling(BYGTree tree, String id) {
-        Block sapling = new BYGSapling(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), tree);
+    static Block createSapling(int taskRange, TreeSpawner tree, String id) {
+        Block sapling = new BYGSapling(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), tree, taskRange);
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), sapling);
         createPottedBlock(sapling, id);
         return sapling;
@@ -1131,6 +1147,24 @@ public class BYGBlocks {
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, "potted_" + id), flowerPot);
         flowerPotBlocks.add(flowerPot);
         flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id).toString());
+    }
+
+    static Block createShroomlight(String id) {
+        Block shroomlight = new Block(AbstractBlock.Properties.create(Material.ORGANIC, MaterialColor.PURPLE).hardnessAndResistance(1.0F).sound(SoundType.SHROOMLIGHT).setLightLevel((state) -> 14));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), shroomlight);
+        return shroomlight;
+    }
+
+    static Block createShulkrenVine(String id) {
+        Block vineTop = new ShulkrenVineBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.NETHER_VINE).doesNotBlockMovement().harvestTool(ToolType.HOE));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), vineTop);
+        return vineTop;
+    }
+
+    static Block createShulkrenVinePlant(String id) {
+        Block vineBody = new ShulkrenVinePlantBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.NETHER_VINE).doesNotBlockMovement().harvestTool(ToolType.HOE));
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), vineBody);
+        return vineBody;
     }
 
     static Block createLeaves(String id) {

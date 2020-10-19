@@ -2,18 +2,19 @@ package corgiaoc.byg.common.world.feature.end.islands;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.FloatingIslandConfig;
+import corgiaoc.byg.util.noise.fastnoise.lite.FastNoiseLite;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
-import org.spongepowered.noise.module.source.Perlin;
 
 import java.util.Random;
 
 public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
 
-    Perlin perlin = null;
+    FastNoiseLite perlin = null;
+
 
     public FloatingIslands1(Codec<FloatingIslandConfig> codec) {
         super(codec);
@@ -23,7 +24,7 @@ public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
-        double radius = rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
+        double radius = rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius() - 5;
 
         if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
@@ -31,9 +32,9 @@ public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
         int modifiedRadiusOnY = (int) (radius + 11);
 
         for (double x = -radius; x <= radius; x++) {
-            for (double y = -radius; y <= modifiedRadiusOnY; y++) {
+            for (double y = -radius; y <= -5; y++) {
                 for (double z = -radius; z <= radius; z++) {
-                    double noise = perlin.getValue(x, y, z) * 12;
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12;
                     double scaledNoise = (noise / 11) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (y >= 1) {
@@ -51,11 +52,11 @@ public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
     }
 
 
+
     public void setSeed(long seed) {
         if (perlin == null) {
-            perlin = new Perlin();
-            perlin.setSeed((int) seed);
-            perlin.setFrequency(0.2);
+            perlin = FastNoiseLite.createSpongePerlin((int) seed);
+            perlin.SetFrequency(0.2F);
         }
     }
 }

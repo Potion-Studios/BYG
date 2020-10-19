@@ -37,7 +37,7 @@ public class EmburBog extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
                 .setFogColor(15110510)
                 .withSkyColor(BiomeUtil.calcSkyColor(2.0F))
-                .setParticle(new ParticleEffectAmbience(ParticleTypes.FLAME, 0.01428F))
+                .setParticle(new ParticleEffectAmbience(ParticleTypes.FLAME, 0.00228F))
                 .setAmbientSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))

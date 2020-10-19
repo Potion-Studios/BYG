@@ -20,23 +20,35 @@ public class BYGWorldConfig {
 
     public static final ForgeConfigSpec.IntValue BIOME_SIZE_NETHER;
     public static final ForgeConfigSpec.IntValue BIOME_SIZE_END;
-    public static final ForgeConfigSpec.ConfigValue<String> EXTERNAL_END_BIOMES;
-    public static final ForgeConfigSpec.ConfigValue<String> NETHER_BIOMES;
+    public static final ForgeConfigSpec.IntValue MAIN_ISLAND_BIOME_SIZE;
+    public static final ForgeConfigSpec.ConfigValue<String> BLACKLIST_END;
+    public static final ForgeConfigSpec.ConfigValue<String> VOID_BIOMES;
+    public static final ForgeConfigSpec.IntValue VOID_BIOME_SIZE;
+
+    public static final ForgeConfigSpec.ConfigValue<String> BLACKLIST_NETHER;
     public static final ForgeConfigSpec.BooleanValue CONTROL_NETHER;
     public static final ForgeConfigSpec.BooleanValue CONTROL_END;
+    public static final ForgeConfigSpec.BooleanValue IS_BLACKLIST_END;
+    public static final ForgeConfigSpec.BooleanValue IS_BLACKLIST_NETHER;
 
     static {
-        COMMON_BUILDER.comment("Dimension Settings").push("Dimension_Settings");
-        DATAPACK_HACKS = COMMON_BUILDER.comment("Allow BYG to do a somewhat(not really) dangerous hack to support datapack biomes.\nUnlikely to crash. If it does crash due to \"useDatapackBiomeRegistry\", make this false.\nDefault: true").define("DatapackHacks", true);
         COMMON_BUILDER.push("The_End");
-        CONTROL_END = COMMON_BUILDER.comment("Does BYG control The End?").define("ControlEnd", true);
-        EXTERNAL_END_BIOMES = COMMON_BUILDER.comment("Add external End biomes by their registry ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available end biomes in the registry.\nDefault: \"all\"").define("ExternalEndBiomes", "all");
-        BIOME_SIZE_END = COMMON_BUILDER.comment("End Biome Size\nResults vary.\nDefault: 3").defineInRange("EndBiomeSize", 3, 0, 10);
+        CONTROL_END = COMMON_BUILDER.comment("\nDoes BYG control The End?").define("ControlEnd", true);
+        COMMON_BUILDER.push("Void");
+        VOID_BIOMES = COMMON_BUILDER.comment("\nAdd biomes by their registry String ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nNO SPACES AFTER COMMAS!\nDOES NOT ACCEPT DATAPACK VALUES!\nDefault: \"byg:viscal_isles,minecraft:small_end_islands\"").define("VoidBiomes", "byg:viscal_isles,byg:shattered_viscal_isles,minecraft:small_end_islands");
+        VOID_BIOME_SIZE = COMMON_BUILDER.comment("\nVoid Biome(where small end islands generate in vanilla) size.\nDefault: 3").defineInRange("VoidBiomeSize", 2, 0, 10);
         COMMON_BUILDER.pop();
+        IS_BLACKLIST_END = COMMON_BUILDER.comment("\nIs the list of biomes a blacklist or whitelist?\nWhen this list is a blacklist, the values in the list will not be in world generation.\nWhen this list is a whitelist, Adding a biome several times gives it more weight in generation and it must contain at least 1 value.\nWhen set to true, datapack biomes will work automatically!\nDefault: true").define("isBlacklistEnd", true);
+        BLACKLIST_END = COMMON_BUILDER.comment("\nThis works as a whitelist or blacklist depending on the \"isBlacklistEnd\" value.\nDOES NOT ACCEPT DATAPACK VALUES!\nDefault: \"\"").define("BlacklistEnd", "byg:viscal_isles,minecraft:small_end_islands,minecraft:the_end,minecraft:end_barrens");
+        BIOME_SIZE_END = COMMON_BUILDER.comment("\nEnd Biome Size\nDefault: 3").defineInRange("EndBiomeSize", 3, 0, 10);
+        MAIN_ISLAND_BIOME_SIZE = COMMON_BUILDER.comment("\nEnd Biome Size.\nDefault: 3").defineInRange("IslandBiomeSize", 3, 0, 10);
+        COMMON_BUILDER.pop();
+
         COMMON_BUILDER.push("The_Nether");
-        CONTROL_NETHER = COMMON_BUILDER.comment("Does BYG control The Nether?").define("ControlNether", true);
-        NETHER_BIOMES = COMMON_BUILDER.comment("Add external Nether biomes by their registry ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nPutting \"all\" will use all available nether biomes in the registry.\nDefault: \"all\".").define("NetherBiomes", "all");
-        BIOME_SIZE_NETHER = COMMON_BUILDER.comment("Nether Biome Size\nDefault: 3").defineInRange("NetherBiomeSize", 3, 0, 10);
+        CONTROL_NETHER = COMMON_BUILDER.comment("\nDoes BYG control The Nether?").define("ControlNether", true);
+        IS_BLACKLIST_NETHER = COMMON_BUILDER.comment("\nIs the list of biomes a blacklist or whitelist?\nWhen this list is a blacklist, the values in the list will not be in world generation.\nWhen this list is a whitelist, Adding a biome several times gives it more weight in generation and it must contain at least 1 value.\nWhen set to true, datapack biomes will work automatically!\nDefault: true").define("isBlacklistNether", true);
+        BLACKLIST_NETHER = COMMON_BUILDER.comment("\nThis works as a whitelist or blacklist depending on the \"isBlacklistNether\" value.\nDOES NOT ACCEPT DATAPACK VALUES!\nDefault: \"\"").define("BlacklistNether", "");
+        BIOME_SIZE_NETHER = COMMON_BUILDER.comment("\nNether Biome Size\nDefault: 3").defineInRange("NetherBiomeSize", 3, 0, 10);
         COMMON_BUILDER.pop();
         COMMON_CONFIG = COMMON_BUILDER.build();
     }

@@ -267,7 +267,7 @@ public class BYGBlockProperties {
 
     public static class BYGFrostMagma extends BYGFrostMagmaBlock {
         public BYGFrostMagma(String registryName) {
-            super(Block.Properties.create(Material.PACKED_ICE)
+            super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
@@ -845,6 +845,31 @@ public class BYGBlockProperties {
                     .sound(SoundType.CLOTH)
                     .doesNotBlockMovement()
                     .zeroHardnessAndResistance()
+                    .setLightLevel((state) -> 14)
+            );
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
+        }
+    }
+
+    public static class CrypticFire extends BoricFireBlock {
+        public CrypticFire(String registryName) {
+            super(AbstractBlock.Properties.create(Material.FIRE, MaterialColor.GREEN)
+                    .sound(SoundType.CLOTH)
+                    .doesNotBlockMovement()
+                    .zeroHardnessAndResistance()
+                    .setLightLevel((state) -> 14)
+            );
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
+        }
+    }
+
+    public static class CrypticCampfire extends CampfireBlock {
+        public CrypticCampfire(String registryName) {
+            super(true, 5, AbstractBlock.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN)
+                    .hardnessAndResistance(2.0F)
+                    .sound(SoundType.WOOD)
+                    .tickRandomly()
+                    .notSolid()
                     .setLightLevel((state) -> 14)
             );
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);

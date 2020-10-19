@@ -5,6 +5,10 @@ import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands1;
 import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands2;
 import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands3;
 import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands4;
+import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands1;
+import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands2;
+import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands3;
+import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands4;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree1;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree2;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree3;
@@ -209,6 +213,12 @@ public class BYGFeatures {
     public static final Feature<FloatingIslandConfig> FLOATING_ISLAND4 = WorldGenRegistrationHelper.createFeature("hollow_floating_island", new FloatingIslands4(FloatingIslandConfig.CODEC.stable()));
 
     public static final Feature<SimpleBlockProviderConfig> ICEBURG = WorldGenRegistrationHelper.createFeature("iceburg", new IceburgFeature(SimpleBlockProviderConfig.CODEC.stable()));
+
+    public static final Feature<FloatingIslandConfig> SHATTERED_FLOATING_ISLAND1 = WorldGenRegistrationHelper.createFeature("shattered_floating_island1", new ShatteredFloatingIslands1(FloatingIslandConfig.CODEC.stable()));
+    public static final Feature<FloatingIslandConfig> SHATTERED_FLOATING_ISLAND2 = WorldGenRegistrationHelper.createFeature("shattered_floating_island2", new ShatteredFloatingIslands2(FloatingIslandConfig.CODEC.stable()));
+    public static final Feature<FloatingIslandConfig> SHATTERED_FLOATING_ISLAND3 = WorldGenRegistrationHelper.createFeature("shattered_floating_island3", new ShatteredFloatingIslands3(FloatingIslandConfig.CODEC.stable()));
+    public static final Feature<FloatingIslandConfig> SHATTERED_FLOATING_ISLAND4 = WorldGenRegistrationHelper.createFeature("shattered_hollow_floating_island", new ShatteredFloatingIslands4(FloatingIslandConfig.CODEC.stable()));
+
 
     /********************************************************************Nether Features********************************************************************/
 

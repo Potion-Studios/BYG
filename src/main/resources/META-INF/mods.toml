@@ -1,12 +1,12 @@
 modLoader = "javafml"
 loaderVersion = "[33,)"
-license = "LGPLv3"
+license = "Code: LGPLv3 Assets: All Rights Reserved"
 issueTrackerURL = "https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId = "byg"
-version = "1.1.0"
+version = "1.1.0-ALPHA-v1"
 displayName = "Oh The Biomes You'll Go"
-displayURL = "https://biomesyougo.weebly.com/"
+displayURL = "https://bygmc.weebly.com/"
 logoFile = "logo_text.png"
 credits = "Translators: Dimiral(Russian), Godzmoline(Simplified Chinese)"
 authors = "AOCAWOL & Corgi Taco"
@@ -16,6 +16,6 @@ An Adventure and Exploration mod with over 60 new biomes!
 [[dependencies.byg]]
 modId = "forge"
 mandatory = true
-versionRange = "[33.0.0,)"
+versionRange = "[34.1.21,)"
 ordering = "NONE"
 side = "BOTH"

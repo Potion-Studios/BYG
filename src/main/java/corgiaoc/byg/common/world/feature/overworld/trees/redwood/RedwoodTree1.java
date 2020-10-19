@@ -3,15 +3,20 @@ package corgiaoc.byg.common.world.feature.overworld.trees.redwood;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.common.world.feature.overworld.trees.util.SaplingData;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 
+import javax.annotation.Nullable;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
 public class RedwoodTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
+
+    public static SaplingData saplingData = null;
 
     public RedwoodTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);
@@ -896,9 +901,15 @@ public class RedwoodTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         return true;
     }
 
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.REDWOOD_LOG.getDefaultState(), boundingBox);
+    @Nullable
+    @Override
+    public SaplingData saplingData(BlockPos pos) {
+        if (saplingData == null) {
+            BlockPos[] posArray = {pos.add(0, 0, -2), pos.add(-1, 0, -1), pos.add(1, 0, -1), pos.add(-2, 0, 0), pos.add(2, 0, 0), pos.add(-1, 0, 1), pos.add(1, 0, 1), pos.add(0, 0, 2), pos.add(0, 0, -1), pos.add(-1, 0, 0), pos.add(1, 0, 0), pos.add(0, 0, 1)};
+            Set<BlockPos> set = new HashSet<>(Arrays.asList(posArray));
+            saplingData = new SaplingData(set, 4);
         }
+
+        return saplingData;
     }
 }

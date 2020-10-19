@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.properties.blocks;
 
-import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGTree;
+import corgiaoc.byg.common.world.feature.overworld.trees.util.TreeSpawner;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.state.IntegerProperty;
@@ -18,12 +18,14 @@ import java.util.Random;
 public class BYGSapling extends BushBlock implements IGrowable {
     public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
     public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
-    private final BYGTree tree;
+    private final TreeSpawner tree;
+    private final int taskRange;
 
-    public BYGSapling(Properties properties, BYGTree tree) {
+    public BYGSapling(Properties properties, TreeSpawner tree, int taskRange) {
         super(properties);
         this.tree = tree;
-        this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, Integer.valueOf(0)));
+        this.taskRange = taskRange;
+        this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, 0));
     }
 
     @Override
@@ -53,7 +55,7 @@ public class BYGSapling extends BushBlock implements IGrowable {
             world.setBlockState(pos, state.func_235896_a_(STAGE), 4);
         } else {
             if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
-            this.tree.spawnTree(world, world.getChunkProvider().getChunkGenerator(), pos, state, rand);
+            this.tree.createTreeSpawner(this.taskRange, world, world.getChunkProvider().getChunkGenerator(), pos, world.getBlockState(pos.down()), state,  rand);
         }
 
     }
