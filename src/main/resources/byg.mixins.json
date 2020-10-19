@@ -12,7 +12,8 @@
     "common.world.layers.MixinDimensionType",
     "common.world.layers.MixinHillsLayer",
     "common.world.layers.MixinRiverLayer",
-    "common.world.layers.MixinShoreLayer"
+    "common.world.layers.MixinShoreLayer",
+    "server.MixinMinecraftServer"
   ],
   "client": [
     "client.MixinMinecraft"

@@ -22,8 +22,6 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
         super(codec);
     }
 
-
-
     @Override
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
@@ -36,7 +34,7 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         double baseRadius = 15;
-        int lavaLeakage = 2;
+        double lavaLeakage = 0.7;
         int volcanoConeSize = 75;
         int volcanoStartHeight = volcanoConeSize - 5;
         double threshold = 0.5;
@@ -45,7 +43,7 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
             for (double y = -volcanoConeSize; y <= -15; y++) {
                 for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
                     mutable.setPos(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
-                    float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), y, mutable.getZ()));
+                    float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), mutable.getZ()));
 
                     double scaledNoise = (noise3 / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
                     if (scaledNoise - lavaLeakage >= threshold) {
@@ -55,9 +53,7 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
                         }
                     }
                     else if (scaledNoise >= threshold) {
-                        if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
-                            world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
-                        }
+                        world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                     }
                 }
             }

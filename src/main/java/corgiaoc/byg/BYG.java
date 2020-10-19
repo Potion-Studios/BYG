@@ -8,9 +8,8 @@ import corgiaoc.byg.common.properties.vanilla.BYGCompostables;
 import corgiaoc.byg.common.properties.vanilla.BYGFlammables;
 import corgiaoc.byg.common.properties.vanilla.BYGHoeables;
 import corgiaoc.byg.common.properties.vanilla.BYGStrippables;
-import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeCatch;
+import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
-import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeCatch;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
@@ -66,12 +65,7 @@ public class BYG {
         ConfigWeightManager.buildConfig();
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         BYGCreativeTab.init();
-        BYGEndBiomeCatch.collectEndBiomes();
-        BYGNetherBiomeCatch.collectNetherBiomes();
-        BYGBiomes.addBYGFeaturesToBiomes();
-        BYGBiomes.addBiomeNumericalIDsForLayerSampler();
-        BYGBiomes.addEndBiomeNumericalIDsForLayerSampler();
-        BYGBiomes.addNetherBiomeNumericalIDsForLayerSampler();
+        BYGBiome.fillMutationMap();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGBiomes.addBiomesToWeightSystem();
@@ -101,12 +95,6 @@ public class BYG {
         BYG.LOGGER.debug("Cleaning memory...");
         BYGBlocks.flowerPotBlocks = null;
         FILE_PATH = null;
-        BYGEndBiomeCatch.biomeList = null;
-        BYGEndBiomeCatch.biomeRegistries = null;
-        BYGEndBiomeCatch.configBiomes = null;
-        BYGNetherBiomeCatch.biomeList = null;
-        BYGNetherBiomeCatch.biomeRegistries = null;
-        BYGNetherBiomeCatch.configBiomes = null;
         BYG.LOGGER.debug("Cleaned memory!");
     }
 

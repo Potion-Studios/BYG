@@ -2,18 +2,15 @@ package corgiaoc.byg.common.world.dimension.end;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import corgiaoc.byg.core.world.BYGBiomes;
-import net.minecraft.util.RegistryKey;
+import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryLookupCodec;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.EndBiomeProvider;
 import net.minecraft.world.gen.SimplexNoiseGenerator;
-import net.minecraft.world.gen.layer.Layer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +19,10 @@ public class BYGEndBiomeProvider extends BiomeProvider {
     public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.getLookUpCodec(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeProvider::new)));
 
     private final long seed;
-    private final Layer biomeLayer;
-    public static final List<Biome> END_BIOMES = new ArrayList<>();
+    private final DatapackLayer mainIslandLayer;
+    private final DatapackLayer smallIslandLayer;
+    public static List<Biome> END_BIOMES = new ArrayList<>();
+    public static List<Biome> VOID_END_BIOMES = new ArrayList<>();
     private final Registry<Biome> biomeRegistry;
     private final SimplexNoiseGenerator generator;
 
@@ -33,8 +32,8 @@ public class BYGEndBiomeProvider extends BiomeProvider {
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         sharedseedrandom.skip(17292);
         biomeRegistry = registry;
-        this.biomeLayer = BYGEndLayerProvider.stackLayers(this.biomeRegistry, seed);
-
+        this.mainIslandLayer = EndLayerProviders.stackLayers(this.biomeRegistry, seed);
+        this.smallIslandLayer = EndLayerProviders.stackVoidLayers(this.biomeRegistry, seed);
         this.generator = new SimplexNoiseGenerator(sharedseedrandom);
     }
 
@@ -57,9 +56,9 @@ public class BYGEndBiomeProvider extends BiomeProvider {
         } else {
             float f = EndBiomeProvider.getRandomNoise(this.generator, xBitOffset * 2 + 1, zBitOffset * 2 + 1);
             if (f >= 0.0F) {
-                return biomeLayer.func_242936_a(biomeRegistry, x, z);
+                return mainIslandLayer.sampleEnd(biomeRegistry, x, z);
             } else {
-                return f < -20.0F ? biomeRegistry.getOrThrow(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(BYGBiomes.VISCAL_ISLES))) : biomeRegistry.getOrThrow(Biomes.END_BARRENS);
+                return f < -20.0F ? this.smallIslandLayer.sampleEndVoid(biomeRegistry, x, z) : biomeRegistry.getOrThrow(Biomes.END_BARRENS);
             }
         }
     }
