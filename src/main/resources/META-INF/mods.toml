@@ -4,7 +4,7 @@ license = "Code: LGPLv3 Assets: All Rights Reserved"
 issueTrackerURL = "https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId = "byg"
-version = "1.1.0-ALPHA-v1"
+version = "1.1.0-ALPHA-v2"
 displayName = "Oh The Biomes You'll Go"
 displayURL = "https://bygmc.weebly.com/"
 logoFile = "logo_text.png"

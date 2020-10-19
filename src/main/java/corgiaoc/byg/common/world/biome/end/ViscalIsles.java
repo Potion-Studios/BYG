@@ -24,8 +24,8 @@ public class ViscalIsles extends BYGBiome {
     static final float SCALE = 0.05F;
     static final float TEMPERATURE = 0.8F;
     static final float DOWNFALL = 0.4F;
-    static final int WATER_COLOR = 4159204;
-    static final int WATER_FOG_COLOR = 329011;
+    static final int WATER_COLOR = 10040012;
+    static final int WATER_FOG_COLOR = 10040012;
 
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
