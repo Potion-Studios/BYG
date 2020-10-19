@@ -235,7 +235,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND2 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island2", BYGFeatures.FLOATING_ISLAND2.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(11).setMaxRadius(13).build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND3 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island3", BYGFeatures.FLOATING_ISLAND3.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(11).setMaxRadius(13).build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND4 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island4", BYGFeatures.FLOATING_ISLAND4.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(13).setMaxRadius(17).build()));
-
+    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND5 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island5", BYGFeatures.FLOATING_ISLAND5.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(13).setMaxRadius(17).build()));
 
     public static final ConfiguredFeature<PumpkinConfig, ?> PUMPKIN1 = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin1", BYGFeatures.LARGE_PUMPKIN1.withConfiguration(new PumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.OAK_LOG).build()));
     public static final ConfiguredFeature<PumpkinConfig, ?> PUMPKIN2 = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin2", BYGFeatures.LARGE_PUMPKIN2.withConfiguration(new PumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.OAK_LOG).build()));
@@ -1790,8 +1790,9 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_ISLAND = WorldGenRegistrationHelper.createConfiguredFeature("rs_floating_island", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             FLOATING_ISLAND1.withChance(0.25F),
             FLOATING_ISLAND2.withChance(0.25F),
-            FLOATING_ISLAND2.withChance(0.25F)),
-            FLOATING_ISLAND4)).withPlacement(BYGDecorators.ISLAND.configure(
+            FLOATING_ISLAND3.withChance(0.25F),
+            FLOATING_ISLAND4.withChance(0.25F)),
+            FLOATING_ISLAND5)).withPlacement(BYGDecorators.ISLAND.configure(
             new AtSurfaceWithExtraConfig(0, 0.13F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SHATTERED_ISLAND = WorldGenRegistrationHelper.createConfiguredFeature("rs_shattered_floating_island", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
