@@ -1,10 +1,8 @@
 package corgiaoc.byg.core.world;
 
+import corgiaoc.byg.common.world.decorator.FloatingIsland;
 import corgiaoc.byg.common.world.feature.config.*;
-import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands1;
-import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands2;
-import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands3;
-import corgiaoc.byg.common.world.feature.end.islands.FloatingIslands4;
+import corgiaoc.byg.common.world.feature.end.islands.*;
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands1;
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands2;
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands3;
@@ -210,7 +208,7 @@ public class BYGFeatures {
     public static final Feature<FloatingIslandConfig> FLOATING_ISLAND2 = WorldGenRegistrationHelper.createFeature("floating_island2", new FloatingIslands2(FloatingIslandConfig.CODEC.stable()));
     public static final Feature<FloatingIslandConfig> FLOATING_ISLAND3 = WorldGenRegistrationHelper.createFeature("floating_island3", new FloatingIslands3(FloatingIslandConfig.CODEC.stable()));
     public static final Feature<FloatingIslandConfig> FLOATING_ISLAND4 = WorldGenRegistrationHelper.createFeature("hollow_floating_island", new FloatingIslands4(FloatingIslandConfig.CODEC.stable()));
-
+    public static final Feature<FloatingIslandConfig> FLOATING_ISLAND5 = WorldGenRegistrationHelper.createFeature("floating_island5", new FloatingIslands5(FloatingIslandConfig.CODEC.stable()));
 
     public static final Feature<FloatingIslandConfig> SHATTERED_FLOATING_ISLAND1 = WorldGenRegistrationHelper.createFeature("shattered_floating_island1", new ShatteredFloatingIslands1(FloatingIslandConfig.CODEC.stable()));
     public static final Feature<FloatingIslandConfig> SHATTERED_FLOATING_ISLAND2 = WorldGenRegistrationHelper.createFeature("shattered_floating_island2", new ShatteredFloatingIslands2(FloatingIslandConfig.CODEC.stable()));
