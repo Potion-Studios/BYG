@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.FloatingIslandConfig;
 import corgiaoc.byg.util.noise.fastnoise.lite.FastNoiseLite;
 import net.minecraft.block.Blocks;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -32,60 +31,48 @@ public class FloatingIslands5 extends Feature<FloatingIslandConfig> {
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
 
         double radius = 25; //default 25
-        double radiusByFifths = radius / 5;
+        double radiusFifth = radius / 5;
 
         //the spikes on the island
-        for (double x = -radiusByFifths - 5; x <= radiusByFifths + 5; x++) {
-            for (double y = -radiusByFifths - 5; y <= radiusByFifths + 11; y++) {
-                for (double z = -radiusByFifths - 5; z <= radiusByFifths + 5; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
+        for (double x = -radiusFifth - 5; x <= radiusFifth + 5; x++) {
+            for (double y = 1; y <= radiusFifth + 11; y++) {
+                for (double z = -radiusFifth - 5; z <= radiusFifth + 5; z++) {
+                    mutable.setPos(pos).move((int)x, (int)y + 6, (int)z);
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double scaledNoise = (noise) * ((Math.pow((y / 2), 2) ) / ((Math.pow(x, 2)) + (Math.pow(z, 2))));
-                    if (scaledNoise <= 0.5) {
-                        if (y >= 1) {
-                            world.setBlockState(pos.add(x, y + 6, z), config.getTopBlockProvider().getBlockState(rand, mutable), 2);
-                            if (y >= 21) {
-                                world.setBlockState(pos.add(x, y + 6, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
-                                if (y >= 22) {
-                                    world.setBlockState(pos.add(x, y + 6, z), config.getTopBlockProvider().getBlockState(rand, mutable), 2);
-                                }
-                            }
-                        }
-                    }
+                    if (scaledNoise <= 0.5)
+                        world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                 }
             }
         }
 
         //The island itself
         for (double x = -radius - 2; x <= radius + 2; x++) {
-            for (double y = -radius - 2; y <= radius + 11; y++) {
+            for (double y = 1; y <= radius + 11; y++) {
                 for (double z = -radius - 2; z <= radius + 2; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
+                    mutable.setPos(pos).move((int)x, (int)y - 22, (int)z);
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double scaledNoise = (noise) * ((Math.pow((y / 4), 2) ) / ((Math.pow(x, 2)) + (Math.pow(z, 2))));
                     if (scaledNoise >= 0.5) {
-                        if (y >= 1) {
-                            world.setBlockState(pos.add(x, y - 22, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
-                            if (y >= 33) {
-                                world.setBlockState(pos.add(x, y - 22, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
-                                if (y >= 35) {
-                                    world.setBlockState(pos.add(x, y - 22, z), config.getTopBlockProvider().getBlockState(rand, mutable), 2);
-                                }
-                            }
+                        if (y == 36) {
+                            world.setBlockState(mutable, config.getTopBlockProvider().getBlockState(rand, mutable), 2);
                         }
+                        else
+                            world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                     }
                 }
             }
         }
 
         //The crater on the island!
-        for (double x = -radiusByFifths - 2; x <= radiusByFifths + 2; x++) {
-            for (double y = -radiusByFifths - 2; y <= radiusByFifths + 11; y++) {
-                for (double z = -radiusByFifths - 2; z <= radiusByFifths + 2; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
+        for (double x = -radiusFifth - 2; x <= radiusFifth + 2; x++) {
+            for (double y = 1; y <= radiusFifth + 11; y++) {
+                for (double z = -radiusFifth - 2; z <= radiusFifth + 2; z++) {
+                    mutable.setPos(pos).move((int)x, (int)y + 5, (int)z);
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double scaledNoise = (noise) * ((Math.pow((y / 2), 2) ) / ((Math.pow(x, 2)) + (Math.pow(z, 2))));
                     if (scaledNoise >= 0.5) {
-                        if (y >= 1) {
-                            world.setBlockState(pos.add(x, y + 5, z), Blocks.AIR.getDefaultState(), 2);
-                        }
+                        world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
                     }
                 }
             }

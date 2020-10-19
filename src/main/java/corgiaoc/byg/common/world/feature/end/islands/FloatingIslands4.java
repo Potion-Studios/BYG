@@ -37,20 +37,17 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
 
         //The actual island!
         for (double x = -radius - 5; x <= radius + 5; x++) {
-            for (double y = -radius - 5; y <= radius + 5; y++) {
+            for (double y = 1; y <= radius + 5; y++) {
                 for (double z = -radius - 5; z <= radius + 5; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
+                    mutable.setPos(pos).move((int) x, (int) y, (int) z);
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double distanceSqt1 = x * x + y * y + z * z + noise * noise;
                     if (distanceSqt1 <= radius * radius) {
-                        if (y <= 1) {
-                            world.setBlockState(mutable.add(x, y, z), config.getTopBlockProvider().getBlockState(rand, mutable), 2);
-                            if (y <= 0) {
-                                world.setBlockState(mutable.add(x, y, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
-                                if (y <= -2) {
-                                    world.setBlockState(mutable.add(x, y, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
-                                }
-                            }
-                        }
+                        if (y == 1)
+                            world.setBlockState(mutable, config.getTopBlockProvider().getBlockState(rand, mutable), 2);
+                        else
+                            world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+
                     }
                 }
             }
@@ -58,14 +55,13 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
 
         //Pool of water in the middle of the island!
         for (double x = -radiusHalved; x <= radiusHalved; x++) {
-            for (double y = -size; y <= size; y++) {
+            for (double y = 2; y <= size; y++) {
                 for (double z = -radiusHalved; z <= radiusHalved; z++) {
+                    mutable.setPos(pos).move((int) x, (int) y, (int) z);
                     double distanceSqt1 = x * x + y * y + z * z;
                     if (distanceSqt1 <= radiusHalved * radiusHalved) {
-                        if (y <= 2) {
-                            world.setBlockState(mutable.add(x, y, z), Blocks.WATER.getDefaultState(), 2);
-                            world.getPendingFluidTicks().scheduleTick(mutable, Fluids.WATER, 0);
-                        }
+                        world.setBlockState(mutable, Blocks.WATER.getDefaultState(), 2);
+                        world.getPendingFluidTicks().scheduleTick(mutable, Fluids.WATER, 0);
                     }
                 }
             }
