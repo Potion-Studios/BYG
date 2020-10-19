@@ -31,11 +31,11 @@ public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
         if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
 
-        //top bit on the island (doesn't work at the moment!)
+        //top bit on the island
         for (double x = -halfRadius - 8; x <= halfRadius + 8; x++) {
             for (double y = -radius - 2; y <= radius; y++) {
                 for (double z = -halfRadius - 8; z <= halfRadius + 8; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12;
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
                     double distanceSqt1 = x * x + y * y + z * z + noise * noise;
                     if (distanceSqt1 <= halfRadius * radius) {
                         mutable.setPos(pos).move((int) x, (int) y, (int) z);
@@ -54,8 +54,8 @@ public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
         for (double x = -radius - 8; x <= radius + 8; x++) {
             for (double y = -radius - 2; y <= radius + 11; y++) {
                 for (double z = -radius - 8; z <= radius + 8; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12;
-                    double scaledNoise = (noise / 11) * ((y * 3) / ((x * x) + (z * z)));
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
+                    double scaledNoise = (noise) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (y >= 1) {
                             world.setBlockState(pos.add(x, y - 22, z), config.getBlockProvider().getBlockState(rand, mutable), 2);

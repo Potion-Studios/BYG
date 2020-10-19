@@ -13,8 +13,6 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-//Just disable this one for now!!! It is a thing of water rn!
-
 public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
 
     FastNoiseLite perlin = null;
@@ -37,10 +35,11 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
         double size = radius / 3;
         double radiusHalved = radius / 2;
 
-        for (double x = -radius; x <= radius; x++) {
-            for (double y = -radius; y <= 1; y++) {
-                for (double z = -radius; z <= radius; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12 - 6;
+        //The actual island!
+        for (double x = -radius - 5; x <= radius + 5; x++) {
+            for (double y = -radius - 5; y <= radius + 5; y++) {
+                for (double z = -radius - 5; z <= radius + 5; z++) {
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
                     double distanceSqt1 = x * x + y * y + z * z + noise * noise;
                     if (distanceSqt1 <= radius * radius) {
                         if (y <= 1) {
@@ -57,6 +56,7 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
             }
         }
 
+        //Pool of water in the middle of the island!
         for (double x = -radiusHalved; x <= radiusHalved; x++) {
             for (double y = -size; y <= size; y++) {
                 for (double z = -radiusHalved; z <= radiusHalved; z++) {
