@@ -24,24 +24,22 @@ public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
-        double radius = rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius() - 5;
+        double radius = 15; /*rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius() - 5;*/
 
         if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
 
-        int modifiedRadiusOnY = (int) (radius + 11);
-
         for (double x = -radius; x <= radius; x++) {
-            for (double y = -radius; y <= -5; y++) {
+            for (double y = -radius; y <= radius; y++) {
                 for (double z = -radius; z <= radius; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12;
-                    double scaledNoise = (noise / 11) * ((y * 3) / ((x * x) + (z * z)));
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
+                    double scaledNoise = (noise) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (y >= 1) {
-                            world.setBlockState(pos.add(x, y - modifiedRadiusOnY, z), config.getBlockProvider().getBlockState(rand, pos), 2);
-                            if (y == modifiedRadiusOnY) {
+                            world.setBlockState(pos.add(x, y - radius, z), config.getBlockProvider().getBlockState(rand, pos), 2);
+                            if (y == radius) {
                                 //Top block
-                                world.setBlockState(pos.add(x, y - modifiedRadiusOnY, z), config.getTopBlockProvider().getBlockState(rand, pos), 2);
+                                world.setBlockState(pos.add(x, y - radius, z), config.getTopBlockProvider().getBlockState(rand, pos), 2);
                             }
                         }
                     }

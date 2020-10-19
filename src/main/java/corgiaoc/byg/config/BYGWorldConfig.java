@@ -35,11 +35,11 @@ public class BYGWorldConfig {
         COMMON_BUILDER.push("The_End");
         CONTROL_END = COMMON_BUILDER.comment("\nDoes BYG control The End?").define("ControlEnd", true);
         COMMON_BUILDER.push("Void");
-        VOID_BIOMES = COMMON_BUILDER.comment("\nAdd biomes by their registry String ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nNO SPACES AFTER COMMAS!\nDOES NOT ACCEPT DATAPACK VALUES!\nDefault: \"byg:viscal_isles,minecraft:small_end_islands\"").define("VoidBiomes", "byg:viscal_isles,byg:shattered_viscal_isles,minecraft:small_end_islands");
+        VOID_BIOMES = COMMON_BUILDER.comment("\nAdd biomes by their registry String ID's in a commented list.\nAdding a biome several times gives it more weight in generation.\nNO SPACES AFTER COMMAS!\nDOES NOT ACCEPT DATAPACK VALUES!\nDefault: \"byg:viscal_isles,byg:shattered_viscal_isles,minecraft:small_end_islands\"").define("VoidBiomes", "byg:viscal_isles,byg:shattered_viscal_isles,minecraft:small_end_islands");
         VOID_BIOME_SIZE = COMMON_BUILDER.comment("\nVoid Biome(where small end islands generate in vanilla) size.\nDefault: 3").defineInRange("VoidBiomeSize", 2, 0, 10);
         COMMON_BUILDER.pop();
         IS_BLACKLIST_END = COMMON_BUILDER.comment("\nIs the list of biomes a blacklist or whitelist?\nWhen this list is a blacklist, the values in the list will not be in world generation.\nWhen this list is a whitelist, Adding a biome several times gives it more weight in generation and it must contain at least 1 value.\nWhen set to true, datapack biomes will work automatically!\nDefault: true").define("isBlacklistEnd", true);
-        BLACKLIST_END = COMMON_BUILDER.comment("\nThis works as a whitelist or blacklist depending on the \"isBlacklistEnd\" value.\nDOES NOT ACCEPT DATAPACK VALUES!\nDefault: \"\"").define("BlacklistEnd", "byg:viscal_isles,minecraft:small_end_islands,minecraft:the_end,minecraft:end_barrens");
+        BLACKLIST_END = COMMON_BUILDER.comment("\nThis works as a whitelist or blacklist depending on the \"isBlacklistEnd\" value.\nDOES NOT ACCEPT DATAPACK VALUES!\nDefault: \"byg:viscal_isles,byg:shattered_viscal_isles,minecraft:small_end_islands,minecraft:the_end,minecraft:end_barrens\"").define("BlacklistEnd", "byg:viscal_isles,byg:shattered_viscal_isles,minecraft:small_end_islands,minecraft:the_end,minecraft:end_barrens");
         BIOME_SIZE_END = COMMON_BUILDER.comment("\nEnd Biome Size\nDefault: 3").defineInRange("EndBiomeSize", 3, 0, 10);
         MAIN_ISLAND_BIOME_SIZE = COMMON_BUILDER.comment("\nEnd Biome Size.\nDefault: 3").defineInRange("IslandBiomeSize", 3, 0, 10);
         COMMON_BUILDER.pop();

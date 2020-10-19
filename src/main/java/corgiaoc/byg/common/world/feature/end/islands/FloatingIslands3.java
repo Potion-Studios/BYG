@@ -31,10 +31,10 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
         if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
 
-        for (double x = -radius - 2; x <= radius + 2; x++) {
-            for (double y = -radius - 2; y <= -5; y++) {
-                for (double z = -radius - 2; z <= radius + 2; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12 - 6;
+        for (double x = -radius - 5; x <= radius + 5; x++) {
+            for (double y = -radius - 5; y <= radius + 5; y++) {
+                for (double z = -radius - 5; z <= radius + 5; z++) {
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
                     double distanceSqt1 = x * x + y * y + z * z + noise * noise;
                     if (distanceSqt1 <= radius * radius) {
                         mutable.setPos(pos).move((int) x, (int) y, (int) z);
@@ -50,10 +50,10 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
         }
 
         //Island Bottom
-        for (double x = -thirdRadius; x <= 0; x++) {
-            for (double y = -thirdRadius; y <= 0; y++) {
-                for (double z = -thirdRadius; z <= 0; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12 - 6;
+        for (double x = -thirdRadius; x <= thirdRadius; x++) {
+            for (double y = -thirdRadius; y <= thirdRadius; y++) {
+                for (double z = -thirdRadius; z <= thirdRadius; z++) {
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
                     double distanceSqt2 = x * x + y * y + z * z + noise * noise;
                     if (distanceSqt2 <= radius * (thirdRadius + 2)) {
                         if (y <= 1 && y >= -1) {
