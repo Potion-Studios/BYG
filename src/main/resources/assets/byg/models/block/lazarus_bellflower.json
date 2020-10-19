@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:block/lazarus_bell_flower",
-    "particle": "byg:block/lazarus_bell_flower"
+    "cross": "byg:block/lazarus_bellflower",
+    "particle": "byg:block/lazarus_bellflower"
   }
 }

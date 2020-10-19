@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:block/weeping_milk_cap",
-    "particle": "byg:block/weeping_milk_cap"
+    "cross": "byg:block/weeping_milkcap",
+    "particle": "byg:block/weeping_milkcap"
   }
 }

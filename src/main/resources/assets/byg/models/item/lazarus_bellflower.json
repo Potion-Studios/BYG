@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:block/lazarus_bell_flower"
+    "layer0": "byg:block/lazarus_bellflower"
   }
 }
