@@ -18,8 +18,8 @@ public class RainbowBeach extends BYGBiome {
     static final float SCALE = 0.025F;
     static final float TEMPERATURE = 0.85F;
     static final float DOWNFALL = 0.75F;
-    static final int WATER_COLOR = 4159204;
-    static final int WATER_FOG_COLOR = 329011;
+    static final int WATER_COLOR = 4566514;
+    static final int WATER_FOG_COLOR = 267827;
 
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
@@ -30,9 +30,6 @@ public class RainbowBeach extends BYGBiome {
     }
 
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.NORMAL_MINESHAFT);
-        //this.add//StructureFeature(DefaultBiomeFeatures.BURIED_TREASURE);
-        //this.add//StructureFeature(DefaultBiomeFeatures.BEACHED_SHIPWRECK);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
