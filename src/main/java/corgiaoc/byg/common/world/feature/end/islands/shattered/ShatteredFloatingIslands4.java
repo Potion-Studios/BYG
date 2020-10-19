@@ -1,8 +1,8 @@
-package corgiaoc.byg.common.world.feature.end.islands;
+package corgiaoc.byg.common.world.feature.end.islands.shattered;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.FloatingIslandConfig;
-import corgiaoc.byg.util.noise.fastnoise.lite.FastNoiseLite;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -12,11 +12,11 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
+public class ShatteredFloatingIslands4 extends Feature<FloatingIslandConfig> {
 
-    FastNoiseLite perlin = null;
+    FastNoise perlin = null;
 
-    public FloatingIslands4(Codec<FloatingIslandConfig> codec) {
+    public ShatteredFloatingIslands4(Codec<FloatingIslandConfig> codec) {
         super(codec);
     }
 
@@ -30,15 +30,15 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
 
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
 
-        double radius = 8;
+        double radius = 13;
         double size = radius / 3;
         double radiusHalved = radius / 2;
 
         for (double x = -radius; x <= radius; x++) {
-            for (double y = -radius; y <= -5; y++) {
+            for (double y = -radius; y <= 1; y++) {
                 for (double z = -radius; z <= radius; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12 - 6;
-                    double distanceSqt1 = x * x + y * y + z * z + noise * noise;
+                    double squareNoise1 = perlin.GetNoise((float) x, (float)y, (float)z) * 12 - 6;
+                    double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
                     if (distanceSqt1 <= radius * radius) {
                         if (y <= 1) {
                             world.setBlockState(mutable.add(x, y, z), config.getTopBlockProvider().getBlockState(rand, mutable), 2);
@@ -73,7 +73,8 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
 
     public void setSeed(long seed) {
         if (perlin == null) {
-            perlin = FastNoiseLite.createSpongePerlin((int) seed);
+            perlin = new FastNoise((int) seed);
+            perlin.SetNoiseType(FastNoise.NoiseType.Perlin);
             perlin.SetFrequency(0.2F);
         }
     }

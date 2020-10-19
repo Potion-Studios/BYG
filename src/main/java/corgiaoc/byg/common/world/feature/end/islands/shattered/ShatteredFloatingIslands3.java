@@ -1,8 +1,8 @@
-package corgiaoc.byg.common.world.feature.end.islands;
+package corgiaoc.byg.common.world.feature.end.islands.shattered;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.FloatingIslandConfig;
-import corgiaoc.byg.util.noise.fastnoise.lite.FastNoiseLite;
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
@@ -12,11 +12,11 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
+public class ShatteredFloatingIslands3 extends Feature<FloatingIslandConfig> {
 
-    FastNoiseLite perlin = null;
+    FastNoise perlin = null;
 
-    public FloatingIslands3(Codec<FloatingIslandConfig> codec) {
+    public ShatteredFloatingIslands3(Codec<FloatingIslandConfig> codec) {
         super(codec);
     }
 
@@ -25,17 +25,17 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
         setSeed(world.getSeed());
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
-        double radius = rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius() - 5;
+        double radius = rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
         double thirdRadius = radius / 3;
 
         if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
 
         for (double x = -radius - 2; x <= radius + 2; x++) {
-            for (double y = -radius - 2; y <= -5; y++) {
+            for (double y = -radius - 2; y <= radius + 2; y++) {
                 for (double z = -radius - 2; z <= radius + 2; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12 - 6;
-                    double distanceSqt1 = x * x + y * y + z * z + noise * noise;
+                    double squareNoise1 = perlin.GetNoise((float)x, (float)y, (float)z) * 12 - 6;
+                    double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
                     if (distanceSqt1 <= radius * radius) {
                         mutable.setPos(pos).move((int) x, (int) y, (int) z);
                         if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
@@ -53,8 +53,8 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
         for (double x = -thirdRadius; x <= 0; x++) {
             for (double y = -thirdRadius; y <= 0; y++) {
                 for (double z = -thirdRadius; z <= 0; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z)) * 12 - 6;
-                    double distanceSqt2 = x * x + y * y + z * z + noise * noise;
+                    double squareNoise2 = perlin.GetNoise((float)x, (float)y, (float)z) * 12 - 6;
+                    double distanceSqt2 = x * x + y * y + z * z + squareNoise2 * squareNoise2;
                     if (distanceSqt2 <= radius * (thirdRadius + 2)) {
                         if (y <= 1 && y >= -1) {
                             if (x <= 1 && x >= -2) {
@@ -75,7 +75,8 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
 
     public void setSeed(long seed) {
         if (perlin == null) {
-            perlin = FastNoiseLite.createSpongePerlin((int) seed);
+            perlin = new FastNoise((int) seed);
+            perlin.SetNoiseType(FastNoise.NoiseType.Perlin);
             perlin.SetFrequency(0.2F);
         }
     }

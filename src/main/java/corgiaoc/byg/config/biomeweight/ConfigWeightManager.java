@@ -23,7 +23,7 @@ public class ConfigWeightManager {
     public static final ConfigWeight BLUE_TAIGA = new ConfigWeight("Blue_Taiga", 6);
     public static final ConfigWeight BLUFF_STEEPS = new ConfigWeight("Bluff_Steeps", 6);
     public static final ConfigWeight BOREAL_FOREST = new ConfigWeight("Boreal_Forest", 6);
-    public static final ConfigWeight CANYONS = new ConfigWeight("Canyons", 10);
+    public static final ConfigWeight CANYONS = new ConfigWeight("Canyons", 0);
     public static final ConfigWeight COLD_SWAMPLANDS = new ConfigWeight("Cold_Swamplands", 6);
     public static final ConfigWeight CIKA_WOODS = new ConfigWeight("Cika_Woods", 4);
     public static final ConfigWeight CHERRY_BLOSSOM_FOREST = new ConfigWeight("Cherry_Blossom_Forest", 6);
