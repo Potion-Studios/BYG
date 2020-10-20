@@ -9,7 +9,6 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
@@ -39,12 +38,14 @@ public class AlliumFields extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.func_226313_a_(BYGBiomes.CANYON_EDGE, 10);
+        biomeWeightedList.func_226313_a_(BYGBiomes.FRESH_WATER_LAKE, 5);
+        biomeWeightedList.func_226313_a_(BYGBiomes.RED_OAK_FOREST, 5);
         return biomeWeightedList;
     }
 
-    public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.RED_OAK_FOREST;
+    @Override
+    public int getWeight() {
+        return 10;
     }
 
     static {
