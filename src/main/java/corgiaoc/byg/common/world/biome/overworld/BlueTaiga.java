@@ -7,11 +7,13 @@ import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+
+import javax.annotation.Nullable;
 
 public class BlueTaiga extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("blue_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -32,10 +34,6 @@ public class BlueTaiga extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
-    @Override
-    public Biome getRiver() {
-        return WorldGenRegistries.BIOME.getValueForKey(Biomes.RIVER);
-    }
 
     public Biome getHills(INoiseRandom rand) {
         return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : pickRandomSubBiome(rand);
@@ -45,9 +43,22 @@ public class BlueTaiga extends BYGBiome {
         return (rand.random(2) == 0) ? BYGBiomes.BLUE_GIANT_TAIGA : BYGBiomes.BLUE_TAIGA_HILLS;
     }
 
+    @Nullable
+    @Override
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.BLUE_GIANT_TAIGA, 2);
+        biomeWeightedList.func_226313_a_(BYGBiomes.BLUE_TAIGA_HILLS, 4);
+        biomeWeightedList.func_226313_a_(BYGBiomes.FRESH_WATER_LAKE, 4);
+        return biomeWeightedList;
+    }
+
+    @Override
+    public int getWeight() {
+        return 6;
+    }
+
     static {
-        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/taiga/town_centers"), 6));
-        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBlueTaigaTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLargeFern(GENERATION_SETTINGS);
