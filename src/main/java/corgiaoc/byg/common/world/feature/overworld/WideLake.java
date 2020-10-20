@@ -151,7 +151,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
             int open = 0;
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 Material material2 = world.getBlockState(blockpos$Mutable.offset(direction)).getMaterial();
-                if (!material2.isSolid() || unacceptableSolidMaterials.contains(material2)) return false;
+                if (unacceptableSolidMaterials.contains(material2)) return false;
                 if (world.getBlockState(blockpos$Mutable.offset(direction)).isAir()) open++;
             }
             if (open == 1) return true;
