@@ -60,10 +60,6 @@ public class BYGBiome {
         return 5;
     }
 
-    public int getReplacementChance() {
-        return 3;
-    }
-
     @Nullable
     public WeightedList<Biome> getHills() {
         return null;
@@ -76,7 +72,7 @@ public class BYGBiome {
 
     @Nullable
     public Biome getBeach() {
-        return null;
+        return WorldGenRegistries.BIOME.getOrThrow(Biomes.BEACH);
     }
 
 

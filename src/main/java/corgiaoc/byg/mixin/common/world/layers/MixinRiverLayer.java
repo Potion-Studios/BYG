@@ -21,7 +21,10 @@ public abstract class MixinRiverLayer {
         int area2Value = area2.getValue(((MixRiverLayer) (Object) this).getOffsetX(x), ((MixRiverLayer) (Object) this).getOffsetZ(z));
 
         if (area2Value == WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER))) {
-            cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_RIVER_LIST.get(area1Value)));
+            if (BYGBiome.BIOME_TO_RIVER_LIST.get(area1Value) != null)
+                cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_RIVER_LIST.get(area1Value)));
+            else //Remove from list if null.
+                BYGBiome.BIOME_TO_RIVER_LIST.remove(area1Value);
         }
     }
 }
