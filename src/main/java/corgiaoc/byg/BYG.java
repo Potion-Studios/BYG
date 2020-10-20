@@ -63,8 +63,14 @@ public class BYG {
     public static boolean isUsingMixin;
     public static String FILE_PATH = "yeet";
 
+    public static final Path CONFIG_PATH = new File(String.valueOf(FMLPaths.CONFIGDIR.get().resolve(MOD_ID))).toPath();
+
     public BYG() {
-        BYGWorldConfig.loadConfig(BYGWorldConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MOD_ID + "-world-common.toml"));
+        File dir = new File(CONFIG_PATH.toString());
+        if (!dir.exists())
+            dir.mkdir();
+
+        BYGWorldConfig.loadConfig(BYGWorldConfig.COMMON_CONFIG, CONFIG_PATH.resolve(MOD_ID + "-world.toml"));
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
@@ -74,15 +80,14 @@ public class BYG {
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
         ConfigWeightManager.buildConfig();
-        ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         BYGCreativeTab.init();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
-        handleJSONConfig(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-biomes.json"));
         BiomeDataListHolder.fillBiomeLists();
         BYGBiomes.addBiomeEntries();
         BYGBiomes.fillBiomeDictionary();
+        handleJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-biomes.json"));
     }
 
 
@@ -121,7 +126,7 @@ public class BYG {
         String jsonString = gson.toJson(new BiomeDataListHolder(BYGBiome.biomeData));
 
         try {
-            Files.write(FMLPaths.CONFIGDIR.get().resolve(path), jsonString.getBytes());
+            Files.write(path, jsonString.getBytes());
         } catch (IOException e) {
             LOGGER.error(BYG.MOD_ID + "-biomes.json could not be created");
         }

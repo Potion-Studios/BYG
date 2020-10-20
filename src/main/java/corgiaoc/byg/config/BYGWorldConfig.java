@@ -64,6 +64,5 @@ public class BYGWorldConfig {
 
     @SubscribeEvent
     public static void onLoad(final ModConfig.Loading configEvent) {
-
     }
 }
