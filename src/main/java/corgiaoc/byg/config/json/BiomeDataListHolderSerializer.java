@@ -114,7 +114,15 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                     }
                 }
             }
-            biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(biomeName)), weight, BiomeManager.BiomeType.valueOf(climate.toUpperCase()),  weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
+            ResourceLocation biomeKey = new ResourceLocation(biomeName);
+            if (WorldGenRegistries.BIOME.containsKey(biomeKey)) {
+                if (biomeKey.getNamespace().equals(BYG.MOD_ID))
+                    biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), weight, BiomeManager.BiomeType.valueOf(climate.toUpperCase()), weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
+                else
+                    BYG.LOGGER.error("Biome key: \"" + biomeName + "\" is illegal. The mod id for the biome key MUST be \"byg\". Skipping entry...");
+            }
+            else
+                BYG.LOGGER.error("THe biome key: \"" + biomeName + "\" was not found in the registry, skipping entry...");
         }
         return new BiomeDataListHolder(biomeData);
     }
