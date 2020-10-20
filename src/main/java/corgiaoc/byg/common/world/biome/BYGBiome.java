@@ -1,6 +1,5 @@
 package corgiaoc.byg.common.world.biome;
 
-import com.mojang.datafixers.util.Pair;
 import corgiaoc.byg.config.json.BiomeData;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -24,7 +23,7 @@ public class BYGBiome {
 
     public static List<BiomeData> biomeData = new ArrayList<>();
 
-    public static final List<Pair<Int2ObjectMap<WeightedList<Biome>>, Integer>> BIOME_TO_HILLS_LIST = new ArrayList<>();
+    public static final Int2ObjectMap<WeightedList<Biome>> BIOME_TO_HILLS_LIST = new Int2ObjectArrayMap<>();
     public static final Int2ObjectMap<Biome> BIOME_TO_BEACH_LIST = new Int2ObjectArrayMap<>();
     public static final Int2ObjectMap<Biome> BIOME_TO_EDGE_LIST = new Int2ObjectArrayMap<>();
     public static final Int2ObjectMap<Biome> BIOME_TO_RIVER_LIST = new Int2ObjectArrayMap<>();

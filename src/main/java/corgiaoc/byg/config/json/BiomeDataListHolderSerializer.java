@@ -7,7 +7,6 @@ import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 
-import javax.annotation.Nullable;
 import java.lang.reflect.Type;
 import java.util.*;
 
@@ -57,7 +56,6 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             else
                 object.addProperty("edge", "");
 
-            object.addProperty("hill_replacement_chance", dataHolder.getReplacementChance());
             object.add("hills", weightedListArray);
 
             //This should never be null.
@@ -89,7 +87,6 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
             JsonObject elementObject = element.getAsJsonObject();
 
-            int replacementChance = elementObject.get("hill_replacement_chance").getAsInt();
             String edge = elementObject.get("edge").getAsString();
             String river = elementObject.get("river").getAsString();
             String beach = elementObject.get("beach").getAsString();
@@ -114,15 +111,8 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                     }
                 }
             }
-            biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(biomeName)), replacementChance, 5, weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
+            biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(biomeName)), 5, weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
         }
         return new BiomeDataListHolder(biomeData);
-    }
-
-    public static String getOrDefault(@Nullable String jsonString) {
-        if (jsonString == null)
-            return "";
-        else
-            return jsonString;
     }
 }

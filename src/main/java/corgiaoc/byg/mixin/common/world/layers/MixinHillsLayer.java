@@ -1,10 +1,7 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
-import com.mojang.datafixers.util.Pair;
-import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.core.world.BYGBiomes;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -44,21 +41,20 @@ public abstract class MixinHillsLayer {
             cir.setReturnValue(l);
         }
         if (BYGBiome.BIOME_TO_HILLS_LIST.size() > 0) {
-            for (Pair<Int2ObjectMap<WeightedList<Biome>>, Integer> pair : BYGBiome.BIOME_TO_HILLS_LIST) {
-                if (rand.random(pair.getSecond()) == 0 || k == 0) {
-                    int l;
-                    Biome biome = WorldGenRegistries.BIOME.getByValue(i);
-                    if (biome != null) {
-                        if (pair.getFirst().get(i) != null) {
-                            Biome hill = getHillBiomeValue(pair.getFirst().get(i));
-                            if (hill != null) {
-                                l = WorldGenRegistries.BIOME.getId(hill);
-                                cir.setReturnValue(l);
-                                break;
-                            }
+            if (rand.random(3) == 0 || k == 0) {
+                int l = i;
+                Biome biome = WorldGenRegistries.BIOME.getByValue(i);
+                if (biome != null) {
+                    if (BYGBiome.BIOME_TO_HILLS_LIST.get(i) != null) {
+                        Biome hill = getHillBiomeValue(BYGBiome.BIOME_TO_HILLS_LIST.get(i));
+                        if (hill != null) {
+                            l = WorldGenRegistries.BIOME.getId(hill);
                         }
                     }
+                    else //Remove if the object is null.
+                        BYGBiome.BIOME_TO_HILLS_LIST.remove(i);
                 }
+                cir.setReturnValue(l);
             }
         }
     }
@@ -66,7 +62,6 @@ public abstract class MixinHillsLayer {
     @Nullable
     private static Biome getHillBiomeValue(WeightedList<Biome> biomeHolder) {
         if (biomeHolder.field_220658_a.size() > 0) {
-            BYG.LOGGER.info("brrrrt");
             return biomeHolder.func_226318_b_(MixinHillsLayer.random);
         }
         else {

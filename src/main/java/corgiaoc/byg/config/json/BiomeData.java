@@ -6,7 +6,6 @@ import net.minecraft.world.biome.Biome;
 public class BiomeData {
 
     private final Biome biome;
-    private final int replacementChance;
     private final WeightedList<Biome> biomeWeightedList;
     private final Biome edgeBiome;
     private final Biome beachBiome;
@@ -14,9 +13,8 @@ public class BiomeData {
     private final int biomeWeight;
 
 
-    public BiomeData(Biome biome, int replacementChance, int biomeWeight, WeightedList<Biome> biomeWeightedList, Biome edgeBiome, Biome beachBiome, Biome river) {
+    public BiomeData(Biome biome, int biomeWeight, WeightedList<Biome> biomeWeightedList, Biome edgeBiome, Biome beachBiome, Biome river) {
         this.biome = biome;
-        this.replacementChance = replacementChance;
         this.biomeWeight = biomeWeight;
         this.biomeWeightedList = biomeWeightedList;
         this.edgeBiome = edgeBiome;
@@ -26,10 +24,6 @@ public class BiomeData {
 
     public Biome getBiome() {
         return biome;
-    }
-
-    public int getReplacementChance() {
-        return replacementChance;
     }
 
     public WeightedList<Biome> getBiomeWeightedList() {
