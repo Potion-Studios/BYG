@@ -1,6 +1,5 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
-import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
@@ -15,8 +14,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
-import java.util.Collections;
-import java.util.HashMap;
+import javax.annotation.Nullable;
 
 public class Bayou extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bayou", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
@@ -39,20 +37,21 @@ public class Bayou extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
-//    @Override
-//    public int getGrassColorAt(double x, double z) {
-//        double d0 = FOLIAGE_NOISE.sample(x * 0.0225D, z * 0.0225D, false);
-//        return d0 < -0.1D ? 7375928 : 6981433;
-//    }
-
     @Override
     public Biome getRiver() {
         return this.getBiome();
     }
 
+
+    @Nullable
     @Override
-    public HashMap<Biome, Integer> getEdges() {
-        return Maps.newHashMap(Collections.singletonMap(this.getBiome(), 1));
+    public Biome getBeach() {
+        return this.getBiome();
+    }
+
+    @Override
+    public int getWeight() {
+        return 5;
     }
 
     static {

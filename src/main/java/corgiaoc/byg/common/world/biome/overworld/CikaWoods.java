@@ -8,8 +8,8 @@ import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -39,29 +39,22 @@ public class CikaWoods extends BYGBiome {
 
     @Nullable
     @Override
-    public Biome getEdges(INoiseRandom rand, Biome north, Biome west, Biome south, Biome east) {
-        Biome[] edgeArray = {north, west, south, east};
-        for (Biome biome : edgeArray) {
-            if (BiomeUtil.isOcean(biome))
-                return BYGBiomes.BASALT_BARRERA;
-        }
-        return super.getEdges(rand, north, west, south, east);
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.CIKA_MOUNTAINS, 5);
+        biomeWeightedList.func_226313_a_(BYGBiomes.FRESH_WATER_LAKE, 5);
+        return biomeWeightedList;
     }
 
-    public Biome getHills(INoiseRandom rand) {
-        return randomSubBiome(rand);
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return BYGBiomes.BASALT_BARRERA;
     }
 
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
-        if (randomPicker == 0)
-            return BYGBiomes.CIKA_MOUNTAINS;
-        else if (randomPicker == 1)
-            return BYGBiomes.CIKA_MOUNTAINS;
-        else if (randomPicker == 2)
-            return BYGBiomes.CIKA_MOUNTAINS;
-        else
-            return BYGBiomes.FRESH_WATER_LAKE;
+    @Override
+    public int getWeight() {
+        return 6;
     }
 
     static {

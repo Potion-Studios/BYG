@@ -43,8 +43,6 @@ public class ColossalIceSpikes extends BYGBiome {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, Features.ICE_SPIKE);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, Features.ICE_PATCH);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-//        this.addStructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
-        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
@@ -52,7 +50,6 @@ public class ColossalIceSpikes extends BYGBiome {
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withWarmFlowers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-//        BYGDefaultBiomeFeatures.addNorthernForestTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);

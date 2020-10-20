@@ -9,11 +9,14 @@ import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+
+import javax.annotation.Nullable;
 
 public class BluffSteeps extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bluff_steeps", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlocks.OVERGROWN_STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState())));
@@ -43,9 +46,20 @@ public class BluffSteeps extends BYGBiome {
         return BYGBiomes.BLUFF_PEAKS;
     }
 
+    @Nullable
+    @Override
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.BLUFF_PEAKS, 10);
+        return biomeWeightedList;
+    }
+
+    @Override
+    public int getWeight() {
+        return 6;
+    }
+
     static {
-        //StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/taiga/town_centers"), 6));
-        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

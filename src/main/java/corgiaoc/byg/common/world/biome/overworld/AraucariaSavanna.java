@@ -8,12 +8,14 @@ import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+
+import javax.annotation.Nullable;
 
 public class AraucariaSavanna extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("araucaria_savanna", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
@@ -36,8 +38,18 @@ public class AraucariaSavanna extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
-    public Biome getHills(INoiseRandom rand) {
-        return (rand.random(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.ARAUCARIA_FOREST;
+    @Nullable
+    @Override
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.FRESH_WATER_LAKE, 5);
+        biomeWeightedList.func_226313_a_(BYGBiomes.ARAUCARIA_FOREST, 5);
+        return biomeWeightedList;
+    }
+
+    @Override
+    public int getWeight() {
+        return 2;
     }
 
     static {

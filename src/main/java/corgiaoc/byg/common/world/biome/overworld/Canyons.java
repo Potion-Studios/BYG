@@ -11,7 +11,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
@@ -43,11 +42,19 @@ public class Canyons extends BYGBiome {
 
     @Nullable
     @Override
-    public Biome getEdges(INoiseRandom rand, Biome north, Biome west, Biome south, Biome east) {
-        if (north != this.getBiome() || west != this.getBiome() || south != this.getBiome() || east != this.getBiome())
-            return BYGBiomes.CANYON_EDGE;
-        else
-            return null;
+    public Biome getEdge() {
+        return BYGBiomes.CANYON_EDGE;
+    }
+
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return BYGBiomes.CANYON_EDGE;
+    }
+
+    @Override
+    public int getWeight() {
+        return 0;
     }
 
     static {

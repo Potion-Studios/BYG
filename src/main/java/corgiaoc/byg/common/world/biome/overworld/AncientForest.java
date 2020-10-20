@@ -7,11 +7,13 @@ import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+
+import javax.annotation.Nullable;
 
 public class AncientForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("ancient_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -39,9 +41,18 @@ public class AncientForest extends BYGBiome {
         return (rand.random(5) == 0) ? BYGBiomes.FLOWERING_ANCIENT_FOREST : BYGBiomes.GLOWING_ANCIENT_FOREST;
     }
 
+    @Nullable
     @Override
-    public Biome getRiver() {
-        return WorldGenRegistries.BIOME.getValueForKey(Biomes.RIVER);
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.FLOWERING_ANCIENT_FOREST, 5);
+        biomeWeightedList.func_226313_a_(BYGBiomes.GLOWING_ANCIENT_FOREST, 5);
+        return biomeWeightedList;
+    }
+
+    @Override
+    public int getWeight() {
+        return 1;
     }
 
     static {

@@ -8,11 +8,13 @@ import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+
+import javax.annotation.Nullable;
 
 public class CherryBlossomForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("cherry_blossom_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
@@ -35,21 +37,19 @@ public class CherryBlossomForest extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
+    @Nullable
     @Override
-    public Biome getHills(INoiseRandom rand) {
-        return randomSubBiome(rand);
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.CHERRY_BLOSSOM_CLEARING, 4);
+        biomeWeightedList.func_226313_a_(BYGBiomes.BAMBOO_FOREST, 3);
+        biomeWeightedList.func_226313_a_(BYGBiomes.FRESH_WATER_LAKE, 3);
+        return biomeWeightedList;
     }
 
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
-        if (randomPicker == 0)
-            return BYGBiomes.CHERRY_BLOSSOM_CLEARING;
-        else if (randomPicker == 1)
-            return BYGBiomes.BAMBOO_FOREST;
-        else if (randomPicker == 2)
-            return BYGBiomes.FRESH_WATER_LAKE;
-        else
-            return BYGBiomes.FRESH_WATER_LAKE;
+    @Override
+    public int getWeight() {
+        return 6;
     }
 
     static {

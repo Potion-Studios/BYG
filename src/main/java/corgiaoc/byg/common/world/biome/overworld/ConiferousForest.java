@@ -8,9 +8,12 @@ import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+
+import javax.annotation.Nullable;
 
 public class ConiferousForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("coniferous_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CONIFEROUS, BYGSurfaceBuilders.Configs.PEATGRASS_CF));
@@ -47,6 +50,22 @@ public class ConiferousForest extends BYGBiome {
             return BYGBiomes.CONIFEROUS_CLEARING;
         else
             return BYGBiomes.FRESH_WATER_LAKE;
+    }
+
+    @Nullable
+    @Override
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.CONIFEROUS_CLEARING, 4);
+        biomeWeightedList.func_226313_a_(BYGBiomes.CONIFEROUS_FOREST_HILLS, 3);
+        biomeWeightedList.func_226313_a_(BYGBiomes.FRESH_WATER_LAKE, 3);
+        return biomeWeightedList;
+    }
+
+
+    @Override
+    public int getWeight() {
+        return 5;
     }
 
     static {

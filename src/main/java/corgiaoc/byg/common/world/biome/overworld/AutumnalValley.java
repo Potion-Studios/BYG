@@ -8,12 +8,13 @@ import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+
+import javax.annotation.Nullable;
 
 public class AutumnalValley extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("autumnal_valley", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), BYGBlocks.MEADOW_DIRT.getDefaultState(), BYGBlocks.MEADOW_DIRT.getDefaultState())));
@@ -36,18 +37,20 @@ public class AutumnalValley extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
-    public Biome getHills(INoiseRandom rand) {
-        return BYGBiomes.FRESH_WATER_LAKE;
+    @Nullable
+    @Override
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.FRESH_WATER_LAKE, 10);
+        return biomeWeightedList;
     }
 
     @Override
-    public Biome getRiver() {
-        return WorldGenRegistries.BIOME.getValueForKey(Biomes.RIVER);
+    public int getWeight() {
+        return 5;
     }
 
     static {
-        ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
-//        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMeadowShrubs(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addLargePumpkins(GENERATION_SETTINGS);

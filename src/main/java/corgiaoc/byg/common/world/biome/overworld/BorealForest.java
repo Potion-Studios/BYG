@@ -8,11 +8,12 @@ import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+
+import javax.annotation.Nullable;
 
 public class BorealForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("boreal_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BOREAL, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -35,25 +36,19 @@ public class BorealForest extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
+    @Nullable
     @Override
-    public Biome getRiver() {
-        return WorldGenRegistries.BIOME.getValueForKey(Biomes.RIVER);
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.BOREAL_FOREST_HILLS, 4);
+        biomeWeightedList.func_226313_a_(BYGBiomes.BOREAL_CLEARING, 3);
+        biomeWeightedList.func_226313_a_(BYGBiomes.FRESH_WATER_LAKE, 3);
+        return biomeWeightedList;
     }
 
-    public Biome getHills(INoiseRandom rand) {
-        return randomSubBiome(rand);
-    }
-
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
-        if (randomPicker == 0)
-            return BYGBiomes.BOREAL_FOREST_HILLS;
-        else if (randomPicker == 1)
-            return BYGBiomes.BOREAL_CLEARING;
-        else if (randomPicker == 2)
-            return BYGBiomes.BOREAL_CLEARING;
-        else
-            return BYGBiomes.FRESH_WATER_LAKE;
+    @Override
+    public int getWeight() {
+        return 6;
     }
 
     static {
