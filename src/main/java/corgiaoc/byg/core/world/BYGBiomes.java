@@ -7,14 +7,14 @@ import corgiaoc.byg.common.world.biome.end.*;
 import corgiaoc.byg.common.world.biome.end.sub.ShatteredViscalIsles;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
-import corgiaoc.byg.common.world.biome.overworld.sub.*;
-import corgiaoc.byg.common.world.biome.overworld.sub.beach.*;
-import corgiaoc.byg.common.world.biome.overworld.sub.clearings.*;
-import corgiaoc.byg.common.world.biome.overworld.sub.hills.*;
-import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FreshWaterLake;
-import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FrozenLake;
-import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
-import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
+import corgiaoc.byg.common.world.biome.sub.*;
+import corgiaoc.byg.common.world.biome.sub.beach.*;
+import corgiaoc.byg.common.world.biome.sub.clearings.*;
+import corgiaoc.byg.common.world.biome.sub.hills.*;
+import corgiaoc.byg.common.world.biome.sub.lakes.FreshWaterLake;
+import corgiaoc.byg.common.world.biome.sub.lakes.FrozenLake;
+import corgiaoc.byg.common.world.biome.sub.lakes.Oasis;
+import corgiaoc.byg.common.world.biome.sub.lakes.PollutedLake;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.util.RegistryKey;
@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 public class BYGBiomes {
     public static List<Biome> biomeList = new ArrayList<>();
 
-//    public static final Biome DUMMY_BIOME = WorldGenRegistrationHelper.createBiome("dummy", new DummyBiome().getBiome());
+//    public static final Biome DUMMY_BIOME = WorldGenRegistrationHelper.createBiome("dummy", new DummySubBiome().getBiome());
 
 
     /************Primary Biomes************/

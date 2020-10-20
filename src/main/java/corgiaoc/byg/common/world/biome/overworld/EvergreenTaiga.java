@@ -1,6 +1,5 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
-import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
@@ -13,7 +12,6 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
-import java.util.HashMap;
 import java.util.Random;
 
 public class EvergreenTaiga extends BYGBiome {
@@ -35,14 +33,6 @@ public class EvergreenTaiga extends BYGBiome {
 
     public EvergreenTaiga() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
-    }
-
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = Maps.newHashMap();
-        map.put(BYGBiomes.EVERGREEN_HILLS, 1);
-        map.put(BYGBiomes.EVERGREEN_CLEARING, 2);
-        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
-        return map;
     }
 
     public Biome getHills(INoiseRandom rand) {

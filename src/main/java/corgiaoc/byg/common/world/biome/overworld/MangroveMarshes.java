@@ -46,10 +46,6 @@ public class MangroveMarshes extends BYGBiome {
         return this.getBiome();
     }
 
-    public HashMap<Biome, Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.CORAL_MANGROVES, 1));
-    }
-
     @Override
     public HashMap<Biome, Integer> getEdges() {
         return Maps.newHashMap(Collections.singletonMap(this.getBiome(), 1));

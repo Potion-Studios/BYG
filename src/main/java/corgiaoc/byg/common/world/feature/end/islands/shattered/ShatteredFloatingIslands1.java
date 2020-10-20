@@ -34,7 +34,7 @@ public class ShatteredFloatingIslands1 extends Feature<FloatingIslandConfig> {
         for (double x = -radius; x <= radius; x++) {
             for (double y = -radius; y <= modifiedRadiusOnY; y++) {
                 for (double z = -radius; z <= radius; z++) {
-                    double noise = perlin.GetNoise((float)x, (float)y, (float)z) * 12;
+                    double noise = perlin.GetNoise((float) x, (float) y, (float) z) * 12;
 
                     double scaledNoise = (noise / 11) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {

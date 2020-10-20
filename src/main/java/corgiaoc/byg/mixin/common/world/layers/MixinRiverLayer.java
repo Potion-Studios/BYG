@@ -2,7 +2,6 @@ package corgiaoc.byg.mixin.common.world.layers;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
@@ -12,8 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import javax.annotation.Nullable;
-
+@SuppressWarnings("deprecation")
 @Mixin(MixRiverLayer.class)
 public abstract class MixinRiverLayer {
 
@@ -23,18 +21,7 @@ public abstract class MixinRiverLayer {
         int area2Value = area2.getValue(((MixRiverLayer) (Object) this).getOffsetX(x), ((MixRiverLayer) (Object) this).getOffsetZ(z));
 
         if (area2Value == WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER))) {
-            Biome biome = getRiverBiomeValue(WorldGenRegistries.BIOME.getByValue(area1Value));
-            if (biome != null)
-                cir.setReturnValue(WorldGenRegistries.BIOME.getId(biome));
+            cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_RIVER_LIST.get(area1Value)));
         }
-    }
-
-    @Nullable
-    private static Biome getRiverBiomeValue(Biome firstLayerBiomeValue) {
-        for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES) {
-            if (firstLayerBiomeValue == bygBiome.getBiome())
-                return bygBiome.getRiver();
-        }
-        return null;
     }
 }

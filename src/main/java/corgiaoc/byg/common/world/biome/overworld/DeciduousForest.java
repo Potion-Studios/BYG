@@ -12,8 +12,6 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-import java.util.HashMap;
-
 public class DeciduousForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("deciduous_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
@@ -35,13 +33,6 @@ public class DeciduousForest extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.DECIDUOUS_FOREST_HILLS, 1);
-        map.put(BYGBiomes.DECIDUOUS_CLEARING, 2);
-        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
-        return map;
-    }
 
     public Biome getHills(INoiseRandom rand) {
         return randomSubBiome(rand);

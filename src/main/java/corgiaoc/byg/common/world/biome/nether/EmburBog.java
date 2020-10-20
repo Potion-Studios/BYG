@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.world.biome.nether;
 
-import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
@@ -18,7 +18,7 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
-public class EmburBog extends BYGBiome {
+public class EmburBog extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("embur_bog", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.EMBUR_BOG, BYGSurfaceBuilders.Configs.EMBURNYLIUM));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.NETHER;

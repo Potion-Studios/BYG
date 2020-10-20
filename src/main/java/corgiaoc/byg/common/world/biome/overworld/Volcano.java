@@ -15,7 +15,6 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
 
 public class Volcano extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("volcano", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -54,15 +53,6 @@ public class Volcano extends BYGBiome {
                 return this.getBiome();
         }
         return super.getEdges(rand, north, west, south, east);
-    }
-
-    @Override
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.SNOWY_DECIDUOUS_FOREST_HILLS, 1);
-        map.put(BYGBiomes.SNOWY_DECIDUOUS_CLEARING, 2);
-        map.put(BYGBiomes.FROZEN_LAKE, 1);
-        return map;
     }
 
     @Override

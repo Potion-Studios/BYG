@@ -12,8 +12,6 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
-import java.util.HashMap;
-
 public class TheBlackForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("the_black_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CONIFEROUS, BYGSurfaceBuilders.Configs.PEATGRASS_CF));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
@@ -33,16 +31,6 @@ public class TheBlackForest extends BYGBiome {
 
     public TheBlackForest() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
-    }
-
-
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.BLACK_FOREST_HILLS, 1);
-        map.put(BYGBiomes.BLACK_FOREST_CLEARING, 1);
-        map.put(BYGBiomes.FOREST_FAULT, 1);
-        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
-        return map;
     }
 
     public Biome getHills(INoiseRandom rand) {

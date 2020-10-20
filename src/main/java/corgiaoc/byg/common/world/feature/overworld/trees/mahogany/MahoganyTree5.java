@@ -3,12 +3,10 @@ package corgiaoc.byg.common.world.feature.overworld.trees.mahogany;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 
 import java.util.Random;
 import java.util.Set;
@@ -31,7 +29,11 @@ public class MahoganyTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
-            } else {
+            } else if(isCliff(worldIn, 3, mainmutable.setPos(pos).move(-6, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-5, 0, 0).toImmutable(), mainmutable.setPos(pos).move(-5, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-5, 0, 2).toImmutable(), mainmutable.setPos(pos).move(-4, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-4, 0, 2).toImmutable(), mainmutable.setPos(pos).move(-2, 0, -5).toImmutable(), mainmutable.setPos(pos).move(-2, 0, -4).toImmutable(), mainmutable.setPos(pos).move(-1, 0, -5).toImmutable(), mainmutable.setPos(pos).move(-1, 0, -4).toImmutable(), mainmutable.setPos(pos).move(0, 0, -4).toImmutable(), mainmutable.setPos(pos).move(1, 0, 4).toImmutable(), mainmutable.setPos(pos).move(1, 0, 5).toImmutable(), mainmutable.setPos(pos).move(2, 0, 4).toImmutable(), mainmutable.setPos(pos).move(2, 0, 5).toImmutable(), mainmutable.setPos(pos).move(4, 0, -1).toImmutable(), mainmutable.setPos(pos).move(4, 0, 0).toImmutable(), mainmutable.setPos(pos).move(4, 0, 1).toImmutable(), mainmutable.setPos(pos).move(5, 0, -1).toImmutable(), mainmutable.setPos(pos).move(5, 0, 0).toImmutable(), mainmutable.setPos(pos).move(5, 0, 1))) {
+                return false;
+            } else  {
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.setPos(pos).move(-6, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-5, 0, 0).toImmutable(), mainmutable.setPos(pos).move(-5, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-5, 0, 2).toImmutable(), mainmutable.setPos(pos).move(-4, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-4, 0, 2).toImmutable(), mainmutable.setPos(pos).move(-2, 0, -5).toImmutable(), mainmutable.setPos(pos).move(-2, 0, -4).toImmutable(), mainmutable.setPos(pos).move(-1, 0, -5).toImmutable(), mainmutable.setPos(pos).move(-1, 0, -4).toImmutable(), mainmutable.setPos(pos).move(0, 0, -4).toImmutable(), mainmutable.setPos(pos).move(1, 0, 4).toImmutable(), mainmutable.setPos(pos).move(1, 0, 5).toImmutable(), mainmutable.setPos(pos).move(2, 0, 4).toImmutable(), mainmutable.setPos(pos).move(2, 0, 5).toImmutable(), mainmutable.setPos(pos).move(4, 0, -1).toImmutable(), mainmutable.setPos(pos).move(4, 0, 0).toImmutable(), mainmutable.setPos(pos).move(4, 0, 1).toImmutable(), mainmutable.setPos(pos).move(5, 0, -1).toImmutable(), mainmutable.setPos(pos).move(5, 0, 0).toImmutable(), mainmutable.setPos(pos).move(5, 0, 1));
+                
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 3, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 8, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 9, 0), boundsIn);
@@ -1244,27 +1246,6 @@ public class MahoganyTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         return true;
     }
 
-
-    private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.MAHOGANY_LOG.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.MAHOGANY_LOG.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlocks.MAHOGANY_LEAVES.getDefaultState(), boundingBox);
-        }
-    }
-
     //Honey Placement
     private void honey(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
@@ -1277,27 +1258,5 @@ public class MahoganyTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(blockPos, reader, pos, Blocks.HONEYCOMB_BLOCK.getDefaultState(), boundingBox);
         }
-    }
-
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 0;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
     }
 }

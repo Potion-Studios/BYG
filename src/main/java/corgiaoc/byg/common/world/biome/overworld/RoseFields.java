@@ -1,6 +1,5 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
-import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
@@ -13,8 +12,6 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-
-import java.util.HashMap;
 
 public class RoseFields extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("rose_fields", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -35,13 +32,6 @@ public class RoseFields extends BYGBiome {
 
     public RoseFields() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
-    }
-
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = Maps.newHashMap();
-        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
-        map.put(BYGBiomes.RED_SPRUCE_TAIGA, 4);
-        return map;
     }
 
     public Biome getHills(INoiseRandom rand) {

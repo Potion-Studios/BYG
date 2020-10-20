@@ -13,8 +13,6 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-import java.util.HashMap;
-
 public class LushTundra extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("lush_tundra", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.LUSH_TUNDRA, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
@@ -34,13 +32,6 @@ public class LushTundra extends BYGBiome {
 
     public LushTundra() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
-    }
-
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.FROZEN_LAKE, 1);
-        map.put(BYGBiomes.NORTHERN_FOREST, 4);
-        return map;
     }
 
     public Biome getHills(INoiseRandom rand) {

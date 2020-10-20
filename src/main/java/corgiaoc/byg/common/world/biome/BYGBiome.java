@@ -1,8 +1,11 @@
 package corgiaoc.byg.common.world.biome;
 
-import it.unimi.dsi.fastutil.ints.Int2IntMap;
-import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
+import com.mojang.datafixers.util.Pair;
+import corgiaoc.byg.config.json.BiomeData;
+import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
@@ -19,9 +22,12 @@ public class BYGBiome {
     public static final List<BYGBiome> BYG_BIOMES = new ArrayList<>();
     private final Biome biome;
 
-    private static final Int2IntMap BIOME_SIMILARITY_MAP = new Int2IntOpenHashMap();
+    public static List<BiomeData> biomeData = new ArrayList<>();
 
-
+    public static final List<Pair<Int2ObjectMap<WeightedList<Biome>>, Integer>> BIOME_TO_HILLS_LIST = new ArrayList<>();
+    public static final Int2ObjectMap<Biome> BIOME_TO_BEACH_LIST = new Int2ObjectArrayMap<>();
+    public static final Int2ObjectMap<Biome> BIOME_TO_EDGE_LIST = new Int2ObjectArrayMap<>();
+    public static final Int2ObjectMap<Biome> BIOME_TO_RIVER_LIST = new Int2ObjectArrayMap<>();
 
     public BYGBiome(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
         biome = new Biome(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
@@ -42,22 +48,42 @@ public class BYGBiome {
         return this.biome;
     }
 
-    public Biome getRiver() {
-        return WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER);
-    }
-
     @Nullable
     public Biome getHills(INoiseRandom random) {
         return null;
     }
 
+    public Biome getRiver() {
+        return WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER);
+    }
+
+    public int getWeight() {
+        return 5;
+    }
+
+    public int getReplacementChance() {
+        return 3;
+    }
+
     @Nullable
-    public Biome getEdges(INoiseRandom rand, Biome north, Biome west, Biome south, Biome east) {
+    public WeightedList<Biome> getHills() {
         return null;
     }
 
-    public HashMap<Biome, Integer> getHills() {
-        return new HashMap<>();
+    @Nullable
+    public Biome getEdge() {
+        return null;
+    }
+
+    @Nullable
+    public Biome getBeach() {
+        return null;
+    }
+
+
+    @Nullable
+    public Biome getEdges(INoiseRandom rand, Biome north, Biome west, Biome south, Biome east) {
+        return null;
     }
 
     public HashMap<Biome, Integer> getEdges() {
@@ -66,20 +92,5 @@ public class BYGBiome {
 
     public RegistryKey<Biome> getKey() {
         return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
-    }
-
-    public static void fillMutationMap() {
-        for (Biome biome : WorldGenRegistries.BIOME) {
-            if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE)
-                BIOME_SIMILARITY_MAP.put(WorldGenRegistries.BIOME.getId(biome), biome.getCategory().ordinal());
-        }
-    }
-
-    public static boolean areBiomesSimilar(int layer2Value, int layer1Value) {
-        if (layer2Value == layer1Value) {
-            return true;
-        } else {
-            return BIOME_SIMILARITY_MAP.get(layer2Value) == BIOME_SIMILARITY_MAP.get(layer1Value);
-        }
     }
 }

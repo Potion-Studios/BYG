@@ -15,7 +15,6 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
 
 public class CikaWoods extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("cika_woods", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
@@ -36,13 +35,6 @@ public class CikaWoods extends BYGBiome {
 
     public CikaWoods() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
-    }
-
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.CIKA_MOUNTAINS, 3);
-        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
-        return map;
     }
 
     @Nullable

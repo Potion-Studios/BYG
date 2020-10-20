@@ -30,7 +30,11 @@ public class MahoganyTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
+            } else if (isCliff(worldIn, mainmutable.setPos(pos).move(-3, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-2, 0, 0).toImmutable(), mainmutable.setPos(pos).move(-2, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-2, 0, 2).toImmutable(), mainmutable.setPos(pos).move(-1, 0, -1).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 0).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 2).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 3).toImmutable(), mainmutable.setPos(pos).move(0, 0, 1).toImmutable(), mainmutable.setPos(pos).move(0, 0, 2).toImmutable(), mainmutable.setPos(pos).move(1, 0, 1))) {
+                return false;
             } else {
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.setPos(pos).move(-3, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-2, 0, 0).toImmutable(), mainmutable.setPos(pos).move(-2, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-2, 0, 2).toImmutable(), mainmutable.setPos(pos).move(-1, 0, -1).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 0).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 1).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 2).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 3).toImmutable(), mainmutable.setPos(pos).move(0, 0, 1).toImmutable(), mainmutable.setPos(pos).move(0, 0, 2).toImmutable(), mainmutable.setPos(pos).move(1, 0, 1));
+
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 0, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 1, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 7, 0), boundsIn);

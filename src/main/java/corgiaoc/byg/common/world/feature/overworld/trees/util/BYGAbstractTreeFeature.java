@@ -385,23 +385,22 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
 
     public boolean isCliff(IWorldGenerationBaseReader reader, int checkDownRange, BlockPos... trunkPositions) {
-        int positionsThatHaveGround = 0;
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
 
             for (BlockPos trunkPos : trunkPositions) {
                 mutable.setPos(trunkPos);
-
                 for (int moveDown = 0; moveDown <= checkDownRange; moveDown++) {
-                    if (!isAirOrWater(reader, mutable)) {
-                        positionsThatHaveGround++;
+                    if (!isAirOrWater(reader, mutable) && !FeatureUtil.isPlant(reader, mutable)) {
                         break;
                     }
+                    if (moveDown == checkDownRange)
+                        return true;
                     mutable.move(Direction.DOWN);
                 }
             }
         }
-        return positionsThatHaveGround != trunkPositions.length;
+        return false;
     }
 
     /**

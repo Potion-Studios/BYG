@@ -1,6 +1,8 @@
 package corgiaoc.byg;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
@@ -9,10 +11,13 @@ import corgiaoc.byg.common.properties.vanilla.BYGFlammables;
 import corgiaoc.byg.common.properties.vanilla.BYGHoeables;
 import corgiaoc.byg.common.properties.vanilla.BYGStrippables;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
+import corgiaoc.byg.config.json.BiomeDataListHolder;
+import corgiaoc.byg.config.json.BiomeDataListHolderSerializer;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.BYGItems;
@@ -44,6 +49,13 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 @Mod("byg")
 public class BYG {
     public static final String MOD_ID = "byg";
@@ -65,11 +77,55 @@ public class BYG {
         ConfigWeightManager.buildConfig();
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         BYGCreativeTab.init();
-        BYGBiome.fillMutationMap();
+        BYGSubBiome.fillMutationMap();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGBiomes.addBiomesToWeightSystem();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
+        handleJSONConfig(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-biomes.json"));
+    }
+
+
+    public static void handleJSONConfig(Path path) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(BiomeDataListHolder.class, new BiomeDataListHolderSerializer());
+        gsonBuilder.setPrettyPrinting();
+        gsonBuilder.disableHtmlEscaping();
+        Gson gson = gsonBuilder.create();
+
+        final File CONFIG_FILE = new File(String.valueOf(path));
+
+        if (!CONFIG_FILE.exists()) {
+            BiomeDataListHolder.createDefaults();
+            createBYGJson(path);
+        }
+        try (Reader reader = new FileReader(path.toString())) {
+            BiomeDataListHolder biomeDataListHolder = gson.fromJson(reader, BiomeDataListHolder.class);
+            if (biomeDataListHolder != null)
+                BYGBiome.biomeData = biomeDataListHolder.getBiomeData();
+            else
+                LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
+
+        } catch (IOException e) {
+            LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
+        }
+        BiomeDataListHolder.fillBiomeLists();
+    }
+
+    public static void createBYGJson(Path path) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(BiomeDataListHolder.class, new BiomeDataListHolderSerializer());
+        gsonBuilder.setPrettyPrinting();
+        gsonBuilder.disableHtmlEscaping();
+        Gson gson = gsonBuilder.create();
+
+        String jsonString = gson.toJson(new BiomeDataListHolder(BYGBiome.biomeData));
+
+        try {
+            Files.write(FMLPaths.CONFIGDIR.get().resolve(path), jsonString.getBytes());
+        } catch (IOException e) {
+            LOGGER.error(BYG.MOD_ID + "-biomes.json could not be created");
+        }
     }
 
     private void clientSetup(FMLClientSetupEvent event) {

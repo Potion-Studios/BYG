@@ -13,8 +13,6 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-import java.util.HashMap;
-
 public class SnowyBlueTaiga extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("snowy_blue_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
@@ -37,13 +35,6 @@ public class SnowyBlueTaiga extends BYGBiome {
     @Override
     public Biome getRiver() {
         return WorldGenRegistries.BIOME.getOrThrow(Biomes.FROZEN_RIVER);
-    }
-
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.SNOWY_BLUE_TAIGA_HILLS, 1);
-        map.put(BYGBiomes.SNOWY_BLUE_GIANT_TAIGA, 1);
-        return map;
     }
 
     public Biome getHills(INoiseRandom rand) {

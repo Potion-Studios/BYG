@@ -13,8 +13,6 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-import java.util.HashMap;
-
 public class RedRockMountains extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("red_rock_mountains", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.RED_ROCK_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
@@ -41,15 +39,6 @@ public class RedRockMountains extends BYGBiome {
     public Biome getRiver() {
         return this.getBiome();
     }
-
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.RED_ROCK_LOWLANDS, 1);
-        map.put(BYGBiomes.RED_ROCK_HIGHLANDS, 2);
-        map.put(BYGBiomes.WOODED_RED_ROCK_MOUNTAINS, 1);
-        return map;
-    }
-
 
     public Biome getHills(INoiseRandom rand) {
         return randomSubBiome(rand);

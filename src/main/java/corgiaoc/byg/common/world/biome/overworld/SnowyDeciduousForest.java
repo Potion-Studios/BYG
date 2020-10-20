@@ -13,8 +13,6 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-import java.util.HashMap;
-
 public class SnowyDeciduousForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("snowy_deciduous_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
@@ -39,14 +37,6 @@ public class SnowyDeciduousForest extends BYGBiome {
     @Override
     public Biome getRiver() {
         return WorldGenRegistries.BIOME.getOrThrow(Biomes.FROZEN_RIVER);
-    }
-
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.SNOWY_DECIDUOUS_FOREST_HILLS, 1);
-        map.put(BYGBiomes.SNOWY_DECIDUOUS_CLEARING, 2);
-        map.put(BYGBiomes.FROZEN_LAKE, 1);
-        return map;
     }
 
     public Biome getHills(INoiseRandom rand) {

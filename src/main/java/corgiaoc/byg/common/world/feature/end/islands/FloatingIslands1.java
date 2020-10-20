@@ -35,7 +35,7 @@ public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
             for (double y = 1; y <= radius; y++) {
                 for (double z = -radius; z <= radius; z++) {
                     mutable.setPos(pos).move((int) x, (int) (y - radius), (int) z);
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
+                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double scaledNoise = (noise) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (y == radius)
@@ -43,12 +43,11 @@ public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
                         else
                             world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                     }
-                    }
                 }
             }
-        return false;
+        }
+        return true;
     }
-
 
 
     public void setSeed(long seed) {

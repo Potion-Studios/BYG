@@ -34,7 +34,7 @@ public class ShatteredFloatingIslands3 extends Feature<FloatingIslandConfig> {
         for (double x = -radius - 2; x <= radius + 2; x++) {
             for (double y = -radius - 2; y <= radius + 2; y++) {
                 for (double z = -radius - 2; z <= radius + 2; z++) {
-                    double squareNoise1 = perlin.GetNoise((float)x, (float)y, (float)z) * 12 - 6;
+                    double squareNoise1 = perlin.GetNoise((float) x, (float) y, (float) z) * 12 - 6;
                     double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
                     if (distanceSqt1 <= radius * radius) {
                         mutable.setPos(pos).move((int) x, (int) y, (int) z);
@@ -53,7 +53,7 @@ public class ShatteredFloatingIslands3 extends Feature<FloatingIslandConfig> {
         for (double x = -thirdRadius; x <= 0; x++) {
             for (double y = -thirdRadius; y <= 0; y++) {
                 for (double z = -thirdRadius; z <= 0; z++) {
-                    double squareNoise2 = perlin.GetNoise((float)x, (float)y, (float)z) * 12 - 6;
+                    double squareNoise2 = perlin.GetNoise((float) x, (float) y, (float) z) * 12 - 6;
                     double distanceSqt2 = x * x + y * y + z * z + squareNoise2 * squareNoise2;
                     if (distanceSqt2 <= radius * (thirdRadius + 2)) {
                         if (y <= 1 && y >= -1) {

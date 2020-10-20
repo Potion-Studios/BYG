@@ -1,7 +1,6 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
-import corgiaoc.byg.common.world.biome.BYGBiome;
-import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -42,53 +41,12 @@ public abstract class MixinShoreLayer {
             cir.setReturnValue(WorldGenRegistries.BIOME.getId(bygEdgeBiome));
 
         for (int idx : ArrayNESW) {
-            if (biome == BYGBiomes.ALPS)
-                if (idx != WorldGenRegistries.BIOME.getId(BYGBiomes.ALPS))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ALPINE_FOOTHILLS));
+//            if (WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_EDGE_LIST.get(centre)) != idx)
+//                cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_EDGE_LIST.get(centre)));
 
-            if (biome == BYGBiomes.ALPS)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.SNOWY_BLACK_BEACH));
+//            if (isOcean(idx))
+//                cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_BEACH_LIST.get(centre)));
 
-            if (biome == BYGBiomes.DOVER_MOUNTAINS)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.WHITE_BEACH));
-
-            if (biome != null && biome.getCategory() == Biome.Category.SWAMP)
-                if (isOcean(idx))
-                    cir.setReturnValue(centre);
-
-            if (biome != null && biome.getPrecipitation() == Biome.RainType.SNOW && biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.BEACH)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.SNOWY_BLACK_BEACH));
-
-            if (biome == BYGBiomes.GRASSLAND_PLATEAU)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKY_BEACH));
-
-            if (biome == BYGBiomes.TROPICAL_ISLAND || biome == BYGBiomes.TROPICAL_ISLAND_MOUNTAINS || biome == BYGBiomes.TROPICAL_ISLAND_CLEARING)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOW_BEACH));
-
-            if (biome == BYGBiomes.TROPICAL_FUNGAL_RAINFOREST || biome == BYGBiomes.TROPICAL_FUNGAL_RAINFOREST_HILLS || biome == BYGBiomes.FUNGAL_PATCH)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.RAINBOW_BEACH));
-
-            if (biome == BYGBiomes.GUIANA_SHIELD || biome == BYGBiomes.GUIANA_CLEARING)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKY_BEACH));
-
-            if (biome == BYGBiomes.SKYRIS_HIGHLANDS)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKY_BEACH));
-
-            if (biome != null && biome.getDepth() > 2.0F && biome != BYGBiomes.CANYONS && biome != BYGBiomes.CANYON_EDGE)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.BASALT_BARRERA));
-
-            if (biome == BYGBiomes.THE_BLACK_FOREST || biome == BYGBiomes.BLACK_FOREST_CLEARING || biome == BYGBiomes.BLACK_FOREST_HILLS || biome == BYGBiomes.FOREST_FAULT)
-                if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiomes.ROCKY_BEACH));
         }
     }
 
@@ -98,9 +56,9 @@ public abstract class MixinShoreLayer {
 
     @Nullable
     private static Biome getEdgeBiomeValue(INoiseRandom rand, int n, int w, int s, int e, int centre) {
-        for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES) {
-            if (bygBiome.getBiome() == WorldGenRegistries.BIOME.getByValue(centre))
-                return bygBiome.getEdges(rand, WorldGenRegistries.BIOME.getByValue(n), WorldGenRegistries.BIOME.getByValue(w), WorldGenRegistries.BIOME.getByValue(s), WorldGenRegistries.BIOME.getByValue(e));
+        for (BYGSubBiome bygSubBiome : BYGSubBiome.BYG_BIOMES) {
+            if (bygSubBiome.getBiome() == WorldGenRegistries.BIOME.getByValue(centre))
+                return bygSubBiome.getEdges(rand, WorldGenRegistries.BIOME.getByValue(n), WorldGenRegistries.BIOME.getByValue(w), WorldGenRegistries.BIOME.getByValue(s), WorldGenRegistries.BIOME.getByValue(e));
         }
         return null;
     }

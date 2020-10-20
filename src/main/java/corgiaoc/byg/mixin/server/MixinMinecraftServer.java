@@ -84,7 +84,7 @@ public class MixinMinecraftServer {
                             if (!END_BIOMES.contains(biome) && !END_BIOME_IDS.contains(locationKey.toString())) {
                                 END_BIOMES.add(biome);
                             }
-                        } else  {
+                        } else {
                             for (String id : END_BIOME_IDS) {
                                 if (id.equals(locationKey.toString())) {
                                     END_BIOMES.add(biome);

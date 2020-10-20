@@ -12,8 +12,6 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-import java.util.HashMap;
-
 public class ShrubLands extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("shrublands", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
@@ -39,13 +37,6 @@ public class ShrubLands extends BYGBiome {
     @Override
     public Biome getRiver() {
         return this.getBiome();
-    }
-
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = new HashMap<>();
-        map.put(BYGBiomes.POLLUTED_LAKE, 1);
-        map.put(BYGBiomes.SHRUBLANDS, 4);
-        return map;
     }
 
     public Biome getHills(INoiseRandom rand) {

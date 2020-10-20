@@ -1,6 +1,5 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
-import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
@@ -16,8 +15,6 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-
-import java.util.HashMap;
 
 public class TwilightValley extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("twilight_valley", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.TWILIGHT_VALLEY, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -46,13 +43,6 @@ public class TwilightValley extends BYGBiome {
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.END_ROD, 0.00028F))
                 .withSkyColor(BiomeUtil.calcSkyColor(0.8F))
                 .setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
-    }
-
-    public HashMap<Biome, Integer> getHills() {
-        HashMap<Biome, Integer> map = Maps.newHashMap();
-        map.put(BYGBiomes.FRESH_WATER_LAKE, 1);
-        map.put(BYGBiomes.TWILIGHT_VALLEY_HILLS, 4);
-        return map;
     }
 
     public Biome getHills(INoiseRandom rand) {

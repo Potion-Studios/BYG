@@ -47,10 +47,6 @@ public class ColdSwamplands extends BYGBiome {
         return this.getBiome();
     }
 
-    @Override
-    public HashMap<Biome, Integer> getHills() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.BOG, 1));
-    }
 
     @Override
     public HashMap<Biome, Integer> getEdges() {

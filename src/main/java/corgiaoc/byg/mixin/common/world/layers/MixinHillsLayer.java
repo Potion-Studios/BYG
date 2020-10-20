@@ -1,10 +1,11 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
+import com.mojang.datafixers.util.Pair;
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.core.world.BYGBiomes;
-import it.unimi.dsi.fastutil.ints.Int2IntMap;
-import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
-import net.minecraft.util.Util;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -20,18 +21,14 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @SuppressWarnings("deprecation")
 @Mixin(HillsLayer.class)
 public abstract class MixinHillsLayer {
 
     private static final List<Biome> topOceanList = new ArrayList<>();
-    private static final List<Biome> volcanoOceanList = new ArrayList<>();
-
-    private static final Int2IntMap MUTATIONS_MAP = Util.make(new Int2IntOpenHashMap(), (map) -> {
-//        map.put(WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getValueForKey(Biomes.DEEP_OCEAN)), WorldGenRegistries.BIOME.getId(BYGBiomes.VOLCANO));
-    });
-
+    private static final Random random = new Random();
 
 
     @Inject(method = "apply(Lnet/minecraft/world/gen/INoiseRandom;Lnet/minecraft/world/gen/area/IArea;Lnet/minecraft/world/gen/area/IArea;II)I",
@@ -46,53 +43,35 @@ public abstract class MixinHillsLayer {
                 l = WorldGenRegistries.BIOME.getId(BYGBiomes.TROPICAL_ISLAND);
             cir.setReturnValue(l);
         }
-
-        if (rand.random(3) == 0 || k == 0) {
-            int l = i;
-            Biome biome = WorldGenRegistries.BIOME.getByValue(i);
-            if (biome != null) {
-                Biome hill = getHillBiomeValue(biome, rand);
-                if (hill != null) l = WorldGenRegistries.BIOME.getId(hill);
+        if (BYGBiome.BIOME_TO_HILLS_LIST.size() > 0) {
+            for (Pair<Int2ObjectMap<WeightedList<Biome>>, Integer> pair : BYGBiome.BIOME_TO_HILLS_LIST) {
+                if (rand.random(pair.getSecond()) == 0 || k == 0) {
+                    int l;
+                    Biome biome = WorldGenRegistries.BIOME.getByValue(i);
+                    if (biome != null) {
+                        if (pair.getFirst().get(i) != null) {
+                            Biome hill = getHillBiomeValue(pair.getFirst().get(i));
+                            if (hill != null) {
+                                l = WorldGenRegistries.BIOME.getId(hill);
+                                cir.setReturnValue(l);
+                                break;
+                            }
+                        }
+                    }
+                }
             }
-
-//            if (k == 0 && l != i) {
-//                l = MUTATIONS_MAP.getOrDefault(l, i);
-//            }
-//
-//            //Mutations Handler
-//            if (l != i) {
-//                int i1 = 0;
-//                if (BYGBiome.areBiomesSimilar(area1.getValue(((HillsLayer)(Object)this).getOffsetX(x + 1), ((HillsLayer)(Object)this).getOffsetZ(z)), i)) {
-//                    ++i1;
-//                }
-//
-//                if (BYGBiome.areBiomesSimilar(area1.getValue(((HillsLayer)(Object)this).getOffsetX(x + 2), ((HillsLayer)(Object)this).getOffsetZ(z + 1)), i)) {
-//                    ++i1;
-//                }
-//
-//                if (BYGBiome.areBiomesSimilar(area1.getValue(((HillsLayer)(Object)this).getOffsetX(x), ((HillsLayer)(Object)this).getOffsetZ(z + 1)), i)) {
-//                    ++i1;
-//                }
-//
-//                if (BYGBiome.areBiomesSimilar(area1.getValue(((HillsLayer)(Object)this).getOffsetX(x + 1), ((HillsLayer)(Object)this).getOffsetZ(z + 2)), i)) {
-//                    ++i1;
-//                }
-//
-//                if (i1 >= 3) {
-//                    cir.setReturnValue(l);
-//                }
-//            }
-            cir.setReturnValue(l);
         }
     }
 
     @Nullable
-    private static Biome getHillBiomeValue(Biome firstLayerBiomeValue, INoiseRandom random) {
-        for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES) {
-            if (firstLayerBiomeValue == bygBiome.getBiome())
-                return bygBiome.getHills(random);
+    private static Biome getHillBiomeValue(WeightedList<Biome> biomeHolder) {
+        if (biomeHolder.field_220658_a.size() > 0) {
+            BYG.LOGGER.info("brrrrt");
+            return biomeHolder.func_226318_b_(MixinHillsLayer.random);
         }
-        return null;
+        else {
+            return null;
+        }
     }
 
 
@@ -100,11 +79,5 @@ public abstract class MixinHillsLayer {
         topOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.DEEP_OCEAN));
         topOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.DEEP_LUKEWARM_OCEAN));
         topOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.DEEP_WARM_OCEAN));
-        volcanoOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.DEEP_OCEAN));
-        volcanoOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.DEEP_LUKEWARM_OCEAN));
-        volcanoOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.DEEP_WARM_OCEAN));
-        volcanoOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.OCEAN));
-        volcanoOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.LUKEWARM_OCEAN));
-        volcanoOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.WARM_OCEAN));
     }
 }

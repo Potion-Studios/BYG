@@ -37,9 +37,9 @@ public class FloatingIslands5 extends Feature<FloatingIslandConfig> {
         for (double x = -radiusFifth - 5; x <= radiusFifth + 5; x++) {
             for (double y = 1; y <= radiusFifth + 11; y++) {
                 for (double z = -radiusFifth - 5; z <= radiusFifth + 5; z++) {
-                    mutable.setPos(pos).move((int)x, (int)y + 6, (int)z);
+                    mutable.setPos(pos).move((int) x, (int) y + 6, (int) z);
                     double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
-                    double scaledNoise = (noise) * ((Math.pow((y / 2), 2) ) / ((Math.pow(x, 2)) + (Math.pow(z, 2))));
+                    double scaledNoise = (noise) * ((Math.pow((y / 2), 2)) / ((Math.pow(x, 2)) + (Math.pow(z, 2))));
                     if (scaledNoise <= 0.5)
                         world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                 }
@@ -50,14 +50,13 @@ public class FloatingIslands5 extends Feature<FloatingIslandConfig> {
         for (double x = -radius - 2; x <= radius + 2; x++) {
             for (double y = 1; y <= radius + 11; y++) {
                 for (double z = -radius - 2; z <= radius + 2; z++) {
-                    mutable.setPos(pos).move((int)x, (int)y - 22, (int)z);
+                    mutable.setPos(pos).move((int) x, (int) y - 22, (int) z);
                     double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
-                    double scaledNoise = (noise) * ((Math.pow((y / 4), 2) ) / ((Math.pow(x, 2)) + (Math.pow(z, 2))));
+                    double scaledNoise = (noise) * ((Math.pow((y / 4), 2)) / ((Math.pow(x, 2)) + (Math.pow(z, 2))));
                     if (scaledNoise >= 0.5) {
                         if (y == 36) {
                             world.setBlockState(mutable, config.getTopBlockProvider().getBlockState(rand, mutable), 2);
-                        }
-                        else
+                        } else
                             world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                     }
                 }
@@ -68,9 +67,9 @@ public class FloatingIslands5 extends Feature<FloatingIslandConfig> {
         for (double x = -radiusFifth - 2; x <= radiusFifth + 2; x++) {
             for (double y = 1; y <= radiusFifth + 11; y++) {
                 for (double z = -radiusFifth - 2; z <= radiusFifth + 2; z++) {
-                    mutable.setPos(pos).move((int)x, (int)y + 5, (int)z);
+                    mutable.setPos(pos).move((int) x, (int) y + 5, (int) z);
                     double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
-                    double scaledNoise = (noise) * ((Math.pow((y / 2), 2) ) / ((Math.pow(x, 2)) + (Math.pow(z, 2))));
+                    double scaledNoise = (noise) * ((Math.pow((y / 2), 2)) / ((Math.pow(x, 2)) + (Math.pow(z, 2))));
                     if (scaledNoise >= 0.5) {
                         world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
                     }
