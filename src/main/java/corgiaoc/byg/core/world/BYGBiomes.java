@@ -2,7 +2,6 @@ package corgiaoc.byg.core.world;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.common.world.biome.BYGNetherBiome;
@@ -17,10 +16,10 @@ import corgiaoc.byg.common.world.biome.sub.lakes.FreshWaterLake;
 import corgiaoc.byg.common.world.biome.sub.lakes.FrozenLake;
 import corgiaoc.byg.common.world.biome.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.sub.lakes.PollutedLake;
-import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
 import corgiaoc.byg.config.json.BiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -28,12 +27,9 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.fml.loading.FMLPaths;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -251,82 +247,10 @@ public class BYGBiomes {
     public static void init() {
     }
 
-    public static void addBiomesToWeightSystem() {
-        ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
-        BYG.LOGGER.debug("BYG: Adding biome entries with their respective weights...");
-        addBiomeEntry(ALLIUM_FIELDS, ConfigWeightManager.ALLIUM_FIELDS.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(ALPS, ConfigWeightManager.ALPS.getWeight(), BiomeManager.BiomeType.ICY);
-        addBiomeEntry(AMARANTH_FIELDS, ConfigWeightManager.AMARANTH_FIELDS.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(AUTUMNAL_VALLEY, ConfigWeightManager.AUTUMNAL_VALLEY.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(ARAUCARIA_SAVANNA, ConfigWeightManager.ARAUCARIA_SAVANNA.getWeight(), BiomeManager.BiomeType.DESERT);
-        addBiomeEntry(ANCIENT_FOREST, ConfigWeightManager.ANCIENT_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(ASPEN_FOREST, ConfigWeightManager.ASPEN_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(BAOBAB_SAVANNA, ConfigWeightManager.BAOBAB_SAVANNA.getWeight(), BiomeManager.BiomeType.DESERT);
-        addBiomeEntry(BAYOU, ConfigWeightManager.BAYOU.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(BLUE_TAIGA, ConfigWeightManager.BLUE_TAIGA.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(BLUFF_STEEPS, ConfigWeightManager.BLUFF_STEEPS.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(BOREAL_FOREST, ConfigWeightManager.BOREAL_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(COLD_SWAMPLANDS, ConfigWeightManager.COLD_SWAMPLANDS.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(CANYONS, ConfigWeightManager.CANYONS.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(CIKA_WOODS, ConfigWeightManager.CIKA_WOODS.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(CYPRESS_SWAMPLANDS, ConfigWeightManager.CYPRESS_SWAMPLAND.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(CHERRY_BLOSSOM_FOREST, ConfigWeightManager.CHERRY_BLOSSOM_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(CONIFEROUS_FOREST, ConfigWeightManager.CONIFEROUS_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(DOVER_MOUNTAINS, ConfigWeightManager.DOVER_MOUNTAINS.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(DEAD_SEA, ConfigWeightManager.DEAD_SEA.getWeight(), BiomeManager.BiomeType.DESERT);
-        addBiomeEntry(DECIDUOUS_FOREST, ConfigWeightManager.DECIDUOUS_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(DUNES, ConfigWeightManager.DUNES.getWeight(), BiomeManager.BiomeType.DESERT);
-        addBiomeEntry(EBONY_WOODS, ConfigWeightManager.EBONY_WOODS.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(ENCHANTED_FOREST, ConfigWeightManager.ENCHANTED_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(EVERGREEN_TAIGA, ConfigWeightManager.EVERGREEN_TAIGA.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(GLOWSHROOM_BAYOU, ConfigWeightManager.GLOWSHROOM_BAYOU.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(GRASSLAND_PLATEAU, ConfigWeightManager.GRASSLAND_PLATEAU.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(GREAT_LAKES, ConfigWeightManager.GREAT_LAKE.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(GUIANA_SHIELD, ConfigWeightManager.GUIANA_SHIELD.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(GROVE, ConfigWeightManager.GROVE.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(ENCHANTED_GROVE, ConfigWeightManager.ENCHANTED_GROVE.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(JACARANDA_FOREST, ConfigWeightManager.JACARANDA_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(CRAG_GARDENS, ConfigWeightManager.CRAG_GARDENS.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(MANGROVE_MARSHES, ConfigWeightManager.MANGROVE_MARSHES.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(MAPLE_TAIGA, ConfigWeightManager.MAPLE_TAIGA.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(MEADOW, ConfigWeightManager.MEADOW.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(MOJAVE_DESERT, ConfigWeightManager.MOJAVE_DESERT.getWeight(), BiomeManager.BiomeType.DESERT);
-        addBiomeEntry(LUSH_TUNDRA, ConfigWeightManager.LUSH_TUNDRA.getWeight(), BiomeManager.BiomeType.ICY);
-        addBiomeEntry(ORCHARD, ConfigWeightManager.ORCHARD.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(PRAIRIE, ConfigWeightManager.PRAIRIE.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(RED_DESERT, ConfigWeightManager.RED_DESERT.getWeight(), BiomeManager.BiomeType.DESERT);
-        addBiomeEntry(ROSE_FIELDS, ConfigWeightManager.ROSE_FIELDS.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(RED_OAK_FOREST, ConfigWeightManager.RED_OAK_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(RED_ROCK_MOUNTAINS, ConfigWeightManager.RED_ROCK_MOUNTAINS.getWeight(), BiomeManager.BiomeType.DESERT);
-        addBiomeEntry(REDWOOD_TROPICS, ConfigWeightManager.REDWOOD_TROPICS.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(SEASONAL_BIRCH_FOREST, ConfigWeightManager.SEASONAL_BIRCH_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(SEASONAL_DECIDUOUS_FOREST, ConfigWeightManager.SEASONAL_DECIDUOUS_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(SEASONAL_FOREST, ConfigWeightManager.SEASONAL_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(SEASONAL_TAIGA, ConfigWeightManager.SEASONAL_TAIGA.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(SHATTERED_GLACIER, ConfigWeightManager.SHATTERED_GLACIER.getWeight(), BiomeManager.BiomeType.ICY);
-        addBiomeEntry(SHRUBLANDS, ConfigWeightManager.SHRUBLANDS.getWeight(), BiomeManager.BiomeType.DESERT);
-        addBiomeEntry(SKYRIS_HIGHLANDS, ConfigWeightManager.SKYRIS_HIGHLANDS.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(SNOWY_BLUE_TAIGA, ConfigWeightManager.SNOWY_BLUE_TAIGA.getWeight(), BiomeManager.BiomeType.ICY);
-        addBiomeEntry(SNOWY_CONIFEROUS_FOREST, ConfigWeightManager.SNOWY_CONIFEROUS_FOREST.getWeight(), BiomeManager.BiomeType.ICY);
-        addBiomeEntry(SNOWY_DECIDUOUS_FOREST, ConfigWeightManager.SNOWY_DECIDUOUS_FOREST.getWeight(), BiomeManager.BiomeType.ICY);
-        addBiomeEntry(SNOWY_EVERGREEN_TAIGA, ConfigWeightManager.SNOWY_EVERGREEN_TAIGA.getWeight(), BiomeManager.BiomeType.ICY);
-        addBiomeEntry(THE_BLACK_FOREST, ConfigWeightManager.THE_BLACK_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(TROPICAL_FUNGAL_RAINFOREST, ConfigWeightManager.TROPICAL_FUNGAL_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(TROPICAL_RAINFOREST, ConfigWeightManager.TROPICAL_RAIN_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(TWILIGHT_VALLEY, ConfigWeightManager.TWILIGHT_VALLEY.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(VIBRANT_SWAMPLANDS, ConfigWeightManager.VIBRANT_SWAMPLANDS.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(SIERRA_VALLEY, ConfigWeightManager.SIERRA_VALLEY.getWeight(), BiomeManager.BiomeType.DESERT);
-        addBiomeEntry(STONE_FOREST, ConfigWeightManager.STONE_FOREST.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(WEEPING_WITCH_FOREST, ConfigWeightManager.WEEPING_WITCH_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
-        addBiomeEntry(WOODLANDS, ConfigWeightManager.WOODLANDS.getWeight(), BiomeManager.BiomeType.WARM);
-        addBiomeEntry(ZELKOVA_FOREST, ConfigWeightManager.ZELKOVA_FOREST.getWeight(), BiomeManager.BiomeType.COOL);
-        BYG.LOGGER.debug("BYG: Added biome entries with their respective weights!");
-    }
-
-    public static void addBiomeEntry(Biome biome, int weight, BiomeManager.BiomeType type) {
+    public static void addBiomeEntries() {
         for (BiomeData biomeData : BYGBiome.biomeData) {
-            if (weight > 0) {
-                BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(ForgeRegistries.BIOMES.getKey(biome))), weight));
+            if (biomeData.getBiomeWeight() > 0) {
+                BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(biomeData.getBiome())), biomeData.getBiomeWeight()));
             }
         }
     }

@@ -2,7 +2,6 @@ package corgiaoc.byg.mixin.common.world.layers;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.layer.ShoreLayer;
@@ -31,10 +30,8 @@ public abstract class MixinShoreLayer {
     @Inject(at = @At("HEAD"), method = "apply(Lnet/minecraft/world/gen/INoiseRandom;IIIII)I", cancellable = true)
     private void injectBYGEdges(INoiseRandom rand, int n, int w, int s, int e, int centre, CallbackInfoReturnable<Integer> cir) {
         final int[] ArrayNESW = {n, w, s, e};
-        Biome biome = WorldGenRegistries.BIOME.getByValue(centre);
 
         for (int idx : ArrayNESW) {
-
             if (BYGBiome.BIOME_TO_EDGE_LIST.get(centre) != null) {
                 if (WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_EDGE_LIST.get(centre)) != idx)
                     cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_EDGE_LIST.get(centre)));

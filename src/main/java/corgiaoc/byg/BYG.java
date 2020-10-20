@@ -78,10 +78,10 @@ public class BYG {
         BYGCreativeTab.init();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
-        BYGBiomes.addBiomesToWeightSystem();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
         handleJSONConfig(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-biomes.json"));
         BiomeDataListHolder.fillBiomeLists();
+        BYGBiomes.addBiomeEntries();
         BYGBiomes.fillBiomeDictionary();
     }
 
