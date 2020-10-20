@@ -1,6 +1,5 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
-import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
@@ -11,12 +10,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-
-import java.util.Collections;
-import java.util.HashMap;
 
 public class GreatLakes extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("great_lakes", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GREAT_LAKES, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.GRAVEL.getDefaultState())));
@@ -41,15 +36,6 @@ public class GreatLakes extends BYGBiome {
 
     @Override
     public Biome getRiver() {
-        return BYGBiomes.GREAT_LAKE_ISLES;
-    }
-
-    @Override
-    public HashMap<Biome, Integer> getEdges() {
-        return Maps.newHashMap(Collections.singletonMap(this.getBiome(), 1));
-    }
-
-    public Biome getHills(INoiseRandom rand) {
         return BYGBiomes.GREAT_LAKE_ISLES;
     }
 

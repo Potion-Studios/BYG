@@ -14,13 +14,14 @@ public class BiomeDataListHolder {
     public BiomeDataListHolder(List<BiomeData> biomeData) {
         this.biomeData = biomeData;
     }
+
     public List<BiomeData> getBiomeData() {
         return biomeData;
     }
 
     public static void createDefaults() {
         for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES) {
-            BYGBiome.biomeData.add(new BiomeData(bygBiome.getBiome(), bygBiome.getWeight(), bygBiome.getHills(), bygBiome.getEdge(), bygBiome.getBeach(), bygBiome.getRiver()));
+            BYGBiome.biomeData.add(new BiomeData(bygBiome.getBiome(), bygBiome.getWeight(), bygBiome.getBiomeType(), bygBiome.getHills(), bygBiome.getEdge(), bygBiome.getBeach(), bygBiome.getRiver()));
         }
     }
 

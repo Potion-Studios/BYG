@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.biome.nether;
 
-import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
+import corgiaoc.byg.common.world.biome.BYGNetherBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
@@ -17,7 +17,7 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
-public class SubzeroHypogeal extends BYGSubBiome {
+public class SubzeroHypogeal extends BYGNetherBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("subzero_hypogeal", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.SUBZERO_HYPOGEAL, BYGSurfaceBuilders.Configs.FROST_MAGMA));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.NETHER;

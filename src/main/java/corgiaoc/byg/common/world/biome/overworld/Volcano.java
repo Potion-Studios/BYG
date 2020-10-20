@@ -3,18 +3,14 @@ package corgiaoc.byg.common.world.biome.overworld;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-
-import javax.annotation.Nullable;
 
 public class Volcano extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("volcano", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -41,35 +37,6 @@ public class Volcano extends BYGBiome {
     @Override
     public Biome getRiver() {
         return this.getBiome();
-    }
-
-
-    @Nullable
-    @Override
-    public Biome getEdges(INoiseRandom rand, Biome north, Biome west, Biome south, Biome east) {
-        Biome[] edgeArray = {north, west, south, east};
-        for (Biome biome : edgeArray) {
-            if (BiomeUtil.isOcean(biome))
-                return this.getBiome();
-        }
-        return super.getEdges(rand, north, west, south, east);
-    }
-
-    @Override
-    public Biome getHills(INoiseRandom rand) {
-        return randomSubBiome(rand);
-    }
-
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
-        if (randomPicker == 0)
-            return BYGBiomes.SNOWY_DECIDUOUS_FOREST_HILLS;
-        else if (randomPicker == 1)
-            return BYGBiomes.SNOWY_DECIDUOUS_CLEARING;
-        else if (randomPicker == 2)
-            return BYGBiomes.SNOWY_DECIDUOUS_CLEARING;
-        else
-            return BYGBiomes.FROZEN_LAKE;
     }
 
     static {

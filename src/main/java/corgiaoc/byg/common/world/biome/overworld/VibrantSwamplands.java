@@ -1,11 +1,9 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
-import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.BYGBlocks;
-import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
@@ -13,13 +11,9 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-
-import java.util.Collections;
-import java.util.HashMap;
 
 public class VibrantSwamplands extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("vibrant_swamplands", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.MARSHLAND, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), BYGBlocks.MUD_BLOCK.getDefaultState())));
@@ -45,15 +39,6 @@ public class VibrantSwamplands extends BYGBiome {
     @Override
     public Biome getRiver() {
         return this.getBiome();
-    }
-
-    @Override
-    public HashMap<Biome, Integer> getEdges() {
-        return Maps.newHashMap(Collections.singletonMap(this.getBiome(), 1));
-    }
-
-    public Biome getHills(INoiseRandom rand) {
-        return BYGBiomes.MARSHLANDS;
     }
 
     static {

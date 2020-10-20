@@ -1,10 +1,8 @@
 package corgiaoc.byg.common.world.biome.overworld;
 
-import com.google.common.collect.Maps;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
@@ -13,9 +11,6 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-
-import java.util.Collections;
-import java.util.HashMap;
 
 public class CragGardens extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("crag_gardens", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CRAG_GARDENS, BYGSurfaceBuilders.Configs.GREEN_CONCRETE_POWDER_CF));
@@ -41,15 +36,7 @@ public class CragGardens extends BYGBiome {
         return this.getBiome();
     }
 
-    @Override
-    public HashMap<Biome, Integer> getEdges() {
-        return Maps.newHashMap(Collections.singletonMap(BYGBiomes.CRAG_GARDENS, 1));
-    }
-
-
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_PYRAMID);
-        //this.add//StructureFeature(DefaultBiomeFeatures.JUNGLE_RUINED_PORTAL);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addLargeLake(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
@@ -69,8 +56,6 @@ public class CragGardens extends BYGBiome {
         DefaultBiomeFeatures.withMelonPatchesAndVines(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_NORMAL);
 
-//         SPAWN_SETTINGS.tree(EntityClassification.WATER_AMBIENT, new MobSpawnInfo.Spawners(EntityType.COD, 2, 1, 4));
-//         SPAWN_SETTINGS.tree(EntityClassification.WATER_AMBIENT, new MobSpawnInfo.Spawners(EntityType.SALMON, 5, 1, 5));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));

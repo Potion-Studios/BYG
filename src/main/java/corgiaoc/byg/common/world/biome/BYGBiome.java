@@ -8,11 +8,11 @@ import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -47,17 +47,8 @@ public class BYGBiome {
         return this.biome;
     }
 
-    @Nullable
-    public Biome getHills(INoiseRandom random) {
-        return null;
-    }
-
     public Biome getRiver() {
         return WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER);
-    }
-
-    public int getWeight() {
-        return 5;
     }
 
     @Nullable
@@ -76,14 +67,18 @@ public class BYGBiome {
     }
 
 
-    @Nullable
-    public Biome getEdges(INoiseRandom rand, Biome north, Biome west, Biome south, Biome east) {
-        return null;
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD};
     }
 
-    public HashMap<Biome, Integer> getEdges() {
-        return new HashMap<>();
+    public BiomeManager.BiomeType getBiomeType() {
+        return BiomeManager.BiomeType.WARM;
     }
+
+    public int getWeight() {
+        return 5;
+    }
+
 
     public RegistryKey<Biome> getKey() {
         return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));

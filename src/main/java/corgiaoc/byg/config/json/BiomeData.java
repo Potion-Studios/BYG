@@ -2,6 +2,7 @@ package corgiaoc.byg.config.json;
 
 import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeManager;
 
 public class BiomeData {
 
@@ -11,11 +12,13 @@ public class BiomeData {
     private final Biome beachBiome;
     private final Biome riverBiome;
     private final int biomeWeight;
+    private final BiomeManager.BiomeType biomeType;
 
 
-    public BiomeData(Biome biome, int biomeWeight, WeightedList<Biome> biomeWeightedList, Biome edgeBiome, Biome beachBiome, Biome river) {
+    public BiomeData(Biome biome, int biomeWeight, BiomeManager.BiomeType biomeType, WeightedList<Biome> biomeWeightedList, Biome edgeBiome, Biome beachBiome, Biome river) {
         this.biome = biome;
         this.biomeWeight = biomeWeight;
+        this.biomeType =  biomeType;
         this.biomeWeightedList = biomeWeightedList;
         this.edgeBiome = edgeBiome;
         this.beachBiome = beachBiome;
@@ -46,5 +49,7 @@ public class BiomeData {
         return biomeWeight;
     }
 
-
+    public BiomeManager.BiomeType getBiomeType() {
+        return biomeType;
+    }
 }

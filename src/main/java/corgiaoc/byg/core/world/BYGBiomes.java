@@ -3,8 +3,10 @@ package corgiaoc.byg.core.world;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.common.world.biome.BYGNetherBiome;
 import corgiaoc.byg.common.world.biome.end.*;
-import corgiaoc.byg.common.world.biome.end.sub.ShatteredViscalIsles;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
 import corgiaoc.byg.common.world.biome.sub.*;
@@ -16,6 +18,7 @@ import corgiaoc.byg.common.world.biome.sub.lakes.FrozenLake;
 import corgiaoc.byg.common.world.biome.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.sub.lakes.PollutedLake;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
+import corgiaoc.byg.config.json.BiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -23,6 +26,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -320,9 +324,20 @@ public class BYGBiomes {
     }
 
     public static void addBiomeEntry(Biome biome, int weight, BiomeManager.BiomeType type) {
-        if (weight > 0) {
-            BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(ForgeRegistries.BIOMES.getKey(biome))), weight));
+        for (BiomeData biomeData : BYGBiome.biomeData) {
+            if (weight > 0) {
+                BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(ForgeRegistries.BIOMES.getKey(biome))), weight));
+            }
         }
+    }
+
+    public static void fillBiomeDictionary() {
+        for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES)
+            BiomeDictionary.addTypes(bygBiome.getKey(), bygBiome.getBiomeDictionary());
+        for (BYGNetherBiome bygNetherBiome : BYGNetherBiome.BYG_NETHER_BIOMES)
+            BiomeDictionary.addTypes(bygNetherBiome.getKey(), bygNetherBiome.getBiomeDictionary());
+        for (BYGEndBiome bygEndBiome : BYGEndBiome.BYG_END_BIOMES)
+            BiomeDictionary.addTypes(bygEndBiome.getKey(), bygEndBiome.getBiomeDictionary());
     }
 
     public static void addBYGFeaturesToBiomes(Biome biome) {

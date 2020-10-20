@@ -6,6 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeManager;
 
 import java.lang.reflect.Type;
 import java.util.*;
@@ -36,7 +37,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                     }
                 }
             }
-
+            object.addProperty("climate", dataHolder.getBiomeType().toString().toUpperCase());
             object.addProperty("weight", dataHolder.getBiomeWeight());
             ResourceLocation riverKey = WorldGenRegistries.BIOME.getKey(dataHolder.getRiverBiome());
             if (riverKey != null)
@@ -87,10 +88,12 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
             JsonObject elementObject = element.getAsJsonObject();
 
+            String climate = elementObject.get("climate").getAsString();
             String edge = elementObject.get("edge").getAsString();
             String river = elementObject.get("river").getAsString();
             String beach = elementObject.get("beach").getAsString();
 
+            int weight = elementObject.get("weight").getAsInt();
 
             JsonArray hillLayerList = elementObject.get("hills").getAsJsonArray();
 
@@ -111,7 +114,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                     }
                 }
             }
-            biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(biomeName)), 5, weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
+            biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(biomeName)), weight, BiomeManager.BiomeType.valueOf(climate.toUpperCase()),  weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
         }
         return new BiomeDataListHolder(biomeData);
     }

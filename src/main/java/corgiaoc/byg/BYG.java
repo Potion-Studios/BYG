@@ -11,7 +11,6 @@ import corgiaoc.byg.common.properties.vanilla.BYGFlammables;
 import corgiaoc.byg.common.properties.vanilla.BYGHoeables;
 import corgiaoc.byg.common.properties.vanilla.BYGStrippables;
 import corgiaoc.byg.common.world.biome.BYGBiome;
-import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.BYGWorldConfig;
@@ -77,12 +76,13 @@ public class BYG {
         ConfigWeightManager.buildConfig();
         ConfigWeightManager.loadConfig(ConfigWeightManager.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-weights-common.toml"));
         BYGCreativeTab.init();
-        BYGSubBiome.fillMutationMap();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGBiomes.addBiomesToWeightSystem();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
         handleJSONConfig(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID + "-biomes.json"));
+        BiomeDataListHolder.fillBiomeLists();
+        BYGBiomes.fillBiomeDictionary();
     }
 
 
@@ -109,7 +109,6 @@ public class BYG {
         } catch (IOException e) {
             LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
         }
-        BiomeDataListHolder.fillBiomeLists();
     }
 
     public static void createBYGJson(Path path) {
