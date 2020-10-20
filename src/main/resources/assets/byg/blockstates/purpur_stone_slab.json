@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/purpur_stone_slab"
+    },
+    "type=double": {
+      "model": "byg:block/purpur_stone"
+    },
+    "type=top": {
+      "model": "byg:block/purpur_stone_slab_top"
+    }
+  }
+}

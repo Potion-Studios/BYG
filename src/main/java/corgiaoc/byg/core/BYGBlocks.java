@@ -566,6 +566,7 @@ public class BYGBlocks {
 
     public static final Block IVIS_ROOTS = new BYGBlockProperties.EndPlant("ivis_roots");
     public static final Block IVIS_SPROUT = new BYGBlockProperties.EndPlant("ivis_sprout");
+    public static final Block ENDER_LILY = new BYGBlockProperties.BYGEnderLily("ender_lily");
 
     public static final Block ETHER_GRASS = new BYGBlockProperties.EndPlant("ether_grass");
     public static final Block ETHER_BUSH = new BYGBlockProperties.EndPlant("ether_bush");
@@ -575,7 +576,14 @@ public class BYGBlocks {
     public static final Block NIGHTSHADE_BERRY_BUSH = createNightshadeBerryBush("nightshade_berry_bush");
 
     public static final Block PURPUR_STONE = new BYGBlockProperties.BYGStone("purpur_stone");
+    public static final Block PURPUR_STONE_SLAB = createStoneSlab("purpur_stone_slab");
+    public static final Block PURPUR_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("purpur_stone_stairs");
+    public static final Block PURPUR_STONE_WALL = createStoneWall("purpur_stone_wall");
     public static final Block ETHER_STONE = new BYGBlockProperties.BYGStone("ether_stone");
+    public static final Block ETHER_STONE_SLAB = createStoneSlab("ether_stone_slab");
+    public static final Block ETHER_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("ether_stone_stairs");
+    public static final Block ETHER_STONE_WALL = createStoneWall("ether_stone_wall");
+
     public static final Block LIGNITE_BLOCK = new BYGBlockProperties.AnthraciteOre("lignite_block");
     public static final Block LIGNITE_ORE = new BYGBlockProperties.AnthraciteOre("lignite_ore");
 

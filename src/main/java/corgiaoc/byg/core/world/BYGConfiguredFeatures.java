@@ -168,6 +168,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> IVIS_ROOTS = WorldGenRegistrationHelper.createConfiguredFeature("ivis_roots", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.IVIS_ROOTS));
     public static final ConfiguredFeature<?, ?> IVIS_SPROUT = WorldGenRegistrationHelper.createConfiguredFeature("ivis_sprout", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.IVIS_SPROUT));
 
+    public static final ConfiguredFeature<?, ?> BULBIS_ODDITY = WorldGenRegistrationHelper.createConfiguredFeature("bulbis_oddity", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.BULBIS_ODDITY));
+    public static final ConfiguredFeature<?, ?> PURPLE_BULBIS_ODDITY = WorldGenRegistrationHelper.createConfiguredFeature("purple_bulbis_oddity", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.PURPLE_BULBIS_ODDITY));
+
+
     public static final ConfiguredFeature<?, ?> ETHER_GRASS = WorldGenRegistrationHelper.createConfiguredFeature("ether_grass", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.ETHER_GRASS));
     public static final ConfiguredFeature<?, ?> ETHER_BUSH = WorldGenRegistrationHelper.createConfiguredFeature("ether_bush", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.ETHER_BUSH));
     public static final ConfiguredFeature<?, ?> THEREAL_BELLFLOWER = WorldGenRegistrationHelper.createConfiguredFeature("thereal_bellflower", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.THEREAL_BELLFLOWER_CONFIG));
@@ -254,6 +258,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ARCH = WorldGenRegistrationHelper.createConfiguredFeature("arch", BYGFeatures.ARCH.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.DIAMOND_BLOCK.getDefaultState()))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.015F, 1))));
     public static final ConfiguredFeature<?, ?> ARCH2 = WorldGenRegistrationHelper.createConfiguredFeature("arch2", BYGFeatures.ARCH.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.EMERALD_BLOCK.getDefaultState()))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.015F, 1))));
     public static final ConfiguredFeature<?, ?> ETHER_STONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("ether_stone_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
+    public static final ConfiguredFeature<?, ?> ENDER_LILY = WorldGenRegistrationHelper.createConfiguredFeature("ender_lily", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.ENDER_LILY.getDefaultState(), ImmutableList.of(Blocks.WATER.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.WATER.getDefaultState()))).withPlacement(BYGDecorators.MOTION_BLOCKING_NO_LEAVES_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 2))));
 
     public static final ConfiguredFeature<?, ?> BLACK_ICE_SNOW = WorldGenRegistrationHelper.createConfiguredFeature("black_ice_snow", BYGFeatures.ICE_SNOW.withConfiguration(new Simple2BlockProviderConfig(new SimpleBlockStateProvider(Blocks.ICE.getDefaultState()), new SimpleBlockStateProvider(Blocks.SNOW.getDefaultState())))).withPlacement(Placement.NOPE.configure(new NoPlacementConfig()));
 
@@ -641,6 +646,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_IVIS_PLANTS = WorldGenRegistrationHelper.createConfiguredFeature("rs_ivis_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             IVIS_ROOTS.withChance(0.5F)),
             IVIS_SPROUT)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(5));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_BULBIS_ODDITY = WorldGenRegistrationHelper.createConfiguredFeature("rs_bulbis_oddity", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            BULBIS_ODDITY.withChance(0.5F)),
+            PURPLE_BULBIS_ODDITY)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(1));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ETHER_PLANT = WorldGenRegistrationHelper.createConfiguredFeature("rs_ether_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ETHER_BUSH.withChance(0.2F)),
@@ -1778,7 +1787,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_ETHER_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_ether_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ETHER_TREE3.withChance(0.35F),
             ETHER_TREE2.withChance(0.35F)),
-            ETHER_TREE1)).withPlacement(BYGDecorators.MOTION_BLOCKING_NO_LEAVES_COUNT_EXTRA.configure(
+            ETHER_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_ETHER_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_dead_ether_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1950,6 +1959,9 @@ public class BYGConfiguredFeatures {
         public static final BlockClusterFeatureConfig NIGHTSHADE_SPROUTS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
         public static final BlockClusterFeatureConfig NIGHTSHADE_ROOTS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.NIGHTSHADE_ROOTS.getDefaultState()), new DoublePlantBlockPlacer())).tries(32).build();
         public static final BlockClusterFeatureConfig NIGHTSHADE_BERRY_BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.NIGHTSHADE_BERRY_BUSH.getDefaultState().with(BlueBerryBush.AGE, Integer.valueOf(3))), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.NIGHTSHADE_PHYLIUM, BYGBlocks.ETHER_PHYLIUM, BYGBlocks.IVIS_PHYLIUM)).func_227317_b_().build();
+
+        public static final BlockClusterFeatureConfig BULBIS_ODDITY = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BULBIS_ODDITY.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
+        public static final BlockClusterFeatureConfig PURPLE_BULBIS_ODDITY = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PURPLE_BULBIS_ODDITY.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
 
 
     }

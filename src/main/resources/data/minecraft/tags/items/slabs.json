@@ -43,6 +43,8 @@
     "byg:lament_slab",
     "byg:ether_slab",
     "byg:bulbis_slab",
-    "byg:nightshade_slab"
+    "byg:nightshade_slab",
+    "byg:ether_stone_slab",
+    "byg:purpur_stone_slab"
   ]
 }

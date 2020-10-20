@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side_tall",
+  "textures": {
+    "wall": "byg:block/purpur_stone",
+    "particle": "byg:block/purpur_stone"
+  }
+}

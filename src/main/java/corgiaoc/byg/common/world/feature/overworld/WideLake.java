@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.SimpleBlockProviderConfig;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
@@ -91,7 +92,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
                             blockState = world.getBlockState(mutable.move(Direction.UP));
                             material = blockState.getMaterial();
 
-                            if (material == Material.PLANTS && blockState.getBlock() != Blocks.LILY_PAD) {
+                            if (material == Material.PLANTS && blockState.getBlock() != Blocks.LILY_PAD && blockState.getBlock() != BYGBlocks.TINY_LILYPADS) {
                                 world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
 
                                 // recursively moves up and breaks floating sugar cane

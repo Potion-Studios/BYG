@@ -4,6 +4,7 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.EndPlantBlock;
+import corgiaoc.byg.common.properties.blocks.end.bulbisgardens.EnderLilyBlock;
 import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
 import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
@@ -134,6 +135,17 @@ public class BYGBlockProperties {
         public BYGEmburLily(String registryName) {
             super(Block.Properties.create(Material.PLANTS)
                     .sound(SoundType.PLANT)
+                    .hardnessAndResistance(0.0f)
+                    .notSolid()
+            );
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
+        }
+    }
+
+    public static class BYGEnderLily extends LilyPadBlock {
+        public BYGEnderLily(String registryName) {
+            super(Block.Properties.create(Material.PLANTS)
+                    .sound(SoundType.LILY_PADS)
                     .hardnessAndResistance(0.0f)
                     .notSolid()
             );
