@@ -185,6 +185,9 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> VERMILION_SCULK_GROWTH = WorldGenRegistrationHelper.createConfiguredFeature("vermilion_sculk_growth", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), ImmutableList.of(BYGBlocks.VERMILION_SCULK.getDefaultState(), BYGBlocks.ETHER_STONE.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.VERMILION_SCULK.getDefaultState(), BYGBlocks.ETHER_STONE.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> THERIUM_CRYSTAL = WorldGenRegistrationHelper.createConfiguredFeature("therium_crystal", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.THERIUM_CRYSTAL.getDefaultState(), ImmutableList.of(BYGBlocks.VERMILION_SCULK.getDefaultState(), BYGBlocks.ETHER_STONE.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.VERMILION_SCULK.getDefaultState(), BYGBlocks.ETHER_STONE.getDefaultState()))));
 
+    public static final ConfiguredFeature<?, ?> SHULKREN_MOSS_BLANKET = WorldGenRegistrationHelper.createConfiguredFeature("shulkren_moss_blanket", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.SHULKREN_MOSS_BLANKET.getDefaultState(), ImmutableList.of(BYGBlocks.SHULKREN_PHYLIUM.getDefaultState(), BYGBlocks.ETHER_PHYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.SHULKREN_PHYLIUM.getDefaultState(), BYGBlocks.ETHER_PHYLIUM.getDefaultState()))));
+    public static final ConfiguredFeature<?, ?> SHULKREN_FUNGUS = WorldGenRegistrationHelper.createConfiguredFeature("shulkren_fungus", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.ODDITY_CACTUS_CONFIG));
+
 
     public static final ConfiguredFeature<?, ?> EMBUR_ROOTS = WorldGenRegistrationHelper.createConfiguredFeature("embur_roots", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.EMBUR_ROOTS.getDefaultState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.EMBUR_NYLIUM.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> EMBUR_ROOTS_TALL = WorldGenRegistrationHelper.createConfiguredFeature("tall_embur_roots", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_EMBUR_ROOTS.getDefaultState()), new DoublePlantBlockPlacer())).tries(1).whitelist(ImmutableSet.of(BYGBlocks.EMBUR_NYLIUM)).func_227317_b_().build()));
@@ -449,6 +452,7 @@ public class BYGConfiguredFeatures {
 
 
     public static final ConfiguredFeature<?, ?> HANGING_THERIUM_LANTERNS = WorldGenRegistrationHelper.createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.ETHER_STONE).setBlock(Blocks.CHAIN.getDefaultState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.getDefaultState().with(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.ETHER_STONE)).build()).func_242733_d(256).func_242728_a().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> HANGING_SHULKREN_VINE = WorldGenRegistrationHelper.createConfiguredFeature("hanging_shulkren_vine", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.END_STONE).setBlock(BYGBlocks.SHULKREN_VINE_PLANT.getDefaultState()).setEndBlock(BYGBlocks.SHULKREN_VINE.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.END_STONE, BYGBlocks.SHULKREN_PHYLIUM)).build()).func_242733_d(256).func_242728_a().func_242731_b(80));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JUNGLE_FLOWERS = WorldGenRegistrationHelper.createConfiguredFeature("rs_jungle_flowers", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BISTORT.withChance(0.50F),
@@ -678,6 +682,14 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> THERIUM_CRYSTALS = WorldGenRegistrationHelper.createConfiguredFeature("therium_crystals", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             THERIUM_CRYSTAL.withChance(0.6F)),
             THERIUM_CRYSTAL)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(15))));
+
+    public static final ConfiguredFeature<?, ?> SHULKREN_MOSS_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("shulkren_moss_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            SHULKREN_MOSS_BLANKET.withChance(0.5F)),
+            SHULKREN_MOSS_BLANKET)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(45))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SHULKREN_FUNGUS = WorldGenRegistrationHelper.createConfiguredFeature("rs_shulkren_fungus", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            SHULKREN_FUNGUS.withChance(0.5F)),
+            SHULKREN_FUNGUS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(16))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = WorldGenRegistrationHelper.createConfiguredFeature("rs_dead_sea_spike", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_SEA_SPIKE.withChance(0.9F)),
@@ -1877,7 +1889,6 @@ public class BYGConfiguredFeatures {
 
         public static final BlockClusterFeatureConfig WARPED_CACTUS_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WARPED_CACTUS.getDefaultState()), new ColumnBlockPlacer(1, 3))).tries(10).func_227317_b_().build();
         public static final BlockClusterFeatureConfig ODDITY_CACTUS_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ODDITY_CACTUS.getDefaultState()), new ColumnBlockPlacer(1, 4))).tries(10).func_227317_b_().build();
-        public static final BlockClusterFeatureConfig VERMILION_SCULK_GROWTH = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState()), new SimpleBlockPlacer())).tries(14).build();
 
         //SeasonalBirch
         public static final BaseTreeFeatureConfig REDBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
@@ -1962,7 +1973,7 @@ public class BYGConfiguredFeatures {
 
         public static final BlockClusterFeatureConfig BULBIS_ODDITY = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BULBIS_ODDITY.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
         public static final BlockClusterFeatureConfig PURPLE_BULBIS_ODDITY = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PURPLE_BULBIS_ODDITY.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
-
+        public static final BlockClusterFeatureConfig SHULKREN_FUNGUS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SHULKREN_FUNGUS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
 
     }
 

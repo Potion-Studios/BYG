@@ -241,6 +241,7 @@ public class BYGBiomes {
     public static final Biome VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("viscal_isles", new ViscalIsles().getBiome());
     public static final Biome BULBIS_GARDENS = WorldGenRegistrationHelper.createBiome("bulbis_gardens", new BulbisGardens().getBiome());
     public static final Biome SHATTERED_DESERT = WorldGenRegistrationHelper.createBiome("shattered_desert", new ShatteredDesert().getBiome());
+    public static final Biome SHULKREN_FOREST = WorldGenRegistrationHelper.createBiome("shulkren_forest", new ShulkrenForest().getBiome());
 
 
     public static void init() {

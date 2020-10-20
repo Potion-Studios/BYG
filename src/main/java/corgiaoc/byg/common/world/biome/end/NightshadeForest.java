@@ -10,6 +10,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
@@ -44,6 +47,7 @@ public class NightshadeForest extends BYGSubBiome {
     static {
         BYGDefaultBiomeFeatures.addNightshadePlants(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addNightShadeTrees(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244151_q).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 2, 1, 2));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
