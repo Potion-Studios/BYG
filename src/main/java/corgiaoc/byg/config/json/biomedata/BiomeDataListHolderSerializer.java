@@ -1,4 +1,4 @@
-package corgiaoc.byg.config.json;
+package corgiaoc.byg.config.json.biomedata;
 
 import com.google.gson.*;
 import corgiaoc.byg.BYG;
@@ -149,7 +149,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                     ResourceLocation hillResourceLocation = new ResourceLocation(hillBiomeName);
 
                     if (hillResourceLocation != null) {
-                        if (WorldGenRegistries.BIOME.containsKey(hillResourceLocation))
+                        if (WorldGenRegistries.BIOME.keySet().contains(hillResourceLocation))
                             weightedList.func_226313_a_(Objects.requireNonNull(WorldGenRegistries.BIOME.getOrDefault(hillResourceLocation)), hillWeight);
                         else
                             BYG.LOGGER.error("Could not find: \"" + hillResourceLocation.toString() + "\" in the biome registry!\nEntry will not be added.");
@@ -157,7 +157,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                 }
             }
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
-            if (WorldGenRegistries.BIOME.containsKey(biomeKey)) {
+            if (WorldGenRegistries.BIOME.keySet().contains(biomeKey)) {
                 if (biomeKey.getNamespace().equals(BYG.MOD_ID))
                     biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), weight, biomeType, typesArray, weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
                 else

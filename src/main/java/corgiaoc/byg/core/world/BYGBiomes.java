@@ -16,7 +16,7 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FreshWaterLake;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FrozenLake;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
-import corgiaoc.byg.config.json.BiomeData;
+import corgiaoc.byg.config.json.biomedata.BiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;

@@ -1,4 +1,4 @@
-package corgiaoc.byg.config.json;
+package corgiaoc.byg.config.json.biomedata;
 
 import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.Biome;

@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.world.biome;
 
-import corgiaoc.byg.config.json.BiomeData;
+import corgiaoc.byg.config.json.biomedata.BiomeData;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.util.RegistryKey;
