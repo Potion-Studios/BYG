@@ -1,8 +1,6 @@
 package corgiaoc.byg;
 
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
@@ -10,13 +8,12 @@ import corgiaoc.byg.common.properties.vanilla.BYGCompostables;
 import corgiaoc.byg.common.properties.vanilla.BYGFlammables;
 import corgiaoc.byg.common.properties.vanilla.BYGHoeables;
 import corgiaoc.byg.common.properties.vanilla.BYGStrippables;
-import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
+import corgiaoc.byg.config.json.BYGJsonConfigHandler;
 import corgiaoc.byg.config.json.BiomeDataListHolder;
-import corgiaoc.byg.config.json.BiomeDataListHolderSerializer;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.BYGItems;
@@ -49,10 +46,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
 import java.nio.file.Path;
 
 @Mod("byg")
@@ -83,54 +76,11 @@ public class BYG {
         BYGCreativeTab.init();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
-        handleJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-biomes.json"));
+        BYGJsonConfigHandler.handleBYGBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-biomes.json"));
         BYGBiomes.addBiomeEntries();
         BYGBiomes.fillBiomeDictionary();
         BiomeDataListHolder.fillBiomeLists();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
-
-    }
-
-
-    public static void handleJSONConfig(Path path) {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(BiomeDataListHolder.class, new BiomeDataListHolderSerializer());
-        gsonBuilder.setPrettyPrinting();
-        gsonBuilder.disableHtmlEscaping();
-        Gson gson = gsonBuilder.create();
-
-        final File CONFIG_FILE = new File(String.valueOf(path));
-
-        if (!CONFIG_FILE.exists()) {
-            BiomeDataListHolder.createDefaults();
-            createBYGJson(path);
-        }
-        try (Reader reader = new FileReader(path.toString())) {
-            BiomeDataListHolder biomeDataListHolder = gson.fromJson(reader, BiomeDataListHolder.class);
-            if (biomeDataListHolder != null)
-                BYGBiome.biomeData = biomeDataListHolder.getBiomeData();
-            else
-                LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
-
-        } catch (IOException e) {
-            LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
-        }
-    }
-
-    public static void createBYGJson(Path path) {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(BiomeDataListHolder.class, new BiomeDataListHolderSerializer());
-        gsonBuilder.setPrettyPrinting();
-        gsonBuilder.disableHtmlEscaping();
-        Gson gson = gsonBuilder.create();
-
-        String jsonString = gson.toJson(new BiomeDataListHolder(BYGBiome.biomeData));
-
-        try {
-            Files.write(path, jsonString.getBytes());
-        } catch (IOException e) {
-            LOGGER.error(BYG.MOD_ID + "-biomes.json could not be created");
-        }
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
