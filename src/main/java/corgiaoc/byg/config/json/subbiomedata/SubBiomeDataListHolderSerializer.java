@@ -95,7 +95,7 @@ public class SubBiomeDataListHolderSerializer implements JsonSerializer<SubBiome
             }
 
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
-            if (WorldGenRegistries.BIOME.containsKey(biomeKey)) {
+            if (WorldGenRegistries.BIOME.keySet().contains(biomeKey)) {
                 if (biomeKey.getNamespace().equals(BYG.MOD_ID))
                     biomeData.add(new SubBiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), typesArray, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
                 else
