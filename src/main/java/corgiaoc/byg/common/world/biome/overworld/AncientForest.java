@@ -62,11 +62,6 @@ public class AncientForest extends BYGBiome {
         return BiomeManager.BiomeType.WARM;
     }
 
-    @Override
-    public Biome getRiver() {
-        return BYGBiomes.CANYON_EDGE;
-    }
-
     static {
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addAncientTrees(GENERATION_SETTINGS);

@@ -6,10 +6,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
 import java.lang.reflect.Type;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
 public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataListHolder>, JsonDeserializer<BiomeDataListHolder> {
@@ -19,12 +21,13 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
         JsonObject biomes = new JsonObject();
         JsonObject biomeObject = new JsonObject();
 
-        for (BiomeData dataHolder : Src.getBiomeData()) {
+        for (BiomeData biomeData : Src.getBiomeData()) {
 
             JsonArray weightedListArray = new JsonArray();
             JsonObject object = new JsonObject();
-            if (dataHolder.getBiomeWeightedList() != null) {
-                for (WeightedList.Entry<Biome> biomeEntry : dataHolder.getBiomeWeightedList().field_220658_a) {
+
+            if (biomeData.getBiomeWeightedList() != null) {
+                for (WeightedList.Entry<Biome> biomeEntry : biomeData.getBiomeWeightedList().field_220658_a) {
                     JsonObject object2 = new JsonObject();
                     ResourceLocation biomeEntryKey = WorldGenRegistries.BIOME.getKey(biomeEntry.func_220647_b());
 
@@ -37,21 +40,31 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                     }
                 }
             }
-            object.addProperty("climate", dataHolder.getBiomeType().toString().toUpperCase());
-            object.addProperty("weight", dataHolder.getBiomeWeight());
-            ResourceLocation riverKey = WorldGenRegistries.BIOME.getKey(dataHolder.getRiverBiome());
+            StringBuilder dictionaryString = new StringBuilder();
+
+            for (BiomeDictionary.Type type : biomeData.getDictionaryTypes()) {
+                if (!dictionaryString.toString().isEmpty())
+                    dictionaryString.append(",");
+                dictionaryString.append(type.toString());
+            }
+
+
+            object.addProperty("climate", biomeData.getBiomeType().toString().toUpperCase());
+            object.addProperty("dictionary", dictionaryString.toString().toUpperCase());
+            object.addProperty("weight", biomeData.getBiomeWeight());
+            ResourceLocation riverKey = WorldGenRegistries.BIOME.getKey(biomeData.getRiverBiome());
             if (riverKey != null)
                 object.addProperty("river", riverKey.toString());
             else
                 object.addProperty("river", "");
 
-            ResourceLocation beachKey = WorldGenRegistries.BIOME.getKey(dataHolder.getBeachBiome());
+            ResourceLocation beachKey = WorldGenRegistries.BIOME.getKey(biomeData.getBeachBiome());
             if (beachKey != null)
                 object.addProperty("beach", beachKey.toString());
             else
                 object.addProperty("beach", "");
 
-            ResourceLocation edgeKey = WorldGenRegistries.BIOME.getKey(dataHolder.getEdgeBiome());
+            ResourceLocation edgeKey = WorldGenRegistries.BIOME.getKey(biomeData.getEdgeBiome());
             if (edgeKey != null)
                 object.addProperty("edge", edgeKey.toString());
             else
@@ -60,7 +73,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             object.add("hills", weightedListArray);
 
             //This should never be null.
-            ResourceLocation location = WorldGenRegistries.BIOME.getKey(dataHolder.getBiome());
+            ResourceLocation location = WorldGenRegistries.BIOME.getKey(biomeData.getBiome());
             if (location != null )
                 biomeObject.add(location.toString(), object);
             else
@@ -97,6 +110,20 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
             JsonArray hillLayerList = elementObject.get("hills").getAsJsonArray();
 
+            String dictionary = elementObject.get("dictionary").getAsString();
+
+            List<BiomeDictionary.Type> types = Arrays.stream(dictionary.trim().replace(" ", "").toUpperCase().split(",")).map(this::warnIfNull).map(BiomeDictionary.Type::getType).collect(Collectors.toList());
+
+            types.removeIf(Objects::isNull);
+
+            BiomeDictionary.Type[] typesArray = new BiomeDictionary.Type[types.size()];
+            typesArray = types.toArray(typesArray);
+
+            if (types.size() == 0) {
+                types.add(BiomeDictionary.Type.OVERWORLD);
+                BYG.LOGGER.warn("No dictionary entries were read...defaulting to: \"OVERWORLD\"");
+            }
+
             for (JsonElement hillElement : hillLayerList) {
                 JsonObject hillObject = hillElement.getAsJsonObject();
 
@@ -117,7 +144,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
             if (WorldGenRegistries.BIOME.containsKey(biomeKey)) {
                 if (biomeKey.getNamespace().equals(BYG.MOD_ID))
-                    biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), weight, BiomeManager.BiomeType.valueOf(climate.toUpperCase()), weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
+                    biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), weight, BiomeManager.BiomeType.valueOf(climate.toUpperCase()), typesArray, weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
                 else
                     BYG.LOGGER.error("Biome key: \"" + biomeName + "\" is illegal. The mod id for the biome key MUST be \"byg\". Skipping entry...");
             }
@@ -125,5 +152,12 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                 BYG.LOGGER.error("THe biome key: \"" + biomeName + "\" was not found in the registry, skipping entry...");
         }
         return new BiomeDataListHolder(biomeData);
+    }
+
+    public String warnIfNull(String string) {
+        BiomeDictionary.Type type = BiomeDictionary.Type.getType(string);
+        if (type == null)
+            BYG.LOGGER.error(string + "is not a Biome Dictionary Value");
+        return string;
     }
 }
