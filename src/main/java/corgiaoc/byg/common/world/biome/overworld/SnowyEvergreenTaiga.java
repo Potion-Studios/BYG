@@ -8,12 +8,17 @@ import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
+
+import javax.annotation.Nullable;
 
 public class SnowyEvergreenTaiga extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("snowy_evergreen_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
@@ -41,10 +46,6 @@ public class SnowyEvergreenTaiga extends BYGBiome {
         return WorldGenRegistries.BIOME.getOrThrow(Biomes.FROZEN_RIVER);
     }
 
-    public Biome getHills(INoiseRandom rand) {
-        return randomSubBiome(rand);
-    }
-
     public Biome randomSubBiome(INoiseRandom random) {
         int randomPicker = random.random(4);
         if (randomPicker == 0)
@@ -55,6 +56,31 @@ public class SnowyEvergreenTaiga extends BYGBiome {
             return BYGBiomes.SNOWY_EVERGREEN_CLEARING;
         else
             return BYGBiomes.FRESH_WATER_LAKE;
+    }
+
+    @Nullable
+    @Override
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_EVERGREEN_CLEARING, 4);
+        biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_EVERGREEN_HILLS, 3);
+        biomeWeightedList.func_226313_a_(BYGBiomes.FROZEN_LAKE, 3);
+        return biomeWeightedList;
+    }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.OVERWORLD};
+    }
+
+    @Override
+    public BiomeManager.BiomeType getBiomeType() {
+        return BiomeManager.BiomeType.ICY;
+    }
+
+    @Override
+    public int getWeight() {
+        return 6;
     }
 
     static {

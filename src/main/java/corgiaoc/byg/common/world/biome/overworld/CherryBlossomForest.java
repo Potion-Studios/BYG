@@ -13,6 +13,8 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
 
 import javax.annotation.Nullable;
 
@@ -50,6 +52,16 @@ public class CherryBlossomForest extends BYGBiome {
     @Override
     public int getWeight() {
         return 6;
+    }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD};
+    }
+
+    @Override
+    public BiomeManager.BiomeType getBiomeType() {
+        return BiomeManager.BiomeType.WARM;
     }
 
     static {

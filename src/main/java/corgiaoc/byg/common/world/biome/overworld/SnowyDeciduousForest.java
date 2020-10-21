@@ -7,11 +7,15 @@ import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
+
+import javax.annotation.Nullable;
 
 public class SnowyDeciduousForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("snowy_deciduous_forest", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -39,28 +43,34 @@ public class SnowyDeciduousForest extends BYGBiome {
         return WorldGenRegistries.BIOME.getOrThrow(Biomes.FROZEN_RIVER);
     }
 
-    public Biome getHills(INoiseRandom rand) {
-        return randomSubBiome(rand);
+    @Nullable
+    @Override
+    public WeightedList<Biome> getHills() {
+        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
+        biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_DECIDUOUS_FOREST_HILLS, 4);
+        biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_CONIFEROUS_CLEARING, 3);
+        biomeWeightedList.func_226313_a_(BYGBiomes.FROZEN_LAKE, 3);
+        return biomeWeightedList;
     }
 
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
-        if (randomPicker == 0)
-            return BYGBiomes.SNOWY_DECIDUOUS_FOREST_HILLS;
-        else if (randomPicker == 1)
-            return BYGBiomes.SNOWY_DECIDUOUS_CLEARING;
-        else if (randomPicker == 2)
-            return BYGBiomes.SNOWY_DECIDUOUS_CLEARING;
-        else
-            return BYGBiomes.FROZEN_LAKE;
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD};
+    }
+
+    @Override
+    public BiomeManager.BiomeType getBiomeType() {
+        return BiomeManager.BiomeType.ICY;
+    }
+
+    @Override
+    public int getWeight() {
+        return 6;
     }
 
     static {
-        ////StructureFeature.VILLAGE.configure(new StructurePoolFeatureConfig(new Identifier("village/plains/town_centers"), 6));
-//        //this.add//StructureFeature(DefaultBiomeFeatures.PILLAGER_OUTPOST);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
-
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withAllForestFlowerGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
@@ -71,7 +81,6 @@ public class SnowyDeciduousForest extends BYGBiome {
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addDeciduousTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-
         BYGDefaultBiomeFeatures.addAnemones(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addCrocus(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
@@ -92,6 +101,5 @@ public class SnowyDeciduousForest extends BYGBiome {
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.STRAY, 80, 4, 4));
-
     }
 }

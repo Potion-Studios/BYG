@@ -12,6 +12,8 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
 
 public class DeadSea extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("dead_sea", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.Configs.BLACK_SAND));
@@ -37,6 +39,21 @@ public class DeadSea extends BYGBiome {
         return this.getBiome();
     }
 
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.OVERWORLD};
+    }
+
+    @Override
+    public BiomeManager.BiomeType getBiomeType() {
+        return BiomeManager.BiomeType.DESERT;
+    }
+
+    @Override
+    public int getWeight() {
+        return 2;
+    }
 
     static {
         DefaultBiomeFeatures.withOceanStructures(GENERATION_SETTINGS);

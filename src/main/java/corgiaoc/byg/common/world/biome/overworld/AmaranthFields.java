@@ -11,6 +11,8 @@ import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
 
 import javax.annotation.Nullable;
 
@@ -40,6 +42,21 @@ public class AmaranthFields extends BYGBiome {
         biomeWeightedList.func_226313_a_(BYGBiomes.FRESH_WATER_LAKE, 5);
         biomeWeightedList.func_226313_a_(BYGBiomes.JACARANDA_FOREST, 5);
         return biomeWeightedList;
+    }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.RARE, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.OVERWORLD};
+    }
+
+    @Override
+    public BiomeManager.BiomeType getBiomeType() {
+        return BiomeManager.BiomeType.WARM;
+    }
+
+    @Override
+    public int getWeight() {
+        return 2;
     }
 
     static {

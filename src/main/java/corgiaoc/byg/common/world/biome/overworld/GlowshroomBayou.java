@@ -10,8 +10,12 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
 
-public class GlowShroomBayou extends BYGBiome {
+import javax.annotation.Nullable;
+
+public class GlowshroomBayou extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("glowshroom_bayou", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GLOWSHROOM_BAYOU, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.SWAMP;
@@ -28,9 +32,8 @@ public class GlowShroomBayou extends BYGBiome {
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().isValidSpawnBiomeForPlayer();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
-    public GlowShroomBayou() {
+    public GlowshroomBayou() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
-
     }
 
     @Override
@@ -38,6 +41,26 @@ public class GlowShroomBayou extends BYGBiome {
         return this.getBiome();
     }
 
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return this.getBiome();
+    }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET,BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD};
+    }
+
+    @Override
+    public BiomeManager.BiomeType getBiomeType() {
+        return BiomeManager.BiomeType.WARM;
+    }
+
+    @Override
+    public int getWeight() {
+        return 1;
+    }
 
     static {
         BYGDefaultBiomeFeatures.addGlowshroomBayouVegetation(GENERATION_SETTINGS);
@@ -63,6 +86,5 @@ public class GlowShroomBayou extends BYGBiome {
         BYGDefaultBiomeFeatures.addPinkOrchid(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGlowshrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addHugeGlowshrooms(GENERATION_SETTINGS);
-
     }
 }
