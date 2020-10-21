@@ -102,12 +102,28 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
             JsonObject elementObject = element.getAsJsonObject();
 
-            String climate = elementObject.get("climate").getAsString();
+            String climate = elementObject.get("climate").getAsString().toUpperCase();
             String edge = elementObject.get("edge").getAsString();
             String river = elementObject.get("river").getAsString();
             String beach = elementObject.get("beach").getAsString();
 
             int weight = elementObject.get("weight").getAsInt();
+
+            List<String> defaultClimates = new ArrayList<>();
+            defaultClimates.add("ICY");
+            defaultClimates.add("COOL");
+            defaultClimates.add("WARM");
+            defaultClimates.add("DESERT");
+            defaultClimates.add("DESERT_LEGACY");
+
+            BiomeManager.BiomeType biomeType;
+
+            if (!defaultClimates.contains(climate)) {
+                BYG.LOGGER.error(elementEntry.getKey() + "'s \"climate\" value is incorrect you put: \"" + climate + "\". Defaulting climate to warm...");
+                biomeType = BiomeManager.BiomeType.WARM;
+            }
+            else
+                biomeType = BiomeManager.BiomeType.valueOf(climate);
 
             JsonArray hillLayerList = elementObject.get("hills").getAsJsonArray();
 
@@ -143,7 +159,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
             if (WorldGenRegistries.BIOME.containsKey(biomeKey)) {
                 if (biomeKey.getNamespace().equals(BYG.MOD_ID))
-                    biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), weight, BiomeManager.BiomeType.valueOf(climate.toUpperCase()), typesArray, weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
+                    biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), weight, biomeType, typesArray, weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
                 else
                     BYG.LOGGER.error("Biome key: \"" + biomeName + "\" is illegal. The mod id for the biome key MUST be \"byg\". Skipping entry...");
             }
