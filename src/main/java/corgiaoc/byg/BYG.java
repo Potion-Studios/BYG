@@ -13,7 +13,8 @@ import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
 import corgiaoc.byg.config.json.BYGJsonConfigHandler;
-import corgiaoc.byg.config.json.BiomeDataListHolder;
+import corgiaoc.byg.config.json.biomedata.BiomeDataListHolder;
+import corgiaoc.byg.config.json.subbiomedata.SubBiomeDataListHolder;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.BYGItems;
@@ -77,9 +78,11 @@ public class BYG {
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGJsonConfigHandler.handleBYGBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-biomes.json"));
+        BYGJsonConfigHandler.handleBYGSubBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-sub-biomes.json"));
         BYGBiomes.addBiomeEntries();
         BYGBiomes.fillBiomeDictionary();
         BiomeDataListHolder.fillBiomeLists();
+        SubBiomeDataListHolder.fillBiomeLists();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

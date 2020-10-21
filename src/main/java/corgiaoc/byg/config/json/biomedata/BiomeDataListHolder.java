@@ -1,8 +1,9 @@
-package corgiaoc.byg.config.json;
+package corgiaoc.byg.config.json.biomedata;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import net.minecraft.util.registry.WorldGenRegistries;
 
+import java.util.Comparator;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
@@ -23,6 +24,9 @@ public class BiomeDataListHolder {
         for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES) {
             BYGBiome.biomeData.add(new BiomeData(bygBiome.getBiome(), bygBiome.getWeight(), bygBiome.getBiomeType(), bygBiome.getBiomeDictionary(), bygBiome.getHills(), bygBiome.getEdge(), bygBiome.getBeach(), bygBiome.getRiver()));
         }
+
+        //Sort entries alphabetically
+        BYGBiome.biomeData.sort(Comparator.comparing(data -> WorldGenRegistries.BIOME.getKey(data.getBiome()).toString()));
     }
 
     public static void fillBiomeLists() {

@@ -1,4 +1,4 @@
-package corgiaoc.byg.config.json;
+package corgiaoc.byg.config.json.biomedata;
 
 import com.google.gson.*;
 import corgiaoc.byg.BYG;

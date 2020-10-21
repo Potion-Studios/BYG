@@ -39,7 +39,6 @@ public class WeepingWitchClearing extends BYGSubBiome {
     }
 
     @Nullable
-    @Override
     public Biome getHills(INoiseRandom rand) {
         return BYGBiomes.FRESH_WATER_LAKE;
     }
