@@ -87,8 +87,9 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
     @Override
     public BiomeDataListHolder deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        JsonObject jsonObject = json.getAsJsonObject();
+        BYG.LOGGER.info("Reading json");
 
+        JsonObject jsonObject = json.getAsJsonObject();
         List<BiomeData> biomeData = new ArrayList<>();
 
         Set<Map.Entry<String, JsonElement>> entrySet = jsonObject.get("biomes").getAsJsonObject().entrySet();
@@ -112,9 +113,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
             String dictionary = elementObject.get("dictionary").getAsString();
 
-            List<BiomeDictionary.Type> types = Arrays.stream(dictionary.trim().replace(" ", "").toUpperCase().split(",")).map(this::warnIfNull).map(BiomeDictionary.Type::getType).collect(Collectors.toList());
-
-            types.removeIf(Objects::isNull);
+            List<BiomeDictionary.Type> types = Arrays.stream(dictionary.trim().replace(" ", "").toUpperCase().split(",")).map(this::warnIfTagIsNotDefault).map(BiomeDictionary.Type::getType).collect(Collectors.toList());
 
             BiomeDictionary.Type[] typesArray = new BiomeDictionary.Type[types.size()];
             typesArray = types.toArray(typesArray);
@@ -154,10 +153,52 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
         return new BiomeDataListHolder(biomeData);
     }
 
-    public String warnIfNull(String string) {
+    public static List<BiomeDictionary.Type> defaultTypesList = new ArrayList<>();
+
+    static {
+        defaultTypesList.add(BiomeDictionary.Type.HOT);
+        defaultTypesList.add(BiomeDictionary.Type.COLD);
+        defaultTypesList.add(BiomeDictionary.Type.SPARSE);
+        defaultTypesList.add(BiomeDictionary.Type.DENSE);
+        defaultTypesList.add(BiomeDictionary.Type.WET);
+        defaultTypesList.add(BiomeDictionary.Type.DRY);
+        defaultTypesList.add(BiomeDictionary.Type.SAVANNA);
+        defaultTypesList.add(BiomeDictionary.Type.CONIFEROUS);
+        defaultTypesList.add(BiomeDictionary.Type.JUNGLE);
+        defaultTypesList.add(BiomeDictionary.Type.SPOOKY);
+        defaultTypesList.add(BiomeDictionary.Type.DEAD);
+        defaultTypesList.add(BiomeDictionary.Type.LUSH);
+        defaultTypesList.add(BiomeDictionary.Type.MUSHROOM);
+        defaultTypesList.add(BiomeDictionary.Type.MAGICAL);
+        defaultTypesList.add(BiomeDictionary.Type.RARE);
+        defaultTypesList.add(BiomeDictionary.Type.PLATEAU);
+        defaultTypesList.add(BiomeDictionary.Type.MODIFIED);
+        defaultTypesList.add(BiomeDictionary.Type.OCEAN);
+        defaultTypesList.add(BiomeDictionary.Type.RIVER);
+        defaultTypesList.add(BiomeDictionary.Type.WATER);
+        defaultTypesList.add(BiomeDictionary.Type.MESA);
+        defaultTypesList.add(BiomeDictionary.Type.FOREST);
+        defaultTypesList.add(BiomeDictionary.Type.PLAINS);
+        defaultTypesList.add(BiomeDictionary.Type.MOUNTAIN);
+        defaultTypesList.add(BiomeDictionary.Type.HILLS);
+        defaultTypesList.add(BiomeDictionary.Type.SWAMP);
+        defaultTypesList.add(BiomeDictionary.Type.SANDY);
+        defaultTypesList.add(BiomeDictionary.Type.SNOWY);
+        defaultTypesList.add(BiomeDictionary.Type.WASTELAND);
+        defaultTypesList.add(BiomeDictionary.Type.VOID);
+        defaultTypesList.add(BiomeDictionary.Type.OVERWORLD);
+        defaultTypesList.add(BiomeDictionary.Type.NETHER);
+        defaultTypesList.add(BiomeDictionary.Type.END);
+    }
+
+    public static List<BiomeDictionary.Type> stopSpamLoggerSpam = new ArrayList<>();
+
+    public String warnIfTagIsNotDefault(String string) {
         BiomeDictionary.Type type = BiomeDictionary.Type.getType(string);
-        if (type == null)
-            BYG.LOGGER.error(string + "is not a Biome Dictionary Value");
+        if (!defaultTypesList.contains(type) && !stopSpamLoggerSpam.contains(type)) {
+            BYG.LOGGER.warn(type.toString() + " is not a default dictionary value.\nIgnore this msg if using modded biome dictionary values.");
+            stopSpamLoggerSpam.add(type);
+        }
         return string;
     }
 }

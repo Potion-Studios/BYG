@@ -256,8 +256,9 @@ public class BYGBiomes {
     }
 
     public static void fillBiomeDictionary() {
-        for (BiomeData bygBiome : BYGBiome.biomeData)
+        for (BiomeData bygBiome : BYGBiome.biomeData) {
             BiomeDictionary.addTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(bygBiome.getBiome())), bygBiome.getDictionaryTypes());
+        }
         for (BYGNetherBiome bygNetherBiome : BYGNetherBiome.BYG_NETHER_BIOMES)
             BiomeDictionary.addTypes(bygNetherBiome.getKey(), bygNetherBiome.getBiomeDictionary());
         for (BYGEndBiome bygEndBiome : BYGEndBiome.BYG_END_BIOMES)
