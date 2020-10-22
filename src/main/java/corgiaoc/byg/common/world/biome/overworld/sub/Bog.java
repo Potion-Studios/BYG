@@ -14,6 +14,7 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraftforge.common.BiomeDictionary;
 
 public class Bog extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bog", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.MARSHLAND, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), BYGBlocks.MUD_BLOCK.getDefaultState())));
@@ -37,12 +38,21 @@ public class Bog extends BYGSubBiome {
     }
 
     @Override
+    public Biome getBeach() {
+        return this.getBiome();
+    }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.WATER, BiomeDictionary.Type.WET};
+    }
+
+    @Override
     public Biome getRiver() {
         return this.getBiome();
     }
 
     static {
-        //this.add//StructureFeature(DefaultBiomeFeatures.SWAMP_HUT);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMarshTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMarshTrees(GENERATION_SETTINGS);
