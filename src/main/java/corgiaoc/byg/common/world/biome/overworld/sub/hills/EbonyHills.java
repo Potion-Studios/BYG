@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraftforge.common.BiomeDictionary;
 
 public class EbonyHills extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("ebony_hills", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.EBONY, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -30,6 +31,11 @@ public class EbonyHills extends BYGSubBiome {
 
     public EbonyHills() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+    }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.HILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.OVERWORLD};
     }
 
     static {

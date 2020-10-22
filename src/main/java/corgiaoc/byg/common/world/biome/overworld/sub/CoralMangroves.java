@@ -9,6 +9,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraftforge.common.BiomeDictionary;
 
 public class CoralMangroves extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("coral_mangroves", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.SWAMP, SurfaceBuilder.SAND_CONFIG));
@@ -31,8 +32,19 @@ public class CoralMangroves extends BYGSubBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
-    public int getFoliageColor() {
-        return 6337104;
+    @Override
+    public Biome getBeach() {
+        return this.getBiome();
+    }
+
+    @Override
+    public Biome getRiver() {
+        return this.getBiome();
+    }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.WATER, BiomeDictionary.Type.WET};
     }
 
     static {
@@ -45,7 +57,6 @@ public class CoralMangroves extends BYGSubBiome {
         DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
-        //GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).decorate(Decorator.TOP_SOLID_HEIGHTMAP.configure(NopeDecoratorConfig.field_24892)));
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addPeachleatherflower(GENERATION_SETTINGS);
@@ -59,7 +70,6 @@ public class CoralMangroves extends BYGSubBiome {
         DefaultBiomeFeatures.withTallGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
 
-//         SPAWN_SETTINGS.tree(EntityClassification.WATER_CREATURE, new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 25, 8, 8));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));

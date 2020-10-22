@@ -6,9 +6,11 @@ import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraftforge.common.BiomeDictionary;
 
 public class SnowyBlackBeach extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("snowy_black_beach", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.Configs.BLACK_SAND));
@@ -29,9 +31,22 @@ public class SnowyBlackBeach extends BYGSubBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
+    @Override
+    public Biome getBeach() {
+        return null;
+    }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY};
+    }
+
+    @Override
+    public Biome getRiver() {
+        return WorldGenRegistries.BIOME.getOrThrow(Biomes.FROZEN_RIVER);
+    }
+
     static {
-        //////this.add//StructureFeature(Feature.BURIED_TREASURE.configure(new BuriedTreasureConfig(0.01F)));
-        //////this.add//StructureFeature(Feature.SHIPWRECK.configure(new ShipwreckConfig(true)));
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);

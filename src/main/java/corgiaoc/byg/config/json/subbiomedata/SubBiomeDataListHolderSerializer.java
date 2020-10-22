@@ -136,6 +136,7 @@ public class SubBiomeDataListHolderSerializer implements JsonSerializer<SubBiome
         defaultTypesList.add(BiomeDictionary.Type.MOUNTAIN);
         defaultTypesList.add(BiomeDictionary.Type.HILLS);
         defaultTypesList.add(BiomeDictionary.Type.SWAMP);
+        defaultTypesList.add(BiomeDictionary.Type.BEACH);
         defaultTypesList.add(BiomeDictionary.Type.SANDY);
         defaultTypesList.add(BiomeDictionary.Type.SNOWY);
         defaultTypesList.add(BiomeDictionary.Type.WASTELAND);

@@ -13,6 +13,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraftforge.common.BiomeDictionary;
 
 public class TwilightValleyHills extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("twilight_valley_hills", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.TWILIGHT_VALLEY, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
@@ -40,6 +41,11 @@ public class TwilightValleyHills extends BYGSubBiome {
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.END_ROD, 0.00028F))
                 .withSkyColor(BiomeUtil.calcSkyColor(0.8F))
                 .setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+    }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.HILLS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD};
     }
 
     static {

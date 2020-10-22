@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraftforge.common.BiomeDictionary;
 
 public class CanyonEdge extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("canyon_edge", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CANYON_EDGE, new SurfaceBuilderConfig(Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState())));
@@ -33,12 +34,16 @@ public class CanyonEdge extends BYGSubBiome {
 
     @Override
     public Biome getRiver() {
-        return null;
+        return this.getBiome();
+    }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER};
     }
 
     static {
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withAllForestFlowerGeneration(GENERATION_SETTINGS);

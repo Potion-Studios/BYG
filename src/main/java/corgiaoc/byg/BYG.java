@@ -26,10 +26,13 @@ import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.template.TagMatchRuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
@@ -155,6 +158,7 @@ public class BYG {
         @SubscribeEvent
         public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
             BYG.LOGGER.debug("BYG: Registering features...");
+            OreFeatureConfig.FillerBlockType.field_241883_b = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
             BYGFeatures.init();
             BYG.LOGGER.info("BYG: Features registered!");
         }
