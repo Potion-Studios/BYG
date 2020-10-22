@@ -37,7 +37,7 @@ public class ShulkrenForest extends BYGEndBiome {
                 .setWaterFogColor(WATER_FOG_COLOR)
                 .setFogColor(10518688)
                 .withSkyColor(0)
-                .setParticle(new ParticleEffectAmbience(ParticleTypes.CRIMSON_SPORE, 0.00128F))
+                .setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.00128F))
                 .setAmbientSound(SoundEvents.AMBIENT_CRIMSON_FOREST_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))
@@ -45,6 +45,7 @@ public class ShulkrenForest extends BYGEndBiome {
     }
 
     static {
+        BYGDefaultBiomeFeatures.addShulkrenTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addShulkrenPlants(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244151_q).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
 

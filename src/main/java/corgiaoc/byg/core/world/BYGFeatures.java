@@ -16,6 +16,8 @@ import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree2;
 import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree3;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree1;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree2;
+import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree1;
+import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree2;
 import corgiaoc.byg.common.world.feature.nether.Chain;
 import corgiaoc.byg.common.world.feature.nether.ConfigurablePillar;
 import corgiaoc.byg.common.world.feature.nether.HangingColumn;
@@ -202,6 +204,10 @@ public class BYGFeatures {
     //Nightshade
     public static final BYGAbstractTreeFeature<BYGTreeConfig> NIGHTSHADE_TREE1 = WorldGenRegistrationHelper.createFeature("nightshade_tree1", new NightshadeTree1(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> NIGHTSHADE_TREE2 = WorldGenRegistrationHelper.createFeature("nightshade_tree2", new NightshadeTree2(BYGTreeConfig.CODEC.stable()));
+
+    //Shulkren
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SHULKREN_TREE1 = WorldGenRegistrationHelper.createFeature("shulkren_tree1", new ShulkrenTree1(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SHULKREN_TREE2 = WorldGenRegistrationHelper.createFeature("shulkren_tree2", new ShulkrenTree2(BYGMushroomConfig.CODEC.stable()));
 
 
     public static final Feature<FloatingIslandConfig> FLOATING_ISLAND1 = WorldGenRegistrationHelper.createFeature("floating_island1", new FloatingIslands1(FloatingIslandConfig.CODEC.stable()));

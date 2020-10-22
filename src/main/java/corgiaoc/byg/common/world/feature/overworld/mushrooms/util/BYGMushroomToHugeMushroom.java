@@ -78,6 +78,13 @@ public class BYGMushroomToHugeMushroom {
         }
     }
 
+    public static class ShulkrenFungus extends BYGHugeMushroom {
+        @Nullable
+        public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.SHULKREN_TREE1 : BYGConfiguredFeatures.SHULKREN_TREE2;
+        }
+    }
+
     public static class SoulShroom extends BYGHugeMushroom {
         @Nullable
         public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
