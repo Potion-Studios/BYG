@@ -18,6 +18,6 @@ public class VoidMasterLayer implements IAreaTransformer0 {
     }
 
     public static int getRandomVoidBiomes(Registry<Biome> biomeRegistry, INoiseRandom rand) {
-        return biomeRegistry.getId(BYGEndBiomeProvider.VOID_END_BIOMES.get(rand.random(BYGEndBiomeProvider.VOID_END_BIOMES.size())));
+        return biomeRegistry.getId(biomeRegistry.getOptional(BYGEndBiomeProvider.VOID_END_BIOMES.get(rand.random(BYGEndBiomeProvider.VOID_END_BIOMES.size()))).orElseThrow(RuntimeException::new));
     }
 }

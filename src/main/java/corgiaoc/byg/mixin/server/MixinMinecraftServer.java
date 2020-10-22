@@ -46,9 +46,9 @@ public class MixinMinecraftServer {
 
     @Inject(at = @At("RETURN"), method = "<init>(Ljava/lang/Thread;Lnet/minecraft/util/registry/DynamicRegistries$Impl;Lnet/minecraft/world/storage/SaveFormat$LevelSave;Lnet/minecraft/world/storage/IServerConfiguration;Lnet/minecraft/resources/ResourcePackList;Ljava/net/Proxy;Lcom/mojang/datafixers/DataFixer;Lnet/minecraft/resources/DataPackRegistries;Lcom/mojang/authlib/minecraft/MinecraftSessionService;Lcom/mojang/authlib/GameProfileRepository;Lnet/minecraft/server/management/PlayerProfileCache;Lnet/minecraft/world/chunk/listener/IChunkStatusListenerFactory;)V", cancellable = true)
     private void utilizeDatapackBiomes(Thread thread, DynamicRegistries.Impl impl, SaveFormat.LevelSave session, IServerConfiguration saveProperties, ResourcePackList resourcePackManager, Proxy proxy, DataFixer dataFixer, DataPackRegistries serverResourceManager, MinecraftSessionService minecraftSessionService, GameProfileRepository gameProfileRepository, PlayerProfileCache userCache, IChunkStatusListenerFactory worldGenerationProgressListenerFactory, CallbackInfo ci) {
-        final List<Biome> NETHER_BIOMES = new ArrayList<>();
-        final List<Biome> END_BIOMES = new ArrayList<>();
-        final List<Biome> END_VOID_BIOMES = new ArrayList<>();
+        final List<ResourceLocation> NETHER_BIOMES = new ArrayList<>();
+        final List<ResourceLocation> END_BIOMES = new ArrayList<>();
+        final List<ResourceLocation> END_VOID_BIOMES = new ArrayList<>();
 
         Optional<MutableRegistry<Biome>> biomeMutableRegistry = this.field_240767_f_.func_230521_a_(Registry.BIOME_KEY);
         if (biomeMutableRegistry.isPresent()) {
@@ -59,19 +59,19 @@ public class MixinMinecraftServer {
                     if (locationKey != null) {
                         if (BYGWorldConfig.IS_BLACKLIST_NETHER.get()) {
                             //Avoid duping entries
-                            if (!NETHER_BIOMES.contains(biome) && !NETHER_BIOME_IDS.contains(locationKey.toString())) {
-                                NETHER_BIOMES.add(biome);
+                            if (!NETHER_BIOMES.contains(locationKey) && !NETHER_BIOME_IDS.contains(locationKey.toString())) {
+                                NETHER_BIOMES.add(locationKey);
                             }
                         } else {
                             for (String id : NETHER_BIOME_IDS) {
                                 if (id.equals(locationKey.toString())) {
-                                    NETHER_BIOMES.add(biome);
+                                    NETHER_BIOMES.add(locationKey);
                                 }
                             }
                         }
                         //if a datapack is using the same namespace as another mod, this is bad....like really bad.
-                        if (!ModList.get().isLoaded(locationKey.getNamespace()) && !NETHER_BIOMES.contains(biome)) {
-                            NETHER_BIOMES.add(biome);
+                        if (!ModList.get().isLoaded(locationKey.getNamespace()) && !NETHER_BIOMES.contains(locationKey)) {
+                            NETHER_BIOMES.add(locationKey);
                         }
                     }
                 }
@@ -81,24 +81,24 @@ public class MixinMinecraftServer {
                     if (locationKey != null) {
                         if (BYGWorldConfig.IS_BLACKLIST_END.get()) {
                             //Avoid duping entries
-                            if (!END_BIOMES.contains(biome) && !END_BIOME_IDS.contains(locationKey.toString())) {
-                                END_BIOMES.add(biome);
+                            if (!END_BIOMES.contains(locationKey) && !END_BIOME_IDS.contains(locationKey.toString())) {
+                                END_BIOMES.add(locationKey);
                             }
                         } else {
                             for (String id : END_BIOME_IDS) {
                                 if (id.equals(locationKey.toString())) {
-                                    END_BIOMES.add(biome);
+                                    END_BIOMES.add(locationKey);
                                 }
                             }
                         }
                         //if a datapack is using the same namespace as another mod, this is bad...like really bad.
                         if (!ModList.get().isLoaded(locationKey.getNamespace())) {
-                            END_BIOMES.add(biome);
+                            END_BIOMES.add(locationKey);
                         }
 
                         for (String id : END_VOID_BIOME_IDS) {
-                            if (id.equals(locationKey.toString()) && !END_VOID_BIOMES.contains(biome)) {
-                                END_VOID_BIOMES.add(biome);
+                            if (id.equals(locationKey.toString()) && !END_VOID_BIOMES.contains(locationKey)) {
+                                END_VOID_BIOMES.add(locationKey);
                             }
                         }
                     }

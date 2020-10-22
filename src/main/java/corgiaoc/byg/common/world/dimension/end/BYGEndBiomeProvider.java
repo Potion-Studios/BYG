@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.dimension.end;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryLookupCodec;
@@ -14,6 +15,8 @@ import net.minecraft.world.gen.SimplexNoiseGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class BYGEndBiomeProvider extends BiomeProvider {
     public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.getLookUpCodec(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeProvider::new)));
@@ -21,13 +24,13 @@ public class BYGEndBiomeProvider extends BiomeProvider {
     private final long seed;
     private final DatapackLayer mainIslandLayer;
     private final DatapackLayer smallIslandLayer;
-    public static List<Biome> END_BIOMES = new ArrayList<>();
-    public static List<Biome> VOID_END_BIOMES = new ArrayList<>();
+    public static List<ResourceLocation> END_BIOMES = new ArrayList<>();
+    public static List<ResourceLocation> VOID_END_BIOMES = new ArrayList<>();
     private final Registry<Biome> biomeRegistry;
     private final SimplexNoiseGenerator generator;
 
     public BYGEndBiomeProvider(Registry<Biome> registry, long seed) {
-        super(END_BIOMES);
+        super(registry.getEntries().stream().filter(entry -> END_BIOMES.contains(entry.getKey().getLocation()) || VOID_END_BIOMES.contains(entry.getKey().getLocation())).map(Map.Entry::getValue).collect(Collectors.toList()));
         this.seed = seed;
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         sharedseedrandom.skip(17292);
