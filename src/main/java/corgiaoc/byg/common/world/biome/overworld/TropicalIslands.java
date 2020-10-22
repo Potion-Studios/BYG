@@ -3,13 +3,11 @@ package corgiaoc.byg.common.world.biome.overworld;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -37,22 +35,6 @@ public class TropicalIslands extends BYGSubBiome {
     @Override
     public Biome getRiver() {
         return this.getBiome();
-    }
-
-    public Biome getHills(INoiseRandom rand) {
-        return randomSubBiome(rand);
-    }
-
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.random(4);
-        if (randomPicker == 0)
-            return BYGBiomes.TROPICAL_ISLAND_MOUNTAINS;
-        else if (randomPicker == 1)
-            return BYGBiomes.TROPICAL_ISLAND_MOUNTAINS;
-        else if (randomPicker == 2)
-            return BYGBiomes.TROPICAL_ISLAND_CLEARING;
-        else
-            return BYGBiomes.TROPICAL_ISLAND_CLEARING;
     }
 
     static {

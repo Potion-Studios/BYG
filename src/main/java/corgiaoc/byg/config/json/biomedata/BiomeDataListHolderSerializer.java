@@ -203,6 +203,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
         defaultTypesList.add(BiomeDictionary.Type.WASTELAND);
         defaultTypesList.add(BiomeDictionary.Type.VOID);
         defaultTypesList.add(BiomeDictionary.Type.OVERWORLD);
+        defaultTypesList.add(BiomeDictionary.Type.BEACH);
         defaultTypesList.add(BiomeDictionary.Type.NETHER);
         defaultTypesList.add(BiomeDictionary.Type.END);
     }

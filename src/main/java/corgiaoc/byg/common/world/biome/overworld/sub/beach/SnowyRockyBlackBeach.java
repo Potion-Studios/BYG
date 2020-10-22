@@ -7,6 +7,7 @@ import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraftforge.common.BiomeDictionary;
@@ -38,6 +39,11 @@ public class SnowyRockyBlackBeach extends BYGSubBiome {
     @Override
     public BiomeDictionary.Type[] getBiomeDictionary() {
         return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY};
+    }
+
+    @Override
+    public Biome getRiver() {
+        return WorldGenRegistries.BIOME.getOrThrow(Biomes.FROZEN_RIVER);
     }
 
     static {

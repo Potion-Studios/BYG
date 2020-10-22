@@ -40,7 +40,6 @@ public class ZelkovaClearing extends BYGSubBiome {
     }
 
     static {
-        
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
