@@ -509,6 +509,7 @@ public class BYGBlocks {
     public static final Block LEAF_PILE = new BYGBlockProperties.BYGLeafPile("leaf_pile");
     public static final Block CLOVER_PATCH = new BYGBlockProperties.BYGLeafPile("clover_patch");
     public static final Block FLOWER_PATCH = new BYGBlockProperties.BYGLeafPile("flower_patch");
+    public static final Block BAOBAB_FRUIT_BLOCK = createBaobabFruitBlock("baobab_fruit_block");
 
     public static final Block ANTHRACITE_BLOCK = new BYGBlockProperties.AnthraciteOre("anthracite_block");
     public static final Block ANTHRACITE_ORE = new BYGBlockProperties.AnthraciteOre("anthracite_ore");
@@ -1122,15 +1123,21 @@ public class BYGBlocks {
     }
 
     static Block createCrimsonBerryBush(String id) {
-        Block berryBush = new CrimsonBerryBushBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).zeroHardnessAndResistance().doesNotBlockMovement());
+        Block berryBush = new CrimsonBerryBushBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), berryBush);
         return berryBush;
     }
 
     static Block createBlueBerryBush(String id) {
-        Block berryBush = new BlueBerryBush(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).zeroHardnessAndResistance().doesNotBlockMovement());
+        Block berryBush = new BlueBerryBush(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), berryBush);
         return berryBush;
+    }
+
+    static Block createBaobabFruitBlock(String id) {
+        Block baobabFruit = new BaobabFruitBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().harvestTool(ToolType.HOE).zeroHardnessAndResistance().doesNotBlockMovement());
+        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), baobabFruit);
+        return baobabFruit;
     }
 
     static Block createNightshadeBerryBush(String id) {
@@ -1138,7 +1145,7 @@ public class BYGBlocks {
     }
 
     static Block createNightshadeBerryBush(int lightLevel, String id) {
-        Block berryBush = new NightshadeBerryBushBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).setLightLevel((state) -> lightLevel).zeroHardnessAndResistance().doesNotBlockMovement());
+        Block berryBush = new NightshadeBerryBushBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).setLightLevel((state) -> lightLevel).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), berryBush);
         return berryBush;
     }

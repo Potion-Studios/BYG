@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/baobab_fruit_stage0"
+  }
+}

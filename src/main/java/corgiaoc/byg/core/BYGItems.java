@@ -199,6 +199,7 @@ public class BYGItems {
     public static final Item ASPEN_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.ASPEN, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)), "aspen_boat");
 
     //Baobab Woodtype
+    public static final Item BAOBAB_FRUIT = createItem(new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(3).saturation(0.5f).setAlwaysEdible().build())), "baobab_fruit");
     public static final Item BAOBAB_SAPLING = createItem(new BlockItem(BYGBlocks.BAOBAB_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BAOBAB_SAPLING));
     public static final Item BAOBAB_LEAVES = createItem(new BlockItem(BYGBlocks.BAOBAB_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BAOBAB_LEAVES));
     public static final Item BAOBAB_LOG = createItem(new BlockItem(BYGBlocks.BAOBAB_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BAOBAB_LOG));
@@ -990,7 +991,7 @@ public class BYGItems {
 
 
     //Plants
-    public static final Item BLUE_BERRY = createItem(new BlockNamedItem(BYGBlocks.BLUEBERRY_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.1f).build())), "blueberries");
+    public static final Item BLUE_BERRY = createItem(new BlockNamedItem(BYGBlocks.BLUEBERRY_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.1f).effect(new EffectInstance(Effects.SPEED, 200, 0), 1.0F).build())), "blueberries");
     public static final Item CATTAIL = createItem(new BlockItem(BYGBlocks.CATTAIL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CATTAIL));
     public static final Item GOLDEN_SPINED_CACTUS = createItem(new BlockItem(BYGBlocks.GOLDEN_SPINED_CACTUS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.GOLDEN_SPINED_CACTUS));
     public static final Item HORSEWEED = createItem(new BlockItem(BYGBlocks.HORSEWEED, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.HORSEWEED));
