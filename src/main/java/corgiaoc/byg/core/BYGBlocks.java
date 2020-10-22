@@ -741,7 +741,7 @@ public class BYGBlocks {
     public static final Block DEATH_CAP = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
     public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "bulbis_oddity");
     public static final Block PURPLE_BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleBulbis(), "purple_bulbis_oddity");
-    public static final Block SHULKREN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "shulkren_fungus");
+    public static final Block SHULKREN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.ShulkrenFungus(), "shulkren_fungus");
 
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");
