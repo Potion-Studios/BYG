@@ -50,11 +50,11 @@ public class FillSurfaceBuilderConfig implements ISurfaceBuilderConfig {
     }
 
     public BlockState getTop() {
-        return null;
+        return Blocks.AIR.getDefaultState();
     }
 
     public BlockState getUnder() {
-        return null;
+        return Blocks.AIR.getDefaultState();
     }
 
     public BlockStateProvider getFillMaterial() {

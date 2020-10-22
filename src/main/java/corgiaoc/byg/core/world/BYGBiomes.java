@@ -142,7 +142,6 @@ public class BYGBiomes {
     public static final Biome SNOWY_CONIFEROUS_CLEARING = WorldGenRegistrationHelper.createBiome("snowy_coniferous_clearing", new SnowyConiferousClearing().getBiome());
     public static final Biome SNOWY_DECIDUOUS_CLEARING = WorldGenRegistrationHelper.createBiome("snowy_deciduous_clearing", new SnowyDeciduousClearing().getBiome());
     public static final Biome SNOWY_EVERGREEN_CLEARING = WorldGenRegistrationHelper.createBiome("snowy_evergreen_clearing", new SnowyEvergreenClearing().getBiome());
-    public static final Biome TROPICAL_ISLAND_CLEARING = WorldGenRegistrationHelper.createBiome("tropical_island_clearing", new TropicalIslandClearing().getBiome());
     public static final Biome WEEPING_WTICH_CLEARING = WorldGenRegistrationHelper.createBiome("weeping_witch_clearing", new WeepingWitchClearing().getBiome());
     public static final Biome ZELKOVA_CLEARING = WorldGenRegistrationHelper.createBiome("zelkova_clearing", new ZelkovaClearing().getBiome());
 
@@ -201,7 +200,6 @@ public class BYGBiomes {
     public static final Biome BLUFF_PEAKS = WorldGenRegistrationHelper.createBiome("bluff_peaks", new BluffPeaks().getBiome());
     public static final Biome CIKA_MOUNTAINS = WorldGenRegistrationHelper.createBiome("cika_mountains", new CikaMountains().getBiome());
     public static final Biome REDWOOD_MOUNTAINS = WorldGenRegistrationHelper.createBiome("redwood_mountains", new RedwoodMountains().getBiome());
-    public static final Biome TROPICAL_ISLAND_MOUNTAINS = WorldGenRegistrationHelper.createBiome("tropical_island_mountains", new TropicalIslandMountains().getBiome());
     public static final Biome WOODED_RED_ROCK_MOUNTAINS = WorldGenRegistrationHelper.createBiome("wooded_red_rock_mountains", new WoodedRedRockMountains().getBiome());
 
     //Sub

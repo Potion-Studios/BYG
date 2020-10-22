@@ -30,8 +30,6 @@ public class RockyBeach extends BYGSubBiome {
     }
 
     static {
-        ////this.add//StructureFeature(Feature.BURIED_TREASURE.configure(new BuriedTreasureConfig(0.01F)));
-        ////this.add//StructureFeature(Feature.SHIPWRECK.configure(new ShipwreckConfig(true)));
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
