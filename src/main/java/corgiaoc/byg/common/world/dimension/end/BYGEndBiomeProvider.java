@@ -39,7 +39,8 @@ public class BYGEndBiomeProvider extends BiomeProvider {
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         sharedseedrandom.skip(17292);
         biomeRegistry = registry;
-
+        END_BIOMES = createEndBiomeList(this.biomeRegistry);
+        VOID_END_BIOMES = createVoidEndBiomeList(this.biomeRegistry);
         this.mainIslandLayer = EndLayerProviders.stackLayers(this.biomeRegistry, seed);
         this.smallIslandLayer = EndLayerProviders.stackVoidLayers(this.biomeRegistry, seed);
         this.generator = new SimplexNoiseGenerator(sharedseedrandom);
