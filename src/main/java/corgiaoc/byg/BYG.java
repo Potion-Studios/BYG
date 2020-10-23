@@ -11,7 +11,6 @@ import corgiaoc.byg.common.properties.vanilla.BYGStrippables;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.BYGWorldConfig;
-import corgiaoc.byg.config.biomeweight.ConfigWeightManager;
 import corgiaoc.byg.config.json.BYGJsonConfigHandler;
 import corgiaoc.byg.config.json.biomedata.BiomeDataListHolder;
 import corgiaoc.byg.config.json.subbiomedata.SubBiomeDataListHolder;
@@ -76,7 +75,6 @@ public class BYG {
 
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
-        ConfigWeightManager.buildConfig();
         BYGCreativeTab.init();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);

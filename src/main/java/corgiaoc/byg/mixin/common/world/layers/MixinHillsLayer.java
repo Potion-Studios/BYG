@@ -2,6 +2,7 @@ package corgiaoc.byg.mixin.common.world.layers;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -18,14 +19,12 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @SuppressWarnings("deprecation")
 @Mixin(HillsLayer.class)
 public abstract class MixinHillsLayer {
 
     private static final List<Biome> topOceanList = new ArrayList<>();
-    private static final Random random = new Random();
 
 
     @Inject(method = "apply(Lnet/minecraft/world/gen/INoiseRandom;Lnet/minecraft/world/gen/area/IArea;Lnet/minecraft/world/gen/area/IArea;II)I",
@@ -46,7 +45,7 @@ public abstract class MixinHillsLayer {
                 Biome biome = WorldGenRegistries.BIOME.getByValue(i);
                 if (biome != null) {
                     if (BYGBiome.BIOME_TO_HILLS_LIST.get(i) != null) {
-                        Biome hill = getHillBiomeValue(BYGBiome.BIOME_TO_HILLS_LIST.get(i));
+                        Biome hill = getHillBiomeValue(BYGBiome.BIOME_TO_HILLS_LIST.get(i), rand);
                         if (hill != null) {
                             l = WorldGenRegistries.BIOME.getId(hill);
                         }
@@ -60,9 +59,9 @@ public abstract class MixinHillsLayer {
     }
 
     @Nullable
-    private static Biome getHillBiomeValue(WeightedList<Biome> biomeHolder) {
+    private static Biome getHillBiomeValue(WeightedList<Biome> biomeHolder, INoiseRandom layerRandom) {
         if (biomeHolder.field_220658_a.size() > 0) {
-            return biomeHolder.func_226318_b_(MixinHillsLayer.random);
+            return LayerRandomWeightedListUtil.getBiome(biomeHolder, layerRandom);
         }
         else {
             return null;

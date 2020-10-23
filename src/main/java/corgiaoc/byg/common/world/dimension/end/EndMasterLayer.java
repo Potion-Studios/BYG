@@ -18,6 +18,6 @@ public class EndMasterLayer implements IAreaTransformer0 {
     }
 
     public static int getRandomIslandBiomes(Registry<Biome> biomeRegistry, INoiseRandom rand) {
-        return biomeRegistry.getId(BYGEndBiomeProvider.END_BIOMES.get(rand.random(BYGEndBiomeProvider.END_BIOMES.size())));
+        return biomeRegistry.getId(biomeRegistry.getOptional(BYGEndBiomeProvider.END_BIOMES.get(rand.random(BYGEndBiomeProvider.END_BIOMES.size()))).orElseThrow(RuntimeException::new));
     }
 }

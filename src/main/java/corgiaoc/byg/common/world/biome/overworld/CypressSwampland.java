@@ -15,6 +15,8 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
+import javax.annotation.Nullable;
+
 public class CypressSwampland extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("cypress_swampland", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.MARSHLAND, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), BYGBlocks.MUD_BLOCK.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
@@ -38,6 +40,12 @@ public class CypressSwampland extends BYGBiome {
 
     @Override
     public Biome getRiver() {
+        return this.getBiome();
+    }
+
+    @Nullable
+    @Override
+    public Biome getBeach() {
         return this.getBiome();
     }
 
