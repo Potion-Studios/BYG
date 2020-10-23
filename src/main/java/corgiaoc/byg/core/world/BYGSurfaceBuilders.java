@@ -58,6 +58,7 @@ public class BYGSurfaceBuilders {
     //End
     public static final SurfaceBuilder<SurfaceBuilderConfig> IVIS_FIELDS = WorldGenRegistrationHelper.createSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> SHATTERED_DESERT = WorldGenRegistrationHelper.createSurfaceBuilder("shattered_desert", new ShatteredDesertSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> PURPUR_PEAKS = WorldGenRegistrationHelper.createSurfaceBuilder("purpur_peaks", new PurpurPeaksSB(SurfaceBuilderConfig.field_237203_a_));
 
 
     public static void init() {
