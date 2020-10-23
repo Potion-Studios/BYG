@@ -33,6 +33,9 @@ public class CypressTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mutable.setPos(pos).move(0, 0, -5).toImmutable(), mutable.setPos(pos).move(-1, 0, -4).toImmutable(), mutable.setPos(pos).move(1, 0, -4).toImmutable(), mutable.setPos(pos).move(-4, 0, -1).toImmutable(), mutable.setPos(pos).move(0, 0, -1).toImmutable(), mutable.setPos(pos).move(4, 0, -1).toImmutable(), mutable.setPos(pos).move(-5, 0, 0).toImmutable(), mutable.setPos(pos).move(-1, 0, 0).toImmutable(), mutable.setPos(pos).move(1, 0, 0).toImmutable(), mutable.setPos(pos).move(5, 0, 0).toImmutable(), mutable.setPos(pos).move(-4, 0, 1).toImmutable(), mutable.setPos(pos).move(0, 0, 1).toImmutable(), mutable.setPos(pos).move(4, 0, 1).toImmutable(), mutable.setPos(pos).move(-1, 0, 4).toImmutable(), mutable.setPos(pos).move(1, 0, 4).toImmutable(), mutable.setPos(pos).move(0, 0, 5));
+                mutable.setPos(pos);
+
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(config, rand, changedBlocks, worldIn, mutable, boundsIn);
 

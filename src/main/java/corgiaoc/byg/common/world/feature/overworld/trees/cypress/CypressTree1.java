@@ -30,12 +30,13 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         BlockPos.Mutable mainmutable5 = new BlockPos.Mutable().setPos(pos.offset(Direction.EAST));
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             }
             if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
                 return false;
             } else {
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.toImmutable(), mainmutable2.toImmutable(), mainmutable3.toImmutable(), mainmutable4.toImmutable(), mainmutable5.toImmutable());
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(config, rand, changedBlocks, worldIn, mainmutable, boundsIn);

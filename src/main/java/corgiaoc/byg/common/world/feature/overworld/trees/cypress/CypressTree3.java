@@ -34,6 +34,9 @@ public class CypressTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mutable.setPos(pos).move(-1, 0, -4), mutable.setPos(pos).move(1, 0, -4).toImmutable(), mutable.setPos(pos).move(-4, 0, -1).toImmutable(), mutable.setPos(pos).move(4, 0, -1).toImmutable(), mutable.setPos(pos).move(-4, 0, 1).toImmutable(), mutable.setPos(pos).move(4, 0, 1).toImmutable(), mutable.setPos(pos).move(-1, 0, 4).toImmutable(), mutable.setPos(pos).move(1, 0, 4).toImmutable());
+                mutable.setPos(pos);
+
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(config, rand, changedBlocks, worldIn, mutable, boundsIn);
 

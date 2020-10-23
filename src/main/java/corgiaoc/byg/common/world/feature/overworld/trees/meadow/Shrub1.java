@@ -3,8 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.meadow;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -15,14 +13,9 @@ import java.util.Random;
 import java.util.Set;
 
 public class Shrub1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
-    //BYGBlockRenders used for the tree.
-    //private static final BlockState LOG = Blocks.DARK_OAK_LOG.getDefaultState();
-    //private static final BlockState LEAVES = Blocks.DARK_OAK_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
     public Shrub1(Codec<BYGTreeConfig> configIn) {
         super(configIn);
-        //setSapling((net.minecraftforge.common.IPlantable) BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING);
     }
 
 
@@ -42,8 +35,7 @@ public class Shrub1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-
-                //this.setGroundBlockAt(worldIn, blockpos, pos, BYGBlocks.MEADOW_DIRT.getDefaultState());
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
 
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);

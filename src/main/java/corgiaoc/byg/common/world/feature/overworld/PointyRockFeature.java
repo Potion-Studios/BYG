@@ -1,7 +1,6 @@
 package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.feature.config.PointyRockConfig;
 import corgiaoc.byg.util.noise.simplex.chunkgen.ChunkFastSimplexStyleNoise;
 import net.minecraft.util.Direction;
@@ -58,8 +57,6 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
                 for (int y = maximumHeight; y >= terrainHeight; y--) {
                     world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                     mutable.move(Direction.DOWN);
-                    BYG.LOGGER.info(mutable.toString());
-
                 }
             }
         }

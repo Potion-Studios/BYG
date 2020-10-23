@@ -33,8 +33,9 @@ public abstract class MixinShoreLayer {
 
         for (int idx : ArrayNESW) {
             if (BYGBiome.BIOME_TO_EDGE_LIST.get(centre) != null) {
-                if (WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_EDGE_LIST.get(centre)) != idx)
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_EDGE_LIST.get(centre)));
+                if (BYGBiome.BIOME_TO_EDGE_LIST.containsKey(centre))
+                    if (!isEdgeCompatible(idx))
+                        cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_EDGE_LIST.get(centre)));
             }
             else//Remove if null
                 BYGBiome.BIOME_TO_EDGE_LIST.remove(centre);
@@ -48,6 +49,10 @@ public abstract class MixinShoreLayer {
                 BYGBiome.BIOME_TO_BEACH_LIST.remove(centre);
 
         }
+    }
+
+    private static boolean isEdgeCompatible(int idx) {
+        return BYGBiome.BIOME_TO_EDGE_LIST.containsKey(idx) || isOcean(idx);
     }
 
     private static boolean isOcean(int biome) {

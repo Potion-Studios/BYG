@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -35,6 +36,11 @@ public class TropicalIslands extends BYGSubBiome {
     @Override
     public Biome getRiver() {
         return this.getBiome();
+    }
+
+    @Override
+    public Biome getBeach() {
+        return BYGBiomes.RAINBOW_BEACH;
     }
 
     static {

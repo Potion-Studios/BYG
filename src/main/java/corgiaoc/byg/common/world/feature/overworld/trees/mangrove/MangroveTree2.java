@@ -53,27 +53,8 @@ public class MangroveTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 BlockPos.Mutable rootMutable8 = new BlockPos.Mutable().setPos(mainmutable.add(1, 0, 1));
                 BlockPos.Mutable rootMutable9 = new BlockPos.Mutable().setPos(mainmutable.add(0, 0, 2));
 
-                for (int buildRoot = 0; buildRoot <= 5; buildRoot++) {
-                    placeBranch(config, rand, changedBlocks, worldIn, rootMutable, boundsIn);
-                    placeBranch(config, rand, changedBlocks, worldIn, rootMutable2, boundsIn);
-                    placeBranch(config, rand, changedBlocks, worldIn, rootMutable3, boundsIn);
-                    placeBranch(config, rand, changedBlocks, worldIn, rootMutable4, boundsIn);
-                    placeBranch(config, rand, changedBlocks, worldIn, rootMutable5, boundsIn);
-                    placeBranch(config, rand, changedBlocks, worldIn, rootMutable6, boundsIn);
-                    placeBranch(config, rand, changedBlocks, worldIn, rootMutable7, boundsIn);
-                    placeBranch(config, rand, changedBlocks, worldIn, rootMutable8, boundsIn);
-                    placeBranch(config, rand, changedBlocks, worldIn, rootMutable9, boundsIn);
 
-                    rootMutable.move(Direction.DOWN);
-                    rootMutable2.move(Direction.DOWN);
-                    rootMutable3.move(Direction.DOWN);
-                    rootMutable4.move(Direction.DOWN);
-                    rootMutable5.move(Direction.DOWN);
-                    rootMutable6.move(Direction.DOWN);
-                    rootMutable7.move(Direction.DOWN);
-                    rootMutable8.move(Direction.DOWN);
-                    rootMutable9.move(Direction.DOWN);
-                }
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, rootMutable, rootMutable2, rootMutable3, rootMutable4, rootMutable5, rootMutable6, rootMutable7, rootMutable8, rootMutable9);
 
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 1, -2), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 1, -1), boundsIn);
