@@ -85,7 +85,6 @@ public class BYG {
         BYGBiomes.fillBiomeDictionary();
         BiomeDataListHolder.fillBiomeLists();
         SubBiomeDataListHolder.fillBiomeLists();
-        BlockDataGenerator.makeBYGLangFile("D:\\Coding\\BYG - Forge 1.16.X\\src\\main\\resources\\assets\\byg\\lang\\en_us.json");
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 
