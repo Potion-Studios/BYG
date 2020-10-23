@@ -25,7 +25,7 @@ public class CrypticFireBlock extends AbstractFireBlock {
     }
 
     public static boolean shouldLightCrypticFire(Block block) {
-        return block == Blocks.END_STONE || block == BYGBlocks.CRYPTIC_MAGMA_BLOCK;
+        return block == BYGBlocks.CRYPTIC_STONE;
     }
 
     protected boolean canBurn(BlockState state) {

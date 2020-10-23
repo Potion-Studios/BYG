@@ -597,9 +597,13 @@ public class BYGBlocks {
     public static final Block THERIUM_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("therium_lamp");
 
     public static final Block CRYPTIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("cryptic_campfire");
-    public static final Block CRYPTIC_FIRE = new BYGBlockProperties.BoricFire("cryptic_fire");
+    public static final Block CRYPTIC_FIRE = new BYGBlockProperties.CrypticFire("cryptic_fire");
     public static final Block CRYPTIC_MAGMA_BLOCK = new BYGBlockProperties.BYGFrostMagma("cryptic_magma_block");
-
+    public static final Block CRYPTIC_STONE = new BYGBlockProperties.BYGStone("cryptic_stone");
+    public static final Block CRYPTIC_STONE_SLAB = createStoneSlab("cryptic_stone_slab");
+    public static final Block CRYPTIC_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("cryptic_stone_stairs");
+    public static final Block CRYPTIC_STONE_WALL = createStoneWall("cryptic_stone_wall");
+    
     public static final Block SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
     public static final Block SHULKREN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("shulkren_wart_block");
     public static final Block SHULKREN_VINE = createShulkrenVine("shulkren_vine");

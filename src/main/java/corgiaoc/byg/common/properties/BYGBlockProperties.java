@@ -3,6 +3,7 @@ package corgiaoc.byg.common.properties;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.blocks.*;
+import corgiaoc.byg.common.properties.blocks.end.CrypticFireBlock;
 import corgiaoc.byg.common.properties.blocks.end.EndPlantBlock;
 import corgiaoc.byg.common.properties.blocks.end.bulbisgardens.EnderLilyBlock;
 import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
@@ -863,7 +864,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class CrypticFire extends BoricFireBlock {
+    public static class CrypticFire extends CrypticFireBlock {
         public CrypticFire(String registryName) {
             super(AbstractBlock.Properties.create(Material.FIRE, MaterialColor.GREEN)
                     .sound(SoundType.CLOTH)

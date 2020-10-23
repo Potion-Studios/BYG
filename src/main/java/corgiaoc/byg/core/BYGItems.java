@@ -968,8 +968,12 @@ public class BYGItems {
     public static final Item SHULKREN_PHYLIUM = createItem(new BlockItem(BYGBlocks.SHULKREN_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHULKREN_PHYLIUM));
     public static final Item PURPLE_SHROOMLIGHT = createItem(new BlockItem(BYGBlocks.PURPLE_SHROOMLIGHT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_SHROOMLIGHT));
 
-    public static final Item CRYPTIC_MAGMA_BLOCK = createItem(new BlockItem(BYGBlocks.CRYPTIC_MAGMA_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_MAGMA_BLOCK));
     public static final Item CRYPTIC_CAMPFIRE = createItem(new BlockItem(BYGBlocks.CRYPTIC_CAMPFIRE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_CAMPFIRE));
+    public static final Item CRYPTIC_MAGMA_BLOCK = createItem(new BlockItem(BYGBlocks.CRYPTIC_MAGMA_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_MAGMA_BLOCK));
+    public static final Item CRYPTIC_STONE = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE));
+    public static final Item CRYPTIC_STONE_SLAB = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE_SLAB));
+    public static final Item CRYPTIC_STONE_STAIRS = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE_STAIRS));
+    public static final Item CRYPTIC_STONE_WALL = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_WALL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE_WALL));
 
 
 
