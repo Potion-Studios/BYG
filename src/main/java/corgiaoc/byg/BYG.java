@@ -21,6 +21,7 @@ import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGDecorators;
 import corgiaoc.byg.core.world.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
+import corgiaoc.byg.data.BlockDataGenerator;
 import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -84,6 +85,7 @@ public class BYG {
         BYGBiomes.fillBiomeDictionary();
         BiomeDataListHolder.fillBiomeLists();
         SubBiomeDataListHolder.fillBiomeLists();
+        BlockDataGenerator.makeBYGLangFile("D:\\Coding\\BYG - Forge 1.16.X\\src\\main\\resources\\assets\\byg\\lang\\en_us.json");
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 
