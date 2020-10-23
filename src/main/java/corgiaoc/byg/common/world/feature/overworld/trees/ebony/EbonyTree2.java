@@ -34,6 +34,9 @@ public class EbonyTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (this.isCliff(worldIn, mutable.setPos(pos).move(-1, 0, -1), mutable.setPos(pos).move(0, 0, -1), mutable.setPos(pos).move(1, 0, -1), mutable.setPos(pos).move(-2, 0, 0), mutable.setPos(pos).move(-1, 0, 0), mutable.setPos(pos).move(1, 0, 0), mutable.setPos(pos).move(-2, 0, 1), mutable.setPos(pos).move(-1, 0, 1), mutable.setPos(pos).move(0, 0, 1), mutable.setPos(pos).move(1, 0, 1), mutable.setPos(pos).move(-1, 0, 2), mutable.setPos(pos).move(0, 0, 2))) {
                 return false;
             } else {
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mutable.setPos(pos).toImmutable(), mutable.setPos(pos).move(-1, 0, -1).toImmutable(), mutable.setPos(pos).move(0, 0, -1).toImmutable(), mutable.setPos(pos).move(1, 0, -1).toImmutable(), mutable.setPos(pos).move(-2, 0, 0).toImmutable(), mutable.setPos(pos).move(-1, 0, 0).toImmutable(), mutable.setPos(pos).move(1, 0, 0).toImmutable(), mutable.setPos(pos).move(-2, 0, 1).toImmutable(), mutable.setPos(pos).move(-1, 0, 1).toImmutable(), mutable.setPos(pos).move(0, 0, 1).toImmutable(), mutable.setPos(pos).move(1, 0, 1).toImmutable(), mutable.setPos(pos).move(-1, 0, 2).toImmutable(), mutable.setPos(pos).move(0, 0, 2));
+                mutable.setPos(pos);
+
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(config, rand, changedBlocks, worldIn, mutable.move(Direction.UP), boundsIn);
                 }
@@ -671,29 +674,5 @@ public class EbonyTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         }
         return true;
     }
-
-
-    private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.EBONY_LOG.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.EBONY_LOG.getDefaultState(), boundingBox);
-        }
-    }
-
-
-    private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable().setPos(pos);
-        if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.EBONY_LEAVES.getDefaultState(), boundingBox);
-        }
-    }
-
-
 
 }

@@ -38,7 +38,7 @@ public class HollyTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 return false;
             } else {
 
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable, mainmutable2, mainmutable3, mainmutable4);
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.toImmutable(), mainmutable2.toImmutable(), mainmutable3.toImmutable(), mainmutable4.toImmutable());
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(config, rand, changedBlocks, worldIn, mainmutable, boundsIn);
                     placeTrunk(config, rand, changedBlocks, worldIn, mainmutable2, boundsIn);

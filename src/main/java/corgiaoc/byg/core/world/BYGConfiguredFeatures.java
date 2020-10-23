@@ -696,7 +696,7 @@ public class BYGConfiguredFeatures {
             SHULKREN_FUNGUS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = WorldGenRegistrationHelper.createConfiguredFeature("rs_dead_sea_spike", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            DEAD_SEA_SPIKE.withChance(0.9F)),
+            DEAD_SEA_SPIKE.withChance(0.75F)),
             DEAD_SEA_SPIKE_TALL)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(28, 0.1F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("rs_pumpkin_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(

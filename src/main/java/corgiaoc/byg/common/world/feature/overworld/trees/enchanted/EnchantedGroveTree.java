@@ -5,7 +5,6 @@ import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -32,14 +31,13 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
     public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);//This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 9;
         //Positions
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-if (!isDirtOrPeatBlock(worldIn, pos.down())) {
+            if (!isDirtOrPeatBlock(worldIn, pos.down())) {
                 return false;
             } else {
 

@@ -24,9 +24,10 @@ public class BorealForestTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posY = pos.getY();
         int posZ = pos.getZ();
         if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             } else {
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
 
 
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);

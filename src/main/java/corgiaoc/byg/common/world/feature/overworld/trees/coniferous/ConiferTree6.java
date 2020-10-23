@@ -32,6 +32,8 @@ public class ConiferTree6 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, 5, 5, isSapling)) {
                 return false;
             } else {
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
+
 
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);

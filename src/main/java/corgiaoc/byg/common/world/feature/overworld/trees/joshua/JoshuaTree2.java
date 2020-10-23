@@ -33,7 +33,7 @@ public class JoshuaTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
 
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
@@ -41,7 +41,6 @@ public class JoshuaTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
 
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
