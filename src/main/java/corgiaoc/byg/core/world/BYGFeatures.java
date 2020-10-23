@@ -1,6 +1,5 @@
 package corgiaoc.byg.core.world;
 
-import corgiaoc.byg.common.world.decorator.FloatingIsland;
 import corgiaoc.byg.common.world.feature.config.*;
 import corgiaoc.byg.common.world.feature.end.islands.*;
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands1;
@@ -50,6 +49,8 @@ import corgiaoc.byg.common.world.feature.overworld.trees.aspen.AspenTree;
 import corgiaoc.byg.common.world.feature.overworld.trees.aspen.AspenTree2;
 import corgiaoc.byg.common.world.feature.overworld.trees.aspen.AspenTree3;
 import corgiaoc.byg.common.world.feature.overworld.trees.baobab.BaobabTree1;
+import corgiaoc.byg.common.world.feature.overworld.trees.baobab.BaobabTree2;
+import corgiaoc.byg.common.world.feature.overworld.trees.baobab.BaobabTree3;
 import corgiaoc.byg.common.world.feature.overworld.trees.birch.*;
 import corgiaoc.byg.common.world.feature.overworld.trees.bluff.BluffTree;
 import corgiaoc.byg.common.world.feature.overworld.trees.bluff.BluffTree2;
@@ -306,8 +307,10 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ASPEN_TREE2 = WorldGenRegistrationHelper.createFeature("aspen_tree2", new AspenTree2(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ASPEN_TREE3 = WorldGenRegistrationHelper.createFeature("aspen_tree3", new AspenTree3(BYGTreeConfig.CODEC.stable()));
 
-    //Baobab Tree
+    //Baobab
     public static final BYGAbstractTreeFeature<BYGTreeConfig> BAOBAB_TREE1 = WorldGenRegistrationHelper.createFeature("baobab_tree1", new BaobabTree1(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> BAOBAB_TREE2 = WorldGenRegistrationHelper.createFeature("baobab_tree2", new BaobabTree2(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> BAOBAB_TREE3 = WorldGenRegistrationHelper.createFeature("baobab_tree3", new BaobabTree3(BYGTreeConfig.CODEC.stable()));
 
     //Birch
     public static final BYGAbstractTreeFeature<BYGTreeConfig> BIRCH_TREE1 = WorldGenRegistrationHelper.createFeature("birch_tree1", new BirchTree1(BYGTreeConfig.CODEC.stable()));

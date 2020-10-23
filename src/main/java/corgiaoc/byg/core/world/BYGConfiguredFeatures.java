@@ -719,6 +719,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> ASPEN_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("aspen_tree3", BYGFeatures.ASPEN_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ASPEN_LOG).setLeavesBlock(BYGBlocks.ASPEN_LEAVES).setMaxHeight(16).setMinHeight(9).build()));
 
     public static final ConfiguredFeature<BYGTreeConfig, ?> BAOBAB_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("baobab_tree1", BYGFeatures.BAOBAB_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.BAOBAB_LOG).setLeavesBlock(BYGBlocks.BAOBAB_LEAVES).setMaxHeight(28).setMinHeight(20).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> BAOBAB_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("baobab_tree2", BYGFeatures.BAOBAB_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.BAOBAB_LOG).setLeavesBlock(BYGBlocks.BAOBAB_LEAVES).setMaxHeight(28).setMinHeight(20).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> BAOBAB_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("baobab_tree3", BYGFeatures.BAOBAB_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.BAOBAB_LOG).setLeavesBlock(BYGBlocks.BAOBAB_LEAVES).setMaxHeight(28).setMinHeight(20).build()));
 
     //Birch
     public static final ConfiguredFeature<BYGTreeConfig, ?> BIRCH_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("birch_tree1", BYGFeatures.BIRCH_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.BIRCH_LOG).setLeavesBlock(BYGBlocks.BROWN_BIRCH_LEAVES).setMaxHeight(11).setMinHeight(7).build()));
@@ -1431,9 +1433,11 @@ public class BYGConfiguredFeatures {
             new AtSurfaceWithExtraConfig(8, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BAOBAB_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_baobab_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            Features.ACACIA.withChance(0.1F)),
-            BAOBAB_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
+            Features.ACACIA.withChance(0.1F),
+            BAOBAB_TREE1.withChance(0.3F),
+            BAOBAB_TREE2.withChance(0.3F)),
+            BAOBAB_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(0, 0.6F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ARAUCARIA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_araucaria_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ARAUCARIA_TREE2.withChance(0.5F)),
