@@ -432,7 +432,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addTropFungalMushrooms(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MUSHROOM);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_HUGE_MUSHROOM);
     }
 
     public static void addIvisPlants(BiomeGenerationSettings.Builder gen) {
@@ -467,6 +467,8 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addShatteredDesertPlants(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ODDITY_PLANT);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WHITE_SANDSTONE_BOULDER2);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WHITE_SANDSTONE_BOULDER);
     }
 
     public static void addVermilionSculkGrowth(BiomeGenerationSettings.Builder gen) {
@@ -481,10 +483,8 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_THERIUM_LANTERNS);
     }
 
-    public static void addExtraCanyons(BiomeGenerationSettings.Builder gen) {
-    }
-
     public static void addGiantFlowerFeatures(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_GIANT_FLOWER);
     }
 
 
@@ -828,7 +828,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addHugeMushrooms(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MUSHROOM);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_HUGE_MUSHROOM);
     }
 
     public static void addHugeGlowshrooms(BiomeGenerationSettings.Builder gen) {

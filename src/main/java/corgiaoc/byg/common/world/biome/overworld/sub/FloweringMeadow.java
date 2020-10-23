@@ -57,6 +57,7 @@ public class FloweringMeadow extends BYGSubBiome {
         BYGDefaultBiomeFeatures.addAzalea(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addTulips(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addSunFlowers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.withAllForestFlowerGeneration(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

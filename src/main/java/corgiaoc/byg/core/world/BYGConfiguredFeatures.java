@@ -209,8 +209,9 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> IVIS_SPIKES = WorldGenRegistrationHelper.createConfiguredFeature("ivis_spikes1", BYGFeatures.TALL_POINTED_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.OBSIDIAN.getDefaultState(), 24).addWeightedBlockstate(Blocks.CRYING_OBSIDIAN.getDefaultState(), 1)).setSeed(120).setHeightMultiplier(0.4).build()));
     public static final ConfiguredFeature<?, ?> IVIS_SPIKES2 = WorldGenRegistrationHelper.createConfiguredFeature("ivis_spikes2", BYGFeatures.TALL_POINTED_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.OBSIDIAN.getDefaultState(), 24).addWeightedBlockstate(Blocks.CRYING_OBSIDIAN.getDefaultState(), 1)).setSeed(15676).setHeightMultiplier(0.8).build()));
 
-    public static final ConfiguredFeature<?, ?> BLACK_SANDSTONE_SPIKE = WorldGenRegistrationHelper.createConfiguredFeature("black_sandstone_spike", BYGFeatures.TALL_POINTED_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.BLACK_SANDSTONE.getDefaultState(), 24).addWeightedBlockstate(BYGBlocks.BLACK_SMOOTH_SANDSTONE.getDefaultState(), 1)).setSeed(120).setHeightMultiplier(0.4).build()));
-    public static final ConfiguredFeature<?, ?> BLACK_SANDSTONE_SPIKE2 = WorldGenRegistrationHelper.createConfiguredFeature("black_sandstone_spike2", BYGFeatures.TALL_POINTED_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.BLACK_SANDSTONE.getDefaultState(), 24).addWeightedBlockstate(BYGBlocks.BLACK_SMOOTH_SANDSTONE.getDefaultState(), 1)).setSeed(15676).setHeightMultiplier(0.8).build()));
+    public static final ConfiguredFeature<?, ?> BLACK_SANDSTONE_SPIKE = WorldGenRegistrationHelper.createConfiguredFeature("black_sandstone_spike", BYGFeatures.TALL_POINTED_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.BLACK_SANDSTONE.getDefaultState(), 24).addWeightedBlockstate(BYGBlocks.BLACK_SMOOTH_SANDSTONE.getDefaultState(), 1)).setSeed(120).setHeightMultiplier(0.3).build()));
+    public static final ConfiguredFeature<?, ?> BLACK_SANDSTONE_SPIKE2 = WorldGenRegistrationHelper.createConfiguredFeature("black_sandstone_spike2", BYGFeatures.TALL_POINTED_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.BLACK_SANDSTONE.getDefaultState(), 24).addWeightedBlockstate(BYGBlocks.BLACK_SMOOTH_SANDSTONE.getDefaultState(), 1)).setSeed(15676).setHeightMultiplier(0.4).build()));
+    public static final ConfiguredFeature<?, ?> WHITE_SANDSTONE_BOULDER2 = WorldGenRegistrationHelper.createConfiguredFeature("white_sandstone_boulder2", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SANDSTONE.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(4).setMaxRadius(8).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
 
 
     public static final ConfiguredFeature<?, ?> VALLE_DE_LUNA_POINTY_ROCK = WorldGenRegistrationHelper.createConfiguredFeature("valle_de_luna_pointy_rock", BYGFeatures.POINTY_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SAND.getDefaultState(), 5).addWeightedBlockstate(BYGBlocks.WHITE_CUT_SANDSTONE.getDefaultState(), 5)).setSeed(88).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(28, 0.1F, 1))));
@@ -1433,9 +1434,9 @@ public class BYGConfiguredFeatures {
             new AtSurfaceWithExtraConfig(8, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BAOBAB_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_baobab_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            Features.ACACIA.withChance(0.1F),
-            BAOBAB_TREE1.withChance(0.3F),
-            BAOBAB_TREE2.withChance(0.3F)),
+            Features.ACACIA.withChance(0.15F),
+            BAOBAB_TREE1.withChance(0.35F),
+            BAOBAB_TREE2.withChance(0.35F)),
             BAOBAB_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(0, 0.6F, 1))));
 
@@ -1475,6 +1476,13 @@ public class BYGConfiguredFeatures {
             ENCHANTED_BLUE_GROVE_TREE1.withChance(0.5F)),
             ENCHANTED_GREEN_GROVE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(2, 0.4F, 1))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_GIANT_FLOWER = WorldGenRegistrationHelper.createConfiguredFeature("rs_giant_flower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            GIANT_ANGELICA_FLOWER.withChance(0.2F),
+            GIANT_DANDELION_FLOWER.withChance(0.2F),
+            GIANT_IRIS_FLOWER.withChance(0.5F)),
+            GIANT_ROSE_FLOWER)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MARSH_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_marsh_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB_PRAIRIE2.withChance(0.2F),
@@ -1695,8 +1703,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_HUGE_GLOWSHROOM = WorldGenRegistrationHelper.createConfiguredFeature("rs_huge_glowshroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLUE_GLOWSHROOM_HUGE.withChance(0.1F)),
-            PURPLE_GLOWSHROOM_HUGE)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(25, 0.4F, 2))));
+            PURPLE_GLOWSHROOM_HUGE)).withPlacement(Placement.DARK_OAK_TREE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SOUL_SHROOM_TREES = WorldGenRegistrationHelper.createConfiguredFeature("rs_soul_shroom_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SOUL_SHROOM_TREE3.withChance(0.35F),
@@ -1723,8 +1730,7 @@ public class BYGConfiguredFeatures {
             GREEN_MUSHROOM_HUGE.withChance(0.4F),
             WOOD_BLEWIT_HUGE.withChance(0.4F),
             WEEPING_MILKCAP_HUGE.withChance(0.4F)),
-            BLACK_PUFF_HUGE)).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(10, 0.3F, 2))));
+            BLACK_PUFF_HUGE)).withPlacement(Placement.DARK_OAK_TREE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_MUSHROOM = WorldGenRegistrationHelper.createConfiguredFeature("rs_embur_mushroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_MUSHROOM.withChance(0.5F)),
