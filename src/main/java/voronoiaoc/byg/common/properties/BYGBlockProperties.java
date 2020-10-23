@@ -510,10 +510,10 @@ public class BYGBlockProperties {
                     .strength(0.2F)
                     .randomTicks()
                     .sound(SoundType.GRASS)
-                    .noOcclusion()
+                    .isSuffocating((state, world, pos) -> false)
                     .lightLevel((blockStatex) -> 12)
             );
-            this.registerDefaultState(this.stateDefinition.any().setValue(DISTANCE, Integer.valueOf(7)).setValue(PERSISTENT, Boolean.valueOf(false)));
+            this.registerDefaultState(this.stateDefinition.any().setValue(DISTANCE, 7).setValue(PERSISTENT, Boolean.valueOf(false)));
             Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MODID, registryName), this);
         }
     }
