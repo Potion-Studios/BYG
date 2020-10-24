@@ -372,6 +372,10 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_BORIC_FIRE_PATCH);
     }
 
+    public static void addCrypticFire(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_CRYPTIC_FIRE_PATCH);
+    }
+
     public static void addMagmaFire(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_MAGMA_FIRE_PATCH);
     }

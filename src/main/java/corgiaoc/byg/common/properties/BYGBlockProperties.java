@@ -294,6 +294,21 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BYGMagma extends MagmaBlock {
+        public BYGMagma(String registryName) {
+            super(Block.Properties.create(Material.ROCK)
+                    .sound(SoundType.STONE)
+                    .hardnessAndResistance(0.2f)
+                    .tickRandomly()
+                    .notSolid()
+                    .setLightLevel((state) -> 10)
+                    .harvestTool(ToolType.PICKAXE)
+
+            );
+            Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
+        }
+    }
+
     public static class BYGSubzeroAsh extends SubzeroAshBlock {
         public BYGSubzeroAsh(String registryName) {
             super(Block.Properties.create(Material.SNOW)

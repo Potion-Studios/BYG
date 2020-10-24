@@ -15,7 +15,7 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class CrypticWastes extends BYGEndBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("cryptic_wastes", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.ETHEREAL, BYGSurfaceBuilders.Configs.ETHER));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("cryptic_wastes", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CRYPTIC, BYGSurfaceBuilders.Configs.CRYPTIC));
     static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.THEEND;
     static final float DEPTH = 0.125F;
@@ -43,11 +43,9 @@ public class CrypticWastes extends BYGEndBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_LIGNITE);
-        BYGDefaultBiomeFeatures.addEtherPlants(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addEtherTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addScorchedPlants(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCrypticFire(GENERATION_SETTINGS);
 
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 5, 1, 2));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
     }
 }

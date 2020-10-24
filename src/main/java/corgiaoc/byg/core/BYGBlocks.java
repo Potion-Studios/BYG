@@ -598,7 +598,7 @@ public class BYGBlocks {
 
     public static final Block CRYPTIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("cryptic_campfire");
     public static final Block CRYPTIC_FIRE = new BYGBlockProperties.CrypticFire("cryptic_fire");
-    public static final Block CRYPTIC_MAGMA_BLOCK = new BYGBlockProperties.BYGFrostMagma("cryptic_magma_block");
+    public static final Block CRYPTIC_MAGMA_BLOCK = new BYGBlockProperties.BYGMagma("cryptic_magma_block");
     public static final Block CRYPTIC_STONE = new BYGBlockProperties.BYGStone("cryptic_stone");
     public static final Block CRYPTIC_STONE_SLAB = createStoneSlab("cryptic_stone_slab");
     public static final Block CRYPTIC_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("cryptic_stone_stairs");
