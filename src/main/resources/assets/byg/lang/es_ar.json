@@ -46,7 +46,7 @@
   "biome.byg.deciduous_forest": "Bosque caducifolio",
   "biome.byg.deciduous_forest_hills": "Colinas de bosque caducifolio",
   "biome.byg.dover_mountains": "Montañas de Dover",
-  "biome.byg.dummy": "Bioma falso"
+  "biome.byg.dummy": "Bioma falso",
   "biome.byg.dunes": "Dunas",
   "biome.byg.ebony_hills": "Colinas de ébanos",
   "biome.byg.ebony_woods": "Bosque de ébanos",
@@ -420,7 +420,7 @@
   "block.byg.ether_stone": "Piedra etérea",
   "block.byg.ether_stone_slab": "Baldosa de piedra etérea",
   "block.byg.ether_stone_stairs": "Escaleras de piedra etérea",
-  "block.byg.ether_stone_wall": "Pared de piedra etérea"
+  "block.byg.ether_stone_wall": "Pared de piedra etérea",
   "block.byg.ether_trapdoor": "Escotilla etérea",
   "block.byg.ether_wood": "Leño etéreo",
   "block.byg.fairy_slipper": "Zapatilla de hada",
