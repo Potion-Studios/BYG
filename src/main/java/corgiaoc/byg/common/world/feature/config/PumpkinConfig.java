@@ -16,16 +16,20 @@ public class PumpkinConfig implements IFeatureConfig {
             return config.pumpkinProvider;
         }), BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> {
             return config.stemProvider;
+        }), BlockStateProvider.CODEC.fieldOf("leaves_provider").forGetter((config) -> {
+            return config.pumpkinProvider;
         })).apply(codecRecorder, PumpkinConfig::new);
     });
 
 
     private final BlockStateProvider pumpkinProvider;
     private final BlockStateProvider stemProvider;
+    private final BlockStateProvider leavesProvider;
 
-    PumpkinConfig(BlockStateProvider pumpkinProvider, BlockStateProvider stemProvider) {
+    PumpkinConfig(BlockStateProvider pumpkinProvider, BlockStateProvider stemProvider, BlockStateProvider leavesProvider) {
         this.pumpkinProvider = pumpkinProvider;
         this.stemProvider = stemProvider;
+        this.leavesProvider = leavesProvider;
     }
 
     public BlockStateProvider getPumpkinProvider() {
@@ -36,10 +40,14 @@ public class PumpkinConfig implements IFeatureConfig {
         return this.stemProvider;
     }
 
+    public BlockStateProvider getLeavesProvider() {
+        return leavesProvider;
+    }
 
     public static class Builder {
         private BlockStateProvider pumpkinProvider = new SimpleBlockStateProvider(Blocks.PUMPKIN.getDefaultState());
         private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+        private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
 
         public Builder setPumpkinBlock(Block block) {
             this.pumpkinProvider = new SimpleBlockStateProvider(block.getDefaultState());
@@ -61,8 +69,18 @@ public class PumpkinConfig implements IFeatureConfig {
             return this;
         }
 
+        public Builder setLeavesBlock(Block block) {
+            this.leavesProvider = new SimpleBlockStateProvider(block.getDefaultState());
+            return this;
+        }
+
+        public Builder setLeavesBlock(BlockState state) {
+            this.leavesProvider = new SimpleBlockStateProvider(state);
+            return this;
+        }
+
         public PumpkinConfig build() {
-            return new PumpkinConfig(this.pumpkinProvider, this.stemProvider);
+            return new PumpkinConfig(this.pumpkinProvider, this.stemProvider, this.leavesProvider);
         }
     }
 }

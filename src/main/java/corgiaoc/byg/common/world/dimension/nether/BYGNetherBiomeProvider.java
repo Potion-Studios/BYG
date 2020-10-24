@@ -26,7 +26,7 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
     public static List<ResourceLocation> NETHER_BIOMES = new ArrayList<>();
 
     public BYGNetherBiomeProvider(Registry<Biome> registry, long seed) {
-        super(registry.getEntries().stream().filter(registryKeyBiomeEntry -> createNetherBiomeList(registry).contains(registryKeyBiomeEntry.getKey().getLocation())).map(Map.Entry::getValue).collect(Collectors.toList()));
+        super(createNetherBiomeList(registry).stream().map(registry::getOrDefault).collect(Collectors.toList()));
         this.seed = seed;
         biomeRegistry = registry;
         NETHER_BIOMES = createNetherBiomeList(registry);
