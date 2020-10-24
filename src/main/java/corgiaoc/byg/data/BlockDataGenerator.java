@@ -599,7 +599,7 @@ public class BlockDataGenerator {
                 } else
                     recipe = recipe.replace(replaceInKey, modID + ":" + id);
 
-                recipe = recipe.replace(replaceInResult, id);
+                recipe = recipe.replace(replaceInResult, modID + ":" + id);
 
 
                 if (id.contains(filter)) {

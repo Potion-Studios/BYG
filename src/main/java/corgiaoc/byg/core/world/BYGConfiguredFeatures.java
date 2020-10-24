@@ -41,9 +41,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> AMARANTH_PURPLE = WorldGenRegistrationHelper.createConfiguredFeature("purple_amaranth", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.PURPLEAMARANTH_CONFIG));
     public static final ConfiguredFeature<?, ?> AMARANTH_CYAN = WorldGenRegistrationHelper.createConfiguredFeature("cyan_amaranth", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.CYANAMARANTH_CONFIG));
 
-    public static final ConfiguredFeature<?, ?> FERN_GRASS = WorldGenRegistrationHelper.createConfiguredFeature("fern_grass", Feature.RANDOM_PATCH.withConfiguration(Features.Configs.TAIGA_GRASS_CONFIG));
     public static final ConfiguredFeature<?, ?> SHORT_GRASS = WorldGenRegistrationHelper.createConfiguredFeature("short_grass", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.SHORT_GRASS_CONFIG));
-    public static final ConfiguredFeature<?, ?> TALL_GRASS = WorldGenRegistrationHelper.createConfiguredFeature("tall_grass", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.TALL_GRASS_CONFIG));
     public static final ConfiguredFeature<?, ?> SOUL_FIRE_ON_NYLIUM = WorldGenRegistrationHelper.createConfiguredFeature("soul_fire_on_nylium", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.SOULFIREONNYLIUM));
     public static final ConfiguredFeature<?, ?> BORIC_FIRE = WorldGenRegistrationHelper.createConfiguredFeature("boric_fire", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.BORIC_FIRE));
     public static final ConfiguredFeature<?, ?> MAGMA_FIRE = WorldGenRegistrationHelper.createConfiguredFeature("magma_fire", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.MAGMA_FIRE));
@@ -1001,15 +999,6 @@ public class BYGConfiguredFeatures {
 
 
     //Vanilla Tree Features
-    public static final ConfiguredFeature<?, ?> MC_BIRCH_RED_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_red_birch", Feature.TREE.withConfiguration(FeatureConfigs.REDBIRCHTREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BIRCH_TALL_RED_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_tall_red_birch", Feature.TREE.withConfiguration(FeatureConfigs.TALLREDBIRCHTREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BIRCH_BROWN_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_brown_birch", Feature.TREE.withConfiguration(FeatureConfigs.BROWNBIRCHTREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BIRCH_TALL_BROWN_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_tall_brown_birch", Feature.TREE.withConfiguration(FeatureConfigs.TALLBROWNBIRCHTREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BIRCH_ORANGE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_orange_birch", Feature.TREE.withConfiguration(FeatureConfigs.ORANGEBIRCHTREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BIRCH_TALL_ORANGE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_tall_orange_birch", Feature.TREE.withConfiguration(FeatureConfigs.TALLORANGEBIRCHTREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BIRCH_YELLOW_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_yellow_birch", Feature.TREE.withConfiguration(FeatureConfigs.YELLOWBIRCHTREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_BIRCH_TALL_YELLOW_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_tall_yellow_birch", Feature.TREE.withConfiguration(FeatureConfigs.TALLYELLOWBIRCHTREE_CONFIG));
-
     public static final ConfiguredFeature<?, ?> MC_BROWN_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_brown_oak_tree", Feature.TREE.withConfiguration(FeatureConfigs.BROWNOAKTREE_CONFIG));
     public static final ConfiguredFeature<?, ?> MC_ORANGE_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_orange_oak_tree", Feature.TREE.withConfiguration(FeatureConfigs.ORANGEOAKTREE_CONFIG));
     public static final ConfiguredFeature<?, ?> MC_RED_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_red_oak_tree", Feature.TREE.withConfiguration(FeatureConfigs.REDOAKTREE_CONFIG));
@@ -1133,7 +1122,7 @@ public class BYGConfiguredFeatures {
             BIRCH_YELLOW_BOREAL_TREE1.withChance(0.3F),
             BIRCH_BOREAL_TREE1.withChance(0.3F)),
             BOREAL_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(20, 0.5F, -4))));
+            new AtSurfaceWithExtraConfig(18, 0.5F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_boreal", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BIRCH_YELLOW_BOREAL_TREE1.withChance(0.3F),
@@ -1174,7 +1163,7 @@ public class BYGConfiguredFeatures {
             CONIFER_TREE6.withChance(0.2F),
             CONIFER_TREE7.withChance(0.1F)),
             CONIFER_TREE8)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(20, 0.4F, 5))));
+            new AtSurfaceWithExtraConfig(18, 0.4F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_conifer_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CONIFER_TREE1.withChance(0.06F),
@@ -1505,7 +1494,7 @@ public class BYGConfiguredFeatures {
             ENCHANTED_GREEN_TREE2.withChance(0.2F),
             ENCHANTED_GREEN_TREE3.withChance(0.1F)),
             ENCHANTED_BLUE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(20, 0.4F, -2))));
+            new AtSurfaceWithExtraConfig(18, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM_BAYOU_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_glowshroom_bayou_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             WILLOW_DEAD_TREE1.withChance(0.2F),
@@ -1521,7 +1510,7 @@ public class BYGConfiguredFeatures {
             ASPEN_TREE2.withChance(0.50F),
             ASPEN_TREE3.withChance(0.25F)),
             ASPEN_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(20, 0.5F, -1))));
+            new AtSurfaceWithExtraConfig(18, 0.5F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_SHRUB = WorldGenRegistrationHelper.createConfiguredFeature("rs_aspen_shrub", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ASPEN_SHRUB1.withChance(0.1F)),
@@ -1538,7 +1527,7 @@ public class BYGConfiguredFeatures {
             ZELKOVA_TREE2.withChance(0.2F),
             ZELKOVA_TREE3.withChance(0.1F)),
             ZELKOVA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(20, 0.4F, -2))));
+            new AtSurfaceWithExtraConfig(18, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_ZELKOVA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_zelkova_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ZELKOVA_TREE2.withChance(0.2F),
@@ -1645,13 +1634,6 @@ public class BYGConfiguredFeatures {
             MANGROVE_TREE5)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.5F, 2))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_PINE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_pine_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            PINE_TREE2.withChance(0.2F),
-            PINE_TREE1.withChance(0.2F),
-            PINE_LARGE_TREE1.withChance(0.1F)),
-            PINE_LARGE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(20, 0.4F, 4))));
-
     public static final ConfiguredFeature<?, ?> RANDOM_ORCHARD_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_orchard_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ORCHARD_TREE1.withChance(0.3F),
             ORCHARD_TREE2.withChance(0.3F)),
@@ -1682,17 +1664,14 @@ public class BYGConfiguredFeatures {
             BIRCH_BROWN_TREE1.withChance(0.06F),
             BIRCH_BROWN_TREE2.withChance(0.06F),
             BIRCH_BROWN_TREE3.withChance(0.06F),
-//            BIRCH_BROWN_TREE4.withChance(0.06F),
             BIRCH_ORANGE_TREE1.withChance(0.06F),
             BIRCH_ORANGE_TREE2.withChance(0.06F),
             BIRCH_ORANGE_TREE3.withChance(0.06F),
-//            BIRCH_ORANGE_TREE4.withChance(0.06F),
             BIRCH_RED_TREE1.withChance(0.06F),
             BIRCH_RED_TREE2.withChance(0.06F),
             BIRCH_RED_TREE3.withChance(0.06F),
             BIRCH_RED_TREE4.withChance(0.06F),
             BIRCH_YELLOW_TREE1.withChance(0.06F),
-//            BIRCH_YELLOW_TREE2.withChance(0.06F),
             BIRCH_YELLOW_TREE2.withChance(0.1F)),
             BIRCH_YELLOW_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(15, 0.4F, -2))));
@@ -1705,7 +1684,7 @@ public class BYGConfiguredFeatures {
             MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES.withChance(0.06F),
             Features.FANCY_OAK.withChance(0.06F),
             Features.OAK.withChance(0.06F),
-            MC_BIRCH_YELLOW_TREE.withChance(0.1F)),
+            BIRCH_YELLOW_TREE1.withChance(0.1F)),
             MC_ORANGE_OAK_TREE)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(15, 0.4F, -2))));
 
@@ -1915,16 +1894,6 @@ public class BYGConfiguredFeatures {
 
         public static final BlockClusterFeatureConfig WARPED_CACTUS_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WARPED_CACTUS.getDefaultState()), new ColumnBlockPlacer(1, 3))).tries(10).func_227317_b_().build();
         public static final BlockClusterFeatureConfig ODDITY_CACTUS_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ODDITY_CACTUS.getDefaultState()), new ColumnBlockPlacer(1, 4))).tries(10).func_227317_b_().build();
-
-        //SeasonalBirch
-        public static final BaseTreeFeatureConfig REDBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig TALLREDBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.RED_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 6), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig BROWNBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.BROWN_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig TALLBROWNBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.BROWN_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 6), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig ORANGEBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.ORANGE_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig TALLORANGEBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.ORANGE_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 6), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig YELLOWBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.YELLOW_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
-        public static final BaseTreeFeatureConfig TALLYELLOWBIRCHTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.YELLOW_BIRCH_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(5, 2, 6), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();
 
         //Seasonal Oak
         public static final BaseTreeFeatureConfig BROWNOAKTREE_CONFIG = (new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()), new SimpleBlockStateProvider(BYGBlocks.BROWN_OAK_LEAVES.getDefaultState()), new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3), new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build();

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "byg:bulbis_stems"
+    }
+  ],
+  "result": {
+    "item": "byg:bulbis_planks",
+    "count": 4
+  }
+}

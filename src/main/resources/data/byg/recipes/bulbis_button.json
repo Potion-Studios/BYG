@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "byg:bulbis_planks"
+    }
+  ],
+  "result": {
+    "item": "byg:bulbis_button"
+  }
+}
