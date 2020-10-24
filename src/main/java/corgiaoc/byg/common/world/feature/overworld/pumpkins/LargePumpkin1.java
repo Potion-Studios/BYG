@@ -20,28 +20,31 @@ public class LargePumpkin1 extends Feature<PumpkinConfig> {
     @Override
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random random, BlockPos pos, PumpkinConfig config) {
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
-        BlockState pumpkinState = config.getPumpkinProvider().getBlockState(random, pos);
         BlockState logState = config.getStemProvider().getBlockState(random, pos);
 
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
 
+
+        if (world.getBlockState(pos.down()) != config.getPumpkinProvider().getBlockState(random, pos))
+            return false;
+
         if (posY - 1 < world.getHeight()) {
-            setPumpkinState(mutable.setPos(posX, posY + 1, posZ), pumpkinState, world);
-            setPumpkinState(mutable.setPos(posX, posY + 1, posZ), pumpkinState, world);
-            setPumpkinState(mutable.setPos(posX - 1, posY, posZ), pumpkinState, world);
-            setPumpkinState(mutable.setPos(posX + 1, posY, posZ), pumpkinState, world);
-            setPumpkinState(mutable.setPos(posX + 1, posY, posZ + 1), pumpkinState, world);
-            setPumpkinState(mutable.setPos(posX, posY, posZ + 1), pumpkinState, world);
-            setPumpkinState(mutable.setPos(posX, posY, posZ - 1), pumpkinState, world);
+            setPumpkinState(mutable.setPos(posX, posY + 1, posZ), random, config, world);
+            setPumpkinState(mutable.setPos(posX, posY + 1, posZ), random, config, world);
+            setPumpkinState(mutable.setPos(posX - 1, posY, posZ), random, config, world);
+            setPumpkinState(mutable.setPos(posX + 1, posY, posZ), random, config, world);
+            setPumpkinState(mutable.setPos(posX + 1, posY, posZ + 1), random, config, world);
+            setPumpkinState(mutable.setPos(posX, posY, posZ + 1), random, config, world);
+            setPumpkinState(mutable.setPos(posX, posY, posZ - 1), random, config, world);
         }
         return true;
     }
 
-    private void setPumpkinState(BlockPos pos, BlockState pumpkinState, ISeedReader world) {
+    private void setPumpkinState(BlockPos pos, Random rand, PumpkinConfig config, ISeedReader world) {
         if (world.isAirBlock(pos) || FeatureUtil.isPlant(world, pos)) {
-            world.setBlockState(pos, pumpkinState, 2);
+            world.setBlockState(pos, config.getPumpkinProvider().getBlockState(rand, pos), 2);
         }
     }
 }

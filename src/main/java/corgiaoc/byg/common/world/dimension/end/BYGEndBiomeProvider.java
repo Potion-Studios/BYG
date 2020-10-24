@@ -18,6 +18,7 @@ import net.minecraftforge.fml.ModList;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BYGEndBiomeProvider extends BiomeProvider {
     public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.getLookUpCodec(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeProvider::new)));
@@ -34,8 +35,9 @@ public class BYGEndBiomeProvider extends BiomeProvider {
     private static final List<String> END_VOID_BIOME_IDS = Arrays.asList(BYGWorldConfig.VOID_BIOMES.get().trim().replace(" ", "").split(","));
 
     public BYGEndBiomeProvider(Registry<Biome> registry, long seed) {
-        super(registry.getEntries().stream().filter(registryKeyBiomeEntry -> createEndBiomeList(registry).contains(registryKeyBiomeEntry.getKey().getLocation()) || createVoidEndBiomeList(registry).contains(registryKeyBiomeEntry.getKey().getLocation())).map(Map.Entry::getValue).collect(Collectors.toList()));
+        super(Stream.concat(createEndBiomeList(registry).stream(), createVoidEndBiomeList(registry).stream()).map(registry::getOrDefault).collect(Collectors.toList()));
         this.seed = seed;
+        
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         sharedseedrandom.skip(17292);
         biomeRegistry = registry;

@@ -1,9 +1,11 @@
 package corgiaoc.byg.common.world.biome;
 
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -14,7 +16,6 @@ import net.minecraftforge.common.BiomeManager;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @SuppressWarnings("deprecation")
 public class BYGBiome {
@@ -81,6 +82,6 @@ public class BYGBiome {
 
 
     public RegistryKey<Biome> getKey() {
-        return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
+        return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(BYG.MOD_ID, "biome_name"));
     }
 }
