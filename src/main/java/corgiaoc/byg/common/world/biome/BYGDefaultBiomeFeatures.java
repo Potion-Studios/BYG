@@ -836,7 +836,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addHugeGlowshrooms(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_GLOWSHROOM);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_HUGE_GLOWSHROOM);
     }
 
     public static void addWoodlandTrees(BiomeGenerationSettings.Builder gen) {

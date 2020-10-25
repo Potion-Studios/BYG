@@ -49,7 +49,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> SUBZERO_ASH_BLOCK = WorldGenRegistrationHelper.createConfiguredFeature("subzero_ash_block", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.SUBZERO_ASH_BLOCK));
     public static final ConfiguredFeature<?, ?> QUARTZ_CRYSTAL = WorldGenRegistrationHelper.createConfiguredFeature("quartz_crystal", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.QUARTZ_CRYSTAL.getDefaultState(), ImmutableList.of(BYGBlocks.QUARTZITE_SAND.getDefaultState(), BYGBlocks.RAW_QUARTZ_BLOCK.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.QUARTZITE_SAND.getDefaultState(), BYGBlocks.RAW_QUARTZ_BLOCK.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE = WorldGenRegistrationHelper.createConfiguredFeature("cryptic_fire", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.CRYPTIC_FIRE));
-    public static final ConfiguredFeature<?, ?> PUMPKIN = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(Blocks.PUMPKIN.getDefaultState(), ImmutableList.of(BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()))));
+    public static final ConfiguredFeature<?, ?> PUMPKIN = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(Blocks.PUMPKIN.getDefaultState(), ImmutableList.of(BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState(), Blocks.PODZOL.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState(), Blocks.PODZOL.getDefaultState()))));
 
     public static final ConfiguredFeature<?, ?> BEEHIVES = WorldGenRegistrationHelper.createConfiguredFeature("beehives", BYGFeatures.BEEHIVE.withConfiguration(new NoFeatureConfig()).func_242733_d(256).func_242728_a().func_242731_b(80));
 
@@ -618,11 +618,11 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_REEDS = WorldGenRegistrationHelper.createConfiguredFeature("rs_reeds", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             REEDS.withChance(0.5F)),
-            REEDS)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(8));
+            REEDS)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CATTAILS = WorldGenRegistrationHelper.createConfiguredFeature("rs_cattails", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CATTAIL.withChance(0.5F)),
-            CATTAIL)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(8));
+            CATTAIL)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_LOLIPOP = WorldGenRegistrationHelper.createConfiguredFeature("rs_lolipop", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             LOLI_POP.withChance(0.5F)),
@@ -1591,7 +1591,7 @@ public class BYGConfiguredFeatures {
             DEAD_HAZEL_TREE2.withChance(0.2F),
             DEAD_HAZEL_TREE3.withChance(0.1F)),
             DEAD_HAZEL_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(14, 0.3F, 4))));
+            new AtSurfaceWithExtraConfig(8, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_WITCH_HAZEL_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_witch_hazel_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_HAZEL_TREE1.withChance(0.2F),
@@ -1693,7 +1693,8 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_HUGE_GLOWSHROOM = WorldGenRegistrationHelper.createConfiguredFeature("rs_huge_glowshroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLUE_GLOWSHROOM_HUGE.withChance(0.1F)),
-            PURPLE_GLOWSHROOM_HUGE)).withPlacement(Placement.DARK_OAK_TREE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+            PURPLE_GLOWSHROOM_HUGE)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(4, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SOUL_SHROOM_TREES = WorldGenRegistrationHelper.createConfiguredFeature("rs_soul_shroom_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SOUL_SHROOM_TREE3.withChance(0.35F),
@@ -1720,7 +1721,8 @@ public class BYGConfiguredFeatures {
             GREEN_MUSHROOM_HUGE.withChance(0.4F),
             WOOD_BLEWIT_HUGE.withChance(0.4F),
             WEEPING_MILKCAP_HUGE.withChance(0.4F)),
-            BLACK_PUFF_HUGE)).withPlacement(Placement.DARK_OAK_TREE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+            BLACK_PUFF_HUGE)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(4, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_MUSHROOM = WorldGenRegistrationHelper.createConfiguredFeature("rs_embur_mushroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_MUSHROOM.withChance(0.5F)),

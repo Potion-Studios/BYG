@@ -79,29 +79,6 @@ public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggab
     }
 
     @Override
-    public void onBlockHarvested(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        DoubleBlockHalf doubleblockhalf = state.get(HALF);
-        BlockPos blockpos = doubleblockhalf != DoubleBlockHalf.LOWER ? pos.up() : pos.down();
-        BlockState blockstate = world.getBlockState(blockpos);
-        if (blockstate.getBlock() == this && blockstate.get(HALF) != doubleblockhalf) {
-            if (blockstate.get(HALF) == DoubleBlockHalf.LOWER) {
-                if (blockstate.get(WATERLOGGED)) {
-                    world.setBlockState(blockpos, Blocks.WATER.getDefaultState());
-                } else {
-                    world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 35);
-                }
-            }
-
-            world.playEvent(player, 2001, blockpos, Block.getStateId(blockstate));
-            if (!world.isRemote && !player.isCreative()) {
-                spawnDrops(state, world, pos, null, player, player.getHeldItemMainhand());
-                spawnDrops(blockstate, world, blockpos, null, player, player.getHeldItemMainhand());
-            }
-        }
-        world.playEvent(player, 2001, pos, Block.getStateId(state));
-    }
-
-    @Override
     public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld world,
                                           BlockPos currentPos, BlockPos facingPos) {
         if (state.get(WATERLOGGED)) {

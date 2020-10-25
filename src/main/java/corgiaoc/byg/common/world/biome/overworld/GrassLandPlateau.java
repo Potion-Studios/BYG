@@ -38,6 +38,12 @@ public class GrassLandPlateau extends BYGBiome {
 
     @Nullable
     @Override
+    public Biome getBeach() {
+        return BYGBiomes.ROCKY_BEACH;
+    }
+
+    @Nullable
+    @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
         biomeWeightedList.func_226313_a_(BYGBiomes.WOODED_GRASSLAND_PLATEAU, 10);

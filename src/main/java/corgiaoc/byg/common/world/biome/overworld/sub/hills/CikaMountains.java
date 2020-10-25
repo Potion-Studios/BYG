@@ -38,7 +38,7 @@ public class CikaMountains extends BYGSubBiome {
 
     @Override
     public Biome getBeach() {
-        return BYGBiomes.BASALT_BARRERA;
+        return BYGBiomes.ROCKY_BEACH;
     }
 
     @Override

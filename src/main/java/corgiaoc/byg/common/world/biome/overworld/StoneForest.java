@@ -45,6 +45,13 @@ public class StoneForest extends BYGBiome {
 
     @Nullable
     @Override
+    public Biome getBeach() {
+        return BYGBiomes.ROCKY_BEACH;
+    }
+
+
+    @Nullable
+    @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
         biomeWeightedList.func_226313_a_(BYGBiomes.POINTY_STONE_FOREST, 7);

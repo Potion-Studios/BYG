@@ -39,6 +39,12 @@ public class BluffSteeps extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return BYGBiomes.ROCKY_BEACH;
+    }
+
     @Override
     public Biome getRiver() {
         return this.getBiome();

@@ -70,7 +70,7 @@ public class RedwoodTropics extends BYGBiome {
     @Nullable
     @Override
     public Biome getBeach() {
-        return BYGBiomes.BASALT_BARRERA;
+        return BYGBiomes.ROCKY_BEACH;
     }
 
     @Override
