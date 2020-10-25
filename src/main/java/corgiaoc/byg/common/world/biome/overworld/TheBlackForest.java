@@ -82,6 +82,7 @@ public class TheBlackForest extends BYGBiome {
     }
 
     static {
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244138_d); //Mansion
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244154_t); //Taiga Village
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard

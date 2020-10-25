@@ -70,6 +70,7 @@ public class EbonyWoods extends BYGBiome {
     }
 
     static {
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244138_d); //Mansion
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
