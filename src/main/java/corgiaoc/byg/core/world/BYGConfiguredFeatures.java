@@ -51,8 +51,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE = WorldGenRegistrationHelper.createConfiguredFeature("cryptic_fire", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.CRYPTIC_FIRE));
     public static final ConfiguredFeature<?, ?> PUMPKIN = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(Blocks.PUMPKIN.getDefaultState(), ImmutableList.of(BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()))));
 
-    public static final ConfiguredFeature<?, ?> BEEHIVES = WorldGenRegistrationHelper.createConfiguredFeature("beehives", BYGFeatures.BEEHIVE.withConfiguration(new NoFeatureConfig()).func_242733_d(128).func_242728_a().func_242731_b(80));
-
+    public static final ConfiguredFeature<?, ?> BEEHIVES = WorldGenRegistrationHelper.createConfiguredFeature("beehives", BYGFeatures.BEEHIVE.withConfiguration(new NoFeatureConfig()).func_242733_d(256).func_242728_a().func_242731_b(80));
 
     //Giant Flowers
     public static final ConfiguredFeature<GiantFlowerConfig, ?> GIANT_ANGELICA_FLOWER = WorldGenRegistrationHelper.createConfiguredFeature("giant_angelica", BYGFeatures.GIANT_ANGELICA_FLOWER.withConfiguration(new GiantFlowerConfig.Builder().setStemBlock(BYGBlocks.PLANT_STEM).setPetalBlock(BYGBlocks.WHITE_PETAL).setMaxHeight(18).setMinHeight(12).build()));
