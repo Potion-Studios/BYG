@@ -12,6 +12,7 @@ import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.common.BiomeDictionary;
@@ -67,6 +68,11 @@ public class MojaveDesert extends BYGBiome {
     }
 
     static {
+        DefaultBiomeFeatures.withFossils(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244140_f); //Desert Temple
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244155_u); //Desert Village
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244160_z); //Ruined Portal Desert
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

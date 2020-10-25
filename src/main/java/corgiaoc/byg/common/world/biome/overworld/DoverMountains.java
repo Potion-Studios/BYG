@@ -8,6 +8,7 @@ import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
@@ -55,6 +56,9 @@ public class DoverMountains extends BYGBiome {
     }
 
     static {
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244154_t); //Taiga Village
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Mountain
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

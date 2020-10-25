@@ -11,6 +11,7 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
@@ -63,6 +64,9 @@ public class CragGardens extends BYGBiome {
     }
 
     static {
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244144_j); //Swamp Hut
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244139_e); //Jungle Temple
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addLargeLake(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);

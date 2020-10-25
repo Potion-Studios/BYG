@@ -43,6 +43,7 @@ public class ValleDeLuna extends BYGBiome {
     }
 
     static {
+        DefaultBiomeFeatures.withFossils(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244140_f); //Desert Temple
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244160_z); //Ruined Portal Desert
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);

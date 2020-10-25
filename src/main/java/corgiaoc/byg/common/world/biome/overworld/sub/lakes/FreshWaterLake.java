@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.world.biome.overworld.sub.lakes;
 
+import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
@@ -7,6 +8,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -44,7 +48,16 @@ public class FreshWaterLake extends BYGSubBiome {
     static {
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
-
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_NORMAL);
+        BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.withSwampSugarcaneAndPumpkin(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244131_B); //Ruined Portal Swamp
+        DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS); //Strongholds & Mineshafts
+        DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
         SPAWN_SETTINGS.withSpawner(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));

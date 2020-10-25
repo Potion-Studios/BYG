@@ -8,6 +8,7 @@ import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.BiomeDictionary;
@@ -63,6 +64,9 @@ public class GlowshroomBayou extends BYGBiome {
     }
 
     static {
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244144_j); //Swamp Hut
+        DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244131_B); //Ruined Portal Swamp
         BYGDefaultBiomeFeatures.addGlowshroomBayouVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

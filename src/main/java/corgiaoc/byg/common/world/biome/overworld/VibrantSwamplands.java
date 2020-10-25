@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.common.BiomeDictionary;
@@ -67,6 +68,9 @@ public class VibrantSwamplands extends BYGBiome {
     }
 
     static {
+        DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS); //Strongholds & Mineshafts
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244131_B); //Ruined Portal Swamp
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244144_j); //Swamp Hut
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);

@@ -9,6 +9,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -65,6 +66,8 @@ public class Alps extends BYGBiome {
     }
 
     static {
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244132_C); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 10, 2, 3));

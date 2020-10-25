@@ -45,7 +45,6 @@ public class FrozenLake extends BYGSubBiome {
     static {
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
-
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);

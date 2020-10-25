@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -64,6 +65,8 @@ public class MapleTaiga extends BYGBiome {
     }
 
     static {
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMapleTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addSmallSpruceTrees(GENERATION_SETTINGS);

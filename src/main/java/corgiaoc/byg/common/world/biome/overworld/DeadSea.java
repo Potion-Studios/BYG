@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.BiomeDictionary;
@@ -56,6 +57,8 @@ public class DeadSea extends BYGBiome {
     }
 
     static {
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Ocean
         DefaultBiomeFeatures.withOceanStructures(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addDeadSeaSpires(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
