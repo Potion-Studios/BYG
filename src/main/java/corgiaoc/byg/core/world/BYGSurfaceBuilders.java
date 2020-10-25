@@ -15,6 +15,9 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<SurfaceBuilderConfig> CONIFEROUS = WorldGenRegistrationHelper.createSurfaceBuilder("coniferous", new ConiferousForestSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> SHATTERED_GLACIER = WorldGenRegistrationHelper.createSurfaceBuilder("shattered_glacier", new ShatteredGlacierSB2(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> MARSHLAND = WorldGenRegistrationHelper.createSurfaceBuilder("marshland", new MarshlandSB(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> VOLCANIC_FIELDS = WorldGenRegistrationHelper.createSurfaceBuilder("volcanic_wastes", new VolcanicWastes(SurfaceBuilderConfig.field_237203_a_));
+
+
     public static final SurfaceBuilder<SurfaceBuilderConfig> GREAT_LAKES = WorldGenRegistrationHelper.createSurfaceBuilder("great_lakes", new GreatLakeSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> GREAT_LAKE_ISLES = WorldGenRegistrationHelper.createSurfaceBuilder("great_lakes_isles", new GreatLakeIsleSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> ERODED_SIERRA = WorldGenRegistrationHelper.createSurfaceBuilder("eroded_sierra", new ErodedSierraSB(SurfaceBuilderConfig.field_237203_a_));

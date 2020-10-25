@@ -29,7 +29,7 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
             if (worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.RED_SAND && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.COARSE_DIRT && (worldIn).getBlockState(pos.down()).getBlock() != Blocks.TERRACOTTA) {
                 return false;
             } else {
-
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
 
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
@@ -37,7 +37,6 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 int posX1 = posX;
                 int posZ1 = posZ;
                 int topTrunkHeight = posY + randTreeHeight - 1;
-                int topTrunkHeight2 = posY + randTreeHeight + randTreeHeight - 1;
 
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
@@ -62,8 +61,6 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(4).north(2).up(3), boundsIn);
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(3).north(2).up(3), boundsIn);
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(2).north(4).up(3), boundsIn);
-
-
                 }
 
 

@@ -58,6 +58,11 @@ public class GrassLandPlateau extends BYGBiome {
         return 5;
     }
 
+    @Override
+    public Biome getRiver() {
+        return this.getBiome();
+    }
+
     static {
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);

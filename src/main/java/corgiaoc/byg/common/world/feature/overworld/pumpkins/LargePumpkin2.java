@@ -91,7 +91,7 @@ public class LargePumpkin2 extends Feature<PumpkinConfig> {
 
             }
         }
-        return false;
+        return true;
     }
 
     private void setPumpkinState(Random rand, BlockPos pos, PumpkinConfig config, ISeedReader world) {

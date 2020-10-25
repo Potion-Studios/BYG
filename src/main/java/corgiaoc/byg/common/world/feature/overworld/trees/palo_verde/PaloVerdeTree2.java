@@ -30,7 +30,7 @@ public class PaloVerdeTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             if (worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && (worldIn.getBlockState(pos.down()).getBlock() != Blocks.RED_SAND && worldIn.getBlockState(pos.down()).getBlock() != Blocks.COARSE_DIRT)) {
                 return false;
             } else {
-
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
 
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);

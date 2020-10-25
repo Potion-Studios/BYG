@@ -21,7 +21,6 @@ import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGDecorators;
 import corgiaoc.byg.core.world.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
-import corgiaoc.byg.data.BlockDataGenerator;
 import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;

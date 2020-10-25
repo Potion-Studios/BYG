@@ -35,6 +35,7 @@ public class ZelkovaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 20, 5, 5, isSapling)) {
                 return false;
             } else {
+                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
 
 
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);

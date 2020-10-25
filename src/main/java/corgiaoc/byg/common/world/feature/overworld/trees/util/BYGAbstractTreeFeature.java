@@ -415,13 +415,16 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
      */
 
     public void buildTrunkBase(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, BYGTreeConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
+        if (config.isPlacementForced())
+            return;
+
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.setPos(trunkPos);
-                for (int fill = 1; fill <= 15; fill++) {
+                for (int fill = 1; fill <= 25; fill++) {
                     if (canLogPlaceHere(reader, mutableTrunk)) {
-                        if (fill <= 7)
+                        if (fill <= 15)
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk), boundingBox);
                         else
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getGroundReplacementProvider().getBlockState(rand, mutableTrunk), boundingBox);
@@ -429,7 +432,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                 else {
                         if (!isDesiredGround(reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk).getBlock()))
                             setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getGroundReplacementProvider().getBlockState(rand, mutableTrunk), boundingBox);
-                        fill = 15;
+                        fill = 25;
                     }
                     mutableTrunk.move(Direction.DOWN);
                 }

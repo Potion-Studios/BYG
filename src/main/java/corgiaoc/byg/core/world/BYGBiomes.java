@@ -111,7 +111,7 @@ public class BYGBiomes {
     public static final Biome TWILIGHT_VALLEY = WorldGenRegistrationHelper.createBiome("twilight_valley", new TwilightValley().getBiome());
 //    public static final Biome VALLE_DE_LUNA = WorldGenRegistrationHelper.createBiome("valle_de_luna", new ValleDeLuna().getBiome());
     public static final Biome VIBRANT_SWAMPLANDS = WorldGenRegistrationHelper.createBiome("vibrant_swamplands", new VibrantSwamplands().getBiome());
-    //    public static final Biome VOLCANO = WorldGenRegistrationHelper.createBiome("volcano", new Volcano().getBiome());
+//    public static final Biome VOLCANO = WorldGenRegistrationHelper.createBiome("volcano", new Volcano().getBiome());
     public static final Biome WEEPING_WITCH_FOREST = WorldGenRegistrationHelper.createBiome("weeping_witch_forest", new WeepingWitchForest().getBiome());
     public static final Biome WOODLANDS = WorldGenRegistrationHelper.createBiome("woodlands", new WoodLands().getBiome());
     public static final Biome ZELKOVA_FOREST = WorldGenRegistrationHelper.createBiome("zelkova_forest", new ZelkovaForest().getBiome());

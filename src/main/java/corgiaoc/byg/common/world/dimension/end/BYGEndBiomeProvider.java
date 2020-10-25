@@ -37,7 +37,6 @@ public class BYGEndBiomeProvider extends BiomeProvider {
     public BYGEndBiomeProvider(Registry<Biome> registry, long seed) {
         super(Stream.concat(createEndBiomeList(registry).stream(), createVoidEndBiomeList(registry).stream()).map(registry::getOrDefault).collect(Collectors.toList()));
         this.seed = seed;
-        
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         sharedseedrandom.skip(17292);
         biomeRegistry = registry;
