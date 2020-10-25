@@ -146,7 +146,7 @@ import net.minecraft.world.gen.feature.*;
 public class BYGFeatures {
 
     public static final Feature<NoFeatureConfig> DUMMY_TREE = WorldGenRegistrationHelper.createFeature("dummy_tree", new SmallPineTree(NoFeatureConfig.field_236558_a_.stable()));
-
+    public static final Feature<NoFeatureConfig> BEEHIVE = WorldGenRegistrationHelper.createFeature("beehive", new BeeHiveFeature(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<NoFeatureConfig> HUH = WorldGenRegistrationHelper.createFeature("river_feature", new RiverThingy(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<SimpleBlockProviderConfig> VOLCANO = WorldGenRegistrationHelper.createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<BoulderConfig> STACKABLE_BOULDERS = WorldGenRegistrationHelper.createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));
