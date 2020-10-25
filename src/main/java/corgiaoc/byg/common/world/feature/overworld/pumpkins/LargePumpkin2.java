@@ -28,8 +28,9 @@ public class LargePumpkin2 extends Feature<PumpkinConfig> {
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
         int height = posY + 5;
 
-        if (world.getBlockState(pos.down()) == config.getPumpkinProvider().getBlockState(rand, pos))
+        if (world.getBlockState(pos.down()) != config.getPumpkinProvider().getBlockState(rand, pos) || !world.getBlockState(pos.down()).isSolid())
             return false;
+
 
         for (int startY = posY; startY <= height; startY++) {
             world.setBlockState(mutable, config.getStemProvider().getBlockState(rand, mutable), 2);

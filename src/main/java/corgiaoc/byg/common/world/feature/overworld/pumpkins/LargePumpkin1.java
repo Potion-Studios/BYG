@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.pumpkins;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.PumpkinConfig;
-import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -20,14 +19,13 @@ public class LargePumpkin1 extends Feature<PumpkinConfig> {
     @Override
     public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random random, BlockPos pos, PumpkinConfig config) {
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
-        BlockState logState = config.getStemProvider().getBlockState(random, pos);
 
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
 
 
-        if (world.getBlockState(pos.down()) != config.getPumpkinProvider().getBlockState(random, pos))
+        if (world.getBlockState(pos.down()) != config.getPumpkinProvider().getBlockState(random, pos) || !world.getBlockState(pos.down()).isSolid())
             return false;
 
         if (posY - 1 < world.getHeight()) {
