@@ -32,7 +32,6 @@ public class LargePumpkin1 extends Feature<PumpkinConfig> {
 
         if (posY - 1 < world.getHeight()) {
             setPumpkinState(mutable.setPos(posX, posY + 1, posZ), random, config, world);
-            setPumpkinState(mutable.setPos(posX, posY + 1, posZ), random, config, world);
             setPumpkinState(mutable.setPos(posX - 1, posY, posZ), random, config, world);
             setPumpkinState(mutable.setPos(posX + 1, posY, posZ), random, config, world);
             setPumpkinState(mutable.setPos(posX + 1, posY, posZ + 1), random, config, world);

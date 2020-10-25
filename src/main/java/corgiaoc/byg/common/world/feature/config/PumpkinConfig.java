@@ -17,7 +17,7 @@ public class PumpkinConfig implements IFeatureConfig {
         }), BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> {
             return config.stemProvider;
         }), BlockStateProvider.CODEC.fieldOf("leaves_provider").forGetter((config) -> {
-            return config.pumpkinProvider;
+            return config.leavesProvider;
         })).apply(codecRecorder, PumpkinConfig::new);
     });
 
