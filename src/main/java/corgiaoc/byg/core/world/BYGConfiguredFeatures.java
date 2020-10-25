@@ -1587,11 +1587,11 @@ public class BYGConfiguredFeatures {
             new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WITCH_HAZEL_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_witch_hazel_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            DEAD_HAZEL_TREE1.withChance(0.2F),
-            DEAD_HAZEL_TREE2.withChance(0.2F),
+            DEAD_HAZEL_TREE1.withChance(0.4F),
+            DEAD_HAZEL_TREE2.withChance(0.4F),
             DEAD_HAZEL_TREE3.withChance(0.1F)),
             DEAD_HAZEL_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(8, 0.3F, 2))));
+            new AtSurfaceWithExtraConfig(6, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_WITCH_HAZEL_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_witch_hazel_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_HAZEL_TREE1.withChance(0.2F),
