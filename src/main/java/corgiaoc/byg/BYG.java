@@ -4,10 +4,6 @@ package corgiaoc.byg;
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
-import corgiaoc.byg.common.properties.vanilla.BYGCompostables;
-import corgiaoc.byg.common.properties.vanilla.BYGFlammables;
-import corgiaoc.byg.common.properties.vanilla.BYGHoeables;
-import corgiaoc.byg.common.properties.vanilla.BYGStrippables;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.BYGWorldConfig;
@@ -97,10 +93,10 @@ public class BYG {
 
     private void loadComplete(FMLLoadCompleteEvent event) {
         LOGGER.debug("BYG: \"Load Complete Event\" Starting...");
-        BYGCompostables.compostablesBYG();
-        BYGHoeables.hoeablesBYG();
-        BYGFlammables.flammablesBYG();
-        BYGStrippables.strippableLogsBYG();
+//        BYGCompostables.compostablesBYG();
+//        BYGHoeables.hoeablesBYG();
+//        BYGFlammables.flammablesBYG();
+//        BYGStrippables.strippableLogsBYG();
         cleanMemory();
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
     }

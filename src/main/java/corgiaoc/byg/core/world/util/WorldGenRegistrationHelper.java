@@ -14,6 +14,7 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @SuppressWarnings("deprecation")
 public class WorldGenRegistrationHelper {
@@ -23,7 +24,8 @@ public class WorldGenRegistrationHelper {
         if (Registry.SURFACE_BUILDER.keySet().contains(bygID))
             BYG.LOGGER.error("Surface Builder ID: \"" + bygID.toString() + "\" already exists in the Surface Builder registry!");
 
-        Registry.register(Registry.SURFACE_BUILDER, bygID, surfaceBuilder);
+//        Registry.register(Registry.SURFACE_BUILDER, bygID, surfaceBuilder);
+        surfaceBuilder.setRegistryName(bygID); //Forge
         return surfaceBuilder;
     }
 
@@ -41,7 +43,8 @@ public class WorldGenRegistrationHelper {
         if (Registry.FEATURE.keySet().contains(bygID))
             BYG.LOGGER.error("Feature ID: \"" + bygID.toString() + "\" already exists in the Features registry!");
 
-        Registry.register(Registry.FEATURE, bygID, feature);
+//        Registry.register(Registry.FEATURE, bygID, feature);
+        feature.setRegistryName(bygID); //Forge
         return feature;
     }
 
@@ -59,16 +62,19 @@ public class WorldGenRegistrationHelper {
         if (Registry.DECORATOR.keySet().contains(bygID))
             BYG.LOGGER.error("Decorator ID: \"" + bygID.toString() + "\" already exists in the Decorator registry!");
 
-        Registry.register(Registry.DECORATOR, bygID, decorator);
+//        Registry.register(Registry.DECORATOR, bygID, decorator);
+        decorator.setRegistryName(bygID); //Forge
         return decorator;
     }
 
     public static Biome createBiome(String id, Biome biome) {
         ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
-        if (Registry.DECORATOR.keySet().contains(bygID))
-            BYG.LOGGER.error("Biome ID: \"" + bygID.toString() + "\" already exists in the Decorator registry!");
+        if (WorldGenRegistries.BIOME.keySet().contains(bygID))
+            BYG.LOGGER.error("Biome ID: \"" + bygID.toString() + "\" already exists in the Biome registry!");
 
-        Registry.register(WorldGenRegistries.BIOME, bygID, biome);
+//        Registry.register(WorldGenRegistries.BIOME, bygID, biome);
+        biome.setRegistryName(bygID); //Forge
+        BYG.LOGGER.info(ForgeRegistries.BIOMES.getKey(biome));
         BYGBiomes.biomeList.add(biome);
         return biome;
     }

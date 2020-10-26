@@ -1101,7 +1101,8 @@ public class BYGItems {
 
     public static Item createItem(Item item, ResourceLocation id) {
         if (id != null && !id.equals(new ResourceLocation("minecraft:air"))) {
-            Registry.register(Registry.ITEM, id, item);
+//            Registry.register(Registry.ITEM, id, item);
+            item.setRegistryName(id); //Forge
             return item;
         } else {
             return null;
@@ -1109,7 +1110,8 @@ public class BYGItems {
     }
 
     public static Item createItem(Item item, String id) {
-        Registry.register(Registry.ITEM, new ResourceLocation(BYG.MOD_ID, id), item);
+//        Registry.register(Registry.ITEM, new ResourceLocation(BYG.MOD_ID, id), item);
+        item.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         return item;
     }
 

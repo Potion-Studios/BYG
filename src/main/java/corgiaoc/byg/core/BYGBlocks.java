@@ -975,173 +975,201 @@ public class BYGBlocks {
     public static final Block SHULKREN_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
 
     static Block createFence(String id) {
-        Block fence = new FenceBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), fence);
-        return fence;
+        Block createBlock = new FenceBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createFenceGate(String id) {
-        Block fenceGate = new FenceGateBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), fenceGate);
-        return fenceGate;
+        Block createBlock = new FenceGateBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createSand(int dustColor, String id) {
-        Block sandBlock = new SandBlock(dustColor, Block.Properties.create(Material.SAND).sound(SoundType.SAND).hardnessAndResistance(0.2f).harvestTool(ToolType.SHOVEL));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), sandBlock);
-        return sandBlock;
+        Block createBlock = new SandBlock(dustColor, Block.Properties.create(Material.SAND).sound(SoundType.SAND).hardnessAndResistance(0.2f).harvestTool(ToolType.SHOVEL));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createWoodSlab(String id) {
-        Block woodSlab = new SlabBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), woodSlab);
-        return woodSlab;
+        Block createBlock = new SlabBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createStoneSlab(String id) {
-        Block stoneSlab = new SlabBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), stoneSlab);
-        return stoneSlab;
+        Block createBlock = new SlabBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createStoneWall(String id) {
-        Block stoneWall = new WallBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), stoneWall);
-        return stoneWall;
+        Block createBlock = new WallBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createWoodPressurePlate(String id) {
-        Block woodPressurePlate = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), woodPressurePlate);
-        return woodPressurePlate;
+        Block createBlock = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createWoodStairs(String id) {
-        Block woodStairs = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(BYG.MOD_ID, id.replace("_stairs", "planks"))).getDefaultState(), Block.Properties.from(Blocks.OAK_PLANKS).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), woodStairs);
-        return woodStairs;
+        Block createBlock = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(BYG.MOD_ID, id.replace("_stairs", "planks"))).getDefaultState(), Block.Properties.from(Blocks.OAK_PLANKS).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createTrapDoor(String id) {
-        Block trapDoor = new TrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f).notSolid());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), trapDoor);
-        return trapDoor;
+        Block createBlock = new TrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f).notSolid());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createCraftingTable(String id) {
-        Block trapDoor = new BYGCraftingTableBlock(Block.Properties.from(Blocks.CRAFTING_TABLE));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), trapDoor);
-        return trapDoor;
+        Block createBlock = new BYGCraftingTableBlock(Block.Properties.from(Blocks.CRAFTING_TABLE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createWoodButton(String id) {
-        Block woodButton = new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), woodButton);
-        return woodButton;
+        Block createBlock = new WoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createBookshelf(String id) {
-        Block bookShelf = new BookshelfBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), bookShelf);
-        return bookShelf;
+        Block createBlock = new BookshelfBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createDoor(String id) {
-        Block door = new DoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f).notSolid());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), door);
-        return door;
+        Block createBlock = new DoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f).notSolid());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createPlanks(String id) {
-        Block planks = new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), planks);
-        return planks;
+        Block createBlock = new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createWood(String id) {
-        Block wood = new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), wood);
-        return wood;
+        Block createBlock = new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createStrippedLog(String id) {
-        Block strippedLog = new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), strippedLog);
-        return strippedLog;
+        Block createBlock = new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createLog(String id) {
-        Block log = new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), log);
-        return log;
+        Block createBlock = new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createMushroomPlant(BYGHugeMushroom mushroom, String id) {
-        Block mushroomPlant = new BYGMushroomPlantBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), mushroom);
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), mushroomPlant);
-        createPottedBlock(mushroomPlant, id);
-        return mushroomPlant;
+        Block createBlock = new BYGMushroomPlantBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), mushroom);
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        return createBlock;
     }
 
     static Block createFlower(String id) {
-        Block flower = new FlowerBlock(Effects.SATURATION, 7, Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), flower);
-        createPottedBlock(flower, id);
-        return flower;
+        Block createBlock = new FlowerBlock(Effects.SATURATION, 7, Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        return createBlock;
     }
 
     static Block createTallFlower(String id) {
-        Block flower = new TallFlowerBlock(Block.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), flower);
-        return flower;
+        Block createBlock = new TallFlowerBlock(Block.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createCrystal(String id) {
-        Block crystal = new CrystalBlock(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(0.1f).notSolid().doesNotBlockMovement().setLightLevel((state) -> 6));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), crystal);
-        return crystal;
+        Block createBlock = new CrystalBlock(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(0.1f).notSolid().doesNotBlockMovement().setLightLevel((state) -> 6));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createDullCrystal(String id) {
-        Block crystal = new CrystalBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(0.1f).notSolid().doesNotBlockMovement());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), crystal);
-        return crystal;
+        Block createBlock = new CrystalBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(0.1f).notSolid().doesNotBlockMovement());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createSculkGrowth(String id) {
-        Block growth = new SculkGrowthBlock(Block.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().tickRandomly().notSolid().doesNotBlockMovement());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), growth);
-        return growth;
+        Block createBlock = new SculkGrowthBlock(Block.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().tickRandomly().notSolid().doesNotBlockMovement());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createWarpedCactus(String id) {
-        Block cactus = new WarpedCactusBlock(Block.Properties.create(Material.CACTUS).sound(SoundType.CLOTH).hardnessAndResistance(0.2f).tickRandomly().notSolid().setLightLevel((state) -> 8));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), cactus);
-        return cactus;
+        Block createBlock = new WarpedCactusBlock(Block.Properties.create(Material.CACTUS).sound(SoundType.CLOTH).hardnessAndResistance(0.2f).tickRandomly().notSolid().setLightLevel((state) -> 8));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createOddityCactus(String id) {
-        Block cactus = new OddityCactusBlock(Block.Properties.create(Material.CACTUS).sound(SoundType.CLOTH).hardnessAndResistance(0.2f).tickRandomly().notSolid().setLightLevel((state) -> 8));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), cactus);
-        return cactus;
+        Block createBlock = new OddityCactusBlock(Block.Properties.create(Material.CACTUS).sound(SoundType.CLOTH).hardnessAndResistance(0.2f).tickRandomly().notSolid().setLightLevel((state) -> 8));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createCrimsonBerryBush(String id) {
-        Block berryBush = new CrimsonBerryBushBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), berryBush);
-        return berryBush;
+        Block createBlock = new CrimsonBerryBushBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createBlueBerryBush(String id) {
-        Block berryBush = new BlueBerryBush(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), berryBush);
-        return berryBush;
+        Block createBlock = new BlueBerryBush(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createBaobabFruitBlock(String id) {
-        Block baobabFruit = new BaobabFruitBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().harvestTool(ToolType.HOE).zeroHardnessAndResistance().doesNotBlockMovement());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), baobabFruit);
-        return baobabFruit;
+        Block createBlock = new BaobabFruitBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().harvestTool(ToolType.HOE).zeroHardnessAndResistance().doesNotBlockMovement());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createNightshadeBerryBush(String id) {
@@ -1149,47 +1177,54 @@ public class BYGBlocks {
     }
 
     static Block createNightshadeBerryBush(int lightLevel, String id) {
-        Block berryBush = new NightshadeBerryBushBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).setLightLevel((state) -> lightLevel).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), berryBush);
-        return berryBush;
+        Block createBlock = new NightshadeBerryBushBlock(Block.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).setLightLevel((state) -> lightLevel).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createSapling(int taskRange, TreeSpawner tree, String id) {
-        Block sapling = new BYGSapling(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), tree, taskRange);
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), sapling);
-        createPottedBlock(sapling, id);
-        return sapling;
+        Block createBlock = new BYGSapling(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), tree, taskRange);
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        return createBlock;
     }
 
     public static void createPottedBlock(Block blockForPot, String id) {
-        Block flowerPot = new FlowerPotBlock(blockForPot, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid());
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, "potted_" + id), flowerPot);
-        flowerPotBlocks.add(flowerPot);
+        Block createBlock = new FlowerPotBlock(blockForPot, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, "potted_" + id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, "potted_" + id)); //Forge
+        flowerPotBlocks.add(createBlock);
         flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id).toString());
     }
 
     static Block createShroomlight(String id) {
-        Block shroomlight = new Block(AbstractBlock.Properties.create(Material.ORGANIC, MaterialColor.PURPLE).hardnessAndResistance(1.0F).sound(SoundType.SHROOMLIGHT).setLightLevel((state) -> 14));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), shroomlight);
-        return shroomlight;
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ORGANIC, MaterialColor.PURPLE).hardnessAndResistance(1.0F).sound(SoundType.SHROOMLIGHT).setLightLevel((state) -> 14));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
+        return createBlock;
     }
 
     static Block createShulkrenVine(String id) {
-        Block vineTop = new ShulkrenVineBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.NETHER_VINE).doesNotBlockMovement().harvestTool(ToolType.HOE));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), vineTop);
-        return vineTop;
+        Block createBlock = new ShulkrenVineBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.NETHER_VINE).doesNotBlockMovement().harvestTool(ToolType.HOE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createShulkrenVinePlant(String id) {
-        Block vineBody = new ShulkrenVinePlantBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.NETHER_VINE).doesNotBlockMovement().harvestTool(ToolType.HOE));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), vineBody);
-        return vineBody;
+        Block createBlock = new ShulkrenVinePlantBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.NETHER_VINE).doesNotBlockMovement().harvestTool(ToolType.HOE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createLeaves(String id) {
-        Block leaves = new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().harvestTool(ToolType.HOE));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), leaves);
-        return leaves;
+        Block createBlock = new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().harvestTool(ToolType.HOE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createGlowingLeaves(String id) {
@@ -1197,51 +1232,59 @@ public class BYGBlocks {
     }
 
     static Block createGlowingLeaves(int lightLevel, String id) {
-        Block leaves = new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setLightLevel((state) -> lightLevel).harvestTool(ToolType.HOE));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), leaves);
-        return leaves;
+        Block createBlock = new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setLightLevel((state) -> lightLevel).harvestTool(ToolType.HOE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createPetal(String id) {
-        Block petal = new Block(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2f).notSolid().harvestTool(ToolType.HOE));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), petal);
-        return petal;
+        Block createBlock = new Block(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2f).notSolid().harvestTool(ToolType.HOE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createDirt(String id) {
-        Block dirt = new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.SHOVEL));
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), dirt);
-        return dirt;
+        Block createBlock = new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.SHOVEL));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createDirtSpreadable(Block blockToSpreadToo, String id) {
-        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.4f).tickRandomly().harvestTool(ToolType.SHOVEL), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
-        return spreadableDirt;
+        Block createBlock = new SpreadableBlock(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.4f).tickRandomly().harvestTool(ToolType.SHOVEL), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createStoneSpreadable(Block blockToSpreadToo, String id) {
-        Block spreadableStone = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5f, 6.0f).tickRandomly().harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableStone);
-        return spreadableStone;
+        Block createBlock = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5f, 6.0f).tickRandomly().harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createEndSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
-        return spreadableDirt;
+        Block createBlock = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createNetherSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4F).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
-        return spreadableDirt;
+        Block createBlock = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4F).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     static Block createNetherStoneSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
-        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
-        return spreadableDirt;
+        Block createBlock = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        return createBlock;
     }
 
     public static void init() {
