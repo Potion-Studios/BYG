@@ -2,6 +2,9 @@ package corgiaoc.byg.core.world.util;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.world.BYGDecorators;
+import corgiaoc.byg.core.world.BYGFeatures;
+import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -19,32 +22,63 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 public class WorldGenRegistrationHelper {
 
     public static <SBC extends ISurfaceBuilderConfig, SB extends SurfaceBuilder<SBC>> SB createSurfaceBuilder(String id, SB surfaceBuilder) {
-        Registry.register(Registry.SURFACE_BUILDER, new ResourceLocation(BYG.MOD_ID, id), surfaceBuilder);
+        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        if (Registry.SURFACE_BUILDER.keySet().contains(bygID))
+            BYG.LOGGER.error("Surface Builder ID: \"" + bygID.toString() + "\" already exists in the Surface Builder registry!");
+
+//        Registry.register(Registry.SURFACE_BUILDER, bygID, surfaceBuilder);
+        surfaceBuilder.setRegistryName(bygID); //Forge
+        BYGSurfaceBuilders.surfaceBuilders.add(surfaceBuilder);
         return surfaceBuilder;
     }
 
     public static <SC extends ISurfaceBuilderConfig, CSB extends ConfiguredSurfaceBuilder<SC>> CSB createConfiguredSurfaceBuilder(String id, CSB configuredSurfaceBuilder) {
-        Registry.register(WorldGenRegistries.CONFIGURED_SURFACE_BUILDER, new ResourceLocation(BYG.MOD_ID, id), configuredSurfaceBuilder);
+        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        if (WorldGenRegistries.CONFIGURED_SURFACE_BUILDER.keySet().contains(bygID))
+            BYG.LOGGER.error("Configured Surface Builder ID: \"" + bygID.toString() + "\" already exists in the Configured Surface Builder registry!");
+
+        Registry.register(WorldGenRegistries.CONFIGURED_SURFACE_BUILDER, bygID, configuredSurfaceBuilder);
         return configuredSurfaceBuilder;
     }
 
     public static <C extends IFeatureConfig, F extends Feature<C>> F createFeature(String id, F feature) {
-        Registry.register(Registry.FEATURE, new ResourceLocation(BYG.MOD_ID, id), feature);
+        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        if (Registry.FEATURE.keySet().contains(bygID))
+            BYG.LOGGER.error("Feature ID: \"" + bygID.toString() + "\" already exists in the Features registry!");
+
+//        Registry.register(Registry.FEATURE, bygID, feature);
+        feature.setRegistryName(bygID); //Forge
+        BYGFeatures.features.add(feature);
         return feature;
     }
 
     public static <FC extends IFeatureConfig, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createConfiguredFeature(String id, CF configuredFeature) {
-        Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(BYG.MOD_ID, id), configuredFeature);
+        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        if (WorldGenRegistries.CONFIGURED_FEATURE.keySet().contains(bygID))
+            BYG.LOGGER.error("Configured Feature ID: \"" + bygID.toString() + "\" already exists in the Configured Features registry!");
+
+        Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, bygID, configuredFeature);
         return configuredFeature;
     }
 
     public static <DC extends IPlacementConfig, D extends Placement<DC>> D createDecorator(String id, D decorator) {
-        Registry.register(Registry.DECORATOR, new ResourceLocation(BYG.MOD_ID, id), decorator);
+        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        if (Registry.DECORATOR.keySet().contains(bygID))
+            BYG.LOGGER.error("Decorator ID: \"" + bygID.toString() + "\" already exists in the Decorator registry!");
+
+//        Registry.register(Registry.DECORATOR, bygID, decorator);
+        decorator.setRegistryName(bygID); //Forge
+        BYGDecorators.decorators.add(decorator);
         return decorator;
     }
 
     public static Biome createBiome(String id, Biome biome) {
-        Registry.register(WorldGenRegistries.BIOME, new ResourceLocation(BYG.MOD_ID, id), biome);
+        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        if (WorldGenRegistries.BIOME.keySet().contains(bygID))
+            BYG.LOGGER.error("Biome ID: \"" + bygID.toString() + "\" already exists in the Biome registry!");
+
+//        Registry.register(WorldGenRegistries.BIOME, bygID, biome);
+        biome.setRegistryName(bygID); //Forge
         BYGBiomes.biomeList.add(biome);
         return biome;
     }

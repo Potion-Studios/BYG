@@ -1,17 +1,15 @@
 package corgiaoc.byg.common.world.biome;
 
 import net.minecraft.util.RegistryKey;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @SuppressWarnings("deprecation")
 public class BYGEndBiome {
@@ -42,6 +40,6 @@ public class BYGEndBiome {
     }
 
     public RegistryKey<Biome> getKey() {
-        return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
+        return RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, ForgeRegistries.BIOMES.getKey(this.biome));
     }
 }

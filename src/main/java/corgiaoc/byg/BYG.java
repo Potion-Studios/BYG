@@ -119,6 +119,7 @@ public class BYG {
         public static void registerBlocks(RegistryEvent.Register<Block> event) {
             BYG.LOGGER.debug("BYG: Registering blocks...");
             BYGBlocks.init();
+            event.getRegistry().registerAll(BYGBlocks.blocksList.toArray(new Block[0]));
             BYG.LOGGER.info("BYG: Blocks registered!");
         }
 
@@ -126,6 +127,7 @@ public class BYG {
         public static void registerItems(RegistryEvent.Register<Item> event) {
             BYG.LOGGER.debug("BYG: Registering items...");
             BYGItems.init();
+            event.getRegistry().registerAll(BYGItems.itemsList.toArray(new Item[0]));
             BYG.LOGGER.info("BYG: Items registered!");
         }
 
@@ -133,16 +135,19 @@ public class BYG {
         public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
             BYG.LOGGER.debug("BYG: Registering entities...");
             BYGEntities.init();
+            event.getRegistry().registerAll(BYGEntities.entities.toArray(new EntityType<?>[0]));
             BYG.LOGGER.info("BYG: Entities registered!");
         }
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class BYGWorldGenRegistries {
+
         @SubscribeEvent
         public static void registerBiomes(RegistryEvent.Register<Biome> event) {
             BYG.LOGGER.debug("BYG: Registering biomes...");
             BYGBiomes.init();
+            event.getRegistry().registerAll(BYGBiomes.biomeList.toArray(new Biome[0]));
             BYG.LOGGER.info("BYG: Biomes registered!");
         }
 
@@ -150,6 +155,7 @@ public class BYG {
         public static void registerDecorators(RegistryEvent.Register<Placement<?>> event) {
             BYG.LOGGER.debug("BYG: Registering decorators...");
             BYGDecorators.init();
+            event.getRegistry().registerAll(BYGDecorators.decorators.toArray(new Placement<?>[0]));
             BYG.LOGGER.info("BYG: Decorators registered!");
         }
 
@@ -158,6 +164,7 @@ public class BYG {
             BYG.LOGGER.debug("BYG: Registering features...");
             OreFeatureConfig.FillerBlockType.field_241883_b = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
             BYGFeatures.init();
+            event.getRegistry().registerAll(BYGFeatures.features.toArray(new Feature<?>[0]));
             BYG.LOGGER.info("BYG: Features registered!");
         }
 
@@ -165,6 +172,7 @@ public class BYG {
         public static void registerSurfaceBuilders(RegistryEvent.Register<SurfaceBuilder<?>> event) {
             BYG.LOGGER.debug("BYG: Registering surface builders...");
             BYGSurfaceBuilders.init();
+            event.getRegistry().registerAll(BYGSurfaceBuilders.surfaceBuilders.toArray(new SurfaceBuilder<?>[0]));
             BYG.LOGGER.info("BYG: Surface builders Registered!");
         }
     }
