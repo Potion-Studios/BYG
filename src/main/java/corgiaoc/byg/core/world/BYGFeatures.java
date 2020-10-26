@@ -143,8 +143,13 @@ import corgiaoc.byg.common.world.feature.overworld.volcano.VolcanoFeature;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.world.gen.feature.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class BYGFeatures {
+
+    public static Set<Feature<?>> features = new HashSet<>();
 
     public static final Feature<NoFeatureConfig> DUMMY_TREE = WorldGenRegistrationHelper.createFeature("dummy_tree", new SmallPineTree(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<NoFeatureConfig> BEEHIVE = WorldGenRegistrationHelper.createFeature("beehive", new BeeHiveFeature(NoFeatureConfig.field_236558_a_.stable()));

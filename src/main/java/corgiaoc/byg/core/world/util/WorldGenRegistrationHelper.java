@@ -2,6 +2,9 @@ package corgiaoc.byg.core.world.util;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.world.BYGDecorators;
+import corgiaoc.byg.core.world.BYGFeatures;
+import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -14,7 +17,6 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.registries.ForgeRegistries;
 
 @SuppressWarnings("deprecation")
 public class WorldGenRegistrationHelper {
@@ -26,6 +28,7 @@ public class WorldGenRegistrationHelper {
 
 //        Registry.register(Registry.SURFACE_BUILDER, bygID, surfaceBuilder);
         surfaceBuilder.setRegistryName(bygID); //Forge
+        BYGSurfaceBuilders.surfaceBuilders.add(surfaceBuilder);
         return surfaceBuilder;
     }
 
@@ -45,6 +48,7 @@ public class WorldGenRegistrationHelper {
 
 //        Registry.register(Registry.FEATURE, bygID, feature);
         feature.setRegistryName(bygID); //Forge
+        BYGFeatures.features.add(feature);
         return feature;
     }
 
@@ -64,6 +68,7 @@ public class WorldGenRegistrationHelper {
 
 //        Registry.register(Registry.DECORATOR, bygID, decorator);
         decorator.setRegistryName(bygID); //Forge
+        BYGDecorators.decorators.add(decorator);
         return decorator;
     }
 
@@ -74,7 +79,6 @@ public class WorldGenRegistrationHelper {
 
 //        Registry.register(WorldGenRegistries.BIOME, bygID, biome);
         biome.setRegistryName(bygID); //Forge
-        BYG.LOGGER.info(ForgeRegistries.BIOMES.getKey(biome));
         BYGBiomes.biomeList.add(biome);
         return biome;
     }

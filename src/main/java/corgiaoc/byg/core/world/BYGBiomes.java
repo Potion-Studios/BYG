@@ -28,14 +28,15 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
 public class BYGBiomes {
-    public static List<Biome> biomeList = new ArrayList<>();
+    public static Set<Biome> biomeList = new HashSet<>();
 
     public static Biome DUMMY_BIOME = WorldGenRegistrationHelper.createBiome("dummy", new DummySubBiome().getBiome());
 
@@ -243,199 +244,7 @@ public class BYGBiomes {
     public static Biome CRYPTIC_WASTES = WorldGenRegistrationHelper.createBiome("cryptic_wastes", new CrypticWastes().getBiome());
 
 
-    public static void init() {//This was done desperately...
-        ALLIUM_FIELDS = WorldGenRegistrationHelper.createBiome("allium_fields", new AlliumFields().getBiome());
-        ALPS = WorldGenRegistrationHelper.createBiome("alps", new Alps().getBiome());
-        AMARANTH_FIELDS = WorldGenRegistrationHelper.createBiome("amaranth_fields", new AmaranthFields().getBiome());
-        ANCIENT_FOREST = WorldGenRegistrationHelper.createBiome("ancient_forest", new AncientForest().getBiome());
-        ARAUCARIA_SAVANNA = WorldGenRegistrationHelper.createBiome("araucaria_savanna", new AraucariaSavanna().getBiome());
-        ASPEN_FOREST = WorldGenRegistrationHelper.createBiome("aspen_forest", new AspenForest().getBiome());
-        AUTUMNAL_VALLEY = WorldGenRegistrationHelper.createBiome("autumnal_valley", new AutumnalValley().getBiome());
-        BAOBAB_SAVANNA = WorldGenRegistrationHelper.createBiome("baobab_savanna", new BaobabSavanna().getBiome());
-        BAYOU = WorldGenRegistrationHelper.createBiome("bayou", new Bayou().getBiome());
-        BLUE_TAIGA = WorldGenRegistrationHelper.createBiome("blue_taiga", new BlueTaiga().getBiome());
-        BLUFF_STEEPS = WorldGenRegistrationHelper.createBiome("bluff_steeps", new BluffSteeps().getBiome());
-        BOG = WorldGenRegistrationHelper.createBiome("bog", new Bog().getBiome());
-        BOREAL_FOREST = WorldGenRegistrationHelper.createBiome("boreal_forest", new BorealForest().getBiome());
-        CANYONS = WorldGenRegistrationHelper.createBiome("canyons", new Canyons().getBiome());
-        CIKA_WOODS = WorldGenRegistrationHelper.createBiome("cika_woods", new CikaWoods().getBiome());
-        COLD_SWAMPLANDS = WorldGenRegistrationHelper.createBiome("cold_swamplands", new ColdSwamplands().getBiome());
-        CRAG_GARDENS = WorldGenRegistrationHelper.createBiome("crag_gardens", new CragGardens().getBiome());
-        CYPRESS_SWAMPLANDS = WorldGenRegistrationHelper.createBiome("cypress_swamplands", new CypressSwampland().getBiome());
-        CHERRY_BLOSSOM_FOREST = WorldGenRegistrationHelper.createBiome("cherry_blossom_forest", new CherryBlossomForest().getBiome());
-        CONIFEROUS_FOREST = WorldGenRegistrationHelper.createBiome("coniferous_forest", new ConiferousForest().getBiome());
-        DEAD_SEA = WorldGenRegistrationHelper.createBiome("dead_sea", new DeadSea().getBiome());
-        DECIDUOUS_FOREST = WorldGenRegistrationHelper.createBiome("deciduous_forest", new DeciduousForest().getBiome());
-        DOVER_MOUNTAINS = WorldGenRegistrationHelper.createBiome("dover_mountains", new DoverMountains().getBiome());
-        DUNES = WorldGenRegistrationHelper.createBiome("dunes", new Dunes().getBiome());
-        EBONY_WOODS = WorldGenRegistrationHelper.createBiome("ebony_woods", new EbonyWoods().getBiome());
-        ENCHANTED_FOREST = WorldGenRegistrationHelper.createBiome("enchanted_forest", new EnchantedForest().getBiome());
-        EVERGREEN_TAIGA = WorldGenRegistrationHelper.createBiome("evergreen_taiga", new EvergreenTaiga().getBiome());
-        GLOWSHROOM_BAYOU = WorldGenRegistrationHelper.createBiome("glowshroom_bayou", new GlowshroomBayou().getBiome());
-        GRASSLAND_PLATEAU = WorldGenRegistrationHelper.createBiome("grassland_plateau", new GrassLandPlateau().getBiome());
-        GREAT_LAKES = WorldGenRegistrationHelper.createBiome("great_lakes", new GreatLakes().getBiome());
-        ENCHANTED_GROVE = WorldGenRegistrationHelper.createBiome("enchanted_grove", new EnchantedGrove().getBiome());
-        GROVE = WorldGenRegistrationHelper.createBiome("grove", new Grove().getBiome());
-        GUIANA_SHIELD = WorldGenRegistrationHelper.createBiome("guiana_shield", new GuianaShield().getBiome());
-        JACARANDA_FOREST = WorldGenRegistrationHelper.createBiome("jacaranda_forest", new JacarandaForest().getBiome());
-        MANGROVE_MARSHES = WorldGenRegistrationHelper.createBiome("mangrove_marshes", new MangroveMarshes().getBiome());
-        MAPLE_TAIGA = WorldGenRegistrationHelper.createBiome("maple_taiga", new MapleTaiga().getBiome());
-        MARSHLANDS = WorldGenRegistrationHelper.createBiome("marshlands", new MarshLands().getBiome());
-        MEADOW = WorldGenRegistrationHelper.createBiome("meadow", new Meadow().getBiome());
-        MOJAVE_DESERT = WorldGenRegistrationHelper.createBiome("mojave_desert", new MojaveDesert().getBiome());
-        LUSH_TUNDRA = WorldGenRegistrationHelper.createBiome("lush_tundra", new LushTundra().getBiome());
-        ORCHARD = WorldGenRegistrationHelper.createBiome("orchard", new Orchard().getBiome());
-        PRAIRIE = WorldGenRegistrationHelper.createBiome("prairie", new Prairie().getBiome());
-        RED_DESERT = WorldGenRegistrationHelper.createBiome("red_desert", new RedDesert().getBiome());
-        RED_DESERT_DUNES = WorldGenRegistrationHelper.createBiome("red_desert_dunes", new RedDesertDunes().getBiome());
-        RED_OAK_FOREST = WorldGenRegistrationHelper.createBiome("red_oak_forest", new RedOakForest().getBiome());
-        RED_ROCK_MOUNTAINS = WorldGenRegistrationHelper.createBiome("red_rock_mountains", new RedRockMountains().getBiome());
-        ROSE_FIELDS = WorldGenRegistrationHelper.createBiome("rose_fields", new RoseFields().getBiome());
-        SEASONAL_BIRCH_FOREST = WorldGenRegistrationHelper.createBiome("seasonal_birch_forest", new SeasonalBirchForest().getBiome());
-        SEASONAL_DECIDUOUS_FOREST = WorldGenRegistrationHelper.createBiome("seasonal_deciduous_forest", new SeasonalDeciduousForest().getBiome());
-        SEASONAL_FOREST = WorldGenRegistrationHelper.createBiome("seasonal_forest", new SeasonalForest().getBiome());
-        SEASONAL_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("seasonal_giant_taiga", new SeasonalGiantTaiga().getBiome());
-        SEASONAL_TAIGA = WorldGenRegistrationHelper.createBiome("seasonal_taiga", new SeasonalTaiga().getBiome());
-        SHATTERED_GLACIER = WorldGenRegistrationHelper.createBiome("shattered_glacier", new ShatteredGlacier().getBiome());
-        SHRUBLANDS = WorldGenRegistrationHelper.createBiome("shrublands", new ShrubLands().getBiome());
-        SIERRA_VALLEY = WorldGenRegistrationHelper.createBiome("sierra_valley", new SierraValley().getBiome());
-        SKYRIS_HIGHLANDS = WorldGenRegistrationHelper.createBiome("skyris_highlands", new SkyrisHighlands().getBiome());
-        REDWOOD_TROPICS = WorldGenRegistrationHelper.createBiome("redwood_tropics", new RedwoodTropics().getBiome());
-        SNOWY_BLUE_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_blue_taiga", new SnowyBlueTaiga().getBiome());
-        SNOWY_CONIFEROUS_FOREST = WorldGenRegistrationHelper.createBiome("snowy_coniferous_forest", new SnowyConiferousForest().getBiome());
-        SNOWY_DECIDUOUS_FOREST = WorldGenRegistrationHelper.createBiome("snowy_deciduous_forest", new SnowyDeciduousForest().getBiome());
-        SNOWY_EVERGREEN_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_evergreen_taiga", new SnowyEvergreenTaiga().getBiome());
-        STONE_FOREST = WorldGenRegistrationHelper.createBiome("stone_forest", new StoneForest().getBiome());
-        THE_BLACK_FOREST = WorldGenRegistrationHelper.createBiome("the_black_forest", new TheBlackForest().getBiome());
-        TROPICAL_FUNGAL_RAINFOREST = WorldGenRegistrationHelper.createBiome("tropical_fungal_forest", new TropicalFungalRainForest().getBiome());
-        TROPICAL_ISLAND = WorldGenRegistrationHelper.createBiome("tropical_islands", new TropicalIslands().getBiome());
-        TROPICAL_RAINFOREST = WorldGenRegistrationHelper.createBiome("tropical_rainforest", new TropicalRainForest().getBiome());
-        TWILIGHT_VALLEY = WorldGenRegistrationHelper.createBiome("twilight_valley", new TwilightValley().getBiome());
-        VIBRANT_SWAMPLANDS = WorldGenRegistrationHelper.createBiome("vibrant_swamplands", new VibrantSwamplands().getBiome());
-        WEEPING_WITCH_FOREST = WorldGenRegistrationHelper.createBiome("weeping_witch_forest", new WeepingWitchForest().getBiome());
-        WOODLANDS = WorldGenRegistrationHelper.createBiome("woodlands", new WoodLands().getBiome());
-        ZELKOVA_FOREST = WorldGenRegistrationHelper.createBiome("zelkova_forest", new ZelkovaForest().getBiome());
-
-
-        BASALT_BARRERA = WorldGenRegistrationHelper.createBiome("basalt_barrera", new BasaltBarrera().getBiome());
-        RAINBOW_BEACH = WorldGenRegistrationHelper.createBiome("rainbow_beach", new RainbowBeach().getBiome());
-        ROCKY_BEACH = WorldGenRegistrationHelper.createBiome("rocky_beach", new RockyBeach().getBiome());
-        SNOWY_ROCKY_BLACK_BEACH = WorldGenRegistrationHelper.createBiome("snowy_rocky_black_beach", new SnowyRockyBlackBeach().getBiome());
-        SNOWY_BLACK_BEACH = WorldGenRegistrationHelper.createBiome("snowy_black_beach", new SnowyBlackBeach().getBiome());
-        WHITE_BEACH = WorldGenRegistrationHelper.createBiome("white_beach", new WhiteBeach().getBiome());
-
-
-        ASPEN_CLEARING = WorldGenRegistrationHelper.createBiome("aspen_clearing", new AspenClearing().getBiome());
-        BLACK_FOREST_CLEARING = WorldGenRegistrationHelper.createBiome("black_forest_clearing", new BlackForestClearing().getBiome());
-        BOREAL_CLEARING = WorldGenRegistrationHelper.createBiome("boreal_clearing", new BorealClearing().getBiome());
-        CHERRY_BLOSSOM_CLEARING = WorldGenRegistrationHelper.createBiome("cherry_blossom_clearing", new CherryBlossomClearing().getBiome());
-        CONIFEROUS_CLEARING = WorldGenRegistrationHelper.createBiome("coniferous_clearing", new ConiferousClearing().getBiome());
-        DECIDUOUS_CLEARING = WorldGenRegistrationHelper.createBiome("deciduous_clearing", new DeciduousClearing().getBiome());
-        EVERGREEN_CLEARING = WorldGenRegistrationHelper.createBiome("evergreen_clearing", new EvergreenClearing().getBiome());
-        GUIANA_CLEARING = WorldGenRegistrationHelper.createBiome("guiana_clearing", new GuianaClearing().getBiome());
-        JACARANDA_CLEARING = WorldGenRegistrationHelper.createBiome("jacaranda_clearing", new JacarandaClearing().getBiome());
-        PRAIRIE_CLEARING = WorldGenRegistrationHelper.createBiome("prairie_clearing", new PrairieClearing().getBiome());
-        REDWOOD_CLEARING = WorldGenRegistrationHelper.createBiome("redwood_clearing", new RedwoodClearing().getBiome());
-        SEASONAL_DECIDUOUS_CLEARING = WorldGenRegistrationHelper.createBiome("seasonal_deciduous_clearing", new SeasonalDeciduousClearing().getBiome());
-        SNOWY_CONIFEROUS_CLEARING = WorldGenRegistrationHelper.createBiome("snowy_coniferous_clearing", new SnowyConiferousClearing().getBiome());
-        SNOWY_DECIDUOUS_CLEARING = WorldGenRegistrationHelper.createBiome("snowy_deciduous_clearing", new SnowyDeciduousClearing().getBiome());
-        SNOWY_EVERGREEN_CLEARING = WorldGenRegistrationHelper.createBiome("snowy_evergreen_clearing", new SnowyEvergreenClearing().getBiome());
-        WEEPING_WTICH_CLEARING = WorldGenRegistrationHelper.createBiome("weeping_witch_clearing", new WeepingWitchClearing().getBiome());
-        ZELKOVA_CLEARING = WorldGenRegistrationHelper.createBiome("zelkova_clearing", new ZelkovaClearing().getBiome());
-
-
-        CANYON_EDGE = WorldGenRegistrationHelper.createBiome("canyon_edge", new CanyonEdge().getBiome());
-
-
-        FLOWERING_ANCIENT_FOREST = WorldGenRegistrationHelper.createBiome("flowering_ancient_forest", new FloweringAncientForest().getBiome());
-        FLOWERING_ENCHANTED_GROVE = WorldGenRegistrationHelper.createBiome("flowering_enchanted_grove", new FloweringEnchantedGrove().getBiome());
-        FLOWERING_GROVE = WorldGenRegistrationHelper.createBiome("flowering_grove", new FloweringGrove().getBiome());
-        FLOWERING_MEADOW = WorldGenRegistrationHelper.createBiome("flowering_meadow", new FloweringMeadow().getBiome());
-
-
-        ARAUCARIA_FOREST = WorldGenRegistrationHelper.createBiome("araucaria_forest", new AraucariaForest().getBiome());
-        BAMBOO_FOREST = WorldGenRegistrationHelper.createBiome("bamboo_forest", new BambooForest().getBiome());
-        FOREST_FAULT = WorldGenRegistrationHelper.createBiome("forest_fault", new ForestFault().getBiome());
-        GLOWING_ANCIENT_FOREST = WorldGenRegistrationHelper.createBiome("glowing_ancient_forest", new GlowingAncientForest().getBiome());
-        NORTHERN_FOREST = WorldGenRegistrationHelper.createBiome("northern_forest", new NorthernForest().getBiome());
-        POINTY_STONE_FOREST = WorldGenRegistrationHelper.createBiome("pointed_stone_forest", new PointedStoneForest().getBiome());
-        PUMPKIN_FOREST = WorldGenRegistrationHelper.createBiome("pumpkin_forest", new PumpkinForest().getBiome());
-
-
-        ALPINE_FOOTHILLS = WorldGenRegistrationHelper.createBiome("alpine_foothills", new AlpineFoothills().getBiome());
-        ASPEN_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("aspen_forest_hills", new AspenForestHills().getBiome());
-        BLACK_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("black_forest_hills", new BlackForestHills().getBiome());
-        BLUE_TAIGA_HILLS = WorldGenRegistrationHelper.createBiome("blue_taiga_hills", new BlueTaigaHills().getBiome());
-        BOREAL_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("boreal_forest_hills", new BorealForestHills().getBiome());
-        CONIFEROUS_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("coniferous_forest_hills", new ConiferousForestHills().getBiome());
-        DECIDUOUS_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("deciduous_forest_hills", new DeciduousForestHills().getBiome());
-        EBONY_HILLS = WorldGenRegistrationHelper.createBiome("ebony_hills", new EbonyHills().getBiome());
-        ENCHANTED_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("enchanted_forest_hills", new EnchantedForestHills().getBiome());
-        EVERGREEN_HILLS = WorldGenRegistrationHelper.createBiome("evergreen_hills", new EvergreenHills().getBiome());
-        JACARANDA_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("jacaranda_forest_hills", new JacarandaForestHills().getBiome());
-        MAPLE_HILLS = WorldGenRegistrationHelper.createBiome("maple_hills", new MapleHills().getBiome());
-        RED_OAK_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("red_oak_forest_hills", new RedOakForestHills().getBiome());
-        SEASONAL_BIRCH_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("seasonal_birch_forest_hills", new SeasonalBirchForestHills().getBiome());
-        SEASONAL_DECIDUOUS_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("seasonal_deciduous_forest_hills", new SeasonalDeciduousForestHills().getBiome());
-        SEASONAL_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("seasonal_forest_hills", new SeasonalForestHills().getBiome());
-        SEASONAL_TAIGA_HILLS = WorldGenRegistrationHelper.createBiome("seasonal_taiga_hills", new SeasonalTaigaHills().getBiome());
-        SNOWY_BLUE_TAIGA_HILLS = WorldGenRegistrationHelper.createBiome("snowy_blue_taiga_hills", new SnowyBlueTaigaHills().getBiome());
-        SNOWY_CONIFEROUS_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("snowy_coniferous_forest_hills", new SnowyConiferousForestHills().getBiome());
-        SNOWY_DECIDUOUS_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("snowy_deciduous_forest_hills", new SnowyDeciduousForestHills().getBiome());
-        SNOWY_EVERGREEN_HILLS = WorldGenRegistrationHelper.createBiome("snowy_evergreen_hills", new SnowyEvergreenHills().getBiome());
-        TROPICAL_FUNGAL_RAINFOREST_HILLS = WorldGenRegistrationHelper.createBiome("tropical_fungal_rainforest_hills", new TropicalFungalRainforestHills().getBiome());
-        TROPICAL_RAINFOREST_HILLS = WorldGenRegistrationHelper.createBiome("tropical_rainforest_hills", new TropicalRainForestHills().getBiome());
-        TWILIGHT_VALLEY_HILLS = WorldGenRegistrationHelper.createBiome("twilight_valley_hills", new TwilightValleyHills().getBiome());
-        ZELKOVA_FOREST_HILLS = WorldGenRegistrationHelper.createBiome("zelkova_forest_hills", new ZelkovaForestHills().getBiome());
-
-
-        FRESH_WATER_LAKE = WorldGenRegistrationHelper.createBiome("fresh_water_lake", new FreshWaterLake().getBiome());
-        FROZEN_LAKE = WorldGenRegistrationHelper.createBiome("frozen_lake", new FrozenLake().getBiome());
-        OASIS = WorldGenRegistrationHelper.createBiome("oasis", new Oasis().getBiome());
-        POLLUTED_LAKE = WorldGenRegistrationHelper.createBiome("polluted_lake", new PollutedLake().getBiome());
-
-
-        BLUFF_PEAKS = WorldGenRegistrationHelper.createBiome("bluff_peaks", new BluffPeaks().getBiome());
-        CIKA_MOUNTAINS = WorldGenRegistrationHelper.createBiome("cika_mountains", new CikaMountains().getBiome());
-        REDWOOD_MOUNTAINS = WorldGenRegistrationHelper.createBiome("redwood_mountains", new RedwoodMountains().getBiome());
-        WOODED_RED_ROCK_MOUNTAINS = WorldGenRegistrationHelper.createBiome("wooded_red_rock_mountains", new WoodedRedRockMountains().getBiome());
-
-
-        BLUE_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("blue_giant_taiga", new BlueGiantTaiga().getBiome());
-        CORAL_MANGROVES = WorldGenRegistrationHelper.createBiome("coral_mangroves", new CoralMangroves().getBiome());
-        FUNGAL_PATCH = WorldGenRegistrationHelper.createBiome("fungal_patch", new FungalPatch().getBiome());
-        GREAT_LAKE_ISLES = WorldGenRegistrationHelper.createBiome("great_lake_isles", new GreatLakeIsles().getBiome());
-        LUSH_RED_DESERT = WorldGenRegistrationHelper.createBiome("lush_red_desert", new LushRedDesert().getBiome());
-        RED_ROCK_LOWLANDS = WorldGenRegistrationHelper.createBiome("red_rock_lowlands", new RedRockLowlands().getBiome());
-        RED_ROCK_HIGHLANDS = WorldGenRegistrationHelper.createBiome("red_rock_highlands", new RedRockHighlands().getBiome());
-        RED_SPRUCE_TAIGA = WorldGenRegistrationHelper.createBiome("red_spruce_taiga", new RedSpruceTaiga().getBiome());
-        SIERRA_RANGE = WorldGenRegistrationHelper.createBiome("sierra_range", new SierraRange().getBiome());
-        WOODED_GRASSLAND_PLATEAU = WorldGenRegistrationHelper.createBiome("wooded_grassland_plateau", new WoodedGrasslandPlateau().getBiome());
-        SNOWY_BLUE_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_blue_giant_taiga", new SnowyBlueGiantTaiga().getBiome());
-        WOODED_MEADOW = WorldGenRegistrationHelper.createBiome("wooded_meadow", new WoodedMeadow().getBiome());
-
-        BRIMSTONE_CAVERNS = WorldGenRegistrationHelper.createBiome("brimstone_caverns", new BrimstoneCaverns().getBiome());
-        CRIMSON_GARDENS = WorldGenRegistrationHelper.createBiome("crimson_gardens", new CrimsonGardens().getBiome());
-        EMBUR_BOG = WorldGenRegistrationHelper.createBiome("embur_bog", new EmburBog().getBiome());
-        GLOWSTONE_GARDENS = WorldGenRegistrationHelper.createBiome("glowstone_gardens", new GlowstoneGardens().getBiome());
-        MAGMA_WASTES = WorldGenRegistrationHelper.createBiome("magma_wastes", new MagmaWastes().getBiome());
-        SUBZERO_HYPOGEAL = WorldGenRegistrationHelper.createBiome("subzero_hypogeal", new SubzeroHypogeal().getBiome());
-        SYTHIAN_TORRIDS = WorldGenRegistrationHelper.createBiome("sythian_torrids", new SythianTorrids().getBiome());
-        WARPED_DESERT = WorldGenRegistrationHelper.createBiome("warped_desert", new WarpedDesert().getBiome());
-        WAILING_GARTH = WorldGenRegistrationHelper.createBiome("wailing_garth", new WailingGarth().getBiome());
-        WITHERING_WOODS = WorldGenRegistrationHelper.createBiome("withering_woods", new WitheringWoods().getBiome());
-        WEEPING_MIRE = WorldGenRegistrationHelper.createBiome("weeping_mire", new WeepingMire().getBiome());
-        QUARTZ_DESERT = WorldGenRegistrationHelper.createBiome("quartz_desert", new QuartzDesert().getBiome());
-
-        IVIS_FIELDS = WorldGenRegistrationHelper.createBiome("ivis_fields", new IvisFields().getBiome());
-        NIGHTSHADE_FOREST = WorldGenRegistrationHelper.createBiome("nightshade_forest", new NightshadeForest().getBiome());
-        ETHEREAL_ISLANDS = WorldGenRegistrationHelper.createBiome("ethereal_islands", new EtherealIslands().getBiome());
-        VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("viscal_isles", new ViscalIsles().getBiome());
-        BULBIS_GARDENS = WorldGenRegistrationHelper.createBiome("bulbis_gardens", new BulbisGardens().getBiome());
-        SHATTERED_DESERT = WorldGenRegistrationHelper.createBiome("shattered_desert", new ShatteredDesert().getBiome());
-        SHULKREN_FOREST = WorldGenRegistrationHelper.createBiome("shulkren_forest", new ShulkrenForest().getBiome());
-        PURPUR_PEAKS = WorldGenRegistrationHelper.createBiome("purpur_peaks", new PurpurPeaks().getBiome());
-        CRYPTIC_WASTES = WorldGenRegistrationHelper.createBiome("cryptic_wastes", new CrypticWastes().getBiome());
+    public static void init() {
     }
 
     public static void addBiomeEntries() {

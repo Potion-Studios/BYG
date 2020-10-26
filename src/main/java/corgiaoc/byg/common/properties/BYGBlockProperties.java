@@ -51,6 +51,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -65,6 +66,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -79,6 +81,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -93,6 +96,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -107,6 +111,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -121,6 +126,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -134,6 +140,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -146,6 +153,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -158,6 +166,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -172,6 +181,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -185,6 +195,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -199,6 +210,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -212,6 +224,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -225,6 +238,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -238,6 +252,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -251,6 +266,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -264,6 +280,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -278,6 +295,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -292,6 +310,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -309,6 +328,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -325,6 +345,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -338,6 +359,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -350,6 +372,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -362,6 +385,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -376,6 +400,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -391,6 +416,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -405,6 +431,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
 
     }
@@ -420,6 +447,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
 
     }
@@ -434,6 +462,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -445,6 +474,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -457,6 +487,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -470,6 +501,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -483,6 +515,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -496,6 +529,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -510,6 +544,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -524,6 +559,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -539,6 +575,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -554,6 +591,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -568,6 +606,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -583,6 +622,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -595,6 +635,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -608,6 +649,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -622,6 +664,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -635,6 +678,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -648,6 +692,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -661,6 +706,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -674,6 +720,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -689,6 +736,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -703,6 +751,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -717,6 +766,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
 
         }
     }
@@ -730,6 +780,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -745,6 +796,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -756,6 +808,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -767,6 +820,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -778,6 +832,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -789,6 +844,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -802,6 +858,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -815,6 +872,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -830,6 +888,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -843,6 +902,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -858,6 +918,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -871,6 +932,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -884,6 +946,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -897,6 +960,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -914,6 +978,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -928,6 +993,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -941,6 +1007,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -954,6 +1021,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -968,6 +1036,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -979,6 +1048,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -999,6 +1069,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1013,6 +1084,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1028,6 +1100,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1042,6 +1115,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1056,6 +1130,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1070,6 +1145,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1084,6 +1160,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1098,6 +1175,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1112,6 +1190,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1124,6 +1203,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1137,6 +1217,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
     }
@@ -1150,6 +1231,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
 
@@ -1167,6 +1249,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
 
@@ -1186,6 +1269,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
 
@@ -1204,6 +1288,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
 
@@ -1224,6 +1309,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1235,6 +1321,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1247,6 +1334,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1260,6 +1348,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1273,6 +1362,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1286,6 +1376,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1297,6 +1388,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 
@@ -1311,6 +1403,7 @@ public class BYGBlockProperties {
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
         }
     }
 }

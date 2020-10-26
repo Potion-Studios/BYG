@@ -15,8 +15,13 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @SuppressWarnings("deprecation")
 public class BYGItems {
+
+    public static Set<Item> itemsList = new HashSet<>();
 
     public static final Item BYG_LOGO = createItem(new Item((new Item.Properties())), "byg_logo");
     public static final Item PEAT = createItem(new BlockItem(BYGBlocks.PEAT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PEAT));
@@ -1103,6 +1108,7 @@ public class BYGItems {
         if (id != null && !id.equals(new ResourceLocation("minecraft:air"))) {
 //            Registry.register(Registry.ITEM, id, item);
             item.setRegistryName(id); //Forge
+            itemsList.add(item);
             return item;
         } else {
             return null;
@@ -1112,6 +1118,7 @@ public class BYGItems {
     public static Item createItem(Item item, String id) {
 //        Registry.register(Registry.ITEM, new ResourceLocation(BYG.MOD_ID, id), item);
         item.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        itemsList.add(item);
         return item;
     }
 
