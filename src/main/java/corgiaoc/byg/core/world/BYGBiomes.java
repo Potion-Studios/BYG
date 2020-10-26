@@ -51,7 +51,6 @@ public class BYGBiomes {
     public static final Biome BAOBAB_SAVANNA = WorldGenRegistrationHelper.createBiome("baobab_savanna", new BaobabSavanna().getBiome());
     public static final Biome BAYOU = WorldGenRegistrationHelper.createBiome("bayou", new Bayou().getBiome());
     public static final Biome BLUE_TAIGA = WorldGenRegistrationHelper.createBiome("blue_taiga", new BlueTaiga().getBiome());
-    //    public static final Biome COLOSSAL_ICE_SPIKES = WorldGenRegistrationHelper.createBiome("colossal_ice_spikes", new ColossalIceSpikes().getBiome());
     public static final Biome BLUFF_STEEPS = WorldGenRegistrationHelper.createBiome("bluff_steeps", new BluffSteeps().getBiome());
     public static final Biome BOG = WorldGenRegistrationHelper.createBiome("bog", new Bog().getBiome());
     public static final Biome BOREAL_FOREST = WorldGenRegistrationHelper.createBiome("boreal_forest", new BorealForest().getBiome());

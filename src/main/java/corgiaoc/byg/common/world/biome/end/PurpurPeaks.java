@@ -1,6 +1,5 @@
 package corgiaoc.byg.common.world.biome.end;
 
-import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
@@ -46,8 +45,8 @@ public class PurpurPeaks extends BYGEndBiome {
 
 
     static {
-        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.PURPUR_SPIKES);
-        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.PURPUR_SPIKES2);
+        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.PURPUR_PEAK);
+//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.PURPUR_SPIKES2);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CHORUS_PLANT);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CHORUS_PLANT);
         GENERATION_SETTINGS.withStructure(StructureFeatures.field_244151_q).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);

@@ -6,6 +6,7 @@ import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloating
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands2;
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands3;
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands4;
+import corgiaoc.byg.common.world.feature.end.purpurpeaks.PurpurPeak;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree1;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree2;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree3;
@@ -151,6 +152,7 @@ public class BYGFeatures {
     public static final Feature<SimpleBlockProviderConfig> VOLCANO = WorldGenRegistrationHelper.createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<BoulderConfig> STACKABLE_BOULDERS = WorldGenRegistrationHelper.createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> ARCH = WorldGenRegistrationHelper.createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
+    public static final Feature<SimpleBlockProviderConfig> PURPUR_PEAK = WorldGenRegistrationHelper.createFeature("purpur_peak", new PurpurPeak(SimpleBlockProviderConfig.CODEC.stable()));
 
     /********************************************************************Features*************************************************************************/
     //DeadSea

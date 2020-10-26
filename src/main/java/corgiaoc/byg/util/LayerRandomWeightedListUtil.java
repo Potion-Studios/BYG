@@ -14,7 +14,7 @@ public class LayerRandomWeightedListUtil {
     }
 
     private static Stream<Biome> getShuffledStream(WeightedList<Biome> biomeWeightedList, INoiseRandom layerNoise) {
-        biomeWeightedList.field_220658_a.forEach((biomeEntry) -> {
+        biomeWeightedList.field_220658_a.stream().forEachOrdered((biomeEntry) -> {
             biomeEntry.field_220653_d = (float) -Math.pow((double)layerNoise.random(101) * 0.01F, 1.0F / (float)biomeEntry.field_220652_c);
 
         });
