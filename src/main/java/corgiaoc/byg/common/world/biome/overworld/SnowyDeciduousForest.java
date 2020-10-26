@@ -49,7 +49,7 @@ public class SnowyDeciduousForest extends BYGBiome {
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
         biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_DECIDUOUS_FOREST_HILLS, 4);
-        biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_CONIFEROUS_CLEARING, 3);
+        biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_DECIDUOUS_CLEARING, 3);
         biomeWeightedList.func_226313_a_(BYGBiomes.FROZEN_LAKE, 3);
         return biomeWeightedList;
     }

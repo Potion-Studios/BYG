@@ -1215,7 +1215,7 @@ public class BYGBlocks {
     }
 
     static Block createDirtSpreadable(Block blockToSpreadToo, String id) {
-        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.SHOVEL), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
+        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.4f).tickRandomly().harvestTool(ToolType.SHOVEL), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
         return spreadableDirt;
     }
@@ -1227,19 +1227,19 @@ public class BYGBlocks {
     }
 
     static Block createEndSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
+        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
         return spreadableDirt;
     }
 
     static Block createNetherSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4F).tickRandomly().harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4F).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
         return spreadableDirt;
     }
 
     static Block createNetherStoneSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        Block spreadableDirt = new SpreadableBlock(Block.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
         Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), spreadableDirt);
         return spreadableDirt;
     }

@@ -39,6 +39,13 @@ public class SnowyConiferousForest extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 
+    @Nullable
+    @Override
+    public Biome getBeach() {
+        return BYGBiomes.SNOWY_ROCKY_BLACK_BEACH;
+    }
+
+
     @Override
     public Biome getRiver() {
         return WorldGenRegistries.BIOME.getOrThrow(Biomes.FROZEN_RIVER);
@@ -49,7 +56,7 @@ public class SnowyConiferousForest extends BYGBiome {
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
         biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_CONIFEROUS_CLEARING, 4);
-        biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_DECIDUOUS_FOREST_HILLS, 3);
+        biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_CONIFEROUS_FOREST_HILLS, 3);
         biomeWeightedList.func_226313_a_(BYGBiomes.FROZEN_LAKE, 3);
         return biomeWeightedList;
     }
