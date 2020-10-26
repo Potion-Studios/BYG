@@ -11,13 +11,15 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBasaltFeatures(BiomeGenerationSettings.Builder gen) {
-//        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_BLOBS);
-//        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_BLOBS2);
-//        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_SPRING);
         gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.LARGE_BASALT_COLUMN);
         gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.SMALL_BASALT_COLUMN);
         gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BASALT_DELTA);
     }
+
+    public static void addBeeHive(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.BEEHIVES);
+    }
+
 
     public static void addAmaranthFieldFlowers(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_AMARANTH_FLOWER);

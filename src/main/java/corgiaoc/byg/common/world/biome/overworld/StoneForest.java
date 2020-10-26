@@ -93,6 +93,7 @@ public class StoneForest extends BYGBiome {
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_AMETRINE);
+        BYGDefaultBiomeFeatures.addBeeHive(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

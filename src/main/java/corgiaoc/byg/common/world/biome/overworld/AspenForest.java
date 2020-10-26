@@ -85,6 +85,7 @@ public class AspenForest extends BYGBiome {
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addYellowDaffodil(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addOrangeDaisy(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBeeHive(GENERATION_SETTINGS);
 
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
