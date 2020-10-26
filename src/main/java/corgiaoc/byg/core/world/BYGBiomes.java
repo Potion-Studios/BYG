@@ -243,7 +243,7 @@ public class BYGBiomes {
     public static Biome CRYPTIC_WASTES = WorldGenRegistrationHelper.createBiome("cryptic_wastes", new CrypticWastes().getBiome());
 
 
-    public static void init() {
+    public static void init() {//This was done desperately...
         ALLIUM_FIELDS = WorldGenRegistrationHelper.createBiome("allium_fields", new AlliumFields().getBiome());
         ALPS = WorldGenRegistrationHelper.createBiome("alps", new Alps().getBiome());
         AMARANTH_FIELDS = WorldGenRegistrationHelper.createBiome("amaranth_fields", new AmaranthFields().getBiome());
