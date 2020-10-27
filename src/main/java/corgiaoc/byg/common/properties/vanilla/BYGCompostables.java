@@ -53,6 +53,12 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.YELLOW_BIRCH_LEAVES);
         compostibleBlocks(0.3f, BYGItems.YELLOW_SPRUCE_LEAVES);
         compostibleBlocks(0.3f, BYGItems.RED_SPRUCE_LEAVES);
+        compostibleBlocks(0.3f, BYGItems.PALM_LEAVES);
+        compostibleBlocks(0.3f, BYGItems.BROWN_ZELKOVA_LEAVES);
+        compostibleBlocks(0.3f, BYGItems.ETHER_LEAVES);
+        compostibleBlocks(0.3f, BYGItems.NIGHTSHADE_LEAVES);
+        compostibleBlocks(0.3f, BYGItems.LAMENT_LEAVES);
+        compostibleBlocks(0.3f, BYGItems.WITHERING_OAK_LEAVES);
 
         //Saplings
         compostibleBlocks(0.3f, BYGItems.ASPEN_SAPLING);
@@ -88,7 +94,12 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.YELLOW_BIRCH_SAPLING);
         compostibleBlocks(0.3f, BYGItems.YELLOW_SPRUCE_SAPLING);
         compostibleBlocks(0.3f, BYGItems.RED_SPRUCE_SAPLING);
-
+        compostibleBlocks(0.3f, BYGItems.PALM_SAPLING);
+        compostibleBlocks(0.3f, BYGItems.BROWN_ZELKOVA_SAPLING);
+        compostibleBlocks(0.3f, BYGItems.ETHER_SAPLING);
+        compostibleBlocks(0.3f, BYGItems.NIGHTSHADE_SAPLING);
+        compostibleBlocks(0.3f, BYGItems.LAMENT_SAPLING);
+        compostibleBlocks(0.3f, BYGItems.WITHERING_OAK_SAPLING);
 
         //Flowers
         compostibleBlocks(0.65f, BYGItems.ALLIUM_FLOWER_BUSH);
@@ -150,6 +161,14 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.WINTER_SCILLA);
         compostibleBlocks(0.65f, BYGItems.YELLOW_DAFFODIL);
         compostibleBlocks(0.65f, BYGItems.YELLOW_TULIP);
+        compostibleBlocks(0.65f, BYGItems.THEREAL_BELLFLOWER);
+        compostibleBlocks(0.65f, BYGItems.VERMILION_SCULK_GROWTH);
+        compostibleBlocks(0.65f, BYGItems.SHULKREN_MOSS_BLANKET);
+        compostibleBlocks(0.65f, BYGItems.SHULKREN_VINE);
+        compostibleBlocks(0.65f, BYGItems.LAMENT_VINE);
+        compostibleBlocks(0.65f, BYGItems.SKYRIS_VINE);
+        compostibleBlocks(0.65f, BYGItems.WHALING_VINES);
+        compostibleBlocks(0.65f, BYGItems.EMBUR_GEL_VINES);
 
         //Mushroom Blocks
         compostibleBlocks(0.85f, BYGItems.GREEN_MUSHROOM_BLOCK);
@@ -158,6 +177,13 @@ public class BYGCompostables {
         compostibleBlocks(0.85f, BYGItems.PUFF_MUSHROOM_BLOCK);
         compostibleBlocks(0.85f, BYGItems.WHITE_MUSHROOM_STEM);
         compostibleBlocks(0.85f, BYGItems.BROWN_MUSHROOM_STEM);
+        compostibleBlocks(0.85f, BYGItems.SOUL_SHROOM_STEM);
+        compostibleBlocks(0.85f, BYGItems.SOUL_SHROOM_BLOCK);
+        compostibleBlocks(0.85f, BYGItems.DEATH_CAP_MUSHROOM_BLOCK);
+        compostibleBlocks(0.85f, BYGItems.SHULKREN_WART_BLOCK);
+        compostibleBlocks(0.85f, BYGItems.PURPLE_SHROOMLIGHT);
+        compostibleBlocks(0.85f, BYGItems.PURPLE_BULBIS_SHELL);
+        compostibleBlocks(0.85f, BYGItems.BULBIS_SHELL);
 
         //Foods
         compostibleBlocks(0.65f, BYGItems.CRIMSON_BERRIES);
@@ -166,8 +192,20 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.BLACK_PUFF);
         compostibleBlocks(0.65f, BYGItems.WEEPING_MILKCAP);
         compostibleBlocks(0.65f, BYGItems.WOOD_BLEWIT);
+        compostibleBlocks(0.65f, BYGItems.NIGHTSHADE_BERRIES);
+        compostibleBlocks(0.65f, BYGItems.BLUE_BERRY);
+        compostibleBlocks(0.65f, BYGItems.SHULKREN_FUNGUS);
+        compostibleBlocks(0.65f, BYGItems.SYTHIAN_FUNGUS);
+        compostibleBlocks(0.65f, BYGItems.EMBUR_WART);
+        compostibleBlocks(0.65f, BYGItems.DEATH_CAP);
+        compostibleBlocks(0.65f, BYGItems.SOUL_SHROOM);
+        compostibleBlocks(0.65f, BYGItems.BAOBAB_FRUIT);
+        compostibleBlocks(0.65f, BYGItems.BULBIS_ODDITY);
+        compostibleBlocks(0.65f, BYGItems.PURPLE_BULBIS_ODDITY);
 
         //Plants
+        compostibleBlocks(0.65f, BYGItems.LEAF_PILE);
+        compostibleBlocks(0.65f, BYGItems.SYTHIAN_STALK_BLOCK);
         compostibleBlocks(0.65f, BYGItems.CATTAIL);
         compostibleBlocks(0.65f, BYGItems.REEDS);
         compostibleBlocks(0.65f, BYGItems.HORSEWEED);
@@ -177,6 +215,8 @@ public class BYGCompostables {
         compostibleBlocks(0.35f, BYGItems.SHORT_GRASS);
         compostibleBlocks(0.75f, BYGItems.POISON_IVY);
         compostibleBlocks(0.65f, BYGItems.TINY_LILYPADS);
+        compostibleBlocks(0.65f, BYGItems.ENDER_LILY);
+        compostibleBlocks(0.65f, BYGItems.EMBUR_LILY);
 
         BYG.LOGGER.info("BYG: Compostible Blocks Added!");
     }

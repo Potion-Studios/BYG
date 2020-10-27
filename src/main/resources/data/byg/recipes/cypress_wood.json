@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:cypress_log"
+    }
+  },
+  "result": {
+    "item": "byg:cypress_wood",
+    "count": 3
+  }
+}

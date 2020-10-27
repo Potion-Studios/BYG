@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:witch_hazel_log"
+    }
+  },
+  "result": {
+    "item": "byg:witch_hazel_wood",
+    "count": 3
+  }
+}
