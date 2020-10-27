@@ -28,15 +28,14 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
 public class BYGBiomes {
-    public static Set<Biome> biomeList = new HashSet<>();
+    public static List<Biome> biomeList = new ArrayList<>();
 
     public static Biome DUMMY_BIOME = WorldGenRegistrationHelper.createBiome("dummy", new DummySubBiome().getBiome());
 

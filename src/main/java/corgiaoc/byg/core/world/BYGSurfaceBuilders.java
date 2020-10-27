@@ -9,11 +9,11 @@ import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BYGSurfaceBuilders {
-    public static Set<SurfaceBuilder<?>> surfaceBuilders = new HashSet<>();
+    public static List<SurfaceBuilder<?>> surfaceBuilders = new ArrayList<>();
 
     public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL = WorldGenRegistrationHelper.createSurfaceBuilder("boreal", new BorealForestSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> BASALT_BARRERA = WorldGenRegistrationHelper.createSurfaceBuilder("basalt_barrera", new BasaltBarreraSB(SurfaceBuilderConfig.field_237203_a_));

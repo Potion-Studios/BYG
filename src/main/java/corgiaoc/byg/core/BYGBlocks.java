@@ -32,7 +32,7 @@ import java.util.Set;
 
 @SuppressWarnings("deprecation")
 public class BYGBlocks {
-    public static Set<Block> blocksList = new HashSet<>();
+    public static List<Block> blocksList = new ArrayList<>();
 
     
     public static List<Block> flowerPotBlocks = new ArrayList<>();
