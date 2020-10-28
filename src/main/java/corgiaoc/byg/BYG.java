@@ -50,6 +50,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.nio.file.Path;
+import java.util.Comparator;
 
 @Mod("byg")
 public class BYG {
@@ -147,7 +148,8 @@ public class BYG {
         public static void registerBiomes(RegistryEvent.Register<Biome> event) {
             BYG.LOGGER.debug("BYG: Registering biomes...");
             BYGBiomes.init();
-            BYGBiomes.biomeList.forEach(biome -> event.getRegistry().register(biome));
+            BYGBiomes.biomeList.sort(Comparator.comparingInt(BYGBiomes.PreserveBiomeOrder::getOrderPosition));
+            BYGBiomes.biomeList.forEach(preserveBiomeOrder -> event.getRegistry().register(preserveBiomeOrder.getBiome()));
             BYG.LOGGER.info("BYG: Biomes registered!");
         }
 
