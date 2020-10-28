@@ -47,7 +47,7 @@ public class SeasonalForest extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.func_226313_a_(BYGBiomes.SEASONAL_BIRCH_FOREST_HILLS, 7);
+        biomeWeightedList.func_226313_a_(BYGBiomes.SEASONAL_FOREST, 7);
         biomeWeightedList.func_226313_a_(BYGBiomes.FRESH_WATER_LAKE, 3);
         return biomeWeightedList;
     }
