@@ -324,6 +324,7 @@ public class BYGBlockProperties {
                     .slipperiness(0.98F)
                     .setLightLevel((state) -> 10)
                     .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
 
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -341,6 +342,7 @@ public class BYGBlockProperties {
                     .notSolid()
                     .setLightLevel((state) -> 10)
                     .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
 
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -1065,6 +1067,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(3.0f, 3.0f)
                     .harvestLevel(3)
                     .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
 
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -1080,6 +1083,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(3.0f, 3.0f)
                     .harvestLevel(3)
                     .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
 
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -1096,6 +1100,7 @@ public class BYGBlockProperties {
                     .harvestLevel(4)
                     .setLightLevel((state) -> 13)
                     .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
 
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -1111,6 +1116,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.4F, 0.4F)
                     .harvestLevel(3)
                     .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
 
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -1318,6 +1324,8 @@ public class BYGBlockProperties {
             super(Blocks.COBBLESTONE.getDefaultState(), Block.Properties.from(Blocks.COBBLESTONE)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(2.0f, 6.0f)
+                    .setRequiresTool()
+                    .harvestTool(ToolType.PICKAXE)
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
@@ -1344,6 +1352,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
                     .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
 
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -1358,6 +1367,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.NETHERRACK)
                     .hardnessAndResistance(0.4F, 0.4F)
                     .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
 
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -1372,6 +1382,7 @@ public class BYGBlockProperties {
                     .sound(SoundType.NETHERRACK)
                     .hardnessAndResistance(0.4F, 0.4F)
                     .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
 
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -1385,6 +1396,9 @@ public class BYGBlockProperties {
             super(Block.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(1.5f, 6.0f)
+                    .setRequiresTool()
+                    .harvestTool(ToolType.PICKAXE)
+
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
@@ -1400,6 +1414,8 @@ public class BYGBlockProperties {
                     .setLightLevel((state) -> 15)
                     .notSolid()
                     .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
+
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge

@@ -75,7 +75,7 @@ public class TreeSpawners {
     public static class BrownOak extends TreeSpawner {
         @Nullable
         public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {
-            return BYGConfiguredFeatures.OAK_BROWN_TREE1;
+            return BYGConfiguredFeatures.BROWN_OAK_TREE1;
         }
     }
 
@@ -96,7 +96,7 @@ public class TreeSpawners {
     public static class OrangeOak extends TreeSpawner {
         @Nullable
         public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {
-            return BYGConfiguredFeatures.OAK_ORANGE_TREE;
+            return BYGConfiguredFeatures.ORANGE_OAK_TREE2;
         }
     }
 
@@ -104,7 +104,7 @@ public class TreeSpawners {
     public static class RedOak extends TreeSpawner {
         @Nullable
         public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {
-            return BYGConfiguredFeatures.OAK_RED_TREE;
+            return BYGConfiguredFeatures.RED_OAK_TREE3;
         }
     }
 

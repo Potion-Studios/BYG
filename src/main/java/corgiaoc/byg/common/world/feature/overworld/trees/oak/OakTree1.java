@@ -29,9 +29,6 @@ public class OakTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.setPos(pos).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 0).toImmutable(), mainmutable.setPos(pos).move(0, 0, -1).toImmutable(), mainmutable.setPos(pos).move(1, 0, 0).toImmutable());
-                mainmutable.setPos(pos);
-
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 0, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 1, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 2, 0), boundsIn);
@@ -137,9 +134,7 @@ public class OakTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(4, 7, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(4, 7, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(4, 7, 1), boundsIn);
-                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(4, 7, 4), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(4, 7, 6), boundsIn);
-                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(5, 7, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(5, 7, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-3, 8, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-3, 8, 1), boundsIn);
@@ -303,7 +298,6 @@ public class OakTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 10, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 10, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 10, 3), boundsIn);
-                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 10, 5), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 10, 6), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 10, 7), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 10, -3), boundsIn);
@@ -312,7 +306,6 @@ public class OakTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 10, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 10, 3), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 10, 4), boundsIn);
-                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 10, 6), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(3, 10, -3), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(3, 10, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(3, 10, -1), boundsIn);
@@ -342,7 +335,6 @@ public class OakTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 11, 3), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 11, 4), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 11, 5), boundsIn);
-                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 11, 6), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 11, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 11, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 11, 1), boundsIn);
@@ -350,10 +342,7 @@ public class OakTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(3, 11, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(3, 11, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 12, 0), boundsIn);
-                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 12, 5), boundsIn);
-                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 12, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 12, 0), boundsIn);
-                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 12, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 12, 0), boundsIn);
             }
         }

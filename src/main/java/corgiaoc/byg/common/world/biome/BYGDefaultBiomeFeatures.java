@@ -573,7 +573,8 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addRedOakForestTrees(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_RED_OAK_FOREST_TREE);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_OAK_TREE);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_RED_OAK_TREE);
     }
 
     public static void addJacarandaTrees(BiomeGenerationSettings.Builder gen) {
@@ -585,7 +586,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSparseRedOakForestTrees(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_RED_OAK_FOREST_SPARSE_TREE);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_RED_OAK_TREE);
     }
 
     public static void addSeasonalBirchForestTrees(BiomeGenerationSettings.Builder gen) {
@@ -605,7 +606,10 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSeasonalForestTrees(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SEASONAL_FOREST_TREE);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_OAK_TREE);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_RED_OAK_TREE);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ORANGE_OAK_TREE);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BROWN_OAK_TREE);
     }
 
     public static void addSeasonalTaigaTrees(BiomeGenerationSettings.Builder gen) {

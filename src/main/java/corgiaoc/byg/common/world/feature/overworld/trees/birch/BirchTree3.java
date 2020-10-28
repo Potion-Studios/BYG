@@ -29,9 +29,6 @@ public class BirchTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.setPos(pos).move(0, 0, 0).toImmutable());
-
-
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 0, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 1, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 2, 0), boundsIn);
@@ -63,17 +60,21 @@ public class BirchTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 9, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 9, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 9, 0), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 10, 1), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 10, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 10, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 10, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 10, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 11, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 11, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 11, -1), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 11, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 11, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 12, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 12, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 12, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 12, -1), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 12, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 12, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-3, 13, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-3, 13, 1), boundsIn);
@@ -83,10 +84,14 @@ public class BirchTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 13, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 13, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 13, 0), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 13, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 13, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 13, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(3, 13, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 14, 2), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 14, -1), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 14, 0), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 14, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 14, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 14, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 14, 1), boundsIn);
@@ -99,6 +104,7 @@ public class BirchTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 15, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 15, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 15, 0), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 15, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 15, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 15, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 15, 1), boundsIn);
@@ -108,6 +114,8 @@ public class BirchTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 16, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 16, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 16, 2), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 16, 0), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 16, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 16, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(3, 16, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 17, 1), boundsIn);
@@ -117,25 +125,39 @@ public class BirchTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 17, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 17, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 17, 0), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 17, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 17, 0), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 17, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 17, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 17, 3), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 18, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 18, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 18, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 18, -3), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 18, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 18, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 18, -2), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 18, 0), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 18, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 18, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-3, 19, 0), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 19, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 19, -3), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 19, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 19, -1), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 19, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 19, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 19, 3), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 19, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 19, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 19, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 19, 3), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 19, -2), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 19, -1), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 19, 0), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 19, 1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 19, -2), boundsIn);
+                placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 19, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 19, 0), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 19, 2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(3, 19, 0), boundsIn);

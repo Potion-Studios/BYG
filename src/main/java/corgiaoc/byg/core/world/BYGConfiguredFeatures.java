@@ -49,8 +49,9 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> SUBZERO_ASH_BLOCK = WorldGenRegistrationHelper.createConfiguredFeature("subzero_ash_block", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.SUBZERO_ASH_BLOCK));
     public static final ConfiguredFeature<?, ?> QUARTZ_CRYSTAL = WorldGenRegistrationHelper.createConfiguredFeature("quartz_crystal", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.QUARTZ_CRYSTAL.getDefaultState(), ImmutableList.of(BYGBlocks.QUARTZITE_SAND.getDefaultState(), BYGBlocks.RAW_QUARTZ_BLOCK.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.QUARTZITE_SAND.getDefaultState(), BYGBlocks.RAW_QUARTZ_BLOCK.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE = WorldGenRegistrationHelper.createConfiguredFeature("cryptic_fire", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.CRYPTIC_FIRE));
+    public static final ConfiguredFeature<?, ?> PUMPKIN = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(Blocks.PUMPKIN.getDefaultState(), ImmutableList.of(BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState(), Blocks.PODZOL.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState(), Blocks.PODZOL.getDefaultState()))));
 
-    public static final ConfiguredFeature<?, ?> BEEHIVES = WorldGenRegistrationHelper.createConfiguredFeature("beehives", BYGFeatures.BEEHIVE.withConfiguration(new NoFeatureConfig()).func_242733_d(256).func_242728_a().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> BEEHIVES = WorldGenRegistrationHelper.createConfiguredFeature("beehives", BYGFeatures.BEEHIVE.withConfiguration(new NoFeatureConfig()).func_242733_d(256).func_242728_a().func_242731_b(10));
 
     //Giant Flowers
     public static final ConfiguredFeature<GiantFlowerConfig, ?> GIANT_ANGELICA_FLOWER = WorldGenRegistrationHelper.createConfiguredFeature("giant_angelica", BYGFeatures.GIANT_ANGELICA_FLOWER.withConfiguration(new GiantFlowerConfig.Builder().setStemBlock(BYGBlocks.PLANT_STEM).setPetalBlock(BYGBlocks.WHITE_PETAL).setMaxHeight(18).setMinHeight(12).build()));
@@ -706,7 +707,8 @@ public class BYGConfiguredFeatures {
             DEAD_SEA_SPIKE_TALL)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(28, 0.1F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("rs_large_pumpkin", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            PUMPKIN1.withChance(0.5F)),
+            PUMPKIN.withChance(0.45F),
+            PUMPKIN1.withChance(0.4F)),
             PUMPKIN2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
 
@@ -866,9 +868,33 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> OAK_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("oak_tree3", BYGFeatures.OAK_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> OAK_TREE_LARGE1 = WorldGenRegistrationHelper.createConfiguredFeature("large_oak_tree1", BYGFeatures.OAK_TREE_LARGE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> OAK_TREE_LARGE2 = WorldGenRegistrationHelper.createConfiguredFeature("large_oak_tree2", BYGFeatures.OAK_TREE_LARGE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> OAK_TREE_LARGE3 = WorldGenRegistrationHelper.createConfiguredFeature("large_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> OAK_TREE_LARGE3 = WorldGenRegistrationHelper.createConfiguredFeature("large_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(18).setMinHeight(13).setDiskBlock(Blocks.PODZOL).setDiskRadius(3).build()));
 
+    //Red Oak
+    public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("red_oak_tree1", BYGFeatures.OAK_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("red_oak_tree2", BYGFeatures.OAK_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("red_oak_tree3", BYGFeatures.OAK_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE_LARGE1 = WorldGenRegistrationHelper.createConfiguredFeature("large_red_oak_tree1", BYGFeatures.OAK_TREE_LARGE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE_LARGE2 = WorldGenRegistrationHelper.createConfiguredFeature("large_red_oak_tree2", BYGFeatures.OAK_TREE_LARGE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE_LARGE3 = WorldGenRegistrationHelper.createConfiguredFeature("large_red_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).setDiskBlock(Blocks.PODZOL).setDiskRadius(3).build()));
 
+    //Brown Oak
+    public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("brown_oak_tree1", BYGFeatures.OAK_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("brown_oak_tree2", BYGFeatures.OAK_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("brown_oak_tree3", BYGFeatures.OAK_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE_LARGE1 = WorldGenRegistrationHelper.createConfiguredFeature("large_brown_oak_tree1", BYGFeatures.OAK_TREE_LARGE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE_LARGE2 = WorldGenRegistrationHelper.createConfiguredFeature("large_brown_oak_tree2", BYGFeatures.OAK_TREE_LARGE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE_LARGE3 = WorldGenRegistrationHelper.createConfiguredFeature("large_brown_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).setDiskBlock(Blocks.PODZOL).setDiskRadius(3).build()));
+
+    //Orange Oak
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("orange_oak_tree1", BYGFeatures.OAK_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("orange_oak_tree2", BYGFeatures.OAK_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("orange_oak_tree3", BYGFeatures.OAK_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE_LARGE1 = WorldGenRegistrationHelper.createConfiguredFeature("large_orange_oak_tree1", BYGFeatures.OAK_TREE_LARGE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE_LARGE2 = WorldGenRegistrationHelper.createConfiguredFeature("large_orange_oak_tree2", BYGFeatures.OAK_TREE_LARGE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE_LARGE3 = WorldGenRegistrationHelper.createConfiguredFeature("large_orange_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).setDiskBlock(Blocks.PODZOL).setDiskRadius(3).build()));
+
+    //Orchard
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORCHARD_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("orchard_tree1", BYGFeatures.ORCHARD_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ORCHARD_LEAVES.getDefaultState(), 10).addWeightedBlockstate(BYGBlocks.FLOWERING_ORCHARD_LEAVES.getDefaultState(), 1).addWeightedBlockstate(BYGBlocks.RIPE_ORCHARD_LEAVES.getDefaultState(), 1)).setMaxHeight(18).setMinHeight(13).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORCHARD_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("orchard_tree2", BYGFeatures.ORCHARD_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ORCHARD_LEAVES.getDefaultState(), 10).addWeightedBlockstate(BYGBlocks.FLOWERING_ORCHARD_LEAVES.getDefaultState(), 1).addWeightedBlockstate(BYGBlocks.RIPE_ORCHARD_LEAVES.getDefaultState(), 1)).setMaxHeight(26).setMinHeight(21).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORCHARD_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("orchard_tree3", BYGFeatures.ORCHARD_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ORCHARD_LEAVES.getDefaultState(), 10).addWeightedBlockstate(BYGBlocks.FLOWERING_ORCHARD_LEAVES.getDefaultState(), 1).addWeightedBlockstate(BYGBlocks.RIPE_ORCHARD_LEAVES.getDefaultState(), 1)).setMaxHeight(12).setMinHeight(9).build()));
@@ -892,10 +918,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> REDWOOD_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("redwood_tree1", BYGFeatures.REDWOOD_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.REDWOOD_LOG).setLeavesBlock(BYGBlocks.REDWOOD_LEAVES).setMaxHeight(37).setMinHeight(36).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> REDWOOD_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("redwood_tree2", BYGFeatures.REDWOOD_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.REDWOOD_LOG).setLeavesBlock(BYGBlocks.REDWOOD_LEAVES).setMaxHeight(34).setMinHeight(31).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> REDWOOD_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("redwood_tree3", BYGFeatures.REDWOOD_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.REDWOOD_LOG).setLeavesBlock(BYGBlocks.REDWOOD_LEAVES).setMaxHeight(25).setMinHeight(18).build()));
-
-    public static final ConfiguredFeature<BYGTreeConfig, ?> OAK_BROWN_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("brown_oak_tree1", BYGFeatures.BASIC_TREE.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> OAK_ORANGE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("orange_oak_tree1", BYGFeatures.BASIC_TREE.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> OAK_RED_TREE = WorldGenRegistrationHelper.createConfiguredFeature("red_oak_tree1", BYGFeatures.BASIC_TREE.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(11).setMinHeight(8).build()));
 
     public static final ConfiguredFeature<BYGTreeConfig, ?> SHRUB = WorldGenRegistrationHelper.createConfiguredFeature("shrub", BYGFeatures.SHRUB1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMinHeight(2).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> SHRUB_MEADOW = WorldGenRegistrationHelper.createConfiguredFeature("meadow_shrub1", BYGFeatures.SHRUB1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.DARK_OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMinHeight(1).build()));
@@ -999,14 +1021,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> ZELKOVA_BROWN_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("zelkova_brown_tree1", BYGFeatures.ZELKOVA_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ZELKOVA_LOG).setLeavesBlock(BYGBlocks.BROWN_ZELKOVA_LEAVES).setMaxHeight(21).setMinHeight(11).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ZELKOVA_BROWN_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("zelkova_brown_tree2", BYGFeatures.ZELKOVA_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ZELKOVA_LOG).setLeavesBlock(BYGBlocks.BROWN_ZELKOVA_LEAVES).setMaxHeight(20).setMinHeight(10).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ZELKOVA_BROWN_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("zelkova_brown_tree3", BYGFeatures.ZELKOVA_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ZELKOVA_LOG).setLeavesBlock(BYGBlocks.BROWN_ZELKOVA_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
-
-
-    //Vanilla Tree Features
-    public static final ConfiguredFeature<?, ?> MC_BROWN_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_brown_oak_tree", Feature.TREE.withConfiguration(FeatureConfigs.BROWNOAKTREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_ORANGE_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_orange_oak_tree", Feature.TREE.withConfiguration(FeatureConfigs.ORANGEOAKTREE_CONFIG));
-    public static final ConfiguredFeature<?, ?> MC_RED_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("mc_red_oak_tree", Feature.TREE.withConfiguration(FeatureConfigs.REDOAKTREE_CONFIG));
-
-    public static final ConfiguredFeature<?, ?> MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES = WorldGenRegistrationHelper.createConfiguredFeature("mc_fancy_red_oak_with_more_beehives_tree", Feature.TREE.withConfiguration(FeatureConfigs.FANCY_RED_OAK_WITH_MORE_BEEHIVES_CONFIG));
 
     //Mushrooms
     public static final ConfiguredFeature<BYGMushroomConfig, ?> GREEN_MUSHROOM_HUGE = WorldGenRegistrationHelper.createConfiguredFeature("huge_green_mushroom", BYGFeatures.GREEN_MUSHROOM_HUGE.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.WHITE_MUSHROOM_STEM).setMushroomBlock(BYGBlocks.GREEN_MUSHROOM_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
@@ -1648,20 +1662,51 @@ public class BYGConfiguredFeatures {
             WOODLANDS_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(1, 0.35F, 2))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_RED_OAK_FOREST_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_red_oak_forest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            Features.OAK.withChance(0.1F),
-            Features.OAK_BEES_002.withChance(0.1F),
-            Features.FANCY_OAK_BEES_0002.withChance(0.1F),
-            MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES.withChance(0.2F)),
-            MC_RED_OAK_TREE)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(8, 0.3F, 5))));
 
+    public static final ConfiguredFeature<?, ?> RANDOM_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_oak_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            OAK_TREE1.withChance(0.3F),
+            OAK_TREE2.withChance(0.2F),
+            OAK_TREE3.withChance(0.2F),
+            OAK_TREE_LARGE1.withChance(0.1F),
+            OAK_TREE_LARGE2.withChance(0.1F)),
+            OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_RED_OAK_FOREST_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_red_oak_forest_sparse_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            Features.OAK.withChance(0.06F),
-            MC_RED_OAK_TREE.withChance(0.1F)),
-            MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
+    public static final ConfiguredFeature<?, ?> RANDOM_RED_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_red_oak_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            RED_OAK_TREE1.withChance(0.3F),
+            RED_OAK_TREE2.withChance(0.2F),
+            RED_OAK_TREE3.withChance(0.2F),
+            RED_OAK_TREE_LARGE1.withChance(0.1F),
+            RED_OAK_TREE_LARGE2.withChance(0.1F)),
+            RED_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_RED_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_red_oak_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            RED_OAK_TREE1.withChance(0.3F),
+            RED_OAK_TREE2.withChance(0.2F),
+            RED_OAK_TREE3.withChance(0.2F),
+            RED_OAK_TREE_LARGE1.withChance(0.1F),
+            RED_OAK_TREE_LARGE2.withChance(0.1F)),
+            RED_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(0, 0.3F, 1))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_BROWN_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_brown_oak_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            BROWN_OAK_TREE1.withChance(0.3F),
+            BROWN_OAK_TREE2.withChance(0.2F),
+            BROWN_OAK_TREE3.withChance(0.2F),
+            BROWN_OAK_TREE_LARGE1.withChance(0.1F),
+            BROWN_OAK_TREE_LARGE2.withChance(0.1F)),
+            BROWN_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ORANGE_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_orange_oak_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            ORANGE_OAK_TREE1.withChance(0.3F),
+            ORANGE_OAK_TREE2.withChance(0.2F),
+            ORANGE_OAK_TREE3.withChance(0.2F),
+            ORANGE_OAK_TREE_LARGE1.withChance(0.1F),
+            ORANGE_OAK_TREE_LARGE2.withChance(0.1F)),
+            ORANGE_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_BIRCH_FOREST_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_seasonal_birch_forest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BIRCH_BROWN_TREE1.withChance(0.06F),
@@ -1676,18 +1721,6 @@ public class BYGConfiguredFeatures {
             BIRCH_YELLOW_TREE1.withChance(0.06F),
             BIRCH_YELLOW_TREE2.withChance(0.1F)),
             BIRCH_YELLOW_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
-            new AtSurfaceWithExtraConfig(12, 0.4F, -2))));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_FOREST_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_seasonal_forest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            OAK_BROWN_TREE1.withChance(0.06F),
-            OAK_ORANGE_TREE.withChance(0.06F),
-            OAK_RED_TREE.withChance(0.06F),
-            MC_BROWN_OAK_TREE.withChance(0.06F),
-            MC_FANCY_RED_OAK_WITH_MORE_BEEHIVES.withChance(0.06F),
-            Features.FANCY_OAK.withChance(0.06F),
-            Features.OAK.withChance(0.06F),
-            BIRCH_YELLOW_TREE1.withChance(0.1F)),
-            MC_ORANGE_OAK_TREE)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
             new AtSurfaceWithExtraConfig(12, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_HUGE_GLOWSHROOM = WorldGenRegistrationHelper.createConfiguredFeature("rs_huge_glowshroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
