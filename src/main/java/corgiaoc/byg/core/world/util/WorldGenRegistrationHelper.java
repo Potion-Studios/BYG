@@ -18,6 +18,9 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @SuppressWarnings("deprecation")
 public class WorldGenRegistrationHelper {
 
@@ -72,14 +75,21 @@ public class WorldGenRegistrationHelper {
         return decorator;
     }
 
-    public static Biome createBiome(String id, Biome biome) {
+    static Set<Integer> integerList = new HashSet<>();
+
+    public static Biome createBiome(String id, Biome biome, int numericalID) {
         ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
         if (WorldGenRegistries.BIOME.keySet().contains(bygID))
             BYG.LOGGER.error("Biome ID: \"" + bygID.toString() + "\" already exists in the Biome registry!");
 
 //        Registry.register(WorldGenRegistries.BIOME, bygID, biome);
         biome.setRegistryName(bygID); //Forge
-        BYGBiomes.biomeList.add(biome);
+
+        if (integerList.contains(numericalID))
+            BYG.LOGGER.warn("Duplicate Biome Numerical ID: " + numericalID + " at byg:" + id);
+
+        BYGBiomes.biomeList.add(new BYGBiomes.PreserveBiomeOrder(biome, numericalID));
+        integerList.add(numericalID);
         return biome;
     }
 }
