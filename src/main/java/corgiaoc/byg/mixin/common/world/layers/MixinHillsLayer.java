@@ -70,8 +70,8 @@ public abstract class MixinHillsLayer {
 
 
     static {
-        topOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.DEEP_OCEAN));
-        topOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.DEEP_LUKEWARM_OCEAN));
-        topOceanList.add(WorldGenRegistries.BIOME.getValueForKey(Biomes.DEEP_WARM_OCEAN));
+        topOceanList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.DEEP_OCEAN));
+        topOceanList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.DEEP_LUKEWARM_OCEAN));
+        topOceanList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.DEEP_WARM_OCEAN));
     }
 }

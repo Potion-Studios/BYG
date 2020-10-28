@@ -3,8 +3,8 @@ package corgiaoc.byg.config.json.subbiomedata;
 import com.google.gson.*;
 import corgiaoc.byg.BYG;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.lang.reflect.Type;
 import java.util.*;
@@ -31,26 +31,26 @@ public class SubBiomeDataListHolderSerializer implements JsonSerializer<SubBiome
 
             object.addProperty("dictionary", dictionaryString.toString().toUpperCase());
 
-            ResourceLocation riverKey = ForgeRegistries.BIOMES.getKey(biomeData.getRiverBiome());
+            ResourceLocation riverKey = WorldGenRegistries.BIOME.getKey(biomeData.getRiverBiome());
             if (riverKey != null)
                 object.addProperty("river", riverKey.toString());
             else
                 object.addProperty("river", "");
 
-            ResourceLocation beachKey = ForgeRegistries.BIOMES.getKey(biomeData.getBeachBiome());
+            ResourceLocation beachKey = WorldGenRegistries.BIOME.getKey(biomeData.getBeachBiome());
             if (beachKey != null)
                 object.addProperty("beach", beachKey.toString());
             else
                 object.addProperty("beach", "");
 
-            ResourceLocation edgeKey = ForgeRegistries.BIOMES.getKey(biomeData.getEdgeBiome());
+            ResourceLocation edgeKey = WorldGenRegistries.BIOME.getKey(biomeData.getEdgeBiome());
             if (edgeKey != null)
                 object.addProperty("edge", edgeKey.toString());
             else
                 object.addProperty("edge", "");
 
             //This should never be null.
-            ResourceLocation location = ForgeRegistries.BIOMES.getKey(biomeData.getBiome());
+            ResourceLocation location = WorldGenRegistries.BIOME.getKey(biomeData.getBiome());
             if (location != null )
                 biomeObject.add(location.toString(), object);
             else
@@ -95,9 +95,9 @@ public class SubBiomeDataListHolderSerializer implements JsonSerializer<SubBiome
             }
 
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
-            if (ForgeRegistries.BIOMES.getKeys().contains(biomeKey)) {
+            if (WorldGenRegistries.BIOME.keySet().contains(biomeKey)) {
                 if (biomeKey.getNamespace().equals(BYG.MOD_ID))
-                    biomeData.add(new SubBiomeData(ForgeRegistries.BIOMES.getValue(biomeKey), typesArray, ForgeRegistries.BIOMES.getValue(new ResourceLocation(edge)), ForgeRegistries.BIOMES.getValue(new ResourceLocation(beach)), ForgeRegistries.BIOMES.getValue(new ResourceLocation(river))));
+                    biomeData.add(new SubBiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), typesArray, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
                 else
                     BYG.LOGGER.error("Biome key: \"" + biomeName + "\" is illegal. The mod id for the biome key MUST be \"byg\". Skipping entry...");
             }

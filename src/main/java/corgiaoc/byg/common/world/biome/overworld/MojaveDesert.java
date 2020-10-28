@@ -11,7 +11,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
-import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
@@ -38,11 +37,6 @@ public class MojaveDesert extends BYGBiome {
     public MojaveDesert() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
-
-    public Biome getHills(INoiseRandom rand) {
-        return WorldGenRegistries.BIOME.getValueForKey(Biomes.DESERT);
-    }
-
 
     @Nullable
     @Override

@@ -273,11 +273,11 @@ public class BYGBiomes {
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SOAP_STONE);
 
-                if (biome == WorldGenRegistries.BIOME.getValueForKey(Biomes.SOUL_SAND_VALLEY)) {
+                if (biome == WorldGenRegistries.BIOME.getOrThrow(Biomes.SOUL_SAND_VALLEY)) {
                     addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
                 }
 
-                if (biome == WorldGenRegistries.BIOME.getValueForKey(Biomes.BEACH)) {
+                if (biome == WorldGenRegistries.BIOME.getOrThrow(Biomes.BEACH)) {
                     addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
                 }
             }

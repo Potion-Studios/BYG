@@ -2,10 +2,10 @@ package corgiaoc.byg.common.world.biome;
 
 import corgiaoc.byg.config.json.subbiomedata.SubBiomeData;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -57,6 +57,6 @@ public class BYGSubBiome {
     }
 
     public RegistryKey<Biome> getKey() {
-        return RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, Objects.requireNonNull(ForgeRegistries.BIOMES.getKey(this.biome)));
+        return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
     }
 }

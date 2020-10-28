@@ -4,10 +4,10 @@ import com.google.gson.*;
 import corgiaoc.byg.BYG;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.lang.reflect.Type;
 import java.util.*;
@@ -29,7 +29,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             if (biomeData.getBiomeWeightedList() != null) {
                 for (WeightedList.Entry<Biome> biomeEntry : biomeData.getBiomeWeightedList().field_220658_a) {
                     JsonObject object2 = new JsonObject();
-                    ResourceLocation biomeEntryKey = ForgeRegistries.BIOMES.getKey(biomeEntry.func_220647_b());
+                    ResourceLocation biomeEntryKey = WorldGenRegistries.BIOME.getKey(biomeEntry.func_220647_b());
 
                     if (biomeEntryKey != null) {
                         object2.addProperty("name", biomeEntryKey.toString());
@@ -52,19 +52,19 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             object.addProperty("climate", biomeData.getBiomeType().toString().toUpperCase());
             object.addProperty("dictionary", dictionaryString.toString().toUpperCase());
             object.addProperty("weight", biomeData.getBiomeWeight());
-            ResourceLocation riverKey = ForgeRegistries.BIOMES.getKey(biomeData.getRiverBiome());
+            ResourceLocation riverKey = WorldGenRegistries.BIOME.getKey(biomeData.getRiverBiome());
             if (riverKey != null)
                 object.addProperty("river", riverKey.toString());
             else
                 object.addProperty("river", "");
 
-            ResourceLocation beachKey = ForgeRegistries.BIOMES.getKey(biomeData.getBeachBiome());
+            ResourceLocation beachKey = WorldGenRegistries.BIOME.getKey(biomeData.getBeachBiome());
             if (beachKey != null)
                 object.addProperty("beach", beachKey.toString());
             else
                 object.addProperty("beach", "");
 
-            ResourceLocation edgeKey = ForgeRegistries.BIOMES.getKey(biomeData.getEdgeBiome());
+            ResourceLocation edgeKey = WorldGenRegistries.BIOME.getKey(biomeData.getEdgeBiome());
             if (edgeKey != null)
                 object.addProperty("edge", edgeKey.toString());
             else
@@ -73,7 +73,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             object.add("hills", weightedListArray);
 
             //This should never be null.
-            ResourceLocation location = ForgeRegistries.BIOMES.getKey(biomeData.getBiome());
+            ResourceLocation location = WorldGenRegistries.BIOME.getKey(biomeData.getBiome());
             if (location != null )
                 biomeObject.add(location.toString(), object);
             else
@@ -149,17 +149,17 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                     ResourceLocation hillResourceLocation = new ResourceLocation(hillBiomeName);
 
                     if (hillResourceLocation != null) {
-                        if (ForgeRegistries.BIOMES.getKeys().contains(hillResourceLocation))
-                            weightedList.func_226313_a_(Objects.requireNonNull(ForgeRegistries.BIOMES.getValue(hillResourceLocation)), hillWeight);
+                        if (WorldGenRegistries.BIOME.keySet().contains(hillResourceLocation))
+                            weightedList.func_226313_a_(Objects.requireNonNull(WorldGenRegistries.BIOME.getOrDefault(hillResourceLocation)), hillWeight);
                         else
                             BYG.LOGGER.error("Could not find: \"" + hillResourceLocation.toString() + "\" in the biome registry!\nEntry will not be added. Skipping entry...");
                     }
                 }
             }
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
-            if (ForgeRegistries.BIOMES.getKeys().contains(biomeKey)) {
+            if (WorldGenRegistries.BIOME.keySet().contains(biomeKey)) {
                 if (biomeKey.getNamespace().equals(BYG.MOD_ID))
-                    biomeData.add(new BiomeData(ForgeRegistries.BIOMES.getValue(biomeKey), weight, biomeType, typesArray, weightedList, ForgeRegistries.BIOMES.getValue(new ResourceLocation(edge)), ForgeRegistries.BIOMES.getValue(new ResourceLocation(beach)), ForgeRegistries.BIOMES.getValue(new ResourceLocation(river))));
+                    biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), weight, biomeType, typesArray, weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
                 else
                     BYG.LOGGER.error("Biome key: \"" + biomeName + "\" is illegal. The mod id for the biome key MUST be \"byg\". Skipping entry...");
             }

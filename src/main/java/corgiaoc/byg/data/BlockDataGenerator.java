@@ -7,9 +7,9 @@ import com.mojang.datafixers.util.Pair;
 import corgiaoc.byg.BYG;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.apache.logging.log4j.LogManager;
@@ -24,6 +24,7 @@ import java.util.Objects;
 /**
  * Used to make recipes, loot tables, and the en_us lang file in bulk,
  */
+@SuppressWarnings("deprecation")
 public class BlockDataGenerator {
     public static final Logger LOGGER = LogManager.getLogger();
 
@@ -32,15 +33,15 @@ public class BlockDataGenerator {
         List<String> itemIDList = new ArrayList<>();
         List<String> biomeIDList = new ArrayList<>();
 
-        for (Block block : ForgeRegistries.BLOCKS) {
-            String blockID = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).toString();
+        for (Block block : Registry.BLOCK) {
+            String blockID = Objects.requireNonNull(Registry.BLOCK.getKey(block)).toString();
 
             if (blockID.contains(BYG.MOD_ID))
                 blockIDList.add(blockID.replace(BYG.MOD_ID + ":", ""));
         }
 
-        for (Item item : ForgeRegistries.ITEMS) {
-            String itemID = Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).toString();
+        for (Item item : Registry.ITEM) {
+            String itemID = Objects.requireNonNull(Registry.ITEM.getKey(item)).toString();
 
             if (itemID.contains(BYG.MOD_ID))
                 itemIDList.add(itemID.replace(BYG.MOD_ID + ":", ""));
