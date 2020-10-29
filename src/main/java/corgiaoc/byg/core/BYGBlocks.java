@@ -33,7 +33,7 @@ import java.util.List;
 public class BYGBlocks {
     public static List<Block> blocksList = new ArrayList<>();
 
-    
+
     public static List<Block> flowerPotBlocks = new ArrayList<>();
     public static List<String> flowerIDs = new ArrayList<>();
 
@@ -606,7 +606,7 @@ public class BYGBlocks {
     public static final Block CRYPTIC_STONE_SLAB = createStoneSlab("cryptic_stone_slab");
     public static final Block CRYPTIC_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("cryptic_stone_stairs");
     public static final Block CRYPTIC_STONE_WALL = createStoneWall("cryptic_stone_wall");
-    
+
     public static final Block SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
     public static final Block SHULKREN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("shulkren_wart_block");
     public static final Block SHULKREN_VINE = createShulkrenVine("shulkren_vine");

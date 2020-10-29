@@ -9,6 +9,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ModifiableTestableWorld;
 import net.minecraft.world.StructureWorldAccess;
+
 import java.util.Random;
 
 public class EmburMushroom2 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {

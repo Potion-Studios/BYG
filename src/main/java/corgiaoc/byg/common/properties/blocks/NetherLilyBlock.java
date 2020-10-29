@@ -1,12 +1,11 @@
 package corgiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.*;
-import net.minecraft.entity.Entity;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.LilyPadBlock;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 
 public class NetherLilyBlock extends LilyPadBlock {
 

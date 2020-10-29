@@ -7,6 +7,7 @@ import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
+
 import java.util.Random;
 
 public class BulbisTree1 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {

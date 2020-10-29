@@ -40,7 +40,7 @@ public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
         for (double y = -peakHeight; y <= peakHeight; y++) {
             for (double x = -peakHeight; x <= peakHeight; x++) {
                 for (double z = -peakHeight; z <= peakHeight; z++) {
-                    mutable.set(pos).move((int) x, (int) y + peakStartHeight, (int)z);
+                    mutable.set(pos).move((int) x, (int) y + peakStartHeight, (int) z);
                     float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), mutable.getZ()));
                     double scaledNoise = (noise3 / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
                     if (y == -peakHeight) {
@@ -49,11 +49,6 @@ public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
                                 return false;
                     }
 
-//                    if (scaledNoise - lavaLeakage >= threshold) {
-//                        if (mutable.getY() <= pos.getY() + (volcanoStartHeight - 19)) {
-//                            world.setBlockState(mutable, Blocks.END_STONE.getDefaultState(), 2);
-//                        }
-//                    }
                     if (scaledNoise >= threshold) {
                         if (world.isAir(mutable))
                             world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);

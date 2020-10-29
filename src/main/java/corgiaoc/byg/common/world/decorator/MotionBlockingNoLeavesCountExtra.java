@@ -6,6 +6,7 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DecoratorContext;
+
 import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -21,7 +22,7 @@ public class MotionBlockingNoLeavesCountExtra extends Decorator<CountExtraDecora
         if (random.nextFloat() < config.extraChance) {
             i += config.extraCount;
         }
-        
+
         return IntStream.range(0, i).mapToObj((streamedInt) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();

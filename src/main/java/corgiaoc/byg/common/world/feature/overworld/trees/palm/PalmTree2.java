@@ -8,12 +8,11 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
+
 import java.util.Random;
 import java.util.Set;
 
 public class PalmTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
-    //private static final BlockState LOG = Blocks.JUNGLE_LOG.getDefaultState();
-    //private static final BlockState LEAVES = Blocks.JUNGLE_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
     public PalmTree2(Codec<BYGTreeConfig> configIn) {

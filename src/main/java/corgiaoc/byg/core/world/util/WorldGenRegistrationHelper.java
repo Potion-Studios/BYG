@@ -27,8 +27,6 @@ public class WorldGenRegistrationHelper {
             BYG.LOGGER.error("Surface Builder ID: \"" + bygID.toString() + "\" already exists in the Surface Builder registry!");
 
         Registry.register(Registry.SURFACE_BUILDER, bygID, surfaceBuilder);
-//        surfaceBuilder.setRegistryName(bygID); //Forge
-//        BYGSurfaceBuilders.surfaceBuilders.add(surfaceBuilder);
         return surfaceBuilder;
     }
 
@@ -47,8 +45,6 @@ public class WorldGenRegistrationHelper {
             BYG.LOGGER.error("Feature ID: \"" + bygID.toString() + "\" already exists in the Features registry!");
 
         Registry.register(Registry.FEATURE, bygID, feature);
-//        feature.setRegistryName(bygID); //Forge
-//        BYGFeatures.features.add(feature);
         return feature;
     }
 
@@ -67,8 +63,6 @@ public class WorldGenRegistrationHelper {
             BYG.LOGGER.error("Decorator ID: \"" + bygID.toString() + "\" already exists in the Decorator registry!");
 
         Registry.register(Registry.DECORATOR, bygID, decorator);
-//        decorator.setRegistryName(bygID); //Forge
-//        BYGDecorators.decorators.add(decorator);
         return decorator;
     }
 
@@ -78,9 +72,6 @@ public class WorldGenRegistrationHelper {
         Identifier bygID = new Identifier(BYG.MOD_ID, id);
         if (BuiltinRegistries.BIOME.getIds().contains(bygID))
             BYG.LOGGER.error("Biome ID: \"" + bygID.toString() + "\" already exists in the Biome registry!");
-
-//        Registry.register(WorldGenRegistries.BIOME, bygID, biome);
-//        biome.setRegistryName(bygID); //Forge
 
         if (integerList.contains(numericalID))
             BYG.LOGGER.warn("Duplicate Biome Numerical ID: " + numericalID + " at byg:" + id);

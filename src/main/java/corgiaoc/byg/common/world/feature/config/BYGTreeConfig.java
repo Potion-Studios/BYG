@@ -10,6 +10,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -164,7 +165,6 @@ public class BYGTreeConfig implements FeatureConfig {
 
             return this;
         }
-
 
 
         public Builder setGroundReplacementBlock(Block block) {

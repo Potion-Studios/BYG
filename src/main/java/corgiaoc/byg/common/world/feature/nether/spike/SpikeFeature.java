@@ -38,8 +38,8 @@ public class SpikeFeature extends Feature<SimpleBlockProviderConfig> {
         for (double x = -volcanoConeSize; x <= volcanoConeSize; x++) {
             for (double y = -volcanoConeSize; y <= -1; y++) {
                 for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
-                    mutable.set(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
-                    double noise = fnPerlin.GetNoise((float) x, (float)z) * 12;
+                    mutable.set(pos).move((int) x, (int) y + volcanoStartHeight, (int) z);
+                    double noise = fnPerlin.GetNoise((float) x, (float) z) * 12;
                     double scaledNoise = (noise / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (world.getBlockState(mutable).getMaterial() == Material.AIR) {

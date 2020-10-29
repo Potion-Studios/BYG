@@ -13,7 +13,8 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
-import net.fabricmc.fabric.api.biome.v1.OverworldClimate;import java.util.Arrays;
+
+import java.util.Arrays;
 import java.util.Random;
 
 @SuppressWarnings("deprecation")

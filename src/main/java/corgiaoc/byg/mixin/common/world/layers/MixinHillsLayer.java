@@ -49,8 +49,7 @@ public abstract class MixinHillsLayer {
                         if (hill != null) {
                             l = BuiltinRegistries.BIOME.getRawId(hill);
                         }
-                    }
-                    else //Remove if the object is null.
+                    } else //Remove if the object is null.
                         BYGBiome.BIOME_TO_HILLS_LIST.remove(i);
                 }
                 cir.setReturnValue(l);
@@ -62,8 +61,7 @@ public abstract class MixinHillsLayer {
     private static Biome getHillBiomeValue(WeightedList<Biome> biomeHolder, LayerRandomnessSource layerRandom) {
         if (biomeHolder.entries.size() > 0) {
             return LayerRandomWeightedListUtil.getBiome(biomeHolder, layerRandom);
-        }
-        else {
+        } else {
             return null;
         }
     }

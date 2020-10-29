@@ -35,7 +35,8 @@ public class WarpedCactusBlock extends Block {
     }
 
     public void scheduledTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        if (!FeatureUtil.isAreaLoaded(worldIn, pos, 1)) return; // Forge: prevent growing cactus from loading unloaded chunks with block update
+        if (!FeatureUtil.isAreaLoaded(worldIn, pos, 1))
+            return; // Forge: prevent growing cactus from loading unloaded chunks with block update
         if (!state.canPlaceAt(worldIn, pos)) {
             worldIn.breakBlock(pos, true);
         }
@@ -46,7 +47,7 @@ public class WarpedCactusBlock extends Block {
         BlockPos blockpos = pos.up();
         if (worldIn.isAir(blockpos)) {
             int i;
-            for(i = 1; worldIn.getBlockState(pos.down(i)).isOf(this); ++i) {
+            for (i = 1; worldIn.getBlockState(pos.down(i)).isOf(this); ++i) {
             }
 
             if (i < 3) {
@@ -59,9 +60,9 @@ public class WarpedCactusBlock extends Block {
                 } else {
                     worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(j + 1)), 4);
                 }
-                }
             }
         }
+    }
 
     public VoxelShape getCollisionShape(BlockState state, BlockView worldIn, BlockPos pos, ShapeContext context) {
         return COLLISION_SHAPE;

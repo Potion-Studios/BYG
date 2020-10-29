@@ -1,10 +1,11 @@
 package corgiaoc.byg.common.properties.items.itemtiers;
 
 import corgiaoc.byg.core.BYGItems;
-import java.util.function.Supplier;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Lazy;
+
+import java.util.function.Supplier;
 
 public enum BYGItemTiers implements ToolMaterial {
     AMETRINE(4, 64, 16.0F, 0.8F, 25, () -> {

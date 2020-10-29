@@ -4,12 +4,12 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
-import net.fabricmc.fabric.api.biome.v1.OverworldClimate;import java.util.Random;
+
+import java.util.Random;
 
 public class ShatteredDesertSB extends SurfaceBuilder<TernarySurfaceConfig> {
     public ShatteredDesertSB(Codec<TernarySurfaceConfig> config) {

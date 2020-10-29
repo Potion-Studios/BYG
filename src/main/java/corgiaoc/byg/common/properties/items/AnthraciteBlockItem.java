@@ -9,8 +9,4 @@ public class AnthraciteBlockItem extends BlockItem {
         super(blockIn, builder);
     }
 
-//    @Override
-//    public int getBurnTime(ItemStack itemStack) {
-//        return 20000;
-//    }
 }

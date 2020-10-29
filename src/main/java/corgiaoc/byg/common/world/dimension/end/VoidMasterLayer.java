@@ -8,6 +8,7 @@ import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
 public class VoidMasterLayer implements InitLayer {
 
     private final Registry<Biome> biomeRegistry;
+
     public VoidMasterLayer(Registry<Biome> biomeRegistry) {
         this.biomeRegistry = biomeRegistry;
     }

@@ -42,7 +42,7 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
         for (double x = -volcanoConeSize; x <= volcanoConeSize; x++) {
             for (double y = -volcanoConeSize; y <= -15; y++) {
                 for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
-                    mutable.set(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
+                    mutable.set(pos).move((int) x, (int) y + volcanoStartHeight, (int) z);
                     float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), mutable.getZ()));
 
                     double scaledNoise = (noise3 / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
@@ -51,8 +51,7 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
                             world.setBlockState(mutable, Blocks.LAVA.getDefaultState(), 2);
                             world.getFluidTickScheduler().schedule(mutable, Fluids.LAVA, 0);
                         }
-                    }
-                    else if (scaledNoise >= threshold) {
+                    } else if (scaledNoise >= threshold) {
                         world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
                     }
                 }

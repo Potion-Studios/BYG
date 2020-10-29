@@ -21,6 +21,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+
 import java.util.Random;
 
 public class OddityCactusBlock extends Block {
@@ -34,7 +35,8 @@ public class OddityCactusBlock extends Block {
     }
 
     public void scheduledTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        if (!FeatureUtil.isAreaLoaded(worldIn, pos, 1)) return; // Forge: prevent growing cactus from loading unloaded chunks with block update
+        if (!FeatureUtil.isAreaLoaded(worldIn, pos, 1))
+            return; // Forge: prevent growing cactus from loading unloaded chunks with block update
         if (!state.canPlaceAt(worldIn, pos)) {
             worldIn.breakBlock(pos, true);
         }
@@ -45,19 +47,19 @@ public class OddityCactusBlock extends Block {
         BlockPos blockpos = pos.up();
         if (worldIn.isAir(blockpos)) {
             int i;
-            for(i = 1; worldIn.getBlockState(pos.down(i)).isOf(this); ++i) {
+            for (i = 1; worldIn.getBlockState(pos.down(i)).isOf(this); ++i) {
             }
 
             if (i < 3) {
                 int j = state.get(AGE);
-                    if (j == 15) {
-                        worldIn.setBlockState(blockpos, this.getDefaultState());
-                        BlockState blockstate = state.with(AGE, Integer.valueOf(0));
-                        worldIn.setBlockState(pos, blockstate, 4);
-                        blockstate.neighborUpdate(worldIn, blockpos, this, pos, false);
-                    } else {
-                        worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(j + 1)), 4);
-                    }
+                if (j == 15) {
+                    worldIn.setBlockState(blockpos, this.getDefaultState());
+                    BlockState blockstate = state.with(AGE, Integer.valueOf(0));
+                    worldIn.setBlockState(pos, blockstate, 4);
+                    blockstate.neighborUpdate(worldIn, blockpos, this, pos, false);
+                } else {
+                    worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(j + 1)), 4);
+                }
             }
         }
     }

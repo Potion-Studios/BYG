@@ -8,6 +8,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.chunk.Chunk;
+
 import java.util.Random;
 
 public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> {

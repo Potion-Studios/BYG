@@ -22,6 +22,6 @@ public class BYGClient implements ClientModInitializer {
         BlockColorManager.onBlockColorsInit();
         BlockColorManager.onItemColorsInit();
         ClientSidePacketRegistry.INSTANCE.register(CustomEntitySpawnS2CPacket.SPAWN_PACKET_ID, CustomEntitySpawnS2CPacket::receiveSpawnPacket);
-        EntityRendererRegistry.INSTANCE.register((EntityType<? extends BYGBoatEntity>)BYGEntities.BOAT, (entityRenderDispatcher, context) -> new BYGBoatRenderer(entityRenderDispatcher));
+        EntityRendererRegistry.INSTANCE.register(BYGEntities.BOAT, (entityRenderDispatcher, context) -> new BYGBoatRenderer(entityRenderDispatcher));
     }
 }

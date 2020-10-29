@@ -15,6 +15,7 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+
 import java.util.Random;
 
 public class BeeHiveFeature extends Feature<DefaultFeatureConfig> {
@@ -24,7 +25,7 @@ public class BeeHiveFeature extends Feature<DefaultFeatureConfig> {
 
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
-        if (world.isAir(pos) && world.isAir(pos.down())){
+        if (world.isAir(pos) && world.isAir(pos.down())) {
             if (world.getBlockState(pos.up()).isIn(BlockTags.LEAVES) || world.getBlockState(pos.up()).isIn(BlockTags.LOGS)) {
                 Direction direction;
 

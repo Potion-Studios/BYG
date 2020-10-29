@@ -1056,10 +1056,6 @@ public class BYGBlockProperties {
     }
 
     //Saving this for later do not touch
-//    @OnlyIn(Dist.CLIENT)
-//    public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
-//        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
-//    }
 
     public static class BYGOreAmetrine extends BYGOreBlock {
         public BYGOreAmetrine(String registryName) {

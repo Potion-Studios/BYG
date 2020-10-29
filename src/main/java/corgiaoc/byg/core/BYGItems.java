@@ -938,7 +938,6 @@ public class BYGItems {
     public static final Item ETHER_STONE_WALL = createItem(new BlockItem(BYGBlocks.ETHER_STONE_WALL, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.ETHER_STONE_WALL));
 
 
-
     public static final Item LIGNITE_ORE = createItem(new BlockItem(BYGBlocks.LIGNITE_ORE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.LIGNITE_ORE));
     public static final Item LIGNITE = createItem(new LigniteItem(new Item.Settings().group(BYG.BYG_TAB)), "lignite");
     public static final Item LIGNITE_BLOCK = createItem(new LigniteBlockItem(BYGBlocks.LIGNITE_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.LIGNITE_BLOCK));
@@ -978,7 +977,6 @@ public class BYGItems {
     public static final Item CRYPTIC_STONE_SLAB = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_SLAB, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CRYPTIC_STONE_SLAB));
     public static final Item CRYPTIC_STONE_STAIRS = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_STAIRS, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CRYPTIC_STONE_STAIRS));
     public static final Item CRYPTIC_STONE_WALL = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_WALL, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CRYPTIC_STONE_WALL));
-
 
 
     //Ice
@@ -1116,8 +1114,6 @@ public class BYGItems {
 
     public static Item createItem(Item item, String id) {
         Registry.register(Registry.ITEM, new Identifier(BYG.MOD_ID, id), item);
-//        item.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
-//        itemsList.add(item);
         return item;
     }
 

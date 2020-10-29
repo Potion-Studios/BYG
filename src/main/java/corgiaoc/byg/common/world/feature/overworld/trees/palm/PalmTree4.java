@@ -8,12 +8,11 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
+
 import java.util.Random;
 import java.util.Set;
 
 public class PalmTree4 extends BYGAbstractTreeFeature<BYGTreeConfig> {
-    //private static final BlockState LOG = Blocks.JUNGLE_LOG.getDefaultState();
-    //private static final BlockState LEAVES = Blocks.JUNGLE_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
     public PalmTree4(Codec<BYGTreeConfig> configIn) {
@@ -34,7 +33,7 @@ public class PalmTree4 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 return false;
             } else {
                 buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).toImmutable(), mainmutable.set(pos).move(0, 0, 1).toImmutable(), mainmutable.set(pos).move(1, 0, 0).toImmutable(), mainmutable.set(pos).move(1, 0, 1).toImmutable());
-                
+
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 1, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 2, 0), boundsIn);

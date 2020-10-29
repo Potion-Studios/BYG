@@ -11,13 +11,12 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.biome.Biome;
+
 import java.util.Random;
 import java.util.Set;
 
 public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
     //Blocks used for the tree.
-    //private static final BlockState LOG = BYGBlocks.PINE_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlocks.PINE_LEAVES.getDefaultState();
     private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
     Random random = new Random();
 

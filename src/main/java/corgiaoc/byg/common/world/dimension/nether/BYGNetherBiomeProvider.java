@@ -48,8 +48,7 @@ public class BYGNetherBiomeProvider extends BiomeSource {
                     if (!NETHER_BIOMES.contains(locationKey) && !NETHER_BIOME_IDS.contains(locationKey.toString())) {
                         NETHER_BIOMES.add(locationKey);
                     }
-                }
-                else {
+                } else {
                     for (String id : NETHER_BIOME_IDS) {
                         if (id.equals(locationKey.toString())) {
                             NETHER_BIOMES.add(locationKey);

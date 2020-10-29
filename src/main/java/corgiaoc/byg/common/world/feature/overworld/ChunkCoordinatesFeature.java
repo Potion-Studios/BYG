@@ -8,6 +8,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
+
 import java.util.Random;
 
 public abstract class ChunkCoordinatesFeature<FC extends FeatureConfig> extends Feature<FC> {
@@ -21,7 +22,7 @@ public abstract class ChunkCoordinatesFeature<FC extends FeatureConfig> extends 
         ChunkPos chunk = world.getChunk(pos).getPos();
         int xStart = chunk.getStartX();
         int zStart = chunk.getStartZ();
-        for(int xMove = 0; xMove < 16; ++xMove) {
+        for (int xMove = 0; xMove < 16; ++xMove) {
             for (int zMove = 0; zMove < 16; ++zMove) {
                 int x = xStart + xMove;
                 int z = zStart + zMove;

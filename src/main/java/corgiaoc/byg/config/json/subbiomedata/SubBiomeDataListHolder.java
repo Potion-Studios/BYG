@@ -4,7 +4,8 @@ import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import net.minecraft.util.registry.BuiltinRegistries;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class SubBiomeDataListHolder {

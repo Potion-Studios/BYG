@@ -51,9 +51,6 @@ public class CustomEntitySpawnS2CPacket {
         buf.writeDouble(velocity.x);
         buf.writeDouble(velocity.y);
         buf.writeDouble(velocity.z);
-        //buf.writeShort((int)(MathHelper.clamp(velocity.x, -3.9D, 3.9D) * 8000.0D));
-        //buf.writeShort((int)(MathHelper.clamp(velocity.y, -3.9D, 3.9D) * 8000.0D));
-        //buf.writeShort((int)(MathHelper.clamp(velocity.z, -3.9D, 3.9D) * 8000.0D));
         return ServerSidePacketRegistry.INSTANCE.toPacket(SPAWN_PACKET_ID, buf);
     }
 

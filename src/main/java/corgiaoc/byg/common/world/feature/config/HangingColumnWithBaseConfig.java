@@ -10,6 +10,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -85,7 +86,7 @@ public class HangingColumnWithBaseConfig implements FeatureConfig {
     public static class Builder {
         private BlockStateProvider baseBlockProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
         private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
-        private BlockStateProvider endBlockProvider = new SimpleBlockStateProvider(Blocks.AIR.getDefaultState());;
+        private BlockStateProvider endBlockProvider = new SimpleBlockStateProvider(Blocks.AIR.getDefaultState());
         private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
         private int minLength = 1;
         private int maxLength = 9;

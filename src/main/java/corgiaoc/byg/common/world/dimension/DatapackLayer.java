@@ -40,7 +40,6 @@ public class DatapackLayer {
     }
 
 
-
     public Biome sampleEnd(Registry<Biome> registry, int x, int z) {
         int biomeID = this.lazyArea.sample(x, z);
         Biome biome = registry.get(biomeID);

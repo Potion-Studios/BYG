@@ -9,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
+
 import java.util.Random;
 import java.util.Set;
 
@@ -40,7 +41,7 @@ public class LargePineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                     mainmutable.move(Direction.UP);
                 }
                 mainmutable.set(pos);
-                
+
                 //Stump
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, -1), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 0, 0), boundsIn);

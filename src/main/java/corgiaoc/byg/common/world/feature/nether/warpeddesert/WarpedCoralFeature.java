@@ -12,7 +12,6 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-import static net.minecraft.util.math.Direction.Type;
 import static net.minecraft.util.math.Direction.UP;
 
 public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderConfig> {

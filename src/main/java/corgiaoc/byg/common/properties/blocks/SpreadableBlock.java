@@ -31,7 +31,6 @@ public class SpreadableBlock extends SnowyBlock implements Fertilizable {
     private final ForDimension forDimension;
 
 
-
     private final boolean isNotOverworld;
 
     public SpreadableBlock(Settings properties, Block blockToSpreadToo, ForDimension type, BlockPileFeatureConfig featureConfig) {
@@ -185,7 +184,6 @@ public class SpreadableBlock extends SnowyBlock implements Fertilizable {
     }
 
     public static void addGrassBlocksForConsumption() {
-
 
 
     }

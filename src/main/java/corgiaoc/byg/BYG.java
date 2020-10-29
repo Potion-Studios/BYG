@@ -105,21 +105,21 @@ public class BYG implements ModInitializer {
 
 
     public static class BYGRegistries {
-        
+
         public static void registerBlocks() {
             BYG.LOGGER.debug("BYG: Registering blocks...");
             BYGBlocks.init();
             BYG.LOGGER.info("BYG: Blocks registered!");
         }
 
-        
+
         public static void registerItems() {
             BYG.LOGGER.debug("BYG: Registering items...");
             BYGItems.init();
             BYG.LOGGER.info("BYG: Items registered!");
         }
 
-        
+
         public static void registerEntities() {
             BYG.LOGGER.debug("BYG: Registering entities...");
             BYGEntities.init();
@@ -128,7 +128,7 @@ public class BYG implements ModInitializer {
     }
 
     public static class BYGWorldGenRegistries {
-        
+
         public static void registerBiomes() {
             BYG.LOGGER.debug("BYG: Registering biomes...");
             BYGBiomes.init();
@@ -139,14 +139,14 @@ public class BYG implements ModInitializer {
             BYG.LOGGER.info("BYG: Biomes registered!");
         }
 
-        
+
         public static void registerDecorators() {
             BYG.LOGGER.debug("BYG: Registering decorators...");
             BYGDecorators.init();
             BYG.LOGGER.info("BYG: Decorators registered!");
         }
 
-        
+
         public static void registerFeatures() {
             BYG.LOGGER.debug("BYG: Registering features...");
             OreFeatureConfig.Rules.NETHERRACK = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
@@ -154,7 +154,7 @@ public class BYG implements ModInitializer {
             BYG.LOGGER.info("BYG: Features registered!");
         }
 
-        
+
         public static void registerSurfaceBuilders() {
             BYG.LOGGER.debug("BYG: Registering surface builders...");
             BYGSurfaceBuilders.init();

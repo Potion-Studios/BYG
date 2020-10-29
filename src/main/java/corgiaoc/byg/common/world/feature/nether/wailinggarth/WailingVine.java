@@ -30,23 +30,23 @@ public class WailingVine extends Feature<DefaultFeatureConfig> {
 
         for (int i = 0; i < 128; ++i)
             if (!worldIn.isAir(pos)) {
-            return false;
-        } else if (!worldIn.getBlockState(pos.up()).isIn(FabricTags.NETHERRACK) && !(worldIn.getDimension() == DimensionType.THE_NETHER)) {
-            return false;
-        } else {
-            for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {
-                BlockPos.Mutable mutable = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
-                if (worldIn.isAir(mutable)) {
-                    for (Direction direction : Direction.values()) {
-                        if (direction != Direction.DOWN && VineBlock.shouldConnectTo(worldIn, mutable, direction)) {
-                            worldIn.setBlockState(mutable, storedState.with(VineBlock.getFacingProperty(direction), Boolean.valueOf(true)), 2);
-                            break;
+                return false;
+            } else if (!worldIn.getBlockState(pos.up()).isIn(FabricTags.NETHERRACK) && !(worldIn.getDimension() == DimensionType.THE_NETHER)) {
+                return false;
+            } else {
+                for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {
+                    BlockPos.Mutable mutable = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
+                    if (worldIn.isAir(mutable)) {
+                        for (Direction direction : Direction.values()) {
+                            if (direction != Direction.DOWN && VineBlock.shouldConnectTo(worldIn, mutable, direction)) {
+                                worldIn.setBlockState(mutable, storedState.with(VineBlock.getFacingProperty(direction), Boolean.valueOf(true)), 2);
+                                break;
                             }
                         }
                     }
                     mainMutable.move(Direction.DOWN);
                 }
             }
-            return true;
-        }
+        return true;
     }
+}

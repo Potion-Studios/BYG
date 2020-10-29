@@ -8,8 +8,4 @@ public class AnthraciteItem extends Item {
         super(builder);
     }
 
-//    @Override
-//    public int getBurnTime(ItemStack itemStack) {
-//        return 2400;
-//    }
 }

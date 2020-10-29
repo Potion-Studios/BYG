@@ -27,4 +27,5 @@ public class BYGWaterSilkItem extends BlockItem {
         BlockHitResult blockHitResult2 = blockHitResult.withBlockPos(blockHitResult.getBlockPos().up());
         ActionResult actionResult = super.useOnBlock(new ItemUsageContext(user, hand, blockHitResult2));
         return new TypedActionResult(actionResult, user.getStackInHand(hand));
-    }}
+    }
+}

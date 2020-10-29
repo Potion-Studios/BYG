@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "byg",
   "version": "${version}",
-
   "name": "BYG",
   "description": "An Adventure and Exploration mod with over 80 new biomes!\nTranslator Credits: Dimiral(Russian), Godzmoline(Simplified Chinese)",
   "authors": [
@@ -13,10 +12,8 @@
     "homepage": "https://bygmc.weebly.com/",
     "sources": "https://github.com/CorgiTaco/BYG"
   },
-
   "license": "LGPLv3",
   "icon": "assets/byg/logo_text.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -32,14 +29,13 @@
   "mixins": [
     "byg.mixins.json"
   ],
-
   "depends": {
-    "fabricloader": ">=0.7.4",
-    "fabric": "*",
-    "minecraft": ">=1.16.2"
+    "fabricloader": ">=0.10.5",
+    "fabric": ">=0.24.3",
+    "minecraft": ">=1.16.3"
   },
   "suggests": {
     "flamingo": "*"
   },
-  "accessWidener" : "byg.aw"
+  "accessWidener": "byg.aw"
 }

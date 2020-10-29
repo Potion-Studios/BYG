@@ -11,6 +11,7 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
+
 import java.util.Random;
 
 public class ConfigurableIceAndSnow extends ChunkCoordinatesFeature<Simple2BlockProviderConfig> {

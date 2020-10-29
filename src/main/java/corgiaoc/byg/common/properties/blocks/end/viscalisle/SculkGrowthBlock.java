@@ -32,7 +32,7 @@ public class SculkGrowthBlock extends PlantBlock {
             int i = 5;
             int j = 4;
 
-            for(BlockPos blockpos : BlockPos.iterate(pos.add(-4, -1, -4), pos.add(4, 1, 4))) {
+            for (BlockPos blockpos : BlockPos.iterate(pos.add(-4, -1, -4), pos.add(4, 1, 4))) {
                 if (worldIn.getBlockState(blockpos).isOf(this)) {
                     --i;
                     if (i <= 0) {
@@ -43,7 +43,7 @@ public class SculkGrowthBlock extends PlantBlock {
 
             BlockPos blockpos1 = pos.add(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
 
-            for(int k = 0; k < 4; ++k) {
+            for (int k = 0; k < 4; ++k) {
                 if (worldIn.isAir(blockpos1) && state.canPlaceAt(worldIn, blockpos1)) {
                     pos = blockpos1;
                 }
@@ -73,7 +73,7 @@ public class SculkGrowthBlock extends PlantBlock {
     public void randomDisplayTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
         super.randomDisplayTick(stateIn, worldIn, pos, rand);
         if (rand.nextInt(10) == 0) {
-            worldIn.addParticle(ParticleTypes.MYCELIUM, (double)pos.getX() + rand.nextDouble(), (double)pos.getY() + 1.1D, (double)pos.getZ() + rand.nextDouble(), 0.0D, 0.0D, 0.0D);
+            worldIn.addParticle(ParticleTypes.MYCELIUM, (double) pos.getX() + rand.nextDouble(), (double) pos.getY() + 1.1D, (double) pos.getZ() + rand.nextDouble(), 0.0D, 0.0D, 0.0D);
         }
 
     }

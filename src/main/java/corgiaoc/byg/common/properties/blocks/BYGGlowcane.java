@@ -34,15 +34,15 @@ public class BYGGlowcane extends Block {
 
     @Override
     public void scheduledTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-    if (!state.canPlaceAt(worldIn, pos)) {
-        worldIn.breakBlock(pos, true);
-    } else if (worldIn.isAir(pos.up())) {
-        int i;
-        for (i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) {
-        }
+        if (!state.canPlaceAt(worldIn, pos)) {
+            worldIn.breakBlock(pos, true);
+        } else if (worldIn.isAir(pos.up())) {
+            int i;
+            for (i = 1; worldIn.getBlockState(pos.down(i)).getBlock() == this; ++i) {
+            }
 
-        if (i < 3) {
-            int j = state.get(AGE);
+            if (i < 3) {
+                int j = state.get(AGE);
                 if (j == 15) {
                     worldIn.setBlockState(pos.up(), this.getDefaultState());
                     worldIn.setBlockState(pos, state.with(AGE, 0), 4);

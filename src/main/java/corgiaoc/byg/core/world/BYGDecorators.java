@@ -3,11 +3,12 @@ package corgiaoc.byg.core.world;
 import corgiaoc.byg.common.world.decorator.*;
 import corgiaoc.byg.common.world.decorator.config.AtOrBelowSeaLevelCountExtraConfig;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import java.util.ArrayList;
-import java.util.List;
 import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BYGDecorators {
     public static List<Decorator<?>> decorators = new ArrayList<>();

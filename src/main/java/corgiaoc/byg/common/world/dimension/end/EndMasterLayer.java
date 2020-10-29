@@ -8,6 +8,7 @@ import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
 public class EndMasterLayer implements InitLayer {
 
     private final Registry<Biome> biomeRegistry;
+
     public EndMasterLayer(Registry<Biome> biomeRegistry) {
         this.biomeRegistry = biomeRegistry;
     }

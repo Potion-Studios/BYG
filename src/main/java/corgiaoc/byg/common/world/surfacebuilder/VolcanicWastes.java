@@ -9,7 +9,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
-import net.fabricmc.fabric.api.biome.v1.OverworldClimate;import java.util.Random;
+
+import java.util.Random;
 
 public class VolcanicWastes extends SurfaceBuilder<TernarySurfaceConfig> {
     public VolcanicWastes(Codec<TernarySurfaceConfig> config) {
@@ -22,7 +23,7 @@ public class VolcanicWastes extends SurfaceBuilder<TernarySurfaceConfig> {
         else if (noise < -0.3)
             SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
         else
-            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, random.nextInt(4) == 0 ?  new TernarySurfaceConfig(Blocks.MAGMA_BLOCK.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState()) : new TernarySurfaceConfig(BYGBlocks.MAGMATIC_STONE.getDefaultState(), Blocks.OBSIDIAN.getDefaultState(), Blocks.OBSIDIAN.getDefaultState()));
+            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, random.nextInt(4) == 0 ? new TernarySurfaceConfig(Blocks.MAGMA_BLOCK.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState()) : new TernarySurfaceConfig(BYGBlocks.MAGMATIC_STONE.getDefaultState(), Blocks.OBSIDIAN.getDefaultState(), Blocks.OBSIDIAN.getDefaultState()));
 
     }
 }

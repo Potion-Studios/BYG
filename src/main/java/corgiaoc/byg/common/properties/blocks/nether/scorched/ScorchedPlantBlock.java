@@ -28,7 +28,7 @@ public class ScorchedPlantBlock extends PlantBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
-        return state.isIn(BlockTags.NYLIUM) || state.isOf(Blocks.MYCELIUM) || state.isOf(Blocks.SOUL_SOIL) || state.isIn(BlockTags.BASE_STONE_NETHER) || state.isIn(FabricTags.END_STONES)|| super.canPlantOnTop(state, worldIn, pos);
+        return state.isIn(BlockTags.NYLIUM) || state.isOf(Blocks.MYCELIUM) || state.isOf(Blocks.SOUL_SOIL) || state.isIn(BlockTags.BASE_STONE_NETHER) || state.isIn(FabricTags.END_STONES) || super.canPlantOnTop(state, worldIn, pos);
     }
 
     @Override

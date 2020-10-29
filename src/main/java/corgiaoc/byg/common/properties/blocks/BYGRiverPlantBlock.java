@@ -2,7 +2,6 @@ package corgiaoc.byg.common.properties.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -14,6 +13,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+
 import javax.annotation.Nullable;
 
 public class BYGRiverPlantBlock extends TallPlantBlock implements Waterloggable {
@@ -79,7 +79,7 @@ public class BYGRiverPlantBlock extends TallPlantBlock implements Waterloggable 
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction facing, BlockState facingState, WorldAccess world,
-                                          BlockPos currentPos, BlockPos facingPos) {
+                                                BlockPos currentPos, BlockPos facingPos) {
         if (state.get(WATERLOGGED)) {
             world.getFluidTickScheduler().schedule(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }

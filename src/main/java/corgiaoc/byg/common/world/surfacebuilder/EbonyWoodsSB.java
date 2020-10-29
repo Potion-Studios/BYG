@@ -6,7 +6,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
-import net.fabricmc.fabric.api.biome.v1.OverworldClimate;import java.util.Random;
+
+import java.util.Random;
 
 public class EbonyWoodsSB extends SurfaceBuilder<TernarySurfaceConfig> {
     public EbonyWoodsSB(Codec<TernarySurfaceConfig> p_i51312_1_) {

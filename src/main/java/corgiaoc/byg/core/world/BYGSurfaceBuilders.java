@@ -8,7 +8,8 @@ import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
-import net.fabricmc.fabric.api.biome.v1.OverworldClimate;import java.util.ArrayList;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class BYGSurfaceBuilders {

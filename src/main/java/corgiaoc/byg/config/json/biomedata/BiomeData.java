@@ -17,7 +17,7 @@ public class BiomeData {
     public BiomeData(Biome biome, int biomeWeight, OverworldClimate biomeType, WeightedList<Biome> biomeWeightedList, Biome edgeBiome, Biome beachBiome, Biome river) {
         this.biome = biome;
         this.biomeWeight = biomeWeight;
-        this.biomeType =  biomeType;
+        this.biomeType = biomeType;
         this.biomeWeightedList = biomeWeightedList;
         this.edgeBiome = edgeBiome;
         this.beachBiome = beachBiome;

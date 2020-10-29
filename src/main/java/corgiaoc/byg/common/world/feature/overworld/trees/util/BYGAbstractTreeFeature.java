@@ -134,8 +134,8 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     /**
-     * @param reader             Gives us access to world.
-     * @param pos                Position to check.
+     * @param reader Gives us access to world.
+     * @param pos    Position to check.
      * @return Determines if the pos is of the dirt tag or another block.
      */
     public static boolean isDesiredGroundwDirtTag(TestableWorld reader, BlockPos pos, BYGTreeConfig config) {
@@ -169,8 +169,8 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     /**
-     * @param reader             Gives us access to world.
-     * @param pos                Position to check.
+     * @param reader Gives us access to world.
+     * @param pos    Position to check.
      * @param config Allows to add other blocks that do not have the sand tag.
      * @return Determines if the pos is of the sand tag or another block.
      */
@@ -308,7 +308,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     /**
      * Checks the area surrounding the position for any blocks using either the log or leaves tag.
-     *
+     * <p>
      * Called only during world gen.
      *
      * @param reader     Gives us access to world
@@ -403,8 +403,8 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
      *
      * @param treeBlocksSet  Gives us access to the tree block set where we add our trees blocks.
      * @param reader         Gives us access to world
-     * @param config    Typically this is the log of the tree we're trying to fill the base of.
-     * @param rand     The block used under logs. Typically a block found in the dirt tag
+     * @param config         Typically this is the log of the tree we're trying to fill the base of.
+     * @param rand           The block used under logs. Typically a block found in the dirt tag
      * @param boundingBox    Bounding Box of our tree.
      * @param trunkPositions List of trunk positions where the base is built under the given position.
      */
@@ -423,8 +423,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                             setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk), boundingBox);
                         else
                             setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, config.getGroundReplacementProvider().getBlockState(rand, mutableTrunk), boundingBox);
-                    }
-                else {
+                    } else {
                         if (!isDesiredGround(reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk).getBlock()))
                             setFinalBlockState(treeBlocksSet, (ModifiableWorld) reader, mutableTrunk, config.getGroundReplacementProvider().getBlockState(rand, mutableTrunk), boundingBox);
                         fill = 25;

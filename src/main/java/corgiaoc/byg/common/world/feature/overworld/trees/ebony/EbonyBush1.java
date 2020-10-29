@@ -7,6 +7,7 @@ import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
+
 import java.util.Random;
 import java.util.Set;
 
@@ -441,7 +442,6 @@ public class EbonyBush1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.EBONY_LEAVES.getDefaultState(), boundingBox);
         }
     }
-
 
 
 }

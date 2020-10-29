@@ -20,31 +20,9 @@ public class BYGFrostMagmaBlock extends Block {
             entity.damage(DamageSource.HOT_FLOOR, 1.0F);
         }
 
-//        if (entity instanceof LivingEntity) {
-//            LivingEntity livingentity = (LivingEntity) entity;
-//            if (!entity.isImmuneToFire() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
-//                livingentity.addPotionEffect(new EffectInstance(Effects.LEVITATION, 20, 30));
-//            }
-//        }
-
 
         super.onSteppedOn(block, pos, entity);
     }
-
-//    @OnlyIn(Dist.CLIENT)
-//    public void animateTick(BlockState blockstate, World world, BlockPos pos, Random rand) {
-//        VoxelShape shape = this.getShape(blockstate, world, pos, ISelectionContext.dummy());
-//        Vector3d Vector3d = shape.getBoundingBox().getCenter();
-//        double getX = (double) pos.getX() + Vector3d.x;
-//        double getZ = (double) pos.getZ() + Vector3d.z;
-//
-//        for (int idx = 0; idx < 3; ++idx) {
-//            if (rand.nextBoolean()) {
-//                world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, getX + (double) (rand.nextFloat() / 5.0F), (double) pos.getY() + (0.5D - (double) rand.nextFloat()), getZ + (double) (rand.nextFloat() / 5.0F), 0.0D, 0.04D, 0.0D);
-//            }
-//        }
-//
-//    }
 
     public int tickRate() {
         return 20;

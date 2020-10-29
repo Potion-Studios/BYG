@@ -63,7 +63,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
             //This should never be null.
             Identifier location = BuiltinRegistries.BIOME.getId(biomeData.getBiome());
-            if (location != null )
+            if (location != null)
                 biomeObject.add(location.toString(), object);
             else
                 BYG.LOGGER.error("The Biome key was null! This should NEVER happen.");
@@ -109,8 +109,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             if (!defaultClimates.contains(climate)) {
                 BYG.LOGGER.error(elementEntry.getKey() + "'s \"climate\" value is incorrect you put: \"" + climate + "\". Defaulting climate to temperate...");
                 biomeType = OverworldClimate.TEMPERATE;
-            }
-            else
+            } else
                 biomeType = OverworldClimate.valueOf(climate);
 
             JsonArray hillLayerList = elementObject.get("hills").getAsJsonArray();
@@ -138,8 +137,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
                     biomeData.add(new BiomeData(BuiltinRegistries.BIOME.get(biomeKey), weight, biomeType, weightedList, BuiltinRegistries.BIOME.get(new Identifier(edge)), BuiltinRegistries.BIOME.get(new Identifier(beach)), BuiltinRegistries.BIOME.get(new Identifier(river))));
                 else
                     BYG.LOGGER.error("Biome key: \"" + biomeName + "\" is illegal. The mod id for the biome key MUST be \"byg\". Skipping entry...");
-            }
-            else
+            } else
                 BYG.LOGGER.error("The biome key: \"" + biomeName + "\" was not found in the registry, skipping entry...");
         }
         return new BiomeDataListHolder(biomeData);

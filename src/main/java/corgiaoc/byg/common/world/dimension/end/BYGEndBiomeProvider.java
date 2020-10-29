@@ -61,8 +61,7 @@ public class BYGEndBiomeProvider extends BiomeSource {
                     if (!END_BIOMES.contains(locationKey) && !END_BIOME_IDS.contains(locationKey.toString())) {
                         END_BIOMES.add(locationKey);
                     }
-                }
-                else {
+                } else {
                     for (String id : END_BIOME_IDS) {
                         if (id.equals(locationKey.toString())) {
                             END_BIOMES.add(locationKey);

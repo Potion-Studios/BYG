@@ -8,6 +8,7 @@ import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
+
 import java.util.Random;
 import java.util.Set;
 
@@ -808,7 +809,7 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 24, -2), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 24, -1), boundsIn);
                 placeLeaves(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 24, -2), boundsIn);
-                if(!config.isPlacementForced()) {
+                if (!config.isPlacementForced()) {
                     this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-5, 19, 4), boundsIn);
                     this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 19, -9), boundsIn);
                     this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 19, 6), boundsIn);

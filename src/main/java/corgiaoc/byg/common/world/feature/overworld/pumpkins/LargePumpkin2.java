@@ -86,7 +86,7 @@ public class LargePumpkin2 extends Feature<PumpkinConfig> {
                 setPumpkinState(rand, mutable.set(posX + 2, height - 5, posZ + 1), config, world);
                 setPumpkinState(rand, mutable.set(posX + 2, height - 5, posZ - 1), config, world);
 
-                setLeavesState(rand, mutable.set(posX+ 1, height - 1, posZ), config, world);
+                setLeavesState(rand, mutable.set(posX + 1, height - 1, posZ), config, world);
                 setLeavesState(rand, mutable.set(posX, height, posZ + 1), config, world);
                 setLeavesState(rand, mutable.set(posX - 1, height, posZ), config, world);
                 setLeavesState(rand, mutable.set(posX, height + 1, posZ), config, world);

@@ -31,7 +31,7 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world,  ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockConfig config) {
+    public boolean generate(StructureWorldAccess world, ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockConfig config) {
         long randomLong = rand.nextLong();
         setSeed(world.getSeed() + 215465128 + randomLong);
         double noise;
