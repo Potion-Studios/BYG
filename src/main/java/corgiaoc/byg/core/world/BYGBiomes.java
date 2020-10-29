@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 public class BYGBiomes {
     public static List<PreserveBiomeOrder> biomeList = new ArrayList<>();
 
-    public static Biome DUMMY_BIOME = WorldGenRegistrationHelper.createBiome("dummy", new DummySubBiome().getBiome(), 2000);
+//    public static Biome DUMMY_BIOME = WorldGenRegistrationHelper.createBiome("dummy", new DummySubBiome().getBiome(), 2000);
 
 
     /************Primary Biomes************/
