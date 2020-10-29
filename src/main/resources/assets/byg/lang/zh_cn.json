@@ -19,7 +19,7 @@
   "biome.byg.bluff_peaks": "断崖峰",
   "biome.byg.bluff_steeps": "陡崖",
   "biome.byg.bog": "泥沼",
-  "item.byg.embur_gel_ball" : "恩布尔胶球",
+  "item.byg.embur_gel_ball": "恩布尔胶球",
   "biome.byg.boreal_clearing": "针叶林空地",
   "biome.byg.boreal_forest": "针叶林树林",
   "biome.byg.boreal_forest_hills": "针叶林树林山脉",
@@ -140,7 +140,7 @@
   "biome.byg.stone_brushlands": "石灌木丛",
   "biome.byg.sythian_torrids": "发光竹热带雨林",
   "biome.byg.the_black_forest": "黑色森林",
-  "biome.byg.tropical_fungal_rainforest": "热带真菌雨林",
+  "biome.byg.tropical_fungal_forest": "热带真菌雨林",
   "biome.byg.tropical_fungal_rainforest_hills": "热带真菌雨林山丘",
   "biome.byg.tropical_island": "热带岛屿",
   "biome.byg.tropical_rainforest": "热带雨林",
@@ -922,6 +922,5 @@
   "item.byg.willow_boat": "柳木船",
   "item.byg.witch_hazel_boat": "金缕梅木船",
   "item.byg.zelkova_boat": "榉木船",
-  "itemGroup.byg.byg": "你将去的生物群系",
-  "item.byg.mud_ball": "泥球"
+  "itemGroup.byg.byg": "你将去的生物群系"
 }

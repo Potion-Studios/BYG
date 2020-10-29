@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_door",
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:palm_planks"
+    }
+  },
+  "result": {
+    "item": "byg:palm_door",
+    "count": 3
+  }
+}

@@ -3,7 +3,7 @@
   "textures": {
     "particle": "block/dirt",
     "bottom": "block/dirt",
-    "top": "byg:blocks/glowcelium_top",
-    "side": "byg:blocks/glowcelium_snow_side"
+    "top": "byg:block/glowcelium_top",
+    "side": "byg:block/glowcelium_snow_side"
   }
 }

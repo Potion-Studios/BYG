@@ -1,14 +1,21 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "voronoiaoc.byg.mixin",
+  "package": "corgiaoc.byg.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "common.AbstractBlockStateBookshelfMixin",
-    "common.FeatureMixin",
-    "common.MixinDimensionType",
-    "common.MixinSlimeEntity",
-    "common.PlantBlockMixin"
+    "common.block.AbstractBlockStateBookshelfMixin",
+    "common.block.MixinAbstractFireBlock",
+    "common.block.entity.MixinAbstractFurnaceBlockEntity",
+    "common.entity.MixinAnimalEntity",
+    "common.entity.MixinSlimeEntity",
+    "common.world.feature.FeatureMixin",
+    "common.world.feature.MixinBasaltColumnFeature",
+    "common.world.layers.MixinDimensionType",
+    "common.world.layers.MixinHillsLayer",
+    "common.world.layers.MixinRiverLayer",
+    "common.world.layers.MixinShoreLayer",
+    "server.MixinMinecraftServer"
   ],
   "client": [],
   "injectors": {

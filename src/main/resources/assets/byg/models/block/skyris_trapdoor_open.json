@@ -1,6 +1,6 @@
 {
   "parent": "block/template_orientable_trapdoor_open",
   "textures": {
-    "texture": "byg:blocks/skyris_trapdoor"
+    "texture": "byg:block/skyris_trapdoor"
   }
 }

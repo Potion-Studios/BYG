@@ -1,6 +1,6 @@
 {
   "parent": "block/pressure_plate_up",
   "textures": {
-    "texture": "byg:blocks/rainbow_eucalyptus_planks"
+    "texture": "byg:block/rainbow_eucalyptus_planks"
   }
 }

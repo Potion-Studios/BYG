@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "byg:bulbis_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:bulbis_planks"
+    }
+  },
+  "result": {
+    "item": "byg:bulbis_stairs",
+    "count": 4
+  }
+}

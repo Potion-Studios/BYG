@@ -1,13 +1,25 @@
 {
   "textures": {
-    "texture": "byg:blocks/blewit_mushroom_block",
-    "particle": "byg:blocks/blewit_mushroom_block"
+    "texture": "byg:block/blewit_mushroom_block",
+    "particle": "byg:block/blewit_mushroom_block"
   },
   "elements": [
-    {   "from": [ 0, 0, 0 ],
-      "to": [ 16, 16, 0 ],
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        0
+      ],
       "faces": {
-        "north": { "texture": "#texture", "cullface":"north" }
+        "north": {
+          "texture": "#texture",
+          "cullface": "north"
+        }
       }
     }
   ]

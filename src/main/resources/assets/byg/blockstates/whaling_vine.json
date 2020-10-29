@@ -1,0 +1,120 @@
+{
+  "variants": {
+    "east=false,north=false,south=false,up=false,west=false": {
+      "model": "byg:block/whaling_vine1"
+    },
+    "east=false,north=false,south=true,up=false,west=false": {
+      "model": "byg:block/whaling_vine1"
+    },
+    "east=false,north=false,south=false,up=false,west=true": {
+      "model": "byg:block/whaling_vine1",
+      "y": 90
+    },
+    "east=false,north=true,south=false,up=false,west=false": {
+      "model": "byg:block/whaling_vine1",
+      "y": 180
+    },
+    "east=true,north=false,south=false,up=false,west=false": {
+      "model": "byg:block/whaling_vine1",
+      "y": 270
+    },
+    "east=true,north=true,south=false,up=false,west=false": {
+      "model": "byg:block/whaling_vine2"
+    },
+    "east=true,north=false,south=true,up=false,west=false": {
+      "model": "byg:block/whaling_vine2",
+      "y": 90
+    },
+    "east=false,north=false,south=true,up=false,west=true": {
+      "model": "byg:block/whaling_vine2",
+      "y": 180
+    },
+    "east=false,north=true,south=false,up=false,west=true": {
+      "model": "byg:block/whaling_vine2",
+      "y": 270
+    },
+    "east=true,north=false,south=false,up=false,west=true": {
+      "model": "byg:block/whaling_vine_2_opposite"
+    },
+    "east=false,north=true,south=true,up=false,west=false": {
+      "model": "byg:block/whaling_vine_2_opposite",
+      "y": 90
+    },
+    "east=true,north=true,south=true,up=false,west=false": {
+      "model": "byg:block/whaling_vine_3"
+    },
+    "east=true,north=false,south=true,up=false,west=true": {
+      "model": "byg:block/whaling_vine_3",
+      "y": 90
+    },
+    "east=false,north=true,south=true,up=false,west=true": {
+      "model": "byg:block/whaling_vine_3",
+      "y": 180
+    },
+    "east=true,north=true,south=false,up=false,west=true": {
+      "model": "byg:block/whaling_vine_3",
+      "y": 270
+    },
+    "east=true,north=true,south=true,up=false,west=true": {
+      "model": "byg:block/whaling_vine_4"
+    },
+    "east=false,north=false,south=false,up=true,west=false": {
+      "model": "byg:block/whaling_vine_u"
+    },
+    "east=false,north=false,south=true,up=true,west=false": {
+      "model": "byg:block/whaling_vine_1u"
+    },
+    "east=false,north=false,south=false,up=true,west=true": {
+      "model": "byg:block/whaling_vine_1u",
+      "y": 90
+    },
+    "east=false,north=true,south=false,up=true,west=false": {
+      "model": "byg:block/whaling_vine_1u",
+      "y": 180
+    },
+    "east=true,north=false,south=false,up=true,west=false": {
+      "model": "byg:block/whaling_vine_1u",
+      "y": 270
+    },
+    "east=true,north=true,south=false,up=true,west=false": {
+      "model": "byg:block/whaling_vine_2u"
+    },
+    "east=true,north=false,south=true,up=true,west=false": {
+      "model": "byg:block/whaling_vine_2u",
+      "y": 90
+    },
+    "east=false,north=false,south=true,up=true,west=true": {
+      "model": "byg:block/whaling_vine_2u",
+      "y": 180
+    },
+    "east=false,north=true,south=false,up=true,west=true": {
+      "model": "byg:block/whaling_vine_2u",
+      "y": 270
+    },
+    "east=true,north=false,south=false,up=true,west=true": {
+      "model": "byg:block/whaling_vine_2u_opposite"
+    },
+    "east=false,north=true,south=true,up=true,west=false": {
+      "model": "byg:block/whaling_vine_2u_opposite",
+      "y": 90
+    },
+    "east=true,north=true,south=true,up=true,west=false": {
+      "model": "byg:block/whaling_vine_3u"
+    },
+    "east=true,north=false,south=true,up=true,west=true": {
+      "model": "byg:block/whaling_vine_3u",
+      "y": 90
+    },
+    "east=false,north=true,south=true,up=true,west=true": {
+      "model": "byg:block/whaling_vine_3u",
+      "y": 180
+    },
+    "east=true,north=true,south=false,up=true,west=true": {
+      "model": "byg:block/whaling_vine_3u",
+      "y": 270
+    },
+    "east=true,north=true,south=true,up=true,west=true": {
+      "model": "byg:block/whaling_vine_4u"
+    }
+  }
+}

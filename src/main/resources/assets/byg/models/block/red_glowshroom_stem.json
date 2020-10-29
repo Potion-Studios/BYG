@@ -1,13 +1,25 @@
 {
   "textures": {
-    "texture": "byg:blocks/red_glowshroom_stem",
-    "particle": "byg:blocks/red_glowshroom_stem"
+    "texture": "byg:block/red_glowshroom_stem",
+    "particle": "byg:block/red_glowshroom_stem"
   },
   "elements": [
-    {   "from": [ 0, 0, 0 ],
-      "to": [ 16, 16, 0 ],
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        0
+      ],
       "faces": {
-        "north": { "texture": "#texture", "cullface":"north" }
+        "north": {
+          "texture": "#texture",
+          "cullface": "north"
+        }
       }
     }
   ]

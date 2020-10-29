@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/sapling_silver_maple"
+    "layer0": "byg:block/silver_maple_sapling"
   }
 }

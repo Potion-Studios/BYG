@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/green_enchanted_leaves",
-    "particle": "byg:blocks/green_enchanted_leaves"
+    "all": "byg:block/green_enchanted_leaves",
+    "particle": "byg:block/green_enchanted_leaves"
   }
 }

@@ -3,8 +3,8 @@
   "values": [
     "byg:dacite_cobblestone_wall",
     "byg:dacite_wall",
-    "byg:dacite_brick_wall",
     "byg:dacite_tile_wall",
+    "byg:dacite_brick_wall",
     "byg:mossy_stone_wall",
     "byg:rocky_stone_wall",
     "byg:scoria_stone_wall",
@@ -18,6 +18,9 @@
     "byg:red_rock_brick_wall",
     "byg:mossy_red_rock_brick_wall",
     "byg:cracked_red_rock_brick_wall",
-    "byg:chiseled_red_rock_brick_wall"
+    "byg:chiseled_red_rock_brick_wall",
+    "byg:ether_stone_wall",
+    "byg:purpur_stone_wall",
+    "byg:cryptic_stone_wall"
   ]
 }

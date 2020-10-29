@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/mossy_red_rock_bricks",
-    "particle": "byg:blocks/mossy_red_rock_bricks"
+    "all": "byg:block/mossy_red_rock_bricks",
+    "particle": "byg:block/mossy_red_rock_bricks"
   }
 }

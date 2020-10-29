@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/silver_vase",
-    "particle": "byg:blocks/silver_vase"
+    "cross": "byg:block/silver_vase_flower",
+    "particle": "byg:block/silver_vase_flower"
   }
 }

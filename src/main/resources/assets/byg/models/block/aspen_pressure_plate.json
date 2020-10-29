@@ -1,6 +1,6 @@
 {
   "parent": "block/pressure_plate_up",
   "textures": {
-    "texture": "byg:blocks/aspen_planks"
+    "texture": "byg:block/aspen_planks"
   }
 }

@@ -44,11 +44,14 @@
     "byg:yellow_birch_leaves",
     "byg:yellow_spruce_leaves",
     "byg:aspen_leaves",
-    "byg:white_petal_block",
-    "byg:red_petal_block",
-    "byg:blue_petal_block",
-    "byg:light_blue_petal_block",
-    "byg:yellow_petal_block",
-    "byg:zelkova_leaves"
+    "byg:zelkova_leaves",
+    "byg:palm_leaves",
+    "byg:araucaria_leaves",
+    "byg:brown_zelkova_leaves",
+    "byg:lament_leaves",
+    "byg:withering_oak_leaves",
+    "byg:ether_leaves",
+    "byg:nightshade_leaves",
+    "byg:flowering_nightshade_leaves"
   ]
 }

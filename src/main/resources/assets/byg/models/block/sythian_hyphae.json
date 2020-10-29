@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "byg:block/sythian_stem",
+    "side": "byg:block/sythian_stem"
+  }
+}

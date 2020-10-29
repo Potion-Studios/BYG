@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/blue_glowshroom",
-    "particle": "byg:blocks/blue_glowshroom"
+    "cross": "byg:block/blue_glowshroom",
+    "particle": "byg:block/blue_glowshroom"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/pink_sand",
-    "particle": "byg:blocks/pink_sand"
+    "all": "byg:block/pink_sand",
+    "particle": "byg:block/pink_sand"
   }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "byg:blocks/baobab_planks",
-    "up": "byg:blocks/baobab_planks",
-    "north": "byg:blocks/baobab_bookshelf",
-    "east": "byg:blocks/baobab_bookshelf",
-    "south": "byg:blocks/baobab_bookshelf",
-    "west": "byg:blocks/baobab_bookshelf",
-    "particle": "byg:blocks/baobab_planks"
+    "down": "byg:block/baobab_planks",
+    "up": "byg:block/baobab_planks",
+    "north": "byg:block/baobab_bookshelf",
+    "east": "byg:block/baobab_bookshelf",
+    "south": "byg:block/baobab_bookshelf",
+    "west": "byg:block/baobab_bookshelf",
+    "particle": "byg:block/baobab_planks"
   }
 }

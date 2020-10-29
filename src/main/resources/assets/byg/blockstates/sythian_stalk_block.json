@@ -1,26 +1,58 @@
 {
   "multipart": [
-    {   "when": { "age": "0" },
+    {
+      "when": {
+        "age": "0"
+      },
       "apply": [
-        { "model": "byg:block/sythian_stalk_block1_age0" },
-        { "model": "byg:block/sythian_stalk_block2_age0" },
-        { "model": "byg:block/sythian_stalk_block3_age0" },
-        { "model": "byg:block/sythian_stalk_block4_age0" }
+        {
+          "model": "byg:block/sythian_stalk_block1_age0"
+        },
+        {
+          "model": "byg:block/sythian_stalk_block2_age0"
+        },
+        {
+          "model": "byg:block/sythian_stalk_block3_age0"
+        },
+        {
+          "model": "byg:block/sythian_stalk_block4_age0"
+        }
       ]
     },
-    {   "when": { "age": "1" },
+    {
+      "when": {
+        "age": "1"
+      },
       "apply": [
-        { "model": "byg:block/sythian_stalk_block1_age1" },
-        { "model": "byg:block/sythian_stalk_block2_age1" },
-        { "model": "byg:block/sythian_stalk_block3_age1" },
-        { "model": "byg:block/sythian_stalk_block4_age1" }
+        {
+          "model": "byg:block/sythian_stalk_block1_age1"
+        },
+        {
+          "model": "byg:block/sythian_stalk_block2_age1"
+        },
+        {
+          "model": "byg:block/sythian_stalk_block3_age1"
+        },
+        {
+          "model": "byg:block/sythian_stalk_block4_age1"
+        }
       ]
     },
-    {   "when": { "leaves": "small" },
-      "apply": { "model": "byg:block/sythian_stalk_block_small_leaves" }
+    {
+      "when": {
+        "leaves": "small"
+      },
+      "apply": {
+        "model": "byg:block/sythian_stalk_block_small_leaves"
+      }
     },
-    {   "when": { "leaves": "large" },
-      "apply": { "model": "byg:block/sythian_stalk_block_large_leaves" }
+    {
+      "when": {
+        "leaves": "large"
+      },
+      "apply": {
+        "model": "byg:block/sythian_stalk_block_large_leaves"
+      }
     }
   ]
 }

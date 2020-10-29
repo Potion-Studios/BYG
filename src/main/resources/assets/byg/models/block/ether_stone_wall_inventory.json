@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:block/ether_stone",
+    "particle": "byg:block/ether_stone"
+  }
+}

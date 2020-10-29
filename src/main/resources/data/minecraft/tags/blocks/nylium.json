@@ -1,10 +1,10 @@
 {
-  "replace:": false,
+  "replace": false,
   "values": [
-    "byg:sythian_nylium",
     "byg:embur_nylium",
+    "byg:sythian_nylium",
     "byg:overgrown_netherrack",
-    "byg:nylium_soul_soil",
-    "byg:nylium_soul_sand"
+    "byg:overgrown_crimson_blackstone",
+    "byg:mycelium_netherrack"
   ]
 }

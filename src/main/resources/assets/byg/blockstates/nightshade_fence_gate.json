@@ -1,0 +1,80 @@
+{
+  "variants": {
+    "open=false,in_wall=false,facing=east": {
+      "model": "byg:block/nightshade_fence_gate",
+      "y": 270,
+      "uvlock": true
+    },
+    "open=false,in_wall=true,facing=east": {
+      "model": "byg:block/nightshade_fence_gate_wall",
+      "y": 270,
+      "uvlock": true
+    },
+    "open=true,in_wall=true,facing=west": {
+      "model": "byg:block/nightshade_fence_gate_wall_open",
+      "y": 90,
+      "uvlock": true
+    },
+    "open=false,in_wall=false,facing=north": {
+      "model": "byg:block/nightshade_fence_gate",
+      "y": 180,
+      "uvlock": true
+    },
+    "open=false,in_wall=true,facing=north": {
+      "model": "byg:block/nightshade_fence_gate_wall",
+      "y": 180,
+      "uvlock": true
+    },
+    "open=true,in_wall=true,facing=east": {
+      "model": "byg:block/nightshade_fence_gate_wall_open",
+      "y": 270,
+      "uvlock": true
+    },
+    "open=true,in_wall=true,facing=north": {
+      "model": "byg:block/nightshade_fence_gate_wall_open",
+      "y": 180,
+      "uvlock": true
+    },
+    "open=true,in_wall=false,facing=north": {
+      "model": "byg:block/nightshade_fence_gate_open",
+      "y": 180,
+      "uvlock": true
+    },
+    "open=true,in_wall=false,facing=west": {
+      "model": "byg:block/nightshade_fence_gate_open",
+      "y": 90,
+      "uvlock": true
+    },
+    "open=false,in_wall=true,facing=south": {
+      "model": "byg:block/nightshade_fence_gate_wall",
+      "uvlock": true
+    },
+    "open=true,in_wall=false,facing=south": {
+      "model": "byg:block/nightshade_fence_gate_open",
+      "uvlock": true
+    },
+    "open=false,in_wall=true,facing=west": {
+      "model": "byg:block/nightshade_fence_gate_wall",
+      "y": 90,
+      "uvlock": true
+    },
+    "open=true,in_wall=true,facing=south": {
+      "model": "byg:block/nightshade_fence_gate_wall_open",
+      "uvlock": true
+    },
+    "open=false,in_wall=false,facing=south": {
+      "model": "byg:block/nightshade_fence_gate",
+      "uvlock": true
+    },
+    "open=true,in_wall=false,facing=east": {
+      "model": "byg:block/nightshade_fence_gate_open",
+      "y": 270,
+      "uvlock": true
+    },
+    "open=false,in_wall=false,facing=west": {
+      "model": "byg:block/nightshade_fence_gate",
+      "y": 90,
+      "uvlock": true
+    }
+  }
+}

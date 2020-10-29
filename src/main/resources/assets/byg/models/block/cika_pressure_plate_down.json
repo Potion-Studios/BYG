@@ -1,6 +1,6 @@
 {
   "parent": "block/pressure_plate_down",
   "textures": {
-    "texture": "byg:blocks/cika_planks"
+    "texture": "byg:block/cika_planks"
   }
 }

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/brown_oak_leaves" }
+    "": {
+      "model": "byg:block/brown_oak_leaves"
+    }
   }
 }

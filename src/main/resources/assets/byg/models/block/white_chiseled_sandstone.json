@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "byg:blocks/white_sandstone_top",
-    "side": "byg:blocks/white_chiseled_sandstone"
+    "end": "byg:block/white_sandstone_top",
+    "side": "byg:block/white_chiseled_sandstone"
   }
 }

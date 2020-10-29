@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "byg:block/mangrove_leaves" }
+    "": {
+      "model": "byg:block/mangrove_leaves"
+    }
   }
 }

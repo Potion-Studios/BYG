@@ -4,13 +4,13 @@
   "version": "${version}",
 
   "name": "BYG",
-  "description": "An Adventure and Exploration mod with over 60 new biomes!\nTranslator Credits: Dimiral(Russian), Godzmoline(Simplified Chinese)",
+  "description": "An Adventure and Exploration mod with over 80 new biomes!\nTranslator Credits: Dimiral(Russian), Godzmoline(Simplified Chinese)",
   "authors": [
     "Corgi Taco",
     "AOCAWOL"
   ],
   "contact": {
-    "homepage": "https://biomesyougo.weebly.com/",
+    "homepage": "https://bygmc.weebly.com/",
     "sources": "https://github.com/CorgiTaco/BYG"
   },
 
@@ -20,10 +20,13 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "voronoiaoc.byg.BYG"
+      "corgiaoc.byg.BYG"
     ],
     "client": [
-      "voronoiaoc.byg.client.BYGClient"
+      "corgiaoc.byg.client.BYGClient"
+    ],
+    "modmenu": [
+      "corgiaoc.byg.config.autoconfig.ModMenuIntegration"
     ]
   },
   "mixins": [

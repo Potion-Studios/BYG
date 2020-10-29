@@ -16,7 +16,7 @@ group = project.maven_group
 dependencies {
 	//to change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings minecraft.officialMojangMappings()
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
@@ -39,6 +39,36 @@ processResources {
 
 	from(sourceSets.main.resources.srcDirs) {
 		exclude "fabric.mod.json"
+	}
+}
+
+/********Dependencies********/
+repositories {
+	maven {
+		url 'https://maven.fabricmc.net/io/github/prospector/modmenu/'
+	}
+	maven {
+		name "cotton-config"
+		url 'http://server.bbkr.space:8081/artifactory/libs-release'
+	}
+}
+
+dependencies {
+	modImplementation ("me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"){
+		exclude module: 'fabric-api'
+	}
+	include ("me.sargunvohra.mcmods:autoconfig1u:${project.auto_config_version}"){
+		exclude module: 'fabric-api'
+	}
+
+	modImplementation ("me.shedaniel.cloth:config-2:${project.cloth_config_version}"){
+		exclude module: 'fabric-api'
+	}
+	include ("me.shedaniel.cloth:config-2:${project.cloth_config_version}"){
+		exclude module: 'fabric-api'
+	}
+	modImplementation ("io.github.prospector:modmenu:${project.mod_menu_version}"){
+		exclude module: 'fabric-api'
 	}
 }
 

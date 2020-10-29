@@ -129,7 +129,7 @@
       "predicate": {
         "blocking": 1
       },
-      "model": "byg:items/ametrine_shield_blue_blocking"
+      "model": "byg:item/ametrine_shield_blue_blocking"
     }
   ]
 }

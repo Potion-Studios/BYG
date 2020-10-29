@@ -1,15 +1,42 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:blocks/embur_lily",
-    "texture": "byg:blocks/embur_lily"
+    "particle": "byg:block/embur_lily",
+    "texture": "byg:block/embur_lily"
   },
   "elements": [
-    {   "from": [ 0, 0.25, 0 ],
-      "to": [ 16, 0.25, 16 ],
+    {
+      "from": [
+        0,
+        0.25,
+        0
+      ],
+      "to": [
+        16,
+        0.25,
+        16
+      ],
       "faces": {
-        "down":  { "uv": [ 16, 16, 0,  0 ], "texture": "#texture", "tintindex": 0 },
-        "up":    { "uv": [ 16,  0, 0, 16 ], "texture": "#texture", "tintindex": 0 }
+        "down": {
+          "uv": [
+            16,
+            16,
+            0,
+            0
+          ],
+          "texture": "#texture",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#texture",
+          "tintindex": 0
+        }
       }
     }
   ]

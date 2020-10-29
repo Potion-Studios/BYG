@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side_tall",
+  "textures": {
+    "wall": "byg:block/cryptic_stone",
+    "particle": "byg:block/cryptic_stone"
+  }
+}

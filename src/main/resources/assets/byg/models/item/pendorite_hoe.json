@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "byg:items/pendorite_hoe"
+    "layer0": "byg:item/pendorite_hoe"
   }
 }

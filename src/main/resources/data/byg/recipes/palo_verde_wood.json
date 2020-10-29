@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:palo_verde_log"
+    }
+  },
+  "result": {
+    "item": "byg:palo_verde_wood",
+    "count": 3
+  }
+}

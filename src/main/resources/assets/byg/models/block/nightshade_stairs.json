@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "byg:block/nightshade_planks",
+    "top": "byg:block/nightshade_planks",
+    "side": "byg:block/nightshade_planks"
+  }
+}

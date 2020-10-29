@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:items/skyris_boat"
+    "layer0": "byg:item/skyris_boat"
   }
 }

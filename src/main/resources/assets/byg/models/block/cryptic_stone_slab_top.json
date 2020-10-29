@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "byg:block/cryptic_stone",
+    "top": "byg:block/cryptic_stone",
+    "side": "byg:block/cryptic_stone"
+  }
+}

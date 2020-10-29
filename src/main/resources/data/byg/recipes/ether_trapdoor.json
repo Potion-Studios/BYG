@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:ether_planks"
+    }
+  },
+  "result": {
+    "item": "byg:ether_trapdoor",
+    "count": 2
+  }
+}

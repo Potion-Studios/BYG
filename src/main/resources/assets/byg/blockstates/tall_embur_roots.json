@@ -1,6 +1,10 @@
 {
   "variants": {
-    "half=lower": { "model": "byg:block/tall_embur_roots_bottom" },
-    "half=upper":    { "model": "byg:block/tall_embur_roots_top" }
+    "half=lower": {
+      "model": "byg:block/tall_embur_roots_bottom"
+    },
+    "half=upper": {
+      "model": "byg:block/tall_embur_roots_top"
+    }
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/sapling_pink_cherry",
-    "particle": "byg:blocks/sapling_pink_cherry"
+    "cross": "byg:block/pink_cherry_sapling",
+    "particle": "byg:block/pink_cherry_sapling"
   }
 }

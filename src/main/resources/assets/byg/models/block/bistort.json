@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:blocks/bistort",
-    "particle": "byg:blocks/bistort"
+    "cross": "byg:block/bistort",
+    "particle": "byg:block/bistort"
   }
 }

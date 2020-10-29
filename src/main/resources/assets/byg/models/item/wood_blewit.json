@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/wood_blewit"
+    "layer0": "byg:block/wood_blewit"
   }
 }

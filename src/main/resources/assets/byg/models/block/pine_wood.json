@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/pine_log",
-    "particle": "byg:blocks/pine_log"
+    "all": "byg:block/pine_log",
+    "particle": "byg:block/pine_log"
   }
 }

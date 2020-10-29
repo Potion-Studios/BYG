@@ -1,8 +1,8 @@
 {
   "parent": "byg:custom/ground_block_template",
   "textures": {
-    "all": "byg:blocks/plant_leaf_pile_atumn",
-    "particle": "byg:blocks/plant_leaf_pile_atumn",
-    "plant_ivy": "byg:blocks/plant_leaf_pile_atumn"
+    "all": "byg:block/plant_leaf_pile_atumn",
+    "particle": "byg:block/plant_leaf_pile_atumn",
+    "plant_ivy": "byg:block/plant_leaf_pile_atumn"
   }
 }

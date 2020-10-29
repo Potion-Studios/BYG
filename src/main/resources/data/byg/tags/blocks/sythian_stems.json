@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "byg:sythian_stem",
+    "byg:stripped_sythian_stem",
+    "byg:sythian_hyphae",
+    "byg:stripped_sythian_hyphae"
+  ]
+}

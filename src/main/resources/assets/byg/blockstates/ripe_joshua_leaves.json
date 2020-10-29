@@ -1,5 +1,7 @@
 {
-"variants": {
-"": { "model": "byg:block/ripe_joshua_leaves" }
-}
+  "variants": {
+    "": {
+      "model": "byg:block/ripe_joshua_leaves"
+    }
+  }
 }

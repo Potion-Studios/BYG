@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "byg:block/embur_hyphae"
+    },
+    "axis=z": {
+      "model": "byg:block/embur_hyphae",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "byg:block/embur_hyphae",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

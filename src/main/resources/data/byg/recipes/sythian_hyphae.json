@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:sythian_stem"
+    }
+  },
+  "result": {
+    "item": "byg:sythian_hyphae",
+    "count": 3
+  }
+}

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:blocks/silver_vase"
+    "layer0": "byg:block/silver_vase_flower"
   }
 }

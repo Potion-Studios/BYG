@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_side_tall",
   "textures": {
-    "wall": "byg:blocks/mossy_stone",
-    "particle": "byg:blocks/mossy_stone"
+    "wall": "byg:block/mossy_stone",
+    "particle": "byg:block/mossy_stone"
   }
 }

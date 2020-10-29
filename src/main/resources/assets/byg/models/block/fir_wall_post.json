@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_post",
   "textures": {
-    "wall": "byg:blocks/fir_log",
-    "particle": "byg:blocks/fir_log"
+    "wall": "byg:block/fir_log",
+    "particle": "byg:block/fir_log"
   }
 }

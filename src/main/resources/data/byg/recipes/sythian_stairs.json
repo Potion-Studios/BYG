@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:sythian_planks"
+    }
+  },
+  "result": {
+    "item": "byg:sythian_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/cryptic_stone_slab"
+    },
+    "type=double": {
+      "model": "byg:block/cryptic_stone"
+    },
+    "type=top": {
+      "model": "byg:block/cryptic_stone_slab_top"
+    }
+  }
+}

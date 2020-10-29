@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "byg:blocks/blue_enchanted_planks",
-    "up": "byg:blocks/blue_enchanted_planks",
-    "north": "byg:blocks/blue_enchanted_bookshelf",
-    "east": "byg:blocks/blue_enchanted_bookshelf",
-    "south": "byg:blocks/blue_enchanted_bookshelf",
-    "west": "byg:blocks/blue_enchanted_bookshelf",
-    "particle": "byg:blocks/blue_enchanted_planks"
+    "down": "byg:block/blue_enchanted_planks",
+    "up": "byg:block/blue_enchanted_planks",
+    "north": "byg:block/blue_enchanted_bookshelf",
+    "east": "byg:block/blue_enchanted_bookshelf",
+    "south": "byg:block/blue_enchanted_bookshelf",
+    "west": "byg:block/blue_enchanted_bookshelf",
+    "particle": "byg:block/blue_enchanted_planks"
   }
 }

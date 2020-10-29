@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:sand",
+    "minecraft:red_sand",
+    "byg:white_sand",
+    "byg:black_sand",
+    "byg:blue_sand",
+    "byg:pink_sand",
+    "byg:purple_sand"
+  ]
+}

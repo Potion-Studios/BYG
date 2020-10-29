@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/ether_stone_slab"
+    },
+    "type=double": {
+      "model": "byg:block/ether_stone"
+    },
+    "type=top": {
+      "model": "byg:block/ether_stone_slab_top"
+    }
+  }
+}

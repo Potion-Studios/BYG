@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "byg:blocks/skyris_log",
-    "particle": "byg:blocks/skyris_log"
+    "all": "byg:block/skyris_log",
+    "particle": "byg:block/skyris_log"
   }
 }

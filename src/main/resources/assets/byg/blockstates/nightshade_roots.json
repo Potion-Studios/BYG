@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "byg:block/nightshade_roots_bottom"
+    },
+    "half=upper": {
+      "model": "byg:block/nightshade_roots_top"
+    }
+  }
+}

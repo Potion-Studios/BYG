@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "byg:blocks/weeping_roots_plant",
-    "particle": "byg:blocks/weeping_roots_plant"
-  }
-}

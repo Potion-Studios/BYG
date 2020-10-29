@@ -1,8 +1,8 @@
 {
   "parent": "block/stairs",
   "textures": {
-    "bottom": "byg:blocks/red_rock_bricks",
-    "top": "byg:blocks/red_rock_bricks",
-    "side": "byg:blocks/red_rock_bricks"
+    "bottom": "byg:block/red_rock_bricks",
+    "top": "byg:block/red_rock_bricks",
+    "side": "byg:block/red_rock_bricks"
   }
 }

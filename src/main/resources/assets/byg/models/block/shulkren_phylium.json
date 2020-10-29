@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "byg:block/shulkren_phylium_top",
+    "bottom": "minecraft:block/end_stone",
+    "side": "byg:block/shulkren_phylium"
+  }
+}
