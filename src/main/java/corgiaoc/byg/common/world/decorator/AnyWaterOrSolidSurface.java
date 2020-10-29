@@ -18,7 +18,7 @@ public class AnyWaterOrSolidSurface extends Placement<FeatureSpreadConfig> {
     }
 
     @Override
-    public Stream<BlockPos> func_241857_a(WorldDecoratingHelper ctx, Random random, FeatureSpreadConfig config, BlockPos pos) {
+    public Stream<BlockPos> getPositions(WorldDecoratingHelper ctx, Random random, FeatureSpreadConfig config, BlockPos pos) {
         return IntStream.range(0, config.func_242799_a().func_242259_a(random)).mapToObj((obj) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();

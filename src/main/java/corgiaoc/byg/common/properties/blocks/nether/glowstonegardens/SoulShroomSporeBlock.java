@@ -7,11 +7,13 @@ import net.minecraft.block.Block;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.shapes.VoxelShape;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SoulShroomSporeBlock extends AbstractBodyPlantBlock {
-    public static final VoxelShape field_235637_d_ = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
+    public static final VoxelShape SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     protected SoulShroomSporeBlock(Properties properties) {
-        super(properties, Direction.DOWN, field_235637_d_, false);
+        super(properties, Direction.DOWN, SHAPE, false);
     }
 
     protected AbstractTopPlantBlock getTopPlantBlock() {

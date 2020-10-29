@@ -18,6 +18,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class EnderLilyBlock extends LilyPadBlock {
 
     protected EnderLilyBlock(Properties properties) {
@@ -25,8 +27,8 @@ public class EnderLilyBlock extends LilyPadBlock {
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader reader, BlockPos p_200014_3_) {
-        FluidState fluidState = reader.getFluidState(p_200014_3_);
+    protected boolean isValidGround(BlockState state, IBlockReader reader, BlockPos pos) {
+        FluidState fluidState = reader.getFluidState(pos);
         return fluidState.getFluid() == Fluids.WATER;
     }
 }

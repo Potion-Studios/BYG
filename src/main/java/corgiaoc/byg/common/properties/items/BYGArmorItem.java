@@ -9,6 +9,8 @@ import net.minecraft.item.ItemStack;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.item.Item.Properties;
+
 public class BYGArmorItem extends ArmorItem {
     private final BYGArmorTiers material;
 

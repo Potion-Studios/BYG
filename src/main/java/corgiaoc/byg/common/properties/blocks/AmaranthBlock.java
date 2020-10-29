@@ -9,10 +9,12 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 
+import net.minecraft.block.AbstractBlock;
+
 public class AmaranthBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
-    public AmaranthBlock(Block.Properties properties) {
+    public AmaranthBlock(AbstractBlock.Properties properties) {
         super(properties);
     }
 
@@ -24,8 +26,8 @@ public class AmaranthBlock extends BushBlock {
     /**
      * Get the OffsetType for this Block. Determines if the model is rendered slightly offset.
      */
-    public Block.OffsetType getOffsetType() {
-        return Block.OffsetType.XZ;
+    public AbstractBlock.OffsetType getOffsetType() {
+        return AbstractBlock.OffsetType.XZ;
     }
 
 }

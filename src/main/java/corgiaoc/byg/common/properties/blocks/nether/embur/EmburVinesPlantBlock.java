@@ -26,6 +26,9 @@ import net.minecraft.world.server.ServerWorld;
 import javax.annotation.Nullable;
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.OffsetType;
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class EmburVinesPlantBlock extends Block implements IGrowable {
     public static final IntegerProperty PROPERTY_STAGE = BlockStateProperties.STAGE_0_1;
     public static final IntegerProperty PROPERTY_AGE = BlockStateProperties.AGE_0_1;
@@ -77,7 +80,7 @@ public class EmburVinesPlantBlock extends Block implements IGrowable {
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         if (rand.nextInt(3) == 0 && worldIn.isAirBlock(pos.down()) && worldIn.getLightSubtracted(pos.down(), 0) <= 12) {
-            this.func_220087_a(worldIn, pos);
+            this.growBamboo(worldIn, pos);
         }
     }
 
@@ -103,10 +106,10 @@ public class EmburVinesPlantBlock extends Block implements IGrowable {
     }
 
     public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-        this.func_220087_a(worldIn, pos);
+        this.growBamboo(worldIn, pos);
     }
 
-    protected void func_220087_a(World world, BlockPos pos) {
+    protected void growBamboo(World world, BlockPos pos) {
         world.setBlockState(pos.down(), BYGBlocks.EMBUR_GEL_VINES.getDefaultState(), 3);
     }
 

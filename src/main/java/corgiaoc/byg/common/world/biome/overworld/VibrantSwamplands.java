@@ -69,8 +69,8 @@ public class VibrantSwamplands extends BYGBiome {
 
     static {
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS); //Strongholds & Mineshafts
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244131_B); //Ruined Portal Swamp
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244144_j); //Swamp Hut
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_SWAMP); //Ruined Portal Swamp
+        GENERATION_SETTINGS.withStructure(StructureFeatures.SWAMP_HUT); //Swamp Hut
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);

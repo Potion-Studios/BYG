@@ -425,7 +425,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
         return placeMushroom(worldIn, rand, pos, config.isPlacementForced(), config);
     }
 

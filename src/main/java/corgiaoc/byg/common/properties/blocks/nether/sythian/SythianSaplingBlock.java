@@ -18,6 +18,8 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SythianSaplingBlock extends BambooSaplingBlock {
     public SythianSaplingBlock(Properties properties) {
         super(properties);
@@ -44,7 +46,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         if (rand.nextInt(3) == 0 && worldIn.isAirBlock(pos.up()) && worldIn.getLightSubtracted(pos.up(), 0) <= 12) {
-            this.func_220087_a(worldIn, pos);
+            this.growBamboo(worldIn, pos);
         }
 
     }
@@ -54,7 +56,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
         return new ItemStack(BYGItems.SYTHIAN_STALK_BLOCK);
     }
 
-    protected void func_220087_a(World world, BlockPos pos) {
+    protected void growBamboo(World world, BlockPos pos) {
         world.setBlockState(pos.up(), BYGBlocks.SYTHIAN_STALK_BLOCK.getDefaultState().with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.SMALL), 3);
     }
 }

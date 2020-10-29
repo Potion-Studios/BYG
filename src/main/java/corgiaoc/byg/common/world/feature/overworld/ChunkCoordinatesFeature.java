@@ -18,7 +18,7 @@ public abstract class ChunkCoordinatesFeature<FC extends IFeatureConfig> extends
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FC config) {
+    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FC config) {
         ChunkPos chunk = world.getChunk(pos).getPos();
         int xStart = chunk.getXStart();
         int zStart = chunk.getZStart();

@@ -47,7 +47,7 @@ public class ShulkrenForest extends BYGEndBiome {
     static {
         BYGDefaultBiomeFeatures.addShulkrenTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addShulkrenPlants(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244151_q).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
+        GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SHULKER, 1, 1, 1));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));

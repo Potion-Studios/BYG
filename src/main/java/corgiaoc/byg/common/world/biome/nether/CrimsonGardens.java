@@ -59,13 +59,13 @@ public class CrimsonGardens extends BYGNetherBiome {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.RED_MUSHROOM_NETHER);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.ORE_MAGMA);
         DefaultBiomeFeatures.withCommonNetherBlocks(GENERATION_SETTINGS); //Ores
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244134_E); //NetherPortal
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244149_o); //Fortress
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_NETHER); //NetherPortal
+        GENERATION_SETTINGS.withStructure(StructureFeatures.FORTRESS); //Fortress
+        GENERATION_SETTINGS.withStructure(StructureFeatures.BASTION_REMNANT); //BastionRemnant
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.WEEPING_VINES);//Weeping Vines
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CRIMSON_FUNGI); //Crimson Fungi
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.CRIMSON_FOREST_VEGETATION); //Crimson Forest Vegetation
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.field_243949_i); //Basalt Columns Large
+//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.LARGE_BASALT_COLUMNS); //Basalt Columns Large
 
         BYGDefaultBiomeFeatures.addCrimsonGardensVegetation(GENERATION_SETTINGS);
 

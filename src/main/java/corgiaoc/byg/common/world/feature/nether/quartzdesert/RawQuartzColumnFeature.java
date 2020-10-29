@@ -21,25 +21,25 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
     private static final ImmutableList<Block> field_236245_a_ = ImmutableList.of(Blocks.LAVA, Blocks.BEDROCK, Blocks.MAGMA_BLOCK, Blocks.SOUL_SAND, Blocks.NETHER_BRICKS, Blocks.NETHER_BRICK_FENCE, Blocks.NETHER_BRICK_STAIRS, Blocks.NETHER_WART, Blocks.CHEST, Blocks.SPAWNER);
 
     public RawQuartzColumnFeature(
-            Codec<ColumnConfig> p_i231925_1_) {
-        super(p_i231925_1_);
+            Codec<ColumnConfig> codec) {
+        super(codec);
     }
 
-    public boolean func_241855_a(ISeedReader p_241855_1_, ChunkGenerator p_241855_2_, Random p_241855_3_, BlockPos p_241855_4_, ColumnConfig p_241855_5_) {
-        int i = p_241855_2_.func_230356_f_();
-        if (!func_242762_a(p_241855_1_, i, p_241855_4_.toMutable())) {
+    public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, ColumnConfig config) {
+        int i = generator.getSeaLevel();
+        if (!func_242762_a(reader, i, pos.toMutable())) {
             return false;
         } else {
-            int j = p_241855_5_.func_242795_b().func_242259_a(p_241855_3_);
-            boolean flag = p_241855_3_.nextFloat() < 0.9F;
+            int j = config.func_242795_b().func_242259_a(rand);
+            boolean flag = rand.nextFloat() < 0.9F;
             int k = Math.min(j, flag ? 5 : 8);
             int l = flag ? 50 : 15;
             boolean flag1 = false;
 
-            for (BlockPos blockpos : BlockPos.getRandomPositions(p_241855_3_, l, p_241855_4_.getX() - k, p_241855_4_.getY(), p_241855_4_.getZ() - k, p_241855_4_.getX() + k, p_241855_4_.getY(), p_241855_4_.getZ() + k)) {
-                int i1 = j - blockpos.manhattanDistance(p_241855_4_);
+            for (BlockPos blockpos : BlockPos.getRandomPositions(rand, l, pos.getX() - k, pos.getY(), pos.getZ() - k, pos.getX() + k, pos.getY(), pos.getZ() + k)) {
+                int i1 = j - blockpos.manhattanDistance(pos);
                 if (i1 >= 0) {
-                    flag1 |= this.func_236248_a_(p_241855_1_, i, blockpos, i1, p_241855_5_.func_242794_am_().func_242259_a(p_241855_3_));
+                    flag1 |= this.func_236248_a_(reader, i, blockpos, i1, config.func_242794_am_().func_242259_a(rand));
                 }
             }
 

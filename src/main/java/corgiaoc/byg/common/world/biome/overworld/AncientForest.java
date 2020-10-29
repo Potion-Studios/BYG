@@ -64,8 +64,8 @@ public class AncientForest extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244138_d); //Mansion
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL); //Ruined Portal Standard
+        GENERATION_SETTINGS.withStructure(StructureFeatures.MANSION); //Mansion
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addAncientTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMeadowTrees(GENERATION_SETTINGS);

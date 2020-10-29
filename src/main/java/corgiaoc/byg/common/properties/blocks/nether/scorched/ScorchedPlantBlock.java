@@ -13,6 +13,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.Tags;
 
+import net.minecraft.block.AbstractBlock.OffsetType;
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class ScorchedPlantBlock extends BushBlock implements net.minecraftforge.common.IForgeShearable {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
@@ -25,8 +28,8 @@ public class ScorchedPlantBlock extends BushBlock implements net.minecraftforge.
         return OffsetType.XZ;
     }
 
-    public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
-        Vector3d lvt_5_1_ = p_220053_1_.getOffset(p_220053_2_, p_220053_3_);
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        Vector3d lvt_5_1_ = state.getOffset(worldIn, pos);
         return SHAPE.withOffset(lvt_5_1_.x, lvt_5_1_.y, lvt_5_1_.z);
     }
 

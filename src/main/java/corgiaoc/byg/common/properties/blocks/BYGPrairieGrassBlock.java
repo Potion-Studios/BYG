@@ -11,7 +11,7 @@ import java.util.Random;
 public class BYGPrairieGrassBlock extends TallGrassBlock implements IGrowable {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
-    protected BYGPrairieGrassBlock(Block.Properties properties) {
+    protected BYGPrairieGrassBlock(AbstractBlock.Properties properties) {
         super(properties);
     }
 

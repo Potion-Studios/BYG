@@ -65,7 +65,7 @@ public class EnchantedForest extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEnchantedTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addHugeMushrooms(GENERATION_SETTINGS);

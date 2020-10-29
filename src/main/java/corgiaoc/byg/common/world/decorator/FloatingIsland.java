@@ -16,7 +16,7 @@ public class FloatingIsland extends Placement<AtSurfaceWithExtraConfig> {
         super(config);
     }
 
-    public Stream<BlockPos> func_241857_a(WorldDecoratingHelper decoratorContext, Random random, AtSurfaceWithExtraConfig config, BlockPos pos) {
+    public Stream<BlockPos> getPositions(WorldDecoratingHelper decoratorContext, Random random, AtSurfaceWithExtraConfig config, BlockPos pos) {
         int i = config.count;
         if (random.nextFloat() < config.extraChance) {
             i += config.extraCount;

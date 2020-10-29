@@ -21,7 +21,7 @@ public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggab
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public BYGRiverPlantBlock(Block.Properties properties) {
+    public BYGRiverPlantBlock(AbstractBlock.Properties properties) {
         super(properties);
         this.setDefaultState(
                 this.stateContainer.getBaseState().with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, false));

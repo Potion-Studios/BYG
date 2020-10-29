@@ -81,9 +81,9 @@ public class TropicalFungalRainForest extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244130_A); //Ruined Portal Jungle
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244139_e); //Jungle Temple
+        GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_JUNGLE); //Ruined Portal Jungle
+        GENERATION_SETTINGS.withStructure(StructureFeatures.JUNGLE_PYRAMID); //Jungle Temple
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

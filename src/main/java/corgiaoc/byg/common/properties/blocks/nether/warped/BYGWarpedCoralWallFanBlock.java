@@ -6,8 +6,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.DeadCoralWallFanBlock;
 import net.minecraft.util.Direction;
 
+import net.minecraft.block.AbstractBlock;
+
 public class BYGWarpedCoralWallFanBlock extends DeadCoralWallFanBlock {
-    protected BYGWarpedCoralWallFanBlock(Block.Properties block) {
+    protected BYGWarpedCoralWallFanBlock(AbstractBlock.Properties block) {
         super(block);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }

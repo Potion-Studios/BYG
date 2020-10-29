@@ -19,7 +19,7 @@ public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
     }
 
     //A copy paste of Minecraft's Basalt Pillar Feature where the blocks can be chosen in a config rather than hardcoded.
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
         if (world.isAirBlock(pos) && !world.isAirBlock(pos.up())) {
             BlockPos.Mutable mutable = pos.toMutable();
             BlockPos.Mutable mutable2 = pos.toMutable();

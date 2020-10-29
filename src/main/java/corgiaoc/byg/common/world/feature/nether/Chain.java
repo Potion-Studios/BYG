@@ -18,7 +18,7 @@ public class Chain extends Feature<ChainConfig> {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, ChainConfig config) {
+    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, ChainConfig config) {
         int randChainLength = config.getMinLength() + rand.nextInt(config.getMaxPossibleLength());
 
         BlockPos.Mutable mainMutable1 = new BlockPos.Mutable().setPos(pos);

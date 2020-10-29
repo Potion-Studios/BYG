@@ -6,6 +6,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import net.minecraft.item.Item.Properties;
+
 public class BYGHorseArmor extends HorseArmorItem {
     private final int bonus;
     private final ResourceLocation texture;
@@ -22,11 +24,11 @@ public class BYGHorseArmor extends HorseArmorItem {
 
 
     @OnlyIn(Dist.CLIENT)
-    public ResourceLocation func_219976_d() {
+    public ResourceLocation getArmorTexture() {
         return texture;
     }
 
-    public int func_219977_e() {
+    public int getArmorValue() {
         return this.bonus;
     }
 }

@@ -66,9 +66,9 @@ public class AraucariaSavanna extends BYGBiome {
 
     static {
         BYGDefaultBiomeFeatures.addSparseAraucariaTrees(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244156_v); //Savanna Village
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
+        GENERATION_SETTINGS.withStructure(StructureFeatures.VILLAGE_SAVANNA); //Savanna Village
+        GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

@@ -10,6 +10,8 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class TallAlliumBlock extends TallGrassBlock implements IGrowable {
 
     protected TallAlliumBlock(Properties builder) {

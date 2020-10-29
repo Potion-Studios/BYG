@@ -14,13 +14,15 @@ import java.util.Random;
 import static net.minecraft.util.Direction.Plane;
 import static net.minecraft.util.Direction.UP;
 
+import net.minecraft.util.Direction.Plane;
+
 public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderConfig> {
 
     public WarpedCoralFeature(Codec<WhitelistedSimpleBlockProviderConfig> config) {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, WhitelistedSimpleBlockProviderConfig config) {
+    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, WhitelistedSimpleBlockProviderConfig config) {
         int randCoralHeight = rand.nextInt(7) + 16 / 2;
 
         if (!checkArea(worldIn, pos, rand, config)) {

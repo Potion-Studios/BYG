@@ -11,6 +11,8 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class BYGCraftingTableBlock extends CraftingTableBlock {
     private static final ITextComponent GUI_TITLE = new TranslationTextComponent("container.crafting");
 

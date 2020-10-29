@@ -24,7 +24,7 @@ public abstract class BYGHugeMushroom {
         } else {
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
             abstractMushroomFeature.config.forcePlacement();
-            if (abstractMushroomFeature.func_242765_a(worldIn, chunkGenerator, random, pos)) {
+            if (abstractMushroomFeature.generate(worldIn, chunkGenerator, random, pos)) {
                 return true;
             } else {
                 worldIn.setBlockState(pos, blockUnder, 4);
@@ -66,7 +66,7 @@ public abstract class BYGHugeMushroom {
                 worldIn.setBlockState(pos.add(xOffset, 0, zOffset + 1), blockstate, 4);
                 worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset + 1), blockstate, 4);
                 abstractMushroomFeature.config.forcePlacement();
-                if (abstractMushroomFeature.func_242765_a(worldIn, chunkGenerator, random, pos.add(xOffset, 0, zOffset))) {
+                if (abstractMushroomFeature.generate(worldIn, chunkGenerator, random, pos.add(xOffset, 0, zOffset))) {
                     return true;
                 } else {
                     worldIn.setBlockState(pos.add(xOffset, 0, zOffset), blockUnder, 4);

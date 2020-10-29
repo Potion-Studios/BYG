@@ -17,6 +17,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGrowable {
     public BYGGlowCeliumBlock(Properties properties) {
         super(properties);
@@ -67,7 +69,7 @@ public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGro
 
                         ConfiguredFeature<?, ?> configuredfeature = list.get(0);
                         FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
-                        blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.func_242767_c());
+                        blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.getConfig());
                     } else {
                         blockstate1 = blockstate;
                     }

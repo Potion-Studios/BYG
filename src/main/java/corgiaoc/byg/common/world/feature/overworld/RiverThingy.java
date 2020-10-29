@@ -21,7 +21,7 @@ public class RiverThingy extends Feature<NoFeatureConfig> {
     FastNoise fastNoise2 = null;
     FastNoise fastNoise3 = null;
 
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         setSeed(worldIn.getSeed());
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         int multiplier = 15;

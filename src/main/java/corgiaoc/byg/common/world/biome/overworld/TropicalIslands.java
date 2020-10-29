@@ -44,9 +44,9 @@ public class TropicalIslands extends BYGSubBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244147_m); //Ocean Ruin Cold
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244139_e); //Jungle Temple
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244130_A); //Ruined Portal Jungle
+        GENERATION_SETTINGS.withStructure(StructureFeatures.OCEAN_RUIN_COLD); //Ocean Ruin Cold
+        GENERATION_SETTINGS.withStructure(StructureFeatures.JUNGLE_PYRAMID); //Jungle Temple
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_JUNGLE); //Ruined Portal Jungle
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addCragRainbowTrees(GENERATION_SETTINGS);

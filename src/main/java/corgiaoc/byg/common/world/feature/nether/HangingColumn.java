@@ -16,7 +16,7 @@ public class HangingColumn extends Feature<HangingColumnConfig> {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnConfig config) {
+    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnConfig config) {
         int randLength = rand.nextInt(config.getMaxPossibleLength()) + config.getMinLength();
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
 
