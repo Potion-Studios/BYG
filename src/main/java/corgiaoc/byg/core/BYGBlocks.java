@@ -1258,7 +1258,7 @@ public class BYGBlocks {
     }
 
     static Block createLeaves(String id) {
-        Block createBlock = new LeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().harvestTool(ToolType.HOE));
+        Block createBlock = new LeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setBlocksVision((state, world, pos) -> false).setSuffocates((state, world, pos) -> false).harvestTool(ToolType.HOE));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1270,7 +1270,7 @@ public class BYGBlocks {
     }
 
     static Block createGlowingLeaves(int lightLevel, String id) {
-        Block createBlock = new LeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setLightLevel((state) -> lightLevel).harvestTool(ToolType.HOE));
+        Block createBlock = new LeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setBlocksVision((state, world, pos) -> false).setSuffocates((state, world, pos) -> false).setLightLevel((state) -> lightLevel).harvestTool(ToolType.HOE));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
