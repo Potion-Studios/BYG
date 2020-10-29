@@ -1257,7 +1257,7 @@ public class BYGBlocks {
     }
 
     static Block createLeaves(String id) {
-        Block createBlock = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().breakByTool(FabricToolTags.HOES));
+        Block createBlock = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().blockVision((state, world, pos) -> false).suffocates((state, world, pos) -> false).breakByTool(FabricToolTags.HOES));
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1269,7 +1269,7 @@ public class BYGBlocks {
     }
 
     static Block createGlowingLeaves(int lightLevel, String id) {
-        Block createBlock = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().luminance((state) -> lightLevel).breakByTool(FabricToolTags.HOES));
+        Block createBlock = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().luminance((state) -> lightLevel).blockVision((state, world, pos) -> false).suffocates((state, world, pos) -> false).breakByTool(FabricToolTags.HOES));
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
