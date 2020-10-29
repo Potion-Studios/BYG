@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "byg:bulbis_shell"
+              "name": "byg:purple_bulbis_shell"
             },
             {
               "type": "minecraft:item",
@@ -47,7 +47,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "byg:bulbis_oddity"
+              "name": "byg:purple_bulbis_oddity"
             }
           ]
         }
