@@ -88,6 +88,11 @@ public class VibrantSwamplands extends BYGBiome {
         BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMudDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSparseWillowTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addVioletleatherflower(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRedorchid(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPurpleOrchid(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPinkOrchid(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

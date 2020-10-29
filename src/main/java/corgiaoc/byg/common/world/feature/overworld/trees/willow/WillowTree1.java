@@ -95,7 +95,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                             placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, 0, 3), boundsIn);
                             placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, 0, -3), boundsIn);
 
-                            for (int placeY = -1; placeY >= -(rand.nextInt(4) + 2); placeY--) {
+                            for (int placeY = randTreeHeight +1; placeY >= -(rand.nextInt(4) + 2); placeY--) {
                                 placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(4, placeY, placeZ), boundsIn);
                                 placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(-4, placeY, placeZ), boundsIn);
                                 placeLeaves(config, rand, changedBlocks, worldIn, mainMutable.setPos(pos).move(placeX, placeY, 4), boundsIn);

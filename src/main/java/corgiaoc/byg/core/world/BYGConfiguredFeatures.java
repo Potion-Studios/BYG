@@ -619,11 +619,11 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_REEDS = WorldGenRegistrationHelper.createConfiguredFeature("rs_reeds", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             REEDS.withChance(0.5F)),
-            REEDS)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(8));
+            REEDS)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(20));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CATTAILS = WorldGenRegistrationHelper.createConfiguredFeature("rs_cattails", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CATTAIL.withChance(0.5F)),
-            CATTAIL)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(8));
+            CATTAIL)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(20));
 
     public static final ConfiguredFeature<?, ?> RANDOM_LOLIPOP = WorldGenRegistrationHelper.createConfiguredFeature("rs_lolipop", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             LOLI_POP.withChance(0.5F)),
@@ -1119,6 +1119,13 @@ public class BYGConfiguredFeatures {
             WILLOW_TREE3.withChance(0.25F)),
             WILLOW_TREE4)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(8, 0.3F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_BAYOU_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_bayou_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            WILLOW_TREE1.withChance(0.25F),
+            WILLOW_TREE2.withChance(0.25F),
+            WILLOW_TREE3.withChance(0.25F)),
+            WILLOW_TREE4)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
+            new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CORAL_MANGROVE = WorldGenRegistrationHelper.createConfiguredFeature("rs_mg_coral", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             Feature.CORAL_TREE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withChance(0.25F),
