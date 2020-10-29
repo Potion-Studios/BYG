@@ -162,9 +162,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.isIn(FabricTags.END_STONES) || block.isIn(BlockTags.NYLIUM) || block.isIn(FabricTags.NETHERRACK) || block == block1;
+                return block.isIn(FabricTags.END_STONES) || block == block1;
             }
-            return block.isIn(FabricTags.END_STONES) || block.isIn(BlockTags.NYLIUM) || block.isIn(FabricTags.NETHERRACK);
+            return block.isIn(FabricTags.END_STONES);
         });
     }
 

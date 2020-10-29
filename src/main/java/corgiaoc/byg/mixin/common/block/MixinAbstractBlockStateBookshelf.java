@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AbstractBlock.AbstractBlockState.class)
-public abstract class AbstractBlockStateBookshelfMixin {
+public abstract class MixinAbstractBlockStateBookshelf {
     @Shadow
     public abstract boolean isIn(Tag<Block> tag);
 
