@@ -1412,7 +1412,7 @@ public class BYGConfiguredFeatures {
             MAHOGANY_TREE3.withChance(0.2F),
             MAHOGANY_TREE4.withChance(0.15F)),
             MAHOGANY_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(30, 0.1F, 10))));
+            new CountExtraDecoratorConfig(20, 0.3F, 5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_rainforest_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             RAINBOW_LARGE_TREE1.withChance(0.1F),
@@ -1442,7 +1442,7 @@ public class BYGConfiguredFeatures {
             ConfiguredFeatures.JUNGLE_BUSH.withChance(0.1F),
             DECIDUOUS_TREE1.withChance(0.1F)),
             DECIDUOUS_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(30, 0.3F, 8))));
+            new CountExtraDecoratorConfig(20, 0.3F, 3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SKYRIS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_skyris_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             SKYRIS_TREE1.withChance(0.15F),
@@ -1516,7 +1516,7 @@ public class BYGConfiguredFeatures {
             ENCHANTED_GREEN_TREE2.withChance(0.2F),
             ENCHANTED_GREEN_TREE3.withChance(0.1F)),
             ENCHANTED_BLUE_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(18, 0.4F, -2))));
+            new CountExtraDecoratorConfig(10, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM_BAYOU_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_glowshroom_bayou_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             WILLOW_DEAD_TREE1.withChance(0.2F),
@@ -1532,7 +1532,7 @@ public class BYGConfiguredFeatures {
             ASPEN_TREE2.withChance(0.50F),
             ASPEN_TREE3.withChance(0.25F)),
             ASPEN_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(18, 0.5F, -1))));
+            new CountExtraDecoratorConfig(15, 0.5F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_SHRUB = WorldGenRegistrationHelper.createConfiguredFeature("rs_aspen_shrub", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             ASPEN_SHRUB1.withChance(0.1F)),
@@ -1549,7 +1549,7 @@ public class BYGConfiguredFeatures {
             ZELKOVA_TREE2.withChance(0.2F),
             ZELKOVA_TREE3.withChance(0.1F)),
             ZELKOVA_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(18, 0.4F, -2))));
+            new CountExtraDecoratorConfig(15, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_ZELKOVA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_zelkova_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             ZELKOVA_TREE2.withChance(0.2F),
@@ -1726,7 +1726,7 @@ public class BYGConfiguredFeatures {
             BIRCH_YELLOW_TREE1.withChance(0.06F),
             BIRCH_YELLOW_TREE2.withChance(0.1F)),
             BIRCH_YELLOW_TREE3)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(12, 0.4F, -2))));
+            new CountExtraDecoratorConfig(8, 0.3F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_HUGE_GLOWSHROOM = WorldGenRegistrationHelper.createConfiguredFeature("rs_huge_glowshroom", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             BLUE_GLOWSHROOM_HUGE.withChance(0.1F)),
