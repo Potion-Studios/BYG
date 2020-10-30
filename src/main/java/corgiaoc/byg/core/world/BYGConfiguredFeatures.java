@@ -705,7 +705,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_SHULKREN_FUNGUS = WorldGenRegistrationHelper.createConfiguredFeature("rs_shulkren_fungus", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             SHULKREN_FUNGUS.withChance(0.5F)),
-            SHULKREN_FUNGUS)).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(1))));
+            SHULKREN_FUNGUS)).decorate(ConfiguredFeatures.Decorators.FIRE).repeat(1));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = WorldGenRegistrationHelper.createConfiguredFeature("rs_dead_sea_spike", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             DEAD_SEA_SPIKE.withChance(0.75F)),
@@ -2021,6 +2021,7 @@ public class BYGConfiguredFeatures {
         public static final BlockPileFeatureConfig ETHER_CONFIG = new BlockPileFeatureConfig((new WeightedBlockStateProvider()).addState(BYGBlocks.ETHER_GRASS.getDefaultState(), 50).addState(BYGBlocks.ETHER_BUSH.getDefaultState(), 45).addState(BYGBlocks.THEREAL_BELLFLOWER.getDefaultState(), 5));
         public static final BlockPileFeatureConfig NIGHTSHADE_CONFIG = new BlockPileFeatureConfig((new WeightedBlockStateProvider()).addState(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState(), 50).addState(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState(), 50));
         public static final BlockPileFeatureConfig VERMILION_SCULK_CONFIG = new BlockPileFeatureConfig((new WeightedBlockStateProvider()).addState(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), 50).addState(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), 45).addState(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), 5));
+        public static final BlockPileFeatureConfig SHULKREN_CONFIG = new BlockPileFeatureConfig((new WeightedBlockStateProvider()).addState(BYGBlocks.SHULKREN_MOSS_BLANKET.getDefaultState(), 50).addState(BYGBlocks.SHULKREN_FUNGUS.getDefaultState(), 45).addState(BYGBlocks.SHULKREN_FUNGUS.getDefaultState(), 5));
 
     }
 }

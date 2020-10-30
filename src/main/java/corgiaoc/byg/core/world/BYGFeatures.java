@@ -490,7 +490,7 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_DEAD_TREE1 = WorldGenRegistrationHelper.createFeature("dead_willow_tree", new WillowDeadTree1(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_M_TREE1 = WorldGenRegistrationHelper.createFeature("mutated_willow_tree1", new WillowTreeM1(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_M_TREE2 = WorldGenRegistrationHelper.createFeature("mutated_willow_tree2", new WillowTreeM2(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_TREE1 = WorldGenRegistrationHelper.createFeature("willow_tree1", new WillowTree1(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_TREE1 = WorldGenRegistrationHelper.createFeature("willow_tree1", new WillowTree2(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_TREE2 = WorldGenRegistrationHelper.createFeature("willow_tree2", new WillowTree2(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_TREE3 = WorldGenRegistrationHelper.createFeature("willow_tree3", new WillowTree3(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_TREE4 = WorldGenRegistrationHelper.createFeature("willow_tree4", new WillowTree4(BYGTreeConfig.CODEC.stable()));
