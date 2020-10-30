@@ -32,18 +32,46 @@ public class BYGWorldConfig {
     public static final ForgeConfigSpec.BooleanValue IS_BLACKLIST_NETHER;
 
     public static final ForgeConfigSpec.BooleanValue ROCKY_STONE_GEN;
+    public static final ForgeConfigSpec.IntValue ROCKY_STONE_GEN_Y;
+    public static final ForgeConfigSpec.IntValue ROCKY_STONE_GEN_SIZE;
+    public static final ForgeConfigSpec.IntValue ROCKY_STONE_GEN_PER_CHUNK;
+
     public static final ForgeConfigSpec.BooleanValue SCORIA_STONE_GEN;
+    public static final ForgeConfigSpec.IntValue SCORIA_STONE_GEN_Y;
+    public static final ForgeConfigSpec.IntValue SCORIA_STONE_GEN_SIZE;
+    public static final ForgeConfigSpec.IntValue SCORIA_STONE_GEN_PER_CHUNK;
+
     public static final ForgeConfigSpec.BooleanValue SOAP_STONE_GEN;
+    public static final ForgeConfigSpec.IntValue SOAP_STONE_GEN_Y;
+    public static final ForgeConfigSpec.IntValue SOAP_STONE_GEN_SIZE;
+    public static final ForgeConfigSpec.IntValue SOAP_STONE_GEN_PER_CHUNK;
 
     static {
         COMMON_BUILDER.push("Overworld");
-
         COMMON_BUILDER.push("Ore");
+        
+        COMMON_BUILDER.push("Rocky_Stone");
         ROCKY_STONE_GEN = COMMON_BUILDER.comment("\nGenerate Rocky Stone?").define("GenerateRockyStone", true);
-        SCORIA_STONE_GEN = COMMON_BUILDER.comment("\nGenerate Scoria Stone?").define("GenerateScoriaStone", true);
-        SOAP_STONE_GEN = COMMON_BUILDER.comment("\nGenerate Soap Stone?").define("GenerateSoapStone", true);
+        ROCKY_STONE_GEN_Y = COMMON_BUILDER.comment("\nY level to start generating at.\nDefault: 63").defineInRange("RockyStoneY", 63, 1, 256);
+        ROCKY_STONE_GEN_SIZE = COMMON_BUILDER.comment("\nSize of the clusters.\nDefault: 20").defineInRange("RockyStoneSize", 20, 1, 100);
+        ROCKY_STONE_GEN_PER_CHUNK = COMMON_BUILDER.comment("\nNumber of times to spawn per chunk.\nDefault: 10").defineInRange("RockyStonePerChunk", 10, 1, 100);
         COMMON_BUILDER.pop();
 
+        COMMON_BUILDER.push("Scoria_Stone");
+        SCORIA_STONE_GEN = COMMON_BUILDER.comment("\nGenerate Scoria Stone?").define("GenerateScoriaStone", true);
+        SCORIA_STONE_GEN_Y = COMMON_BUILDER.comment("\nY level to start generating at.\nDefault: 63").defineInRange("ScoriaStoneY", 63, 1, 256);
+        SCORIA_STONE_GEN_SIZE = COMMON_BUILDER.comment("\nSize of the clusters.\nDefault: 20").defineInRange("ScoriaStoneSize", 20, 1, 100);
+        SCORIA_STONE_GEN_PER_CHUNK = COMMON_BUILDER.comment("\nNumber of times to spawn per chunk.\nDefault: 10").defineInRange("ScoriaStonePerChunk", 10, 1, 100);
+        COMMON_BUILDER.pop();
+
+        COMMON_BUILDER.push("Soap_Stone");
+        SOAP_STONE_GEN = COMMON_BUILDER.comment("\nGenerate Soap Stone?").define("GenerateSoapStone", true);
+        SOAP_STONE_GEN_Y = COMMON_BUILDER.comment("\nY level to start generating at.\nDefault: 63").defineInRange("SoapStoneY", 63, 1, 256);
+        SOAP_STONE_GEN_SIZE = COMMON_BUILDER.comment("\nSize of the clusters.\nDefault: 20").defineInRange("SoapStoneSize", 20, 1, 100);
+        SOAP_STONE_GEN_PER_CHUNK = COMMON_BUILDER.comment("\nNumber of times to spawn per chunk.\nDefault: 10").defineInRange("SoapStonePerChunk", 10, 1, 100);
+        COMMON_BUILDER.pop();
+
+        COMMON_BUILDER.pop();
         COMMON_BUILDER.pop();
         
         COMMON_BUILDER.push("The_End");
