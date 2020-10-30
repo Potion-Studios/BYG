@@ -131,6 +131,8 @@ public class BYGBoatEntity extends BoatEntity {
                 return BYGBlocks.MANGROVE_PLANKS;
             case MAPLE:
                 return BYGBlocks.MAPLE_PLANKS;
+            case PALM:
+                return BYGBlocks.PALM_PLANKS;
             case PINE:
                 return BYGBlocks.PINE_PLANKS;
             case RAINBOW_EUCALYPTUS:
@@ -145,8 +147,6 @@ public class BYGBoatEntity extends BoatEntity {
                 return BYGBlocks.WITCH_HAZEL_PLANKS;
             case ZELKOVA:
                 return BYGBlocks.ZELKOVA_PLANKS;
-            case PALM:
-                return BYGBlocks.PALM_PLANKS;
         }
     }
 
