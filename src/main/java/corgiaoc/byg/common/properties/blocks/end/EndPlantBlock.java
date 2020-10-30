@@ -14,6 +14,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.Tags;
 
+import net.minecraft.block.AbstractBlock.OffsetType;
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class EndPlantBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 

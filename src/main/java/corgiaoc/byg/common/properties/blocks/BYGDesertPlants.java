@@ -17,10 +17,13 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.AbstractBlock.OffsetType;
+
 public class BYGDesertPlants extends BushBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
-    protected BYGDesertPlants(Block.Properties builder) {
+    protected BYGDesertPlants(AbstractBlock.Properties builder) {
         super(builder);
 
     }

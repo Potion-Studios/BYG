@@ -76,8 +76,8 @@ public class GreatLakes extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244144_j); //Swamp Hut
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244133_D); //Ruined Portal Ocean
+        GENERATION_SETTINGS.withStructure(StructureFeatures.SWAMP_HUT); //Swamp Hut
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_OCEAN); //Ruined Portal Ocean
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

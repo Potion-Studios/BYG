@@ -23,9 +23,11 @@ import net.minecraftforge.common.Tags;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class AbstractWhalingGrassBlock extends Block implements IWaterLoggable {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    private static final VoxelShape field_212559_a = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
+    private static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
 
     protected AbstractWhalingGrassBlock(Properties properties) {
         super(properties);
@@ -39,7 +41,7 @@ public class AbstractWhalingGrassBlock extends Block implements IWaterLoggable {
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return field_212559_a;
+        return SHAPE;
     }
 
     /**

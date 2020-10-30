@@ -18,6 +18,8 @@ import net.minecraft.world.IWorldReader;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class HangingBonesBlock extends Block {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D);
 

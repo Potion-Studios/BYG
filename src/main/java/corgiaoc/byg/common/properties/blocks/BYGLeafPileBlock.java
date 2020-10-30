@@ -17,14 +17,16 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.Tags;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class BYGLeafPileBlock extends BushBlock {
     protected static final VoxelShape LEAF_PILE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 1.5D, 15.0D);
 
-    protected BYGLeafPileBlock(Properties p_i48297_1_) {
-        super(p_i48297_1_);
+    protected BYGLeafPileBlock(Properties builder) {
+        super(builder);
     }
 
-    public VoxelShape getShape(BlockState state, IBlockReader p_220053_2_, BlockPos blockPos, ISelectionContext p_220053_4_) {
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos blockPos, ISelectionContext context) {
         return LEAF_PILE;
     }
 

@@ -415,7 +415,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
         return placeFlower(worldIn, rand, pos, config.isPlacementForced(), config);
     }
 

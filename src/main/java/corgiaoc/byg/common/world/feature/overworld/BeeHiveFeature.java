@@ -24,7 +24,7 @@ public class BeeHiveFeature extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         if (world.isAirBlock(pos) && world.isAirBlock(pos.down())){
             if (world.getBlockState(pos.up()).isIn(BlockTags.LEAVES) || world.getBlockState(pos.up()).isIn(BlockTags.LOGS)) {
                 Direction direction;

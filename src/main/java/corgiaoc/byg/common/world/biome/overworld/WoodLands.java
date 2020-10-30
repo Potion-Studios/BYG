@@ -69,9 +69,9 @@ public class WoodLands extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244138_d); //Mansion
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
+        GENERATION_SETTINGS.withStructure(StructureFeatures.MANSION); //Mansion
+        GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addWoodlandTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMeadowTrees(GENERATION_SETTINGS);

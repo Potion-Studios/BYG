@@ -63,10 +63,10 @@ public class MojaveDesert extends BYGBiome {
 
     static {
         DefaultBiomeFeatures.withFossils(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244140_f); //Desert Temple
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244155_u); //Desert Village
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244160_z); //Ruined Portal Desert
+        GENERATION_SETTINGS.withStructure(StructureFeatures.DESERT_PYRAMID); //Desert Temple
+        GENERATION_SETTINGS.withStructure(StructureFeatures.VILLAGE_DESERT); //Desert Village
+        GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_DESERT); //Ruined Portal Desert
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

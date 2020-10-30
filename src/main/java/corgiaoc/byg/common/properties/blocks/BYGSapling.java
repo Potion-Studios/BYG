@@ -15,6 +15,8 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class BYGSapling extends BushBlock implements IGrowable {
     public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
     public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;

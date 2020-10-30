@@ -19,10 +19,12 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+import net.minecraft.block.AbstractBlock;
+
 public class BlueBerryBush extends SweetBerryBushBlock implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_0_3;
 
-    public BlueBerryBush(Block.Properties properties) {
+    public BlueBerryBush(AbstractBlock.Properties properties) {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)));
     }

@@ -21,7 +21,7 @@ public class FloatingIslands5 extends Feature<FloatingIslandConfig> {
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
 

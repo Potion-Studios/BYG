@@ -89,8 +89,8 @@ public class RedwoodTropics extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
+        GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

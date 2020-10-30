@@ -13,6 +13,8 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class BlueNetherrackBlock extends Block implements IGrowable {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 

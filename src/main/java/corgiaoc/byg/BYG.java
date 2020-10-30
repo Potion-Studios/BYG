@@ -164,7 +164,7 @@ public class BYG {
         @SubscribeEvent
         public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
             BYG.LOGGER.debug("BYG: Registering features...");
-            OreFeatureConfig.FillerBlockType.field_241883_b = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
+            OreFeatureConfig.FillerBlockType.NETHERRACK = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
             BYGFeatures.init();
             BYGFeatures.features.forEach(feature -> event.getRegistry().register(feature));
             BYG.LOGGER.info("BYG: Features registered!");

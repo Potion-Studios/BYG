@@ -33,6 +33,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import net.minecraft.util.math.BlockPos.Mutable;
+
 public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends Feature<TFC> {
 
     protected static FastNoise fastNoise;
@@ -513,7 +515,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
+    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
         return placeTree(worldIn, rand, pos, config);
     }
 

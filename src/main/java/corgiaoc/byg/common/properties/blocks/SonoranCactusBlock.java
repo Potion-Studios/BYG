@@ -36,7 +36,7 @@ public class SonoranCactusBlock extends Block {
     protected static final VoxelShape shape = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     public SonoranCactusBlock(String registryName) {
-        super(Block.Properties.create(Material.CACTUS).tickRandomly().hardnessAndResistance(0.4F).sound(SoundType.CLOTH));
+        super(AbstractBlock.Properties.create(Material.CACTUS).tickRandomly().hardnessAndResistance(0.4F).sound(SoundType.CLOTH));
         setRegistryName(registryName);
     }
 

@@ -25,7 +25,7 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
         int aNumber = 0;
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
         BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(pos);

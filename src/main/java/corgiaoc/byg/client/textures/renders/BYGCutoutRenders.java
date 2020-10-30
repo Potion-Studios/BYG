@@ -2,7 +2,6 @@ package corgiaoc.byg.client.textures.renders;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGBlocks;
-import corgiaoc.byg.core.BYGItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -13,6 +12,7 @@ public class BYGCutoutRenders {
 
         //Plants
         RenderTypeLookup.setRenderLayer(BYGBlocks.HORSEWEED, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.BLUE_SAGE, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.MINI_CACTUS, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.PRICKLY_PEAR_CACTUS, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.WINTER_SUCCULENT, RenderType.getCutoutMipped());

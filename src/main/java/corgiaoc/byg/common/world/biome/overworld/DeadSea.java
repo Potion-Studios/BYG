@@ -57,8 +57,8 @@ public class DeadSea extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Ocean
+        GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL); //Ruined Portal Ocean
         DefaultBiomeFeatures.withOceanStructures(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addDeadSeaSpires(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);

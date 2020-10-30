@@ -22,7 +22,7 @@ public abstract class TreeSpawner {
         } else {
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
             configuredTreeFeature.config.forcePlacement();
-            if (configuredTreeFeature.func_242765_a(worldIn, chunkGenerator, random, pos)) {
+            if (configuredTreeFeature.generate(worldIn, chunkGenerator, random, pos)) {
                 return true;
             } else {
                 worldIn.setBlockState(pos, blockUnder, 4);

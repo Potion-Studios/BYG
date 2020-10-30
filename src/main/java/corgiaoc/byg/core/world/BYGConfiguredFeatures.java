@@ -2,6 +2,7 @@ package corgiaoc.byg.core.world;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.common.properties.blocks.BlueBerryBush;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import corgiaoc.byg.common.world.decorator.config.AtOrBelowSeaLevelCountExtraConfig;
@@ -51,7 +52,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE = WorldGenRegistrationHelper.createConfiguredFeature("cryptic_fire", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.CRYPTIC_FIRE));
     public static final ConfiguredFeature<?, ?> PUMPKIN = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(Blocks.PUMPKIN.getDefaultState(), ImmutableList.of(BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState(), Blocks.PODZOL.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState(), Blocks.PODZOL.getDefaultState()))));
 
-    public static final ConfiguredFeature<?, ?> BEEHIVES = WorldGenRegistrationHelper.createConfiguredFeature("beehives", BYGFeatures.BEEHIVE.withConfiguration(new NoFeatureConfig()).func_242733_d(256).func_242728_a().func_242731_b(10));
+    public static final ConfiguredFeature<?, ?> BEEHIVES = WorldGenRegistrationHelper.createConfiguredFeature("beehives", BYGFeatures.BEEHIVE.withConfiguration(new NoFeatureConfig()).range(256).square().func_242731_b(10));
 
     //Giant Flowers
     public static final ConfiguredFeature<GiantFlowerConfig, ?> GIANT_ANGELICA_FLOWER = WorldGenRegistrationHelper.createConfiguredFeature("giant_angelica", BYGFeatures.GIANT_ANGELICA_FLOWER.withConfiguration(new GiantFlowerConfig.Builder().setStemBlock(BYGBlocks.PLANT_STEM).setPetalBlock(BYGBlocks.WHITE_PETAL).setMaxHeight(18).setMinHeight(12).build()));
@@ -105,7 +106,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> WARPED_CORAL = WorldGenRegistrationHelper.createConfiguredFeature("warped_coral", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.WARPED_CORAL.getDefaultState(), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> WARPED_CORAL_FAN = WorldGenRegistrationHelper.createConfiguredFeature("warped_coral_fan", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.WARPED_CORAL_FAN.getDefaultState(), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState()))));
 
-    public static final ConfiguredFeature<?, ?> CHAINS = WorldGenRegistrationHelper.createConfiguredFeature("chains", BYGFeatures.CHAIN.withConfiguration(new ChainConfig.Builder().setMinLength(6).setMaxLength(10).setXAxisBlock(BYGBlocks.SOAPSTONE).setZAxisBlock(BYGBlocks.SOAPSTONE).setWhitelist(ImmutableList.of(Blocks.NETHERRACK)).build()).func_242733_d(128).func_242728_a().func_242731_b(4));
+    public static final ConfiguredFeature<?, ?> CHAINS = WorldGenRegistrationHelper.createConfiguredFeature("chains", BYGFeatures.CHAIN.withConfiguration(new ChainConfig.Builder().setMinLength(6).setMaxLength(10).setXAxisBlock(BYGBlocks.SOAPSTONE).setZAxisBlock(BYGBlocks.SOAPSTONE).setWhitelist(ImmutableList.of(Blocks.NETHERRACK)).build()).range(128).square().func_242731_b(4));
 
     public static final ConfiguredFeature<?, ?> SCORCHED_BUSH = WorldGenRegistrationHelper.createConfiguredFeature("scorched_bush", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.SCORCHED_BUSH.getDefaultState(), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.CRYPTIC_STONE.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState(), BYGBlocks.CRYPTIC_STONE.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> SCORCHED_GRASS = WorldGenRegistrationHelper.createConfiguredFeature("scorched_grass", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.SCORCHED_GRASS.getDefaultState(), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.CRYPTIC_STONE.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState(), BYGBlocks.CRYPTIC_STONE.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState()))));
@@ -223,16 +224,16 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> VALLE_DE_LUNA_POINTY_ROCK_LARGE = WorldGenRegistrationHelper.createConfiguredFeature("valle_de_luna_pointy_rock_large", BYGFeatures.POINTY_ROCK.withConfiguration(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SAND.getDefaultState(), 5).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 5)).setSeed(100).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(4, 0.1F, 1))));
 
 
-    public static final ConfiguredFeature<?, ?> ORE_PERVADED_NETHERRACK = WorldGenRegistrationHelper.createConfiguredFeature("ore_pervaded_netherrack", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241884_c, BYGBlocks.PERVADED_NETHERRACK.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).func_242728_a().func_242731_b(16));
-    public static final ConfiguredFeature<?, ?> ORE_ANTHRACITE = WorldGenRegistrationHelper.createConfiguredFeature("ore_anthracite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241884_c, BYGBlocks.ANTHRACITE_ORE.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).func_242728_a().func_242731_b(16));
-    public static final ConfiguredFeature<?, ?> ORE_LIGNITE = WorldGenRegistrationHelper.createConfiguredFeature("ore_lignite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241884_c, BYGBlocks.LIGNITE_ORE.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).func_242728_a().func_242731_b(16));
+    public static final ConfiguredFeature<?, ?> ORE_PERVADED_NETHERRACK = WorldGenRegistrationHelper.createConfiguredFeature("ore_pervaded_netherrack", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, BYGBlocks.PERVADED_NETHERRACK.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).square().func_242731_b(16));
+    public static final ConfiguredFeature<?, ?> ORE_ANTHRACITE = WorldGenRegistrationHelper.createConfiguredFeature("ore_anthracite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, BYGBlocks.ANTHRACITE_ORE.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).square().func_242731_b(16));
+    public static final ConfiguredFeature<?, ?> ORE_LIGNITE = WorldGenRegistrationHelper.createConfiguredFeature("ore_lignite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_NETHER, BYGBlocks.LIGNITE_ORE.getDefaultState(), 14)).withPlacement(Features.Placements.NETHER_SPRING_ORE_PLACEMENT).square().func_242731_b(16));
 
-    public static final ConfiguredFeature<?, ?> ORE_AMETRINE = WorldGenRegistrationHelper.createConfiguredFeature("ore_ametrine", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, BYGBlocks.AMETRINE_ORE.getDefaultState(), 4)).func_242733_d(56).func_242728_a().func_242731_b(10));
-    public static final ConfiguredFeature<?, ?> ORE_PENDORITE = WorldGenRegistrationHelper.createConfiguredFeature("ore_pendorite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, BYGBlocks.PENDORITE_ORE.getDefaultState(), 4)).func_242733_d(56).func_242728_a().func_242731_b(10));
+    public static final ConfiguredFeature<?, ?> ORE_AMETRINE = WorldGenRegistrationHelper.createConfiguredFeature("ore_ametrine", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.AMETRINE_ORE.getDefaultState(), 4)).range(56).square().func_242731_b(10));
+    public static final ConfiguredFeature<?, ?> ORE_PENDORITE = WorldGenRegistrationHelper.createConfiguredFeature("ore_pendorite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.PENDORITE_ORE.getDefaultState(), 4)).range(56).square().func_242731_b(10));
 
-    public static final ConfiguredFeature<?, ?> ORE_ROCKY_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_rocky_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, BYGBlocks.ROCKY_STONE.getDefaultState(), 20)).func_242733_d(63).func_242728_a().func_242731_b(10));
-    public static final ConfiguredFeature<?, ?> ORE_SCORIA_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_scoria_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, BYGBlocks.SCORIA_STONE.getDefaultState(), 20)).func_242733_d(63).func_242728_a().func_242731_b(10));
-    public static final ConfiguredFeature<?, ?> ORE_SOAP_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_soap_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.field_241882_a, BYGBlocks.SOAPSTONE.getDefaultState(), 20)).func_242733_d(63).func_242728_a().func_242731_b(10));
+    public static final ConfiguredFeature<?, ?> ORE_ROCKY_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_rocky_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.ROCKY_STONE.getDefaultState(), BYGWorldConfig.ROCKY_STONE_GEN_SIZE.get())).range(BYGWorldConfig.ROCKY_STONE_GEN_Y.get()).square().func_242731_b(BYGWorldConfig.ROCKY_STONE_GEN_PER_CHUNK.get()));
+    public static final ConfiguredFeature<?, ?> ORE_SCORIA_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_scoria_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.SCORIA_STONE.getDefaultState(), BYGWorldConfig.SCORIA_STONE_GEN_SIZE.get())).range(BYGWorldConfig.SCORIA_STONE_GEN_Y.get()).square().func_242731_b(BYGWorldConfig.SCORIA_STONE_GEN_PER_CHUNK.get()));
+    public static final ConfiguredFeature<?, ?> ORE_SOAP_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_soap_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.SOAPSTONE.getDefaultState(), BYGWorldConfig.SOAP_STONE_GEN_SIZE.get())).range(BYGWorldConfig.SOAP_STONE_GEN_Y.get()).square().func_242731_b(BYGWorldConfig.SOAP_STONE_GEN_PER_CHUNK.get()));
 
     public static final ConfiguredFeature<?, ?> MOSSY_STONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("mossy_stone_boulder", Feature.FOREST_ROCK.withConfiguration(new BlockStateFeatureConfig(BYGBlocks.MOSSY_STONE.getDefaultState())));
     public static final ConfiguredFeature<?, ?> ROCKY_STONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("rocky_stone_boulder", Feature.FOREST_ROCK.withConfiguration(new BlockStateFeatureConfig(BYGBlocks.ROCKY_STONE.getDefaultState())));
@@ -280,9 +281,9 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RIVER = WorldGenRegistrationHelper.createConfiguredFeature("river_aheehee", BYGFeatures.HUH.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
     public static final ConfiguredFeature<?, ?> VOLCANO = WorldGenRegistrationHelper.createConfiguredFeature("volcano", BYGFeatures.VOLCANO.withConfiguration(new SimpleBlockProviderConfig(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.BLACKSTONE.getDefaultState(), 4).addWeightedBlockstate(Blocks.BLACK_CONCRETE.getDefaultState(), 3).addWeightedBlockstate(Blocks.STONE.getDefaultState(), 2).addWeightedBlockstate(BYGBlocks.MAGMATIC_STONE.getDefaultState(), 1))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.025F, 1))));
     public static final ConfiguredFeature<?, ?> PURPUR_PEAK = WorldGenRegistrationHelper.createConfiguredFeature("purpur_peak", BYGFeatures.PURPUR_PEAK.withConfiguration(new SimpleBlockProviderConfig(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.PURPUR_STONE.getDefaultState(), 10))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.25F, 1))));
-    public static final ConfiguredFeature<?, ?> BASALT_DELTA = WorldGenRegistrationHelper.createConfiguredFeature("delta", Feature.DELTA_FEATURE.withConfiguration(new BasaltDeltasFeature(Blocks.WATER.getDefaultState(), Blocks.WATER.getDefaultState(), FeatureSpread.func_242253_a(3, 4), FeatureSpread.func_242253_a(0, 2))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(2))));
-    public static final ConfiguredFeature<?, ?> SMALL_BASALT_COLUMN = WorldGenRegistrationHelper.createConfiguredFeature("small_basalt_columns", Feature.BASALT_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(1, 1))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
-    public static final ConfiguredFeature<?, ?> LARGE_BASALT_COLUMN = WorldGenRegistrationHelper.createConfiguredFeature("large_basalt_columns", Feature.BASALT_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(1, 1))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
+    public static final ConfiguredFeature<?, ?> BASALT_DELTA = WorldGenRegistrationHelper.createConfiguredFeature("delta", Feature.DELTA_FEATURE.withConfiguration(new BasaltDeltasFeature(Blocks.WATER.getDefaultState(), Blocks.WATER.getDefaultState(), FeatureSpread.func_242253_a(3, 4), FeatureSpread.func_242253_a(0, 2))).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(2))));
+    public static final ConfiguredFeature<?, ?> SMALL_BASALT_COLUMN = WorldGenRegistrationHelper.createConfiguredFeature("small_basalt_columns", Feature.BASALT_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(1, 1))).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
+    public static final ConfiguredFeature<?, ?> LARGE_BASALT_COLUMN = WorldGenRegistrationHelper.createConfiguredFeature("large_basalt_columns", Feature.BASALT_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(1, 1))).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
 
     /***********************************************************Configured Random Selector Features***********************************************************/
@@ -360,7 +361,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_LUSH_BLUEBERRIES = WorldGenRegistrationHelper.createConfiguredFeature("rs_lush_blueberries", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLUE_BERRY_BUSH.withChance(0.50F)),
-            BLUE_BERRY_BUSH)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242729_a(12));
+            BLUE_BERRY_BUSH)).withPlacement(Features.Placements.PATCH_PLACEMENT).chance(12));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BEACH_GRASS = WorldGenRegistrationHelper.createConfiguredFeature("rs_beach_grass", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BEACH_GRASS.withChance(0.50F)),
@@ -386,84 +387,84 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM = WorldGenRegistrationHelper.createConfiguredFeature("rs_glowshroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLUE_GLOWSHROOM.withChance(0.50F)),
-            PURPLE_GLOWSHROOM)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242729_a(4));
+            PURPLE_GLOWSHROOM)).withPlacement(Features.Placements.PATCH_PLACEMENT).chance(4));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MUSHROOM = WorldGenRegistrationHelper.createConfiguredFeature("rs_mushroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLACK_PUFF.withChance(0.50F),
             WOOD_BLEWIT.withChance(0.50F),
             WEEPING_MILKCAP.withChance(0.50F)),
-            GREEN_MUSHROOM)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242729_a(4));
+            GREEN_MUSHROOM)).withPlacement(Features.Placements.PATCH_PLACEMENT).chance(4));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDEN_VEGETATION = WorldGenRegistrationHelper.createConfiguredFeature("rs_gg_vegetation", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SOUL_SHROOM.withChance(0.2F),
             DEATH_CAP.withChance(0.2F)),
-            NETHER_BRISTLE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(4)).func_242731_b(1)));
+            NETHER_BRISTLE)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(4)).func_242731_b(1)));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CRIMSON_GARDEN_VEGETATION = WorldGenRegistrationHelper.createConfiguredFeature("rs_cg_vegetation", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_ROOTS_TALL.withChance(0.45F),
             CRIMSON_ROOTS_TALL.withChance(0.8F)),
-            CRIMSON_BERRY_BUSH)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(25))));
+            CRIMSON_BERRY_BUSH)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(25))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_BOG_PLANT = WorldGenRegistrationHelper.createConfiguredFeature("rs_embur_bog_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_ROOTS_TALL.withChance(0.45F),
             EMBUR_ROOTS.withChance(0.5F)),
-            EMBUR_WART)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+            EMBUR_WART)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(50))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_SPROUTS = WorldGenRegistrationHelper.createConfiguredFeature("rs_embur_sprouts", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_SPROUTS.withChance(0.5F)),
-            EMBUR_SPROUTS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(30))));
+            EMBUR_SPROUTS)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(30))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SOUL_FIRE_PATCH_WARPED = WorldGenRegistrationHelper.createConfiguredFeature("patch_soul_fire_warped", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SOUL_FIRE_ON_NYLIUM.withChance(0.5F)),
-            SOUL_FIRE_ON_NYLIUM)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
+            SOUL_FIRE_ON_NYLIUM)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BORIC_FIRE_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("patch_boric_fire", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BORIC_FIRE.withChance(0.5F)),
-            BORIC_FIRE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
+            BORIC_FIRE)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CRYPTIC_FIRE_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("patch_cryptic_fire", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CRYPTIC_FIRE.withChance(0.5F)),
-            CRYPTIC_FIRE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
+            CRYPTIC_FIRE)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MAGMA_FIRE_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("patch_magma_fire", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             MAGMA_FIRE.withChance(0.5F)),
-            MAGMA_FIRE)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
+            MAGMA_FIRE)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SUBZERO_ASH_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("patch_subzero_ash", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SUBZERO_ASH.withChance(0.6F)),
-            SUBZERO_ASH_BLOCK)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(3))));
+            SUBZERO_ASH_BLOCK)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_QUARTZ_CRYSTAL_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("rs_quartz_crystal", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             QUARTZ_CRYSTAL.withChance(0.6F)),
-            QUARTZ_CRYSTAL)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+            QUARTZ_CRYSTAL)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(50))));
 
-    public static final ConfiguredFeature<?, ?> WEEPING_ROOTS = WorldGenRegistrationHelper.createConfiguredFeature("weeping_roots", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.GLOWSTONE).setBlock(BYGBlocks.WEEPING_ROOTS_PLANT).setEndBlock(BYGBlocks.WEEPING_ROOTS.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, Blocks.GLOWSTONE, Blocks.BLACKSTONE)).build()).func_242733_d(128).func_242728_a().func_242731_b(80));
-    public static final ConfiguredFeature<?, ?> WEEPING_VINES = WorldGenRegistrationHelper.createConfiguredFeature("weeping_vines", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.GLOWSTONE).setBlock(Blocks.WEEPING_VINES_PLANT).setEndBlock(Blocks.WEEPING_VINES.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, Blocks.GLOWSTONE, Blocks.BLACKSTONE)).build()).func_242733_d(128).func_242728_a().func_242731_b(80));
-    public static final ConfiguredFeature<?, ?> SOUL_SOIL_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("soul_soil_pillars", BYGFeatures.PILLARS.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState()))).func_242733_d(128).func_242728_a().func_242731_b(50));
-    public static final ConfiguredFeature<?, ?> FROST_MAGMA_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("frost_magma_pillars", BYGFeatures.PILLARS.withConfiguration((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.FROST_MAGMA.getDefaultState())))).func_242733_d(128).func_242728_a().func_242731_b(50));
-    public static final ConfiguredFeature<?, ?> MAGMA_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("magma_pillars", BYGFeatures.PILLARS.withConfiguration((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.MAGMATIC_STONE.getDefaultState())))).func_242733_d(128).func_242728_a().func_242731_b(65));
-    public static final ConfiguredFeature<?, ?> BRIMSTONE_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("brimstone_pillars", BYGFeatures.PILLARS.withConfiguration((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.BRIMSTONE.getDefaultState())))).func_242733_d(128).func_242728_a().func_242731_b(80));
-    public static final ConfiguredFeature<?, ?> QUARTZ_COLUMNS = WorldGenRegistrationHelper.createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(1, 3))).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(4))));
+    public static final ConfiguredFeature<?, ?> WEEPING_ROOTS = WorldGenRegistrationHelper.createConfiguredFeature("weeping_roots", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.GLOWSTONE).setBlock(BYGBlocks.WEEPING_ROOTS_PLANT).setEndBlock(BYGBlocks.WEEPING_ROOTS.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, Blocks.GLOWSTONE, Blocks.BLACKSTONE)).build()).range(128).square().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> WEEPING_VINES = WorldGenRegistrationHelper.createConfiguredFeature("weeping_vines", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.GLOWSTONE).setBlock(Blocks.WEEPING_VINES_PLANT).setEndBlock(Blocks.WEEPING_VINES.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, Blocks.GLOWSTONE, Blocks.BLACKSTONE)).build()).range(128).square().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> SOUL_SOIL_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("soul_soil_pillars", BYGFeatures.PILLARS.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState()))).range(128).square().func_242731_b(50));
+    public static final ConfiguredFeature<?, ?> FROST_MAGMA_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("frost_magma_pillars", BYGFeatures.PILLARS.withConfiguration((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.FROST_MAGMA.getDefaultState())))).range(128).square().func_242731_b(50));
+    public static final ConfiguredFeature<?, ?> MAGMA_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("magma_pillars", BYGFeatures.PILLARS.withConfiguration((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.MAGMATIC_STONE.getDefaultState())))).range(128).square().func_242731_b(65));
+    public static final ConfiguredFeature<?, ?> BRIMSTONE_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("brimstone_pillars", BYGFeatures.PILLARS.withConfiguration((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.BRIMSTONE.getDefaultState())))).range(128).square().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> QUARTZ_COLUMNS = WorldGenRegistrationHelper.createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242252_a(1), FeatureSpread.func_242253_a(1, 3))).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_GEL_VINES = WorldGenRegistrationHelper.createConfiguredFeature("rs_embur_gel_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EMBUR_GEL_VINES.withChance(0.3F)),
-            EMBUR_GEL_VINES)).func_242733_d(128).func_242728_a().func_242731_b(100));
+            EMBUR_GEL_VINES)).range(128).square().func_242731_b(100));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_PLANT = WorldGenRegistrationHelper.createConfiguredFeature("rs_sythian_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SYTHIAN_SPROUT.withChance(0.5F),
             SYTHIAN_ROOTS.withChance(0.46F)),
-            SYTHIAN_FUNGUS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+            SYTHIAN_FUNGUS)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(50))));
 
-    public static final ConfiguredFeature<?, ?> HANGING_SOUL_SHROOM_SPORES = WorldGenRegistrationHelper.createConfiguredFeature("hanging_soul_shroom_spores", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SOUL_SHROOM_BLOCK).setBlock(BYGBlocks.SOUL_SHROOM_SPORE).setEndBlock(BYGBlocks.SOUL_SHROOM_SPORE_END.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.SOUL_SOIL, Blocks.SOUL_SAND, BYGBlocks.NYLIUM_SOUL_SAND, BYGBlocks.NYLIUM_SOUL_SAND)).build()).func_242733_d(128).func_242728_a().func_242731_b(45));
-    public static final ConfiguredFeature<?, ?> HANGING_SYTHIAN_ROOTS = WorldGenRegistrationHelper.createConfiguredFeature("hanging_sythian_roots", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SYTHIAN_WART_BLOCK).setBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT.getDefaultState()).setEndBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, BYGBlocks.SYTHIAN_WART_BLOCK)).build()).func_242733_d(128).func_242728_a().func_242731_b(80));
-    public static final ConfiguredFeature<?, ?> MOSSY_NETHERRACK_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("mossy_netherrack_pillars", BYGFeatures.PILLARS.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.MOSSY_NETHERRACK.getDefaultState()))).func_242733_d(128).func_242728_a().func_242731_b(50));
-    public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("sythian_fungus_pillars", BYGFeatures.PILLARS.withConfiguration(new SimpleBlockProviderConfig(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.SYTHIAN_HYPHAE.getDefaultState(), 9).addWeightedBlockstate(BYGBlocks.SYTHIAN_HYPHAE.getDefaultState(), 1))).func_242733_d(128).func_242728_a().func_242731_b(50));
-    public static final ConfiguredFeature<?, ?> HANGING_BONE_FEATURE = WorldGenRegistrationHelper.createConfiguredFeature("hanging_bone", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.BONE_BLOCK).setBlock(BYGBlocks.HANGING_BONE).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.QUARTZITE_SAND, Blocks.BONE_BLOCK)).build()).func_242733_d(128).func_242728_a().func_242731_b(70));
-    public static final ConfiguredFeature<?, ?> LAMENT_VINE_FEATURE = WorldGenRegistrationHelper.createConfiguredFeature("lament_vine", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.NETHERRACK).setBlock(BYGBlocks.LAMENT_VINE_PLANT).setEndBlock(BYGBlocks.LAMENT_VINE.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK)).build()).func_242733_d(128).func_242728_a().func_242731_b(70));
+    public static final ConfiguredFeature<?, ?> HANGING_SOUL_SHROOM_SPORES = WorldGenRegistrationHelper.createConfiguredFeature("hanging_soul_shroom_spores", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SOUL_SHROOM_BLOCK).setBlock(BYGBlocks.SOUL_SHROOM_SPORE).setEndBlock(BYGBlocks.SOUL_SHROOM_SPORE_END.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.SOUL_SOIL, Blocks.SOUL_SAND, BYGBlocks.NYLIUM_SOUL_SAND, BYGBlocks.NYLIUM_SOUL_SAND)).build()).range(128).square().func_242731_b(45));
+    public static final ConfiguredFeature<?, ?> HANGING_SYTHIAN_ROOTS = WorldGenRegistrationHelper.createConfiguredFeature("hanging_sythian_roots", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SYTHIAN_WART_BLOCK).setBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT.getDefaultState()).setEndBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, BYGBlocks.SYTHIAN_WART_BLOCK)).build()).range(128).square().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> MOSSY_NETHERRACK_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("mossy_netherrack_pillars", BYGFeatures.PILLARS.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.MOSSY_NETHERRACK.getDefaultState()))).range(128).square().func_242731_b(50));
+    public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_PILLARS = WorldGenRegistrationHelper.createConfiguredFeature("sythian_fungus_pillars", BYGFeatures.PILLARS.withConfiguration(new SimpleBlockProviderConfig(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.SYTHIAN_HYPHAE.getDefaultState(), 9).addWeightedBlockstate(BYGBlocks.SYTHIAN_HYPHAE.getDefaultState(), 1))).range(128).square().func_242731_b(50));
+    public static final ConfiguredFeature<?, ?> HANGING_BONE_FEATURE = WorldGenRegistrationHelper.createConfiguredFeature("hanging_bone", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.BONE_BLOCK).setBlock(BYGBlocks.HANGING_BONE).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.QUARTZITE_SAND, Blocks.BONE_BLOCK)).build()).range(128).square().func_242731_b(70));
+    public static final ConfiguredFeature<?, ?> LAMENT_VINE_FEATURE = WorldGenRegistrationHelper.createConfiguredFeature("lament_vine", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.NETHERRACK).setBlock(BYGBlocks.LAMENT_VINE_PLANT).setEndBlock(BYGBlocks.LAMENT_VINE.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK)).build()).range(128).square().func_242731_b(70));
 
 
-    public static final ConfiguredFeature<?, ?> HANGING_THERIUM_LANTERNS = WorldGenRegistrationHelper.createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.ETHER_STONE).setBlock(Blocks.CHAIN.getDefaultState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.getDefaultState().with(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.ETHER_STONE)).build()).func_242733_d(256).func_242728_a().func_242731_b(80));
-    public static final ConfiguredFeature<?, ?> HANGING_SHULKREN_VINE = WorldGenRegistrationHelper.createConfiguredFeature("hanging_shulkren_vine", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.END_STONE).setBlock(BYGBlocks.SHULKREN_VINE_PLANT.getDefaultState()).setEndBlock(BYGBlocks.SHULKREN_VINE.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.END_STONE, BYGBlocks.SHULKREN_PHYLIUM)).build()).func_242733_d(256).func_242728_a().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> HANGING_THERIUM_LANTERNS = WorldGenRegistrationHelper.createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.ETHER_STONE).setBlock(Blocks.CHAIN.getDefaultState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.getDefaultState().with(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.ETHER_STONE)).build()).range(256).square().func_242731_b(80));
+    public static final ConfiguredFeature<?, ?> HANGING_SHULKREN_VINE = WorldGenRegistrationHelper.createConfiguredFeature("hanging_shulkren_vine", BYGFeatures.HANGING_FEATURE.withConfiguration(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.END_STONE).setBlock(BYGBlocks.SHULKREN_VINE_PLANT.getDefaultState()).setEndBlock(BYGBlocks.SHULKREN_VINE.getDefaultState().with(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.END_STONE, BYGBlocks.SHULKREN_PHYLIUM)).build()).range(256).square().func_242731_b(80));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JUNGLE_FLOWERS = WorldGenRegistrationHelper.createConfiguredFeature("rs_jungle_flowers", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BISTORT.withChance(0.50F),
@@ -526,25 +527,25 @@ public class BYGConfiguredFeatures {
             WARPED_BUSH.withChance(0.25F),
             WARPED_CORAL.withChance(0.25F),
             WARPED_CORAL_FAN.withChance(0.25F)),
-            WARPED_CACTI)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(16))));
+            WARPED_CACTI)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(16))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SCORCHED_PLANT = WorldGenRegistrationHelper.createConfiguredFeature("rs_scorched_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SCORCHED_GRASS.withChance(0.6F)),
-            SCORCHED_BUSH)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+            SCORCHED_BUSH)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(50))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_LAMENT_VEGETATION = WorldGenRegistrationHelper.createConfiguredFeature("rs_lament_vegetation", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SCORCHED_BUSH.withChance(0.2F),
             SCORCHED_GRASS.withChance(0.2F)),
-            LAMENT_SPROUTS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+            LAMENT_SPROUTS)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(50))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WAILING_VEGETATION = WorldGenRegistrationHelper.createConfiguredFeature("rs_wailing_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SCORCHED_BUSH.withChance(0.2F),
             SCORCHED_GRASS.withChance(0.2F)),
-            WAILING_GRASS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(50))));
+            WAILING_GRASS)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(50))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WAILING_VINES = WorldGenRegistrationHelper.createConfiguredFeature("rs_wailing_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             WAILING_VINES.withChance(0.5F)),
-            WAILING_VINES)).func_242733_d(128).func_242728_a().func_242731_b(100));
+            WAILING_VINES)).range(128).square().func_242731_b(100));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ROSE = WorldGenRegistrationHelper.createConfiguredFeature("rs_rose", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ROSE.withChance(0.5F)),
@@ -684,23 +685,23 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_ODDITY_PLANT = WorldGenRegistrationHelper.createConfiguredFeature("rs_oddity_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ODDITY_CACTUS.withChance(0.5F)),
-            ODDITY_BUSH)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(16))));
+            ODDITY_BUSH)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(16))));
 
     public static final ConfiguredFeature<?, ?> VERMILION_SCULK_GROWTH_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("vermilion_sculk_growth_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             VERMILION_SCULK_GROWTH.withChance(0.5F)),
-            VERMILION_SCULK_GROWTH)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(45))));
+            VERMILION_SCULK_GROWTH)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(45))));
 
     public static final ConfiguredFeature<?, ?> THERIUM_CRYSTALS = WorldGenRegistrationHelper.createConfiguredFeature("therium_crystals", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             THERIUM_CRYSTAL.withChance(0.6F)),
-            THERIUM_CRYSTAL)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(15))));
+            THERIUM_CRYSTAL)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(15))));
 
     public static final ConfiguredFeature<?, ?> SHULKREN_MOSS_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("shulkren_moss_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHULKREN_MOSS_BLANKET.withChance(0.5F)),
-            SHULKREN_MOSS_BLANKET)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(45))));
+            SHULKREN_MOSS_BLANKET)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(45))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SHULKREN_FUNGUS = WorldGenRegistrationHelper.createConfiguredFeature("rs_shulkren_fungus", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHULKREN_FUNGUS.withChance(0.5F)),
-            SHULKREN_FUNGUS)).withPlacement(Placement.field_242897_C.configure(new FeatureSpreadConfig(1))));
+            SHULKREN_FUNGUS)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = WorldGenRegistrationHelper.createConfiguredFeature("rs_dead_sea_spike", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_SEA_SPIKE.withChance(0.75F)),
@@ -709,13 +710,13 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN_PATCH = WorldGenRegistrationHelper.createConfiguredFeature("rs_large_pumpkin", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PUMPKIN.withChance(0.45F),
             PUMPKIN1.withChance(0.4F)),
-            PUMPKIN2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            PUMPKIN2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
 
 
     /***********************************************************Configured Tree Features********************************************************/
 
-    public static final ConfiguredFeature<?, ?> DUMMY_TREE = WorldGenRegistrationHelper.createConfiguredFeature("dummy_tree", BYGFeatures.DUMMY_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(new AtSurfaceWithExtraConfig(10000, 0.4F, 8))));
+    public static final ConfiguredFeature<?, ?> DUMMY_TREE = WorldGenRegistrationHelper.createConfiguredFeature("dummy_tree", BYGFeatures.DUMMY_TREE.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10000, 0.4F, 8))));
 
     public static final ConfiguredFeature<BYGTreeConfig, ?> ARAUCARIA_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("araucaria_tree1", BYGFeatures.ARAUCARIA_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.PINE_LOG).setLeavesBlock(BYGBlocks.ARAUCARIA_LEAVES).setMaxHeight(24).setMinHeight(16).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ARAUCARIA_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("araucaria_tree2", BYGFeatures.ARAUCARIA_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.PINE_LOG).setLeavesBlock(BYGBlocks.ARAUCARIA_LEAVES).setMaxHeight(24).setMinHeight(16).build()));
@@ -1109,7 +1110,7 @@ public class BYGConfiguredFeatures {
             Features.DARK_OAK.withChance(0.3F),
             ANCIENT_TREE1.withChance(0.20F),
             ANCIENT_TREE2.withChance(0.20F)),
-            ANCIENT_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ANCIENT_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(16, 0.4F, 8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BAYOU_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_bayou_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1139,19 +1140,19 @@ public class BYGConfiguredFeatures {
             BLUFF_TREE1.withChance(0.3F),
             BLUFF_TREE2.withChance(0.3F),
             BLUFF_TREE3.withChance(0.25F)),
-            CONIFER_TREE6)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            CONIFER_TREE6)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(12, 0.3F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_boreal", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BIRCH_YELLOW_BOREAL_TREE1.withChance(0.3F),
             BIRCH_BOREAL_TREE1.withChance(0.3F)),
-            BOREAL_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            BOREAL_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(18, 0.5F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_boreal", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BIRCH_YELLOW_BOREAL_TREE1.withChance(0.3F),
             BIRCH_BOREAL_TREE1.withChance(0.3F)),
-            BOREAL_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            BOREAL_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLACK_FOREST_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_black_forest", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1162,20 +1163,20 @@ public class BYGConfiguredFeatures {
             PINE_LARGE_TREE1.withChance(0.5F),
             PINE_LARGE_TREE2.withChance(0.5F),
             PINE_TREE1.withChance(0.5F)),
-            PINE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            PINE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(30, 0.4F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLACK_FOREST_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_black_forest", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PINE_LARGE_TREE1.withChance(0.45F),
             PINE_LARGE_TREE2.withChance(0.45F),
             PINE_TREE1.withChance(0.4F)),
-            PINE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            PINE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CIKA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_cika_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CIKA_TREE2.withChance(0.2F),
             CIKA_TREE3.withChance(0.1F)),
-            CIKA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            CIKA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.4F, 3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_conifer_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1186,7 +1187,7 @@ public class BYGConfiguredFeatures {
             CONIFER_TREE5.withChance(0.2F),
             CONIFER_TREE6.withChance(0.2F),
             CONIFER_TREE7.withChance(0.1F)),
-            CONIFER_TREE8)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            CONIFER_TREE8)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(18, 0.4F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_conifer_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1197,7 +1198,7 @@ public class BYGConfiguredFeatures {
             CONIFER_TREE5.withChance(0.2F),
             CONIFER_TREE6.withChance(0.2F),
             CONIFER_TREE7.withChance(0.1F)),
-            CONIFER_TREE8)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            CONIFER_TREE8)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CRAG_GARDEN_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_crag_garden_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1205,7 +1206,7 @@ public class BYGConfiguredFeatures {
             RAINBOW_TREE1.withChance(0.2F),
             Features.BAMBOO.withChance(0.05F),
             RAINBOW_LARGE_TREE1.withChance(0.1F)),
-            MAHOGANY_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            MAHOGANY_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(30, 0.4F, 8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CYPRESS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_cypress_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1218,58 +1219,58 @@ public class BYGConfiguredFeatures {
             DECIDUOUS_TREE1.withChance(0.25F),
             DECIDUOUS_TREE2.withChance(0.25F),
             DECIDUOUS_TREE3.withChance(0.25F)),
-            DECIDUOUS_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            DECIDUOUS_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.4F, 3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_RED_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_deciduous_red_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_RED_TREE1.withChance(0.25F),
             DECIDUOUS_RED_TREE2.withChance(0.25F),
             DECIDUOUS_RED_TREE3.withChance(0.25F)),
-            DECIDUOUS_RED_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            DECIDUOUS_RED_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(2, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_ORANGE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_deciduous_orange_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_ORANGE_TREE1.withChance(0.25F),
             DECIDUOUS_ORANGE_TREE2.withChance(0.25F),
             DECIDUOUS_ORANGE_TREE3.withChance(0.25F)),
-            DECIDUOUS_ORANGE_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            DECIDUOUS_ORANGE_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(2, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_BROWN_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_deciduous_brown_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_BROWN_TREE1.withChance(0.25F),
             DECIDUOUS_BROWN_TREE2.withChance(0.25F),
             DECIDUOUS_BROWN_TREE3.withChance(0.25F)),
-            DECIDUOUS_BROWN_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            DECIDUOUS_BROWN_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(2, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_deciduous_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_TREE1.withChance(0.25F),
             DECIDUOUS_TREE2.withChance(0.25F),
             DECIDUOUS_TREE3.withChance(0.25F)),
-            DECIDUOUS_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            DECIDUOUS_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DOVER_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_dover_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PINE_LARGE_TREE1.withChance(0.25F),
             PINE_LARGE_TREE2.withChance(0.25F)),
-            SPRUCE_TREE_LARGE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SPRUCE_TREE_LARGE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(2, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EUCALYPTUS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_eucalyptus_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             RAINBOW_TREE1.withChance(0.1F)),
-            RAINBOW_LARGE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            RAINBOW_LARGE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(8, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_jacaranda", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             JACARANDA_TREE2.withChance(0.3F),
             INDIGO_JACARANDA_TREE2.withChance(0.3F),
             INDIGO_JACARANDA_TREE1.withChance(0.3F)),
-            JACARANDA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            JACARANDA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(25, 0.1F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_jacaranda", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             INDIGO_JACARANDA_TREE1.withChance(0.3F)),
-            JACARANDA_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            JACARANDA_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MAPLE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_maple", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1277,7 +1278,7 @@ public class BYGConfiguredFeatures {
             MAPLE_RED_TREE2.withChance(0.03F),
             MAPLE_SILVER_TREE1.withChance(0.2F),
             MAPLE_SILVER_TREE2.withChance(0.1F)),
-            MAPLE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            MAPLE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(5, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MAPLE_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_maple", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1286,36 +1287,36 @@ public class BYGConfiguredFeatures {
             MAPLE_TREE1.withChance(0.04F),
             MAPLE_SILVER_TREE1.withChance(0.2F),
             MAPLE_SILVER_TREE2.withChance(0.1F)),
-            MAPLE_RED_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            MAPLE_RED_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_NORTHERN_FOREST_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_northern_forest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PINE_TREE1.withChance(0.5F)),
-            PINE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            PINE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PRAIRIE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_prairie_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB_PRAIRIE1.withChance(0.4F),
             SHRUB_PRAIRIE2.withChance(0.4F),
             Features.FANCY_OAK_BEES_002.withChance(0.1F)),
-            Features.FANCY_OAK)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            Features.FANCY_OAK)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_REDWOOD_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_redwood_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             REDWOOD_TREE1.withChance(0.55F),
             REDWOOD_TREE2.withChance(0.1F)),
-            REDWOOD_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            REDWOOD_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(5, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_REDWOOD_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_redwood_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             REDWOOD_TREE1.withChance(0.55F),
             REDWOOD_TREE2.withChance(0.1F)),
-            REDWOOD_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            REDWOOD_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_SHRUB = WorldGenRegistrationHelper.createConfiguredFeature("rs_seasonal_shrub", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB.withChance(0.4F)),
-            DECIDUOUS_SEASONAL_SHRUB)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            DECIDUOUS_SEASONAL_SHRUB)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(5, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_DECIDUOUS_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_seasonal_deciduous_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1323,21 +1324,21 @@ public class BYGConfiguredFeatures {
             DECIDUOUS_ORANGE_TREE1.withChance(0.2F),
             DECIDUOUS_SEASONAL_SHRUB.withChance(0.2F),
             DECIDUOUS_BROWN_TREE1.withChance(0.2F)),
-            DECIDUOUS_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            DECIDUOUS_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_TAIGA_MISC_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_seasonal_taiga_misc_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PINE_TREE1.withChance(0.25F),
             PINE_TREE2.withChance(0.25F),
             ASPEN_TREE2.withChance(0.25F)),
-            ASPEN_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ASPEN_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(2, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_SEASONAL_TREE_GIANT = WorldGenRegistrationHelper.createConfiguredFeature("rs_spruce_seasonal_tree_giant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SPRUCE_RED_TREE_LARGE1.withChance(0.25F),
             SPRUCE_ORANGE_TREE_LARGE1.withChance(0.25F),
             SPRUCE_YELLOW_TREE_LARGE1.withChance(0.25F)),
-            SPRUCE_TREE_LARGE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SPRUCE_TREE_LARGE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_spruce_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1349,7 +1350,7 @@ public class BYGConfiguredFeatures {
             SPRUCE_TREE_MEDIUM2.withChance(0.2F),
             SPRUCE_TREE_MEDIUM3.withChance(0.2F),
             SPRUCE_TREE_MEDIUM4.withChance(0.1F)),
-            SPRUCE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SPRUCE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_YELLOW_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_spruce_yellow_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1361,7 +1362,7 @@ public class BYGConfiguredFeatures {
             SPRUCE_YELLOW_TREE_MEDIUM2.withChance(0.2F),
             SPRUCE_YELLOW_TREE_MEDIUM3.withChance(0.2F),
             SPRUCE_YELLOW_TREE_MEDIUM4.withChance(0.1F)),
-            SPRUCE_YELLOW_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SPRUCE_YELLOW_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_ORANGE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_spruce_orange_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1373,7 +1374,7 @@ public class BYGConfiguredFeatures {
             SPRUCE_ORANGE_TREE_MEDIUM2.withChance(0.2F),
             SPRUCE_ORANGE_TREE_MEDIUM3.withChance(0.2F),
             SPRUCE_ORANGE_TREE_MEDIUM4.withChance(0.1F)),
-            SPRUCE_ORANGE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SPRUCE_ORANGE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_RED_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_spruce_red_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1385,7 +1386,7 @@ public class BYGConfiguredFeatures {
             SPRUCE_RED_TREE_MEDIUM2.withChance(0.2F),
             SPRUCE_RED_TREE_MEDIUM3.withChance(0.2F),
             SPRUCE_RED_TREE_MEDIUM4.withChance(0.1F)),
-            SPRUCE_RED_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SPRUCE_RED_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_BLUE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_spruce_blue_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1397,12 +1398,12 @@ public class BYGConfiguredFeatures {
             SPRUCE_BLUE_TREE_MEDIUM2.withChance(0.2F),
             SPRUCE_BLUE_TREE_MEDIUM3.withChance(0.2F),
             SPRUCE_BLUE_TREE_MEDIUM4.withChance(0.1F)),
-            SPRUCE_BLUE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SPRUCE_BLUE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_BLUE_TREE_GIANT = WorldGenRegistrationHelper.createConfiguredFeature("rs_spruce_blue_tree_giant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SPRUCE_BLUE_TREE_LARGE1.withChance(0.5F)),
-            SPRUCE_TREE_LARGE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SPRUCE_TREE_LARGE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_FUNGAL_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_fungal_rainforest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1413,7 +1414,7 @@ public class BYGConfiguredFeatures {
             MAHOGANY_TREE2.withChance(0.2F),
             MAHOGANY_TREE3.withChance(0.2F),
             MAHOGANY_TREE4.withChance(0.15F)),
-            MAHOGANY_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            MAHOGANY_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(30, 0.1F, 10))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_SPARSE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_rainforest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1424,7 +1425,7 @@ public class BYGConfiguredFeatures {
             MAHOGANY_TREE2.withChance(0.2F),
             MAHOGANY_TREE3.withChance(0.2F),
             MAHOGANY_TREE4.withChance(0.15F)),
-            MAHOGANY_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            MAHOGANY_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_rainforest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1435,7 +1436,7 @@ public class BYGConfiguredFeatures {
             MAHOGANY_TREE2.withChance(0.2F),
             MAHOGANY_TREE3.withChance(0.2F),
             MAHOGANY_TREE4.withChance(0.15F)),
-            MAHOGANY_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            MAHOGANY_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(35, 0.1F, 10))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_STONE_FOREST_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_stone_forest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1443,7 +1444,7 @@ public class BYGConfiguredFeatures {
             EBONY_TREE2.withChance(0.1F),
             Features.JUNGLE_BUSH.withChance(0.1F),
             DECIDUOUS_TREE1.withChance(0.1F)),
-            DECIDUOUS_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            DECIDUOUS_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(30, 0.3F, 8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SKYRIS_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_skyris_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1451,64 +1452,64 @@ public class BYGConfiguredFeatures {
             SKYRIS_TREE5.withChance(0.25F),
             SKYRIS_TREE2.withChance(0.15F),
             SKYRIS_TREE3.withChance(0.25F)),
-            SKYRIS_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SKYRIS_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(8, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BAOBAB_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_baobab_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             Features.ACACIA.withChance(0.15F),
             BAOBAB_TREE1.withChance(0.35F),
             BAOBAB_TREE2.withChance(0.35F)),
-            BAOBAB_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            BAOBAB_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.6F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ARAUCARIA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_araucaria_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ARAUCARIA_TREE2.withChance(0.5F)),
-            ARAUCARIA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ARAUCARIA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_ARAUCARIA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_araucaria_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ARAUCARIA_TREE2.withChance(0.5F)),
-            ARAUCARIA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ARAUCARIA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.4F, 3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BROWN_ZELKOVA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_brown_zelkova_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ZELKOVA_BROWN_TREE3.withChance(0.35F),
             ZELKOVA_BROWN_TREE2.withChance(0.35F)),
-            ZELKOVA_BROWN_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ZELKOVA_BROWN_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MEADOW_SHRUB = WorldGenRegistrationHelper.createConfiguredFeature("rs_meadow_shrub", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB_MEADOW.withChance(0.1F)),
-            SHRUB_PRAIRIE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SHRUB_PRAIRIE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MEADOW_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_meadow_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             MEADOW_TREE1.withChance(0.2F),
             MEADOW_TREE2.withChance(0.1F)),
-            MEADOW_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            MEADOW_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(3, 0.5F, 4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GROVE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_grove_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BIRCH_YELLOW_BOREAL_TREE1.withChance(0.5F)),
-            BIRCH_BOREAL_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            BIRCH_BOREAL_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_GROVE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_enchanted_grove_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ENCHANTED_BLUE_GROVE_TREE1.withChance(0.5F)),
-            ENCHANTED_GREEN_GROVE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ENCHANTED_GREEN_GROVE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(2, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GIANT_FLOWER = WorldGenRegistrationHelper.createConfiguredFeature("rs_giant_flower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             GIANT_ANGELICA_FLOWER.withChance(0.2F),
             GIANT_DANDELION_FLOWER.withChance(0.2F),
             GIANT_IRIS_FLOWER.withChance(0.5F)),
-            GIANT_ROSE_FLOWER)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            GIANT_ROSE_FLOWER)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MARSH_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_marsh_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB_PRAIRIE2.withChance(0.2F),
             SHRUB_PRAIRIE1.withChance(0.1F)),
-            Features.SWAMP_TREE)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            Features.SWAMP_TREE)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(3, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_enchanted_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1517,7 +1518,7 @@ public class BYGConfiguredFeatures {
             ENCHANTED_GREEN_TREE1.withChance(0.2F),
             ENCHANTED_GREEN_TREE2.withChance(0.2F),
             ENCHANTED_GREEN_TREE3.withChance(0.1F)),
-            ENCHANTED_BLUE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ENCHANTED_BLUE_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(18, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM_BAYOU_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_glowshroom_bayou_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1533,113 +1534,113 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_aspen_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ASPEN_TREE2.withChance(0.50F),
             ASPEN_TREE3.withChance(0.25F)),
-            ASPEN_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ASPEN_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(18, 0.5F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_SHRUB = WorldGenRegistrationHelper.createConfiguredFeature("rs_aspen_shrub", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ASPEN_SHRUB1.withChance(0.1F)),
-            ASPEN_SHRUB2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ASPEN_SHRUB2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_ASPEN_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_aspen_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ASPEN_TREE2.withChance(0.2F),
             ASPEN_TREE3.withChance(0.1F)),
-            ASPEN_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ASPEN_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ZELKOVA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_zelkova_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ZELKOVA_TREE2.withChance(0.2F),
             ZELKOVA_TREE3.withChance(0.1F)),
-            ZELKOVA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ZELKOVA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(18, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_ZELKOVA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_zelkova_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ZELKOVA_TREE2.withChance(0.2F),
             ZELKOVA_TREE3.withChance(0.1F)),
-            ZELKOVA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ZELKOVA_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PALO_VERDE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_palo_verde_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PALO_VERDE_TREE1.withChance(0.5F)),
-            PALO_VERDE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            PALO_VERDE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JOSHUA_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_joshua_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             JOSHUA_TREE1.withChance(0.5F)),
-            JOSHUA_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            JOSHUA_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SHRUB = WorldGenRegistrationHelper.createConfiguredFeature("rs_shrub", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB_PRAIRIE1.withChance(0.1F)),
-            SHRUB_PRAIRIE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SHRUB_PRAIRIE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SHRUBLAND = WorldGenRegistrationHelper.createConfiguredFeature("rs_shrubland", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB.withChance(0.1F)),
-            SHRUB)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            SHRUB)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PALM_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_palm_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PALM_TREE4.withChance(0.05F),
             PALM_TREE3.withChance(0.35F),
             PALM_TREE2.withChance(0.35F)),
-            PALM_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            PALM_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DENSE_PALM_TREE = WorldGenRegistrationHelper.createConfiguredFeature("dense_palm_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PALM_TREE4.withChance(0.05F),
             PALM_TREE3.withChance(0.35F),
             PALM_TREE2.withChance(0.35F)),
-            PALM_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            PALM_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(7, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CHERRY_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_cherry_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CHERRY_PINK_TREE1.withChance(0.2F),
             CHERRY_PINK_TREE2.withChance(0.2F),
             CHERRY_WHITE_TREE1.withChance(0.1F)),
-            CHERRY_WHITE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            CHERRY_WHITE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(14, 0.4F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_CHERRY_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_cherry_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CHERRY_PINK_TREE1.withChance(0.2F),
             CHERRY_PINK_TREE2.withChance(0.2F),
             CHERRY_WHITE_TREE1.withChance(0.1F)),
-            CHERRY_WHITE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            CHERRY_WHITE_TREE2)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.1F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WITCH_HAZEL_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_witch_hazel_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_HAZEL_TREE1.withChance(0.2F),
             DEAD_HAZEL_TREE2.withChance(0.2F),
             DEAD_HAZEL_TREE3.withChance(0.1F)),
-            DEAD_HAZEL_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            DEAD_HAZEL_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(14, 0.3F, 4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_WITCH_HAZEL_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_witch_hazel_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_HAZEL_TREE1.withChance(0.2F),
             DEAD_HAZEL_TREE2.withChance(0.2F),
             DEAD_HAZEL_TREE3.withChance(0.1F)),
-            DEAD_HAZEL_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            DEAD_HAZEL_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EBONY_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_ebony_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             EBONY_TREE1.withChance(0.2F),
             EBONY_TREE2.withChance(0.2F),
             EBONY_BUSH1.withChance(0.1F)),
-            EBONY_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            EBONY_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(10, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_HOLLY_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_holly_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             HOLLY_TREE1.withChance(0.2F),
             HOLLY_TREE2.withChance(0.2F),
             HOLLY_TREE3.withChance(0.1F)),
-            HOLLY_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            HOLLY_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(25, 0.4F, 5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_HOLLY_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_holly_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             HOLLY_TREE1.withChance(0.2F),
             HOLLY_TREE2.withChance(0.2F),
             HOLLY_TREE3.withChance(0.1F)),
-            HOLLY_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            HOLLY_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MANGROVE_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_mangrove_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1661,12 +1662,12 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_ORCHARD_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_orchard_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ORCHARD_TREE1.withChance(0.3F),
             ORCHARD_TREE2.withChance(0.3F)),
-            ORCHARD_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ORCHARD_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WOODLAND_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_woodland_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             WOODLANDS_TREE1.withChance(0.1F)),
-            WOODLANDS_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            WOODLANDS_TREE1)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.35F, 2))));
 
 
@@ -1676,7 +1677,7 @@ public class BYGConfiguredFeatures {
             OAK_TREE3.withChance(0.2F),
             OAK_TREE_LARGE1.withChance(0.1F),
             OAK_TREE_LARGE2.withChance(0.1F)),
-            OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RED_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_red_oak_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1685,7 +1686,7 @@ public class BYGConfiguredFeatures {
             RED_OAK_TREE3.withChance(0.2F),
             RED_OAK_TREE_LARGE1.withChance(0.1F),
             RED_OAK_TREE_LARGE2.withChance(0.1F)),
-            RED_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            RED_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_RED_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_sparse_red_oak_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1694,7 +1695,7 @@ public class BYGConfiguredFeatures {
             RED_OAK_TREE3.withChance(0.2F),
             RED_OAK_TREE_LARGE1.withChance(0.1F),
             RED_OAK_TREE_LARGE2.withChance(0.1F)),
-            RED_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            RED_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BROWN_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_brown_oak_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1703,7 +1704,7 @@ public class BYGConfiguredFeatures {
             BROWN_OAK_TREE3.withChance(0.2F),
             BROWN_OAK_TREE_LARGE1.withChance(0.1F),
             BROWN_OAK_TREE_LARGE2.withChance(0.1F)),
-            BROWN_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            BROWN_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ORANGE_OAK_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_orange_oak_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1712,7 +1713,7 @@ public class BYGConfiguredFeatures {
             ORANGE_OAK_TREE3.withChance(0.2F),
             ORANGE_OAK_TREE_LARGE1.withChance(0.1F),
             ORANGE_OAK_TREE_LARGE2.withChance(0.1F)),
-            ORANGE_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            ORANGE_OAK_TREE_LARGE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_BIRCH_FOREST_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_seasonal_birch_forest_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1727,7 +1728,7 @@ public class BYGConfiguredFeatures {
             BIRCH_RED_TREE3.withChance(0.06F),
             BIRCH_YELLOW_TREE1.withChance(0.06F),
             BIRCH_YELLOW_TREE2.withChance(0.1F)),
-            BIRCH_YELLOW_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.field_242902_f.configure(
+            BIRCH_YELLOW_TREE3)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(12, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_HUGE_GLOWSHROOM = WorldGenRegistrationHelper.createConfiguredFeature("rs_huge_glowshroom", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1857,8 +1858,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_ISLAND = WorldGenRegistrationHelper.createConfiguredFeature("rs_floating_island", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             FLOATING_ISLAND1.withChance(0.25F),
             FLOATING_ISLAND2.withChance(0.25F),
-            FLOATING_ISLAND3.withChance(0.25F),
-            FLOATING_ISLAND4.withChance(0.25F)),
+            FLOATING_ISLAND3.withChance(0.25F)),
             FLOATING_ISLAND5)).withPlacement(BYGDecorators.ISLAND.configure(
             new AtSurfaceWithExtraConfig(0, 0.13F, 1))));
 

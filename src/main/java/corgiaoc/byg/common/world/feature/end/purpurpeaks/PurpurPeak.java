@@ -22,7 +22,7 @@ public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
 
 

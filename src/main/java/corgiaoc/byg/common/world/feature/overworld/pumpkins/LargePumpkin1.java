@@ -17,7 +17,7 @@ public class LargePumpkin1 extends Feature<PumpkinConfig> {
     }
 
     @Override
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random random, BlockPos pos, PumpkinConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator generator, Random random, BlockPos pos, PumpkinConfig config) {
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
 
         int posX = pos.getX();

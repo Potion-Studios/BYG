@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[33,)"
-license = "Code: LGPLv3 Assets: All Rights Reserved"
+license = "Code: LGPLv3 \nAssets: All Rights Reserved"
 issueTrackerURL = "https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId = "byg"

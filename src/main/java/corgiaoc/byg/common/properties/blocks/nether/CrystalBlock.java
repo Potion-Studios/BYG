@@ -19,6 +19,9 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.Tags;
 
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class CrystalBlock extends Block {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
@@ -27,8 +30,8 @@ public class CrystalBlock extends Block {
 
     }
 
-    public Block.OffsetType getOffsetType() {
-        return Block.OffsetType.XZ;
+    public AbstractBlock.OffsetType getOffsetType() {
+        return AbstractBlock.OffsetType.XZ;
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

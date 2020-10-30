@@ -8,7 +8,7 @@ import net.minecraft.world.IWorldReader;
 
 public class BYGBeachGrassBlock extends TallGrassBlock implements IGrowable {
 
-    protected BYGBeachGrassBlock(Block.Properties properties) {
+    protected BYGBeachGrassBlock(AbstractBlock.Properties properties) {
         super(properties);
     }
 

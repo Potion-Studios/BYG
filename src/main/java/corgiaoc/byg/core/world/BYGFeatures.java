@@ -261,7 +261,7 @@ public class BYGFeatures {
     public static final Feature<HangingColumnWithBaseConfig> HANGING_FEATURE = WorldGenRegistrationHelper.createFeature("hanging_feature", new HangingColumnWithBase(HangingColumnWithBaseConfig.CODEC.stable()));
 
     //Sythian
-    public static final Feature<ProbabilityConfig> SYTHIAN_STALK = WorldGenRegistrationHelper.createFeature("sythian_stalk", new SythianStalk(ProbabilityConfig.field_236576_b_.stable()));
+    public static final Feature<ProbabilityConfig> SYTHIAN_STALK = WorldGenRegistrationHelper.createFeature("sythian_stalk", new SythianStalk(ProbabilityConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SYTHIAN_FUNGUS_TREE1 = WorldGenRegistrationHelper.createFeature("sythian_fungus_tree1", new SythianFungusTree1(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SYTHIAN_FUNGUS_TREE2 = WorldGenRegistrationHelper.createFeature("sythian_fungus_tree2", new SythianFungusTree2(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SYTHIAN_FUNGUS_TREE3 = WorldGenRegistrationHelper.createFeature("sythian_fungus_tree3", new SythianFungusTree3(BYGMushroomConfig.CODEC.stable()));

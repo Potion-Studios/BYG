@@ -17,9 +17,11 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock;
+
 public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLoggable {
 
-    protected BYGScaffoldingBlock(Block.Properties properties) {
+    protected BYGScaffoldingBlock(AbstractBlock.Properties properties) {
         super(properties);
     }
 

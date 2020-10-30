@@ -11,24 +11,26 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock;
+
 public class BYGOreBlock extends OreBlock implements IForgeBlock {
 
-    public BYGOreBlock(Block.Properties properties) {
+    public BYGOreBlock(AbstractBlock.Properties properties) {
         super(properties);
     }
 
     @Override
-    protected int getExperience(Random p_220281_1_) {
+    protected int getExperience(Random rand) {
         if (this == BYGBlocks.AMETRINE_ORE) {
-            return MathHelper.nextInt(p_220281_1_, 3, 9);
+            return MathHelper.nextInt(rand, 3, 9);
         } else if (this == BYGBlocks.ANTHRACITE_ORE) {
-            return MathHelper.nextInt(p_220281_1_, 2, 5);
+            return MathHelper.nextInt(rand, 2, 5);
         } else if (this == Blocks.EMERALD_ORE) {
-            return MathHelper.nextInt(p_220281_1_, 3, 7);
+            return MathHelper.nextInt(rand, 3, 7);
         } else if (this == Blocks.LAPIS_ORE) {
-            return MathHelper.nextInt(p_220281_1_, 2, 5);
+            return MathHelper.nextInt(rand, 2, 5);
         } else {
-            return this == Blocks.NETHER_QUARTZ_ORE ? MathHelper.nextInt(p_220281_1_, 2, 5) : 0;
+            return this == Blocks.NETHER_QUARTZ_ORE ? MathHelper.nextInt(rand, 2, 5) : 0;
         }
     }
 

@@ -11,6 +11,8 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class DoubleDamagePlantBlock extends DoublePlantBlock {
 
     protected DoubleDamagePlantBlock(Properties builder) {

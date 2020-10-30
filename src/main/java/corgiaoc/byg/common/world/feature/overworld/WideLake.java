@@ -46,7 +46,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
 
 
     @Override
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator chunkSettings, Random random, BlockPos position, SimpleBlockProviderConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator chunkSettings, Random random, BlockPos position, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position.down(2));
 

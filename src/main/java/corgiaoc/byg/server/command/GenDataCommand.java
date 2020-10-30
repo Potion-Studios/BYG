@@ -106,7 +106,7 @@ public class GenDataCommand {
                     }
                 }
                 commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS).toString().replace("\\", "/").replace("/./", "/") + "/data/" + modId + "/worldgen/biome/").modifyStyle(text -> {
-//                    text.setColor(Color.func_240744_a_(TextFormatting.GREEN));
+//                    text.setColor(Color.fromTextFormatting(TextFormatting.GREEN));
 
                     return text.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS).toString().replace("\\", "/").replace("/./", "/") + "/data/" + modId + "/worldgen/biome/")).setColor(Color.fromTextFormatting(TextFormatting.GREEN));
 

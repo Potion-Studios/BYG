@@ -60,10 +60,10 @@ public class WailingGarth extends BYGNetherBiome {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.ORE_MAGMA);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.NETHER_SPROUTS); //Nether Sprouts
         DefaultBiomeFeatures.withCommonNetherBlocks(GENERATION_SETTINGS); //Ores
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244134_E); //NetherPortal
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244149_o); //Fortress
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244150_p); //Nether Fossils
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_NETHER); //NetherPortal
+        GENERATION_SETTINGS.withStructure(StructureFeatures.FORTRESS); //Fortress
+        GENERATION_SETTINGS.withStructure(StructureFeatures.BASTION_REMNANT); //BastionRemnant
+        GENERATION_SETTINGS.withStructure(StructureFeatures.NETHER_FOSSIL); //Nether Fossils
 
         BYGDefaultBiomeFeatures.addMiniNetherMushrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addWailingVegetation(GENERATION_SETTINGS);

@@ -19,10 +19,12 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class BYGWaterSilkBlock extends LilyPadBlock {
 
-    protected BYGWaterSilkBlock(Properties p_i48297_1_) {
-        super(p_i48297_1_);
+    protected BYGWaterSilkBlock(Properties builder) {
+        super(builder);
     }
 
     @Override

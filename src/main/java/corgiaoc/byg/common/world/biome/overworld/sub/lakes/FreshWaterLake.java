@@ -52,7 +52,7 @@ public class FreshWaterLake extends BYGSubBiome {
         BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withSwampSugarcaneAndPumpkin(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244131_B); //Ruined Portal Swamp
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_SWAMP); //Ruined Portal Swamp
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS); //Strongholds & Mineshafts
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

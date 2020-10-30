@@ -63,9 +63,9 @@ public class BaobabSavanna extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244156_v); //Savanna Village
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244135_a); //Pillager Outpost
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
+        GENERATION_SETTINGS.withStructure(StructureFeatures.VILLAGE_SAVANNA); //Savanna Village
+        GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL); //Ruined Portal Standard
         BYGDefaultBiomeFeatures.addBaobabTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);

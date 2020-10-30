@@ -64,9 +64,9 @@ public class CragGardens extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244144_j); //Swamp Hut
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244139_e); //Jungle Temple
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244159_y); //Ruined Portal Standard
+        GENERATION_SETTINGS.withStructure(StructureFeatures.SWAMP_HUT); //Swamp Hut
+        GENERATION_SETTINGS.withStructure(StructureFeatures.JUNGLE_PYRAMID); //Jungle Temple
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addLargeLake(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);

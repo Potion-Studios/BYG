@@ -61,9 +61,9 @@ public class SythianTorrids extends BYGNetherBiome {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.ORE_MAGMA);
         BYGDefaultBiomeFeatures.addSythianVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonNetherBlocks(GENERATION_SETTINGS); //Ores
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244134_E); //NetherPortal
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244149_o); //Fortress
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244153_s); //BastionRemnant
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_NETHER); //NetherPortal
+        GENERATION_SETTINGS.withStructure(StructureFeatures.FORTRESS); //Fortress
+        GENERATION_SETTINGS.withStructure(StructureFeatures.BASTION_REMNANT); //BastionRemnant
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));

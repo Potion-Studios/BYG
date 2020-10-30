@@ -22,11 +22,13 @@ import net.minecraft.world.IWorldReader;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.AbstractBlock;
+
 public class BYGAbstractCoralPlantBlock extends Block implements IWaterLoggable {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    private static final VoxelShape field_212559_a = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
+    private static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
 
-    protected BYGAbstractCoralPlantBlock(Block.Properties properties) {
+    protected BYGAbstractCoralPlantBlock(AbstractBlock.Properties properties) {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, true));
     }
@@ -38,7 +40,7 @@ public class BYGAbstractCoralPlantBlock extends Block implements IWaterLoggable 
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return field_212559_a;
+        return SHAPE;
     }
 
     /**

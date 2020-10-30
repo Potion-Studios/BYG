@@ -17,7 +17,7 @@ public class AtOrBelowSeaLevelCountExtra extends Placement<AtOrBelowSeaLevelCoun
         super(config);
     }
 
-    public Stream<BlockPos> func_241857_a(WorldDecoratingHelper ctx, Random random, AtOrBelowSeaLevelCountExtraConfig config, BlockPos pos) {
+    public Stream<BlockPos> getPositions(WorldDecoratingHelper ctx, Random random, AtOrBelowSeaLevelCountExtraConfig config, BlockPos pos) {
         int repeats = config.count;
         if (random.nextFloat() < config.extraChance) {
             repeats += config.extraCount;
@@ -27,7 +27,7 @@ public class AtOrBelowSeaLevelCountExtra extends Placement<AtOrBelowSeaLevelCoun
             int moveDown = 0;
             int j = random.nextInt(16) + pos.getX();
             int k = random.nextInt(16) + pos.getZ();
-            int l = ctx.field_242890_b.func_230356_f_(); //Sea level from the chunk generator since this value is actually modified in the Nether.
+            int l = ctx.chunkGenerator.getSeaLevel(); //Sea level from the chunk generator since this value is actually modified in the Nether.
 
             BlockPos.Mutable mutable = new BlockPos.Mutable(j, l, k);
             while (moveDown <= config.belowSeaLevel) {

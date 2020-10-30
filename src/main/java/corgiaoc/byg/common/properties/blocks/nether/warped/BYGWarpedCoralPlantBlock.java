@@ -10,10 +10,12 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 
+import net.minecraft.block.AbstractBlock;
+
 public class BYGWarpedCoralPlantBlock extends AbstractCoralPlantBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
 
-    protected BYGWarpedCoralPlantBlock(Block.Properties properties) {
+    protected BYGWarpedCoralPlantBlock(AbstractBlock.Properties properties) {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, false));
     }

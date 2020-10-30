@@ -20,7 +20,7 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
         super(codec);
     }
 
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         if (!world.isAirBlock(pos)) {
             return false;
         } else {

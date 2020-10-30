@@ -1,6 +1,3 @@
-import groovy.json.JsonOutput
-import groovy.json.JsonSlurper
-
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
@@ -27,7 +24,7 @@ archivesBaseName = "${modid}"
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 minecraft {
-    mappings channel: "snapshot", version: "${mapping}-1.16.2"
+    mappings channel: "snapshot", version: "${mapping}-1.16.3"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 

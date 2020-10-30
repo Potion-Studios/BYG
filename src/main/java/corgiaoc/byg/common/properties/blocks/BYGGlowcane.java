@@ -18,11 +18,13 @@ import net.minecraftforge.common.IPlantable;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock;
+
 public class BYGGlowcane extends Block implements IPlantable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_0_15;
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 
-    protected BYGGlowcane(Block.Properties properties) {
+    protected BYGGlowcane(AbstractBlock.Properties properties) {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)));
     }

@@ -27,7 +27,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
         super(config);
     }
 
-    public boolean func_241855_a(ISeedReader world, ChunkGenerator genSettings, Random rand, BlockPos blockPos, BlockStateFeatureConfig blockStateFeatureConfig) {
+    public boolean generate(ISeedReader world, ChunkGenerator genSettings, Random rand, BlockPos blockPos, BlockStateFeatureConfig blockStateFeatureConfig) {
         while (blockPos.getY() > 5 && world.isAirBlock(blockPos)) {
             blockPos = blockPos.down();
         }
@@ -37,7 +37,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
         } else {
             blockPos = blockPos.down(4);
             ChunkPos chunkPos = new ChunkPos(blockPos);
-//            if (structureManager.func_235011_a_(SectionPos.from(blockPos), Structure.field_236381_q_).findAny().isPresent()) {
+//            if (structureManager.func_235011_a_(SectionPos.from(blockPos), Structure.VILLAGE).findAny().isPresent()) {
 //                return false;
 //            } else {
             boolean[] flagArray = new boolean[2048];

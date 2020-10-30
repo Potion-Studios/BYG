@@ -45,7 +45,7 @@ public class BulbisGardens extends BYGEndBiome {
 
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.field_244151_q).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
+        GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
         BYGDefaultBiomeFeatures.addBulbisTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addLargeLake(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBulbisOddity(GENERATION_SETTINGS);

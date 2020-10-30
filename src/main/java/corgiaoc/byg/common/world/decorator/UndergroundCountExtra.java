@@ -20,7 +20,7 @@ public class UndergroundCountExtra extends Placement<AtSurfaceWithExtraConfig> {
         super(codec);
     }
 
-    public Stream<BlockPos> func_241857_a(WorldDecoratingHelper decoratorContext, Random random, AtSurfaceWithExtraConfig config, BlockPos pos) {
+    public Stream<BlockPos> getPositions(WorldDecoratingHelper decoratorContext, Random random, AtSurfaceWithExtraConfig config, BlockPos pos) {
         int c = config.count;
         if (random.nextFloat() < config.extraChance) {
             c += config.extraCount;

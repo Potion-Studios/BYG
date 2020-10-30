@@ -21,14 +21,16 @@ import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SculkGrowthBlock extends BushBlock {
     protected static final VoxelShape LEAF_PILE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 1.5D, 15.0D);
 
-    public SculkGrowthBlock(Properties p_i48297_1_) {
-        super(p_i48297_1_);
+    public SculkGrowthBlock(Properties builder) {
+        super(builder);
     }
 
-    public VoxelShape getShape(BlockState state, IBlockReader p_220053_2_, BlockPos blockPos, ISelectionContext p_220053_4_) {
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos blockPos, ISelectionContext context) {
         return LEAF_PILE;
     }
 

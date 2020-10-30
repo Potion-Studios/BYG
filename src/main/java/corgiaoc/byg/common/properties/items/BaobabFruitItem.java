@@ -20,6 +20,8 @@ import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+import net.minecraft.item.Item.Properties;
+
 public class BaobabFruitItem extends BlockItem {
     public BaobabFruitItem(Block blockIn, Properties builder) {
         super(blockIn, builder);

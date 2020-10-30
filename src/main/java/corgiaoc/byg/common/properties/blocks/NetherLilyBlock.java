@@ -14,6 +14,8 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class NetherLilyBlock extends LilyPadBlock {
 
     protected NetherLilyBlock(Properties properties) {
@@ -21,8 +23,8 @@ public class NetherLilyBlock extends LilyPadBlock {
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader reader, BlockPos p_200014_3_) {
-        FluidState fluidState = reader.getFluidState(p_200014_3_);
+    protected boolean isValidGround(BlockState state, IBlockReader reader, BlockPos pos) {
+        FluidState fluidState = reader.getFluidState(pos);
         return fluidState.getFluid() == Fluids.LAVA || fluidState.getFluid() == Fluids.WATER;
     }
 }

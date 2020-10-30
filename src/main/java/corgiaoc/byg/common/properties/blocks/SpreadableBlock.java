@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
 
     private final Block blockToSpreadToo;
@@ -117,7 +119,7 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
 
                         ConfiguredFeature<?, ?> configuredfeature = flowerListForBiome.get(0);
                         FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
-                        flowerState = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.func_242767_c());
+                        flowerState = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.getConfig());
                     } else {
                         flowerState = thisBlockState;
                     }
