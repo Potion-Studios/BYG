@@ -11,9 +11,12 @@ public class LayerRandomWeightedListUtil {
     }
 
     public static Biome pickBiome(WeightedList<Biome> biomeWeightedList, LayerRandomnessSource rand) {
-        int total = biomeWeightedList.entries.stream().mapToInt(biomeEntry -> biomeEntry.weight).sum();
+        double total = 0;
 
-        double randVal = target(rand, total * 0.1);
+        for (WeightedList.Entry<Biome> biomeEntry : biomeWeightedList.entries)
+            total = total + biomeEntry.weight;
+
+        double randVal = target(rand, total);
         int i = -1;
 
         while (randVal >= 0) {
