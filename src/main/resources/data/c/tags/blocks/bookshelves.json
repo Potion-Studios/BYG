@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "minecraft:bookshelf",
     "byg:aspen_bookshelf",
     "byg:baobab_bookshelf",
     "byg:blue_enchanted_bookshelf",
