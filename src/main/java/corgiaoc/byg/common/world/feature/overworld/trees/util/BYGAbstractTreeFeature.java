@@ -160,10 +160,6 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwEndTags(TestableWorld reader, BlockPos pos, BYGTreeConfig config) {
-        if (FabricTags.END_STONES.values().size() > 0)
-            FabricTags.END_STONES.values().forEach(id -> System.out.println(Registry.BLOCK.getId(id).toString()));
-        else
-            System.out.println("END STONES IS EMPTY");
         return reader.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
