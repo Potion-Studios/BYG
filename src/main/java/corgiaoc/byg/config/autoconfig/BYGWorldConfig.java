@@ -8,6 +8,10 @@ import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 @Config(name = BYG.MOD_ID + "\\" + BYG.MOD_ID + "-world")
 public class BYGWorldConfig implements ConfigData {
 
+    @ConfigEntry.Category("Overworld_Dimension")
+    @ConfigEntry.Gui.CollapsibleObject
+    public OverworldDimensionConfig OverworldDimension = new OverworldDimensionConfig();
+
     @ConfigEntry.Category("End_Dimension")
     @ConfigEntry.Gui.CollapsibleObject
     public EndDimensionConfig EndDimension = new EndDimensionConfig();

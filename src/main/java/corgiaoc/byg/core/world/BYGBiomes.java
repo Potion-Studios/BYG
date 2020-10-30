@@ -258,9 +258,15 @@ public class BYGBiomes {
 
     public static void addBYGFeaturesToBiomes(Biome biome) {
         if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
-            addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_ROCKY_STONE);
-            addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);
-            addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SOAP_STONE);
+            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Ores.RockyStone.Generate) {
+                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_ROCKY_STONE);
+            }
+            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Ores.ScoriaStone.Generate) {
+                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);
+            }
+            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Ores.SoapStone.Generate) {
+                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SOAP_STONE);
+            }
 
             if (biome == BuiltinRegistries.BIOME.getOrThrow(BiomeKeys.SOUL_SAND_VALLEY)) {
                 addFeatureToBiome(biome, GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
