@@ -378,7 +378,6 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return isCliff(reader, 5, trunkPositions);
     }
 
-
     public boolean isCliff(TestableWorld reader, int checkDownRange, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutable = new BlockPos.Mutable();
@@ -416,6 +415,8 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
+                if (trunkPos instanceof BlockPos.Mutable)
+                    trunkPos = trunkPos.toImmutable();
                 mutableTrunk.set(trunkPos);
                 for (int fill = 1; fill <= 25; fill++) {
                     if (canLogPlaceHere(reader, mutableTrunk)) {
