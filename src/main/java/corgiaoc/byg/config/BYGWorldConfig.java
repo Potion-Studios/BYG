@@ -31,7 +31,21 @@ public class BYGWorldConfig {
     public static final ForgeConfigSpec.BooleanValue IS_BLACKLIST_END;
     public static final ForgeConfigSpec.BooleanValue IS_BLACKLIST_NETHER;
 
+    public static final ForgeConfigSpec.BooleanValue ROCKY_STONE_GEN;
+    public static final ForgeConfigSpec.BooleanValue SCORIA_STONE_GEN;
+    public static final ForgeConfigSpec.BooleanValue SOAP_STONE_GEN;
+
     static {
+        COMMON_BUILDER.push("Overworld");
+
+        COMMON_BUILDER.push("Ore");
+        ROCKY_STONE_GEN = COMMON_BUILDER.comment("\nGenerate Rocky Stone?").define("GenerateRockyStone", true);
+        SCORIA_STONE_GEN = COMMON_BUILDER.comment("\nGenerate Scoria Stone?").define("GenerateScoriaStone", true);
+        SOAP_STONE_GEN = COMMON_BUILDER.comment("\nGenerate Soap Stone?").define("GenerateSoapStone", true);
+        COMMON_BUILDER.pop();
+
+        COMMON_BUILDER.pop();
+        
         COMMON_BUILDER.push("The_End");
         CONTROL_END = COMMON_BUILDER.comment("\nDoes BYG control The End?").define("ControlEnd", true);
 
