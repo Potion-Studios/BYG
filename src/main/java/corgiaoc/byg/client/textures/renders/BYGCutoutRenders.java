@@ -12,6 +12,7 @@ public class BYGCutoutRenders {
 
         //Plants
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlocks.HORSEWEED, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(BYGBlocks.BLUE_SAGE, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlocks.MINI_CACTUS, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlocks.PRICKLY_PEAR_CACTUS, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(BYGBlocks.WINTER_SUCCULENT, RenderLayer.getCutoutMipped());

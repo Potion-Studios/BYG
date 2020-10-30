@@ -12,7 +12,7 @@
     "homepage": "https://bygmc.weebly.com/",
     "sources": "https://github.com/CorgiTaco/BYG"
   },
-  "license": "LGPLv3",
+  "license": "Code: LGPLv3\n Assets: All Rights Reserved",
   "icon": "assets/byg/logo_text.png",
   "environment": "*",
   "entrypoints": {
