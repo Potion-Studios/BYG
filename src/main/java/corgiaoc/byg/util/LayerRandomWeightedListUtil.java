@@ -11,9 +11,12 @@ public class LayerRandomWeightedListUtil {
     }
 
     public static Biome pickBiome(WeightedList<Biome> biomeWeightedList, INoiseRandom rand) {
-        int total = biomeWeightedList.field_220658_a.stream().mapToInt(biomeEntry -> biomeEntry.field_220652_c).sum();
+        double total = 0;
 
-        double randVal = target(rand, total * 0.1);
+        for (WeightedList.Entry<Biome> biomeEntry : biomeWeightedList.field_220658_a)
+            total = total + biomeEntry.field_220652_c;
+
+        double randVal = target(rand, total);
         int i = -1;
 
         while (randVal >= 0) {
