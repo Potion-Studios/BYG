@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.ebony;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -31,7 +30,7 @@ public class EbonyTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 20, 5, 5, isSapling)) {
                 return false;
-            } else if (this.isCliff(worldIn, mutable.setPos(pos).move(0, 0, -2), mutable.setPos(pos).move(-1, 0, -1), mutable.setPos(pos).move(0, 0, -1), mutable.setPos(pos).move(1, 0, -1), mutable.setPos(pos).move(-2, 0, 0), mutable.setPos(pos).move(-1, 0, 0), mutable.setPos(pos).move(1, 0, 0), mutable.setPos(pos).move(-1, 0, 1), mutable.setPos(pos).move(0, 0, 1))) {
+            } else if (this.isCliff(worldIn, mutable.setPos(pos).move(0, 0, -2).toImmutable(), mutable.setPos(pos).move(-1, 0, -1).toImmutable(), mutable.setPos(pos).move(0, 0, -1).toImmutable(), mutable.setPos(pos).move(1, 0, -1).toImmutable(), mutable.setPos(pos).move(-2, 0, 0).toImmutable(), mutable.setPos(pos).move(-1, 0, 0).toImmutable(), mutable.setPos(pos).move(1, 0, 0).toImmutable(), mutable.setPos(pos).move(-1, 0, 1).toImmutable(), mutable.setPos(pos).move(0, 0, 1).toImmutable())) {
                 return false;
             } else {
                 buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mutable.setPos(pos).toImmutable(), mutable.setPos(pos).move(0, 0, -2).toImmutable(), mutable.setPos(pos).move(-1, 0, -1), mutable.setPos(pos).move(0, 0, -1).toImmutable(), mutable.setPos(pos).move(1, 0, -1).toImmutable(), mutable.setPos(pos).move(-2, 0, 0).toImmutable(), mutable.setPos(pos).move(-1, 0, 0).toImmutable(), mutable.setPos(pos).move(1, 0, 0).toImmutable(), mutable.setPos(pos).move(-1, 0, 1).toImmutable(), mutable.setPos(pos).move(0, 0, 1).toImmutable());
