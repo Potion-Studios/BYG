@@ -1434,7 +1434,7 @@ public class BYGConfiguredFeatures {
             MAHOGANY_TREE3.withChance(0.2F),
             MAHOGANY_TREE4.withChance(0.15F)),
             MAHOGANY_TREE1)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(
-            new CountExtraDecoratorConfig(35, 0.1F, 10))));
+            new CountExtraDecoratorConfig(20, 0.3F, 5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_STONE_FOREST_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_stone_forest_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             EBONY_TREE1.withChance(0.1F),
