@@ -4,21 +4,27 @@ import net.minecraft.util.collection.WeightedList;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
 
-import java.util.Comparator;
-import java.util.stream.Stream;
-
 public class LayerRandomWeightedListUtil {
 
     public static Biome getBiome(WeightedList<Biome> biomeWeightedList, LayerRandomnessSource layerNoise) {
-        return getShuffledStream(biomeWeightedList, layerNoise).findFirst().orElseThrow(RuntimeException::new);
+        return pickBiome(biomeWeightedList, layerNoise);
     }
 
-    private static Stream<Biome> getShuffledStream(WeightedList<Biome> biomeWeightedList, LayerRandomnessSource layerNoise) {
-        biomeWeightedList.entries.stream().forEachOrdered((biomeEntry) -> {
-            biomeEntry.shuffledOrder = (float) -Math.pow((double) layerNoise.nextInt(101) * 0.01F, 1.0F / (float) biomeEntry.weight);
+    public static Biome pickBiome(WeightedList<Biome> biomeWeightedList, LayerRandomnessSource rand) {
+        int total = biomeWeightedList.entries.stream().mapToInt(biomeEntry -> biomeEntry.weight).sum();
 
-        });
-        biomeWeightedList.entries.sort(Comparator.comparingDouble((biomeEntry) -> biomeEntry.shuffledOrder));
-        return biomeWeightedList.entries.stream().map(WeightedList.Entry::getElement);
+        double randVal = target(rand, total * 0.01);
+        int i = -1;
+
+        while (randVal >= 0) {
+            ++i;
+            randVal -= biomeWeightedList.entries.get(i).weight;
+        }
+
+        return biomeWeightedList.entries.get(i).getElement();
+    }
+
+    private static double target(LayerRandomnessSource random, double weightTotal) {
+        return (double) random.nextInt(Integer.MAX_VALUE) * weightTotal / Integer.MAX_VALUE;
     }
 }

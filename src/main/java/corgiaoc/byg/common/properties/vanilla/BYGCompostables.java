@@ -216,8 +216,7 @@ public class BYGCompostables {
         compostibleBlocks(0.75f, BYGItems.POISON_IVY);
         compostibleBlocks(0.65f, BYGItems.TINY_LILYPADS);
         compostibleBlocks(0.65f, BYGItems.ENDER_LILY);
-        compostibleBlocks(0.65f, BYGItems.EMBUR_LILY);
 
-        BYG.LOGGER.info("BYG: Compostible Blocks Added!");
+        BYG.LOGGER.info("BYG: Compostable items added!");
     }
 }
