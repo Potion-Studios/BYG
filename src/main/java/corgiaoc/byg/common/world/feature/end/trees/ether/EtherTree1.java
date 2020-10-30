@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.end.trees.ether;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import net.minecraft.util.math.BlockBox;
@@ -23,8 +24,10 @@ public class EtherTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
             if (!isDesiredGroundwEndTags(worldIn, pos.down(), config)) {
+                BYG.LOGGER.info("FAILED AT TAGS");
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                BYG.LOGGER.info("ANOTHER TREE WAS NEARBY");
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
