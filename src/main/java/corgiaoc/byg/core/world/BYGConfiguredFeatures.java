@@ -2,6 +2,7 @@ package corgiaoc.byg.core.world;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.common.properties.blocks.BlueBerryBush;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import corgiaoc.byg.common.world.decorator.config.AtOrBelowSeaLevelCountExtraConfig;
@@ -230,9 +231,9 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ORE_AMETRINE = WorldGenRegistrationHelper.createConfiguredFeature("ore_ametrine", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.AMETRINE_ORE.getDefaultState(), 4)).range(56).square().func_242731_b(10));
     public static final ConfiguredFeature<?, ?> ORE_PENDORITE = WorldGenRegistrationHelper.createConfiguredFeature("ore_pendorite", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.PENDORITE_ORE.getDefaultState(), 4)).range(56).square().func_242731_b(10));
 
-    public static final ConfiguredFeature<?, ?> ORE_ROCKY_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_rocky_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.ROCKY_STONE.getDefaultState(), 20)).range(63).square().func_242731_b(10));
-    public static final ConfiguredFeature<?, ?> ORE_SCORIA_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_scoria_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.SCORIA_STONE.getDefaultState(), 20)).range(63).square().func_242731_b(10));
-    public static final ConfiguredFeature<?, ?> ORE_SOAP_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_soap_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.SOAPSTONE.getDefaultState(), 20)).range(63).square().func_242731_b(10));
+    public static final ConfiguredFeature<?, ?> ORE_ROCKY_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_rocky_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.ROCKY_STONE.getDefaultState(), BYGWorldConfig.ROCKY_STONE_GEN_SIZE.get())).range(BYGWorldConfig.ROCKY_STONE_GEN_Y.get()).square().func_242731_b(BYGWorldConfig.ROCKY_STONE_GEN_PER_CHUNK.get()));
+    public static final ConfiguredFeature<?, ?> ORE_SCORIA_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_scoria_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.SCORIA_STONE.getDefaultState(), BYGWorldConfig.SCORIA_STONE_GEN_SIZE.get())).range(BYGWorldConfig.SCORIA_STONE_GEN_Y.get()).square().func_242731_b(BYGWorldConfig.SCORIA_STONE_GEN_PER_CHUNK.get()));
+    public static final ConfiguredFeature<?, ?> ORE_SOAP_STONE = WorldGenRegistrationHelper.createConfiguredFeature("ore_soap_stone", Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BYGBlocks.SOAPSTONE.getDefaultState(), BYGWorldConfig.SOAP_STONE_GEN_SIZE.get())).range(BYGWorldConfig.SOAP_STONE_GEN_Y.get()).square().func_242731_b(BYGWorldConfig.SOAP_STONE_GEN_PER_CHUNK.get()));
 
     public static final ConfiguredFeature<?, ?> MOSSY_STONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("mossy_stone_boulder", Feature.FOREST_ROCK.withConfiguration(new BlockStateFeatureConfig(BYGBlocks.MOSSY_STONE.getDefaultState())));
     public static final ConfiguredFeature<?, ?> ROCKY_STONE_BOULDER = WorldGenRegistrationHelper.createConfiguredFeature("rocky_stone_boulder", Feature.FOREST_ROCK.withConfiguration(new BlockStateFeatureConfig(BYGBlocks.ROCKY_STONE.getDefaultState())));
