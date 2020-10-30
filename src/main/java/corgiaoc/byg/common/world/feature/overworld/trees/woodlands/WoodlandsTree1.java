@@ -32,6 +32,7 @@ public class WoodlandsTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 return false;
             } else {
                 buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos, mainmutable.setPos(pos).move(0, 0, -2).toImmutable(), mainmutable.setPos(pos).move(-1, 0, -1).toImmutable(), mainmutable.setPos(pos).move(0, 0, -1).toImmutable(), mainmutable.setPos(pos).move(1, 0, -1).toImmutable(), mainmutable.setPos(pos).move(-2, 0, 0).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 0).toImmutable(), mainmutable.setPos(pos).move(1, 0, 0).toImmutable(), mainmutable.setPos(pos).move(2, 0, 0).toImmutable(), mainmutable.setPos(pos).move(-1, 0, 1).toImmutable(), mainmutable.setPos(pos).move(0, 0, 1).toImmutable(), mainmutable.setPos(pos).move(1, 0, 1).toImmutable(), mainmutable.setPos(pos).move(0, 0, 2).toImmutable());
+                mainmutable.setPos(pos);
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(config, rand, changedBlocks, worldIn, mainmutable, boundsIn);
