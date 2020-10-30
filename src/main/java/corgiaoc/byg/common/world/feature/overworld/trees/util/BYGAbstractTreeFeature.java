@@ -15,7 +15,6 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.structure.Structure;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.*;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.BitSetVoxelSet;
 import net.minecraft.util.shape.VoxelSet;
 import net.minecraft.world.ModifiableWorld;
@@ -163,9 +162,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.isIn(FabricTags.NETHERRACK) || block.isIn(FabricTags.END_STONES) || block.isIn(BlockTags.NYLIUM) || block.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) || block == block1;
+                return block.isIn(FabricTags.END_STONES) || block == block1;
             }
-            return block.isIn(FabricTags.NETHERRACK) || block.isIn(BlockTags.NYLIUM) || block.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS) || block.isIn(FabricTags.END_STONES);
+            return block.isIn(FabricTags.END_STONES);
         });
     }
 
