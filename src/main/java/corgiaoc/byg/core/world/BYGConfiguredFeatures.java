@@ -1836,8 +1836,8 @@ public class BYGConfiguredFeatures {
             new CountExtraDecoratorConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ETHER_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_ether_tree", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
-            ETHER_TREE3.withChance(0.35F),
-            ETHER_TREE2.withChance(0.35F)),
+            ETHER_TREE3.withChance(0.33F),
+            ETHER_TREE2.withChance(0.33F)),
             ETHER_TREE1)).decorate(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new CountExtraDecoratorConfig(4, 0.3F, 2))));
 
