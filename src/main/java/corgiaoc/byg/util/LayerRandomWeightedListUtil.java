@@ -13,7 +13,7 @@ public class LayerRandomWeightedListUtil {
     public static Biome pickBiome(WeightedList<Biome> biomeWeightedList, INoiseRandom rand) {
         int total = biomeWeightedList.field_220658_a.stream().mapToInt(biomeEntry -> biomeEntry.field_220652_c).sum();
 
-        double randVal = target(rand, total * 0.01);
+        double randVal = target(rand, total * 0.1);
         int i = -1;
 
         while (randVal >= 0) {
