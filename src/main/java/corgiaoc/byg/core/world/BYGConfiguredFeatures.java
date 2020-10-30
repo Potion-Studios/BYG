@@ -1854,8 +1854,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_ISLAND = WorldGenRegistrationHelper.createConfiguredFeature("rs_floating_island", Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(
             FLOATING_ISLAND1.withChance(0.25F),
             FLOATING_ISLAND2.withChance(0.25F),
-            FLOATING_ISLAND3.withChance(0.25F),
-            FLOATING_ISLAND4.withChance(0.25F)),
+            FLOATING_ISLAND3.withChance(0.25F)),
             FLOATING_ISLAND5)).decorate(BYGDecorators.ISLAND.configure(
             new CountExtraDecoratorConfig(0, 0.13F, 1))));
 

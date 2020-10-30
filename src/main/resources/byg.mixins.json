@@ -6,11 +6,12 @@
   "mixins": [
     "common.block.MixinAbstractBlockStateBookshelf",
     "common.block.MixinAbstractFireBlock",
+    "common.block.PlantBlockMixin",
     "common.block.entity.MixinAbstractFurnaceBlockEntity",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinSlimeEntity",
-    "common.world.feature.MixinFeature",
     "common.world.feature.MixinBasaltColumnFeature",
+    "common.world.feature.MixinFeature",
     "common.world.layers.MixinDimensionType",
     "common.world.layers.MixinHillsLayer",
     "common.world.layers.MixinRiverLayer",
