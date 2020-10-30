@@ -1,5 +1,5 @@
 {
-  "replace": "false",
+  "replace": false,
   "values": [
     "byg:aspen_bookshelf",
     "byg:baobab_bookshelf",
@@ -25,6 +25,9 @@
     "byg:sythian_bookshelf",
     "byg:embur_bookshelf",
     "byg:palm_bookshelf",
-    "minecraft:bookshelf"
+    "byg:lament_bookshelf",
+    "byg:bulbis_bookshelf",
+    "byg:ether_bookshelf",
+    "byg:nightshade_bookshelf"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "replace": "false",
+  "replace": false,
   "values": [
     "byg:overgrown_netherrack",
     "byg:overgrown_crimson_blackstone",
