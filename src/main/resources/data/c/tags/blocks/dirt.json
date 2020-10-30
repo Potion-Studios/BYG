@@ -11,6 +11,11 @@
     "byg:podzol_dacite",
     "byg:glowcelium_block",
     "byg:ether_soil",
-    "byg:ether_phylium"
+    "byg:ether_phylium",
+    "minecraft:dirt",
+    "minecraft:podzol",
+    "minecraft:mycelium",
+    "minecraft:coarse_dirt",
+    "minecraft:grass_block"
   ]
 }
