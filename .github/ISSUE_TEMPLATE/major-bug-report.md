@@ -19,7 +19,7 @@ __**API/Modloader**__
 Forge/Fabric?
 
 __**Describe the bug**__
-What is the bug? Where does it occur? etc.
+What is the bug? Where/How does it occur? etc.
 
 __**To Reproduce**__
 Please provide step by step instructions
