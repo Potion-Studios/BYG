@@ -181,6 +181,7 @@ public class BYGCompostables {
         compostibleBlocks(0.85f, BYGItems.SOUL_SHROOM_BLOCK);
         compostibleBlocks(0.85f, BYGItems.DEATH_CAP_MUSHROOM_BLOCK);
         compostibleBlocks(0.85f, BYGItems.SHULKREN_WART_BLOCK);
+        compostibleBlocks(0.85f, BYGItems.SYTHIAN_WART_BLOCK);
         compostibleBlocks(0.85f, BYGItems.PURPLE_SHROOMLIGHT);
         compostibleBlocks(0.85f, BYGItems.PURPLE_BULBIS_SHELL);
         compostibleBlocks(0.85f, BYGItems.BULBIS_SHELL);
