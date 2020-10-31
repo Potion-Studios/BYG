@@ -2006,7 +2006,7 @@ public class BYGConfiguredFeatures {
         public static final BlockClusterFeatureConfig SHULKREN_FUNGUS = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SHULKREN_FUNGUS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build();
 
     }
-
+    //Initialize these later so our blocks don't throw NPEs initializing other configured features in this class.
     public static class SpreadableBlockConfigs {
         public static final BlockStateProvidingFeatureConfig EMBUR_ROOTS = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.EMBUR_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.EMBUR_SPROUTS.getDefaultState(), 35).addWeightedBlockstate(BYGBlocks.EMBUR_WART.getDefaultState(), 11));
         public static final BlockStateProvidingFeatureConfig SYTHIAN_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.SYTHIAN_ROOTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.SYTHIAN_SPROUT.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.SYTHIAN_FUNGUS.getDefaultState(), 11));

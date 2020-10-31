@@ -16,8 +16,6 @@ public class BYGWorldConfig {
 
     public static ForgeConfigSpec COMMON_CONFIG;
 
-    public static ForgeConfigSpec.BooleanValue DATAPACK_HACKS;
-
     public static final ForgeConfigSpec.IntValue BIOME_SIZE_NETHER;
     public static final ForgeConfigSpec.IntValue BIOME_SIZE_END;
     public static final ForgeConfigSpec.IntValue MAIN_ISLAND_BIOME_SIZE;
