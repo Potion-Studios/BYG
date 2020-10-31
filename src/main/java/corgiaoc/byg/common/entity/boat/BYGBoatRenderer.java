@@ -30,6 +30,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
             new ResourceLocation("byg:textures/entity/boat/mahogany.png"),
             new ResourceLocation("byg:textures/entity/boat/mangrove.png"),
             new ResourceLocation("byg:textures/entity/boat/maple.png"),
+            new ResourceLocation("byg:textures/entity/boat/palm.png"),
             new ResourceLocation("byg:textures/entity/boat/pine.png"),
             new ResourceLocation("byg:textures/entity/boat/rainbow_eucalyptus.png"),
             new ResourceLocation("byg:textures/entity/boat/redwood.png"),
