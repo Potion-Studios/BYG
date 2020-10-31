@@ -268,6 +268,7 @@ public class BYGBiomes {
             BiomeDictionary.addTypes(bygEndBiome.getKey(), bygEndBiome.getBiomeDictionary());
     }
 
+    //used in MixinMinecraftServer
     public static void addBYGFeaturesToBiomes(Biome biome) {
             if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
                 if (BYGWorldConfig.ROCKY_STONE_GEN.get()) {
