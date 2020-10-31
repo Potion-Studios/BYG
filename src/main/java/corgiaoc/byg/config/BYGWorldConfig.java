@@ -62,7 +62,7 @@ public class BYGWorldConfig {
         COMMON_BUILDER.push("Ores").comment("Datapacks can and will override all values in the \"Ore\" category so keep that in mind!");
 
         COMMON_BUILDER.push("Ametrine");
-        AMETRINE_GEN = COMMON_BUILDER.comment("\nGenerate Ametrine Ore? Only spawns in Guiana Shield!").define("GenerateAmetrine", true);
+        AMETRINE_GEN = COMMON_BUILDER.comment("\nGenerate Ametrine Ore? Only spawns in Guiana Shield, Stone Forest, and Pointed Stone Forest!").define("GenerateAmetrine", true);
         AMETRINE_GEN_Y = COMMON_BUILDER.comment("\nY level to start generating at.\nDefault: 56").defineInRange("AmetrineY", 56, 1, 256);
         AMETRINE_GEN_SIZE = COMMON_BUILDER.comment("\nSize of the clusters.\nDefault: 4").defineInRange("AmetrineSize", 4, 1, 100);
         AMETRINE_GEN_PER_CHUNK = COMMON_BUILDER.comment("\nNumber of times to spawn per chunk.\nDefault: 10").defineInRange("AmetrinePerChunk", 10, 1, 100);
@@ -100,7 +100,7 @@ public class BYGWorldConfig {
         SOAP_STONE_GEN_PER_CHUNK = COMMON_BUILDER.comment("\nNumber of times to spawn per chunk.\nDefault: 10").defineInRange("SoapStonePerChunk", 10, 1, 100);
         COMMON_BUILDER.pop();
         COMMON_BUILDER.pop();
-        
+
         COMMON_BUILDER.pop();
         
         COMMON_BUILDER.push("The_End");

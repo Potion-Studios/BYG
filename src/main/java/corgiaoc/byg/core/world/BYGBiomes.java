@@ -271,13 +271,13 @@ public class BYGBiomes {
     public static void addBYGFeaturesToBiomes(Biome biome) {
             if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
                 if (BYGWorldConfig.ROCKY_STONE_GEN.get()) {
-                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_ROCKY_STONE);
+                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
                 }
                 if (BYGWorldConfig.SCORIA_STONE_GEN.get()) {
-                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);
+                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
                 }
                 if (BYGWorldConfig.SOAP_STONE_GEN.get()) {
-                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SOAP_STONE);
+                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
                 }
 
                 if (biome == WorldGenRegistries.BIOME.getOrThrow(Biomes.SOUL_SAND_VALLEY)) {
@@ -286,6 +286,16 @@ public class BYGBiomes {
 
                 if (biome == WorldGenRegistries.BIOME.getOrThrow(Biomes.BEACH)) {
                     addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
+                }
+
+                if (BYGWorldConfig.AMETRINE_GEN.get()) {
+                    if (biome == POINTY_STONE_FOREST || biome == STONE_FOREST || biome == GUIANA_SHIELD || biome == GUIANA_CLEARING)
+                        addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
+                }
+
+                if (BYGWorldConfig.PENDORITE_GEN.get()) {
+                    if (biome == FOREST_FAULT)
+                        addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
                 }
             }
     }
