@@ -20,6 +20,7 @@ import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -269,7 +270,7 @@ public class BYGBiomes {
     }
 
     //used in MixinMinecraftServer
-    public static void addBYGFeaturesToBiomes(Biome biome) {
+    public static void addBYGFeaturesToBiomes(Biome biome, ResourceLocation locationKey) {
             if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
                 if (BYGWorldConfig.ROCKY_STONE_GEN.get()) {
                     addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
@@ -277,6 +278,7 @@ public class BYGBiomes {
                 if (BYGWorldConfig.SCORIA_STONE_GEN.get()) {
                     addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
                 }
+
                 if (BYGWorldConfig.SOAP_STONE_GEN.get()) {
                     addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
                 }
@@ -290,12 +292,12 @@ public class BYGBiomes {
                 }
 
                 if (BYGWorldConfig.AMETRINE_GEN.get()) {
-                    if (biome == POINTY_STONE_FOREST || biome == STONE_FOREST || biome == GUIANA_SHIELD || biome == GUIANA_CLEARING)
+                    if (locationKey.equals(WorldGenRegistries.BIOME.getKey(POINTY_STONE_FOREST)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(STONE_FOREST)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(GUIANA_SHIELD)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(GUIANA_CLEARING)))
                         addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
                 }
 
                 if (BYGWorldConfig.PENDORITE_GEN.get()) {
-                    if (biome == FOREST_FAULT)
+                    if (locationKey.equals(WorldGenRegistries.BIOME.getKey(FOREST_FAULT)))
                         addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
                 }
             }

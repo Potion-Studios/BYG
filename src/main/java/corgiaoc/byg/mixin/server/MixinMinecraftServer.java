@@ -9,6 +9,7 @@ import net.minecraft.resources.DataPackRegistries;
 import net.minecraft.resources.ResourcePackList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerProfileCache;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
@@ -24,6 +25,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.net.Proxy;
+import java.util.Map;
 import java.util.Optional;
 
 @SuppressWarnings("deprecation")
@@ -38,8 +40,9 @@ public class MixinMinecraftServer {
     private void addBYGFeatures(Thread thread, DynamicRegistries.Impl impl, SaveFormat.LevelSave session, IServerConfiguration saveProperties, ResourcePackList resourcePackManager, Proxy proxy, DataFixer dataFixer, DataPackRegistries serverResourceManager, MinecraftSessionService minecraftSessionService, GameProfileRepository gameProfileRepository, PlayerProfileCache userCache, IChunkStatusListenerFactory worldGenerationProgressListenerFactory, CallbackInfo ci) {
         Optional<MutableRegistry<Biome>> biomeMutableRegistry = this.field_240767_f_.func_230521_a_(Registry.BIOME_KEY);
         if (biomeMutableRegistry.isPresent()) {
-            for (Biome biome : biomeMutableRegistry.get())
-                BYGBiomes.addBYGFeaturesToBiomes(biome);
+            for (Map.Entry<RegistryKey<Biome>, Biome> biomeEntry : biomeMutableRegistry.get().getEntries()) {
+                BYGBiomes.addBYGFeaturesToBiomes(biomeEntry.getValue(), biomeEntry.getKey().getLocation());
+            }
         }
     }
 }
