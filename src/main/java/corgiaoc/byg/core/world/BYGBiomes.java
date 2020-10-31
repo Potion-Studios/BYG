@@ -17,6 +17,7 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -256,7 +257,7 @@ public class BYGBiomes {
         }
     }
 
-    public static void addBYGFeaturesToBiomes(Biome biome) {
+    public static void addBYGFeaturesToBiomes(Biome biome, Identifier locationKey) {
         if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
             if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Stones.RockyStone.Generate) {
                 addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
@@ -277,12 +278,12 @@ public class BYGBiomes {
             }
 
             if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Ores.Ametrine.Generate) {
-                if (biome == POINTY_STONE_FOREST || biome == STONE_FOREST || biome == GUIANA_SHIELD || biome == GUIANA_CLEARING)
+                if (locationKey.equals(BuiltinRegistries.BIOME.getId(POINTY_STONE_FOREST)) || locationKey.equals(BuiltinRegistries.BIOME.getId(STONE_FOREST)) || locationKey.equals(BuiltinRegistries.BIOME.getId(GUIANA_SHIELD)) || locationKey.equals(BuiltinRegistries.BIOME.getId(GUIANA_CLEARING)))
                     addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
             }
 
             if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Ores.Pendorite.Generate) {
-                if (biome == FOREST_FAULT)
+                if (locationKey.equals(BuiltinRegistries.BIOME.getId(FOREST_FAULT)))
                     addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
             }
         }
