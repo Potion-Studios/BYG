@@ -46,9 +46,38 @@ public class BYGWorldConfig {
     public static final ForgeConfigSpec.IntValue SOAP_STONE_GEN_SIZE;
     public static final ForgeConfigSpec.IntValue SOAP_STONE_GEN_PER_CHUNK;
 
+    public static final ForgeConfigSpec.BooleanValue AMETRINE_GEN;
+    public static final ForgeConfigSpec.IntValue AMETRINE_GEN_Y;
+    public static final ForgeConfigSpec.IntValue AMETRINE_GEN_SIZE;
+    public static final ForgeConfigSpec.IntValue AMETRINE_GEN_PER_CHUNK;
+
+    public static final ForgeConfigSpec.BooleanValue PENDORITE_GEN;
+    public static final ForgeConfigSpec.IntValue PENDORITE_GEN_Y;
+    public static final ForgeConfigSpec.IntValue PENDORITE_GEN_SIZE;
+    public static final ForgeConfigSpec.IntValue PENDORITE_GEN_PER_CHUNK;
+
+
     static {
         COMMON_BUILDER.push("Overworld");
-        COMMON_BUILDER.push("Ore");
+        COMMON_BUILDER.push("Ores").comment("Datapacks can and will override all values in the \"Ore\" category so keep that in mind!");
+
+        COMMON_BUILDER.push("Ametrine");
+        AMETRINE_GEN = COMMON_BUILDER.comment("\nGenerate Ametrine Ore? Only spawns in Guiana Shield!").define("GenerateAmetrine", true);
+        AMETRINE_GEN_Y = COMMON_BUILDER.comment("\nY level to start generating at.\nDefault: 56").defineInRange("AmetrineY", 56, 1, 256);
+        AMETRINE_GEN_SIZE = COMMON_BUILDER.comment("\nSize of the clusters.\nDefault: 4").defineInRange("AmetrineSize", 4, 1, 100);
+        AMETRINE_GEN_PER_CHUNK = COMMON_BUILDER.comment("\nNumber of times to spawn per chunk.\nDefault: 10").defineInRange("AmetrinePerChunk", 10, 1, 100);
+        COMMON_BUILDER.pop();
+
+        COMMON_BUILDER.push("Pendorite");
+        PENDORITE_GEN = COMMON_BUILDER.comment("\nGenerate Pendorite Ore? Only spawns in Forest Fault.").define("GeneratePendorite", true);
+        PENDORITE_GEN_Y = COMMON_BUILDER.comment("\nY level to start generating at.\nDefault: 56").defineInRange("PendoriteY", 56, 1, 256);
+        PENDORITE_GEN_SIZE = COMMON_BUILDER.comment("\nSize of the clusters.\nDefault: 4").defineInRange("PendoriteSize", 4, 1, 100);
+        PENDORITE_GEN_PER_CHUNK = COMMON_BUILDER.comment("\nNumber of times to spawn per chunk.\nDefault: 10").defineInRange("PendoritePerChunk", 10, 1, 100);
+        COMMON_BUILDER.pop();
+        COMMON_BUILDER.pop();
+
+
+        COMMON_BUILDER.push("Stones").comment("Datapacks can and will override all values in the \"Stone\" category so keep that in mind!");;
         
         COMMON_BUILDER.push("Rocky_Stone");
         ROCKY_STONE_GEN = COMMON_BUILDER.comment("\nGenerate Rocky Stone?").define("GenerateRockyStone", true);
@@ -70,8 +99,8 @@ public class BYGWorldConfig {
         SOAP_STONE_GEN_SIZE = COMMON_BUILDER.comment("\nSize of the clusters.\nDefault: 20").defineInRange("SoapStoneSize", 20, 1, 100);
         SOAP_STONE_GEN_PER_CHUNK = COMMON_BUILDER.comment("\nNumber of times to spawn per chunk.\nDefault: 10").defineInRange("SoapStonePerChunk", 10, 1, 100);
         COMMON_BUILDER.pop();
-
         COMMON_BUILDER.pop();
+        
         COMMON_BUILDER.pop();
         
         COMMON_BUILDER.push("The_End");
