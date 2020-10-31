@@ -8,9 +8,9 @@ assignees: ''
 
 ---
 
-**Before filling out this issue: 
-1. For major bugs, we only support BYG's latest version on a per Minecraft version basis(i.e latest for 1.15 is 1.0 while latest for 1.16 is 1.1).
-2. Please test BYG on its own to confirm whether or not this is a mod conflict**
+**Before filling out this issue: **
+**1. For major bugs, we only support BYG's latest version on a per Minecraft version basis(i.e latest for 1.15 is 1.0 while latest for 1.16 is 1.1).**
+**2. Please test BYG on its own to confirm whether or not this is a mod conflict**
 
 
 __**Mod conflict? If so, please clarify which mod is conflicting, if not skip this.**__

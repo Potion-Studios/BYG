@@ -7,9 +7,9 @@ assignees: ''
 
 ---
 
-**Before filling out this issue: 
-1. We only support the latest version of BYG on for Minor Bugs.
-2. Please test BYG on its own to confirm whether or not this is a mod conflict.**
+**Before filling out this issue: **
+**1. We only support the latest version of BYG on for Minor Bugs.**
+**2. Please test BYG on its own to confirm whether or not this is a mod conflict.**
 
 
 __**Mod conflict? If so, please clarify which mod is conflicting!**__
