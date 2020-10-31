@@ -1,6 +1,7 @@
 ---
 name: Major Bug report
-about: The bug I'm reporting a Game Breaking(Game crashing/Performance issues) bug.
+about: The bug I'm reporting is a game breaking(Game crashing/Performance issues)
+  bug.
 title: ''
 labels: Bug Major
 assignees: ''
