@@ -69,7 +69,7 @@ public class GlowstoneGardens extends BYGNetherBiome {
         GENERATION_SETTINGS.structureFeature(ConfiguredStructureFeatures.BASTION_REMNANT); //BastionRemnant
 
         GENERATION_SETTINGS.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_PERVADED_NETHERRACK);
-        DefaultBiomeFeatures.addNetherMineables(GENERATION_SETTINGS); //Ores
+        DefaultBiomeFeatures.addNetherMineables(GENERATION_SETTINGS); //Stones
         BYGDefaultBiomeFeatures.addHugeNetherMushrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGlowstoneGardenVegetation(GENERATION_SETTINGS);
         SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.GHAST, 50, 4, 4));
