@@ -2148,7 +2148,7 @@
   "text.autoconfig.byg\\byg-world.option.OverworldDimension.Ores.Ametrine.PerChunk": "Spawn Per Chunk",
   "text.autoconfig.byg\\byg-world.option.OverworldDimension.Ores.Ametrine.PerChunk.@PrefixText": "\nNumber of times to spawn per chunk.\nDefault: 10",
   "text.autoconfig.byg\\byg-world.option.OverworldDimension.Ores.Pendorite": "Pendorite Ore",
-  "text.autoconfig.byg\\byg-world.option.OverworldDimension.Ores.Pendorite.@Tooltip": "Scoria Stone",
+  "text.autoconfig.byg\\byg-world.option.OverworldDimension.Ores.Pendorite.@Tooltip": "Pendorite Ore",
   "text.autoconfig.byg\\byg-world.option.OverworldDimension.Ores.Pendorite.@PrefixText": "\nGenerate Pendorite Ore? Only spawns in Forest Fault.",
   "text.autoconfig.byg\\byg-world.option.OverworldDimension.Ores.Pendorite.Generate": "Generate Ore?",
   "text.autoconfig.byg\\byg-world.option.OverworldDimension.Ores.Pendorite.YLevel": "Y Level",

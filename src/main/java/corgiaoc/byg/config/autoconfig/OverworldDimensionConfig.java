@@ -7,12 +7,10 @@ public class OverworldDimensionConfig {
 
     @ConfigEntry.Gui.PrefixText
     @ConfigEntry.Gui.CollapsibleObject
-    @ConfigEntry.Gui.Tooltip
     public Stones Stones = new Stones();
 
     @ConfigEntry.Gui.PrefixText
     @ConfigEntry.Gui.CollapsibleObject
-    @ConfigEntry.Gui.Tooltip
     public Ores Ores = new Ores();
 
     public static class Stones {
