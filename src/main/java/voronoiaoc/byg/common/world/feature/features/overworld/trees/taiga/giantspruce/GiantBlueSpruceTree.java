@@ -66,13 +66,11 @@ public class GiantBlueSpruceTree extends BYGAbstractTreeFeature<NoFeatureConfig>
                     int logplacer = posY + groundUpLogRemover;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
 
-                    if (isAir(worldIn, blockpos1)) {
-                        this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
-                        this.treelog(changedBlocks, worldIn, blockpos1.south(), boundsIn);
-                        this.treelog(changedBlocks, worldIn, blockpos1.east(), boundsIn);
-                        this.treelog(changedBlocks, worldIn, blockpos1.south().east(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos1.south(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos1.east(), boundsIn);
+                    this.treelog(changedBlocks, worldIn, blockpos1.south().east(), boundsIn);
 
-                    }
                 }
                 int leavePreset = rand.nextInt(1) + 1;
                 int leaveChance1 = rand.nextInt(2) + 1;

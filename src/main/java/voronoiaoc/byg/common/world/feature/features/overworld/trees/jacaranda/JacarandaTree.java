@@ -69,8 +69,7 @@
 //                    BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
 //
 //                    //Sets Logs
-//                    if (isAir(worldIn, blockpos1)) {
-//                        this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
+//  //                        this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
 //
 //                    }
 //                }

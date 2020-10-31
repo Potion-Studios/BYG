@@ -68,9 +68,7 @@ public class OrangeSpruceTree extends BYGAbstractTreeFeature<NoFeatureConfig> {
                     int logplacer = posY + groundUpLogRemover;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
 
-                    if (isAir(worldIn, blockpos1)) {
-                        this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
-                    }
+                    this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
                 }
                 int leaveColor = rand.nextInt(2) + 1;
                 int leavessquarespos = 1;

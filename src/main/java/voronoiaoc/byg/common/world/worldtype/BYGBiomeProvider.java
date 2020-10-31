@@ -18,4 +18,5 @@ public class BYGBiomeProvider extends BiomeProvider {
     public Biome getNoiseBiome(int noiseX, int noiseY, int noiseZ) {
         return layer.func_215738_a(noiseX, noiseZ);
     }
+    //
 }

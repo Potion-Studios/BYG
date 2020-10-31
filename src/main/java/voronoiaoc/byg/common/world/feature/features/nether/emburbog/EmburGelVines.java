@@ -8,7 +8,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraftforge.common.Tags;
 import voronoiaoc.byg.core.byglists.BYGBlockList;
 
 import java.util.Random;
@@ -29,8 +28,8 @@ public class EmburGelVines extends Feature<NoFeatureConfig> {
         } else {
             for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {
                 BlockPos.Mutable mutable = new BlockPos.Mutable(pos.getX(), pos.getY() - WeepingRootPlantLength, pos.getZ());
-            if (worldIn.getBlockState(mutable).getBlock() == Blocks.AIR)
-                worldIn.setBlockState(mutable, BYGBlockList.EMBUR_GEL_VINES.getDefaultState(), 10);
+                if (worldIn.getBlockState(mutable).getBlock() == Blocks.AIR)
+                    worldIn.setBlockState(mutable, BYGBlockList.EMBUR_GEL_VINES.getDefaultState(), 10);
 
             }
             return true;

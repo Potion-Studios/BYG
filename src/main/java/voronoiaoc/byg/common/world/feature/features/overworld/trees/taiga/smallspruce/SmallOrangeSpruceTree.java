@@ -68,9 +68,8 @@ public class SmallOrangeSpruceTree extends BYGAbstractTreeFeature<NoFeatureConfi
                     int logplacer = posY + groundUpLogRemover;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
 
-                    if (isAir(worldIn, blockpos1)) {
-                        this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
-                    }
+                    this.treelog(changedBlocks, worldIn, blockpos1, boundsIn);
+
                 }
                 int leavessquarespos = rand.nextInt(1) + 1;
                 for (int posXLeafWidth = (leavessquarespos * -1); posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves

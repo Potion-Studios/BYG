@@ -121,8 +121,7 @@ public class BYGNetherChunkGenerator extends Simplex3DNoiseChunkGenerator<BYGNet
                     }
                 }
             }
-        }
-        else {
+        } else {
             while (true) {
                 BlockPos blockpos;
                 int j1;
