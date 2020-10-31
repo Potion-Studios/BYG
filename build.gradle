@@ -1,7 +1,9 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
-        maven { url ='https://www.dogforce-games.com/maven/'}
         jcenter()
         mavenCentral()
         maven {url='https://dist.creeper.host/Sponge/maven'}
@@ -88,8 +90,8 @@ jar {
     manifest {
         attributes([
                 "Specification-Title": "${modid}",
-                "Specification-Vendor": "examplemodsareus",
-                "Specification-Version": "1", // We are version 1 of ourselves
+                "Specification-Vendor": "BYG",
+                "Specification-Version": "1.1", // We are version 1 of ourselves
                 "Implementation-Title": project.name,
                 "Implementation-Version": "${version}",
                 "Implementation-Vendor" :"${modid}",
@@ -131,33 +133,29 @@ mixin {
     add sourceSets.main, "${modid}.refmap.json"
 }
 
-repositories {
-    maven { url ='https://www.dogforce-games.com/maven/'}
-}
-
 tasks.withType(JavaCompile) {
     options.incremental = true
 }
 
-//processResources {
-//
-//    // Minifies all .json files when building the mod.
-//    // Source files are not minified, only the jar copies.
-//    doLast {
-//
-//        def jsonMinifyStart = System.currentTimeMillis()
-//        def jsonMinified = 0
-//        def jsonBytesSaved = 0
-//
-//        fileTree(dir: outputs.files.asPath, include: '**/*.json').each {
-//
-//            File file = it
-//            jsonMinified++
-//            def oldLength = file.length()
-//            file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
-//            jsonBytesSaved += oldLength - file.length()
-//        }
-//
-//        println('Minified ' + jsonMinified + ' json files. Saved ' + jsonBytesSaved + ' bytes. Took ' + (System.currentTimeMillis() - jsonMinifyStart) + 'ms.')
-//    }
-//}
+processResources {
+
+    // Minifies all .json files when building the mod.
+    // Source files are not minified, only the jar copies.
+    doLast {
+
+        def jsonMinifyStart = System.currentTimeMillis()
+        def jsonMinified = 0
+        def jsonBytesSaved = 0
+
+        fileTree(dir: outputs.files.asPath, include: '**/*.json').each {
+
+            File file = it
+            jsonMinified++
+            def oldLength = file.length()
+            file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+            jsonBytesSaved += oldLength - file.length()
+        }
+
+        println('Minified ' + jsonMinified + ' json files. Saved ' + jsonBytesSaved + ' bytes. Took ' + (System.currentTimeMillis() - jsonMinifyStart) + 'ms.')
+    }
+}
