@@ -5,7 +5,7 @@ import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 
-@Config(name = BYG.MOD_ID + "\\" + BYG.MOD_ID + "-world")
+@Config(name = BYG.MOD_ID + "/" + BYG.MOD_ID + "-world")
 public class BYGWorldConfig implements ConfigData {
 
     @ConfigEntry.Category("Overworld_Dimension")
