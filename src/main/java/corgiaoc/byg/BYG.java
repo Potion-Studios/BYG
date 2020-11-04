@@ -25,15 +25,21 @@ import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TagMatchRuleTest;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.settings.DimensionStructuresSettings;
+import net.minecraft.world.gen.settings.StructureSeparationSettings;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -49,6 +55,8 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 @Mod("byg")
 public class BYG {
@@ -192,6 +200,27 @@ public class BYG {
             LOGGER.debug("BYG: \"Server Starting\" Event Starting...");
             GenDataCommand.dataGenCommand(event.getServer().getCommandManager().getDispatcher());
             LOGGER.info("BYG: \"Server Starting\" Event Complete!");
+        }
+
+        @SubscribeEvent
+        public void addDimensionalSpacing(final WorldEvent.Load event) {
+            LOGGER.debug("BYG: \"World Load\" Event Starting...");
+            if(event.getWorld() instanceof ServerWorld){
+                ServerWorld serverWorld = (ServerWorld)event.getWorld();
+
+                // Prevent spawning our structure in Vanilla's superflat world as
+                // people seem to want their superflat worlds free of modded structures.
+                // Also that vanilla superflat is really tricky and buggy to work with in my experience.
+                if(serverWorld.getChunkProvider().getChunkGenerator() instanceof FlatChunkGenerator &&
+                        serverWorld.getDimensionKey().equals(World.OVERWORLD)){
+                    return;
+                }
+
+                Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
+                tempMap.put(BYGStructures.VOLCANO_STRUCTURE, DimensionStructuresSettings.field_236191_b_.get(BYGStructures.VOLCANO_STRUCTURE));
+                serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
+            }
+            LOGGER.info("BYG: \"World Load\" Event Complete!");
         }
     }
 }
