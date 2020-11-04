@@ -17,10 +17,7 @@ import corgiaoc.byg.config.json.subbiomedata.SubBiomeDataListHolder;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.BYGItems;
-import corgiaoc.byg.core.world.BYGBiomes;
-import corgiaoc.byg.core.world.BYGDecorators;
-import corgiaoc.byg.core.world.BYGFeatures;
-import corgiaoc.byg.core.world.BYGSurfaceBuilders;
+import corgiaoc.byg.core.world.*;
 import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -31,6 +28,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TagMatchRuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -159,6 +157,15 @@ public class BYG {
             BYGDecorators.init();
             BYGDecorators.decorators.forEach(decorator -> event.getRegistry().register(decorator));
             BYG.LOGGER.info("BYG: Decorators registered!");
+        }
+
+        @SubscribeEvent
+        public static void registerStructures(RegistryEvent.Register<Structure<?>> event) {
+            BYG.LOGGER.debug("BYG: Registering structures...");
+            BYGStructures.init();
+            BYGStructures.structures.forEach(structure -> event.getRegistry().register(structure));
+            Structure.STRUCTURE_DECORATION_STAGE_MAP.forEach(((structure, decoration) -> System.out.println(Registry.STRUCTURE_FEATURE.getKey(structure).toString())));
+            BYG.LOGGER.info("BYG: Structures registered!");
         }
 
         @SubscribeEvent

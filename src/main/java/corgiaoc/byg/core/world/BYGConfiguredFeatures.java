@@ -29,6 +29,11 @@ import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import java.util.OptionalInt;
 
 public class BYGConfiguredFeatures {
+    /***********************************************************Configured Structure Features***********************************************************/
+    public static StructureFeature<?, ?> VOLCANO_STRUCTURE = WorldGenRegistrationHelper.createConfiguredStructureFeature("volcano", BYGStructures.VOLCANO_STRUCTURE.withConfiguration(new NoFeatureConfig()));
+
+
+
     /***********************************************************Configured Features***********************************************************/
 
     public static final ConfiguredFeature<?, ?> ALLIUM_BUSH = WorldGenRegistrationHelper.createConfiguredFeature("allium_bush", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.ALLIUMBUSH_CONFIG));
@@ -132,7 +137,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> DELPHINIUM = WorldGenRegistrationHelper.createConfiguredFeature("delphinium", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.DELPHINIUM_CONFIG));
     public static final ConfiguredFeature<?, ?> FOXGLOVE = WorldGenRegistrationHelper.createConfiguredFeature("foxglove", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.FOXGLOVE_CONFIG));
     public static final ConfiguredFeature<?, ?> DAFFODIL_YELLOW = WorldGenRegistrationHelper.createConfiguredFeature("yellow_daffodil", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.YELLOW_DAFFODIL_CONFIG));
-    public static final ConfiguredFeature<?, ?> PUMPKIN_CONFIG = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.PUMPKIN_CONFIG));
+    public static final ConfiguredFeature<?, ?> PUMPKIN_CONFIG = WorldGenRegistrationHelper.createConfiguredFeature("small_pumpkins", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.PUMPKIN_CONFIG));
     public static final ConfiguredFeature<?, ?> ALPINE_BELLFLOWER = WorldGenRegistrationHelper.createConfiguredFeature("alpine_bellflower", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.ALPINE_BELLFLOWER_CONFIG));
     public static final ConfiguredFeature<?, ?> WINTER_SCILLA = WorldGenRegistrationHelper.createConfiguredFeature("winter_scilla", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.WINTER_SCILLA_CONFIG));
     public static final ConfiguredFeature<?, ?> KOVAN_FLOWER = WorldGenRegistrationHelper.createConfiguredFeature("kovan_flower", Feature.RANDOM_PATCH.withConfiguration(FeatureConfigs.KOVAN_FLOWER_CONFIG));

@@ -128,7 +128,6 @@ import corgiaoc.byg.common.world.feature.overworld.trees.spruce.small.SpruceTree
 import corgiaoc.byg.common.world.feature.overworld.trees.spruce.small.SpruceTree3;
 import corgiaoc.byg.common.world.feature.overworld.trees.spruce.small.SpruceTree4;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.common.world.feature.overworld.trees.willow.WillowTree1;
 import corgiaoc.byg.common.world.feature.overworld.trees.willow.WillowTree2;
 import corgiaoc.byg.common.world.feature.overworld.trees.willow.WillowTree3;
 import corgiaoc.byg.common.world.feature.overworld.trees.willow.WillowTree4;
