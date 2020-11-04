@@ -27,6 +27,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
@@ -300,6 +301,8 @@ public class BYGBiomes {
                     if (locationKey.equals(WorldGenRegistries.BIOME.getKey(FOREST_FAULT)))
                         addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
                 }
+
+                addStructureToBiome(biome, BYGConfiguredStructures.VOLCANO_STRUCTURE);
             }
     }
 
@@ -317,6 +320,17 @@ public class BYGBiomes {
         if (biome.getGenerationSettings().features instanceof ImmutableList) {
             biome.getGenerationSettings().features = biome.getGenerationSettings().features.stream().map(Lists::newArrayList).collect(Collectors.toList());
         }
+    }
+
+    //Use these to add our features to vanilla's biomes.
+    public static void addStructureToBiome(Biome biome, StructureFeature<?, ?> configuredStructure) {
+        convertImmutableStructures(biome);
+        List<Supplier<StructureFeature<?, ?>>> biomeFeatures = biome.getGenerationSettings().structures;
+        biomeFeatures.add(() -> configuredStructure);
+    }
+
+    private static void convertImmutableStructures(Biome biome) {
+        biome.getGenerationSettings().structures = new ArrayList<>(biome.getGenerationSettings().structures);
     }
 
     public static class PreserveBiomeOrder {

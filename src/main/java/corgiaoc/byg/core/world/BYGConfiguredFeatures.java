@@ -29,10 +29,6 @@ import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import java.util.OptionalInt;
 
 public class BYGConfiguredFeatures {
-    /***********************************************************Configured Structure Features***********************************************************/
-    public static StructureFeature<?, ?> VOLCANO_STRUCTURE = WorldGenRegistrationHelper.createConfiguredStructureFeature("volcano", BYGStructures.VOLCANO_STRUCTURE.withConfiguration(new NoFeatureConfig()));
-
-
 
     /***********************************************************Configured Features***********************************************************/
 

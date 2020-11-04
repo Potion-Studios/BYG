@@ -4,6 +4,7 @@ import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
+import corgiaoc.byg.core.world.BYGConfiguredStructures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
@@ -41,7 +42,7 @@ public class Volcano extends BYGSubBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(BYGConfiguredFeatures.VOLCANO_STRUCTURE);
+        GENERATION_SETTINGS.withStructure(BYGConfiguredStructures.VOLCANO_STRUCTURE);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

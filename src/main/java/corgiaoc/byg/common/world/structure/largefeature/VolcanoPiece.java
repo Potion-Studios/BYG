@@ -12,6 +12,7 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 
@@ -35,6 +36,8 @@ public class VolcanoPiece extends StructurePiece {
         //Leave this empty
     }
 
+
+
     @Override
     public boolean func_230383_a_(ISeedReader world, StructureManager manager, ChunkGenerator generator, Random rand, MutableBoundingBox structureBoundingBox, ChunkPos chunkPos, BlockPos aPos) {
         BYG.LOGGER.info("BRRRRRRRRRRRRT");
@@ -42,8 +45,9 @@ public class VolcanoPiece extends StructurePiece {
 
 //        if (world.getBlockState(pos.down()).getMaterial() == Material.AIR || world.getBlockState(pos.down()).getMaterial() == Material.WATER || world.getBlockState(pos.down()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)
 //            return false;
+        int yHeight = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, this.boundingBox.minX, this.boundingBox.minZ);
 
-        BlockPos pos = new BlockPos(this.boundingBox.minX, this.boundingBox.minY, this.boundingBox.minZ);
+        BlockPos pos = new BlockPos(this.boundingBox.minX, yHeight, this.boundingBox.minZ);
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
@@ -71,9 +75,7 @@ public class VolcanoPiece extends StructurePiece {
                     }
                     else if (scaledNoise >= threshold) {
                         world.setBlockState(mutable, BYGBlocks.WARPED_CORAL_BLOCK.getDefaultState(), 2);
-                        boundingBoxExpander.func_236989_a_(mutable);
                     }
-                    structureBoundingBox.expandTo(boundingBoxExpander);
                 }
             }
         }
