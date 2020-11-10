@@ -14,7 +14,7 @@ import net.minecraft.command.Commands;
 import net.minecraft.command.ISuggestionProvider;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.text.*;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
@@ -55,15 +55,15 @@ public class GenDataCommand {
         Gson gson = (new GsonBuilder()).setPrettyPrinting().create();
 
         //Collect biomes
-        for (Map.Entry<RegistryKey<Biome>, Biome> biome : WorldGenRegistries.BIOME.getEntries()) {
-            if (Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(biome.getValue())).toString().contains(modId)) {
+        for (Map.Entry<RegistryKey<Biome>, Biome> biome : commandSource.getSource().getServer().func_244267_aX().getRegistry(Registry.BIOME_KEY).getEntries()) {
+            if (Objects.requireNonNull(commandSource.getSource().getServer().func_244267_aX().getRegistry(Registry.BIOME_KEY).getKey(biome.getValue())).toString().contains(modId)) {
                 biomeList.add(biome.getValue());
             }
         }
 
         if (biomeList.size() > 0) {
             for (Biome biome : biomeList) {
-                ResourceLocation key = WorldGenRegistries.BIOME.getKey(biome);
+                ResourceLocation key = commandSource.getSource().getServer().func_244267_aX().getRegistry(Registry.BIOME_KEY).getKey(biome);
                 if (key != null) {
                     Path biomeJsonPath = jsonPath(dataPackPath, key, modId);
                     Function<Supplier<Biome>, DataResult<JsonElement>> biomeCodec = JsonOps.INSTANCE.withEncoder(Biome.BIOME_CODEC);
