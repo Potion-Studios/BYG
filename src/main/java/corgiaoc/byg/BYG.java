@@ -79,6 +79,7 @@ public class BYG {
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGJsonConfigHandler.handleBYGBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-biomes.json"));
         BYGJsonConfigHandler.handleBYGSubBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-sub-biomes.json"));
+        BYGJsonConfigHandler.createReadMe(CONFIG_PATH.resolve("README.txt"));
         BYGBiomes.addBiomeEntries();
         BYGBiomes.fillBiomeDictionary();
         BiomeDataListHolder.fillBiomeLists();
