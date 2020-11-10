@@ -29,7 +29,6 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-@SuppressWarnings("deprecation")
 public class GenDataCommand {
 
     public static void dataGenCommand(CommandDispatcher<CommandSource> dispatcher) {
@@ -53,17 +52,18 @@ public class GenDataCommand {
         boolean stopSpamFlag = false;
         Path dataPackPath = dataPackPath(commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS), modId);
         Gson gson = (new GsonBuilder()).setPrettyPrinting().create();
+        Registry<Biome> biomeRegistry = commandSource.getSource().getServer().func_244267_aX().getRegistry(Registry.BIOME_KEY);
 
-        //Collect biomes
-        for (Map.Entry<RegistryKey<Biome>, Biome> biome : commandSource.getSource().getServer().func_244267_aX().getRegistry(Registry.BIOME_KEY).getEntries()) {
-            if (Objects.requireNonNull(commandSource.getSource().getServer().func_244267_aX().getRegistry(Registry.BIOME_KEY).getKey(biome.getValue())).toString().contains(modId)) {
-                biomeList.add(biome.getValue());
+        //Collect biomes from the datapack registry where biome data is most likely to have been modified by other content adding mods.
+        for (Map.Entry<RegistryKey<Biome>, Biome> biome : biomeRegistry.getEntries()) {
+            if (Objects.requireNonNull(biomeRegistry.getKey(biome.getValue())).toString().contains(modId)) {
+                biomeList.add( biome.getValue());
             }
         }
 
         if (biomeList.size() > 0) {
             for (Biome biome : biomeList) {
-                ResourceLocation key = commandSource.getSource().getServer().func_244267_aX().getRegistry(Registry.BIOME_KEY).getKey(biome);
+                ResourceLocation key = biomeRegistry.getKey(biome);
                 if (key != null) {
                     Path biomeJsonPath = jsonPath(dataPackPath, key, modId);
                     Function<Supplier<Biome>, DataResult<JsonElement>> biomeCodec = JsonOps.INSTANCE.withEncoder(Biome.BIOME_CODEC);
