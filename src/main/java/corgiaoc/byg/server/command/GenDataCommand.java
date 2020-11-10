@@ -87,7 +87,7 @@ public class GenDataCommand {
             try {
                 createPackMCMeta(dataPackPath, modId);
             } catch (IOException e) {
-                commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.mcmetafailed", modId).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.RED))), false);
+                commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.mcmeta.failed", modId).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.RED))), false);
             }
 
             ITextComponent filePathText = (new StringTextComponent(".." + dataPackPath.toString())).mergeStyle(TextFormatting.UNDERLINE).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.GREEN)).setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
