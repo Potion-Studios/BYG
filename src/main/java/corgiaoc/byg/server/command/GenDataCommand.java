@@ -51,13 +51,13 @@ public class GenDataCommand {
         List<Biome> biomeList = new ArrayList<>();
         boolean stopSpamFlag = false;
         Path dataPackPath = dataPackPath(commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS), modId);
-        Gson gson = (new GsonBuilder()).setPrettyPrinting().create();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Registry<Biome> biomeRegistry = commandSource.getSource().getServer().func_244267_aX().getRegistry(Registry.BIOME_KEY);
 
         //Collect biomes from the datapack registry where biome data is most likely to have been modified by other content adding mods.
         for (Map.Entry<RegistryKey<Biome>, Biome> biome : biomeRegistry.getEntries()) {
             if (Objects.requireNonNull(biomeRegistry.getKey(biome.getValue())).toString().contains(modId)) {
-                biomeList.add( biome.getValue());
+                biomeList.add(biome.getValue());
             }
         }
 
