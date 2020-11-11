@@ -162,8 +162,8 @@ public class BYG {
         public static void registerStructures(RegistryEvent.Register<Structure<?>> event) {
             BYG.LOGGER.debug("BYG: Registering structures...");
             BYGStructures.init();
-            BYGStructures.structures.forEach(structure -> event.getRegistry().register(structure));
-            Structure.STRUCTURE_DECORATION_STAGE_MAP.forEach(((structure, decoration) -> System.out.println(Registry.STRUCTURE_FEATURE.getKey(structure).toString())));
+//            BYGStructures.structures.forEach(structure -> event.getRegistry().register(structure));
+//            Structure.STRUCTURE_DECORATION_STAGE_MAP.forEach(((structure, decoration) -> System.out.println(Registry.STRUCTURE_FEATURE.getKey(structure).toString())));
             BYG.LOGGER.info("BYG: Structures registered!");
         }
 
