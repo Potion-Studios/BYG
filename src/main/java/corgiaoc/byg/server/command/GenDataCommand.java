@@ -90,7 +90,7 @@ public class GenDataCommand {
                 commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.mcmeta.failed", modId).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.RED))), false);
             }
 
-            ITextComponent filePathText = (new StringTextComponent(".." + dataPackPath.toString())).mergeStyle(TextFormatting.UNDERLINE).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.GREEN)).setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
+            ITextComponent filePathText = (new StringTextComponent(dataPackPath.toString())).mergeStyle(TextFormatting.UNDERLINE).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.GREEN)).setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
 
             commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), filePathText), false);
         } else {
