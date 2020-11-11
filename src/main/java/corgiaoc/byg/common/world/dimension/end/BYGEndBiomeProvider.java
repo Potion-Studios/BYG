@@ -65,9 +65,9 @@ public class BYGEndBiomeProvider extends BiomeProvider {
                             END_BIOMES.add(locationKey);
                         }
                     }
-                }
-                if (!END_BIOMES.contains(locationKey) && !END_BIOME_IDS.contains(locationKey.toString())) {
-                    END_BIOMES.add(locationKey);
+                    if (!END_BIOMES.contains(locationKey)) {
+                        END_BIOMES.add(locationKey);
+                    }
                 }
             }
         }

@@ -52,9 +52,9 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
                             NETHER_BIOMES.add(locationKey);
                         }
                     }
-                }
-                if (!NETHER_BIOMES.contains(locationKey) && !NETHER_BIOME_IDS.contains(locationKey.toString())) {
-                    NETHER_BIOMES.add(locationKey);
+                    if (!NETHER_BIOMES.contains(locationKey)) {
+                        NETHER_BIOMES.add(locationKey);
+                    }
                 }
             }
         }
