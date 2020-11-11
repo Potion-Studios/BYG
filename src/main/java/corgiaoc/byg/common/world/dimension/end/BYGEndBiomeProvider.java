@@ -66,7 +66,6 @@ public class BYGEndBiomeProvider extends BiomeProvider {
                         }
                     }
                 }
-                //if a datapack is using the same namespace as another mod, this is bad....like really bad.
                 if (!END_BIOMES.contains(locationKey) && !END_BIOME_IDS.contains(locationKey.toString())) {
                     END_BIOMES.add(locationKey);
                 }

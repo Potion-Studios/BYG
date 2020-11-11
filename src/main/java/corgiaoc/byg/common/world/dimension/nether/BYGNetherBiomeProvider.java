@@ -53,7 +53,6 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
                         }
                     }
                 }
-                //if a datapack is using the same namespace as another mod, this is bad....like really bad.
                 if (!NETHER_BIOMES.contains(locationKey) && !NETHER_BIOME_IDS.contains(locationKey.toString())) {
                     NETHER_BIOMES.add(locationKey);
                 }
