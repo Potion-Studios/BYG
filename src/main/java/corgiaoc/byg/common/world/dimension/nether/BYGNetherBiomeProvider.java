@@ -10,7 +10,6 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryLookupCodec;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraftforge.fml.ModList;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -55,7 +54,7 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
                     }
                 }
                 //if a datapack is using the same namespace as another mod, this is bad....like really bad.
-                if (!ModList.get().isLoaded(locationKey.getNamespace()) && !NETHER_BIOMES.contains(locationKey)) {
+                if (!NETHER_BIOMES.contains(locationKey) && !NETHER_BIOME_IDS.contains(locationKey.toString())) {
                     NETHER_BIOMES.add(locationKey);
                 }
             }

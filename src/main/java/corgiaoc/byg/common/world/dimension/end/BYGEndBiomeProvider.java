@@ -14,7 +14,6 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.EndBiomeProvider;
 import net.minecraft.world.gen.SimplexNoiseGenerator;
-import net.minecraftforge.fml.ModList;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -68,7 +67,7 @@ public class BYGEndBiomeProvider extends BiomeProvider {
                     }
                 }
                 //if a datapack is using the same namespace as another mod, this is bad....like really bad.
-                if (!ModList.get().isLoaded(locationKey.getNamespace()) && !END_BIOMES.contains(locationKey)) {
+                if (!END_BIOMES.contains(locationKey) && !END_BIOME_IDS.contains(locationKey.toString())) {
                     END_BIOMES.add(locationKey);
                 }
             }
