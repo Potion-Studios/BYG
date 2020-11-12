@@ -17,6 +17,7 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -256,16 +257,16 @@ public class BYGBiomes {
         }
     }
 
-    public static void addBYGFeaturesToBiomes(Biome biome) {
+    public static void addBYGFeaturesToBiomes(Biome biome, Identifier locationKey) {
         if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
-            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Ores.RockyStone.Generate) {
-                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_ROCKY_STONE);
+            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Stones.RockyStone.Generate) {
+                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
             }
-            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Ores.ScoriaStone.Generate) {
-                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SCORIA_STONE);
+            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Stones.ScoriaStone.Generate) {
+                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
             }
-            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Ores.SoapStone.Generate) {
-                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_SOAP_STONE);
+            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Stones.SoapStone.Generate) {
+                addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
             }
 
             if (biome == BuiltinRegistries.BIOME.getOrThrow(BiomeKeys.SOUL_SAND_VALLEY)) {
@@ -274,6 +275,16 @@ public class BYGBiomes {
 
             if (biome == BuiltinRegistries.BIOME.getOrThrow(BiomeKeys.BEACH)) {
                 addFeatureToBiome(biome, GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
+            }
+
+            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Ores.Ametrine.Generate) {
+                if (locationKey.equals(BuiltinRegistries.BIOME.getId(POINTY_STONE_FOREST)) || locationKey.equals(BuiltinRegistries.BIOME.getId(STONE_FOREST)) || locationKey.equals(BuiltinRegistries.BIOME.getId(GUIANA_SHIELD)) || locationKey.equals(BuiltinRegistries.BIOME.getId(GUIANA_CLEARING)))
+                    addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
+            }
+
+            if (BYG.DIMENSIONS_CONFIG.OverworldDimension.Ores.Pendorite.Generate) {
+                if (locationKey.equals(BuiltinRegistries.BIOME.getId(FOREST_FAULT)))
+                    addFeatureToBiome(biome, GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
             }
         }
     }

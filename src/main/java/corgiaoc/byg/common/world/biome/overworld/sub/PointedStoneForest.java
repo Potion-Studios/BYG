@@ -6,7 +6,6 @@ import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.common.world.surfacebuilder.config.PointedSBConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGBiomes;
-import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
@@ -17,7 +16,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
-import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
@@ -74,7 +72,6 @@ public class PointedStoneForest extends BYGSubBiome {
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.feature(GenerationStep.Feature.UNDERGROUND_ORES, BYGConfiguredFeatures.ORE_AMETRINE);
 
         SPAWN_SETTINGS.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.PIG, 10, 4, 4));

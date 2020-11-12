@@ -30,7 +30,7 @@ public class DeciduousTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
-            } else if (this.isCliff(worldIn, mainmutable.set(pos).move(-1, 0, 0), mainmutable.set(pos).move(0, 0, -1))) {
+            } else if (this.isCliff(worldIn, mainmutable.set(pos).move(-1, 0, 0).toImmutable(), mainmutable.set(pos).move(0, 0, -1).toImmutable())) {
                 return false;
             } else {
                 buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).toImmutable(), mainmutable.set(pos).move(-1, 0, 0), mainmutable.set(pos).move(0, 0, -1));
