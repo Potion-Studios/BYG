@@ -1298,6 +1298,26 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BulbisShell extends MushroomBlock {
+        public BulbisShell(String registryName) {
+            super(FabricBlockSettings.of(Material.PLANT, MaterialColor.CYAN)
+                    .sounds(BlockSoundGroup.SHROOMLIGHT)
+                    .strength(0.2F)
+                    .nonOpaque()
+                    .luminance((state) -> 12)
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
+            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
+            this.setDefaultState(this.stateManager.getDefaultState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
+        }
+
+        @Environment(EnvType.CLIENT)
+        public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
+            return adjacentBlockState.getBlock() == this || super.isSideInvisible(state, adjacentBlockState, side);
+        }
+    }
+
     public static class BYGScaffolding extends BYGScaffoldingBlock {
         public BYGScaffolding(String registryName) {
             super(FabricBlockSettings.of(Material.SUPPORTED, MaterialColor.SAND)

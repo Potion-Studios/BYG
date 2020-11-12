@@ -478,8 +478,8 @@ public class BYGBlocks {
     public static final Block SOUL_SHROOM_STEM = new BYGBlockProperties.BlockHugeNetherMushroomStem("soul_shroom_stem");
     public static final Block SOUL_SHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("soul_shroom_block");
     public static final Block DEATH_CAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("death_cap_mushroom_block");
-    public static final Block BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("bulbis_shell");
-    public static final Block PURPLE_BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("purple_bulbis_shell");
+    public static final Block BULBIS_SHELL = new BYGBlockProperties.BulbisShell("bulbis_shell");
+    public static final Block PURPLE_BULBIS_SHELL = new BYGBlockProperties.BulbisShell("purple_bulbis_shell");
 
     public static final Block CATTAIL = new BYGBlockProperties.BlockCattail("cattail");
     public static final Block REEDS = new BYGBlockProperties.BlockCattail("reeds");
