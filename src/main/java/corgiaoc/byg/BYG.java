@@ -76,6 +76,7 @@ public class BYG implements ModInitializer {
         Registry.register(Registry.BIOME_SOURCE, new Identifier(MOD_ID, "byg_end"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGJsonConfigHandler.handleBYGBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-biomes.json"));
         BYGJsonConfigHandler.handleBYGSubBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-sub-biomes.json"));
+        BYGJsonConfigHandler.createReadMe(CONFIG_PATH.resolve("README.txt"));
         BYGBiomes.addBiomeEntries();
         BiomeDataListHolder.fillBiomeLists();
         SubBiomeDataListHolder.fillBiomeLists();

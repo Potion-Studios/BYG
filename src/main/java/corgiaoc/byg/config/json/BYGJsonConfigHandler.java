@@ -101,4 +101,17 @@ public class BYGJsonConfigHandler {
             BYG.LOGGER.error(BYG.MOD_ID + "-sub-biomes.json could not be created");
         }
     }
+
+
+    public static void createReadMe(Path path) {
+        final File README_FILE = new File(String.valueOf(path));
+        String text = "If you need help understanding what the byg-biomes or byg-sub-biomes configs allow you to do, please watch this video: https://youtu.be/iq0q09O7ZYo";
+        if (!README_FILE.exists()) {
+            try {
+                Files.write(path, text.getBytes());
+            } catch (IOException e) {
+                BYG.LOGGER.error(BYG.MOD_ID + "'s README.txt could not be created");
+            }
+        }
+    }
 }
