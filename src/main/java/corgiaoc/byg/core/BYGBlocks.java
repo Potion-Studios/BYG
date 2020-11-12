@@ -1293,7 +1293,7 @@ public class BYGBlocks {
     }
 
     static Block createDirtSpreadable(Block blockToSpreadToo, String id) {
-        Block createBlock = new SpreadableBlock(FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.GRAVEL).strength(0.4f).ticksRandomly().breakByTool(FabricToolTags.SHOVELS), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
+        Block createBlock = new SpreadableBlock(FabricBlockSettings.of(Material.SOIL).sounds(BlockSoundGroup.GRASS).strength(0.4f).ticksRandomly().breakByTool(FabricToolTags.SHOVELS), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1301,7 +1301,7 @@ public class BYGBlocks {
     }
 
     static Block createStoneSpreadable(Block blockToSpreadToo, String id) {
-        Block createBlock = new SpreadableBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(1.5f, 6.0f).ticksRandomly().breakByTool(FabricToolTags.PICKAXES).requiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
+        Block createBlock = new SpreadableBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(1.5f, 6.0f).ticksRandomly().breakByTool(FabricToolTags.PICKAXES, 1).requiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1309,7 +1309,7 @@ public class BYGBlocks {
     }
 
     static Block createEndSpreadable(Block blockToSpreadToo, BlockPileFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.NYLIUM).strength(0.4f).ticksRandomly().breakByTool(FabricToolTags.PICKAXES, 2).requiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
+        Block createBlock = new SpreadableBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.NYLIUM).strength(0.4f).ticksRandomly().breakByTool(FabricToolTags.PICKAXES, 1).requiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1317,7 +1317,7 @@ public class BYGBlocks {
     }
 
     static Block createNetherSpreadable(Block blockToSpreadToo, BlockPileFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.NYLIUM).strength(0.4F).ticksRandomly().breakByTool(FabricToolTags.PICKAXES, 2).requiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        Block createBlock = new SpreadableBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.NYLIUM).strength(0.4F).ticksRandomly().breakByTool(FabricToolTags.PICKAXES, 1).requiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1325,7 +1325,7 @@ public class BYGBlocks {
     }
 
     static Block createNetherStoneSpreadable(Block blockToSpreadToo, BlockPileFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.NYLIUM).strength(0.4f).ticksRandomly().breakByTool(FabricToolTags.PICKAXES, 2).requiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        Block createBlock = new SpreadableBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.NYLIUM).strength(0.4f).ticksRandomly().breakByTool(FabricToolTags.PICKAXES, 1).requiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);

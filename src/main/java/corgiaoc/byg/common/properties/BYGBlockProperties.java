@@ -484,7 +484,7 @@ public class BYGBlockProperties {
     public static class HangingBones extends HangingBonesBlock {
         public HangingBones(String registryName) {
             super(FabricBlockSettings.of(Material.STONE)
-                    .sounds(BlockSoundGroup.STONE)
+                    .sounds(BlockSoundGroup.BONE)
                     .strength(0.0F)
                     .noCollision()
             );
@@ -635,6 +635,7 @@ public class BYGBlockProperties {
             super(FabricBlockSettings.of(Material.SOLID_ORGANIC)
                     .sounds(BlockSoundGroup.WART_BLOCK)
                     .strength(1.0F)
+                    .breakByTool(FabricToolTags.HOES)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
             //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
@@ -702,7 +703,7 @@ public class BYGBlockProperties {
     public static class BYGEmburGelVine extends EmburVinesPlantBlock {
         public BYGEmburGelVine(String registryName) {
             super(FabricBlockSettings.of(Material.LEAVES)
-                    .sounds(BlockSoundGroup.GRASS)
+                    .sounds(BlockSoundGroup.HONEY)
                     .strength(0.0F)
                     .ticksRandomly()
                     .noCollision()
