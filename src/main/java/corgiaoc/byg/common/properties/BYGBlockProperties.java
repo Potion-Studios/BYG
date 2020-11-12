@@ -1094,7 +1094,7 @@ public class BYGBlockProperties {
                     .sounds(BlockSoundGroup.STONE)
                     .strength(0.4F, 0.4F)
                     .luminance((state) -> 13)
-                    .breakByTool(FabricToolTags.PICKAXES, 4)
+                    .breakByTool(FabricToolTags.PICKAXES, 2)
                     .requiresTool()
 
             );
