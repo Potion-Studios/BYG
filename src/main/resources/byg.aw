@@ -44,3 +44,5 @@ accessible field net/minecraft/util/collection/WeightedList$Entry weight I
 accessible method net/minecraft/item/PickaxeItem <init> (Lnet/minecraft/item/ToolMaterial;IFLnet/minecraft/item/Item$Settings;)V
 accessible method net/minecraft/item/AxeItem <init> (Lnet/minecraft/item/ToolMaterial;FFLnet/minecraft/item/Item$Settings;)V
 accessible method net/minecraft/item/HoeItem <init> (Lnet/minecraft/item/ToolMaterial;IFLnet/minecraft/item/Item$Settings;)V
+accessible field net/minecraft/world/gen/carver/Carver alwaysCarvableBlocks Ljava/util/Set;
+mutable field net/minecraft/world/gen/carver/Carver alwaysCarvableBlocks Ljava/util/Set;
