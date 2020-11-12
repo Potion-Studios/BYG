@@ -1091,7 +1091,7 @@ public class BYGBlockProperties {
     public static class BYGPervadedNetherrack extends OreBlock {
         public BYGPervadedNetherrack(String registryName) {
             super(FabricBlockSettings.of(Material.STONE)
-                    .sounds(BlockSoundGroup.STONE)
+                    .sounds(BlockSoundGroup.NETHER_GOLD_ORE)
                     .strength(0.4F, 0.4F)
                     .luminance((state) -> 13)
                     .breakByTool(FabricToolTags.PICKAXES, 2)
@@ -1380,6 +1380,20 @@ public class BYGBlockProperties {
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
             //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
+        }
+    }
+
+    public static class BYGBlueNetherrackBricks extends BlueNetherrackBlock {
+        public BYGBlueNetherrackBricks(String registryName) {
+            super(FabricBlockSettings.of(Material.STONE, MaterialColor.BLUE_TERRACOTTA)
+                    .sounds(BlockSoundGroup.NETHER_BRICKS)
+                    .strength(0.4F, 0.4F)
+                    .breakByTool(FabricToolTags.PICKAXES)
+                    .requiresTool()
+
+            );
+            Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
             BYGBlocks.blocksList.add(this);
         }
     }
