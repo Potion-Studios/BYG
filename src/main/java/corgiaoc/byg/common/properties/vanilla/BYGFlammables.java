@@ -333,6 +333,8 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.WINTER_SUCCULENT, 60, 100);
         flammableBlock(BYGBlocks.SHORT_GRASS, 60, 200);
         flammableBlock(BYGBlocks.POISON_IVY, 15, 100);
+        flammableBlock(BYGBlocks.FLOWER_PATCH, 15, 100);
+        flammableBlock(BYGBlocks.CLOVER_PATCH, 15, 100);
 
         BYG.LOGGER.info("BYG: Added Flammables!");
     }
