@@ -1010,7 +1010,7 @@ public class BYGBlocks {
     }
 
     static Block createStoneSlab(String id) {
-        Block createBlock = new SlabBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(2.0f, 6.0f).breakByTool(FabricToolTags.SHOVELS).requiresTool());
+        Block createBlock = new SlabBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(2.0f, 6.0f).breakByTool(FabricToolTags.PICKAXES).requiresTool());
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
