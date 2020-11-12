@@ -306,7 +306,6 @@ public class BYGBlockProperties {
                     .sounds(BlockSoundGroup.GLASS)
                     .strength(0.2f)
                     .ticksRandomly()
-                    .nonOpaque()
                     .slipperiness(0.98F)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
@@ -321,7 +320,6 @@ public class BYGBlockProperties {
                     .sounds(BlockSoundGroup.STONE)
                     .strength(0.2f)
                     .ticksRandomly()
-                    .nonOpaque()
                     .slipperiness(0.98F)
                     .luminance((state) -> 10)
                     .breakByTool(FabricToolTags.PICKAXES)
@@ -340,7 +338,6 @@ public class BYGBlockProperties {
                     .sounds(BlockSoundGroup.STONE)
                     .strength(0.2f)
                     .ticksRandomly()
-                    .nonOpaque()
                     .luminance((state) -> 10)
                     .breakByTool(FabricToolTags.PICKAXES)
                     .requiresTool()
