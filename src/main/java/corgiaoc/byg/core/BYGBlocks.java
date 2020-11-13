@@ -479,8 +479,8 @@ public class BYGBlocks {
     public static final Block SOUL_SHROOM_STEM = new BYGBlockProperties.BlockHugeNetherMushroomStem("soul_shroom_stem");
     public static final Block SOUL_SHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("soul_shroom_block");
     public static final Block DEATH_CAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("death_cap_mushroom_block");
-    public static final Block BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("bulbis_shell");
-    public static final Block PURPLE_BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("purple_bulbis_shell");
+    public static final Block BULBIS_SHELL = new BYGBlockProperties.BulbisShell("bulbis_shell");
+    public static final Block PURPLE_BULBIS_SHELL = new BYGBlockProperties.BulbisShell("purple_bulbis_shell");
 
     public static final Block CATTAIL = new BYGBlockProperties.BlockCattail("cattail");
     public static final Block REEDS = new BYGBlockProperties.BlockCattail("reeds");
@@ -567,7 +567,7 @@ public class BYGBlocks {
     public static final Block TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_embur_roots");
 
     public static final Block BLUE_NETHERRACK = new BYGBlockProperties.BYGBlueNetherrack("blue_netherrack");
-    public static final Block BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGNetherrack("blue_nether_bricks");
+    public static final Block BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGBlueNetherrackBricks("blue_nether_bricks");
 
     public static final Block IVIS_ROOTS = new BYGBlockProperties.EndPlant("ivis_roots");
     public static final Block IVIS_SPROUT = new BYGBlockProperties.EndPlant("ivis_sprout");
@@ -1294,7 +1294,7 @@ public class BYGBlocks {
     }
 
     static Block createDirtSpreadable(Block blockToSpreadToo, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.4f).tickRandomly().harvestTool(ToolType.SHOVEL), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
+        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.PLANT).hardnessAndResistance(0.4f).tickRandomly().harvestTool(ToolType.SHOVEL), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1310,7 +1310,7 @@ public class BYGBlocks {
     }
 
     static Block createEndSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE).setRequiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
+        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(1).harvestTool(ToolType.PICKAXE).setRequiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1318,7 +1318,7 @@ public class BYGBlocks {
     }
 
     static Block createNetherSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4F).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE).setRequiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4F).tickRandomly().harvestLevel(1).harvestTool(ToolType.PICKAXE).setRequiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1326,7 +1326,7 @@ public class BYGBlocks {
     }
 
     static Block createNetherStoneSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE).setRequiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(1).harvestTool(ToolType.PICKAXE).setRequiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);

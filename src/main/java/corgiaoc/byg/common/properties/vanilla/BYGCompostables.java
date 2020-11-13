@@ -205,6 +205,8 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.PURPLE_BULBIS_ODDITY);
 
         //Plants
+        compostibleBlocks(0.65f, BYGItems.FLOWER_PATCH);
+        compostibleBlocks(0.65f, BYGItems.CLOVER_PATCH);
         compostibleBlocks(0.65f, BYGItems.LEAF_PILE);
         compostibleBlocks(0.65f, BYGItems.SYTHIAN_STALK_BLOCK);
         compostibleBlocks(0.65f, BYGItems.CATTAIL);

@@ -483,7 +483,7 @@ public class BYGBlockProperties {
     public static class HangingBones extends HangingBonesBlock {
         public HangingBones(String registryName) {
             super(AbstractBlock.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
+                    .sound(SoundType.BONE)
                     .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
             );
@@ -634,6 +634,7 @@ public class BYGBlockProperties {
             super(AbstractBlock.Properties.create(Material.ORGANIC)
                     .sound(SoundType.WART)
                     .hardnessAndResistance(1.0F)
+                    .harvestTool(ToolType.HOE)
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
@@ -701,7 +702,7 @@ public class BYGBlockProperties {
     public static class BYGEmburGelVine extends EmburVinesPlantBlock {
         public BYGEmburGelVine(String registryName) {
             super(AbstractBlock.Properties.create(Material.LEAVES)
-                    .sound(SoundType.PLANT)
+                    .sound(SoundType.HONEY)
                     .hardnessAndResistance(0.0F)
                     .tickRandomly()
                     .doesNotBlockMovement()
@@ -1095,9 +1096,9 @@ public class BYGBlockProperties {
     public static class BYGPervadedNetherrack extends OreBlock {
         public BYGPervadedNetherrack(String registryName) {
             super(AbstractBlock.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
+                    .sound(SoundType.NETHER_GOLD)
                     .hardnessAndResistance(0.4F, 0.4F)
-                    .harvestLevel(4)
+                    .harvestLevel(2)
                     .setLightLevel((state) -> 13)
                     .harvestTool(ToolType.PICKAXE)
                     .setRequiresTool()
@@ -1304,6 +1305,26 @@ public class BYGBlockProperties {
         }
     }
 
+    public static class BulbisShell extends HugeMushroomBlock {
+        public BulbisShell(String registryName) {
+            super(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN)
+                    .sound(SoundType.SHROOMLIGHT)
+                    .hardnessAndResistance(0.2F)
+                    .notSolid()
+                    .setLightLevel((state) -> 12)
+            );
+            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
+            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
+            this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
+        }
+
+        @OnlyIn(Dist.CLIENT)
+        public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
+            return adjacentBlockState.getBlock() == this || super.isSideInvisible(state, adjacentBlockState, side);
+        }
+    }
+
     public static class BYGScaffolding extends BYGScaffoldingBlock {
         public BYGScaffolding(String registryName) {
             super(AbstractBlock.Properties.create(Material.MISCELLANEOUS, MaterialColor.SAND)
@@ -1380,6 +1401,21 @@ public class BYGBlockProperties {
         public BYGBlueNetherrack(String registryName) {
             super(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
                     .sound(SoundType.NETHERRACK)
+                    .hardnessAndResistance(0.4F, 0.4F)
+                    .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()
+
+            );
+            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
+            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
+            BYGBlocks.blocksList.add(this);
+        }
+    }
+
+    public static class BYGBlueNetherrackBricks extends BlueNetherrackBlock {
+        public BYGBlueNetherrackBricks(String registryName) {
+            super(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA)
+                    .sound(SoundType.NETHER_BRICK)
                     .hardnessAndResistance(0.4F, 0.4F)
                     .harvestTool(ToolType.PICKAXE)
                     .setRequiresTool()
