@@ -1,10 +1,7 @@
 package corgiaoc.byg;
 
 
-import corgiaoc.byg.common.properties.vanilla.BYGCompostables;
-import corgiaoc.byg.common.properties.vanilla.BYGFlammables;
-import corgiaoc.byg.common.properties.vanilla.BYGHoeables;
-import corgiaoc.byg.common.properties.vanilla.BYGStrippables;
+import corgiaoc.byg.common.properties.vanilla.*;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.config.autoconfig.BYGWorldConfig;
@@ -79,6 +76,7 @@ public class BYG implements ModInitializer {
         Registry.register(Registry.BIOME_SOURCE, new Identifier(MOD_ID, "byg_end"), BYGEndBiomeProvider.BYGENDCODEC);
         BYGJsonConfigHandler.handleBYGBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-biomes.json"));
         BYGJsonConfigHandler.handleBYGSubBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-sub-biomes.json"));
+        BYGJsonConfigHandler.createReadMe(CONFIG_PATH.resolve("README.txt"));
         BYGBiomes.addBiomeEntries();
         BiomeDataListHolder.fillBiomeLists();
         SubBiomeDataListHolder.fillBiomeLists();
@@ -91,6 +89,7 @@ public class BYG implements ModInitializer {
         BYGHoeables.hoeablesBYG();
         BYGFlammables.flammablesBYG();
         BYGStrippables.strippableLogsBYG();
+        BYGCarvableBlocks.addCarverBlocks();
         cleanMemory();
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
     }
