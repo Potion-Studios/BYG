@@ -58,6 +58,12 @@ public class SierraValley extends BYGBiome {
         return BiomeManager.BiomeType.DESERT;
     }
 
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return BYGBiomes.SIERRA_RANGE;
+    }
+
     @Override
     public int getWeight() {
         return 5;
