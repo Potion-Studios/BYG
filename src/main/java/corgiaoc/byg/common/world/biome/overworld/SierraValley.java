@@ -62,6 +62,12 @@ public class SierraValley extends BYGBiome {
         return OverworldClimate.DRY;
     }
 
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return BYGBiomes.SIERRA_RANGE;
+    }
+
     @Override
     public int getWeight() {
         return 5;
