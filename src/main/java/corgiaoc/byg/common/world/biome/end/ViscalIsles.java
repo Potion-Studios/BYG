@@ -41,7 +41,7 @@ public class ViscalIsles extends BYGEndBiome {
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.CRIMSON_SPORE, 0.00428F))
                 .setAmbientSound(BYGSounds.SoundRegistry.AMBIENT_VISCAL_ISLES_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
-                .setAdditionsSound(new SoundAdditionsAmbience(BYGSounds.SoundRegistry.AMBIENT_VISCAL_ISLES_ADDITIONS, 0.0111D))
+                .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0010D))
                 .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
 

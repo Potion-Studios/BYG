@@ -44,7 +44,7 @@ public class WailingGarth extends BYGNetherBiome {
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.01428F))
                 .setAmbientSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D))
-                .setAdditionsSound(new SoundAdditionsAmbience(BYGSounds.SoundRegistry.AMBIENT_WAILING_GARTH_ADDITIONS, 0.0111D))
+                .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D))
                 .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_NETHER_SOUL_SAND_VALLEY)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
 
     }
