@@ -1,1 +1,31 @@
-{}
+{
+  "ambient_viscal_isles_loop": {
+    "sounds": [
+      {
+        "name": "byg:ambient_viscal_isles_loop",
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ]
+  },
+
+  "ambient_viscal_isles_additions": {
+    "sounds": [
+      {
+        "name": "byg:ambient_viscal_isles_additions",
+        "volume": 0.2,
+        "pitch": 1.0
+      }
+    ]
+  },
+
+  "ambient_wailing_garth_additions": {
+    "sounds": [
+      {
+        "name": "byg:ambient_wailing_garth_additions",
+        "volume": 0.2,
+        "pitch": 0.5
+      }
+    ]
+  }
+}
