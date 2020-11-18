@@ -6,7 +6,6 @@ import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
@@ -35,12 +34,10 @@ public class StoneForestSB extends SurfaceBuilder<TernarySurfaceConfig> {
 
         float sampleNoise = noiseGen.GetNoise(fnVector3f.x, fnVector3f.z);
 
-        int groundLevel = chunkIn.sampleHeightmap(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
-
         if (sampleNoise < 0.43) {
             int topHeight = startHeight + 55;
             mutable.move(Direction.UP, topHeight);
-            for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
+            for (int yPos = topHeight; yPos >= startHeight; --yPos) {
                 if (yPos == topHeight)
                     chunkIn.setBlockState(mutable, config.getTopMaterial(), false);
                 else
@@ -51,7 +48,7 @@ public class StoneForestSB extends SurfaceBuilder<TernarySurfaceConfig> {
         } else if (sampleNoise < 0.48) {
             int topHeight = startHeight + 44;
             mutable.move(Direction.UP, topHeight);
-            for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
+            for (int yPos = topHeight; yPos >= startHeight; --yPos) {
                 if (yPos == topHeight)
                     chunkIn.setBlockState(mutable, config.getTopMaterial(), false);
                 else {
