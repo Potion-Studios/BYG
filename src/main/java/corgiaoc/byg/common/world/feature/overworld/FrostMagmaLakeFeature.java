@@ -104,7 +104,7 @@ public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
                     for (lvt_11_4_ = 4; lvt_11_4_ < 8; ++lvt_11_4_) {
                         if (flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_]) {
                             lvt_12_5_ = blockPos.add(lvt_9_5_, lvt_11_4_ - 1, lvt_10_5_);
-                            if (isSoil(world.getBlockState(lvt_12_5_).getBlock()) && world.getLightLevel(LightType.SKY, blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
+                            if (isSoil(world.getBlockState(lvt_12_5_)) && world.getLightLevel(LightType.SKY, blockPos.add(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
                                 Biome lvt_13_2_ = world.getBiome(lvt_12_5_);
                                 if (lvt_13_2_.getGenerationSettings().getSurfaceConfig().getTopMaterial().getBlock() == BYGBlocks.FROST_MAGMA) {
                                     world.setBlockState(lvt_12_5_, BYGBlocks.FROST_MAGMA.getDefaultState(), 2);

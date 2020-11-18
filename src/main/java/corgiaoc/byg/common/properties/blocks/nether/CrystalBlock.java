@@ -55,6 +55,6 @@ public class CrystalBlock extends Block {
     }
 
     protected boolean isValidGround(BlockState state) {
-        return state.getMaterial() == Material.STONE || state.isIn(FabricTags.END_STONES) || Feature.isSoil(state.getBlock()) || state.isIn(FabricTags.SAND) || state.isOf(BYGBlocks.QUARTZITE_SAND) || state.isOf(BYGBlocks.RAW_QUARTZ_BLOCK);
+        return state.getMaterial() == Material.STONE || state.isIn(FabricTags.END_STONES) || Feature.isSoil(state) || state.isIn(FabricTags.SAND) || state.isOf(BYGBlocks.QUARTZITE_SAND) || state.isOf(BYGBlocks.RAW_QUARTZ_BLOCK);
     }
 }

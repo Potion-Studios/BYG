@@ -1,7 +1,7 @@
 package corgiaoc.byg.client.textures;
 
+import net.minecraft.block.MapColor;
 import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
 
 public class BYGMaterials {
     public static final Material GLOWCELIUM;
@@ -11,11 +11,11 @@ public class BYGMaterials {
     public static final Material PINK_GLOWCANE;
 
     static {
-        GLOWCELIUM = (new Material.Builder(MaterialColor.GRASS)).build();
-        RED_GLOWCANE = (new Material.Builder(MaterialColor.RED)).build();
-        BLUE_GLOWCANE = (new Material.Builder(MaterialColor.BLUE)).build();
-        PURPLE_GLOWCANE = (new Material.Builder(MaterialColor.PURPLE)).build();
-        PINK_GLOWCANE = (new Material.Builder(MaterialColor.PINK)).build();
+        GLOWCELIUM = (new Material.Builder(MapColor.GRASS)).build();
+        RED_GLOWCANE = (new Material.Builder(MapColor.RED)).build();
+        BLUE_GLOWCANE = (new Material.Builder(MapColor.BLUE)).build();
+        PURPLE_GLOWCANE = (new Material.Builder(MapColor.PURPLE)).build();
+        PINK_GLOWCANE = (new Material.Builder(MapColor.PINK)).build();
     }
 
 }

@@ -116,6 +116,6 @@ public class StackableBoulders extends Feature<BoulderConfig> {
         return state.isAir() || state.getMaterial() == Material.SOIL || state.getMaterial() == Material.PLANT ||
                 state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.LEAVES ||
                 state.getMaterial() == Material.AGGREGATE || state.getMaterial() == Material.BAMBOO || state.getMaterial() == Material.CACTUS
-                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || Feature.isSoil(state.getBlock());
+                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || Feature.isSoil(state);
     }
 }

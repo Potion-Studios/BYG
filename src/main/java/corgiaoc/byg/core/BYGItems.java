@@ -1,7 +1,6 @@
 package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.entity.boat.BYGBoatEntity;
 import corgiaoc.byg.common.properties.items.*;
 import corgiaoc.byg.common.properties.items.itemtiers.BYGArmorTiers;
 import corgiaoc.byg.common.properties.items.itemtiers.BYGItemTiers;
@@ -200,7 +199,7 @@ public class BYGItems {
     public static final Item ASPEN_TRAPDOOR = createItem(new BlockItem(BYGBlocks.ASPEN_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.ASPEN_TRAPDOOR));
     public static final Item ASPEN_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.ASPEN_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.ASPEN_PRESSURE_PLATE));
     public static final Item ASPEN_BUTTON = createItem(new BlockItem(BYGBlocks.ASPEN_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.ASPEN_BUTTON));
-    public static final Item ASPEN_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.ASPEN, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "aspen_boat");
+//    public static final Item ASPEN_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.ASPEN, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "aspen_boat");
 
     //Baobab Woodtype
     public static final Item BAOBAB_FRUIT = createItem(new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK, new Item.Settings().group(BYG.BYG_TAB).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.5f).alwaysEdible().build())), "baobab_fruit");
@@ -221,7 +220,7 @@ public class BYGItems {
     public static final Item BAOBAB_TRAPDOOR = createItem(new BlockItem(BYGBlocks.BAOBAB_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.BAOBAB_TRAPDOOR));
     public static final Item BAOBAB_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.BAOBAB_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.BAOBAB_PRESSURE_PLATE));
     public static final Item BAOBAB_BUTTON = createItem(new BlockItem(BYGBlocks.BAOBAB_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.BAOBAB_BUTTON));
-    public static final Item BAOBAB_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.BAOBAB, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "baobab_boat");
+//    public static final Item BAOBAB_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.BAOBAB, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "baobab_boat");
 
     //Blue Enchanted Woodtype
     public static final Item BLUE_ENCHANTED_SAPLING = createItem(new BlockItem(BYGBlocks.BLUE_ENCHANTED_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.BLUE_ENCHANTED_SAPLING));
@@ -241,7 +240,7 @@ public class BYGItems {
     public static final Item BLUE_ENCHANTED_TRAPDOOR = createItem(new BlockItem(BYGBlocks.BLUE_ENCHANTED_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.BLUE_ENCHANTED_TRAPDOOR));
     public static final Item BLUE_ENCHANTED_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.BLUE_ENCHANTED_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.BLUE_ENCHANTED_PRESSURE_PLATE));
     public static final Item BLUE_ENCHANTED_BUTTON = createItem(new BlockItem(BYGBlocks.BLUE_ENCHANTED_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.BLUE_ENCHANTED_BUTTON));
-    public static final Item BLUE_ENCHANTED_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.BLUE_ENCHANTED, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "blue_enchanted_boat");
+//    public static final Item BLUE_ENCHANTED_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.BLUE_ENCHANTED, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "blue_enchanted_boat");
 
     //Bulbis Woodtype
     public static final Item PURPLE_BULBIS_ODDITY = createItem(new BlockItem(BYGBlocks.PURPLE_BULBIS_ODDITY, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.PURPLE_BULBIS_ODDITY));
@@ -287,7 +286,7 @@ public class BYGItems {
     public static final Item CHERRY_TRAPDOOR = createItem(new BlockItem(BYGBlocks.CHERRY_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CHERRY_TRAPDOOR));
     public static final Item CHERRY_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.CHERRY_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CHERRY_PRESSURE_PLATE));
     public static final Item CHERRY_BUTTON = createItem(new BlockItem(BYGBlocks.CHERRY_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CHERRY_BUTTON));
-    public static final Item CHERRY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CHERRY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "cherry_boat");
+//    public static final Item CHERRY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CHERRY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "cherry_boat");
 
     //Cika Woodtype
     public static final Item CIKA_SAPLING = createItem(new BlockItem(BYGBlocks.CIKA_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CIKA_SAPLING));
@@ -307,7 +306,7 @@ public class BYGItems {
     public static final Item CIKA_TRAPDOOR = createItem(new BlockItem(BYGBlocks.CIKA_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CIKA_TRAPDOOR));
     public static final Item CIKA_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.CIKA_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CIKA_PRESSURE_PLATE));
     public static final Item CIKA_BUTTON = createItem(new BlockItem(BYGBlocks.CIKA_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CIKA_BUTTON));
-    public static final Item CIKA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CIKA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "cika_boat");
+//    public static final Item CIKA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CIKA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "cika_boat");
 
     //Cypress Woodtype
     public static final Item CYPRESS_SAPLING = createItem(new BlockItem(BYGBlocks.CYPRESS_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CYPRESS_SAPLING));
@@ -327,7 +326,7 @@ public class BYGItems {
     public static final Item CYPRESS_TRAPDOOR = createItem(new BlockItem(BYGBlocks.CYPRESS_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CYPRESS_TRAPDOOR));
     public static final Item CYPRESS_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.CYPRESS_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CYPRESS_PRESSURE_PLATE));
     public static final Item CYPRESS_BUTTON = createItem(new BlockItem(BYGBlocks.CYPRESS_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.CYPRESS_BUTTON));
-    public static final Item CYPRESS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CYPRESS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "cypress_boat");
+//    public static final Item CYPRESS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CYPRESS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "cypress_boat");
 
     //Ebony Woodtype
     public static final Item EBONY_SAPLING = createItem(new BlockItem(BYGBlocks.EBONY_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.EBONY_SAPLING));
@@ -347,7 +346,7 @@ public class BYGItems {
     public static final Item EBONY_TRAPDOOR = createItem(new BlockItem(BYGBlocks.EBONY_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.EBONY_TRAPDOOR));
     public static final Item EBONY_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.EBONY_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.EBONY_PRESSURE_PLATE));
     public static final Item EBONY_BUTTON = createItem(new BlockItem(BYGBlocks.EBONY_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.EBONY_BUTTON));
-    public static final Item EBONY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "ebony_boat");
+//    public static final Item EBONY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "ebony_boat");
 
     //Ether Woodtype
     public static final Item ETHER_SAPLING = createItem(new BlockItem(BYGBlocks.ETHER_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.ETHER_SAPLING));
@@ -386,7 +385,7 @@ public class BYGItems {
     public static final Item FIR_TRAPDOOR = createItem(new BlockItem(BYGBlocks.FIR_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.FIR_TRAPDOOR));
     public static final Item FIR_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.FIR_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.FIR_PRESSURE_PLATE));
     public static final Item FIR_BUTTON = createItem(new BlockItem(BYGBlocks.FIR_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.FIR_BUTTON));
-    public static final Item FIR_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.FIR, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "fir_boat");
+//    public static final Item FIR_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.FIR, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "fir_boat");
 
     //Green Enchanted Woodtype
     public static final Item GREEN_ENCHANTED_SAPLING = createItem(new BlockItem(BYGBlocks.GREEN_ENCHANTED_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.GREEN_ENCHANTED_SAPLING));
@@ -406,7 +405,7 @@ public class BYGItems {
     public static final Item GREEN_ENCHANTED_TRAPDOOR = createItem(new BlockItem(BYGBlocks.GREEN_ENCHANTED_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.GREEN_ENCHANTED_TRAPDOOR));
     public static final Item GREEN_ENCHANTED_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.GREEN_ENCHANTED_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.GREEN_ENCHANTED_PRESSURE_PLATE));
     public static final Item GREEN_ENCHANTED_BUTTON = createItem(new BlockItem(BYGBlocks.GREEN_ENCHANTED_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.GREEN_ENCHANTED_BUTTON));
-    public static final Item GREEN_ENCHANTED_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.GREEN_ENCHANTED, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "green_enchanted_boat");
+//    public static final Item GREEN_ENCHANTED_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.GREEN_ENCHANTED, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "green_enchanted_boat");
 
     //Holly Woodtype
     public static final Item HOLLY_BERRY_LEAVES = createItem(new BlockItem(BYGBlocks.HOLLY_BERRY_LEAVES, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.HOLLY_BERRY_LEAVES));
@@ -428,7 +427,7 @@ public class BYGItems {
     public static final Item HOLLY_TRAPDOOR = createItem(new BlockItem(BYGBlocks.HOLLY_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.HOLLY_TRAPDOOR));
     public static final Item HOLLY_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.HOLLY_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.HOLLY_PRESSURE_PLATE));
     public static final Item HOLLY_BUTTON = createItem(new BlockItem(BYGBlocks.HOLLY_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.HOLLY_BUTTON));
-    public static final Item HOLLY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.HOLLY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "holly_boat");
+//    public static final Item HOLLY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.HOLLY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "holly_boat");
 
     //Jacaranda Woodtype
     public static final Item JACARANDA_SAPLING = createItem(new BlockItem(BYGBlocks.JACARANDA_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.JACARANDA_SAPLING));
@@ -450,7 +449,7 @@ public class BYGItems {
     public static final Item JACARANDA_TRAPDOOR = createItem(new BlockItem(BYGBlocks.JACARANDA_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.JACARANDA_TRAPDOOR));
     public static final Item JACARANDA_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.JACARANDA_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.JACARANDA_PRESSURE_PLATE));
     public static final Item JACARANDA_BUTTON = createItem(new BlockItem(BYGBlocks.JACARANDA_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.JACARANDA_BUTTON));
-    public static final Item JACARANDA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "jacaranda_boat");
+//    public static final Item JACARANDA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "jacaranda_boat");
 
     //Lament Woodtype
     public static final Item LAMENT_SAPLING = createItem(new BlockItem(BYGBlocks.LAMENT_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.LAMENT_SAPLING));
@@ -491,7 +490,7 @@ public class BYGItems {
     public static final Item MAHOGANY_TRAPDOOR = createItem(new BlockItem(BYGBlocks.MAHOGANY_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MAHOGANY_TRAPDOOR));
     public static final Item MAHOGANY_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.MAHOGANY_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MAHOGANY_PRESSURE_PLATE));
     public static final Item MAHOGANY_BUTTON = createItem(new BlockItem(BYGBlocks.MAHOGANY_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MAHOGANY_BUTTON));
-    public static final Item MAHOGANY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MAHOGANY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "mahogany_boat");
+//    public static final Item MAHOGANY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MAHOGANY, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "mahogany_boat");
 
     //Mangrove Woodtype
     public static final Item MANGROVE_SAPLING = createItem(new BlockItem(BYGBlocks.MANGROVE_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MANGROVE_SAPLING));
@@ -511,7 +510,7 @@ public class BYGItems {
     public static final Item MANGROVE_TRAPDOOR = createItem(new BlockItem(BYGBlocks.MANGROVE_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MANGROVE_TRAPDOOR));
     public static final Item MANGROVE_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.MANGROVE_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MANGROVE_PRESSURE_PLATE));
     public static final Item MANGROVE_BUTTON = createItem(new BlockItem(BYGBlocks.MANGROVE_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MANGROVE_BUTTON));
-    public static final Item MANGROVE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MANGROVE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "mangrove_boat");
+//    public static final Item MANGROVE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MANGROVE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "mangrove_boat");
 
     //Maple Woodtype
     public static final Item MAPLE_SAPLING = createItem(new BlockItem(BYGBlocks.MAPLE_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MAPLE_SAPLING));
@@ -535,7 +534,7 @@ public class BYGItems {
     public static final Item MAPLE_TRAPDOOR = createItem(new BlockItem(BYGBlocks.MAPLE_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MAPLE_TRAPDOOR));
     public static final Item MAPLE_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.MAPLE_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MAPLE_PRESSURE_PLATE));
     public static final Item MAPLE_BUTTON = createItem(new BlockItem(BYGBlocks.MAPLE_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.MAPLE_BUTTON));
-    public static final Item MAPLE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "maple_boat");
+//    public static final Item MAPLE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "maple_boat");
 
     //Nightshade Woodtype
     public static final Item NIGHTSHADE_SAPLING = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.NIGHTSHADE_SAPLING));
@@ -575,7 +574,7 @@ public class BYGItems {
     public static final Item PALM_TRAPDOOR = createItem(new BlockItem(BYGBlocks.PALM_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.PALM_TRAPDOOR));
     public static final Item PALM_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.PALM_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.PALM_PRESSURE_PLATE));
     public static final Item PALM_BUTTON = createItem(new BlockItem(BYGBlocks.PALM_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.PALM_BUTTON));
-    public static final Item PALM_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.PALM, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "palm_boat");
+//    public static final Item PALM_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.PALM, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "palm_boat");
 
     //Palo Verde Woodtype
     public static final Item FLOWERING_PALO_VERDE_LEAVES = createItem(new BlockItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES));
@@ -604,7 +603,7 @@ public class BYGItems {
     public static final Item PINE_TRAPDOOR = createItem(new BlockItem(BYGBlocks.PINE_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.PINE_TRAPDOOR));
     public static final Item PINE_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.PINE_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.PINE_PRESSURE_PLATE));
     public static final Item PINE_BUTTON = createItem(new BlockItem(BYGBlocks.PINE_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.PINE_BUTTON));
-    public static final Item PINE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.PINE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "pine_boat");
+//    public static final Item PINE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.PINE, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "pine_boat");
 
     //Rainbow Eucalyptus Woodtype
     public static final Item RAINBOW_EUCALYPTUS_SAPLING = createItem(new BlockItem(BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING));
@@ -624,7 +623,7 @@ public class BYGItems {
     public static final Item RAINBOW_EUCALYPTUS_TRAPDOOR = createItem(new BlockItem(BYGBlocks.RAINBOW_EUCALYPTUS_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.RAINBOW_EUCALYPTUS_TRAPDOOR));
     public static final Item RAINBOW_EUCALYPTUS_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.RAINBOW_EUCALYPTUS_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.RAINBOW_EUCALYPTUS_PRESSURE_PLATE));
     public static final Item RAINBOW_EUCALYPTUS_BUTTON = createItem(new BlockItem(BYGBlocks.RAINBOW_EUCALYPTUS_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.RAINBOW_EUCALYPTUS_BUTTON));
-    public static final Item RAINBOW_EUCALYPTUS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.RAINBOW_EUCALYPTUS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "rainbow_eucalyptus_boat");
+//    public static final Item RAINBOW_EUCALYPTUS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.RAINBOW_EUCALYPTUS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "rainbow_eucalyptus_boat");
 
     //Redwood Woodtype
     public static final Item REDWOOD_SAPLING = createItem(new BlockItem(BYGBlocks.REDWOOD_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.REDWOOD_SAPLING));
@@ -644,7 +643,7 @@ public class BYGItems {
     public static final Item REDWOOD_TRAPDOOR = createItem(new BlockItem(BYGBlocks.REDWOOD_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.REDWOOD_TRAPDOOR));
     public static final Item REDWOOD_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.REDWOOD_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.REDWOOD_PRESSURE_PLATE));
     public static final Item REDWOOD_BUTTON = createItem(new BlockItem(BYGBlocks.REDWOOD_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.REDWOOD_BUTTON));
-    public static final Item REDWOOD_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.REDWOOD, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "redwood_boat");
+//    public static final Item REDWOOD_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.REDWOOD, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "redwood_boat");
 
     //Skyris Woodtype
     public static final Item SKYRIS_LEAVES_GREEN_APPLE = createItem(new BlockItem(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE));
@@ -667,7 +666,7 @@ public class BYGItems {
     public static final Item SKYRIS_TRAPDOOR = createItem(new BlockItem(BYGBlocks.SKYRIS_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.SKYRIS_TRAPDOOR));
     public static final Item SKYRIS_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.SKYRIS_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.SKYRIS_PRESSURE_PLATE));
     public static final Item SKYRIS_BUTTON = createItem(new BlockItem(BYGBlocks.SKYRIS_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.SKYRIS_BUTTON));
-    public static final Item SKYRIS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "skyris_boat");
+//    public static final Item SKYRIS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "skyris_boat");
 
     //Willow Woodtype
     public static final Item WILLOW_SAPLING = createItem(new BlockItem(BYGBlocks.WILLOW_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.WILLOW_SAPLING));
@@ -687,7 +686,7 @@ public class BYGItems {
     public static final Item WILLOW_TRAPDOOR = createItem(new BlockItem(BYGBlocks.WILLOW_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.WILLOW_TRAPDOOR));
     public static final Item WILLOW_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.WILLOW_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.WILLOW_PRESSURE_PLATE));
     public static final Item WILLOW_BUTTON = createItem(new BlockItem(BYGBlocks.WILLOW_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.WILLOW_BUTTON));
-    public static final Item WILLOW_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.WILLOW, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "willow_boat");
+//    public static final Item WILLOW_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.WILLOW, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "willow_boat");
 
     //Witch-Hazel Woodtype
     public static final Item BLOOMING_WITCH_HAZEL_LEAVES = createItem(new BlockItem(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES));
@@ -708,7 +707,7 @@ public class BYGItems {
     public static final Item WITCH_HAZEL_TRAPDOOR = createItem(new BlockItem(BYGBlocks.WITCH_HAZEL_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.WITCH_HAZEL_TRAPDOOR));
     public static final Item WITCH_HAZEL_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.WITCH_HAZEL_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.WITCH_HAZEL_PRESSURE_PLATE));
     public static final Item WITCH_HAZEL_BUTTON = createItem(new BlockItem(BYGBlocks.WITCH_HAZEL_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.WITCH_HAZEL_BUTTON));
-    public static final Item WITCH_HAZEL_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.WITCH_HAZEL, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "witch_hazel_boat");
+//    public static final Item WITCH_HAZEL_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.WITCH_HAZEL, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "witch_hazel_boat");
 
     //Zelkova Woodtype
     public static final Item ZELKOVA_SAPLING = createItem(new BlockItem(BYGBlocks.ZELKOVA_SAPLING, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.ZELKOVA_SAPLING));
@@ -728,7 +727,7 @@ public class BYGItems {
     public static final Item ZELKOVA_TRAPDOOR = createItem(new BlockItem(BYGBlocks.ZELKOVA_TRAPDOOR, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.ZELKOVA_TRAPDOOR));
     public static final Item ZELKOVA_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.ZELKOVA_PRESSURE_PLATE, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.ZELKOVA_PRESSURE_PLATE));
     public static final Item ZELKOVA_BUTTON = createItem(new BlockItem(BYGBlocks.ZELKOVA_BUTTON, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.ZELKOVA_BUTTON));
-    public static final Item ZELKOVA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.ZELKOVA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "zelkova_boat");
+//    public static final Item ZELKOVA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.ZELKOVA, new Item.Settings().group(BYG.BYG_TAB).maxCount(1)), "zelkova_boat");
 
     //Sythian Woodtype
     public static final Item SYTHIAN_WART_BLOCK = createItem(new BlockItem(BYGBlocks.SYTHIAN_WART_BLOCK, new Item.Settings().group(BYG.BYG_TAB)), Registry.BLOCK.getId(BYGBlocks.SYTHIAN_WART_BLOCK));

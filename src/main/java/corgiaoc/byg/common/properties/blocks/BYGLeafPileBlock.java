@@ -25,7 +25,7 @@ public class BYGLeafPileBlock extends PlantBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
-        return Feature.isSoil(state.getBlock()) || state.isIn(FabricTags.END_STONES) || state.isIn(BlockTags.NYLIUM) || state.isIn(FabricTags.NETHERRACK) || super.canPlantOnTop(state, worldIn, pos);
+        return Feature.isSoil(state) || state.isIn(FabricTags.END_STONES) || state.isIn(BlockTags.NYLIUM) || state.isIn(FabricTags.NETHERRACK) || super.canPlantOnTop(state, worldIn, pos);
     }
 
     @Override

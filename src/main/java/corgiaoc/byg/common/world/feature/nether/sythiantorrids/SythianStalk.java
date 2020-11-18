@@ -42,7 +42,7 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
                             int zBuild = z - pos.getZ();
                             if (xBuild * xBuild + zBuild * zBuild <= randNextInt * randNextInt) {
                                 mutable2.set(x, world.getTopY(Heightmap.Type.WORLD_SURFACE, x, z) - 1, z);
-                                if (isSoil(world.getBlockState(mutable2).getBlock())) {
+                                if (isSoil(world.getBlockState(mutable2))) {
                                     world.setBlockState(mutable2, BYGBlocks.SYTHIAN_NYLIUM.getDefaultState(), 2);
                                 }
                             }

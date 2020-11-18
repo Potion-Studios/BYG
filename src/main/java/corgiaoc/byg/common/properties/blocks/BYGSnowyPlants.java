@@ -27,6 +27,6 @@ public class BYGSnowyPlants extends PlantBlock {
     @Override
     protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.SNOW_BLOCK || Feature.isSoil(state.getBlock());
+        return block == Blocks.SNOW_BLOCK || Feature.isSoil(state);
     }
 }

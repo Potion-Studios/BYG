@@ -1,7 +1,6 @@
 package corgiaoc.byg.common.world.feature.end;
 
 import corgiaoc.byg.util.FabricTags;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldAccess;
@@ -14,7 +13,7 @@ public class EndVegetationFeature {
     }
 
     public static boolean placeBonemeal(WorldAccess world, Random rand, BlockPos pos, BlockPileFeatureConfig config, int spreadRandom1, int spreadRandom2) {
-        Block block = world.getBlockState(pos.down()).getBlock();
+        BlockState block = world.getBlockState(pos.down());
         if (block.isIn(FabricTags.END_STONES)) {
             return false;
         } else {

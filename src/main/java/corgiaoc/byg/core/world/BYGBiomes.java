@@ -24,10 +24,12 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.biome.BuiltinBiomes;
+import net.minecraft.world.biome.layer.SetBaseBiomesLayer;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -312,8 +314,21 @@ public class BYGBiomes {
                 key.ifPresent(biomeRegistryKey -> BuiltinBiomes.BY_RAW_ID.put(BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
         }
         BYG.LOGGER.info("Added Numerical Biome ID's!");
-
     }
+
+    //We add our biomes to the public static int arrays for each category and this lets us spawn our biomes in vanilla worldtypes.
+    public static void addNumericalBiomeEntries() {
+        for (PreserveBiomeOrder integer : biomeList)
+            SetBaseBiomesLayer.DRY_BIOMES = addElement(SetBaseBiomesLayer.DRY_BIOMES, BuiltinRegistries.BIOME.getRawId(integer.getBiome()));
+    }
+
+    static int[] addElement(int[] a, int e) {
+        a = Arrays.copyOf(a, a.length + 1);
+        a[a.length - 1] = e;
+        return a;
+    }
+
+
 
     public static class PreserveBiomeOrder {
         private final Biome biome;

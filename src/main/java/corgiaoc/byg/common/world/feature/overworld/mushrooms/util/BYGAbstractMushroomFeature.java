@@ -34,7 +34,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
     public boolean isAnotherMushroomHere(TestableWorld worldReader, BlockPos blockPos) {
         return worldReader.testBlockState(blockPos, (state) -> {
             Block block = state.getBlock();
-            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES);
+            return state.isIn(BlockTags.LOGS) || state.isIn(BlockTags.LEAVES);
         });
     }
 
@@ -93,7 +93,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
     public boolean canGiantMushroomGrowHere(TestableWorld reader, BlockPos pos) {
         return reader.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
-            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.SOIL;
+            return state.isIn(BlockTags.LOGS) || state.isIn(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.SOIL;
         });
     }
 
@@ -121,9 +121,9 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         return reader.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return Feature.isSoil(block) || block == block1;
+                return Feature.isSoil(state) || block == block1;
             }
-            return Feature.isSoil(block);
+            return Feature.isSoil(state);
         });
     }
 
@@ -131,9 +131,9 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         return reader.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return block.isIn(FabricTags.END_STONES) || block == block1;
+                return state.isIn(FabricTags.END_STONES) || block == block1;
             }
-            return block.isIn(FabricTags.END_STONES);
+            return state.isIn(FabricTags.END_STONES);
         });
     }
 

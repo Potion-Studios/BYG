@@ -36,7 +36,7 @@ public class BYGFairySlipperBlock extends PlantBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
-        return state.getBlock().isIn(BlockTags.LOGS) || Feature.isSoil(state.getBlock());
+        return state.isIn(BlockTags.LOGS) || Feature.isSoil(state);
     }
 
     @Override

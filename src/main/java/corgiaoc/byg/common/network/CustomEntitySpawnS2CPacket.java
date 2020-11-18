@@ -1,7 +1,6 @@
 package corgiaoc.byg.common.network;
 
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.entity.boat.BYGBoatEntity;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -43,9 +42,10 @@ public class CustomEntitySpawnS2CPacket {
             Entity ownerEntity = ((ProjectileEntity) e).getOwner();
             owner = ownerEntity != null ? ownerEntity.getEntityId() : 0;
         }
-        if (e instanceof BYGBoatEntity) { // because the datatracker doesnt seem to be sending the data at the right time?
-            owner = ((BYGBoatEntity) e).getBYGBoatType().ordinal();
-        }
+        //TODO: Reimplement packet for boat.
+//        if (e instanceof BYGBoatEntity) { // because the datatracker doesnt seem to be sending the data at the right time?
+//            owner = ((BYGBoatEntity) e).getBYGBoatType().ordinal();
+//        }
         buf.writeInt(owner);
         Vec3d velocity = e.getVelocity();
         buf.writeDouble(velocity.x);
@@ -81,9 +81,11 @@ public class CustomEntitySpawnS2CPacket {
 
         if (entity instanceof ProjectileEntity) {
             ((ProjectileEntity) entity).setOwner(client.world.getEntityById(entityData));
-        } else if (entity instanceof BYGBoatEntity) {
-            ((BYGBoatEntity) entity).setBYGBoatType(BYGBoatEntity.BYGType.byId(entityData));
         }
+        //TODO: Reimplement packet for boat.
+//        else if (entity instanceof BYGBoatEntity) {
+//            ((BYGBoatEntity) entity).setBYGBoatType(BYGBoatEntity.BYGType.byId(entityData));
+//        }
         entity.setEntityId(id);
         entity.setUuid(uuid);
         entity.updatePosition(x, y, z);

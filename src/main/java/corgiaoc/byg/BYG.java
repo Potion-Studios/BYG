@@ -68,6 +68,8 @@ public class BYG implements ModInitializer {
         commonSetup();
         loadComplete();
         registerCommand();
+        if (FabricLoader.getInstance().isModLoaded("cubicchunks"))
+            BYGBiomes.addBiomeNumericalIDs();
     }
 
     private void commonSetup() {

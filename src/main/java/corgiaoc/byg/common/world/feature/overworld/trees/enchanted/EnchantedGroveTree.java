@@ -25,7 +25,7 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
     protected static boolean isDirtOrPeatBlock(TestableWorld worldIn, BlockPos pos) {
         return worldIn.testBlockState(pos, (state) -> {
             Block block = state.getBlock();
-            return Feature.isSoil(block) || block == BYGBlocks.PEAT;
+            return Feature.isSoil(state) || block == BYGBlocks.PEAT;
         });
     }
 

@@ -1042,7 +1042,7 @@ public class BYGBlocks {
     }
 
     static Block createTrapDoor(String id) {
-        Block createBlock = new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0f, 3.0f).nonOpaque());
+        Block createBlock = new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0f, 3.0f).nonOpaque());
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1066,7 +1066,7 @@ public class BYGBlocks {
     }
 
     static Block createBookshelf(String id) {
-        Block createBlock = new BookshelfBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0f, 3.0f));
+        Block createBlock = new BookshelfBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0f, 3.0f));
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1074,7 +1074,7 @@ public class BYGBlocks {
     }
 
     static Block createDoor(String id) {
-        Block createBlock = new DoorBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0f, 3.0f).nonOpaque());
+        Block createBlock = new DoorBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0f, 3.0f).nonOpaque());
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1082,7 +1082,7 @@ public class BYGBlocks {
     }
 
     static Block createPlanks(String id) {
-        Block createBlock = new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0f, 3.0f));
+        Block createBlock = new Block(FabricBlockSettings.of(Material.WOOD, MapColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0f, 3.0f));
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1098,7 +1098,7 @@ public class BYGBlocks {
     }
 
     static Block createStrippedLog(String id) {
-        Block createBlock = new PillarBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD).sounds(BlockSoundGroup.WOOD).strength(2.0f));
+        Block createBlock = new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.WOOD).sounds(BlockSoundGroup.WOOD).strength(2.0f));
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
@@ -1233,7 +1233,7 @@ public class BYGBlocks {
     }
 
     static Block createShroomlight(String id) {
-        Block createBlock = new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MaterialColor.PURPLE).strength(1.0F).sounds(BlockSoundGroup.SHROOMLIGHT).breakByTool(FabricToolTags.HOES).luminance((state) -> 14));
+        Block createBlock = new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.PURPLE).strength(1.0F).sounds(BlockSoundGroup.SHROOMLIGHT).breakByTool(FabricToolTags.HOES).luminance((state) -> 14));
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
         //createBlock.setRegistryName(new Identifier(BYG.MOD_ID, id));
         blocksList.add(createBlock);
