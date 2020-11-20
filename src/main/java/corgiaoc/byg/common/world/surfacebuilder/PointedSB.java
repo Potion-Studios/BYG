@@ -7,7 +7,6 @@ import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
@@ -36,7 +35,7 @@ public class PointedSB extends SurfaceBuilder<PointedSBConfig> {
 
         float sampleNoise = noiseGen.GetNoise(fnVector3f.x, fnVector3f.z);
 
-        int groundLevel = chunkIn.sampleHeightmap(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
+        int groundLevel = startHeight - 3;
 
         if (sampleNoise < 0.43) {
             int valueToReverse = (int) (Math.abs((int) (sampleNoise * 645D) * 1.8));
