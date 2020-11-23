@@ -72,7 +72,6 @@ repositories{
         name = "ModMaven"
         url = "https://modmaven.k-4u.nl"
     }
-    maven { url 'https://jitpack.io' }
     maven {url = 'https://repo.spongepowered.org/maven/'}
 
     maven {url = 'https://dist.creeper.host/Sponge/maven'}
@@ -84,9 +83,6 @@ repositories{
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     compile 'org.spongepowered:mixin:0.8'
-    testImplementation fg.deobf('com.github.CorgiTaco:3D-Biomes:1.0') {
-        transitive = false
-    }
 }
 
 jar {
