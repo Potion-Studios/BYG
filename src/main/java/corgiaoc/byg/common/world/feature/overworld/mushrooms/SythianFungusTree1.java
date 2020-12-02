@@ -26,7 +26,7 @@ public class SythianFungusTree1 extends BYGAbstractMushroomFeature<BYGMushroomCo
         int randTreeHeight = 11 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
 
-        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getTopHeightLimit()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), BYGBlocks.SYTHIAN_NYLIUM)) {
                 return false;
             } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {

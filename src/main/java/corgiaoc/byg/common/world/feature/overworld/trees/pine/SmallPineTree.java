@@ -5,9 +5,6 @@ import corgiaoc.byg.BYG;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.Structure;
 import net.minecraft.structure.StructureManager;
-import net.minecraft.structure.StructurePlacementData;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
@@ -43,8 +40,8 @@ public class SmallPineTree extends Feature<DefaultFeatureConfig> {
                 return false;
             }
 
-            StructurePlacementData placementsettings = (new StructurePlacementData()).setMirror(BlockMirror.NONE).setRotation(BlockRotation.NONE).setIgnoreEntities(false).setChunkPosition(null);
-            template.place(world, pos, placementsettings, rand);
+//            StructurePlacementData placementsettings = (new StructurePlacementData()).setMirror(BlockMirror.NONE).setRotation(BlockRotation.NONE).setIgnoreEntities(false);
+//            template.place(world, pos, placementsettings, rand);
             return true;
         }
         return false;

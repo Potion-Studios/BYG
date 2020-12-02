@@ -96,7 +96,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
                                 world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
 
                                 // recursively moves up and breaks floating sugar cane
-                                while (mutable.getY() < world.getHeight() && world.getBlockState(mutable.move(Direction.UP)) == Blocks.SUGAR_CANE.getDefaultState()) {
+                                while (mutable.getY() < world.getTopHeightLimit() && world.getBlockState(mutable.move(Direction.UP)) == Blocks.SUGAR_CANE.getDefaultState()) {
                                     world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
                                 }
                             }

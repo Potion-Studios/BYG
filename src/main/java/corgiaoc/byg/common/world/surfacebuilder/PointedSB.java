@@ -47,7 +47,7 @@ public class PointedSB extends SurfaceBuilder<PointedSBConfig> {
             if (topHeight > groundLevel) {
                 mutable.move(Direction.UP, topHeight);
                 for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
-                    if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getHeight()) {
+                    if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getTopHeightLimit()) {
                         if (yPos == topHeight)
                             chunkIn.setBlockState(mutable, config.getSpikeTopBlockProvider().getBlockState(random, mutable), false);
                         else

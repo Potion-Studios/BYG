@@ -26,7 +26,7 @@ public class GreenMushroomHuge extends BYGAbstractMushroomFeature<BYGMushroomCon
         int randTreeHeight = 6 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
 
-        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getTopHeightLimit()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), Blocks.GRASS_BLOCK)) {
                 return false;
             } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, BYGBlocks.WHITE_MUSHROOM_STEM, BYGBlocks.GREEN_MUSHROOM_BLOCK, isMushroom)) {

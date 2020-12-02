@@ -101,7 +101,7 @@ public class RawQuartzColumnFeature extends Feature<BasaltColumnsFeatureConfig> 
 
     @Nullable
     private static BlockPos func_236249_a_(WorldAccess p_236249_0_, BlockPos.Mutable p_236249_1_, int p_236249_2_) {
-        while (p_236249_1_.getY() < p_236249_0_.getHeight() && p_236249_2_ > 0) {
+        while (p_236249_1_.getY() < p_236249_0_.getTopHeightLimit() && p_236249_2_ > 0) {
             --p_236249_2_;
             BlockState blockstate = p_236249_0_.getBlockState(p_236249_1_);
             if (field_236245_a_.contains(blockstate.getBlock())) {

@@ -29,7 +29,7 @@ public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         BlockPos.Mutable block = new BlockPos.Mutable().set(blockPos);
         BlockPos.Mutable mainMutable = new BlockPos.Mutable().set(block);
 
-        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getTopHeightLimit()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {

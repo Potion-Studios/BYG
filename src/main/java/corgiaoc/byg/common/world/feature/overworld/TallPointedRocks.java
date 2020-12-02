@@ -43,7 +43,7 @@ public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> 
                 if (topHeight > groundLevel) {
                     mutable.move(Direction.UP, topHeight);
                     for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
-                        if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getHeight()) {
+                        if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getTopHeightLimit()) {
                             chunkIn.setBlockState(mutable, config.getBlockProvider().getBlockState(random, mutable), false);
                         }
                         mutable.move(Direction.DOWN);

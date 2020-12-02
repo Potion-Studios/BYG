@@ -84,7 +84,7 @@ public class SpreadableBlock extends SnowyBlock implements Fertilizable {
         BlockState thisBlockState = (rand.nextInt(2) == 0) ? Blocks.GRASS.getDefaultState() : BYGBlocks.SHORT_GRASS.getDefaultState();
 
 
-        for (int i = 0; i < world.getHeight(); ++i) {
+        for (int i = 0; i < world.getTopHeightLimit(); ++i) {
             BlockPos blockpos1 = blockpos;
             int j = 0;
 

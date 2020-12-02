@@ -22,7 +22,7 @@ public class AnyWaterOrSolidSurface extends Decorator<CountConfig> {
         return IntStream.range(0, config.getCount().getValue(random)).mapToObj((obj) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();
-            BlockPos.Mutable mutable = new BlockPos.Mutable(x, ctx.world.getHeight(), z);
+            BlockPos.Mutable mutable = new BlockPos.Mutable(x, ctx.world.getTopHeightLimit(), z);
             while (mutable.getY() > 0 && !ctx.getBlockState(mutable).isOpaqueFullCube(ctx.world, mutable) && ctx.getBlockState(mutable).getFluidState().isEmpty())
                 mutable.move(Direction.DOWN);
             return mutable.toImmutable();

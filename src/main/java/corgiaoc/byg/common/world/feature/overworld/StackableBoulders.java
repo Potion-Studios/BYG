@@ -83,7 +83,7 @@ public class StackableBoulders extends Feature<BoulderConfig> {
                 }
             }
 
-            while (mutable.getY() < world.getHeight() && !world.getBlockState(mutable).isAir()) {
+            while (mutable.getY() < world.getTopHeightLimit() && !world.getBlockState(mutable).isAir()) {
                 mutable.move(Direction.UP);
             }
 

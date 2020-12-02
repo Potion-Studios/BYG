@@ -25,7 +25,7 @@ public class CypressTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
 
-        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getTopHeightLimit()) {
 
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;

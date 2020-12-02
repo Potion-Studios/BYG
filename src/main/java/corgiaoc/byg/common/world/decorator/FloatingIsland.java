@@ -25,7 +25,7 @@ public class FloatingIsland extends Decorator<CountExtraDecoratorConfig> {
         return IntStream.range(0, i).mapToObj((streamedInt) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();
-            int y = random.nextInt(decoratorContext.world.getHeight() - 40) + 20;
+            int y = random.nextInt(decoratorContext.world.getTopHeightLimit() - 40) + 20;
             return new BlockPos(x, y, z);
         });
     }

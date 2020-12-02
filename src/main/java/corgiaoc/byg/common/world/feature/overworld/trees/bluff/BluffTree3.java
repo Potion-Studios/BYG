@@ -20,12 +20,12 @@ public class BluffTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
     public boolean generate(Set<BlockPos> changedBlocks, StructureWorldAccess worldIn, Random rand, BlockPos pos, BlockBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
-        int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + worldIn.getHeight();
+        int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + worldIn.getTopHeightLimit();
         //Positions
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (posY + randTreeHeight + 1 < worldIn.getTopHeightLimit()) {
 
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;

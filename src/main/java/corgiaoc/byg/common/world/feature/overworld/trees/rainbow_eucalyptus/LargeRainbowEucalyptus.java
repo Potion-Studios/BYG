@@ -27,7 +27,7 @@ public class LargeRainbowEucalyptus extends BYGAbstractTreeFeature<BYGTreeConfig
         BlockPos.Mutable mainmutable4 = new BlockPos.Mutable().set(pos.offset(Direction.WEST));
         BlockPos.Mutable mainmutable5 = new BlockPos.Mutable().set(pos.offset(Direction.EAST));
 
-        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getTopHeightLimit()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {

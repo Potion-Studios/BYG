@@ -22,7 +22,7 @@ public class EnchantedTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int randTreeHeight = 13 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
 
-        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getTopHeightLimit()) {
 
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;

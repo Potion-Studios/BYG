@@ -25,7 +25,7 @@ public class AcaciaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int randTreeHeight = 8;
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
 
-        if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getTopHeightLimit()) {
 
             if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
                 return false;

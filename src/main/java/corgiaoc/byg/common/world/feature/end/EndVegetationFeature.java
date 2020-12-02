@@ -18,7 +18,7 @@ public class EndVegetationFeature {
             return false;
         } else {
             int i = pos.getY();
-            if (i >= 1 && i + 1 < world.getHeight()) {
+            if (i >= 1 && i + 1 < world.getTopHeightLimit()) {
                 int j = 0;
 
                 for (int k = 0; k < spreadRandom1 * spreadRandom1; ++k) {

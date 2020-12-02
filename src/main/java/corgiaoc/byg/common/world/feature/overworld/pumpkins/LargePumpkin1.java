@@ -28,7 +28,7 @@ public class LargePumpkin1 extends Feature<PumpkinConfig> {
         if (world.getBlockState(pos.down()) != config.getPumpkinProvider().getBlockState(random, pos) || !world.getBlockState(pos.down()).isOpaque())
             return false;
 
-        if (posY - 1 < world.getHeight()) {
+        if (posY - 1 < world.getTopHeightLimit()) {
             setPumpkinState(mutable.set(posX, posY + 1, posZ), random, config, world);
             setPumpkinState(mutable.set(posX - 1, posY, posZ), random, config, world);
             setPumpkinState(mutable.set(posX + 1, posY, posZ), random, config, world);
