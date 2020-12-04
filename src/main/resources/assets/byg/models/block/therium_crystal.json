@@ -1,7 +1,7 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:block/therium_crystal",
-    "particle": "byg:block/therium_crystal"
+    "cross": "byg:block/therium_crystal_stage3",
+    "particle": "byg:block/therium_crystal_stage3"
   }
 }

@@ -544,6 +544,7 @@ public class BYGItems {
     public static final Item NIGHTSHADE_SAPLING = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_SAPLING));
     public static final Item FLOWERING_NIGHTSHADE_LEAVES = createItem(new BlockItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES));
     public static final Item NIGHTSHADE_LEAVES = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_LEAVES));
+    public static final Item IMBUED_NIGHTSHADE_LOG = createItem(new BlockItem(BYGBlocks.IMBUED_NIGHTSHADE_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMBUED_NIGHTSHADE_LOG));
     public static final Item NIGHTSHADE_LOG = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_LOG));
     public static final Item NIGHTSHADE_WOOD = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_WOOD));
     public static final Item STRIPPED_NIGHTSHADE_LOG = createItem(new BlockItem(BYGBlocks.STRIPPED_NIGHTSHADE_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.STRIPPED_NIGHTSHADE_LOG));

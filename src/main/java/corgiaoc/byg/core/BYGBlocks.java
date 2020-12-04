@@ -703,6 +703,7 @@ public class BYGBlocks {
     public static final Block WITHERING_OAK_LOG = createLog("withering_oak_log");
     public static final Block BULBIS_STEM = new BYGBlockProperties.BYGNetherLog("bulbis_stem");
     public static final Block NIGHTSHADE_LOG = createLog("nightshade_log");
+    public static final Block IMBUED_NIGHTSHADE_LOG = createLog("imbued_nightshade_log");
     public static final Block ETHER_LOG = createLog("ether_log");
 
 

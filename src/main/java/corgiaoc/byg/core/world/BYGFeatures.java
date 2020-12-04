@@ -14,8 +14,7 @@ import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree4;
 import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree1;
 import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree2;
 import corgiaoc.byg.common.world.feature.end.trees.ether.EtherTree3;
-import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree1;
-import corgiaoc.byg.common.world.feature.end.trees.nightshade.NightshadeTree2;
+import corgiaoc.byg.common.world.feature.end.trees.nightshade.*;
 import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree1;
 import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree2;
 import corgiaoc.byg.common.world.feature.nether.Chain;
@@ -209,8 +208,13 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ETHER_TREE3 = WorldGenRegistrationHelper.createFeature("ether_tree3", new EtherTree3(BYGTreeConfig.CODEC.stable()));
 
     //Nightshade
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> NIGHTSHADE_BUSH1 = WorldGenRegistrationHelper.createFeature("nightshade_bush1", new NightshadeBush1(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> NIGHTSHADE_BUSH2 = WorldGenRegistrationHelper.createFeature("nightshade_bush2", new NightshadeBush2(BYGTreeConfig.CODEC.stable()));
+
     public static final BYGAbstractTreeFeature<BYGTreeConfig> NIGHTSHADE_TREE1 = WorldGenRegistrationHelper.createFeature("nightshade_tree1", new NightshadeTree1(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> NIGHTSHADE_TREE2 = WorldGenRegistrationHelper.createFeature("nightshade_tree2", new NightshadeTree2(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> NIGHTSHADE_TREE3 = WorldGenRegistrationHelper.createFeature("nightshade_tree3", new NightshadeTree3(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> NIGHTSHADE_TREE4 = WorldGenRegistrationHelper.createFeature("nightshade_tree4", new NightshadeTree4(BYGTreeConfig.CODEC.stable()));
 
     //Shulkren
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SHULKREN_TREE1 = WorldGenRegistrationHelper.createFeature("shulkren_tree1", new ShulkrenTree1(BYGMushroomConfig.CODEC.stable()));

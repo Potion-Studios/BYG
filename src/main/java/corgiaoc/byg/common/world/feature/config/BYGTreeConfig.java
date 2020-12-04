@@ -139,6 +139,15 @@ public class BYGTreeConfig implements IFeatureConfig {
             return this;
         }
 
+        public Builder setTrunkBlock(BlockStateProvider stateProvider) {
+            if (stateProvider != null)
+                trunkProvider = stateProvider;
+            else
+                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+
+            return this;
+        }
+
         public Builder setLeavesBlock(Block block) {
             if (block != null)
                 leavesProvider = new SimpleBlockStateProvider(block.getDefaultState());
