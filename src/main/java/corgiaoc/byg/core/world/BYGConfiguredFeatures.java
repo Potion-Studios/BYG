@@ -245,6 +245,11 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND4 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island4", BYGFeatures.FLOATING_ISLAND4.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(13).setMaxRadius(17).build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND5 = WorldGenRegistrationHelper.createConfiguredFeature("floating_island5", BYGFeatures.FLOATING_ISLAND5.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(13).setMaxRadius(17).build()));
 
+    public static final ConfiguredFeature<?, ?> FLOATING_ETHER_ISLAND1 = WorldGenRegistrationHelper.createConfiguredFeature("floating_ether_island1", BYGFeatures.FLOATING_ISLAND1.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.ETHER_PHYLIUM).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(11).setMaxRadius(13).build()));
+    public static final ConfiguredFeature<?, ?> FLOATING_ETHER_ISLAND2 = WorldGenRegistrationHelper.createConfiguredFeature("floating_ether_island2", BYGFeatures.FLOATING_ISLAND2.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.ETHER_PHYLIUM).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(11).setMaxRadius(13).build()));
+    public static final ConfiguredFeature<?, ?> FLOATING_ETHER_ISLAND3 = WorldGenRegistrationHelper.createConfiguredFeature("floating_ether_island3", BYGFeatures.FLOATING_ISLAND3.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.ETHER_PHYLIUM).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(11).setMaxRadius(13).build()));
+
+
     public static final ConfiguredFeature<PumpkinConfig, ?> PUMPKIN1 = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin1", BYGFeatures.LARGE_PUMPKIN1.withConfiguration(new PumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).build()));
     public static final ConfiguredFeature<PumpkinConfig, ?> PUMPKIN2 = WorldGenRegistrationHelper.createConfiguredFeature("pumpkin2", BYGFeatures.LARGE_PUMPKIN2.withConfiguration(new PumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).setStemBlock(Blocks.DARK_OAK_LOG).setLeavesBlock(Blocks.DARK_OAK_LEAVES).build()));
 
@@ -1870,6 +1875,12 @@ public class BYGConfiguredFeatures {
             ETHER_TREE_DEAD2.withChance(0.35F)),
             ETHER_TREE_DEAD3)).withPlacement(BYGDecorators.MOTION_BLOCKING_NO_LEAVES_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ETHER_ISLAND = WorldGenRegistrationHelper.createConfiguredFeature("rs_floating_ether_island", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            FLOATING_ETHER_ISLAND1.withChance(0.35F),
+            FLOATING_ETHER_ISLAND2.withChance(0.35F)),
+            FLOATING_ETHER_ISLAND3)).withPlacement(BYGDecorators.ISLAND.configure(
+            new AtSurfaceWithExtraConfig(0, 0.13F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ISLAND = WorldGenRegistrationHelper.createConfiguredFeature("rs_floating_island", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             FLOATING_ISLAND1.withChance(0.25F),
