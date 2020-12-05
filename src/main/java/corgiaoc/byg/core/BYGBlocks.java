@@ -2,6 +2,7 @@ package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
+import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.nightshade.NightshadeBerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.end.shattereddesert.OddityCactusBlock;
@@ -20,6 +21,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.potion.Effects;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
@@ -29,6 +31,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.ToIntFunction;
 
 @SuppressWarnings("deprecation")
 public class BYGBlocks {
@@ -514,6 +517,7 @@ public class BYGBlocks {
     public static final Block CLOVER_PATCH = new BYGBlockProperties.BYGLeafPile("clover_patch");
     public static final Block FLOWER_PATCH = new BYGBlockProperties.BYGLeafPile("flower_patch");
     public static final Block BAOBAB_FRUIT_BLOCK = createBaobabFruitBlock("baobab_fruit_block");
+    public static final Block ETHER_BULBS_BLOCK = createEtherBulbsBlock("ether_bulbs_block");
 
     public static final Block ANTHRACITE_BLOCK = new BYGBlockProperties.AnthraciteOre("anthracite_block");
     public static final Block ANTHRACITE_ORE = new BYGBlockProperties.AnthraciteOre("anthracite_ore");
@@ -1200,6 +1204,14 @@ public class BYGBlocks {
     static Block createBaobabFruitBlock(String id) {
         Block createBlock = new BaobabFruitBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().harvestTool(ToolType.HOE).zeroHardnessAndResistance().doesNotBlockMovement());
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createEtherBulbsBlock(String id) {
+        Block createBlock = new EtherBulbsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().harvestTool(ToolType.HOE).zeroHardnessAndResistance().setLightLevel((state) -> 13).doesNotBlockMovement());
+
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
         return createBlock;

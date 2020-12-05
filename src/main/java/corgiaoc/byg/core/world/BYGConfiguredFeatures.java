@@ -1081,15 +1081,19 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGMushroomConfig, ?> PURPLE_BULBIS_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("purple_bulbis_tree3", BYGFeatures.BULBIS_TREE3.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> PURPLE_BULBIS_TREE4 = WorldGenRegistrationHelper.createConfiguredFeature("purple_bulbis_tree4", BYGFeatures.BULBIS_TREE4.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
 
-
     //End Trees
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_BUSH1 = WorldGenRegistrationHelper.createConfiguredFeature("ether_bush1", BYGFeatures.ETHER_BUSH1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_BUSH2 = WorldGenRegistrationHelper.createConfiguredFeature("ether_bush2", BYGFeatures.ETHER_BUSH2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+
     public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree1", BYGFeatures.ETHER_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree2", BYGFeatures.ETHER_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE3 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree3", BYGFeatures.ETHER_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE4 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree4", BYGFeatures.ETHER_TREE4.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE5 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree5", BYGFeatures.ETHER_TREE5.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
 
-    public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE_DEAD1 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree_dead1", BYGFeatures.ETHER_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(Blocks.AIR).setMaxHeight(30).setMinHeight(22).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE_DEAD2 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree_dead2", BYGFeatures.ETHER_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(Blocks.AIR).setMaxHeight(30).setMinHeight(22).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE_DEAD3 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree_dead3", BYGFeatures.ETHER_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(Blocks.AIR).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE_DEAD1 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree_dead1", BYGFeatures.ETHER_TREE1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_WOOD).setLeavesBlock(Blocks.AIR).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE_DEAD2 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree_dead2", BYGFeatures.ETHER_TREE2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_WOOD).setLeavesBlock(Blocks.AIR).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_TREE_DEAD3 = WorldGenRegistrationHelper.createConfiguredFeature("ether_tree_dead3", BYGFeatures.ETHER_TREE3.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_WOOD).setLeavesBlock(Blocks.AIR).setMaxHeight(30).setMinHeight(22).build()));
 
     public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_BUSH1 = WorldGenRegistrationHelper.createConfiguredFeature("nightshade_bush1", BYGFeatures.NIGHTSHADE_BUSH1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.NIGHTSHADE_LOG.getDefaultState(), 9).addWeightedBlockstate(BYGBlocks.IMBUED_NIGHTSHADE_LOG.getDefaultState(), 1)).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.NIGHTSHADE_LEAVES.getDefaultState(), 8)).setMaxHeight(30).setMinHeight(22).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_BUSH2 = WorldGenRegistrationHelper.createConfiguredFeature("nightshade_bush2", BYGFeatures.NIGHTSHADE_BUSH2.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.NIGHTSHADE_LOG.getDefaultState(), 9).addWeightedBlockstate(BYGBlocks.IMBUED_NIGHTSHADE_LOG.getDefaultState(), 1)).setLeavesBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.getDefaultState(), 3).addWeightedBlockstate(BYGBlocks.NIGHTSHADE_LEAVES.getDefaultState(), 8)).setMaxHeight(30).setMinHeight(22).build()));
@@ -1101,7 +1105,6 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<BYGMushroomConfig, ?> SHULKREN_TREE1 = WorldGenRegistrationHelper.createConfiguredFeature("shulkren_tree1", BYGFeatures.SHULKREN_TREE1.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.WHITE_MUSHROOM_STEM).setMushroomBlock(BYGBlocks.SHULKREN_WART_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> SHULKREN_TREE2 = WorldGenRegistrationHelper.createConfiguredFeature("shulkren_tree2", BYGFeatures.SHULKREN_TREE2.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.WHITE_MUSHROOM_STEM).setMushroomBlock(BYGBlocks.SHULKREN_WART_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
-
 
     /***********************************************************Random Selectors***********************************************************/
 
@@ -1845,9 +1848,16 @@ public class BYGConfiguredFeatures {
             new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ETHER_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_ether_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ETHER_TREE3.withChance(0.35F),
-            ETHER_TREE2.withChance(0.35F)),
-            ETHER_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
+            ETHER_TREE1.withChance(0.15F),
+            ETHER_TREE2.withChance(0.15F),
+            ETHER_TREE3.withChance(0.15F),
+            ETHER_TREE5.withChance(0.15F)),
+            ETHER_TREE4)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
+            new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_ETHER_BUSH = WorldGenRegistrationHelper.createConfiguredFeature("rs_ether_bush", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            ETHER_BUSH1.withChance(0.7F)),
+            ETHER_BUSH2)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SHULKREN_TREE = WorldGenRegistrationHelper.createConfiguredFeature("rs_shulkren_tree", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(

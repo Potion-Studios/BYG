@@ -881,6 +881,7 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addEtherTrees(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_TREE);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_BUSH);
     }
 
     public static void addShulkrenTrees(BiomeGenerationSettings.Builder gen) {

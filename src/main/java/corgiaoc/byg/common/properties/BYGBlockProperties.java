@@ -290,7 +290,6 @@ public class BYGBlockProperties {
                     .sound(SoundType.GLASS)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
-                    .notSolid()
                     .slipperiness(0.98F)
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -305,7 +304,6 @@ public class BYGBlockProperties {
                     .sound(SoundType.GLASS)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
-                    .notSolid()
                     .slipperiness(0.98F)
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
@@ -319,8 +317,6 @@ public class BYGBlockProperties {
             super(AbstractBlock.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.2f)
-                    .tickRandomly()
-                    .notSolid()
                     .slipperiness(0.98F)
                     .setLightLevel((state) -> 10)
                     .harvestTool(ToolType.PICKAXE)
@@ -339,7 +335,6 @@ public class BYGBlockProperties {
                     .sound(SoundType.STONE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
-                    .notSolid()
                     .setLightLevel((state) -> 10)
                     .harvestTool(ToolType.PICKAXE)
                     .setRequiresTool()

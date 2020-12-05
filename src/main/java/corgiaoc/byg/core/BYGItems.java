@@ -353,6 +353,8 @@ public class BYGItems {
     public static final Item EBONY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)), "ebony_boat");
 
     //Ether Woodtype
+    public static final Item ETHER_BULBS = createItem(new BlockItem(BYGBlocks.ETHER_BULBS_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().saturation(5.0f).effect(new EffectInstance(Effects.GLOWING, 200, 0), 1.0F).setAlwaysEdible().build())), "ether_bulbs");
+
     public static final Item ETHER_SAPLING = createItem(new BlockItem(BYGBlocks.ETHER_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_SAPLING));
     public static final Item ETHER_LEAVES = createItem(new BlockItem(BYGBlocks.ETHER_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_LEAVES));
     public static final Item ETHER_LOG = createItem(new BlockItem(BYGBlocks.ETHER_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_LOG));
@@ -413,7 +415,7 @@ public class BYGItems {
 
     //Holly Woodtype
     public static final Item HOLLY_BERRY_LEAVES = createItem(new BlockItem(BYGBlocks.HOLLY_BERRY_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.HOLLY_BERRY_LEAVES));
-    public static final Item HOLLY_BERRY = createItem(new Item(new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.1f).build())), "holly_berries");
+    public static final Item HOLLY_BERRY = createItem(new Item(new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.1f).effect(new EffectInstance(Effects.POISON, 200, 0), 1.0F).build())), "holly_berries");
     public static final Item HOLLY_SAPLING = createItem(new BlockItem(BYGBlocks.HOLLY_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.HOLLY_SAPLING));
     public static final Item HOLLY_LEAVES = createItem(new BlockItem(BYGBlocks.HOLLY_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.HOLLY_LEAVES));
     public static final Item HOLLY_LOG = createItem(new BlockItem(BYGBlocks.HOLLY_LOG, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.HOLLY_LOG));
