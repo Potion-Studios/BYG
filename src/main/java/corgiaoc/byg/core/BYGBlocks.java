@@ -21,17 +21,13 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.potion.Effects;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraftforge.common.ToolType;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.function.ToIntFunction;
 
 @SuppressWarnings("deprecation")
 public class BYGBlocks {
@@ -517,7 +513,7 @@ public class BYGBlocks {
     public static final Block CLOVER_PATCH = new BYGBlockProperties.BYGLeafPile("clover_patch");
     public static final Block FLOWER_PATCH = new BYGBlockProperties.BYGLeafPile("flower_patch");
     public static final Block BAOBAB_FRUIT_BLOCK = createBaobabFruitBlock("baobab_fruit_block");
-    public static final Block ETHER_BULBS_BLOCK = createEtherBulbsBlock("ether_bulbs_block");
+    public static final Block ETHER_BULB = createEtherBulbBlock("ether_bulbs_block");
 
     public static final Block ANTHRACITE_BLOCK = new BYGBlockProperties.AnthraciteOre("anthracite_block");
     public static final Block ANTHRACITE_ORE = new BYGBlockProperties.AnthraciteOre("anthracite_ore");
@@ -1209,7 +1205,7 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createEtherBulbsBlock(String id) {
+    static Block createEtherBulbBlock(String id) {
         Block createBlock = new EtherBulbsBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().harvestTool(ToolType.HOE).zeroHardnessAndResistance().setLightLevel((state) -> 13).doesNotBlockMovement());
 
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge

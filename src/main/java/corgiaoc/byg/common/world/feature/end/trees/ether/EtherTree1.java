@@ -106,7 +106,7 @@ public class EtherTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
     public void etherBulbs(Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (reader.getBlockState(pos.up()).getBlock() == BYGBlocks.ETHER_LEAVES) {
-            this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.ETHER_BULBS_BLOCK.getDefaultState().with(BaobabFruitBlock.AGE, random.nextInt(4)), boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.ETHER_BULB.getDefaultState().with(BaobabFruitBlock.AGE, random.nextInt(4)), boundingBox);
         }
     }
 }

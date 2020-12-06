@@ -65,6 +65,14 @@ public class EtherBulbsBlock extends Block implements IGrowable {
     }
 
     @Override
+    public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
+        if (state.get(AGE) >= 2)
+            return 15;
+        else
+            return 4;
+    }
+
+    @Override
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         return !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }

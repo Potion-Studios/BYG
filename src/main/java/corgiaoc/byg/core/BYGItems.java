@@ -16,9 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @SuppressWarnings("deprecation")
 public class BYGItems {
@@ -353,7 +351,7 @@ public class BYGItems {
     public static final Item EBONY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)), "ebony_boat");
 
     //Ether Woodtype
-    public static final Item ETHER_BULBS = createItem(new BlockItem(BYGBlocks.ETHER_BULBS_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().saturation(5.0f).effect(new EffectInstance(Effects.GLOWING, 200, 0), 1.0F).setAlwaysEdible().build())), "ether_bulbs");
+    public static final Item ETHER_BULBS = createItem(new BlockItem(BYGBlocks.ETHER_BULB, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().saturation(5.0f).effect(new EffectInstance(Effects.GLOWING, 200, 0), 1.0F).setAlwaysEdible().build())), "ether_bulbs");
 
     public static final Item ETHER_SAPLING = createItem(new BlockItem(BYGBlocks.ETHER_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_SAPLING));
     public static final Item ETHER_LEAVES = createItem(new BlockItem(BYGBlocks.ETHER_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_LEAVES));
