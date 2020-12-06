@@ -50,7 +50,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addFirecracker(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_FIRECRACKER);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.FIRECRACKER_BUSHES);
     }
 
     public static void addPrairieGrass(BiomeGenerationSettings.Builder gen) {
@@ -58,15 +58,15 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addPumpkinPatch(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PUMPKIN);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.PUMPKINS);
     }
 
     public static void addBlueberries(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BLUEBERRIES);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.BLUE_BERRY_BUSHES);
     }
 
     public static void addLushBlueberries(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_LUSH_BLUEBERRIES);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.LUSH_BLUE_BERRY_BUSHES);
     }
 
     public static void addBeachGrass(BiomeGenerationSettings.Builder gen) {
@@ -81,7 +81,7 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_FUNGUS);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CRIMSON_GARDEN_VEGETATION);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WEEPING_VINES);
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BLACKSTONE_BOULDERS);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.BLACKSTONE_BOULDERS);
 
     }
 
@@ -89,12 +89,12 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_MUSHROOM);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_BOG_PLANT);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_LILY);
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_SPROUTS);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_SPROUTS);
 
     }
 
     public static void addEmburBogVines(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_GEL_VINES);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_GEL_VINES);
     }
 
     public static void addAzalea(BiomeGenerationSettings.Builder gen) {
@@ -147,15 +147,15 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addHorseweed(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_HORSEWEED);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HORSEWEEDS);
     }
 
     public static void addWinterSucculent(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WINTER_SUCCULENT);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WINTER_SUCCLULENTS);
     }
 
     public static void addShortGrass(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SHORT_GRASS);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.SHORT_GRASSES);
     }
 
     public static void addIris(BiomeGenerationSettings.Builder gen) {
@@ -167,7 +167,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addCaliforniaPoppy(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CALIFORNIA_POPPY);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CALIFORNIA_POPPIES);
     }
 
     public static void addCrocus(BiomeGenerationSettings.Builder gen) {
@@ -326,7 +326,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addRockyStoneBoulder(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BOULDERS);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ROCKY_STONE_BOULDERS);
     }
 
     public static void addGiantLunaRocks(BiomeGenerationSettings.Builder gen) {
@@ -336,11 +336,11 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addTerracottaBoulder(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_TERRACOTTA_BOULDERS);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ORANGE_TERRACOTTA_BOULDERS);
     }
 
     public static void addMossyStoneBoulder(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BOULDERS);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.MOSSY_STONE_BOULDER);
     }
 
     public static void addFrostMagmaLakes(BiomeGenerationSettings.Builder gen) {
@@ -355,7 +355,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSoulFireWarped(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_SOUL_FIRE_PATCH_WARPED);
+        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.NYLIUM_SOUL_FIRE);
     }
 
     public static void addFrostMagmaPillars(BiomeGenerationSettings.Builder gen) {
@@ -371,15 +371,15 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBoricFire(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_BORIC_FIRE_PATCH);
+        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.BORIC_FIRE);
     }
 
     public static void addCrypticFire(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_CRYPTIC_FIRE_PATCH);
+        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.CRYPTIC_FIRE);
     }
 
     public static void addMagmaFire(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_MAGMA_FIRE_PATCH);
+        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.MAGMA_FIRE);
     }
 
     public static void addSubzeroAsh(BiomeGenerationSettings.Builder gen) {
@@ -412,7 +412,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addQuartzDesertVegetations(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_QUARTZ_CRYSTAL_PATCH);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.QUARTZ_CRYSTALS);
         gen.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, BYGConfiguredFeatures.QUARTZ_COLUMNS);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_BONE_FEATURE);
     }
@@ -457,6 +457,7 @@ public class BYGDefaultBiomeFeatures {
     public static void addEtherPlants(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_PLANT);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_THEREAL_BELLFLOWER);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ETHER_BULBS);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ETHER_STONE_BOULDER);
     }
 
@@ -534,14 +535,14 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addDeciduousTrees(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DECIDUOUS_TREE);
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SHRUBLAND);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.SHRUBLAND_SHRUB);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SHRUB);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_ASPEN_TREE);
     }
 
     public static void addDeciduousSparseTrees(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DECIDUOUS_SPARSE_TREE);
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SHRUBLAND);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.SHRUBLAND_SHRUB);
     }
 
     //TODO: Reconfigure
@@ -621,7 +622,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addShrubs(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SHRUBLAND);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.SHRUBLAND_SHRUB);
     }
 
     public static void addRainForestTrees(BiomeGenerationSettings.Builder gen) {
