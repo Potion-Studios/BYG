@@ -40,7 +40,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> AMARANTH_PURPLE = createConfiguredFeature("purple_amaranth", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PURPLE_AMARANTH.getDefaultState()), new SimpleBlockPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> AMARANTH_CYAN = createConfiguredFeature("cyan_amaranth", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.CYAN_AMARANTH.getDefaultState()), new SimpleBlockPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
 
-    public static final ConfiguredFeature<?, ?> SHORT_GRASS = createConfiguredFeature("short_grass", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SHORT_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(24).build()));
+    public static final ConfiguredFeature<?, ?> SHORT_GRASS = createConfiguredFeature("short_grass_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SHORT_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(24).build()));
     public static final ConfiguredFeature<?, ?> NYLIUM_SOUL_FIRE_PATCH = createConfiguredFeature("nylium_soul_fire_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.SOUL_FIRE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.SOUL_SOIL, BYGBlocks.NYLIUM_SOUL_SOIL, BYGBlocks.BRIMSTONE, BYGBlocks.FROST_MAGMA)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> BORIC_FIRE_PATCH = createConfiguredFeature("boric_fire_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BORIC_FIRE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.BRIMSTONE, BYGBlocks.BRIMSTONE, BYGBlocks.BRIMSTONE, BYGBlocks.FROST_MAGMA)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> MAGMA_FIRE_PATCH = createConfiguredFeature("magma_fire_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.FIRE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MAGMATIC_STONE, Blocks.MAGMA_BLOCK, BYGBlocks.QUARTZITE_SAND)).func_227317_b_().build()));
@@ -64,14 +64,14 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> TINY_LILY_PAD = createConfiguredFeature("tiny_lily_pad", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TINY_LILYPADS.getDefaultState()), new SimpleBlockPlacer())).tries(10).build()));
     public static final ConfiguredFeature<?, ?> WATER_SILK = createConfiguredFeature("water_silk", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WATER_SILK.getDefaultState()), new SimpleBlockPlacer())).tries(128).build()));
     public static final ConfiguredFeature<?, ?> WINTER_SUCCULENT = createConfiguredFeature("winter_succulent", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WINTER_SUCCULENT.getDefaultState()), new SimpleBlockPlacer())).tries(10).build()));
-    public static final ConfiguredFeature<?, ?> BEACH_GRASS = createConfiguredFeature("beach_grass", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BEACH_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(20).build()));
-    public static final ConfiguredFeature<?, ?> BEACH_SHORT_GRASS = createConfiguredFeature("short_beach_grass", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SHORT_BEACH_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(20).build()));
-    public static final ConfiguredFeature<?, ?> WILTED_GRASS = createConfiguredFeature("wilted_grass", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WILTED_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
+    public static final ConfiguredFeature<?, ?> BEACH_GRASS = createConfiguredFeature("beach_grass_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BEACH_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(20).build()));
+    public static final ConfiguredFeature<?, ?> BEACH_SHORT_GRASS_PATCH = createConfiguredFeature("short_beach_grass_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SHORT_BEACH_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(20).build()));
+    public static final ConfiguredFeature<?, ?> WILTED_GRASS_PATCH = createConfiguredFeature("wilted_grass_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WILTED_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
     public static final ConfiguredFeature<?, ?> LEAF_PILE = createConfiguredFeature("leaf_pile", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.LEAF_PILE.getDefaultState()), new SimpleBlockPlacer())).tries(14).build()));
     public static final ConfiguredFeature<?, ?> CLOVER_PATCH = createConfiguredFeature("clover_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.CLOVER_PATCH.getDefaultState()), new SimpleBlockPlacer())).tries(14).build()));
     public static final ConfiguredFeature<?, ?> FLOWER_PATCH = createConfiguredFeature("flower_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.FLOWER_PATCH.getDefaultState()), new SimpleBlockPlacer())).tries(14).build()));
-    public static final ConfiguredFeature<?, ?> WEED_GRASS = createConfiguredFeature("weed_grass", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WEED_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(32).func_227317_b_().build()));
-    public static final ConfiguredFeature<?, ?> WINTER_GRASS = createConfiguredFeature("winter_grass", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WINTER_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
+    public static final ConfiguredFeature<?, ?> WEED_GRASS_PATCH = createConfiguredFeature("weed_grass_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WEED_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(32).func_227317_b_().build()));
+    public static final ConfiguredFeature<?, ?> WINTER_GRASS_PATCH = createConfiguredFeature("winter_grass_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WINTER_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
     public static final ConfiguredFeature<?, ?> CALIFORNIA_POPPY = createConfiguredFeature("california_poppy", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.CALIFORNIA_POPPY.getDefaultState()), new SimpleBlockPlacer())).tries(10).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> BLACK_PUFF = createConfiguredFeature("black_puff", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BLACK_PUFF.getDefaultState()), SimpleBlockPlacer.PLACER)).tries(64).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> WEEPING_MILKCAP = createConfiguredFeature("weeping_milkcap", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WEEPING_MILKCAP.getDefaultState()), SimpleBlockPlacer.PLACER)).tries(64).func_227317_b_().build()));
@@ -86,8 +86,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RICHEA = createConfiguredFeature("richea", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.RICHEA.getDefaultState()), new SimpleBlockPlacer())).tries(10).build()));
     public static final ConfiguredFeature<?, ?> JAPANESE_ORCHID = createConfiguredFeature("japanese_orchid", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.JAPANESE_ORCHID.getDefaultState()), new DoublePlantBlockPlacer())).tries(10).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> AZALEA = createConfiguredFeature("azalea", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.AZALEA.getDefaultState()), new DoublePlantBlockPlacer())).tries(48).func_227317_b_().build()));
-    public static final ConfiguredFeature<?, ?> PRAIRIE_GRASS = createConfiguredFeature("prairie_grass", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PRAIRIE_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
-    public static final ConfiguredFeature<?, ?> PRAIRIE_TALL_GRASS = createConfiguredFeature("tall_prairie_grass", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_PRAIRIE_GRASS.getDefaultState()), new DoublePlantBlockPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
+    public static final ConfiguredFeature<?, ?> PRAIRIE_GRASS_PATCH = createConfiguredFeature("prairie_grass_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PRAIRIE_GRASS.getDefaultState()), new SimpleBlockPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
+    public static final ConfiguredFeature<?, ?> PRAIRIE_TALL_GRASS_PATCH = createConfiguredFeature("tall_prairie_grass_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_PRAIRIE_GRASS.getDefaultState()), new DoublePlantBlockPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> BLUE_GLOWSHROOM = createConfiguredFeature("blue_glowshroom", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BLUE_GLOWSHROOM.getDefaultState()), new SimpleBlockPlacer())).tries(18).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> PURPLE_GLOWSHROOM = createConfiguredFeature("purple_glowshroom", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PURPLE_GLOWSHROOM.getDefaultState()), new SimpleBlockPlacer())).tries(18).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> ROSE_BUSH = createConfiguredFeature("rose_bush", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.ROSE_BUSH.getDefaultState()), new DoublePlantBlockPlacer())).tries(48).func_227317_b_().build()));
@@ -109,7 +109,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> SCORCHED_BUSH = createConfiguredFeature("scorched_bush", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.SCORCHED_BUSH.getDefaultState(), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.CRYPTIC_STONE.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState(), BYGBlocks.CRYPTIC_STONE.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> SCORCHED_GRASS = createConfiguredFeature("scorched_grass", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.SCORCHED_GRASS.getDefaultState(), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.CRYPTIC_STONE.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState(), BYGBlocks.MAGMATIC_STONE.getDefaultState(), Blocks.MAGMA_BLOCK.getDefaultState(), BYGBlocks.CRYPTIC_STONE.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> WAILING_GRASS = createConfiguredFeature("wailing_grass", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.WAILING_GRASS.getDefaultState(), ImmutableList.of(BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState(), Blocks.SOUL_SAND.getDefaultState(), Blocks.SOUL_SOIL.getDefaultState()))));
-    public static final ConfiguredFeature<?, ?> WAILING_VINES = createConfiguredFeature("wailing_vines", BYGFeatures.WAILING_VINES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
+    public static final ConfiguredFeature<?, ?> WAILING_VINE = createConfiguredFeature("wailing_vine", BYGFeatures.WAILING_VINES.withConfiguration(DecoratedFeatureConfig.NO_FEATURE_CONFIG));
 
     public static final ConfiguredFeature<?, ?> LAMENT_SPROUTS = createConfiguredFeature("lament_sprouts", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.LAMENT_SPROUTS.getDefaultState(), ImmutableList.of(BYGBlocks.OVERGROWN_NETHERRACK.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState()))));
 
@@ -121,7 +121,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ANEMONE_WHITE = createConfiguredFeature("white_anemone", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WHITE_ANEMONE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> ANEMONE_PINK = createConfiguredFeature("pink_anemone", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PINK_ANEMONE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> ROSE_WINTER = createConfiguredFeature("winter_rose", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WINTER_ROSE.getDefaultState()), new SimpleBlockPlacer())).tries(48).whitelist(ImmutableSet.of(Blocks.SNOW_BLOCK, Blocks.GRASS_BLOCK, Blocks.SNOW)).func_227317_b_().build()));
-    public static final ConfiguredFeature<?, ?> SNOWDROPS = createConfiguredFeature("snowdrops", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SNOWDROPS.getDefaultState()), new SimpleBlockPlacer())).tries(48).whitelist(ImmutableSet.of(Blocks.SNOW_BLOCK, Blocks.GRASS_BLOCK, Blocks.SNOW)).func_227317_b_().build()));
+    public static final ConfiguredFeature<?, ?> SNOWDROP = createConfiguredFeature("snowdrop", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SNOWDROPS.getDefaultState()), new SimpleBlockPlacer())).tries(48).whitelist(ImmutableSet.of(Blocks.SNOW_BLOCK, Blocks.GRASS_BLOCK, Blocks.SNOW)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> ALLIUM_PINK = createConfiguredFeature("pink_allium", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PINK_ALLIUM.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> DAISY_ORANGE = createConfiguredFeature("orange_daisy", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ORANGE_DAISY.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> CORNFLOWER_RED = createConfiguredFeature("red_cornflower", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.RED_CORNFLOWER.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
@@ -144,7 +144,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> TULIP_PURPLE = createConfiguredFeature("purple_tulip", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PURPLE_TULIP.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.PODZOL, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> TULIP_YELLOW = createConfiguredFeature("yellow_tulip", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.YELLOW_TULIP.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.PODZOL, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
 
-    public static final ConfiguredFeature<?, ?> REEDS = createConfiguredFeature("reeds", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.REEDS.getDefaultState()), new DoublePlantBlockPlacer())).tries(64).func_227317_b_().requiresWater().build()));
+    public static final ConfiguredFeature<?, ?> REED = createConfiguredFeature("reed", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.REEDS.getDefaultState()), new DoublePlantBlockPlacer())).tries(64).func_227317_b_().requiresWater().build()));
     public static final ConfiguredFeature<?, ?> CATTAIL = createConfiguredFeature("cattail", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.CATTAIL.getDefaultState()), new DoublePlantBlockPlacer())).tries(64).func_227317_b_().requiresWater().build()));
 
     public static final ConfiguredFeature<?, ?> GLOWCANE_BLUE = createConfiguredFeature("blue_glowcane", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BLUE_GLOWCANE.getDefaultState()), new ColumnBlockPlacer(2, 3))).tries(32).xSpread(4).ySpread(0).zSpread(4).func_227317_b_().build()));
@@ -152,7 +152,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> GLOWCANE_RED = createConfiguredFeature("red_glowcane", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.RED_GLOWCANE.getDefaultState()), new ColumnBlockPlacer(2, 3))).tries(32).xSpread(4).ySpread(0).zSpread(4).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> GLOWCANE_PINK = createConfiguredFeature("pink_glowcane", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PINK_GLOWCANE.getDefaultState()), new ColumnBlockPlacer(2, 3))).tries(32).xSpread(4).ySpread(0).zSpread(4).func_227317_b_().build()));
 
-    public static final ConfiguredFeature<?, ?> LOLI_POP = createConfiguredFeature("loli_pop", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.LOLIPOP_FLOWER.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
+    public static final ConfiguredFeature<?, ?> LOLIPOP_FLOWER = createConfiguredFeature("lolipop_flower", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.LOLIPOP_FLOWER.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> ORCHID_RED = createConfiguredFeature("red_orchid", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.RED_ORCHID.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> ORCHID_PINK = createConfiguredFeature("pink_orchid", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PINK_ORCHID.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> ORCHID_PURPLE = createConfiguredFeature("purple_orchid", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PURPLE_ORCHID.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));
@@ -186,15 +186,15 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> VERMILION_SCULK_GROWTH = createConfiguredFeature("vermilion_sculk_growth", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), ImmutableList.of(BYGBlocks.VERMILION_SCULK.getDefaultState(), BYGBlocks.ETHER_STONE.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.VERMILION_SCULK.getDefaultState(), BYGBlocks.ETHER_STONE.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> THERIUM_CRYSTAL = createConfiguredFeature("therium_crystal", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.THERIUM_CRYSTAL.getDefaultState(), ImmutableList.of(BYGBlocks.VERMILION_SCULK.getDefaultState(), BYGBlocks.ETHER_STONE.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.VERMILION_SCULK.getDefaultState(), BYGBlocks.ETHER_STONE.getDefaultState()))));
 
-    public static final ConfiguredFeature<?, ?> SHULKREN_MOSS_BLANKET = createConfiguredFeature("shulkren_moss_blanket", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.SHULKREN_MOSS_BLANKET.getDefaultState(), ImmutableList.of(BYGBlocks.SHULKREN_PHYLIUM.getDefaultState(), BYGBlocks.ETHER_PHYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.SHULKREN_PHYLIUM.getDefaultState(), BYGBlocks.ETHER_PHYLIUM.getDefaultState()))));
+    public static final ConfiguredFeature<?, ?> SHULKREN_MOSS = createConfiguredFeature("shulkren_moss_blanket", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.SHULKREN_MOSS_BLANKET.getDefaultState(), ImmutableList.of(BYGBlocks.SHULKREN_PHYLIUM.getDefaultState(), BYGBlocks.ETHER_PHYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.SHULKREN_PHYLIUM.getDefaultState(), BYGBlocks.ETHER_PHYLIUM.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> SHULKREN_FUNGUS = createConfiguredFeature("shulkren_fungus", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SHULKREN_FUNGUS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
 
 
     public static final ConfiguredFeature<?, ?> EMBUR_ROOTS = createConfiguredFeature("embur_roots", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.EMBUR_ROOTS.getDefaultState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.EMBUR_NYLIUM.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> EMBUR_ROOTS_TALL = createConfiguredFeature("tall_embur_roots", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_EMBUR_ROOTS.getDefaultState()), new DoublePlantBlockPlacer())).tries(1).whitelist(ImmutableSet.of(BYGBlocks.EMBUR_NYLIUM)).func_227317_b_().build()));
-    public static final ConfiguredFeature<?, ?> EMBUR_GEL_VINE = createConfiguredFeature("embur_gel_vines", BYGFeatures.HANGING_COLUMN.withConfiguration(new HangingColumnConfig.Builder().setBlock(BYGBlocks.EMBUR_GEL_VINES).setMinLength(3).setMaxLength(3).setWhitelist(ImmutableList.of(BYGBlocks.EMBUR_GEL_BLOCK)).build()));
+    public static final ConfiguredFeature<?, ?> EMBUR_GEL_VINE = createConfiguredFeature("embur_gel_vine", BYGFeatures.HANGING_COLUMN.withConfiguration(new HangingColumnConfig.Builder().setBlock(BYGBlocks.EMBUR_GEL_VINES).setMinLength(3).setMaxLength(3).setWhitelist(ImmutableList.of(BYGBlocks.EMBUR_GEL_BLOCK)).build()));
     public static final ConfiguredFeature<?, ?> EMBUR_WART = createConfiguredFeature("embur_wart", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.EMBUR_WART.getDefaultState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.EMBUR_NYLIUM.getDefaultState()))));
-    public static final ConfiguredFeature<?, ?> EMBUR_SPROUT = createConfiguredFeature("embur_sprouts", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.EMBUR_SPROUTS.getDefaultState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.EMBUR_NYLIUM.getDefaultState()))));
+    public static final ConfiguredFeature<?, ?> EMBUR_SPROUT = createConfiguredFeature("embur_sprout", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.EMBUR_SPROUTS.getDefaultState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.EMBUR_NYLIUM.getDefaultState()))));
 
     public static final ConfiguredFeature<?, ?> CRIMSON_ROOTS_TALL = createConfiguredFeature("tall_crimson_roots", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_EMBUR_ROOTS.getDefaultState()), new DoublePlantBlockPlacer())).tries(1).whitelist(ImmutableSet.of(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> CRIMSON_BERRY_BUSH = createConfiguredFeature("crimson_berry_bush", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.CRIMSON_BERRY_BUSH.getDefaultState().with(CrimsonBerryBushBlock.AGE, 3), ImmutableList.of(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.getDefaultState(), Blocks.BLACKSTONE.getDefaultState()))));
@@ -294,7 +294,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> PUMPKINS = createConfiguredFeature("pumpkins", PUMPKIN.withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(8));
     public static final ConfiguredFeature<?, ?> BLUE_BERRY_BUSHES = createConfiguredFeature("blue_berry_bushes", BLUE_BERRY_BUSH.withPlacement(Features.Placements.PATCH_PLACEMENT));
     public static final ConfiguredFeature<?, ?> LUSH_BLUE_BERRY_BUSHES = createConfiguredFeature("lush_blue_berry_bushes", BLUE_BERRY_BUSH.withPlacement(Features.Placements.PATCH_PLACEMENT).chance(12));
-    public static final ConfiguredFeature<?, ?> SHORT_GRASSES = createConfiguredFeature("short_grasses", SHORT_GRASS.withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(10));
+    public static final ConfiguredFeature<?, ?> SHORT_GRASSES = createConfiguredFeature("short_grass", SHORT_GRASS.withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(10));
     public static final ConfiguredFeature<?, ?> EMBUR_SPROUTS = createConfiguredFeature("embur_sprouts", EMBUR_SPROUT.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(30))));
     public static final ConfiguredFeature<?, ?> NYLIUM_SOUL_FIRE = createConfiguredFeature("nylium_soul_fire", NYLIUM_SOUL_FIRE_PATCH.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
     public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE = createConfiguredFeature("cryptic_fire", CRYPTIC_FIRE_PATCH.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
@@ -335,12 +335,12 @@ public class BYGConfiguredFeatures {
             TERRACOTTA_BOULDER)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PRAIRIE_GRASS = createConfiguredFeature("prairie_grasses", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            PRAIRIE_GRASS.withChance(0.92F)),
-            PRAIRIE_TALL_GRASS)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(60));
+            PRAIRIE_GRASS_PATCH.withChance(0.92F)),
+            PRAIRIE_TALL_GRASS_PATCH)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BEACH_GRASS = createConfiguredFeature("beach_grasses", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BEACH_GRASS.withChance(0.50F)),
-            BEACH_SHORT_GRASS)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+            BEACH_SHORT_GRASS_PATCH)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWCANE = createConfiguredFeature("glowcane", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             GLOWCANE_BLUE.withChance(0.25F),
@@ -418,6 +418,44 @@ public class BYGConfiguredFeatures {
             TORCH_GINGER.withChance(0.50F)),
             INCAN_LILY)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(5));
 
+
+    public static final ConfiguredFeature<?, ?> AZALEAS = createConfiguredFeature("azaleas", AZALEA.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> SUNFLOWERS = createConfiguredFeature("sunflowers",  Features.PATCH_SUNFLOWER.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> JAPANESE_ORCHIDS = createConfiguredFeature("japanese_orchids",  Features.PATCH_SUNFLOWER.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> DELPHINIUMS = createConfiguredFeature("delphiniums",  DELPHINIUM.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> WILTED_GRASS = createConfiguredFeature("wilted_grass",  WILTED_GRASS_PATCH.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> WEED_GRASS = createConfiguredFeature("weed_grass",  WEED_GRASS_PATCH.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> WINTER_GRASS = createConfiguredFeature("winter_grass",  WINTER_GRASS_PATCH.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> LEAF_PILES = createConfiguredFeature("leaf_piles",  LEAF_PILE.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> WAILING_VINES = createConfiguredFeature("wailing_vines",  WAILING_VINE.range(128).square().func_242731_b(100));
+    public static final ConfiguredFeature<?, ?> ROSES = createConfiguredFeature("roses",  ROSE.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> ANGELICAS = createConfiguredFeature("angelicas",  ANGELICA.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> CROCUSES = createConfiguredFeature("crocuses",  CROCUS.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> IRISES = createConfiguredFeature("irises",  IRIS.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> WINTER_ROSES = createConfiguredFeature("winter_roses",  ROSE_WINTER.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> SNOWDROPS = createConfiguredFeature("snowdrops",  SNOWDROP.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> PINK_ALLIUMS = createConfiguredFeature("pink_alliums",  ALLIUM_PINK.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> ORANGE_DAISIES = createConfiguredFeature("orange_daises",  DAISY_ORANGE.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> RED_CORNFLOWERS = createConfiguredFeature("red_cornflowers",  CORNFLOWER_RED.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> FOXGLOVES = createConfiguredFeature("foxgloves",  FOXGLOVE.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> YELLOW_DAFFODILS = createConfiguredFeature("yellow_daffodils",  DAFFODIL_YELLOW.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> ALPINE_BELLFLOWERS = createConfiguredFeature("alpine_bellflowers",  ALPINE_BELLFLOWER.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> WINTER_SCILLAS = createConfiguredFeature("winter_scillas",  WINTER_SCILLA.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> KOVAN_FLOWERS = createConfiguredFeature("kovan_flowers",  KOVAN_FLOWER.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> REEDS = createConfiguredFeature("reeds",  REED.withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> CATTAILS = createConfiguredFeature("cattails",  CATTAIL.withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(20));
+    public static final ConfiguredFeature<?, ?> LOLIPOP_FLOWERS = createConfiguredFeature("lolipop_flowers",  LOLIPOP_FLOWER.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> BLACK_ROSES = createConfiguredFeature("black_roses",  ROSE_BLACK.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> CYAN_ROSES = createConfiguredFeature("cyan_roses",  ROSE_CYAN.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> OSIRIA_ROSES = createConfiguredFeature("osiria_roses",  ROSE_OSIRIA.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> FAIRY_SLIPPERS = createConfiguredFeature("fairy_slippers",  FAIRY_SLIPPER.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> NIGHTSHADE_BERRY_BUSHES = createConfiguredFeature("nightshade_berry_bushes",  NIGHTSHADE_BERRY_BUSH.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(1));
+    public static final ConfiguredFeature<?, ?> THEREAL_BELLFLOWERS = createConfiguredFeature("thereal_bellflowers",  THEREAL_BELLFLOWER.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
+    public static final ConfiguredFeature<?, ?> VERMILION_SCULK_GROWTHS = createConfiguredFeature("vermilion_sculk_growths",  VERMILION_SCULK_GROWTH.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(45))));
+    public static final ConfiguredFeature<?, ?> THERIUM_CRYSTALS = createConfiguredFeature("therium_crystals",  THERIUM_CRYSTAL.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(15))));
+    public static final ConfiguredFeature<?, ?> SHULKREN_MOSSES = createConfiguredFeature("shulkren_mosses",  SHULKREN_MOSS.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(45))));
+    public static final ConfiguredFeature<?, ?> SHULKREN_FUNGI = createConfiguredFeature("shulkren_fungi",  SHULKREN_FUNGUS.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
+
     public static final ConfiguredFeature<?, ?> RANDOM_SWAMP_PLANTS = createConfiguredFeature("swamp_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             TINY_LILY_PAD.withChance(0.50F)),
             WATER_SILK)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(3));
@@ -425,38 +463,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_LILY_PADS = createConfiguredFeature("lily_pads", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             TINY_LILY_PAD.withChance(0.50F)),
             Features.PATCH_WATERLILLY)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(3));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_AZALEA = createConfiguredFeature("azalea", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            AZALEA.withChance(0.5F)),
-            AZALEA)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_SUNFLOWER = createConfiguredFeature("sunflower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            Features.PATCH_SUNFLOWER.withChance(0.5F)),
-            Features.PATCH_SUNFLOWER)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_JAPANESE_ORCHID = createConfiguredFeature("japanese_orchid", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            JAPANESE_ORCHID.withChance(0.5F)),
-            JAPANESE_ORCHID)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_DELPHINIUM = createConfiguredFeature("delphinium", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            DELPHINIUM.withChance(0.25F)),
-            DELPHINIUM)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_WILTED_GRASS = createConfiguredFeature("wilted_grass", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            WILTED_GRASS.withChance(0.25F)),
-            WILTED_GRASS)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_WEED_GRASS = createConfiguredFeature("weed_grass", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            WEED_GRASS.withChance(0.25F)),
-            WEED_GRASS)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_WINTER_GRASS = createConfiguredFeature("winter_grass", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            WINTER_GRASS.withChance(0.25F)),
-            WINTER_GRASS)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_LEAF_PILE = createConfiguredFeature("leaf_pile", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            LEAF_PILE.withChance(0.25F)),
-            LEAF_PILE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CLOVER_FLOWER_PATCH = createConfiguredFeature("clover_flower_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             CLOVER_PATCH.withChance(0.5F)),
@@ -486,99 +492,27 @@ public class BYGConfiguredFeatures {
             SCORCHED_GRASS.withChance(0.2F)),
             WAILING_GRASS)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(50))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_WAILING_VINES = createConfiguredFeature("wailing_vines", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            WAILING_VINES.withChance(0.5F)),
-            WAILING_VINES)).range(128).square().func_242731_b(100));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_ROSE = createConfiguredFeature("rose", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ROSE.withChance(0.5F)),
-            ROSE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_ANGELICA = createConfiguredFeature("angelica", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ANGELICA.withChance(0.5F)),
-            ANGELICA)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_CROCUS = createConfiguredFeature("crocus", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            CROCUS.withChance(0.5F)),
-            CROCUS)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_IRIS = createConfiguredFeature("iris", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            IRIS.withChance(0.5F)),
-            IRIS)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_ANEMONE = createConfiguredFeature("anemone", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_ANEMONE = createConfiguredFeature("anemones", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ANEMONE_PINK.withChance(0.5F)),
             ANEMONE_WHITE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_WINTER_ROSE = createConfiguredFeature("winter_rose", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ROSE_WINTER.withChance(0.5F)),
-            ROSE_WINTER)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_SNOWDROPS = createConfiguredFeature("snowdrops", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            SNOWDROPS.withChance(0.5F)),
-            SNOWDROPS)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_PINK_ALLIUM = createConfiguredFeature("pink_allium", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ALLIUM_PINK.withChance(0.5F)),
-            ALLIUM_PINK)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_ORANGE_DAISY = createConfiguredFeature("orange_daisy", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            DAISY_ORANGE.withChance(0.5F)),
-            DAISY_ORANGE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_RED_CORNFLOWER = createConfiguredFeature("red_cornflower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            CORNFLOWER_RED.withChance(0.5F)),
-            CORNFLOWER_RED)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_SAGE = createConfiguredFeature("sage", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_SAGE = createConfiguredFeature("sages", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SAGE_PURPLE.withChance(0.5F)),
             SAGE_WHITE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_FOXGLOVE = createConfiguredFeature("foxglove", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            FOXGLOVE.withChance(0.5F)),
-            FOXGLOVE)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_YELLOW_DAFFODIL = createConfiguredFeature("yellow_daffodil", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            DAFFODIL_YELLOW.withChance(0.5F)),
-            DAFFODIL_YELLOW)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_BELLFLOWER = createConfiguredFeature("bellflower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ALPINE_BELLFLOWER.withChance(0.5F)),
-            ALPINE_BELLFLOWER)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_SCILLA = createConfiguredFeature("scilla", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            WINTER_SCILLA.withChance(0.5F)),
-            WINTER_SCILLA)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_KOVAN = createConfiguredFeature("kovan", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            KOVAN_FLOWER.withChance(0.5F)),
-            KOVAN_FLOWER)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_TULIP = createConfiguredFeature("tulip", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_TULIP = createConfiguredFeature("tulips", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             TULIP_MAGENTA.withChance(0.5F),
             TULIP_YELLOW.withChance(0.5F),
             TULIP_PURPLE.withChance(0.5F),
             TULIP_CYAN.withChance(0.5F)),
             TULIP_GREEN)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(4));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_REEDS = createConfiguredFeature("reeds", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            REEDS.withChance(0.5F)),
-            REEDS)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(20));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_CATTAILS = createConfiguredFeature("cattails", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            CATTAIL.withChance(0.5F)),
-            CATTAIL)).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(20));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_LOLIPOP = createConfiguredFeature("lolipop", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            LOLI_POP.withChance(0.5F)),
-            LOLI_POP)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_ORCHID = createConfiguredFeature("orchid", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_ORCHID = createConfiguredFeature("orchids", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ORCHID_PINK.withChance(0.5F),
             ORCHID_PURPLE.withChance(0.5F)),
             ORCHID_RED)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_LEATHER_FLOWER = createConfiguredFeature("leather_flower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_LEATHER_FLOWER = createConfiguredFeature("leather_flowers", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             LEATHER_FLOWER_PEACH.withChance(0.5F)),
             LEATHER_FLOWER_VIOLET)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
 
@@ -586,67 +520,27 @@ public class BYGConfiguredFeatures {
             DAFFODIL.withChance(0.5F)),
             DAFFODIL_PINK)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_BLACK_ROSE = createConfiguredFeature("black_rose", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ROSE_BLACK.withChance(0.5F)),
-            ROSE_BLACK)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_CYAN_ROSE = createConfiguredFeature("cyan_rose", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ROSE_CYAN.withChance(0.5F)),
-            ROSE_CYAN)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_OSIRIA_ROSE = createConfiguredFeature("osiria_rose", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ROSE_OSIRIA.withChance(0.5F)),
-            ROSE_OSIRIA)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_FAIRYSLIPPER = createConfiguredFeature("fairslipper", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            FAIRY_SLIPPER.withChance(0.5F)),
-            FAIRY_SLIPPER)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
     public static final ConfiguredFeature<?, ?> RANDOM_IVIS_PLANTS = createConfiguredFeature("ivis_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             IVIS_ROOTS.withChance(0.5F)),
             IVIS_SPROUT)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(5));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_BULBIS_ODDITY = createConfiguredFeature("bulbis_oddity", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_BULBIS_ODDITY = createConfiguredFeature("bulbis_oddities", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BULBIS_ODDITY.withChance(0.5F)),
             PURPLE_BULBIS_ODDITY)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(1));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_ETHER_PLANT = createConfiguredFeature("ether_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_ETHER_PLANT = createConfiguredFeature("ether_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ETHER_BUSH.withChance(0.2F)),
             ETHER_GRASS)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(5));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_NIGHTSHADE_PLANT = createConfiguredFeature("nightshade_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_NIGHTSHADE_PLANT = createConfiguredFeature("nightshade_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             NIGHTSHADE_ROOTS.withChance(0.35F)),
             NIGHTSHADE_SPROUTS)).withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(5));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_NIGHTSHADE_BERRIES = createConfiguredFeature("nightshade_berries", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            NIGHTSHADE_BERRY_BUSH.withChance(0.50F)),
-            NIGHTSHADE_BERRY_BUSH)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(1));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_THEREAL_BELLFLOWER = createConfiguredFeature("thereal_bellflower", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            THEREAL_BELLFLOWER.withChance(0.5F)),
-            THEREAL_BELLFLOWER)).withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_ODDITY_PLANT = createConfiguredFeature("oddity_plant", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_ODDITY_PLANT = createConfiguredFeature("oddity_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ODDITY_CACTUS.withChance(0.5F)),
             ODDITY_BUSH)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(16))));
 
-    public static final ConfiguredFeature<?, ?> VERMILION_SCULK_GROWTH_PATCH = createConfiguredFeature("vermilion_sculk_growth_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            VERMILION_SCULK_GROWTH.withChance(0.5F)),
-            VERMILION_SCULK_GROWTH)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(45))));
-
-    public static final ConfiguredFeature<?, ?> THERIUM_CRYSTALS = createConfiguredFeature("therium_crystals", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            THERIUM_CRYSTAL.withChance(0.6F)),
-            THERIUM_CRYSTAL)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(15))));
-
-    public static final ConfiguredFeature<?, ?> SHULKREN_MOSS_PATCH = createConfiguredFeature("shulkren_moss_patch", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            SHULKREN_MOSS_BLANKET.withChance(0.5F)),
-            SHULKREN_MOSS_BLANKET)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(45))));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_SHULKREN_FUNGUS = createConfiguredFeature("shulkren_fungus", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            SHULKREN_FUNGUS.withChance(0.5F)),
-            SHULKREN_FUNGUS)).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spike", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spikes", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_SEA_SPIKE.withChance(0.75F)),
             DEAD_SEA_SPIKE_TALL)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(28, 0.1F, 1))));
 
@@ -1719,14 +1613,14 @@ public class BYGConfiguredFeatures {
             EMBUR_MUSHROOM2)).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(2, 0.5F, 1))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_FUNGUS = createConfiguredFeature("fungus", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_FUNGUS = createConfiguredFeature("fungi", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             WARPED_FUNGUS1.withChance(0.15F),
             WARPED_FUNGUS2.withChance(0.15F),
             CRIMSON_FUNGUS1.withChance(0.4F)),
             CRIMSON_FUNGUS2)).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.5F, 2))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_FUNGUS = createConfiguredFeature("sythian_fungus", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_FUNGUS = createConfiguredFeature("sythian_fungi_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             SYTHIAN_FUNGUS_TREE1.withChance(0.25F),
             SYTHIAN_FUNGUS_TREE2.withChance(0.25F),
             SYTHIAN_FUNGUS_TREE3.withChance(0.25F)),
