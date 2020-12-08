@@ -12,6 +12,9 @@ import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree2;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree3;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree4;
 import corgiaoc.byg.common.world.feature.end.trees.ether.*;
+import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree1;
+import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree2;
+import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree3;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.*;
 import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree1;
 import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree2;
@@ -201,6 +204,11 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE4 = WorldGenRegistrationHelper.createFeature("bulbis_tree4", new BulbisTree4(BYGMushroomConfig.CODEC.stable()));
 
     //Ether
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_ETHER_TREE1 = WorldGenRegistrationHelper.createFeature("dead_ether_tree1", new DeadEtherTree1(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_ETHER_TREE2 = WorldGenRegistrationHelper.createFeature("dead_ether_tree2", new DeadEtherTree2(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_ETHER_TREE3 = WorldGenRegistrationHelper.createFeature("dead_ether_tree3", new DeadEtherTree3(BYGTreeConfig.CODEC.stable()));
+
+
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ETHER_BUSH1 = WorldGenRegistrationHelper.createFeature("ether_bush1", new EtherBush1(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ETHER_BUSH2 = WorldGenRegistrationHelper.createFeature("ether_bush2", new EtherBush2(BYGTreeConfig.CODEC.stable()));
 
