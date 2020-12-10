@@ -54,12 +54,9 @@ public class CrystalBlock extends Block {
         return !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
+    @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         BlockPos blockpos = pos.down();
-        return this.isValidGround(worldIn.getBlockState(blockpos));
-    }
-
-    protected boolean isValidGround(BlockState state) {
-        return state.isIn(Tags.Blocks.STONE) || state.isIn(Tags.Blocks.END_STONES) || state.isIn(Tags.Blocks.DIRT) || state.isIn(Tags.Blocks.SAND) || state.isIn(BYGBlocks.QUARTZITE_SAND) || state.isIn(BYGBlocks.RAW_QUARTZ_BLOCK);
+        return hasSolidSideOnTop(worldIn, blockpos) || hasEnoughSolidSide(worldIn, blockpos, Direction.UP);
     }
 }

@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.end.trees.ether;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.properties.blocks.BaobabFruitBlock;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
@@ -103,10 +104,9 @@ public class EtherTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         }
         return true;
     }
-
     public void etherBulbs(Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (reader.getBlockState(pos.up()).getBlock() == BYGBlocks.ETHER_LEAVES) {
-            this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.ETHER_BULB.getDefaultState().with(BaobabFruitBlock.AGE, random.nextInt(4)), boundingBox);
+         {
+            this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.ETHER_BULB.getDefaultState().with(EtherBulbsBlock.AGE, random.nextInt(4)), boundingBox);
         }
     }
 }

@@ -169,18 +169,12 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.isIn(Tags.Blocks.END_STONES) || block.isIn(BlockTags.NYLIUM) || block.isIn(Tags.Blocks.NETHERRACK) || block == block1;
+                return block.isIn(Tags.Blocks.END_STONES) || block == block1;
             }
-            return block.isIn(Tags.Blocks.END_STONES) || block.isIn(BlockTags.NYLIUM) || block.isIn(Tags.Blocks.NETHERRACK);
+            return block.isIn(Tags.Blocks.END_STONES);
         });
     }
 
-    /**
-     * @param reader             Gives us access to world.
-     * @param pos                Position to check.
-     * @param config Allows to add other blocks that do not have the sand tag.
-     * @return Determines if the pos is of the sand tag or another block.
-     */
     public static boolean isDesiredGroundwSandTag(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
