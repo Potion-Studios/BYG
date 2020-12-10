@@ -49,11 +49,6 @@ public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
                                 return false;
                     }
 
-//                    if (scaledNoise - lavaLeakage >= threshold) {
-//                        if (mutable.getY() <= pos.getY() + (volcanoStartHeight - 19)) {
-//                            world.setBlockState(mutable, Blocks.END_STONE.getDefaultState(), 2);
-//                        }
-//                    }
                     if (scaledNoise >= threshold) {
                         if (world.isAirBlock(mutable))
                             world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);

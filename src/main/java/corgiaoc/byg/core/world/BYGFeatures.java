@@ -9,9 +9,6 @@ import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloating
 import corgiaoc.byg.common.world.feature.end.purpurpeaks.PurpurPeak;
 import corgiaoc.byg.common.world.feature.end.trees.bulbis.*;
 import corgiaoc.byg.common.world.feature.end.trees.ether.*;
-import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree1;
-import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree2;
-import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree3;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.*;
 import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree1;
 import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree2;
@@ -147,13 +144,14 @@ public class BYGFeatures {
 
     public static List<Feature<?>> features = new ArrayList<>();
 
-    public static final Feature<NoFeatureConfig> DUMMY_TREE = WorldGenRegistrationHelper.createFeature("dummy_tree", new SmallPineTree(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> BEEHIVE = WorldGenRegistrationHelper.createFeature("beehive", new BeeHiveFeature(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> HUH = WorldGenRegistrationHelper.createFeature("river_feature", new RiverThingy(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<SimpleBlockProviderConfig> VOLCANO = WorldGenRegistrationHelper.createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
-    public static final Feature<BoulderConfig> STACKABLE_BOULDERS = WorldGenRegistrationHelper.createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));
-    public static final Feature<SimpleBlockProviderConfig> ARCH = WorldGenRegistrationHelper.createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
-    public static final Feature<SimpleBlockProviderConfig> PURPUR_PEAK = WorldGenRegistrationHelper.createFeature("purpur_peak", new PurpurPeak(SimpleBlockProviderConfig.CODEC.stable()));
+    public static final Feature<NoFeatureConfig> DUMMY_TREE = createFeature("dummy_tree", new SmallPineTree(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<NoFeatureConfig> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<NoFeatureConfig> HUH = createFeature("river_feature", new RiverThingy(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<SimpleBlockProviderConfig> VOLCANO = createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
+    public static final Feature<BoulderConfig> STACKABLE_BOULDERS = createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));
+    public static final Feature<SimpleBlockProviderConfig> ARCH = createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
+    public static final Feature<SimpleBlockProviderConfig> PURPUR_PEAK = createFeature("purpur_peak", new PurpurPeak(SimpleBlockProviderConfig.CODEC.stable()));
+    public static final Feature<SimpleBlockProviderConfig> SPIKE = createFeature("spike", new SpikeFeature(SimpleBlockProviderConfig.CODEC.stable()));
 
     /********************************************************************Features*************************************************************************/
     //DeadSea
@@ -203,11 +201,6 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE5 = WorldGenRegistrationHelper.createFeature("bulbis_tree5", new BulbisTree5(BYGMushroomConfig.CODEC.stable()));
 
     //Ether
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_ETHER_TREE1 = WorldGenRegistrationHelper.createFeature("dead_ether_tree1", new DeadEtherTree1(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_ETHER_TREE2 = WorldGenRegistrationHelper.createFeature("dead_ether_tree2", new DeadEtherTree2(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_ETHER_TREE3 = WorldGenRegistrationHelper.createFeature("dead_ether_tree3", new DeadEtherTree3(BYGTreeConfig.CODEC.stable()));
-
-
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ETHER_BUSH1 = WorldGenRegistrationHelper.createFeature("ether_bush1", new EtherBush1(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ETHER_BUSH2 = WorldGenRegistrationHelper.createFeature("ether_bush2", new EtherBush2(BYGTreeConfig.CODEC.stable()));
 
