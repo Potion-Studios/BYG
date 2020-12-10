@@ -7,10 +7,7 @@ import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloating
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands3;
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands4;
 import corgiaoc.byg.common.world.feature.end.purpurpeaks.PurpurPeak;
-import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree1;
-import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree2;
-import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree3;
-import corgiaoc.byg.common.world.feature.end.trees.bulbis.BulbisTree4;
+import corgiaoc.byg.common.world.feature.end.trees.bulbis.*;
 import corgiaoc.byg.common.world.feature.end.trees.ether.*;
 import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree1;
 import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree2;
@@ -198,10 +195,12 @@ public class BYGFeatures {
 
     /********************************************************************End Features********************************************************************/
     //Bulbis
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_BUSH1 = WorldGenRegistrationHelper.createFeature("bulbis_bush1", new BulbisBush1(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE1 = WorldGenRegistrationHelper.createFeature("bulbis_tree1", new BulbisTree1(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE2 = WorldGenRegistrationHelper.createFeature("bulbis_tree2", new BulbisTree2(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE3 = WorldGenRegistrationHelper.createFeature("bulbis_tree3", new BulbisTree3(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE4 = WorldGenRegistrationHelper.createFeature("bulbis_tree4", new BulbisTree4(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE5 = WorldGenRegistrationHelper.createFeature("bulbis_tree5", new BulbisTree5(BYGMushroomConfig.CODEC.stable()));
 
     //Ether
     public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_ETHER_TREE1 = WorldGenRegistrationHelper.createFeature("dead_ether_tree1", new DeadEtherTree1(BYGTreeConfig.CODEC.stable()));

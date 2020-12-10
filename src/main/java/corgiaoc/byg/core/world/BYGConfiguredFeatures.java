@@ -264,7 +264,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ARCH = createConfiguredFeature("arch", BYGFeatures.ARCH.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.DIAMOND_BLOCK.getDefaultState()))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.015F, 1))));
     public static final ConfiguredFeature<?, ?> ARCH2 = createConfiguredFeature("arch2", BYGFeatures.ARCH.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.EMERALD_BLOCK.getDefaultState()))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.015F, 1))));
     public static final ConfiguredFeature<?, ?> ETHER_STONE_BOULDER = createConfiguredFeature("ether_stone_boulder", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
-    public static final ConfiguredFeature<?, ?> ENDER_LILY = createConfiguredFeature("ender_lily", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.ENDER_LILY.getDefaultState(), ImmutableList.of(Blocks.WATER.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.WATER.getDefaultState()))).withPlacement(BYGDecorators.MOTION_BLOCKING_NO_LEAVES_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 2))));
+    public static final ConfiguredFeature<?, ?> ENDER_LILY = createConfiguredFeature("ender_lily", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.ENDER_LILY.getDefaultState(), ImmutableList.of(Blocks.WATER.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.WATER.getDefaultState()))).withPlacement(BYGDecorators.MOTION_BLOCKING_NO_LEAVES_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(20, 0.5F, 2))));
 
     public static final ConfiguredFeature<?, ?> BLACK_ICE_SNOW = createConfiguredFeature("black_ice_snow", BYGFeatures.ICE_SNOW.withConfiguration(new Simple2BlockProviderConfig(new SimpleBlockStateProvider(Blocks.ICE.getDefaultState()), new SimpleBlockStateProvider(Blocks.SNOW.getDefaultState())))).withPlacement(Placement.NOPE.configure(new NoPlacementConfig()));
 
@@ -914,15 +914,18 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> WITHERING_OAK_TREE4 = createConfiguredFeature("withering_oak_tree4", BYGFeatures.WITHERING_OAK_TREE4.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
 
     //End Mushrooms
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> BULBIS_BUSH1 = createConfiguredFeature("bulbis_bush1", BYGFeatures.BULBIS_BUSH1.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> BULBIS_TREE1 = createConfiguredFeature("bulbis_tree1", BYGFeatures.BULBIS_TREE1.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> BULBIS_TREE2 = createConfiguredFeature("bulbis_tree2", BYGFeatures.BULBIS_TREE2.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> BULBIS_TREE3 = createConfiguredFeature("bulbis_tree3", BYGFeatures.BULBIS_TREE3.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> BULBIS_TREE4 = createConfiguredFeature("bulbis_tree4", BYGFeatures.BULBIS_TREE4.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> BULBIS_TREE5 = createConfiguredFeature("bulbis_tree5", BYGFeatures.BULBIS_TREE5.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
 
     public static final ConfiguredFeature<BYGMushroomConfig, ?> PURPLE_BULBIS_TREE1 = createConfiguredFeature("purple_bulbis_tree1", BYGFeatures.BULBIS_TREE1.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> PURPLE_BULBIS_TREE2 = createConfiguredFeature("purple_bulbis_tree2", BYGFeatures.BULBIS_TREE2.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> PURPLE_BULBIS_TREE3 = createConfiguredFeature("purple_bulbis_tree3", BYGFeatures.BULBIS_TREE3.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> PURPLE_BULBIS_TREE4 = createConfiguredFeature("purple_bulbis_tree4", BYGFeatures.BULBIS_TREE4.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> PURPLE_BULBIS_TREE5 = createConfiguredFeature("purple_bulbis_tree5", BYGFeatures.BULBIS_TREE5.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_STEM).setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
 
     //End Trees
     public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_BUSH1 = createConfiguredFeature("ether_bush1", BYGFeatures.ETHER_BUSH1.withConfiguration(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.ETHER_LOG).setLeavesBlock(BYGBlocks.ETHER_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
@@ -1652,31 +1655,37 @@ public class BYGConfiguredFeatures {
             new AtOrBelowSeaLevelCountExtraConfig(8, 0.5F, 2, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BULBIS_TREE = createConfiguredFeature("bulbis_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            BULBIS_TREE4.withChance(0.15F),
-            BULBIS_TREE3.withChance(0.3F),
-            BULBIS_TREE2.withChance(0.3F)),
-            BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
+            BULBIS_BUSH1.withChance(0.15F),
+            BULBIS_TREE1.withChance(0.15F),
+            BULBIS_TREE2.withChance(0.15F),
+            BULBIS_TREE3.withChance(0.2F),
+            BULBIS_TREE4.withChance(0.2F)),
+            BULBIS_TREE5)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_BULBIS_TREE = createConfiguredFeature("sparse_bulbis_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            BULBIS_TREE4.withChance(0.15F),
-            BULBIS_TREE3.withChance(0.3F),
-            BULBIS_TREE2.withChance(0.3F)),
-            BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
+            BULBIS_BUSH1.withChance(0.15F),
+            BULBIS_TREE1.withChance(0.15F),
+            BULBIS_TREE2.withChance(0.15F),
+            BULBIS_TREE3.withChance(0.2F),
+            BULBIS_TREE4.withChance(0.2F)),
+            BULBIS_TREE5)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PURPLE_BULBIS_TREE = createConfiguredFeature("purple_bulbis_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            PURPLE_BULBIS_TREE4.withChance(0.15F),
+            PURPLE_BULBIS_TREE1.withChance(0.15F),
+            PURPLE_BULBIS_TREE2.withChance(0.15F),
             PURPLE_BULBIS_TREE3.withChance(0.3F),
-            PURPLE_BULBIS_TREE2.withChance(0.3F)),
-            PURPLE_BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
+            PURPLE_BULBIS_TREE4.withChance(0.3F)),
+            PURPLE_BULBIS_TREE5)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_PURPLE_BULBIS_TREE = createConfiguredFeature("sparse_purple_bulbis_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            PURPLE_BULBIS_TREE4.withChance(0.15F),
+            PURPLE_BULBIS_TREE1.withChance(0.15F),
+            PURPLE_BULBIS_TREE2.withChance(0.15F),
             PURPLE_BULBIS_TREE3.withChance(0.3F),
-            PURPLE_BULBIS_TREE2.withChance(0.3F)),
-            PURPLE_BULBIS_TREE1)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
+            PURPLE_BULBIS_TREE4.withChance(0.3F)),
+            PURPLE_BULBIS_TREE5)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_NIGHTSHADE_TREE = createConfiguredFeature("nightshade_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
