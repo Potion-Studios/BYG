@@ -31,7 +31,7 @@ public class BYGEndBiomeProvider extends BiomeProvider {
     private final SimplexNoiseGenerator generator;
 
     private static final List<String> END_BIOME_IDS = Arrays.asList(BYGWorldConfig.BLACKLIST_END.get().trim().replace(" ", "").split(","));
-    private static final List<String> END_VOID_BIOME_IDS = Arrays.asList(BYGWorldConfig.VOID_BIOMES.get().trim().replace(" ", "").split(","));
+    public static final List<String> END_VOID_BIOME_IDS = Arrays.asList(BYGWorldConfig.VOID_BIOMES.get().trim().replace(" ", "").split(","));
 
     public BYGEndBiomeProvider(Registry<Biome> registry, long seed) {
         super(Stream.concat(createEndBiomeList(registry).stream(), createVoidEndBiomeList(registry).stream()).map(registry::getOrDefault).collect(Collectors.toList()));
