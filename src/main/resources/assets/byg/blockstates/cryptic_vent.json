@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "waterlogged=false": [
+      {
+        "model": "byg:block/cryptic_vent"
+      }
+    ],
+    "waterlogged=true": [
+      {
+        "model": "byg:block/cryptic_vent"
+      }
+    ]
+  }
+}

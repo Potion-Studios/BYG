@@ -4,6 +4,8 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.properties.blocks.*;
+import corgiaoc.byg.common.properties.blocks.end.TallVentBlock;
+import corgiaoc.byg.common.properties.blocks.end.VentBlock;
 import corgiaoc.byg.common.properties.blocks.end.nightshade.NightshadeBerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.end.shattereddesert.OddityCactusBlock;
 import corgiaoc.byg.common.properties.blocks.end.shulkrenforest.ShulkrenVineBlock;
@@ -607,7 +609,9 @@ public class BYGBlocks {
     public static final Block CRYPTIC_STONE_SLAB = createStoneSlab("cryptic_stone_slab");
     public static final Block CRYPTIC_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("cryptic_stone_stairs");
     public static final Block CRYPTIC_STONE_WALL = createStoneWall("cryptic_stone_wall");
-    
+    public static final Block CRYPTIC_VENT = createVent("cryptic_vent");
+    public static final Block TALL_CRYPTIC_VENT = createTallVent("tall_cryptic_vent");
+
     public static final Block SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
     public static final Block SHULKREN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("shulkren_wart_block");
     public static final Block SHULKREN_VINE = createShulkrenVine("shulkren_vine");
@@ -1135,6 +1139,22 @@ public class BYGBlocks {
 
     static Block createTallFlower(String id) {
         Block createBlock = new TallFlowerBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createVent(String id) {
+        Block createBlock = new VentBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createTallVent(String id) {
+        Block createBlock = new TallVentBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool());
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);

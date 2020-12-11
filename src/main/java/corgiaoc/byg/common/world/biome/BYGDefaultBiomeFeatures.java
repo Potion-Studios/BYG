@@ -378,6 +378,10 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.CRYPTIC_FIRE);
     }
 
+    public static void addCrypticVents(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CRYPTIC_VENT);
+    }
+
     public static void addMagmaFire(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.MAGMA_FIRE);
     }

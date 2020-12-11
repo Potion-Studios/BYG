@@ -982,8 +982,8 @@ public class BYGItems {
     public static final Item CRYPTIC_STONE_SLAB = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE_SLAB));
     public static final Item CRYPTIC_STONE_STAIRS = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE_STAIRS));
     public static final Item CRYPTIC_STONE_WALL = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_WALL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE_WALL));
-
-
+    public static final Item CRYPTIC_VENT = createItem(new BlockItem(BYGBlocks.CRYPTIC_VENT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_VENT));
+    public static final Item TALL_CRYPTIC_VENT = createItem(new BlockItem(BYGBlocks.TALL_CRYPTIC_VENT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.TALL_CRYPTIC_VENT));
 
     //Ice
     public static final Item BLACK_ICE = createItem(new BlockItem(BYGBlocks.BLACK_ICE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BLACK_ICE));
@@ -1000,7 +1000,6 @@ public class BYGItems {
     public static final Item PUFF_MUSHROOM_BLOCK = createItem(new BlockItem(BYGBlocks.PUFF_MUSHROOM_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PUFF_MUSHROOM_BLOCK));
     public static final Item WHITE_MUSHROOM_STEM = createItem(new BlockItem(BYGBlocks.WHITE_MUSHROOM_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WHITE_MUSHROOM_STEM));
     public static final Item BROWN_MUSHROOM_STEM = createItem(new BlockItem(BYGBlocks.BROWN_MUSHROOM_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BROWN_MUSHROOM_STEM));
-
 
     //Plants
     public static final Item BLUE_BERRY = createItem(new BlockNamedItem(BYGBlocks.BLUEBERRY_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab).food(new Food.Builder().hunger(2).saturation(0.1f).effect(new EffectInstance(Effects.SPEED, 200, 0), 1.0F).build())), "blueberries");
@@ -1022,7 +1021,6 @@ public class BYGItems {
     public static final Item TINY_LILYPADS = createItem(new BYGLilyItem(BYGBlocks.TINY_LILYPADS, (new Item.Properties()).group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.TINY_LILYPADS));
     public static final Item WATER_SILK = createItem(new BYGWaterSilkItem(BYGBlocks.WATER_SILK, (new Item.Properties()).group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WATER_SILK));
     public static final Item WINTER_SUCCULENT = createItem(new BlockItem(BYGBlocks.WINTER_SUCCULENT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WINTER_SUCCULENT));
-
 
     public static final Item WINTER_GRASS = createItem(new BlockItem(BYGBlocks.WINTER_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WINTER_GRASS));
     public static final Item WEED_GRASS = createItem(new BlockItem(BYGBlocks.WEED_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WEED_GRASS));
