@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.common.world.feature.end.EndVegetationFeature;
+import corgiaoc.byg.common.world.feature.overworld.OverworldVegetationFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItemUseContext;
@@ -107,6 +108,11 @@ public class SpreadableBlock extends SnowyDirtBlock implements IGrowable {
 
                     if (forDimension == ForDimension.END) {
                         EndVegetationFeature.placeBonemeal(world, rand, blockpos1, this.featureConfig, 3, 1);
+                        break;
+                    }
+
+                    if (forDimension == ForDimension.OVERWORLD && this.featureConfig != null) {
+                        OverworldVegetationFeature.placeBonemeal(world, rand, blockpos1, this.featureConfig, 3, 1, this);
                         break;
                     }
 
