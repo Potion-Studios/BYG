@@ -318,7 +318,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.SKYRIS_VINE, RenderType.getCutoutMipped());
 
         for (Block potBlock : BYGBlocks.flowerPotBlocks)
-            RenderTypeLookup.setRenderLayer(potBlock, RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(potBlock, RenderType.getCutoutMipped());
 
         BYG.LOGGER.debug("BYG: Texture Cutouts Rendered!");
     }
