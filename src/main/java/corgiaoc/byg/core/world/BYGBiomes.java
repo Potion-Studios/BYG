@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.common.world.biome.BYGNetherBiome;
+import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.end.*;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
@@ -18,6 +19,7 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
+import corgiaoc.byg.config.json.subbiomedata.SubBiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
@@ -264,6 +266,10 @@ public class BYGBiomes {
         for (BiomeData bygBiome : BYGBiome.biomeData) {
             BiomeDictionary.addTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(bygBiome.getBiome())), bygBiome.getDictionaryTypes());
         }
+        for (SubBiomeData bygSubBiome : BYGSubBiome.subBiomeData) {
+            BiomeDictionary.addTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(bygSubBiome.getBiome())), bygSubBiome.getDictionaryTypes());
+        }
+
         for (BYGNetherBiome bygNetherBiome : BYGNetherBiome.BYG_NETHER_BIOMES)
             BiomeDictionary.addTypes(bygNetherBiome.getKey(), bygNetherBiome.getBiomeDictionary());
         for (BYGEndBiome bygEndBiome : BYGEndBiome.BYG_END_BIOMES)

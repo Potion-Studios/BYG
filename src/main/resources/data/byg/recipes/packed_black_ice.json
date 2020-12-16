@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "byg:black_ice"
+    },
+    {
+      "item": "byg:black_ice"
+    },
+    {
+      "item": "byg:black_ice"
+    },
+    {
+      "item": "byg:black_ice"
+    },
+    {
+      "item": "byg:black_ice"
+    },
+    {
+      "item": "byg:black_ice"
+    },
+    {
+      "item": "byg:black_ice"
+    },
+    {
+      "item": "byg:black_ice"
+    },
+    {
+      "item": "byg:black_ice"
+    }
+  ],
+  "result": {
+    "item": "byg:packed_black_ice"
+  }
+}
