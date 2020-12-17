@@ -82,6 +82,7 @@ public class BYG {
         BYGJsonConfigHandler.createReadMe(CONFIG_PATH.resolve("README.txt"));
         BYGBiomes.addBiomeEntries();
         BYGVillagerType.setVillagerForBYGBiomes();
+        BYGPaths.addBYGPaths();
         BYGBiomes.fillBiomeDictionary();
         BiomeDataListHolder.fillBiomeLists();
         SubBiomeDataListHolder.fillBiomeLists();
