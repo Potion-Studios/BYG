@@ -16,6 +16,9 @@ import net.minecraft.world.server.ServerWorld;
 import java.util.Random;
 
 import net.minecraft.block.AbstractBlock.Properties;
+import net.minecraftforge.common.Tags;
+
+import javax.swing.text.html.HTML;
 
 public class BYGSapling extends BushBlock implements IGrowable {
     public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
@@ -33,7 +36,7 @@ public class BYGSapling extends BushBlock implements IGrowable {
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT || block == Blocks.PODZOL || block == Blocks.FARMLAND || block == BYGBlocks.OVERGROWN_STONE;
+        return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT || block == Blocks.PODZOL || block == Blocks.FARMLAND || block == BYGBlocks.OVERGROWN_STONE || block == BYGBlocks.MEADOW_GRASSBLOCK || block == BYGBlocks.MEADOW_DIRT;
     }
 
     @Override

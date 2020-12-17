@@ -12,6 +12,9 @@
     "byg:glowcelium_block",
     "byg:ether_soil",
     "byg:ether_phylium",
-    "byg:vermilion_sculk"
+    "byg:vermilion_sculk",
+    "byg:ivis_phylium",
+    "byg:nightshade_phylium",
+    "byg:shulkren_phylium"
   ]
 }
