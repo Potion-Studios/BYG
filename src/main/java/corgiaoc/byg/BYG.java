@@ -3,10 +3,12 @@ package corgiaoc.byg;
 
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
+import corgiaoc.byg.common.entity.villager.BYGVillagerType;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
 import corgiaoc.byg.common.properties.vanilla.*;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
+import corgiaoc.byg.common.world.feature.blockplacer.BYGBlockPlacerTypes;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.json.BYGJsonConfigHandler;
 import corgiaoc.byg.config.json.biomedata.BiomeDataListHolder;
@@ -23,6 +25,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.blockplacer.BlockPlacerType;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
@@ -78,6 +81,7 @@ public class BYG {
         BYGJsonConfigHandler.handleBYGSubBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-sub-biomes.json"));
         BYGJsonConfigHandler.createReadMe(CONFIG_PATH.resolve("README.txt"));
         BYGBiomes.addBiomeEntries();
+        BYGVillagerType.setVillagerForBYGBiomes();
         BYGBiomes.fillBiomeDictionary();
         BiomeDataListHolder.fillBiomeLists();
         SubBiomeDataListHolder.fillBiomeLists();
@@ -182,6 +186,15 @@ public class BYG {
             BYGSurfaceBuilders.init();
             BYGSurfaceBuilders.surfaceBuilders.forEach(surfaceBuilder -> event.getRegistry().register(surfaceBuilder));
             BYG.LOGGER.info("BYG: Surface builders Registered!");
+        }
+
+
+        @SubscribeEvent
+        public static void registerBlockPlacerType(RegistryEvent.Register<BlockPlacerType<?>> event) {
+            BYG.LOGGER.debug("BYG: Registering block placer types...");
+            BYGBlockPlacerTypes.init();
+            BYGBlockPlacerTypes.types.forEach(type -> event.getRegistry().register(type));
+            BYG.LOGGER.info("BYG: Registering block placer types!");
         }
     }
 

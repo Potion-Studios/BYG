@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableSet;
 import corgiaoc.byg.common.properties.blocks.BlueBerryBush;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import corgiaoc.byg.common.world.decorator.config.AtOrBelowSeaLevelCountExtraConfig;
+import corgiaoc.byg.common.world.feature.blockplacer.DoubleBlockPlacer;
 import corgiaoc.byg.common.world.feature.config.*;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.core.BYGBlocks;
@@ -49,7 +50,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> QUARTZ_CRYSTAL = createConfiguredFeature("quartz_crystal", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.QUARTZ_CRYSTAL.getDefaultState(), ImmutableList.of(BYGBlocks.QUARTZITE_SAND.getDefaultState(), BYGBlocks.RAW_QUARTZ_BLOCK.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.QUARTZITE_SAND.getDefaultState(), BYGBlocks.RAW_QUARTZ_BLOCK.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE_PATCH = createConfiguredFeature("cryptic_fire_patch", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.CRYPTIC_FIRE.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.CRYPTIC_STONE, BYGBlocks.CRYPTIC_MAGMA_BLOCK)).func_227317_b_().build()));
     public static final ConfiguredFeature<?, ?> CRYPTIC_VENT = createConfiguredFeature("cryptic_vent", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.CRYPTIC_VENT.getDefaultState()), new SimpleBlockPlacer())).tries(24).whitelist(ImmutableSet.of(BYGBlocks.CRYPTIC_STONE, BYGBlocks.CRYPTIC_MAGMA_BLOCK)).build()));
-    public static final ConfiguredFeature<?, ?> TALL_CRYPTIC_VENT = createConfiguredFeature("tall_cryptic_vent", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_CRYPTIC_VENT.getDefaultState()), new SimpleBlockPlacer())).tries(24).whitelist(ImmutableSet.of(BYGBlocks.CRYPTIC_STONE, BYGBlocks.CRYPTIC_MAGMA_BLOCK)).build()));
+    public static final ConfiguredFeature<?, ?> TALL_CRYPTIC_VENT = createConfiguredFeature("tall_cryptic_vent", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_CRYPTIC_VENT.getDefaultState()), new DoubleBlockPlacer())).tries(24).whitelist(ImmutableSet.of(BYGBlocks.CRYPTIC_STONE, BYGBlocks.CRYPTIC_MAGMA_BLOCK)).build()));
 
     public static final ConfiguredFeature<?, ?> BEEHIVES = createConfiguredFeature("beehives", BYGFeatures.BEEHIVE.withConfiguration(new NoFeatureConfig()).range(256).square().func_242731_b(10));
     public static final ConfiguredFeature<?, ?> ETHER_BULBS = createConfiguredFeature("ether_bulbs", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.ETHER_BULB.getDefaultState(), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(BYGBlocks.ETHER_LEAVES.getDefaultState()))).range(256).square().func_242731_b(55));
