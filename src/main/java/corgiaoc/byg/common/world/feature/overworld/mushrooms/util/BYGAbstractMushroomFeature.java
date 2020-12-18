@@ -3,14 +3,12 @@ package corgiaoc.byg.common.world.feature.overworld.mushrooms.util;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
-import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorldWriter;
@@ -121,7 +119,10 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
      * @param desiredGroundBlock Allows to add other blocks that do not have the dirt tag.
      * @return Determines if the pos is of the dirt tag or another block.
      */
-    public static boolean isDesiredGroundwDirtTag(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+    public static boolean isDesiredGroundwDirtTag(BYGMushroomConfig config, IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+        if (config.isPlacementForced())
+            return true;
+
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
@@ -131,29 +132,16 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         });
     }
 
-    public static boolean isDesiredGroundwEndTags(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+    public static boolean isDesiredGroundwEndTags(BYGMushroomConfig config, IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+        if (config.isPlacementForced())
+            return true;
+
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
                 return block.isIn(Tags.Blocks.END_STONES) || block == block1;
             }
             return block.isIn(Tags.Blocks.END_STONES);
-        });
-    }
-
-    /**
-     * @param reader             Gives us access to world.
-     * @param pos                Position to check.
-     * @param desiredGroundBlock Add a blacklist of blocks that we want.
-     * @return Determines if the pos contains a block from our whitelist.
-     */
-    public boolean isDesiredGround(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
-        return reader.hasBlockState(pos, (state) -> {
-            Block block = state.getBlock();
-            for (Block block1 : desiredGroundBlock) {
-                return block == block1;
-            }
-            return false;
         });
     }
 
@@ -264,38 +252,6 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
     }
 
     /**
-     * Checks the area surrounding the pos for any blocks using either the log or leaves tag.
-     * Called only during world gen.
-     *
-     * @param reader     Gives us access to world
-     * @param pos        The given pos of either the feature during world gen or the sapling.
-     * @param treeHeight The height of the given tree.
-     * @param distance   Checks the surrounding pos
-     * @param isSapling  Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
-     * @return Determines whether or not any tree is within the givem distance
-     */
-    public boolean isAnotherMushroomNearby(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int distance, boolean isSapling) {
-        int x = pos.getX();
-        int y = pos.getY();
-        int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
-
-        //Skip if tree is being spawned with a sapling.
-        if (!isSapling) {
-            for (int yOffset = 0; yOffset <= treeHeight + 1; ++yOffset) {
-                for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                    for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                        if (isAnotherMushroomHere(reader, mutable.setPos(x + xOffset, y + yOffset, z + zOffset))) {
-                            return false;
-                        }
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-    /**
      * Checks the area surrounding the pos for a tree matching its wood/leaves block.
      * Called only during world gen
      *
@@ -328,87 +284,6 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
             }
         }
         return true;
-    }
-
-    /**
-     * Use this to set the soil under large trunked trees. I.E: Baobab or Redwood.
-     *
-     * @param reader         Gives us access to world
-     * @param fillerBlock    Typically this is the log of the tree we're trying to fill the base of.
-     * @param earthBlock     The block used under logs. Typically a block found in the dirt tag
-     * @param trunkPositions List of trunk poss where the base is built under the given poss.
-     */
-
-    public void buildStem(IWorldGenerationBaseReader reader, Block fillerBlock, Block earthBlock, BlockPos... trunkPositions) {
-        if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
-            for (BlockPos trunkPos : trunkPositions) {
-                mutableTrunk.setPos(trunkPos);
-                for (int fill = 1; fill <= 15; fill++) {
-                    if (canStemPlaceHere(reader, mutableTrunk)) {
-                        if (fill <= 7)
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.getDefaultState());
-                        else
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
-                    } else {
-                        if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
-                        fill = 15;
-                    }
-                    mutableTrunk.move(Direction.DOWN);
-                }
-            }
-        }
-    }
-
-    /**
-     * Use this to set the soil under large trunked trees. Has an extra parameter to specify when the earth block should start placing. I.E: Baobab or Redwood.
-     *
-     * @param reader              Gives us access to world
-     * @param earthBlockThreshold Used to specify when earthBlock starts placing.
-     * @param fillerBlock         Typically this is the log of the tree we're trying to fill the base of.
-     * @param earthBlock          The block used under logs. Typically a block found in the dirt tag
-     * @param trunkPositions      List of trunk poss where the base is built under the given poss.
-     */
-    public void buildBase(IWorldGenerationBaseReader reader, int earthBlockThreshold, Block fillerBlock, Block earthBlock, BlockPos... trunkPositions) {
-        if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
-            for (BlockPos trunkPos : trunkPositions) {
-                mutableTrunk.setPos(trunkPos);
-                for (int fill = 1; fill <= 15; fill++) {
-                    if (canStemPlaceHere(reader, mutableTrunk)) {
-                        if (fill <= earthBlockThreshold)
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.getDefaultState());
-                        else
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
-                    } else {
-                        if (canStemPlaceHere(reader, mutableTrunk)) {
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.getDefaultState());
-                        } else {
-                            if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                                setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
-                            fill = 15;
-                        }
-                    }
-                    mutableTrunk.move(Direction.DOWN);
-                }
-            }
-        }
-    }
-
-    /**
-     * Use this to set the soil under small trunked trees.
-     */
-
-    public void setSoil(IWorldGenerationBaseReader reader, Block soil, BlockPos... trunkPositions) {
-        if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
-            for (BlockPos trunkPos : trunkPositions) {
-                mutableTrunk.setPos(trunkPos);
-                if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                    setFinalBlockState((IWorldWriter) reader, mutableTrunk.move(Direction.DOWN), soil.getDefaultState());
-            }
-        }
     }
 
     public final void setFinalBlockState(IWorldWriter worldIn, BlockPos pos, BlockState blockState) {

@@ -26,7 +26,7 @@ public class ShulkrenTree2 extends BYGAbstractMushroomFeature<BYGMushroomConfig>
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().setPos(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (!isDesiredGroundwEndTags(worldIn, pos.down(), BYGBlocks.SHULKREN_PHYLIUM)) {
+            if (!isDesiredGroundwEndTags(config, worldIn, pos.down(), BYGBlocks.SHULKREN_PHYLIUM)) {
                 return false;
             } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {
                 return false;
