@@ -25,7 +25,7 @@ public class BYGOreBlock extends OreBlock implements IForgeBlock {
             return MathHelper.nextInt(rand, 3, 9);
         } else if (this == BYGBlocks.ANTHRACITE_ORE) {
             return MathHelper.nextInt(rand, 2, 5);
-        } else if (this == Blocks.EMERALD_ORE) {
+        } else if (this == BYGBlocks.CRYPTIC_REDSTONE_ORE) {
             return MathHelper.nextInt(rand, 3, 7);
         } else if (this == Blocks.LAPIS_ORE) {
             return MathHelper.nextInt(rand, 2, 5);

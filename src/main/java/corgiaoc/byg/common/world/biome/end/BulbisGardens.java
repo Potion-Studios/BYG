@@ -49,6 +49,7 @@ public class BulbisGardens extends BYGEndBiome {
         BYGDefaultBiomeFeatures.addBulbisTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addLargeLake(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBulbisOddity(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBulbisAnomaly(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEnderLily(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addIvisPlants(GENERATION_SETTINGS);
 

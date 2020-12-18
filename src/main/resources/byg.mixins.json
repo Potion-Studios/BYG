@@ -12,6 +12,7 @@
     "common.world.layers.MixinHillsLayer",
     "common.world.layers.MixinRiverLayer",
     "common.world.layers.MixinShoreLayer",
+    "common.MixinTemplate",
     "server.MixinMinecraftServer"
   ],
   "client": [
