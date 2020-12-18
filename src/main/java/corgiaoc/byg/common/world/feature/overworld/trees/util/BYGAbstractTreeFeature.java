@@ -33,8 +33,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import net.minecraft.util.math.BlockPos.Mutable;
-
 public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends Feature<TFC> {
 
     protected static FastNoise fastNoise;
@@ -140,13 +138,13 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     /**
-     * @param reader             Gives us access to world.
-     * @param pos                Position to check.
+     * @param reader Gives us access to world.
+     * @param pos    Position to check.
      * @param config Allows to add other blocks that do not have the dirt tag.
      * @return Determines if the pos is of the dirt tag or another block.
      */
     public static boolean isDesiredGroundwDirtTag(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
-        if(config.isPlacementForced())
+        if (config.isPlacementForced())
             return true;
 
         return reader.hasBlockState(pos, (state) -> {
@@ -159,7 +157,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwNetherTags(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
-        if(config.isPlacementForced())
+        if (config.isPlacementForced())
             return true;
 
         return reader.hasBlockState(pos, (state) -> {
@@ -172,7 +170,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwEndTags(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
-        if(config.isPlacementForced())
+        if (config.isPlacementForced())
             return true;
 
         return reader.hasBlockState(pos, (state) -> {
@@ -185,7 +183,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwSandTag(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
-        if(config.isPlacementForced())
+        if (config.isPlacementForced())
             return true;
 
         return reader.hasBlockState(pos, (state) -> {
@@ -321,7 +319,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     /**
      * Checks the area surrounding the position for any blocks using either the log or leaves tag.
-     *
+     * <p>
      * Called only during world gen.
      *
      * @param reader     Gives us access to world
@@ -416,15 +414,17 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
      *
      * @param treeBlocksSet  Gives us access to the tree block set where we add our trees blocks.
      * @param reader         Gives us access to world
-     * @param config    Typically this is the log of the tree we're trying to fill the base of.
-     * @param rand     The block used under logs. Typically a block found in the dirt tag
+     * @param config         Typically this is the log of the tree we're trying to fill the base of.
+     * @param rand           The block used under logs. Typically a block found in the dirt tag
      * @param boundingBox    Bounding Box of our tree.
      * @param trunkPositions List of trunk positions where the base is built under the given position.
      */
 
-    public void buildTrunkBase(Set<BlockPos> treeBlocksSet, IWorldGenerationBaseReader reader, BYGTreeConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
+    public void buildTrunkBase(BlockPos centerPos, Set<BlockPos> treeBlocksSet, ISeedReader reader, BYGTreeConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
         if (config.isPlacementForced())
             return;
+        BlockState ground = reader.getBlockState(centerPos.offset(Direction.DOWN));
+
 
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
@@ -433,13 +433,12 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                 for (int fill = 1; fill <= 25; fill++) {
                     if (canLogPlaceHere(reader, mutableTrunk)) {
                         if (fill <= 15)
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk), boundingBox);
+                            setFinalBlockState(treeBlocksSet, reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk), boundingBox);
                         else
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getGroundReplacementProvider().getBlockState(rand, mutableTrunk), boundingBox);
-                    }
-                else {
+                            setFinalBlockState(treeBlocksSet, reader, mutableTrunk, ground, boundingBox);
+                    } else {
                         if (!isDesiredGround(reader, mutableTrunk, config.getTrunkProvider().getBlockState(rand, mutableTrunk).getBlock()))
-                            setFinalBlockState(treeBlocksSet, (IWorldWriter) reader, mutableTrunk, config.getGroundReplacementProvider().getBlockState(rand, mutableTrunk), boundingBox);
+                            setFinalBlockState(treeBlocksSet, reader, mutableTrunk, ground, boundingBox);
                         fill = 25;
                     }
                     mutableTrunk.move(Direction.DOWN);

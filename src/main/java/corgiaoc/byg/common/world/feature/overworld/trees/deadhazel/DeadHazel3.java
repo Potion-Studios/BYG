@@ -33,7 +33,7 @@ public class DeadHazel3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mutable.setPos(pos).toImmutable(), mutable.setPos(pos).move(-1, 0, -2), mutable.setPos(pos).move(0, 0, -2), mutable.setPos(pos).move(-1, 0, -1), mutable.setPos(pos).move(0, 0, -1), mutable.setPos(pos).move(1, 0, -1), mutable.setPos(pos).move(-2, 0, 0), mutable.setPos(pos).move(-1, 0, 0), mutable.setPos(pos).move(1, 0, 0), mutable.setPos(pos).move(2, 0, 0), mutable.setPos(pos).move(-1, 0, 1), mutable.setPos(pos).move(0, 0, 1), mutable.setPos(pos).move(1, 0, 1), mutable.setPos(pos).move(-1, 0, 2), mutable.setPos(pos).move(0, 0, 2), mutable.setPos(pos).move(1, 0, 2));
+                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mutable.setPos(pos).toImmutable(), mutable.setPos(pos).move(-1, 0, -2), mutable.setPos(pos).move(0, 0, -2), mutable.setPos(pos).move(-1, 0, -1), mutable.setPos(pos).move(0, 0, -1), mutable.setPos(pos).move(1, 0, -1), mutable.setPos(pos).move(-2, 0, 0), mutable.setPos(pos).move(-1, 0, 0), mutable.setPos(pos).move(1, 0, 0), mutable.setPos(pos).move(2, 0, 0), mutable.setPos(pos).move(-1, 0, 1), mutable.setPos(pos).move(0, 0, 1), mutable.setPos(pos).move(1, 0, 1), mutable.setPos(pos).move(-1, 0, 2), mutable.setPos(pos).move(0, 0, 2), mutable.setPos(pos).move(1, 0, 2));
                 mutable.setPos(pos);
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {

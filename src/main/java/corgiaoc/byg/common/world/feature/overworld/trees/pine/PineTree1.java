@@ -44,7 +44,7 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
+                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos);
 
                 //Places dirt under logs where/when necessary.
                 Direction direction = Direction.Plane.HORIZONTAL.random(rand);
