@@ -566,7 +566,7 @@ public class BYGBlocks {
     public static final Block EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines");
     public static final Block EMBUR_SPROUTS = new BYGBlockProperties.BYGEmburPlant("embur_sprouts");
     public static final Block EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots");
-    public static final Block EMBUR_WART = createMushroomPlant(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
+    public static final Block EMBUR_WART = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
     public static final Block TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_embur_roots");
 
     public static final Block BLUE_NETHERRACK = new BYGBlockProperties.BYGBlueNetherrack("blue_netherrack");
@@ -751,8 +751,8 @@ public class BYGBlocks {
     public static final Block BLUE_GLOWSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.BlueGlowshroom(), "blue_glowshroom");
     public static final Block PURPLE_GLOWSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleGlowshroom(), "purple_glowshroom");
 
-    public static final Block SYTHIAN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
-    public static final Block SOUL_SHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
+    public static final Block SYTHIAN_FUNGUS = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
+    public static final Block SOUL_SHROOM = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
     public static final Block DEATH_CAP = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
     public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "bulbis_oddity");
     public static final Block PURPLE_BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleBulbis(), "purple_bulbis_oddity");
@@ -1125,7 +1125,16 @@ public class BYGBlocks {
     }
 
     static Block createMushroomPlant(BYGHugeMushroom mushroom, String id) {
-        Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), mushroom);
+        Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), mushroom, false);
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createNetherMushroomPlant(BYGHugeMushroom mushroom, String id) {
+        Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), mushroom, true);
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         createPottedBlock(createBlock, id);

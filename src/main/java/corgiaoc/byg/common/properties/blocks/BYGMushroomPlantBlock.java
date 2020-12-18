@@ -1,10 +1,7 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BushBlock;
-import net.minecraft.block.IGrowable;
+import net.minecraft.block.*;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -17,20 +14,21 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
     private final BYGHugeMushroom mushroom;
 
-    public BYGMushroomPlantBlock(Properties properties, BYGHugeMushroom mushroom) {
+    private final boolean isNetherFungi;
+
+    public BYGMushroomPlantBlock(Properties properties, BYGHugeMushroom mushroom, boolean isNetherFungi) {
         super(properties);
         this.mushroom = mushroom;
+        this.isNetherFungi = isNetherFungi;
     }
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isOpaqueCube(worldIn, pos);
+        return (isNetherFungi) ? state.isIn(BlockTags.NYLIUM) || state.isIn(Blocks.MYCELIUM) || state.isIn(Blocks.SOUL_SOIL) || super.isValidGround(state, worldIn, pos) : state.isOpaqueCube(worldIn, pos);
     }
 
     @Override
@@ -40,6 +38,10 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        if (isNetherFungi) {
+           return super.isValidPosition(state, worldIn, pos);
+        }
+
         BlockPos blockpos = pos.down();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         if (blockstate.isIn(BlockTags.MUSHROOM_GROW_BLOCK)) {
@@ -49,6 +51,7 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
         }
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         if (rand.nextInt(25) == 0) {
