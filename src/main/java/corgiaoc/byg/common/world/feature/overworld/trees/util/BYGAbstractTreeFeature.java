@@ -613,7 +613,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     static {
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.GRASS_BLOCK, Blocks.DIRT);
-        SPREADABLE_TO_NON_SPREADABLE.put(Blocks.MYCELIUM, Blocks.DIRT);
+            SPREADABLE_TO_NON_SPREADABLE.put(Blocks.MYCELIUM, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.GRASS_PATH, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.PODZOL, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_DACITE, BYGBlocks.DACITE);

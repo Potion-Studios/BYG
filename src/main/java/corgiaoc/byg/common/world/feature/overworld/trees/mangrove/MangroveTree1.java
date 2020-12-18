@@ -51,26 +51,26 @@ public class MangroveTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, rootMutable, rootMutable2, rootMutable3, rootMutable4, rootMutable5, rootMutable6);
 
                 //Stump
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 1, -2), boundsIn);
+                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 0, -2), boundsIn);
+                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 0, -1), boundsIn);
+                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 0, 0), boundsIn);
+                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 0, 0), boundsIn);
+                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 0, 1), boundsIn);
+                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 0, 2), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 1, -1), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 1, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(2, 1, 0), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 1, 1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 1, 2), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 2, -1), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 2, 0), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 2, 1), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 3, -1), boundsIn);
+                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 3, 0), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 3, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 3, 1), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 4, -1), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 4, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(1, 4, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(0, 5, -1), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-2, 5, 0), boundsIn);
+                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 4, 0), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 5, 0), boundsIn);
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 6, 0), boundsIn);
-                placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, 7, 0), boundsIn);
 
 
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.setPos(pos).move(-1, randTreeHeight, -1), boundsIn);
