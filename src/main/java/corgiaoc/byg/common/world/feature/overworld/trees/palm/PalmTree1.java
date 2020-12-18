@@ -13,9 +13,6 @@ import java.util.Random;
 import java.util.Set;
 
 public class PalmTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
-    //private static final BlockState LOG = Blocks.JUNGLE_LOG.getDefaultState();
-    //private static final BlockState LEAVES = Blocks.JUNGLE_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
     public PalmTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);

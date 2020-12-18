@@ -12,13 +12,9 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-
-import java.util.Random;
-
-import net.minecraft.block.AbstractBlock.Properties;
 import net.minecraftforge.common.Tags;
 
-import javax.swing.text.html.HTML;
+import java.util.Random;
 
 public class BYGSapling extends BushBlock implements IGrowable {
     public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
@@ -36,7 +32,7 @@ public class BYGSapling extends BushBlock implements IGrowable {
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT || block == Blocks.PODZOL || block == Blocks.FARMLAND || block == BYGBlocks.OVERGROWN_STONE || block == BYGBlocks.MEADOW_GRASSBLOCK || block == BYGBlocks.MEADOW_DIRT;
+        return block == Blocks.GRASS_BLOCK || state.isIn(Tags.Blocks.DIRT) || block == Blocks.DIRT || block == Blocks.COARSE_DIRT || block == Blocks.PODZOL || block == Blocks.FARMLAND || block == BYGBlocks.OVERGROWN_STONE || block == BYGBlocks.MEADOW_GRASSBLOCK || block == BYGBlocks.MEADOW_DIRT;
     }
 
     @Override
@@ -60,7 +56,8 @@ public class BYGSapling extends BushBlock implements IGrowable {
             world.setBlockState(pos, state.func_235896_a_(STAGE), 4);
         } else {
             if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
-            this.tree.spawn(world, world.getChunkProvider().getChunkGenerator(), pos, state, rand);        }
+            this.tree.spawn(world, world.getChunkProvider().getChunkGenerator(), pos, state, rand);
+        }
     }
 
     @Override

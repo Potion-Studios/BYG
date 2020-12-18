@@ -146,6 +146,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
      * @return Determines if the pos is of the dirt tag or another block.
      */
     public static boolean isDesiredGroundwDirtTag(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
+        if(config.isPlacementForced())
+            return true;
+
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
@@ -156,6 +159,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwNetherTags(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
+        if(config.isPlacementForced())
+            return true;
+
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
@@ -166,6 +172,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwEndTags(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
+        if(config.isPlacementForced())
+            return true;
+
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
@@ -176,6 +185,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwSandTag(IWorldGenerationBaseReader reader, BlockPos pos, BYGTreeConfig config) {
+        if(config.isPlacementForced())
+            return true;
+
         return reader.hasBlockState(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
