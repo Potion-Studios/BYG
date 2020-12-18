@@ -5,6 +5,7 @@ import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
+import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -28,15 +29,14 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraftforge.common.Tags;
 
 import javax.annotation.Nullable;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends Feature<TFC> {
 
     protected static FastNoise fastNoise;
     protected long seed;
+
+    public static final Map<Block, Block> SPREADABLE_TO_NON_SPREADABLE = new HashMap<>();
 
     public BYGAbstractTreeFeature(Codec<TFC> configCodec) {
         super(configCodec);
@@ -425,6 +425,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
             return;
         BlockState ground = reader.getBlockState(centerPos.offset(Direction.DOWN));
 
+        if (SPREADABLE_TO_NON_SPREADABLE.containsKey(ground.getBlock()))
+            ground = SPREADABLE_TO_NON_SPREADABLE.get(ground.getBlock()).getDefaultState();
+
 
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
@@ -606,6 +609,30 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return new SaplingData(new HashSet<>(), 0);
     }
 
+
+
+    static {
+        SPREADABLE_TO_NON_SPREADABLE.put(Blocks.GRASS_BLOCK, Blocks.DIRT);
+        SPREADABLE_TO_NON_SPREADABLE.put(Blocks.MYCELIUM, Blocks.DIRT);
+        SPREADABLE_TO_NON_SPREADABLE.put(Blocks.GRASS_PATH, Blocks.DIRT);
+        SPREADABLE_TO_NON_SPREADABLE.put(Blocks.PODZOL, Blocks.DIRT);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_DACITE, BYGBlocks.DACITE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.PODZOL_DACITE, BYGBlocks.DACITE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_STONE, Blocks.STONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE, Blocks.BLACKSTONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_NETHERRACK, Blocks.NETHERRACK);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.SYTHIAN_NYLIUM, Blocks.NETHERRACK);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.EMBUR_NYLIUM, BYGBlocks.BLUE_NETHERRACK);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.IVIS_PHYLIUM, Blocks.END_STONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.NIGHTSHADE_PHYLIUM, Blocks.END_STONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.SHULKREN_PHYLIUM, Blocks.END_STONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.VERMILION_SCULK, BYGBlocks.ETHER_STONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.ETHER_PHYLIUM, BYGBlocks.ETHER_SOIL);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.MEADOW_DIRT);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.MEADOW_GRASS_PATH, BYGBlocks.MEADOW_DIRT);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.GLOWCELIUM, Blocks.DIRT);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.MYCELIUM_NETHERRACK, Blocks.NETHERRACK);
+    }
 
     public static final class PooledMutable extends BlockPos.Mutable implements AutoCloseable {
         private boolean free;
