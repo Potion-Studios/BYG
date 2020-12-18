@@ -6,6 +6,7 @@ import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.TallVentBlock;
 import corgiaoc.byg.common.properties.blocks.end.VentBlock;
+import corgiaoc.byg.common.properties.blocks.end.bulbisgardens.TallBulbisBlock;
 import corgiaoc.byg.common.properties.blocks.end.nightshade.NightshadeBerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.end.shattereddesert.OddityCactusBlock;
 import corgiaoc.byg.common.properties.blocks.end.shulkrenforest.ShulkrenVineBlock;
@@ -611,6 +612,7 @@ public class BYGBlocks {
     public static final Block CRYPTIC_STONE_WALL = createStoneWall("cryptic_stone_wall");
     public static final Block CRYPTIC_VENT = createVent("cryptic_vent");
     public static final Block TALL_CRYPTIC_VENT = createTallVent("tall_cryptic_vent");
+    public static final Block CRYPTIC_REDSTONE_ORE = new BYGBlockProperties.BYGPervadedNetherrack("cryptic_redstone_ore");
 
     public static final Block SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
     public static final Block SHULKREN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("shulkren_wart_block");
@@ -755,6 +757,8 @@ public class BYGBlocks {
     public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "bulbis_oddity");
     public static final Block PURPLE_BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleBulbis(), "purple_bulbis_oddity");
     public static final Block SHULKREN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.ShulkrenFungus(), "shulkren_fungus");
+    public static final Block BULBIS_ANOMALY = createTallBulbis("bulbis_anomaly");
+    public static final Block PURPLE_BULBIS_ANOMALY = createTallBulbis("purple_bulbis_anomaly");
 
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");
@@ -1140,6 +1144,14 @@ public class BYGBlocks {
 
     static Block createTallFlower(String id) {
         Block createBlock = new TallFlowerBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createTallBulbis(String id) {
+        Block createBlock = new TallBulbisBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);

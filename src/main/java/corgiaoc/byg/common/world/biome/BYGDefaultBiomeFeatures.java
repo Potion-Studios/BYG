@@ -451,7 +451,10 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addBulbisOddity(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BULBIS_ODDITY);
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_LILY);
+    }
+
+    public static void addBulbisAnomaly(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BULBIS_ANOMALY);
     }
 
     public static void addEnderLily(BiomeGenerationSettings.Builder gen) {

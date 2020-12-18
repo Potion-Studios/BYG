@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "byg:block/purple_bulbis_anomaly_bottom"
+    },
+    "half=upper": {
+      "model": "byg:block/purple_bulbis_anomaly_top"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/bulbis_anomaly_top",
+    "particle": "byg:block/bulbis_anomaly_top"
+  }
+}

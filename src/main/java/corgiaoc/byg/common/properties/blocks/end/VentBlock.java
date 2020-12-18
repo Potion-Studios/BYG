@@ -6,6 +6,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.particles.BasicParticleType;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
@@ -25,17 +26,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
-public class VentBlock extends Block implements IWaterLoggable {
-    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+public class VentBlock extends Block {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D);
 
     public VentBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.valueOf(false)));
-    }
-
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED);
+        this.setDefaultState(this.stateContainer.getBaseState());
     }
 
     public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
@@ -50,10 +46,6 @@ public class VentBlock extends Block implements IWaterLoggable {
         if (facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            if (stateIn.get(WATERLOGGED)) {
-                worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
-            }
-
             return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         }
     }

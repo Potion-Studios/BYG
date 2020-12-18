@@ -26,8 +26,9 @@ public class BYGItems {
     public static final Item BYG_LOGO = createItem(new Item((new Item.Properties())), "byg_logo");
     public static final Item PEAT = createItem(new BlockItem(BYGBlocks.PEAT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PEAT));
     public static final Item MEADOW_GRASSBLOCK = createItem(new BlockItem(BYGBlocks.MEADOW_GRASSBLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.MEADOW_GRASSBLOCK));
-    public static final Item GLOWCELIUM = createItem(new BlockItem(BYGBlocks.GLOWCELIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.GLOWCELIUM));
+    public static final Item MEADOW_GRASS_PATH = createItem(new BlockItem(BYGBlocks.MEADOW_GRASS_PATH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.MEADOW_GRASS_PATH));
     public static final Item MEADOW_DIRT = createItem(new BlockItem(BYGBlocks.MEADOW_DIRT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.MEADOW_DIRT));
+    public static final Item GLOWCELIUM = createItem(new BlockItem(BYGBlocks.GLOWCELIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.GLOWCELIUM));
     public static final Item MUD_BALL = createItem(new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)), "mud_ball");
     public static final Item MUD_BLOCK = createItem(new BlockItem(BYGBlocks.MUD_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.MUD_BLOCK));
     public static final Item MUD_BRICKS = createItem(new BlockItem(BYGBlocks.MUD_BRICKS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.MUD_BRICKS));
@@ -246,8 +247,10 @@ public class BYGItems {
 
     //Bulbis Woodtype
     public static final Item PURPLE_BULBIS_ODDITY = createItem(new BlockItem(BYGBlocks.PURPLE_BULBIS_ODDITY, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_BULBIS_ODDITY));
+    public static final Item PURPLE_BULBIS_ANOMALY = createItem(new BlockItem(BYGBlocks.PURPLE_BULBIS_ANOMALY, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_BULBIS_ANOMALY));
     public static final Item PURPLE_BULBIS_SHELL = createItem(new BlockItem(BYGBlocks.PURPLE_BULBIS_SHELL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_BULBIS_SHELL));
     public static final Item BULBIS_ODDITY = createItem(new BlockItem(BYGBlocks.BULBIS_ODDITY, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_ODDITY));
+    public static final Item BULBIS_ANOMALY = createItem(new BlockItem(BYGBlocks.BULBIS_ANOMALY, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_ANOMALY));
     public static final Item BULBIS_SHELL = createItem(new BlockItem(BYGBlocks.BULBIS_SHELL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_SHELL));
     public static final Item BULBIS_STEM = createItem(new BlockItem(BYGBlocks.BULBIS_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_STEM));
     public static final Item BULBIS_WOOD = createItem(new BlockItem(BYGBlocks.BULBIS_WOOD, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_WOOD));
@@ -978,6 +981,7 @@ public class BYGItems {
 
     public static final Item CRYPTIC_CAMPFIRE = createItem(new BlockItem(BYGBlocks.CRYPTIC_CAMPFIRE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_CAMPFIRE));
     public static final Item CRYPTIC_MAGMA_BLOCK = createItem(new BlockItem(BYGBlocks.CRYPTIC_MAGMA_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_MAGMA_BLOCK));
+    public static final Item CRYPTIC_REDSTONE_ORE = createItem(new BlockItem(BYGBlocks.CRYPTIC_REDSTONE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_REDSTONE_ORE));
     public static final Item CRYPTIC_STONE = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE));
     public static final Item CRYPTIC_STONE_SLAB = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE_SLAB));
     public static final Item CRYPTIC_STONE_STAIRS = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE_STAIRS));
