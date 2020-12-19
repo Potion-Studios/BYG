@@ -43,5 +43,5 @@ public class BYGEndBiome {
 
     public RegistryKey<Biome> getKey() {
         return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
-}
+    }
 }
