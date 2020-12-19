@@ -11,6 +11,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
@@ -28,7 +29,7 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return (isNetherFungi) ? state.isIn(BlockTags.NYLIUM) || state.isIn(Blocks.MYCELIUM) || state.isIn(Blocks.SOUL_SOIL) || super.isValidGround(state, worldIn, pos) : state.isOpaqueCube(worldIn, pos);
+        return (isNetherFungi) ? state.isIn(BlockTags.NYLIUM) || state.isIn(Blocks.MYCELIUM) || state.isIn(Blocks.SOUL_SOIL) || state.isIn(BlockTags.BASE_STONE_NETHER) || state.isIn(Tags.Blocks.NETHERRACK) || super.isValidGround(state, worldIn, pos) : state.isOpaqueCube(worldIn, pos);
     }
 
     @Override
@@ -39,7 +40,7 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         if (isNetherFungi) {
-           return super.isValidPosition(state, worldIn, pos);
+           return super.isValidPosition(state, worldIn, pos.down());
         }
 
         BlockPos blockpos = pos.down();
