@@ -40,7 +40,7 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         if (isNetherFungi) {
-           return super.isValidPosition(state, worldIn, pos.down());
+           return super.isValidPosition(state, worldIn, pos);
         }
 
         BlockPos blockpos = pos.down();

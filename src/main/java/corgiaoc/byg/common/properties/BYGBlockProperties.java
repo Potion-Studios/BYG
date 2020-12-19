@@ -1072,7 +1072,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGOrePendorite extends OreBlock {
+    public static class BYGOrePendorite extends BYGOreBlock {
         public BYGOrePendorite(String registryName) {
             super(AbstractBlock.Properties.create(Material.ROCK)
                     .sound(SoundType.STONE)
@@ -1088,7 +1088,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGPervadedNetherrack extends OreBlock {
+    public static class BYGPervadedNetherrack extends BYGOreBlock {
         public BYGPervadedNetherrack(String registryName) {
             super(AbstractBlock.Properties.create(Material.ROCK)
                     .sound(SoundType.NETHER_GOLD)
