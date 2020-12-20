@@ -50,6 +50,13 @@ public class BYGJsonConfigHandler {
             throw new IllegalStateException("byg-end-sub-biomes.json failed to load. To quickly fix this error, delete this file and let it reset.");
         }
 
+        EndBiomeDataListHolder.fillBiomeLists();
+        EndSubBiomeDataListHolder.fillBiomeLists();
+    }
+
+
+    //TODO: Handle per world load and allow datapack values.
+    public static void handleOverWorldConfig(Path path) {
         try {
             handleBYGSubBiomesJSONConfig(path.resolve(BYG.MOD_ID + "-sub-biomes.json"));
         } catch (IllegalStateException e) {
@@ -64,8 +71,6 @@ public class BYGJsonConfigHandler {
 
         BiomeDataListHolder.fillBiomeLists();
         SubBiomeDataListHolder.fillBiomeLists();
-        EndBiomeDataListHolder.fillBiomeLists();
-        EndSubBiomeDataListHolder.fillBiomeLists();
     }
 
 
@@ -87,8 +92,7 @@ public class BYGJsonConfigHandler {
             if (biomeDataListHolder != null) {
                 BYGEndSubBiome.endSubBiomeData = biomeDataListHolder.getEndSubBiomeData();
                 BYGEndSubBiome.voidSubBiomeData = biomeDataListHolder.getVoidSubBiomeData();
-            }
-            else
+            } else
                 BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
 
         } catch (IOException e) {
@@ -131,8 +135,7 @@ public class BYGJsonConfigHandler {
             if (biomeDataListHolder != null) {
                 BYGEndBiome.endBiomeData = biomeDataListHolder.getEndBiomeData();
                 BYGEndBiome.voidBiomeData = biomeDataListHolder.getVoidBiomeData();
-            }
-            else
+            } else
                 BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
 
         } catch (IOException e) {

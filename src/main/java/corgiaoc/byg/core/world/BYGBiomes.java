@@ -2,10 +2,7 @@ package corgiaoc.byg.core.world;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import corgiaoc.byg.common.world.biome.BYGBiome;
-import corgiaoc.byg.common.world.biome.BYGEndBiome;
-import corgiaoc.byg.common.world.biome.BYGNetherBiome;
-import corgiaoc.byg.common.world.biome.BYGSubBiome;
+import corgiaoc.byg.common.world.biome.*;
 import corgiaoc.byg.common.world.biome.end.*;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
@@ -19,6 +16,8 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
+import corgiaoc.byg.config.json.endbiomedata.EndBiomeData;
+import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeData;
 import corgiaoc.byg.config.json.subbiomedata.SubBiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.util.RegistryKey;
@@ -112,9 +111,9 @@ public class BYGBiomes {
     public static Biome TROPICAL_ISLAND = WorldGenRegistrationHelper.createBiome("tropical_islands", new TropicalIslands().getBiome(), 140);
     public static Biome TROPICAL_RAINFOREST = WorldGenRegistrationHelper.createBiome("tropical_rainforest", new TropicalRainForest().getBiome(), 57);
     public static Biome TWILIGHT_VALLEY = WorldGenRegistrationHelper.createBiome("twilight_valley", new TwilightValley().getBiome(), 149);
-//    public static Biome VALLE_DE_LUNA = WorldGenRegistrationHelper.createBiome("valle_de_luna", new ValleDeLuna().getBiome());
+    //    public static Biome VALLE_DE_LUNA = WorldGenRegistrationHelper.createBiome("valle_de_luna", new ValleDeLuna().getBiome());
     public static Biome VIBRANT_SWAMPLANDS = WorldGenRegistrationHelper.createBiome("vibrant_swamplands", new VibrantSwamplands().getBiome(), 58);
-//    public static Biome VOLCANO = WorldGenRegistrationHelper.createBiome("volcano", new Volcano().getBiome(), 173);
+    //    public static Biome VOLCANO = WorldGenRegistrationHelper.createBiome("volcano", new Volcano().getBiome(), 173);
     public static Biome WEEPING_WITCH_FOREST = WorldGenRegistrationHelper.createBiome("weeping_witch_forest", new WeepingWitchForest().getBiome(), 60);
     public static Biome WOODLANDS = WorldGenRegistrationHelper.createBiome("woodlands", new WoodLands().getBiome(), 61);
     public static Biome ZELKOVA_FOREST = WorldGenRegistrationHelper.createBiome("zelkova_forest", new ZelkovaForest().getBiome(), 62);
@@ -262,6 +261,43 @@ public class BYGBiomes {
         }
     }
 
+    public static void fillBiomeDictionary(Registry<Biome> biomeRegistry) {
+        for (EndBiomeData endBiomeData : BYGEndBiome.endBiomeData) {
+            RegistryKey<Biome> key = biomeRegistry.getOptionalKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
+            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
+                BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
+                if (!(BiomeDictionary.hasType(key, type)))
+                    BiomeDictionary.addTypes(key, type);
+            }
+        }
+        for (EndBiomeData endBiomeData : BYGEndBiome.voidBiomeData) {
+            RegistryKey<Biome> key = biomeRegistry.getOptionalKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
+            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
+                BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
+                if (!(BiomeDictionary.hasType(key, type)))
+                    BiomeDictionary.addTypes(key, type);
+            }
+        }
+
+        for (EndSubBiomeData endBiomeData : BYGEndSubBiome.endSubBiomeData) {
+            RegistryKey<Biome> key = biomeRegistry.getOptionalKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
+            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
+                BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
+                if (!(BiomeDictionary.hasType(key, type)))
+                    BiomeDictionary.addTypes(key, type);
+            }
+        }
+
+        for (EndSubBiomeData endBiomeData : BYGEndSubBiome.voidSubBiomeData) {
+            RegistryKey<Biome> key = biomeRegistry.getOptionalKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
+            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
+                BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
+                if (!(BiomeDictionary.hasType(key, type)))
+                    BiomeDictionary.addTypes(key, type);
+            }
+        }
+    }
+
     public static void fillBiomeDictionary() {
         for (BiomeData bygBiome : BYGBiome.biomeData) {
             BiomeDictionary.addTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(bygBiome.getBiome())), bygBiome.getDictionaryTypes());
@@ -272,44 +308,42 @@ public class BYGBiomes {
 
         for (BYGNetherBiome bygNetherBiome : BYGNetherBiome.BYG_NETHER_BIOMES)
             BiomeDictionary.addTypes(bygNetherBiome.getKey(), bygNetherBiome.getBiomeDictionary());
-        for (BYGEndBiome bygEndBiome : BYGEndBiome.BYG_END_BIOMES)
-            BiomeDictionary.addTypes(bygEndBiome.getKey(), bygEndBiome.getBiomeDictionary());
     }
 
     //used in MixinMinecraftServer
     public static void addBYGFeaturesToBiomes(Biome biome, ResourceLocation locationKey) {
-            if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
-                if (BYGWorldConfig.ROCKY_STONE_GEN.get()) {
-                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
-                }
-                if (BYGWorldConfig.SCORIA_STONE_GEN.get()) {
-                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
-                }
+        if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
+            if (BYGWorldConfig.ROCKY_STONE_GEN.get()) {
+                addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
+            }
+            if (BYGWorldConfig.SCORIA_STONE_GEN.get()) {
+                addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
+            }
 
-                if (BYGWorldConfig.SOAP_STONE_GEN.get()) {
-                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
-                }
+            if (BYGWorldConfig.SOAP_STONE_GEN.get()) {
+                addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
+            }
 
-                if (biome == WorldGenRegistries.BIOME.getOrThrow(Biomes.SOUL_SAND_VALLEY)) {
-                    addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
-                }
+            if (biome == WorldGenRegistries.BIOME.getOrThrow(Biomes.SOUL_SAND_VALLEY)) {
+                addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
+            }
 
-                if (biome == WorldGenRegistries.BIOME.getOrThrow(Biomes.BEACH)) {
-                    addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
-                }
+            if (biome == WorldGenRegistries.BIOME.getOrThrow(Biomes.BEACH)) {
+                addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
+            }
 
-                if (BYGWorldConfig.AMETRINE_GEN.get()) {
-                    if (locationKey.equals(WorldGenRegistries.BIOME.getKey(POINTY_STONE_FOREST)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(STONE_FOREST)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(GUIANA_SHIELD)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(GUIANA_CLEARING)))
-                        addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
-                }
+            if (BYGWorldConfig.AMETRINE_GEN.get()) {
+                if (locationKey.equals(WorldGenRegistries.BIOME.getKey(POINTY_STONE_FOREST)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(STONE_FOREST)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(GUIANA_SHIELD)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(GUIANA_CLEARING)))
+                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
+            }
 
-                if (BYGWorldConfig.PENDORITE_GEN.get()) {
-                    if (locationKey.equals(WorldGenRegistries.BIOME.getKey(FOREST_FAULT)))
-                        addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
-                }
+            if (BYGWorldConfig.PENDORITE_GEN.get()) {
+                if (locationKey.equals(WorldGenRegistries.BIOME.getKey(FOREST_FAULT)))
+                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
+            }
 
 //                addStructureToBiome(biome, BYGConfiguredStructures.VOLCANO_STRUCTURE);
-            }
+        }
     }
 
     //Use these to add our features to vanilla's biomes.
