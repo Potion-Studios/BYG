@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import corgiaoc.byg.common.world.biome.*;
 import corgiaoc.byg.common.world.biome.end.*;
+import corgiaoc.byg.common.world.biome.end.sub.ShatteredViscalIsles;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
 import corgiaoc.byg.common.world.biome.overworld.sub.*;
@@ -243,6 +244,7 @@ public class BYGBiomes {
     public static Biome NIGHTSHADE_FOREST = WorldGenRegistrationHelper.createBiome("nightshade_forest", new NightshadeForest().getBiome(), 164);
     public static Biome ETHEREAL_ISLANDS = WorldGenRegistrationHelper.createBiome("ethereal_islands", new EtherealIslands().getBiome(), 165);
     public static Biome VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("viscal_isles", new ViscalIsles().getBiome(), 166);
+    public static Biome SHATTERED_VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("shattered_viscal_isles", new ShatteredViscalIsles().getBiome(), 166);
     public static Biome BULBIS_GARDENS = WorldGenRegistrationHelper.createBiome("bulbis_gardens", new BulbisGardens().getBiome(), 167);
     public static Biome SHATTERED_DESERT = WorldGenRegistrationHelper.createBiome("shattered_desert", new ShatteredDesert().getBiome(), 168);
     public static Biome SHULKREN_FOREST = WorldGenRegistrationHelper.createBiome("shulkren_forest", new ShulkrenForest().getBiome(), 169);

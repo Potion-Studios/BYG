@@ -1,5 +1,7 @@
 package corgiaoc.byg.common.world.biome.end.sub;
 
+import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.common.world.biome.BYGEndSubBiome;
 import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
@@ -15,8 +17,9 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraftforge.common.BiomeDictionary;
 
-public class ShatteredViscalIsles extends BYGSubBiome {
+public class ShatteredViscalIsles extends BYGEndSubBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("viscal_isles", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.ETHEREAL, BYGSurfaceBuilders.Configs.SCULK));
     static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.THEEND;
@@ -43,6 +46,12 @@ public class ShatteredViscalIsles extends BYGSubBiome {
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
                 .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
+
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.END, BiomeDictionary.Type.VOID};
+    }
+
 
     static {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_SHATTERED_ISLAND);
