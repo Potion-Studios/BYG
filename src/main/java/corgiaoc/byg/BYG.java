@@ -60,6 +60,8 @@ public class BYG {
 
     public static final Path CONFIG_PATH = new File(String.valueOf(FMLPaths.CONFIGDIR.get().resolve(MOD_ID))).toPath();
 
+    public static Registry<Biome> EARLY_BIOME_REGISTRY_ACCESS = null;
+
     public BYG() {
         File dir = new File(CONFIG_PATH.toString());
         if (!dir.exists())
@@ -77,15 +79,10 @@ public class BYG {
         BYGCreativeTab.init();
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
-        BYGJsonConfigHandler.handleBYGBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-biomes.json"));
-        BYGJsonConfigHandler.handleBYGSubBiomesJSONConfig(CONFIG_PATH.resolve(MOD_ID + "-sub-biomes.json"));
-        BYGJsonConfigHandler.createReadMe(CONFIG_PATH.resolve("README.txt"));
         BYGBiomes.addBiomeEntries();
         BYGVillagerType.setVillagerForBYGBiomes();
         BYGPaths.addBYGPaths();
         BYGBiomes.fillBiomeDictionary();
-        BiomeDataListHolder.fillBiomeLists();
-        SubBiomeDataListHolder.fillBiomeLists();
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

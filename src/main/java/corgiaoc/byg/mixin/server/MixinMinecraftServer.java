@@ -4,6 +4,8 @@ package corgiaoc.byg.mixin.server;
 import com.mojang.authlib.GameProfileRepository;
 import com.mojang.authlib.minecraft.MinecraftSessionService;
 import com.mojang.datafixers.DataFixer;
+import corgiaoc.byg.BYG;
+import corgiaoc.byg.config.json.BYGJsonConfigHandler;
 import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.resources.DataPackRegistries;
 import net.minecraft.resources.ResourcePackList;
@@ -43,6 +45,10 @@ public class MixinMinecraftServer {
             for (Map.Entry<RegistryKey<Biome>, Biome> biomeEntry : biomeMutableRegistry.get().getEntries()) {
                 BYGBiomes.addBYGFeaturesToBiomes(biomeEntry.getValue(), biomeEntry.getKey().getLocation());
             }
+
+            BYG.EARLY_BIOME_REGISTRY_ACCESS = biomeMutableRegistry.get();
+
+            BYGJsonConfigHandler.handleBiomeJsonConfig(BYG.CONFIG_PATH, biomeMutableRegistry.get());
         }
     }
 }

@@ -4,11 +4,20 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.common.world.biome.BYGEndSubBiome;
 import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.config.json.biomedata.BiomeDataListHolder;
 import corgiaoc.byg.config.json.biomedata.BiomeDataListHolderSerializer;
+import corgiaoc.byg.config.json.endbiomedata.EndBiomeDataListHolder;
+import corgiaoc.byg.config.json.endbiomedata.EndBiomeDataListHolderSerializer;
+import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeDataListHolder;
+import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeDataListHolderSerializer;
 import corgiaoc.byg.config.json.subbiomedata.SubBiomeDataListHolder;
 import corgiaoc.byg.config.json.subbiomedata.SubBiomeDataListHolderSerializer;
+import net.minecraft.crash.CrashReport;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 
 import java.io.File;
 import java.io.FileReader;
@@ -18,6 +27,132 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class BYGJsonConfigHandler {
+
+    public static void handleBiomeJsonConfig(Path path, Registry<Biome> biomeRegistry) {
+        File dir = new File(path.toString());
+        if (!dir.exists())
+            dir.mkdir();
+
+        try {
+            createReadMe(path.resolve("README.txt"));
+        } catch (Exception e) {
+            BYG.LOGGER.info("config/byg README.txt failed to load!");
+        }
+
+        try {
+            handleBYGEndBiomesJSONConfig(path.resolve(BYG.MOD_ID + "-end-biomes.json"), biomeRegistry);
+        } catch (IllegalStateException e) {
+            throw new IllegalStateException("byg-end-biomes.json failed to load. To quickly fix this error, delete this file and let it reset.");
+        }
+
+        try {
+            handleBYGEndSubBiomesJSONConfig(path.resolve(BYG.MOD_ID + "-end-sub-biomes.json"));
+        } catch (IllegalStateException e) {
+            throw new IllegalStateException("byg-end-sub-biomes.json failed to load. To quickly fix this error, delete this file and let it reset.");
+        }
+
+        try {
+            handleBYGSubBiomesJSONConfig(path.resolve(BYG.MOD_ID + "-sub-biomes.json"));
+        } catch (IllegalStateException e) {
+            throw new IllegalStateException("byg-sub-biomes.json failed to load. To quickly fix this error, delete this file and let it reset.");
+        }
+
+        try {
+            handleBYGBiomesJSONConfig(path.resolve(BYG.MOD_ID + "-biomes.json"));
+        } catch (IllegalStateException e) {
+            throw new IllegalStateException("byg-biomes.json failed to load. To quickly fix this error, delete this file and let it reset.");
+        }
+
+        BiomeDataListHolder.fillBiomeLists();
+        SubBiomeDataListHolder.fillBiomeLists();
+        EndBiomeDataListHolder.fillBiomeLists();
+        EndSubBiomeDataListHolder.fillBiomeLists();
+    }
+
+
+    public static void handleBYGEndSubBiomesJSONConfig(Path path) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(EndSubBiomeDataListHolder.class, new EndSubBiomeDataListHolderSerializer());
+        gsonBuilder.setPrettyPrinting();
+        gsonBuilder.disableHtmlEscaping();
+        Gson gson = gsonBuilder.create();
+
+        final File CONFIG_FILE = new File(String.valueOf(path));
+
+        if (!CONFIG_FILE.exists()) {
+            EndSubBiomeDataListHolder.createDefaults();
+            createBYGEndSubBiomesJson(path);
+        }
+        try (Reader reader = new FileReader(path.toString())) {
+            EndSubBiomeDataListHolder biomeDataListHolder = gson.fromJson(reader, EndSubBiomeDataListHolder.class);
+            if (biomeDataListHolder != null)
+                BYGEndSubBiome.endSubBiomeData = biomeDataListHolder.getBiomeData();
+            else
+                BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
+
+        } catch (IOException e) {
+            BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
+        }
+    }
+
+    public static void createBYGEndSubBiomesJson(Path path) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(EndSubBiomeDataListHolder.class, new EndSubBiomeDataListHolderSerializer());
+        gsonBuilder.setPrettyPrinting();
+        gsonBuilder.disableHtmlEscaping();
+        Gson gson = gsonBuilder.create();
+
+        String jsonString = gson.toJson(new EndSubBiomeDataListHolder(BYGEndSubBiome.endSubBiomeData));
+
+        try {
+            Files.write(path, jsonString.getBytes());
+        } catch (IOException e) {
+            BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be created");
+        }
+    }
+
+
+    public static void handleBYGEndBiomesJSONConfig(Path path, Registry<Biome> biomeRegistry) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(EndBiomeDataListHolder.class, new EndBiomeDataListHolderSerializer());
+        gsonBuilder.setPrettyPrinting();
+        gsonBuilder.disableHtmlEscaping();
+        Gson gson = gsonBuilder.create();
+
+        final File CONFIG_FILE = new File(String.valueOf(path));
+
+        if (!CONFIG_FILE.exists()) {
+            EndBiomeDataListHolder.createDefaults(biomeRegistry);
+            createBYGEndBiomesJson(path);
+        }
+        try (Reader reader = new FileReader(path.toString())) {
+            EndBiomeDataListHolder biomeDataListHolder = gson.fromJson(reader, EndBiomeDataListHolder.class);
+            if (biomeDataListHolder != null)
+                BYGEndBiome.endBiomeData = biomeDataListHolder.getBiomeData();
+            else
+                BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
+
+        } catch (IOException e) {
+            BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
+        }
+    }
+
+    public static void createBYGEndBiomesJson(Path path) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(EndBiomeDataListHolder.class, new EndBiomeDataListHolderSerializer());
+        gsonBuilder.setPrettyPrinting();
+        gsonBuilder.disableHtmlEscaping();
+        Gson gson = gsonBuilder.create();
+
+        String jsonString = gson.toJson(new EndBiomeDataListHolder(BYGEndBiome.endBiomeData));
+
+        try {
+            Files.write(path, jsonString.getBytes());
+        } catch (IOException e) {
+            BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be created");
+        }
+    }
+
 
     public static void handleBYGBiomesJSONConfig(Path path) {
         GsonBuilder gsonBuilder = new GsonBuilder();
