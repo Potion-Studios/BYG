@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.dimension.nether;
 
 
+import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import corgiaoc.byg.config.BYGWorldConfig;
 import net.minecraft.util.registry.Registry;
