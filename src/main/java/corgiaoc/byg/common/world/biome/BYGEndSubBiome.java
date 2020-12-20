@@ -21,6 +21,7 @@ public class BYGEndSubBiome {
     private final Biome biome;
 
     public static List<EndSubBiomeData> endSubBiomeData = new ArrayList<>();
+    public static List<EndSubBiomeData> voidSubBiomeData = new ArrayList<>();
 
     public BYGEndSubBiome(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
         biome = new Biome(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);

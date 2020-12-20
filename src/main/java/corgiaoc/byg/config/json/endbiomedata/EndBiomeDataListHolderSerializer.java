@@ -4,12 +4,7 @@ import com.google.gson.*;
 import corgiaoc.byg.BYG;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
 import java.lang.reflect.Type;
 import java.util.*;
@@ -21,12 +16,13 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
     @Override
     public JsonElement serialize(EndBiomeDataListHolder Src, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject biomes = new JsonObject();
-        JsonObject biomeObject = new JsonObject();
+        JsonObject endBiomeObject = new JsonObject();
+        JsonObject voidBiomeObject = new JsonObject();
 
-        for (EndBiomeData endBiomeData : Src.getBiomeData()) {
+        for (EndBiomeData endBiomeData : Src.getEndBiomeData()) {
 
-            JsonArray weightedListArray = new JsonArray();
-            JsonObject object = new JsonObject();
+            JsonArray hillListArray = new JsonArray();
+            JsonObject endBiome = new JsonObject();
 
             if (endBiomeData.getBiomeWeightedList() != null) {
                 for (WeightedList.Entry<ResourceLocation> biomeEntry : endBiomeData.getBiomeWeightedList().field_220658_a) {
@@ -36,7 +32,7 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
                     if (biomeEntryKey != null) {
                         object2.addProperty("name", biomeEntryKey.toString());
                         object2.addProperty("weight", biomeEntry.field_220652_c);
-                        weightedListArray.add(object2);
+                        hillListArray.add(object2);
                     } else {
                         BYG.LOGGER.error("One or more \"hills\" \"name\" value was null/incorrect.");
                     }
@@ -51,25 +47,29 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
             }
 
 
-            object.addProperty("dictionary", dictionaryString.toString().toUpperCase());
-            object.addProperty("weight", endBiomeData.getBiomeWeight());
+            endBiome.addProperty("dictionary", dictionaryString.toString().toUpperCase());
+            endBiome.addProperty("weight", endBiomeData.getBiomeWeight());
             ResourceLocation edgeKey = endBiomeData.getEdgeBiome();
             if (edgeKey != null)
-                object.addProperty("edge", edgeKey.toString());
+                endBiome.addProperty("edge", edgeKey.toString());
             else
-                object.addProperty("edge", "");
+                endBiome.addProperty("edge", "");
 
-            object.add("hills", weightedListArray);
+            endBiome.add("hills", hillListArray);
 
             //This should never be null.
             ResourceLocation location = endBiomeData.getBiome();
-            if (location != null )
-                biomeObject.add(location.toString(), object);
-            else
+            if (location != null) {
+                if (dictionaryString.toString().contains("VOID"))
+                    voidBiomeObject.add(location.toString(), endBiome);
+                else
+                    endBiomeObject.add(location.toString(), endBiome);
+            } else
                 BYG.LOGGER.error("The Biome key was null! This should NEVER happen.");
 
         }
-        biomes.add("biomes", biomeObject);
+        biomes.add("biomes", endBiomeObject);
+        biomes.add("void-biomes", voidBiomeObject);
 
         return biomes;
     }
@@ -80,9 +80,14 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
 
         JsonObject jsonObject = json.getAsJsonObject();
         List<EndBiomeData> endBiomeData = new ArrayList<>();
+        List<EndBiomeData> voidBiomeData = new ArrayList<>();
 
-        Set<Map.Entry<String, JsonElement>> entrySet = jsonObject.get("biomes").getAsJsonObject().entrySet();
+        extractElements(endBiomeData, jsonObject.get("biomes").getAsJsonObject().entrySet());
+        extractElements(endBiomeData, jsonObject.get("void-biomes").getAsJsonObject().entrySet());
+        return new EndBiomeDataListHolder(endBiomeData, voidBiomeData);
+    }
 
+    private void extractElements(List<EndBiomeData> endBiomeData, Set<Map.Entry<String, JsonElement>> entrySet) {
         for (Map.Entry<String, JsonElement> elementEntry : entrySet) {
             WeightedList<ResourceLocation> weightedList = new WeightedList<>();
 
@@ -128,12 +133,10 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
             }
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
             if (BYG.EARLY_BIOME_REGISTRY_ACCESS.keySet().contains(biomeKey)) {
-                    endBiomeData.add(new EndBiomeData(biomeKey, weight, typesArray, weightedList, new ResourceLocation(edge)));
-            }
-            else
+                endBiomeData.add(new EndBiomeData(biomeKey, weight, typesArray, weightedList, new ResourceLocation(edge)));
+            } else
                 BYG.LOGGER.error("The biome key: \"" + biomeName + "\" was not found in the registry, skipping entry...");
         }
-        return new EndBiomeDataListHolder(endBiomeData);
     }
 
     public static List<BiomeDictionary.Type> defaultTypesList = new ArrayList<>();

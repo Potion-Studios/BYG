@@ -2,29 +2,31 @@ package corgiaoc.byg.config.json.endbiomedata.sub;
 
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.common.world.biome.BYGEndSubBiome;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
 public class EndSubBiomeDataListHolder {
 
     List<EndSubBiomeData> endSubBiomeData;
+    private final List<EndSubBiomeData> voidSubBiomeData;
 
-    public EndSubBiomeDataListHolder(List<EndSubBiomeData> endSubBiomeData) {
+    public EndSubBiomeDataListHolder(List<EndSubBiomeData> endSubBiomeData, List<EndSubBiomeData> voidSubBiomeData) {
         this.endSubBiomeData = endSubBiomeData;
+        this.voidSubBiomeData = voidSubBiomeData;
     }
 
-    public List<EndSubBiomeData> getBiomeData() {
+    public List<EndSubBiomeData> getEndSubBiomeData() {
         return endSubBiomeData;
+    }
+
+    public List<EndSubBiomeData> getVoidSubBiomeData() {
+        return voidSubBiomeData;
     }
 
     public static void createDefaults() {
@@ -37,6 +39,11 @@ public class EndSubBiomeDataListHolder {
 
     public static void fillBiomeLists() {
         for (EndSubBiomeData endSubBiomeData : BYGEndSubBiome.endSubBiomeData) {
+            if (endSubBiomeData.getEdgeBiome() != null)
+                BYGEndBiome.BIOME_TO_EDGE.put(endSubBiomeData.getBiome(), endSubBiomeData.getEdgeBiome());
+        }
+
+        for (EndSubBiomeData endSubBiomeData : BYGEndSubBiome.voidSubBiomeData) {
             if (endSubBiomeData.getEdgeBiome() != null)
                 BYGEndBiome.BIOME_TO_EDGE.put(endSubBiomeData.getBiome(), endSubBiomeData.getEdgeBiome());
         }

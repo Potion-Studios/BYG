@@ -18,13 +18,19 @@ import java.util.stream.Collectors;
 public class EndBiomeDataListHolder {
 
     List<EndBiomeData> endBiomeData;
+    private final List<EndBiomeData> voidBiomeData;
 
-    public EndBiomeDataListHolder(List<EndBiomeData> endBiomeData) {
+    public EndBiomeDataListHolder(List<EndBiomeData> endBiomeData, List<EndBiomeData> voidBiomeData) {
         this.endBiomeData = endBiomeData;
+        this.voidBiomeData = voidBiomeData;
     }
 
-    public List<EndBiomeData> getBiomeData() {
+    public List<EndBiomeData> getEndBiomeData() {
         return endBiomeData;
+    }
+
+    public List<EndBiomeData> getVoidBiomeData() {
+        return voidBiomeData;
     }
 
     public static void createDefaults(Registry<Biome> biomeRegistry) {
@@ -46,6 +52,14 @@ public class EndBiomeDataListHolder {
 
     public static void fillBiomeLists() {
         for (EndBiomeData endBiomeData : BYGEndBiome.endBiomeData) {
+            if (endBiomeData.getBiomeWeightedList() != null) {
+                BYGEndBiome.BIOME_TO_HILLS.put(endBiomeData.getBiome(), endBiomeData.getBiomeWeightedList());
+            }
+            if (endBiomeData.getEdgeBiome() != null)
+                BYGEndBiome.BIOME_TO_EDGE.put(endBiomeData.getBiome(), endBiomeData.getEdgeBiome());
+        }
+
+        for (EndBiomeData endBiomeData : BYGEndBiome.voidBiomeData) {
             if (endBiomeData.getBiomeWeightedList() != null) {
                 BYGEndBiome.BIOME_TO_HILLS.put(endBiomeData.getBiome(), endBiomeData.getBiomeWeightedList());
             }

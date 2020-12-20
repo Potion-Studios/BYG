@@ -15,7 +15,6 @@ import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeDataListHolder;
 import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeDataListHolderSerializer;
 import corgiaoc.byg.config.json.subbiomedata.SubBiomeDataListHolder;
 import corgiaoc.byg.config.json.subbiomedata.SubBiomeDataListHolderSerializer;
-import net.minecraft.crash.CrashReport;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 
@@ -28,7 +27,7 @@ import java.nio.file.Path;
 
 public class BYGJsonConfigHandler {
 
-    public static void handleBiomeJsonConfig(Path path, Registry<Biome> biomeRegistry) {
+    public static void handleAllBiomeJsonConfigs(Path path, Registry<Biome> biomeRegistry) {
         File dir = new File(path.toString());
         if (!dir.exists())
             dir.mkdir();
@@ -85,8 +84,10 @@ public class BYGJsonConfigHandler {
         }
         try (Reader reader = new FileReader(path.toString())) {
             EndSubBiomeDataListHolder biomeDataListHolder = gson.fromJson(reader, EndSubBiomeDataListHolder.class);
-            if (biomeDataListHolder != null)
-                BYGEndSubBiome.endSubBiomeData = biomeDataListHolder.getBiomeData();
+            if (biomeDataListHolder != null) {
+                BYGEndSubBiome.endSubBiomeData = biomeDataListHolder.getEndSubBiomeData();
+                BYGEndSubBiome.voidSubBiomeData = biomeDataListHolder.getVoidSubBiomeData();
+            }
             else
                 BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
 
@@ -102,7 +103,7 @@ public class BYGJsonConfigHandler {
         gsonBuilder.disableHtmlEscaping();
         Gson gson = gsonBuilder.create();
 
-        String jsonString = gson.toJson(new EndSubBiomeDataListHolder(BYGEndSubBiome.endSubBiomeData));
+        String jsonString = gson.toJson(new EndSubBiomeDataListHolder(BYGEndSubBiome.endSubBiomeData, BYGEndSubBiome.voidSubBiomeData));
 
         try {
             Files.write(path, jsonString.getBytes());
@@ -127,8 +128,10 @@ public class BYGJsonConfigHandler {
         }
         try (Reader reader = new FileReader(path.toString())) {
             EndBiomeDataListHolder biomeDataListHolder = gson.fromJson(reader, EndBiomeDataListHolder.class);
-            if (biomeDataListHolder != null)
-                BYGEndBiome.endBiomeData = biomeDataListHolder.getBiomeData();
+            if (biomeDataListHolder != null) {
+                BYGEndBiome.endBiomeData = biomeDataListHolder.getEndBiomeData();
+                BYGEndBiome.voidBiomeData = biomeDataListHolder.getVoidBiomeData();
+            }
             else
                 BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be read");
 
@@ -144,7 +147,7 @@ public class BYGJsonConfigHandler {
         gsonBuilder.disableHtmlEscaping();
         Gson gson = gsonBuilder.create();
 
-        String jsonString = gson.toJson(new EndBiomeDataListHolder(BYGEndBiome.endBiomeData));
+        String jsonString = gson.toJson(new EndBiomeDataListHolder(BYGEndBiome.endBiomeData, BYGEndBiome.voidBiomeData));
 
         try {
             Files.write(path, jsonString.getBytes());
@@ -152,7 +155,6 @@ public class BYGJsonConfigHandler {
             BYG.LOGGER.error(BYG.MOD_ID + "-biomes.json could not be created");
         }
     }
-
 
     public static void handleBYGBiomesJSONConfig(Path path) {
         GsonBuilder gsonBuilder = new GsonBuilder();

@@ -48,7 +48,7 @@ public class MixinMinecraftServer {
 
             BYG.EARLY_BIOME_REGISTRY_ACCESS = biomeMutableRegistry.get();
 
-            BYGJsonConfigHandler.handleBiomeJsonConfig(BYG.CONFIG_PATH, biomeMutableRegistry.get());
+            BYGJsonConfigHandler.handleAllBiomeJsonConfigs(BYG.CONFIG_PATH, biomeMutableRegistry.get());
         }
     }
 }

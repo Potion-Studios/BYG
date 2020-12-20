@@ -24,6 +24,7 @@ public class BYGEndBiome {
     private final Biome biome;
 
     public static List<EndBiomeData> endBiomeData = new ArrayList<>();
+    public static List<EndBiomeData> voidBiomeData = new ArrayList<>();
 
 
     public static final Map<ResourceLocation, WeightedList<ResourceLocation>> BIOME_TO_HILLS = new HashMap<>();
