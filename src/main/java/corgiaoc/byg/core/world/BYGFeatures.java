@@ -205,6 +205,8 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE3 = createFeature("bulbis_tree3", new BulbisTree3(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE4 = createFeature("bulbis_tree4", new BulbisTree4(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE5 = createFeature("bulbis_tree5", new BulbisTree5(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE6 = createFeature("bulbis_tree6", new BulbisTree6(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BULBIS_TREE7 = createFeature("bulbis_tree7", new BulbisTree7(BYGMushroomConfig.CODEC.stable()));
 
     //Ether
     public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_ETHER_TREE1 = WorldGenRegistrationHelper.createFeature("dead_ether_tree1", new DeadEtherTree1(BYGTreeConfig.CODEC.stable()));
