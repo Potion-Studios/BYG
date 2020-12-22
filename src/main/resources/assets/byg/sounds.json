@@ -19,6 +19,26 @@
     ]
   },
 
+  "ambient_end_forest": {
+    "sounds": [
+      {
+        "name": "byg:ambient_end_forest",
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ]
+  },
+
+  "ambient_end_ominous": {
+    "sounds": [
+      {
+        "name": "byg:ambient_end_ominous",
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ]
+  },
+
   "ambient_wailing_garth_additions": {
     "sounds": [
       {

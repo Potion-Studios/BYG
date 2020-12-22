@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.biome.end;
 
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.core.BYGSounds;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
@@ -36,7 +37,7 @@ public class EtherealIslands extends BYGEndBiome {
                 .setFogColor(8339307)
                 .withSkyColor(0)
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.CRIMSON_SPORE, 0.00428F))
-                .setAmbientSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
+                .setAmbientSound(BYGSounds.SoundRegistry.AMBIENT_END_FOREST_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
                 .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());

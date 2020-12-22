@@ -2,6 +2,8 @@ package corgiaoc.byg.common.world.biome.end;
 
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.core.BYGSounds;
+import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.client.audio.BackgroundMusicTracks;
@@ -15,8 +17,10 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
+import javax.annotation.Nullable;
+
 public class BulbisGardens extends BYGEndBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bulbis_gardens", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.IVIS_FIELDS, BYGSurfaceBuilders.Configs.END));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bulbis_gardens", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CRAG_GARDENS, BYGSurfaceBuilders.Configs.IVIS_CF));
     static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.THEEND;
     static final float DEPTH = 0.55F;
@@ -37,10 +41,16 @@ public class BulbisGardens extends BYGEndBiome {
                 .setFogColor(8339307)
                 .withSkyColor(0)
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WITCH, 0.00428F))
-                .setAmbientSound(SoundEvents.AMBIENT_CRIMSON_FOREST_LOOP)
+                .setAmbientSound(BYGSounds.SoundRegistry.AMBIENT_END_FOREST_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))
                 .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+    }
+
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return BYGBiomes.BULBIS_GARDENS_EDGE;
     }
 
 

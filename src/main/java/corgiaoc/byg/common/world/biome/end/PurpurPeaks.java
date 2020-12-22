@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.biome.end;
 
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.core.BYGSounds;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
@@ -37,7 +38,7 @@ public class PurpurPeaks extends BYGEndBiome {
                 .setFogColor(8339307)
                 .withSkyColor(0)
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.ASH, 0.00128F))
-                .setAmbientSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
+                .setAmbientSound(BYGSounds.SoundRegistry.AMBIENT_END_OMINOUS_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
                 .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_NETHER_SOUL_SAND_VALLEY)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());

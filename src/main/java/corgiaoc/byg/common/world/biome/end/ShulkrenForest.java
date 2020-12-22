@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.biome.end;
 
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.core.BYGSounds;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.client.audio.BackgroundMusicTracks;
@@ -38,7 +39,7 @@ public class ShulkrenForest extends BYGEndBiome {
                 .setFogColor(10518688)
                 .withSkyColor(0)
                 .setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.00128F))
-                .setAmbientSound(SoundEvents.AMBIENT_CRIMSON_FOREST_LOOP)
+                .setAmbientSound(BYGSounds.SoundRegistry.AMBIENT_END_FOREST_LOOP)
                 .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D))
                 .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))
                 .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
