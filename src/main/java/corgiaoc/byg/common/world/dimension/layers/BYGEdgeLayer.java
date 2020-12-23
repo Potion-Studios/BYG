@@ -25,10 +25,10 @@ public class BYGEdgeLayer implements ICastleTransformer {
 
         for (int idx : ArrayNESW) {
             ResourceLocation centreKey = biomeRegistry.getKey(biomeRegistry.getByValue(centre));
-            if (edgeMap.containsKey(centreKey)) {
-                ResourceLocation idxKey = biomeRegistry.getKey(biomeRegistry.getByValue(idx));
-                if (!edgeMap.containsKey(idxKey))
-                   return biomeRegistry.getId(biomeRegistry.getOrDefault(new ResourceLocation("minecraft:river")));
+            ResourceLocation idxKey = biomeRegistry.getKey(biomeRegistry.getByValue(idx));
+
+            if (edgeMap.containsKey(centreKey) && idxKey != centreKey) {
+                return biomeRegistry.getId(biomeRegistry.getOrDefault(edgeMap.get(centreKey)));
             }
         }
         return centre;

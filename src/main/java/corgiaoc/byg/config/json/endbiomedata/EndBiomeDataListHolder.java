@@ -38,7 +38,7 @@ public class EndBiomeDataListHolder {
             BYGEndBiome.endBiomeData.add(new EndBiomeData(WorldGenRegistries.BIOME.getKey(bygBiome.getBiome()), bygBiome.getWeight(), typeList.toArray(new BiomeDictionary.Type[0]), bygBiome.getHills(), WorldGenRegistries.BIOME.getKey(bygBiome.getEdge())));
         }
 
-        for (ResourceLocation location : biomeRegistry.keySet().stream().filter(location -> !location.toString().contains("byg")).collect(Collectors.toSet())) {
+        for (ResourceLocation location : biomeRegistry.keySet().stream().filter(location -> !location.toString().contains("byg") && !location.toString().equals("minecraft:the_end") && !location.toString().equals("minecraft:small_end_islands") && !location.toString().equals("minecraft:end_barrens")).collect(Collectors.toSet())) {
             if (biomeRegistry.getOptional(location).get().getCategory() == Biome.Category.THEEND)
                 BYGEndBiome.endBiomeData.add(new EndBiomeData(location, 5, new BiomeDictionary.Type[]{BiomeDictionary.Type.END}, new WeightedList<>(), null));
 

@@ -28,12 +28,11 @@ public class EndLayerProviders {
         }
 
         endLayer = new BYGHillsLayer(biomeRegistry, BYGEndBiome.BIOME_TO_HILLS, 3).apply(randomProvider.apply(2848586786L), endLayer, endLayer);
-        endLayer = new BYGEdgeLayer(biomeRegistry, BYGEndBiome.BIOME_TO_EDGE).apply(randomProvider.apply(2848586786L), endLayer);
         endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(495949586L), endLayer);
         endLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(34885L), endLayer);
+        endLayer = new BYGEdgeLayer(biomeRegistry, BYGEndBiome.BIOME_TO_EDGE).apply(randomProvider.apply(2848586786L), endLayer);
         endLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(395885L), endLayer);
         endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(28475786L), endLayer);
-
         return new DatapackLayer(endLayer);
     }
 
@@ -48,8 +47,8 @@ public class EndLayerProviders {
 
         endLayer = new BYGHillsLayer(biomeRegistry, BYGEndBiome.BIOME_TO_HILLS, 3).apply(randomProvider.apply(2848586786L), endLayer, endLayer);
         endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(495949586L), endLayer);
-        endLayer = new BYGEdgeLayer(biomeRegistry, BYGEndBiome.BIOME_TO_EDGE).apply(randomProvider.apply(2848586786L), endLayer);
         endLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(34885L), endLayer);
+        endLayer = new BYGEdgeLayer(biomeRegistry, BYGEndBiome.BIOME_TO_EDGE).apply(randomProvider.apply(2848586786L), endLayer);
         endLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(395885L), endLayer);
         endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(28475786L), endLayer);
 
