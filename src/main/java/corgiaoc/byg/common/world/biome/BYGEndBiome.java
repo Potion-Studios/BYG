@@ -26,9 +26,8 @@ public class BYGEndBiome {
     public static List<EndBiomeData> endBiomeData = new ArrayList<>();
     public static List<EndBiomeData> voidBiomeData = new ArrayList<>();
 
-
-    public static final Map<ResourceLocation, WeightedList<ResourceLocation>> BIOME_TO_HILLS = new HashMap<>();
-    public static final Map<ResourceLocation, ResourceLocation> BIOME_TO_EDGE = new HashMap<>();
+    public static Map<ResourceLocation, WeightedList<ResourceLocation>> BIOME_TO_HILLS = new HashMap<>();
+    public static Map<ResourceLocation, ResourceLocation> BIOME_TO_EDGE = new HashMap<>();
 
     public BYGEndBiome(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
         biome = new Biome(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);

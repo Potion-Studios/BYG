@@ -1,4 +1,4 @@
-package corgiaoc.byg.common.world.dimension.nether;
+package corgiaoc.byg.common.world.dimension.layers;
 
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import net.minecraft.util.ResourceLocation;

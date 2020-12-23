@@ -1,6 +1,7 @@
 package corgiaoc.byg.config.json.endbiomedata;
 
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
@@ -8,10 +9,7 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
@@ -51,23 +49,40 @@ public class EndBiomeDataListHolder {
     }
 
     public static void fillBiomeLists() {
+        WeightedList<ResourceLocation> end_biomes = new WeightedList<>();
+        WeightedList<ResourceLocation> void_biomes = new WeightedList<>();
+
+        Map<ResourceLocation, WeightedList<ResourceLocation>> biome_to_hills = new HashMap<>();
+        Map<ResourceLocation, ResourceLocation> biome_to_edge = new HashMap<>();
+
         for (EndBiomeData endBiomeData : BYGEndBiome.endBiomeData) {
             if (endBiomeData.getBiomeWeightedList() != null) {
-                BYGEndBiome.BIOME_TO_HILLS.put(endBiomeData.getBiome(), endBiomeData.getBiomeWeightedList());
+                biome_to_hills.put(endBiomeData.getBiome(), endBiomeData.getBiomeWeightedList());
             }
             if (endBiomeData.getEdgeBiome() != null)
-                BYGEndBiome.BIOME_TO_EDGE.put(endBiomeData.getBiome(), endBiomeData.getEdgeBiome());
+                biome_to_edge.put(endBiomeData.getBiome(), endBiomeData.getEdgeBiome());
+
+            end_biomes.func_226313_a_(endBiomeData.getBiome(), endBiomeData.getBiomeWeight());
         }
 
         for (EndBiomeData endBiomeData : BYGEndBiome.voidBiomeData) {
             if (endBiomeData.getBiomeWeightedList() != null) {
-                BYGEndBiome.BIOME_TO_HILLS.put(endBiomeData.getBiome(), endBiomeData.getBiomeWeightedList());
+                biome_to_hills.put(endBiomeData.getBiome(), endBiomeData.getBiomeWeightedList());
             }
             if (endBiomeData.getEdgeBiome() != null)
-                BYGEndBiome.BIOME_TO_EDGE.put(endBiomeData.getBiome(), endBiomeData.getEdgeBiome());
+                biome_to_edge.put(endBiomeData.getBiome(), endBiomeData.getEdgeBiome());
+
+            void_biomes.func_226313_a_(endBiomeData.getBiome(), endBiomeData.getBiomeWeight());
         }
 
-        BYGEndBiome.BIOME_TO_EDGE.entrySet().removeIf(Objects::isNull);
-        BYGEndBiome.BIOME_TO_HILLS.entrySet().removeIf(Objects::isNull);
+        biome_to_hills.entrySet().removeIf(Objects::isNull);
+        biome_to_edge.entrySet().removeIf(Objects::isNull);
+        end_biomes.field_220658_a.removeIf(Objects::isNull);
+        void_biomes.field_220658_a.removeIf(Objects::isNull);
+
+        BYGEndBiomeProvider.END_BIOMES = end_biomes;
+        BYGEndBiomeProvider.VOID_BIOMES = void_biomes;
+        BYGEndBiome.BIOME_TO_HILLS = biome_to_hills;
+        BYGEndBiome.BIOME_TO_EDGE = biome_to_edge;
     }
 }

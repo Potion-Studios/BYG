@@ -1,4 +1,4 @@
-package corgiaoc.byg.common.world.dimension.nether;
+package corgiaoc.byg.common.world.dimension.layers;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -28,7 +28,7 @@ public class BYGEdgeLayer implements ICastleTransformer {
             if (edgeMap.containsKey(centreKey)) {
                 ResourceLocation idxKey = biomeRegistry.getKey(biomeRegistry.getByValue(idx));
                 if (!edgeMap.containsKey(idxKey))
-                   return biomeRegistry.getId(biomeRegistry.getOrDefault(edgeMap.get(idxKey)));
+                   return biomeRegistry.getId(biomeRegistry.getOrDefault(new ResourceLocation("minecraft:river")));
             }
         }
         return centre;

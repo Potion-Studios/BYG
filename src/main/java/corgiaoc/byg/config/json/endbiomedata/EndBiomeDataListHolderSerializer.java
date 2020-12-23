@@ -83,7 +83,7 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
         List<EndBiomeData> voidBiomeData = new ArrayList<>();
 
         extractElements(endBiomeData, jsonObject.get("biomes").getAsJsonObject().entrySet());
-        extractElements(endBiomeData, jsonObject.get("void-biomes").getAsJsonObject().entrySet());
+        extractElements(voidBiomeData, jsonObject.get("void-biomes").getAsJsonObject().entrySet());
         return new EndBiomeDataListHolder(endBiomeData, voidBiomeData);
     }
 

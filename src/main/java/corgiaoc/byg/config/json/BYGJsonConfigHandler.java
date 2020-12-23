@@ -27,7 +27,7 @@ import java.nio.file.Path;
 
 public class BYGJsonConfigHandler {
 
-    public static void handleAllBiomeJsonConfigs(Path path, Registry<Biome> biomeRegistry) {
+    public static void handleEndBiomeJsonConfigs(Path path, Registry<Biome> biomeRegistry) {
         File dir = new File(path.toString());
         if (!dir.exists())
             dir.mkdir();
