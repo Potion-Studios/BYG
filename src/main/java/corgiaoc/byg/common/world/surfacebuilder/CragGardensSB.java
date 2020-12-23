@@ -51,15 +51,19 @@ public class CragGardensSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         int noise2 = ((int) (samplePerlin2)) * 3;
         int startHeight = noise1 + noise2 + 40;
 
-        for (int y = landHeight - 20; y <= startHeight; ++y) {
-            blockpos$Mutable.setPos(x, y, z);
+        int heightSnapshot = landHeight;
 
-            if (y <= landHeight - 3 - random.nextInt(3)) {
-                chunkIn.setBlockState(blockpos$Mutable, bottomBlock, false);
-            } else if (y == startHeight && random.nextInt(3) == 0) {
-                chunkIn.setBlockState(blockpos$Mutable, topBlock, false);
-            } else {
-                chunkIn.setBlockState(blockpos$Mutable, middleBlock, false);
+        if (heightSnapshot > 0) {
+            for (int y = heightSnapshot; y <= startHeight; ++y) {
+                blockpos$Mutable.setPos(x, y, z);
+
+                if (y <= heightSnapshot - 3 - random.nextInt(3)) {
+                    chunkIn.setBlockState(blockpos$Mutable, bottomBlock, false);
+                } else if (y == startHeight && random.nextInt(3) == 0) {
+                    chunkIn.setBlockState(blockpos$Mutable, topBlock, false);
+                } else {
+                    chunkIn.setBlockState(blockpos$Mutable, middleBlock, false);
+                }
             }
         }
     }
