@@ -572,6 +572,8 @@ public class BYGBlocks {
     public static final Block BLUE_NETHERRACK = new BYGBlockProperties.BYGBlueNetherrack("blue_netherrack");
     public static final Block BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGBlueNetherrackBricks("blue_nether_bricks");
 
+    public static final Block BULBIS_SPROUTS = new BYGBlockProperties.EndPlant("bulbis_sprouts");
+
     public static final Block IVIS_ROOTS = new BYGBlockProperties.EndPlant("ivis_roots");
     public static final Block IVIS_SPROUT = new BYGBlockProperties.EndPlant("ivis_sprout");
     public static final Block ENDER_LILY = new BYGBlockProperties.BYGEnderLily("ender_lily");
@@ -987,6 +989,7 @@ public class BYGBlocks {
     public static final Block VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
     public static final Block SHULKREN_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
     public static final Block MEADOW_GRASS_PATH = createBlock(new GrassPathBlock(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(0.65F).sound(SoundType.PLANT).setBlocksVision((state, reader, pos) -> true).setSuffocates((state, reader, pos) -> true)), "meadow_grass_path");
+    public static final Block BULBIS_PHYCELIUM = createEndDirtSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
 
     static Block createFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));

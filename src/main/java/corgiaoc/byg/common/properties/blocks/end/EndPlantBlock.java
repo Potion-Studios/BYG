@@ -36,7 +36,7 @@ public class EndPlantBlock extends BushBlock {
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(BYGBlocks.IVIS_PHYLIUM) || state.isIn(BYGBlocks.ETHER_PHYLIUM) || state.getBlock() == BYGBlocks.SHULKREN_PHYLIUM || state.isIn(BYGBlocks.NIGHTSHADE_PHYLIUM) || state.isIn(Tags.Blocks.SAND) || super.isValidGround(state, worldIn, pos);
+        return state.isIn(BYGBlocks.IVIS_PHYLIUM) || state.isIn(BYGBlocks.ETHER_PHYLIUM) || state.getBlock() == BYGBlocks.SHULKREN_PHYLIUM || state.isIn(BYGBlocks.NIGHTSHADE_PHYLIUM) || state.isIn(BYGBlocks.BULBIS_PHYCELIUM) || state.isIn(Tags.Blocks.SAND) || super.isValidGround(state, worldIn, pos);
     }
 
     @Override

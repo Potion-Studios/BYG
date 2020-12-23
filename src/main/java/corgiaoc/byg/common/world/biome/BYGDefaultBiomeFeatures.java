@@ -451,6 +451,7 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addBulbisOddity(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BULBIS_ODDITY);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.BULBIS_SPROUT_PLANT);
     }
 
     public static void addBulbisAnomaly(BiomeGenerationSettings.Builder gen) {
@@ -880,6 +881,14 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addBulbisTrees(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BULBIS_TREE);
+    }
+
+    public static void addPurpleBulbisTrees(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PURPLE_BULBIS_TREE);
+    }
+
+    public static void addSparseBulbisTrees(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_BULBIS_TREE);
     }
 
     public static void addSparsePurpleBulbisTrees(BiomeGenerationSettings.Builder gen) {

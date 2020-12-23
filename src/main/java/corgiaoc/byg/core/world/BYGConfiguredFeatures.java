@@ -172,6 +172,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> IVIS_ROOTS = createConfiguredFeature("ivis_roots", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.IVIS_ROOTS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
     public static final ConfiguredFeature<?, ?> IVIS_SPROUT = createConfiguredFeature("ivis_sprout", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.IVIS_SPROUT.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
 
+    public static final ConfiguredFeature<?, ?> BULBIS_SPROUTS = createConfiguredFeature("bulbis_sprouts", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BULBIS_SPROUTS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
+
     public static final ConfiguredFeature<?, ?> BULBIS_ODDITY = createConfiguredFeature("bulbis_oddity", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BULBIS_ODDITY.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
     public static final ConfiguredFeature<?, ?> PURPLE_BULBIS_ODDITY = createConfiguredFeature("purple_bulbis_oddity", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PURPLE_BULBIS_ODDITY.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
 
@@ -288,6 +290,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> LARGE_BASALT_COLUMN = createConfiguredFeature("large_basalt_columns", Feature.BASALT_COLUMNS.withConfiguration(new ColumnConfig(FeatureSpread.func_242253_a(2, 1), FeatureSpread.func_242253_a(1, 1))).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
     /***********************************************************Configured Placement***********************************************************/
+
+    public static final ConfiguredFeature<?, ?> BULBIS_SPROUT_PLANT = createConfiguredFeature("bulbis_sprout_plant", BULBIS_SPROUTS.withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(5));
 
     public static final ConfiguredFeature<?, ?> CALIFORNIA_POPPIES = createConfiguredFeature("california_poppies", CALIFORNIA_POPPY.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
     public static final ConfiguredFeature<?, ?> WINTER_SUCCLULENTS = createConfiguredFeature("winter_succulents", WINTER_SUCCULENT.withPlacement(Features.Placements.VEGETATION_PLACEMENT).withPlacement(Features.Placements.PATCH_PLACEMENT).func_242731_b(2));
@@ -1682,7 +1686,7 @@ public class BYGConfiguredFeatures {
             BULBIS_TREE5.withChance(0.15F),
             BULBIS_TREE6.withChance(0.1F)),
             BULBIS_TREE7)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
-            new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
+            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_BULBIS_TREE = createConfiguredFeature("sparse_bulbis_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BULBIS_BUSH1.withChance(0.1F),
@@ -1704,7 +1708,7 @@ public class BYGConfiguredFeatures {
             PURPLE_BULBIS_TREE5.withChance(0.15F),
             PURPLE_BULBIS_TREE6.withChance(0.1F)),
             PURPLE_BULBIS_TREE7)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
-            new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
+            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_PURPLE_BULBIS_TREE = createConfiguredFeature("sparse_purple_bulbis_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PURPLE_BULBIS_BUSH1.withChance(0.1F),
@@ -1785,6 +1789,7 @@ public class BYGConfiguredFeatures {
         public static final BlockStateProvidingFeatureConfig ETHER_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.ETHER_GRASS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.ETHER_BUSH.getDefaultState(), 45).addWeightedBlockstate(BYGBlocks.THEREAL_BELLFLOWER.getDefaultState(), 5));
         public static final BlockStateProvidingFeatureConfig NIGHTSHADE_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState(), 50));
         public static final BlockStateProvidingFeatureConfig VERMILION_SCULK_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), 45).addWeightedBlockstate(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), 5));
+        public static final BlockStateProvidingFeatureConfig BULBIS_CONFIG = new BlockStateProvidingFeatureConfig((new WeightedBlockStateProvider()).addWeightedBlockstate(BYGBlocks.BULBIS_SPROUTS.getDefaultState(), 50).addWeightedBlockstate(BYGBlocks.BULBIS_SPROUTS.getDefaultState(), 45).addWeightedBlockstate(BYGBlocks.BULBIS_SPROUTS.getDefaultState(), 5));
     }
 
     //Initialize these later to ensure config values were read.

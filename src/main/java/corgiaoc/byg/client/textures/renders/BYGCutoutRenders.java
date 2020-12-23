@@ -304,7 +304,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.BORIC_FIRE, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.CRYPTIC_FIRE, RenderType.getCutoutMipped());
 
-
+        RenderTypeLookup.setRenderLayer(BYGBlocks.BULBIS_SPROUTS, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.BULBIS_ANOMALY, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.PURPLE_BULBIS_ANOMALY, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.ETHER_BULB, RenderType.getCutoutMipped());

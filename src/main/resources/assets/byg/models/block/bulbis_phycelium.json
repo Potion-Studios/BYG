@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "byg:block/bulbis_phycelium_top",
+    "bottom": "minecraft:block/end_stone",
+    "side": "byg:block/bulbis_phycelium"
+  }
+}

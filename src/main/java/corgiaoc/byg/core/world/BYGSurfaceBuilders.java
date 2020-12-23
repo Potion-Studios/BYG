@@ -67,6 +67,7 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<SurfaceBuilderConfig> PURPUR_PEAKS = WorldGenRegistrationHelper.createSurfaceBuilder("purpur_peaks", new PurpurPeaksSB(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> ETHEREAL = WorldGenRegistrationHelper.createSurfaceBuilder("ethereal", new FillEtherealStone(SurfaceBuilderConfig.field_237203_a_));
     public static final SurfaceBuilder<SurfaceBuilderConfig> CRYPTIC = WorldGenRegistrationHelper.createSurfaceBuilder("cryptic", new FillCrypticStone(SurfaceBuilderConfig.field_237203_a_));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> BULBIS_GARDENS = WorldGenRegistrationHelper.createSurfaceBuilder("bulbis_gardens", new BulbisGardensSB(SurfaceBuilderConfig.field_237203_a_));
 
 
     public static void init() {
@@ -124,6 +125,7 @@ public class BYGSurfaceBuilders {
 
         public static final SurfaceBuilderConfig RED_ROCK_CF = new SurfaceBuilderConfig(BYGBlocks.RED_ROCK.getDefaultState(), BYGBlocks.RED_ROCK.getDefaultState(), BYGBlocks.RED_ROCK.getDefaultState());
 
+        public static final SurfaceBuilderConfig BULBIS_PHYCELIUM_CF = new SurfaceBuilderConfig(BYGBlocks.BULBIS_PHYCELIUM.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
         public static final SurfaceBuilderConfig IVIS_CF = new SurfaceBuilderConfig(BYGBlocks.IVIS_PHYLIUM.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
         public static final SurfaceBuilderConfig END = new SurfaceBuilderConfig(Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
         public static final SurfaceBuilderConfig MYCELIUM = new SurfaceBuilderConfig(Blocks.MYCELIUM.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState());

@@ -17,7 +17,7 @@ import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class BulbisGardensEdge extends BYGEndSubBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bulbis_gardens_edge", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.IVIS_FIELDS, BYGSurfaceBuilders.Configs.END));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bulbis_gardens_edge", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BULBIS_GARDENS, BYGSurfaceBuilders.Configs.BULBIS_PHYCELIUM_CF));
     static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.THEEND;
     static final float DEPTH = 0.55F;
@@ -47,7 +47,7 @@ public class BulbisGardensEdge extends BYGEndSubBiome {
 
     static {
         GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
-        BYGDefaultBiomeFeatures.addBulbisTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSparseBulbisTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBulbisOddity(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBulbisAnomaly(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEnderLily(GENERATION_SETTINGS);

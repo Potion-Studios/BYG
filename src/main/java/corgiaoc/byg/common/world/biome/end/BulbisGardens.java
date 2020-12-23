@@ -16,11 +16,12 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraftforge.common.BiomeDictionary;
 
 import javax.annotation.Nullable;
 
 public class BulbisGardens extends BYGEndBiome {
-    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bulbis_gardens", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CRAG_GARDENS, BYGSurfaceBuilders.Configs.IVIS_CF));
+    static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bulbis_gardens", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BULBIS_GARDENS, BYGSurfaceBuilders.Configs.BULBIS_PHYCELIUM_CF));
     static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.THEEND;
     static final float DEPTH = 0.55F;
@@ -53,15 +54,19 @@ public class BulbisGardens extends BYGEndBiome {
         return BYGBiomes.BULBIS_GARDENS_EDGE;
     }
 
+    @Override
+    public BiomeDictionary.Type[] getBiomeDictionary() {
+        return new BiomeDictionary.Type[]{BiomeDictionary.Type.END};
+    }
 
     static {
         GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
         BYGDefaultBiomeFeatures.addBulbisTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPurpleBulbisTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addLargeLake(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBulbisOddity(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBulbisAnomaly(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEnderLily(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addIvisPlants(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 5, 1, 2));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));

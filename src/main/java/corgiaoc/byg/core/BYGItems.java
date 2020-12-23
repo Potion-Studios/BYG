@@ -944,7 +944,8 @@ public class BYGItems {
     public static final Item ETHER_STONE_STAIRS = createItem(new BlockItem(BYGBlocks.ETHER_STONE_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_STONE_STAIRS));
     public static final Item ETHER_STONE_WALL = createItem(new BlockItem(BYGBlocks.ETHER_STONE_WALL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_STONE_WALL));
 
-
+    public static final Item BULBIS_SPROUTS = createItem(new BlockItem(BYGBlocks.BULBIS_SPROUTS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_SPROUTS));
+    public static final Item BULBIS_PHYCELIUM = createItem(new BlockItem(BYGBlocks.BULBIS_PHYCELIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_PHYCELIUM));
 
     public static final Item LIGNITE_ORE = createItem(new BlockItem(BYGBlocks.LIGNITE_ORE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.LIGNITE_ORE));
     public static final Item LIGNITE = createItem(new LigniteItem(new Item.Properties().group(BYGCreativeTab.creativeTab)), "lignite");
