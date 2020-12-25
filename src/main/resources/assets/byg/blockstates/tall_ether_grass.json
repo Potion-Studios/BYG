@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "byg:block/tall_ether_grass_bottom"
+    },
+    "half=upper": {
+      "model": "byg:block/tall_ether_grass_top"
+    }
+  }
+}

@@ -578,6 +578,7 @@ public class BYGBlocks {
     public static final Block IVIS_SPROUT = new BYGBlockProperties.EndPlant("ivis_sprout");
     public static final Block ENDER_LILY = new BYGBlockProperties.BYGEnderLily("ender_lily");
 
+    public static final Block TALL_ETHER_GRASS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_ether_grass");
     public static final Block ETHER_GRASS = new BYGBlockProperties.EndPlant("ether_grass");
     public static final Block ETHER_BUSH = new BYGBlockProperties.EndPlant("ether_bush");
     public static final Block THEREAL_BELLFLOWER = new BYGBlockProperties.EndPlant("thereal_bellflower");

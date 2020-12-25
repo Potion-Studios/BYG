@@ -5,6 +5,8 @@ import com.google.common.collect.Lists;
 import corgiaoc.byg.common.world.biome.*;
 import corgiaoc.byg.common.world.biome.end.*;
 import corgiaoc.byg.common.world.biome.end.sub.BulbisGardensEdge;
+import corgiaoc.byg.common.world.biome.end.sub.EtherealClearing;
+import corgiaoc.byg.common.world.biome.end.sub.EtherealForest;
 import corgiaoc.byg.common.world.biome.end.sub.ShatteredViscalIsles;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
@@ -254,6 +256,8 @@ public class BYGBiomes {
     /************End Sub-Biomes************/
     public static Biome SHATTERED_VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("shattered_viscal_isles", new ShatteredViscalIsles().getBiome(), 172);
     public static Biome BULBIS_GARDENS_EDGE = WorldGenRegistrationHelper.createBiome("bulbis_gardens_edge", new BulbisGardensEdge().getBiome(), 173);
+    public static Biome ETHEREAL_FOREST = WorldGenRegistrationHelper.createBiome("ethereal_forest", new EtherealForest().getBiome(), 174);
+    public static Biome ETHEREAL_CLEARING = WorldGenRegistrationHelper.createBiome("ethereal_clearing", new EtherealClearing().getBiome(), 175);
 
     public static void init() {
     }

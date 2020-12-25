@@ -3,7 +3,7 @@
     "sounds": [
       {
         "name": "byg:ambient_viscal_isles_loop",
-        "volume": 1.0,
+        "volume": 0.8,
         "pitch": 1.0
       }
     ]
@@ -23,7 +23,7 @@
     "sounds": [
       {
         "name": "byg:ambient_end_forest",
-        "volume": 1.0,
+        "volume": 0.8,
         "pitch": 1.0
       }
     ]
@@ -33,7 +33,7 @@
     "sounds": [
       {
         "name": "byg:ambient_end_ominous",
-        "volume": 1.0,
+        "volume": 0.8,
         "pitch": 1.0
       }
     ]

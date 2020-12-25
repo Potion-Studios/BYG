@@ -7,8 +7,8 @@
     "elements": [
         {
             "name": "SideNW",
-            "from": [ 0, 0, 8 ], 
-            "to": [ 16, 16, 8 ], 
+            "from": [ 0, 0, 8 ],
+            "to": [ 16, 16, 8 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0, "rescale": true },
             "faces": {
                 "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
@@ -21,8 +21,8 @@
         },
         {
             "name": "SideSW",
-            "from": [ 0, 0, 8 ], 
-            "to": [ 16, 16, 8 ], 
+            "from": [ 0, 0, 8 ],
+            "to": [ 16, 16, 8 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": -45.0, "rescale": true },
             "faces": {
                 "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
@@ -35,8 +35,8 @@
         },
         {
             "name": "SideN",
-            "from": [ 0, 2, 0 ], 
-            "to": [ 16, 18, 0 ], 
+            "from": [ 0, 2.8, 0 ],
+            "to": [ 16, 18.8, 0 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": -22.5, "rescale": true },
             "faces": {
                 "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
@@ -49,8 +49,8 @@
         },
         {
             "name": "SideS",
-            "from": [ 0, 2, 16 ], 
-            "to": [ 16, 18, 16 ], 
+            "from": [ 0, 2.8, 16 ],
+            "to": [ 16, 18.8, 16 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": 22.5, "rescale": true },
             "faces": {
                 "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
@@ -63,8 +63,8 @@
         },
         {
             "name": "SideW",
-            "from": [ 0, 2, 0 ], 
-            "to": [ 0, 18, 16 ], 
+            "from": [ 0, 2.8, 0 ],
+            "to": [ 0, 18.8, 16 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": 22.5, "rescale": true },
             "faces": {
                 "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
@@ -77,8 +77,8 @@
         },
         {
             "name": "SideE",
-            "from": [ 16, 2, 0 ], 
-            "to": [ 16, 18, 16 ], 
+            "from": [ 16, 2.8, 0 ],
+            "to": [ 16, 18.8, 16 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": -22.5, "rescale": true },
             "faces": {
                 "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },

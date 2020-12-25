@@ -951,6 +951,7 @@ public class BYGItems {
     public static final Item LIGNITE = createItem(new LigniteItem(new Item.Properties().group(BYGCreativeTab.creativeTab)), "lignite");
     public static final Item LIGNITE_BLOCK = createItem(new LigniteBlockItem(BYGBlocks.LIGNITE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.LIGNITE_BLOCK));
 
+    public static final Item TALL_ETHER_GRASS = createItem(new BlockItem(BYGBlocks.TALL_ETHER_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.TALL_ETHER_GRASS));
     public static final Item ETHER_GRASS = createItem(new BlockItem(BYGBlocks.ETHER_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_GRASS));
     public static final Item ETHER_BUSH = createItem(new BlockItem(BYGBlocks.ETHER_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_BUSH));
     public static final Item THEREAL_BELLFLOWER = createItem(new BlockItem(BYGBlocks.THEREAL_BELLFLOWER, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THEREAL_BELLFLOWER));

@@ -77,6 +77,10 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.WIDE_WATER_LAKE);
     }
 
+    public static void addBulbisLake(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BULBIS_WATER_LAKE);
+    }
+
     public static void addCrimsonGardensVegetation(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_FUNGUS);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CRIMSON_GARDEN_VEGETATION);
@@ -459,7 +463,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addEnderLily(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.LAKES, BYGConfiguredFeatures.ENDER_LILY);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ENDER_LILY);
     }
 
     public static void addEtherPlants(BiomeGenerationSettings.Builder gen) {
@@ -897,6 +901,15 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addEtherTrees(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_TREE);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_BUSH);
+    }
+
+    public static void addEtherBushes(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_BUSH);
+    }
+
+    public static void addSparseEtherTrees(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_ETHER_TREE);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_BUSH);
     }
 
