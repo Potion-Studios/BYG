@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BushBlock;
@@ -14,15 +15,9 @@ import net.minecraft.block.AbstractBlock;
 
 public class LeafFoliageBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
-    private final DyeColor color;
 
     protected LeafFoliageBlock(DyeColor colorIn, AbstractBlock.Properties properties) {
         super(properties);
-        this.color = colorIn;
-    }
-
-    public DyeColor getColor() {
-        return this.color;
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -31,6 +26,6 @@ public class LeafFoliageBlock extends BushBlock {
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos blockPos) {
-        return state.getMaterial() == Material.EARTH;
+        return state.getMaterial() == Material.EARTH || state.getBlock() == BYGBlocks.ETHER_PHYLIUM;
     }
 }

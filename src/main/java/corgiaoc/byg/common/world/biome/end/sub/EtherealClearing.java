@@ -48,6 +48,7 @@ public class EtherealClearing extends BYGEndSubBiome {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_LIGNITE);
         BYGDefaultBiomeFeatures.addEtherPlants(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEtherBushes(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addTheriumDeposit(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 5, 1, 2));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));

@@ -52,6 +52,7 @@ public class BulbisGardensEdge extends BYGEndSubBiome {
         BYGDefaultBiomeFeatures.addBulbisAnomaly(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEnderLily(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addIvisPlants(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addTheriumDeposit(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 5, 1, 2));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
