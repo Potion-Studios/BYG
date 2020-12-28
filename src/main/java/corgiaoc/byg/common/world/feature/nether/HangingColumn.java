@@ -5,9 +5,12 @@ import corgiaoc.byg.common.world.feature.config.HangingColumnConfig;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.ISeedReader;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
 import java.util.Random;
 
@@ -19,6 +22,10 @@ public class HangingColumn extends Feature<HangingColumnConfig> {
     public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnConfig config) {
         int randLength = rand.nextInt(config.getMaxPossibleLength()) + config.getMinLength();
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
+
+        if (worldIn.func_241828_r().func_230521_a_(Registry.BIOME_KEY).get().getOptionalKey(worldIn.getBiome(pos)).get() != Biomes.THE_VOID) {
+            //Code
+        }
 
         if (!worldIn.isAirBlock(pos)) {
             return false;

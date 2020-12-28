@@ -26,8 +26,11 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.template.IStructureProcessorType;
 import net.minecraft.world.gen.feature.template.StructureProcessorList;
+import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.storage.FolderName;
+import net.minecraft.world.storage.ISpawnWorldInfo;
+import net.minecraft.world.storage.ServerWorldInfo;
 import net.minecraftforge.fml.ModList;
 
 import java.io.IOException;
@@ -69,12 +72,49 @@ public class GenDataCommand {
         Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = manager.getRegistry(Registry.CONFIGURED_SURFACE_BUILDER_KEY);
         Registry<StructureProcessorList> structureProcessorRegistry = manager.getRegistry(Registry.STRUCTURE_PROCESSOR_LIST_KEY);
 
+
+
+        Function<DimensionGeneratorSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(DimensionGeneratorSettings.field_236201_a_);
+
+        DataResult<JsonElement> jsonResult = dimensionGeneratorSettingsCodec.apply(((ServerWorldInfo) commandSource.getSource().getWorld().getWorldInfo()).getDimensionGeneratorSettings());
+
+        try {
+            Path sbPath = worldImportJsonPath(dataPackPath, "yes");
+            Files.createDirectories(sbPath.getParent());
+            Files.write(sbPath, gson.toJson(jsonResult.get().left().get()).getBytes());
+        } catch (IOException e) {
+
+        }
+
         createConfiguredSurfaceBuilderJson(modId, dataPackPath, gson, surfaceBuilderRegistry);
         createConfiguredFeatureJson(modId, dataPackPath, gson, featuresRegistry);
         createConfiguredCarverJson(modId, dataPackPath, gson, carverRegistry);
         createConfiguredStructureJson(modId, dataPackPath, gson, structuresRegistry);
         createProcessorListJson(modId, dataPackPath, gson, structureProcessorRegistry);
         createBiomeJsonAndPackMcMeta(modId, commandSource, biomeList, stopSpamFlag, dataPackPath, gson, biomeRegistry, featuresRegistry, structuresRegistry, carverRegistry, surfaceBuilderRegistry);
+    }
+
+    private static void createWorldImportJson(String modId, Path dataPackPath, Gson gson, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuildersRegistry) {
+        for (Map.Entry<RegistryKey<ConfiguredSurfaceBuilder<?>>, ConfiguredSurfaceBuilder<?>> surfaceBuilder : surfaceBuildersRegistry.getEntries()) {
+            Function<Supplier<ConfiguredSurfaceBuilder<?>>, DataResult<JsonElement>> surfaceBuilderCodec = JsonOps.INSTANCE.withEncoder(ConfiguredSurfaceBuilder.field_244393_b_);
+
+            ConfiguredSurfaceBuilder<?> configuredSurfaceBuilder = surfaceBuilder.getValue();
+            if (surfaceBuilder.getKey().getLocation().toString().contains(modId)) {
+                if (configuredSurfaceBuilder != null) {
+                    if (Objects.requireNonNull(surfaceBuildersRegistry.getKey(configuredSurfaceBuilder)).toString().contains(modId)) {
+                        Optional<JsonElement> optional = (surfaceBuilderCodec.apply(() -> configuredSurfaceBuilder).result());
+                        if (optional.isPresent()) {
+                            try {
+                                Path sbPath = configuredSurfaceBuilderJsonPath(dataPackPath, Objects.requireNonNull(surfaceBuildersRegistry.getKey(configuredSurfaceBuilder)), modId);
+                                Files.createDirectories(sbPath.getParent());
+                                Files.write(sbPath, gson.toJson(optional.get()).getBytes());
+                            } catch (IOException e) {
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private static void createBiomeJsonAndPackMcMeta(String modId, CommandContext<CommandSource> commandSource, List<Biome> biomeList, boolean stopSpamFlag, Path dataPackPath, Gson gson, Registry<Biome> biomeRegistry, Registry<ConfiguredFeature<?, ?>> featuresRegistry, Registry<StructureFeature<?, ?>> structuresRegistry, Registry<ConfiguredCarver<?>> carverRegistry, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry) {
@@ -264,6 +304,10 @@ public class GenDataCommand {
                 }
             }
         }
+    }
+
+    private static Path worldImportJsonPath(Path path, String jsonName) {
+        return path.resolve("import/" + jsonName + ".json");
     }
 
     private static Path configuredFeatureJsonPath(Path path, ResourceLocation identifier, String modId) {

@@ -66,11 +66,11 @@ public class BYGEndBiomeProvider extends BiomeProvider {
         if ((long) xBitOffset * (long) xBitOffset + (long) zBitOffset * (long) zBitOffset <= 4096L) {
             return biomeRegistry.getOrThrow(Biomes.THE_END);
         } else {
-            float f = EndBiomeProvider.getRandomNoise(this.generator, xBitOffset * 2 + 1, zBitOffset * 2 + 1);
-            if (f >= 0.0F) {
+            float sampledNoise = EndBiomeProvider.getRandomNoise(this.generator, xBitOffset * 2 + 1, zBitOffset * 2 + 1);
+            if (sampledNoise >= -20.0F) {
                 return mainIslandLayer.sampleEnd(biomeRegistry, x, z);
             } else {
-                return f < -20.0F ? this.smallIslandLayer.sampleEndVoid(biomeRegistry, x, z) : biomeRegistry.getOrThrow(Biomes.END_BARRENS);
+                return this.smallIslandLayer.sampleEndVoid(biomeRegistry, x, z);
             }
         }
     }

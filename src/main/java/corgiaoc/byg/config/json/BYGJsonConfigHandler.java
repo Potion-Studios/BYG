@@ -30,7 +30,7 @@ public class BYGJsonConfigHandler {
     public static void handleEndBiomeJsonConfigs(Path path, Registry<Biome> biomeRegistry) {
         File dir = new File(path.toString());
         if (!dir.exists())
-            dir.mkdir();
+            dir.mkdirs();
 
         try {
             createReadMe(path.resolve("README.txt"));
@@ -57,6 +57,10 @@ public class BYGJsonConfigHandler {
 
     //TODO: Handle per world load and allow datapack values.
     public static void handleOverWorldConfig(Path path) {
+        File dir = new File(path.toString());
+        if (!dir.exists())
+            dir.mkdirs();
+
         try {
             handleBYGSubBiomesJSONConfig(path.resolve(BYG.MOD_ID + "-sub-biomes.json"));
         } catch (IllegalStateException e) {
