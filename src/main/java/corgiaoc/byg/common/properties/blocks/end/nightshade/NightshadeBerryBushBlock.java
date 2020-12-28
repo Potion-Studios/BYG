@@ -23,6 +23,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.Tags;
@@ -42,6 +43,16 @@ public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements IGr
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
         return new ItemStack(BYGItems.NIGHTSHADE_BERRIES);
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
+        int i = state.get(AGE);
+        if (i < 3 && worldIn.getLightSubtracted(pos.up(), 0) <= 10 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state,random.nextInt(5) == 0)) {
+            worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i + 1)), 2);
+            net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
+        }
+
     }
 
     @Override

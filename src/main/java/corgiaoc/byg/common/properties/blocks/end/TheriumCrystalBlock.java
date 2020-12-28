@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SweetBerryBushBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -25,6 +26,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.Tags;
@@ -52,6 +54,17 @@ public class TheriumCrystalBlock extends SweetBerryBushBlock implements IGrowabl
     }
 
     @Override
+    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
+        Block block1 = worldIn.getBlockState(pos.down()).getBlock();
+        int i = state.get(AGE);
+        if (i < 3 && block1 == BYGBlocks.THERIUM_BLOCK && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state,random.nextInt(5) == 0)) {
+            worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i + 1)), 2);
+            net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
+        }
+
+    }
+
+    @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         int i = state.get(AGE);
         boolean flag = i == 3;
@@ -70,7 +83,7 @@ public class TheriumCrystalBlock extends SweetBerryBushBlock implements IGrowabl
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.getBlock() == BYGBlocks.THERIUM_BLOCK || super.isValidGround(state, worldIn, pos);
+        return state.getMaterial() == Material.EARTH || state.getMaterial() == Material.ROCK || super.isValidGround(state, worldIn, pos);
     }
 
     @Override
