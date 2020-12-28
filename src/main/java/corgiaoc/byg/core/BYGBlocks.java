@@ -5,6 +5,7 @@ import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.TallVentBlock;
+import corgiaoc.byg.common.properties.blocks.end.TheriumCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.end.VentBlock;
 import corgiaoc.byg.common.properties.blocks.end.bulbisgardens.TallBulbisBlock;
 import corgiaoc.byg.common.properties.blocks.end.nightshade.NightshadeBerryBushBlock;
@@ -578,6 +579,7 @@ public class BYGBlocks {
     public static final Block IVIS_SPROUT = new BYGBlockProperties.EndPlant("ivis_sprout");
     public static final Block ENDER_LILY = new BYGBlockProperties.BYGEnderLily("ender_lily");
 
+    public static final Block ETHER_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("ether_foliage");
     public static final Block TALL_ETHER_GRASS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_ether_grass");
     public static final Block ETHER_GRASS = new BYGBlockProperties.EndPlant("ether_grass");
     public static final Block ETHER_BUSH = new BYGBlockProperties.EndPlant("ether_bush");
@@ -601,8 +603,10 @@ public class BYGBlocks {
     public static final Block ODDITY_CACTUS = createOddityCactus("oddity_cactus");
     public static final Block ODDITY_BUSH = new BYGBlockProperties.EndPlant("oddity_bush");
 
+    public static final Block VERMILION_SCULK_TENDRILS = new BYGBlockProperties.EndPlant("vermilion_sculk_tendrils");
     public static final Block VERMILION_SCULK_GROWTH = createSculkGrowth("vermilion_sculk_growth");
-    public static final Block THERIUM_CRYSTAL = createCrystal("therium_crystal");
+    public static final Block THERIUM_CRYSTAL = createTheriumCrystal("therium_crystal");
+    public static final Block THERIUM_BLOCK = createTheriumBlock("therium_block");
     public static final Block THERIUM_LANTERN = new BYGBlockProperties.BYGLantern("therium_lantern");
     public static final Block THERIUM_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("therium_lamp");
 
@@ -992,6 +996,14 @@ public class BYGBlocks {
     public static final Block MEADOW_GRASS_PATH = createBlock(new GrassPathBlock(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(0.65F).sound(SoundType.PLANT).setBlocksVision((state, reader, pos) -> true).setSuffocates((state, reader, pos) -> true)), "meadow_grass_path");
     public static final Block BULBIS_PHYCELIUM = createEndDirtSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
 
+
+    static Block createTheriumBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.CYAN).sound(SoundType.GLASS).noDrops().setLightLevel((state) -> 12).hardnessAndResistance(-1.0f, 3.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
     static Block createFence(String id) {
         Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
@@ -1181,6 +1193,14 @@ public class BYGBlocks {
 
     static Block createTallVent(String id) {
         Block createBlock = new TallVentBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createTheriumCrystal(String id) {
+        Block createBlock = new TheriumCrystalBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(0.1f).notSolid().setRequiresTool().harvestTool(ToolType.PICKAXE).doesNotBlockMovement().setLightLevel((state) -> 6));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);

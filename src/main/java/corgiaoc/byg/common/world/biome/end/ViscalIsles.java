@@ -69,7 +69,7 @@ public class ViscalIsles extends BYGEndBiome {
     static {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_ISLAND);
         BYGDefaultBiomeFeatures.addVermilionSculkGrowth(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addTheriumCrystals(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addVermilionSculkTendrils(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addHangingTheriumLanterns(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addDeadEtherTrees(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);

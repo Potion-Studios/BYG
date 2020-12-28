@@ -951,6 +951,7 @@ public class BYGItems {
     public static final Item LIGNITE = createItem(new LigniteItem(new Item.Properties().group(BYGCreativeTab.creativeTab)), "lignite");
     public static final Item LIGNITE_BLOCK = createItem(new LigniteBlockItem(BYGBlocks.LIGNITE_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.LIGNITE_BLOCK));
 
+    public static final Item ETHER_FOLIAGE = createItem(new BlockItem(BYGBlocks.ETHER_FOLIAGE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_FOLIAGE));
     public static final Item TALL_ETHER_GRASS = createItem(new BlockItem(BYGBlocks.TALL_ETHER_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.TALL_ETHER_GRASS));
     public static final Item ETHER_GRASS = createItem(new BlockItem(BYGBlocks.ETHER_GRASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_GRASS));
     public static final Item ETHER_BUSH = createItem(new BlockItem(BYGBlocks.ETHER_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_BUSH));
@@ -968,9 +969,12 @@ public class BYGItems {
 
     public static final Item ODDITY_CACTUS = createItem(new BlockItem(BYGBlocks.ODDITY_CACTUS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ODDITY_CACTUS));
     public static final Item ODDITY_BUSH = createItem(new BlockItem(BYGBlocks.ODDITY_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ODDITY_BUSH));
+    public static final Item THERIUM_SHARD = createItem(new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)), "therium_shard");
     public static final Item THERIUM_CRYSTAL = createItem(new BlockItem(BYGBlocks.THERIUM_CRYSTAL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_CRYSTAL));
+    public static final Item THERIUM_BLOCK = createItem(new BlockItem(BYGBlocks.THERIUM_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_BLOCK));
     public static final Item THERIUM_LANTERN = createItem(new BlockItem(BYGBlocks.THERIUM_LANTERN, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_LANTERN));
     public static final Item THERIUM_LAMP = createItem(new BlockItem(BYGBlocks.THERIUM_LAMP, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_LAMP));
+    public static final Item VERMILION_SCULK_TENDRILS = createItem(new BlockItem(BYGBlocks.VERMILION_SCULK_TENDRILS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.VERMILION_SCULK_TENDRILS));
     public static final Item VERMILION_SCULK_GROWTH = createItem(new BlockItem(BYGBlocks.VERMILION_SCULK_GROWTH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.VERMILION_SCULK_GROWTH));
     public static final Item VERMILION_SCULK = createItem(new BlockItem(BYGBlocks.VERMILION_SCULK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.VERMILION_SCULK));
 

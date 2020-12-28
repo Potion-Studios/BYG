@@ -330,7 +330,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addRockyStoneBoulder(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ROCKY_STONE_BOULDERS);
+        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.ROCKY_STONE_BOULDERS);
     }
 
     public static void addGiantLunaRocks(BiomeGenerationSettings.Builder gen) {
@@ -340,11 +340,11 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addTerracottaBoulder(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ORANGE_TERRACOTTA_BOULDERS);
+        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.ORANGE_TERRACOTTA_BOULDERS);
     }
 
     public static void addMossyStoneBoulder(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.MOSSY_STONE_BOULDER);
+        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.MOSSY_STONE_BOULDER);
     }
 
     public static void addFrostMagmaLakes(BiomeGenerationSettings.Builder gen) {
@@ -470,7 +470,16 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_PLANT);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.THEREAL_BELLFLOWERS);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ETHER_BULBS);
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ETHER_STONE_BOULDER);
+        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.ETHER_STONE_BOULDER);
+    }
+
+    public static void addTheriumDeposit(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.THERIUM_CRYSTAL_DEPOSIT);
+        gen.withFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, BYGConfiguredFeatures.THERIUM_CRYSTALS);
+    }
+
+    public static void addEtherFoliage(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ETHER_FOLIAGES);
     }
 
     public static void addNightshadePlants(BiomeGenerationSettings.Builder gen) {
@@ -494,8 +503,8 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.VERMILION_SCULK_GROWTHS);
     }
 
-    public static void addTheriumCrystals(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.THERIUM_CRYSTALS);
+    public static void addVermilionSculkTendrils(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.VERMILION_SCULK_TENDRIL);
     }
 
     public static void addHangingTheriumLanterns(BiomeGenerationSettings.Builder gen) {

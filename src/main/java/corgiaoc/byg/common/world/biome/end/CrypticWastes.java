@@ -49,6 +49,7 @@ public class CrypticWastes extends BYGEndBiome {
         BYGDefaultBiomeFeatures.addCrypticFire(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.CRYPTIC_SPIKE);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_CRYPTIC_REDSTONE);
+        BYGDefaultBiomeFeatures.addTheriumDeposit(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
     }
