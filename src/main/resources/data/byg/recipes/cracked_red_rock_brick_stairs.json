@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:cracked_red_rock_bricks"
+    }
+  },
+  "result": {
+    "item": "byg:cracked_red_rock_brick_stairs",
+    "count": 4
+  }
+}
