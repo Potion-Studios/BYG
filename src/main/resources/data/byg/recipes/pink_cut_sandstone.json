@@ -1,8 +1,16 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:pink_sandstone"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:pink_sandstone"
+    }
   },
-  "result": "byg:pink_cut_sandstone",
-  "count": 1
+  "result": {
+    "item": "byg:pink_cut_sandstone",
+    "count": 4
+  }
 }

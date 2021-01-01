@@ -1,8 +1,17 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:cracked_red_rock_bricks"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:cracked_red_rock_bricks"
+    }
   },
-  "result": "byg:cracked_red_rock_brick_stairs",
-  "count": 1
+  "result": {
+    "item": "byg:cracked_red_rock_brick_stairs",
+    "count": 4
+  }
 }
