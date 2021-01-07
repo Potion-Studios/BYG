@@ -2,21 +2,20 @@ package corgiaoc.byg.common.properties.blocks.end;
 
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.IGrowable;
-import net.minecraft.block.SweetBerryBushBlock;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.IntegerProperty;
+import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tags.BlockTags;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -24,22 +23,22 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
-public class TheriumCrystalBlock extends SweetBerryBushBlock implements IGrowable {
+public class TheriumCrystalBlock extends Block implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_0_3;
     private static final VoxelShape SHAPE = Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 8.0D, 13.0D);
 
     public TheriumCrystalBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(AGE, 0));
     }
 
     @Override
@@ -51,6 +50,10 @@ public class TheriumCrystalBlock extends SweetBerryBushBlock implements IGrowabl
     @Override
     public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
         return new ItemStack(BYGItems.THERIUM_CRYSTAL);
+    }
+
+    public boolean ticksRandomly(BlockState state) {
+        return state.get(AGE) < 3;
     }
 
     @Override
@@ -74,27 +77,26 @@ public class TheriumCrystalBlock extends SweetBerryBushBlock implements IGrowabl
             int j = 1;
             spawnAsEntity(worldIn, pos, new ItemStack(BYGItems.THERIUM_CRYSTAL, j));
             worldIn.playSound(null, pos, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.rand.nextFloat() * 0.4F);
-            worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
+            worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(0)), 2);
             return ActionResultType.SUCCESS;
         } else {
             return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
         }
     }
 
-    @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.getMaterial() == Material.EARTH || state.getMaterial() == Material.ROCK || super.isValidGround(state, worldIn, pos);
+    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        return !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    }
+
+    protected boolean isValidGround(BlockState state) {
+        return state.getMaterial() == Material.EARTH || state.getMaterial() == Material.ROCK;
     }
 
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         BlockPos blockpos = pos.down();
-        return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
+        return this.isValidGround(worldIn.getBlockState(blockpos));
     }
-
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-                entityIn.attackEntityFrom(DamageSource.SWEET_BERRY_BUSH, 3.0F);
-        }
 
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
@@ -116,4 +118,16 @@ public class TheriumCrystalBlock extends SweetBerryBushBlock implements IGrowabl
         return false;
     }
 
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(AGE);
+    }
+
+    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+        return state.get(AGE) < 3;
+    }
+
+    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+        int i = Math.min(3, state.get(AGE) + 1);
+        worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i)), 2);
+    }
 }
