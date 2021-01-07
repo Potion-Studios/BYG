@@ -27,8 +27,6 @@ import static corgiaoc.byg.core.world.util.WorldGenRegistrationHelper.createConf
 
 public class BYGConfiguredFeatures {
 
-    public static final Random RANDOM = new Random();
-
     /***********************************************************Configured Features***********************************************************/
 
     public static final ConfiguredFeature<?, ?> ALLIUM_BUSH = createConfiguredFeature("allium_bush", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ALLIUM_FLOWER_BUSH.getDefaultState()), new SimpleBlockPlacer())).tries(100).whitelist(ImmutableSet.of(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).func_227317_b_().build()));

@@ -32,10 +32,6 @@ public class NoisyCaveSphere extends Feature<NoisyCaveSphereConfig> {
     @Override
     public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisyCaveSphereConfig config) {
         setSeed(world.getSeed());
-        IChunk chunk = world.getChunk(position);
-
-        BitSet airCarvingMask = ((ChunkPrimer) chunk).getOrAddCarvingMask(GenerationStage.Carving.AIR);
-
 
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position.down(2 + random.nextInt(10)));
         BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
@@ -49,6 +45,9 @@ public class NoisyCaveSphere extends Feature<NoisyCaveSphereConfig> {
                 for (int z = -zRadius; z <= zRadius; z++) {
                     for (int y = -yRadius; y <= yRadius; y++) {
                         mutable2.setPos(mutable).move(x, y, z);
+                        IChunk chunk = world.getChunk(mutable2);
+                        BitSet airCarvingMask = ((ChunkPrimer) chunk).getOrAddCarvingMask(GenerationStage.Carving.AIR);
+
                         //Credits to Hex_26 for this equation!
                         double equationResult = Math.pow(x, 2) / Math.pow(xRadius, 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
                         double threshold = 1 + 0.7 * fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ());
@@ -98,12 +97,5 @@ public class NoisyCaveSphere extends Feature<NoisyCaveSphereConfig> {
             fastNoise.SetFrequency(0.09f);
             this.seed = seed;
         }
-    }
-
-    private boolean canCaveCarveHere(BlockState state) {
-        return state.getMaterial() == Material.EARTH || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.TALL_PLANTS ||
-                state.getMaterial() == Material.SAND || state.getMaterial() == Material.BAMBOO || state.getMaterial() == Material.CACTUS
-                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || state.isIn(Tags.Blocks.DIRT) || state.isIn(Tags.Blocks.END_STONES)
-                || state.getBlock() == BYGBlocks.CRYPTIC_STONE || state.getBlock() == BYGBlocks.CRYPTIC_MAGMA_BLOCK || state.getMaterial() == Material.ROCK;
     }
 }
