@@ -73,7 +73,6 @@ public class EtherealIslands extends BYGEndBiome {
 
 
     static {
-        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_ETHER_ISLAND);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_LIGNITE);
         BYGDefaultBiomeFeatures.addEtherPlants(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addSparseEtherTrees(GENERATION_SETTINGS);
