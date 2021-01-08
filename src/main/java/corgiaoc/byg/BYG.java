@@ -6,6 +6,7 @@ import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
 import corgiaoc.byg.common.entity.villager.BYGVillagerType;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
 import corgiaoc.byg.common.properties.vanilla.*;
+import corgiaoc.byg.common.world.BYGWorldTypeThatIsntAWorldtype;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.common.world.feature.blockplacer.BYGBlockPlacerTypes;
@@ -33,6 +34,7 @@ import net.minecraft.world.gen.feature.template.TagMatchRuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.world.ForgeWorldType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -43,6 +45,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -77,33 +80,40 @@ public class BYG {
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
         BYGCreativeTab.init();
-        Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
-        Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
-        BYGVillagerType.setVillagerForBYGBiomes();
-        BYGBiomes.fillBiomeDictionary();
         BYGJsonConfigHandler.handleOverWorldConfig(CONFIG_PATH);
-        BYGBiomes.addBiomeEntries();
-        BYGPaths.addBYGPaths();
+
+        event.enqueueWork(() -> {
+            Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
+            Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
+            BYGVillagerType.setVillagerForBYGBiomes();
+            BYGBiomes.addBiomeEntries();
+            BYGBiomes.fillBiomeDictionary();
+        });
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
-        isClient = true;
-        LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
-        BYGCutoutRenders.renderCutOuts();
-        RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BOAT, BYGBoatRenderer::new);
-        LOGGER.info("BYG: \"Client Setup\" Event Complete!");
+        event.enqueueWork(() ->{
+            isClient = true;
+            LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
+            BYGCutoutRenders.renderCutOuts();
+            RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BOAT, BYGBoatRenderer::new);
+            LOGGER.info("BYG: \"Client Setup\" Event Complete!");
+        });
     }
 
     private void loadComplete(FMLLoadCompleteEvent event) {
-        LOGGER.debug("BYG: \"Load Complete Event\" Starting...");
-        BYGCompostables.compostablesBYG();
-        BYGHoeables.hoeablesBYG();
-        BYGFlammables.flammablesBYG();
-        BYGStrippables.strippableLogsBYG();
-        BYGCarvableBlocks.addCarverBlocks();
-        cleanMemory();
-        LOGGER.info("BYG: \"Load Complete\" Event Complete!");
+        event.enqueueWork(() -> {
+            LOGGER.debug("BYG: \"Load Complete Event\" Starting...");
+            BYGCompostables.compostablesBYG();
+            BYGHoeables.hoeablesBYG();
+            BYGFlammables.flammablesBYG();
+            BYGStrippables.strippableLogsBYG();
+            BYGCarvableBlocks.addCarverBlocks();
+            BYGPaths.addBYGPaths();
+            cleanMemory();
+            LOGGER.info("BYG: \"Load Complete\" Event Complete!");
+        });
     }
 
     //Minimize BYG's ram footprint.
@@ -194,6 +204,12 @@ public class BYG {
             BYGBlockPlacerTypes.init();
             BYGBlockPlacerTypes.types.forEach(type -> event.getRegistry().register(type));
             BYG.LOGGER.info("BYG: Registering block placer types!");
+        }
+
+        //Only for terraforged usage and not player's.
+        @SubscribeEvent
+        public static void registerWorldtype(RegistryEvent.Register<ForgeWorldType> event) {
+            event.getRegistry().register(new BYGWorldTypeThatIsntAWorldtype().setRegistryName(new ResourceLocation(MOD_ID, "world")));
         }
     }
 

@@ -2,7 +2,6 @@ package corgiaoc.byg.common.world.feature;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.NoisyCaveSphereConfig;
-import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -16,7 +15,6 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraftforge.common.Tags;
 
 import java.util.BitSet;
 import java.util.Random;
