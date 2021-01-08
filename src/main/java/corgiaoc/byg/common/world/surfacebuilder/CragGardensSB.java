@@ -49,15 +49,23 @@ public class CragGardensSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         int noise1 = ((int) (samplePerlin1)) * 5;
         int noise2 = ((int) (samplePerlin2)) * 3;
+        int noise3 = ((int) Math.abs(noise));
         int startHeight = noise1 + noise2 + 40;
 
-        int heightSnapshot = landHeight;
+        int biomeFloor = (int) (biomeIn.getDepth() * biomeIn.getScale());
+        int surfaceFloorDiff = landHeight - biomeFloor;
+        int maxNoise = surfaceFloorDiff - 18;
 
-        if (heightSnapshot > 0) {
+        if (noise > 4) noise3 = maxNoise;
+
+        int heightSnapshot = landHeight - 18 - noise3;
+
+        if (landHeight > 0) {
+            if (heightSnapshot < 0) heightSnapshot = 0;
             for (int y = heightSnapshot; y <= startHeight; ++y) {
                 blockpos$Mutable.setPos(x, y, z);
 
-                if (y <= heightSnapshot - 3 - random.nextInt(3)) {
+                if (y <= landHeight - 3 - random.nextInt(6)) {
                     chunkIn.setBlockState(blockpos$Mutable, bottomBlock, false);
                 } else if (y == startHeight && random.nextInt(3) == 0) {
                     chunkIn.setBlockState(blockpos$Mutable, topBlock, false);
