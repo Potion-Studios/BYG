@@ -44,7 +44,7 @@ public class NoisyCaveSphere extends Feature<NoisyCaveSphereConfig> {
                     for (int y = -yRadius; y <= yRadius; y++) {
                         mutable2.setPos(mutable).move(x, y, z);
                         IChunk chunk = world.getChunk(mutable2);
-                        BitSet airCarvingMask = ((ChunkPrimer) chunk).getOrAddCarvingMask(GenerationStage.Carving.AIR);
+//                        BitSet airCarvingMask = ((ChunkPrimer) chunk).getOrAddCarvingMask(GenerationStage.Carving.AIR);
 
                         //Credits to Hex_26 for this equation!
                         double equationResult = Math.pow(x, 2) / Math.pow(xRadius, 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
@@ -54,7 +54,7 @@ public class NoisyCaveSphere extends Feature<NoisyCaveSphereConfig> {
 
                         if (world.getBlockState(mutable2).isSolid()) {
                             int bitIndex = (mutable2.getX() & 0xF) | ((mutable2.getZ() & 0xF) << 4) | (mutable2.getY() << 8);
-                            airCarvingMask.set(bitIndex);
+//                            airCarvingMask.set(bitIndex);
                             if (mutable2.getY() <= 25) {
                                 boolean isSolidAllAround = true;
                                 for (Direction direction : Direction.values()) {
