@@ -74,17 +74,17 @@ public class GenDataCommand {
 
 
 
-        Function<DimensionGeneratorSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(DimensionGeneratorSettings.field_236201_a_);
-
-        DataResult<JsonElement> jsonResult = dimensionGeneratorSettingsCodec.apply(((ServerWorldInfo) commandSource.getSource().getWorld().getWorldInfo()).getDimensionGeneratorSettings());
-
-        try {
-            Path sbPath = worldImportJsonPath(dataPackPath, "yes");
-            Files.createDirectories(sbPath.getParent());
-            Files.write(sbPath, gson.toJson(jsonResult.get().left().get()).getBytes());
-        } catch (IOException e) {
-
-        }
+//        Function<DimensionGeneratorSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(DimensionGeneratorSettings.field_236201_a_);
+//
+//        DataResult<JsonElement> jsonResult = dimensionGeneratorSettingsCodec.apply(((ServerWorldInfo) commandSource.getSource().getWorld().getWorldInfo()).getDimensionGeneratorSettings());
+//
+//        try {
+//            Path sbPath = worldImportJsonPath(dataPackPath, "yes");
+//            Files.createDirectories(sbPath.getParent());
+//            Files.write(sbPath, gson.toJson(jsonResult.get().left().get()).getBytes());
+//        } catch (IOException e) {
+//
+//        }
 
         createConfiguredSurfaceBuilderJson(modId, dataPackPath, gson, surfaceBuilderRegistry);
         createConfiguredFeatureJson(modId, dataPackPath, gson, featuresRegistry);
