@@ -93,13 +93,11 @@ public class BYG {
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() ->{
-            isClient = true;
-            LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
-            BYGCutoutRenders.renderCutOuts();
-            RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BOAT, BYGBoatRenderer::new);
-            LOGGER.info("BYG: \"Client Setup\" Event Complete!");
-        });
+        isClient = true;
+        LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
+        BYGCutoutRenders.renderCutOuts();
+        RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BOAT, BYGBoatRenderer::new);
+        LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
 
     private void loadComplete(FMLLoadCompleteEvent event) {
