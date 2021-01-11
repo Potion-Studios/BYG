@@ -75,6 +75,8 @@ repositories{
     maven {url = 'https://repo.spongepowered.org/maven/'}
 
     maven {url = 'https://dist.creeper.host/Sponge/maven'}
+    maven {url = 'https://jitpack.io'}
+
     jcenter()
     mavenCentral()
 
@@ -83,6 +85,9 @@ repositories{
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     compile 'org.spongepowered:mixin:0.8'
+    testImplementation fg.deobf('com.github.alcatrazEscapee:chocolate:1.2.0-1.16.4') {
+        transitive = false
+    }
 }
 
 jar {
