@@ -291,6 +291,7 @@ public class BYGBlockProperties {
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
                     .slipperiness(0.98F)
+                    .notSolid()
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
