@@ -12,8 +12,6 @@ import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
 import corgiaoc.byg.common.world.feature.blockplacer.BYGBlockPlacerTypes;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.json.BYGJsonConfigHandler;
-import corgiaoc.byg.config.json.biomedata.BiomeDataListHolder;
-import corgiaoc.byg.config.json.subbiomedata.SubBiomeDataListHolder;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.BYGItems;
@@ -81,7 +79,6 @@ public class BYG {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
         BYGCreativeTab.init();
         BYGJsonConfigHandler.handleOverWorldConfig(CONFIG_PATH);
-
         event.enqueueWork(() -> {
             Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
             Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
