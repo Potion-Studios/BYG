@@ -386,6 +386,10 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CRYPTIC_VENT);
     }
 
+    public static void addCrypticBramble(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CRYPTIC_BRAMBLES);
+    }
+
     public static void addMagmaFire(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.MAGMA_FIRE);
     }
@@ -463,7 +467,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addEnderLily(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ENDER_LILY);
+        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ENDER_LILY);
     }
 
     public static void addEtherPlants(BiomeGenerationSettings.Builder gen) {

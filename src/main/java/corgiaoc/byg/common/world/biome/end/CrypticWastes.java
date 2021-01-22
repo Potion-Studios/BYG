@@ -46,7 +46,7 @@ public class CrypticWastes extends BYGEndBiome {
     static {
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.CRYPTIC_CAVES);
         BYGDefaultBiomeFeatures.addCrypticVents(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addScorchedPlants(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCrypticBramble(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addCrypticFire(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.CRYPTIC_SPIKE);
         GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_CRYPTIC_REDSTONE);

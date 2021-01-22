@@ -4,6 +4,7 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.properties.blocks.*;
+import corgiaoc.byg.common.properties.blocks.end.StoneEndPlantBlock;
 import corgiaoc.byg.common.properties.blocks.end.TallVentBlock;
 import corgiaoc.byg.common.properties.blocks.end.TheriumCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.end.VentBlock;
@@ -620,6 +621,7 @@ public class BYGBlocks {
     public static final Block CRYPTIC_VENT = createVent("cryptic_vent");
     public static final Block TALL_CRYPTIC_VENT = createTallVent("tall_cryptic_vent");
     public static final Block CRYPTIC_REDSTONE_ORE = new BYGBlockProperties.BYGPervadedNetherrack("cryptic_redstone_ore");
+    public static final Block CRYPTIC_BRAMBLE = createStoneEndPlant("cryptic_bramble");
 
     public static final Block SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
     public static final Block SHULKREN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("shulkren_wart_block");
@@ -1169,6 +1171,14 @@ public class BYGBlocks {
 
     static Block createTallFlower(String id) {
         Block createBlock = new TallFlowerBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createStoneEndPlant(String id) {
+        Block createBlock = new StoneEndPlantBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly().notSolid());
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
