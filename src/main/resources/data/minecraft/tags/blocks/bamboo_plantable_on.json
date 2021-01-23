@@ -4,6 +4,10 @@
     "byg:peat",
     "byg:meadow_grass_block",
     "byg:meadow_dirt",
-    "byg:overgrown_stone"
+    "byg:overgrown_stone",
+    "byg:podzol_dacite",
+    "byg:overgrown_dacite",
+    "byg:mud_block",
+    "#c:sand"
   ]
 }
