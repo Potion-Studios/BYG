@@ -1317,7 +1317,7 @@ public class BYGBlocks {
 //        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, "potted_" + id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, "potted_" + id)); //Forge
         flowerPotBlocks.add(createBlock);
-        blocksList.add(createBlock);
+//        blocksList.add(createBlock);
     }
 
     static Block createShroomlight(String id) {
