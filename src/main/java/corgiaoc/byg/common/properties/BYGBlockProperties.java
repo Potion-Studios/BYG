@@ -1212,10 +1212,9 @@ public class BYGBlockProperties {
 
     public static class BlockHugeMushroom extends HugeMushroomBlock {
         public BlockHugeMushroom(String registryName) {
-            super(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.DIRT)
+            super(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.DIRT)
                     .sound(SoundType.HYPHAE)
                     .hardnessAndResistance(0.2F)
-                    .notSolid()
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
@@ -1263,7 +1262,7 @@ public class BYGBlockProperties {
 
     public static class BlockHugeGlowshroom extends HugeMushroomBlock {
         public BlockHugeGlowshroom(String registryName) {
-            super(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.DIRT)
+            super(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.DIRT)
                     .sound(SoundType.HYPHAE)
                     .hardnessAndResistance(0.2F)
                     .notSolid()
@@ -1283,7 +1282,7 @@ public class BYGBlockProperties {
 
     public static class BlockHugeGlowshroomStem extends HugeMushroomBlock {
         public BlockHugeGlowshroomStem(String registryName) {
-            super(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.DIRT)
+            super(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.DIRT)
                     .sound(SoundType.HYPHAE)
                     .hardnessAndResistance(0.2F)
                     .setLightLevel((state) -> 12)
@@ -1302,7 +1301,7 @@ public class BYGBlockProperties {
 
     public static class BulbisShell extends HugeMushroomBlock {
         public BulbisShell(String registryName) {
-            super(AbstractBlock.Properties.create(Material.PLANTS, MaterialColor.CYAN)
+            super(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.CYAN)
                     .sound(SoundType.SHROOMLIGHT)
                     .hardnessAndResistance(0.2F)
                     .notSolid()
