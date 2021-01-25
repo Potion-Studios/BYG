@@ -157,7 +157,7 @@ public class TreeSpawners {
     public static class Fir extends HugeTreeSpawner {
         @Nullable
         public ConfiguredFeature<BYGTreeConfig, ?> getBigTreeFeature(Random random) {
-            return BYGConfiguredFeatures.CONIFER_TREE3;
+            return BYGConfiguredFeatures.CONIFER_TREE8;
         }
 
         @Nullable
