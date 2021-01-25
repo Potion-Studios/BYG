@@ -16,6 +16,7 @@ import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.util.text.*;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
@@ -66,11 +67,11 @@ public class GenDataCommand {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         DynamicRegistries manager = commandSource.getSource().getServer().func_244267_aX();
         Registry<Biome> biomeRegistry = manager.getRegistry(Registry.BIOME_KEY);
-        Registry<ConfiguredFeature<?, ?>> featuresRegistry = manager.getRegistry(Registry.CONFIGURED_FEATURE_KEY);
-        Registry<StructureFeature<?, ?>> structuresRegistry = manager.getRegistry(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY);
-        Registry<ConfiguredCarver<?>> carverRegistry = manager.getRegistry(Registry.CONFIGURED_CARVER_KEY);
-        Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = manager.getRegistry(Registry.CONFIGURED_SURFACE_BUILDER_KEY);
-        Registry<StructureProcessorList> structureProcessorRegistry = manager.getRegistry(Registry.STRUCTURE_PROCESSOR_LIST_KEY);
+        Registry<ConfiguredFeature<?, ?>> featuresRegistry = /*manager.getRegistry(Registry.CONFIGURED_FEATURE_KEY)*/ WorldGenRegistries.CONFIGURED_FEATURE;
+        Registry<StructureFeature<?, ?>> structuresRegistry = /*manager.getRegistry(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY)*/ WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
+        Registry<ConfiguredCarver<?>> carverRegistry = /*manager.getRegistry(Registry.CONFIGURED_CARVER_KEY)*/ WorldGenRegistries.CONFIGURED_CARVER;
+        Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = /*manager.getRegistry(Registry.CONFIGURED_SURFACE_BUILDER_KEY)*/ WorldGenRegistries.CONFIGURED_SURFACE_BUILDER;
+        Registry<StructureProcessorList> structureProcessorRegistry = /*manager.getRegistry(Registry.STRUCTURE_PROCESSOR_LIST_KEY)*/ WorldGenRegistries.STRUCTURE_PROCESSOR_LIST;
 
 
 
