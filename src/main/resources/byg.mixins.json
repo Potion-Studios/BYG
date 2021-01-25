@@ -6,6 +6,7 @@
   "mixins": [
     "common.block.MixinAbstractFireBlock",
     "common.entity.MixinAnimalEntity",
+    "common.entity.MixinEatGrassGoal",
     "common.entity.MixinSlimeEntity",
     "common.lightengine.WorldLightManagerMixin",
     "common.world.feature.MixinBasaltColumnFeature",
