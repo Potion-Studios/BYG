@@ -86,6 +86,11 @@ public class BYG {
             BYGBiomes.addBiomeEntries();
             BYGBiomes.fillBiomeDictionary();
         });
+
+        BYGBlocks.flowerPotBlocks.forEach(block -> {
+            System.out.println(Registry.BLOCK.getKey(block).toString().replace("potted_", ""));
+
+        });
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

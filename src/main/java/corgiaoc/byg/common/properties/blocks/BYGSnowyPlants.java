@@ -27,8 +27,8 @@ public class BYGSnowyPlants extends BushBlock {
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        Vector3d lvt_5_1_ = state.getOffset(worldIn, pos);
-        return SHAPE.withOffset(lvt_5_1_.x, lvt_5_1_.y, lvt_5_1_.z);
+        Vector3d vector3d = state.getOffset(worldIn, pos);
+        return SHAPE.withOffset(vector3d.x, vector3d.y, vector3d.z);
     }
 
     @Override

@@ -29,7 +29,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.DyeColor;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -41,7 +40,7 @@ public class BYGBlockProperties {
 
     public static class BYGFairySlipperFlower extends BYGFairySlipperBlock {
         public BYGFairySlipperFlower(String registryName) {
-            super(Effects.SATURATION, 7,
+            super(
                     AbstractBlock.Properties.create(Material.PLANTS)
                             .sound(SoundType.PLANT)
                             .hardnessAndResistance(0.0f)
@@ -52,7 +51,7 @@ public class BYGBlockProperties {
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
-
+            BYGBlocks.createPottedBlock(this, registryName);
         }
     }
 
@@ -97,7 +96,7 @@ public class BYGBlockProperties {
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
-
+            BYGBlocks.createPottedBlock(this, registryName);
         }
     }
 
@@ -112,6 +111,7 @@ public class BYGBlockProperties {
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
+            BYGBlocks.createPottedBlock(this, registryName);
 
         }
     }

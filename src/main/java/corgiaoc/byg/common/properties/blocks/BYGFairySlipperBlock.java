@@ -18,18 +18,9 @@ import net.minecraft.block.AbstractBlock.Properties;
 
 public class BYGFairySlipperBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
-    private final Effect stewEffect;
-    private final int stewEffectDuration;
 
-    public BYGFairySlipperBlock(Effect effect, int duration, Properties properties) {
+    public BYGFairySlipperBlock(Properties properties) {
         super(properties);
-        this.stewEffect = effect;
-        if (effect.isInstant()) {
-            this.stewEffectDuration = duration;
-        } else {
-            this.stewEffectDuration = duration * 20;
-        }
-
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
