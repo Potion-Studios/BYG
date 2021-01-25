@@ -7,6 +7,7 @@
     "common.block.MixinAbstractFireBlock",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinSlimeEntity",
+    "common.lightengine.WorldLightManagerMixin",
     "common.world.feature.MixinBasaltColumnFeature",
     "common.world.layers.MixinDimensionType",
     "common.world.layers.MixinHillsLayer",
