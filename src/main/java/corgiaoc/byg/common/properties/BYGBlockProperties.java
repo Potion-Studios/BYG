@@ -58,7 +58,7 @@ public class BYGBlockProperties {
 
     public static class BYGDoubleNetherPlant extends DoubleNetherPlantBlock {
         public BYGDoubleNetherPlant(String registryName) {
-            super(AbstractBlock.Properties.create(Material.PLANTS)
+            super(AbstractBlock.Properties.create(Material.TALL_PLANTS)
                     .sound(SoundType.ROOT)
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
@@ -579,7 +579,7 @@ public class BYGBlockProperties {
 
     public static class BYGWarpedWallFanCoral extends BYGWarpedCoralWallFanBlock {
         public BYGWarpedWallFanCoral(String registryName) {
-            super(AbstractBlock.Properties.create(Material.OCEAN_PLANT)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.WET_GRASS)
                     .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
@@ -595,7 +595,7 @@ public class BYGBlockProperties {
 
     public static class BYGWarpedBush extends BYGWarpedBushBlock {
         public BYGWarpedBush(String registryName) {
-            super(AbstractBlock.Properties.create(Material.PLANTS)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
@@ -696,7 +696,7 @@ public class BYGBlockProperties {
 
     public static class BYGEmburGelVine extends EmburVinesPlantBlock {
         public BYGEmburGelVine(String registryName) {
-            super(AbstractBlock.Properties.create(Material.LEAVES)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.HONEY)
                     .hardnessAndResistance(0.0F)
                     .tickRandomly()
@@ -710,7 +710,7 @@ public class BYGBlockProperties {
 
     public static class BYGEmburPlant extends EmburPlantBlock {
         public BYGEmburPlant(String registryName) {
-            super(AbstractBlock.Properties.create(Material.PLANTS)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.ROOT)
                     .hardnessAndResistance(0.0F)
                     .doesNotBlockMovement()
@@ -741,7 +741,7 @@ public class BYGBlockProperties {
 
     public static class SythianPlant extends BYGSythianPlantBlock {
         public SythianPlant(String registryName) {
-            super(AbstractBlock.Properties.create(Material.PLANTS)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.ROOT)
                     .hardnessAndResistance(0.0f)
                     .doesNotBlockMovement()
@@ -876,7 +876,7 @@ public class BYGBlockProperties {
 
     public static class BYGHangingVine extends HangingVinesBlock {
         public BYGHangingVine(String registryName) {
-            super(AbstractBlock.Properties.create(Material.LEAVES)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.NETHER_VINE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
@@ -892,7 +892,7 @@ public class BYGBlockProperties {
 
     public static class BYGHangingVinePlant extends HangingVinesPlantBlock {
         public BYGHangingVinePlant(String registryName) {
-            super(AbstractBlock.Properties.create(Material.LEAVES)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.NETHER_VINE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
@@ -906,7 +906,7 @@ public class BYGBlockProperties {
 
     public static class BYGSoulShroomSporeEnd extends SoulShroomSporeEndBlock {
         public BYGSoulShroomSporeEnd(String registryName) {
-            super(AbstractBlock.Properties.create(Material.LEAVES)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.FUNGUS)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
@@ -922,7 +922,7 @@ public class BYGBlockProperties {
 
     public static class BYGSoulShroomSpore extends SoulShroomSporeBlock {
         public BYGSoulShroomSpore(String registryName) {
-            super(AbstractBlock.Properties.create(Material.LEAVES)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.FUNGUS)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
@@ -936,7 +936,7 @@ public class BYGBlockProperties {
 
     public static class BYGSythianHangingRootsPlant extends HangingSythanRootsPlantBlock {
         public BYGSythianHangingRootsPlant(String registryName) {
-            super(AbstractBlock.Properties.create(Material.LEAVES)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.NETHER_VINE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
@@ -950,7 +950,7 @@ public class BYGBlockProperties {
 
     public static class BYGSythianHangingRoots extends HangingSythanRootsBlock {
         public BYGSythianHangingRoots(String registryName) {
-            super(AbstractBlock.Properties.create(Material.LEAVES)
+            super(AbstractBlock.Properties.create(Material.NETHER_PLANTS)
                     .sound(SoundType.NETHER_VINE)
                     .hardnessAndResistance(0.2f)
                     .tickRandomly()
