@@ -35,7 +35,9 @@ public class MixinEatGrassGoal {
         if (IS_GRASS.test(this.entityWorld.getBlockState(blockpos))) {
             cir.setReturnValue(true);
         } else {
-            cir.setReturnValue(this.entityWorld.getBlockState(blockpos.down()).isIn(BYGBlocks.MEADOW_GRASSBLOCK));
+            boolean flag = this.entityWorld.getBlockState(blockpos.down()).isIn(BYGBlocks.MEADOW_GRASSBLOCK);
+            if (flag)
+                cir.setReturnValue(true);
         }
     }
 
