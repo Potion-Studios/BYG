@@ -172,6 +172,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> IVIS_SPROUT = createConfiguredFeature("ivis_sprout", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.IVIS_SPROUT.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
 
     public static final ConfiguredFeature<?, ?> BULBIS_SPROUTS = createConfiguredFeature("bulbis_sprouts", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BULBIS_SPROUTS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
+    public static final ConfiguredFeature<?, ?> CRYPTIC_BRAMBLE = createConfiguredFeature("cryptic_bramble", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.CRYPTIC_BRAMBLE.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
 
     public static final ConfiguredFeature<?, ?> BULBIS_ODDITY = createConfiguredFeature("bulbis_oddity", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BULBIS_ODDITY.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
     public static final ConfiguredFeature<?, ?> PURPLE_BULBIS_ODDITY = createConfiguredFeature("purple_bulbis_oddity", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.PURPLE_BULBIS_ODDITY.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
@@ -265,7 +266,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> FROST_MAGMA_LAKE = createConfiguredFeature("frost_magma_lake", BYGFeatures.FROSTED_LAKE.withConfiguration(new BlockStateFeatureConfig(BYGBlocks.FROST_MAGMA.getDefaultState())).withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(4))));
     public static final ConfiguredFeature<?, ?> WARPED_CORAL_PLANT = createConfiguredFeature("warped_coral_plant", BYGFeatures.HUGE_WARPED_CORAL_PLANT.withConfiguration(new WhitelistedSimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.WARPED_CORAL_BLOCK.getDefaultState()), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState()))).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.2F, 1))));
     public static final ConfiguredFeature<?, ?> SYTHIAN_STALK = createConfiguredFeature("sythian_stalk", BYGFeatures.SYTHIAN_STALK.withConfiguration(new ProbabilityConfig(0.9F)).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(10, 0.5F, 8))));
-    public static final ConfiguredFeature<?, ?> EMBUR_LILY = createConfiguredFeature("embur_lily", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.EMBUR_LILY.getDefaultState(), ImmutableList.of(BYGBlocks.SYTHIAN_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.LAVA.getDefaultState()))).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 2))));
+    public static final ConfiguredFeature<?, ?> EMBUR_LILY = createConfiguredFeature("embur_lily", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.EMBUR_LILY.getDefaultState(), ImmutableList.of(Blocks.LAVA.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.LAVA.getDefaultState()))).withPlacement(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.5F, 2))));
     public static final ConfiguredFeature<?, ?> WIDE_WATER_LAKE = createConfiguredFeature("wide_water_lake", BYGFeatures.WIDE_LAKE.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.WATER.getDefaultState()))).withPlacement(BYGDecorators.ANY_WATER_OR_SOLID_SURFACE.configure(new FeatureSpreadConfig(4))));
     public static final ConfiguredFeature<?, ?> BULBIS_WATER_LAKE = createConfiguredFeature("bulbis_water_lake", BYGFeatures.WIDE_LAKE.withConfiguration(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.WATER.getDefaultState()))).withPlacement(BYGDecorators.ANY_WATER_OR_SOLID_SURFACE.configure(new FeatureSpreadConfig(1))));
     public static final ConfiguredFeature<?, ?> STACKED_BOULDERS = createConfiguredFeature("stacked_boulders", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.STONE.getDefaultState(), 3).addWeightedBlockstate(Blocks.DIORITE.getDefaultState(), 2)).setMinStackHeight(10).setMaxHeight(15).setMinRadius(8).setMaxRadius(28).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.15F, 1))));
@@ -278,6 +279,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ENDER_LILY = createConfiguredFeature("ender_lily", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.ENDER_LILY.getDefaultState(), ImmutableList.of(BYGBlocks.BULBIS_PHYCELIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.WATER.getDefaultState()))).withPlacement(BYGDecorators.ANY_WATER_OR_SOLID_SURFACE.configure(new FeatureSpreadConfig(4))));
     public static final ConfiguredFeature<?, ?> CRYPTIC_SPIKE = createConfiguredFeature("cryptic_spike", BYGFeatures.SPIKE.withConfiguration(new SimpleBlockProviderConfig(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.CRYPTIC_STONE.getDefaultState(), 5).addWeightedBlockstate(BYGBlocks.CRYPTIC_MAGMA_BLOCK.getDefaultState(), 5))).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.18F, 1))));
     public static final ConfiguredFeature<?, ?> BLACK_ICE_SNOW = createConfiguredFeature("black_ice_snow", BYGFeatures.ICE_SNOW.withConfiguration(new Simple2BlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.BLACK_ICE.getDefaultState()), new SimpleBlockStateProvider(Blocks.SNOW.getDefaultState()))).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
+    public static final ConfiguredFeature<?, ?> BLACK_ICE_SNOW = createConfiguredFeature("black_ice_snow", BYGFeatures.ICE_SNOW.withConfiguration(new Simple2BlockProviderConfig(new SimpleBlockStateProvider(Blocks.ICE.getDefaultState()), new SimpleBlockStateProvider(Blocks.SNOW.getDefaultState()))).withPlacement(Placement.NOPE.configure(new NoPlacementConfig())));
+    public static final ConfiguredFeature<?, ?> BULBIS_GARDENS_CAVES = createConfiguredFeature("bulbis_gardens_caves", BYGFeatures.NOISY_CAVE_SPHERE_WATER.withConfiguration((new NoisyCaveSphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).build())).range(55).square().func_242731_b(2));
 
     public static final ConfiguredFeature<?, ?> THERIUM_CRYSTAL_DEPOSIT = createConfiguredFeature("therium_crystal_deposit", BYGFeatures.STACKABLE_BOULDERS.withConfiguration(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.THERIUM_BLOCK.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 2)).setMinStackHeight(0).setMaxHeight(0).setMinRadius(4).setMaxRadius(5).build()).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, 0.002F, 1))));
 
@@ -311,11 +314,12 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> SHORT_GRASSES = createConfiguredFeature("short_grass", SHORT_GRASS.withPlacement(Features.Placements.VEGETATION_PLACEMENT).func_242731_b(10));
     public static final ConfiguredFeature<?, ?> EMBUR_SPROUTS = createConfiguredFeature("embur_sprouts", EMBUR_SPROUT.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(30))));
     public static final ConfiguredFeature<?, ?> NYLIUM_SOUL_FIRE = createConfiguredFeature("nylium_soul_fire", NYLIUM_SOUL_FIRE_PATCH.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
-    public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE = createConfiguredFeature("cryptic_fire", CRYPTIC_FIRE_PATCH.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
+    public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE = createConfiguredFeature("cryptic_fire", CRYPTIC_FIRE_PATCH.withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(2));
     public static final ConfiguredFeature<?, ?> MAGMA_FIRE = createConfiguredFeature("magma_fire", MAGMA_FIRE_PATCH.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
     public static final ConfiguredFeature<?, ?> BORIC_FIRE = createConfiguredFeature("boric_fire", BORIC_FIRE_PATCH.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
     public static final ConfiguredFeature<?, ?> QUARTZ_CRYSTALS = createConfiguredFeature("quartz_crystals", QUARTZ_CRYSTAL.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(50))));
     public static final ConfiguredFeature<?, ?> EMBUR_GEL_VINES = createConfiguredFeature("embur_gel_vines", EMBUR_GEL_VINE.range(128).square().func_242731_b(100));
+    public static final ConfiguredFeature<?, ?> CRYPTIC_BRAMBLES = createConfiguredFeature("cryptic_brambles", CRYPTIC_BRAMBLE.withPlacement(Features.Placements.FIRE_PLACEMENT).func_242731_b(1));
 
 
     /***********************************************************Configured Random Selector Features***********************************************************/
@@ -1693,7 +1697,7 @@ public class BYGConfiguredFeatures {
             BULBIS_TREE5.withChance(0.15F),
             BULBIS_TREE6.withChance(0.1F)),
             BULBIS_TREE7)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
-            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_BULBIS_TREE = createConfiguredFeature("sparse_bulbis_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             BULBIS_BUSH1.withChance(0.1F),
@@ -1715,7 +1719,7 @@ public class BYGConfiguredFeatures {
             PURPLE_BULBIS_TREE5.withChance(0.15F),
             PURPLE_BULBIS_TREE6.withChance(0.1F)),
             PURPLE_BULBIS_TREE7)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
-            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_PURPLE_BULBIS_TREE = createConfiguredFeature("sparse_purple_bulbis_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             PURPLE_BULBIS_BUSH1.withChance(0.1F),

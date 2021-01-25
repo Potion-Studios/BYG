@@ -994,6 +994,8 @@ public class BYGItems {
     public static final Item CRYPTIC_STONE_WALL = createItem(new BlockItem(BYGBlocks.CRYPTIC_STONE_WALL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_STONE_WALL));
     public static final Item CRYPTIC_VENT = createItem(new BlockItem(BYGBlocks.CRYPTIC_VENT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_VENT));
     public static final Item TALL_CRYPTIC_VENT = createItem(new BlockItem(BYGBlocks.TALL_CRYPTIC_VENT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.TALL_CRYPTIC_VENT));
+    public static final Item CRYPTIC_BRAMBLE = createItem(new BlockItem(BYGBlocks.CRYPTIC_BRAMBLE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRYPTIC_BRAMBLE));
+    public static final Item CRYPTIC_BRAMBLE_BRANCH = createItem(new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)), "cryptic_bramble_branch");
 
     //Ice
     public static final Item BLACK_ICE = createItem(new BlockItem(BYGBlocks.BLACK_ICE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BLACK_ICE));

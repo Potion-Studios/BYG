@@ -13,32 +13,20 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
-                    ]
+                    "item": "minecraft:shears"
                   }
                 }
               ],
-              "name": "byg:lignite_ore"
+              "name": "byg:cryptic_bramble"
             },
             {
               "type": "minecraft:item",
               "functions": [
                 {
-                  "function": "minecraft:apply_bonus",
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:ore_drops"
-                },
-                {
                   "function": "minecraft:set_count",
                   "count": {
-                    "min": 4.0,
-                    "max": 7.0,
+                    "min": 1.0,
+                    "max": 3.0,
                     "type": "minecraft:uniform"
                   }
                 },
@@ -46,7 +34,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "byg:lignite"
+              "name": "byg:cryptic_bramble_branch"
             }
           ]
         }

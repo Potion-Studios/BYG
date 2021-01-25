@@ -4,6 +4,7 @@ import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.core.BYGSounds;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.client.audio.BackgroundMusicTracks;
@@ -63,7 +64,6 @@ public class BulbisGardens extends BYGEndBiome {
         GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
         BYGDefaultBiomeFeatures.addBulbisTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addPurpleBulbisTrees(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addBulbisLake(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBulbisOddity(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBulbisAnomaly(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEnderLily(GENERATION_SETTINGS);

@@ -93,6 +93,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.SHULKREN_VINE_PLANT, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.CRYPTIC_CAMPFIRE, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.ENDER_LILY, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.CRYPTIC_BRAMBLE, RenderType.getCutoutMipped());
 
         //Sea Plants
         RenderTypeLookup.setRenderLayer(BYGBlocks.CATTAIL, RenderType.getCutoutMipped());
