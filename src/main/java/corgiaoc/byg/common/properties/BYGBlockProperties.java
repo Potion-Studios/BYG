@@ -422,7 +422,7 @@ public class BYGBlockProperties {
 
         public BYGNyliumSoulSand(String registryName) {
             super(AbstractBlock.Properties.create(Material.SAND)
-                    .sound(SoundType.SAND)
+                    .sound(SoundType.SOUL_SAND)
                     .hardnessAndResistance(0.5f)
                     .speedFactor(0.6F)
                     .harvestTool(ToolType.SHOVEL)
@@ -438,7 +438,7 @@ public class BYGBlockProperties {
 
         public BYGNyliumSoulSoil(String registryName) {
             super(AbstractBlock.Properties.create(Material.SAND)
-                    .sound(SoundType.SAND)
+                    .sound(SoundType.SOUL_SOIL)
                     .hardnessAndResistance(0.5f)
                     .harvestTool(ToolType.SHOVEL)
 
@@ -1108,7 +1108,7 @@ public class BYGBlockProperties {
     public static class AnthraciteOre extends BYGOreBlock {
         public AnthraciteOre(String registryName) {
             super(AbstractBlock.Properties.create(Material.ROCK)
-                    .sound(SoundType.STONE)
+                    .sound(SoundType.NETHER_ORE)
                     .hardnessAndResistance(0.4F, 0.4F)
                     .harvestLevel(3)
                     .harvestTool(ToolType.PICKAXE)
@@ -1352,7 +1352,7 @@ public class BYGBlockProperties {
     public static class BYGGlowCaneBlock extends Block {
         public BYGGlowCaneBlock(String registryName) {
             super(AbstractBlock.Properties.create(Material.GLASS)
-                    .sound(SoundType.GLASS)
+                    .sound(SoundType.SHROOMLIGHT)
                     .hardnessAndResistance(0.3F)
                     .setLightLevel((state) -> 15)
             );
