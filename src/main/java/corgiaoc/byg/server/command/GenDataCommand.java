@@ -66,7 +66,7 @@ public class GenDataCommand {
         Path dataPackPath = dataPackPath(commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS), modId);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         DynamicRegistries manager = commandSource.getSource().getServer().func_244267_aX();
-        Registry<Biome> biomeRegistry = manager.getRegistry(Registry.BIOME_KEY);
+        Registry<Biome> biomeRegistry = /*manager.getRegistry(Registry.BIOME_KEY)*/ WorldGenRegistries.BIOME;
         Registry<ConfiguredFeature<?, ?>> featuresRegistry = /*manager.getRegistry(Registry.CONFIGURED_FEATURE_KEY)*/ WorldGenRegistries.CONFIGURED_FEATURE;
         Registry<StructureFeature<?, ?>> structuresRegistry = /*manager.getRegistry(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY)*/ WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
         Registry<ConfiguredCarver<?>> carverRegistry = /*manager.getRegistry(Registry.CONFIGURED_CARVER_KEY)*/ WorldGenRegistries.CONFIGURED_CARVER;
