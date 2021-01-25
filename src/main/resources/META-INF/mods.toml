@@ -22,9 +22,9 @@ versionRange = "[34.1.42,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.byg]]
-modId = "chocolate"
-mandatory = true
-versionRange = "[1.2.0,)"
-ordering = "NONE"
-side = "BOTH"
+#[[dependencies.byg]]
+#modId = "chocolate"
+#mandatory = true
+#versionRange = "[1.2.0,)"
+#ordering = "NONE"
+#side = "BOTH"
