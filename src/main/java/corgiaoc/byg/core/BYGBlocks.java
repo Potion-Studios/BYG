@@ -40,7 +40,7 @@ public class BYGBlocks {
 
     
     public static List<Block> flowerPotBlocks = new ArrayList<>();
-    public static List<String> flowerIDs = new ArrayList<>();
+    public static List<ResourceLocation> flowerIDs = new ArrayList<>();
 
     public static final Block ASPEN_PLANKS = createPlanks("aspen_planks");
     public static final Block BAOBAB_PLANKS = createPlanks("baobab_planks");
@@ -1166,6 +1166,7 @@ public class BYGBlocks {
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         createPottedBlock(createBlock, id);
         blocksList.add(createBlock);
+        flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id));
         return createBlock;
     }
 
@@ -1174,6 +1175,7 @@ public class BYGBlocks {
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
+        flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id));
         return createBlock;
     }
 
@@ -1315,7 +1317,6 @@ public class BYGBlocks {
 //        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, "potted_" + id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, "potted_" + id)); //Forge
         flowerPotBlocks.add(createBlock);
-        flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id).toString());
     }
 
     static Block createShroomlight(String id) {
