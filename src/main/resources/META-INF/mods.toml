@@ -4,7 +4,7 @@ license = "Code: LGPLv3 \nAssets: All Rights Reserved"
 issueTrackerURL = "https://github.com/CorgiTaco/BYG/issues"
 [[mods]]
 modId = "byg"
-version = "1.1.8"
+version = "1.1.9"
 displayName = "Oh The Biomes You'll Go"
 displayURL = "https://oh-the-biomes-youll-go.fandom.com/wiki/Oh_The_Biomes_You%27ll_Go_Wiki"
 logoFile = "logo_text.png"
@@ -18,13 +18,6 @@ Notice: The linked wiki is not owned by BYG, the wiki is open for anyone to edit
 [[dependencies.byg]]
 modId = "forge"
 mandatory = true
-versionRange = "[34.1.42,)"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.byg]]
-modId = "chocolate"
-mandatory = true
-versionRange = "[1.2.0,)"
+versionRange = "[36.0.4,)"
 ordering = "NONE"
 side = "BOTH"
