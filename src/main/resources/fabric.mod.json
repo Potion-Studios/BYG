@@ -30,8 +30,8 @@
     "byg.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.10.5",
-    "fabric": ">=0.24.3",
+    "fabricloader": "*",
+    "fabric": "*",
     "minecraft": ">=1.16.3"
   },
   "suggests": {
