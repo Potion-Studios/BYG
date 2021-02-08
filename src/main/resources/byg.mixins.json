@@ -5,6 +5,8 @@
   "refmap": "byg.refmap.json",
   "mixins": [
     "common.block.MixinAbstractFireBlock",
+    "common.block.MixinCactusBlock",
+    "common.block.MixinSugarCaneBlock",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinEatGrassGoal",
     "common.entity.MixinSlimeEntity",
