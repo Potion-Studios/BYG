@@ -4,6 +4,7 @@
     "byg:peat",
     "byg:meadow_grass_block",
     "byg:meadow_dirt",
-    "byg:overgrown_stone"
+    "byg:overgrown_stone",
+    "#forge:sand"
   ]
 }
