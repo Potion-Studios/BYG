@@ -3,8 +3,8 @@ package corgiaoc.byg.core;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;
-import corgiaoc.byg.common.properties.blocks.SpreadableBlock;
 import corgiaoc.byg.common.properties.blocks.*;
+import corgiaoc.byg.common.properties.blocks.SpreadableBlock;
 import corgiaoc.byg.common.properties.blocks.end.StoneEndPlantBlock;
 import corgiaoc.byg.common.properties.blocks.end.TallVentBlock;
 import corgiaoc.byg.common.properties.blocks.end.TheriumCrystalBlock;
@@ -39,9 +39,9 @@ import java.util.List;
 public class BYGBlocks {
     public static List<Block> blocksList = new ArrayList<>();
 
-
+    
     public static List<Block> flowerPotBlocks = new ArrayList<>();
-    public static final Block ETHER_BULB = createEtherBulbBlock("ether_bulbs_block");
+    public static List<Identifier> flowerIDs = new ArrayList<>();
 
     public static final Block ASPEN_PLANKS = createPlanks("aspen_planks");
     public static final Block BAOBAB_PLANKS = createPlanks("baobab_planks");
@@ -519,7 +519,7 @@ public class BYGBlocks {
     public static final Block CLOVER_PATCH = new BYGBlockProperties.BYGLeafPile("clover_patch");
     public static final Block FLOWER_PATCH = new BYGBlockProperties.BYGLeafPile("flower_patch");
     public static final Block BAOBAB_FRUIT_BLOCK = createBaobabFruitBlock("baobab_fruit_block");
-    public static final Block EMBUR_WART = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
+    public static final Block ETHER_BULB = createEtherBulbBlock("ether_bulbs_block");
 
     public static final Block ANTHRACITE_BLOCK = new BYGBlockProperties.AnthraciteOre("anthracite_block");
     public static final Block ANTHRACITE_ORE = new BYGBlockProperties.AnthraciteOre("anthracite_ore");
@@ -569,18 +569,20 @@ public class BYGBlocks {
     public static final Block EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines");
     public static final Block EMBUR_SPROUTS = new BYGBlockProperties.BYGEmburPlant("embur_sprouts");
     public static final Block EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots");
-    public static final Block BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGBlueNetherrackBricks("blue_nether_bricks");
+    public static final Block EMBUR_WART = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
     public static final Block TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_embur_roots");
 
     public static final Block BLUE_NETHERRACK = new BYGBlockProperties.BYGBlueNetherrack("blue_netherrack");
+    public static final Block BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGBlueNetherrackBricks("blue_nether_bricks");
+
     public static final Block BULBIS_SPROUTS = new BYGBlockProperties.EndPlant("bulbis_sprouts");
-    public static final Block ETHER_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("ether_foliage");
 
     public static final Block IVIS_ROOTS = new BYGBlockProperties.EndPlant("ivis_roots");
     public static final Block IVIS_SPROUT = new BYGBlockProperties.EndPlant("ivis_sprout");
     public static final Block ENDER_LILY = new BYGBlockProperties.BYGEnderLily("ender_lily");
+
+    public static final Block ETHER_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("ether_foliage");
     public static final Block TALL_ETHER_GRASS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_ether_grass");
-    public static final Block VERMILION_SCULK_TENDRILS = new BYGBlockProperties.EndPlant("vermilion_sculk_tendrils");
     public static final Block ETHER_GRASS = new BYGBlockProperties.EndPlant("ether_grass");
     public static final Block ETHER_BUSH = new BYGBlockProperties.EndPlant("ether_bush");
     public static final Block THEREAL_BELLFLOWER = new BYGBlockProperties.EndPlant("thereal_bellflower");
@@ -602,10 +604,11 @@ public class BYGBlocks {
 
     public static final Block ODDITY_CACTUS = createOddityCactus("oddity_cactus");
     public static final Block ODDITY_BUSH = new BYGBlockProperties.EndPlant("oddity_bush");
-    public static final Block THERIUM_CRYSTAL = createTheriumCrystal("therium_crystal");
+
+    public static final Block VERMILION_SCULK_TENDRILS = new BYGBlockProperties.EndPlant("vermilion_sculk_tendrils");
     public static final Block VERMILION_SCULK_GROWTH = createSculkGrowth("vermilion_sculk_growth");
+    public static final Block THERIUM_CRYSTAL = createTheriumCrystal("therium_crystal");
     public static final Block THERIUM_BLOCK = createTheriumBlock("therium_block");
-    public static final Block CRYPTIC_VENT = createVent("cryptic_vent");
     public static final Block THERIUM_LANTERN = new BYGBlockProperties.BYGLantern("therium_lantern");
     public static final Block THERIUM_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("therium_lamp");
 
@@ -616,10 +619,10 @@ public class BYGBlocks {
     public static final Block CRYPTIC_STONE_SLAB = createStoneSlab("cryptic_stone_slab");
     public static final Block CRYPTIC_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("cryptic_stone_stairs");
     public static final Block CRYPTIC_STONE_WALL = createStoneWall("cryptic_stone_wall");
+    public static final Block CRYPTIC_VENT = createVent("cryptic_vent");
     public static final Block TALL_CRYPTIC_VENT = createTallVent("tall_cryptic_vent");
     public static final Block CRYPTIC_REDSTONE_ORE = new BYGBlockProperties.BYGPervadedNetherrack("cryptic_redstone_ore");
     public static final Block CRYPTIC_BRAMBLE = createStoneEndPlant("cryptic_bramble");
-    public static final Block IMBUED_NIGHTSHADE_LOG = createLog("imbued_nightshade_log");
 
     public static final Block SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
     public static final Block SHULKREN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("shulkren_wart_block");
@@ -716,7 +719,7 @@ public class BYGBlocks {
     public static final Block WITHERING_OAK_LOG = createLog("withering_oak_log");
     public static final Block BULBIS_STEM = new BYGBlockProperties.BYGNetherLog("bulbis_stem");
     public static final Block NIGHTSHADE_LOG = createLog("nightshade_log");
-    public static final Block SYTHIAN_FUNGUS = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
+    public static final Block IMBUED_NIGHTSHADE_LOG = createLog("imbued_nightshade_log");
     public static final Block ETHER_LOG = createLog("ether_log");
 
 
@@ -757,14 +760,15 @@ public class BYGBlocks {
     public static final Block GREEN_MUSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.GreenMushroom(), "green_mushroom");
     public static final Block BLUE_GLOWSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.BlueGlowshroom(), "blue_glowshroom");
     public static final Block PURPLE_GLOWSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleGlowshroom(), "purple_glowshroom");
+
+    public static final Block SYTHIAN_FUNGUS = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
     public static final Block SOUL_SHROOM = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
-    public static final Block BULBIS_ANOMALY = createTallBulbis("bulbis_anomaly");
     public static final Block DEATH_CAP = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
     public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "bulbis_oddity");
     public static final Block PURPLE_BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleBulbis(), "purple_bulbis_oddity");
     public static final Block SHULKREN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.ShulkrenFungus(), "shulkren_fungus");
+    public static final Block BULBIS_ANOMALY = createTallBulbis("bulbis_anomaly");
     public static final Block PURPLE_BULBIS_ANOMALY = createTallBulbis("purple_bulbis_anomaly");
-    public static final Block IVIS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG, "ivis_phylium");
 
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");
@@ -984,16 +988,17 @@ public class BYGBlocks {
     public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, BYGConfiguredFeatures.SpreadableBlockConfigs.OVERGROWN_BLACKSTONE_CONFIG, "overgrown_crimson_blackstone");
     public static final Block MYCELIUM_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.MYCELIUM_NETHERRACK_CONFIG, "mycelium_netherrack");
     public static final Block OVERGROWN_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.OVERGROWN_NETHERRACK_CONFIG, "overgrown_netherrack");
-    public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, BYGConfiguredFeatures.SpreadableBlockConfigs.MEADOW_CONFIG, "meadow_grass_block");
+    public static final Block IVIS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG, "ivis_phylium");
     public static final Block EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS, "embur_nylium");
     public static final Block SYTHIAN_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "sythian_nylium");
+    public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, BYGConfiguredFeatures.SpreadableBlockConfigs.MEADOW_CONFIG, "meadow_grass_block");
     public static final Block NIGHTSHADE_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG, "nightshade_phylium");
     public static final Block ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
     public static final Block VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
     public static final Block SHULKREN_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
-    public static final Block MEADOW_GRASS_PATH = createBlock(new GrassPathBlockAccess(FabricBlockSettings.of(Material.SOIL).strength(0.65F).sounds(BlockSoundGroup.GRASS).blockVision((state, reader, pos) -> true).suffocates((state, reader, pos) -> true)), "meadow_grass_path");
+    public static final Block MEADOW_GRASS_PATH = createBlock(new GrassPathBlockAccess(AbstractBlock.Settings.of(Material.SOIL).strength(0.65F).sounds(BlockSoundGroup.GRASS).blockVision((state, reader, pos) -> true).suffocates((state, reader, pos) -> true)), "meadow_grass_path");
     public static final Block BULBIS_PHYCELIUM = createEndDirtSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
-    public static List<Identifier> flowerIDs = new ArrayList<>();
+
 
     static Block createTheriumBlock(String id) {
         Block createBlock = new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.CYAN).sounds(BlockSoundGroup.GLASS).dropsNothing().luminance((state) -> 12).strength(-1.0f, 3.0f));

@@ -1120,6 +1120,7 @@ public class BYGItems {
     public static Item createItem(Item item, Identifier id) {
         if (id != null && !id.equals(new Identifier("minecraft:air"))) {
             Registry.register(Registry.ITEM, id, item);
+//            item.setRegistryName(id); //Forge
             itemsList.add(item);
             return item;
         } else {
@@ -1129,6 +1130,7 @@ public class BYGItems {
 
     public static Item createItem(Item item, String id) {
         Registry.register(Registry.ITEM, new Identifier(BYG.MOD_ID, id), item);
+//        item.setRegistryName(new Identifier(BYG.MOD_ID, id)); //Forge
         itemsList.add(item);
         return item;
     }

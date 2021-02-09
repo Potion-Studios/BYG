@@ -141,10 +141,7 @@ import corgiaoc.byg.common.world.feature.overworld.trees.zelkova.ZelkovaTree3;
 import corgiaoc.byg.common.world.feature.overworld.volcano.VolcanoFeature;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.world.gen.ProbabilityConfig;
-import net.minecraft.world.gen.feature.BasaltColumnsFeatureConfig;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.SingleStateFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 
 import java.util.ArrayList;
 import java.util.List;
