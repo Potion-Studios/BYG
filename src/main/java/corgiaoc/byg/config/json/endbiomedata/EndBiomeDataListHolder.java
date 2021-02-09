@@ -27,14 +27,17 @@ public class EndBiomeDataListHolder {
             BYGEndBiome.endBiomeData.add(new EndBiomeData(BuiltinRegistries.BIOME.getId(bygBiome.getBiome()), bygBiome.getWeight(), bygBiome.getHills(), BuiltinRegistries.BIOME.getId(bygBiome.getEdge()), bygBiome.isVoid()));
         }
 
-        for (Identifier location : biomeRegistry.getIds().stream().filter(location -> !location.toString().contains("byg") && !location.toString().equals("minecraft:the_end") && !location.toString().equals("minecraft:small_end_islands") && !location.toString().equals("minecraft:end_barrens")).collect(Collectors.toSet())) {
-            if (biomeRegistry.getOrEmpty(location).get().getCategory() == Biome.Category.THEEND)
+        for (Identifier location : biomeRegistry.getIds().stream().filter(location -> !location.toString().contains("byg") && !location.toString().equals("minecraft:the_end")).collect(Collectors.toSet())) {
+            if (location.toString().equals("minecraft:small_end_islands"))
+                BYGEndBiome.endBiomeData.add(new EndBiomeData(location, 5, new WeightedList<>(), null, true));
+            else if (location.toString().equals("minecraft:end_barrens"))
+                BYGEndBiome.endBiomeData.add(new EndBiomeData(location, 1, new WeightedList<>(), null));
+            else if (biomeRegistry.getOrEmpty(location).get().getCategory() == Biome.Category.THEEND)
                 BYGEndBiome.endBiomeData.add(new EndBiomeData(location, 5, new WeightedList<>(), null));
-
-            BYGEndBiome.endBiomeData.removeIf(endBiomeData1 -> endBiomeData1.getBiome() == null);
-            //Sort entries alphabetically
-            BYGEndBiome.endBiomeData.sort(Comparator.comparing(data -> data.getBiome().toString()));
         }
+        BYGEndBiome.endBiomeData.removeIf(endBiomeData1 -> endBiomeData1.getBiome() == null);
+        //Sort entries alphabetically
+        BYGEndBiome.endBiomeData.sort(Comparator.comparing(data -> data.getBiome().toString()));
     }
 
     public static void fillBiomeLists() {
