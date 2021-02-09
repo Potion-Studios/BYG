@@ -36,7 +36,7 @@ public class BYGSapling extends PlantBlock implements Fertilizable {
             if (state.getBlock().isIn(FabricTags.SAND))
                 return true;
         }
-        return block == Blocks.GRASS_BLOCK || state.isIn(FabricTags.DIRT) || block == Blocks.DIRT || block == Blocks.COARSE_DIRT || block == Blocks.PODZOL || block == Blocks.FARMLAND || block == BYGBlocks.OVERGROWN_STONE || block == BYGBlocks.MEADOW_GRASSBLOCK || block == BYGBlocks.MEADOW_DIRT;
+        return block.isIn(FabricTags.DIRT);
     }
 
     @Override

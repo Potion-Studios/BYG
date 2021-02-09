@@ -26,7 +26,7 @@ public class MixinEatGrassGoal {
 
     @Shadow
     @Final
-    public static Predicate<BlockState> GRASS_PREDICATE;
+    private static Predicate<BlockState> GRASS_PREDICATE;
     @Shadow
     @Final
     private MobEntity mob;
