@@ -16,6 +16,11 @@
     "byg:ivis_phylium",
     "byg:nightshade_phylium",
     "byg:shulkren_phylium",
-    "byg:bulbis_phycelium"
+    "byg:bulbis_phycelium",
+    "minecraft:dirt",
+    "minecraft:grass_block",
+    "minecraft:coarse_dirt",
+    "minecraft:podzol",
+    "minecraft:mycelium"
   ]
 }
