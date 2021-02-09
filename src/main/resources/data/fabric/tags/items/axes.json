@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "pendorite_axe",
-    "pendorite_battleaxe"
+    "byg:pendorite_axe",
+    "byg:pendorite_battleaxe"
   ]
 }
