@@ -32,7 +32,11 @@ public class BYGSapling extends BushBlock implements IGrowable {
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.GRASS_BLOCK || state.isIn(Tags.Blocks.DIRT) || block == Blocks.DIRT || block == Blocks.COARSE_DIRT || block == Blocks.PODZOL || block == Blocks.FARMLAND || block == BYGBlocks.OVERGROWN_STONE || block == BYGBlocks.MEADOW_GRASSBLOCK || block == BYGBlocks.MEADOW_DIRT;
+        if (this == BYGBlocks.PALM_SAPLING) {
+            if (state.getBlock().isIn(Tags.Blocks.SAND))
+                return true;
+        }
+        return state.isIn(Tags.Blocks.DIRT);
     }
 
     @Override
