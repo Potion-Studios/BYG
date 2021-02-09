@@ -16,7 +16,6 @@ import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.util.text.*;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
@@ -27,11 +26,8 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.template.IStructureProcessorType;
 import net.minecraft.world.gen.feature.template.StructureProcessorList;
-import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.storage.FolderName;
-import net.minecraft.world.storage.ISpawnWorldInfo;
-import net.minecraft.world.storage.ServerWorldInfo;
 import net.minecraftforge.fml.ModList;
 
 import java.io.IOException;
@@ -49,7 +45,7 @@ public class GenDataCommand {
         List<String> modIdList = new ArrayList<>();
         ModList.get().getMods().forEach(modContainer -> {
             String modId = modContainer.getModId();
-            if (!modId.contains("forge"))
+            if (!modId.equals("forge"))
                 modIdList.add(modId);
         });
 
@@ -66,13 +62,12 @@ public class GenDataCommand {
         Path dataPackPath = dataPackPath(commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS), modId);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         DynamicRegistries manager = commandSource.getSource().getServer().func_244267_aX();
-        Registry<Biome> biomeRegistry = /*manager.getRegistry(Registry.BIOME_KEY)*/ WorldGenRegistries.BIOME;
-        Registry<ConfiguredFeature<?, ?>> featuresRegistry = /*manager.getRegistry(Registry.CONFIGURED_FEATURE_KEY)*/ WorldGenRegistries.CONFIGURED_FEATURE;
-        Registry<StructureFeature<?, ?>> structuresRegistry = /*manager.getRegistry(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY)*/ WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
-        Registry<ConfiguredCarver<?>> carverRegistry = /*manager.getRegistry(Registry.CONFIGURED_CARVER_KEY)*/ WorldGenRegistries.CONFIGURED_CARVER;
-        Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = /*manager.getRegistry(Registry.CONFIGURED_SURFACE_BUILDER_KEY)*/ WorldGenRegistries.CONFIGURED_SURFACE_BUILDER;
-        Registry<StructureProcessorList> structureProcessorRegistry = /*manager.getRegistry(Registry.STRUCTURE_PROCESSOR_LIST_KEY)*/ WorldGenRegistries.STRUCTURE_PROCESSOR_LIST;
-
+        Registry<Biome> biomeRegistry = manager.getRegistry(Registry.BIOME_KEY);
+        Registry<ConfiguredFeature<?, ?>> featuresRegistry = manager.getRegistry(Registry.CONFIGURED_FEATURE_KEY);
+        Registry<StructureFeature<?, ?>> structuresRegistry = manager.getRegistry(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY);
+        Registry<ConfiguredCarver<?>> carverRegistry = manager.getRegistry(Registry.CONFIGURED_CARVER_KEY);
+        Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = manager.getRegistry(Registry.CONFIGURED_SURFACE_BUILDER_KEY);
+        Registry<StructureProcessorList> structureProcessorRegistry = manager.getRegistry(Registry.STRUCTURE_PROCESSOR_LIST_KEY);
 
 
 //        Function<DimensionGeneratorSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(DimensionGeneratorSettings.field_236201_a_);
