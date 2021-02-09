@@ -20,8 +20,8 @@ public class BYGSythianPlantBlock extends PlantBlock {
         return OffsetType.XZ;
     }
 
-    public VoxelShape getOutlineShape(BlockState p_220053_1_, BlockView p_220053_2_, BlockPos p_220053_3_, ShapeContext p_220053_4_) {
-        Vec3d lvt_5_1_ = p_220053_1_.getModelOffset(p_220053_2_, p_220053_3_);
+    public VoxelShape getOutlineShape(BlockState state, BlockView worldIn, BlockPos pos, ShapeContext context) {
+        Vec3d lvt_5_1_ = state.getModelOffset(worldIn, pos);
         return SHAPE.offset(lvt_5_1_.x, lvt_5_1_.y, lvt_5_1_.z);
     }
 

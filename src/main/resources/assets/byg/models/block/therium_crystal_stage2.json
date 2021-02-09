@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/therium_crystal_stage2"
+  }
+}

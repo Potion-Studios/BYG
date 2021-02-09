@@ -41,7 +41,7 @@ public class BlackForestClearing extends BYGSubBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD};
     }
 
     @Nullable

@@ -40,7 +40,7 @@ public class AspenClearing extends BYGSubBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.FOREST};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.FOREST};
     }
 
     static {

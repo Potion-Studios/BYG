@@ -45,7 +45,7 @@ public class WoodedGrasslandPlateau extends BYGSubBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD};
     }
 
     static {

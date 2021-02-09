@@ -1,16 +1,8 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
-  "key": {
-    "#": {
-      "item": "byg:purple_sandstone"
-    }
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:purple_sandstone"
   },
-  "result": {
-    "item": "byg:purple_cut_sandstone",
-    "count": 4
-  }
+  "result": "byg:purple_cut_sandstone",
+  "count": 1
 }

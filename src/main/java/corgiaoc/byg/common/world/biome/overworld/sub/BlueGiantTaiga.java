@@ -36,7 +36,7 @@ public class BlueGiantTaiga extends BYGSubBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD};
     }
 
     static {

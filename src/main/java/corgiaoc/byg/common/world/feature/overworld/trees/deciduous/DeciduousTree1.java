@@ -33,7 +33,7 @@ public class DeciduousTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (this.isCliff(worldIn, mainmutable.set(pos).move(-1, 0, 0).toImmutable(), mainmutable.set(pos).move(0, 0, -1).toImmutable())) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).toImmutable(), mainmutable.set(pos).move(-1, 0, 0), mainmutable.set(pos).move(0, 0, -1));
+                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).toImmutable(), mainmutable.set(pos).move(-1, 0, 0), mainmutable.set(pos).move(0, 0, -1));
                 mainmutable.set(pos);
 
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, 0), boundsIn);

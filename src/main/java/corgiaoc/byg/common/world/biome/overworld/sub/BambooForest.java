@@ -40,7 +40,7 @@ public class BambooForest extends BYGSubBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE};
     }
 
     static {

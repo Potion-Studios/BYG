@@ -30,7 +30,6 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
@@ -42,7 +41,7 @@ public class BYGBlockProperties {
 
     public static class BYGFairySlipperFlower extends BYGFairySlipperBlock {
         public BYGFairySlipperFlower(String registryName) {
-            super(StatusEffects.SATURATION, 7,
+            super(
                     FabricBlockSettings.of(Material.PLANT)
                             .sounds(BlockSoundGroup.GRASS)
                             .strength(0.0f)
@@ -51,22 +50,20 @@ public class BYGBlockProperties {
                             .luminance((state) -> 8)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
-
+            BYGBlocks.createPottedBlock(this, registryName);
         }
     }
 
     public static class BYGDoubleNetherPlant extends DoubleNetherPlantBlock {
         public BYGDoubleNetherPlant(String registryName) {
-            super(FabricBlockSettings.of(Material.PLANT)
+            super(FabricBlockSettings.of(Material.REPLACEABLE_PLANT)
                     .sounds(BlockSoundGroup.ROOTS)
                     .strength(0.0f)
                     .noCollision()
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
 
         }
@@ -81,7 +78,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
 
         }
@@ -96,9 +92,8 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
-
+            BYGBlocks.createPottedBlock(this, registryName);
         }
     }
 
@@ -111,8 +106,8 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
+            BYGBlocks.createPottedBlock(this, registryName);
 
         }
     }
@@ -126,7 +121,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
 
         }
@@ -138,9 +132,9 @@ public class BYGBlockProperties {
                     .sounds(BlockSoundGroup.GRASS)
                     .strength(0.0f)
                     .nonOpaque()
+                    .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -153,7 +147,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -166,7 +159,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -181,7 +173,6 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -195,7 +186,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -210,7 +200,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -224,7 +213,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -238,7 +226,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -252,7 +239,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -266,7 +252,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -280,7 +265,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -291,11 +275,10 @@ public class BYGBlockProperties {
                     .sounds(BlockSoundGroup.GLASS)
                     .strength(0.2f)
                     .ticksRandomly()
-                    .nonOpaque()
                     .slipperiness(0.98F)
+                    .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -309,7 +292,6 @@ public class BYGBlockProperties {
                     .slipperiness(0.98F)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -319,7 +301,6 @@ public class BYGBlockProperties {
             super(FabricBlockSettings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(0.2f)
-                    .ticksRandomly()
                     .slipperiness(0.98F)
                     .luminance((state) -> 10)
                     .breakByTool(FabricToolTags.PICKAXES)
@@ -327,7 +308,6 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -344,7 +324,6 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -358,7 +337,6 @@ public class BYGBlockProperties {
                     .velocityMultiplier(0.6F)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -371,7 +349,6 @@ public class BYGBlockProperties {
                     .breakByTool(FabricToolTags.SHOVELS)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -384,7 +361,6 @@ public class BYGBlockProperties {
                     .velocityMultiplier(0.4F)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -399,7 +375,6 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -415,7 +390,6 @@ public class BYGBlockProperties {
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -424,13 +398,12 @@ public class BYGBlockProperties {
 
         public BYGNyliumSoulSand(String registryName) {
             super(FabricBlockSettings.of(Material.AGGREGATE)
-                    .sounds(BlockSoundGroup.SAND)
+                    .sounds(BlockSoundGroup.SOUL_SAND)
                     .strength(0.5f)
                     .velocityMultiplier(0.6F)
                     .breakByTool(FabricToolTags.SHOVELS)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
 
@@ -440,13 +413,12 @@ public class BYGBlockProperties {
 
         public BYGNyliumSoulSoil(String registryName) {
             super(FabricBlockSettings.of(Material.AGGREGATE)
-                    .sounds(BlockSoundGroup.SAND)
+                    .sounds(BlockSoundGroup.SOUL_SOIL)
                     .strength(0.5f)
                     .breakByTool(FabricToolTags.SHOVELS)
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
 
@@ -461,7 +433,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -473,7 +444,6 @@ public class BYGBlockProperties {
                     .strength(0.2f)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -486,7 +456,6 @@ public class BYGBlockProperties {
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -500,7 +469,6 @@ public class BYGBlockProperties {
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -514,7 +482,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -528,7 +495,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -543,7 +509,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 8)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -558,7 +523,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 8)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -574,14 +538,13 @@ public class BYGBlockProperties {
                     .luminance((state) -> 8)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGWarpedWallFanCoral extends BYGWarpedCoralWallFanBlock {
         public BYGWarpedWallFanCoral(String registryName) {
-            super(FabricBlockSettings.of(Material.UNDERWATER_PLANT)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.WET_GRASS)
                     .strength(0.0F)
                     .noCollision()
@@ -590,14 +553,13 @@ public class BYGBlockProperties {
                     .luminance((state) -> 8)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGWarpedBush extends BYGWarpedBushBlock {
         public BYGWarpedBush(String registryName) {
-            super(FabricBlockSettings.of(Material.PLANT)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.GRASS)
                     .strength(0.0f)
                     .noCollision()
@@ -605,7 +567,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 8)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
 
         }
@@ -621,7 +582,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 8)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
 
         }
@@ -635,7 +595,6 @@ public class BYGBlockProperties {
                     .breakByTool(FabricToolTags.HOES)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -649,7 +608,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
 
         }
@@ -664,7 +622,6 @@ public class BYGBlockProperties {
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -678,7 +635,6 @@ public class BYGBlockProperties {
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -688,39 +644,35 @@ public class BYGBlockProperties {
             super(FabricBlockSettings.of(Material.ORGANIC_PRODUCT)
                     .sounds(BlockSoundGroup.HONEY)
                     .nonOpaque()
-                    .velocityMultiplier(1.4F)
-                    .slipperiness(0.6F)
+                    .velocityMultiplier(1.1F)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGEmburGelVine extends EmburVinesPlantBlock {
         public BYGEmburGelVine(String registryName) {
-            super(FabricBlockSettings.of(Material.LEAVES)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.HONEY)
                     .strength(0.0F)
                     .ticksRandomly()
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGEmburPlant extends EmburPlantBlock {
         public BYGEmburPlant(String registryName) {
-            super(FabricBlockSettings.of(Material.PLANT)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.ROOTS)
                     .strength(0.0F)
                     .noCollision()
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
 
         }
@@ -736,7 +688,6 @@ public class BYGBlockProperties {
                     .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
 
         }
@@ -744,14 +695,13 @@ public class BYGBlockProperties {
 
     public static class SythianPlant extends BYGSythianPlantBlock {
         public SythianPlant(String registryName) {
-            super(FabricBlockSettings.of(Material.PLANT)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.ROOTS)
                     .strength(0.0f)
                     .noCollision()
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
 
         }
@@ -766,7 +716,6 @@ public class BYGBlockProperties {
                     .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
 
         }
@@ -780,7 +729,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 8)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -796,7 +744,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 9)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -808,7 +755,6 @@ public class BYGBlockProperties {
                     .strength(0.5f)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -820,7 +766,6 @@ public class BYGBlockProperties {
                     .strength(0.5f)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -832,7 +777,6 @@ public class BYGBlockProperties {
                     .strength(0.5f)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -844,7 +788,6 @@ public class BYGBlockProperties {
                     .strength(0.5f)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -858,7 +801,6 @@ public class BYGBlockProperties {
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -872,14 +814,13 @@ public class BYGBlockProperties {
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGHangingVine extends HangingVinesBlock {
         public BYGHangingVine(String registryName) {
-            super(FabricBlockSettings.of(Material.LEAVES)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.WEEPING_VINES)
                     .strength(0.2f)
                     .ticksRandomly()
@@ -888,28 +829,26 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGHangingVinePlant extends HangingVinesPlantBlock {
         public BYGHangingVinePlant(String registryName) {
-            super(FabricBlockSettings.of(Material.LEAVES)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.WEEPING_VINES)
                     .strength(0.2f)
                     .ticksRandomly()
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGSoulShroomSporeEnd extends SoulShroomSporeEndBlock {
         public BYGSoulShroomSporeEnd(String registryName) {
-            super(FabricBlockSettings.of(Material.LEAVES)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.FUNGUS)
                     .strength(0.2f)
                     .ticksRandomly()
@@ -918,49 +857,45 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGSoulShroomSpore extends SoulShroomSporeBlock {
         public BYGSoulShroomSpore(String registryName) {
-            super(FabricBlockSettings.of(Material.LEAVES)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.FUNGUS)
                     .strength(0.2f)
                     .ticksRandomly()
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGSythianHangingRootsPlant extends HangingSythanRootsPlantBlock {
         public BYGSythianHangingRootsPlant(String registryName) {
-            super(FabricBlockSettings.of(Material.LEAVES)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.WEEPING_VINES)
                     .strength(0.2f)
                     .ticksRandomly()
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGSythianHangingRoots extends HangingSythanRootsBlock {
         public BYGSythianHangingRoots(String registryName) {
-            super(FabricBlockSettings.of(Material.LEAVES)
+            super(FabricBlockSettings.of(Material.NETHER_SHOOTS)
                     .sounds(BlockSoundGroup.WEEPING_VINES)
                     .strength(0.2f)
                     .ticksRandomly()
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -978,7 +913,6 @@ public class BYGBlockProperties {
                     .strength(2.0f)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -993,7 +927,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 14)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1007,7 +940,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 14)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1021,7 +953,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 14)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1036,7 +967,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 14)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1048,44 +978,45 @@ public class BYGBlockProperties {
                     .strength(2.0f)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     //Saving this for later do not touch
+//    @OnlyIn(Dist.CLIENT)
+//    public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
+//        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
+//    }
 
     public static class BYGOreAmetrine extends BYGOreBlock {
         public BYGOreAmetrine(String registryName) {
             super(FabricBlockSettings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(3.0f, 3.0f)
-                    .breakByTool(FabricToolTags.PICKAXES, 4)
+                    .breakByTool(FabricToolTags.PICKAXES, 3)
                     .requiresTool()
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
-    public static class BYGOrePendorite extends OreBlock {
+    public static class BYGOrePendorite extends BYGOreBlock {
         public BYGOrePendorite(String registryName) {
             super(FabricBlockSettings.of(Material.STONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(3.0f, 3.0f)
-                    .breakByTool(FabricToolTags.PICKAXES, 4)
+                    .breakByTool(FabricToolTags.PICKAXES, 3)
                     .requiresTool()
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
-    public static class BYGPervadedNetherrack extends OreBlock {
+    public static class BYGPervadedNetherrack extends BYGOreBlock {
         public BYGPervadedNetherrack(String registryName) {
             super(FabricBlockSettings.of(Material.STONE)
                     .sounds(BlockSoundGroup.NETHER_GOLD_ORE)
@@ -1096,7 +1027,6 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1104,14 +1034,13 @@ public class BYGBlockProperties {
     public static class AnthraciteOre extends BYGOreBlock {
         public AnthraciteOre(String registryName) {
             super(FabricBlockSettings.of(Material.STONE)
-                    .sounds(BlockSoundGroup.STONE)
+                    .sounds(BlockSoundGroup.NETHER_ORE)
                     .strength(0.4F, 0.4F)
                     .breakByTool(FabricToolTags.PICKAXES, 3)
                     .requiresTool()
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1126,7 +1055,6 @@ public class BYGBlockProperties {
                     .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1141,7 +1069,6 @@ public class BYGBlockProperties {
                     .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1156,7 +1083,6 @@ public class BYGBlockProperties {
                     .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1171,7 +1097,6 @@ public class BYGBlockProperties {
                     .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1186,7 +1111,6 @@ public class BYGBlockProperties {
                     .ticksRandomly()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1199,7 +1123,6 @@ public class BYGBlockProperties {
                     .noCollision()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1207,13 +1130,11 @@ public class BYGBlockProperties {
 
     public static class BlockHugeMushroom extends MushroomBlock {
         public BlockHugeMushroom(String registryName) {
-            super(FabricBlockSettings.of(Material.PLANT, MaterialColor.DIRT)
+            super(FabricBlockSettings.of(Material.WOOD, MaterialColor.DIRT)
                     .sounds(BlockSoundGroup.NETHER_STEM)
                     .strength(0.2F)
-                    .nonOpaque()
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateManager.getDefaultState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
@@ -1227,7 +1148,6 @@ public class BYGBlockProperties {
                     .luminance((state) -> 12)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateManager.getDefaultState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
@@ -1245,7 +1165,6 @@ public class BYGBlockProperties {
                     .strength(0.2F)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateManager.getDefaultState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
@@ -1258,14 +1177,13 @@ public class BYGBlockProperties {
 
     public static class BlockHugeGlowshroom extends MushroomBlock {
         public BlockHugeGlowshroom(String registryName) {
-            super(FabricBlockSettings.of(Material.PLANT, MaterialColor.DIRT)
+            super(FabricBlockSettings.of(Material.WOOD, MaterialColor.DIRT)
                     .sounds(BlockSoundGroup.NETHER_STEM)
                     .strength(0.2F)
                     .nonOpaque()
                     .luminance((state) -> 12)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateManager.getDefaultState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
@@ -1278,13 +1196,12 @@ public class BYGBlockProperties {
 
     public static class BlockHugeGlowshroomStem extends MushroomBlock {
         public BlockHugeGlowshroomStem(String registryName) {
-            super(FabricBlockSettings.of(Material.PLANT, MaterialColor.DIRT)
+            super(FabricBlockSettings.of(Material.WOOD, MaterialColor.DIRT)
                     .sounds(BlockSoundGroup.NETHER_STEM)
                     .strength(0.2F)
                     .luminance((state) -> 12)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateManager.getDefaultState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
@@ -1297,14 +1214,13 @@ public class BYGBlockProperties {
 
     public static class BulbisShell extends MushroomBlock {
         public BulbisShell(String registryName) {
-            super(FabricBlockSettings.of(Material.PLANT, MaterialColor.CYAN)
+            super(FabricBlockSettings.of(Material.WOOD, MaterialColor.CYAN)
                     .sounds(BlockSoundGroup.SHROOMLIGHT)
                     .strength(0.2F)
                     .nonOpaque()
                     .luminance((state) -> 12)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
             this.setDefaultState(this.stateManager.getDefaultState().with(NORTH, true).with(EAST, true).with(SOUTH, true).with(WEST, true).with(UP, true).with(DOWN, true));
         }
@@ -1325,20 +1241,19 @@ public class BYGBlockProperties {
                     .luminance((state) -> 12)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
 
     public static class BYGStoneStairs extends StairsBlock {
         public BYGStoneStairs(String registryName) {
-            super(Blocks.COBBLESTONE.getDefaultState(), FabricBlockSettings.of(Material.STONE)
+            super(Blocks.COBBLESTONE.getDefaultState(), FabricBlockSettings.copyOf(Blocks.COBBLESTONE)
                     .sounds(BlockSoundGroup.STONE)
                     .strength(2.0f, 6.0f)
                     .requiresTool()
-                    .breakByTool(FabricToolTags.PICKAXES));
+                    .breakByTool(FabricToolTags.PICKAXES)
+            );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1346,12 +1261,11 @@ public class BYGBlockProperties {
     public static class BYGGlowCaneBlock extends Block {
         public BYGGlowCaneBlock(String registryName) {
             super(FabricBlockSettings.of(Material.GLASS)
-                    .sounds(BlockSoundGroup.GLASS)
+                    .sounds(BlockSoundGroup.SHROOMLIGHT)
                     .strength(0.3F)
                     .luminance((state) -> 15)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1366,7 +1280,6 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1381,7 +1294,6 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1396,7 +1308,6 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1425,7 +1336,6 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }
@@ -1442,7 +1352,6 @@ public class BYGBlockProperties {
 
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);
-            //setRegistryName(new Identifier(BYG.MOD_ID, registryName)); //Forge
             BYGBlocks.blocksList.add(this);
         }
     }

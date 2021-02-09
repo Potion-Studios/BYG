@@ -47,7 +47,7 @@ public class DeadSea extends BYGBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.OVERWORLD};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.SPOOKY, BiomeDictionary.Type.OVERWORLD};
     }
 
     @Override

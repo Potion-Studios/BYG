@@ -1,0 +1,23 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+    "textures": {
+        "cryptic_stone": "byg:block/cryptic_stone",
+        "cryptic_vent_top_tall": "byg:block/cryptic_vent_top_tall",
+        "particle": "byg:block/cryptic_stone"
+    },
+    "elements": [
+        {
+            "name": "Top",
+            "from": [ 6, 0, 6 ], 
+            "to": [ 10, 16, 10 ], 
+            "faces": {
+                "north": { "texture": "#cryptic_stone", "uv": [ 6, 0, 10, 16 ] },
+                "east": { "texture": "#cryptic_stone", "uv": [ 6, 0, 10, 16 ] },
+                "south": { "texture": "#cryptic_stone", "uv": [ 6, 0, 10, 16 ] },
+                "west": { "texture": "#cryptic_stone", "uv": [ 6, 0, 10, 16 ] },
+                "up": { "texture": "#cryptic_vent_top_tall", "uv": [ 6, 6, 10, 10 ] },
+                "down": { "texture": "#cryptic_stone", "uv": [ 6, 6, 10, 10 ] }
+            }
+        }
+    ]
+}

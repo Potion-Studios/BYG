@@ -38,7 +38,7 @@ public class OrchardTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                     mainmutable.move(Direction.UP);
                 }
                 mainmutable.set(pos);
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).move(0, 0, -1).toImmutable(), mainmutable.set(pos).move(-1, 0, 0).toImmutable(), mainmutable.set(pos).move(1, 0, 0).toImmutable(), mainmutable.set(pos).move(0, 0, 1).toImmutable());
+                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).move(0, 0, -1).toImmutable(), mainmutable.set(pos).move(-1, 0, 0).toImmutable(), mainmutable.set(pos).move(1, 0, 0).toImmutable(), mainmutable.set(pos).move(0, 0, 1).toImmutable());
 
                 //Stump
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, -1), boundsIn);

@@ -43,7 +43,7 @@ public class CanyonEdge extends BYGSubBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER};
     }
 
     static {

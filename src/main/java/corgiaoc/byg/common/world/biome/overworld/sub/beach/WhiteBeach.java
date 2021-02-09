@@ -42,7 +42,7 @@ public class WhiteBeach extends BYGSubBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.BEACH};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.BEACH};
     }
 
 

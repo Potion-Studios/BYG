@@ -28,7 +28,7 @@ public class EmburMushroom2 extends BYGAbstractMushroomFeature<BYGMushroomConfig
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), BYGBlocks.EMBUR_NYLIUM)) {
+            if (!isDesiredGroundwDirtTag(config, worldIn, pos.down(), BYGBlocks.EMBUR_NYLIUM)) {
                 return false;
             } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {
                 return false;

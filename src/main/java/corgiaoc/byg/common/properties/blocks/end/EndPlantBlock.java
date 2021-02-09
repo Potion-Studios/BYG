@@ -31,7 +31,7 @@ public class EndPlantBlock extends PlantBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
-        return state.isOf(BYGBlocks.IVIS_PHYLIUM) || state.isOf(BYGBlocks.ETHER_PHYLIUM) || state.isOf(BYGBlocks.NIGHTSHADE_PHYLIUM) || state.isIn(FabricTags.SAND) || super.canPlantOnTop(state, worldIn, pos);
+        return state.isOf(BYGBlocks.IVIS_PHYLIUM) || state.isOf(BYGBlocks.ETHER_PHYLIUM) || state.getBlock() == BYGBlocks.SHULKREN_PHYLIUM || state.isOf(BYGBlocks.NIGHTSHADE_PHYLIUM) || state.isOf(BYGBlocks.BULBIS_PHYCELIUM) || state.isOf(BYGBlocks.VERMILION_SCULK) || state.isIn(FabricTags.SAND) || super.canPlantOnTop(state, worldIn, pos);
     }
 
     @Override

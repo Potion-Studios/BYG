@@ -7,6 +7,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
@@ -30,5 +31,13 @@ public class CrypticFireBlock extends AbstractFireBlock {
 
     protected boolean isFlammable(BlockState state) {
         return true;
+    }
+
+    public boolean emitsRedstonePower(BlockState state) {
+        return true;
+    }
+
+    public int getWeakRedstonePower(BlockState blockState, BlockView blockAccess, BlockPos pos, Direction side) {
+        return 10;
     }
 }

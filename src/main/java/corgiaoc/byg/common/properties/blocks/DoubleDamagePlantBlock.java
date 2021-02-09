@@ -9,6 +9,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 public class DoubleDamagePlantBlock extends TallPlantBlock {
 
@@ -27,5 +28,10 @@ public class DoubleDamagePlantBlock extends TallPlantBlock {
                 entityIn.damage(DamageSource.CACTUS, 1.0F);
             }
         }
+
+    }
+
+    public boolean isLadder(BlockState state, WorldView world, BlockPos pos, net.minecraft.entity.LivingEntity entity) {
+        return true;
     }
 }

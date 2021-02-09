@@ -78,4 +78,9 @@ public class HangingBonesBlock extends Block {
         return worldIn.getBlockState(pos.up()).getBlock() == this || worldIn.getBlockState(pos.up()).getBlock() == Blocks.BONE_BLOCK;
 
     }
+
+    public boolean isLadder(BlockState state, WorldView world, BlockPos pos, net.minecraft.entity.LivingEntity entity) {
+        return true;
+    }
+
 }

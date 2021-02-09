@@ -14,8 +14,8 @@ public class NetherLilyBlock extends LilyPadBlock {
     }
 
     @Override
-    protected boolean canPlantOnTop(BlockState state, BlockView reader, BlockPos p_200014_3_) {
-        FluidState fluidState = reader.getFluidState(p_200014_3_);
+    protected boolean canPlantOnTop(BlockState state, BlockView reader, BlockPos pos) {
+        FluidState fluidState = reader.getFluidState(pos);
         return fluidState.getFluid() == Fluids.LAVA || fluidState.getFluid() == Fluids.WATER;
     }
 }

@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "byg:withering_oak_log",
     "byg:withering_oak_wood"

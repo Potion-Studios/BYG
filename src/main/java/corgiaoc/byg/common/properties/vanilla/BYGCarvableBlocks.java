@@ -10,6 +10,7 @@ import java.util.Set;
 
 public class BYGCarvableBlocks {
 
+    @SuppressWarnings("deprecation")
     public static void addCarverBlocks() {
         for (Carver<?> worldCarver : Registry.CARVER) {
             Set<Block> blocks = new HashSet<>(worldCarver.alwaysCarvableBlocks);

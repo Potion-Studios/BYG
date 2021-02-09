@@ -30,7 +30,7 @@ public class ShatteredGlacier extends BYGBiome {
     static final Biome.Category CATEGORY = Biome.Category.ICY;
     static final float DEPTH = 0.14F;
     static final float SCALE = 0.36F;
-    static final float TEMPERATURE = 0.35F;
+    static final float TEMPERATURE = -0.5F;
     static final float DOWNFALL = 0.9F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
@@ -56,7 +56,7 @@ public class ShatteredGlacier extends BYGBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.RARE};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.RARE};
     }
 
     @Override

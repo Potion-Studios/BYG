@@ -31,9 +31,9 @@ public class WoodlandsTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos, mainmutable.set(pos).move(0, 0, -2).toImmutable(), mainmutable.set(pos).move(-1, 0, -1).toImmutable(), mainmutable.set(pos).move(0, 0, -1).toImmutable(), mainmutable.set(pos).move(1, 0, -1).toImmutable(), mainmutable.set(pos).move(-2, 0, 0).toImmutable(), mainmutable.set(pos).move(-1, 0, 0).toImmutable(), mainmutable.set(pos).move(1, 0, 0).toImmutable(), mainmutable.set(pos).move(2, 0, 0).toImmutable(), mainmutable.set(pos).move(-1, 0, 1).toImmutable(), mainmutable.set(pos).move(0, 0, 1).toImmutable(), mainmutable.set(pos).move(1, 0, 1).toImmutable(), mainmutable.set(pos).move(0, 0, 2).toImmutable());
-
+                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos, mainmutable.set(pos).move(0, 0, -2).toImmutable(), mainmutable.set(pos).move(-1, 0, -1).toImmutable(), mainmutable.set(pos).move(0, 0, -1).toImmutable(), mainmutable.set(pos).move(1, 0, -1).toImmutable(), mainmutable.set(pos).move(-2, 0, 0).toImmutable(), mainmutable.set(pos).move(-1, 0, 0).toImmutable(), mainmutable.set(pos).move(1, 0, 0).toImmutable(), mainmutable.set(pos).move(2, 0, 0).toImmutable(), mainmutable.set(pos).move(-1, 0, 1).toImmutable(), mainmutable.set(pos).move(0, 0, 1).toImmutable(), mainmutable.set(pos).move(1, 0, 1).toImmutable(), mainmutable.set(pos).move(0, 0, 2).toImmutable());
                 mainmutable.set(pos);
+
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(config, rand, changedBlocks, worldIn, mainmutable, boundsIn);
 

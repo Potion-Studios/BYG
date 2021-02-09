@@ -46,6 +46,7 @@ public class Volcano extends BYGSubBiome {
     }
 
     static {
+//        GENERATION_SETTINGS.withStructure(BYGConfiguredStructures.VOLCANO_STRUCTURE);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addLandCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
@@ -63,7 +64,7 @@ public class Volcano extends BYGSubBiome {
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.feature(GenerationStep.Feature.RAW_GENERATION, BYGConfiguredFeatures.VOLCANO);
+//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.VOLCANO);
 
         SPAWN_SETTINGS.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.PIG, 10, 4, 4));

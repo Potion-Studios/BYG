@@ -17,10 +17,17 @@ public class EmburLilyItem extends BlockItem {
         super(blockIn, builder);
     }
 
+    /**
+     * Called when this item is used when targetting a Block
+     */
     public ActionResult useOnBlock(ItemUsageContext context) {
         return ActionResult.PASS;
     }
 
+    /**
+     * Called to trigger the item's "innate" right click behavior. To handle when this item is used on a Block, see
+     * {@link #onItemUse}.
+     */
     public TypedActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
         BlockHitResult blockraytraceresult = raycast(worldIn, playerIn, RaycastContext.FluidHandling.SOURCE_ONLY);
         BlockHitResult blockraytraceresult1 = blockraytraceresult.withBlockPos(blockraytraceresult.getBlockPos().up());

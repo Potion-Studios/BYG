@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
+import corgiaoc.byg.util.FabricTags;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.BlockTags;
@@ -16,14 +17,17 @@ public class BYGMushroomPlantBlock extends PlantBlock implements Fertilizable {
     protected static final VoxelShape SHAPE = Block.createCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
     private final BYGHugeMushroom mushroom;
 
-    public BYGMushroomPlantBlock(Settings properties, BYGHugeMushroom mushroom) {
+    private final boolean isNetherFungi;
+
+    public BYGMushroomPlantBlock(Settings properties, BYGHugeMushroom mushroom, boolean isNetherFungi) {
         super(properties);
         this.mushroom = mushroom;
+        this.isNetherFungi = isNetherFungi;
     }
 
     @Override
     protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
-        return state.isOpaqueFullCube(worldIn, pos);
+        return (isNetherFungi) ? state.isIn(BlockTags.NYLIUM) || state.isOf(Blocks.MYCELIUM) || state.isOf(Blocks.SOUL_SOIL) || state.isIn(BlockTags.BASE_STONE_NETHER) || state.isIn(FabricTags.NETHERRACK) || super.canPlantOnTop(state, worldIn, pos) : state.isOpaqueFullCube(worldIn, pos);
     }
 
     @Override
@@ -33,6 +37,10 @@ public class BYGMushroomPlantBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView worldIn, BlockPos pos) {
+        if (isNetherFungi) {
+            return super.canPlaceAt(state, worldIn, pos);
+        }
+
         BlockPos blockpos = pos.down();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         if (blockstate.isIn(BlockTags.MUSHROOM_GROW_BLOCK)) {
@@ -42,6 +50,7 @@ public class BYGMushroomPlantBlock extends PlantBlock implements Fertilizable {
         }
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void scheduledTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         if (rand.nextInt(25) == 0) {

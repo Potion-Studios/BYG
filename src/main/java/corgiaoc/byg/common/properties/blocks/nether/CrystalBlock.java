@@ -1,7 +1,5 @@
 package corgiaoc.byg.common.properties.blocks.nether;
 
-import corgiaoc.byg.core.BYGBlocks;
-import corgiaoc.byg.util.FabricTags;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -15,7 +13,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import net.minecraft.world.gen.feature.Feature;
 
 public class CrystalBlock extends Block {
     protected static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
@@ -25,8 +22,8 @@ public class CrystalBlock extends Block {
 
     }
 
-    public Block.OffsetType getOffsetType() {
-        return Block.OffsetType.XZ;
+    public AbstractBlock.OffsetType getOffsetType() {
+        return AbstractBlock.OffsetType.XZ;
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView worldIn, BlockPos pos, ShapeContext context) {
@@ -49,12 +46,9 @@ public class CrystalBlock extends Block {
         return !stateIn.canPlaceAt(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
+    @Override
     public boolean canPlaceAt(BlockState state, WorldView worldIn, BlockPos pos) {
         BlockPos blockpos = pos.down();
-        return this.isValidGround(worldIn.getBlockState(blockpos));
-    }
-
-    protected boolean isValidGround(BlockState state) {
-        return state.getMaterial() == Material.STONE || state.isIn(FabricTags.END_STONES) || Feature.isSoil(state.getBlock()) || state.isIn(FabricTags.SAND) || state.isOf(BYGBlocks.QUARTZITE_SAND) || state.isOf(BYGBlocks.RAW_QUARTZ_BLOCK);
+        return hasTopRim(worldIn, blockpos) || sideCoversSmallSquare(worldIn, blockpos, Direction.UP);
     }
 }

@@ -44,7 +44,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
     @Override
     public void scheduledTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         if (rand.nextInt(3) == 0 && worldIn.isAir(pos.up()) && worldIn.getBaseLightLevel(pos.up(), 0) <= 12) {
-            this.func_220087_a(worldIn, pos);
+            this.grow(worldIn, pos);
         }
 
     }
@@ -54,7 +54,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
         return new ItemStack(BYGItems.SYTHIAN_STALK_BLOCK);
     }
 
-    protected void func_220087_a(World world, BlockPos pos) {
+    protected void grow(World world, BlockPos pos) {
         world.setBlockState(pos.up(), BYGBlocks.SYTHIAN_STALK_BLOCK.getDefaultState().with(BambooBlock.LEAVES, BambooLeaves.SMALL), 3);
     }
 }

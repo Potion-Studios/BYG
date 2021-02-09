@@ -11,8 +11,8 @@ import net.minecraft.world.World;
 
 public class BYGWaterSilkBlock extends LilyPadBlock {
 
-    protected BYGWaterSilkBlock(Settings p_i48297_1_) {
-        super(p_i48297_1_);
+    protected BYGWaterSilkBlock(Settings builder) {
+        super(builder);
     }
 
     @Override

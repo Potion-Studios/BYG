@@ -25,7 +25,7 @@ public class SmallPineTree extends Feature<DefaultFeatureConfig> {
 
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, DefaultFeatureConfig config) {
-        if (pos.getX() == -9 && pos.getZ() == -6) {
+        if (pos.getX() == -8 && pos.getZ() == -9) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
                     for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() + 16; checkZ++) {
@@ -36,7 +36,7 @@ public class SmallPineTree extends Feature<DefaultFeatureConfig> {
             }
 
             StructureManager templatemanager = world.toServerWorld().getStructureManager();
-            Structure template = templatemanager.getStructure(new Identifier(BYG.MOD_ID + ":features/trees/oak_tree_large2"));
+            Structure template = templatemanager.getStructure(new Identifier(BYG.MOD_ID + ":features/trees/ether_tree5"));
 
             if (template == null) {
                 BYG.LOGGER.warn("NBT does not exist!");

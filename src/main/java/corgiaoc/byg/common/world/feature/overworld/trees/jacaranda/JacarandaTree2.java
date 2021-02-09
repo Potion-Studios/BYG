@@ -32,7 +32,7 @@ public class JacarandaTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
+                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos);
 
                 Direction direction = Direction.Type.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
@@ -126,6 +126,9 @@ public class JacarandaTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                                         placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 2, posZ1 + 3, boundsIn, changedBlocks);
 
                                         placeLeaves(config, rand, worldIn, posX1 + 4, topTrunkHeight + posYLeafHeight - 3, posZ1, boundsIn, changedBlocks);
+                                        //placePetal(LEAVES, worldIn, posX1 + 4, topTrunkHeight + posYLeafHeight - 3, posZ1 - 1, boundsIn, changedBlocks);
+//                                        placePetal(LEAVES, worldIn, posX1 + 3, topTrunkHeight + posYLeafHeight - 2, posZ1 - 1, boundsIn, changedBlocks);
+                                        //placePetal(LEAVES, worldIn, posX1 + 4, topTrunkHeight + posYLeafHeight + 4, posZ1 - 2, boundsIn, changedBlocks);
                                         placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 3, posZ1 - 3, boundsIn, changedBlocks);
 
                                     }

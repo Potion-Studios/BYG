@@ -1,13 +1,8 @@
 package corgiaoc.byg.core.world;
 
+import corgiaoc.byg.common.world.surfacebuilder.*;
 import corgiaoc.byg.common.world.surfacebuilder.config.FillSurfaceBuilderConfig;
 import corgiaoc.byg.common.world.surfacebuilder.config.PointedSBConfig;
-import corgiaoc.byg.common.world.surfacebuilder.end.FillCrypticStone;
-import corgiaoc.byg.common.world.surfacebuilder.end.FillEtherealStone;
-import corgiaoc.byg.common.world.surfacebuilder.end.IvisFieldsSB;
-import corgiaoc.byg.common.world.surfacebuilder.end.PurpurPeaksSB;
-import corgiaoc.byg.common.world.surfacebuilder.nether.*;
-import corgiaoc.byg.common.world.surfacebuilder.overworld.*;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
@@ -72,6 +67,7 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<TernarySurfaceConfig> PURPUR_PEAKS = WorldGenRegistrationHelper.createSurfaceBuilder("purpur_peaks", new PurpurPeaksSB(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> ETHEREAL = WorldGenRegistrationHelper.createSurfaceBuilder("ethereal", new FillEtherealStone(TernarySurfaceConfig.CODEC));
     public static final SurfaceBuilder<TernarySurfaceConfig> CRYPTIC = WorldGenRegistrationHelper.createSurfaceBuilder("cryptic", new FillCrypticStone(TernarySurfaceConfig.CODEC));
+    public static final SurfaceBuilder<TernarySurfaceConfig> BULBIS_GARDENS = WorldGenRegistrationHelper.createSurfaceBuilder("bulbis_gardens", new BulbisGardensSB(TernarySurfaceConfig.CODEC));
 
 
     public static void init() {
@@ -129,6 +125,7 @@ public class BYGSurfaceBuilders {
 
         public static final TernarySurfaceConfig RED_ROCK_CF = new TernarySurfaceConfig(BYGBlocks.RED_ROCK.getDefaultState(), BYGBlocks.RED_ROCK.getDefaultState(), BYGBlocks.RED_ROCK.getDefaultState());
 
+        public static final TernarySurfaceConfig BULBIS_PHYCELIUM_CF = new TernarySurfaceConfig(BYGBlocks.BULBIS_PHYCELIUM.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
         public static final TernarySurfaceConfig IVIS_CF = new TernarySurfaceConfig(BYGBlocks.IVIS_PHYLIUM.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
         public static final TernarySurfaceConfig END = new TernarySurfaceConfig(Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.END_STONE.getDefaultState());
         public static final TernarySurfaceConfig MYCELIUM = new TernarySurfaceConfig(Blocks.MYCELIUM.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState());

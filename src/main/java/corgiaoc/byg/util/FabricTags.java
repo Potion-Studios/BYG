@@ -11,7 +11,7 @@ public class FabricTags {
     public static final Tag<Block> END_STONES = blockTagRegister("end_stones");
     public static final Tag<Block> SAND = blockTagRegister("sand");
     public static final Tag<Block> DIRT = blockTagRegister("dirt");
-
+    public static Tag<Block> BOOKSHELF = TagRegistry.block(new Identifier("c", "bookshelves"));
 
     public static Tag<Block> blockTagRegister(String id) {
         return TagRegistry.block(new Identifier("c", id));

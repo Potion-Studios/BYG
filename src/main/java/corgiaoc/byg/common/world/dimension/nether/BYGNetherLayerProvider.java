@@ -1,6 +1,5 @@
 package corgiaoc.byg.common.world.dimension.nether;
 
-
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import net.minecraft.util.registry.Registry;

@@ -21,8 +21,8 @@ public class AmaranthBlock extends PlantBlock {
     /**
      * Get the OffsetType for this Block. Determines if the model is rendered slightly offset.
      */
-    public Block.OffsetType getOffsetType() {
-        return Block.OffsetType.XZ;
+    public AbstractBlock.OffsetType getOffsetType() {
+        return AbstractBlock.OffsetType.XZ;
     }
 
 }

@@ -61,7 +61,7 @@ public class BaobabFruitBlock extends Block implements Fertilizable {
         BlockPos blockpos = pos.up();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        return block == BYGBlocks.BAOBAB_LEAVES;
+            return block == BYGBlocks.BAOBAB_LEAVES;
     }
 
     @Override
@@ -82,7 +82,7 @@ public class BaobabFruitBlock extends Block implements Fertilizable {
 
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
         int i = state.get(AGE);
-        if (i < 3 && worldIn.getBaseLightLevel(pos.up(), 0) >= 9) {
+        if (i < 3 && worldIn.getBaseLightLevel(pos.up(), 0) >= 9 && random.nextInt(5) == 0) {
             worldIn.setBlockState(pos, state.with(AGE, i + 1), 2);
         }
 

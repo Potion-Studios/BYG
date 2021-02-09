@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:black_ice"
+    }
+  },
+  "result": {
+    "item": "byg:packed_black_ice"
+  }
+}

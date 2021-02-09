@@ -1,6 +1,5 @@
 package corgiaoc.byg.common.properties.blocks.end.shattereddesert;
 
-import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -35,8 +34,6 @@ public class OddityCactusBlock extends Block {
     }
 
     public void scheduledTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        if (!FeatureUtil.isAreaLoaded(worldIn, pos, 1))
-            return; // Forge: prevent growing cactus from loading unloaded chunks with block update
         if (!state.canPlaceAt(worldIn, pos)) {
             worldIn.breakBlock(pos, true);
         }

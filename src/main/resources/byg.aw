@@ -46,3 +46,10 @@ accessible method net/minecraft/item/AxeItem <init> (Lnet/minecraft/item/ToolMat
 accessible method net/minecraft/item/HoeItem <init> (Lnet/minecraft/item/ToolMaterial;IFLnet/minecraft/item/Item$Settings;)V
 accessible field net/minecraft/world/gen/carver/Carver alwaysCarvableBlocks Ljava/util/Set;
 mutable field net/minecraft/world/gen/carver/Carver alwaysCarvableBlocks Ljava/util/Set;
+accessible field net/minecraft/village/VillagerType BIOME_TO_TYPE Ljava/util/Map;
+accessible field net/minecraft/item/ShovelItem PATH_STATES Ljava/util/Map;
+mutable field net/minecraft/item/ShovelItem PATH_STATES Ljava/util/Map;
+accessible method net/minecraft/world/gen/placer/BlockPlacerType <init> (Lcom/mojang/serialization/Codec;)V
+accessible field net/minecraft/world/gen/chunk/StructuresConfig DEFAULT_STRUCTURES Lcom/google/common/collect/ImmutableMap;
+mutable field net/minecraft/world/gen/chunk/StructuresConfig DEFAULT_STRUCTURES Lcom/google/common/collect/ImmutableMap;
+accessible field net/minecraft/world/gen/feature/StructureFeature STRUCTURE_TO_GENERATION_STEP Ljava/util/Map;

@@ -1,7 +1,8 @@
 package corgiaoc.byg.common.world.biome.end.sub;
 
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
-import corgiaoc.byg.common.world.biome.BYGSubBiome;
+import corgiaoc.byg.common.world.biome.BYGEndSubBiome;
+import corgiaoc.byg.core.BYGSounds;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
@@ -18,7 +19,7 @@ import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.ConfiguredStructureFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 
-public class ShatteredViscalIsles extends BYGSubBiome {
+public class ShatteredViscalIsles extends BYGEndSubBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("viscal_isles", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.ETHEREAL, BYGSurfaceBuilders.Configs.SCULK));
     static final Biome.Precipitation PRECIPATATION = Biome.Precipitation.NONE;
     static final Biome.Category CATEGORY = Biome.Category.THEEND;
@@ -33,6 +34,18 @@ public class ShatteredViscalIsles extends BYGSubBiome {
     static final SpawnSettings.Builder SPAWN_SETTINGS = new SpawnSettings.Builder();
     static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
+    static {
+        GENERATION_SETTINGS.feature(GenerationStep.Feature.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_SHATTERED_ISLAND);
+        BYGDefaultBiomeFeatures.addVermilionSculkGrowth(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addVermilionSculkTendrils(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addHangingTheriumLanterns(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addDeadEtherTrees(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.structureFeature(ConfiguredStructureFeatures.END_CITY).feature(GenerationStep.Feature.SURFACE_STRUCTURES, ConfiguredFeatures.END_GATEWAY);
+
+        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMITE, 5, 1, 2));
+        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 60, 1, 3));
+    }
+
     public ShatteredViscalIsles() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
                 .waterColor(WATER_COLOR)
@@ -40,21 +53,19 @@ public class ShatteredViscalIsles extends BYGSubBiome {
                 .fogColor(8339307)
                 .skyColor(0)
                 .particleConfig(new BiomeParticleConfig(ParticleTypes.CRIMSON_SPORE, 0.00428F))
-                .loopSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP)
+                .loopSound(BYGSounds.AMBIENT_VISCAL_ISLES_LOOP)
                 .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
-                .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
+                .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0111D))
                 .music(MusicType.createIngameMusic(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
-    static {
-        GENERATION_SETTINGS.feature(GenerationStep.Feature.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_SHATTERED_ISLAND);
-        BYGDefaultBiomeFeatures.addVermilionSculkGrowth(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addTheriumCrystals(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addHangingTheriumLanterns(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addDeadEtherTrees(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.structureFeature(ConfiguredStructureFeatures.END_CITY).feature(GenerationStep.Feature.SURFACE_STRUCTURES, ConfiguredFeatures.END_GATEWAY);
+    @Override
+    public Object getBiomeDictionary() {
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.END, BiomeDictionary.Type.VOID};
+    }
 
-        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMITE, 5, 1, 2));
-        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 60, 1, 3));
+    @Override
+    public boolean isVoid() {
+        return true;
     }
 }

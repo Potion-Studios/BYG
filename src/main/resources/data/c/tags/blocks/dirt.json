@@ -13,10 +13,9 @@
     "byg:ether_soil",
     "byg:ether_phylium",
     "byg:vermilion_sculk",
-    "minecraft:dirt",
-    "minecraft:podzol",
-    "minecraft:mycelium",
-    "minecraft:coarse_dirt",
-    "minecraft:grass_block"
+    "byg:ivis_phylium",
+    "byg:nightshade_phylium",
+    "byg:shulkren_phylium",
+    "byg:bulbis_phycelium"
   ]
 }

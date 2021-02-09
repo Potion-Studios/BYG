@@ -258,6 +258,8 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.RED_OAK_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.RIPE_ORCHARD_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.SILVER_MAPLE_LEAVES, 30, 60);
+        flammableBlock(BYGBlocks.MAPLE_LEAVES, 30, 60);
+        flammableBlock(BYGBlocks.RED_MAPLE_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE, 30, 60);
         flammableBlock(BYGBlocks.SKYRIS_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.WHITE_CHERRY_LEAVES, 30, 60);
@@ -329,12 +331,12 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.YELLOW_TULIP, 60, 100);
 
         //Plants
+        flammableBlock(BYGBlocks.FLOWER_PATCH, 60, 100);
+        flammableBlock(BYGBlocks.CLOVER_PATCH, 60, 100);
         flammableBlock(BYGBlocks.HORSEWEED, 60, 100);
         flammableBlock(BYGBlocks.WINTER_SUCCULENT, 60, 100);
         flammableBlock(BYGBlocks.SHORT_GRASS, 60, 200);
         flammableBlock(BYGBlocks.POISON_IVY, 15, 100);
-        flammableBlock(BYGBlocks.FLOWER_PATCH, 15, 100);
-        flammableBlock(BYGBlocks.CLOVER_PATCH, 15, 100);
 
         BYG.LOGGER.info("BYG: Added Flammables!");
     }

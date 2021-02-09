@@ -1,8 +1,8 @@
 package corgiaoc.byg.common.properties.blocks;
 
-import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.TreeSpawner;
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.util.FabricTags;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -31,7 +31,7 @@ public class BYGSapling extends PlantBlock implements Fertilizable {
     @Override
     protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT || block == Blocks.PODZOL || block == Blocks.FARMLAND || block == BYGBlocks.OVERGROWN_STONE;
+        return block == Blocks.GRASS_BLOCK || state.isIn(FabricTags.DIRT) || block == Blocks.DIRT || block == Blocks.COARSE_DIRT || block == Blocks.PODZOL || block == Blocks.FARMLAND || block == BYGBlocks.OVERGROWN_STONE || block == BYGBlocks.MEADOW_GRASSBLOCK || block == BYGBlocks.MEADOW_DIRT;
     }
 
     @Override
@@ -42,8 +42,6 @@ public class BYGSapling extends PlantBlock implements Fertilizable {
     @Override
     public void scheduledTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         super.scheduledTick(state, worldIn, pos, rand);
-        if (!FeatureUtil.isAreaLoaded(worldIn, pos, 1))
-            return;
         if (worldIn.getLightLevel(pos.up()) >= 9 && rand.nextInt(7) == 0) {
             this.grow(worldIn, pos, state, rand);
         }

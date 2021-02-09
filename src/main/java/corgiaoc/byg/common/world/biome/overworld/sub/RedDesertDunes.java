@@ -43,7 +43,7 @@ public class RedDesertDunes extends BYGSubBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.SANDY, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.HOT, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.HILLS};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.SANDY, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.HOT, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.HILLS};
     }
 
     static {

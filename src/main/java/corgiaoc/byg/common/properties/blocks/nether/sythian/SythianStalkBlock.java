@@ -55,7 +55,7 @@ public class SythianStalkBlock extends BambooBlock {
         } else if (state.get(STAGE) == 0) {
             if (true) {
                 int i = this.countBambooBelow(worldIn, pos) + 1;
-                if (i < 16 && worldIn.isAir(pos.up()) && worldIn.getBaseLightLevel(pos.up(), 0) <= 12) {
+                if (i < 16 && rand.nextInt(3) == 0 && worldIn.isAir(pos.up()) && worldIn.getBaseLightLevel(pos.up(), 0) <= 12) {
                     this.updateLeaves(state, worldIn, pos, rand, i);
                 }
             }

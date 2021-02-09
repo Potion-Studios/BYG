@@ -63,7 +63,7 @@ public class SythianTorrids extends BYGNetherBiome {
         GENERATION_SETTINGS.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, ConfiguredFeatures.RED_MUSHROOM_NETHER);
         GENERATION_SETTINGS.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, ConfiguredFeatures.ORE_MAGMA);
         BYGDefaultBiomeFeatures.addSythianVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addNetherMineables(GENERATION_SETTINGS); //Stones
+        DefaultBiomeFeatures.addNetherMineables(GENERATION_SETTINGS); //Ores
         GENERATION_SETTINGS.structureFeature(ConfiguredStructureFeatures.RUINED_PORTAL_NETHER); //NetherPortal
         GENERATION_SETTINGS.structureFeature(ConfiguredStructureFeatures.FORTRESS); //Fortress
         GENERATION_SETTINGS.structureFeature(ConfiguredStructureFeatures.BASTION_REMNANT); //BastionRemnant

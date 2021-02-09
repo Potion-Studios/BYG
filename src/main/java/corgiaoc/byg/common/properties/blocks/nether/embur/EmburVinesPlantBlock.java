@@ -73,7 +73,7 @@ public class EmburVinesPlantBlock extends Block implements Fertilizable {
     @Override
     public void scheduledTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         if (rand.nextInt(3) == 0 && worldIn.isAir(pos.down()) && worldIn.getBaseLightLevel(pos.down(), 0) <= 12) {
-            this.func_220087_a(worldIn, pos);
+            this.growBamboo(worldIn, pos);
         }
     }
 
@@ -99,10 +99,10 @@ public class EmburVinesPlantBlock extends Block implements Fertilizable {
     }
 
     public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-        this.func_220087_a(worldIn, pos);
+        this.growBamboo(worldIn, pos);
     }
 
-    protected void func_220087_a(World world, BlockPos pos) {
+    protected void growBamboo(World world, BlockPos pos) {
         world.setBlockState(pos.down(), BYGBlocks.EMBUR_GEL_VINES.getDefaultState(), 3);
     }
 
@@ -117,4 +117,9 @@ public class EmburVinesPlantBlock extends Block implements Fertilizable {
         return worldIn.getBlockState(pos.up()).getBlock() == BYGBlocks.EMBUR_GEL_VINES || worldIn.getBlockState(pos.up()).getBlock() == BYGBlocks.EMBUR_GEL_BLOCK;
 
     }
+
+    public boolean isLadder(BlockState state, WorldView world, BlockPos pos, net.minecraft.entity.LivingEntity entity) {
+        return true;
+    }
+
 }

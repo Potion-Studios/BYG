@@ -29,7 +29,7 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             if (!isDesiredGroundwDirtTag(worldIn, checkGround, config)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
+                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos);
 
                 Direction direction = Direction.Type.HORIZONTAL.random(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);

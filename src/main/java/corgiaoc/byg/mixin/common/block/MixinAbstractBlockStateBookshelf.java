@@ -1,6 +1,6 @@
 package corgiaoc.byg.mixin.common.block;
 
-import corgiaoc.byg.common.properties.blocks.BookshelfBlock;
+import corgiaoc.byg.util.FabricTags;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -19,7 +19,7 @@ public abstract class MixinAbstractBlockStateBookshelf {
     @Inject(at = @At("HEAD"), method = "isOf", cancellable = true)
     private void isBookshelf(Block block, CallbackInfoReturnable<Boolean> info) {
         if (block.equals(Blocks.BOOKSHELF)) {
-            info.setReturnValue(this.isIn(BookshelfBlock.BOOKSHELF_TAG));
+            info.setReturnValue(this.isIn(FabricTags.BOOKSHELF));
         }
     }
 }

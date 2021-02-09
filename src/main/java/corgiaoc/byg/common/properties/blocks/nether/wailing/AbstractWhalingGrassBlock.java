@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 
 public class AbstractWhalingGrassBlock extends Block implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    private static final VoxelShape field_212559_a = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
+    private static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
 
     protected AbstractWhalingGrassBlock(Settings properties) {
         super(properties);
@@ -35,7 +35,7 @@ public class AbstractWhalingGrassBlock extends Block implements Waterloggable {
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView worldIn, BlockPos pos, ShapeContext context) {
-        return field_212559_a;
+        return SHAPE;
     }
 
     /**

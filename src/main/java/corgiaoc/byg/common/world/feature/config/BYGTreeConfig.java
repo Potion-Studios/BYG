@@ -23,7 +23,7 @@ public class BYGTreeConfig implements FeatureConfig {
         }), BlockStateProvider.TYPE_CODEC.fieldOf("leaves_provider").orElse(new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState())).forGetter((config) -> {
             return config.leavesProvider;
         }), BlockStateProvider.TYPE_CODEC.fieldOf("ground_replacement_provider").orElse(new SimpleBlockStateProvider(Blocks.DIRT.getDefaultState())).forGetter((config) -> {
-            return config.groundReplacementProvider;
+            return config.groundReplacementProvider;//TODO: Remove Ground Replacement Provider
         }), BlockStateProvider.TYPE_CODEC.fieldOf("disk_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())).forGetter((config) -> {
             return config.diskProvider;
         }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
@@ -40,6 +40,7 @@ public class BYGTreeConfig implements FeatureConfig {
 
     private final BlockStateProvider trunkProvider;
     private final BlockStateProvider leavesProvider;
+    @Deprecated
     private final BlockStateProvider groundReplacementProvider;
     private final BlockStateProvider diskProvider;
     private final int minHeight;
@@ -75,6 +76,7 @@ public class BYGTreeConfig implements FeatureConfig {
         return this.leavesProvider;
     }
 
+    @Deprecated
     public BlockStateProvider getGroundReplacementProvider() {
         return groundReplacementProvider;
     }
@@ -114,6 +116,7 @@ public class BYGTreeConfig implements FeatureConfig {
     public static class Builder {
         private BlockStateProvider trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
         private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+        @Deprecated
         private BlockStateProvider groundReplacementProvider = new SimpleBlockStateProvider(Blocks.DIRT.getDefaultState());
         private BlockStateProvider diskProvider = new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState());
         private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
@@ -133,6 +136,15 @@ public class BYGTreeConfig implements FeatureConfig {
         public Builder setTrunkBlock(BlockState state) {
             if (state != null)
                 trunkProvider = new SimpleBlockStateProvider(state);
+            else
+                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+
+            return this;
+        }
+
+        public Builder setTrunkBlock(BlockStateProvider stateProvider) {
+            if (stateProvider != null)
+                trunkProvider = stateProvider;
             else
                 trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
 
@@ -166,7 +178,7 @@ public class BYGTreeConfig implements FeatureConfig {
             return this;
         }
 
-
+        @Deprecated
         public Builder setGroundReplacementBlock(Block block) {
             if (block != null)
                 groundReplacementProvider = new SimpleBlockStateProvider(block.getDefaultState());
@@ -176,6 +188,7 @@ public class BYGTreeConfig implements FeatureConfig {
             return this;
         }
 
+        @Deprecated
         public Builder setGroundReplacementBlock(BlockState state) {
             if (state != null)
                 groundReplacementProvider = new SimpleBlockStateProvider(state);
@@ -185,6 +198,7 @@ public class BYGTreeConfig implements FeatureConfig {
             return this;
         }
 
+        @Deprecated
         public Builder setGroundReplacementBlock(BlockStateProvider stateProvider) {
             if (stateProvider != null)
                 groundReplacementProvider = stateProvider;

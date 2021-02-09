@@ -3,8 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.palm;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
@@ -13,7 +11,6 @@ import java.util.Random;
 import java.util.Set;
 
 public class PalmTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
 
     public PalmTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);
@@ -29,7 +26,7 @@ public class PalmTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
-            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 6, 5, 5, isSapling)) {
                 return false;
             } else {
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, 0), boundsIn);

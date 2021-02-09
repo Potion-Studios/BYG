@@ -1,0 +1,93 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+    "textures": {
+        "bulbis_sprouts": "byg:block/bulbis_sprouts",
+        "particle": "byg:block/bulbis_sprouts"
+    },
+    "elements": [
+        {
+            "name": "SideNW",
+            "from": [ 0, 0, 8 ],
+            "to": [ 16, 16, 8 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0, "rescale": true },
+            "faces": {
+                "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "east": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "south": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "up": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 0 ] },
+                "down": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 0 ] }
+            }
+        },
+        {
+            "name": "SideSW",
+            "from": [ 0, 0, 8 ],
+            "to": [ 16, 16, 8 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": -45.0, "rescale": true },
+            "faces": {
+                "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "east": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "south": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "up": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 0 ] },
+                "down": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 0 ] }
+            }
+        },
+        {
+            "name": "SideN",
+            "from": [ 0, 2.8, 0 ],
+            "to": [ 16, 18.8, 0 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": -22.5, "rescale": true },
+            "faces": {
+                "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "east": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "south": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "up": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 0 ] },
+                "down": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 0 ] }
+            }
+        },
+        {
+            "name": "SideS",
+            "from": [ 0, 2.8, 16 ],
+            "to": [ 16, 18.8, 16 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": 22.5, "rescale": true },
+            "faces": {
+                "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "east": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "south": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "up": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 0 ] },
+                "down": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 0 ] }
+            }
+        },
+        {
+            "name": "SideW",
+            "from": [ 0, 2.8, 0 ],
+            "to": [ 0, 18.8, 16 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": 22.5, "rescale": true },
+            "faces": {
+                "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "east": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "west": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "down": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] }
+            }
+        },
+        {
+            "name": "SideE",
+            "from": [ 16, 2.8, 0 ],
+            "to": [ 16, 18.8, 16 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": -22.5, "rescale": true },
+            "faces": {
+                "north": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "east": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "west": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] },
+                "down": { "texture": "#bulbis_sprouts", "uv": [ 0, 0, 0, 16 ] }
+            }
+        }
+    ]
+}

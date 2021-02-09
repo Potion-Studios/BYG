@@ -37,7 +37,7 @@ public class FrostMagmaLakeFeature extends Feature<SingleStateFeatureConfig> {
         } else {
             blockPos = blockPos.down(4);
             ChunkPos chunkPos = new ChunkPos(blockPos);
-//            if (structureManager.func_235011_a_(SectionPos.from(blockPos), Structure.field_236381_q_).findAny().isPresent()) {
+//            if (structureManager.func_235011_a_(SectionPos.from(blockPos), Structure.VILLAGE).findAny().isPresent()) {
 //                return false;
 //            } else {
             boolean[] flagArray = new boolean[2048];

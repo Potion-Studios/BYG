@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.properties.blocks;
 
-import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.end.EndVegetationFeature;
+import corgiaoc.byg.common.world.feature.overworld.OverworldVegetationFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
@@ -31,6 +31,7 @@ public class SpreadableBlock extends SnowyBlock implements Fertilizable {
     private final ForDimension forDimension;
 
 
+
     private final boolean isNotOverworld;
 
     public SpreadableBlock(Settings properties, Block blockToSpreadToo, ForDimension type, BlockPileFeatureConfig featureConfig) {
@@ -50,8 +51,6 @@ public class SpreadableBlock extends SnowyBlock implements Fertilizable {
                 worldIn.setBlockState(pos, blockToSpreadToo.getDefaultState());
         } else {
             if (!areConditionsGood(state, worldIn, pos)) {
-                if (!FeatureUtil.isAreaLoaded(worldIn, pos, 3))
-                    return;
                 worldIn.setBlockState(pos, blockToSpreadToo.getDefaultState());
             } else {
                 if (worldIn.getLightLevel(pos.up()) >= 9) {
@@ -108,6 +107,11 @@ public class SpreadableBlock extends SnowyBlock implements Fertilizable {
 
                     if (forDimension == ForDimension.END) {
                         EndVegetationFeature.placeBonemeal(world, rand, blockpos1, this.featureConfig, 3, 1);
+                        break;
+                    }
+
+                    if (forDimension == ForDimension.OVERWORLD && this.featureConfig != null) {
+                        OverworldVegetationFeature.placeBonemeal(world, rand, blockpos1, this.featureConfig, 3, 1, this);
                         break;
                     }
 

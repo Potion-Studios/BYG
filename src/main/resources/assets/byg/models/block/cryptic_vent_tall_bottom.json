@@ -1,0 +1,22 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+    "textures": {
+        "cryptic_stone": "byg:block/cryptic_stone",
+        "particle": "byg:block/cryptic_stone"
+    },
+    "elements": [
+        {
+            "name": "Body",
+            "from": [ 4, 0, 4 ], 
+            "to": [ 12, 16, 12 ], 
+            "faces": {
+                "north": { "texture": "#cryptic_stone", "uv": [ 4, 0, 12, 16 ] },
+                "east": { "texture": "#cryptic_stone", "uv": [ 4, 0, 12, 16 ] },
+                "south": { "texture": "#cryptic_stone", "uv": [ 4, 0, 12, 16 ] },
+                "west": { "texture": "#cryptic_stone", "uv": [ 4, 0, 12, 16 ] },
+                "up": { "texture": "#cryptic_stone", "uv": [ 4, 4, 12, 12 ] },
+                "down": { "texture": "#cryptic_stone", "uv": [ 4, 4, 12, 12 ] }
+            }
+        }
+    ]
+}

@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.biome.end;
 
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.core.BYGSounds;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.client.sound.MusicType;
@@ -33,6 +34,18 @@ public class NightshadeForest extends BYGEndBiome {
     static final SpawnSettings.Builder SPAWN_SETTINGS = new SpawnSettings.Builder();
     static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
+    static {
+        BYGDefaultBiomeFeatures.addNightshadePlants(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addNightShadeTrees(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.structureFeature(ConfiguredStructureFeatures.END_CITY).feature(GenerationStep.Feature.SURFACE_STRUCTURES, ConfiguredFeatures.END_GATEWAY);
+        BYGDefaultBiomeFeatures.addTheriumDeposit(GENERATION_SETTINGS);
+
+        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMITE, 2, 1, 2));
+        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 60, 1, 3));
+        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.PHANTOM, 1, 1, 2));
+
+    }
+
     public NightshadeForest() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeEffects.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
                 .waterColor(WATER_COLOR)
@@ -40,20 +53,9 @@ public class NightshadeForest extends BYGEndBiome {
                 .fogColor(10518688)
                 .skyColor(0)
                 .particleConfig(new BiomeParticleConfig(ParticleTypes.ASH, 0.00428F))
-                .loopSound(SoundEvents.AMBIENT_NETHER_WASTES_LOOP)
+                .loopSound(BYGSounds.AMBIENT_END_FOREST_LOOP)
                 .moodSound(new BiomeMoodSound(SoundEvents.AMBIENT_NETHER_WASTES_MOOD, 6000, 8, 2.0D))
                 .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0111D))
                 .music(MusicType.createIngameMusic(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
-    }
-
-    static {
-        BYGDefaultBiomeFeatures.addNightshadePlants(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addNightShadeTrees(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.structureFeature(ConfiguredStructureFeatures.END_CITY).feature(GenerationStep.Feature.SURFACE_STRUCTURES, ConfiguredFeatures.END_GATEWAY);
-
-        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMITE, 2, 1, 2));
-        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 60, 1, 3));
-        SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.PHANTOM, 1, 1, 2));
-
     }
 }

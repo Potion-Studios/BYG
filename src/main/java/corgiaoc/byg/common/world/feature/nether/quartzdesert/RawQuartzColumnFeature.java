@@ -21,25 +21,25 @@ public class RawQuartzColumnFeature extends Feature<BasaltColumnsFeatureConfig> 
     private static final ImmutableList<Block> field_236245_a_ = ImmutableList.of(Blocks.LAVA, Blocks.BEDROCK, Blocks.MAGMA_BLOCK, Blocks.SOUL_SAND, Blocks.NETHER_BRICKS, Blocks.NETHER_BRICK_FENCE, Blocks.NETHER_BRICK_STAIRS, Blocks.NETHER_WART, Blocks.CHEST, Blocks.SPAWNER);
 
     public RawQuartzColumnFeature(
-            Codec<BasaltColumnsFeatureConfig> p_i231925_1_) {
-        super(p_i231925_1_);
+            Codec<BasaltColumnsFeatureConfig> codec) {
+        super(codec);
     }
 
-    public boolean generate(StructureWorldAccess p_241855_1_, ChunkGenerator p_241855_2_, Random p_241855_3_, BlockPos p_241855_4_, BasaltColumnsFeatureConfig p_241855_5_) {
-        int i = p_241855_2_.getSeaLevel();
-        if (!func_242762_a(p_241855_1_, i, p_241855_4_.mutableCopy())) {
+    public boolean generate(StructureWorldAccess reader, ChunkGenerator generator, Random rand, BlockPos pos, BasaltColumnsFeatureConfig config) {
+        int i = generator.getSeaLevel();
+        if (!func_242762_a(reader, i, pos.mutableCopy())) {
             return false;
         } else {
-            int j = p_241855_5_.getHeight().getValue(p_241855_3_);
-            boolean flag = p_241855_3_.nextFloat() < 0.9F;
+            int j = config.getHeight().getValue(rand);
+            boolean flag = rand.nextFloat() < 0.9F;
             int k = Math.min(j, flag ? 5 : 8);
             int l = flag ? 50 : 15;
             boolean flag1 = false;
 
-            for (BlockPos blockpos : BlockPos.iterateRandomly(p_241855_3_, l, p_241855_4_.getX() - k, p_241855_4_.getY(), p_241855_4_.getZ() - k, p_241855_4_.getX() + k, p_241855_4_.getY(), p_241855_4_.getZ() + k)) {
-                int i1 = j - blockpos.getManhattanDistance(p_241855_4_);
+            for (BlockPos blockpos : BlockPos.iterateRandomly(rand, l, pos.getX() - k, pos.getY(), pos.getZ() - k, pos.getX() + k, pos.getY(), pos.getZ() + k)) {
+                int i1 = j - blockpos.getManhattanDistance(pos);
                 if (i1 >= 0) {
-                    flag1 |= this.func_236248_a_(p_241855_1_, i, blockpos, i1, p_241855_5_.getReach().getValue(p_241855_3_));
+                    flag1 |= this.func_236248_a_(reader, i, blockpos, i1, config.getReach().getValue(rand));
                 }
             }
 

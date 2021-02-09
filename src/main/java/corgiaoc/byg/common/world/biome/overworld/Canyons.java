@@ -65,7 +65,7 @@ public class Canyons extends BYGBiome {
 
     @Override
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.PLATEAU};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.PLATEAU};
     }
 
     @Override

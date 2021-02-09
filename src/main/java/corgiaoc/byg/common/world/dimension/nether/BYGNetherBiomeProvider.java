@@ -4,9 +4,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
-import net.fabricmc.loader.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
-import net.fabricmc.loader.api.metadata.ModMetadata;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -54,10 +51,6 @@ public class BYGNetherBiomeProvider extends BiomeSource {
                             NETHER_BIOMES.add(locationKey);
                         }
                     }
-                }
-                //if a datapack is using the same namespace as another mod, this is bad....like really bad.
-                if (!FabricLoader.INSTANCE.getAllMods().stream().map(ModContainer::getMetadata).map(ModMetadata::getId).collect(Collectors.toSet()).contains(locationKey.getNamespace()) && !NETHER_BIOMES.contains(locationKey)) {
-                    NETHER_BIOMES.add(locationKey);
                 }
             }
         }

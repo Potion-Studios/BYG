@@ -19,7 +19,6 @@ public class LargePumpkin2 extends Feature<PumpkinConfig> {
         super(configIn);
     }
 
-
     @Override
     public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, PumpkinConfig config) {
         int posX = pos.getX();

@@ -44,13 +44,12 @@ public abstract class MixinHillsLayer {
                 int l = i;
                 Biome biome = BuiltinRegistries.BIOME.get(i);
                 if (biome != null) {
-                    if (BYGBiome.BIOME_TO_HILLS_LIST.get(i) != null) {
+                    if (BYGBiome.BIOME_TO_HILLS_LIST.containsKey(i)) {
                         Biome hill = getHillBiomeValue(BYGBiome.BIOME_TO_HILLS_LIST.get(i), rand);
                         if (hill != null) {
                             l = BuiltinRegistries.BIOME.getRawId(hill);
                         }
-                    } else //Remove if the object is null.
-                        BYGBiome.BIOME_TO_HILLS_LIST.remove(i);
+                    }
                 }
                 cir.setReturnValue(l);
             }

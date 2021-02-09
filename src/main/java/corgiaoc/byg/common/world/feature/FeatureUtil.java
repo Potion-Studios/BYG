@@ -9,7 +9,6 @@ import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.TestableWorld;
-import net.minecraft.world.WorldView;
 
 public class FeatureUtil {
 
@@ -18,7 +17,7 @@ public class FeatureUtil {
     }
 
     public static boolean isTerrainOrRock(TestableWorld world, BlockPos pos) {
-        return world.testBlockState(pos, (state) -> state.isIn(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.STONE || state.isIn(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.SOIL || state.isIn(BlockTags.SAND) || state.isIn(FabricTags.SAND) || state.getMaterial() == Material.AGGREGATE || state.getBlock() == Blocks.GRASS_BLOCK);
+        return world.testBlockState(pos, (state) -> state.isIn(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.STONE || state.isIn(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.SOIL || state.isIn(BlockTags.SAND) || state.isIn(FabricTags.SAND) || state.isIn(FabricTags.SAND) || state.getMaterial() == Material.AGGREGATE || state.getBlock() == Blocks.GRASS_BLOCK);
     }
 
     public static boolean isAir(TestableWorld reader, BlockPos pos) {
@@ -41,10 +40,6 @@ public class FeatureUtil {
             }
         }
         return true;
-    }
-
-    public static boolean isAreaLoaded(WorldView worldView, BlockPos center, int range) {
-        return worldView.isRegionLoaded(center.add(-range, -range, -range), center.add(range, range, range));
     }
 
 

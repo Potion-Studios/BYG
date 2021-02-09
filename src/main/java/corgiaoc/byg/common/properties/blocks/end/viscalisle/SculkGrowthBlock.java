@@ -18,11 +18,11 @@ import java.util.Random;
 public class SculkGrowthBlock extends PlantBlock {
     protected static final VoxelShape LEAF_PILE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 1.5D, 15.0D);
 
-    public SculkGrowthBlock(Settings p_i48297_1_) {
-        super(p_i48297_1_);
+    public SculkGrowthBlock(Settings builder) {
+        super(builder);
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView p_220053_2_, BlockPos blockPos, ShapeContext p_220053_4_) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView worldIn, BlockPos blockPos, ShapeContext context) {
         return LEAF_PILE;
     }
 

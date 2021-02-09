@@ -21,10 +21,8 @@ public abstract class MixinRiverLayer {
         int area2Value = area2.sample(((AddRiversLayer) (Object) this).transformX(x), ((AddRiversLayer) (Object) this).transformZ(z));
 
         if (area2Value == BuiltinRegistries.BIOME.getRawId(BuiltinRegistries.BIOME.getOrThrow(BiomeKeys.RIVER))) {
-            if (BYGBiome.BIOME_TO_RIVER_LIST.get(area1Value) != null)
+            if (BYGBiome.BIOME_TO_RIVER_LIST.containsKey(area1Value))
                 cir.setReturnValue(BuiltinRegistries.BIOME.getRawId(BYGBiome.BIOME_TO_RIVER_LIST.get(area1Value)));
-            else //Remove from list if null.
-                BYGBiome.BIOME_TO_RIVER_LIST.remove(area1Value);
         }
     }
 }

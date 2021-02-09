@@ -51,8 +51,8 @@ public class BYGGlowcane extends Block {
                 }
             }
         }
-    }
 
+    }
 
     /**
      * Update the provided state given the provided neighbor facing and neighbor state, returning a new state.

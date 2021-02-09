@@ -4,6 +4,10 @@ import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.end.*;
+import corgiaoc.byg.common.world.biome.end.sub.BulbisGardensEdge;
+import corgiaoc.byg.common.world.biome.end.sub.EtherealClearing;
+import corgiaoc.byg.common.world.biome.end.sub.EtherealForest;
+import corgiaoc.byg.common.world.biome.end.sub.ShatteredViscalIsles;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
 import corgiaoc.byg.common.world.biome.overworld.sub.*;
@@ -107,9 +111,7 @@ public class BYGBiomes {
     public static Biome TROPICAL_ISLAND = WorldGenRegistrationHelper.createBiome("tropical_islands", new TropicalIslands().getBiome(), 140);
     public static Biome TROPICAL_RAINFOREST = WorldGenRegistrationHelper.createBiome("tropical_rainforest", new TropicalRainForest().getBiome(), 57);
     public static Biome TWILIGHT_VALLEY = WorldGenRegistrationHelper.createBiome("twilight_valley", new TwilightValley().getBiome(), 149);
-    //    public static Biome VALLE_DE_LUNA = WorldGenRegistrationHelper.createBiome("valle_de_luna", new ValleDeLuna().getBiome());
     public static Biome VIBRANT_SWAMPLANDS = WorldGenRegistrationHelper.createBiome("vibrant_swamplands", new VibrantSwamplands().getBiome(), 58);
-    //    public static Biome VOLCANO = WorldGenRegistrationHelper.createBiome("volcano", new Volcano().getBiome());
     public static Biome WEEPING_WITCH_FOREST = WorldGenRegistrationHelper.createBiome("weeping_witch_forest", new WeepingWitchForest().getBiome(), 60);
     public static Biome WOODLANDS = WorldGenRegistrationHelper.createBiome("woodlands", new WoodLands().getBiome(), 61);
     public static Biome ZELKOVA_FOREST = WorldGenRegistrationHelper.createBiome("zelkova_forest", new ZelkovaForest().getBiome(), 62);
@@ -245,6 +247,11 @@ public class BYGBiomes {
     public static Biome PURPUR_PEAKS = WorldGenRegistrationHelper.createBiome("purpur_peaks", new PurpurPeaks().getBiome(), 170);
     public static Biome CRYPTIC_WASTES = WorldGenRegistrationHelper.createBiome("cryptic_wastes", new CrypticWastes().getBiome(), 171);
 
+    /************End Sub-Biomes************/
+    public static Biome SHATTERED_VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("shattered_viscal_isles", new ShatteredViscalIsles().getBiome(), 173);
+    public static Biome BULBIS_GARDENS_EDGE = WorldGenRegistrationHelper.createBiome("bulbis_gardens_edge", new BulbisGardensEdge().getBiome(), 174);
+    public static Biome ETHEREAL_FOREST = WorldGenRegistrationHelper.createBiome("ethereal_forest", new EtherealForest().getBiome(), 175);
+    public static Biome ETHEREAL_CLEARING = WorldGenRegistrationHelper.createBiome("ethereal_clearing", new EtherealClearing().getBiome(), 176);
 
     public static void init() {
     }
@@ -255,6 +262,7 @@ public class BYGBiomes {
                 OverworldBiomes.addContinentalBiome(RegistryKey.of(Registry.BIOME_KEY, BuiltinRegistries.BIOME.getId(biomeData.getBiome())), biomeData.getBiomeType(), biomeData.getBiomeWeight() / 10.0);
             }
         }
+        addBiomeNumericalIDs();
     }
 
     public static void addBYGFeaturesToBiomes(Biome biome, Identifier locationKey) {
@@ -318,12 +326,10 @@ public class BYGBiomes {
     public static class PreserveBiomeOrder {
         private final Biome biome;
         private final int orderPosition;
-        private final String id;
 
-        public PreserveBiomeOrder(Biome biome, int orderPosition, String id) {
+        public PreserveBiomeOrder(Biome biome, int orderPosition) {
             this.biome = biome;
             this.orderPosition = orderPosition;
-            this.id = id;
         }
 
         public Biome getBiome() {
@@ -332,10 +338,6 @@ public class BYGBiomes {
 
         public int getOrderPosition() {
             return orderPosition;
-        }
-
-        public String getId() {
-            return id;
         }
     }
 }

@@ -67,7 +67,7 @@ public class BYGBiome {
 
 
     public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.OVERWORLD};
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD};
     }
 
     public OverworldClimate getBiomeType() {

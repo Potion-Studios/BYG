@@ -37,7 +37,7 @@ public class LargeRainbowEucalyptus extends BYGAbstractTreeFeature<BYGTreeConfig
             } else if (isCliff(worldIn, mainmutable.toImmutable(), mainmutable2.toImmutable(), mainmutable3.toImmutable(), mainmutable4.toImmutable())) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.toImmutable(), mainmutable2.toImmutable(), mainmutable3.toImmutable(), mainmutable4.toImmutable());
+                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.toImmutable(), mainmutable2.toImmutable(), mainmutable3.toImmutable(), mainmutable4.toImmutable());
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     if (buildTrunk < randTreeHeight - 2) {
                         placeTrunk(config, rand, changedBlocks, worldIn, mainmutable, boundsIn);

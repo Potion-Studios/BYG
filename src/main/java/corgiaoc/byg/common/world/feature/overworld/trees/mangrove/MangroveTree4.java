@@ -53,7 +53,7 @@ public class MangroveTree4 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 BlockPos.Mutable rootMutable11 = new BlockPos.Mutable().set(mainmutable.add(-1, 0, 3));
                 BlockPos.Mutable rootMutable12 = new BlockPos.Mutable().set(mainmutable.add(-1, 0, 3));
 
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, rootMutable, rootMutable2, rootMutable3, rootMutable4, rootMutable5, rootMutable6, rootMutable7, rootMutable8, rootMutable9, rootMutable10, rootMutable11, rootMutable12);
+                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, rootMutable, rootMutable2, rootMutable3, rootMutable4, rootMutable5, rootMutable6, rootMutable7, rootMutable8, rootMutable9, rootMutable10, rootMutable11, rootMutable12);
 
                 //Stump
                 placeBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 1, -2), boundsIn);

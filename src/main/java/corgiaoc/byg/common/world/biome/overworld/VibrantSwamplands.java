@@ -56,21 +56,6 @@ public class VibrantSwamplands extends BYGBiome {
         return this.getBiome();
     }
 
-    @Override
-    public Object getBiomeDictionary() {
-        return null; //{BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.WET, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.WATER, BiomeDictionary.Type.OVERWORLD};
-    }
-
-    @Override
-    public OverworldClimate getBiomeType() {
-        return OverworldClimate.COOL;
-    }
-
-    @Override
-    public int getWeight() {
-        return 6;
-    }
-
     static {
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS); //Strongholds & Mineshafts
         GENERATION_SETTINGS.structureFeature(ConfiguredStructureFeatures.RUINED_PORTAL_SWAMP); //Ruined Portal Swamp
@@ -92,6 +77,11 @@ public class VibrantSwamplands extends BYGBiome {
         BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMudDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addFrozenTopLayer(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSparseWillowTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addVioletleatherflower(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addRedorchid(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPurpleOrchid(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addPinkOrchid(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.PIG, 10, 4, 4));
@@ -108,5 +98,20 @@ public class VibrantSwamplands extends BYGBiome {
         SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.WITCH, 5, 1, 1));
         SPAWN_SETTINGS.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 1, 1, 1));
 
+    }
+
+    @Override
+    public OverworldClimate getBiomeType() {
+        return OverworldClimate.COOL;
+    }
+
+    @Override
+    public int getWeight() {
+        return 6;
+    }
+
+    @Override
+    public Object getBiomeDictionary() {
+        return null; //new BiomeDictionary.Type[]{BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.WET, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.WATER, BiomeDictionary.Type.OVERWORLD};
     }
 }

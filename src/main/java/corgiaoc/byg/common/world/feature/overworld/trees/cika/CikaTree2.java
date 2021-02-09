@@ -32,7 +32,7 @@ public class CikaTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos), mainmutable.set(pos).move(0, 0, -1), mainmutable.set(pos).move(-1, 0, 0), mainmutable.set(pos).move(1, 0, 0), mainmutable.set(pos).move(0, 0, 1));
+                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos), mainmutable.set(pos).move(0, 0, -1), mainmutable.set(pos).move(-1, 0, 0), mainmutable.set(pos).move(1, 0, 0), mainmutable.set(pos).move(0, 0, 1));
 
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, 0), boundsIn);
                 placeTrunk(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 1, 0), boundsIn);

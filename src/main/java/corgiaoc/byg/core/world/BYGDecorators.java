@@ -7,7 +7,11 @@ import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BYGDecorators {
+    public static List<Decorator<?>> decorators = new ArrayList<>();
 
     public static final Decorator<CountConfig> ANY_WATER_OR_SOLID_SURFACE = WorldGenRegistrationHelper.createDecorator("water_or_solid_surface", new AnyWaterOrSolidSurface(CountConfig.CODEC));
     public static final Decorator<CountExtraDecoratorConfig> OCEAN_FLOOR_COUNT_EXTRA = WorldGenRegistrationHelper.createDecorator("ocean_floor_count_extra", new AtOceanFloorWithExtra(CountExtraDecoratorConfig.CODEC));

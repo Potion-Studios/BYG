@@ -85,5 +85,4 @@ public class SubBiomeDataListHolderSerializer implements JsonSerializer<SubBiome
         }
         return new SubBiomeDataListHolder(biomeData);
     }
-
 }

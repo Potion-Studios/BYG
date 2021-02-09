@@ -29,7 +29,7 @@ public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
             boolean flag3 = true;
 
             while (world.isAir(mutable)) {
-                if (World.isHeightInvalid(mutable)) {
+                if (World.isOutOfBuildLimitVertically(mutable)) {
                     return true;
                 }
 

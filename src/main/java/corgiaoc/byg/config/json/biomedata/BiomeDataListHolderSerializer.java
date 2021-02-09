@@ -10,6 +10,7 @@ import net.minecraft.world.biome.Biome;
 
 import java.lang.reflect.Type;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
 public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataListHolder>, JsonDeserializer<BiomeDataListHolder> {
@@ -98,12 +99,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
             int weight = elementObject.get("weight").getAsInt();
 
-            List<String> defaultClimates = new ArrayList<>();
-            defaultClimates.add("SNOWY");
-            defaultClimates.add("COOL");
-            defaultClimates.add("TEMPERATE");
-            defaultClimates.add("DRY");
-
+            List<String> defaultClimates = Arrays.stream(OverworldClimate.values()).map(OverworldClimate::toString).collect(Collectors.toList());
             OverworldClimate biomeType;
 
             if (!defaultClimates.contains(climate)) {

@@ -26,7 +26,7 @@ public class BulbisTree1 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (!isDesiredGroundwEndTags(worldIn, pos.down(), BYGBlocks.IVIS_PHYLIUM)) {
+            if (!isDesiredGroundwEndTags(config, worldIn, pos.down(), BYGBlocks.IVIS_PHYLIUM)) {
                 return false;
             } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {
                 return false;
@@ -37,63 +37,58 @@ public class BulbisTree1 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
                 placeStem(STEM, worldIn, mainmutable.set(pos).move(0, 1, 0));
                 placeStem(STEM, worldIn, mainmutable.set(pos).move(0, 2, 0));
                 placeStem(STEM, worldIn, mainmutable.set(pos).move(0, 3, 0));
-                placeStem(STEM, worldIn, mainmutable.set(pos).move(0, 4, 0));
-                placeStem(STEM, worldIn, mainmutable.set(pos).move(0, 5, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(-1, 0, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(0, 0, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(0, 0, 1));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(1, 0, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(-1, 3, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(0, 3, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(0, 3, 1));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(1, 3, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(-2, 4, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(0, 4, -2));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(0, 4, 2));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(2, 4, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(-2, 5, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(0, 5, -2));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(0, 5, 2));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(2, 5, 0));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 4, -1));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 4, 0));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 4, 1));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 4, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 4, 0));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 4, 1));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 4, -1));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 4, 0));
                 placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 4, 1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-2, 5, -1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-2, 5, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-2, 5, 1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 5, -2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 5, 2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 5, -2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 5, 2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 5, -2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 5, 2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 5, -1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 5, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 5, 1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-2, 6, -1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-2, 6, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-2, 6, 1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 6, -2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 6, 2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 6, -2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 6, 2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 6, -2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 6, 2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 6, -1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 6, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 6, 1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-2, 7, -1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-2, 7, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-2, 7, 1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 7, -2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 7, 2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 7, -2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 7, 2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 7, -2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 7, 2));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 7, -1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 7, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 7, 1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 8, -1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 8, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 8, 1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 8, -1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 8, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 8, 1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 8, -1));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 8, 0));
-                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 8, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 5, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 5, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 5, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 5, -1));
+                this.shroomlight(worldIn, mainmutable.set(pos).move(0, 5, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 5, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 5, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 5, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 5, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 6, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 6, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 6, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 6, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 6, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 6, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 6, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 6, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 6, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 7, 0));
             }
         }
         return true;
+    }
+
+    private void shroomlight(StructureWorldAccess reader, BlockPos pos) {
+        if (isAir(reader, pos)) {
+            this.setFinalBlockState(reader, pos, BYGBlocks.PURPLE_SHROOMLIGHT.getDefaultState());
+        }
     }
 }
