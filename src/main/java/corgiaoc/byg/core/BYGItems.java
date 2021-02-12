@@ -972,6 +972,10 @@ public class BYGItems {
     public static final Item THERIUM_SHARD = createItem(new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)), "therium_shard");
     public static final Item THERIUM_CRYSTAL = createItem(new BlockItem(BYGBlocks.THERIUM_CRYSTAL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_CRYSTAL));
     public static final Item THERIUM_BLOCK = createItem(new BlockItem(BYGBlocks.THERIUM_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_BLOCK));
+    public static final Item CHISELED_THERIUM = createItem(new BlockItem(BYGBlocks.CHISELED_THERIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_THERIUM));
+    public static final Item SHINY_CHISELED_THERIUM = createItem(new BlockItem(BYGBlocks.SHINY_CHISELED_THERIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHINY_CHISELED_THERIUM));
+    public static final Item THERIUM_GLASS = createItem(new BlockItem(BYGBlocks.THERIUM_GLASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_GLASS));
+    public static final Item THERIUM_GLASS_PANE = createItem(new BlockItem(BYGBlocks.THERIUM_GLASS_PANE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_GLASS_PANE));
     public static final Item THERIUM_LANTERN = createItem(new BlockItem(BYGBlocks.THERIUM_LANTERN, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_LANTERN));
     public static final Item THERIUM_LAMP = createItem(new BlockItem(BYGBlocks.THERIUM_LAMP, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_LAMP));
     public static final Item VERMILION_SCULK_TENDRILS = createItem(new BlockItem(BYGBlocks.VERMILION_SCULK_TENDRILS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.VERMILION_SCULK_TENDRILS));

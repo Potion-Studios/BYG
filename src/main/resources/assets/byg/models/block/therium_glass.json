@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:block/therium_glass",
+    "particle": "byg:block/therium_glass"
+  }
+}

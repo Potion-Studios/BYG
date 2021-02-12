@@ -25,9 +25,12 @@ import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.entity.EntityType;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraftforge.common.ToolType;
 
@@ -610,6 +613,10 @@ public class BYGBlocks {
     public static final Block THERIUM_BLOCK = createTheriumBlock("therium_block");
     public static final Block THERIUM_LANTERN = new BYGBlockProperties.BYGLantern("therium_lantern");
     public static final Block THERIUM_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("therium_lamp");
+    public static final Block CHISELED_THERIUM = createChiseledTherium("chiseled_therium");
+    public static final Block SHINY_CHISELED_THERIUM = createShinyChiseledTherium("shiny_chiseled_therium");
+    public static final Block THERIUM_GLASS = createTheriumGlass("therium_glass");
+    public static final Block THERIUM_GLASS_PANE = createTheriumGlassPane("therium_glass_pane");
 
     public static final Block CRYPTIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("cryptic_campfire");
     public static final Block CRYPTIC_FIRE = new BYGBlockProperties.CrypticFire("cryptic_fire");
@@ -1001,6 +1008,34 @@ public class BYGBlocks {
 
     static Block createTheriumBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.CYAN).sound(SoundType.GLASS).noDrops().setLightLevel((state) -> 12).hardnessAndResistance(-1.0f, 3.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createTheriumGlass(String id) {
+        Block createBlock = new GlassBlock(AbstractBlock.Properties.create(Material.GLASS, MaterialColor.CYAN).sound(SoundType.GLASS).setLightLevel((state) -> 12).notSolid().setAllowsSpawn(BYGBlocks::neverAllowSpawn).setOpaque(BYGBlocks::isntSolid).setSuffocates(BYGBlocks::isntSolid).setBlocksVision(BYGBlocks::isntSolid).hardnessAndResistance(0.4f, 8.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createTheriumGlassPane(String id) {
+        Block createBlock = new PaneBlock(AbstractBlock.Properties.create(Material.GLASS, MaterialColor.CYAN).sound(SoundType.GLASS).setLightLevel((state) -> 12).notSolid().hardnessAndResistance(0.4f, 8.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createChiseledTherium(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.CYAN).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.GLASS).hardnessAndResistance(1.5f, 9.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createShinyChiseledTherium(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.CYAN).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.GLASS).setLightLevel((state) -> 12).hardnessAndResistance(1.5f, 9.0f));
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
         return createBlock;
@@ -1435,5 +1470,14 @@ public class BYGBlocks {
     }
 
     public static void init() {
+
+    }
+
+    private static Boolean neverAllowSpawn(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entity) {
+        return (boolean)false;
+    }
+
+    private static boolean isntSolid(BlockState state, IBlockReader reader, BlockPos pos) {
+        return false;
     }
 }
