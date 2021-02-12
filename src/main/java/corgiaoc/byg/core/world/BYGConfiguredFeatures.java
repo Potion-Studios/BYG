@@ -252,9 +252,9 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND4 = createConfiguredFeature("floating_island4", BYGFeatures.FLOATING_ISLAND4.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(13).setMaxRadius(17).build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND5 = createConfiguredFeature("floating_island5", BYGFeatures.FLOATING_ISLAND5.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(13).setMaxRadius(17).build()));
 
-    public static final ConfiguredFeature<?, ?> FLOATING_ETHER_ISLAND1 = createConfiguredFeature("floating_ether_island1", BYGFeatures.FLOATING_ISLAND1.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.ETHER_PHYLIUM).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(11).setMaxRadius(13).build()));
-    public static final ConfiguredFeature<?, ?> FLOATING_ETHER_ISLAND2 = createConfiguredFeature("floating_ether_island2", BYGFeatures.FLOATING_ISLAND2.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.ETHER_PHYLIUM).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(11).setMaxRadius(13).build()));
-    public static final ConfiguredFeature<?, ?> FLOATING_ETHER_ISLAND3 = createConfiguredFeature("floating_ether_island3", BYGFeatures.FLOATING_ISLAND3.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.ETHER_PHYLIUM).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.ETHER_STONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)).setMinRadius(11).setMaxRadius(13).build()));
+    public static final ConfiguredFeature<?, ?> FLOATING_DESERT_ISLAND1 = createConfiguredFeature("floating_desert_island1", BYGFeatures.FLOATING_ISLAND1.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.WHITE_SAND).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SANDSTONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 2)).setMinRadius(12).setMaxRadius(19).build()));
+    public static final ConfiguredFeature<?, ?> FLOATING_DESERT_ISLAND2 = createConfiguredFeature("floating_desert_island2", BYGFeatures.FLOATING_ISLAND2.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.WHITE_SAND).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SANDSTONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 2)).setMinRadius(12).setMaxRadius(20).build()));
+    public static final ConfiguredFeature<?, ?> FLOATING_DESERT_ISLAND3 = createConfiguredFeature("floating_desert_island3", BYGFeatures.FLOATING_ISLAND3.withConfiguration(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.WHITE_SAND).setBlock(new WeightedBlockStateProvider().addWeightedBlockstate(BYGBlocks.WHITE_SANDSTONE.getDefaultState(), 20).addWeightedBlockstate(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 2)).setMinRadius(12).setMaxRadius(21).build()));
 
 
     public static final ConfiguredFeature<PumpkinConfig, ?> PUMPKIN1 = createConfiguredFeature("pumpkin1", BYGFeatures.LARGE_PUMPKIN1.withConfiguration(new PumpkinConfig.Builder().setPumpkinBlock(Blocks.PUMPKIN).build()));
@@ -1775,11 +1775,11 @@ public class BYGConfiguredFeatures {
             ETHER_TREE_DEAD3)).withPlacement(BYGDecorators.MOTION_BLOCKING_NO_LEAVES_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_ETHER_ISLAND = createConfiguredFeature("floating_ether_islands", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-            FLOATING_ETHER_ISLAND1.withChance(0.35F),
-            FLOATING_ETHER_ISLAND2.withChance(0.35F)),
-            FLOATING_ETHER_ISLAND3)).withPlacement(BYGDecorators.ISLAND.configure(
-            new AtSurfaceWithExtraConfig(0, 0.13F, 1))));
+    public static final ConfiguredFeature<?, ?> RANDOM_DESERT_END_ISLAND = createConfiguredFeature("floating_desert_end_islands", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            FLOATING_DESERT_ISLAND1.withChance(0.35F),
+            FLOATING_DESERT_ISLAND2.withChance(0.35F)),
+            FLOATING_DESERT_ISLAND3)).withPlacement(BYGDecorators.ISLAND.configure(
+            new AtSurfaceWithExtraConfig(0, 0.2F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ISLAND = createConfiguredFeature("floating_islands", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             FLOATING_ISLAND1.withChance(0.25F),

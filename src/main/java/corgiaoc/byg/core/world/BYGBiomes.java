@@ -250,6 +250,7 @@ public class BYGBiomes {
     public static Biome SHULKREN_FOREST = WorldGenRegistrationHelper.createBiome("shulkren_forest", new ShulkrenForest().getBiome(), 169);
     public static Biome PURPUR_PEAKS = WorldGenRegistrationHelper.createBiome("purpur_peaks", new PurpurPeaks().getBiome(), 170);
     public static Biome CRYPTIC_WASTES = WorldGenRegistrationHelper.createBiome("cryptic_wastes", new CrypticWastes().getBiome(), 171);
+    public static Biome SHATTERED_DESERT_ISLES = WorldGenRegistrationHelper.createBiome("shattered_desert_isles", new ShatteredDesertIsles().getBiome(), 177);
 
     /************End Sub-Biomes************/
     public static Biome SHATTERED_VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("shattered_viscal_isles", new ShatteredViscalIsles().getBiome(), 173);

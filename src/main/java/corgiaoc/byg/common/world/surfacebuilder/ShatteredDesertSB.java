@@ -23,7 +23,7 @@ public class ShatteredDesertSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         else if (noise < -0.3)
             SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WHITE_SAND);
         else
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(BYGBlocks.BLACK_SAND.getDefaultState(), BYGBlocks.BLACK_SAND.getDefaultState(), BYGBlocks.BLACK_SAND.getDefaultState()));
+            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(Blocks.VOID_AIR.getDefaultState(), Blocks.VOID_AIR.getDefaultState(), Blocks.VOID_AIR.getDefaultState()));
 
     }
 }

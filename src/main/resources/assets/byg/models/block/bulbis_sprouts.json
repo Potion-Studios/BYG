@@ -7,6 +7,7 @@
     "elements": [
         {
             "name": "SideNW",
+            "shade": false,
             "from": [ 0, 0, 8 ],
             "to": [ 16, 16, 8 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0, "rescale": true },
@@ -21,6 +22,7 @@
         },
         {
             "name": "SideSW",
+            "shade": false,
             "from": [ 0, 0, 8 ],
             "to": [ 16, 16, 8 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": -45.0, "rescale": true },
@@ -35,6 +37,7 @@
         },
         {
             "name": "SideN",
+            "shade": false,
             "from": [ 0, 2.8, 0 ],
             "to": [ 16, 18.8, 0 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": -22.5, "rescale": true },
@@ -49,6 +52,7 @@
         },
         {
             "name": "SideS",
+            "shade": false,
             "from": [ 0, 2.8, 16 ],
             "to": [ 16, 18.8, 16 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": 22.5, "rescale": true },
@@ -63,6 +67,7 @@
         },
         {
             "name": "SideW",
+            "shade": false,
             "from": [ 0, 2.8, 0 ],
             "to": [ 0, 18.8, 16 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": 22.5, "rescale": true },
@@ -77,6 +82,7 @@
         },
         {
             "name": "SideE",
+            "shade": false,
             "from": [ 16, 2.8, 0 ],
             "to": [ 16, 18.8, 16 ],
             "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": -22.5, "rescale": true },
