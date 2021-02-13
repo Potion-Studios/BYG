@@ -614,7 +614,13 @@ public class BYGBlocks {
     public static final Block THERIUM_LANTERN = new BYGBlockProperties.BYGLantern("therium_lantern");
     public static final Block THERIUM_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("therium_lamp");
     public static final Block CHISELED_THERIUM = createChiseledTherium("chiseled_therium");
+    public static final Block CHISELED_THERIUM_STAIRS = createShinyChiseledTheriumStairs("chiseled_therium_stairs");
+    public static final Block CHISELED_THERIUM_SLAB = createChiseledTheriumSlab("chiseled_therium_slab");
+    public static final Block CHISELED_THERIUM_WALL = createChiseledTheriumWall("chiseled_therium_wall");
     public static final Block SHINY_CHISELED_THERIUM = createShinyChiseledTherium("shiny_chiseled_therium");
+    public static final Block SHINY_CHISELED_THERIUM_STAIRS = createShinyChiseledTheriumStairs("shiny_chiseled_therium_stairs");
+    public static final Block SHINY_CHISELED_THERIUM_SLAB = createShinyChiseledTheriumSlab("shiny_chiseled_therium_slab");
+    public static final Block SHINY_CHISELED_THERIUM_WALL = createShinyChiseledTheriumWall("shiny_chiseled_therium_wall");
     public static final Block THERIUM_GLASS = createTheriumGlass("therium_glass");
     public static final Block THERIUM_GLASS_PANE = createTheriumGlassPane("therium_glass_pane");
 
@@ -1034,8 +1040,50 @@ public class BYGBlocks {
         return createBlock;
     }
 
+    static Block createChiseledTheriumStairs(String id) {
+        Block createBlock = new StairsBlock(Blocks.PRISMARINE.getDefaultState(), AbstractBlock.Properties.from(Blocks.PRISMARINE).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.GLASS).hardnessAndResistance(1.5f, 9.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createChiseledTheriumSlab(String id) {
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.CYAN).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.GLASS).hardnessAndResistance(1.5f, 9.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createChiseledTheriumWall(String id) {
+        Block createBlock = new WallBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.CYAN).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.GLASS).hardnessAndResistance(1.5f, 9.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
     static Block createShinyChiseledTherium(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.CYAN).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.GLASS).setLightLevel((state) -> 12).hardnessAndResistance(1.5f, 9.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createShinyChiseledTheriumStairs(String id) {
+        Block createBlock = new StairsBlock(Blocks.PRISMARINE.getDefaultState(), AbstractBlock.Properties.from(Blocks.PRISMARINE).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.GLASS).setLightLevel((state) -> 12).hardnessAndResistance(1.5f, 9.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createShinyChiseledTheriumSlab(String id) {
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.CYAN).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.GLASS).setLightLevel((state) -> 12).hardnessAndResistance(1.5f, 9.0f));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createShinyChiseledTheriumWall(String id) {
+        Block createBlock = new WallBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.CYAN).harvestTool(ToolType.PICKAXE).setRequiresTool().sound(SoundType.GLASS).setLightLevel((state) -> 12).hardnessAndResistance(1.5f, 9.0f));
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);
         return createBlock;

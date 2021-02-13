@@ -969,15 +969,23 @@ public class BYGItems {
 
     public static final Item ODDITY_CACTUS = createItem(new BlockItem(BYGBlocks.ODDITY_CACTUS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ODDITY_CACTUS));
     public static final Item ODDITY_BUSH = createItem(new BlockItem(BYGBlocks.ODDITY_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ODDITY_BUSH));
+
     public static final Item THERIUM_SHARD = createItem(new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)), "therium_shard");
     public static final Item THERIUM_CRYSTAL = createItem(new BlockItem(BYGBlocks.THERIUM_CRYSTAL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_CRYSTAL));
     public static final Item THERIUM_BLOCK = createItem(new BlockItem(BYGBlocks.THERIUM_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_BLOCK));
     public static final Item CHISELED_THERIUM = createItem(new BlockItem(BYGBlocks.CHISELED_THERIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_THERIUM));
+    public static final Item CHISELED_THERIUM_STAIRS = createItem(new BlockItem(BYGBlocks.CHISELED_THERIUM_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_THERIUM_STAIRS));
+    public static final Item CHISELED_THERIUM_SLAB = createItem(new BlockItem(BYGBlocks.CHISELED_THERIUM_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_THERIUM_SLAB));
+    public static final Item CHISELED_THERIUM_WALL = createItem(new BlockItem(BYGBlocks.CHISELED_THERIUM_WALL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_THERIUM_WALL));
     public static final Item SHINY_CHISELED_THERIUM = createItem(new BlockItem(BYGBlocks.SHINY_CHISELED_THERIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHINY_CHISELED_THERIUM));
+    public static final Item SHINY_CHISELED_THERIUM_STAIRS = createItem(new BlockItem(BYGBlocks.SHINY_CHISELED_THERIUM_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHINY_CHISELED_THERIUM_STAIRS));
+    public static final Item SHINY_CHISELED_THERIUM_SLAB = createItem(new BlockItem(BYGBlocks.SHINY_CHISELED_THERIUM_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHINY_CHISELED_THERIUM_SLAB));
+    public static final Item SHINY_CHISELED_THERIUM_WALL = createItem(new BlockItem(BYGBlocks.SHINY_CHISELED_THERIUM_WALL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SHINY_CHISELED_THERIUM_WALL));
     public static final Item THERIUM_GLASS = createItem(new BlockItem(BYGBlocks.THERIUM_GLASS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_GLASS));
     public static final Item THERIUM_GLASS_PANE = createItem(new BlockItem(BYGBlocks.THERIUM_GLASS_PANE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_GLASS_PANE));
     public static final Item THERIUM_LANTERN = createItem(new BlockItem(BYGBlocks.THERIUM_LANTERN, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_LANTERN));
     public static final Item THERIUM_LAMP = createItem(new BlockItem(BYGBlocks.THERIUM_LAMP, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_LAMP));
+
     public static final Item VERMILION_SCULK_TENDRILS = createItem(new BlockItem(BYGBlocks.VERMILION_SCULK_TENDRILS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.VERMILION_SCULK_TENDRILS));
     public static final Item VERMILION_SCULK_GROWTH = createItem(new BlockItem(BYGBlocks.VERMILION_SCULK_GROWTH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.VERMILION_SCULK_GROWTH));
     public static final Item VERMILION_SCULK = createItem(new BlockItem(BYGBlocks.VERMILION_SCULK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.VERMILION_SCULK));

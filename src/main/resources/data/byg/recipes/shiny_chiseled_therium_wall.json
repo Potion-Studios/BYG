@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:shiny_chiseled_therium"
+    }
+  },
+  "result": {
+    "item": "byg:shiny_chiseled_therium_wall",
+    "count": 6
+  }
+}

@@ -1,8 +1,8 @@
 {
   "variants": {
-    "": {
-      "model": "byg:block/shulkren_wart_block",
-      "model": "byg:block/shulkren_wart_block_nodots"
-    }
+    "": [
+      { "model": "byg:block/shulkren_wart_block" },
+      { "model": "byg:block/shulkren_wart_block_nodots" }
+    ]
   }
 }
