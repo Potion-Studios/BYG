@@ -3,6 +3,7 @@ package corgiaoc.byg.core.world;
 import corgiaoc.byg.common.world.feature.NoisyCaveSphere;
 import corgiaoc.byg.common.world.feature.NoisyCaveSphereWater;
 import corgiaoc.byg.common.world.feature.config.*;
+import corgiaoc.byg.common.world.feature.end.EndLakeFeature;
 import corgiaoc.byg.common.world.feature.end.islands.*;
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands1;
 import corgiaoc.byg.common.world.feature.end.islands.shattered.ShatteredFloatingIslands2;
@@ -173,6 +174,7 @@ public class BYGFeatures {
     //Lakes
     public static final Feature<BlockStateFeatureConfig> FROSTED_LAKE = createFeature("frosted_lake", new FrostMagmaLakeFeature(BlockStateFeatureConfig.field_236455_a_.stable()));
     public static final Feature<SimpleBlockProviderConfig> WIDE_LAKE = createFeature("wide_lake", new WideLake(SimpleBlockProviderConfig.CODEC.stable()));
+    public static final Feature<NoFeatureConfig> END_LAKE = createFeature("end_lake", new EndLakeFeature());
 
     //Pumpkins
     public static final Feature<PumpkinConfig> LARGE_PUMPKIN1 = createFeature("pumpkin", new LargePumpkin1(PumpkinConfig.CODEC.stable()));

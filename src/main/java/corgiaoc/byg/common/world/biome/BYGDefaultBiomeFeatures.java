@@ -77,6 +77,10 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.WIDE_WATER_LAKE);
     }
 
+    public static void addEndLake(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.END_LAKE);
+    }
+
     public static void addBulbisLake(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BULBIS_WATER_LAKE);
     }
@@ -467,7 +471,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addEnderLily(BiomeGenerationSettings.Builder gen) {
-        gen.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ENDER_LILY);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ENDER_LILY);
     }
 
     public static void addEtherPlants(BiomeGenerationSettings.Builder gen) {
