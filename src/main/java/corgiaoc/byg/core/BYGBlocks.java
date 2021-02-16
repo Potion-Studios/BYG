@@ -4,10 +4,7 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.properties.blocks.*;
-import corgiaoc.byg.common.properties.blocks.end.StoneEndPlantBlock;
-import corgiaoc.byg.common.properties.blocks.end.TallVentBlock;
-import corgiaoc.byg.common.properties.blocks.end.TheriumCrystalBlock;
-import corgiaoc.byg.common.properties.blocks.end.VentBlock;
+import corgiaoc.byg.common.properties.blocks.end.*;
 import corgiaoc.byg.common.properties.blocks.end.bulbisgardens.TallBulbisBlock;
 import corgiaoc.byg.common.properties.blocks.end.nightshade.NightshadeBerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.end.shattereddesert.OddityCactusBlock;
@@ -577,19 +574,18 @@ public class BYGBlocks {
     public static final Block BLUE_NETHERRACK = new BYGBlockProperties.BYGBlueNetherrack("blue_netherrack");
     public static final Block BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGBlueNetherrackBricks("blue_nether_bricks");
 
-    public static final Block BULBIS_SPROUTS = new BYGBlockProperties.EndPlant("bulbis_sprouts");
-
-    public static final Block IVIS_ROOTS = new BYGBlockProperties.EndPlant("ivis_roots");
-    public static final Block IVIS_SPROUT = new BYGBlockProperties.EndPlant("ivis_sprout");
+    public static final Block BULBIS_SPROUTS = createIvisBulbisPlant("bulbis_sprouts");
+    public static final Block IVIS_ROOTS = createIvisBulbisPlant("ivis_roots");
+    public static final Block IVIS_SPROUT = createIvisBulbisPlant("ivis_sprout");
     public static final Block ENDER_LILY = new BYGBlockProperties.BYGEnderLily("ender_lily");
 
     public static final Block ETHER_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("ether_foliage");
-    public static final Block TALL_ETHER_GRASS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_ether_grass");
-    public static final Block ETHER_GRASS = new BYGBlockProperties.EndPlant("ether_grass");
-    public static final Block ETHER_BUSH = new BYGBlockProperties.EndPlant("ether_bush");
-    public static final Block THEREAL_BELLFLOWER = new BYGBlockProperties.EndPlant("thereal_bellflower");
-    public static final Block NIGHTSHADE_SPROUTS = new BYGBlockProperties.EndPlant("nightshade_sprouts");
-    public static final Block NIGHTSHADE_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("nightshade_roots");
+    public static final Block TALL_ETHER_GRASS = createTallEtherPlant("tall_ether_grass");
+    public static final Block ETHER_GRASS = createEtherPlant("ether_grass");
+    public static final Block ETHER_BUSH = createEtherPlant("ether_bush");
+    public static final Block THEREAL_BELLFLOWER = createEtherPlant("thereal_bellflower");
+    public static final Block NIGHTSHADE_SPROUTS = createNightshadePlant("nightshade_sprouts");
+    public static final Block NIGHTSHADE_ROOTS = createTallNightshadePlant("nightshade_roots");
     public static final Block NIGHTSHADE_BERRY_BUSH = createNightshadeBerryBush("nightshade_berry_bush");
 
     public static final Block PURPUR_STONE = new BYGBlockProperties.BYGStone("purpur_stone");
@@ -605,9 +601,9 @@ public class BYGBlocks {
     public static final Block LIGNITE_ORE = new BYGBlockProperties.AnthraciteOre("lignite_ore");
 
     public static final Block ODDITY_CACTUS = createOddityCactus("oddity_cactus");
-    public static final Block ODDITY_BUSH = new BYGBlockProperties.EndPlant("oddity_bush");
+    public static final Block ODDITY_BUSH = createOddityDesertPlant("oddity_bush");
 
-    public static final Block VERMILION_SCULK_TENDRILS = new BYGBlockProperties.EndPlant("vermilion_sculk_tendrils");
+    public static final Block VERMILION_SCULK_TENDRILS = createSculkPlant("vermilion_sculk_tendrils");
     public static final Block VERMILION_SCULK_GROWTH = createSculkGrowth("vermilion_sculk_growth");
     public static final Block THERIUM_CRYSTAL = createTheriumCrystal("therium_crystal");
     public static final Block THERIUM_BLOCK = createTheriumBlock("therium_block");
@@ -1320,6 +1316,70 @@ public class BYGBlocks {
 
     static Block createSculkGrowth(String id) {
         Block createBlock = new SculkGrowthBlock(AbstractBlock.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().tickRandomly().notSolid().doesNotBlockMovement());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createIvisBulbisPlant(String id) {
+        Block createBlock = new IvisPlantBlock(AbstractBlock.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().notSolid().doesNotBlockMovement());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createEtherPlant(String id) {
+        Block createBlock = new EtherPlantBlock(AbstractBlock.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().notSolid().doesNotBlockMovement());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createTallEtherPlant(String id) {
+        Block createBlock = new TallEtherPlantBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.ROOT).zeroHardnessAndResistance().notSolid().doesNotBlockMovement());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createNightshadePlant(String id) {
+        Block createBlock = new NightshadePlantBlock(AbstractBlock.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().notSolid().doesNotBlockMovement());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createTallNightshadePlant(String id) {
+        Block createBlock = new TallNightshadePlantBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.ROOT).zeroHardnessAndResistance().notSolid().doesNotBlockMovement());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createSculkPlant(String id) {
+        Block createBlock = new SculkPlantBlock(AbstractBlock.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().notSolid().doesNotBlockMovement());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createShulkrenPlant(String id) {
+        Block createBlock = new ShulkrenPlantBlock(AbstractBlock.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().notSolid().doesNotBlockMovement());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createOddityDesertPlant(String id) {
+        Block createBlock = new DesertOddityPlantBlock(AbstractBlock.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().notSolid().doesNotBlockMovement());
 //        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);

@@ -4,7 +4,7 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.CrypticFireBlock;
-import corgiaoc.byg.common.properties.blocks.end.EndPlantBlock;
+import corgiaoc.byg.common.properties.blocks.end.IvisPlantBlock;
 import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
 import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
@@ -755,8 +755,8 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class EndPlant extends EndPlantBlock {
-        public EndPlant(String registryName) {
+    public static class IvisPlant extends IvisPlantBlock {
+        public IvisPlant(String registryName) {
             super(AbstractBlock.Properties.create(Material.PLANTS)
                     .sound(SoundType.ROOT)
                     .hardnessAndResistance(0.0f)
