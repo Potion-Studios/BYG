@@ -3,7 +3,7 @@
   "textures": {
     "particle": "byg:blocks/meadow_dirt",
     "bottom": "byg:blocks/meadow_dirt",
-    "top": "byg:blocks/meadow_grass_top",
+    "top": "minecraft:blocks/grass_block_top",
     "side": "byg:blocks/meadow_grass_snow_side"
   }
 }
