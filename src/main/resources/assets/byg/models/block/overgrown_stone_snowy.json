@@ -3,7 +3,7 @@
   "textures": {
     "particle": "byg:blocks/overgrown_stone_bottom",
     "bottom": "byg:blocks/overgrown_stone_bottom",
-    "top": "byg:blocks/overgrown_stone_top",
+    "top": "minecraft:block/grass_block_top",
     "side": "byg:blocks/overgrown_stone_snow_side"
   }
 }
