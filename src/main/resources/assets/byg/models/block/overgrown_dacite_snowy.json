@@ -3,7 +3,7 @@
   "textures": {
     "particle": "byg:blocks/overgrown_dacite_bottom",
     "bottom": "byg:blocks/overgrown_dacite_bottom",
-    "top": "byg:blocks/overgrown_dacite_top",
+    "top": "minecraft:block/grass_block_top",
     "side": "byg:blocks/overgrown_dacite_snow_side"
   }
 }
