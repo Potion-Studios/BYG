@@ -2,7 +2,7 @@
   "textures": {
     "particle": "block/netherrack",
     "bottom": "block/netherrack",
-    "top": "byg:blocks/overgrown_netherrack_top",
+    "top": "minecraft:block/grass_block_top",
     "side": "byg:blocks/overgrown_netherrack_side",
     "overlay": "byg:blocks/overgrown_netherrack_side_overlay"
   },
