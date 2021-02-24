@@ -2013,9 +2013,6 @@
   "item.byg.zelkova_stairs": "Escaleras de zelkova",
   "item.byg.zelkova_trapdoor": "Trampilla de zelkova",
   "item.byg.zelkova_wood": "Leño de zelkova",
-<<<<<<< HEAD
-  "itemGroup.byg": "Biomes You Go"
-=======
   "itemGroup.byg": "Biomes You Go",
   "text.autoconfig.byg/byg-world.title": "Configurar el BYG",
   "text.autoconfig.byg/byg-world.category.End_Dimension": "Dimensión del End",
@@ -2093,5 +2090,4 @@
   "text.autoconfig.byg/byg-world.option.OverworldDimension.Ores.Pendorite.Size.@PrefixText": "\nTamaño de los cúmulos.\nPor defecto: 4",
   "text.autoconfig.byg/byg-world.option.OverworldDimension.Ores.Pendorite.PerChunk": "Generar por chunk",
   "text.autoconfig.byg/byg-world.option.OverworldDimension.Ores.Pendorite.PerChunk.@PrefixText": "\nNúmero de generaciones por chunk.\nPor defecto: 10"
->>>>>>> Fabric-1.16.X
 }

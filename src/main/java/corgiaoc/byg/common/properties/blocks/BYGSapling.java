@@ -31,14 +31,11 @@ public class BYGSapling extends PlantBlock implements Fertilizable {
     @Override
     protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
         Block block = state.getBlock();
-<<<<<<< HEAD
 
         if (this == BYGBlocks.PALM_SAPLING) {
             if (state.getBlock().isIn(FabricTags.SAND))
                 return true;
         }
-=======
->>>>>>> Fabric-1.16.X
         return block.isIn(FabricTags.DIRT);
     }
 
