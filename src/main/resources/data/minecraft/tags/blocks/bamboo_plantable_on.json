@@ -5,6 +5,12 @@
     "byg:meadow_grass_block",
     "byg:meadow_dirt",
     "byg:overgrown_stone",
+<<<<<<< HEAD
+=======
+    "byg:podzol_dacite",
+    "byg:overgrown_dacite",
+    "byg:mud_block",
+>>>>>>> Fabric-1.16.X
     "#c:sand"
   ]
 }
