@@ -28,6 +28,7 @@
     "byg:lament_bookshelf",
     "byg:bulbis_bookshelf",
     "byg:ether_bookshelf",
-    "byg:nightshade_bookshelf"
+    "byg:nightshade_bookshelf",
+    "minecraft:bookshelf"
   ]
 }

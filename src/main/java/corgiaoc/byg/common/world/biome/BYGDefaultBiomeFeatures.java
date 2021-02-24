@@ -344,7 +344,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addMossyStoneBoulder(GenerationSettings.Builder gen) {
-        gen.feature(GenerationStep.Feature.RAW_GENERATION, BYGConfiguredFeatures.MOSSY_STONE_BOULDER);
+        gen.feature(GenerationStep.Feature.RAW_GENERATION, BYGConfiguredFeatures.MOSSY_STONE_BOULDERS);
     }
 
     public static void addFrostMagmaLakes(GenerationSettings.Builder gen) {
