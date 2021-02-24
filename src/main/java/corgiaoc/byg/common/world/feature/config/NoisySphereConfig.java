@@ -11,16 +11,16 @@ import net.minecraft.world.gen.feature.IFeatureConfig;
 
 import java.util.Random;
 
-public class NoisyCaveSphereConfig implements IFeatureConfig {
+public class NoisySphereConfig implements IFeatureConfig {
 
-    public static final Codec<NoisyCaveSphereConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
+    public static final Codec<NoisySphereConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
             return config.blockProvider;
         }), BlockStateProvider.CODEC.fieldOf("top_block_provider").forGetter((config) -> {
             return config.topBlockProvider;
-        }), Codec.INT.fieldOf("min_stack_height").orElse(15).forGetter((config) -> {
+        }), Codec.INT.fieldOf("min_stack_height").orElse(1).forGetter((config) -> {
             return config.minHeight;
-        }), Codec.INT.fieldOf("max_stack_height").orElse(15).forGetter((config) -> {
+        }), Codec.INT.fieldOf("max_stack_height").orElse(1).forGetter((config) -> {
             return config.maxHeight;
         }), Codec.INT.fieldOf("min_x_radius").orElse(11).forGetter((config) -> {
             return config.minXRadius;
@@ -38,7 +38,7 @@ public class NoisyCaveSphereConfig implements IFeatureConfig {
             return config.radiusDivisorPerStack;
         }), Codec.DOUBLE.fieldOf("noise_frequency").orElse(1.0).forGetter((config) -> {
             return config.radiusDivisorPerStack;
-        })).apply(codecRecorder, NoisyCaveSphereConfig::new);
+        })).apply(codecRecorder, NoisySphereConfig::new);
     });
 
 
@@ -55,7 +55,7 @@ public class NoisyCaveSphereConfig implements IFeatureConfig {
     private final double radiusDivisorPerStack;
     private final double noiseFrequency;
 
-    NoisyCaveSphereConfig(BlockStateProvider blockProvider, BlockStateProvider topBlockProvider, int minHeight, int maxHeight, int minXRadius, int maxXRadius, int minYRadius, int maxYRadius, int minZRadius, int maxZRadius, double radiusDivisorPerStack, double noiseFrequency) {
+    NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProvider topBlockProvider, int minHeight, int maxHeight, int minXRadius, int maxXRadius, int minYRadius, int maxYRadius, int minZRadius, int maxZRadius, double radiusDivisorPerStack, double noiseFrequency) {
         this.blockProvider = blockProvider;
         this.topBlockProvider = topBlockProvider;
         this.minHeight = minHeight;
@@ -286,7 +286,7 @@ public class NoisyCaveSphereConfig implements IFeatureConfig {
             return this;
         }
 
-        public Builder copy(NoisyCaveSphereConfig config) {
+        public Builder copy(NoisySphereConfig config) {
             this.blockProvider = config.blockProvider;
             this.topBlockProvider = config.topBlockProvider;
             this.minStackHeight = config.minHeight;
@@ -302,8 +302,8 @@ public class NoisyCaveSphereConfig implements IFeatureConfig {
             return this;
         }
 
-        public NoisyCaveSphereConfig build() {
-            return new NoisyCaveSphereConfig(this.blockProvider, this.topBlockProvider, this.minStackHeight, this.maxStackHeight, this.minXRadius / 2, this.maxXRadius / 2, minYRadius / 2, maxYRadius / 2, minZRadius / 2, maxZRadius / 2, this.radiusDivisorPerStack, this.noiseFrequency);
+        public NoisySphereConfig build() {
+            return new NoisySphereConfig(this.blockProvider, this.topBlockProvider, this.minStackHeight, this.maxStackHeight, this.minXRadius / 2, this.maxXRadius / 2, minYRadius / 2, maxYRadius / 2, minZRadius / 2, maxZRadius / 2, this.radiusDivisorPerStack, this.noiseFrequency);
         }
     }
 }

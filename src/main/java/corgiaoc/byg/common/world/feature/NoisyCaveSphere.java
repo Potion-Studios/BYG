@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.feature;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.config.NoisyCaveSphereConfig;
+import corgiaoc.byg.common.world.feature.config.NoisySphereConfig;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -10,25 +10,22 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 
-import java.util.BitSet;
 import java.util.Random;
 
-public class NoisyCaveSphere extends Feature<NoisyCaveSphereConfig> {
+public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
     protected static FastNoise fastNoise;
     protected long seed;
 
-    public NoisyCaveSphere(Codec<NoisyCaveSphereConfig> configCodec) {
+    public NoisyCaveSphere(Codec<NoisySphereConfig> configCodec) {
         super(configCodec);
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisyCaveSphereConfig config) {
+    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
         setSeed(world.getSeed());
 
         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position.down(2 + random.nextInt(10)));

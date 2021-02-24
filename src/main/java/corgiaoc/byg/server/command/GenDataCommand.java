@@ -16,6 +16,7 @@ import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.util.text.*;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
@@ -62,7 +63,7 @@ public class GenDataCommand {
         Path dataPackPath = dataPackPath(commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS), modId);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         DynamicRegistries manager = commandSource.getSource().getServer().func_244267_aX();
-        Registry<Biome> biomeRegistry = manager.getRegistry(Registry.BIOME_KEY);
+        Registry<Biome> biomeRegistry = WorldGenRegistries.BIOME;
         Registry<ConfiguredFeature<?, ?>> featuresRegistry = manager.getRegistry(Registry.CONFIGURED_FEATURE_KEY);
         Registry<StructureFeature<?, ?>> structuresRegistry = manager.getRegistry(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY);
         Registry<ConfiguredCarver<?>> carverRegistry = manager.getRegistry(Registry.CONFIGURED_CARVER_KEY);

@@ -1,5 +1,6 @@
 package corgiaoc.byg.core.world;
 
+import corgiaoc.byg.common.world.feature.MineralDeposit;
 import corgiaoc.byg.common.world.feature.NoisyCaveSphere;
 import corgiaoc.byg.common.world.feature.NoisyCaveSphereWater;
 import corgiaoc.byg.common.world.feature.config.*;
@@ -161,8 +162,9 @@ public class BYGFeatures {
     public static final Feature<SimpleBlockProviderConfig> ARCH = createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> PURPUR_PEAK = createFeature("purpur_peak", new PurpurPeak(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> SPIKE = createFeature("spike", new SpikeFeature(SimpleBlockProviderConfig.CODEC.stable()));
-    public static final Feature<NoisyCaveSphereConfig> NOISY_CAVE_SPHERE = createFeature("noisy_cave_sphere", new NoisyCaveSphere(NoisyCaveSphereConfig.CODEC.stable()));
-    public static final Feature<NoisyCaveSphereConfig> NOISY_CAVE_SPHERE_WATER = createFeature("noisy_cave_sphere_water", new NoisyCaveSphereWater(NoisyCaveSphereConfig.CODEC.stable()));
+    public static final Feature<NoisySphereConfig> NOISY_CAVE_SPHERE = createFeature("noisy_cave_sphere", new NoisyCaveSphere(NoisySphereConfig.CODEC.stable()));
+    public static final Feature<NoisySphereConfig> NOISY_CAVE_SPHERE_WATER = createFeature("noisy_cave_sphere_water", new NoisyCaveSphereWater(NoisySphereConfig.CODEC.stable()));
+    public static final Feature<NoisySphereConfig> MINERAL_DEPOSIT = createFeature("mineral_deposit", new MineralDeposit(NoisySphereConfig.CODEC.stable()));
 
     /********************************************************************Features*************************************************************************/
     //DeadSea
