@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "byg:imparius_stem",
+    "byg:imparius_hyphae",
+    "byg:fungal_imparius_stem",
+    "byg:fungal_imparius_hyphae"
+  ]
+}

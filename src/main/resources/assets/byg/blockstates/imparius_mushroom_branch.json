@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "byg:block/imparius_mushroom_branch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "byg:block/imparius_mushroom_branch"
+    },
+    "facing=south": {
+      "model": "byg:block/imparius_mushroom_branch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "byg:block/imparius_mushroom_branch",
+      "y": 270
+    }
+  }
+}

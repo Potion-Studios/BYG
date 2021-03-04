@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "byg:imparius_stems"
+    }
+  ],
+  "result": {
+    "item": "byg:imparius_planks",
+    "count": 4
+  }
+}

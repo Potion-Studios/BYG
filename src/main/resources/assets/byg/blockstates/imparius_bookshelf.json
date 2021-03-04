@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/imparius_bookshelf" },
+      { "model": "byg:block/imparius_bookshelf2" },
+      { "model": "byg:block/imparius_bookshelf3" }
+    ]
+  }
+}

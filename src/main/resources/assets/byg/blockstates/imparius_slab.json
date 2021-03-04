@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/imparius_slab"
+    },
+    "type=double": {
+      "model": "byg:block/imparius_planks"
+    },
+    "type=top": {
+      "model": "byg:block/imparius_slab_top"
+    }
+  }
+}

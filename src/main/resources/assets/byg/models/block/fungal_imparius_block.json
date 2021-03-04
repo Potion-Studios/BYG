@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:block/fungal_imparius_block",
+    "particle": "byg:block/fungal_imparius_block"
+  }
+}

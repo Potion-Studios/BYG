@@ -45,7 +45,9 @@ public class BYGStrippables {
         strippableBlock(BYGBlocks.ETHER_LOG, BYGBlocks.STRIPPED_ETHER_LOG);
         strippableBlock(BYGBlocks.NIGHTSHADE_LOG, BYGBlocks.STRIPPED_NIGHTSHADE_LOG);
         strippableBlock(BYGBlocks.BULBIS_STEM, BYGBlocks.STRIPPED_BULBIS_LOG);
-        
+        strippableBlock(BYGBlocks.EMBUR_PEDU, BYGBlocks.STRIPPED_EMBUR_PEDU);
+        strippableBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM, BYGBlocks.IMPARIUS_STEM);
+
         strippableBlock(BYGBlocks.ASPEN_WOOD, BYGBlocks.STRIPPED_ASPEN_WOOD);
         strippableBlock(BYGBlocks.BAOBAB_WOOD, BYGBlocks.STRIPPED_BAOBAB_WOOD);
         strippableBlock(BYGBlocks.BLUE_ENCHANTED_WOOD, BYGBlocks.STRIPPED_BLUE_ENCHANTED_WOOD);
@@ -75,6 +77,8 @@ public class BYGStrippables {
         strippableBlock(BYGBlocks.ETHER_WOOD, BYGBlocks.STRIPPED_ETHER_WOOD);
         strippableBlock(BYGBlocks.NIGHTSHADE_WOOD, BYGBlocks.STRIPPED_NIGHTSHADE_WOOD);
         strippableBlock(BYGBlocks.BULBIS_WOOD, BYGBlocks.STRIPPED_BULBIS_WOOD);
+        strippableBlock(BYGBlocks.EMBUR_HYPHAE, BYGBlocks.STRIPPED_EMBUR_HYPHAE);
+        strippableBlock(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE, BYGBlocks.IMPARIUS_HYPHAE);
 
         BYG.LOGGER.info("BYG: Added strippable Blocks...");
 

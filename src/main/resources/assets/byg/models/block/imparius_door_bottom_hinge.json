@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_rh",
+  "textures": {
+    "bottom": "byg:block/imparius_door_bottom",
+    "top": "byg:block/imparius_door_top"
+  }
+}
