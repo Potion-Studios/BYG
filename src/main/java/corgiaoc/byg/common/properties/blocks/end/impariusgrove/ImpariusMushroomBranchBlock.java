@@ -26,7 +26,7 @@ public class ImpariusMushroomBranchBlock extends AbstractCoralPlantBlock {
 
     public ImpariusMushroomBranchBlock(AbstractBlock.Properties builder) {
         super(builder);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(true)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

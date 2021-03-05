@@ -16,6 +16,7 @@ import corgiaoc.byg.common.world.feature.end.trees.ether.*;
 import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree1;
 import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree2;
 import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree3;
+import corgiaoc.byg.common.world.feature.end.trees.impariusgrove.*;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.*;
 import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree1;
 import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree2;
@@ -242,6 +243,16 @@ public class BYGFeatures {
     //Shulkren
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SHULKREN_TREE1 = createFeature("shulkren_tree1", new ShulkrenTree1(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SHULKREN_TREE2 = createFeature("shulkren_tree2", new ShulkrenTree2(BYGMushroomConfig.CODEC.stable()));
+
+    //Imparius
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> IMPARIUS_MUSHROOM1 = createFeature("imparius_mushroom1", new ImpariusMushroom1(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> IMPARIUS_MUSHROOM2 = createFeature("imparius_mushroom2", new ImpariusMushroom2(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> IMPARIUS_MUSHROOM3 = createFeature("imparius_mushroom3", new ImpariusMushroom3(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> IMPARIUS_MUSHROOM4 = createFeature("imparius_mushroom4", new ImpariusMushroom4(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> IMPARIUS_MUSHROOM5 = createFeature("imparius_mushroom5", new ImpariusMushroom5(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> IMPARIUS_MUSHROOM6 = createFeature("imparius_mushroom6", new ImpariusMushroom6(BYGMushroomConfig.CODEC.stable()));
+
+
 
 
     public static final Feature<FloatingIslandConfig> FLOATING_ISLAND1 = createFeature("floating_island1", new FloatingIslands1(FloatingIslandConfig.CODEC.stable()));

@@ -1,6 +1,7 @@
 package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
+import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.properties.blocks.*;
@@ -1440,7 +1441,7 @@ public class BYGBlocks {
     }
 
     static Block createImpariusMushroomBranch(String id) {
-        Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.create(Material.LEAVES, MaterialColor.CYAN).zeroHardnessAndResistance().sound(SoundType.NETHER_VINE_LOWER_PITCH).notSolid().doesNotBlockMovement().harvestTool(ToolType.HOE).setLightLevel((state) -> 10));
+        Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS, MaterialColor.CYAN).zeroHardnessAndResistance().sound(SoundType.NETHER_VINE_LOWER_PITCH).notSolid().doesNotBlockMovement().harvestTool(ToolType.HOE).setLightLevel((state) -> 10));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
         blocksList.add(createBlock);
