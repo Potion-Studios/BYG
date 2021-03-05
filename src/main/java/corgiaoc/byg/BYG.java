@@ -157,6 +157,8 @@ public class BYG {
             BYGBiomes.init();
             BYGBiomes.biomeList.sort(Comparator.comparingInt(BYGBiomes.PreserveBiomeOrder::getOrderPosition));
             BYGBiomes.biomeList.forEach(preserveBiomeOrder -> event.getRegistry().register(preserveBiomeOrder.getBiome()));
+            BYGBiomes.CANYON_KEY = BYGBiomes.CANYON.getKey();
+
             BYG.LOGGER.info("BYG: Biomes registered!");
         }
 

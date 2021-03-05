@@ -1,0 +1,67 @@
+package corgiaoc.byg.common.world.feature.overworld.river;
+
+import corgiaoc.byg.util.noise.fastnoise.FastNoise;
+import net.minecraft.util.RegistryKey;
+import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.gen.ChunkGenerator;
+
+import java.io.ByteArrayOutputStream;
+import java.util.Set;
+
+public class MegaChunk {
+    private final MegaChunkPos megaChunkPos;
+    private final BiomeProvider provider;
+    private final ChunkGenerator chunkGenerator;
+    private final Set<Biome> allowedBiomes;
+    private final byte[] canyonChunks;
+    private RiverGenerator riverGenerator;
+
+    public MegaChunk(MegaChunkPos megaChunkPos, ChunkGenerator chunkGenerator, Set<Biome> allowedBiomes) {
+        this.megaChunkPos = megaChunkPos;
+        this.chunkGenerator = chunkGenerator;
+        this.provider = chunkGenerator.getBiomeProvider();
+        this.allowedBiomes = allowedBiomes;
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+        for (int x = 0; x < 16; x++) {
+            for (int z = 0; z < 16; z++) {
+                ChunkPos chunkPos = megaChunkPos.toChunkPos(x, z);
+                Biome noiseBiome = chunkGenerator.getBiomeProvider().getNoiseBiome((chunkPos.x << 2) + 2, 0, (chunkPos.z << 2) + 2);
+
+                if (allowedBiomes.contains(noiseBiome)) {
+                    byteArrayOutputStream.write(MegaChunkPos.packLocalPos(x, z));
+                }
+
+            }
+        }
+        this.canyonChunks = byteArrayOutputStream.toByteArray();
+    }
+
+    public int getCount() {
+        return canyonChunks.length;
+    }
+
+    public MegaChunkPos getMegaChunkPos() {
+        return megaChunkPos;
+    }
+
+    public RiverGenerator getRiverGenerator() {
+        return riverGenerator;
+    }
+
+    public void createRiverGenerator(FastNoise noise, long worldSeed, int maxRiverDistance) {
+        SharedSeedRandom seedRandom = new SharedSeedRandom(worldSeed);
+
+        seedRandom.setFeatureSeed(934893458905904595L, megaChunkPos.getX(), megaChunkPos.getZ());
+
+        byte canyonChunkByte = canyonChunks[seedRandom.nextInt(canyonChunks.length)];
+
+        this.riverGenerator = new RiverGenerator(noise, this.megaChunkPos.unpackLocalPos(canyonChunkByte).asBlockPos(), blockpos -> false, blockpos -> {
+            Biome.Category category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getCategory();
+            return (category == Biome.Category.RIVER || category == Biome.Category.OCEAN);
+        }, maxRiverDistance);
+    }
+}

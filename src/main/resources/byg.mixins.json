@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
+    "access.BiomeContainerAccess",
     "common.block.MixinAbstractFireBlock",
     "common.block.MixinCactusBlock",
     "common.block.MixinSugarCaneBlock",

@@ -1,10 +1,10 @@
 package corgiaoc.byg.common.world.surfacebuilder;
 
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import javafx.util.Pair;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
@@ -18,14 +18,18 @@ import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
-import java.util.Comparator;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 
     private static long seed;
-    private static FastNoise noise;
-    private static FastNoise noise2;
+    public static FastNoise noise;
+    public static FastNoise noise2;
     private static FastNoise noiseGrid;
     private static FastNoise octaveSimplexNoise;
     private static double max = -1000;
@@ -63,26 +67,50 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
     @Override
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double surfaceNoise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         setupNoise(seed);
-        double noiseVal = noise.GetNoise(x, z) * 10;
+        seaLevel = 144;
+//        int localX = x & 15;
+//        int localZ = z & 15;
+//        BlockPos.Mutable localPos = new BlockPos.Mutable(localX, 100, localZ);
+//
+//        try {
+//            int centerMaxY = readHeightmapData(x, z, 100, 205);
+//
+//
+////            double totalDensity = 0;
+////            for (int xSearch = -searchRange; xSearch < searchRange; xSearch++) {
+////                for (int zSearch = -searchRange; zSearch < searchRange; zSearch++) {
+////                    int offsetMaxY = readHeightmapData(x + xSearch, z + zSearch, 100, 205);
+////
+////                    totalDensity += offsetMaxY * 0.01;
+////                }
+////            }
+//
+//
+//
+//
+//            for (int i = 100; i < centerMaxY; i++) {
+//                chunkIn.setBlockState(localPos, Blocks.STONE.getDefaultState(), false);
+//                localPos.move(Direction.UP);
+//            }
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-        double reversedNoiseVal = noiseVal - Math.abs(noiseVal + noiseVal);
-
-
-        getMinAndMax(noiseVal);
-
-        float noise2Val = noise2.GetNoise(x, z);
 
         int localX = x & 15;
         int localZ = z & 15;
+
 
         BlockPos.Mutable localPos = new BlockPos.Mutable(localX, startHeight, localZ);
 
 
         double curvingMultiplier = 0.4;
 
+        double noiseVal = noise.GetNoise(x, z) * 10;
+        double reversedNoiseVal = noiseVal - Math.abs(noiseVal + noiseVal);
+        float noise2Val = noise2.GetNoise(x, z);
         double curviness = Math.abs(noise2Val * curvingMultiplier);
-
-
         double minThreshold = 5.65 + curviness;
         double maxThreshold = 5.8 + curviness;
 
@@ -90,10 +118,36 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
         double offset2 = 0.2;
         double offset = 0.45;
 
-        if (noiseVal > minThreshold && noiseVal < maxThreshold) {
-            for (int y = startHeight; y >= seaLevel - 10; y--) {
+        boolean check = noiseVal > minThreshold && noiseVal < maxThreshold;
+        float simplexNoise = octaveSimplexNoise.GetNoise(x, z) * 7;
+
+        if (check) {
+
+            float totalCellDensity = 0;
+
+            for (int xSearch = -searchRange; xSearch < searchRange; xSearch++) {
+                for (int zSearch = -searchRange; zSearch < searchRange; zSearch++) {
+                    float rawOffsetNoiseGridNoise = noiseGrid.GetNoise(x + xSearch + 25, z + zSearch + 25);
+                    float rawOffsetCellWeight = cellWeight(rawOffsetNoiseGridNoise).getFirst();
+                    float cellWeight = CELL_WEIGHTS[xSearch + 2 + (zSearch + 2) * 5] / (rawOffsetNoiseGridNoise + 7.5F);
+                    totalCellDensity += cellWeight * rawOffsetCellWeight * 0.2;
+                }
+            }
+
+
+            double minThresholdNoiseValDif = noiseVal - minThreshold;
+            double maxThresholdNoiseValDif = noiseVal - maxThreshold;
+
+            float lowestY = (float) (100 - (noiseVal * 25) + seaLevel + 40) - totalCellDensity + ((simplexNoise * 1.2F) * 0.5F);
+            if (checkForFlip(minThresholdNoiseValDif, maxThresholdNoiseValDif)) {
+                lowestY = (float) (100 + (reversedNoiseVal * 25) - seaLevel + 54) - totalCellDensity + ((simplexNoise * 1.2F) * 0.5F);
+                lowestY = Math.abs(lowestY);
+            }
+
+            for (int y = startHeight; y >= lowestY; y--) {
                 if (y < seaLevel) {
                     chunkIn.setBlockState(localPos, Blocks.WATER.getDefaultState(), false);
+                    chunkIn.getFluidsToBeTicked().scheduleTick(localPos, Fluids.WATER, 0);
                 } else {
                     chunkIn.setBlockState(localPos, Blocks.AIR.getDefaultState(), false);
                 }
@@ -105,14 +159,13 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
             for (int xSearch = -searchRange; xSearch < searchRange; xSearch++) {
                 for (int zSearch = -searchRange; zSearch < searchRange; zSearch++) {
                     float rawOffsetNoiseGridNoise = noiseGrid.GetNoise(x + xSearch, z + zSearch);
-                    float rawOffsetCellWeight = cellWeight(rawOffsetNoiseGridNoise).getKey();
+                    float rawOffsetCellWeight = cellWeight(rawOffsetNoiseGridNoise).getFirst();
                     float cellWeight = CELL_WEIGHTS[xSearch + 2 + (zSearch + 2) * 5] / (rawOffsetNoiseGridNoise + 7.5F);
                     totalCellDensity += cellWeight * rawOffsetCellWeight * 0.2;
                 }
             }
-            float simplexNoise = octaveSimplexNoise.GetNoise(x, z) * 7;
 
-            float lowestY = (float) (100 - (noiseVal * 25) + 108) - totalCellDensity + (simplexNoise * 0.5F);
+            float lowestY = (float) (100 - (noiseVal * 25) + 188) - totalCellDensity + (simplexNoise * 0.5F);
 
             double minThresholdNoiseValDif = noiseVal - minThreshold;
             double maxThresholdNoiseValDif = noiseVal - maxThreshold;
@@ -120,7 +173,6 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
             if (checkForFlip(minThresholdNoiseValDif, maxThresholdNoiseValDif)) {
                 lowestY = (float) (100 + (reversedNoiseVal * 24) - 96) - totalCellDensity + (simplexNoise * 0.5F);
                 lowestY = Math.abs(lowestY);
-                lowestY = lowestY - 80;
             }
 
             for (int y = startHeight; y >= lowestY; y--) {
@@ -142,14 +194,13 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
             for (int xSearch = -searchRange; xSearch < searchRange; xSearch++) {
                 for (int zSearch = -searchRange; zSearch < searchRange; zSearch++) {
                     float rawOffsetNoiseGridNoise = noiseGrid.GetNoise(x + xSearch, z + zSearch);
-                    float rawOffsetCellWeight = cellWeight(rawOffsetNoiseGridNoise).getKey();
+                    float rawOffsetCellWeight = cellWeight(rawOffsetNoiseGridNoise).getFirst();
                     float cellWeight = CELL_WEIGHTS[xSearch + 2 + (zSearch + 2) * 5] / (rawOffsetNoiseGridNoise + 7.5F);
                     totalCellDensity += cellWeight * rawOffsetCellWeight * 0.5;
                 }
             }
 
-            float simplexNoise = octaveSimplexNoise.GetNoise(x, z) * 7;
-            float lowestY = (float) (100 - (noiseVal * 25) + 125) - totalCellDensity + simplexNoise;
+            float lowestY = (float) (100 - (noiseVal * 25) + 205) - totalCellDensity + simplexNoise;
 
             double minThresholdNoiseValDif = noiseVal - minThreshold;
             double maxThresholdNoiseValDif = noiseVal - maxThreshold;
@@ -157,7 +208,6 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
             if (checkForFlip(minThresholdNoiseValDif, maxThresholdNoiseValDif)) {
                 lowestY = (float) (100 + (reversedNoiseVal * 24) - 110) - totalCellDensity + simplexNoise;
                 lowestY = Math.abs(lowestY);
-                lowestY = lowestY - 80;
             }
 
             for (int y = startHeight + 5; y >= lowestY; y--) {
@@ -172,14 +222,13 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
             for (int xSearch = -searchRange; xSearch < searchRange; xSearch++) {
                 for (int zSearch = -searchRange; zSearch < searchRange; zSearch++) {
                     float rawOffsetNoiseGridNoise = noiseGrid.GetNoise(x + xSearch, z + zSearch);
-                    float rawOffsetCellWeight = cellWeight(rawOffsetNoiseGridNoise).getKey();
+                    float rawOffsetCellWeight = cellWeight(rawOffsetNoiseGridNoise).getFirst();
                     float cellWeight = CELL_WEIGHTS[xSearch + 2 + (zSearch + 2) * 5] / (rawOffsetNoiseGridNoise + 7.5F);
                     totalCellDensity += cellWeight * rawOffsetCellWeight * 0.5;
                 }
             }
 
-            float simplexNoise = octaveSimplexNoise.GetNoise(x, z) * 7;
-            float lowestY = (float) (100 - (noiseVal * 25) + 135) - totalCellDensity + simplexNoise;
+            float lowestY = (float) (100 - (noiseVal * 25) + 215) - totalCellDensity + simplexNoise;
 
             double minThresholdNoiseValDif = noiseVal - minThreshold;
             double maxThresholdNoiseValDif = noiseVal - maxThreshold;
@@ -187,7 +236,6 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
             if (checkForFlip(minThresholdNoiseValDif, maxThresholdNoiseValDif)) {
                 lowestY = (float) (100 + (reversedNoiseVal * 24) - 120) - totalCellDensity + simplexNoise;
                 lowestY = Math.abs(lowestY);
-                lowestY = lowestY - 80;
             }
 
             for (int y = startHeight + 5; y >= lowestY; y--) {
@@ -215,7 +263,7 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
         }
     }
 
-    private static void setupNoise(long serverSeed) {
+    public static void setupNoise(long serverSeed) {
         if (seed != serverSeed || noise == null || noise2 == null) {
             seed = serverSeed;
             noise = new FastNoise((int) seed);
@@ -261,5 +309,36 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 
     public static boolean checkForFlip(double min, double max) {
         return Math.abs(min) > Math.abs(max);
+    }
+
+
+    static int minColor = Integer.MAX_VALUE;
+    static int maxColor = Integer.MIN_VALUE;
+    static File file = new File("C:\\coding\\BYG\\src\\main\\resources\\assets\\byg\\canyon.jpg");
+
+    static BufferedImage heightmapimage = null;
+
+    public static int readHeightmapData(int x, int z, int minY, int maxY) throws IOException {
+        if (heightmapimage == null) {
+            heightmapimage = ImageIO.read(file);
+        }
+        if (minColor == Integer.MAX_VALUE || maxColor == Integer.MIN_VALUE) {
+            for (int xMove = 0; xMove < heightmapimage.getWidth(); xMove++) {
+                for (int zMove = 0; zMove < heightmapimage.getHeight(); zMove++) {
+                    int rgb = new Color(heightmapimage.getRGB(xMove, zMove)).getRed();
+                    minColor = Math.min(minColor, rgb);
+                    maxColor = Math.max(maxColor, rgb);
+                }
+            }
+        }
+
+        x = x % (heightmapimage.getWidth() - 1);
+        z = z % (heightmapimage.getHeight() - 1);
+
+        int rgb = heightmapimage.getRGB(Math.abs(x), Math.abs(z));
+
+        rgb = new Color(rgb).getRed();
+
+        return (((rgb - minColor) * (maxY - minY)) / (maxColor - minColor)) + minY;
     }
 }
