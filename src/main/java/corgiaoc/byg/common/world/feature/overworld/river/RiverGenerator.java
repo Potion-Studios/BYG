@@ -25,7 +25,7 @@ public class RiverGenerator {
             Node prevNode = nodes.get(i - 1);
             float angle = this.noise.GetNoise(startPos.getX(), i, startPos.getZ());
 
-            Vector2f dAngle = get2DAngle(angle, 10);
+            Vector2f dAngle = get2DAngle(angle * 5, 10);
             Node nextNode = new Node(prevNode.getPos().add(new Vector3i(dAngle.x, 0, dAngle.y)));
 
             if (isInvalid.test(nextNode.getPos())) {

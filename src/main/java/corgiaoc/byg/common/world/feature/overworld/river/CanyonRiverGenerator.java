@@ -216,8 +216,8 @@ public class CanyonRiverGenerator extends Feature<NoFeatureConfig> {
             noise.SetNoiseType(FastNoise.NoiseType.PerlinFractal);
             noise.SetGradientPerturbAmp(1);
             noise.SetFractalOctaves(5);
-            noise.SetFractalGain(0.3f);
-            noise.SetFrequency(0.0002F);
+            noise.SetFractalGain(0.5f);
+            noise.SetFrequency(0.08F);
         }
     }
 }
