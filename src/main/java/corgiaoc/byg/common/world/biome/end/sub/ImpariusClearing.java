@@ -56,6 +56,7 @@ public class ImpariusClearing extends BYGEndSubBiome {
     }
 
     static {
+        BYGDefaultBiomeFeatures.addImpariusPlants(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addImpariusMushroomShrubs(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEndLake(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);

@@ -74,6 +74,8 @@ public class ImpariusGrove extends BYGEndBiome {
 
 
     static {
+        BYGDefaultBiomeFeatures.addImpariusPlants(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addFungalImparius(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addImpariusMushrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEndLake(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);

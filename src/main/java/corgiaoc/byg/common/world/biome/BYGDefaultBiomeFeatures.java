@@ -501,6 +501,11 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SHULKREN_VINE);
     }
 
+    public static void addImpariusPlants(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.IMPARIUS_MUSHROOMS);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.FUNGI_IMPARIUS);
+    }
+
     public static void addShatteredDesertPlants(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ODDITY_PLANT);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WHITE_SANDSTONE_BOULDER2);
@@ -937,6 +942,10 @@ public class BYGDefaultBiomeFeatures {
     public static void addImpariusMushrooms(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_IMPARIUS_MUSHROOM);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_IMPARIUS_MUSHROOM_SHRUBS);
+    }
+
+    public static void addFungalImparius(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_FUNGAL_IMPARIUS);
     }
 
     public static void addImpariusMushroomShrubs(BiomeGenerationSettings.Builder gen) {

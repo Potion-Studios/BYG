@@ -196,6 +196,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> SHULKREN_MOSS = createConfiguredFeature("shulkren_moss_blanket", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.SHULKREN_MOSS_BLANKET.getDefaultState(), ImmutableList.of(BYGBlocks.SHULKREN_PHYLIUM.getDefaultState(), BYGBlocks.ETHER_PHYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), BYGBlocks.SHULKREN_PHYLIUM.getDefaultState(), BYGBlocks.ETHER_PHYLIUM.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> SHULKREN_FUNGUS = createConfiguredFeature("shulkren_fungus", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SHULKREN_FUNGUS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
 
+    public static final ConfiguredFeature<?, ?> IMPARIUS_MUSHROOM = createConfiguredFeature("imparius_mushroom", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.IMPARIUS_MUSHROOM.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
+    public static final ConfiguredFeature<?, ?> FUNGAL_IMPARIUS = createConfiguredFeature("fungal_imparius", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.FUNGAL_IMPARIUS.getDefaultState()), new SimpleBlockPlacer())).tries(32).build()));
 
     public static final ConfiguredFeature<?, ?> EMBUR_ROOTS = createConfiguredFeature("embur_roots", Feature.SIMPLE_BLOCK.withConfiguration(new BlockWithContextConfig(BYGBlocks.EMBUR_ROOTS.getDefaultState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState()), ImmutableList.of(Blocks.AIR.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), BYGBlocks.EMBUR_NYLIUM.getDefaultState()))));
     public static final ConfiguredFeature<?, ?> EMBUR_ROOTS_TALL = createConfiguredFeature("tall_embur_roots", Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_EMBUR_ROOTS.getDefaultState()), new DoublePlantBlockPlacer())).tries(1).whitelist(ImmutableSet.of(BYGBlocks.EMBUR_NYLIUM)).func_227317_b_().build()));
@@ -474,6 +476,9 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> THERIUM_CRYSTALS = createConfiguredFeature("therium_crystals",  THERIUM_CRYSTAL.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(65))));
     public static final ConfiguredFeature<?, ?> SHULKREN_MOSSES = createConfiguredFeature("shulkren_mosses",  SHULKREN_MOSS.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(45))));
     public static final ConfiguredFeature<?, ?> SHULKREN_FUNGI = createConfiguredFeature("shulkren_fungi",  SHULKREN_FUNGUS.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
+
+    public static final ConfiguredFeature<?, ?> FUNGI_IMPARIUS = createConfiguredFeature("fungi_imparius",  FUNGAL_IMPARIUS.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
+    public static final ConfiguredFeature<?, ?> IMPARIUS_MUSHROOMS = createConfiguredFeature("mushrooms_imparius",  IMPARIUS_MUSHROOM.withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SWAMP_PLANTS = createConfiguredFeature("swamp_plants", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             TINY_LILY_PAD.withChance(0.50F)),
@@ -991,6 +996,13 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGMushroomConfig, ?> IMPARIUS_MUSHROOM4 = createConfiguredFeature("imparius_mushroom4", BYGFeatures.IMPARIUS_MUSHROOM4.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.IMPARIUS_STEM).setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> IMPARIUS_MUSHROOM5 = createConfiguredFeature("imparius_mushroom5", BYGFeatures.IMPARIUS_MUSHROOM5.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.IMPARIUS_STEM).setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> IMPARIUS_MUSHROOM6 = createConfiguredFeature("imparius_mushroom6", BYGFeatures.IMPARIUS_MUSHROOM6.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.IMPARIUS_STEM).setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
+
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> FUNGAL_IMPARIUS1 = createConfiguredFeature("fungal_imparius1", BYGFeatures.FUNGAL_IMPARIUS1.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM).setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> FUNGAL_IMPARIUS2 = createConfiguredFeature("fungal_imparius2", BYGFeatures.FUNGAL_IMPARIUS2.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM).setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> FUNGAL_IMPARIUS3 = createConfiguredFeature("fungal_imparius3", BYGFeatures.FUNGAL_IMPARIUS3.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM).setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> FUNGAL_IMPARIUS4 = createConfiguredFeature("fungal_imparius4", BYGFeatures.FUNGAL_IMPARIUS4.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM).setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> FUNGAL_IMPARIUS5 = createConfiguredFeature("fungal_imparius5", BYGFeatures.FUNGAL_IMPARIUS5.withConfiguration(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM).setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
+
 
     /***********************************************************Configured Placement***********************************************************/
 
@@ -1781,12 +1793,20 @@ public class BYGConfiguredFeatures {
             IMPARIUS_MUSHROOM4.withChance(0.25F),
             IMPARIUS_MUSHROOM5.withChance(0.25F)),
             IMPARIUS_MUSHROOM6)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
-            new AtSurfaceWithExtraConfig(1, 0.1F, 1))));
+            new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_IMPARIUS_MUSHROOM_SHRUBS = createConfiguredFeature("imparius_mushroom_shrubs", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             IMPARIUS_MUSHROOM1.withChance(0.5F)),
             IMPARIUS_MUSHROOM2)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
             new AtSurfaceWithExtraConfig(1, 0.1F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_FUNGAL_IMPARIUS = createConfiguredFeature("fungal_impariuses", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            FUNGAL_IMPARIUS1.withChance(0.25F),
+            FUNGAL_IMPARIUS2.withChance(0.25F),
+            FUNGAL_IMPARIUS3.withChance(0.25F),
+            FUNGAL_IMPARIUS4.withChance(0.25F)),
+            FUNGAL_IMPARIUS5)).withPlacement(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(
+            new AtSurfaceWithExtraConfig(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_ETHER_TREE = createConfiguredFeature("dead_ether_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             ETHER_TREE_DEAD1.withChance(0.35F),

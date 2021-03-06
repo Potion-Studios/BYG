@@ -17,6 +17,7 @@ import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree1;
 import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree2;
 import corgiaoc.byg.common.world.feature.end.trees.ether.dead.DeadEtherTree3;
 import corgiaoc.byg.common.world.feature.end.trees.impariusgrove.*;
+import corgiaoc.byg.common.world.feature.end.trees.impariusgrove.fungus.*;
 import corgiaoc.byg.common.world.feature.end.trees.nightshade.*;
 import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree1;
 import corgiaoc.byg.common.world.feature.end.trees.shulkren.ShulkrenTree2;
@@ -252,8 +253,12 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> IMPARIUS_MUSHROOM5 = createFeature("imparius_mushroom5", new ImpariusMushroom5(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> IMPARIUS_MUSHROOM6 = createFeature("imparius_mushroom6", new ImpariusMushroom6(BYGMushroomConfig.CODEC.stable()));
 
-
-
+    //Fungal Imparius
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> FUNGAL_IMPARIUS1 = createFeature("fungal_imparius1", new FungalImparius1(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> FUNGAL_IMPARIUS2 = createFeature("fungal_imparius2", new FungalImparius2(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> FUNGAL_IMPARIUS3 = createFeature("fungal_imparius3", new FungalImparius3(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> FUNGAL_IMPARIUS4 = createFeature("fungal_imparius4", new FungalImparius4(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> FUNGAL_IMPARIUS5 = createFeature("fungal_imparius5", new FungalImparius5(BYGMushroomConfig.CODEC.stable()));
 
     public static final Feature<FloatingIslandConfig> FLOATING_ISLAND1 = createFeature("floating_island1", new FloatingIslands1(FloatingIslandConfig.CODEC.stable()));
     public static final Feature<FloatingIslandConfig> FLOATING_ISLAND2 = createFeature("floating_island2", new FloatingIslands2(FloatingIslandConfig.CODEC.stable()));
