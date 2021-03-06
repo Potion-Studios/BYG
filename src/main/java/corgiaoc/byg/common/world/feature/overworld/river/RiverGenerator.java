@@ -2,8 +2,11 @@ package corgiaoc.byg.common.world.feature.overworld.river;
 
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector2f;
 import net.minecraft.util.math.vector.Vector3i;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,17 +19,31 @@ public class RiverGenerator {
     private final FastNoise noise;
     private final List<Node> nodes;
 
-    public RiverGenerator(FastNoise noise, BlockPos startPos, Predicate<BlockPos> isInvalid, Predicate<BlockPos> isValid, int maxDistance) {
+    public RiverGenerator(FastNoise noise, BlockPos startPos, ChunkGenerator generator, Predicate<BlockPos> isInvalid, Predicate<BlockPos> isValid, int maxDistance) {
         this.noise = noise;
         List<Node> nodes = new ArrayList<>();
         nodes.add(new Node(startPos));
-        int distanceInNodes = maxDistance / 10;
+        int distanceInNodes = maxDistance / 5;
+
+        int startY = startPos.getY();
+
         for (int i = 1; i < distanceInNodes; i++) {
             Node prevNode = nodes.get(i - 1);
             float angle = this.noise.GetNoise(startPos.getX(), i, startPos.getZ());
 
-            Vector2f dAngle = get2DAngle(angle * 5, 10);
-            Node nextNode = new Node(prevNode.getPos().add(new Vector3i(dAngle.x, 0, dAngle.y)));
+            Vector2f dAngle = get2DAngle(angle * 5, 5);
+            BlockPos previousNodePos = prevNode.getPos();
+            BlockPos addedPos = previousNodePos.add(new Vector3i(dAngle.x, 0, dAngle.y));
+            int newY = generator.getNoiseHeight(addedPos.getX(), addedPos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG);
+
+            if (newY > previousNodePos.getY()) {
+                newY = previousNodePos.getY();
+            }
+
+//            double slide = newY / ((float) startY - generator.getSeaLevel());
+//            newY = (int) MathHelper.clampedLerp(generator.getSeaLevel(), startY, slide);
+
+            Node nextNode = new Node(new BlockPos(addedPos.getX(), newY, addedPos.getZ()));
 
             if (isInvalid.test(nextNode.getPos())) {
                 break;
@@ -64,7 +81,7 @@ public class RiverGenerator {
 
 
     static class Node {
-        private final BlockPos pos;
+        private BlockPos pos;
 
         private Node(BlockPos pos) {
             this.pos = pos;
@@ -72,6 +89,10 @@ public class RiverGenerator {
 
         public BlockPos getPos() {
             return pos;
+        }
+
+        public void upgradeY(int y) {
+            this.pos = new BlockPos(pos.getX(), y, pos.getZ());
         }
     }
 }

@@ -1,10 +1,15 @@
 package corgiaoc.byg.common.world.feature.overworld.river;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.world.feature.NoisyCaveSphere;
+import corgiaoc.byg.common.world.feature.NoisyCaveSphereWater;
+import corgiaoc.byg.common.world.feature.config.NoisySphereConfig;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.world.BYGFeatures;
 import corgiaoc.byg.mixin.access.BiomeContainerAccess;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -21,6 +26,7 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.WorldGenRegion;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -48,6 +54,7 @@ public class CanyonRiverGenerator extends Feature<NoFeatureConfig> {
     @Override
     public boolean generate(ISeedReader worldRegion, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         setupNoise(worldRegion.getSeed());
+        NoisyCaveSphereWater.setSeed(worldRegion.getSeed());
         CanyonCache canyonCache = worldToCanyonPoint.computeIfAbsent(worldRegion.getWorld(), (world) -> {
             return new CanyonCache(worldRegion.getWorld().getChunkProvider().generator, Collections.singleton(worldRegion.func_241828_r().getRegistry(Registry.BIOME_KEY).getValueForKey(BYGBiomes.CANYON_KEY)));
         });
@@ -78,19 +85,83 @@ public class CanyonRiverGenerator extends Feature<NoFeatureConfig> {
 
                 List<RiverGenerator.Node> nodes = riverGenerator.getNodes();
 
-                for (RiverGenerator.Node node : nodes) {
+                for (int i = 1; i < nodes.size(); i++) {
+                    RiverGenerator.Node node = nodes.get(i);
+                    RiverGenerator.Node prevNode = nodes.get(i - 1);
                     ChunkPos nodePosAsChunkPos = new ChunkPos(node.getPos());
 
-                    ChunkPos chunk = worldRegion.getChunk(pos).getPos();
+                    IChunk chunk = worldRegion.getChunk(pos);
+                    ChunkPos chunkPos = chunk.getPos();
 
-                    if (nodePosAsChunkPos.equals(chunk)) {
+                    if (nodePosAsChunkPos.equals(chunkPos)) {
                         BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(node.getPos());
-                        for (int buildY = 0; buildY < 256; buildY++) {
-                            mutable.setY(buildY);
-                            worldRegion.setBlockState(mutable, Blocks.DIAMOND_BLOCK.getDefaultState(), 2);
+                        BlockPos.Mutable prevMutable = new BlockPos.Mutable().setPos(prevNode.getPos());
+
+//                        for (int yRange = 0; yRange < 256; yRange++) {
+//                            worldRegion.setBlockState(mutable, Blocks.DIAMOND_BLOCK.getDefaultState(), 2);
+//                            mutable.setY(yRange);
+//                        }
+//                        mutable.setY(node.getPos().getY());
+
+                        int xRadius = 10;
+                        int yRadius = 10;
+                        int zRadius = 10;
+
+
+                        int minXRadius = -xRadius;
+                        int minZRadius = -zRadius;
+
+                        int maxXRadius = xRadius;
+                        int maxZRadius = zRadius;
+
+
+                        int xDiff = mutable.getX() - prevMutable.getX();
+                        int zDiff = mutable.getZ() - prevMutable.getZ();
+
+
+                        if (xDiff > 0) {
+                            maxXRadius = maxXRadius + xDiff;
+                        }
+
+                        if (zDiff > 0) {
+                            maxZRadius = maxZRadius + zDiff;
+                        }
+
+                        if (xDiff < 0) {
+                            minXRadius = minXRadius + xDiff;
+                        }
+
+                        if (zDiff < 0) {
+                            minZRadius = minZRadius + zDiff;
+                        }
+
+                        BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
+                        int[][] topY = new int[Math.abs(minXRadius + maxXRadius) + 1][Math.abs(minZRadius + maxZRadius) + 1];
+
+
+
+                        for (int x = minXRadius; x <= maxXRadius; x++) {
+                            for (int z = minZRadius; z <= maxZRadius; z++) {
+                                for (int y = -yRadius; y <= yRadius; y++) {
+                                    mutable2.setPos(mutable).move(x, y, z);
+
+
+                                    //Credits to Hex_26 for this equation!
+                                    double equationResult = Math.pow(x, 2) / Math.pow(xRadius, 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
+                                    double threshold = 1 + 0.7 * NoisyCaveSphereWater.fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ());
+                                    if (equationResult >= threshold)
+                                        continue;
+
+                                    if (y <= -2) {
+                                        worldRegion.setBlockState(mutable2, Blocks.WATER.getDefaultState(), 2);
+                                        worldRegion.getPendingFluidTicks().scheduleTick(mutable2, Fluids.WATER, 0);
+                                    } else {
+                                        worldRegion.setBlockState(mutable2, Blocks.AIR.getDefaultState(), 2);
+                                    }
+                                }
+                            }
                         }
                     }
-
                 }
             }
         }
