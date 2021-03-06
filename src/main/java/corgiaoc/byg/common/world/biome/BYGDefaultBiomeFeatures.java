@@ -504,6 +504,8 @@ public class BYGDefaultBiomeFeatures {
     public static void addImpariusPlants(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.IMPARIUS_MUSHROOMS);
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.FUNGI_IMPARIUS);
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.IMPARIUS_BUSHES);
+
     }
 
     public static void addShatteredDesertPlants(BiomeGenerationSettings.Builder gen) {

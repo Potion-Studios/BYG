@@ -655,6 +655,7 @@ public class BYGBlocks {
     public static final Block FUNGAL_IMPARIUS_FILAMENT = createFungalImpariusFilament("fungal_imparius_filament");
     public static final Block IMPARIUS_VINE = createImpariusVine("imparius_vine");
     public static final Block IMPARIUS_VINE_PLANT = createImpariusVinePlant("imparius_vine_plant");
+    public static final Block IMPARIUS_BUSH = createImpariusPlant("imparius_bush");
 
     public static final Block SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
     public static final Block SHULKREN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("shulkren_wart_block");
@@ -1334,6 +1335,13 @@ public class BYGBlocks {
 
     static Block createShulkrenPlant(String id) {
         Block createBlock = new ShulkrenPlantBlock(AbstractBlock.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().notSolid().doesNotBlockMovement());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createImpariusPlant(String id) {
+        Block createBlock = new ImpariusPlantBlock(AbstractBlock.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().notSolid().doesNotBlockMovement());
 //        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock(createBlock, id);
         return createBlock;

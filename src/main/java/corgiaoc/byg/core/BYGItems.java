@@ -962,6 +962,7 @@ public class BYGItems {
     public static final Item IVIS_SPROUT = createItem(new BlockItem(BYGBlocks.IVIS_SPROUT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IVIS_SPROUT));
     public static final Item ENDER_LILY = createItem(new EmburLilyItem(BYGBlocks.ENDER_LILY, (new Item.Properties()).group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ENDER_LILY));
 
+    public static final Item IMPARIUS_BUSH = createItem(new BlockItem(BYGBlocks.IMPARIUS_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_BUSH));
     public static final Item IMPARIUS_PHYLIUM = createItem(new BlockItem(BYGBlocks.IMPARIUS_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_PHYLIUM));
 
     public static final Item ETHER_PHYLIUM = createItem(new BlockItem(BYGBlocks.ETHER_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_PHYLIUM));

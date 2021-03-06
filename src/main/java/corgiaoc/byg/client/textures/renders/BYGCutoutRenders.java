@@ -100,6 +100,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.IMPARIUS_VINE, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.IMPARIUS_VINE_PLANT, RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.IMPARIUS_BUSH, RenderType.getCutoutMipped());
 
         //Sea Plants
         RenderTypeLookup.setRenderLayer(BYGBlocks.CATTAIL, RenderType.getCutoutMipped());
