@@ -91,6 +91,7 @@ public class BYGSurfaceBuilders {
         public static final SurfaceBuilderConfig CRIMSON_GARDEN = new SurfaceBuilderConfig(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHER_WART_BLOCK.getDefaultState());
         public static final SurfaceBuilderConfig MYCELIUM_NETHERRACK = new SurfaceBuilderConfig(BYGBlocks.MYCELIUM_NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
         public static final SurfaceBuilderConfig WARPED_NYLIUM = new SurfaceBuilderConfig(Blocks.WARPED_NYLIUM.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.NETHERRACK.getDefaultState());
+        public static final SurfaceBuilderConfig END_SAND = new SurfaceBuilderConfig(BYGBlocks.END_SAND.getDefaultState(), Blocks.END_STONE_BRICKS.getDefaultState(), Blocks.END_STONE_BRICKS.getDefaultState());
 
         public static final SurfaceBuilderConfig SAND_CF = new SurfaceBuilderConfig(Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState(), Blocks.SAND.getDefaultState());
         public static final SurfaceBuilderConfig REDSAND_CF = new SurfaceBuilderConfig(Blocks.RED_SAND.getDefaultState(), Blocks.RED_SAND.getDefaultState(), Blocks.RED_SAND.getDefaultState());

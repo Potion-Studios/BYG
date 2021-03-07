@@ -3,6 +3,7 @@ package corgiaoc.byg.common.properties.blocks.end;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.BushBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -66,7 +67,7 @@ public class StoneEndPlantBlock extends BushBlock {
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(Tags.Blocks.END_STONES) || super.isValidGround(state, worldIn, pos);
+        return state.isIn(BYGBlocks.CRYPTIC_MAGMA_BLOCK) || state.isIn(BYGBlocks.CRYPTIC_STONE) || state.isIn(BYGBlocks.CRYPTIC_REDSTONE_ORE) || super.isValidGround(state, worldIn, pos);
     }
 
     @Override

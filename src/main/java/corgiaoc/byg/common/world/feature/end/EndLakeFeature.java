@@ -148,9 +148,9 @@ public class EndLakeFeature extends Feature<NoFeatureConfig>
                            if (y > waterLevel + 1)
                               BlockHelper.setWithoutUpdate(world, pos, state);
                            else if (y > waterLevel)
-                              BlockHelper.setWithoutUpdate(world, pos, random.nextBoolean() ? state : BYGBlocks.WHITE_SAND.getDefaultState());
+                              BlockHelper.setWithoutUpdate(world, pos, random.nextBoolean() ? state : BYGBlocks.END_SAND.getDefaultState());
                            else
-                              BlockHelper.setWithoutUpdate(world, pos, BYGBlocks.WHITE_SAND.getDefaultState());
+                              BlockHelper.setWithoutUpdate(world, pos, BYGBlocks.END_SAND.getDefaultState());
                         }
                      }
                   }
@@ -200,7 +200,7 @@ public class EndLakeFeature extends Feature<NoFeatureConfig>
                      pos = POS.down();
                      if (world.getBlockState(pos).getBlock().isIn(Tags.Blocks.END_STONES))
                      {
-                        BlockHelper.setWithoutUpdate(world, pos, BYGBlocks.WHITE_SAND.getDefaultState());
+                        BlockHelper.setWithoutUpdate(world, pos, BYGBlocks.END_SAND.getDefaultState());
                      }
                      pos = POS.up();
                      while (canReplace(state = world.getBlockState(pos)) && !state.isAir() && state.getFluidState().isEmpty())
@@ -215,12 +215,12 @@ public class EndLakeFeature extends Feature<NoFeatureConfig>
                      if (world.isAirBlock(POS.up()))
                      {
                         state = world.getBiome(POS).getGenerationSettings().getSurfaceBuilderConfig().getTop();
-                        BlockHelper.setWithoutUpdate(world, POS, random.nextBoolean() ? state : BYGBlocks.WHITE_SAND.getDefaultState());
+                        BlockHelper.setWithoutUpdate(world, POS, random.nextBoolean() ? state : BYGBlocks.END_SAND.getDefaultState());
                         BlockHelper.setWithoutUpdate(world, POS.down(), END_STONE);
                      }
                      else
                      {
-                        BlockHelper.setWithoutUpdate(world, POS, BYGBlocks.WHITE_SAND.getDefaultState());
+                        BlockHelper.setWithoutUpdate(world, POS, BYGBlocks.END_SAND.getDefaultState());
                         BlockHelper.setWithoutUpdate(world, POS.down(), END_STONE);
                      }
                   }
@@ -239,8 +239,10 @@ public class EndLakeFeature extends Feature<NoFeatureConfig>
       return state.getMaterial().isReplaceable()
               || state.isIn(Tags.Blocks.END_STONES)
               || state.isIn(Tags.Blocks.ORES) // Handles floating ores
-              || state.isIn(BYGBlocks.BULBIS_SPROUTS) // Handles other blocks that could be left floating
-              || state.isIn(BYGBlocks.WHITE_SAND)
+              || state.isIn(BYGBlocks.IMPARIUS_BUSH) // Handles other blocks that could be left floating
+              || state.isIn(BYGBlocks.IMPARIUS_MUSHROOM) // Handles other blocks that could be left floating
+              || state.isIn(BYGBlocks.FUNGAL_IMPARIUS) // Handles other blocks that could be left floating
+              || state.isIn(BYGBlocks.END_SAND)
               || state.getMaterial().equals(Material.PLANTS)
               || state.getMaterial().equals(Material.OCEAN_PLANT)
               || state.getMaterial().equals(Material.SEA_GRASS);

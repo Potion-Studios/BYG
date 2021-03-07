@@ -61,6 +61,7 @@ public class ImpariusClearing extends BYGEndSubBiome {
         BYGDefaultBiomeFeatures.addEndLake(GENERATION_SETTINGS);
         GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
         BYGDefaultBiomeFeatures.addTheriumDeposit(GENERATION_SETTINGS);
+//        BYGDefaultBiomeFeatures.addEnderLily(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 2, 1, 2));
         SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));

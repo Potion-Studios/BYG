@@ -960,7 +960,7 @@ public class BYGItems {
     public static final Item IVIS_PHYLIUM = createItem(new BlockItem(BYGBlocks.IVIS_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IVIS_PHYLIUM));
     public static final Item IVIS_ROOTS = createItem(new BlockItem(BYGBlocks.IVIS_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IVIS_ROOTS));
     public static final Item IVIS_SPROUT = createItem(new BlockItem(BYGBlocks.IVIS_SPROUT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IVIS_SPROUT));
-    public static final Item ENDER_LILY = createItem(new EmburLilyItem(BYGBlocks.ENDER_LILY, (new Item.Properties()).group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ENDER_LILY));
+    public static final Item ENDER_LILY = createItem(new LilyPadItem(BYGBlocks.ENDER_LILY, (new Item.Properties()).group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ENDER_LILY));
 
     public static final Item IMPARIUS_BUSH = createItem(new BlockItem(BYGBlocks.IMPARIUS_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_BUSH));
     public static final Item IMPARIUS_PHYLIUM = createItem(new BlockItem(BYGBlocks.IMPARIUS_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_PHYLIUM));
@@ -997,6 +997,7 @@ public class BYGItems {
 
     public static final Item ODDITY_CACTUS = createItem(new BlockItem(BYGBlocks.ODDITY_CACTUS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ODDITY_CACTUS));
     public static final Item ODDITY_BUSH = createItem(new BlockItem(BYGBlocks.ODDITY_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ODDITY_BUSH));
+    public static final Item END_SAND = createItem(new BlockItem(BYGBlocks.END_SAND, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.END_SAND));
 
     public static final Item THERIUM_SHARD = createItem(new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)), "therium_shard");
     public static final Item THERIUM_CRYSTAL = createItem(new BlockItem(BYGBlocks.THERIUM_CRYSTAL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_CRYSTAL));

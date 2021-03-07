@@ -618,6 +618,7 @@ public class BYGBlocks {
 
     public static final Block ODDITY_CACTUS = createOddityCactus("oddity_cactus");
     public static final Block ODDITY_BUSH = createOddityDesertPlant("oddity_bush");
+    public static final Block END_SAND = createSand(16053687, "end_sand");
 
     public static final Block VERMILION_SCULK_TENDRILS = createSculkPlant("vermilion_sculk_tendrils");
     public static final Block VERMILION_SCULK_GROWTH = createSculkGrowth("vermilion_sculk_growth");

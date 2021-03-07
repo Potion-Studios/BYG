@@ -3,8 +3,11 @@ package corgiaoc.byg.common.properties.blocks.end.shattereddesert;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
@@ -15,6 +18,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
@@ -93,11 +97,13 @@ public class OddityCactusBlock extends Block {
             }
         }
 
-        return worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.WHITE_SAND || worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.BLACK_SAND || worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.ODDITY_CACTUS && !worldIn.getBlockState(pos.up()).getMaterial().isLiquid();
+        return worldIn.getBlockState(pos.down()).getBlock() == Blocks.END_STONE || worldIn.getBlockState(pos.down()).getBlock() == Blocks.END_STONE_BRICKS || worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.END_SAND || worldIn.getBlockState(pos.down()).getBlock() == BYGBlocks.ODDITY_CACTUS && !worldIn.getBlockState(pos.up()).getMaterial().isLiquid();
     }
 
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.attackEntityFrom(DamageSource.CACTUS, 2.0F);
+        if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.ENDERMITE && entityIn.getType() != EntityType.ENDERMAN)
+            entityIn.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
+            entityIn.attackEntityFrom(DamageSource.CACTUS, 2.0F);
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
