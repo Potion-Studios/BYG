@@ -5,6 +5,7 @@ import net.minecraft.util.RegistryKey;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -54,7 +55,7 @@ public class MegaChunk {
         return riverGenerator;
     }
 
-    public void createRiverGenerator(FastNoise noise, long worldSeed, int maxRiverDistance) {
+    public void createRiverGenerator(FastNoise noise, ISeedReader world, long worldSeed, int maxRiverDistance) {
         SharedSeedRandom seedRandom = new SharedSeedRandom(worldSeed);
 
         seedRandom.setFeatureSeed(934893458905904595L, megaChunkPos.getX(), megaChunkPos.getZ());
@@ -63,7 +64,7 @@ public class MegaChunk {
 
         BlockPos startPos = this.megaChunkPos.unpackLocalPos(canyonChunkByte).asBlockPos();
 
-        this.riverGenerator = new RiverGenerator(noise, new BlockPos(startPos.getX(), this.chunkGenerator.getHeight(startPos.getX(), startPos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG), startPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
+        this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(startPos.getX(), 180, startPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
             Biome.Category category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getCategory();
             return (category == Biome.Category.RIVER || category == Biome.Category.OCEAN);
         }, maxRiverDistance);

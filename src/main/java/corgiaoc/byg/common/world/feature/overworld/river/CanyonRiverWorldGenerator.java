@@ -15,7 +15,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.MutableRegistry;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.ISeedReader;
@@ -37,8 +36,8 @@ import java.util.function.Predicate;
 import static net.minecraft.world.biome.BiomeContainer.HORIZONTAL_MASK;
 import static net.minecraft.world.biome.BiomeContainer.VERTICAL_MASK;
 
-public class CanyonRiverGenerator extends Feature<NoFeatureConfig> {
-    public CanyonRiverGenerator(Codec<NoFeatureConfig> codec) {
+public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
+    public CanyonRiverWorldGenerator(Codec<NoFeatureConfig> codec) {
         super(codec);
     }
 
@@ -75,7 +74,7 @@ public class CanyonRiverGenerator extends Feature<NoFeatureConfig> {
 
                 RiverGenerator riverGenerator = megaChunk.getRiverGenerator();
                 if (riverGenerator == null) {
-                    megaChunk.createRiverGenerator(noise, worldRegion.getSeed(), MAX_RIVER_DISTANCE);
+                    megaChunk.createRiverGenerator(noise, worldRegion, worldRegion.getSeed(), MAX_RIVER_DISTANCE);
                     riverGenerator = megaChunk.getRiverGenerator();
                 }
 
@@ -138,16 +137,30 @@ public class CanyonRiverGenerator extends Feature<NoFeatureConfig> {
                         BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
                         int[][] topY = new int[Math.abs(minXRadius + maxXRadius) + 1][Math.abs(minZRadius + maxZRadius) + 1];
 
-
+                        int yDiff = prevMutable.getY() - mutable.getY();
 
                         for (int x = minXRadius; x <= maxXRadius; x++) {
                             for (int z = minZRadius; z <= maxZRadius; z++) {
+                                mutable2.setPos(mutable).move(x, -yRadius, z);
+
+
+                                //Check if the bottom of the sphere will be hanging over air, if so continue, don't waste time filling the remainder of the sphere!
+                                int height = worldRegion.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable2.getX(), mutable2.getZ());
+                                if (height <= mutable2.getY()) {
+                                    continue;
+                                }
+
+                                if (yDiff >= 10) {
+                                    if (height >= mutable2.getY()) {
+                                        continue;
+                                    }
+                                }
+
                                 for (int y = -yRadius; y <= yRadius; y++) {
                                     mutable2.setPos(mutable).move(x, y, z);
 
-
                                     //Credits to Hex_26 for this equation!
-                                    double equationResult = Math.pow(x, 2) / Math.pow(xRadius, 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
+                                    double equationResult = Math.pow(x, 2) / Math.pow((xRadius), 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
                                     double threshold = 1 + 0.7 * NoisyCaveSphereWater.fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ());
                                     if (equationResult >= threshold)
                                         continue;
@@ -170,7 +183,7 @@ public class CanyonRiverGenerator extends Feature<NoFeatureConfig> {
         return true;
     }
 
-
+    //Find the mega chunk with the highest frequency of Canyon Biome(s)
     public boolean scanNeighbors(MegaChunk megaChunk, CanyonCache canyonCache) {
         for (int xNeighborScan = -1; xNeighborScan <= 1; xNeighborScan++) {
             for (int zNeighborScan = -1; zNeighborScan <= 1; zNeighborScan++) {
@@ -288,7 +301,7 @@ public class CanyonRiverGenerator extends Feature<NoFeatureConfig> {
             noise.SetGradientPerturbAmp(1);
             noise.SetFractalOctaves(5);
             noise.SetFractalGain(0.5f);
-            noise.SetFrequency(0.08F);
+            noise.SetFrequency(0.08F / 5);
         }
     }
 }

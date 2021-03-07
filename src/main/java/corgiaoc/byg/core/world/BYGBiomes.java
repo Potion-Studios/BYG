@@ -356,7 +356,7 @@ public class BYGBiomes {
 
 //                addStructureToBiome(biome, BYGConfiguredStructures.VOLCANO_STRUCTURE);
 
-            addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.CANYON_RIVER);
+            addFeatureToBiome(biome, GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.CANYON_RIVER);
 
         }
     }

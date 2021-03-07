@@ -14,7 +14,7 @@ public class MegaChunkPos {
         this.z = z;
     }
 
-    public static MegaChunkPos fromBlockPos(BlockPos pos) {
+    public static MegaChunkPos fromBlockPos(BlockPos pos)    {
         return new MegaChunkPos(pos.getX() >> 8, pos.getZ() >> 8);
     }
 

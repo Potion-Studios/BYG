@@ -1,7 +1,6 @@
 package corgiaoc.byg.common.world.feature.overworld.river;
 
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 
 import java.util.HashMap;
