@@ -4,6 +4,7 @@ import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.vector.Vector2f;
 import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.util.registry.Registry;
@@ -12,8 +13,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 
 /**
@@ -21,9 +21,13 @@ import java.util.function.Predicate;
  */
 public class RiverGenerator {
     private final List<Node> nodes;
+    private final Map<ChunkPos, List<Node>> fastNodes;
 
     public RiverGenerator(FastNoise noise, ISeedReader world, BlockPos startPos, ChunkGenerator generator, Predicate<BlockPos> isInvalid, Predicate<BlockPos> isValid, int maxDistance) {
         List<Node> nodes = new ArrayList<>();
+        Map<ChunkPos, List<Node>> fastNodes = new HashMap<>();
+
+
         nodes.add(new Node(startPos));
         int distanceInNodes = maxDistance / 5;
 
@@ -35,7 +39,9 @@ public class RiverGenerator {
 
             Vector2f dAngle = get2DAngle(angle * 5, 5);
             BlockPos previousNodePos = prevNode.getPos();
-            BlockPos addedPos = previousNodePos.add(new Vector3i(dAngle.x, 0, dAngle.y));
+            Vector3i vecAngle = new Vector3i(dAngle.x, 0, dAngle.y);
+
+            BlockPos addedPos = previousNodePos.add(vecAngle);
             RegistryKey<Biome> biomeRegistryKey = world.func_241828_r().getRegistry(Registry.BIOME_KEY).getOptionalKey(generator.getBiomeProvider().getNoiseBiome(addedPos.getX() >> 2, addedPos.getY() >> 2, addedPos.getZ() >> 2)).get();
             int newY = biomeRegistryKey == BYGBiomes.CANYON_KEY ? 180 : generator.getNoiseHeight(addedPos.getX(), addedPos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG);
 
@@ -50,21 +56,30 @@ public class RiverGenerator {
 //            double slide = newY / ((float) startY + generator.getSeaLevel());
 //            newY = (int) MathHelper.clampedLerp(generator.getSeaLevel(), startY, slide);
 
-            Node nextNode = new Node(new BlockPos(addedPos.getX(), newY, addedPos.getZ()));
+            BlockPos pos = new BlockPos(addedPos.getX(), newY, addedPos.getZ());
+
+
+            Node nextNode = new Node(pos);
 
             if (isInvalid.test(nextNode.getPos())) {
                 break;
             }
+            ChunkPos key = new ChunkPos(nextNode.getPos());
 
             if (isValid.test(nextNode.getPos())) {
                 nodes.add(nextNode);
+                fastNodes.getOrDefault(key, new ArrayList<>()).add(nextNode);
+
                 this.nodes = nodes;
+                this.fastNodes = fastNodes;
                 return;
 
             }
             nodes.add(nextNode);
+            fastNodes.getOrDefault(key, new ArrayList<>()).add(nextNode);
         }
         this.nodes = null;
+        this.fastNodes = null;
     }
 
     public boolean exists() {
@@ -75,8 +90,20 @@ public class RiverGenerator {
         return nodes;
     }
 
+    public List<Node> getNodesForChunk(ChunkPos pos) {
+        return this.fastNodes.get(pos);
+    }
+
+    public Set<ChunkPos> getNodeChunkPositions() {
+        return this.fastNodes.keySet();
+    }
+
     public BlockPos getFinalPosition() {
         return this.nodes.get(this.nodes.size() - 1).getPos();
+    }
+
+    public BlockPos getStartPos() {
+        return this.nodes.get(0).getPos();
     }
 
     public static Vector2f get2DAngle(float angle, float length) {

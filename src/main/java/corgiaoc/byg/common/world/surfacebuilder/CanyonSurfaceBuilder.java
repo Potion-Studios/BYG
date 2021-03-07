@@ -3,13 +3,10 @@ package corgiaoc.byg.common.world.surfacebuilder;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.world.biome.overworld.Canyons;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
@@ -66,6 +63,7 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
         super(codec);
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double surfaceNoise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         setupNoise(seed);

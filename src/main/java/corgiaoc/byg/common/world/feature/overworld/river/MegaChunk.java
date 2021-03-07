@@ -1,7 +1,6 @@
 package corgiaoc.byg.common.world.feature.overworld.river;
 
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.util.RegistryKey;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -55,7 +54,7 @@ public class MegaChunk {
         return riverGenerator;
     }
 
-    public void createRiverGenerator(FastNoise noise, ISeedReader world, long worldSeed, int maxRiverDistance) {
+    public void createRiverGeneratorStart(FastNoise noise, ISeedReader world, long worldSeed, int maxRiverDistance) {
         SharedSeedRandom seedRandom = new SharedSeedRandom(worldSeed);
 
         seedRandom.setFeatureSeed(934893458905904595L, megaChunkPos.getX(), megaChunkPos.getZ());
@@ -66,7 +65,14 @@ public class MegaChunk {
 
         this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(startPos.getX(), 180, startPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
             Biome.Category category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getCategory();
-            return (category == Biome.Category.RIVER || category == Biome.Category.OCEAN);
+            return category == Biome.Category.RIVER || category == Biome.Category.OCEAN || this.chunkGenerator.getHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG) <= this.chunkGenerator.getSeaLevel();
+        }, maxRiverDistance);
+    }
+
+    public void createRiverGenerator(FastNoise noise, BlockPos generatorStartPos, ISeedReader world, int maxRiverDistance) {
+        this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(generatorStartPos.getX(), 180, generatorStartPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
+            Biome.Category category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getCategory();
+            return category == Biome.Category.RIVER || category == Biome.Category.OCEAN || this.chunkGenerator.getHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG) <= this.chunkGenerator.getSeaLevel();
         }, maxRiverDistance);
     }
 }
