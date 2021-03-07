@@ -28,7 +28,7 @@ public class RiverGenerator {
         Map<ChunkPos, List<Node>> fastNodes = new HashMap<>();
 
 
-        nodes.add(new Node(startPos));
+        nodes.add(new Node(startPos, 0));
         int distanceInNodes = maxDistance / 5;
 
         int startY = startPos.getY();
@@ -59,7 +59,7 @@ public class RiverGenerator {
             BlockPos pos = new BlockPos(addedPos.getX(), newY, addedPos.getZ());
 
 
-            Node nextNode = new Node(pos);
+            Node nextNode = new Node(pos, i);
 
             if (isInvalid.test(nextNode.getPos())) {
                 break;
@@ -68,7 +68,7 @@ public class RiverGenerator {
 
             if (isValid.test(nextNode.getPos())) {
                 nodes.add(nextNode);
-                fastNodes.getOrDefault(key, new ArrayList<>()).add(nextNode);
+                fastNodes.computeIfAbsent(key, key2 -> new ArrayList<>()).add(nextNode);
 
                 this.nodes = nodes;
                 this.fastNodes = fastNodes;
@@ -76,7 +76,7 @@ public class RiverGenerator {
 
             }
             nodes.add(nextNode);
-            fastNodes.getOrDefault(key, new ArrayList<>()).add(nextNode);
+            fastNodes.computeIfAbsent(key, key2 -> new ArrayList<>()).add(nextNode);
         }
         this.nodes = null;
         this.fastNodes = null;
@@ -115,10 +115,13 @@ public class RiverGenerator {
 
 
     static class Node {
+
+        private final int idx;
         private BlockPos pos;
 
-        private Node(BlockPos pos) {
+        private Node(BlockPos pos, int idx) {
             this.pos = pos;
+            this.idx = idx;
         }
 
         public BlockPos getPos() {
@@ -127,6 +130,10 @@ public class RiverGenerator {
 
         public void upgradeY(int y) {
             this.pos = new BlockPos(pos.getX(), y, pos.getZ());
+        }
+
+        public int getIdx() {
+            return idx;
         }
     }
 }

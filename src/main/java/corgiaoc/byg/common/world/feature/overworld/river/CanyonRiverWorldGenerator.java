@@ -51,6 +51,10 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
     public boolean generate(ISeedReader worldRegion, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         setupNoise(worldRegion.getSeed());
         NoisyCaveSphereWater.setSeed(worldRegion.getSeed());
+
+        IChunk chunk = worldRegion.getChunk(pos);
+        ChunkPos chunkPos = chunk.getPos();
+
         CanyonCache canyonCache = worldToCanyonPoint.computeIfAbsent(worldRegion.getWorld(), (world) -> {
             return new CanyonCache(worldRegion.getWorld().getChunkProvider().generator, Collections.singleton(worldRegion.func_241828_r().getRegistry(Registry.BIOME_KEY).getValueForKey(BYGBiomes.CANYON_KEY)));
         });
@@ -81,14 +85,29 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
                 }
 
 //                prepareNeighborRiverGenerators(megaChunk, riverGenerator.getStartPos(), worldRegion, canyonCache);
-                generate(worldRegion, pos, riverGenerator);
+//                generate(worldRegion, pos, riverGenerator);
 
+                if (riverGenerator.getNodeChunkPositions().contains(chunkPos)) {
+                    generateForChunk(worldRegion, chunkPos, riverGenerator);
+                }
             }
         }
 
 
         return true;
     }
+
+    private void generateForChunk(ISeedReader worldRegion, ChunkPos chunkPos, RiverGenerator riverGenerator) {
+        List<RiverGenerator.Node> nodes = riverGenerator.getNodesForChunk(chunkPos);
+
+        for (int idx = 0; idx < nodes.size(); idx++) {
+            RiverGenerator.Node node = nodes.get(idx);
+            RiverGenerator.Node prevNode = idx == 0 ? riverGenerator.getNodes().get(nodes.get(0).getIdx() - 1) : nodes.get(idx - 1);
+            carveRiverNode(worldRegion, node, prevNode);
+
+        }
+    }
+
 
     private void generate(ISeedReader worldRegion, BlockPos pos, RiverGenerator riverGenerator) {
         List<RiverGenerator.Node> nodes = riverGenerator.getNodes();
@@ -102,79 +121,83 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
             ChunkPos chunkPos = chunk.getPos();
 
             if (nodePosAsChunkPos.equals(chunkPos)) {
-                BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(node.getPos());
-                BlockPos.Mutable prevMutable = new BlockPos.Mutable().setPos(prevNode.getPos());
+                carveRiverNode(worldRegion, node, prevNode);
+            }
+        }
+    }
 
-                int xRadius = 10;
-                int yRadius = 10;
-                int zRadius = 10;
+    private void carveRiverNode(ISeedReader worldRegion, RiverGenerator.Node node, RiverGenerator.Node prevNode) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(node.getPos());
+        BlockPos.Mutable prevMutable = new BlockPos.Mutable().setPos(prevNode.getPos());
 
-
-                int minXRadius = -xRadius;
-                int minZRadius = -zRadius;
-
-                int maxXRadius = xRadius;
-                int maxZRadius = zRadius;
-
-
-                int xDiff = mutable.getX() - prevMutable.getX();
-                int zDiff = mutable.getZ() - prevMutable.getZ();
+        int xRadius = 10;
+        int yRadius = 10;
+        int zRadius = 10;
 
 
-                if (xDiff > 0) {
-                    maxXRadius = maxXRadius + xDiff;
+        int minXRadius = -xRadius;
+        int minZRadius = -zRadius;
+
+        int maxXRadius = xRadius;
+        int maxZRadius = zRadius;
+
+
+        int xDiff = mutable.getX() - prevMutable.getX();
+        int zDiff = mutable.getZ() - prevMutable.getZ();
+
+
+        if (xDiff > 0) {
+            maxXRadius = maxXRadius + xDiff;
+        }
+
+        if (zDiff > 0) {
+            maxZRadius = maxZRadius + zDiff;
+        }
+
+        if (xDiff < 0) {
+            minXRadius = minXRadius + xDiff;
+        }
+
+        if (zDiff < 0) {
+            minZRadius = minZRadius + zDiff;
+        }
+
+        BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
+        int[][] topY = new int[Math.abs(minXRadius + maxXRadius) + 1][Math.abs(minZRadius + maxZRadius) + 1];
+
+        int yDiff = prevMutable.getY() - mutable.getY();
+
+        for (int x = minXRadius; x <= maxXRadius; x++) {
+            for (int z = minZRadius; z <= maxZRadius; z++) {
+                mutable2.setPos(mutable).move(x, -yRadius, z);
+
+
+                //Check if the bottom of the sphere will be hanging over air, if so continue, don't waste time filling the remainder of the sphere!
+                int height = worldRegion.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable2.getX(), mutable2.getZ());
+                if (height <= mutable2.getY()) {
+                    continue;
                 }
 
-                if (zDiff > 0) {
-                    maxZRadius = maxZRadius + zDiff;
+                if (yDiff >= 10) {
+                    if (height >= mutable2.getY()) {
+                        continue;
+                    }
                 }
 
-                if (xDiff < 0) {
-                    minXRadius = minXRadius + xDiff;
-                }
+                for (int y = -yRadius; y <= yRadius; y++) {
+                    mutable2.setPos(mutable).move(x, y, z);
 
-                if (zDiff < 0) {
-                    minZRadius = minZRadius + zDiff;
-                }
+                    //Credits to Hex_26 for this equation!
+                    double equationResult = Math.pow(x, 2) / Math.pow((xRadius), 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
+                    double threshold = 1 + 0.7 * NoisyCaveSphereWater.fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ());
+                    if (equationResult >= threshold)
+                        continue;
 
-                BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
-                int[][] topY = new int[Math.abs(minXRadius + maxXRadius) + 1][Math.abs(minZRadius + maxZRadius) + 1];
-
-                int yDiff = prevMutable.getY() - mutable.getY();
-
-                for (int x = minXRadius; x <= maxXRadius; x++) {
-                    for (int z = minZRadius; z <= maxZRadius; z++) {
-                        mutable2.setPos(mutable).move(x, -yRadius, z);
-
-
-                        //Check if the bottom of the sphere will be hanging over air, if so continue, don't waste time filling the remainder of the sphere!
-                        int height = worldRegion.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable2.getX(), mutable2.getZ());
-                        if (height <= mutable2.getY()) {
-                            continue;
-                        }
-
-                        if (yDiff >= 10) {
-                            if (height >= mutable2.getY()) {
-                                continue;
-                            }
-                        }
-
-                        for (int y = -yRadius; y <= yRadius; y++) {
-                            mutable2.setPos(mutable).move(x, y, z);
-
-                            //Credits to Hex_26 for this equation!
-                            double equationResult = Math.pow(x, 2) / Math.pow((xRadius), 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
-                            double threshold = 1 + 0.7 * NoisyCaveSphereWater.fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ());
-                            if (equationResult >= threshold)
-                                continue;
-
-                            if (y <= -2) {
-                                worldRegion.setBlockState(mutable2, Blocks.WATER.getDefaultState(), 2);
-                                worldRegion.getPendingFluidTicks().scheduleTick(mutable2, Fluids.WATER, 0);
-                            } else {
-                                worldRegion.setBlockState(mutable2, Blocks.AIR.getDefaultState(), 2);
-                            }
-                        }
+                    if (y <= -2) {
+                        worldRegion.setBlockState(mutable2, Blocks.WATER.getDefaultState(), 2);
+                        worldRegion.getPendingFluidTicks().scheduleTick(mutable2, Fluids.WATER, 0);
+                    } else {
+                        worldRegion.setBlockState(mutable2, Blocks.AIR.getDefaultState(), 2);
                     }
                 }
             }
