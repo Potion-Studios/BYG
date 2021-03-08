@@ -27,6 +27,7 @@ import net.minecraft.world.gen.WorldGenRegion;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
+
 import java.util.*;
 import java.util.function.Predicate;
 
@@ -92,8 +93,6 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
                 }
             }
         }
-
-
         return true;
     }
 
@@ -104,7 +103,6 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
             RiverGenerator.Node node = nodes.get(idx);
             RiverGenerator.Node prevNode = idx == 0 ? riverGenerator.getNodes().get(nodes.get(0).getIdx() - 1) : nodes.get(idx - 1);
             carveRiverNode(worldRegion, node, prevNode);
-
         }
     }
 
