@@ -48,7 +48,7 @@ public class SurfaceContext {
     }
 
     /**
-     * Should only be called during the air carving stage (ChunkStatus.SIRFACE).
+     * Should only be called during the surface builder stage (ChunkStatus.SURFACE).
      */
     public static void push(ServerWorld world, IChunk chunk) {
         if (chunk instanceof ChunkPrimer) {
