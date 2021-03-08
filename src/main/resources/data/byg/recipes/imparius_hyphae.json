@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:imparius_stem"
+    }
+  },
+  "result": {
+    "item": "byg:imparius_hyphae",
+    "count": 3
+  }
+}

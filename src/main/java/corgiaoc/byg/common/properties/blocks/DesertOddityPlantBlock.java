@@ -3,6 +3,7 @@ package corgiaoc.byg.common.properties.blocks;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.BushBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -30,7 +31,7 @@ public class DesertOddityPlantBlock extends BushBlock {
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(BYGBlocks.WHITE_SAND) || state.isIn(BYGBlocks.WHITE_SANDSTONE) || super.isValidGround(state, worldIn, pos);
+        return state.isIn(BYGBlocks.END_SAND) || state.isIn(Blocks.END_STONE) || state.isIn(Blocks.END_STONE_BRICKS) || super.isValidGround(state, worldIn, pos);
     }
 
     @Override

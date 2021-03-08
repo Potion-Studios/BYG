@@ -436,6 +436,31 @@ public class BYGItems {
     public static final Item HOLLY_BUTTON = createItem(new BlockItem(BYGBlocks.HOLLY_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.HOLLY_BUTTON));
     public static final Item HOLLY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.HOLLY, new Item.Properties().group(BYGCreativeTab.creativeTab).maxStackSize(1)), "holly_boat");
 
+    //Imparius Woodtype
+    public static final Item IMPARIUS_VINE = createItem(new BlockItem(BYGBlocks.IMPARIUS_VINE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_VINE));
+    public static final Item IMPARIUS_MUSHROOM_BRANCH = createItem(new BlockItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH));
+    public static final Item IMPARIUS_MUSHROOM_BLOCK = createItem(new BlockItem(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK));
+    public static final Item IMPARIUS_MUSHROOM = createItem(new BlockItem(BYGBlocks.IMPARIUS_MUSHROOM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_MUSHROOM));
+    public static final Item IMPARIUS_STEM = createItem(new BlockItem(BYGBlocks.IMPARIUS_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_STEM));
+    public static final Item IMPARIUS_HYPHAE = createItem(new BlockItem(BYGBlocks.IMPARIUS_HYPHAE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_HYPHAE));
+    public static final Item FUNGAL_IMPARIUS_FILAMENT_BLOCK = createItem(new BlockItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK));
+    public static final Item FUNGAL_IMPARIUS_FILAMENT = createItem(new BlockItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT));
+    public static final Item FUNGAL_IMPARIUS_BLOCK = createItem(new BlockItem(BYGBlocks.FUNGAL_IMPARIUS_BLOCK, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FUNGAL_IMPARIUS_BLOCK));
+    public static final Item FUNGAL_IMPARIUS = createItem(new BlockItem(BYGBlocks.FUNGAL_IMPARIUS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FUNGAL_IMPARIUS));
+    public static final Item FUNGAL_IMPARIUS_STEM = createItem(new BlockItem(BYGBlocks.FUNGAL_IMPARIUS_STEM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FUNGAL_IMPARIUS_STEM));
+    public static final Item FUNGAL_IMPARIUS_HYPHAE = createItem(new BlockItem(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE));
+    public static final Item IMPARIUS_PLANKS = createItem(new BlockItem(BYGBlocks.IMPARIUS_PLANKS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_PLANKS));
+    public static final Item IMPARIUS_BOOKSHELF = createItem(new BlockItem(BYGBlocks.IMPARIUS_BOOKSHELF, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_BOOKSHELF));
+    public static final Item IMPARIUS_CRAFTING_TABLE = createItem(new BlockItem(BYGBlocks.IMPARIUS_CRAFTING_TABLE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_CRAFTING_TABLE));
+    public static final Item IMPARIUS_STAIRS = createItem(new BlockItem(BYGBlocks.IMPARIUS_STAIRS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_STAIRS));
+    public static final Item IMPARIUS_SLAB = createItem(new BlockItem(BYGBlocks.IMPARIUS_SLAB, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_SLAB));
+    public static final Item IMPARIUS_FENCE = createItem(new BlockItem(BYGBlocks.IMPARIUS_FENCE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_FENCE));
+    public static final Item IMPARIUS_FENCE_GATE = createItem(new BlockItem(BYGBlocks.IMPARIUS_FENCE_GATE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_FENCE_GATE));
+    public static final Item IMPARIUS_DOOR = createItem(new TallBlockItem(BYGBlocks.IMPARIUS_DOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_DOOR));
+    public static final Item IMPARIUS_TRAPDOOR = createItem(new BlockItem(BYGBlocks.IMPARIUS_TRAPDOOR, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_TRAPDOOR));
+    public static final Item IMPARIUS_PRESSURE_PLATE = createItem(new BlockItem(BYGBlocks.IMPARIUS_PRESSURE_PLATE, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_PRESSURE_PLATE));
+    public static final Item IMPARIUS_BUTTON = createItem(new BlockItem(BYGBlocks.IMPARIUS_BUTTON, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_BUTTON));
+    
     //Jacaranda Woodtype
     public static final Item JACARANDA_SAPLING = createItem(new BlockItem(BYGBlocks.JACARANDA_SAPLING, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.JACARANDA_SAPLING));
     public static final Item JACARANDA_LEAVES = createItem(new BlockItem(BYGBlocks.JACARANDA_LEAVES, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.JACARANDA_LEAVES));
@@ -935,7 +960,10 @@ public class BYGItems {
     public static final Item IVIS_PHYLIUM = createItem(new BlockItem(BYGBlocks.IVIS_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IVIS_PHYLIUM));
     public static final Item IVIS_ROOTS = createItem(new BlockItem(BYGBlocks.IVIS_ROOTS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IVIS_ROOTS));
     public static final Item IVIS_SPROUT = createItem(new BlockItem(BYGBlocks.IVIS_SPROUT, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IVIS_SPROUT));
-    public static final Item ENDER_LILY = createItem(new EmburLilyItem(BYGBlocks.ENDER_LILY, (new Item.Properties()).group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ENDER_LILY));
+    public static final Item ENDER_LILY = createItem(new LilyPadItem(BYGBlocks.ENDER_LILY, (new Item.Properties()).group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ENDER_LILY));
+
+    public static final Item IMPARIUS_BUSH = createItem(new BlockItem(BYGBlocks.IMPARIUS_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_BUSH));
+    public static final Item IMPARIUS_PHYLIUM = createItem(new BlockItem(BYGBlocks.IMPARIUS_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_PHYLIUM));
 
     public static final Item ETHER_PHYLIUM = createItem(new BlockItem(BYGBlocks.ETHER_PHYLIUM, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_PHYLIUM));
     public static final Item ETHER_SOIL = createItem(new BlockItem(BYGBlocks.ETHER_SOIL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_SOIL));
@@ -969,6 +997,7 @@ public class BYGItems {
 
     public static final Item ODDITY_CACTUS = createItem(new BlockItem(BYGBlocks.ODDITY_CACTUS, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ODDITY_CACTUS));
     public static final Item ODDITY_BUSH = createItem(new BlockItem(BYGBlocks.ODDITY_BUSH, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ODDITY_BUSH));
+    public static final Item END_SAND = createItem(new BlockItem(BYGBlocks.END_SAND, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.END_SAND));
 
     public static final Item THERIUM_SHARD = createItem(new Item(new Item.Properties().group(BYGCreativeTab.creativeTab)), "therium_shard");
     public static final Item THERIUM_CRYSTAL = createItem(new BlockItem(BYGBlocks.THERIUM_CRYSTAL, new Item.Properties().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THERIUM_CRYSTAL));

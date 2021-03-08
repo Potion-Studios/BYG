@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "byg:block/imparius_phylium_top2",
+    "bottom": "minecraft:block/end_stone",
+    "side": "byg:block/imparius_phylium2"
+  }
+}

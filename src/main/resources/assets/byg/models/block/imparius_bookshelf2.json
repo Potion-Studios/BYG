@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "byg:block/imparius_planks",
+    "up": "byg:block/imparius_planks",
+    "north": "byg:block/imparius_bookshelf2",
+    "east": "byg:block/imparius_bookshelf2",
+    "south": "byg:block/imparius_bookshelf2",
+    "west": "byg:block/imparius_bookshelf2",
+    "particle": "byg:block/imparius_planks"
+  }
+}

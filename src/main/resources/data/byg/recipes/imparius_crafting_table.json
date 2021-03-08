@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:imparius_planks"
+    }
+  },
+  "result": {
+    "item": "byg:imparius_crafting_table"
+  }
+}

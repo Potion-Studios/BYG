@@ -162,7 +162,7 @@ public class BYGBlockProperties {
         public BYGEnderLily(String registryName) {
             super(AbstractBlock.Properties.create(Material.PLANTS)
                     .sound(SoundType.LILY_PADS)
-                    .hardnessAndResistance(0.0f)
+                    .zeroHardnessAndResistance()
                     .notSolid()
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);

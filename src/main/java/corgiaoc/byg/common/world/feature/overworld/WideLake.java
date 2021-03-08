@@ -92,7 +92,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
                             blockState = world.getBlockState(mutable.move(Direction.UP));
                             material = blockState.getMaterial();
 
-                            if (material == Material.PLANTS && blockState.getBlock() != Blocks.LILY_PAD && blockState.getBlock() != BYGBlocks.TINY_LILYPADS) {
+                            if (material == Material.PLANTS && blockState.getBlock() != Blocks.LILY_PAD && blockState.getBlock() != BYGBlocks.ENDER_LILY && blockState.getBlock() != BYGBlocks.TINY_LILYPADS) {
                                 world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
 
                                 // recursively moves up and breaks floating sugar cane

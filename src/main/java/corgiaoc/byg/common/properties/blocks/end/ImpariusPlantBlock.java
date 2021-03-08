@@ -30,7 +30,7 @@ public class ImpariusPlantBlock extends BushBlock {
 
     @Override
     protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(BYGBlocks.NIGHTSHADE_PHYLIUM) || super.isValidGround(state, worldIn, pos);
+        return state.isIn(BYGBlocks.IMPARIUS_PHYLIUM) || super.isValidGround(state, worldIn, pos);
     }
 
     @Override

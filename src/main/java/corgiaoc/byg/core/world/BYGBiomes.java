@@ -4,10 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import corgiaoc.byg.common.world.biome.*;
 import corgiaoc.byg.common.world.biome.end.*;
-import corgiaoc.byg.common.world.biome.end.sub.BulbisGardensEdge;
-import corgiaoc.byg.common.world.biome.end.sub.EtherealClearing;
-import corgiaoc.byg.common.world.biome.end.sub.EtherealForest;
-import corgiaoc.byg.common.world.biome.end.sub.ShatteredViscalIsles;
+import corgiaoc.byg.common.world.biome.end.sub.*;
 import corgiaoc.byg.common.world.biome.nether.*;
 import corgiaoc.byg.common.world.biome.overworld.*;
 import corgiaoc.byg.common.world.biome.overworld.sub.*;
@@ -250,13 +247,15 @@ public class BYGBiomes {
     public static Biome SHULKREN_FOREST = WorldGenRegistrationHelper.createBiome("shulkren_forest", new ShulkrenForest().getBiome(), 169);
     public static Biome PURPUR_PEAKS = WorldGenRegistrationHelper.createBiome("purpur_peaks", new PurpurPeaks().getBiome(), 170);
     public static Biome CRYPTIC_WASTES = WorldGenRegistrationHelper.createBiome("cryptic_wastes", new CrypticWastes().getBiome(), 171);
-    public static Biome SHATTERED_DESERT_ISLES = WorldGenRegistrationHelper.createBiome("shattered_desert_isles", new ShatteredDesertIsles().getBiome(), 177);
+    public static Biome IMPARIUS_GROVE = WorldGenRegistrationHelper.createBiome("imparius_grove", new ImpariusGrove().getBiome(), 178);
 
     /************End Sub-Biomes************/
     public static Biome SHATTERED_VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("shattered_viscal_isles", new ShatteredViscalIsles().getBiome(), 173);
     public static Biome BULBIS_GARDENS_EDGE = WorldGenRegistrationHelper.createBiome("bulbis_gardens_edge", new BulbisGardensEdge().getBiome(), 174);
     public static Biome ETHEREAL_FOREST = WorldGenRegistrationHelper.createBiome("ethereal_forest", new EtherealForest().getBiome(), 175);
     public static Biome ETHEREAL_CLEARING = WorldGenRegistrationHelper.createBiome("ethereal_clearing", new EtherealClearing().getBiome(), 176);
+    public static Biome SHATTERED_DESERT_ISLES = WorldGenRegistrationHelper.createBiome("shattered_desert_isles", new ShatteredDesertIsles().getBiome(), 177);
+    public static Biome IMPARIUS_CLEARING = WorldGenRegistrationHelper.createBiome("imparius_clearing", new ImpariusClearing().getBiome(), 179);
 
     public static void init() {
     }

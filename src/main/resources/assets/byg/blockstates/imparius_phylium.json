@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/imparius_phylium" },
+      { "model": "byg:block/imparius_phylium", "y": 90 },
+      { "model": "byg:block/imparius_phylium", "y": 180 },
+      { "model": "byg:block/imparius_phylium", "y": 270 },
+      { "model": "byg:block/imparius_phylium2" },
+      { "model": "byg:block/imparius_phylium2", "y": 90 },
+      { "model": "byg:block/imparius_phylium2", "y": 180 },
+      { "model": "byg:block/imparius_phylium2", "y": 270 }
+    ]
+  }
+}
