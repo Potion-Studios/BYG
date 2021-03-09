@@ -45,6 +45,7 @@ import corgiaoc.byg.common.world.feature.overworld.mushrooms.*;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import corgiaoc.byg.common.world.feature.overworld.pumpkins.LargePumpkin1;
 import corgiaoc.byg.common.world.feature.overworld.pumpkins.LargePumpkin2;
+import corgiaoc.byg.common.world.feature.overworld.river.CanyonRiverWorldGenerator;
 import corgiaoc.byg.common.world.feature.overworld.trees.ancient.AncientTree1;
 import corgiaoc.byg.common.world.feature.overworld.trees.ancient.AncientTree2;
 import corgiaoc.byg.common.world.feature.overworld.trees.ancient.AncientTree3;
@@ -158,6 +159,7 @@ public class BYGFeatures {
 
     public static final Feature<NoFeatureConfig> DUMMY_TREE = createFeature("dummy_tree", new SmallPineTree(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<NoFeatureConfig> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<NoFeatureConfig> CANYON_RIVER = createFeature("oh_no", new CanyonRiverWorldGenerator(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<NoFeatureConfig> HUH = createFeature("river_feature", new RiverThingy(NoFeatureConfig.field_236558_a_.stable()));
     public static final Feature<SimpleBlockProviderConfig> VOLCANO = createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<BoulderConfig> STACKABLE_BOULDERS = createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));

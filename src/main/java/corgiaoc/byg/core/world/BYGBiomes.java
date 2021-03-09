@@ -44,6 +44,7 @@ public class BYGBiomes {
 
     public static Biome DUMMY_BIOME = WorldGenRegistrationHelper.createBiome("dummy", new DummySubBiome().getBiome(), 2000);
 
+    public static BYGBiome CANYON = new Canyons();
 
     /************Primary Biomes************/
     public static Biome ALLIUM_FIELDS = WorldGenRegistrationHelper.createBiome("allium_fields", new AlliumFields().getBiome(), 1);
@@ -59,7 +60,7 @@ public class BYGBiomes {
     public static Biome BLUFF_STEEPS = WorldGenRegistrationHelper.createBiome("bluff_steeps", new BluffSteeps().getBiome(), 10);
     public static Biome BOG = WorldGenRegistrationHelper.createBiome("bog", new Bog().getBiome(), 105);
     public static Biome BOREAL_FOREST = WorldGenRegistrationHelper.createBiome("boreal_forest", new BorealForest().getBiome(), 11);
-    public static Biome CANYONS = WorldGenRegistrationHelper.createBiome("canyons", new Canyons().getBiome(), 172);
+    public static Biome CANYONS = WorldGenRegistrationHelper.createBiome("canyons", CANYON.getBiome(), 172);
     public static Biome CIKA_WOODS = WorldGenRegistrationHelper.createBiome("cika_woods", new CikaWoods().getBiome(), 14);
     public static Biome COLD_SWAMPLANDS = WorldGenRegistrationHelper.createBiome("cold_swamplands", new ColdSwamplands().getBiome(), 12);
     public static Biome CRAG_GARDENS = WorldGenRegistrationHelper.createBiome("crag_gardens", new CragGardens().getBiome(), 13);
@@ -257,6 +258,9 @@ public class BYGBiomes {
     public static Biome SHATTERED_DESERT_ISLES = WorldGenRegistrationHelper.createBiome("shattered_desert_isles", new ShatteredDesertIsles().getBiome(), 177);
     public static Biome IMPARIUS_CLEARING = WorldGenRegistrationHelper.createBiome("imparius_clearing", new ImpariusClearing().getBiome(), 179);
 
+    public static RegistryKey<Biome> CANYON_KEY;
+
+
     public static void init() {
     }
 
@@ -350,6 +354,9 @@ public class BYGBiomes {
             }
 
 //                addStructureToBiome(biome, BYGConfiguredStructures.VOLCANO_STRUCTURE);
+
+            addFeatureToBiome(biome, GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.CANYON_RIVER);
+
         }
     }
 
