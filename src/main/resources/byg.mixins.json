@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
+    "access.BiomeContainerAccess",
     "common.block.MixinAbstractFireBlock",
     "common.block.MixinCactusBlock",
     "common.block.MixinSugarCaneBlock",
@@ -11,6 +12,7 @@
     "common.entity.MixinEatGrassGoal",
     "common.entity.MixinSlimeEntity",
     "common.lightengine.WorldLightManagerMixin",
+    "common.world.ChunkStatusMixin",
     "common.world.feature.MixinBasaltColumnFeature",
     "common.world.layers.MixinDimensionType",
     "common.world.layers.MixinHillsLayer",
