@@ -1,5 +1,6 @@
 package corgiaoc.byg.core.world;
 
+import corgiaoc.byg.common.world.structure.village.villagepools.AdobeVillagePools;
 import corgiaoc.byg.common.world.structure.village.villagepools.EndRuins;
 import corgiaoc.byg.common.world.structure.village.villagepools.RuinsVillagePools;
 import corgiaoc.byg.common.world.structure.village.villagepools.SkyrisVillagePools;
@@ -15,11 +16,15 @@ public class BYGConfiguredStructures {
     }, 6)));
 
     public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_SKYRIS = register("village_skyris", Structure.VILLAGE.withConfiguration(new VillageConfig(() -> {
-        return SkyrisVillagePools.codec;
+        return SkyrisVillagePools.SkyrisVillageJigsaw;
     }, 6)));
 
     public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_RUINS = register("village_ruins", Structure.VILLAGE.withConfiguration(new VillageConfig(() -> {
-        return RuinsVillagePools.codec2;
+        return RuinsVillagePools.RuinsVillageJigsaw;
+    }, 6)));
+
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_ADOBE = register("village_adobe", Structure.VILLAGE.withConfiguration(new VillageConfig(() -> {
+        return AdobeVillagePools.AdobeVillageJigsaw;
     }, 6)));
 
     private static <FC extends IFeatureConfig, F extends Structure<FC>> StructureFeature<FC, F> register(String name, StructureFeature<FC, F> structure) {

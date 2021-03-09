@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.jigsaw.*;
 import net.minecraft.world.gen.feature.template.*;
 
 public class SkyrisVillagePools {
-   public static final JigsawPattern codec = JigsawPatternRegistry.func_244094_a(new JigsawPattern(new ResourceLocation("byg:village/skyris/town_centers"),
+   public static final JigsawPattern SkyrisVillageJigsaw = JigsawPatternRegistry.func_244094_a(new JigsawPattern(new ResourceLocation("byg:village/skyris/town_centers"),
            new ResourceLocation("empty"),
            ImmutableList.of(Pair.of(JigsawPiece.func_242851_a("byg:village/skyris/town_centers/skyris_meeting_point_1", ProcessorLists.field_244107_g), 50),
                    Pair.of(JigsawPiece.func_242851_a("byg:village/skyris/town_centers/skyris_meeting_point_2", ProcessorLists.field_244107_g), 50)), JigsawPattern.PlacementBehaviour.RIGID));

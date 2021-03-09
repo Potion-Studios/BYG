@@ -56,7 +56,7 @@ public class WoodedRedRockMountains extends BYGSubBiome {
         DefaultBiomeFeatures.withForestGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withBadlandsOakTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addOakForestTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addFirecracker(GENERATION_SETTINGS);

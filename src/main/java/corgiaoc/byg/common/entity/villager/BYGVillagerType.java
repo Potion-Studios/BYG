@@ -20,6 +20,9 @@ public class BYGVillagerType {
         map.put(getBiomeKey(BYGBiomes.MOJAVE_DESERT), DESERT);
         map.put(getBiomeKey(BYGBiomes.RED_DESERT), DESERT);
         map.put(getBiomeKey(BYGBiomes.RED_ROCK_MOUNTAINS), DESERT);
+        map.put(getBiomeKey(BYGBiomes.RED_ROCK_HIGHLANDS), DESERT);
+        map.put(getBiomeKey(BYGBiomes.RED_ROCK_LOWLANDS), DESERT);
+        map.put(getBiomeKey(BYGBiomes.WOODED_RED_ROCK_MOUNTAINS), DESERT);
         map.put(getBiomeKey(BYGBiomes.TROPICAL_RAINFOREST), JUNGLE);
     });
 

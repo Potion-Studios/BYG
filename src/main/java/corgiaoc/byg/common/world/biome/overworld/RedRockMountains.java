@@ -4,6 +4,7 @@ import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.world.BYGConfiguredStructures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
@@ -76,7 +77,7 @@ public class RedRockMountains extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.VILLAGE_DESERT); //Desert Village
+        GENERATION_SETTINGS.withStructure(BYGConfiguredStructures.VILLAGE_ADOBE);
         GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
         GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_DESERT); //Ruined Portal Desert
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
