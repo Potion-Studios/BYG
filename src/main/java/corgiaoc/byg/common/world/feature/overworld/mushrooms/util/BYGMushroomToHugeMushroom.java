@@ -85,6 +85,20 @@ public class BYGMushroomToHugeMushroom {
         }
     }
 
+    public static class FungalImparius extends BYGHugeMushroom {
+        @Nullable
+        public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.FUNGAL_IMPARIUS5 : BYGConfiguredFeatures.FUNGAL_IMPARIUS3;
+        }
+    }
+
+    public static class ImpariusMushroom extends BYGHugeMushroom {
+        @Nullable
+        public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.IMPARIUS_MUSHROOM6 : BYGConfiguredFeatures.IMPARIUS_MUSHROOM4;
+        }
+    }
+
     public static class SoulShroom extends BYGHugeMushroom {
         @Nullable
         public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {

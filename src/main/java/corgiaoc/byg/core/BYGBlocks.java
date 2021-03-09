@@ -806,8 +806,8 @@ public class BYGBlocks {
     public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "bulbis_oddity");
     public static final Block PURPLE_BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleBulbis(), "purple_bulbis_oddity");
     public static final Block SHULKREN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.ShulkrenFungus(), "shulkren_fungus");
-    public static final Block IMPARIUS_MUSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.ShulkrenFungus(), "imparius_mushroom");
-    public static final Block FUNGAL_IMPARIUS = createMushroomPlant(new BYGMushroomToHugeMushroom.ShulkrenFungus(), "fungal_imparius");
+    public static final Block IMPARIUS_MUSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.ImpariusMushroom(), "imparius_mushroom");
+    public static final Block FUNGAL_IMPARIUS = createMushroomPlant(new BYGMushroomToHugeMushroom.FungalImparius(), "fungal_imparius");
 
     public static final Block BULBIS_ANOMALY = createTallBulbis("bulbis_anomaly");
     public static final Block PURPLE_BULBIS_ANOMALY = createTallBulbis("purple_bulbis_anomaly");

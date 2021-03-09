@@ -4,10 +4,12 @@ import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.core.world.BYGConfiguredStructures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.BiomeDictionary;
@@ -45,6 +47,9 @@ public class WoodedGrasslandPlateau extends BYGSubBiome {
     }
 
     static {
+        GENERATION_SETTINGS.withStructure(BYGConfiguredStructures.VILLAGE_RUINS);
+        GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
+        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL); //Ruined Portal Standard
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(GENERATION_SETTINGS);

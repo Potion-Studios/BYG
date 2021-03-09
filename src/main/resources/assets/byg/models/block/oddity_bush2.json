@@ -1,8 +1,8 @@
 {
   "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
   "textures": {
-    "imparius_mushroom_branch": "byg:block/imparius_mushroom_branch",
-    "particle": "byg:block/imparius_mushroom_branch"
+    "imparius_mushroom_branch": "byg:block/oddity_bush",
+    "particle": "byg:block/oddity_bush"
   },
   "elements": [
     {

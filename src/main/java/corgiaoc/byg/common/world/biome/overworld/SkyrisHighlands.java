@@ -3,6 +3,8 @@ package corgiaoc.byg.common.world.biome.overworld;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
+import corgiaoc.byg.core.world.BYGConfiguredFeatures;
+import corgiaoc.byg.core.world.BYGConfiguredStructures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -57,6 +59,7 @@ public class SkyrisHighlands extends BYGBiome {
     }
 
     static {
+        GENERATION_SETTINGS.withStructure(BYGConfiguredStructures.VILLAGE_SKYRIS);
         GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
         GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_MOUNTAIN); //Ruined Portal Mountain
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
