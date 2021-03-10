@@ -137,7 +137,6 @@ public class BYGBlockProperties {
                     .sound(SoundType.PLANT)
                     .hardnessAndResistance(0.0f)
                     .notSolid()
-                    .doesNotBlockMovement()
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge

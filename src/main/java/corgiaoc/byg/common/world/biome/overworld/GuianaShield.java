@@ -6,6 +6,7 @@ import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
+import corgiaoc.byg.core.world.BYGConfiguredStructures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -75,7 +76,7 @@ public class GuianaShield extends BYGBiome {
         GENERATION_SETTINGS.withStructure(StructureFeatures.JUNGLE_PYRAMID); //Jungle Temple
         GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
         GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_JUNGLE); //Ruined Portal Jungle
-
+        GENERATION_SETTINGS.withStructure(BYGConfiguredStructures.VILLAGE_TROPICAL);
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);

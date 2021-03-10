@@ -1,9 +1,6 @@
 package corgiaoc.byg.core.world;
 
-import corgiaoc.byg.common.world.structure.village.villagepools.AdobeVillagePools;
-import corgiaoc.byg.common.world.structure.village.villagepools.EndRuins;
-import corgiaoc.byg.common.world.structure.village.villagepools.RuinsVillagePools;
-import corgiaoc.byg.common.world.structure.village.villagepools.SkyrisVillagePools;
+import corgiaoc.byg.common.world.structure.village.villagepools.*;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
@@ -25,6 +22,10 @@ public class BYGConfiguredStructures {
 
     public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_ADOBE = register("village_adobe", Structure.VILLAGE.withConfiguration(new VillageConfig(() -> {
         return AdobeVillagePools.AdobeVillageJigsaw;
+    }, 6)));
+
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_TROPICAL = register("village_tropical", Structure.VILLAGE.withConfiguration(new VillageConfig(() -> {
+        return TropicalVillagePools.TropicalVillageJigsaw;
     }, 6)));
 
     private static <FC extends IFeatureConfig, F extends Structure<FC>> StructureFeature<FC, F> register(String name, StructureFeature<FC, F> structure) {

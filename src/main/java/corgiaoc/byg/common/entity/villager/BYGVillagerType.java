@@ -24,6 +24,9 @@ public class BYGVillagerType {
         map.put(getBiomeKey(BYGBiomes.RED_ROCK_LOWLANDS), DESERT);
         map.put(getBiomeKey(BYGBiomes.WOODED_RED_ROCK_MOUNTAINS), DESERT);
         map.put(getBiomeKey(BYGBiomes.TROPICAL_RAINFOREST), JUNGLE);
+        map.put(getBiomeKey(BYGBiomes.GUIANA_CLEARING), JUNGLE);
+        map.put(getBiomeKey(BYGBiomes.GUIANA_SHIELD), JUNGLE);
+        map.put(getBiomeKey(BYGBiomes.TROPICAL_FUNGAL_RAINFOREST), JUNGLE);
     });
 
     public static void setVillagerForBYGBiomes() {
