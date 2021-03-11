@@ -19,7 +19,7 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
     //Blocks used for the tree.
     //private static final BlockState LOG = BYGBlocks.PINE_LOG.getDefaultState();
     //private static final BlockState LEAVES = BYGBlocks.PINE_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.getDefaultState();
+    private static final BlockState BEENEST = Blocks.BEE_NEST.defaultBlockState();
     Random random = new Random();
 
     public PineTree1(Codec<BYGTreeConfig> configIn) {
@@ -35,9 +35,9 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
@@ -47,7 +47,7 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos);
 
                 //Places dirt under logs where/when necessary.
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
                 int posY1 = 2 - rand.nextInt(1);
                 int posX1 = posX;
@@ -58,8 +58,8 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 //Raising the 'groundUpLogRemover'  will remove all log blocks from the ground up no matter how thick the trunk is based on the value given. 5 would destroy all trunks from 5 up off the ground.
                 for (int groundUpLogRemover = 0; groundUpLogRemover < randTreeHeight; ++groundUpLogRemover) {
                     if (groundUpLogRemover >= randTreeHeight2 && posY1 < 0) {
-                        posX1 += direction.getXOffset();
-                        posZ1 += direction.getZOffset();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
                     //This Int is responsible for the Y coordinate of the trunk BlockPos'.
@@ -70,15 +70,15 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                     //Sets Logs
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().down(2), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().down(7), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().down(11), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().down(6), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().down(10), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east().down(4), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east().down(8), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().down(3), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().down(8), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().below(2), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().below(7), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().below(11), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().below(6), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().below(10), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east().below(4), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east().below(8), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().below(3), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().below(8), boundsIn);
                 }
                 //This allows a random rotation between 3 differently leave Presets in the same class. Optimizes Performance instead of the loading of several classes.
 
@@ -195,7 +195,7 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHere(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

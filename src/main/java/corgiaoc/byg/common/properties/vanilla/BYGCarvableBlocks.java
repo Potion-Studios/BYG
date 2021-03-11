@@ -13,7 +13,7 @@ public class BYGCarvableBlocks {
     @SuppressWarnings("deprecation")
     public static void addCarverBlocks() {
         for (WorldCarver<?> worldCarver : Registry.CARVER) {
-            Set<Block> blocks = new HashSet<>(worldCarver.carvableBlocks);
+            Set<Block> blocks = new HashSet<>(worldCarver.replaceableBlocks);
             blocks.add(BYGBlocks.OVERGROWN_DACITE);
             blocks.add(BYGBlocks.PODZOL_DACITE);
             blocks.add(BYGBlocks.SOAPSTONE);
@@ -23,7 +23,7 @@ public class BYGCarvableBlocks {
             blocks.add(BYGBlocks.SCORIA_STONE);
             blocks.add(BYGBlocks.MEADOW_DIRT);
             blocks.add(BYGBlocks.PEAT);
-            worldCarver.carvableBlocks = blocks;
+            worldCarver.replaceableBlocks = blocks;
         }
     }
 }

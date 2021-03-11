@@ -99,19 +99,19 @@ public class GiantFlowerConfig implements IFeatureConfig {
 
 
     public static class Builder {
-        private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
-        private BlockStateProvider petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+        private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
+        private BlockStateProvider petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
         private BlockStateProvider petal2Provider = this.petalProvider;
         private BlockStateProvider petal3Provider = this.petalProvider;
-        private BlockStateProvider pollenProvider = new SimpleBlockStateProvider(BYGBlocks.POLLEN_BLOCK.getDefaultState());
+        private BlockStateProvider pollenProvider = new SimpleBlockStateProvider(BYGBlocks.POLLEN_BLOCK.defaultBlockState());
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
 
         public Builder setStemBlock(Block block) {
             if (block != null)
-                stemProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                stemProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+                stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
@@ -120,16 +120,16 @@ public class GiantFlowerConfig implements IFeatureConfig {
             if (state != null)
                 stemProvider = new SimpleBlockStateProvider(state);
             else
-                stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+                stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
 
         public Builder setPetalBlock(Block block) {
             if (block != null)
-                petalProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                petalProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -138,7 +138,7 @@ public class GiantFlowerConfig implements IFeatureConfig {
             if (state != null)
                 petalProvider = new SimpleBlockStateProvider(state);
             else
-                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -147,14 +147,14 @@ public class GiantFlowerConfig implements IFeatureConfig {
             if (statesList != null)
                 petalProvider = statesList;
             else
-                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
 
         public Builder setPetal2Block(Block block) {
             if (block != null)
-                petal2Provider = new SimpleBlockStateProvider(block.getDefaultState());
+                petal2Provider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
                 petal2Provider = this.petalProvider;
 
@@ -172,7 +172,7 @@ public class GiantFlowerConfig implements IFeatureConfig {
 
         public Builder setPetal3Block(Block block) {
             if (block != null)
-                petal3Provider = new SimpleBlockStateProvider(block.getDefaultState());
+                petal3Provider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
                 petal3Provider = this.petalProvider;
 
@@ -190,7 +190,7 @@ public class GiantFlowerConfig implements IFeatureConfig {
 
         public Builder setPollenBlock(Block block) {
             if (block != null)
-                petal3Provider = new SimpleBlockStateProvider(block.getDefaultState());
+                petal3Provider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
                 petal3Provider = this.petalProvider;
             return this;

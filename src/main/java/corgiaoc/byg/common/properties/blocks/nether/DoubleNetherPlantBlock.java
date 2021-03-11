@@ -13,7 +13,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class DoubleNetherPlantBlock extends DoublePlantBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     protected DoubleNetherPlantBlock(Properties builder) {
         super(builder);
@@ -21,8 +21,8 @@ public class DoubleNetherPlantBlock extends DoublePlantBlock {
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(BlockTags.NYLIUM) || state.isIn(Blocks.MYCELIUM) || state.isIn(Blocks.SOUL_SOIL) || state.isIn(Tags.Blocks.END_STONES) || super.isValidGround(state, worldIn, pos);
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.is(BlockTags.NYLIUM) || state.is(Blocks.MYCELIUM) || state.is(Blocks.SOUL_SOIL) || state.is(Tags.Blocks.END_STONES) || super.mayPlaceOn(state, worldIn, pos);
     }
 }
 

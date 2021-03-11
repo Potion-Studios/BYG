@@ -14,7 +14,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.block.AbstractBlock;
 
 public class LeafFoliageBlock extends BushBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
+    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 
     protected LeafFoliageBlock(DyeColor colorIn, AbstractBlock.Properties properties) {
         super(properties);
@@ -25,7 +25,7 @@ public class LeafFoliageBlock extends BushBlock {
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos blockPos) {
-        return state.getMaterial() == Material.EARTH || state.getBlock() == BYGBlocks.ETHER_PHYLIUM;
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos blockPos) {
+        return state.getMaterial() == Material.DIRT || state.getBlock() == BYGBlocks.ETHER_PHYLIUM;
     }
 }

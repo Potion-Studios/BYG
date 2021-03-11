@@ -68,10 +68,10 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 
     @SuppressWarnings("ConstantConditions")
     @Override
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double surfaceNoise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double surfaceNoise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         setupNoise(seed);
         // A null SurfaceContext indicates we're not the SURFACE stage of ChunkStatus so exit early.
-        BlockPos.Mutable localPos = new BlockPos.Mutable().setPos(x & 15, 0, z & 15);
+        BlockPos.Mutable localPos = new BlockPos.Mutable().set(x & 15, 0, z & 15);
         boolean isFinalIteration = localPos.getX() == 15 && localPos.getZ() == 15;
         boolean isFirstIteration = localPos.getX() == 0 && localPos.getZ() == 0;
 
@@ -82,14 +82,14 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
             return;
         }
 
-        ChunkGenerator generator = context.getWorld().getChunkProvider().getChunkGenerator();
+        ChunkGenerator generator = context.getWorld().getChunkSource().getGenerator();
 
         double density = 0;
         for (int neighborXSearch = -searchRange; neighborXSearch < searchRange; neighborXSearch++) {
             for (int neighborZSearch = -searchRange; neighborZSearch < searchRange; neighborZSearch++) {
                 int neighborX = neighborXSearch;
                 int neighborZ = neighborZSearch;
-                Biome neighborBiome = generator.getBiomeProvider().getNoiseBiome(((x + neighborX) << 2) + 2, startHeight, ((x + neighborZ) << 2) + 2);
+                Biome neighborBiome = generator.getBiomeSource().getNoiseBiome(((x + neighborX) << 2) + 2, startHeight, ((x + neighborZ) << 2) + 2);
                 if (neighborBiome != biomeIn) {
                     int neighborHeight = 63; //generator.getHeight(x + neighborX, z + neighborZ, Heightmap.Type.OCEAN_FLOOR_WG);
                     density += neighborHeight * 0.1F;
@@ -106,8 +106,8 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 //            }
         }
 
-        localPos.setY(chunkIn.getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, localPos.getX(), localPos.getZ()));
-        chunkIn.setBlockState(localPos, BYGBlocks.OVERGROWN_STONE.getDefaultState(), false);
+        localPos.setY(chunkIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, localPos.getX(), localPos.getZ()));
+        chunkIn.setBlockState(localPos, BYGBlocks.OVERGROWN_STONE.defaultBlockState(), false);
 
         if (isFinalIteration) {
             SurfaceContext.pop();

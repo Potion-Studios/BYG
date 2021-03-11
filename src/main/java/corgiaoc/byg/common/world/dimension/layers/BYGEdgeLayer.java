@@ -24,11 +24,11 @@ public class BYGEdgeLayer implements ICastleTransformer {
         final int[] ArrayNESW = {n, w, s, e};
 
         for (int idx : ArrayNESW) {
-            ResourceLocation centreKey = biomeRegistry.getKey(biomeRegistry.getByValue(centre));
-            ResourceLocation idxKey = biomeRegistry.getKey(biomeRegistry.getByValue(idx));
+            ResourceLocation centreKey = biomeRegistry.getKey(biomeRegistry.byId(centre));
+            ResourceLocation idxKey = biomeRegistry.getKey(biomeRegistry.byId(idx));
 
             if (edgeMap.containsKey(centreKey) && idxKey != centreKey) {
-                return biomeRegistry.getId(biomeRegistry.getOrDefault(edgeMap.get(centreKey)));
+                return biomeRegistry.getId(biomeRegistry.get(edgeMap.get(centreKey)));
             }
         }
         return centre;

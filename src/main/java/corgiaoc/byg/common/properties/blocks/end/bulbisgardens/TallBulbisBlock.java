@@ -14,15 +14,17 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class TallBulbisBlock extends TallFlowerBlock {
     public TallBulbisBlock(Properties builder) {
         super(builder);
     }
 
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
             if (entityIn instanceof LivingEntity && !EnchantmentHelper.hasSoulSpeed((LivingEntity)entityIn)) {
                 LivingEntity livingentity = (LivingEntity)entityIn;
-                    livingentity.addPotionEffect(new EffectInstance(Effects.LEVITATION, 160, 0, false, false));
+                    livingentity.addEffect(new EffectInstance(Effects.LEVITATION, 160, 0, false, false));
             }
     }
 }

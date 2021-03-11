@@ -30,17 +30,17 @@ import net.minecraft.block.AbstractBlock.OffsetType;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class EmburVinesPlantBlock extends Block implements IGrowable {
-    public static final IntegerProperty PROPERTY_STAGE = BlockStateProperties.STAGE_0_1;
-    public static final IntegerProperty PROPERTY_AGE = BlockStateProperties.AGE_0_1;
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D);
+    public static final IntegerProperty PROPERTY_STAGE = BlockStateProperties.STAGE;
+    public static final IntegerProperty PROPERTY_AGE = BlockStateProperties.AGE_1;
+    protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D);
 
     protected EmburVinesPlantBlock(Properties builder) {
         super(builder);
-        this.setDefaultState(this.stateContainer.getBaseState().with(PROPERTY_AGE, 0).with(PROPERTY_STAGE, 0));
+        this.registerDefaultState(this.stateDefinition.any().setValue(PROPERTY_AGE, 0).setValue(PROPERTY_STAGE, 0));
 
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(PROPERTY_AGE, PROPERTY_STAGE);
     }
 
@@ -50,26 +50,26 @@ public class EmburVinesPlantBlock extends Block implements IGrowable {
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         Vector3d vec3d = state.getOffset(worldIn, pos);
-        return SHAPE.withOffset(vec3d.x, vec3d.y, vec3d.z);
+        return SHAPE.move(vec3d.x, vec3d.y, vec3d.z);
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext ctx) {
-        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getPos());
+        FluidState fluidState = ctx.getLevel().getFluidState(ctx.getClickedPos());
         if (!fluidState.isEmpty()) {
             return null;
         } else {
-            BlockState blockStateUP = ctx.getWorld().getBlockState(ctx.getPos().up());
+            BlockState blockStateUP = ctx.getLevel().getBlockState(ctx.getClickedPos().above());
             if (blockStateUP.getBlock() == BYGBlocks.EMBUR_GEL_BLOCK) {
                 Block blockUP = blockStateUP.getBlock();
                 if (blockUP == BYGBlocks.EMBUR_GEL_VINES) {
-                    return this.getDefaultState().with(PROPERTY_AGE, 0);
+                    return this.defaultBlockState().setValue(PROPERTY_AGE, 0);
                 } else if (blockUP == this) {
-                    int getPropertyAge = blockStateUP.get(PROPERTY_AGE) > 0 ? 1 : 0;
-                    return this.getDefaultState().with(PROPERTY_AGE, getPropertyAge);
+                    int getPropertyAge = blockStateUP.getValue(PROPERTY_AGE) > 0 ? 1 : 0;
+                    return this.defaultBlockState().setValue(PROPERTY_AGE, getPropertyAge);
                 } else {
-                    return BYGBlocks.EMBUR_GEL_VINES.getDefaultState();
+                    return BYGBlocks.EMBUR_GEL_VINES.defaultBlockState();
                 }
             } else {
                 return null;
@@ -79,49 +79,49 @@ public class EmburVinesPlantBlock extends Block implements IGrowable {
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        if (rand.nextInt(3) == 0 && worldIn.isAirBlock(pos.down()) && worldIn.getLightSubtracted(pos.down(), 0) <= 12) {
+        if (rand.nextInt(3) == 0 && worldIn.isEmptyBlock(pos.below()) && worldIn.getRawBrightness(pos.below(), 0) <= 12) {
             this.growBamboo(worldIn, pos);
         }
     }
 
     @Override
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (!stateIn.isValidPosition(worldIn, currentPos)) {
-            return Blocks.AIR.getDefaultState();
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (!stateIn.canSurvive(worldIn, currentPos)) {
+            return Blocks.AIR.defaultBlockState();
         } else {
             if (facing == Direction.DOWN && facingState.getBlock() == BYGBlocks.EMBUR_GEL_BLOCK) {
-                worldIn.setBlockState(currentPos, BYGBlocks.EMBUR_GEL_BLOCK.getDefaultState(), 2);
+                worldIn.setBlock(currentPos, BYGBlocks.EMBUR_GEL_BLOCK.defaultBlockState(), 2);
             }
 
-            return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+            return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         }
     }
 
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        return worldIn.getBlockState(pos.down()).isAir();
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+        return worldIn.getBlockState(pos.below()).isAir();
     }
 
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
         return true;
     }
 
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
         this.growBamboo(worldIn, pos);
     }
 
     protected void growBamboo(World world, BlockPos pos) {
-        world.setBlockState(pos.down(), BYGBlocks.EMBUR_GEL_VINES.getDefaultState(), 3);
+        world.setBlock(pos.below(), BYGBlocks.EMBUR_GEL_VINES.defaultBlockState(), 3);
     }
 
-    public float getPlayerRelativeBlockHardness(BlockState state, PlayerEntity player, IBlockReader worldIn, BlockPos pos) {
-        return player.getHeldItemMainhand().getItem() instanceof SwordItem ? 1.0F : super.getPlayerRelativeBlockHardness(state, player, worldIn, pos);
+    public float getDestroyProgress(BlockState state, PlayerEntity player, IBlockReader worldIn, BlockPos pos) {
+        return player.getMainHandItem().getItem() instanceof SwordItem ? 1.0F : super.getDestroyProgress(state, player, worldIn, pos);
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        if (isAir(worldIn.getBlockState(pos.up()), worldIn, pos))
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        if (isAir(worldIn.getBlockState(pos.above()), worldIn, pos))
             return false;
-        return worldIn.getBlockState(pos.up()).getBlock() == BYGBlocks.EMBUR_GEL_VINES || worldIn.getBlockState(pos.up()).getBlock() == BYGBlocks.EMBUR_GEL_BLOCK;
+        return worldIn.getBlockState(pos.above()).getBlock() == BYGBlocks.EMBUR_GEL_VINES || worldIn.getBlockState(pos.above()).getBlock() == BYGBlocks.EMBUR_GEL_BLOCK;
 
     }
 

@@ -21,36 +21,36 @@ public class EndLayerProviders {
     public static DatapackLayer stackLayers(Registry<Biome> biomeRegistry, long seed) {
         LongFunction<IExtendedNoiseRandom<LazyArea>> randomProvider = salt -> new LazyAreaLayerContext(1, seed, salt);
 
-        IAreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, BYGEndBiomeProvider.END_BIOMES).apply(randomProvider.apply(1003958L));
+        IAreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, BYGEndBiomeProvider.END_BIOMES).run(randomProvider.apply(1003958L));
 
         for (int endBiomeSize = 0; endBiomeSize <= BYGWorldConfig.BIOME_SIZE_END.get(); endBiomeSize++) {
-            endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(49596L + endBiomeSize), endLayer);
+            endLayer = ZoomLayer.NORMAL.run(randomProvider.apply(49596L + endBiomeSize), endLayer);
         }
 
-        endLayer = new BYGHillsLayer(biomeRegistry, BYGEndBiome.BIOME_TO_HILLS, 3).apply(randomProvider.apply(2848586786L), endLayer, endLayer);
-        endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(495949586L), endLayer);
-        endLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(34885L), endLayer);
-        endLayer = new BYGEdgeLayer(biomeRegistry, BYGEndBiome.BIOME_TO_EDGE).apply(randomProvider.apply(2848586786L), endLayer);
-        endLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(395885L), endLayer);
-        endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(28475786L), endLayer);
+        endLayer = new BYGHillsLayer(biomeRegistry, BYGEndBiome.BIOME_TO_HILLS, 3).run(randomProvider.apply(2848586786L), endLayer, endLayer);
+        endLayer = ZoomLayer.NORMAL.run(randomProvider.apply(495949586L), endLayer);
+        endLayer = ZoomLayer.FUZZY.run(randomProvider.apply(34885L), endLayer);
+        endLayer = new BYGEdgeLayer(biomeRegistry, BYGEndBiome.BIOME_TO_EDGE).run(randomProvider.apply(2848586786L), endLayer);
+        endLayer = ZoomLayer.FUZZY.run(randomProvider.apply(395885L), endLayer);
+        endLayer = ZoomLayer.NORMAL.run(randomProvider.apply(28475786L), endLayer);
         return new DatapackLayer(endLayer);
     }
 
     public static DatapackLayer stackVoidLayers(Registry<Biome> biomeRegistry, long seed) {
         LongFunction<IExtendedNoiseRandom<LazyArea>> randomProvider = salt -> new LazyAreaLayerContext(1, seed, salt);
 
-        IAreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, BYGEndBiomeProvider.VOID_BIOMES).apply(randomProvider.apply(1003958L));
+        IAreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, BYGEndBiomeProvider.VOID_BIOMES).run(randomProvider.apply(1003958L));
 
         for (int endBiomeSize = 0; endBiomeSize <= BYGWorldConfig.VOID_BIOME_SIZE.get(); endBiomeSize++) {
-            endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(49596L + endBiomeSize), endLayer);
+            endLayer = ZoomLayer.NORMAL.run(randomProvider.apply(49596L + endBiomeSize), endLayer);
         }
 
-        endLayer = new BYGHillsLayer(biomeRegistry, BYGEndBiome.BIOME_TO_HILLS, 3).apply(randomProvider.apply(2848586786L), endLayer, endLayer);
-        endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(495949586L), endLayer);
-        endLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(34885L), endLayer);
-        endLayer = new BYGEdgeLayer(biomeRegistry, BYGEndBiome.BIOME_TO_EDGE).apply(randomProvider.apply(2848586786L), endLayer);
-        endLayer = ZoomLayer.FUZZY.apply(randomProvider.apply(395885L), endLayer);
-        endLayer = ZoomLayer.NORMAL.apply(randomProvider.apply(28475786L), endLayer);
+        endLayer = new BYGHillsLayer(biomeRegistry, BYGEndBiome.BIOME_TO_HILLS, 3).run(randomProvider.apply(2848586786L), endLayer, endLayer);
+        endLayer = ZoomLayer.NORMAL.run(randomProvider.apply(495949586L), endLayer);
+        endLayer = ZoomLayer.FUZZY.run(randomProvider.apply(34885L), endLayer);
+        endLayer = new BYGEdgeLayer(biomeRegistry, BYGEndBiome.BIOME_TO_EDGE).run(randomProvider.apply(2848586786L), endLayer);
+        endLayer = ZoomLayer.FUZZY.run(randomProvider.apply(395885L), endLayer);
+        endLayer = ZoomLayer.NORMAL.run(randomProvider.apply(28475786L), endLayer);
 
         return new DatapackLayer(endLayer);
     }

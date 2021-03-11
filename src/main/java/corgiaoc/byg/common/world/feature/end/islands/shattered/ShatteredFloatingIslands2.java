@@ -21,7 +21,7 @@ public class ShatteredFloatingIslands2 extends Feature<FloatingIslandConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
         double radius = rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
@@ -38,12 +38,12 @@ public class ShatteredFloatingIslands2 extends Feature<FloatingIslandConfig> {
                     double squareNoise1 = perlin.GetNoise((float) x, (float) y, (float) z) * 12 - 6;
                     double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
                     if (distanceSqt1 <= halfRadius * radius) {
-                        mutable.setPos(pos).move((int) x, (int) y, (int) z);
+                        mutable.set(pos).move((int) x, (int) y, (int) z);
                         if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
                             if (y >= 1)
-                                world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                                world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
                             if (y >= 2)
-                                world.setBlockState(mutable, config.getTopBlockProvider().getBlockState(rand, mutable), 2);
+                                world.setBlock(mutable, config.getTopBlockProvider().getState(rand, mutable), 2);
                         }
                     }
                 }
@@ -57,11 +57,11 @@ public class ShatteredFloatingIslands2 extends Feature<FloatingIslandConfig> {
                     double scaledNoise = (noise / 11) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (y >= 1) {
-                            world.setBlockState(pos.add(x, y - 22, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
+                            world.setBlock(pos.offset(x, y - 22, z), config.getBlockProvider().getState(rand, mutable), 2);
                             if (y >= 20) {
-                                world.setBlockState(pos.add(x, y - 22, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
+                                world.setBlock(pos.offset(x, y - 22, z), config.getBlockProvider().getState(rand, mutable), 2);
                                 if (y >= 22) {
-                                    world.setBlockState(pos.add(x, y - 22, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
+                                    world.setBlock(pos.offset(x, y - 22, z), config.getBlockProvider().getState(rand, mutable), 2);
                                 }
                             }
                         }
@@ -76,7 +76,7 @@ public class ShatteredFloatingIslands2 extends Feature<FloatingIslandConfig> {
             double noise = perlin.GetNoise((float) x, (float) y, (float) z) * 12;
             double scaledNoise = noise + x + y + z;
             if (scaledNoise >= 0.5) {
-                world.setBlockState(pos.add(x, y - 22, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
+                world.setBlock(pos.offset(x, y - 22, z), config.getBlockProvider().getState(rand, mutable), 2);
             }
         }
 

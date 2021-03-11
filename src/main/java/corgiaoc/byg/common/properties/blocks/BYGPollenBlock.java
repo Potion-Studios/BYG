@@ -25,18 +25,18 @@ public class BYGPollenBlock extends Block {
 
     }
 
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != EntityType.BAT) {
-            entityIn.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
-            double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
-            double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);
+            entityIn.makeStuckInBlock(state, new Vector3d(0.8F, 0.75D, 0.8F));
+            double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
+            double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
         }
     }
 
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, ISelectionContext.dummy());
-        Vector3d lvt_6_1_ = lvt_5_1_.getBoundingBox().getCenter();
+        VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, ISelectionContext.empty());
+        Vector3d lvt_6_1_ = lvt_5_1_.bounds().getCenter();
         double lvt_7_1_ = (double) pos.getX() + lvt_6_1_.x;
         double lvt_9_1_ = (double) pos.getZ() + lvt_6_1_.z;
 
@@ -49,7 +49,7 @@ public class BYGPollenBlock extends Block {
     }
 
     @Override
-    public boolean canSpawnInBlock() {
+    public boolean isPossibleToRespawnInThis() {
         return true;
     }
 }

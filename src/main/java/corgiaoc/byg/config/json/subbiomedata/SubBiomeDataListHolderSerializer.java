@@ -97,7 +97,7 @@ public class SubBiomeDataListHolderSerializer implements JsonSerializer<SubBiome
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
             if (WorldGenRegistries.BIOME.keySet().contains(biomeKey)) {
                 if (biomeKey.getNamespace().equals(BYG.MOD_ID))
-                    biomeData.add(new SubBiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), typesArray, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
+                    biomeData.add(new SubBiomeData(WorldGenRegistries.BIOME.get(biomeKey), typesArray, WorldGenRegistries.BIOME.get(new ResourceLocation(edge)), WorldGenRegistries.BIOME.get(new ResourceLocation(beach)), WorldGenRegistries.BIOME.get(new ResourceLocation(river))));
                 else
                     BYG.LOGGER.error("Biome key: \"" + biomeName + "\" is illegal. The mod id for the biome key MUST be \"byg\". Skipping entry...");
             }

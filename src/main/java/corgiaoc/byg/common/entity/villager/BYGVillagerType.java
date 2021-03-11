@@ -34,6 +34,6 @@ public class BYGVillagerType {
     }
 
     public static RegistryKey<Biome> getBiomeKey(Biome biome) {
-        return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(biome));
+        return RegistryKey.create(Registry.BIOME_REGISTRY, WorldGenRegistries.BIOME.getKey(biome));
     }
 }

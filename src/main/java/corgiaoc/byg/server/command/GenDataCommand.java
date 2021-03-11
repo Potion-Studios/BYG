@@ -60,18 +60,18 @@ public class GenDataCommand {
     public static void createBiomeDatapack(String modId, CommandContext<CommandSource> commandSource) {
         List<Biome> biomeList = new ArrayList<>();
         boolean stopSpamFlag = false;
-        Path dataPackPath = dataPackPath(commandSource.getSource().getWorld().getServer().func_240776_a_(FolderName.DATAPACKS), modId);
+        Path dataPackPath = dataPackPath(commandSource.getSource().getLevel().getServer().getWorldPath(FolderName.DATAPACK_DIR), modId);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        DynamicRegistries manager = commandSource.getSource().getServer().func_244267_aX();
+        DynamicRegistries manager = commandSource.getSource().getServer().registryAccess();
         Registry<Biome> biomeRegistry = WorldGenRegistries.BIOME;
-        Registry<ConfiguredFeature<?, ?>> featuresRegistry = manager.getRegistry(Registry.CONFIGURED_FEATURE_KEY);
-        Registry<StructureFeature<?, ?>> structuresRegistry = manager.getRegistry(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY);
-        Registry<ConfiguredCarver<?>> carverRegistry = manager.getRegistry(Registry.CONFIGURED_CARVER_KEY);
-        Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = manager.getRegistry(Registry.CONFIGURED_SURFACE_BUILDER_KEY);
-        Registry<StructureProcessorList> structureProcessorRegistry = manager.getRegistry(Registry.STRUCTURE_PROCESSOR_LIST_KEY);
+        Registry<ConfiguredFeature<?, ?>> featuresRegistry = manager.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY);
+        Registry<StructureFeature<?, ?>> structuresRegistry = manager.registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
+        Registry<ConfiguredCarver<?>> carverRegistry = manager.registryOrThrow(Registry.CONFIGURED_CARVER_REGISTRY);
+        Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = manager.registryOrThrow(Registry.CONFIGURED_SURFACE_BUILDER_REGISTRY);
+        Registry<StructureProcessorList> structureProcessorRegistry = manager.registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY);
 
 
-//        Function<DimensionGeneratorSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(DimensionGeneratorSettings.field_236201_a_);
+//        Function<DimensionGeneratorSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(DimensionGeneratorSettings.CODEC);
 //
 //        DataResult<JsonElement> jsonResult = dimensionGeneratorSettingsCodec.apply(((ServerWorldInfo) commandSource.getSource().getWorld().getWorldInfo()).getDimensionGeneratorSettings());
 //
@@ -92,11 +92,11 @@ public class GenDataCommand {
     }
 
     private static void createWorldImportJson(String modId, Path dataPackPath, Gson gson, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuildersRegistry) {
-        for (Map.Entry<RegistryKey<ConfiguredSurfaceBuilder<?>>, ConfiguredSurfaceBuilder<?>> surfaceBuilder : surfaceBuildersRegistry.getEntries()) {
-            Function<Supplier<ConfiguredSurfaceBuilder<?>>, DataResult<JsonElement>> surfaceBuilderCodec = JsonOps.INSTANCE.withEncoder(ConfiguredSurfaceBuilder.field_244393_b_);
+        for (Map.Entry<RegistryKey<ConfiguredSurfaceBuilder<?>>, ConfiguredSurfaceBuilder<?>> surfaceBuilder : surfaceBuildersRegistry.entrySet()) {
+            Function<Supplier<ConfiguredSurfaceBuilder<?>>, DataResult<JsonElement>> surfaceBuilderCodec = JsonOps.INSTANCE.withEncoder(ConfiguredSurfaceBuilder.CODEC);
 
             ConfiguredSurfaceBuilder<?> configuredSurfaceBuilder = surfaceBuilder.getValue();
-            if (surfaceBuilder.getKey().getLocation().toString().contains(modId)) {
+            if (surfaceBuilder.getKey().location().toString().contains(modId)) {
                 if (configuredSurfaceBuilder != null) {
                     if (Objects.requireNonNull(surfaceBuildersRegistry.getKey(configuredSurfaceBuilder)).toString().contains(modId)) {
                         Optional<JsonElement> optional = (surfaceBuilderCodec.apply(() -> configuredSurfaceBuilder).result());
@@ -115,8 +115,8 @@ public class GenDataCommand {
     }
 
     private static void createBiomeJsonAndPackMcMeta(String modId, CommandContext<CommandSource> commandSource, List<Biome> biomeList, boolean stopSpamFlag, Path dataPackPath, Gson gson, Registry<Biome> biomeRegistry, Registry<ConfiguredFeature<?, ?>> featuresRegistry, Registry<StructureFeature<?, ?>> structuresRegistry, Registry<ConfiguredCarver<?>> carverRegistry, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry) {
-        for (Map.Entry<RegistryKey<Biome>, Biome> biome : biomeRegistry.getEntries()) {
-            String biomeKey = Objects.requireNonNull(biomeRegistry.getOptionalKey(biome.getValue())).get().getLocation().toString();
+        for (Map.Entry<RegistryKey<Biome>, Biome> biome : biomeRegistry.entrySet()) {
+            String biomeKey = Objects.requireNonNull(biomeRegistry.getResourceKey(biome.getValue())).get().location().toString();
             if (biomeKey.contains(modId)) {
                 biomeList.add(biome.getValue());
             }
@@ -127,7 +127,7 @@ public class GenDataCommand {
                 ResourceLocation key = biomeRegistry.getKey(biome);
                 if (key != null) {
                     Path biomeJsonPath = biomeJsonPath(dataPackPath, key, modId);
-                    Function<Supplier<Biome>, DataResult<JsonElement>> biomeCodec = JsonOps.INSTANCE.withEncoder(Biome.BIOME_CODEC);
+                    Function<Supplier<Biome>, DataResult<JsonElement>> biomeCodec = JsonOps.INSTANCE.withEncoder(Biome.CODEC);
                     try {
 //                        if (!Files.exists(biomeJsonPath)) {
                         Files.createDirectories(biomeJsonPath.getParent());
@@ -135,22 +135,22 @@ public class GenDataCommand {
                         if (optional.isPresent()) {
                             JsonElement root = optional.get();
                             JsonArray features = new JsonArray();
-                            for (List<Supplier<ConfiguredFeature<?, ?>>> list : biome.getGenerationSettings().getFeatures()) {
+                            for (List<Supplier<ConfiguredFeature<?, ?>>> list : biome.getGenerationSettings().features()) {
                                 JsonArray stage = new JsonArray();
                                 for (Supplier<ConfiguredFeature<?, ?>> feature : list) {
-                                    featuresRegistry.getOptionalKey(feature.get()).ifPresent(featureKey -> stage.add(featureKey.getLocation().toString()));
+                                    featuresRegistry.getResourceKey(feature.get()).ifPresent(featureKey -> stage.add(featureKey.location().toString()));
                                 }
                                 features.add(stage);
                             }
                             root.getAsJsonObject().add("features", features);
-                            String surfaceBuilder = surfaceBuilderRegistry.getOptionalKey(biome.getGenerationSettings().getSurfaceBuilder().get()).get().getLocation().toString();
+                            String surfaceBuilder = surfaceBuilderRegistry.getResourceKey(biome.getGenerationSettings().getSurfaceBuilder().get()).get().location().toString();
                             root.getAsJsonObject().addProperty("surface_builder", surfaceBuilder);
 
                             JsonObject carvers = new JsonObject();
                             for (GenerationStage.Carving step : GenerationStage.Carving.values()) {
                                 JsonArray stage = new JsonArray();
                                 for (Supplier<ConfiguredCarver<?>> carver : biome.getGenerationSettings().getCarvers(step)) {
-                                    carverRegistry.getOptionalKey(carver.get()).ifPresent(carverKey -> stage.add(carverKey.getLocation().toString()));
+                                    carverRegistry.getResourceKey(carver.get()).ifPresent(carverKey -> stage.add(carverKey.location().toString()));
                                 }
                                 if (stage.size() > 0) {
                                     carvers.add(step.getName(), stage);
@@ -158,8 +158,8 @@ public class GenDataCommand {
                             }
                             root.getAsJsonObject().add("carvers", carvers);
                             JsonArray starts = new JsonArray();
-                            for (Supplier<StructureFeature<?, ?>> start : biome.getGenerationSettings().getStructures()) {
-                                structuresRegistry.getOptionalKey(start.get()).ifPresent(structureKey -> starts.add(structureKey.getLocation().toString()));
+                            for (Supplier<StructureFeature<?, ?>> start : biome.getGenerationSettings().structures()) {
+                                structuresRegistry.getResourceKey(start.get()).ifPresent(structureKey -> starts.add(structureKey.location().toString()));
                             }
                             root.getAsJsonObject().add("starts", starts);
                             Files.write(biomeJsonPath, gson.toJson(root).getBytes());
@@ -167,7 +167,7 @@ public class GenDataCommand {
 //                        }
                     } catch (IOException e) {
                         if (!stopSpamFlag) {
-                            commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.failed", modId).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.RED))), false);
+                            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
                             stopSpamFlag = true;
                         }
                     }
@@ -177,22 +177,22 @@ public class GenDataCommand {
             try {
                 createPackMCMeta(dataPackPath, modId);
             } catch (IOException e) {
-                commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.mcmeta.failed", modId).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.RED))), false);
+                commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.mcmeta.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
             }
 
-            ITextComponent filePathText = (new StringTextComponent(dataPackPath.toString())).mergeStyle(TextFormatting.UNDERLINE).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.GREEN)).setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
-            commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), filePathText), false);
+            ITextComponent filePathText = (new StringTextComponent(dataPackPath.toString())).withStyle(TextFormatting.UNDERLINE).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.GREEN)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
+            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), filePathText), false);
         } else {
-            commandSource.getSource().sendFeedback(new TranslationTextComponent("commands.gendata.listisempty", modId).modifyStyle(text -> text.setColor(Color.fromTextFormatting(TextFormatting.RED))), false);
+            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.listisempty", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
         }
     }
 
     private static void createConfiguredFeatureJson(String modId, Path dataPackPath, Gson gson, Registry<ConfiguredFeature<?, ?>> featuresRegistry) {
-        for (Map.Entry<RegistryKey<ConfiguredFeature<?, ?>>, ConfiguredFeature<?, ?>> feature : featuresRegistry.getEntries()) {
-            Function<Supplier<ConfiguredFeature<?, ?>>, DataResult<JsonElement>> featureCodec = JsonOps.INSTANCE.withEncoder(ConfiguredFeature.field_236264_b_);
+        for (Map.Entry<RegistryKey<ConfiguredFeature<?, ?>>, ConfiguredFeature<?, ?>> feature : featuresRegistry.entrySet()) {
+            Function<Supplier<ConfiguredFeature<?, ?>>, DataResult<JsonElement>> featureCodec = JsonOps.INSTANCE.withEncoder(ConfiguredFeature.CODEC);
 
             ConfiguredFeature<?, ?> configuredFeature = feature.getValue();
-            if (feature.getKey().getLocation().toString().contains(modId)) {
+            if (feature.getKey().location().toString().contains(modId)) {
                 if (configuredFeature != null) {
                     if (Objects.requireNonNull(featuresRegistry.getKey(configuredFeature)).toString().contains(modId)) {
                         Optional<JsonElement> optional = (featureCodec.apply(() -> configuredFeature).result());
@@ -212,11 +212,11 @@ public class GenDataCommand {
     }
 
     private static void createConfiguredSurfaceBuilderJson(String modId, Path dataPackPath, Gson gson, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuildersRegistry) {
-        for (Map.Entry<RegistryKey<ConfiguredSurfaceBuilder<?>>, ConfiguredSurfaceBuilder<?>> surfaceBuilder : surfaceBuildersRegistry.getEntries()) {
-            Function<Supplier<ConfiguredSurfaceBuilder<?>>, DataResult<JsonElement>> surfaceBuilderCodec = JsonOps.INSTANCE.withEncoder(ConfiguredSurfaceBuilder.field_244393_b_);
+        for (Map.Entry<RegistryKey<ConfiguredSurfaceBuilder<?>>, ConfiguredSurfaceBuilder<?>> surfaceBuilder : surfaceBuildersRegistry.entrySet()) {
+            Function<Supplier<ConfiguredSurfaceBuilder<?>>, DataResult<JsonElement>> surfaceBuilderCodec = JsonOps.INSTANCE.withEncoder(ConfiguredSurfaceBuilder.CODEC);
 
             ConfiguredSurfaceBuilder<?> configuredSurfaceBuilder = surfaceBuilder.getValue();
-            if (surfaceBuilder.getKey().getLocation().toString().contains(modId)) {
+            if (surfaceBuilder.getKey().location().toString().contains(modId)) {
                 if (configuredSurfaceBuilder != null) {
                     if (Objects.requireNonNull(surfaceBuildersRegistry.getKey(configuredSurfaceBuilder)).toString().contains(modId)) {
                         Optional<JsonElement> optional = (surfaceBuilderCodec.apply(() -> configuredSurfaceBuilder).result());
@@ -235,11 +235,11 @@ public class GenDataCommand {
     }
 
     private static void createConfiguredCarverJson(String modId, Path dataPackPath, Gson gson, Registry<ConfiguredCarver<?>> carverRegistry) {
-        for (Map.Entry<RegistryKey<ConfiguredCarver<?>>, ConfiguredCarver<?>> carver : carverRegistry.getEntries()) {
-            Function<Supplier<ConfiguredCarver<?>>, DataResult<JsonElement>> carverCodec = JsonOps.INSTANCE.withEncoder(ConfiguredCarver.field_244390_b_);
+        for (Map.Entry<RegistryKey<ConfiguredCarver<?>>, ConfiguredCarver<?>> carver : carverRegistry.entrySet()) {
+            Function<Supplier<ConfiguredCarver<?>>, DataResult<JsonElement>> carverCodec = JsonOps.INSTANCE.withEncoder(ConfiguredCarver.CODEC);
 
             ConfiguredCarver<?> configuredCarver = carver.getValue();
-            if (carver.getKey().getLocation().toString().contains(modId)) {
+            if (carver.getKey().location().toString().contains(modId)) {
                 if (configuredCarver != null) {
                     if (Objects.requireNonNull(carverRegistry.getKey(configuredCarver)).toString().contains(modId)) {
                         Optional<JsonElement> optional = (carverCodec.apply(() -> configuredCarver).result());
@@ -258,11 +258,11 @@ public class GenDataCommand {
     }
 
     private static void createConfiguredStructureJson(String modId, Path dataPackPath, Gson gson, Registry<StructureFeature<?, ?>> structureRegistry) {
-        for (Map.Entry<RegistryKey<StructureFeature<?, ?>>, StructureFeature<?, ?>> structure : structureRegistry.getEntries()) {
-            Function<Supplier<StructureFeature<?, ?>>, DataResult<JsonElement>> structureCodec = JsonOps.INSTANCE.withEncoder(StructureFeature.field_244391_b_);
+        for (Map.Entry<RegistryKey<StructureFeature<?, ?>>, StructureFeature<?, ?>> structure : structureRegistry.entrySet()) {
+            Function<Supplier<StructureFeature<?, ?>>, DataResult<JsonElement>> structureCodec = JsonOps.INSTANCE.withEncoder(StructureFeature.CODEC);
 
             StructureFeature<?, ?> configuredStructure = structure.getValue();
-            if (structure.getKey().getLocation().toString().contains(modId)) {
+            if (structure.getKey().location().toString().contains(modId)) {
                 if (configuredStructure != null) {
                     if (Objects.requireNonNull(structureRegistry.getKey(configuredStructure)).toString().contains(modId)) {
                         Optional<JsonElement> optional = (structureCodec.apply(() -> configuredStructure).result());
@@ -281,11 +281,11 @@ public class GenDataCommand {
     }
 
     private static void createProcessorListJson(String modId, Path dataPackPath, Gson gson, Registry<StructureProcessorList> structureProcessorRegistry) {
-        for (Map.Entry<RegistryKey<StructureProcessorList>, StructureProcessorList> processor : structureProcessorRegistry.getEntries()) {
-            Function<Supplier<StructureProcessorList>, DataResult<JsonElement>> processorCodec = JsonOps.INSTANCE.withEncoder(IStructureProcessorType.field_242922_m);
+        for (Map.Entry<RegistryKey<StructureProcessorList>, StructureProcessorList> processor : structureProcessorRegistry.entrySet()) {
+            Function<Supplier<StructureProcessorList>, DataResult<JsonElement>> processorCodec = JsonOps.INSTANCE.withEncoder(IStructureProcessorType.LIST_CODEC);
 
             StructureProcessorList processorList = processor.getValue();
-            if (processor.getKey().getLocation().toString().contains(modId)) {
+            if (processor.getKey().location().toString().contains(modId)) {
                 if (processorList != null) {
                     if (Objects.requireNonNull(structureProcessorRegistry.getKey(processorList)).toString().contains(modId)) {
                         Optional<JsonElement> optional = (processorCodec.apply(() -> processorList).result());

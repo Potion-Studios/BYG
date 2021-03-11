@@ -20,11 +20,11 @@ public class MineralDeposit extends Feature<NoisySphereConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
         setSeed(world.getSeed());
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position.down(random.nextInt(3)));
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position.below(random.nextInt(3)));
+        BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(mutable);
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int xRadius = config.getRandomXRadius(random);
         int yRadius = config.getRandomYRadius(random);
@@ -34,7 +34,7 @@ public class MineralDeposit extends Feature<NoisySphereConfig> {
             for (int x = -xRadius; x <= xRadius; x++) {
                 for (int z = -zRadius; z <= zRadius; z++) {
                     for (int y = -yRadius; y <= yRadius; y++) {
-                        mutable2.setPos(mutable).move(x, y, z);
+                        mutable2.set(mutable).move(x, y, z);
                         IChunk chunk = world.getChunk(mutable2);
 
                         //Credits to Hex_26 for this equation!
@@ -43,7 +43,7 @@ public class MineralDeposit extends Feature<NoisySphereConfig> {
                         if (equationResult >= threshold)
                             continue;
 
-                        world.setBlockState(mutable2, config.getBlockProvider().getBlockState(random, mutable2), 2);
+                        world.setBlock(mutable2, config.getBlockProvider().getState(random, mutable2), 2);
                     }
                     xRadius = (int) (xRadius / config.getRadiusDivisorPerStack());
                     yRadius = (int) (yRadius / config.getRadiusDivisorPerStack());

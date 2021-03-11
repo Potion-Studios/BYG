@@ -14,19 +14,19 @@ import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
-    private static final BlockState PACKED_ICE = BYGBlocks.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE = BYGBlocks.BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE2 = Blocks.SNOW_BLOCK.getDefaultState();
+    private static final BlockState PACKED_ICE = BYGBlocks.PACKED_BLACK_ICE.defaultBlockState();
+    private static final BlockState BLUE_ICE = BYGBlocks.BLACK_ICE.defaultBlockState();
+    private static final BlockState BLUE_ICE2 = Blocks.SNOW_BLOCK.defaultBlockState();
 
     public ShatteredGlacierSB2(Codec<SurfaceBuilderConfig> config) {
         super(config);
     }
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         double d0 = 0.0D;
-        double d1 = Math.min(Math.abs(noise), this.perlin1.noiseAt((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
+        double d1 = Math.min(Math.abs(noise), this.perlin1.getValue((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
         if (d1 > 0.0D) {
-            double d3 = Math.abs(this.perlin2.noiseAt((double) x * 0.001953125D, (double) z * 0.001953125D, false));
+            double d3 = Math.abs(this.perlin2.getValue((double) x * 0.001953125D, (double) z * 0.001953125D, false));
             d0 = d1 * d1 * 2.5D;
             double d4 = Math.ceil(d3 * 50.0D) + 14.0D;
             if (d0 > d4) {
@@ -39,7 +39,7 @@ public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
         int chunkX = x & 15;
         int chunkZ = z & 15;
         BlockState blockstatePackedIce = PACKED_ICE;
-        BlockState blockstateUnder = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnder();
+        BlockState blockstateUnder = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
         int i1 = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int j = -1;
@@ -47,7 +47,7 @@ public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 
         for (int k = Math.max(startHeight, (int) d0 + 1); k >= 0; --k) {
-            blockpos$mutable.setPos(chunkX, k, chunkZ);
+            blockpos$mutable.set(chunkX, k, chunkZ);
             if (chunkIn.getBlockState(blockpos$mutable).isAir() && k < (int) d0) {
                 chunkIn.setBlockState(blockpos$mutable, defaultBlock, false);
             }
@@ -59,11 +59,11 @@ public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
                 if (j == -1) {
                     flag1 = false;
                     if (i1 <= 0) {
-                        blockstatePackedIce = Blocks.AIR.getDefaultState();
+                        blockstatePackedIce = Blocks.AIR.defaultBlockState();
                         blockstateUnder = defaultBlock;
                     } else if (k >= seaLevel - 4 && k <= seaLevel + 1) {
                         blockstatePackedIce = PACKED_ICE;
-                        blockstateUnder = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnder();
+                        blockstateUnder = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
                     }
 
                     if (k < seaLevel && (blockstatePackedIce == null || blockstatePackedIce.isAir())) {
@@ -73,7 +73,7 @@ public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
                     j = i1 + Math.max(0, k - seaLevel);
                     if (k >= seaLevel - 1) {
                         if (k <= seaLevel + 3 + i1) {
-                            chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getTop(), false);
+                            chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial(), false);
                             flag1 = true;
                         } else {
                             BlockState blockstate3;

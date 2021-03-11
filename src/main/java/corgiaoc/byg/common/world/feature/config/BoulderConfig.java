@@ -95,7 +95,7 @@ public class BoulderConfig implements IFeatureConfig {
 
 
     public static class Builder {
-        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
         private int minStackHeight = 1;
         private int maxStackHeight = 1;
         private int minRadius = 1;
@@ -105,9 +105,9 @@ public class BoulderConfig implements IFeatureConfig {
 
         public Builder setBlock(Block block) {
             if (block != null)
-                blockProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -115,7 +115,7 @@ public class BoulderConfig implements IFeatureConfig {
             if (state != null)
                 blockProvider = new SimpleBlockStateProvider(state);
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -123,7 +123,7 @@ public class BoulderConfig implements IFeatureConfig {
             if (provider != null)
                 blockProvider = provider;
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 

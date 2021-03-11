@@ -36,14 +36,14 @@ public class MixinMinecraftServer {
 
     @Shadow
     @Final
-    protected DynamicRegistries.Impl field_240767_f_;
+    protected DynamicRegistries.Impl registryHolder;
 
     @Inject(at = @At("RETURN"), method = "<init>(Ljava/lang/Thread;Lnet/minecraft/util/registry/DynamicRegistries$Impl;Lnet/minecraft/world/storage/SaveFormat$LevelSave;Lnet/minecraft/world/storage/IServerConfiguration;Lnet/minecraft/resources/ResourcePackList;Ljava/net/Proxy;Lcom/mojang/datafixers/DataFixer;Lnet/minecraft/resources/DataPackRegistries;Lcom/mojang/authlib/minecraft/MinecraftSessionService;Lcom/mojang/authlib/GameProfileRepository;Lnet/minecraft/server/management/PlayerProfileCache;Lnet/minecraft/world/chunk/listener/IChunkStatusListenerFactory;)V")
     private void addBYGFeatures(Thread thread, DynamicRegistries.Impl impl, SaveFormat.LevelSave session, IServerConfiguration saveProperties, ResourcePackList resourcePackManager, Proxy proxy, DataFixer dataFixer, DataPackRegistries serverResourceManager, MinecraftSessionService minecraftSessionService, GameProfileRepository gameProfileRepository, PlayerProfileCache userCache, IChunkStatusListenerFactory worldGenerationProgressListenerFactory, CallbackInfo ci) {
-        Optional<MutableRegistry<Biome>> biomeMutableRegistry = this.field_240767_f_.func_230521_a_(Registry.BIOME_KEY);
+        Optional<MutableRegistry<Biome>> biomeMutableRegistry = this.registryHolder.registry(Registry.BIOME_REGISTRY);
         if (biomeMutableRegistry.isPresent()) {
-            for (Map.Entry<RegistryKey<Biome>, Biome> biomeEntry : biomeMutableRegistry.get().getEntries()) {
-                BYGBiomes.addBYGFeaturesToBiomes(biomeEntry.getValue(), biomeEntry.getKey().getLocation());
+            for (Map.Entry<RegistryKey<Biome>, Biome> biomeEntry : biomeMutableRegistry.get().entrySet()) {
+                BYGBiomes.addBYGFeaturesToBiomes(biomeEntry.getValue(), biomeEntry.getKey().location());
             }
 
             BYGBiomes.fillBiomeDictionary(biomeMutableRegistry.get());

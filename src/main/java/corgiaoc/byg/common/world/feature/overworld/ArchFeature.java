@@ -21,19 +21,19 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
     protected static FastNoise fastNoise;
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
         int curveLength = 35;
 
         BlockPos.Mutable mutable2 = new BlockPos.Mutable();
 
             for (int z = -curveLength; z <= curveLength; z++) {
-                mutable2.setPos(mutable.getX(), 0, mutable.getZ() + z);
+                mutable2.set(mutable.getX(), 0, mutable.getZ() + z);
                 int height = getArchHeight(z);
                 mutable2.move(Direction.UP, height + pos.getY() + 15);
 
-                BlockPos.Mutable thicknessPos = new BlockPos.Mutable().setPos(mutable2);
+                BlockPos.Mutable thicknessPos = new BlockPos.Mutable().set(mutable2);
 
 
                 int horizontalThicknessTotal = 4;
@@ -41,7 +41,7 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
                     thicknessPos.setX(mutable2.getX() + archHorizontalThickness);
 
                     for (int archVerticalThickness = 0; archVerticalThickness <= 4; archVerticalThickness++) {
-                        world.setBlockState(thicknessPos, config.getBlockProvider().getBlockState(random, thicknessPos), 2);
+                        world.setBlock(thicknessPos, config.getBlockProvider().getState(random, thicknessPos), 2);
                         thicknessPos.move(Direction.DOWN);
                     }
                     thicknessPos.setY(mutable2.getY() + Math.abs(archHorizontalThickness) * 2);

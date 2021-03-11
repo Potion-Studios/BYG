@@ -15,9 +15,9 @@ public class PointedSBConfig implements ISurfaceBuilderConfig {
             return config.topMaterial;
         }), BlockState.CODEC.fieldOf("under_material").forGetter((config) -> {
             return config.underMaterial;
-        }), BlockStateProvider.CODEC.fieldOf("spike_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())).forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("spike_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
             return config.spikeProvider;
-        }), BlockStateProvider.CODEC.fieldOf("spike_top_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())).forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("spike_top_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
             return config.spikeTopBlockProvider;
         }), Codec.INT.fieldOf("spike_height").orElse(150).forGetter((config) -> {
             return config.spikeHeight;
@@ -38,11 +38,11 @@ public class PointedSBConfig implements ISurfaceBuilderConfig {
         this.spikeHeight = spikeHeight;
     }
 
-    public BlockState getTop() {
+    public BlockState getTopMaterial() {
         return topMaterial;
     }
 
-    public BlockState getUnder() {
+    public BlockState getUnderMaterial() {
         return this.underMaterial;
     }
 

@@ -23,9 +23,9 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
 
     protected static boolean isDirtOrPeatBlock(IWorldGenerationBaseReader worldIn, BlockPos pos) {
-        return worldIn.hasBlockState(pos, (state) -> {
+        return worldIn.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
-            return block.isIn(Tags.Blocks.DIRT) || block == BYGBlocks.PEAT;
+            return block.is(Tags.Blocks.DIRT) || block == BYGBlocks.PEAT;
         });
     }
 
@@ -36,12 +36,12 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (!isDirtOrPeatBlock(worldIn, pos.down())) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
+            if (!isDirtOrPeatBlock(worldIn, pos.below())) {
                 return false;
             } else {
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
                 int posY1 = 2 - rand.nextInt(1);
                 int posX1 = posX;
@@ -50,16 +50,16 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                 for (int groundUpLogRemover = 0; groundUpLogRemover < randTreeHeight; ++groundUpLogRemover) {
                     if (groundUpLogRemover >= randTreeHeight2 && posY1 < 0) {
-                        posX1 += direction.getXOffset();
-                        posZ1 += direction.getZOffset();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
                     //This Int is responsible for the Y coordinate of the trunk BlockPos'.
                     int logplacer = posY + groundUpLogRemover;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1.up(1), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1.up(2), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1.above(1), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1.above(2), boundsIn);
 
 
                 }

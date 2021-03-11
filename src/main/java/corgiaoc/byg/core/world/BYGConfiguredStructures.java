@@ -8,23 +8,23 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 
 public class BYGConfiguredStructures {
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> END_RUINS = register("ruins_end", Structure.VILLAGE.withConfiguration(new VillageConfig(() -> {
-        return EndRuins.field_244193_a;
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> END_RUINS = register("ruins_end", Structure.VILLAGE.configured(new VillageConfig(() -> {
+        return EndRuins.START;
     }, 6)));
 
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_SKYRIS = register("village_skyris", Structure.VILLAGE.withConfiguration(new VillageConfig(() -> {
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_SKYRIS = register("village_skyris", Structure.VILLAGE.configured(new VillageConfig(() -> {
         return SkyrisVillagePools.SkyrisVillageJigsaw;
     }, 6)));
 
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_RUINS = register("village_ruins", Structure.VILLAGE.withConfiguration(new VillageConfig(() -> {
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_RUINS = register("village_ruins", Structure.VILLAGE.configured(new VillageConfig(() -> {
         return RuinsVillagePools.RuinsVillageJigsaw;
     }, 6)));
 
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_ADOBE = register("village_adobe", Structure.VILLAGE.withConfiguration(new VillageConfig(() -> {
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_ADOBE = register("village_adobe", Structure.VILLAGE.configured(new VillageConfig(() -> {
         return AdobeVillagePools.AdobeVillageJigsaw;
     }, 6)));
 
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_TROPICAL = register("village_tropical", Structure.VILLAGE.withConfiguration(new VillageConfig(() -> {
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_TROPICAL = register("village_tropical", Structure.VILLAGE.configured(new VillageConfig(() -> {
         return TropicalVillagePools.TropicalVillageJigsaw;
     }, 6)));
 

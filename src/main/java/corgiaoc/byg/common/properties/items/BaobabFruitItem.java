@@ -31,12 +31,12 @@ public class BaobabFruitItem extends BlockItem {
         return 32;
     }
 
-    public UseAction getUseAction(ItemStack stack) {
+    public UseAction getUseAnimation(ItemStack stack) {
         return UseAction.EAT;
     }
 
-    public String getTranslationKey() {
-        return this.getDefaultTranslationKey();
+    public String getDescriptionId() {
+        return this.getOrCreateDescriptionId();
     }
 }
 

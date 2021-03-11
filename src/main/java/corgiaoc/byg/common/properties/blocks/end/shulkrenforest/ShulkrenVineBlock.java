@@ -17,7 +17,7 @@ import java.util.Random;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class ShulkrenVineBlock extends AbstractTopPlantBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);
+    protected static final VoxelShape SHAPE = Block.box(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
 
 
@@ -29,15 +29,15 @@ public class ShulkrenVineBlock extends AbstractTopPlantBlock {
      * Used to determine how much to grow the plant when using bonemeal. Kelp always returns 1, where as the nether vines
      * return a random value at least 1.
      */
-    protected int getGrowthAmount(Random rand) {
-        return PlantBlockHelper.getGrowthAmount(rand);
+    protected int getBlocksToGrowWhenBonemealed(Random rand) {
+        return PlantBlockHelper.getBlocksToGrowWhenBonemealed(rand);
     }
 
-    protected Block getBodyPlantBlock() {
+    protected Block getBodyBlock() {
         return BYGBlocks.SHULKREN_VINE_PLANT;
     }
 
-    protected boolean canGrowIn(BlockState state) {
-        return PlantBlockHelper.isAir(state);
+    protected boolean canGrowInto(BlockState state) {
+        return PlantBlockHelper.isValidGrowthState(state);
     }
 }

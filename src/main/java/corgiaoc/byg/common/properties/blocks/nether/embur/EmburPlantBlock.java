@@ -18,7 +18,7 @@ import net.minecraft.block.AbstractBlock.OffsetType;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class EmburPlantBlock extends BushBlock implements IGrowable {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     protected EmburPlantBlock(Properties builder) {
         super(builder);
@@ -28,17 +28,17 @@ public class EmburPlantBlock extends BushBlock implements IGrowable {
     /**
      * Whether this IGrowable can grow
      */
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
         return true;
     }
 
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
         return true;
     }
 
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
         DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.EMBUR_ROOTS ? BYGBlocks.TALL_EMBUR_ROOTS : BYGBlocks.TALL_EMBUR_ROOTS);
-        if (doubleplantblock.getDefaultState().isValidPosition(worldIn, pos) && worldIn.isAirBlock(pos.up())) {
+        if (doubleplantblock.defaultBlockState().canSurvive(worldIn, pos) && worldIn.isEmptyBlock(pos.above())) {
             doubleplantblock.placeAt(worldIn, pos, 2);
         }
 
@@ -50,18 +50,18 @@ public class EmburPlantBlock extends BushBlock implements IGrowable {
 
     public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext ctx) {
         Vector3d vector = state.getOffset(reader, pos);
-        return SHAPE.withOffset(vector.x, vector.y, vector.z);
+        return SHAPE.move(vector.x, vector.y, vector.z);
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(BlockTags.NYLIUM) || state.isIn(Blocks.MYCELIUM) || state.isIn(Blocks.SOUL_SOIL) || super.isValidGround(state, worldIn, pos);
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.is(BlockTags.NYLIUM) || state.is(Blocks.MYCELIUM) || state.is(Blocks.SOUL_SOIL) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockPos blockpos = pos.down();
-        return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos blockpos = pos.below();
+        return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }
 
 }

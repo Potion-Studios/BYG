@@ -80,8 +80,8 @@ public class BYG {
         BYGCreativeTab.init();
         BYGJsonConfigHandler.handleOverWorldConfig(CONFIG_PATH);
         event.enqueueWork(() -> {
-            Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
-            Registry.register(Registry.BIOME_PROVIDER_CODEC, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
+            Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
+            Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
             BYGVillagerType.setVillagerForBYGBiomes();
             BYGBiomes.addBiomeEntries();
             BYGBiomes.fillBiomeDictionary();
@@ -216,7 +216,7 @@ public class BYG {
         @SubscribeEvent
         public void commandRegisterEvent(FMLServerStartingEvent event) {
             LOGGER.debug("BYG: \"Server Starting\" Event Starting...");
-            GenDataCommand.dataGenCommand(event.getServer().getCommandManager().getDispatcher());
+            GenDataCommand.dataGenCommand(event.getServer().getCommands().getDispatcher());
             LOGGER.info("BYG: \"Server Starting\" Event Complete!");
         }
 
@@ -234,9 +234,9 @@ public class BYG {
 //                    return;
 //                }
 //
-//                Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
-//                tempMap.put(BYGStructures.VOLCANO_STRUCTURE, DimensionStructuresSettings.field_236191_b_.get(BYGStructures.VOLCANO_STRUCTURE));
-//                serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
+//                Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkProvider().generator.getSettings().structureConfig());
+//                tempMap.put(BYGStructures.VOLCANO_STRUCTURE, DimensionStructuresSettings.DEFAULTS.get(BYGStructures.VOLCANO_STRUCTURE));
+//                serverWorld.getChunkProvider().generator.getSettings().structureConfig = tempMap;
 //            }
 //            LOGGER.info("BYG: \"World Load\" Event Complete!");
 //        }

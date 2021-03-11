@@ -12,6 +12,8 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import net.minecraft.world.gen.feature.structure.Structure.IStartFactory;
+
 public class VolcanoStructure extends Structure<NoFeatureConfig> {
     public VolcanoStructure(Codec<NoFeatureConfig> codec) {
         super(codec);
@@ -34,7 +36,7 @@ public class VolcanoStructure extends Structure<NoFeatureConfig> {
         }
 
         @Override
-        public void func_230364_a_(DynamicRegistries dynamicRegistry, ChunkGenerator generator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig config) {
+        public void generatePieces(DynamicRegistries dynamicRegistry, ChunkGenerator generator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig config) {
             setSeed(this.seed);
 
             int x = chunkX * 16;
@@ -49,11 +51,11 @@ public class VolcanoStructure extends Structure<NoFeatureConfig> {
             double threshold = 0.5;
 
 
-            this.components.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, 0, volcanoConeSize, 0, volcanoConeSize));
-            this.components.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, volcanoConeSize, 0, 0, volcanoConeSize));
-            this.components.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, volcanoConeSize, 0, volcanoConeSize, 0));
-            this.components.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, 0, volcanoConeSize, volcanoConeSize, 0));
-            this.recalculateStructureSize();
+            this.pieces.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, 0, volcanoConeSize, 0, volcanoConeSize));
+            this.pieces.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, volcanoConeSize, 0, 0, volcanoConeSize));
+            this.pieces.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, volcanoConeSize, 0, volcanoConeSize, 0));
+            this.pieces.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, 0, volcanoConeSize, volcanoConeSize, 0));
+            this.calculateBoundingBox();
         }
 
 

@@ -27,22 +27,22 @@ public abstract class MixinHillsLayer {
     private static final List<Biome> topOceanList = new ArrayList<>();
 
 
-    @Inject(method = "apply(Lnet/minecraft/world/gen/INoiseRandom;Lnet/minecraft/world/gen/area/IArea;Lnet/minecraft/world/gen/area/IArea;II)I",
-            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/gen/INoiseRandom;random(I)I"),
+    @Inject(method = "applyPixel",
+            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/gen/INoiseRandom;nextRandom(I)I"),
             cancellable = true,
             locals = LocalCapture.CAPTURE_FAILHARD)
     private void injectBYGSubBiomes(INoiseRandom rand, IArea area1, IArea area2, int x, int z, CallbackInfoReturnable<Integer> cir, int i, int j, int k) {
-        if (rand.random(9) == 0 || k == 0) {
+        if (rand.nextRandom(9) == 0 || k == 0) {
             int l = i;
-            Biome biome = WorldGenRegistries.BIOME.getByValue(i);
+            Biome biome = WorldGenRegistries.BIOME.byId(i);
             if (topOceanList.contains(biome))
                 l = WorldGenRegistries.BIOME.getId(BYGBiomes.TROPICAL_ISLAND);
             cir.setReturnValue(l);
         }
         if (BYGBiome.BIOME_TO_HILLS_LIST.size() > 0) {
-            if (rand.random(3) == 0 || k == 0) {
+            if (rand.nextRandom(3) == 0 || k == 0) {
                 int l = i;
-                Biome biome = WorldGenRegistries.BIOME.getByValue(i);
+                Biome biome = WorldGenRegistries.BIOME.byId(i);
                 if (biome != null) {
                     if (BYGBiome.BIOME_TO_HILLS_LIST.containsKey(i)) {
                         Biome hill = getHillBiomeValue(BYGBiome.BIOME_TO_HILLS_LIST.get(i), rand);
@@ -58,7 +58,7 @@ public abstract class MixinHillsLayer {
 
     @Nullable
     private static Biome getHillBiomeValue(WeightedList<Biome> biomeHolder, INoiseRandom layerRandom) {
-        if (biomeHolder.field_220658_a.size() > 0) {
+        if (biomeHolder.entries.size() > 0) {
             return LayerRandomWeightedListUtil.getBiome(biomeHolder, layerRandom);
         }
         else {

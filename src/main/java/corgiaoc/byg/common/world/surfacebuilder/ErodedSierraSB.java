@@ -12,20 +12,20 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import java.util.Random;
 
 public class ErodedSierraSB extends SierraSB {
-    private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.getDefaultState();
-    private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.getDefaultState();
-    private static final BlockState TERRACOTTA = Blocks.TERRACOTTA.getDefaultState();
+    private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.defaultBlockState();
+    private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.defaultBlockState();
+    private static final BlockState TERRACOTTA = Blocks.TERRACOTTA.defaultBlockState();
 
     public ErodedSierraSB(Codec<SurfaceBuilderConfig> p_i51314_1_) {
         super(p_i51314_1_);
     }
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         double d0 = 0.0D;
-        double d1 = Math.min(Math.abs(noise), this.field_215435_c.noiseAt((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
+        double d1 = Math.min(Math.abs(noise), this.pillarNoise.getValue((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
         if (d1 > 0.0D) {
             double d2 = 0.001953125D;
-            double d3 = Math.abs(this.field_215437_d.noiseAt((double) x * 0.001953125D, (double) z * 0.001953125D, false));
+            double d3 = Math.abs(this.pillarRoofNoise.getValue((double) x * 0.001953125D, (double) z * 0.001953125D, false));
             d0 = d1 * d1 * 2.5D;
             double d4 = Math.ceil(d3 * 50.0D) + 14.0D;
             if (d0 > d4) {
@@ -38,7 +38,7 @@ public class ErodedSierraSB extends SierraSB {
         int l = x & 15;
         int i = z & 15;
         BlockState blockstate2 = TERRACOTTA;
-        BlockState blockstate = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnder();
+        BlockState blockstate = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
         int i1 = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int j = -1;
@@ -46,7 +46,7 @@ public class ErodedSierraSB extends SierraSB {
         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 
         for (int k = Math.max(startHeight, (int) d0 + 1); k >= 0; --k) {
-            blockpos$mutable.setPos(l, k, i);
+            blockpos$mutable.set(l, k, i);
             if (chunkIn.getBlockState(blockpos$mutable).isAir() && k < (int) d0) {
                 chunkIn.setBlockState(blockpos$mutable, defaultBlock, false);
             }
@@ -58,11 +58,11 @@ public class ErodedSierraSB extends SierraSB {
                 if (j == -1) {
                     flag1 = false;
                     if (i1 <= 0) {
-                        blockstate2 = Blocks.AIR.getDefaultState();
+                        blockstate2 = Blocks.AIR.defaultBlockState();
                         blockstate = defaultBlock;
                     } else if (k >= seaLevel - 4 && k <= seaLevel + 1) {
                         blockstate2 = TERRACOTTA;
-                        blockstate = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnder();
+                        blockstate = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
                     }
 
                     if (k < seaLevel && (blockstate2 == null || blockstate2.isAir())) {
@@ -72,7 +72,7 @@ public class ErodedSierraSB extends SierraSB {
                     j = i1 + Math.max(0, k - seaLevel);
                     if (k >= seaLevel - 1) {
                         if (k <= seaLevel + 3 + i1) {
-                            chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getTop(), false);
+                            chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial(), false);
                             flag1 = true;
                         } else {
                             BlockState blockstate3;
@@ -80,7 +80,7 @@ public class ErodedSierraSB extends SierraSB {
                                 if (flag) {
                                     blockstate3 = TERRACOTTA;
                                 } else {
-                                    blockstate3 = this.func_215431_a(x, k, z);
+                                    blockstate3 = this.getBand(x, k, z);
                                 }
                             } else {
                                 blockstate3 = TERRACOTTA;
@@ -100,7 +100,7 @@ public class ErodedSierraSB extends SierraSB {
                     if (flag1) {
                         chunkIn.setBlockState(blockpos$mutable, TERRACOTTA, false);
                     } else {
-                        chunkIn.setBlockState(blockpos$mutable, this.func_215431_a(x, k, z), false);
+                        chunkIn.setBlockState(blockpos$mutable, this.getBand(x, k, z), false);
                     }
                 }
             }

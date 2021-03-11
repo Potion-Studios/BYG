@@ -13,12 +13,12 @@ public class BoricFireBlock extends AbstractFireBlock {
         super(properties, 3.5F);
     }
 
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        return this.isValidPosition(stateIn, worldIn, currentPos) ? this.getDefaultState() : Blocks.AIR.getDefaultState();
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        return this.canSurvive(stateIn, worldIn, currentPos) ? this.defaultBlockState() : Blocks.AIR.defaultBlockState();
     }
 
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        return shouldLightBoricFire(worldIn.getBlockState(pos.down()).getBlock());
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        return shouldLightBoricFire(worldIn.getBlockState(pos.below()).getBlock());
     }
 
     public static boolean shouldLightBoricFire(Block block) {

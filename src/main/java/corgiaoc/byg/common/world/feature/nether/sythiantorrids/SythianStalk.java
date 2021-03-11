@@ -25,12 +25,12 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
         super(config);
     }
 
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
         int aNumber = 0;
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(pos);
-        if (world.isAirBlock(mutable)) {
-            if (BYGBlocks.SYTHIAN_STALK_BLOCK.getDefaultState().isValidPosition(world, mutable)) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
+        BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(pos);
+        if (world.isEmptyBlock(mutable)) {
+            if (BYGBlocks.SYTHIAN_STALK_BLOCK.defaultBlockState().canSurvive(world, mutable)) {
                 int randSpawnHeight = rand.nextInt(12) + 5;
                 int randNextInt;
                 if (rand.nextFloat() < config.probability) {
@@ -41,24 +41,24 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
                             int xBuild = x - pos.getX();
                             int zBuild = z - pos.getZ();
                             if (xBuild * xBuild + zBuild * zBuild <= randNextInt * randNextInt) {
-                                mutable2.setPos(x, world.getHeight(Heightmap.Type.WORLD_SURFACE, x, z) - 1, z);
+                                mutable2.set(x, world.getHeight(Heightmap.Type.WORLD_SURFACE, x, z) - 1, z);
                                 if (isDirt(world.getBlockState(mutable2).getBlock())) {
-                                    world.setBlockState(mutable2, BYGBlocks.SYTHIAN_NYLIUM.getDefaultState(), 2);
+                                    world.setBlock(mutable2, BYGBlocks.SYTHIAN_NYLIUM.defaultBlockState(), 2);
                                 }
                             }
                         }
                     }
                 }
 
-                for (randNextInt = 0; randNextInt < randSpawnHeight && world.isAirBlock(mutable); ++randNextInt) {
-                    world.setBlockState(mutable, BAMBOO_BASE, 2);
+                for (randNextInt = 0; randNextInt < randSpawnHeight && world.isEmptyBlock(mutable); ++randNextInt) {
+                    world.setBlock(mutable, BAMBOO_BASE, 2);
                     mutable.move(Direction.UP, 1);
                 }
 
                 if (mutable.getY() - pos.getY() >= 3) {
-                    world.setBlockState(mutable, BAMBOO_LARGE_LEAVES_GROWN, 2);
-                    world.setBlockState(mutable.move(Direction.DOWN, 1), BAMBOO_LARGE_LEAVES, 2);
-                    world.setBlockState(mutable.move(Direction.DOWN, 1), BAMBOO_SMALL_LEAVES, 2);
+                    world.setBlock(mutable, BAMBOO_LARGE_LEAVES_GROWN, 2);
+                    world.setBlock(mutable.move(Direction.DOWN, 1), BAMBOO_LARGE_LEAVES, 2);
+                    world.setBlock(mutable.move(Direction.DOWN, 1), BAMBOO_SMALL_LEAVES, 2);
                 }
             }
 
@@ -69,9 +69,9 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
     }
 
     static {
-        BAMBOO_BASE = BYGBlocks.SYTHIAN_STALK_BLOCK.getDefaultState().with(BambooBlock.PROPERTY_AGE, 1).with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.NONE).with(BambooBlock.PROPERTY_STAGE, 0);
-        BAMBOO_LARGE_LEAVES_GROWN = BAMBOO_BASE.with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.LARGE).with(BambooBlock.PROPERTY_STAGE, 1);
-        BAMBOO_LARGE_LEAVES = BAMBOO_BASE.with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.LARGE);
-        BAMBOO_SMALL_LEAVES = BAMBOO_BASE.with(BambooBlock.PROPERTY_BAMBOO_LEAVES, BambooLeaves.SMALL);
+        BAMBOO_BASE = BYGBlocks.SYTHIAN_STALK_BLOCK.defaultBlockState().setValue(BambooBlock.AGE, 1).setValue(BambooBlock.LEAVES, BambooLeaves.NONE).setValue(BambooBlock.STAGE, 0);
+        BAMBOO_LARGE_LEAVES_GROWN = BAMBOO_BASE.setValue(BambooBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooBlock.STAGE, 1);
+        BAMBOO_LARGE_LEAVES = BAMBOO_BASE.setValue(BambooBlock.LEAVES, BambooLeaves.LARGE);
+        BAMBOO_SMALL_LEAVES = BAMBOO_BASE.setValue(BambooBlock.LEAVES, BambooLeaves.SMALL);
     }
 }

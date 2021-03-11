@@ -13,23 +13,23 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import java.util.Random;
 
 public class FillEtherealStone extends SurfaceBuilder<SurfaceBuilderConfig> {
-    public static final BlockState SAND = Blocks.SAND.getDefaultState();
+    public static final BlockState SAND = Blocks.SAND.defaultBlockState();
 
     public FillEtherealStone(Codec<SurfaceBuilderConfig> p_i51312_1_) {
         super(p_i51312_1_);
     }
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         BlockPos.Mutable block = new BlockPos.Mutable();
         int xPos = x & 15;
         int zPos = z & 15;
         for (int yPos = startHeight - 3; yPos >= seaLevel; --yPos) {
-            block.setPos(xPos, yPos, zPos);
+            block.set(xPos, yPos, zPos);
             BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-            if (currentBlockToReplace == Blocks.END_STONE.getDefaultState()) {
-                chunkIn.setBlockState(block, BYGBlocks.ETHER_STONE.getDefaultState(), false);
+            if (currentBlockToReplace == Blocks.END_STONE.defaultBlockState()) {
+                chunkIn.setBlockState(block, BYGBlocks.ETHER_STONE.defaultBlockState(), false);
             }
         }
-        SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+        SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
     }
 }

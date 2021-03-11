@@ -25,9 +25,9 @@ public class PineTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
@@ -36,7 +36,7 @@ public class PineTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos);
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
                 int posY1 = 2 - rand.nextInt(1);
                 int posX1 = posX;
@@ -47,8 +47,8 @@ public class PineTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 //Raising the 'groundUpLogRemover'  will remove all log blocks from the ground up no matter how thick the trunk is based on the value given. 5 would destroy all trunks from 5 up off the ground.
                 for (int groundUpLogRemover = 0; groundUpLogRemover < randTreeHeight; ++groundUpLogRemover) {
                     if (groundUpLogRemover >= randTreeHeight2 && posY1 < 0) {
-                        posX1 += direction.getXOffset();
-                        posZ1 += direction.getZOffset();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
                     //This Int is responsible for the Y coordinate of the trunk BlockPos'.
@@ -59,17 +59,17 @@ public class PineTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                     //Sets Logs
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().down(4), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().down(9), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().below(4), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().below(9), boundsIn);
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().down(3), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().down(9), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().below(3), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().below(9), boundsIn);
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east().down(10), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east().below(10), boundsIn);
 
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().down(7), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().down(10), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().below(7), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().below(10), boundsIn);
                 }
                 //This allows a random rotation between 3 differently leave Presets in the same class. Optimizes Performance instead of the loading of several classes.
 
@@ -173,7 +173,7 @@ public class PineTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHere(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

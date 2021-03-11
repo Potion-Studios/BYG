@@ -14,7 +14,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.common.BiomeDictionary;
 
 public class LushRedDesert extends BYGSubBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("lush_red_desert", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.RED_SAND.getDefaultState(), Blocks.RED_SAND.getDefaultState(), Blocks.RED_SANDSTONE.getDefaultState())));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("lush_red_desert", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.RED_SAND.defaultBlockState(), Blocks.RED_SAND.defaultBlockState(), Blocks.RED_SANDSTONE.defaultBlockState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.DESERT;
     static final float DEPTH = 0.125F;
@@ -25,11 +25,11 @@ public class LushRedDesert extends BYGSubBiome {
     static final int WATER_FOG_COLOR = 329011;
 
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
-    static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().isValidSpawnBiomeForPlayer();
-    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
+    static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().setPlayerCanSpawn();
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
     public LushRedDesert() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeUtil.calcSkyColor(0.8F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
     @Override
@@ -38,35 +38,35 @@ public class LushRedDesert extends BYGSubBiome {
     }
 
     static {
-        DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withLavaLakes(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withDefaultFlowers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withBadlandsGrass(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withDesertDeadBushes(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withDesertVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withDesertWells(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultCarvers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDesertLakes(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultUndergroundVariety(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultSoftDisks(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultFlowers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDesertVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDesertExtraVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultSprings(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDesertExtraDecoration(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMiniCactus(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
 
-        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 19, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 1, 1, 1));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.HUSK, 80, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 19, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 1, 1, 1));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.HUSK, 80, 4, 4));
 
     }
 }

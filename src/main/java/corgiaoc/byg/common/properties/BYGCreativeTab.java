@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 public class BYGCreativeTab {
     public static ItemGroup creativeTab = new ItemGroup("byg") {
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(BYGItems.BYG_LOGO);
         }
 
@@ -19,7 +19,7 @@ public class BYGCreativeTab {
         }
 
         @Override
-        public boolean hasScrollbar() {
+        public boolean canScroll() {
             return true;
         }
 

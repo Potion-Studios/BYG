@@ -37,19 +37,19 @@ public class ViscalIsles extends BYGEndBiome {
 
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
-    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
     public ViscalIsles() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
-                .setWaterColor(WATER_COLOR)
-                .setWaterFogColor(WATER_FOG_COLOR)
-                .setFogColor(8339307)
-                .withSkyColor(0)
-                .setParticle(new ParticleEffectAmbience(ParticleTypes.CRIMSON_SPORE, 0.00428F))
-                .setAmbientSound(BYGSounds.SoundRegistry.AMBIENT_VISCAL_ISLES_LOOP)
-                .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
-                .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0010D))
-                .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
+                .waterColor(WATER_COLOR)
+                .waterFogColor(WATER_FOG_COLOR)
+                .fogColor(8339307)
+                .skyColor(0)
+                .ambientParticle(new ParticleEffectAmbience(ParticleTypes.CRIMSON_SPORE, 0.00428F))
+                .ambientLoopSound(BYGSounds.SoundRegistry.AMBIENT_VISCAL_ISLES_LOOP)
+                .ambientMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
+                .ambientAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0010D))
+                .backgroundMusic(BackgroundMusicTracks.createGameMusic(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
     @Override
@@ -62,19 +62,19 @@ public class ViscalIsles extends BYGEndBiome {
     @Override
     public WeightedList<ResourceLocation> getHills() {
         WeightedList<ResourceLocation> hillsList = new WeightedList<>();
-        hillsList.func_226313_a_(WorldGenRegistries.BIOME.getKey(BYGBiomes.SHATTERED_VISCAL_ISLES), 10);
+        hillsList.add(WorldGenRegistries.BIOME.getKey(BYGBiomes.SHATTERED_VISCAL_ISLES), 10);
         return hillsList;
     }
 
     static {
-        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_ISLAND);
+        GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_ISLAND);
         BYGDefaultBiomeFeatures.addVermilionSculkGrowth(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addVermilionSculkTendrils(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addHangingTheriumLanterns(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addDeadEtherTrees(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.END_CITY).addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
 
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 5, 1, 2));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 5, 1, 2));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
     }
 }

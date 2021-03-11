@@ -39,7 +39,7 @@ public class EndBiomeDataListHolder {
         }
 
         for (ResourceLocation location : biomeRegistry.keySet().stream().filter(location -> !location.toString().contains("byg") && !location.toString().equals("minecraft:the_end") && !location.toString().equals("minecraft:small_end_islands") && !location.toString().equals("minecraft:end_barrens")).collect(Collectors.toSet())) {
-            if (biomeRegistry.getOptional(location).get().getCategory() == Biome.Category.THEEND)
+            if (biomeRegistry.getOptional(location).get().getBiomeCategory() == Biome.Category.THEEND)
                 BYGEndBiome.endBiomeData.add(new EndBiomeData(location, 5, new BiomeDictionary.Type[]{BiomeDictionary.Type.END}, new WeightedList<>(), null));
 
             BYGEndBiome.endBiomeData.removeIf(endBiomeData1 -> endBiomeData1.getBiome() == null);
@@ -62,7 +62,7 @@ public class EndBiomeDataListHolder {
             if (endBiomeData.getEdgeBiome() != null)
                 biome_to_edge.put(endBiomeData.getBiome(), endBiomeData.getEdgeBiome());
 
-            end_biomes.func_226313_a_(endBiomeData.getBiome(), endBiomeData.getBiomeWeight());
+            end_biomes.add(endBiomeData.getBiome(), endBiomeData.getBiomeWeight());
         }
 
         for (EndBiomeData endBiomeData : BYGEndBiome.voidBiomeData) {
@@ -72,13 +72,13 @@ public class EndBiomeDataListHolder {
             if (endBiomeData.getEdgeBiome() != null)
                 biome_to_edge.put(endBiomeData.getBiome(), endBiomeData.getEdgeBiome());
 
-            void_biomes.func_226313_a_(endBiomeData.getBiome(), endBiomeData.getBiomeWeight());
+            void_biomes.add(endBiomeData.getBiome(), endBiomeData.getBiomeWeight());
         }
 
         biome_to_hills.entrySet().removeIf(Objects::isNull);
         biome_to_edge.entrySet().removeIf(Objects::isNull);
-        end_biomes.field_220658_a.removeIf(Objects::isNull);
-        void_biomes.field_220658_a.removeIf(Objects::isNull);
+        end_biomes.entries.removeIf(Objects::isNull);
+        void_biomes.entries.removeIf(Objects::isNull);
 
         BYGEndBiomeProvider.END_BIOMES = end_biomes;
         BYGEndBiomeProvider.VOID_BIOMES = void_biomes;

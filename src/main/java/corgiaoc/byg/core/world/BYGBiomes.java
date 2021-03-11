@@ -270,14 +270,14 @@ public class BYGBiomes {
     public static void addBiomeEntries() {
         for (BiomeData biomeData : BYGBiome.biomeData) {
             if (biomeData.getBiomeWeight() > 0) {
-                BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(biomeData.getBiome())), biomeData.getBiomeWeight()));
+                BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, WorldGenRegistries.BIOME.getKey(biomeData.getBiome())), biomeData.getBiomeWeight()));
             }
         }
     }
 
     public static void fillBiomeDictionary(Registry<Biome> biomeRegistry) {
         for (EndBiomeData endBiomeData : BYGEndBiome.endBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getOptionalKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
+            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
             for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
                 BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
                 if (!(BiomeDictionary.hasType(key, type)))
@@ -285,7 +285,7 @@ public class BYGBiomes {
             }
         }
         for (EndBiomeData endBiomeData : BYGEndBiome.voidBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getOptionalKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
+            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
             for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
                 BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
                 if (!(BiomeDictionary.hasType(key, type)))
@@ -294,7 +294,7 @@ public class BYGBiomes {
         }
 
         for (EndSubBiomeData endBiomeData : BYGEndSubBiome.endSubBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getOptionalKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
+            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
             for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
                 BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
                 if (!(BiomeDictionary.hasType(key, type)))
@@ -303,7 +303,7 @@ public class BYGBiomes {
         }
 
         for (EndSubBiomeData endBiomeData : BYGEndSubBiome.voidSubBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getOptionalKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
+            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
             for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
                 BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
                 if (!(BiomeDictionary.hasType(key, type)))
@@ -314,10 +314,10 @@ public class BYGBiomes {
 
     public static void fillBiomeDictionary() {
         for (BiomeData bygBiome : BYGBiome.biomeData) {
-            BiomeDictionary.addTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(bygBiome.getBiome())), bygBiome.getDictionaryTypes());
+            BiomeDictionary.addTypes(RegistryKey.create(Registry.BIOME_REGISTRY, WorldGenRegistries.BIOME.getKey(bygBiome.getBiome())), bygBiome.getDictionaryTypes());
         }
         for (SubBiomeData bygSubBiome : BYGSubBiome.subBiomeData) {
-            BiomeDictionary.addTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(bygSubBiome.getBiome())), bygSubBiome.getDictionaryTypes());
+            BiomeDictionary.addTypes(RegistryKey.create(Registry.BIOME_REGISTRY, WorldGenRegistries.BIOME.getKey(bygSubBiome.getBiome())), bygSubBiome.getDictionaryTypes());
         }
 
         for (BYGNetherBiome bygNetherBiome : BYGNetherBiome.BYG_NETHER_BIOMES)
@@ -326,7 +326,7 @@ public class BYGBiomes {
 
     //used in MixinMinecraftServer
     public static void addBYGFeaturesToBiomes(Biome biome, ResourceLocation locationKey) {
-        if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.NONE) {
+        if (biome.getBiomeCategory() != Biome.Category.NETHER && biome.getBiomeCategory() != Biome.Category.THEEND && biome.getBiomeCategory() != Biome.Category.NONE) {
             if (BYGWorldConfig.ROCKY_STONE_GEN.get()) {
                 addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
             }
@@ -382,12 +382,12 @@ public class BYGBiomes {
     //Use these to add our features to vanilla's biomes.
     public static void addStructureToBiome(Biome biome, StructureFeature<?, ?> configuredStructure) {
         convertImmutableStructures(biome);
-        List<Supplier<StructureFeature<?, ?>>> biomeFeatures = biome.getGenerationSettings().structures;
+        List<Supplier<StructureFeature<?, ?>>> biomeFeatures = biome.getGenerationSettings().structureStarts;
         biomeFeatures.add(() -> configuredStructure);
     }
 
     private static void convertImmutableStructures(Biome biome) {
-        biome.getGenerationSettings().structures = new ArrayList<>(biome.getGenerationSettings().structures);
+        biome.getGenerationSettings().structureStarts = new ArrayList<>(biome.getGenerationSettings().structureStarts);
     }
 
     public static class PreserveBiomeOrder {

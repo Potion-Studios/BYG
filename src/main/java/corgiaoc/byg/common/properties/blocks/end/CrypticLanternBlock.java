@@ -8,16 +8,18 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class CrypticLanternBlock extends LanternBlock {
     public CrypticLanternBlock(Properties builder) {
         super(builder);
     }
 
-    public boolean canProvidePower(BlockState state) {
+    public boolean isSignalSource(BlockState state) {
         return true;
     }
 
-    public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+    public int getSignal(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
         return 10;
     }
 }

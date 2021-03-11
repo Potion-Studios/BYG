@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BYGEndBiomeProvider extends BiomeProvider {
-    public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.getLookUpCodec(Registry.BIOME_KEY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeProvider::new)));
+    public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.create(Registry.BIOME_REGISTRY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeProvider::new)));
 
     private final long seed;
     private final DatapackLayer mainIslandLayer;
@@ -36,7 +36,7 @@ public class BYGEndBiomeProvider extends BiomeProvider {
         super(handleJsonAndFillBiomeList(registry));
         this.seed = seed;
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
-        sharedseedrandom.skip(17292);
+        sharedseedrandom.consumeCount(17292);
         biomeRegistry = registry;
         this.mainIslandLayer = EndLayerProviders.stackLayers(this.biomeRegistry, seed);
         this.smallIslandLayer = EndLayerProviders.stackVoidLayers(this.biomeRegistry, seed);
@@ -46,16 +46,16 @@ public class BYGEndBiomeProvider extends BiomeProvider {
     private static List<Biome> handleJsonAndFillBiomeList(Registry<Biome> registry) {
         BYG.EARLY_BIOME_REGISTRY_ACCESS = registry;
         BYGJsonConfigHandler.handleEndBiomeJsonConfigs(BYG.CONFIG_PATH, registry);
-        return Stream.concat(END_BIOMES.field_220658_a.stream(), VOID_BIOMES.field_220658_a.stream()).map(WeightedList.Entry::func_220647_b).map(registry::getOrDefault).collect(Collectors.toList());
+        return Stream.concat(END_BIOMES.entries.stream(), VOID_BIOMES.entries.stream()).map(WeightedList.Entry::getData).map(registry::get).collect(Collectors.toList());
     }
 
     @Override
-    protected Codec<? extends BiomeProvider> getBiomeProviderCodec() {
+    protected Codec<? extends BiomeProvider> codec() {
         return BYGENDCODEC;
     }
 
     @Override
-    public BiomeProvider getBiomeProvider(long seed) {
+    public BiomeProvider withSeed(long seed) {
         return new BYGEndBiomeProvider(biomeRegistry, seed);
     }
 
@@ -66,7 +66,7 @@ public class BYGEndBiomeProvider extends BiomeProvider {
         if ((long) xBitOffset * (long) xBitOffset + (long) zBitOffset * (long) zBitOffset <= 4096L) {
             return biomeRegistry.getOrThrow(Biomes.THE_END);
         } else {
-            float sampledNoise = EndBiomeProvider.getRandomNoise(this.generator, xBitOffset * 2 + 1, zBitOffset * 2 + 1);
+            float sampledNoise = EndBiomeProvider.getHeightValue(this.generator, xBitOffset * 2 + 1, zBitOffset * 2 + 1);
             if (sampledNoise >= -20.0F) {
                 return mainIslandLayer.sampleEnd(biomeRegistry, x, z);
             } else {

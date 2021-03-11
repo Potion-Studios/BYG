@@ -7,7 +7,7 @@ import net.minecraft.util.IItemProvider;
 
 public class BYGCompostables {
     public static void compostibleBlocks(float chance, IItemProvider item) {
-        ComposterBlock.CHANCES.put(item.asItem(), chance);
+        ComposterBlock.COMPOSTABLES.put(item.asItem(), chance);
     }
 
     public static void compostablesBYG() {

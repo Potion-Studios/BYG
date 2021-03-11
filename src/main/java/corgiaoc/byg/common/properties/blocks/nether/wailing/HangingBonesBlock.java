@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class HangingBonesBlock extends Block {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D);
+    protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D);
 
     protected HangingBonesBlock(Properties properties) {
         super(properties);
@@ -34,19 +34,19 @@ public class HangingBonesBlock extends Block {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext ctx) {
-        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getPos());
+        FluidState fluidState = ctx.getLevel().getFluidState(ctx.getClickedPos());
         if (!fluidState.isEmpty()) {
             return null;
         } else {
-            BlockState blockStateUP = ctx.getWorld().getBlockState(ctx.getPos().up());
+            BlockState blockStateUP = ctx.getLevel().getBlockState(ctx.getClickedPos().above());
             if (blockStateUP.getBlock() == Blocks.BONE_BLOCK) {
                 Block blockUP = blockStateUP.getBlock();
                 if (blockUP == BYGBlocks.HANGING_BONE) {
-                    return this.getDefaultState();
+                    return this.defaultBlockState();
                 } else if (blockUP == this) {
-                    return this.getDefaultState();
+                    return this.defaultBlockState();
                 } else {
-                    return BYGBlocks.HANGING_BONE.getDefaultState();
+                    return BYGBlocks.HANGING_BONE.defaultBlockState();
                 }
             } else {
                 return null;
@@ -56,28 +56,28 @@ public class HangingBonesBlock extends Block {
 
 
     @Override
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (!stateIn.isValidPosition(worldIn, currentPos)) {
-            return Blocks.AIR.getDefaultState();
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (!stateIn.canSurvive(worldIn, currentPos)) {
+            return Blocks.AIR.defaultBlockState();
         } else {
             if (facing == Direction.DOWN && facingState.getBlock() == Blocks.BONE_BLOCK) {
-                worldIn.setBlockState(currentPos, Blocks.BONE_BLOCK.getDefaultState(), 2);
+                worldIn.setBlock(currentPos, Blocks.BONE_BLOCK.defaultBlockState(), 2);
             }
 
-            return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+            return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         }
     }
 
 
-    public float getPlayerRelativeBlockHardness(BlockState state, PlayerEntity player, IBlockReader worldIn, BlockPos pos) {
-        return player.getHeldItemMainhand().getItem() instanceof SwordItem ? 1.0F : super.getPlayerRelativeBlockHardness(state, player, worldIn, pos);
+    public float getDestroyProgress(BlockState state, PlayerEntity player, IBlockReader worldIn, BlockPos pos) {
+        return player.getMainHandItem().getItem() instanceof SwordItem ? 1.0F : super.getDestroyProgress(state, player, worldIn, pos);
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        if (isAir(state, worldIn, pos.up()))
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        if (isAir(state, worldIn, pos.above()))
             return false;
-        return worldIn.getBlockState(pos.up()).getBlock() == this || worldIn.getBlockState(pos.up()).getBlock() == Blocks.BONE_BLOCK;
+        return worldIn.getBlockState(pos.above()).getBlock() == this || worldIn.getBlockState(pos.above()).getBlock() == Blocks.BONE_BLOCK;
 
     }
 

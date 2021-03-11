@@ -20,12 +20,12 @@ public abstract class TreeSpawner {
         if (configuredTreeFeature == null) {
             return false;
         } else {
-            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
+            worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
             configuredTreeFeature.config.forcePlacement();
-            if (configuredTreeFeature.generate(worldIn, chunkGenerator, random, pos)) {
+            if (configuredTreeFeature.place(worldIn, chunkGenerator, random, pos)) {
                 return true;
             } else {
-                worldIn.setBlockState(pos, blockUnder, 4);
+                worldIn.setBlock(pos, blockUnder, 4);
                 return false;
             }
         }

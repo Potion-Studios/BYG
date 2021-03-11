@@ -18,23 +18,23 @@ public class RedRockSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         super(p_i51312_1_);
     }
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         BlockPos.Mutable block = new BlockPos.Mutable();
         int xPos = x & 15;
         int zPos = z & 15;
         for (int yPos = startHeight - 3; yPos >= seaLevel; --yPos) {
-            block.setPos(xPos, yPos, zPos);
+            block.set(xPos, yPos, zPos);
             BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-            if (currentBlockToReplace == Blocks.STONE.getDefaultState()) {
-                chunkIn.setBlockState(block, BYGBlocks.RED_ROCK.getDefaultState(), false);
+            if (currentBlockToReplace == Blocks.STONE.defaultBlockState()) {
+                chunkIn.setBlockState(block, BYGBlocks.RED_ROCK.defaultBlockState(), false);
             }
         }
         if (noise > 1.75D) {
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.RED_ROCK_CF);
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.RED_ROCK_CF);
         } else if (noise > -0.5D) {
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.CORASE_DIRT_DIRT_GRAVEL_CONFIG);
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_COARSE_DIRT);
         } else {
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.TERRACOTTA_CF);
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.TERRACOTTA_CF);
         }
 
     }

@@ -20,7 +20,7 @@ public class BYGOreBlock extends OreBlock implements IForgeBlock {
     }
 
     @Override
-    protected int getExperience(Random rand) {
+    protected int xpOnDrop(Random rand) {
         if (this == BYGBlocks.AMETRINE_ORE) {
             return MathHelper.nextInt(rand, 3, 9);
         } else if (this == BYGBlocks.ANTHRACITE_ORE) {

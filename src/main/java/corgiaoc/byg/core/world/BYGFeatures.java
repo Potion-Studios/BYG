@@ -157,10 +157,10 @@ public class BYGFeatures {
 
     public static List<Feature<?>> features = new ArrayList<>();
 
-    public static final Feature<NoFeatureConfig> DUMMY_TREE = createFeature("dummy_tree", new SmallPineTree(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> CANYON_RIVER = createFeature("oh_no", new CanyonRiverWorldGenerator(NoFeatureConfig.field_236558_a_.stable()));
-    public static final Feature<NoFeatureConfig> HUH = createFeature("river_feature", new RiverThingy(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<NoFeatureConfig> DUMMY_TREE = createFeature("dummy_tree", new SmallPineTree(NoFeatureConfig.CODEC.stable()));
+    public static final Feature<NoFeatureConfig> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoFeatureConfig.CODEC.stable()));
+    public static final Feature<NoFeatureConfig> CANYON_RIVER = createFeature("oh_no", new CanyonRiverWorldGenerator(NoFeatureConfig.CODEC.stable()));
+    public static final Feature<NoFeatureConfig> HUH = createFeature("river_feature", new RiverThingy(NoFeatureConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> VOLCANO = createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<BoulderConfig> STACKABLE_BOULDERS = createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> ARCH = createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
@@ -178,7 +178,7 @@ public class BYGFeatures {
     public static final Feature<Simple2BlockProviderConfig> ICE_SNOW = createFeature("ice_and_snow", new ConfigurableIceAndSnow(Simple2BlockProviderConfig.CODEC.stable()));
 
     //Lakes
-    public static final Feature<BlockStateFeatureConfig> FROSTED_LAKE = createFeature("frosted_lake", new FrostMagmaLakeFeature(BlockStateFeatureConfig.field_236455_a_.stable()));
+    public static final Feature<BlockStateFeatureConfig> FROSTED_LAKE = createFeature("frosted_lake", new FrostMagmaLakeFeature(BlockStateFeatureConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> WIDE_LAKE = createFeature("wide_lake", new WideLake(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<NoFeatureConfig> END_LAKE = createFeature("end_lake", new EndLakeFeature());
 
@@ -325,7 +325,7 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WARPED_FUNGUS_TREE2 = createFeature("warped_fungus_tree2", new WarpedFungus2(BYGMushroomConfig.CODEC.stable()));
 
     //Wailing
-    public static final Feature<NoFeatureConfig> WAILING_VINES = createFeature("wailing_vine", new WailingVine(NoFeatureConfig.field_236558_a_.stable()));
+    public static final Feature<NoFeatureConfig> WAILING_VINES = createFeature("wailing_vine", new WailingVine(NoFeatureConfig.CODEC.stable()));
 
     //Embur
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> EMBUR_MUSHROOM = createFeature("embur_mushroom1", new EmburMushroom(BYGMushroomConfig.CODEC.stable()));

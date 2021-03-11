@@ -10,15 +10,15 @@ import net.minecraft.item.HoeItem;
 
 public class BYGHoeables {
     public static void hoeableBlock(Block hoeableblockBYG, BlockState farmlandBYG) {
-        HoeItem.HOE_LOOKUP = Maps.newHashMap(HoeItem.HOE_LOOKUP);
-        HoeItem.HOE_LOOKUP.put(hoeableblockBYG, farmlandBYG);
+        HoeItem.TILLABLES = Maps.newHashMap(HoeItem.TILLABLES);
+        HoeItem.TILLABLES.put(hoeableblockBYG, farmlandBYG);
     }
 
     public static void hoeablesBYG() {
         BYG.LOGGER.debug("BYG: Adding Hoeable Blocks...");
-        hoeableBlock(BYGBlocks.MEADOW_GRASSBLOCK, Blocks.FARMLAND.getDefaultState());
-        hoeableBlock(BYGBlocks.MEADOW_DIRT, Blocks.FARMLAND.getDefaultState());
-        hoeableBlock(BYGBlocks.PEAT, Blocks.FARMLAND.getDefaultState());
+        hoeableBlock(BYGBlocks.MEADOW_GRASSBLOCK, Blocks.FARMLAND.defaultBlockState());
+        hoeableBlock(BYGBlocks.MEADOW_DIRT, Blocks.FARMLAND.defaultBlockState());
+        hoeableBlock(BYGBlocks.PEAT, Blocks.FARMLAND.defaultBlockState());
         BYG.LOGGER.info("BYG: Added Hoeable Blocks!");
     }
 }

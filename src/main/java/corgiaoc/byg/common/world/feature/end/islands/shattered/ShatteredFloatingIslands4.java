@@ -21,14 +21,14 @@ public class ShatteredFloatingIslands4 extends Feature<FloatingIslandConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
 
         if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
 
         double radius = 13;
         double size = radius / 3;
@@ -41,11 +41,11 @@ public class ShatteredFloatingIslands4 extends Feature<FloatingIslandConfig> {
                     double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
                     if (distanceSqt1 <= radius * radius) {
                         if (y <= 1) {
-                            world.setBlockState(mutable.add(x, y, z), config.getTopBlockProvider().getBlockState(rand, mutable), 2);
+                            world.setBlock(mutable.offset(x, y, z), config.getTopBlockProvider().getState(rand, mutable), 2);
                             if (y <= 0) {
-                                world.setBlockState(mutable.add(x, y, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
+                                world.setBlock(mutable.offset(x, y, z), config.getBlockProvider().getState(rand, mutable), 2);
                                 if (y <= -2) {
-                                    world.setBlockState(mutable.add(x, y, z), config.getBlockProvider().getBlockState(rand, mutable), 2);
+                                    world.setBlock(mutable.offset(x, y, z), config.getBlockProvider().getState(rand, mutable), 2);
                                 }
                             }
                         }
@@ -60,7 +60,7 @@ public class ShatteredFloatingIslands4 extends Feature<FloatingIslandConfig> {
                     double distanceSqt1 = x * x + y * y + z * z;
                     if (distanceSqt1 <= radiusHalved * radiusHalved) {
                         if (y <= 2) {
-                            world.setBlockState(mutable.add(x, y, z), Blocks.AIR.getDefaultState(), 2);
+                            world.setBlock(mutable.offset(x, y, z), Blocks.AIR.defaultBlockState(), 2);
                         }
                     }
                 }

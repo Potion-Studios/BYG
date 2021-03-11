@@ -13,11 +13,11 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.block.AbstractBlock;
 
 public class BYGWarpedCoralPlantBlock extends AbstractCoralPlantBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
+    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
 
     protected BYGWarpedCoralPlantBlock(AbstractBlock.Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false));
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos blockPos, ISelectionContext context) {
@@ -29,8 +29,8 @@ public class BYGWarpedCoralPlantBlock extends AbstractCoralPlantBlock {
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockPos posDown = pos.down();
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos posDown = pos.below();
         return this.isValidGround(worldIn.getBlockState(posDown));
     }
 }

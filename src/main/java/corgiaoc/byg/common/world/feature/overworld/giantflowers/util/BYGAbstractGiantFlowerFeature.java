@@ -28,22 +28,22 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
     }
 
     public static boolean canStemPlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
+        return worldReader.isStateAtPosition(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean canStemPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
+        return worldReader.isStateAtPosition(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean isAnotherFlowerHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.hasBlockState(blockPos, (state) -> {
+        return worldReader.isStateAtPosition(blockPos, (state) -> {
             Block block = state.getBlock();
-            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES);
+            return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES);
         });
     }
 
     public boolean isAnotherFlowerLikeThisHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
-        return worldReader.hasBlockState(blockPos, (state) -> {
+        return worldReader.isStateAtPosition(blockPos, (state) -> {
             Block block = state.getBlock();
             return block == logBlock || block == leafBlock;
         });
@@ -95,9 +95,9 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @return Determine whether or not the pos can support a sapling's tree.
      */
     public boolean canGiantFlowerGrowHere(IWorldGenerationBaseReader reader, BlockPos pos) {
-        return reader.hasBlockState(pos, (state) -> {
+        return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
-            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.TALL_PLANTS || state.getMaterial() == Material.OCEAN_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.EARTH;
+            return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
         });
     }
 
@@ -108,11 +108,11 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      */
 
     public static boolean isAir(IWorldGenerationBaseReader reader, BlockPos pos) {
-        return reader.hasBlockState(pos, BlockState::isAir);
+        return reader.isStateAtPosition(pos, BlockState::isAir);
     }
 
     public boolean isAirOrWater(IWorldGenerationBaseReader worldIn, BlockPos pos) {
-        return worldIn.hasBlockState(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
+        return worldIn.isStateAtPosition(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
     }
 
     /**
@@ -122,12 +122,12 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @return Determines if the pos is of the dirt tag or another block.
      */
     public static boolean isDesiredGroundwDirtTag(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
-        return reader.hasBlockState(pos, (state) -> {
+        return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return block.isIn(Tags.Blocks.DIRT) || block == block1;
+                return block.is(Tags.Blocks.DIRT) || block == block1;
             }
-            return block.isIn(Tags.Blocks.DIRT);
+            return block.is(Tags.Blocks.DIRT);
         });
     }
 
@@ -138,7 +138,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @return Determines if the pos contains a block from our whitelist.
      */
     public boolean isDesiredGround(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
-        return reader.hasBlockState(pos, (state) -> {
+        return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
                 return block == block1;
@@ -171,13 +171,13 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
         if (isSapling) {
             //Check the tree trunk and determine whether or not there's a block in the way.
             for (int yOffSet = 0; yOffSet <= treeHeight; yOffSet++) {
-                if (!canGiantFlowerGrowHere(reader, mutable.setPos(x, y + yOffSet, z))) {
+                if (!canGiantFlowerGrowHere(reader, mutable.set(x, y + yOffSet, z))) {
                     return false;
                 }
                 //If the list of trunk poss(other than the center trunk) is greater than 0, we check each of these trunk poss from the bottom to the tree height.
                 if (trunkPositions.length > 0) {
                     for (BlockPos trunkPos : trunkPositions) {
-                        if (!canGiantFlowerGrowHere(reader, mutable.setPos(trunkPos.getX(), trunkPos.getY() + yOffSet, trunkPos.getZ()))) {
+                        if (!canGiantFlowerGrowHere(reader, mutable.set(trunkPos.getX(), trunkPos.getY() + yOffSet, trunkPos.getZ()))) {
                             return false;
                         }
                     }
@@ -187,7 +187,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
             for (int yOffset = canopyStartHeight; yOffset <= treeHeight + 1; ++yOffset) {
                 for (int xOffset = -xDistance; xOffset <= xDistance; ++xOffset) {
                     for (int zOffset = -zDistance; zOffset <= zDistance; ++zOffset) {
-                        if (!canGiantFlowerGrowHere(reader, mutable.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                        if (!canGiantFlowerGrowHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset))) {
                             return false;
                         }
                     }
@@ -225,14 +225,14 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
 
             //Check the tree trunk and determine whether or not there's a block in the way.
             for (int yOffSet = 0; yOffSet <= treeHeight; yOffSet++) {
-                if (!canGiantFlowerGrowHere(reader, mutable.setPos(x, y + yOffSet, z))) {
+                if (!canGiantFlowerGrowHere(reader, mutable.set(x, y + yOffSet, z))) {
                     return false;
                 }
 
                 //If the list of trunk poss(other than the center trunk) is greater than 0, we check each of these trunk poss from the bottom to the tree height.
                 if (trunkPositions.length > 0) {
                     for (BlockPos trunkPos : trunkPositions) {
-                        if (!canGiantFlowerGrowHere(reader, mutable.setPos(trunkPos.getX(), trunkPos.getY() + yOffSet, trunkPos.getZ()))) {
+                        if (!canGiantFlowerGrowHere(reader, mutable.set(trunkPos.getX(), trunkPos.getY() + yOffSet, trunkPos.getZ()))) {
                             return false;
                         }
                     }
@@ -243,7 +243,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
             for (int yOffset = canopyStartHeight; yOffset <= treeHeight + 1; ++yOffset) {
                 for (int xOffset = -xNegativeDistance; xOffset <= xPositiveDistance; ++xOffset) {
                     for (int zOffset = -zNegativeDistance; zOffset <= zPositiveDistance; ++zOffset) {
-                        if (!canGiantFlowerGrowHere(reader, mutable.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                        if (!canGiantFlowerGrowHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset))) {
                             return false;
                         }
                     }
@@ -275,7 +275,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
             for (int yOffset = 0; yOffset <= treeHeight + 1; ++yOffset) {
                 for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                     for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                        if (isAnotherFlowerHere(reader, mutable.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                        if (isAnotherFlowerHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset))) {
                             return false;
                         }
                     }
@@ -310,7 +310,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
             for (int yOffset = 0; yOffset <= treeHeight + 1; ++yOffset) {
                 for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                     for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                        if (!isAnotherFlowerLikeThisHere(reader, mutable.setPos(x + xOffset, y + yOffset, z + zOffset), logBlock, leafBlock)) {
+                        if (!isAnotherFlowerLikeThisHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset), logBlock, leafBlock)) {
                             return false;
                         }
                     }
@@ -333,16 +333,16 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
-                mutableTrunk.setPos(trunkPos);
+                mutableTrunk.set(trunkPos);
                 for (int fill = 1; fill <= 15; fill++) {
                     if (canStemPlaceHere(reader, mutableTrunk)) {
                         if (fill <= 7)
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.getDefaultState());
+                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.defaultBlockState());
                         else
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
+                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                     } else {
                         if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
+                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                         fill = 15;
                     }
                     mutableTrunk.move(Direction.DOWN);
@@ -364,19 +364,19 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
-                mutableTrunk.setPos(trunkPos);
+                mutableTrunk.set(trunkPos);
                 for (int fill = 1; fill <= 15; fill++) {
                     if (canStemPlaceHere(reader, mutableTrunk)) {
                         if (fill <= earthBlockThreshold)
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.getDefaultState());
+                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.defaultBlockState());
                         else
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
+                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                     } else {
                         if (canStemPlaceHere(reader, mutableTrunk)) {
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.getDefaultState());
+                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.defaultBlockState());
                         } else {
                             if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                                setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.getDefaultState());
+                                setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                             fill = 15;
                         }
                     }
@@ -394,9 +394,9 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
         if (trunkPositions.length > 0) {
             BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
             for (BlockPos trunkPos : trunkPositions) {
-                mutableTrunk.setPos(trunkPos);
+                mutableTrunk.set(trunkPos);
                 if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                    setFinalBlockState((IWorldWriter) reader, mutableTrunk.move(Direction.DOWN), soil.getDefaultState());
+                    setFinalBlockState((IWorldWriter) reader, mutableTrunk.move(Direction.DOWN), soil.defaultBlockState());
             }
         }
     }
@@ -406,16 +406,16 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
     }
 
     public void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState) {
-        worldWriter.setBlockState(blockPos, blockState, 2);
+        worldWriter.setBlock(blockPos, blockState, 2);
     }
 
     @Override
-    protected void setBlockState(IWorldWriter worldIn, BlockPos pos, BlockState state) {
+    protected void setBlock(IWorldWriter worldIn, BlockPos pos, BlockState state) {
         this.setBlockStateWithoutUpdates(worldIn, pos, state);
     }
 
     @Override
-    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
         return placeFlower(worldIn, rand, pos, config.isPlacementForced(), config);
     }
 

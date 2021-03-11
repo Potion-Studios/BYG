@@ -19,16 +19,16 @@ public class MixinSugarCaneBlock {
 
 
 
-    @Inject(method = "isValidPosition", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, target = "Lnet/minecraft/block/BlockState;isIn(Lnet/minecraft/block/Block;)Z", ordinal = 0), cancellable = true)
+    @Inject(method = "canSurvive", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, target = "Lnet/minecraft/block/BlockState;is(Lnet/minecraft/block/Block;)Z", ordinal = 0), cancellable = true)
     private void addBYGBlocks(BlockState state, IWorldReader worldIn, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        BlockState blockStateDown = worldIn.getBlockState(pos.down());
-        if(blockStateDown.getBlock().isIn(BlockTags.SAND)) {
-            BlockPos blockpos = pos.down();
+        BlockState blockStateDown = worldIn.getBlockState(pos.below());
+        if(blockStateDown.getBlock().is(BlockTags.SAND)) {
+            BlockPos blockpos = pos.below();
 
             for(Direction direction : Direction.Plane.HORIZONTAL) {
-                BlockState blockstate1 = worldIn.getBlockState(blockpos.offset(direction));
-                FluidState fluidstate = worldIn.getFluidState(blockpos.offset(direction));
-                if (fluidstate.isTagged(FluidTags.WATER) || blockstate1.isIn(Blocks.FROSTED_ICE)) {
+                BlockState blockstate1 = worldIn.getBlockState(blockpos.relative(direction));
+                FluidState fluidstate = worldIn.getFluidState(blockpos.relative(direction));
+                if (fluidstate.is(FluidTags.WATER) || blockstate1.is(Blocks.FROSTED_ICE)) {
                     cir.setReturnValue(true);
                 }
             }

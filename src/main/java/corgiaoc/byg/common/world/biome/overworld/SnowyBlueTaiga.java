@@ -19,7 +19,7 @@ import net.minecraftforge.common.BiomeManager;
 import javax.annotation.Nullable;
 
 public class SnowyBlueTaiga extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("snowy_blue_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG));
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("snowy_blue_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS));
     static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
     static final Biome.Category CATEGORY = Biome.Category.TAIGA;
     static final float DEPTH = 0.2F;
@@ -31,10 +31,10 @@ public class SnowyBlueTaiga extends BYGBiome {
     
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
-    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
     public SnowyBlueTaiga() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).skyColor(BiomeUtil.calcSkyColor(0.8F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
     @Nullable
@@ -52,8 +52,8 @@ public class SnowyBlueTaiga extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_BLUE_TAIGA_HILLS, 8);
-        biomeWeightedList.func_226313_a_(BYGBiomes.SNOWY_BLUE_GIANT_TAIGA, 2);
+        biomeWeightedList.add(BYGBiomes.SNOWY_BLUE_TAIGA_HILLS, 8);
+        biomeWeightedList.add(BYGBiomes.SNOWY_BLUE_GIANT_TAIGA, 2);
         return biomeWeightedList;
     }
 
@@ -73,25 +73,25 @@ public class SnowyBlueTaiga extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.withStructure(StructureFeatures.VILLAGE_TAIGA); //Taiga Village
-        GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
-        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL); //Ruined Portal Standard
-        DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.VILLAGE_TAIGA); //Taiga Village
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD); //Ruined Portal Standard
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBlueTaigaTrees(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withLargeFern(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withDefaultFlowers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withTaigaGrassVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withLavaAndWaterSprings(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withSparseBerries(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addFerns(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultCarvers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultUndergroundVariety(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultSoftDisks(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultFlowers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addTaigaGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultExtraVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultSprings(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSparseBerryBushes(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBlueberries(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addWinterSucculent(GENERATION_SETTINGS);
@@ -100,23 +100,23 @@ public class SnowyBlueTaiga extends BYGBiome {
         BYGDefaultBiomeFeatures.addCrocus(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
 
-        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.COW, 8, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.WOLF, 8, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.FOX, 8, 2, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.STRAY, 80, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.COW, 8, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.WOLF, 8, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.FOX, 8, 2, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.STRAY, 80, 4, 4));
 
     }
 }

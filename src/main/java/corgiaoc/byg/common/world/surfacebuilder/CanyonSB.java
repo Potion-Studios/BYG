@@ -27,10 +27,10 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     protected FastNoise noiseGen5 = null;
     protected FastNoise noiseGen6 = null;
 
-    public BlockState layerBlock = Blocks.TERRACOTTA.getDefaultState();
+    public BlockState layerBlock = Blocks.TERRACOTTA.defaultBlockState();
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int groundHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-        setSeed(seed);
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int groundHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+        initNoise(seed);
         BlockPos.Mutable block = new BlockPos.Mutable();
         int xPos = x & 15;
         int zPos = z & 15;
@@ -48,75 +48,75 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         //0.03 is effectively one block w/ the ridged noise sample.
         if (canyonShapingNoise2 > 9.0) {
             for (int yPos = groundHeight; yPos >= seaLevel - totalNoiseSample; --yPos) {
-                block.setPos(xPos, yPos, zPos);
+                block.set(xPos, yPos, zPos);
                 double noiseSample5 = noiseGen5.GetNoise(x * 1.1F, yPos, z * 1.34F);
 
                 if (canyonShapingNoise2 < 9.06) {
                     if (yPos < groundHeight - 10 - simulateErosion - (noiseSample5 * 6))
-                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.STONE.defaultBlockState(), false);
                     else
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                 } else if (canyonShapingNoise2 < 9.12) {
                     if (yPos < groundHeight - 13 - simulateErosion - (noiseSample5 * 6))
-                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.STONE.defaultBlockState(), false);
                     else
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                 } else if (canyonShapingNoise2 < 9.18) {
                     if (yPos < groundHeight - 16 - simulateErosion - (noiseSample5 * 6))
-                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.STONE.defaultBlockState(), false);
                     else
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                 } else if (canyonShapingNoise2 < 9.24) {
                     if (yPos < groundHeight - 19 - simulateErosion - (noiseSample5 * 6))
-                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.STONE.defaultBlockState(), false);
                     else
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                 } else if (canyonShapingNoise2 < 9.45) {
                     if (yPos < groundHeight - 22 - simulateErosion - (noiseSample5 * 6))
-                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.STONE.defaultBlockState(), false);
                     else
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                 } else if (canyonShapingNoise2 < 9.51) {
                     if (yPos < groundHeight - 32 - simulateErosion - (noiseSample5 * 6))
-                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.STONE.defaultBlockState(), false);
                     else
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                 } else if (canyonShapingNoise2 < 9.57) {
                     if (yPos < groundHeight - 35 - simulateErosion - (noiseSample5 * 6))
-                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.STONE.defaultBlockState(), false);
                     else
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                 } else if (canyonShapingNoise2 < 9.63) {
                     if (yPos < groundHeight - 38 - simulateErosion - (noiseSample5 * 6))
-                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.STONE.defaultBlockState(), false);
                     else
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                 } else if (canyonShapingNoise2 < 9.69) {
                     if (yPos < groundHeight - 41 - simulateErosion - (noiseSample5 * 6))
-                        chunkIn.setBlockState(block, Blocks.STONE.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.STONE.defaultBlockState(), false);
                     else
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                 } else {
                     if (yPos >= seaLevel - 1) {
-                        chunkIn.setBlockState(block, Blocks.AIR.getDefaultState(), false);
+                        chunkIn.setBlockState(block, Blocks.AIR.defaultBlockState(), false);
                     }
                 }
             }
         }
 
-        SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+        SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
 
 
         for (int y = seaLevel - 1; y >= seaLevel - 20; y--) {
-            block.setPos(xPos, y, zPos);
+            block.set(xPos, y, zPos);
             if (chunkIn.getBlockState(block).isAir()) {
-                chunkIn.setBlockState(block, Blocks.WATER.getDefaultState(), false);
-                chunkIn.getFluidsToBeTicked().scheduleTick(block, Fluids.WATER, 0);
+                chunkIn.setBlockState(block, Blocks.WATER.defaultBlockState(), false);
+                chunkIn.getLiquidTicks().scheduleTick(block, Fluids.WATER, 0);
             }
         }
     }
 
-    public void setSeed(long seed) {
+    public void initNoise(long seed) {
         if (noiseGen == null) {
             noiseGen = new FastNoise((int) seed);
             noiseGen.SetFractalType(FastNoise.FractalType.RigidMulti);
@@ -180,10 +180,10 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
     public void setStrataLayerBlock(int yPos) {
         if (yPos % 5 == 0)
-            layerBlock = Blocks.SNOW_BLOCK.getDefaultState();
+            layerBlock = Blocks.SNOW_BLOCK.defaultBlockState();
         else if (yPos % 2 == 0)
-            layerBlock = Blocks.PACKED_ICE.getDefaultState();
+            layerBlock = Blocks.PACKED_ICE.defaultBlockState();
         else if (yPos % 7 == 0)
-            layerBlock = Blocks.BLUE_ICE.getDefaultState();
+            layerBlock = Blocks.BLUE_ICE.defaultBlockState();
     }
 }

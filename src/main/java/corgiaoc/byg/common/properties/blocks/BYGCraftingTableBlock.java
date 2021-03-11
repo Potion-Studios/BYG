@@ -21,8 +21,8 @@ public class BYGCraftingTableBlock extends CraftingTableBlock {
     }
 
     @Override
-    public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos) {
-        return new SimpleNamedContainerProvider((id, inventory, entity) -> new BYGWorkbenchContainer(id, inventory, IWorldPosCallable.of(worldIn, pos), this), GUI_TITLE);
+    public INamedContainerProvider getMenuProvider(BlockState state, World worldIn, BlockPos pos) {
+        return new SimpleNamedContainerProvider((id, inventory, entity) -> new BYGWorkbenchContainer(id, inventory, IWorldPosCallable.create(worldIn, pos), this), GUI_TITLE);
     }
 }
 

@@ -24,8 +24,8 @@ public class PointedSB extends SurfaceBuilder<PointedSBConfig> {
     public static FastNoise noiseGen = null;
     public static FastNoise noiseGen3D = null;
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, PointedSBConfig config) {
-        setSeed(random.nextLong());
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, PointedSBConfig config) {
+        initNoise(random.nextLong());
         int xPos = x & 15;
         int zPos = z & 15;
         BlockPos.Mutable mutable = new BlockPos.Mutable(xPos, 0, zPos);
@@ -36,7 +36,7 @@ public class PointedSB extends SurfaceBuilder<PointedSBConfig> {
 
         float sampleNoise = noiseGen.GetNoise(fnVector3f.x, fnVector3f.z);
 
-        int groundLevel = chunkIn.getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
+        int groundLevel = chunkIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
 
         if (sampleNoise < 0.43) {
             int valueToReverse = (int) (Math.abs((int) (sampleNoise * 645D) * 1.8));
@@ -48,21 +48,21 @@ public class PointedSB extends SurfaceBuilder<PointedSBConfig> {
             if (topHeight > groundLevel) {
                 mutable.move(Direction.UP, topHeight);
                 for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
-                    if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getHeight()) {
+                    if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getMaxBuildHeight()) {
                         if (yPos == topHeight)
-                            chunkIn.setBlockState(mutable, config.getSpikeTopBlockProvider().getBlockState(random, mutable), false);
+                            chunkIn.setBlockState(mutable, config.getSpikeTopBlockProvider().getState(random, mutable), false);
                         else
-                            chunkIn.setBlockState(mutable, config.getSpikeProvider().getBlockState(random, mutable), false);
+                            chunkIn.setBlockState(mutable, config.getSpikeProvider().getState(random, mutable), false);
                     }
                     mutable.move(Direction.DOWN);
                 }
             }
         } else
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(config.getTop(), config.getUnder(), config.getUnder()));
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(config.getTopMaterial(), config.getUnderMaterial(), config.getUnderMaterial()));
     }
 
     @Override
-    public void setSeed(long seed) {
+    public void initNoise(long seed) {
         if (noiseGen == null) {
             noiseGen = new FastNoise((int) seed);
             noiseGen.SetFractalType(FastNoise.FractalType.RigidMulti);

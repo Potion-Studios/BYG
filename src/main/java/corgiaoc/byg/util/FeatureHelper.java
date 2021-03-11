@@ -18,12 +18,12 @@ public class FeatureHelper
 	
 	public static BlockPos getPosOnSurface(IWorldReader world, BlockPos pos)
 	{
-		return world.getHeight(Heightmap.Type.WORLD_SURFACE, pos);
+		return world.getHeightmapPos(Heightmap.Type.WORLD_SURFACE, pos);
 	}
 	
 	public static BlockPos getPosOnSurfaceWG(IWorldReader world, BlockPos pos) 
 	{
-		return world.getHeight(Heightmap.Type.WORLD_SURFACE_WG, pos);
+		return world.getHeightmapPos(Heightmap.Type.WORLD_SURFACE_WG, pos);
 	}
 	
 	public static BlockPos getPosOnSurfaceRaycast(IWorldReader world, BlockPos pos) 
@@ -34,6 +34,6 @@ public class FeatureHelper
 	public static BlockPos getPosOnSurfaceRaycast(IWorldReader world, BlockPos pos, int dist) 
 	{
 		int h = BlockHelper.downRay(world, pos, dist);
-		return pos.down(h);
+		return pos.below(h);
 	}
 }

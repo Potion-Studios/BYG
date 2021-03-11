@@ -21,14 +21,14 @@ public class RiverThingy extends Feature<NoFeatureConfig> {
     FastNoise fastNoise2 = null;
     FastNoise fastNoise3 = null;
 
-    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         setSeed(worldIn.getSeed());
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         int multiplier = 15;
 
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
-                mutable.setPos(pos.getX() + x, 0, pos.getZ() + z);
+                mutable.set(pos.getX() + x, 0, pos.getZ() + z);
 
                 double noise = (fastNoise.GetNoise(mutable.getX(), mutable.getZ()));
                 double noise2 = Math.abs(fastNoise2.GetNoise(mutable.getX(), mutable.getZ()) + 1) * 3;
@@ -39,7 +39,7 @@ public class RiverThingy extends Feature<NoFeatureConfig> {
                     int minimumHeight = (int) (0 + 10 + noise2 * 3);
                     mutable.move(Direction.UP, maximumHeight);
                     for (int y = maximumHeight; y >= minimumHeight; y--) {
-                        worldIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
+                        worldIn.setBlock(mutable, Blocks.AIR.defaultBlockState(), 2);
                         mutable.move(Direction.DOWN);
                     }
                 }

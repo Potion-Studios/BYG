@@ -23,14 +23,14 @@ public class BorealForestTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
                 return false;
             } else {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos);
 
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
                 int posY1 = 2 - rand.nextInt(1);
                 int posX1 = posX;
@@ -40,16 +40,16 @@ public class BorealForestTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
                     if (buildTrunk >= randTreeHeight2 && posY1 < 0) {
-                        posX1 += direction.getXOffset();
-                        posZ1 += direction.getZOffset();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
 
                     int logplacer = posY + buildTrunk;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1.up(1), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1.up(2), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1.above(1), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1.above(2), boundsIn);
 
                 }
 

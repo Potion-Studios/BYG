@@ -19,7 +19,7 @@ public class WeightedMasterLayer implements IAreaTransformer0 {
     }
 
     @Override
-    public int apply(INoiseRandom rand, int x, int y) {
+    public int applyPixel(INoiseRandom rand, int x, int y) {
         return getRandomBiome(this.biomeRegistry, rand);
     }
 

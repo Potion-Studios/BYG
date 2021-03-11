@@ -24,27 +24,27 @@ public class SmallPineTree extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         if (pos.getX() == -8 && pos.getZ() == -9) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
                     for (int checkZ = pos.getZ() + -16; checkZ <= pos.getZ() + 16; checkZ++) {
                         BlockPos.Mutable block = new BlockPos.Mutable(checkX, checkY, checkZ);
-                        world.setBlockState(block, Blocks.AIR.getDefaultState(), 2);
+                        world.setBlock(block, Blocks.AIR.defaultBlockState(), 2);
                     }
                 }
             }
 
-            TemplateManager templatemanager = world.getWorld().getStructureTemplateManager();
-            Template template = templatemanager.getTemplate(new ResourceLocation(BYG.MOD_ID + ":features/trees/ether_tree5"));
+            TemplateManager templatemanager = world.getLevel().getStructureManager();
+            Template template = templatemanager.get(new ResourceLocation(BYG.MOD_ID + ":features/trees/ether_tree5"));
 
             if (template == null) {
                 BYG.LOGGER.warn("NBT does not exist!");
                 return false;
             }
 
-            PlacementSettings placementsettings = (new PlacementSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunk(null);
-            template.func_237144_a_(world, pos, placementsettings, rand);
+            PlacementSettings placementsettings = (new PlacementSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunkPos(null);
+            template.placeInWorldChunk(world, pos, placementsettings, rand);
             return true;
         }
         return false;

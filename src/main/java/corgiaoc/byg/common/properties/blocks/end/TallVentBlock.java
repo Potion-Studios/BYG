@@ -33,80 +33,82 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class TallVentBlock extends Block {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 16.0D, 13.0D);
+    protected static final VoxelShape SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 16.0D, 13.0D);
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
     public TallVentBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(HALF, DoubleBlockHalf.LOWER));
+        this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(HALF);
     }
 
-    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-        if (!entityIn.isImmuneToFire() && entityIn instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entityIn)) {
-            entityIn.attackEntityFrom(DamageSource.HOT_FLOOR, 1.0F);
+    public void stepOn(World worldIn, BlockPos pos, Entity entityIn) {
+        if (!entityIn.fireImmune() && entityIn instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entityIn)) {
+            entityIn.hurt(DamageSource.HOT_FLOOR, 1.0F);
         }
 
-        super.onEntityWalk(worldIn, pos, entityIn);
+        super.stepOn(worldIn, pos, entityIn);
     }
 
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        DoubleBlockHalf doubleblockhalf = stateIn.get(HALF);
-        if (facing.getAxis() != Direction.Axis.Y || doubleblockhalf == DoubleBlockHalf.LOWER != (facing == Direction.UP) || facingState.isIn(this) && facingState.get(HALF) != doubleblockhalf) {
-            return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        DoubleBlockHalf doubleblockhalf = stateIn.getValue(HALF);
+        if (facing.getAxis() != Direction.Axis.Y || doubleblockhalf == DoubleBlockHalf.LOWER != (facing == Direction.UP) || facingState.is(this) && facingState.getValue(HALF) != doubleblockhalf) {
+            return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN && !stateIn.canSurvive(worldIn, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         } else {
-            return Blocks.AIR.getDefaultState();
+            return Blocks.AIR.defaultBlockState();
         }
     }
 
     @Nullable
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        BlockPos blockpos = context.getPos();
-        return blockpos.getY() < 255 && context.getWorld().getBlockState(blockpos.up()).isReplaceable(context) ? super.getStateForPlacement(context) : null;
+        BlockPos blockpos = context.getClickedPos();
+        return blockpos.getY() < 255 && context.getLevel().getBlockState(blockpos.above()).canBeReplaced(context) ? super.getStateForPlacement(context) : null;
     }
 
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-        worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER), 3);
+    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+        worldIn.setBlock(pos.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER), 3);
     }
 
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        if (state.get(HALF) != DoubleBlockHalf.UPPER) {
-            return super.isValidPosition(state, worldIn, pos);
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
+            return super.canSurvive(state, worldIn, pos);
         } else {
-            BlockState blockstate = worldIn.getBlockState(pos.down());
-            if (state.getBlock() != this) return super.isValidPosition(state, worldIn, pos); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
-            return blockstate.isIn(this) && blockstate.get(HALF) == DoubleBlockHalf.LOWER;
+            BlockState blockstate = worldIn.getBlockState(pos.below());
+            if (state.getBlock() != this) return super.canSurvive(state, worldIn, pos); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
+            return blockstate.is(this) && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER;
         }
     }
 
-    public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (!worldIn.isRemote) {
+    public void playerWillDestroy(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!worldIn.isClientSide) {
             if (player.isCreative()) {
                 removeBottomHalf(worldIn, pos, state, player);
             } else {
-                spawnDrops(state, worldIn, pos, null, player, player.getHeldItemMainhand());
+                dropResources(state, worldIn, pos, null, player, player.getMainHandItem());
             }
         }
 
-        super.onBlockHarvested(worldIn, pos, state, player);
+        super.playerWillDestroy(worldIn, pos, state, player);
     }
 
-    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
-        super.harvestBlock(worldIn, player, pos, Blocks.AIR.getDefaultState(), te, stack);
+    public void playerDestroy(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        super.playerDestroy(worldIn, player, pos, Blocks.AIR.defaultBlockState(), te, stack);
     }
 
     protected static void removeBottomHalf(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        DoubleBlockHalf doubleblockhalf = state.get(HALF);
+        DoubleBlockHalf doubleblockhalf = state.getValue(HALF);
         if (doubleblockhalf == DoubleBlockHalf.UPPER) {
-            BlockPos blockpos = pos.down();
+            BlockPos blockpos = pos.below();
             BlockState blockstate = world.getBlockState(blockpos);
-            if (blockstate.getBlock() == state.getBlock() && blockstate.get(HALF) == DoubleBlockHalf.LOWER) {
-                world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 35);
-                world.playEvent(player, 2001, blockpos, Block.getStateId(blockstate));
+            if (blockstate.getBlock() == state.getBlock() && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER) {
+                world.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 35);
+                world.levelEvent(player, 2001, blockpos, Block.getId(blockstate));
             }
         }
 

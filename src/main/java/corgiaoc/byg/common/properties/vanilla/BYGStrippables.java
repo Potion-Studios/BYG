@@ -9,8 +9,8 @@ import net.minecraft.item.AxeItem;
 
 public class BYGStrippables {
     public static void strippableBlock(Block logBYG, Block strippableBYG) {
-        AxeItem.BLOCK_STRIPPING_MAP = Maps.newHashMap(AxeItem.BLOCK_STRIPPING_MAP);
-        AxeItem.BLOCK_STRIPPING_MAP.put(logBYG, strippableBYG);
+        AxeItem.STRIPABLES = Maps.newHashMap(AxeItem.STRIPABLES);
+        AxeItem.STRIPABLES.put(logBYG, strippableBYG);
     }
 
     public static void strippableLogsBYG() {

@@ -25,11 +25,11 @@ public class SpikeFeature extends Feature<SimpleBlockProviderConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
 
 
-        if (world.getBlockState(pos.down()).getMaterial() == Material.AIR || world.getBlockState(pos.down()).getMaterial() == Material.WATER || world.getBlockState(pos.down()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)
+        if (world.getBlockState(pos.below()).getMaterial() == Material.AIR || world.getBlockState(pos.below()).getMaterial() == Material.WATER || world.getBlockState(pos.below()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)
             return false;
 
 
@@ -42,24 +42,24 @@ public class SpikeFeature extends Feature<SimpleBlockProviderConfig> {
         for (double y = -height; y <= -1; y++) {
             for (double x = -height; x <= height; x++) {
                 for (double z = -height; z <= height; z++) {
-                    mutable.setPos(pos).move((int) x, (int) y + startHeight, (int) z);
+                    mutable.set(pos).move((int) x, (int) y + startHeight, (int) z);
                     double noise = fnPerlin.GetNoise((float) mutable.getX(), (float) mutable.getZ()) * 12;
                     double scaledNoise = (noise / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
                     double threshold = 0.5;
 
                     if (y == -height) {
                         if (scaledNoise >= threshold)
-                            if (world.getBlockState(mutable.offset(Direction.DOWN)).getMaterial() == Material.AIR)
+                            if (world.getBlockState(mutable.relative(Direction.DOWN)).getMaterial() == Material.AIR)
                                 return false;
                     }
 
                     if (scaledNoise >= threshold) {
                         if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
-                            BlockState blockState = config.getBlockProvider().getBlockState(rand, mutable);
-                            world.setBlockState(mutable, blockState, 2);
+                            BlockState blockState = config.getBlockProvider().getState(rand, mutable);
+                            world.setBlock(mutable, blockState, 2);
 
                             if (blockState.getBlock() == Blocks.LAVA)
-                                world.getPendingFluidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
+                                world.getLiquidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
                         }
                     }
                 }

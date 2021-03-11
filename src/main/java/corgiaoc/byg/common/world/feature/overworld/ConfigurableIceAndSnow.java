@@ -25,19 +25,19 @@ public class ConfigurableIceAndSnow extends ChunkCoordinatesFeature<Simple2Block
         BlockPos.Mutable mutable2 = new BlockPos.Mutable();
 
         int height = world.getHeight(Heightmap.Type.MOTION_BLOCKING, x, z);
-        mutable.setPos(x, height, z);
-        mutable2.setPos(mutable).move(Direction.DOWN, 1);
+        mutable.set(x, height, z);
+        mutable2.set(mutable).move(Direction.DOWN, 1);
         Biome biome = world.getBiome(mutable);
-        if (biome.doesWaterFreeze(world, mutable2, false)) {
-            chunkIn.setBlockState(mutable2, config.getBlockProvider().getBlockState(random, mutable2), false);
+        if (biome.shouldFreeze(world, mutable2, false)) {
+            chunkIn.setBlockState(mutable2, config.getBlockProvider().getState(random, mutable2), false);
         }
 
-        if (biome.doesSnowGenerate(world, mutable)) {
-            chunkIn.setBlockState(mutable, config.getBlockProvider2().getBlockState(random, mutable), false);
+        if (biome.shouldSnow(world, mutable)) {
+            chunkIn.setBlockState(mutable, config.getBlockProvider2().getState(random, mutable), false);
             BlockState blockstate = world.getBlockState(mutable2);
             if (blockstate.hasProperty(BlockStateProperties.SNOWY)) {
-                if (blockstate.get(BlockStateProperties.SNOWY) && world.getBlockState(mutable2.offset(Direction.UP)).getBlock() == Blocks.SNOW) {
-                    chunkIn.setBlockState(mutable2, blockstate.with(BlockStateProperties.SNOWY, true), false);
+                if (blockstate.getValue(BlockStateProperties.SNOWY) && world.getBlockState(mutable2.relative(Direction.UP)).getBlock() == Blocks.SNOW) {
+                    chunkIn.setBlockState(mutable2, blockstate.setValue(BlockStateProperties.SNOWY, true), false);
                 }
             }
         }

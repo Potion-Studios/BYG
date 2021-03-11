@@ -27,17 +27,17 @@ public class AtOrBelowSeaLevelCountExtra extends Placement<AtOrBelowSeaLevelCoun
             int moveDown = 0;
             int j = random.nextInt(16) + pos.getX();
             int k = random.nextInt(16) + pos.getZ();
-            int l = ctx.chunkGenerator.getSeaLevel(); //Sea level from the chunk generator since this value is actually modified in the Nether.
+            int l = ctx.generator.getSeaLevel(); //Sea level from the chunk generator since this value is actually modified in the Nether.
 
             BlockPos.Mutable mutable = new BlockPos.Mutable(j, l, k);
             while (moveDown <= config.belowSeaLevel) {
-                if (ctx.func_242894_a(mutable).isSolid())
+                if (ctx.getBlockState(mutable).canOcclude())
                     break;
 
                 mutable.move(Direction.DOWN);
                 moveDown++;
             }
-            return mutable.toImmutable();
+            return mutable.immutable();
         });
     }
 }

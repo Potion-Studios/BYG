@@ -19,22 +19,22 @@ public class HangingColumn extends Feature<HangingColumnConfig> {
         super(config);
     }
 
-    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnConfig config) {
+    public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnConfig config) {
         int randLength = rand.nextInt(config.getMaxPossibleLength()) + config.getMinLength();
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
 
-        if (worldIn.func_241828_r().func_230521_a_(Registry.BIOME_KEY).get().getOptionalKey(worldIn.getBiome(pos)).get() != Biomes.THE_VOID) {
+        if (worldIn.registryAccess().registry(Registry.BIOME_REGISTRY).get().getResourceKey(worldIn.getBiome(pos)).get() != Biomes.THE_VOID) {
             //Code
         }
 
-        if (!worldIn.isAirBlock(pos)) {
+        if (!worldIn.isEmptyBlock(pos)) {
             return false;
-        } else if (!config.getWhitelist().contains(worldIn.getBlockState(pos.up()).getBlock())) {
+        } else if (!config.getWhitelist().contains(worldIn.getBlockState(pos.above()).getBlock())) {
             return false;
         } else {
             for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {
                 if (worldIn.getBlockState(mutable).getMaterial() == Material.AIR)
-                    worldIn.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 10);
+                    worldIn.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 10);
                 mutable.move(Direction.DOWN);
             }
             return true;

@@ -26,7 +26,7 @@ public class AtOceanFloorWithExtra extends Placement<AtSurfaceWithExtraConfig> {
         return IntStream.range(0, i).mapToObj((streamedInt) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();
-            int y = decoratorContext.func_242893_a(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
+            int y = decoratorContext.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
             return new BlockPos(x, y, z);
         });
     }

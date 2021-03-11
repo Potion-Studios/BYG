@@ -24,11 +24,11 @@ public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGro
         super(properties);
     }
 
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        return worldIn.getBlockState(pos.up()).isAir();
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+        return worldIn.getBlockState(pos.above()).isAir();
     }
 
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
         return true;
     }
 
@@ -41,9 +41,9 @@ public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGro
 
     }
 
-    public void grow(ServerWorld world, Random rand, BlockPos blockPos, BlockState state) {
-        BlockPos blockpos = blockPos.up();
-        BlockState blockstate = Blocks.GRASS.getDefaultState();
+    public void performBonemeal(ServerWorld world, Random rand, BlockPos blockPos, BlockState state) {
+        BlockPos blockpos = blockPos.above();
+        BlockState blockstate = Blocks.GRASS.defaultBlockState();
 
         for (int i = 0; i < 128; ++i) {
             BlockPos blockpos1 = blockpos;
@@ -53,7 +53,7 @@ public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGro
                 if (j >= i / 16) {
                     BlockState blockstate2 = world.getBlockState(blockpos1);
                     if (blockstate2.getBlock() == blockstate.getBlock() && rand.nextInt(10) == 0) {
-                        ((IGrowable) blockstate.getBlock()).grow(world, rand, blockpos1, blockstate2);
+                        ((IGrowable) blockstate.getBlock()).performBonemeal(world, rand, blockpos1, blockstate2);
                     }
 
                     if (!blockstate2.isAir()) {
@@ -69,19 +69,19 @@ public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGro
 
                         ConfiguredFeature<?, ?> configuredfeature = list.get(0);
                         FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
-                        blockstate1 = flowersfeature.getFlowerToPlace(rand, blockpos1, configuredfeature.getConfig());
+                        blockstate1 = flowersfeature.getRandomFlower(rand, blockpos1, configuredfeature.config());
                     } else {
                         blockstate1 = blockstate;
                     }
 
-                    if (blockstate1.isValidPosition(world, blockpos1)) {
-                        world.setBlockState(blockpos1, blockstate1, 3);
+                    if (blockstate1.canSurvive(world, blockpos1)) {
+                        world.setBlock(blockpos1, blockstate1, 3);
                     }
                     break;
                 }
 
-                blockpos1 = blockpos1.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
-                if (world.getBlockState(blockpos1.down()).getBlock() != this || world.getBlockState(blockpos1).isOpaqueCube(world, blockpos1)) {
+                blockpos1 = blockpos1.offset(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
+                if (world.getBlockState(blockpos1.below()).getBlock() != this || world.getBlockState(blockpos1).isSolidRender(world, blockpos1)) {
                     break;
                 }
 

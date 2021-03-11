@@ -11,8 +11,10 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.Tags;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class TallEtherPlantBlock extends DoublePlantBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     public TallEtherPlantBlock(Properties builder) {
         super(builder);
@@ -20,8 +22,8 @@ public class TallEtherPlantBlock extends DoublePlantBlock {
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(BYGBlocks.ETHER_PHYLIUM) || state.isIn(BYGBlocks.ETHER_SOIL) || super.isValidGround(state, worldIn, pos);
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.is(BYGBlocks.ETHER_PHYLIUM) || state.is(BYGBlocks.ETHER_SOIL) || super.mayPlaceOn(state, worldIn, pos);
     }
 }
 

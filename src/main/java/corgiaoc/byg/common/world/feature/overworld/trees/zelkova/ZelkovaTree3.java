@@ -25,9 +25,9 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
@@ -37,7 +37,7 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos);
 
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
                 int posY1 = 2 - rand.nextInt(1);
                 int posX1 = posX;
@@ -47,8 +47,8 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
                     if (buildTrunk >= randTreeHeight2 && posY1 < 0) {
-                        posX1 += direction.getXOffset();
-                        posZ1 += direction.getZOffset();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
 
@@ -59,18 +59,18 @@ public class ZelkovaTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                     //Sets Logs
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.down(6).west(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.down(6).north(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.down(4).south(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.down(4).east(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.below(6).west(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.below(6).north(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.below(4).south(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.below(4).east(), boundsIn);
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.down(10).west(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.down(10).north(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.down(8).south(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.down(8).east(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.below(10).west(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.below(10).north(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.below(8).south(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.below(8).east(), boundsIn);
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.down(14).south(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.down(14).east(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.below(14).south(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.below(14).east(), boundsIn);
                 }
 
 

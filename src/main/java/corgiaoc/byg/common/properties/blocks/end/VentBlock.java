@@ -26,27 +26,29 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class VentBlock extends Block {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D);
+    protected static final VoxelShape SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D);
 
     public VentBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState());
+        this.registerDefaultState(this.stateDefinition.any());
     }
 
-    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-        if (!entityIn.isImmuneToFire() && entityIn instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entityIn)) {
-            entityIn.attackEntityFrom(DamageSource.HOT_FLOOR, 1.0F);
+    public void stepOn(World worldIn, BlockPos pos, Entity entityIn) {
+        if (!entityIn.fireImmune() && entityIn instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entityIn)) {
+            entityIn.hurt(DamageSource.HOT_FLOOR, 1.0F);
         }
 
-        super.onEntityWalk(worldIn, pos, entityIn);
+        super.stepOn(worldIn, pos, entityIn);
     }
 
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        if (facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos)) {
-            return Blocks.AIR.getDefaultState();
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (facing == Direction.DOWN && !stateIn.canSurvive(worldIn, currentPos)) {
+            return Blocks.AIR.defaultBlockState();
         } else {
-            return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+            return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         }
     }
 

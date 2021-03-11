@@ -20,12 +20,12 @@ public class PoisonIvyBlock extends VineBlock {
     }
 
     @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        if (!worldIn.isRemote && worldIn.getDifficulty() != Difficulty.PEACEFUL) {
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+        if (!worldIn.isClientSide && worldIn.getDifficulty() != Difficulty.PEACEFUL) {
             if (entityIn instanceof LivingEntity) {
                 LivingEntity livingentity = (LivingEntity) entityIn;
                 if (!livingentity.isInvulnerableTo(DamageSource.MAGIC)) {
-                    livingentity.addPotionEffect(new EffectInstance(Effects.POISON, 900, 1));
+                    livingentity.addEffect(new EffectInstance(Effects.POISON, 900, 1));
                 }
             }
 

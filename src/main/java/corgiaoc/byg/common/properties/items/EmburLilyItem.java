@@ -22,7 +22,7 @@ public class EmburLilyItem extends BlockItem {
     /**
      * Called when this item is used when targetting a Block
      */
-    public ActionResultType onItemUse(ItemUseContext context) {
+    public ActionResultType useOn(ItemUseContext context) {
         return ActionResultType.PASS;
     }
 
@@ -30,10 +30,10 @@ public class EmburLilyItem extends BlockItem {
      * Called to trigger the item's "innate" right click behavior. To handle when this item is used on a Block, see
      * {@link #onItemUse}.
      */
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        BlockRayTraceResult blockraytraceresult = rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.SOURCE_ONLY);
-        BlockRayTraceResult blockraytraceresult1 = blockraytraceresult.withPosition(blockraytraceresult.getPos().up());
-        ActionResultType actionresulttype = super.onItemUse(new ItemUseContext(playerIn, handIn, blockraytraceresult1));
-        return new ActionResult<>(actionresulttype, playerIn.getHeldItem(handIn));
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        BlockRayTraceResult blockraytraceresult = getPlayerPOVHitResult(worldIn, playerIn, RayTraceContext.FluidMode.SOURCE_ONLY);
+        BlockRayTraceResult blockraytraceresult1 = blockraytraceresult.withPosition(blockraytraceresult.getBlockPos().above());
+        ActionResultType actionresulttype = super.useOn(new ItemUseContext(playerIn, handIn, blockraytraceresult1));
+        return new ActionResult<>(actionresulttype, playerIn.getItemInHand(handIn));
     }
 }

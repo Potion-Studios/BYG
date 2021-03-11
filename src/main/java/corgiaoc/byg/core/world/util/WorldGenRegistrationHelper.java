@@ -66,13 +66,13 @@ public class WorldGenRegistrationHelper {
 //        Registry.register(Registry.STRUCTURE_FEATURE, bygID, structure);
         structure.setRegistryName(bygID);
         BYGStructures.structures.add(structure);
-        Structure.NAME_STRUCTURE_BIMAP.put(bygID.toString(), structure);
+        Structure.STRUCTURES_REGISTRY.put(bygID.toString(), structure);
 
-        Structure.STRUCTURE_DECORATION_STAGE_MAP.put(structure, decorationStage);
+        Structure.STEP.put(structure, decorationStage);
 
-        DimensionStructuresSettings.field_236191_b_ =
+        DimensionStructuresSettings.DEFAULTS =
                 ImmutableMap.<Structure<?>, StructureSeparationSettings>builder()
-                        .putAll(DimensionStructuresSettings.field_236191_b_)
+                        .putAll(DimensionStructuresSettings.DEFAULTS)
                         .put(structure, new StructureSeparationSettings(minChunkDistance, maxChunkDistance, seedModifier))
                         .build();
         return structure;

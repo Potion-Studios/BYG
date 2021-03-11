@@ -26,39 +26,39 @@ public class ValleDeLuna extends BYGBiome {
     static final int FOLIAGE_COLOR = 10855786;
     
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
-    static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().isValidSpawnBiomeForPlayer();
-    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
+    static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().setPlayerCanSpawn();
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
     public ValleDeLuna() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder())
-                .setWaterColor(WATER_COLOR)
-                .setWaterFogColor(WATER_FOG_COLOR)
-                .setFogColor(12665870)
-                .withGrassColor(GRASS_COLOR)
-                .withFoliageColor(FOLIAGE_COLOR)
-                .withSkyColor(12665870)
-                .setParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.00528F))
-                .setMoodSound(MoodSoundAmbience.DEFAULT_CAVE)
-                .build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+                .waterColor(WATER_COLOR)
+                .waterFogColor(WATER_FOG_COLOR)
+                .fogColor(12665870)
+                .grassColorOverride(GRASS_COLOR)
+                .foliageColorOverride(FOLIAGE_COLOR)
+                .skyColor(12665870)
+                .ambientParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.00528F))
+                .ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS)
+                .build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
     static {
-        DefaultBiomeFeatures.withFossils(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.withStructure(StructureFeatures.DESERT_PYRAMID); //Desert Temple
-        GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_DESERT); //Ruined Portal Desert
-        DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withOverworldOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withExtraGoldOre(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withEmeraldOre(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withDisks(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withNormalMushroomGeneration(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withSugarCaneAndPumpkins(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withFossils(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.withDesertWells(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addFossilDecoration(GENERATION_SETTINGS);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.DESERT_PYRAMID); //Desert Temple
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_DESERT); //Ruined Portal Desert
+        DefaultBiomeFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultCarvers(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultUndergroundVariety(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addExtraGold(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addExtraEmeralds(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultSoftDisks(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultExtraVegetation(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addFossilDecoration(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDesertExtraDecoration(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addPaloVerdeTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGiantLunaRocks(GENERATION_SETTINGS);
@@ -67,16 +67,16 @@ public class ValleDeLuna extends BYGBiome {
         BYGDefaultBiomeFeatures.addBYGDesertPlants(GENERATION_SETTINGS);
 //        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.VOLCANO);
 
-        SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.HUSK, 95, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.HUSK, 95, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SKELETON, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.CREEPER, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 100, 4, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 10, 1, 4));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.WITCH, 5, 1, 1));
 
     }
 }

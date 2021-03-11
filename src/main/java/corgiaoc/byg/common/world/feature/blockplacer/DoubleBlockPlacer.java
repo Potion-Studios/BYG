@@ -14,7 +14,7 @@ import java.util.Random;
 public class DoubleBlockPlacer extends BlockPlacer {
     public static final Codec<DoubleBlockPlacer> CODEC = Codec.unit(DoubleBlockPlacer::new);
 
-    protected BlockPlacerType<?> getBlockPlacerType() {
+    protected BlockPlacerType<?> type() {
         return BYGBlockPlacerTypes.DOUBLE_BLOCK;
     }
 
@@ -23,7 +23,7 @@ public class DoubleBlockPlacer extends BlockPlacer {
     }
 
     public void placeAt(IWorld worldIn, BlockPos pos, BlockState state, int flags) {
-        worldIn.setBlockState(pos, state.with(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER), flags);
-        worldIn.setBlockState(pos.up(), state.with(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), flags);
+        worldIn.setBlock(pos, state.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER), flags);
+        worldIn.setBlock(pos.above(), state.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), flags);
     }
 }

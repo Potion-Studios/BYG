@@ -23,34 +23,34 @@ import java.util.function.Predicate;
 public class MixinEatGrassGoal {
 
 
-    @Shadow @Final private MobEntity grassEaterEntity;
+    @Shadow @Final private MobEntity mob;
 
-    @Shadow @Final private World entityWorld;
+    @Shadow @Final private static Predicate<BlockState> IS_TALL_GRASS;
 
-    @Shadow public static Predicate<BlockState> IS_GRASS;
+    @Shadow @Final private World level;
 
-    @Inject(method = "shouldExecute", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/MobEntity;getPosition()Lnet/minecraft/util/math/BlockPos;"), cancellable = true)
+    @Inject(method = "canUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/MobEntity;blockPosition()Lnet/minecraft/util/math/BlockPos;"), cancellable = true)
     private void addModdedGrass(CallbackInfoReturnable<Boolean> cir) {
-        BlockPos blockpos = this.grassEaterEntity.getPosition();
-        if (IS_GRASS.test(this.entityWorld.getBlockState(blockpos))) {
+        BlockPos blockpos = this.mob.blockPosition();
+        if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
             cir.setReturnValue(true);
         } else {
-            boolean flag = this.entityWorld.getBlockState(blockpos.down()).isIn(BYGBlocks.MEADOW_GRASSBLOCK);
+            boolean flag = this.level.getBlockState(blockpos.below()).is(BYGBlocks.MEADOW_GRASSBLOCK);
             if (flag)
                 cir.setReturnValue(true);
         }
     }
 
-    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;down()Lnet/minecraft/util/math/BlockPos;"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void addModdedGrassChecks(CallbackInfo ci, BlockPos blockpos) {
-        BlockPos blockpos1 = blockpos.down();
-        if (this.entityWorld.getBlockState(blockpos1).isIn(BYGBlocks.MEADOW_GRASSBLOCK)) {
-            if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.entityWorld, this.grassEaterEntity)) {
-                this.entityWorld.playEvent(2001, blockpos1, Block.getStateId(BYGBlocks.MEADOW_GRASSBLOCK.getDefaultState()));
-                this.entityWorld.setBlockState(blockpos1, BYGBlocks.MEADOW_DIRT.getDefaultState(), 2);
+    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/BlockPos;below()Lnet/minecraft/util/math/BlockPos;"), locals = LocalCapture.CAPTURE_FAILHARD)
+    private void addModdedGrassChecks(CallbackInfo ci, BlockPos pos) {
+        BlockPos blockpos1 = pos.below();
+        if (this.level.getBlockState(blockpos1).is(BYGBlocks.MEADOW_GRASSBLOCK)) {
+            if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.level, this.mob)) {
+                this.level.levelEvent(2001, blockpos1, Block.getId(BYGBlocks.MEADOW_GRASSBLOCK.defaultBlockState()));
+                this.level.setBlock(blockpos1, BYGBlocks.MEADOW_DIRT.defaultBlockState(), 2);
             }
 
-            this.grassEaterEntity.eatGrassBonus();
+            this.mob.ate();
         }
     }
 

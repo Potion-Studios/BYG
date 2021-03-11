@@ -279,21 +279,21 @@ import java.util.Random;
 
     public static Vector3f cross(Vector3f vec1, Vector3f vec2)
     {
-        float cx = vec1.getY() * vec2.getZ() - vec1.getZ() * vec2.getY();
-        float cy = vec1.getZ() * vec2.getX() - vec1.getX() * vec2.getZ();
-        float cz = vec1.getX() * vec2.getY() - vec1.getY() * vec2.getX();
+        float cx = vec1.y() * vec2.z() - vec1.z() * vec2.y();
+        float cy = vec1.z() * vec2.x() - vec1.x() * vec2.z();
+        float cz = vec1.x() * vec2.y() - vec1.y() * vec2.x();
         return new Vector3f(cx, cy, cz);
     }
 
     public static Vector3f normalize(Vector3f vec)
     {
-        float length = lengthSqr(vec.getX(), vec.getY(), vec.getZ());
+        float length = lengthSqr(vec.x(), vec.y(), vec.z());
         if (length > 0)
         {
             length = (float) Math.sqrt(length);
-            float x = vec.getX() / length;
-            float y = vec.getY() / length;
-            float z = vec.getZ() / length;
+            float x = vec.x() / length;
+            float y = vec.y() / length;
+            float z = vec.z() / length;
             vec.set(x, y, z);
         }
         return vec;
@@ -301,9 +301,9 @@ import java.util.Random;
 
     public static float angle(Vector3f vec1, Vector3f vec2)
     {
-        float dot = vec1.getX() * vec2.getX() + vec1.getY() * vec2.getY() + vec1.getZ() * vec2.getZ();
-        float length1 = lengthSqr(vec1.getX(), vec1.getY(), vec1.getZ());
-        float length2 = lengthSqr(vec2.getX(), vec2.getY(), vec2.getZ());
+        float dot = vec1.x() * vec2.x() + vec1.y() * vec2.y() + vec1.z() * vec2.z();
+        float length1 = lengthSqr(vec1.x(), vec1.y(), vec1.z());
+        float length2 = lengthSqr(vec2.x(), vec2.y(), vec2.z());
         return (float) Math.acos(dot / Math.sqrt(length1 * length2));
     }
 }

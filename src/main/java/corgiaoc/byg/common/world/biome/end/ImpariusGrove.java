@@ -37,19 +37,19 @@ public class ImpariusGrove extends BYGEndBiome {
 
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder();
-    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
+    static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).surfaceBuilder(SURFACE_BUILDER);
 
     public ImpariusGrove() {
-        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR)
-                .setWaterColor(WATER_COLOR)
-                .setWaterFogColor(WATER_FOG_COLOR)
-                .setFogColor(10518688)
-                .withSkyColor(0)
-                .setParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.00428F))
-                .setAmbientSound(BYGSounds.SoundRegistry.AMBIENT_END_FOREST_LOOP)
-                .setMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_NETHER_WASTES_MOOD, 6000, 8, 2.0D))
-                .setAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0111D))
-                .setMusic(BackgroundMusicTracks.getDefaultBackgroundMusicSelector(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
+        super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR)
+                .waterColor(WATER_COLOR)
+                .waterFogColor(WATER_FOG_COLOR)
+                .fogColor(10518688)
+                .skyColor(0)
+                .ambientParticle(new ParticleEffectAmbience(ParticleTypes.WARPED_SPORE, 0.00428F))
+                .ambientLoopSound(BYGSounds.SoundRegistry.AMBIENT_END_FOREST_LOOP)
+                .ambientMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_NETHER_WASTES_MOOD, 6000, 8, 2.0D))
+                .ambientAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0111D))
+                .backgroundMusic(BackgroundMusicTracks.createGameMusic(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
     @Nullable
@@ -63,7 +63,7 @@ public class ImpariusGrove extends BYGEndBiome {
     @Override
     public WeightedList<ResourceLocation> getHills() {
         WeightedList<ResourceLocation> hillsList = new WeightedList<>();
-        hillsList.func_226313_a_(WorldGenRegistries.BIOME.getKey(BYGBiomes.IMPARIUS_CLEARING), 10);
+        hillsList.add(WorldGenRegistries.BIOME.getKey(BYGBiomes.IMPARIUS_CLEARING), 10);
         return hillsList;
     }
 
@@ -78,11 +78,11 @@ public class ImpariusGrove extends BYGEndBiome {
         BYGDefaultBiomeFeatures.addFungalImparius(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addImpariusMushrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEndLake(GENERATION_SETTINGS);
-        GENERATION_SETTINGS.withStructure(StructureFeatures.END_CITY).withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.END_CITY).addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);
         BYGDefaultBiomeFeatures.addTheriumDeposit(GENERATION_SETTINGS);
 //        BYGDefaultBiomeFeatures.addEnderLily(GENERATION_SETTINGS);
 
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 2, 1, 2));
-        SPAWN_SETTINGS.withSpawner(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMITE, 2, 1, 2));
+        SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ENDERMAN, 60, 1, 3));
     }
 }

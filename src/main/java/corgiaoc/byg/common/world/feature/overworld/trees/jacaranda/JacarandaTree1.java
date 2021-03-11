@@ -26,9 +26,9 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
@@ -37,7 +37,7 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos);
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
                 int posY1 = 2 - rand.nextInt(1);
                 int posX1 = posX;
@@ -47,8 +47,8 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
                     if (buildTrunk >= randTreeHeight2 && posY1 < 0) {
-                        posX1 += direction.getXOffset();
-                        posZ1 += direction.getZOffset();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
                     int logplacer = posY + buildTrunk;
@@ -70,11 +70,11 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                         placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south(), boundsIn);
                         placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north(), boundsIn);
                         if (logPreset == 0) {
-                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().up(), boundsIn);
+                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().above(), boundsIn);
                         } else if (logPreset == 2) {
-                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().up(), boundsIn);
+                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().above(), boundsIn);
                         } else if (logPreset == 10) {
-                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().up(), boundsIn);
+                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().above(), boundsIn);
                         }
 
                         if (rand.nextInt(3) == 1) {
@@ -109,10 +109,10 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.east(4), boundsIn);
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.north(4), boundsIn);
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.north(5).down().west(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.east(5).down().north(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.south(5).down().east(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.west(5).down().south(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.north(5).below().west(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.east(5).below().north(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.south(5).below().east(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.west(5).below().south(), boundsIn);
 
                 }
                 int leavePreset = rand.nextInt(1) + 1;
@@ -338,7 +338,7 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHere(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

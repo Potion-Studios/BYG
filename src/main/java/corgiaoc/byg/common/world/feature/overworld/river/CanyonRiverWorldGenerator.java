@@ -49,15 +49,15 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
     public static FastNoise noise;
 
     @Override
-    public boolean generate(ISeedReader worldRegion, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(ISeedReader worldRegion, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         setupNoise(worldRegion.getSeed());
         NoisyCaveSphereWater.setSeed(worldRegion.getSeed());
 
         IChunk chunk = worldRegion.getChunk(pos);
         ChunkPos chunkPos = chunk.getPos();
 
-        CanyonCache canyonCache = worldToCanyonPoint.computeIfAbsent(worldRegion.getWorld(), (world) -> {
-            return new CanyonCache(worldRegion.getWorld().getChunkProvider().generator, Collections.singleton(worldRegion.func_241828_r().getRegistry(Registry.BIOME_KEY).getValueForKey(BYGBiomes.CANYON_KEY)));
+        CanyonCache canyonCache = worldToCanyonPoint.computeIfAbsent(worldRegion.getLevel(), (world) -> {
+            return new CanyonCache(worldRegion.getLevel().getChunkSource().generator, Collections.singleton(worldRegion.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).get(BYGBiomes.CANYON_KEY)));
         });
 
         for (int xMegaScan = -MAX_RIVER_DISTANCE_IN_MEGA_CHUNKS; xMegaScan <= MAX_RIVER_DISTANCE_IN_MEGA_CHUNKS; xMegaScan++) {
@@ -125,8 +125,8 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
     }
 
     private void carveRiverNode(ISeedReader worldRegion, RiverGenerator.Node node, RiverGenerator.Node prevNode) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(node.getPos());
-        BlockPos.Mutable prevMutable = new BlockPos.Mutable().setPos(prevNode.getPos());
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(node.getPos());
+        BlockPos.Mutable prevMutable = new BlockPos.Mutable().set(prevNode.getPos());
 
         int xRadius = 10;
         int yRadius = 10;
@@ -160,14 +160,14 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
             minZRadius = minZRadius + zDiff;
         }
 
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
+        BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(mutable);
         int[][] topY = new int[Math.abs(minXRadius + maxXRadius) + 1][Math.abs(minZRadius + maxZRadius) + 1];
 
         int yDiff = prevMutable.getY() - mutable.getY();
 
         for (int x = minXRadius; x <= maxXRadius; x++) {
             for (int z = minZRadius; z <= maxZRadius; z++) {
-                mutable2.setPos(mutable).move(x, -yRadius, z);
+                mutable2.set(mutable).move(x, -yRadius, z);
 
 
                 //Check if the bottom of the sphere will be hanging over air, if so continue, don't waste time filling the remainder of the sphere!
@@ -183,7 +183,7 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
                 }
 
                 for (int y = -yRadius; y <= yRadius; y++) {
-                    mutable2.setPos(mutable).move(x, y, z);
+                    mutable2.set(mutable).move(x, y, z);
 
                     //Credits to Hex_26 for this equation!
                     double equationResult = Math.pow(x, 2) / Math.pow((xRadius), 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
@@ -192,10 +192,10 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
                         continue;
 
                     if (y <= -2) {
-                        worldRegion.setBlockState(mutable2, Blocks.WATER.getDefaultState(), 2);
-                        worldRegion.getPendingFluidTicks().scheduleTick(mutable2, Fluids.WATER, 0);
+                        worldRegion.setBlock(mutable2, Blocks.WATER.defaultBlockState(), 2);
+                        worldRegion.getLiquidTicks().scheduleTick(mutable2, Fluids.WATER, 0);
                     } else {
-                        worldRegion.setBlockState(mutable2, Blocks.AIR.getDefaultState(), 2);
+                        worldRegion.setBlock(mutable2, Blocks.AIR.defaultBlockState(), 2);
                     }
                 }
             }
@@ -248,7 +248,7 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
             return;
         }
 
-        MutableRegistry<Biome> registry = region.func_241828_r().getRegistry(Registry.BIOME_KEY);
+        MutableRegistry<Biome> registry = region.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
 
         if (registry.getKey(biomeContainer.getNoiseBiome(pos.getX(), pos.getY(), pos.getZ())) != matcher) {
             int quartX = pos.getX() & HORIZONTAL_MASK;

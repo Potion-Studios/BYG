@@ -17,9 +17,9 @@ public class BYGFrostMagmaBlock extends Block {
         super(properties);
     }
 
-    public void onEntityWalk(World block, BlockPos pos, Entity entity) {
-        if (!entity.isImmuneToFire() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
-            entity.attackEntityFrom(DamageSource.HOT_FLOOR, 1.0F);
+    public void stepOn(World block, BlockPos pos, Entity entity) {
+        if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+            entity.hurt(DamageSource.HOT_FLOOR, 1.0F);
         }
 
 //        if (entity instanceof LivingEntity) {
@@ -30,7 +30,7 @@ public class BYGFrostMagmaBlock extends Block {
 //        }
 
 
-        super.onEntityWalk(block, pos, entity);
+        super.stepOn(block, pos, entity);
     }
 
 //    @OnlyIn(Dist.CLIENT)
@@ -52,8 +52,8 @@ public class BYGFrostMagmaBlock extends Block {
         return 20;
     }
 
-    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState state2, boolean isMoving) {
-        world.getPendingBlockTicks().scheduleTick(pos, this, this.tickRate());
+    public void onPlace(BlockState state, World world, BlockPos pos, BlockState state2, boolean isMoving) {
+        world.getBlockTicks().scheduleTick(pos, this, this.tickRate());
     }
 
 }

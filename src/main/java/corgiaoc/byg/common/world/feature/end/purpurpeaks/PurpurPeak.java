@@ -22,11 +22,11 @@ public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
 
 
-        if (world.getBlockState(pos.down()).getMaterial() == Material.AIR || world.getBlockState(pos.down()).getMaterial() == Material.WATER || world.getBlockState(pos.down()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Type.MOTION_BLOCKING, pos.getX(), pos.getZ()) < 4)
+        if (world.getBlockState(pos.below()).getMaterial() == Material.AIR || world.getBlockState(pos.below()).getMaterial() == Material.WATER || world.getBlockState(pos.below()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Type.MOTION_BLOCKING, pos.getX(), pos.getZ()) < 4)
             return false;
 
 
@@ -40,18 +40,18 @@ public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
         for (double y = -peakHeight; y <= peakHeight; y++) {
             for (double x = -peakHeight; x <= peakHeight; x++) {
                 for (double z = -peakHeight; z <= peakHeight; z++) {
-                    mutable.setPos(pos).move((int) x, (int) y + peakStartHeight, (int)z);
+                    mutable.set(pos).move((int) x, (int) y + peakStartHeight, (int)z);
                     float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), mutable.getZ()));
                     double scaledNoise = (noise3 / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
                     if (y == -peakHeight) {
                         if (scaledNoise >= threshold)
-                            if (world.getBlockState(mutable.offset(Direction.DOWN)).getMaterial() == Material.AIR)
+                            if (world.getBlockState(mutable.relative(Direction.DOWN)).getMaterial() == Material.AIR)
                                 return false;
                     }
 
                     if (scaledNoise >= threshold) {
-                        if (world.isAirBlock(mutable))
-                            world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                        if (world.isEmptyBlock(mutable))
+                            world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
                     }
                 }
             }

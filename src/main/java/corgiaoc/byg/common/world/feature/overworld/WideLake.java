@@ -25,7 +25,7 @@ import java.util.Set;
 
 public class WideLake extends Feature<SimpleBlockProviderConfig> {
 
-    protected static final Set<Material> unacceptableSolidMaterials = ImmutableSet.of(Material.BAMBOO, Material.BAMBOO_SAPLING, Material.LEAVES, Material.WEB, Material.CACTUS, Material.ANVIL, Material.GOURD, Material.CAKE, Material.DRAGON_EGG, Material.BARRIER, Material.CAKE);
+    protected static final Set<Material> unacceptableSolidMaterials = ImmutableSet.of(Material.BAMBOO, Material.BAMBOO_SAPLING, Material.LEAVES, Material.WEB, Material.CACTUS, Material.HEAVY_METAL, Material.VEGETABLE, Material.CAKE, Material.EGG, Material.BARRIER, Material.CAKE);
 
     protected long noiseSeed;
     protected PerlinNoiseGenerator noiseGen;
@@ -46,9 +46,9 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
 
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkSettings, Random random, BlockPos position, SimpleBlockProviderConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkSettings, Random random, BlockPos position, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position.down(2));
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position.below(2));
 
         // creates the actual lakes
         boolean containedFlag;
@@ -62,14 +62,14 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
                 //circle shaped
                 if (xTemp * xTemp + zTemp * zTemp < 64) {
 
-                    double samplePerlin1 = (this.noiseGen.noiseAt(
+                    double samplePerlin1 = (this.noiseGen.getValue(
                             (double) position.getX() + x * 0.05D,
                             (double) position.getZ() + z * 0.05D, true) + 1)
                             * 3.0D;
 
                     for (int y = 0; y > -samplePerlin1; --y) {
 
-                        mutable.setPos(position).move(x, y, z);
+                        mutable.set(position).move(x, y, z);
 
                         // checks if the spot is solid all around (diagonally too) and has nothing solid above it
                         containedFlag = checkIfValidSpot(world, mutable, samplePerlin1);
@@ -79,30 +79,30 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
                             // check below without moving down
 
                             // sets the fluid block
-                            BlockState configState = config.getBlockProvider().getBlockState(random, mutable);
+                            BlockState configState = config.getBlockProvider().getState(random, mutable);
 
-                            world.setBlockState(mutable, configState, 3);
-                            if (configState == Blocks.WATER.getDefaultState())
-                                world.getPendingFluidTicks().scheduleTick(mutable, Fluids.WATER, 0);
-                            else if (configState == Blocks.LAVA.getDefaultState())
-                                world.getPendingFluidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
+                            world.setBlock(mutable, configState, 3);
+                            if (configState == Blocks.WATER.defaultBlockState())
+                                world.getLiquidTicks().scheduleTick(mutable, Fluids.WATER, 0);
+                            else if (configState == Blocks.LAVA.defaultBlockState())
+                                world.getLiquidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
 
                             // remove floating plants so they aren't hovering.
                             // check above while moving up one.
                             blockState = world.getBlockState(mutable.move(Direction.UP));
                             material = blockState.getMaterial();
 
-                            if (material == Material.PLANTS && blockState.getBlock() != Blocks.LILY_PAD && blockState.getBlock() != BYGBlocks.ENDER_LILY && blockState.getBlock() != BYGBlocks.TINY_LILYPADS) {
-                                world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
+                            if (material == Material.PLANT && blockState.getBlock() != Blocks.LILY_PAD && blockState.getBlock() != BYGBlocks.ENDER_LILY && blockState.getBlock() != BYGBlocks.TINY_LILYPADS) {
+                                world.setBlock(mutable, Blocks.AIR.defaultBlockState(), 2);
 
                                 // recursively moves up and breaks floating sugar cane
-                                while (mutable.getY() < world.getHeight() && world.getBlockState(mutable.move(Direction.UP)) == Blocks.SUGAR_CANE.getDefaultState()) {
-                                    world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
+                                while (mutable.getY() < world.getMaxBuildHeight() && world.getBlockState(mutable.move(Direction.UP)) == Blocks.SUGAR_CANE.defaultBlockState()) {
+                                    world.setBlock(mutable, Blocks.AIR.defaultBlockState(), 2);
                                 }
                             }
-                            if (material == Material.TALL_PLANTS && blockState.getBlock() != Blocks.VINE) {
-                                world.setBlockState(mutable, Blocks.AIR.getDefaultState(), 2);
-                                world.setBlockState(mutable.up(), Blocks.AIR.getDefaultState(), 2);
+                            if (material == Material.REPLACEABLE_PLANT && blockState.getBlock() != Blocks.VINE) {
+                                world.setBlock(mutable, Blocks.AIR.defaultBlockState(), 2);
+                                world.setBlock(mutable.above(), Blocks.AIR.defaultBlockState(), 2);
                             }
                         }
                     }
@@ -125,8 +125,8 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
         BlockState blockState;
 
         //cannot be under ledge
-        BlockPos.Mutable temp = new BlockPos.Mutable().setPos(blockpos$Mutable);
-        blockState = world.getBlockState(temp.up());
+        BlockPos.Mutable temp = new BlockPos.Mutable().set(blockpos$Mutable);
+        blockState = world.getBlockState(temp.above());
         while (!blockState.getFluidState().isEmpty() && temp.getY() < 255) {
             temp.move(Direction.UP);
         }
@@ -136,23 +136,23 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
 
         // must be solid below
         // Will also return false if an unacceptable solid material is found.
-        blockState = world.getBlockState(blockpos$Mutable.down());
+        blockState = world.getBlockState(blockpos$Mutable.below());
         material = blockState.getMaterial();
         if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) ||
                 BlockTags.PLANKS.contains(blockState.getBlock())) &&
                 blockState.getFluidState().isEmpty() &&
-                blockState.getFluidState() != Fluids.WATER.getStillFluidState(false)) {
+                blockState.getFluidState() != Fluids.WATER.getSource(false)) {
             return false;
         }
 
 
         // places water on tips
-        if ((noise < 2D && world.getBlockState(blockpos$Mutable.up()).isAir())) {
+        if ((noise < 2D && world.getBlockState(blockpos$Mutable.above()).isAir())) {
             int open = 0;
             for (Direction direction : Direction.Plane.HORIZONTAL) {
-                Material material2 = world.getBlockState(blockpos$Mutable.offset(direction)).getMaterial();
+                Material material2 = world.getBlockState(blockpos$Mutable.relative(direction)).getMaterial();
                 if (unacceptableSolidMaterials.contains(material2)) return false;
-                if (world.getBlockState(blockpos$Mutable.offset(direction)).isAir()) open++;
+                if (world.getBlockState(blockpos$Mutable.relative(direction)).isAir()) open++;
             }
             if (open == 1) return true;
         }
@@ -161,10 +161,10 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
         // Will also return false if an unacceptable solid material is found.
         for (int x2 = -1; x2 < 2; x2++) {
             for (int z2 = -1; z2 < 2; z2++) {
-                blockState = world.getBlockState(blockpos$Mutable.add(x2, 0, z2));
+                blockState = world.getBlockState(blockpos$Mutable.offset(x2, 0, z2));
                 material = blockState.getMaterial();
 
-                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.WATER.getStillFluidState(false)) {
+                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.WATER.getSource(false)) {
                     return false;
                 }
             }

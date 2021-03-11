@@ -21,7 +21,7 @@ public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
         double radius = 15; /*rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius() - 5;*/
@@ -34,14 +34,14 @@ public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
         for (double x = -radius; x <= radius; x++) {
             for (double y = 1; y <= radius; y++) {
                 for (double z = -radius; z <= radius; z++) {
-                    mutable.setPos(pos).move((int) x, (int) (y - radius), (int) z);
+                    mutable.set(pos).move((int) x, (int) (y - radius), (int) z);
                     double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double scaledNoise = (noise) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (y == radius)
-                            world.setBlockState(mutable, config.getTopBlockProvider().getBlockState(rand, mutable), 2);
+                            world.setBlock(mutable, config.getTopBlockProvider().getState(rand, mutable), 2);
                         else
-                            world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                            world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
                     }
                 }
             }

@@ -21,7 +21,7 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
@@ -37,12 +37,12 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
                     double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
                     double distanceSqt1 = x * x + y * y + z * z + noise * noise;
                     if (distanceSqt1 <= radius * radius) {
-                        mutable.setPos(pos).move((int) x, (int) y, (int) z);
+                        mutable.set(pos).move((int) x, (int) y, (int) z);
                         if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
                             if (y <= 1)
-                                world.setBlockState(mutable, config.getTopBlockProvider().getBlockState(rand, mutable), 2);
+                                world.setBlock(mutable, config.getTopBlockProvider().getState(rand, mutable), 2);
                             if (y <= 0)
-                                world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                                world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
                         }
                     }
                 }
@@ -59,8 +59,8 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
                         if (y <= 1 && y >= -1) {
                             if (x <= 1 && x >= -2) {
                                 if (z <= 1 && z >= -2) {
-                                    mutable.setPos(pos).move((int) x + 1, (int) y - 9, (int) z + 1);
-                                    world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                                    mutable.set(pos).move((int) x + 1, (int) y - 9, (int) z + 1);
+                                    world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
                                 }
                             }
                         }

@@ -81,6 +81,6 @@ public class BYGBiome {
 
 
     public RegistryKey<Biome> getKey() {
-        return RegistryKey.getOrCreateKey(Registry.BIOME_KEY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
+        return RegistryKey.create(Registry.BIOME_REGISTRY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
     }
 }

@@ -27,15 +27,15 @@ public class BYGHillsLayer implements IAreaTransformer2, IDimOffset1Transformer 
 
 
     @SuppressWarnings("ConstantConditions")
-    public int apply(INoiseRandom rand, IArea area1, IArea area2, int x, int z) {
-        int i = area1.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 1));
-        int j = area2.getValue(this.getOffsetX(x + 1), this.getOffsetZ(z + 1));
+    public int applyPixel(INoiseRandom rand, IArea area1, IArea area2, int x, int z) {
+        int i = area1.get(this.getParentX(x + 1), this.getParentY(z + 1));
+        int j = area2.get(this.getParentX(x + 1), this.getParentY(z + 1));
 
         if (hillMap.size() > 0) {
-            if (rand.random(hillReplacementChance) == 0) {
+            if (rand.nextRandom(hillReplacementChance) == 0) {
                 int l = i;
-                if (hillMap.containsKey(biomeRegistry.getKey(biomeRegistry.getByValue(i)))) {
-                    Biome hill = getHillBiomeValue(hillMap.get(biomeRegistry.getKey(biomeRegistry.getByValue(i))), rand);
+                if (hillMap.containsKey(biomeRegistry.getKey(biomeRegistry.byId(i)))) {
+                    Biome hill = getHillBiomeValue(hillMap.get(biomeRegistry.getKey(biomeRegistry.byId(i))), rand);
                     if (hill != null) {
                         l = biomeRegistry.getId(hill);
                     }
@@ -48,8 +48,8 @@ public class BYGHillsLayer implements IAreaTransformer2, IDimOffset1Transformer 
 
     @Nullable
     private Biome getHillBiomeValue(WeightedList<ResourceLocation> biomeHolder, INoiseRandom layerRandom) {
-        if (biomeHolder.field_220658_a.size() > 0) {
-            return biomeRegistry.getOrDefault(LayerRandomWeightedListUtil.getBiomeFromID(biomeHolder, layerRandom));
+        if (biomeHolder.entries.size() > 0) {
+            return biomeRegistry.get(LayerRandomWeightedListUtil.getBiomeFromID(biomeHolder, layerRandom));
         }
         else {
             return null;

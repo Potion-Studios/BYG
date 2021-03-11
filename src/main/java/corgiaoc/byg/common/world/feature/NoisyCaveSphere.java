@@ -25,11 +25,11 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
         setSeed(world.getSeed());
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position.down(2 + random.nextInt(10)));
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position.below(2 + random.nextInt(10)));
+        BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(mutable);
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int xRadius = config.getRandomXRadius(random);
         int yRadius = config.getRandomYRadius(random);
@@ -39,7 +39,7 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
             for (int x = -xRadius; x <= xRadius; x++) {
                 for (int z = -zRadius; z <= zRadius; z++) {
                     for (int y = -yRadius; y <= yRadius; y++) {
-                        mutable2.setPos(mutable).move(x, y, z);
+                        mutable2.set(mutable).move(x, y, z);
                         IChunk chunk = world.getChunk(mutable2);
 //                        BitSet airCarvingMask = ((ChunkPrimer) chunk).getOrAddCarvingMask(GenerationStage.Carving.AIR);
 
@@ -49,18 +49,18 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
                         if (equationResult >= threshold)
                             continue;
 
-                        if (world.getBlockState(mutable2).isSolid()) {
+                        if (world.getBlockState(mutable2).canOcclude()) {
                             int bitIndex = (mutable2.getX() & 0xF) | ((mutable2.getZ() & 0xF) << 4) | (mutable2.getY() << 8);
 //                            airCarvingMask.set(bitIndex);
                             if (mutable2.getY() <= 25) {
                                 boolean isSolidAllAround = true;
                                 for (Direction direction : Direction.values()) {
                                     if (direction != Direction.UP) {
-                                        BlockState blockState = world.getBlockState(mutable2.offset(direction));
+                                        BlockState blockState = world.getBlockState(mutable2.relative(direction));
                                         if (blockState.getMaterial() == Material.LAVA)
                                             continue;
 
-                                        if (!blockState.isSolid()) {
+                                        if (!blockState.canOcclude()) {
                                             isSolidAllAround = false;
                                             break;
                                         }
@@ -68,11 +68,11 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
                                 }
 
                                 if (isSolidAllAround) {
-                                    world.setBlockState(mutable2, Blocks.LAVA.getDefaultState(), 2);
-                                    world.getPendingFluidTicks().scheduleTick(mutable2, Fluids.LAVA, 0);
+                                    world.setBlock(mutable2, Blocks.LAVA.defaultBlockState(), 2);
+                                    world.getLiquidTicks().scheduleTick(mutable2, Fluids.LAVA, 0);
                                 }
                             } else
-                                world.setBlockState(mutable2, config.getBlockProvider().getBlockState(random, mutable2), 2);
+                                world.setBlock(mutable2, config.getBlockProvider().getState(random, mutable2), 2);
                         }
                     }
                     xRadius = (int) (xRadius / config.getRadiusDivisorPerStack());

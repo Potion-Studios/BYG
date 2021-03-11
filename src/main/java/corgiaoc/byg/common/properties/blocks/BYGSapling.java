@@ -16,9 +16,11 @@ import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class BYGSapling extends BushBlock implements IGrowable {
-    public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-    public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
+    public static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
+    public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
     private final TreeSpawner tree;
     private final int taskRange;
 
@@ -26,17 +28,17 @@ public class BYGSapling extends BushBlock implements IGrowable {
         super(properties);
         this.tree = tree;
         this.taskRange = taskRange;
-        this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, 0));
+        this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
         if (this == BYGBlocks.PALM_SAPLING) {
-            if (state.getBlock().isIn(Tags.Blocks.SAND))
+            if (state.getBlock().is(Tags.Blocks.SAND))
                 return true;
         }
-        return state.isIn(Tags.Blocks.DIRT);
+        return state.is(Tags.Blocks.DIRT);
     }
 
     @Override
@@ -49,38 +51,38 @@ public class BYGSapling extends BushBlock implements IGrowable {
         super.tick(state, worldIn, pos, rand);
         if (!worldIn.isAreaLoaded(pos, 1))
             return;
-        if (worldIn.getLight(pos.up()) >= 9 && rand.nextInt(7) == 0) {
+        if (worldIn.getMaxLocalRawBrightness(pos.above()) >= 9 && rand.nextInt(7) == 0) {
             this.grow(worldIn, pos, state, rand);
         }
 
     }
 
     public void grow(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
-        if (state.get(STAGE) == 0) {
-            world.setBlockState(pos, state.func_235896_a_(STAGE), 4);
+        if (state.getValue(STAGE) == 0) {
+            world.setBlock(pos, state.cycle(STAGE), 4);
         } else {
             if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(world, rand, pos)) return;
-            this.tree.spawn(world, world.getChunkProvider().getChunkGenerator(), pos, state, rand);
+            this.tree.spawn(world, world.getChunkSource().getGenerator(), pos, state, rand);
         }
     }
 
     @Override
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
         return true;
     }
 
     @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
-        return (double) worldIn.rand.nextFloat() < 0.45D;
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
+        return (double) worldIn.random.nextFloat() < 0.45D;
     }
 
     @Override
-    public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
         this.grow(world, pos, state, rand);
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(STAGE);
     }
 }

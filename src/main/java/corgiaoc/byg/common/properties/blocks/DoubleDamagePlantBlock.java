@@ -21,13 +21,13 @@ public class DoubleDamagePlantBlock extends DoublePlantBlock {
     }
 
     @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.PIGLIN && entityIn.getType() != EntityType.MAGMA_CUBE && entityIn.getType() != EntityType.ZOMBIFIED_PIGLIN && entityIn.getType() != EntityType.GHAST) {
-            entityIn.setMotionMultiplier(state, new Vector3d(0.8F, 0.75D, 0.8F));
-            double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
-            double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);
+            entityIn.makeStuckInBlock(state, new Vector3d(0.8F, 0.75D, 0.8F));
+            double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
+            double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
-                entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);
+                entityIn.hurt(DamageSource.CACTUS, 1.0F);
             }
         }
 

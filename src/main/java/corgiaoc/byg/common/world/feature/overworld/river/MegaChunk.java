@@ -24,14 +24,14 @@ public class MegaChunk {
     public MegaChunk(MegaChunkPos megaChunkPos, ChunkGenerator chunkGenerator, Set<Biome> allowedBiomes) {
         this.megaChunkPos = megaChunkPos;
         this.chunkGenerator = chunkGenerator;
-        this.provider = chunkGenerator.getBiomeProvider();
+        this.provider = chunkGenerator.getBiomeSource();
         this.allowedBiomes = allowedBiomes;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
                 ChunkPos chunkPos = megaChunkPos.toChunkPos(x, z);
-                Biome noiseBiome = chunkGenerator.getBiomeProvider().getNoiseBiome((chunkPos.x << 2) + 2, 0, (chunkPos.z << 2) + 2);
+                Biome noiseBiome = chunkGenerator.getBiomeSource().getNoiseBiome((chunkPos.x << 2) + 2, 0, (chunkPos.z << 2) + 2);
 
                 if (allowedBiomes.contains(noiseBiome)) {
                     byteArrayOutputStream.write(MegaChunkPos.packLocalPos(x, z));
@@ -61,18 +61,18 @@ public class MegaChunk {
 
         byte canyonChunkByte = canyonChunks[seedRandom.nextInt(canyonChunks.length)];
 
-        BlockPos startPos = this.megaChunkPos.unpackLocalPos(canyonChunkByte).asBlockPos();
+        BlockPos startPos = this.megaChunkPos.unpackLocalPos(canyonChunkByte).getWorldPosition();
 
         this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(startPos.getX(), 180, startPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
-            Biome.Category category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getCategory();
-            return category == Biome.Category.RIVER || category == Biome.Category.OCEAN || this.chunkGenerator.getHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG) <= this.chunkGenerator.getSeaLevel();
+            Biome.Category category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getBiomeCategory();
+            return category == Biome.Category.RIVER || category == Biome.Category.OCEAN || this.chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG) <= this.chunkGenerator.getSeaLevel();
         }, maxRiverDistance);
     }
 
     public void createRiverGenerator(FastNoise noise, BlockPos generatorStartPos, ISeedReader world, int maxRiverDistance) {
         this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(generatorStartPos.getX(), 180, generatorStartPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
-            Biome.Category category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getCategory();
-            return category == Biome.Category.RIVER || category == Biome.Category.OCEAN || this.chunkGenerator.getHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG) <= this.chunkGenerator.getSeaLevel();
+            Biome.Category category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getBiomeCategory();
+            return category == Biome.Category.RIVER || category == Biome.Category.OCEAN || this.chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG) <= this.chunkGenerator.getSeaLevel();
         }, maxRiverDistance);
     }
 }

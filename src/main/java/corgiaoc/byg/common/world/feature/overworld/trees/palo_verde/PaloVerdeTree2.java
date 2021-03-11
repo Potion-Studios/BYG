@@ -26,13 +26,13 @@ public class PaloVerdeTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            if (worldIn.getBlockState(pos.down()).getBlock() != Blocks.GRASS_BLOCK && (worldIn.getBlockState(pos.down()).getBlock() != Blocks.RED_SAND && worldIn.getBlockState(pos.down()).getBlock() != Blocks.COARSE_DIRT)) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
+            if (worldIn.getBlockState(pos.below()).getBlock() != Blocks.GRASS_BLOCK && (worldIn.getBlockState(pos.below()).getBlock() != Blocks.RED_SAND && worldIn.getBlockState(pos.below()).getBlock() != Blocks.COARSE_DIRT)) {
                 return false;
             } else {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos);
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
                 int posY1 = 2 - rand.nextInt(1);
                 int posX1 = posX;
@@ -51,13 +51,13 @@ public class PaloVerdeTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east().north(), boundsIn);
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(2).north(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(3).north(2).up(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(4).north().up(2), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(3).north(2).above(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(4).north().above(2), boundsIn);
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().west(), boundsIn);
                     placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south(2).west(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south(3).west(2).up(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south(3).west(2).up(2), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south(3).west(3).up(3), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south(3).west(2).above(), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south(3).west(2).above(2), boundsIn);
+                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south(3).west(3).above(3), boundsIn);
                 }
 
 

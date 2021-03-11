@@ -45,12 +45,12 @@ public class PumpkinConfig implements IFeatureConfig {
     }
 
     public static class Builder {
-        private BlockStateProvider pumpkinProvider = new SimpleBlockStateProvider(Blocks.PUMPKIN.getDefaultState());
-        private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
-        private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+        private BlockStateProvider pumpkinProvider = new SimpleBlockStateProvider(Blocks.PUMPKIN.defaultBlockState());
+        private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
+        private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
         public Builder setPumpkinBlock(Block block) {
-            this.pumpkinProvider = new SimpleBlockStateProvider(block.getDefaultState());
+            this.pumpkinProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             return this;
         }
 
@@ -60,7 +60,7 @@ public class PumpkinConfig implements IFeatureConfig {
         }
 
         public Builder setStemBlock(Block block) {
-            this.stemProvider = new SimpleBlockStateProvider(block.getDefaultState());
+            this.stemProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             return this;
         }
 
@@ -70,7 +70,7 @@ public class PumpkinConfig implements IFeatureConfig {
         }
 
         public Builder setLeavesBlock(Block block) {
-            this.leavesProvider = new SimpleBlockStateProvider(block.getDefaultState());
+            this.leavesProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             return this;
         }
 

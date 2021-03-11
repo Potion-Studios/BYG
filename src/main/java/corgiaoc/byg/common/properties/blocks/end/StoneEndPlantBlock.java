@@ -16,8 +16,11 @@ import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.OffsetType;
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class StoneEndPlantBlock extends BushBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     public StoneEndPlantBlock(Properties builder) {
         super(builder);
@@ -30,7 +33,7 @@ public class StoneEndPlantBlock extends BushBlock {
 
     public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos map, ISelectionContext ctx) {
         Vector3d Vector3d = state.getOffset(reader, map);
-        return SHAPE.withOffset(Vector3d.x, Vector3d.y, Vector3d.z);
+        return SHAPE.move(Vector3d.x, Vector3d.y, Vector3d.z);
     }
 
     @Override
@@ -39,8 +42,8 @@ public class StoneEndPlantBlock extends BushBlock {
             int i = 5;
             int j = 4;
 
-            for(BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-4, -1, -4), pos.add(4, 1, 4))) {
-                if (worldIn.getBlockState(blockpos).isIn(this)) {
+            for(BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-4, -1, -4), pos.offset(4, 1, 4))) {
+                if (worldIn.getBlockState(blockpos).is(this)) {
                     --i;
                     if (i <= 0) {
                         return;
@@ -48,32 +51,32 @@ public class StoneEndPlantBlock extends BushBlock {
                 }
             }
 
-            BlockPos blockpos1 = pos.add(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
+            BlockPos blockpos1 = pos.offset(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
 
             for(int k = 0; k < 4; ++k) {
-                if (worldIn.isAirBlock(blockpos1) && state.isValidPosition(worldIn, blockpos1)) {
+                if (worldIn.isEmptyBlock(blockpos1) && state.canSurvive(worldIn, blockpos1)) {
                     pos = blockpos1;
                 }
 
-                blockpos1 = pos.add(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
+                blockpos1 = pos.offset(random.nextInt(3) - 1, random.nextInt(2) - random.nextInt(2), random.nextInt(3) - 1);
             }
 
-            if (worldIn.isAirBlock(blockpos1) && state.isValidPosition(worldIn, blockpos1)) {
-                worldIn.setBlockState(blockpos1, state, 2);
+            if (worldIn.isEmptyBlock(blockpos1) && state.canSurvive(worldIn, blockpos1)) {
+                worldIn.setBlock(blockpos1, state, 2);
             }
         }
 
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(BYGBlocks.CRYPTIC_MAGMA_BLOCK) || state.isIn(BYGBlocks.CRYPTIC_STONE) || state.isIn(BYGBlocks.CRYPTIC_REDSTONE_ORE) || super.isValidGround(state, worldIn, pos);
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.is(BYGBlocks.CRYPTIC_MAGMA_BLOCK) || state.is(BYGBlocks.CRYPTIC_STONE) || state.is(BYGBlocks.CRYPTIC_REDSTONE_ORE) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockPos blockpos = pos.down();
-        return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos blockpos = pos.below();
+        return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }
 }
 

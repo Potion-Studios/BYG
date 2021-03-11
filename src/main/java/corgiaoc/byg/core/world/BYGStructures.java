@@ -19,8 +19,8 @@ public class BYGStructures {
 
     /*************************Structures*************************/
 
-//    public static final Structure<NoFeatureConfig> VOLCANO_STRUCTURE = WorldGenRegistrationHelper.createStructure("volcano", new VolcanoStructure(NoFeatureConfig.field_236558_a_), 10, 0, 0,  GenerationStage.Decoration.RAW_GENERATION);
-//    public static final Structure<VillageConfig> BYG_VILLAGE = WorldGenRegistrationHelper.createStructure("byg_village", new VillageStructure(VillageConfig.field_236533_a_), 3, 0, 0,  GenerationStage.Decoration.SURFACE_STRUCTURES);
+//    public static final Structure<NoFeatureConfig> VOLCANO_STRUCTURE = WorldGenRegistrationHelper.createStructure("volcano", new VolcanoStructure(NoFeatureConfig.CODEC), 10, 0, 0,  GenerationStage.Decoration.RAW_GENERATION);
+//    public static final Structure<VillageConfig> BYG_VILLAGE = WorldGenRegistrationHelper.createStructure("byg_village", new VillageStructure(VillageConfig.CODEC), 3, 0, 0,  GenerationStage.Decoration.SURFACE_STRUCTURES);
 
 
     public static void init() {

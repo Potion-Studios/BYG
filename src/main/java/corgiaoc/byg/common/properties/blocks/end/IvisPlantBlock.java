@@ -18,7 +18,7 @@ import net.minecraft.block.AbstractBlock.OffsetType;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class IvisPlantBlock extends BushBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     public IvisPlantBlock(Properties builder) {
         super(builder);
@@ -31,18 +31,18 @@ public class IvisPlantBlock extends BushBlock {
 
     public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos map, ISelectionContext ctx) {
         Vector3d Vector3d = state.getOffset(reader, map);
-        return SHAPE.withOffset(Vector3d.x, Vector3d.y, Vector3d.z);
+        return SHAPE.move(Vector3d.x, Vector3d.y, Vector3d.z);
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(BYGBlocks.IVIS_PHYLIUM) || state.isIn(BYGBlocks.BULBIS_PHYCELIUM) || super.isValidGround(state, worldIn, pos);
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.is(BYGBlocks.IVIS_PHYLIUM) || state.is(BYGBlocks.BULBIS_PHYCELIUM) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockPos blockpos = pos.down();
-        return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos blockpos = pos.below();
+        return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }
 }
 

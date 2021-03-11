@@ -20,11 +20,11 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
         super(codec);
     }
 
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
-        if (!world.isAirBlock(pos)) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+        if (!world.isEmptyBlock(pos)) {
             return false;
         } else {
-            BlockState blockstate = world.getBlockState(pos.up());
+            BlockState blockstate = world.getBlockState(pos.above());
             if (!config.getWhitelist().contains(blockstate.getBlock())) {
                 return false;
             } else {
@@ -36,17 +36,17 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
     }
 
     private void generateBase(IWorld world, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
-        world.setBlockState(pos, config.getBaseBlockProvider().getBlockState(rand, pos), 2);
+        world.setBlock(pos, config.getBaseBlockProvider().getState(rand, pos), 2);
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         BlockPos.Mutable mutable2 = new BlockPos.Mutable();
 
         for (int i = 0; i < 200; ++i) {
-            mutable.setAndOffset(pos, rand.nextInt(6) - rand.nextInt(6), rand.nextInt(2) - rand.nextInt(5), rand.nextInt(6) - rand.nextInt(6));
-            if (world.isAirBlock(mutable)) {
+            mutable.setWithOffset(pos, rand.nextInt(6) - rand.nextInt(6), rand.nextInt(2) - rand.nextInt(5), rand.nextInt(6) - rand.nextInt(6));
+            if (world.isEmptyBlock(mutable)) {
                 int j = 0;
 
                 for (Direction direction : DIRECTIONS) {
-                    BlockState blockstate = world.getBlockState(mutable2.setAndMove(mutable, direction));
+                    BlockState blockstate = world.getBlockState(mutable2.setWithOffset(mutable, direction));
                     if (config.getWhitelist().contains(blockstate.getBlock())) {
                         ++j;
                     }
@@ -57,7 +57,7 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
                 }
 
                 if (j == 1) {
-                    world.setBlockState(mutable, config.getBaseBlockProvider().getBlockState(rand, mutable), 2);
+                    world.setBlock(mutable, config.getBaseBlockProvider().getState(rand, mutable), 2);
                 }
             }
         }
@@ -68,9 +68,9 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         for (int i = 0; i < 100; ++i) {
-            mutable.setAndOffset(pos, rand.nextInt(8) - rand.nextInt(8), rand.nextInt(2) - rand.nextInt(7), rand.nextInt(8) - rand.nextInt(8));
-            if (world.isAirBlock(mutable)) {
-                BlockState blockstate = world.getBlockState(mutable.up());
+            mutable.setWithOffset(pos, rand.nextInt(8) - rand.nextInt(8), rand.nextInt(2) - rand.nextInt(7), rand.nextInt(8) - rand.nextInt(8));
+            if (world.isEmptyBlock(mutable)) {
+                BlockState blockstate = world.getBlockState(mutable.above());
                 if (config.getWhitelist().contains(blockstate.getBlock())) {
                     int length = MathHelper.nextInt(rand, config.getMinLength(), config.getMaxLength());
                     if (rand.nextInt(6) == 0) {
@@ -89,13 +89,13 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
 
     public static void generateLength(IWorld world, BlockPos.Mutable mutable, int length, Random rand, HangingColumnWithBaseConfig config) {
         for (int i = 0; i <= length; ++i) {
-            if (world.isAirBlock(mutable)) {
-                if (i == length || !world.isAirBlock(mutable.down())) {
-                    world.setBlockState(mutable, config.getEndBlockProvider().getBlockState(rand, mutable), 2);
+            if (world.isEmptyBlock(mutable)) {
+                if (i == length || !world.isEmptyBlock(mutable.below())) {
+                    world.setBlock(mutable, config.getEndBlockProvider().getState(rand, mutable), 2);
                     break;
                 }
 
-                world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
             }
 
             mutable.move(Direction.DOWN);

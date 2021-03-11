@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class BYGBoatItem extends Item {
-    private static final Predicate<Entity> RIDERS = EntityPredicates.NOT_SPECTATING.and(Entity::canBeCollidedWith);
+    private static final Predicate<Entity> RIDERS = EntityPredicates.NO_SPECTATORS.and(Entity::isPickable);
     private final BYGBoatEntity.BYGType type;
 
     public BYGBoatItem(BYGBoatEntity.BYGType typeIn, Item.Properties properties) {
@@ -29,44 +29,44 @@ public class BYGBoatItem extends Item {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        ItemStack itemstack = playerIn.getHeldItem(handIn);
-        RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.ANY);
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        ItemStack itemstack = playerIn.getItemInHand(handIn);
+        RayTraceResult raytraceresult = getPlayerPOVHitResult(worldIn, playerIn, RayTraceContext.FluidMode.ANY);
         if (raytraceresult.getType() == RayTraceResult.Type.MISS) {
-            return ActionResult.resultPass(itemstack);
+            return ActionResult.pass(itemstack);
         } else {
-            Vector3d Vector3d = playerIn.getLook(1.0F);
-            List<Entity> list = worldIn.getEntitiesInAABBexcluding(playerIn, playerIn.getBoundingBox().expand(Vector3d.scale(5.0D)).grow(1.0D), RIDERS);
+            Vector3d Vector3d = playerIn.getViewVector(1.0F);
+            List<Entity> list = worldIn.getEntities(playerIn, playerIn.getBoundingBox().expandTowards(Vector3d.scale(5.0D)).inflate(1.0D), RIDERS);
             if (!list.isEmpty()) {
                 Vector3d Vector3d1 = playerIn.getEyePosition(1.0F);
 
                 for (Entity entity : list) {
-                    AxisAlignedBB axisalignedbb = entity.getBoundingBox().grow(entity.getCollisionBorderSize());
+                    AxisAlignedBB axisalignedbb = entity.getBoundingBox().inflate(entity.getPickRadius());
                     if (axisalignedbb.contains(Vector3d1)) {
-                        return ActionResult.resultPass(itemstack);
+                        return ActionResult.pass(itemstack);
                     }
                 }
             }
 
             if (raytraceresult.getType() == RayTraceResult.Type.BLOCK) {
-                BYGBoatEntity bygBoatEntity = new BYGBoatEntity(worldIn, raytraceresult.getHitVec().x, raytraceresult.getHitVec().y, raytraceresult.getHitVec().z);
+                BYGBoatEntity bygBoatEntity = new BYGBoatEntity(worldIn, raytraceresult.getLocation().x, raytraceresult.getLocation().y, raytraceresult.getLocation().z);
                 bygBoatEntity.setBYGBoatType(this.type);
-                bygBoatEntity.rotationYaw = playerIn.rotationYaw;
-                if (!worldIn.hasNoCollisions(bygBoatEntity, bygBoatEntity.getBoundingBox().grow(-0.1D))) {
-                    return ActionResult.resultFail(itemstack);
+                bygBoatEntity.yRot = playerIn.yRot;
+                if (!worldIn.noCollision(bygBoatEntity, bygBoatEntity.getBoundingBox().inflate(-0.1D))) {
+                    return ActionResult.fail(itemstack);
                 } else {
-                    if (!worldIn.isRemote) {
-                        worldIn.addEntity(bygBoatEntity);
-                        if (!playerIn.abilities.isCreativeMode) {
+                    if (!worldIn.isClientSide) {
+                        worldIn.addFreshEntity(bygBoatEntity);
+                        if (!playerIn.abilities.instabuild) {
                             itemstack.shrink(1);
                         }
                     }
 
-                    playerIn.addStat(Stats.ITEM_USED.get(this));
-                    return ActionResult.resultSuccess(itemstack);
+                    playerIn.awardStat(Stats.ITEM_USED.get(this));
+                    return ActionResult.success(itemstack);
                 }
             } else {
-                return ActionResult.resultPass(itemstack);
+                return ActionResult.pass(itemstack);
             }
         }
     }

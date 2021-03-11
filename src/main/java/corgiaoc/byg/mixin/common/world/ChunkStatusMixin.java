@@ -21,7 +21,7 @@ import java.util.function.Function;
 
 @Mixin(ChunkStatus.class)
 public class ChunkStatusMixin {
-    @Inject(method = "doGenerationWork", at = @At(value = "HEAD"))
+    @Inject(method = "generate", at = @At(value = "HEAD"))
     private void pushCarvingContext(ServerWorld worldIn,
                                     ChunkGenerator chunkGeneratorIn,
                                     TemplateManager templateManagerIn,

@@ -9,7 +9,7 @@ import net.minecraft.block.FireBlock;
 public class BYGFlammables {
     public static void flammableBlock(Block block, int encouragement, int flammability) {
         FireBlock fire = (FireBlock) Blocks.FIRE;
-        fire.setFireInfo(block, encouragement, flammability);
+        fire.setFlammable(block, encouragement, flammability);
     }
 
     public static void flammablesBYG() {

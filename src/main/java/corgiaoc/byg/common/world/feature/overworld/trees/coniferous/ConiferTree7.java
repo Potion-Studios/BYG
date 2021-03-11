@@ -24,14 +24,14 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos checkGround = pos.down();
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
+            BlockPos checkGround = pos.below();
             if (!isDesiredGroundwDirtTag(worldIn, checkGround, config)) {
                 return false;
             } else {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn,pos);
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
                 int posY2 = 2 - rand.nextInt(1);
                 int posX2 = posX;
@@ -40,8 +40,8 @@ public class ConiferTree7 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                 for (int trunkBottom = 0; trunkBottom < randTreeHeight; ++trunkBottom) {
                     if (trunkBottom >= randTreeHeight2 && posY2 < 0) {
-                        posX2 += direction.getXOffset();
-                        posZ2 += direction.getZOffset();
+                        posX2 += direction.getStepX();
+                        posZ2 += direction.getStepZ();
                         ++posY2;
                     }
                     int logplacer = posY + trunkBottom;

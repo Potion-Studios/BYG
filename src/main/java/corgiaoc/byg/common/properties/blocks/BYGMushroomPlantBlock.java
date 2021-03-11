@@ -15,8 +15,10 @@ import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
     private final BYGHugeMushroom mushroom;
 
     private final boolean isNetherFungi;
@@ -28,8 +30,8 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return (isNetherFungi) ? state.isIn(BlockTags.NYLIUM) || state.isIn(Blocks.MYCELIUM) || state.isIn(Blocks.SOUL_SOIL) || state.isIn(BlockTags.BASE_STONE_NETHER) || state.isIn(Tags.Blocks.NETHERRACK) || super.isValidGround(state, worldIn, pos) : state.isOpaqueCube(worldIn, pos);
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return (isNetherFungi) ? state.is(BlockTags.NYLIUM) || state.is(Blocks.MYCELIUM) || state.is(Blocks.SOUL_SOIL) || state.is(BlockTags.BASE_STONE_NETHER) || state.is(Tags.Blocks.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos) : state.isSolidRender(worldIn, pos);
     }
 
     @Override
@@ -38,17 +40,17 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
         if (isNetherFungi) {
-           return super.isValidPosition(state, worldIn, pos);
+           return super.canSurvive(state, worldIn, pos);
         }
 
-        BlockPos blockpos = pos.down();
+        BlockPos blockpos = pos.below();
         BlockState blockstate = worldIn.getBlockState(blockpos);
-        if (blockstate.isIn(BlockTags.MUSHROOM_GROW_BLOCK)) {
+        if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
             return true;
         } else {
-            return worldIn.getLightSubtracted(pos, 0) < 13 && blockstate.canSustainPlant(worldIn, blockpos, Direction.UP, this);
+            return worldIn.getRawBrightness(pos, 0) < 13 && blockstate.canSustainPlant(worldIn, blockpos, Direction.UP, this);
         }
     }
 
@@ -59,7 +61,7 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
             int i = 5;
             int j = 4;
 
-            for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-4, -1, -4), pos.add(4, 1, 4))) {
+            for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-4, -1, -4), pos.offset(4, 1, 4))) {
                 if (worldIn.getBlockState(blockpos).getBlock() == this) {
                     --i;
                     if (i <= 0) {
@@ -68,18 +70,18 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
                 }
             }
 
-            BlockPos blockpos1 = pos.add(rand.nextInt(3) - 1, rand.nextInt(2) - rand.nextInt(2), rand.nextInt(3) - 1);
+            BlockPos blockpos1 = pos.offset(rand.nextInt(3) - 1, rand.nextInt(2) - rand.nextInt(2), rand.nextInt(3) - 1);
 
             for (int k = 0; k < 4; ++k) {
-                if (worldIn.isAirBlock(blockpos1) && state.isValidPosition(worldIn, blockpos1)) {
+                if (worldIn.isEmptyBlock(blockpos1) && state.canSurvive(worldIn, blockpos1)) {
                     pos = blockpos1;
                 }
 
-                blockpos1 = pos.add(rand.nextInt(3) - 1, rand.nextInt(2) - rand.nextInt(2), rand.nextInt(3) - 1);
+                blockpos1 = pos.offset(rand.nextInt(3) - 1, rand.nextInt(2) - rand.nextInt(2), rand.nextInt(3) - 1);
             }
 
-            if (worldIn.isAirBlock(blockpos1) && state.isValidPosition(worldIn, blockpos1)) {
-                worldIn.setBlockState(blockpos1, state, 2);
+            if (worldIn.isEmptyBlock(blockpos1) && state.canSurvive(worldIn, blockpos1)) {
+                worldIn.setBlock(blockpos1, state, 2);
             }
         }
 
@@ -87,21 +89,21 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
 
     public void grow(ServerWorld worldIn, BlockPos pos, BlockState state, Random rand) {
         worldIn.removeBlock(pos, false);
-        this.mushroom.withSpawner(worldIn, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
+        this.mushroom.withSpawner(worldIn, worldIn.getChunkSource().getGenerator(), pos, state, rand);
     }
 
     @Override
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
         return true;
     }
 
     @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
-        return (double) worldIn.rand.nextFloat() < 0.25D;
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
+        return (double) worldIn.random.nextFloat() < 0.25D;
     }
 
     @Override
-    public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
         this.grow(world, pos, state, rand);
     }
 }

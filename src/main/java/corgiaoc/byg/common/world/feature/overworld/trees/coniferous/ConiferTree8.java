@@ -20,14 +20,14 @@ public class ConiferTree8 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
     public boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
-        BlockState LEAVES = config.getLeavesProvider().getBlockState(rand, pos);//This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
+        BlockState LEAVES = config.getLeavesProvider().getState(rand, pos);//This sets heights for trees. Rand.nextint allows for tree height randomization. The final int value sets the minimum for tree Height.
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
         //Positions
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
-            BlockPos checkGround = pos.down();
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
+            BlockPos checkGround = pos.below();
             if (!isDesiredGroundwDirtTag(worldIn, checkGround, config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
@@ -38,7 +38,7 @@ public class ConiferTree8 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos, pos.west(), pos.south(), pos.south().west());
 
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
                 int posY2 = 2 - rand.nextInt(1);
                 int posX2 = posX;
@@ -47,8 +47,8 @@ public class ConiferTree8 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                 for (int trunkBottom = 0; trunkBottom < randTreeHeight; ++trunkBottom) {
                     if (trunkBottom >= randTreeHeight2 && posY2 < 0) {
-                        posX2 += direction.getXOffset();
-                        posZ2 += direction.getZOffset();
+                        posX2 += direction.getStepX();
+                        posZ2 += direction.getStepZ();
                         ++posY2;
                     }
                     int logplacer = posY + trunkBottom;

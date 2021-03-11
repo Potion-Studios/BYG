@@ -23,8 +23,8 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     public static FastNoise noiseGen = null;
     public static FastNoise noiseGen3D = null;
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-        setSeed(random.nextLong());
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+        initNoise(random.nextLong());
         int xPos = x & 15;
         int zPos = z & 15;
         BlockPos.Mutable mutable = new BlockPos.Mutable(xPos, 0, zPos);
@@ -35,16 +35,16 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         float sampleNoise = noiseGen.GetNoise(fnVector3f.x, fnVector3f.z);
 
-        int groundLevel = chunkIn.getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
+        int groundLevel = chunkIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
 
         if (sampleNoise < 0.43) {
             int topHeight = startHeight + 55;
             mutable.move(Direction.UP, topHeight);
             for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
                 if (yPos == topHeight)
-                    chunkIn.setBlockState(mutable, config.getTop(), false);
+                    chunkIn.setBlockState(mutable, config.getTopMaterial(), false);
                 else
-                    chunkIn.setBlockState(mutable, config.getUnder(), false);
+                    chunkIn.setBlockState(mutable, config.getUnderMaterial(), false);
 
                 mutable.move(Direction.DOWN);
             }
@@ -53,20 +53,20 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             mutable.move(Direction.UP, topHeight);
             for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
                 if (yPos == topHeight)
-                    chunkIn.setBlockState(mutable, config.getTop(), false);
+                    chunkIn.setBlockState(mutable, config.getTopMaterial(), false);
                 else {
                     double noise3D = noiseGen3D.GetNoise(x, yPos, z);
                     if (noise3D < 0.4)
-                        chunkIn.setBlockState(mutable, config.getUnder(), false);
+                        chunkIn.setBlockState(mutable, config.getUnderMaterial(), false);
                 }
                 mutable.move(Direction.DOWN);
             }
         } else
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(config.getTop(), config.getUnder(), config.getUnderWaterMaterial()));
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(config.getTopMaterial(), config.getUnderMaterial(), config.getUnderwaterMaterial()));
     }
 
     @Override
-    public void setSeed(long seed) {
+    public void initNoise(long seed) {
         if (noiseGen == null) {
             noiseGen = new FastNoise((int) seed);
             noiseGen.SetFractalType(FastNoise.FractalType.RigidMulti);

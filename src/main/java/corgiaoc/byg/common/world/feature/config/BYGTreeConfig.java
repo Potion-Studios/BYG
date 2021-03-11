@@ -18,13 +18,13 @@ import java.util.stream.Collectors;
 public class BYGTreeConfig implements IFeatureConfig {
 
     public static final Codec<BYGTreeConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("trunk_provider").orElse(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState())).forGetter((config) -> {
+        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("trunk_provider").orElse(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState())).forGetter((config) -> {
             return config.trunkProvider;
-        }), BlockStateProvider.CODEC.fieldOf("leaves_provider").orElse(new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState())).forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("leaves_provider").orElse(new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState())).forGetter((config) -> {
             return config.leavesProvider;
-        }), BlockStateProvider.CODEC.fieldOf("ground_replacement_provider").orElse(new SimpleBlockStateProvider(Blocks.DIRT.getDefaultState())).forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("ground_replacement_provider").orElse(new SimpleBlockStateProvider(Blocks.DIRT.defaultBlockState())).forGetter((config) -> {
             return config.groundReplacementProvider;//TODO: Remove Ground Replacement Provider
-        }), BlockStateProvider.CODEC.fieldOf("disk_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())).forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("disk_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
             return config.diskProvider;
         }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
             return config.minHeight;
@@ -33,7 +33,7 @@ public class BYGTreeConfig implements IFeatureConfig {
         }), Codec.INT.fieldOf("disk_radius").orElse(0).forGetter((config) -> {
             return config.diskRadius;
         }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
-            return config.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList());
+            return config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList());
         })).apply(codecRecorder, BYGTreeConfig::new);
     });
 
@@ -114,10 +114,10 @@ public class BYGTreeConfig implements IFeatureConfig {
     }
 
     public static class Builder {
-        private BlockStateProvider trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
-        private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
-        @Deprecated private BlockStateProvider groundReplacementProvider = new SimpleBlockStateProvider(Blocks.DIRT.getDefaultState());
-        private BlockStateProvider diskProvider = new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState());
+        private BlockStateProvider trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
+        private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+        @Deprecated private BlockStateProvider groundReplacementProvider = new SimpleBlockStateProvider(Blocks.DIRT.defaultBlockState());
+        private BlockStateProvider diskProvider = new SimpleBlockStateProvider(Blocks.PODZOL.defaultBlockState());
         private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
@@ -125,9 +125,9 @@ public class BYGTreeConfig implements IFeatureConfig {
 
         public Builder setTrunkBlock(Block block) {
             if (block != null)
-                trunkProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                trunkProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
@@ -136,7 +136,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (state != null)
                 trunkProvider = new SimpleBlockStateProvider(state);
             else
-                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
@@ -145,16 +145,16 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (stateProvider != null)
                 trunkProvider = stateProvider;
             else
-                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
 
         public Builder setLeavesBlock(Block block) {
             if (block != null)
-                leavesProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                leavesProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -163,7 +163,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (state != null)
                 leavesProvider = new SimpleBlockStateProvider(state);
             else
-                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -172,7 +172,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (stateProvider != null)
                 leavesProvider = stateProvider;
             else
-                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -180,9 +180,9 @@ public class BYGTreeConfig implements IFeatureConfig {
         @Deprecated
         public Builder setGroundReplacementBlock(Block block) {
             if (block != null)
-                groundReplacementProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                groundReplacementProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                groundReplacementProvider = new SimpleBlockStateProvider(Blocks.DIRT.getDefaultState());
+                groundReplacementProvider = new SimpleBlockStateProvider(Blocks.DIRT.defaultBlockState());
 
             return this;
         }
@@ -192,7 +192,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (state != null)
                 groundReplacementProvider = new SimpleBlockStateProvider(state);
             else
-                groundReplacementProvider = new SimpleBlockStateProvider(Blocks.AIR.getDefaultState());
+                groundReplacementProvider = new SimpleBlockStateProvider(Blocks.AIR.defaultBlockState());
 
             return this;
         }
@@ -202,7 +202,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (stateProvider != null)
                 groundReplacementProvider = stateProvider;
             else
-                groundReplacementProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                groundReplacementProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -210,9 +210,9 @@ public class BYGTreeConfig implements IFeatureConfig {
 
         public Builder setDiskBlock(Block block) {
             if (block != null)
-                diskProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                diskProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                diskProvider = new SimpleBlockStateProvider(Blocks.AIR.getDefaultState());
+                diskProvider = new SimpleBlockStateProvider(Blocks.AIR.defaultBlockState());
 
             return this;
         }
@@ -221,7 +221,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (state != null)
                 diskProvider = new SimpleBlockStateProvider(state);
             else
-                diskProvider = new SimpleBlockStateProvider(Blocks.AIR.getDefaultState());
+                diskProvider = new SimpleBlockStateProvider(Blocks.AIR.defaultBlockState());
 
             return this;
         }
@@ -230,7 +230,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (stateProvider != null)
                 diskProvider = stateProvider;
             else
-                diskProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                diskProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -271,7 +271,7 @@ public class BYGTreeConfig implements IFeatureConfig {
         }
 
         public BYGTreeConfig build() {
-            return new BYGTreeConfig(this.trunkProvider, this.leavesProvider, this.groundReplacementProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
+            return new BYGTreeConfig(this.trunkProvider, this.leavesProvider, this.groundReplacementProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius, this.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList()));
         }
     }
 }

@@ -25,13 +25,13 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
             JsonObject endBiome = new JsonObject();
 
             if (endBiomeData.getBiomeWeightedList() != null) {
-                for (WeightedList.Entry<ResourceLocation> biomeEntry : endBiomeData.getBiomeWeightedList().field_220658_a) {
+                for (WeightedList.Entry<ResourceLocation> biomeEntry : endBiomeData.getBiomeWeightedList().entries) {
                     JsonObject object2 = new JsonObject();
-                    ResourceLocation biomeEntryKey = biomeEntry.func_220647_b();
+                    ResourceLocation biomeEntryKey = biomeEntry.getData();
 
                     if (biomeEntryKey != null) {
                         object2.addProperty("name", biomeEntryKey.toString());
-                        object2.addProperty("weight", biomeEntry.field_220652_c);
+                        object2.addProperty("weight", biomeEntry.weight);
                         hillListArray.add(object2);
                     } else {
                         BYG.LOGGER.error("One or more \"hills\" \"name\" value was null/incorrect.");
@@ -125,7 +125,7 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
 
                     if (hillResourceLocation != null) {
                         if (BYG.EARLY_BIOME_REGISTRY_ACCESS.keySet().contains(hillResourceLocation))
-                            weightedList.func_226313_a_(hillResourceLocation, hillWeight);
+                            weightedList.add(hillResourceLocation, hillWeight);
                         else
                             BYG.LOGGER.error("Could not find: \"" + hillResourceLocation.toString() + "\" in the biome registry!\nEntry will not be added. Skipping entry...");
                     }

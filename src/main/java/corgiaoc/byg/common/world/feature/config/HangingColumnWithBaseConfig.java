@@ -29,7 +29,7 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
         }), Codec.INT.fieldOf("max_length").forGetter((config) -> {
             return config.maxLength;
         }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
-            return config.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList());
+            return config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList());
         })).apply(codecRecorder, HangingColumnWithBaseConfig::new);
     });
 
@@ -84,18 +84,18 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
     }
 
     public static class Builder {
-        private BlockStateProvider baseBlockProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
-        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
-        private BlockStateProvider endBlockProvider = new SimpleBlockStateProvider(Blocks.AIR.getDefaultState());;
+        private BlockStateProvider baseBlockProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
+        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+        private BlockStateProvider endBlockProvider = new SimpleBlockStateProvider(Blocks.AIR.defaultBlockState());;
         private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
         private int minLength = 1;
         private int maxLength = 9;
 
         public HangingColumnWithBaseConfig.Builder setBaseBlock(Block block) {
             if (block != null)
-                baseBlockProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                baseBlockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                baseBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                baseBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -103,7 +103,7 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
             if (state != null)
                 baseBlockProvider = new SimpleBlockStateProvider(state);
             else
-                baseBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                baseBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -111,15 +111,15 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
             if (provider != null)
                 baseBlockProvider = provider;
             else
-                baseBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                baseBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
         public HangingColumnWithBaseConfig.Builder setBlock(Block block) {
             if (block != null)
-                blockProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -127,7 +127,7 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
             if (state != null)
                 blockProvider = new SimpleBlockStateProvider(state);
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -135,13 +135,13 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
             if (provider != null)
                 blockProvider = provider;
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
         public HangingColumnWithBaseConfig.Builder setEndBlock(Block block) {
             if (block != null)
-                endBlockProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                endBlockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
                 endBlockProvider = blockProvider;
             return this;
@@ -192,7 +192,7 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
         }
 
         public HangingColumnWithBaseConfig build() {
-            return new HangingColumnWithBaseConfig(baseBlockProvider, blockProvider, endBlockProvider, minLength, maxLength, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
+            return new HangingColumnWithBaseConfig(baseBlockProvider, blockProvider, endBlockProvider, minLength, maxLength, this.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList()));
         }
     }
 }
