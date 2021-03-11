@@ -217,6 +217,9 @@ public class BYGBiomes {
     public static Biome WOODED_GRASSLAND_PLATEAU = WorldGenRegistrationHelper.createBiome("wooded_grassland_plateau", new WoodedGrasslandPlateau().getBiome(), 131);
     public static Biome SNOWY_BLUE_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_blue_giant_taiga", new SnowyBlueGiantTaiga().getBiome(), 125);
     public static Biome WOODED_MEADOW = WorldGenRegistrationHelper.createBiome("wooded_meadow", new WoodedMeadow().getBiome(), 134);
+    public static Biome SKYRIS_HIGHLANDS_CLEARING = WorldGenRegistrationHelper.createBiome("skyris_highlands_clearing", new SkyrisHighlandsClearing().getBiome(), 180);
+    public static Biome SKYRIS_PEAKS = WorldGenRegistrationHelper.createBiome("skyris_peaks", new SkyrisPeaks().getBiome(), 181);
+    public static Biome SKYRIS_STEEPS = WorldGenRegistrationHelper.createBiome("skyris_steeps", new SkyrisSteeps().getBiome(), 182);
 
 
     //Mutations

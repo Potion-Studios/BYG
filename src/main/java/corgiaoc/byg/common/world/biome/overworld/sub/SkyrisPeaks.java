@@ -1,16 +1,14 @@
-package corgiaoc.byg.common.world.biome.overworld;
+package corgiaoc.byg.common.world.biome.overworld.sub;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
+import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.world.BYGBiomes;
-import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGConfiguredStructures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
@@ -19,14 +17,12 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
-import javax.annotation.Nullable;
-
-public class SkyrisHighlands extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("skyris_highlands", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+public class SkyrisPeaks extends BYGSubBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("skyris_peaks", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.EXTREME_HILLS;
-    static final float DEPTH = 3.0F;
-    static final float SCALE = 0.3F;
+    static final float DEPTH = 4.5F;
+    static final float SCALE = 0.45F;
     static final float TEMPERATURE = 0.25F;
     static final float DOWNFALL = 0.8F;
     static final int WATER_COLOR = 4159204;
@@ -38,26 +34,9 @@ public class SkyrisHighlands extends BYGBiome {
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().isValidSpawnBiomeForPlayer();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
-    public SkyrisHighlands() {
+    public SkyrisPeaks() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
-
-    @Nullable
-    @Override
-    public WeightedList<Biome> getHills() {
-        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.func_226313_a_(BYGBiomes.SKYRIS_HIGHLANDS_CLEARING, 4);
-        biomeWeightedList.func_226313_a_(BYGBiomes.SKYRIS_PEAKS, 5);
-        biomeWeightedList.func_226313_a_(BYGBiomes.SKYRIS_STEEPS, 1);
-        return biomeWeightedList;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return BYGBiomes.SKYRIS_STEEPS;
-    }
-
 
     @Override
     public Biome getRiver() {
@@ -67,16 +46,6 @@ public class SkyrisHighlands extends BYGBiome {
     @Override
     public BiomeDictionary.Type[] getBiomeDictionary() {
         return new BiomeDictionary.Type[]{BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD};
-    }
-
-    @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.COOL;
-    }
-
-    @Override
-    public int getWeight() {
-        return 2;
     }
 
     static {
@@ -100,6 +69,7 @@ public class SkyrisHighlands extends BYGBiome {
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addFairyslipper(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.withFrozenTopLayer(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

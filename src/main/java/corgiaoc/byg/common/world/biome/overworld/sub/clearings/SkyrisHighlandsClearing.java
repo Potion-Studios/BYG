@@ -1,10 +1,10 @@
-package corgiaoc.byg.common.world.biome.overworld;
+package corgiaoc.byg.common.world.biome.overworld.sub.clearings;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
+import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGBiomes;
-import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGConfiguredStructures;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.block.Blocks;
@@ -21,8 +21,8 @@ import net.minecraftforge.common.BiomeManager;
 
 import javax.annotation.Nullable;
 
-public class SkyrisHighlands extends BYGBiome {
-    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("skyris_highlands", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
+public class SkyrisHighlandsClearing extends BYGSubBiome {
+    static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("skyris_highlands_clearing", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.EXTREME_HILLS;
     static final float DEPTH = 3.0F;
@@ -38,26 +38,9 @@ public class SkyrisHighlands extends BYGBiome {
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().isValidSpawnBiomeForPlayer();
     static final BiomeGenerationSettings.Builder GENERATION_SETTINGS = (new BiomeGenerationSettings.Builder()).withSurfaceBuilder(SURFACE_BUILDER);
 
-    public SkyrisHighlands() {
+    public SkyrisHighlandsClearing() {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).setWaterColor(WATER_COLOR).setWaterFogColor(WATER_FOG_COLOR).setFogColor(12638463).withGrassColor(GRASS_COLOR).withFoliageColor(FOLIAGE_COLOR).withSkyColor(BiomeUtil.calcSkyColor(0.8F)).setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.copy());
     }
-
-    @Nullable
-    @Override
-    public WeightedList<Biome> getHills() {
-        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.func_226313_a_(BYGBiomes.SKYRIS_HIGHLANDS_CLEARING, 4);
-        biomeWeightedList.func_226313_a_(BYGBiomes.SKYRIS_PEAKS, 5);
-        biomeWeightedList.func_226313_a_(BYGBiomes.SKYRIS_STEEPS, 1);
-        return biomeWeightedList;
-    }
-
-    @Nullable
-    @Override
-    public Biome getEdge() {
-        return BYGBiomes.SKYRIS_STEEPS;
-    }
-
 
     @Override
     public Biome getRiver() {
@@ -69,22 +52,12 @@ public class SkyrisHighlands extends BYGBiome {
         return new BiomeDictionary.Type[]{BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD};
     }
 
-    @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.COOL;
-    }
-
-    @Override
-    public int getWeight() {
-        return 2;
-    }
-
     static {
         GENERATION_SETTINGS.withStructure(BYGConfiguredStructures.VILLAGE_SKYRIS);
         GENERATION_SETTINGS.withStructure(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
         GENERATION_SETTINGS.withStructure(StructureFeatures.RUINED_PORTAL_MOUNTAIN); //Ruined Portal Mountain
         DefaultBiomeFeatures.withStrongholdAndMineshaft(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addSkyrisTrees(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSparseSkyrisTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCavesAndCanyons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.withCommonOverworldBlocks(GENERATION_SETTINGS);

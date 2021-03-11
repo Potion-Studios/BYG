@@ -732,6 +732,10 @@ public class BYGDefaultBiomeFeatures {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SKYRIS_TREE);
     }
 
+    public static void addSparseSkyrisTrees(BiomeGenerationSettings.Builder gen) {
+        gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_SKYRIS_TREE);
+    }
+
     public static void addAraucariaTrees(BiomeGenerationSettings.Builder gen) {
         gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ARAUCARIA_TREE);
     }

@@ -1362,7 +1362,15 @@ public class BYGConfiguredFeatures {
             SKYRIS_TREE2.withChance(0.15F),
             SKYRIS_TREE3.withChance(0.25F)),
             SKYRIS_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
-            new AtSurfaceWithExtraConfig(8, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(3, 0.45F, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_SKYRIS_TREE = createConfiguredFeature("sparse_skyris_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+            SKYRIS_TREE1.withChance(0.15F),
+            SKYRIS_TREE5.withChance(0.25F),
+            SKYRIS_TREE2.withChance(0.15F),
+            SKYRIS_TREE3.withChance(0.25F)),
+            SKYRIS_TREE4)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).withPlacement(Placement.COUNT_EXTRA.configure(
+            new AtSurfaceWithExtraConfig(0, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BAOBAB_TREE = createConfiguredFeature("baobab_trees", Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
             Features.ACACIA.withChance(0.15F),
