@@ -29,7 +29,6 @@ public class BYGHillsLayer implements IAreaTransformer2, IDimOffset1Transformer 
     @SuppressWarnings("ConstantConditions")
     public int applyPixel(INoiseRandom rand, IArea area1, IArea area2, int x, int z) {
         int i = area1.get(this.getParentX(x + 1), this.getParentY(z + 1));
-        int j = area2.get(this.getParentX(x + 1), this.getParentY(z + 1));
 
         if (hillMap.size() > 0) {
             if (rand.nextRandom(hillReplacementChance) == 0) {

@@ -118,12 +118,17 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
             BiomeManager.BiomeType biomeType;
 
-            if (!defaultClimates.contains(climate)) {
+            if (!defaultClimates.contains(climate) && !climate.isEmpty()) {
                 BYG.LOGGER.error(elementEntry.getKey() + "'s \"climate\" value is incorrect you put: \"" + climate + "\". Defaulting climate to warm...");
                 biomeType = BiomeManager.BiomeType.WARM;
             }
-            else
-                biomeType = BiomeManager.BiomeType.valueOf(climate);
+            else {
+                if (!climate.isEmpty()) {
+                    biomeType = BiomeManager.BiomeType.valueOf(climate);
+                } else {
+                    biomeType = null;
+                }
+            }
 
             JsonArray hillLayerList = elementObject.get("hills").getAsJsonArray();
 

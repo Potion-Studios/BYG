@@ -43,12 +43,8 @@ public class FeatureUtil {
     }
 
 
-
-
-    public static void transformMutable(BlockPos.Mutable pos, Mirror mirrorIn, Rotation rotationIn)
-    {
-        switch (mirrorIn)
-        {
+    public static void transformMutable(BlockPos.Mutable pos, Mirror mirrorIn, Rotation rotationIn) {
+        switch (mirrorIn) {
             case LEFT_RIGHT:
                 pos.setZ(-pos.getZ());
                 break;
@@ -56,8 +52,7 @@ public class FeatureUtil {
                 pos.setX(-pos.getX());
                 break;
         }
-        switch (rotationIn)
-        {
+        switch (rotationIn) {
             case COUNTERCLOCKWISE_90:
                 pos.set(pos.getZ(), pos.getY(), -pos.getX());
                 break;
@@ -70,13 +65,11 @@ public class FeatureUtil {
         }
     }
 
-    public static BlockPos transform(BlockPos pos, Mirror mirrorIn, Rotation rotationIn)
-    {
+    public static BlockPos transform(BlockPos pos, Mirror mirrorIn, Rotation rotationIn) {
         int posX = pos.getX();
         int posZ = pos.getZ();
         boolean mirror = true;
-        switch (mirrorIn)
-        {
+        switch (mirrorIn) {
             case LEFT_RIGHT:
                 posZ = -posZ;
                 break;
@@ -86,8 +79,7 @@ public class FeatureUtil {
             default:
                 mirror = false;
         }
-        switch (rotationIn)
-        {
+        switch (rotationIn) {
             case COUNTERCLOCKWISE_90:
                 return new BlockPos(posZ, pos.getY(), -posX);
             case CLOCKWISE_90:

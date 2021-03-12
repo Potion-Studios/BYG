@@ -27,8 +27,10 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.gen.feature.template.IStructureProcessorType;
 import net.minecraft.world.gen.feature.template.StructureProcessorList;
+import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.storage.FolderName;
+import net.minecraft.world.storage.ServerWorldInfo;
 import net.minecraftforge.fml.ModList;
 
 import java.io.IOException;
@@ -71,17 +73,17 @@ public class GenDataCommand {
         Registry<StructureProcessorList> structureProcessorRegistry = manager.registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY);
 
 
-//        Function<DimensionGeneratorSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(DimensionGeneratorSettings.CODEC);
-//
-//        DataResult<JsonElement> jsonResult = dimensionGeneratorSettingsCodec.apply(((ServerWorldInfo) commandSource.getSource().getWorld().getWorldInfo()).getDimensionGeneratorSettings());
-//
-//        try {
-//            Path sbPath = worldImportJsonPath(dataPackPath, "yes");
-//            Files.createDirectories(sbPath.getParent());
-//            Files.write(sbPath, gson.toJson(jsonResult.get().left().get()).getBytes());
-//        } catch (IOException e) {
-//
-//        }
+        Function<DimensionGeneratorSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(DimensionGeneratorSettings.CODEC);
+
+        DataResult<JsonElement> jsonResult = dimensionGeneratorSettingsCodec.apply(((ServerWorldInfo) commandSource.getSource().getLevel().getLevelData()).worldGenSettings());
+
+        try {
+            Path sbPath = worldImportJsonPath(dataPackPath, "yes");
+            Files.createDirectories(sbPath.getParent());
+            Files.write(sbPath, gson.toJson(jsonResult.get().left().get()).getBytes());
+        } catch (IOException e) {
+
+        }
 
         createConfiguredSurfaceBuilderJson(modId, dataPackPath, gson, surfaceBuilderRegistry);
         createConfiguredFeatureJson(modId, dataPackPath, gson, featuresRegistry);

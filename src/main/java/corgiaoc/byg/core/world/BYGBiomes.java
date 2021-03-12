@@ -23,6 +23,7 @@ import corgiaoc.byg.config.json.subbiomedata.SubBiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -33,10 +34,11 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+
+import static net.minecraftforge.common.BiomeDictionary.Type.OCEAN;
 
 @SuppressWarnings("deprecation")
 public class BYGBiomes {
@@ -267,10 +269,28 @@ public class BYGBiomes {
     public static void init() {
     }
 
+    public static final IdentityHashMap<BiomeManager.BiomeType, WeightedList<ResourceLocation>> TRACKED_DEEP_OCEANS = new IdentityHashMap<>();
+    public static final IdentityHashMap<BiomeManager.BiomeType, WeightedList<ResourceLocation>> TRACKED_OCEANS = new IdentityHashMap<>();
+
+
+
+    public static final BiomeDictionary.Type DEEP_OCEAN = BiomeDictionary.Type.getType("DEEP_OCEAN");
+
+    @SuppressWarnings("ConstantConditions")
     public static void addBiomeEntries() {
         for (BiomeData biomeData : BYGBiome.biomeData) {
-            if (biomeData.getBiomeWeight() > 0) {
-                BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, WorldGenRegistries.BIOME.getKey(biomeData.getBiome())), biomeData.getBiomeWeight()));
+            List<BiomeDictionary.Type> dictionaryList = Arrays.stream(biomeData.getDictionaryTypes()).collect(Collectors.toList());
+            ResourceLocation key = WorldGenRegistries.BIOME.getKey(biomeData.getBiome());
+
+            if (!dictionaryList.contains(OCEAN) && !dictionaryList.contains(DEEP_OCEAN)) {
+                if (biomeData.getBiomeWeight() > 0) {
+                    BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, key), biomeData.getBiomeWeight()));
+                }
+            } else {
+                if (dictionaryList.contains(OCEAN))
+                    TRACKED_OCEANS.computeIfAbsent(biomeData.getBiomeType(), (biomeType) -> new WeightedList<>()).add(key, biomeData.getBiomeWeight());
+                if (dictionaryList.contains(DEEP_OCEAN))
+                    TRACKED_DEEP_OCEANS.computeIfAbsent(biomeData.getBiomeType(), (biomeType) -> new WeightedList<>()).add(key, biomeData.getBiomeWeight());
             }
         }
     }

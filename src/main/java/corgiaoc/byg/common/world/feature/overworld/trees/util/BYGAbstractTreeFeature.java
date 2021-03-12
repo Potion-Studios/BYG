@@ -31,8 +31,6 @@ import net.minecraftforge.common.Tags;
 import javax.annotation.Nullable;
 import java.util.*;
 
-import net.minecraft.util.math.BlockPos.Mutable;
-
 public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends Feature<TFC> {
 
     protected static FastNoise fastNoise;
@@ -521,6 +519,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     @Override
     protected void setBlock(IWorldWriter worldIn, BlockPos pos, BlockState state) {
+
         this.setBlockStateWithoutUpdates(worldIn, pos, state);
     }
 
