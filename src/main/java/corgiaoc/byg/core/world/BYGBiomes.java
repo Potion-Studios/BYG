@@ -269,12 +269,7 @@ public class BYGBiomes {
     public static void init() {
     }
 
-    public static final IdentityHashMap<BiomeManager.BiomeType, WeightedList<ResourceLocation>> TRACKED_DEEP_OCEANS = new IdentityHashMap<>();
     public static final IdentityHashMap<BiomeManager.BiomeType, WeightedList<ResourceLocation>> TRACKED_OCEANS = new IdentityHashMap<>();
-
-
-
-    public static final BiomeDictionary.Type DEEP_OCEAN = BiomeDictionary.Type.getType("DEEP_OCEAN");
 
     @SuppressWarnings("ConstantConditions")
     public static void addBiomeEntries() {
@@ -282,17 +277,24 @@ public class BYGBiomes {
             List<BiomeDictionary.Type> dictionaryList = Arrays.stream(biomeData.getDictionaryTypes()).collect(Collectors.toList());
             ResourceLocation key = WorldGenRegistries.BIOME.getKey(biomeData.getBiome());
 
-            if (!dictionaryList.contains(OCEAN) && !dictionaryList.contains(DEEP_OCEAN)) {
+            if (!dictionaryList.contains(OCEAN)) {
                 if (biomeData.getBiomeWeight() > 0) {
                     BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, key), biomeData.getBiomeWeight()));
                 }
             } else {
-                if (dictionaryList.contains(OCEAN))
-                    TRACKED_OCEANS.computeIfAbsent(biomeData.getBiomeType(), (biomeType) -> new WeightedList<>()).add(key, biomeData.getBiomeWeight());
-                if (dictionaryList.contains(DEEP_OCEAN))
-                    TRACKED_DEEP_OCEANS.computeIfAbsent(biomeData.getBiomeType(), (biomeType) -> new WeightedList<>()).add(key, biomeData.getBiomeWeight());
+                TRACKED_OCEANS.computeIfAbsent(biomeData.getBiomeType(), (biomeType) -> new WeightedList<>()).add(key, biomeData.getBiomeWeight());
             }
         }
+
+        addDefaultOceans();
+    }
+
+    private static void addDefaultOceans() {
+        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.ICY, (biometype) -> new WeightedList<>()).add(Biomes.FROZEN_OCEAN.getRegistryName(), 5);
+        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.COOL, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_COLD_OCEAN.getRegistryName(), 5);
+        TRACKED_OCEANS.computeIfAbsent(null, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_OCEAN.getRegistryName(), 5);
+        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.WARM, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_LUKEWARM_OCEAN.getRegistryName(), 5);
+        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.DESERT, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_WARM_OCEAN.getRegistryName(), 5);
     }
 
     public static void fillBiomeDictionary(Registry<Biome> biomeRegistry) {
