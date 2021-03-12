@@ -11,8 +11,10 @@ import net.minecraft.world.gen.feature.template.*;
 public class SkyrisVillagePools {
    public static final JigsawPattern SkyrisVillageJigsaw = JigsawPatternRegistry.register(new JigsawPattern(new ResourceLocation("byg:village/skyris/town_centers"),
            new ResourceLocation("empty"),
-           ImmutableList.of(Pair.of(JigsawPiece.legacy("byg:village/skyris/town_centers/skyris_meeting_point_1", ProcessorLists.MOSSIFY_10_PERCENT), 50),
-                   Pair.of(JigsawPiece.legacy("byg:village/skyris/town_centers/skyris_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 50)), JigsawPattern.PlacementBehaviour.RIGID));
+           ImmutableList.of(Pair.of(JigsawPiece.legacy("byg:village/skyris/town_centers/skyris_meeting_point_1", ProcessorLists.MOSSIFY_10_PERCENT), 25),
+                   Pair.of(JigsawPiece.legacy("byg:village/skyris/town_centers/skyris_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 25),
+                   Pair.of(JigsawPiece.legacy("byg:village/skyris/town_centers/skyris_meeting_point_3", ProcessorLists.MOSSIFY_10_PERCENT), 25),
+                   Pair.of(JigsawPiece.legacy("byg:village/skyris/town_centers/skyris_meeting_point_4", ProcessorLists.MOSSIFY_10_PERCENT), 25)), JigsawPattern.PlacementBehaviour.RIGID));
 
    public static void init() {
    }
