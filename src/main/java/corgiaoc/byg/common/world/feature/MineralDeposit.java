@@ -35,7 +35,6 @@ public class MineralDeposit extends Feature<NoisySphereConfig> {
                 for (int z = -zRadius; z <= zRadius; z++) {
                     for (int y = -yRadius; y <= yRadius; y++) {
                         mutable2.set(mutable).move(x, y, z);
-                        IChunk chunk = world.getChunk(mutable2);
 
                         //Credits to Hex_26 for this equation!
                         double equationResult = Math.pow(x, 2) / Math.pow(xRadius, 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
