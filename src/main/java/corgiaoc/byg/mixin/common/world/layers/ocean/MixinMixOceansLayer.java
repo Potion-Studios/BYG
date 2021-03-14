@@ -1,20 +1,12 @@
 package corgiaoc.byg.mixin.common.world.layers.ocean;
 
-import corgiaoc.byg.core.world.BYGBiomes;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.area.IArea;
 import net.minecraft.world.gen.layer.MixOceansLayer;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import static corgiaoc.byg.common.world.dimension.layers.BYGLayerUtils.getBiomeFromWeightedList;
 
 @Mixin(MixOceansLayer.class)
 public class MixinMixOceansLayer {
