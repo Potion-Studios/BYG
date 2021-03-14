@@ -79,7 +79,6 @@ public class CypressSwampland extends BYGBiome {
         DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addSwampExtraVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultSprings(GENERATION_SETTINGS);
-        //GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.configure(new SeagrassFeatureConfig(64, 0.6D)).decorate(Decorator.TOP_SOLID_HEIGHTMAP.configure(NopeDecoratorConfig.DEFAULT)));
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
