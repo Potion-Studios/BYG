@@ -56,8 +56,10 @@ public class EndBiomeDataListHolder {
         Map<ResourceLocation, ResourceLocation> biome_to_edge = new HashMap<>();
 
         for (EndBiomeData endBiomeData : BYGEndBiome.endBiomeData) {
-            if (endBiomeData.getBiomeWeightedList() != null) {
-                biome_to_hills.put(endBiomeData.getBiome(), endBiomeData.getBiomeWeightedList());
+            WeightedList<ResourceLocation> biomeWeightedList = endBiomeData.getBiomeWeightedList();
+            if (biomeWeightedList != null) {
+                biomeWeightedList.entries.removeIf(biomeEntry -> biomeEntry.weight <= 0);
+                biome_to_hills.put(endBiomeData.getBiome(), biomeWeightedList);
             }
             if (endBiomeData.getEdgeBiome() != null)
                 biome_to_edge.put(endBiomeData.getBiome(), endBiomeData.getEdgeBiome());
@@ -66,8 +68,10 @@ public class EndBiomeDataListHolder {
         }
 
         for (EndBiomeData endBiomeData : BYGEndBiome.voidBiomeData) {
-            if (endBiomeData.getBiomeWeightedList() != null) {
-                biome_to_hills.put(endBiomeData.getBiome(), endBiomeData.getBiomeWeightedList());
+            WeightedList<ResourceLocation> biomeWeightedList = endBiomeData.getBiomeWeightedList();
+            if (biomeWeightedList != null) {
+                biomeWeightedList.entries.removeIf(biomeEntry -> biomeEntry.weight <= 0);
+                biome_to_hills.put(endBiomeData.getBiome(), biomeWeightedList);
             }
             if (endBiomeData.getEdgeBiome() != null)
                 biome_to_edge.put(endBiomeData.getBiome(), endBiomeData.getEdgeBiome());
