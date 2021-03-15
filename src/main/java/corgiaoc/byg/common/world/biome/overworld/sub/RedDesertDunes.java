@@ -14,7 +14,7 @@ import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 
-import javax.annotation.Nullable;
+import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class RedDesertDunes extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("red_desert_dunes", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.RED_DUNES, BYGSurfaceBuilders.Configs.REDSAND_CF));

@@ -10,7 +10,7 @@ import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
 import net.minecraft.world.biome.layer.util.LayerSampler;
 import net.minecraft.world.biome.layer.util.NorthWestCoordinateTransformer;
 
-import javax.annotation.Nullable;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Map;
 
 public class BYGHillsLayer implements MergingLayer, NorthWestCoordinateTransformer {
