@@ -63,14 +63,14 @@ public class MegaChunk {
 
         BlockPos startPos = this.megaChunkPos.unpackLocalPos(canyonChunkByte).getWorldPosition();
 
-        this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(startPos.getX(), 180, startPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
+        this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(startPos.getX(), this.chunkGenerator.getFirstFreeHeight(startPos.getX(), startPos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG) /*218*/, startPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
             Biome.Category category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getBiomeCategory();
             return category == Biome.Category.RIVER || category == Biome.Category.OCEAN || this.chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG) <= this.chunkGenerator.getSeaLevel();
         }, maxRiverDistance);
     }
 
     public void createRiverGenerator(FastNoise noise, BlockPos generatorStartPos, ISeedReader world, int maxRiverDistance) {
-        this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(generatorStartPos.getX(), 180, generatorStartPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
+        this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(generatorStartPos.getX(), 218, generatorStartPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
             Biome.Category category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getBiomeCategory();
             return category == Biome.Category.RIVER || category == Biome.Category.OCEAN || this.chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG) <= this.chunkGenerator.getSeaLevel();
         }, maxRiverDistance);

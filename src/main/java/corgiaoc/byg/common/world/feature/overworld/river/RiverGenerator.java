@@ -5,6 +5,7 @@ import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector2f;
 import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.util.registry.Registry;
@@ -43,7 +44,7 @@ public class RiverGenerator {
 
             BlockPos addedPos = previousNodePos.offset(vecAngle);
             RegistryKey<Biome> biomeRegistryKey = world.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(generator.getBiomeSource().getNoiseBiome(addedPos.getX() >> 2, addedPos.getY() >> 2, addedPos.getZ() >> 2)).get();
-            int newY = biomeRegistryKey == BYGBiomes.CANYON_KEY ? 180 : generator.getFirstFreeHeight(addedPos.getX(), addedPos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG);
+            int newY = /*biomeRegistryKey == BYGBiomes.CANYON_KEY ? 218 :*/ generator.getFirstFreeHeight(addedPos.getX(), addedPos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG);
 
             if (newY > previousNodePos.getY()) {
                 newY = previousNodePos.getY();
@@ -100,6 +101,10 @@ public class RiverGenerator {
 
     public BlockPos getFinalPosition() {
         return this.nodes.get(this.nodes.size() - 1).getPos();
+    }
+
+    public int getTotalNumberOfNodes() {
+        return this.nodes.size();
     }
 
     public BlockPos getStartPos() {

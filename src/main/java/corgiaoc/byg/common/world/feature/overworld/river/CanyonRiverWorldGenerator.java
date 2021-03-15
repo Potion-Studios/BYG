@@ -8,6 +8,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.World;
@@ -84,13 +85,20 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
         for (int idx = 0; idx < nodes.size(); idx++) {
             RiverGenerator.Node node = nodes.get(idx);
             RiverGenerator.Node prevNode = idx == 0 ? riverGenerator.getNodes().get(nodes.get(0).getIdx() - 1) : nodes.get(idx - 1);
-            carveRiverNode(worldRegion, node, prevNode);
+            carveRiverNode(worldRegion, node, prevNode, riverGenerator);
         }
     }
 
-    private void carveRiverNode(ISeedReader worldRegion, RiverGenerator.Node node, RiverGenerator.Node prevNode) {
+    private void carveRiverNode(ISeedReader worldRegion, RiverGenerator.Node node, RiverGenerator.Node prevNode, RiverGenerator riverGenerator) {
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(node.getPos());
         BlockPos.Mutable prevMutable = new BlockPos.Mutable().set(prevNode.getPos());
+
+//        if (node.getIdx() >= (riverGenerator.getTotalNumberOfNodes() - 4)) {
+//            double slide = mutable.getY() / ((float) + riverGenerator.getFinalPosition().getY());
+//            mutable.setY((int) MathHelper.clampedLerp(riverGenerator.getFinalPosition().getY(), prevMutable.getY(), slide));
+//        }
+
+
 
         int xRadius = 10;
         int yRadius = 10;
@@ -125,7 +133,6 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
         }
 
         BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(mutable);
-        int[][] topY = new int[Math.abs(minXRadius + maxXRadius) + 1][Math.abs(minZRadius + maxZRadius) + 1];
 
         int yDiff = prevMutable.getY() - mutable.getY();
 
@@ -155,7 +162,13 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
                     if (equationResult >= threshold)
                         continue;
 
-                    if (y <= -2) {
+                    int sphereWaterY = -2;
+
+                    if (node.getIdx() >= (riverGenerator.getTotalNumberOfNodes() - 4)) {
+
+                    }
+
+                    if (y <= sphereWaterY) {
                         worldRegion.setBlock(mutable2, Blocks.WATER.defaultBlockState(), 2);
                         worldRegion.getLiquidTicks().scheduleTick(mutable2, Fluids.WATER, 0);
                     } else {

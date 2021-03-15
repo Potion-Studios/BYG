@@ -82,29 +82,29 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
             return;
         }
 
-        ChunkGenerator generator = context.getWorld().getChunkSource().getGenerator();
-
-        double density = 0;
-        for (int neighborXSearch = -searchRange; neighborXSearch < searchRange; neighborXSearch++) {
-            for (int neighborZSearch = -searchRange; neighborZSearch < searchRange; neighborZSearch++) {
-                int neighborX = neighborXSearch;
-                int neighborZ = neighborZSearch;
-                Biome neighborBiome = generator.getBiomeSource().getNoiseBiome(((x + neighborX) << 2) + 2, startHeight, ((x + neighborZ) << 2) + 2);
-                if (neighborBiome != biomeIn) {
-                    int neighborHeight = 63; //generator.getHeight(x + neighborX, z + neighborZ, Heightmap.Type.OCEAN_FLOOR_WG);
-                    density += neighborHeight * 0.1F;
-                }
-            }
-        }
-
-
-        double height = 120 + density;
-        for (int i = 0; i <= height; i++) {
-//            if (height <= 180) {
-                chunkIn.setBlockState(localPos, defaultBlock, false);
-                localPos.move(Direction.UP);
+//        ChunkGenerator generator = context.getWorld().getChunkSource().getGenerator();
+//
+//        double density = 0;
+//        for (int neighborXSearch = -searchRange; neighborXSearch < searchRange; neighborXSearch++) {
+//            for (int neighborZSearch = -searchRange; neighborZSearch < searchRange; neighborZSearch++) {
+//                int neighborX = neighborXSearch;
+//                int neighborZ = neighborZSearch;
+//                Biome neighborBiome = generator.getBiomeSource().getNoiseBiome(((x + neighborX) << 2) + 2, startHeight, ((x + neighborZ) << 2) + 2);
+//                if (neighborBiome != biomeIn) {
+//                    int neighborHeight = 63; //generator.getHeight(x + neighborX, z + neighborZ, Heightmap.Type.OCEAN_FLOOR_WG);
+//                    density += neighborHeight * 0.1F;
+//                }
 //            }
-        }
+//        }
+//
+
+//        double height = 120 + density;
+//        for (int i = 0; i <= height; i++) {
+////            if (height <= 180) {
+//                chunkIn.setBlockState(localPos, defaultBlock, false);
+//                localPos.move(Direction.UP);
+////            }
+//        }
 
         localPos.setY(chunkIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, localPos.getX(), localPos.getZ()));
         chunkIn.setBlockState(localPos, BYGBlocks.OVERGROWN_STONE.defaultBlockState(), false);
