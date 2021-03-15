@@ -277,13 +277,13 @@ public class BYGBiomes {
             List<BiomeDictionary.Type> dictionaryList = Arrays.stream(biomeData.getDictionaryTypes()).collect(Collectors.toList());
             ResourceLocation key = WorldGenRegistries.BIOME.getKey(biomeData.getBiome());
 
-            if (!dictionaryList.contains(OCEAN)) {
+//            if (!dictionaryList.contains(OCEAN)) {
                 if (biomeData.getBiomeWeight() > 0) {
                     BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, key), biomeData.getBiomeWeight()));
                 }
-            } else {
-                TRACKED_OCEANS.computeIfAbsent(biomeData.getBiomeType(), (biomeType) -> new WeightedList<>()).add(key, biomeData.getBiomeWeight());
-            }
+//            } else {
+//                TRACKED_OCEANS.computeIfAbsent(biomeData.getBiomeType(), (biomeType) -> new WeightedList<>()).add(key, biomeData.getBiomeWeight());
+//            }
         }
 
         addDefaultOceans();
