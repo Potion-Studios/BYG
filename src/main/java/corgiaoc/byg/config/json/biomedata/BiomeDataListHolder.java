@@ -40,7 +40,7 @@ public class BiomeDataListHolder {
         for (BiomeData biomeData : BYGBiome.biomeData) {
             WeightedList<Biome> biomeWeightedList = biomeData.getBiomeWeightedList();
             if (biomeWeightedList != null) {
-                biomeWeightedList.entries.removeIf(biomeEntry -> biomeEntry.weight > 0);
+                biomeWeightedList.entries.removeIf(biomeEntry -> biomeEntry.weight <= 0);
                 BYGBiome.BIOME_TO_HILLS_LIST.put(WorldGenRegistries.BIOME.getId(biomeData.getBiome()), biomeWeightedList);
             }
             if (biomeData.getBeachBiome() != null)
