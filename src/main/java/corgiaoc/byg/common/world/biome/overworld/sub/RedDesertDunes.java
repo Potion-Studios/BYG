@@ -43,6 +43,7 @@ public class RedDesertDunes extends BYGSubBiome {
     }
 
     static {
+        DefaultBiomeFeatures.addDefaultCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.HUSK, 160, 10, 10));
     }

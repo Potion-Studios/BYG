@@ -64,6 +64,7 @@ public class Dunes extends BYGBiome {
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD); //Ruined Portal Standard
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addFossilDecoration(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addDefaultCarvers(GENERATION_SETTINGS);
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.DESERT_PYRAMID); //Desert Temple
     }
 }
