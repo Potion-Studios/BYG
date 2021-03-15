@@ -68,7 +68,6 @@ repositories{
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-    compile 'org.spongepowered:mixin:0.8'
 }
 
 jar {
