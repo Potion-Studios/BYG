@@ -34,7 +34,7 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<SurfaceBuilderConfig> RED_DUNES = WorldGenRegistrationHelper.createSurfaceBuilder("red_dunes", new RedDunesSB(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> DUNES = WorldGenRegistrationHelper.createSurfaceBuilder("dunes", new DunesSB(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> DOVER = WorldGenRegistrationHelper.createSurfaceBuilder("dover_mountains", new DoverMountainSB(SurfaceBuilderConfig.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderConfig> CANYONS = WorldGenRegistrationHelper.createSurfaceBuilder("canyons", new CanyonSurfaceBuilder(SurfaceBuilderConfig.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderConfig> CANYONS = WorldGenRegistrationHelper.createSurfaceBuilder("canyons", new CanyonSB(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> CANYON_EDGE = WorldGenRegistrationHelper.createSurfaceBuilder("canyon_edge", new CanyonEdgeSB(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> MOJAVE = WorldGenRegistrationHelper.createSurfaceBuilder("mojave", new MojaveSB(SurfaceBuilderConfig.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderConfig> LUSH_TUNDRA = WorldGenRegistrationHelper.createSurfaceBuilder("lush_tundra", new LushTundraSB(SurfaceBuilderConfig.CODEC));
