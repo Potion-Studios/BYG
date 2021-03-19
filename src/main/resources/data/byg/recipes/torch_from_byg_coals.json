@@ -8,9 +8,14 @@
     "#": {
       "item": "minecraft:stick"
     },
-    "X": {
+    "X": [
+      {
         "item": "byg:lignite"
-    },
+      },
+      {
+        "item": "byg:anthracite"
+      }
+    ]
   },
   "result": {
     "item": "minecraft:torch",
