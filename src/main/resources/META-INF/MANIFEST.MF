@@ -1,1 +1,0 @@
-MixinConnector: corgiaoc.byg.mixin.MixinConnector

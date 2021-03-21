@@ -517,9 +517,12 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         worldWriter.setBlock(blockPos, blockState, 18);
     }
 
+    public void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState, int flags) {
+        worldWriter.setBlock(blockPos, blockState, flags);
+    }
+
     @Override
     protected void setBlock(IWorldWriter worldIn, BlockPos pos, BlockState state) {
-
         this.setBlockStateWithoutUpdates(worldIn, pos, state);
     }
 
@@ -543,7 +546,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
             VoxelShapePart voxelshapepart = new BitSetVoxelShapePart(mutableboundingbox.getXSpan(), mutableboundingbox.getYSpan(), mutableboundingbox.getZSpan());
 
-            try (PooledMutable blockPosPool = PooledMutable.get()) {
+            try (PooledMutable posInPool = PooledMutable.get()) {
                 if (flag && !set.isEmpty()) {
                     for (BlockPos blockpos : Lists.newArrayList(set)) {
                         if (mutableboundingbox.isInside(blockpos)) {
@@ -551,14 +554,14 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                         }
 
                         for (Direction direction : Direction.values()) {
-                            blockPosPool.set(blockpos).move(direction);
-                            if (!set.contains(blockPosPool)) {
-                                BlockState blockstate = worldIn.getBlockState(blockPosPool);
+                            posInPool.set(blockpos).move(direction);
+                            if (!set.contains(posInPool)) {
+                                BlockState blockstate = worldIn.getBlockState(posInPool);
                                 if (blockstate.hasProperty(BlockStateProperties.DISTANCE)) {
-                                    list.get(0).add(blockPosPool.immutable());
-                                    this.setBlockStateWithoutUpdates(worldIn, blockPosPool, blockstate.setValue(BlockStateProperties.DISTANCE, 1));
-                                    if (mutableboundingbox.isInside(blockPosPool)) {
-                                        voxelshapepart.setFull(blockPosPool.getX() - mutableboundingbox.x0, blockPosPool.getY() - mutableboundingbox.y0, blockPosPool.getZ() - mutableboundingbox.z0, true, true);
+                                    list.get(0).add(posInPool.immutable());
+                                    this.setBlockStateWithoutUpdates(worldIn, posInPool, blockstate.setValue(BlockStateProperties.DISTANCE, 1));
+                                    if (mutableboundingbox.isInside(posInPool)) {
+                                        voxelshapepart.setFull(posInPool.getX() - mutableboundingbox.x0, posInPool.getY() - mutableboundingbox.y0, posInPool.getZ() - mutableboundingbox.z0, true, true);
                                     }
                                 }
                             }
@@ -576,19 +579,25 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                         }
 
                         for (Direction direction1 : Direction.values()) {
-                            blockPosPool.set(blockpos1).move(direction1);
-                            if (!set1.contains(blockPosPool) && !set2.contains(blockPosPool)) {
-                                BlockState blockstate1 = worldIn.getBlockState(blockPosPool);
+                            posInPool.set(blockpos1).move(direction1);
+                            if (!set1.contains(posInPool) && !set2.contains(posInPool)) {
+                                BlockState blockstate1 = worldIn.getBlockState(posInPool);
                                 if (blockstate1.hasProperty(BlockStateProperties.DISTANCE)) {
-                                    int k = blockstate1.getValue(BlockStateProperties.DISTANCE);
-                                    if (k > l + 1) {
-                                        BlockState blockstate2 = blockstate1.setValue(BlockStateProperties.DISTANCE, l + 1);
-                                        this.setBlockStateWithoutUpdates(worldIn, blockPosPool, blockstate2);
-                                        if (mutableboundingbox.isInside(blockPosPool)) {
-                                            voxelshapepart.setFull(blockPosPool.getX() - mutableboundingbox.x0, blockPosPool.getY() - mutableboundingbox.y0, blockPosPool.getZ() - mutableboundingbox.z0, true, true);
+                                    int currentDistance = blockstate1.getValue(BlockStateProperties.DISTANCE);
+                                    int newDistance = l + 1;
+                                    if (currentDistance > newDistance) {
+                                        BlockState blockstate2 = blockstate1.setValue(BlockStateProperties.DISTANCE, newDistance);
+
+                                        if (newDistance >= 7)
+                                            this.setBlockStateWithoutUpdates(worldIn, posInPool, Blocks.AIR.defaultBlockState(), 2); //If leaves distance is or exceeds 7, set air
+                                        else
+                                            this.setBlockStateWithoutUpdates(worldIn, posInPool, blockstate2);
+
+                                        if (mutableboundingbox.isInside(posInPool)) {
+                                            voxelshapepart.setFull(posInPool.getX() - mutableboundingbox.x0, posInPool.getY() - mutableboundingbox.y0, posInPool.getZ() - mutableboundingbox.z0, true, true);
                                         }
 
-                                        set2.add(blockPosPool.immutable());
+                                        set2.add(posInPool.immutable());
                                     }
                                 }
                             }
