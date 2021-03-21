@@ -68,8 +68,8 @@ public class AdobeVillagePools {
       
       JigsawPatternRegistry.register(new JigsawPattern(new ResourceLocation("byg:village/adobe/terminators"),
               new ResourceLocation("empty"),
-              ImmutableList.of(Pair.of(JigsawPiece.legacy("byg:village/adobe/terminators/s_terminator_01"), 1),
-                      Pair.of(JigsawPiece.legacy("byg:village/adobe/terminators/s_terminator_02"), 1)), JigsawPattern.PlacementBehaviour.TERRAIN_MATCHING));
+              ImmutableList.of(Pair.of(JigsawPiece.legacy("byg:village/adobe/terminators/adobe_terminator_01"), 1),
+                      Pair.of(JigsawPiece.legacy("byg:village/adobe/terminators/adobe_terminator_02"), 1)), JigsawPattern.PlacementBehaviour.TERRAIN_MATCHING));
       
       JigsawPatternRegistry.register(new JigsawPattern(new ResourceLocation("byg:village/adobe/decor"),
               new ResourceLocation("empty"),
