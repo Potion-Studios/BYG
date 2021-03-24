@@ -324,6 +324,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.ETHER_BULB, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.BAOBAB_FRUIT_BLOCK, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.BLACK_ICE, RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.AMETRINE_BLOCK, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.BLUEBERRY_BUSH, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.SYTHIAN_SCAFFOLDING, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.OVERGROWN_STONE, RenderType.cutoutMipped());
