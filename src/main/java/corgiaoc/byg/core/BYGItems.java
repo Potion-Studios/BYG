@@ -37,6 +37,8 @@ public class BYGItems {
 
     public static final Item AMETRINE_GEMS = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "ametrine_gems");
     public static final Item AMETRINE_ORE = createItem(new BlockItem(BYGBlocks.AMETRINE_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.AMETRINE_ORE));
+    public static final Item AMETRINE_CLUSTER = createItem(new BlockItem(BYGBlocks.AMETRINE_CLUSTER, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.AMETRINE_CLUSTER));
+    public static final Item BUDDING_AMETRINE_ORE = createItem(new BlockItem(BYGBlocks.BUDDING_AMETRINE_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BUDDING_AMETRINE_ORE));
     public static final Item AMETRINE_BLOCK = createItem(new BlockItem(BYGBlocks.AMETRINE_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.AMETRINE_BLOCK));
     public static final Item AMETRINE_HELMET = createItem(new BYGArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.HEAD, (new Item.Properties()).tab(BYGCreativeTab.creativeTab)), "ametrine_helmet");
     public static final Item AMETRINE_CHEST = createItem(new BYGArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.CHEST, (new Item.Properties()).tab(BYGCreativeTab.creativeTab)), "ametrine_chestplate");

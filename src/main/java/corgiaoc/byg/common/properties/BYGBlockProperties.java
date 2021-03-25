@@ -1056,38 +1056,6 @@ public class BYGBlockProperties {
 //        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
 //    }
 
-    public static class BYGOreAmetrine extends BYGOreBlock {
-        public BYGOreAmetrine(String registryName) {
-            super(AbstractBlock.Properties.of(Material.STONE)
-                    .sound(SoundType.STONE)
-                    .strength(3.0f, 3.0f)
-                    .harvestLevel(3)
-                    .harvestTool(ToolType.PICKAXE)
-                    .requiresCorrectToolForDrops()
-
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
-    public static class BYGOrePendorite extends BYGOreBlock {
-        public BYGOrePendorite(String registryName) {
-            super(AbstractBlock.Properties.of(Material.STONE)
-                    .sound(SoundType.STONE)
-                    .strength(3.0f, 3.0f)
-                    .harvestLevel(3)
-                    .harvestTool(ToolType.PICKAXE)
-                    .requiresCorrectToolForDrops()
-
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
     public static class BYGPervadedNetherrack extends BYGOreBlock {
         public BYGPervadedNetherrack(String registryName) {
             super(AbstractBlock.Properties.of(Material.STONE)

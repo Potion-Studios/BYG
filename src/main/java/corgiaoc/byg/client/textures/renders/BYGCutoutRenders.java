@@ -307,6 +307,7 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.YELLOW_TULIP, RenderType.cutoutMipped());
 
         //Other renders
+        RenderTypeLookup.setRenderLayer(BYGBlocks.AMETRINE_CLUSTER, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.PURPLE_GLOWSHROOM, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.PURPLE_GLOWSHROOM_BLOCK, RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BYGBlocks.BLUE_GLOWSHROOM, RenderType.translucent());

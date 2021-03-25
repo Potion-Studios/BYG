@@ -815,12 +815,13 @@ public class BYGBlocks {
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");
 
-    public static final Block PENDORITE_ORE = new BYGBlockProperties.BYGOrePendorite("pendorite_ore");
-    public static final Block AMETRINE_ORE = new BYGBlockProperties.BYGOreAmetrine("ametrine_ore");
-    public static final Block PENDORITE_BLOCK = new BYGBlockProperties.BYGOrePendorite("pendorite_block");
-    public static final Block AMETRINE_BLOCK = new BYGBlockProperties.BYGOreAmetrine("ametrine_block");
-
-    public static final Block DACITE = new BYGBlockProperties.BYGStone("dacite");
+    public static final Block PENDORITE_ORE = createPendoriteOre("pendorite_ore");
+    public static final Block AMETRINE_ORE = createAmetrineOre("ametrine_ore");
+    public static final Block PENDORITE_BLOCK = createPendoriteBlock("pendorite_block");
+    public static final Block AMETRINE_BLOCK = createAmetrineBlock("ametrine_block");
+    public static final Block BUDDING_AMETRINE_ORE = createBuddingAmetrineOre("budding_ametrine_ore");
+    public static final Block AMETRINE_CLUSTER = createAmetrineCluster("ametrine_cluster");
+    public static final Block DACITE = createDacite("dacite");
     public static final Block DACITE_SLAB = createStoneSlab("dacite_slab");
     public static final Block DACITE_STAIRS = new BYGBlockProperties.BYGStoneStairs("dacite_stairs");
     public static final Block DACITE_WALL = createStoneWall("dacite_wall");
@@ -838,7 +839,7 @@ public class BYGBlocks {
     public static final Block DACITE_TILE_STAIRS = new BYGBlockProperties.BYGStoneStairs("dacite_tile_stairs");
     public static final Block DACITE_TILE_WALL = createStoneWall("dacite_tile_wall");
 
-    public static final Block RED_ROCK = new BYGBlockProperties.BYGStone("red_rock");
+    public static final Block RED_ROCK = createRedRock("red_rock");
     public static final Block RED_ROCK_SLAB = createStoneSlab("red_rock_slab");
     public static final Block RED_ROCK_STAIRS = new BYGBlockProperties.BYGStoneStairs("red_rock_stairs");
     public static final Block RED_ROCK_WALL = createStoneWall("red_rock_wall");
@@ -859,17 +860,17 @@ public class BYGBlocks {
     public static final Block MOSSY_RED_ROCK_BRICK_STAIRS = new BYGBlockProperties.BYGStoneStairs("mossy_red_rock_brick_stairs");
     public static final Block MOSSY_RED_ROCK_BRICK_WALL = createStoneWall("mossy_red_rock_brick_wall");
 
-    public static final Block MOSSY_STONE = new BYGBlockProperties.BYGStone("mossy_stone");
+    public static final Block MOSSY_STONE = createMossyStone("mossy_stone");
     public static final Block MOSSY_STONE_SLAB = createStoneSlab("mossy_stone_slab");
     public static final Block MOSSY_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("mossy_stone_stairs");
     public static final Block MOSSY_STONE_WALL = createStoneWall("mossy_stone_wall");
 
-    public static final Block ROCKY_STONE = new BYGBlockProperties.BYGStone("rocky_stone");
+    public static final Block ROCKY_STONE = createRockyStone("rocky_stone");
     public static final Block ROCKY_SLAB = createStoneSlab("rocky_stone_slab");
     public static final Block ROCKY_STAIRS = new BYGBlockProperties.BYGStoneStairs("rocky_stone_stairs");
     public static final Block ROCKY_WALL = createStoneWall("rocky_stone_wall");
 
-    public static final Block SCORIA_STONE = new BYGBlockProperties.BYGStone("scoria_stone");
+    public static final Block SCORIA_STONE = createScoria("scoria_stone");
     public static final Block SCORIA_SLAB = createStoneSlab("scoria_stone_slab");
     public static final Block SCORIA_STAIRS = new BYGBlockProperties.BYGStoneStairs("scoria_stone_stairs");
     public static final Block SCORIA_WALL = createStoneWall("scoria_stone_wall");
@@ -883,7 +884,7 @@ public class BYGBlocks {
     public static final Block SCORIA_STONEBRICK_STAIRS = new BYGBlockProperties.BYGStoneStairs("scoria_stonebrick_stairs");
     public static final Block SCORIA_STONEBRICK_WALL = createStoneWall("scoria_stonebrick_wall");
 
-    public static final Block SOAPSTONE = new BYGBlockProperties.BYGStone("soapstone");
+    public static final Block SOAPSTONE = createSoapstone("soapstone");
     public static final Block SOAPSTONE_SLAB = createStoneSlab("soapstone_slab");
     public static final Block SOAPSTONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("soapstone_stairs");
     public static final Block SOAPSTONE_WALL = createStoneWall("soapstone_wall");
@@ -1211,6 +1212,72 @@ public class BYGBlocks {
         return createBlock;
     }
 
+    static Block createSoapstone(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BLACK).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createScoria(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createDacite(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createRockyStone(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createMossyStone(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_GREEN).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createRedRock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_ORANGE).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createAmetrineOre(String id) {
+        Block createBlock = new BYGOreBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createBuddingAmetrineOre(String id) {
+        Block createBlock = new BuddingAmetrineBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).randomTicks().harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createAmetrineBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).isSuffocating(BYGBlocks::isntSolid).isViewBlocking(BYGBlocks::isntSolid).noOcclusion().harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.GLASS).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createPendoriteOre(String id) {
+        Block createBlock = new BYGOreBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PURPLE).harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createPendoriteBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.HEAVY_METAL, MaterialColor.TERRACOTTA_PURPLE).harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
     static Block createMushroomPlant(BYGHugeMushroom mushroom, String id) {
         Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, false);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
@@ -1275,6 +1342,12 @@ public class BYGBlocks {
 
     static Block createCrystal(String id) {
         Block createBlock = new CrystalBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.GLASS).strength(0.1f).noOcclusion().requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noCollission().lightLevel((state) -> 6));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createAmetrineCluster(String id) {
+        Block createBlock = new AmetrineClusterBlock(7, 3, AbstractBlock.Properties.of(Material.STONE).sound(SoundType.GLASS).strength(0.1f).randomTicks().requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noCollission().lightLevel((state) -> 6));
         createBlock(createBlock, id);
         return createBlock;
     }
