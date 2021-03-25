@@ -1347,7 +1347,7 @@ public class BYGBlocks {
     }
 
     static Block createAmetrineCluster(String id) {
-        Block createBlock = new AmetrineClusterBlock(7, 3, AbstractBlock.Properties.of(Material.STONE).sound(SoundType.GLASS).strength(0.1f).randomTicks().requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noCollission().lightLevel((state) -> 6));
+        Block createBlock = new AmetrineClusterBlock(7, 3, AbstractBlock.Properties.of(Material.STONE).sound(SoundType.GLASS).strength(0.1f).randomTicks().harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noCollission().lightLevel((state) -> 6));
         createBlock(createBlock, id);
         return createBlock;
     }

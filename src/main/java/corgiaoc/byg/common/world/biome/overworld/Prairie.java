@@ -68,6 +68,7 @@ public class Prairie extends BYGBiome {
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD); //Ruined Portal Standard
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addPrairieTree(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSparseOakForestTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addPrairieGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultCarvers(GENERATION_SETTINGS);

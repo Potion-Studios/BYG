@@ -1205,10 +1205,8 @@ public class BYGConfiguredFeatures {
             new AtSurfaceWithExtraConfig(4, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PRAIRIE_TREE = createConfiguredFeature("prairie_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
-            SHRUB_PRAIRIE1.weighted(0.4F),
-            SHRUB_PRAIRIE2.weighted(0.4F),
-            Features.FANCY_OAK_BEES_002.weighted(0.1F)),
-            Features.FANCY_OAK)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
+            SHRUB_PRAIRIE2.weighted(0.5F)),
+            SHRUB_PRAIRIE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
             new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_REDWOOD_TREE = createConfiguredFeature("redwood_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -1591,6 +1589,15 @@ public class BYGConfiguredFeatures {
             OAK_TREE_LARGE2.weighted(0.1F)),
             OAK_TREE_LARGE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
             new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_OAK_TREE = createConfiguredFeature("sparse_oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
+            OAK_TREE1.weighted(0.3F),
+            OAK_TREE2.weighted(0.2F),
+            OAK_TREE3.weighted(0.2F),
+            OAK_TREE_LARGE1.weighted(0.1F),
+            OAK_TREE_LARGE2.weighted(0.1F)),
+            OAK_TREE_LARGE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
+            new AtSurfaceWithExtraConfig(0, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RED_OAK_TREE = createConfiguredFeature("red_oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             RED_OAK_TREE1.weighted(0.3F),

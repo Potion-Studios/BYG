@@ -4,7 +4,7 @@
     "item": "minecraft:netherite_boots"
   },
   "addition": {
-    "item": "byg:ametrine_gems"
+    "item": "byg:ametrine_block"
   },
   "result": {
     "item": "byg:ametrine_boots"

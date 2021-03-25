@@ -69,10 +69,6 @@ public class AmetrineClusterBlock extends Block implements IWaterLoggable {
         return world.getBlockState(blockPos).isFaceSturdy(world, blockPos, direction);
     }
 
-    public OffsetType getOffsetType() {
-        return OffsetType.XZ;
-    }
-
     public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, IWorld levelAccessor, BlockPos blockPos, BlockPos blockPos2) {
         if (blockState.getValue(WATERLOGGED)) {
             levelAccessor.getLiquidTicks().scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));

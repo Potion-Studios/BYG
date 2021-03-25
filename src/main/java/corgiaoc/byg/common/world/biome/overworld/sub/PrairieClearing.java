@@ -40,6 +40,7 @@ public class PrairieClearing extends BYGSubBiome {
     static {
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addPrairieTree(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addSparseOakForestTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);

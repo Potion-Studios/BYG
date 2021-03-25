@@ -630,6 +630,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_RED_OAK_TREE);
     }
 
+    public static void addSparseOakForestTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_OAK_TREE);
+    }
+
     public static void addSeasonalBirchForestTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SEASONAL_BIRCH_FOREST_TREE);
     }
