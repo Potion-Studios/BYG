@@ -63,8 +63,21 @@ minecraft {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-//    annotationProcessor 'org.spongepowered:mixin:0.8.2:processor' //Re-enable when building jar
+    annotationProcessor 'org.spongepowered:mixin:0.8.2:processor' //Re-enable when building jar
 }
+
+////////////////
+// IntelliJ Project Import
+// The Mixin annotation process does not have an obfuscation source when running through the IntelliJ compiler,
+// thus we have to prevent it from being activated as part of importing this Gradle project into IntelliJ.
+if (System.getProperty("idea.sync.active") == "true") {
+    afterEvaluate {
+        tasks.withType(JavaCompile).all {
+            it.options.annotationProcessorPath = files()
+        }
+    }
+}
+
 
 jar {
     manifest {
