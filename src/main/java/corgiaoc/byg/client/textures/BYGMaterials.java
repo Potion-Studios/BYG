@@ -9,6 +9,7 @@ public class BYGMaterials {
     public static final Material BLUE_GLOWCANE;
     public static final Material PURPLE_GLOWCANE;
     public static final Material PINK_GLOWCANE;
+    public static final Material AMETRINE;
 
     static {
         GLOWCELIUM = (new Material.Builder(MaterialColor.GRASS)).build();
@@ -16,6 +17,8 @@ public class BYGMaterials {
         BLUE_GLOWCANE = (new Material.Builder(MaterialColor.COLOR_BLUE)).build();
         PURPLE_GLOWCANE = (new Material.Builder(MaterialColor.COLOR_PURPLE)).build();
         PINK_GLOWCANE = (new Material.Builder(MaterialColor.COLOR_PINK)).build();
+
+        AMETRINE = (new Material.Builder(MaterialColor.COLOR_PINK)).nonSolid().build();
     }
 
 }

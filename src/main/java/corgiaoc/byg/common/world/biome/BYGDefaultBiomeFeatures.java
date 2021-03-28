@@ -81,6 +81,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.END_LAKE);
     }
 
+    public static void addOverworldLake(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.OVERWORLD_LAKE);
+    }
+
     public static void addBulbisLake(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.BULBIS_WATER_LAKE);
     }
@@ -151,6 +155,10 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addBYGLilyPad(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_LILY_PADS);
+    }
+
+    public static void addDefaultLilyPad(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.DEFAULT_LILY_PAD);
 
     }
 

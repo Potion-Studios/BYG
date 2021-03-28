@@ -91,8 +91,11 @@ public class GrassLandPlateau extends BYGBiome {
         BYGDefaultBiomeFeatures.addAnemones(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addSages(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrasslandBoulders(GENERATION_SETTINGS);
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.ARCH);
-//        GENERATION_SETTINGS.withFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.ARCH2);
+        BYGDefaultBiomeFeatures.addOverworldLake(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addCattails(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addReeds(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addDefaultLilyPad(GENERATION_SETTINGS);
+
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.CHICKEN, 10, 4, 4));

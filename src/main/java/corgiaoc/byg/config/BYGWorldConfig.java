@@ -83,7 +83,7 @@ public class BYGWorldConfig {
 
         COMMON_BUILDER.push("Scoria_Stone");
         SCORIA_STONE_GEN = COMMON_BUILDER.comment("\nGenerate Scoria Stone?").define("GenerateScoriaStone", true);
-        SCORIA_STONE_GEN_Y = COMMON_BUILDER.comment("\nY level to start generating at.\nDefault: 63").defineInRange("ScoriaStoneY", 63, 1, 256);
+        SCORIA_STONE_GEN_Y = COMMON_BUILDER.comment("\nY level to start generating at.\nDefault: 63").defineInRange("ScoriaStoneY", 25, 1, 256);
         SCORIA_STONE_GEN_SIZE = COMMON_BUILDER.comment("\nSize of the clusters.\nDefault: 20").defineInRange("ScoriaStoneSize", 20, 1, 100);
         SCORIA_STONE_GEN_PER_CHUNK = COMMON_BUILDER.comment("\nNumber of times to spawn per chunk.\nDefault: 10").defineInRange("ScoriaStonePerChunk", 10, 1, 100);
         COMMON_BUILDER.pop();
