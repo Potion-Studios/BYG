@@ -64,6 +64,7 @@ minecraft {
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.2:processor' //Re-enable when building jar
+    compileOnly 'com.github.spotbugs:spotbugs-annotations:4.2.2'
 }
 
 ////////////////
