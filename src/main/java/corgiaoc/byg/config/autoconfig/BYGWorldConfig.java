@@ -1,9 +1,9 @@
 package corgiaoc.byg.config.autoconfig;
 
 import corgiaoc.byg.BYG;
-import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
+import me.shedaniel.autoconfig.ConfigData;
+import me.shedaniel.autoconfig.annotation.Config;
+import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
 @Config(name = BYG.MOD_ID + "/" + BYG.MOD_ID + "-world")
 public class BYGWorldConfig implements ConfigData {

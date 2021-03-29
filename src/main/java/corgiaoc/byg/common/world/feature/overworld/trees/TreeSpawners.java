@@ -6,7 +6,7 @@ import corgiaoc.byg.common.world.feature.overworld.trees.util.TreeSpawner;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-import javax.annotation.Nullable;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Random;
 
 public class TreeSpawners {
