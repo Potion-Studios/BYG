@@ -15,7 +15,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
+import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggable {
 

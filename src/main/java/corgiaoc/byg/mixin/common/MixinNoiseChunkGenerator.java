@@ -17,7 +17,7 @@
 //import org.spongepowered.asm.mixin.injection.ModifyConstant;
 //import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //
-//import javax.annotation.Nullable;
+//import edu.umd.cs.findbugs.annotations.Nullable;
 //import java.util.Objects;
 //
 //@Mixin(NoiseChunkGenerator.class)
