@@ -9,6 +9,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.fluid.FluidState;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -144,9 +145,9 @@ public class OverworldLakeFeature extends Feature<NoFeatureConfig>
                            if (y > waterLevel + 1)
                               BlockHelper.setWithoutUpdate(world, pos, state);
                            else if (y > waterLevel)
-                              BlockHelper.setWithoutUpdate(world, pos, random.nextBoolean() ? state : Blocks.SAND.defaultBlockState());
+                              BlockHelper.setWithoutUpdate(world, pos, random.nextBoolean() ? state : Blocks.GRAVEL.defaultBlockState());
                            else
-                              BlockHelper.setWithoutUpdate(world, pos, Blocks.SAND.defaultBlockState());
+                              BlockHelper.setWithoutUpdate(world, pos, Blocks.GRAVEL.defaultBlockState());
                         }
                      }
                   }
@@ -196,7 +197,7 @@ public class OverworldLakeFeature extends Feature<NoFeatureConfig>
                      pos = POS.below();
                      if (world.getBlockState(pos).getBlock().is(Tags.Blocks.STONE))
                      {
-                        BlockHelper.setWithoutUpdate(world, pos, Blocks.SAND.defaultBlockState());
+                        BlockHelper.setWithoutUpdate(world, pos, Blocks.GRAVEL.defaultBlockState());
                      }
                      pos = POS.above();
                      while (canReplace(state = world.getBlockState(pos)) && !state.isAir() && state.getFluidState().isEmpty())
@@ -211,12 +212,12 @@ public class OverworldLakeFeature extends Feature<NoFeatureConfig>
                      if (world.isEmptyBlock(POS.above()))
                      {
                         state = world.getBiome(POS).getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial();
-                        BlockHelper.setWithoutUpdate(world, POS, random.nextBoolean() ? state : Blocks.SAND.defaultBlockState());
+                        BlockHelper.setWithoutUpdate(world, POS, random.nextBoolean() ? state : Blocks.GRAVEL.defaultBlockState());
                         BlockHelper.setWithoutUpdate(world, POS.below(), END_STONE);
                      }
                      else
                      {
-                        BlockHelper.setWithoutUpdate(world, POS, Blocks.SAND.defaultBlockState());
+                        BlockHelper.setWithoutUpdate(world, POS, Blocks.GRAVEL.defaultBlockState());
                         BlockHelper.setWithoutUpdate(world, POS.below(), END_STONE);
                      }
                   }
@@ -234,12 +235,17 @@ public class OverworldLakeFeature extends Feature<NoFeatureConfig>
    {
       return state.getMaterial().isReplaceable()
               || state.is(Tags.Blocks.STONE)
+              || state.is(BlockTags.FLOWERS)
               || state.is(Tags.Blocks.ORES) // Handles floating ores
               || state.is(Blocks.PODZOL) // Handles other blocks that could be left floating
               || state.is(Blocks.COARSE_DIRT) // Handles other blocks that could be left floating
               || state.is(Blocks.DIRT) // Handles other blocks that could be left floating
-              || state.is(Blocks.SAND)
+              || state.is(Blocks.GRAVEL)
+              || state.is(Blocks.GRASS)
               || state.is(Blocks.GRASS_BLOCK)
+              || state.is(BYGBlocks.OVERGROWN_STONE)
+              || state.is(BYGBlocks.WEED_GRASS)
+              || state.is(BYGBlocks.SHORT_GRASS)
               || state.getMaterial().equals(Material.PLANT)
               || state.getMaterial().equals(Material.WATER_PLANT)
               || state.getMaterial().equals(Material.REPLACEABLE_WATER_PLANT);

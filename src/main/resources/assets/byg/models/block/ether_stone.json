@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "all": "byg:block/ether_stone"
+    "top": "byg:block/ether_stone_top",
+    "bottom": "byg:block/ether_stone_top",
+    "side": "byg:block/ether_stone"
   }
 }

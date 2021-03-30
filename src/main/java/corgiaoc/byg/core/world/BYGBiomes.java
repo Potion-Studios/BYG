@@ -222,7 +222,7 @@ public class BYGBiomes {
     public static Biome SKYRIS_HIGHLANDS_CLEARING = WorldGenRegistrationHelper.createBiome("skyris_highlands_clearing", new SkyrisHighlandsClearing().getBiome(), 180);
     public static Biome SKYRIS_PEAKS = WorldGenRegistrationHelper.createBiome("skyris_peaks", new SkyrisPeaks().getBiome(), 181);
     public static Biome SKYRIS_STEEPS = WorldGenRegistrationHelper.createBiome("skyris_steeps", new SkyrisSteeps().getBiome(), 182);
-
+    public static Biome GUIANA_SPRINGS = WorldGenRegistrationHelper.createBiome("guiana_springs", new GuianaSprings().getBiome(), 183);
 
     //Mutations
     public static Biome SEASONAL_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("seasonal_giant_taiga", new SeasonalGiantTaiga().getBiome(), 123);

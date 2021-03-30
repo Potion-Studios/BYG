@@ -2,7 +2,7 @@
   "parent": "block/cube_bottom_top",
   "textures": {
     "particle": "byg:block/overgrown_stone_bottom",
-    "bottom": "byg:block/overgrown_stone_bottom",
+    "bottom": "minecraft:block/stone",
     "top": "byg:block/overgrown_stone_top",
     "side": "byg:block/overgrown_stone_snow_side"
   }

@@ -608,7 +608,7 @@ public class BYGBlocks {
     public static final Block PURPUR_STONE_SLAB = createStoneSlab("purpur_stone_slab");
     public static final Block PURPUR_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("purpur_stone_stairs");
     public static final Block PURPUR_STONE_WALL = createStoneWall("purpur_stone_wall");
-    public static final Block ETHER_STONE = new BYGBlockProperties.BYGStone("ether_stone");
+    public static final Block ETHER_STONE = createEtherStone("ether_stone");
     public static final Block ETHER_STONE_SLAB = createStoneSlab("ether_stone_slab");
     public static final Block ETHER_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("ether_stone_stairs");
     public static final Block ETHER_STONE_WALL = createStoneWall("ether_stone_wall");
@@ -1226,6 +1226,12 @@ public class BYGBlocks {
 
     static Block createDacite(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createEtherStone(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_CYAN).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
         createBlock(createBlock, id);
         return createBlock;
     }
