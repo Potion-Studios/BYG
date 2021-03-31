@@ -44,9 +44,11 @@ public class AspenForest extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BYGBiomes.ASPEN_FOREST_HILLS, 4);
-        biomeWeightedList.add(BYGBiomes.ASPEN_CLEARING, 3);
-        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 3);
+        biomeWeightedList.add(BYGBiomes.ASPEN_FOREST_HILLS, 6);
+        biomeWeightedList.add(BYGBiomes.ASPEN_CLEARING, 8);
+        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 5);
+        biomeWeightedList.add(BYGBiomes.FLOWERING_GROVE, 1);
+        biomeWeightedList.add(BYGBiomes.GROVE, 7);
         return biomeWeightedList;
     }
 

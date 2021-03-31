@@ -1024,7 +1024,7 @@ public class BYGConfiguredFeatures {
             ANCIENT_TREE1.weighted(0.20F),
             ANCIENT_TREE2.weighted(0.20F)),
             ANCIENT_TREE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(16, 0.4F, 8))));
+            new AtSurfaceWithExtraConfig(10, 0.2F, 5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BAYOU_TREE = createConfiguredFeature("bayou_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             WILLOW_DEAD_TREE1.weighted(0.1F),
@@ -1032,7 +1032,7 @@ public class BYGConfiguredFeatures {
             WILLOW_TREE2.weighted(0.25F),
             WILLOW_TREE3.weighted(0.25F)),
             WILLOW_TREE4)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(8, 0.3F, 2))));
+            new AtSurfaceWithExtraConfig(5, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_BAYOU_TREE = createConfiguredFeature("sparse_bayou_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             WILLOW_TREE1.weighted(0.25F),
@@ -1045,7 +1045,7 @@ public class BYGConfiguredFeatures {
             Feature.CORAL_TREE.configured(IFeatureConfig.NONE).weighted(0.25F),
             Feature.CORAL_MUSHROOM.configured(IFeatureConfig.NONE).weighted(0.25F)),
             Feature.CORAL_CLAW.configured(IFeatureConfig.NONE))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(25, 0.3F, 2))));
+            new AtSurfaceWithExtraConfig(20, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLUFF_TREE = createConfiguredFeature("bluff_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             PINE_TREE1.weighted(0.05F),
@@ -1054,13 +1054,13 @@ public class BYGConfiguredFeatures {
             BLUFF_TREE2.weighted(0.3F),
             BLUFF_TREE3.weighted(0.25F)),
             CONIFER_TREE6)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(12, 0.3F, -4))));
+            new AtSurfaceWithExtraConfig(10, 0.45F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_TREE = createConfiguredFeature("boreal_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             BIRCH_YELLOW_BOREAL_TREE1.weighted(0.3F),
             BIRCH_BOREAL_TREE1.weighted(0.3F)),
             BOREAL_TREE2)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(18, 0.5F, -2))));
+            new AtSurfaceWithExtraConfig(12, 0.5F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BOREAL_SPARSE_TREE = createConfiguredFeature("sparse_boreal_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             BIRCH_YELLOW_BOREAL_TREE1.weighted(0.3F),
@@ -1077,7 +1077,7 @@ public class BYGConfiguredFeatures {
             PINE_LARGE_TREE2.weighted(0.5F),
             PINE_TREE1.weighted(0.5F)),
             PINE_TREE2)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(30, 0.4F, -5))));
+            new AtSurfaceWithExtraConfig(20, 0.4F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BLACK_FOREST_SPARSE_TREE = createConfiguredFeature("sparse_black_forest_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             PINE_LARGE_TREE1.weighted(0.45F),
@@ -1090,7 +1090,7 @@ public class BYGConfiguredFeatures {
             CIKA_TREE2.weighted(0.2F),
             CIKA_TREE3.weighted(0.1F)),
             CIKA_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(4, 0.4F, 3))));
+            new AtSurfaceWithExtraConfig(2, 0.4F, 3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_TREE = createConfiguredFeature("conifer_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             CONIFER_TREE1.weighted(0.06F),
@@ -1101,7 +1101,7 @@ public class BYGConfiguredFeatures {
             CONIFER_TREE6.weighted(0.2F),
             CONIFER_TREE7.weighted(0.1F)),
             CONIFER_TREE8)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(18, 0.4F, -1))));
+            new AtSurfaceWithExtraConfig(15, 0.4F, -3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_SPARSE_TREE = createConfiguredFeature("sparse_conifer_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             CONIFER_TREE1.weighted(0.06F),
@@ -1120,41 +1120,41 @@ public class BYGConfiguredFeatures {
             Features.BAMBOO.weighted(0.05F),
             RAINBOW_LARGE_TREE1.weighted(0.1F)),
             MAHOGANY_TREE2)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(30, 0.4F, 8))));
+            new AtSurfaceWithExtraConfig(30, 0.4F, -8))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CYPRESS_TREE = createConfiguredFeature("cypress_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             CYPRESS_TREE1.weighted(0.5F),
             CYPRESS_TREE2.weighted(0.4F)),
             CYPRESS_TREE3)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(5, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(4, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_TREE = createConfiguredFeature("deciduous_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_TREE1.weighted(0.25F),
             DECIDUOUS_TREE2.weighted(0.25F),
             DECIDUOUS_TREE3.weighted(0.25F)),
             DECIDUOUS_TREE4)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(4, 0.4F, 3))));
+            new AtSurfaceWithExtraConfig(3, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_RED_TREE = createConfiguredFeature("deciduous_red_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_RED_TREE1.weighted(0.25F),
             DECIDUOUS_RED_TREE2.weighted(0.25F),
             DECIDUOUS_RED_TREE3.weighted(0.25F)),
             DECIDUOUS_RED_TREE4)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(2, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_ORANGE_TREE = createConfiguredFeature("deciduous_orange_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_ORANGE_TREE1.weighted(0.25F),
             DECIDUOUS_ORANGE_TREE2.weighted(0.25F),
             DECIDUOUS_ORANGE_TREE3.weighted(0.25F)),
             DECIDUOUS_ORANGE_TREE4)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(2, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_BROWN_TREE = createConfiguredFeature("deciduous_brown_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_BROWN_TREE1.weighted(0.25F),
             DECIDUOUS_BROWN_TREE2.weighted(0.25F),
             DECIDUOUS_BROWN_TREE3.weighted(0.25F)),
             DECIDUOUS_BROWN_TREE4)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(2, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_SPARSE_TREE = createConfiguredFeature("sparse_deciduous_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_TREE1.weighted(0.25F),
@@ -1167,7 +1167,7 @@ public class BYGConfiguredFeatures {
             PINE_LARGE_TREE1.weighted(0.25F),
             PINE_LARGE_TREE2.weighted(0.25F)),
             SPRUCE_TREE_LARGE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(2, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EUCALYPTUS_TREE = createConfiguredFeature("eucalyptus_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             RAINBOW_TREE1.weighted(0.1F)),
@@ -1179,7 +1179,7 @@ public class BYGConfiguredFeatures {
             INDIGO_JACARANDA_TREE2.weighted(0.3F),
             INDIGO_JACARANDA_TREE1.weighted(0.3F)),
             JACARANDA_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(25, 0.1F, -5))));
+            new AtSurfaceWithExtraConfig(20, 0.1F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_SPARSE_TREE = createConfiguredFeature("sparse_jacaranda_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             INDIGO_JACARANDA_TREE1.weighted(0.3F)),
@@ -1192,7 +1192,7 @@ public class BYGConfiguredFeatures {
             MAPLE_SILVER_TREE1.weighted(0.2F),
             MAPLE_SILVER_TREE2.weighted(0.1F)),
             MAPLE_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(5, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(4, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MAPLE_SPARSE_TREE = createConfiguredFeature("sparse_maple_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             MAPLE_TREE1.weighted(0.06F),
@@ -1206,7 +1206,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_NORTHERN_FOREST_TREE = createConfiguredFeature("northern_forest_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             PINE_TREE1.weighted(0.5F)),
             PINE_TREE2)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(4, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(3, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PRAIRIE_TREE = createConfiguredFeature("prairie_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB_PRAIRIE2.weighted(0.5F)),
@@ -1217,7 +1217,7 @@ public class BYGConfiguredFeatures {
             REDWOOD_TREE1.weighted(0.55F),
             REDWOOD_TREE2.weighted(0.1F)),
             REDWOOD_TREE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(3, 0.1F, 2))));
+            new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_REDWOOD_SPARSE_TREE = createConfiguredFeature("sparse_redwood_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             REDWOOD_TREE1.weighted(0.55F),
@@ -1228,7 +1228,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_SHRUB = createConfiguredFeature("seasonal_shrubs", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB.weighted(0.4F)),
             DECIDUOUS_SEASONAL_SHRUB)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(5, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(4, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_DECIDUOUS_SPARSE_TREE = createConfiguredFeature("sparse_seasonal_deciduous_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             DECIDUOUS_RED_TREE1.weighted(0.2F),
@@ -1243,14 +1243,14 @@ public class BYGConfiguredFeatures {
             PINE_TREE2.weighted(0.25F),
             ASPEN_TREE2.weighted(0.25F)),
             ASPEN_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(2, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_SEASONAL_TREE_GIANT = createConfiguredFeature("spruce_seasonal_giant_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SPRUCE_RED_TREE_LARGE1.weighted(0.25F),
             SPRUCE_ORANGE_TREE_LARGE1.weighted(0.25F),
             SPRUCE_YELLOW_TREE_LARGE1.weighted(0.25F)),
             SPRUCE_TREE_LARGE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_TREE = createConfiguredFeature("spruce_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SPRUCE_TREE1.weighted(0.06F),
@@ -1262,7 +1262,7 @@ public class BYGConfiguredFeatures {
             SPRUCE_TREE_MEDIUM3.weighted(0.2F),
             SPRUCE_TREE_MEDIUM4.weighted(0.1F)),
             SPRUCE_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_YELLOW_TREE = createConfiguredFeature("spruce_yellow_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SPRUCE_YELLOW_TREE1.weighted(0.06F),
@@ -1274,7 +1274,7 @@ public class BYGConfiguredFeatures {
             SPRUCE_YELLOW_TREE_MEDIUM3.weighted(0.2F),
             SPRUCE_YELLOW_TREE_MEDIUM4.weighted(0.1F)),
             SPRUCE_YELLOW_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_ORANGE_TREE = createConfiguredFeature("spruce_orange_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SPRUCE_ORANGE_TREE1.weighted(0.06F),
@@ -1286,7 +1286,7 @@ public class BYGConfiguredFeatures {
             SPRUCE_ORANGE_TREE_MEDIUM3.weighted(0.2F),
             SPRUCE_ORANGE_TREE_MEDIUM4.weighted(0.1F)),
             SPRUCE_ORANGE_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_RED_TREE = createConfiguredFeature("spruce_red_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SPRUCE_RED_TREE1.weighted(0.06F),
@@ -1298,7 +1298,7 @@ public class BYGConfiguredFeatures {
             SPRUCE_RED_TREE_MEDIUM3.weighted(0.2F),
             SPRUCE_RED_TREE_MEDIUM4.weighted(0.1F)),
             SPRUCE_RED_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_BLUE_TREE = createConfiguredFeature("spruce_blue_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SPRUCE_BLUE_TREE1.weighted(0.06F),
@@ -1310,12 +1310,12 @@ public class BYGConfiguredFeatures {
             SPRUCE_BLUE_TREE_MEDIUM3.weighted(0.2F),
             SPRUCE_BLUE_TREE_MEDIUM4.weighted(0.1F)),
             SPRUCE_BLUE_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(3, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_BLUE_TREE_GIANT = createConfiguredFeature("spruce_blue_tree_giant", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SPRUCE_BLUE_TREE_LARGE1.weighted(0.5F)),
             SPRUCE_TREE_LARGE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(1, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_FUNGAL_TREE = createConfiguredFeature("fungal_rainforest_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             RAINBOW_LARGE_TREE1.weighted(0.1F),
@@ -1326,7 +1326,7 @@ public class BYGConfiguredFeatures {
             MAHOGANY_TREE3.weighted(0.2F),
             MAHOGANY_TREE4.weighted(0.15F)),
             MAHOGANY_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(20, 0.3F, 5))));
+            new AtSurfaceWithExtraConfig(20, 0.25F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_SPARSE_TREE = createConfiguredFeature("sparse_rainforest_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             RAINBOW_LARGE_TREE1.weighted(0.1F),
@@ -1348,7 +1348,7 @@ public class BYGConfiguredFeatures {
             MAHOGANY_TREE3.weighted(0.2F),
             MAHOGANY_TREE4.weighted(0.15F)),
             MAHOGANY_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(20, 0.3F, 5))));
+            new AtSurfaceWithExtraConfig(20, 0.25F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_STONE_FOREST_TREE = createConfiguredFeature("stone_forest_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             EBONY_TREE1.weighted(0.1F),
@@ -1356,7 +1356,7 @@ public class BYGConfiguredFeatures {
             Features.JUNGLE_BUSH.weighted(0.1F),
             DECIDUOUS_TREE1.weighted(0.1F)),
             DECIDUOUS_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(20, 0.3F, 3))));
+            new AtSurfaceWithExtraConfig(20, 0.25F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SKYRIS_TREE = createConfiguredFeature("skyris_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SKYRIS_TREE1.weighted(0.15F),
@@ -1364,7 +1364,7 @@ public class BYGConfiguredFeatures {
             SKYRIS_TREE2.weighted(0.15F),
             SKYRIS_TREE3.weighted(0.25F)),
             SKYRIS_TREE4)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(3, 0.45F, 2))));
+            new AtSurfaceWithExtraConfig(2, 0.45F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_SKYRIS_TREE = createConfiguredFeature("sparse_skyris_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SKYRIS_TREE1.weighted(0.15F),
@@ -1379,7 +1379,7 @@ public class BYGConfiguredFeatures {
             BAOBAB_TREE1.weighted(0.35F),
             BAOBAB_TREE2.weighted(0.35F)),
             BAOBAB_TREE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(0, 0.6F, 1))));
+            new AtSurfaceWithExtraConfig(0, 0.45F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ARAUCARIA_TREE = createConfiguredFeature("araucaria_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             ARAUCARIA_TREE2.weighted(0.5F)),
@@ -1416,20 +1416,20 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_GROVE_TREE = createConfiguredFeature("enchanted_grove_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             ENCHANTED_BLUE_GROVE_TREE1.weighted(0.5F)),
             ENCHANTED_GREEN_GROVE_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(2, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GIANT_FLOWER = createConfiguredFeature("giant_flowers", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             GIANT_ANGELICA_FLOWER.weighted(0.2F),
             GIANT_DANDELION_FLOWER.weighted(0.2F),
             GIANT_IRIS_FLOWER.weighted(0.5F)),
             GIANT_ROSE_FLOWER)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(1, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(1, 0.2F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MARSH_TREE = createConfiguredFeature("marsh_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SHRUB_PRAIRIE2.weighted(0.2F),
             SHRUB_PRAIRIE1.weighted(0.1F)),
             Features.SWAMP_TREE)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(3, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(2, 0.35F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_TREE = createConfiguredFeature("enchanted_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             ENCHANTED_BLUE_TREE2.weighted(0.2F),
@@ -1438,7 +1438,7 @@ public class BYGConfiguredFeatures {
             ENCHANTED_GREEN_TREE2.weighted(0.2F),
             ENCHANTED_GREEN_TREE3.weighted(0.1F)),
             ENCHANTED_BLUE_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(10, 0.4F, -2))));
+            new AtSurfaceWithExtraConfig(7, 0.4F, -2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM_BAYOU_TREE = createConfiguredFeature("glowshroom_bayou_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             WILLOW_DEAD_TREE1.weighted(0.2F),
@@ -1448,13 +1448,13 @@ public class BYGConfiguredFeatures {
             WILLOW_TREE4.weighted(0.2F),
             WILLOW_TREE2.weighted(0.1F)),
             WILLOW_TREE1)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(8, 0.4F, 3))));
+            new AtSurfaceWithExtraConfig(5, 0.3F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_TREE = createConfiguredFeature("aspen_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             ASPEN_TREE2.weighted(0.50F),
             ASPEN_TREE3.weighted(0.25F)),
             ASPEN_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(15, 0.5F, -1))));
+            new AtSurfaceWithExtraConfig(15, 0.4F, -3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ASPEN_SHRUB = createConfiguredFeature("aspen_shrubs", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             ASPEN_SHRUB1.weighted(0.1F)),
@@ -1471,7 +1471,7 @@ public class BYGConfiguredFeatures {
             ZELKOVA_TREE2.weighted(0.2F),
             ZELKOVA_TREE3.weighted(0.1F)),
             ZELKOVA_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(15, 0.4F, -2))));
+            new AtSurfaceWithExtraConfig(13, 0.4F, -3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_ZELKOVA_TREE = createConfiguredFeature("sparse_zelkova_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             ZELKOVA_TREE2.weighted(0.2F),
@@ -1482,7 +1482,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_PALO_VERDE_TREE = createConfiguredFeature("palo_verde_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             PALO_VERDE_TREE1.weighted(0.5F)),
             PALO_VERDE_TREE2)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(1, 0.4F, -1))));
+            new AtSurfaceWithExtraConfig(1, 0.5F, -1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_JOSHUA_TREE = createConfiguredFeature("joshua_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             JOSHUA_TREE1.weighted(0.5F)),
@@ -1499,21 +1499,21 @@ public class BYGConfiguredFeatures {
             PALM_TREE3.weighted(0.35F),
             PALM_TREE2.weighted(0.35F)),
             PALM_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(0, 0.2F, 2))));
+            new AtSurfaceWithExtraConfig(0, 0.25F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DENSE_PALM_TREE = createConfiguredFeature("palm_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             PALM_TREE4.weighted(0.05F),
             PALM_TREE3.weighted(0.35F),
             PALM_TREE2.weighted(0.35F)),
             PALM_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(7, 0.3F, 2))));
+            new AtSurfaceWithExtraConfig(7, 0.3F, -3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CHERRY_TREE = createConfiguredFeature("cherry_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             CHERRY_PINK_TREE1.weighted(0.2F),
             CHERRY_PINK_TREE2.weighted(0.2F),
             CHERRY_WHITE_TREE1.weighted(0.1F)),
             CHERRY_WHITE_TREE2)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(14, 0.4F, -1))));
+            new AtSurfaceWithExtraConfig(14, 0.35F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_CHERRY_TREE = createConfiguredFeature("sparse_cherry_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             CHERRY_PINK_TREE1.weighted(0.2F),
@@ -1527,7 +1527,7 @@ public class BYGConfiguredFeatures {
             DEAD_HAZEL_TREE2.weighted(0.2F),
             DEAD_HAZEL_TREE3.weighted(0.1F)),
             DEAD_HAZEL_TREE4)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(14, 0.3F, 4))));
+            new AtSurfaceWithExtraConfig(14, 0.35F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_WITCH_HAZEL_TREE = createConfiguredFeature("sparse_witch_hazel_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_HAZEL_TREE1.weighted(0.2F),
@@ -1541,14 +1541,14 @@ public class BYGConfiguredFeatures {
             EBONY_TREE2.weighted(0.2F),
             EBONY_BUSH1.weighted(0.1F)),
             EBONY_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(10, 0.4F, 2))));
+            new AtSurfaceWithExtraConfig(10, 0.45F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_HOLLY_TREE = createConfiguredFeature("holly_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             HOLLY_TREE1.weighted(0.2F),
             HOLLY_TREE2.weighted(0.2F),
             HOLLY_TREE3.weighted(0.1F)),
             HOLLY_TREE4)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(25, 0.4F, 5))));
+            new AtSurfaceWithExtraConfig(20, 0.35F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_HOLLY_TREE = createConfiguredFeature("sparse_holly_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             HOLLY_TREE1.weighted(0.2F),
@@ -1563,7 +1563,7 @@ public class BYGConfiguredFeatures {
             MANGROVE_TREE3.weighted(0.2F),
             MANGROVE_TREE4.weighted(0.1F)),
             MANGROVE_TREE5)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(15, 0.3F, 2))));
+            new AtSurfaceWithExtraConfig(12, 0.3F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MANGROVE_SPARSE_TREE = createConfiguredFeature("sparse_mangrove_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             MANGROVE_TREE1.weighted(0.2F),
@@ -1577,13 +1577,12 @@ public class BYGConfiguredFeatures {
             ORCHARD_TREE1.weighted(0.3F),
             ORCHARD_TREE2.weighted(0.3F)),
             ORCHARD_TREE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.35F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WOODLAND_TREE = createConfiguredFeature("woodland_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             WOODLANDS_TREE1.weighted(0.1F)),
             WOODLANDS_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(1, 0.35F, 2))));
-
+            new AtSurfaceWithExtraConfig(1, 0.25F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_OAK_TREE = createConfiguredFeature("oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             OAK_TREE1.weighted(0.3F),
@@ -1592,7 +1591,7 @@ public class BYGConfiguredFeatures {
             OAK_TREE_LARGE1.weighted(0.1F),
             OAK_TREE_LARGE2.weighted(0.1F)),
             OAK_TREE_LARGE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.25F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_OAK_TREE = createConfiguredFeature("sparse_oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             OAK_TREE1.weighted(0.3F),
@@ -1610,7 +1609,7 @@ public class BYGConfiguredFeatures {
             RED_OAK_TREE_LARGE1.weighted(0.1F),
             RED_OAK_TREE_LARGE2.weighted(0.1F)),
             RED_OAK_TREE_LARGE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.25F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_RED_OAK_TREE = createConfiguredFeature("sparse_red_oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             RED_OAK_TREE1.weighted(0.3F),
@@ -1628,7 +1627,7 @@ public class BYGConfiguredFeatures {
             BROWN_OAK_TREE_LARGE1.weighted(0.1F),
             BROWN_OAK_TREE_LARGE2.weighted(0.1F)),
             BROWN_OAK_TREE_LARGE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.25F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ORANGE_OAK_TREE = createConfiguredFeature("orange_oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             ORANGE_OAK_TREE1.weighted(0.3F),
@@ -1637,7 +1636,7 @@ public class BYGConfiguredFeatures {
             ORANGE_OAK_TREE_LARGE1.weighted(0.1F),
             ORANGE_OAK_TREE_LARGE2.weighted(0.1F)),
             ORANGE_OAK_TREE_LARGE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(1, 0.4F, 1))));
+            new AtSurfaceWithExtraConfig(1, 0.25F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_BIRCH_FOREST_TREE = createConfiguredFeature("seasonal_birch_forest_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             BIRCH_BROWN_TREE1.weighted(0.06F),
@@ -1652,7 +1651,7 @@ public class BYGConfiguredFeatures {
             BIRCH_YELLOW_TREE1.weighted(0.06F),
             BIRCH_YELLOW_TREE2.weighted(0.1F)),
             BIRCH_YELLOW_TREE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(8, 0.3F, -2))));
+            new AtSurfaceWithExtraConfig(8, 0.3F, -4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_HUGE_GLOWSHROOM = createConfiguredFeature("huge_glowshroom", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             BLUE_GLOWSHROOM_HUGE.weighted(0.1F)),

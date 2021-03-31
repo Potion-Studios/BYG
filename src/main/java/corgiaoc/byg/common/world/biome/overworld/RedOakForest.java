@@ -40,8 +40,10 @@ public class RedOakForest extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BYGBiomes.RED_OAK_FOREST_HILLS, 6);
+        biomeWeightedList.add(BYGBiomes.RED_OAK_FOREST_HILLS, 7);
         biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 4);
+        biomeWeightedList.add(BYGBiomes.FLOWERING_GROVE, 1);
+        biomeWeightedList.add(BYGBiomes.GROVE, 6);
         return biomeWeightedList;
     }
 

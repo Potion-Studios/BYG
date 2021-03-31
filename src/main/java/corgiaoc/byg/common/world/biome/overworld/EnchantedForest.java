@@ -45,7 +45,9 @@ public class EnchantedForest extends BYGBiome {
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
         biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 2);
-        biomeWeightedList.add(BYGBiomes.ENCHANTED_FOREST_HILLS, 8);
+        biomeWeightedList.add(BYGBiomes.ENCHANTED_FOREST_HILLS, 6);
+        biomeWeightedList.add(BYGBiomes.ENCHANTED_GROVE, 10);
+        biomeWeightedList.add(BYGBiomes.FLOWERING_ENCHANTED_GROVE, 2);
         return biomeWeightedList;
     }
 

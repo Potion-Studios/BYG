@@ -43,7 +43,7 @@ public class BaobabSavanna extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.SAVANNA), 3);
+        biomeWeightedList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.SAVANNA), 5);
         return biomeWeightedList;
     }
 

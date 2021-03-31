@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.biome.overworld;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
+import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
@@ -18,7 +19,7 @@ import net.minecraftforge.common.BiomeManager;
 
 import edu.umd.cs.findbugs.annotations.Nullable;
 
-public class EnchantedGrove extends BYGBiome {
+public class EnchantedGrove extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("enchanted_grove", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.PLAINS;
@@ -42,30 +43,9 @@ public class EnchantedGrove extends BYGBiome {
     public Biome getHills(INoiseRandom rand) {
         return (rand.nextRandom(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.FLOWERING_ENCHANTED_GROVE;
     }
-
-
-    @Nullable
-    @Override
-    public WeightedList<Biome> getHills() {
-        WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 2);
-        biomeWeightedList.add(BYGBiomes.FLOWERING_ENCHANTED_GROVE, 8);
-        return biomeWeightedList;
-    }
-
     @Override
     public BiomeDictionary.Type[] getBiomeDictionary() {
         return new BiomeDictionary.Type[]{BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD};
-    }
-
-    @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.WARM;
-    }
-
-    @Override
-    public int getWeight() {
-        return 1;
     }
 
     static {

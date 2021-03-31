@@ -49,8 +49,10 @@ public class EbonyWoods extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 5);
-        biomeWeightedList.add(BYGBiomes.EBONY_HILLS, 5);
+        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 3);
+        biomeWeightedList.add(BYGBiomes.EBONY_HILLS, 6);
+        biomeWeightedList.add(BYGBiomes.FLOWERING_GROVE, 1);
+        biomeWeightedList.add(BYGBiomes.GROVE, 7);
         return biomeWeightedList;
     }
 

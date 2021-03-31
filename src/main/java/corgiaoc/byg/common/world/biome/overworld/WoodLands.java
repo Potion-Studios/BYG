@@ -41,15 +41,13 @@ public class WoodLands extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColorOverride(GRASS_COLOR).foliageColorOverride(FOLIAGE_COLOR).skyColor(BiomeUtil.calcSkyColor(0.8F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
-    public Biome getHills(INoiseRandom rand) {
-        return (rand.nextRandom(5) == 0) ? BYGBiomes.FRESH_WATER_LAKE : BYGBiomes.FRESH_WATER_LAKE;
-    }
-
     @Nullable
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 10);
+        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 7);
+        biomeWeightedList.add(BYGBiomes.FLOWERING_GROVE, 1);
+        biomeWeightedList.add(BYGBiomes.GROVE, 8);
         return biomeWeightedList;
     }
 

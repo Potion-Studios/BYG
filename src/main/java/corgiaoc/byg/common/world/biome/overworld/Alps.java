@@ -39,7 +39,7 @@ public class Alps extends BYGBiome {
 
     @Override
     public Biome getRiver() {
-        return BYGBiomes.ALPINE_FOOTHILLS;
+        return this.getBiome();
     }
 
     @Nullable
@@ -59,6 +59,13 @@ public class Alps extends BYGBiome {
     public BiomeDictionary.Type[] getBiomeDictionary() {
         return new BiomeDictionary.Type[]{BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD};
     }
+
+    @Nullable
+    @Override
+    public Biome getEdge() {
+        return BYGBiomes.ALPINE_FOOTHILLS;
+    }
+
 
     @Override
     public BiomeManager.BiomeType getBiomeType() {

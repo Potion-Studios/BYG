@@ -58,6 +58,7 @@ public class AspenForestHills extends BYGSubBiome {
         BYGDefaultBiomeFeatures.addYellowDaffodil(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addOrangeDaisy(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addPumpkinPatch(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

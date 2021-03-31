@@ -42,7 +42,7 @@ public class GreatLakes extends BYGBiome {
 
     @Override
     public Biome getRiver() {
-        return BYGBiomes.GREAT_LAKE_ISLES;
+        return this.getBiome();
     }
 
     @Nullable

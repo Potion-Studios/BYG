@@ -53,6 +53,7 @@ public class BlueGiantTaiga extends BYGSubBiome {
         BYGDefaultBiomeFeatures.addGiantBlueTaigaTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBlueberries(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

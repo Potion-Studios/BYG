@@ -17,8 +17,8 @@ public class CherryBlossomClearing extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("cherry_blossom_clearing", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.FOREST;
-    static final float DEPTH = 0.3F;
-    static final float SCALE = 0.2F;
+    static final float DEPTH = 0.1F;
+    static final float SCALE = 0.05F;
     static final float TEMPERATURE = 0.7F;
     static final float DOWNFALL = 0.8F;
     static final int WATER_COLOR = 4159204;

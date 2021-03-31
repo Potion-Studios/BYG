@@ -55,6 +55,7 @@ public class SeasonalDeciduousForestHills extends BYGSubBiome {
         BYGDefaultBiomeFeatures.addAnemones(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addCrocus(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PIG, 10, 4, 4));

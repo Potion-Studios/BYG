@@ -15,8 +15,8 @@ public class JacarandaClearing extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("jacaranda_clearing", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS));
     static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
     static final Biome.Category CATEGORY = Biome.Category.JUNGLE;
-    static final float DEPTH = 0.2F;
-    static final float SCALE = 0.2F;
+    static final float DEPTH = 0.1F;
+    static final float SCALE = 0.05F;
     static final float TEMPERATURE = 0.95F;
     static final float DOWNFALL = 0.5F;
     static final int WATER_COLOR = 4159204;

@@ -52,7 +52,6 @@ public class SnowyBlueTaigaHills extends BYGSubBiome {
         DefaultBiomeFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addFerns(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultCarvers(GENERATION_SETTINGS);
-
         DefaultBiomeFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);

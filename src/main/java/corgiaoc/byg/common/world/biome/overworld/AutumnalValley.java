@@ -44,7 +44,8 @@ public class AutumnalValley extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 10);
+        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 8);
+        biomeWeightedList.add(BYGBiomes.CIKA_WOODS, 5);
         return biomeWeightedList;
     }
 

@@ -39,31 +39,15 @@ public class DeciduousForest extends BYGBiome {
         super(WEATHER, CATEGORY, DEPTH, SCALE, (new BiomeAmbience.Builder()).waterColor(WATER_COLOR).waterFogColor(WATER_FOG_COLOR).fogColor(12638463).grassColorOverride(GRASS_COLOR).foliageColorOverride(FOLIAGE_COLOR).skyColor(BiomeUtil.calcSkyColor(0.8F)).ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
-
-    public Biome getHills(INoiseRandom rand) {
-        return randomSubBiome(rand);
-    }
-
-    public Biome randomSubBiome(INoiseRandom random) {
-        int randomPicker = random.nextRandom(4);
-        if (randomPicker == 0)
-            return BYGBiomes.DECIDUOUS_FOREST_HILLS;
-        else if (randomPicker == 1)
-            return BYGBiomes.DECIDUOUS_CLEARING;
-        else if (randomPicker == 2)
-            return BYGBiomes.DECIDUOUS_CLEARING;
-        else
-            return BYGBiomes.FRESH_WATER_LAKE;
-    }
-
-
     @Nullable
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BYGBiomes.DECIDUOUS_FOREST_HILLS, 4);
-        biomeWeightedList.add(BYGBiomes.DECIDUOUS_CLEARING, 3);
-        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 3);
+        biomeWeightedList.add(BYGBiomes.DECIDUOUS_FOREST_HILLS, 5);
+        biomeWeightedList.add(BYGBiomes.DECIDUOUS_CLEARING, 8);
+        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 4);
+        biomeWeightedList.add(BYGBiomes.FLOWERING_GROVE, 1);
+        biomeWeightedList.add(BYGBiomes.GROVE, 7);
         return biomeWeightedList;
     }
 

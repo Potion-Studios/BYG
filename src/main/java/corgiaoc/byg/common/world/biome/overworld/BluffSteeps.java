@@ -24,7 +24,7 @@ public class BluffSteeps extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bluff_steeps", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlocks.OVERGROWN_STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState())));
     static final Biome.RainType PRECIPATATION = Biome.RainType.SNOW;
     static final Biome.Category CATEGORY = Biome.Category.EXTREME_HILLS;
-    static final float DEPTH = 2.5F;
+    static final float DEPTH = 2.0F;
     static final float SCALE = 0.2F;
     static final float TEMPERATURE = 0.25F;
     static final float DOWNFALL = 0.5F;

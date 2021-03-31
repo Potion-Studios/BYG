@@ -58,6 +58,8 @@ public class FreshWaterLake extends BYGSubBiome {
         DefaultBiomeFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addSurfaceFreezing(GENERATION_SETTINGS);
+
         SPAWN_SETTINGS.addSpawn(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIE, 95, 4, 4));

@@ -44,8 +44,9 @@ public class CikaWoods extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BYGBiomes.CIKA_MOUNTAINS, 5);
+        biomeWeightedList.add(BYGBiomes.CIKA_MOUNTAINS, 8);
         biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 5);
+        biomeWeightedList.add(BYGBiomes.AUTUMNAL_VALLEY, 6);
         return biomeWeightedList;
     }
 

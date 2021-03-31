@@ -44,9 +44,11 @@ public class CherryBlossomForest extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BYGBiomes.CHERRY_BLOSSOM_CLEARING, 4);
-        biomeWeightedList.add(BYGBiomes.BAMBOO_FOREST, 3);
+        biomeWeightedList.add(BYGBiomes.CHERRY_BLOSSOM_CLEARING, 8);
+        biomeWeightedList.add(BYGBiomes.BAMBOO_FOREST, 2);
         biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 3);
+        biomeWeightedList.add(BYGBiomes.FLOWERING_GROVE, 1);
+        biomeWeightedList.add(BYGBiomes.GROVE, 5);
         return biomeWeightedList;
     }
 

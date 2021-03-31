@@ -50,8 +50,9 @@ public class Orchard extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.FLOWER_FOREST), 5);
-        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 5);
+        biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 4);
+        biomeWeightedList.add(BYGBiomes.FLOWERING_GROVE, 1);
+        biomeWeightedList.add(BYGBiomes.GROVE, 6);
         return biomeWeightedList;
     }
 

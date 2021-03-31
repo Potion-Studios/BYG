@@ -46,8 +46,8 @@ public class Meadow extends BYGBiome {
     @Override
     public WeightedList<Biome> getHills() {
         WeightedList<Biome> biomeWeightedList = new WeightedList<>();
-        biomeWeightedList.add(BYGBiomes.FLOWERING_MEADOW, 3);
-        biomeWeightedList.add(BYGBiomes.WOODED_MEADOW, 3);
+        biomeWeightedList.add(BYGBiomes.FLOWERING_MEADOW, 6);
+        biomeWeightedList.add(BYGBiomes.WOODED_MEADOW, 5);
         biomeWeightedList.add(BYGBiomes.FRESH_WATER_LAKE, 4);
         return biomeWeightedList;
     }
