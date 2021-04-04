@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/leaves",
   "textures": {
-    "all": "byg:block/jacaranda_leaves"
+    "all": "byg:block/indigo_jacaranda_leaves2"
   }
 }

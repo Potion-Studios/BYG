@@ -1,12 +1,6 @@
 {
-  "parent": "block/cube",
+  "parent": "minecraft:block/leaves",
   "textures": {
-    "down": "byg:block/indigo_jacaranda_leaves",
-    "up": "byg:block/indigo_jacaranda_leaves",
-    "north": "byg:block/indigo_jacaranda_leaves",
-    "east": "byg:block/indigo_jacaranda_leaves",
-    "south": "byg:block/indigo_jacaranda_leaves",
-    "west": "byg:block/indigo_jacaranda_leaves",
-    "particle": "byg:block/indigo_jacaranda_leaves"
+    "all": "byg:block/indigo_jacaranda_leaves"
   }
 }
