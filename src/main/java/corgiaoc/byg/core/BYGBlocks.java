@@ -613,6 +613,16 @@ public class BYGBlocks {
     public static final Block ETHER_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("ether_stone_stairs");
     public static final Block ETHER_STONE_WALL = createStoneWall("ether_stone_wall");
 
+    public static final Block COBBLED_ETHER_STONE = createEtherStone("cobbled_ether_stone");
+    public static final Block COBBLED_ETHER_STONE_SLAB = createStoneSlab("cobbled_ether_stone_slab");
+    public static final Block COBBLED_ETHER_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("cobbled_ether_stone_stairs");
+    public static final Block COBBLED_ETHER_STONE_WALL = createStoneWall("cobbled_ether_stone_wall");
+
+    public static final Block CARVED_ETHER_STONE = createEtherStone("carved_ether_stone");
+    public static final Block CARVED_ETHER_STONE_SLAB = createStoneSlab("carved_ether_stone_slab");
+    public static final Block CARVED_ETHER_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("carved_ether_stone_stairs");
+    public static final Block CARVED_ETHER_STONE_WALL = createStoneWall("carved_ether_stone_wall");
+
     public static final Block LIGNITE_BLOCK = new BYGBlockProperties.AnthraciteOre("lignite_block");
     public static final Block LIGNITE_ORE = new BYGBlockProperties.AnthraciteOre("lignite_ore");
 

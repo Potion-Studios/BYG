@@ -974,6 +974,16 @@ public class BYGItems {
     public static final Item ETHER_STONE_STAIRS = createItem(new BlockItem(BYGBlocks.ETHER_STONE_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_STONE_STAIRS));
     public static final Item ETHER_STONE_WALL = createItem(new BlockItem(BYGBlocks.ETHER_STONE_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_STONE_WALL));
 
+    public static final Item COBBLED_ETHER_STONE = createItem(new BlockItem(BYGBlocks.COBBLED_ETHER_STONE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.COBBLED_ETHER_STONE));
+    public static final Item COBBLED_ETHER_STONE_SLAB = createItem(new BlockItem(BYGBlocks.COBBLED_ETHER_STONE_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.COBBLED_ETHER_STONE_SLAB));
+    public static final Item COBBLED_ETHER_STONE_STAIRS = createItem(new BlockItem(BYGBlocks.COBBLED_ETHER_STONE_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.COBBLED_ETHER_STONE_STAIRS));
+    public static final Item COBBLED_ETHER_STONE_WALL = createItem(new BlockItem(BYGBlocks.COBBLED_ETHER_STONE_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.COBBLED_ETHER_STONE_WALL));
+
+    public static final Item CARVED_ETHER_STONE = createItem(new BlockItem(BYGBlocks.CARVED_ETHER_STONE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CARVED_ETHER_STONE));
+    public static final Item CARVED_ETHER_STONE_SLAB = createItem(new BlockItem(BYGBlocks.CARVED_ETHER_STONE_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CARVED_ETHER_STONE_SLAB));
+    public static final Item CARVED_ETHER_STONE_STAIRS = createItem(new BlockItem(BYGBlocks.CARVED_ETHER_STONE_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CARVED_ETHER_STONE_STAIRS));
+    public static final Item CARVED_ETHER_STONE_WALL = createItem(new BlockItem(BYGBlocks.CARVED_ETHER_STONE_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CARVED_ETHER_STONE_WALL));
+
     public static final Item BULBIS_SPROUTS = createItem(new BlockItem(BYGBlocks.BULBIS_SPROUTS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_SPROUTS));
     public static final Item BULBIS_PHYCELIUM = createItem(new BlockItem(BYGBlocks.BULBIS_PHYCELIUM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BULBIS_PHYCELIUM));
 

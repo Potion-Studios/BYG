@@ -23,6 +23,8 @@
     "byg:purpur_stone_wall",
     "byg:cryptic_stone_wall",
     "byg:chiseled_therium_wall",
-    "byg:shiny_chiseled_therium_wall"
+    "byg:shiny_chiseled_therium_wall",
+    "byg:cobbled_ether_stone_wall",
+    "byg:carved_ether_stone_wall"
   ]
 }
