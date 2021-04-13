@@ -85,7 +85,7 @@ public class JacarandaForest extends BYGBiome {
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addDelphinium(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addDelphinium(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addJacarandaBushes(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addLeafPile(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.SHEEP, 12, 4, 4));

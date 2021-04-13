@@ -1,8 +1,7 @@
 {
   "variants": {
-    "": [
-      { "model": "byg:block/indigo_jacaranda_leaves" },
-      { "model": "byg:block/indigo_jacaranda_leaves2" }
-    ]
+    "": {
+      "model": "byg:block/indigo_jacaranda_leaves"
+    }
   }
 }

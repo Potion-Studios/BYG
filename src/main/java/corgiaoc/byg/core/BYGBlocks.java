@@ -398,6 +398,14 @@ public class BYGBlocks {
     public static final Block FIR_SAPLING = createSapling(1, new TreeSpawners.Fir(), "fir_sapling");
     public static final Block GREEN_ENCHANTED_SAPLING = createSapling(1, new TreeSpawners.GreenEnchanted(), "green_enchanted_sapling");
     public static final Block HOLLY_SAPLING = createSapling(1, new TreeSpawners.Holly(), "holly_sapling");
+
+
+    public static final Block JACARANDA_BUSH = createJacarandaBush("jacaranda_bush");
+    public static final Block FLOWERING_JACARANDA_BUSH = createFloweringJacarandaBush(1, new TreeSpawners.Jacaranda(), "flowering_jacaranda_bush");
+
+    public static final Block INDIGO_JACARANDA_BUSH = createIndigoJacarandaBush("indigo_jacaranda_bush");
+    public static final Block FLOWERING_INDIGO_JACARANDA_BUSH = createFloweringIndigoJacarandaBush(1, new TreeSpawners.IndigoJacaranda(), "flowering_indigo_jacaranda_bush");
+
     public static final Block JACARANDA_SAPLING = createSapling(1, new TreeSpawners.Jacaranda(), "jacaranda_sapling");
     public static final Block INDIGO_JACARANDA_SAPLING = createSapling(1, new TreeSpawners.IndigoJacaranda(), "indigo_jacaranda_sapling");
     public static final Block JOSHUA_SAPLING = createSapling(1, new TreeSpawners.Joshua(), "joshua_sapling");
@@ -1493,6 +1501,38 @@ public class BYGBlocks {
 
     static Block createSapling(int taskRange, TreeSpawner tree, String id) {
         Block createBlock = new BYGSapling(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), tree, taskRange);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createJacarandaBush(String id) {
+        Block createBlock = new JacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion());
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createFloweringJacarandaBush(int taskRange, TreeSpawner tree, String id) {
+        Block createBlock = new FloweringJacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createIndigoJacarandaBush(String id) {
+        Block createBlock = new IndigoJacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion());
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createFloweringIndigoJacarandaBush(int taskRange, TreeSpawner tree, String id) {
+        Block createBlock = new FloweringJacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         createPottedBlock(createBlock, id);
         blocksList.add(createBlock);

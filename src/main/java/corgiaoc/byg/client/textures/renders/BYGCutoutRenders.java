@@ -205,6 +205,10 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.FIR_SAPLING, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.GREEN_ENCHANTED_SAPLING, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.HOLLY_SAPLING, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.JACARANDA_BUSH, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.INDIGO_JACARANDA_BUSH, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.FLOWERING_JACARANDA_BUSH, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.JACARANDA_SAPLING, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.INDIGO_JACARANDA_SAPLING, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.JOSHUA_SAPLING, RenderType.cutoutMipped());

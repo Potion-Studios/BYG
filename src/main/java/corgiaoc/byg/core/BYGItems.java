@@ -464,8 +464,12 @@ public class BYGItems {
     public static final Item IMPARIUS_BUTTON = createItem(new BlockItem(BYGBlocks.IMPARIUS_BUTTON, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_BUTTON));
     
     //Jacaranda Woodtype
+    public static final Item JACARANDA_BUSH = createItem(new BlockItem(BYGBlocks.JACARANDA_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.JACARANDA_BUSH));
+    public static final Item FLOWERING_JACARANDA_BUSH = createItem(new BlockItem(BYGBlocks.FLOWERING_JACARANDA_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FLOWERING_JACARANDA_BUSH));
     public static final Item JACARANDA_SAPLING = createItem(new BlockItem(BYGBlocks.JACARANDA_SAPLING, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.JACARANDA_SAPLING));
     public static final Item JACARANDA_LEAVES = createItem(new BlockItem(BYGBlocks.JACARANDA_LEAVES, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.JACARANDA_LEAVES));
+    public static final Item INDIGO_JACARANDA_BUSH = createItem(new BlockItem(BYGBlocks.INDIGO_JACARANDA_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.INDIGO_JACARANDA_BUSH));
+    public static final Item FLOWERING_INDIGO_JACARANDA_BUSH = createItem(new BlockItem(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH));
     public static final Item INDIGO_JACARANDA_SAPLING = createItem(new BlockItem(BYGBlocks.INDIGO_JACARANDA_SAPLING, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.INDIGO_JACARANDA_SAPLING));
     public static final Item INDIGO_JACARANDA_LEAVES = createItem(new BlockItem(BYGBlocks.INDIGO_JACARANDA_LEAVES, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.INDIGO_JACARANDA_LEAVES));
     public static final Item JACARANDA_LOG = createItem(new BlockItem(BYGBlocks.JACARANDA_LOG, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.JACARANDA_LOG));

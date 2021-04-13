@@ -329,6 +329,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.PINK_ALLIUMS);
     }
 
+    public static void addJacarandaBushes(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_JACARANDA_BUSHES);
+    }
+
     public static void addRedCornflower(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RED_CORNFLOWERS);
     }

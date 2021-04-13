@@ -31,6 +31,7 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.HOLLY_BERRY_LEAVES);
         compostibleBlocks(0.3f, BYGItems.HOLLY_LEAVES);
         compostibleBlocks(0.3f, BYGItems.JACARANDA_LEAVES);
+        compostibleBlocks(0.3f, BYGItems.INDIGO_JACARANDA_LEAVES);
         compostibleBlocks(0.3f, BYGItems.MAHOGANY_LEAVES);
         compostibleBlocks(0.3f, BYGItems.MANGROVE_LEAVES);
         compostibleBlocks(0.3f, BYGItems.ORANGE_BIRCH_LEAVES);
@@ -74,6 +75,11 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.GREEN_ENCHANTED_SAPLING);
         compostibleBlocks(0.3f, BYGItems.HOLLY_SAPLING);
         compostibleBlocks(0.3f, BYGItems.JACARANDA_SAPLING);
+        compostibleBlocks(0.3f, BYGItems.JACARANDA_BUSH);
+        compostibleBlocks(0.3f, BYGItems.FLOWERING_JACARANDA_BUSH);
+        compostibleBlocks(0.3f, BYGItems.INDIGO_JACARANDA_SAPLING);
+        compostibleBlocks(0.3f, BYGItems.INDIGO_JACARANDA_BUSH);
+        compostibleBlocks(0.3f, BYGItems.FLOWERING_INDIGO_JACARANDA_BUSH);
         compostibleBlocks(0.3f, BYGItems.MAHOGANY_SAPLING);
         compostibleBlocks(0.3f, BYGItems.MANGROVE_SAPLING);
         compostibleBlocks(0.3f, BYGItems.ORANGE_BIRCH_SAPLING);

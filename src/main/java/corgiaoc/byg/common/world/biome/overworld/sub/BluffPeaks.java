@@ -51,7 +51,7 @@ public class BluffPeaks extends BYGSubBiome {
     }
 
     static {
-        GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.IRON_SURFACE_DEPOSIT);
+//        GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.IRON_SURFACE_DEPOSIT);
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);

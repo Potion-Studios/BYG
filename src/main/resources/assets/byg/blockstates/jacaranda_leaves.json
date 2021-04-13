@@ -1,8 +1,7 @@
 {
   "variants": {
-    "": [
-      { "model": "byg:block/jacaranda_leaves" },
-      { "model": "byg:block/jacaranda_leaves2" }
-    ]
+    "": {
+      "model": "byg:block/jacaranda_leaves"
+    }
   }
 }
