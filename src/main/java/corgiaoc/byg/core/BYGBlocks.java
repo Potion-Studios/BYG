@@ -459,6 +459,8 @@ public class BYGBlocks {
     public static final Block HOLLY_LEAVES = createLeaves("holly_leaves");
     public static final Block JACARANDA_LEAVES = createLeaves("jacaranda_leaves");
     public static final Block INDIGO_JACARANDA_LEAVES = createLeaves("indigo_jacaranda_leaves");
+    public static final Block FLOWERING_JACARANDA_LEAVES = createLeaves("flowering_jacaranda_leaves");
+    public static final Block FLOWERING_INDIGO_JACARANDA_LEAVES = createLeaves("flowering_indigo_jacaranda_leaves");
     public static final Block JOSHUA_LEAVES = createLeaves("joshua_leaves");
     public static final Block RIPE_JOSHUA_LEAVES = createLeaves("ripe_joshua_leaves");
     public static final Block MAHOGANY_LEAVES = createLeaves("mahogany_leaves");
