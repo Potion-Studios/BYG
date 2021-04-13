@@ -46,13 +46,11 @@ public class JacarandaForestHills extends BYGSubBiome {
         DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultSoftDisks(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultFlowers(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addForestGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultMushrooms(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultExtraVegetation(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addJacarandaTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGBambooJungleVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addJungleExtraVegetation(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addSavannaExtraGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBYGMushrooms(GENERATION_SETTINGS);
