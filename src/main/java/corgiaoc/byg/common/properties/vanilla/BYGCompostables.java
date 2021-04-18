@@ -196,13 +196,17 @@ public class BYGCompostables {
 
         //Foods
         compostibleBlocks(0.65f, BYGItems.CRIMSON_BERRIES);
+        compostibleBlocks(0.65f, BYGItems.CRIMSON_BERRY_PIE);
         compostibleBlocks(0.65f, BYGItems.GREEN_APPLE);
+        compostibleBlocks(0.65f, BYGItems.GREEN_APPLE_PIE);
         compostibleBlocks(0.65f, BYGItems.GREEN_MUSHSHROOM);
         compostibleBlocks(0.65f, BYGItems.BLACK_PUFF);
         compostibleBlocks(0.65f, BYGItems.WEEPING_MILKCAP);
         compostibleBlocks(0.65f, BYGItems.WOOD_BLEWIT);
         compostibleBlocks(0.65f, BYGItems.NIGHTSHADE_BERRIES);
+        compostibleBlocks(0.65f, BYGItems.NIGHTSHADE_BERRY_PIE);
         compostibleBlocks(0.65f, BYGItems.BLUE_BERRY);
+        compostibleBlocks(0.65f, BYGItems.BLUEBERRY_PIE);
         compostibleBlocks(0.65f, BYGItems.SHULKREN_FUNGUS);
         compostibleBlocks(0.65f, BYGItems.SYTHIAN_FUNGUS);
         compostibleBlocks(0.65f, BYGItems.EMBUR_WART);

@@ -689,6 +689,7 @@ public class BYGItems {
     //Skyris Woodtype
     public static final Item SKYRIS_LEAVES_GREEN_APPLE = createItem(new BlockItem(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE));
     public static final Item GREEN_APPLE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab).food(new Food.Builder().nutrition(4).saturationMod(0.35f).build())), "green_apple");
+    public static final Item GREEN_APPLE_PIE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab).food(new Food.Builder().nutrition(6).saturationMod(0.4f).effect(new EffectInstance(Effects.DIG_SPEED, 200, 0), 1.0F).build())), "green_apple_pie");
     public static final Item SKYRIS_SAPLING = createItem(new BlockItem(BYGBlocks.SKYRIS_SAPLING, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SKYRIS_SAPLING));
     public static final Item SKYRIS_VINE = createItem(new BlockItem(BYGBlocks.SKYRIS_VINE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SKYRIS_VINE));
     public static final Item SKYRIS_LEAVES = createItem(new BlockItem(BYGBlocks.SKYRIS_LEAVES, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SKYRIS_LEAVES));
@@ -896,6 +897,7 @@ public class BYGItems {
     public static final Item OVERGROWN_CRIMSON_BLACKSTONE = createItem(new BlockItem(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE));
     public static final Item TALL_CRIMSON_ROOTS = createItem(new BlockItem(BYGBlocks.TALL_CRIMSON_ROOTS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.TALL_CRIMSON_ROOTS));
     public static final Item CRIMSON_BERRIES = createItem(new BlockNamedItem(BYGBlocks.CRIMSON_BERRY_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab).food(new Food.Builder().nutrition(3).saturationMod(0.4f).build())), "crimson_berries");
+    public static final Item CRIMSON_BERRY_PIE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab).food(new Food.Builder().nutrition(6).saturationMod(0.3f).effect(new EffectInstance(Effects.FIRE_RESISTANCE, 200, 0), 1.0F).build())), "crimson_berry_pie");
 
     public static final Item WARPED_CACTUS = createItem(new BlockItem(BYGBlocks.WARPED_CACTUS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WARPED_CACTUS));
     public static final Item WARPED_BUSH = createItem(new BlockItem(BYGBlocks.WARPED_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WARPED_BUSH));
@@ -1004,6 +1006,7 @@ public class BYGItems {
     public static final Item THEREAL_BELLFLOWER = createItem(new BlockItem(BYGBlocks.THEREAL_BELLFLOWER, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.THEREAL_BELLFLOWER));
 
     public static final Item NIGHTSHADE_BERRIES = createItem(new BlockNamedItem(BYGBlocks.NIGHTSHADE_BERRY_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab).food(new Food.Builder().nutrition(3).saturationMod(0.4f).build())), "nightshade_berries");
+    public static final Item NIGHTSHADE_BERRY_PIE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab).food(new Food.Builder().nutrition(6).saturationMod(0.3f).effect(new EffectInstance(Effects.NIGHT_VISION, 200, 0), 1.0F).build())), "nightshade_berry_pie");
     public static final Item NIGHTSHADE_PHYLIUM = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_PHYLIUM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_PHYLIUM));
     public static final Item NIGHTSHADE_SPROUTS = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_SPROUTS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_SPROUTS));
     public static final Item NIGHTSHADE_ROOTS = createItem(new BlockItem(BYGBlocks.NIGHTSHADE_ROOTS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.NIGHTSHADE_ROOTS));
@@ -1073,7 +1076,8 @@ public class BYGItems {
     public static final Item BROWN_MUSHROOM_STEM = createItem(new BlockItem(BYGBlocks.BROWN_MUSHROOM_STEM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BROWN_MUSHROOM_STEM));
 
     //Plants
-    public static final Item BLUE_BERRY = createItem(new BlockNamedItem(BYGBlocks.BLUEBERRY_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab).food(new Food.Builder().nutrition(2).saturationMod(0.1f).effect(new EffectInstance(Effects.MOVEMENT_SPEED, 200, 0), 1.0F).build())), "blueberries");
+    public static final Item BLUE_BERRY = createItem(new BlockNamedItem(BYGBlocks.BLUEBERRY_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab).food(new Food.Builder().nutrition(2).saturationMod(0.1f).build())), "blueberries");
+    public static final Item BLUEBERRY_PIE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab).food(new Food.Builder().nutrition(6).saturationMod(0.3f).effect(new EffectInstance(Effects.MOVEMENT_SPEED, 200, 0), 1.0F).build())), "blueberry_pie");
     public static final Item CATTAIL = createItem(new BlockItem(BYGBlocks.CATTAIL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CATTAIL));
     public static final Item GOLDEN_SPINED_CACTUS = createItem(new BlockItem(BYGBlocks.GOLDEN_SPINED_CACTUS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.GOLDEN_SPINED_CACTUS));
     public static final Item HORSEWEED = createItem(new BlockItem(BYGBlocks.HORSEWEED, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.HORSEWEED));
