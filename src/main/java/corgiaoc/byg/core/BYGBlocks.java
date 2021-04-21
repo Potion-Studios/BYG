@@ -1659,7 +1659,7 @@ public class BYGBlocks {
     }
 
     static Block createStoneSpreadable(Block blockToSpreadToo, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 6.0f).randomTicks().harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
+        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 6.0f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1677,13 +1677,13 @@ public class BYGBlocks {
     }
 
     static Block createNetherSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4F).randomTicks().harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4F).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createNetherStoneSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
         createBlock(createBlock, id);
         return createBlock;
     }

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "byg:magmatic_stone"
+  },
+  "result": "minecraft:magma_block",
+  "experience": 0.1,
+  "cookingtime": 150
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#E#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:blackstone"
+    },
+    "E": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "result": {
+    "item": "byg:magmatic_stone",
+    "count": 8
+  }
+}
