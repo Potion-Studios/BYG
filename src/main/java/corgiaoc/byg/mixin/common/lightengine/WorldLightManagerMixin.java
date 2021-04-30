@@ -1,12 +1,11 @@
 package corgiaoc.byg.mixin.common.lightengine;
 
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.lighting.WorldLightManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.lighting.WorldLightManager;
 
 /**
  * This fixes a bug in the Minecraft light-update code that runs after world-generation for

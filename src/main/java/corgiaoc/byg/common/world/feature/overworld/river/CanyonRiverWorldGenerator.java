@@ -4,11 +4,13 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.NoisyCaveSphereWater;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.World;
@@ -93,13 +95,6 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(node.getPos());
         BlockPos.Mutable prevMutable = new BlockPos.Mutable().set(prevNode.getPos());
 
-//        if (node.getIdx() >= (riverGenerator.getTotalNumberOfNodes() - 4)) {
-//            double slide = mutable.getY() / ((float) + riverGenerator.getFinalPosition().getY());
-//            mutable.setY((int) MathHelper.clampedLerp(riverGenerator.getFinalPosition().getY(), prevMutable.getY(), slide));
-//        }
-
-
-
         int xRadius = 10;
         int yRadius = 10;
         int zRadius = 10;
@@ -138,45 +133,63 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
 
         for (int x = minXRadius; x <= maxXRadius; x++) {
             for (int z = minZRadius; z <= maxZRadius; z++) {
-                mutable2.set(mutable).move(x, -yRadius, z);
-
-
-                //Check if the bottom of the sphere will be hanging over air, if so continue, don't waste time filling the remainder of the sphere!
+                mutable2.set(mutable).move(x, 0, z);
                 int height = worldRegion.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable2.getX(), mutable2.getZ());
-                if (height <= mutable2.getY()) {
-                    continue;
-                }
+                mutable2.setY(mutable2.getY() - 3);
 
-                if (yDiff >= 10) {
-                    if (height >= mutable2.getY()) {
-                        continue;
-                    }
-                }
+                for (int y = -yRadius; y <= 25; y++) {
+                    BlockPos pos3 = mutable2.offset(0, y, 0);
 
-                for (int y = -yRadius; y <= yRadius; y++) {
-                    mutable2.set(mutable).move(x, y, z);
 
-                    //Credits to Hex_26 for this equation!
-                    double equationResult = Math.pow(x, 2) / Math.pow((xRadius), 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
-                    double threshold = 1 + 0.7 * NoisyCaveSphereWater.fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ());
-                    if (equationResult >= threshold)
-                        continue;
+                    if (y <= 0) {
+                        BlockState state = Blocks.WATER.defaultBlockState();
+                        //Credits to Hex_26 for this equation!
+                        double equationResult = Math.pow(x, 2) / Math.pow((xRadius), 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
+                        double threshold = 1 + 0.7 * NoisyCaveSphereWater.fastNoise.GetNoise(pos3.getX(), pos3.getY(), pos3.getZ());
+                        if (equationResult >= threshold)
+                            continue;
 
-                    int sphereWaterY = -2;
 
-                    if (node.getIdx() >= (riverGenerator.getTotalNumberOfNodes() - 4)) {
-
-                    }
-
-                    if (y <= sphereWaterY) {
-                        worldRegion.setBlock(mutable2, Blocks.WATER.defaultBlockState(), 2);
-                        worldRegion.getLiquidTicks().scheduleTick(mutable2, Fluids.WATER, 0);
+                        if (isSolidAllAround(worldRegion, pos3)) {
+                            worldRegion.setBlock(pos3, state, 2);
+                            if (state.getBlock() == Blocks.WATER) {
+                                worldRegion.getLiquidTicks().scheduleTick(pos3, Fluids.WATER, 0);
+                            }
+                        } else {
+                            if (pos3.getY() <= height) {
+                                worldRegion.setBlock(pos3, Blocks.STONE.defaultBlockState(), 2);
+                            }
+                        }
                     } else {
-                        worldRegion.setBlock(mutable2, Blocks.AIR.defaultBlockState(), 2);
+                        double equationResult = Math.pow(x, 2) / Math.pow((xRadius), 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
+                        double threshold = 1 + 0.7 * NoisyCaveSphereWater.fastNoise.GetNoise(pos3.getX(), pos3.getY(), pos3.getZ());
+                        if (equationResult >= threshold)
+                            continue;
+                        BlockState state = Blocks.AIR.defaultBlockState();
+                        if (pos3.getY() + 5 > height) {
+                            worldRegion.setBlock(pos3, state, 2);
+                        }
                     }
                 }
             }
         }
+    }
+
+    private boolean isSolidAllAround(ISeedReader worldRegion, BlockPos pos3) {
+        for (Direction direction : Direction.values()) {
+            if (direction != Direction.UP) {
+                BlockPos relative = pos3.relative(direction);
+                BlockState blockState = worldRegion.getBlockState(relative);
+                if (blockState.getMaterial() == Material.WATER) {
+                    continue;
+                }
+
+                if (!blockState.canOcclude()) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     //Find the mega chunk with the highest frequency of Canyon Biome(s)

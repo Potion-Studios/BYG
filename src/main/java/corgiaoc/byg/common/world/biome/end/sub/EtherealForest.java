@@ -1,7 +1,6 @@
 package corgiaoc.byg.common.world.biome.end.sub;
 
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
-import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.common.world.biome.BYGEndSubBiome;
 import corgiaoc.byg.core.BYGSounds;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;

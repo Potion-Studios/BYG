@@ -85,21 +85,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGDesertPlant extends BYGDesertPlants {
-        public BYGDesertPlant(String registryName) {
-            super(AbstractBlock.Properties.of(Material.PLANT)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f)
-                    .noCollission()
-                    .noOcclusion()
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-            BYGBlocks.createPottedBlock(this, registryName);
-        }
-    }
-
     public static class BYGSnowyPlant extends BYGSnowyPlants {
         public BYGSnowyPlant(String registryName) {
             super(AbstractBlock.Properties.of(Material.PLANT)

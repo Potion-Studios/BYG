@@ -28,7 +28,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.EntityType;
-import net.minecraft.potion.Effects;
+import net.minecraft.tags.ITag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
@@ -518,12 +518,12 @@ public class BYGBlocks {
     public static final Block REED_THATCH_CARPET = new BYGBlockProperties.ThatchCarpet("reed_thatch_carpet");
     public static final Block REED_THATCH_STAIRS = new BYGBlockProperties.ThatchStairs("reed_thatch_stairs");
     public static final Block REED_THATCH_SLAB = new BYGBlockProperties.ThatchSlab("reed_thatch_slab");
-    public static final Block HORSEWEED = createFlower("horseweed");
-    public static final Block MINI_CACTUS = new BYGBlockProperties.BYGDesertPlant("mini_cactus");
-    public static final Block PRICKLY_PEAR_CACTUS = new BYGBlockProperties.BYGDesertPlant("prickly_pear_cactus");
-    public static final Block WINTER_SUCCULENT = createFlower("winter_succulent");
+    public static final Block HORSEWEED = createFlower("horseweed", BYGBlockTags.GROUND_HORSEWEED);
+    public static final Block MINI_CACTUS = createDesertPlant("mini_cactus", BYGBlockTags.GROUND_MINI_CACTUS);
+    public static final Block PRICKLY_PEAR_CACTUS = createDesertPlant("prickly_pear_cactus", BYGBlockTags.GROUND_PRICKLY_PEAR_CACTUS);
+    public static final Block WINTER_SUCCULENT = createFlower("winter_succulent", BYGBlockTags.GROUND_WINTER_SUCCULENT);
     public static final Block SHORT_GRASS = new BYGBlockProperties.BYGTallGrass("short_grass");
-    public static final Block TALL_PRAIRIE_GRASS = createTallFlower("tall_prairie_grass");
+    public static final Block TALL_PRAIRIE_GRASS = createTallFlower("tall_prairie_grass", BYGBlockTags.GROUND_TALL_PRAIRIE_GRASS);
     public static final Block BLUE_GLOWCANE = new BYGBlockProperties.BYGBLUEGlowCane("blue_glowcane");
     public static final Block RED_GLOWCANE = new BYGBlockProperties.BYGREDGlowCane("red_glowcane");
     public static final Block PURPLE_GLOWCANE = new BYGBlockProperties.BYGPURPLEGlowCane("purple_glowcane");
@@ -982,68 +982,68 @@ public class BYGBlocks {
     public static final Block STRIPPED_NIGHTSHADE_WOOD = createWood("stripped_nightshade_wood");
     public static final Block STRIPPED_ETHER_WOOD = createWood("stripped_ether_wood");
 
-    public static final Block TALL_ALLIUM = createTallFlower("tall_allium");
-    public static final Block TALL_PINK_ALLIUM = createTallFlower("tall_pink_allium");
+    public static final Block TALL_ALLIUM = createTallFlower("tall_allium", BYGBlockTags.GROUND_TALL_ALLIUM);
+    public static final Block TALL_PINK_ALLIUM = createTallFlower("tall_pink_allium", BYGBlockTags.GROUND_TALL_PINK_ALLIUM);
     public static final Block ALLIUM_FLOWER_BUSH = new BYGBlockProperties.BYGAllium("allium_flower_bush");
-    public static final Block ALPINE_BELLFLOWER = createFlower("alpine_bellflower");
     public static final Block AMARANTH = new BYGBlockProperties.BYGAmaranth("amaranth");
-    public static final Block ANGELICA = createFlower("angelica");
-    public static final Block AZALEA = createTallFlower("azalea");
-    public static final Block BEGONIA = createFlower("begonia");
-    public static final Block BISTORT = createFlower("bistort");
-    public static final Block BLUE_SAGE = createFlower("blue_sage");
-    public static final Block CALIFORNIA_POPPY = createFlower("california_poppy");
-    public static final Block CROCUS = createFlower("crocus");
-    public static final Block BLACK_ROSE = createFlower("black_rose");
+    public static final Block ALPINE_BELLFLOWER = createFlower("alpine_bellflower", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
+    public static final Block ANGELICA = createFlower("angelica", BYGBlockTags.GROUND_ANGELICA);
+    public static final Block AZALEA = createTallFlower("azalea", BYGBlockTags.GROUND_AZALEA);
+    public static final Block BEGONIA = createFlower("begonia", BYGBlockTags.GROUND_BEGONIA);
+    public static final Block BISTORT = createFlower("bistort", BYGBlockTags.GROUND_BISTORT);
+    public static final Block BLUE_SAGE = createFlower("blue_sage", BYGBlockTags.GROUND_BLUE_SAGE);
+    public static final Block CALIFORNIA_POPPY = createFlower("california_poppy", BYGBlockTags.GROUND_CALIFORNIA_POPPY);
+    public static final Block CROCUS = createFlower("crocus", BYGBlockTags.GROUND_CROCUS);
+    public static final Block BLACK_ROSE = createFlower("black_rose", BYGBlockTags.GROUND_BLACK_ROSE);
     public static final Block CYAN_AMARANTH = new BYGBlockProperties.BYGAmaranth("cyan_amaranth");
-    public static final Block CYAN_ROSE = createFlower("cyan_rose");
-    public static final Block CYAN_TULIP = createFlower("cyan_tulip");
-    public static final Block DAFFODIL = createFlower("daffodil");
-    public static final Block DELPHINIUM = createTallFlower("delphinium");
+    public static final Block CYAN_ROSE = createFlower("cyan_rose", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
+    public static final Block CYAN_TULIP = createFlower("cyan_tulip", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
+    public static final Block DAFFODIL = createFlower("daffodil", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
+    public static final Block DELPHINIUM = createTallFlower("delphinium", BYGBlockTags.GROUND_DELPHINIUM);
     public static final Block FAIRY_SLIPPER = new BYGBlockProperties.BYGFairySlipperFlower("fairy_slipper");
-    public static final Block FIRECRACKER_FLOWER_BUSH = createFlower("firecracker_flower_bush");
-    public static final Block FOXGLOVE = createTallFlower("foxglove");
-    public static final Block GOLDEN_SPINED_CACTUS = new BYGBlockProperties.BYGDesertPlant("golden_spined_cactus");
-    public static final Block GREEN_TULIP = createFlower("green_tulip");
-    public static final Block GUZMANIA = createFlower("guzmania");
-    public static final Block INCAN_LILY = createFlower("incan_lily");
-    public static final Block IRIS = createFlower("iris");
-    public static final Block JAPANESE_ORCHID = createTallFlower("japanese_orchid");
-    public static final Block KOVAN_FLOWER = createFlower("kovan_flower");
-    public static final Block LAZARUS_BELLFLOWER = createFlower("lazarus_bellflower");
-    public static final Block LOLIPOP_FLOWER = createFlower("lolipop_flower");
+    public static final Block FIRECRACKER_FLOWER_BUSH = createFlower("firecracker_flower_bush", BYGBlockTags.GROUND_FIRECRACKER_FLOWER_BUSH);
+    public static final Block FOXGLOVE = createTallFlower("foxglove", BYGBlockTags.GROUND_FOXGLOVE);
+    public static final Block GOLDEN_SPINED_CACTUS = createDesertPlant("golden_spined_cactus", BYGBlockTags.GROUND_GOLDEN_SPINED_CACTUS);
+    public static final Block GREEN_TULIP = createFlower("green_tulip", BYGBlockTags.GROUND_GREEN_TULIP);
+    public static final Block GUZMANIA = createFlower("guzmania", BYGBlockTags.GROUND_GUZMANIA);
+    public static final Block INCAN_LILY = createFlower("incan_lily", BYGBlockTags.GROUND_INCAN_LILY);
+    public static final Block IRIS = createFlower("iris", BYGBlockTags.GROUND_IRIS);
+    public static final Block JAPANESE_ORCHID = createTallFlower("japanese_orchid", BYGBlockTags.GROUND_JAPANESE_ORCHID);
+    public static final Block KOVAN_FLOWER = createFlower("kovan_flower", BYGBlockTags.GROUND_KOVAN_FLOWER);
+    public static final Block LAZARUS_BELLFLOWER = createFlower("lazarus_bellflower", BYGBlockTags.GROUND_LAZARUS_BELLFLOWER);
+    public static final Block LOLIPOP_FLOWER = createFlower("lolipop_flower", BYGBlockTags.GROUND_LOLIPOP_FLOWER);
     public static final Block MAGENTA_AMARANTH = new BYGBlockProperties.BYGAmaranth("magenta_amaranth");
-    public static final Block MAGENTA_TULIP = createFlower("magenta_tulip");
+    public static final Block MAGENTA_TULIP = createFlower("magenta_tulip", BYGBlockTags.GROUND_MAGENTA_TULIP);
     public static final Block ORANGE_AMARANTH = new BYGBlockProperties.BYGAmaranth("orange_amaranth");
-    public static final Block ORANGE_DAISY = createFlower("orange_daisy");
-    public static final Block ORSIRIA_ROSE = createFlower("osiria_rose");
-    public static final Block PEACH_LEATHER_FLOWER = createFlower("peach_leather_flower");
-    public static final Block PINK_ALLIUM = createFlower("pink_allium");
+    public static final Block ORANGE_DAISY = createFlower("orange_daisy", BYGBlockTags.GROUND_ORANGE_DAISY);
+    public static final Block ORSIRIA_ROSE = createFlower("osiria_rose", BYGBlockTags.GROUND_ORSIRIA_ROSE);
+    public static final Block PEACH_LEATHER_FLOWER = createFlower("peach_leather_flower", BYGBlockTags.GROUND_PEACH_LEATHER_FLOWER);
+    public static final Block PINK_ALLIUM = createFlower("pink_allium", BYGBlockTags.GROUND_PINK_ALLIUM);
     public static final Block PINK_ALLIUM_FLOWER_BUSH = new BYGBlockProperties.BYGPinkAllium("pink_allium_flower_bush");
-    public static final Block PINK_ANEMONE = createFlower("pink_anemone");
-    public static final Block PINK_DAFFODIL = createFlower("pink_daffodil");
-    public static final Block PINK_ORCHID = createFlower("pink_orchid");
+    public static final Block PINK_ANEMONE = createFlower("pink_anemone", BYGBlockTags.GROUND_PINK_ANEMONE);
+    public static final Block PINK_DAFFODIL = createFlower("pink_daffodil", BYGBlockTags.GROUND_PINK_DAFFODIL);
+    public static final Block PINK_ORCHID = createFlower("pink_orchid", BYGBlockTags.GROUND_PINK_ORCHID);
     public static final Block PRAIRIE_GRASS = new BYGBlockProperties.BYGPrairieGrass("prairie_grass");
-    public static final Block PROTEA_FLOWER = createFlower("protea_flower");
+    public static final Block PROTEA_FLOWER = createFlower("protea_flower", BYGBlockTags.GROUND_PROTEA_FLOWER);
     public static final Block PURPLE_AMARANTH = new BYGBlockProperties.BYGAmaranth("purple_amaranth");
-    public static final Block PURPLE_ORCHID = createFlower("purple_orchid");
-    public static final Block PURPLE_SAGE = createFlower("purple_sage");
-    public static final Block PURPLE_TULIP = createFlower("purple_tulip");
-    public static final Block RED_CORNFLOWER = createFlower("red_cornflower");
-    public static final Block RED_ORCHID = createFlower("red_orchid");
-    public static final Block RICHEA = createFlower("richea");
-    public static final Block ROSE = createFlower("rose");
+    public static final Block PURPLE_ORCHID = createFlower("purple_orchid", BYGBlockTags.GROUND_PURPLE_ORCHID);
+    public static final Block PURPLE_SAGE = createFlower("purple_sage", BYGBlockTags.GROUND_PURPLE_SAGE);
+    public static final Block PURPLE_TULIP = createFlower("purple_tulip", BYGBlockTags.GROUND_PURPLE_TULIP);
+    public static final Block RED_CORNFLOWER = createFlower("red_cornflower", BYGBlockTags.GROUND_RED_CORNFLOWER);
+    public static final Block RED_ORCHID = createFlower("red_orchid", BYGBlockTags.GROUND_RED_ORCHID);
+    public static final Block RICHEA = createFlower("richea", BYGBlockTags.GROUND_RICHEA);
+    public static final Block ROSE = createFlower("rose", BYGBlockTags.GROUND_ROSE);
     public static final Block SNOWDROPS = new BYGBlockProperties.BYGSnowyPlant("snowdrops");
-    public static final Block SILVER_VASE_FLOWER = createFlower("silver_vase_flower");
-    public static final Block TORCH_GINGER = createFlower("torch_ginger");
-    public static final Block VIOLET_LEATHER_FLOWER = createFlower("violet_leather_flower");
-    public static final Block WHITE_ANEMONE = createFlower("white_anemone");
-    public static final Block WHITE_SAGE = createFlower("white_sage");
+    public static final Block SILVER_VASE_FLOWER = createFlower("silver_vase_flower", BYGBlockTags.GROUND_SILVER_VASE_FLOWER);
+    public static final Block TORCH_GINGER = createFlower("torch_ginger", BYGBlockTags.GROUND_TORCH_GINGER);
+    public static final Block VIOLET_LEATHER_FLOWER = createFlower("violet_leather_flower", BYGBlockTags.GROUND_VIOLET_LEATHER_FLOWER);
+    public static final Block WHITE_ANEMONE = createFlower("white_anemone", BYGBlockTags.GROUND_WHITE_ANEMONE);
+    public static final Block WHITE_SAGE = createFlower("white_sage", BYGBlockTags.GROUND_WHITE_SAGE);
     public static final Block WINTER_CYCLAMEN = new BYGBlockProperties.BYGSnowyPlant("winter_cyclamen");
     public static final Block WINTER_ROSE = new BYGBlockProperties.BYGSnowyPlant("winter_rose");
     public static final Block WINTER_SCILLA = new BYGBlockProperties.BYGSnowyPlant("winter_scilla");
-    public static final Block YELLOW_DAFFODIL = createFlower("yellow_daffodil");
-    public static final Block YELLOW_TULIP = createFlower("yellow_tulip");
+    public static final Block YELLOW_DAFFODIL = createFlower("yellow_daffodil", BYGBlockTags.GROUND_YELLOW_DAFFODIL);
+    public static final Block YELLOW_TULIP = createFlower("yellow_tulip", BYGBlockTags.GROUND_YELLOW_TULIP);
 
     public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, "podzol_dacite");
     public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, "overgrown_dacite");
@@ -1320,8 +1320,8 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createFlower(String id) {
-        Block createBlock = new FlowerBlock(Effects.SATURATION, 7, AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion());
+    static Block createFlower(String id, ITag.INamedTag<Block> groundTag) {
+        Block createBlock = new BYGFlowerBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         createPottedBlock(createBlock, id);
         blocksList.add(createBlock);
@@ -1329,8 +1329,8 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createTallFlower(String id) {
-        Block createBlock = new TallFlowerBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion());
+    static Block createTallFlower(String id, ITag.INamedTag<Block> groundTag) {
+        Block createBlock = new BYGTallFlowerBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createBlock(createBlock, id);
         flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id));
         return createBlock;
@@ -1684,6 +1684,12 @@ public class BYGBlocks {
 
     static Block createNetherStoneSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
         Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createDesertPlant(String id, ITag.INamedTag<Block> groundTag) {
+        Block createBlock = new DesertPlant(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createBlock(createBlock, id);
         return createBlock;
     }

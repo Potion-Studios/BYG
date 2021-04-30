@@ -2,11 +2,8 @@ package corgiaoc.byg.core.world;
 
 import corgiaoc.byg.common.world.structure.largefeature.VolcanoPiece;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
 import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.VillageConfig;
-import net.minecraft.world.gen.feature.structure.VillageStructure;
 
 import java.util.ArrayList;
 import java.util.List;

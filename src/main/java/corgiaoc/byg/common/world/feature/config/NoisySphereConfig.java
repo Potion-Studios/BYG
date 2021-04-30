@@ -38,6 +38,8 @@ public class NoisySphereConfig implements IFeatureConfig {
             return config.radiusDivisorPerStack;
         }), Codec.DOUBLE.fieldOf("noise_frequency").orElse(1.0).forGetter((config) -> {
             return config.radiusDivisorPerStack;
+        }), Codec.INT.fieldOf("fluidStartY").orElse(12).forGetter((config) -> {
+            return config.maxZRadius;
         })).apply(codecRecorder, NoisySphereConfig::new);
     });
 
@@ -54,8 +56,9 @@ public class NoisySphereConfig implements IFeatureConfig {
     private final int maxZRadius;
     private final double radiusDivisorPerStack;
     private final double noiseFrequency;
+    private final double fluidStartY;
 
-    NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProvider topBlockProvider, int minHeight, int maxHeight, int minXRadius, int maxXRadius, int minYRadius, int maxYRadius, int minZRadius, int maxZRadius, double radiusDivisorPerStack, double noiseFrequency) {
+    NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProvider topBlockProvider, int minHeight, int maxHeight, int minXRadius, int maxXRadius, int minYRadius, int maxYRadius, int minZRadius, int maxZRadius, double radiusDivisorPerStack, double noiseFrequency, int fluidStartY) {
         this.blockProvider = blockProvider;
         this.topBlockProvider = topBlockProvider;
         this.minHeight = minHeight;
@@ -68,6 +71,7 @@ public class NoisySphereConfig implements IFeatureConfig {
         this.maxZRadius = maxZRadius;
         this.radiusDivisorPerStack = radiusDivisorPerStack;
         this.noiseFrequency = noiseFrequency;
+        this.fluidStartY = fluidStartY;
     }
 
     public BlockStateProvider getBlockProvider() {
@@ -162,6 +166,10 @@ public class NoisySphereConfig implements IFeatureConfig {
         return noiseFrequency;
     }
 
+    public double getFluidStartY() {
+        return fluidStartY;
+    }
+
     public static class Builder {
         private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
         private BlockStateProvider topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
@@ -175,6 +183,7 @@ public class NoisySphereConfig implements IFeatureConfig {
         private int maxZRadius = maxXRadius;
         private double radiusDivisorPerStack = 1.0;
         private double noiseFrequency = 0.045;
+        private int fluidStartY = 25;
 
         public Builder setBlock(Block block) {
             if (block != null)
@@ -286,6 +295,11 @@ public class NoisySphereConfig implements IFeatureConfig {
             return this;
         }
 
+        public Builder setFluidStartY(int fluidStartY) {
+            this.fluidStartY = fluidStartY;
+            return this;
+        }
+
         public Builder copy(NoisySphereConfig config) {
             this.blockProvider = config.blockProvider;
             this.topBlockProvider = config.topBlockProvider;
@@ -303,7 +317,7 @@ public class NoisySphereConfig implements IFeatureConfig {
         }
 
         public NoisySphereConfig build() {
-            return new NoisySphereConfig(this.blockProvider, this.topBlockProvider, this.minStackHeight, this.maxStackHeight, this.minXRadius / 2, this.maxXRadius / 2, minYRadius / 2, maxYRadius / 2, minZRadius / 2, maxZRadius / 2, this.radiusDivisorPerStack, this.noiseFrequency);
+            return new NoisySphereConfig(this.blockProvider, this.topBlockProvider, this.minStackHeight, this.maxStackHeight, this.minXRadius / 2, this.maxXRadius / 2, minYRadius / 2, maxYRadius / 2, minZRadius / 2, maxZRadius / 2, this.radiusDivisorPerStack, this.noiseFrequency, this.fluidStartY);
         }
     }
 }

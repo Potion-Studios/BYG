@@ -34,11 +34,12 @@ import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
-
-import static net.minecraftforge.common.BiomeDictionary.Type.OCEAN;
 
 @SuppressWarnings("deprecation")
 public class BYGBiomes {
@@ -385,9 +386,21 @@ public class BYGBiomes {
 
 //                addStructureToBiome(biome, BYGConfiguredStructures.VOLCANO_STRUCTURE);
 
-            addFeatureToBiome(biome, GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.CANYON_RIVER);
+            addFeatureToBiomeFirst(biome, BYGConfiguredFeatures.CANYON_RIVER);
 
         }
+    }
+
+    public static void addFeatureToBiomeFirst(Biome biome, ConfiguredFeature<?, ?> configuredFeature) {
+        ConvertImmutableFeatures(biome);
+        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.getGenerationSettings().features;
+
+        List<Supplier<ConfiguredFeature<?, ?>>> suppliers = biomeFeatures.get(GenerationStage.Decoration.RAW_GENERATION.ordinal());
+
+        List<Supplier<ConfiguredFeature<?, ?>>> suppliersCopy = new ArrayList<>(suppliers);
+        suppliers.clear();
+        suppliers.add(() -> configuredFeature);
+        suppliers.addAll(suppliersCopy);
     }
 
     //Use these to add our features to vanilla's biomes.
