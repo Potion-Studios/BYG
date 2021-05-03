@@ -3,10 +3,12 @@ package corgiaoc.byg.common.world.feature.overworld.trees.util;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -22,13 +24,13 @@ import net.minecraft.util.math.shapes.VoxelShapePart;
 import net.minecraft.util.math.vector.Vector3i;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorldWriter;
+import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraftforge.common.Tags;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.*;
 
 public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends Feature<TFC> {
@@ -528,6 +530,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     @Override
     public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
+        if (worldIn.getLevel().dimension() == World.OVERWORLD && BYG.ENABLE_OVERWORLD_TREES) {
+            return false;
+        }
         return placeTree(worldIn, rand, pos, config);
     }
 

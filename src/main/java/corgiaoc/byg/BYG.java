@@ -35,6 +35,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.world.ForgeWorldType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -61,6 +62,11 @@ public class BYG {
     public static final Path CONFIG_PATH = new File(String.valueOf(FMLPaths.CONFIGDIR.get().resolve(MOD_ID))).toPath();
 
     public static Registry<Biome> EARLY_BIOME_REGISTRY_ACCESS = null;
+
+    public static boolean ENABLE_OVERWORLD_TREES = false;
+    public static boolean ENABLE_CACTI = false;
+    public static boolean ENABLE_NYLIUM_FUNGI = false;
+    public static boolean ENABLE_NETHER_MUSHROOMS = false;
 
     public BYG() {
         File dir = new File(CONFIG_PATH.toString());
