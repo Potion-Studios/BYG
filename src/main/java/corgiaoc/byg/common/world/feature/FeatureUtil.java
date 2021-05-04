@@ -90,4 +90,9 @@ public class FeatureUtil {
                 return mirror ? new BlockPos(posX, pos.getY(), posZ) : pos;
         }
     }
+
+    public static BlockPos extractOffset(BlockPos startPos, BlockPos blockPos) {
+        return blockPos instanceof BlockPos.Mutable ? new BlockPos.Mutable(startPos.getX() - blockPos.getX(), blockPos.getY(), startPos.getZ() - blockPos.getZ()) :
+                new BlockPos(startPos.getX() - blockPos.getX(), blockPos.getY(), startPos.getZ() - blockPos.getZ());
+    }
 }

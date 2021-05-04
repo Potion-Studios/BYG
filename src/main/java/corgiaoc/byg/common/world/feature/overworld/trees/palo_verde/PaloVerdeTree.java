@@ -52,15 +52,15 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
                     BlockPos blockpos2 = new BlockPos(posX1, logplacer2, posZ1);
 
                     //Sets Logs
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east().north(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east().north(2), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(2).north(3).above(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(2).north(3).above(2), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(3).north().above(3), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(4).north(2).above(3), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(3).north(2).above(3), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(2).north(4).above(3), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.east().north(), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.east().north(2), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.east(2).north(3).above(), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.east(2).north(3).above(2), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.east(3).north().above(3), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.east(4).north(2).above(3), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.east(3).north(2).above(3), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.east(2).north(4).above(3), boundsIn);
                 }
 
 
@@ -75,22 +75,22 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
                         int posZ3 = posZ1 - 2;
 
                         //Bottom Leaves
-                        placeLeaves(config, rand, worldIn, posX2 + posXLeafWidth, topTrunkHeight + 5, posZ2 + posZLeafWidthL0, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX2 + posXLeafWidth - 2, topTrunkHeight + 5, posZ2 + posZLeafWidthL0, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX2 + posXLeafWidth - 1, topTrunkHeight + 5, posZ2 + posZLeafWidthL0 + 1, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX2 + posXLeafWidth - 1, topTrunkHeight + 5, posZ2 + posZLeafWidthL0 - 1, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX2 + posXLeafWidth, topTrunkHeight + 5, posZ2 + posZLeafWidthL0, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX2 + posXLeafWidth - 2, topTrunkHeight + 5, posZ2 + posZLeafWidthL0, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX2 + posXLeafWidth - 1, topTrunkHeight + 5, posZ2 + posZLeafWidthL0 + 1, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX2 + posXLeafWidth - 1, topTrunkHeight + 5, posZ2 + posZLeafWidthL0 - 1, boundsIn, changedBlocks);
 
-                        placeLeaves(config, rand, worldIn, posX3 + posXLeafWidth, topTrunkHeight + 5, posZ3 + posZLeafWidthL0, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX3 + posXLeafWidth - 2, topTrunkHeight + 5, posZ3 + posZLeafWidthL0, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX3 + posXLeafWidth - 1, topTrunkHeight + 5, posZ3 + posZLeafWidthL0 + 1, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX3 + posXLeafWidth - 1, topTrunkHeight + 5, posZ3 + posZLeafWidthL0 - 1, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX3 + posXLeafWidth, topTrunkHeight + 5, posZ3 + posZLeafWidthL0, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX3 + posXLeafWidth - 2, topTrunkHeight + 5, posZ3 + posZLeafWidthL0, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX3 + posXLeafWidth - 1, topTrunkHeight + 5, posZ3 + posZLeafWidthL0 + 1, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX3 + posXLeafWidth - 1, topTrunkHeight + 5, posZ3 + posZLeafWidthL0 - 1, boundsIn, changedBlocks);
 
                         //3x3
                         if (posXLeafWidth <= 1 && posZLeafWidthL0 <= 1 && posZLeafWidthL0 >= -1 && posXLeafWidth >= -1) {
 
-                            placeLeaves(config, rand, worldIn, posX2 + posXLeafWidth - 1, topTrunkHeight + 6, posZ2 + posZLeafWidthL0, boundsIn, changedBlocks);
+                            placeLeaves(pos, config, rand, worldIn, posX2 + posXLeafWidth - 1, topTrunkHeight + 6, posZ2 + posZLeafWidthL0, boundsIn, changedBlocks);
 
-                            placeLeaves(config, rand, worldIn, posX3 + posXLeafWidth - 1, topTrunkHeight + 6, posZ3 + posZLeafWidthL0, boundsIn, changedBlocks);
+                            placeLeaves(pos, config, rand, worldIn, posX3 + posXLeafWidth - 1, topTrunkHeight + 6, posZ3 + posZLeafWidthL0, boundsIn, changedBlocks);
                         }
 
                         //2x3
@@ -100,15 +100,15 @@ public class PaloVerdeTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
                         //Top Leaves
 
                         //Bottom Leaves
-                        placeLeaves(config, rand, worldIn, posX2 - 1, topTrunkHeight + 6, posZ2 + 2, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX2 - 3, topTrunkHeight + 6, posZ2, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX2 + 1, topTrunkHeight + 6, posZ2, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX2 - 1, topTrunkHeight + 6, posZ2 - 2, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX2 - 1, topTrunkHeight + 6, posZ2 + 2, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX2 - 3, topTrunkHeight + 6, posZ2, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX2 + 1, topTrunkHeight + 6, posZ2, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX2 - 1, topTrunkHeight + 6, posZ2 - 2, boundsIn, changedBlocks);
 
-                        placeLeaves(config, rand, worldIn, posX3 - 1, topTrunkHeight + 6, posZ3 + 2, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX3 - 3, topTrunkHeight + 6, posZ3, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX3 + 1, topTrunkHeight + 6, posZ3, boundsIn, changedBlocks);
-                        placeLeaves(config, rand, worldIn, posX3 - 1, topTrunkHeight + 6, posZ3 - 2, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX3 - 1, topTrunkHeight + 6, posZ3 + 2, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX3 - 3, topTrunkHeight + 6, posZ3, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX3 + 1, topTrunkHeight + 6, posZ3, boundsIn, changedBlocks);
+                        placeLeaves(pos, config, rand, worldIn, posX3 - 1, topTrunkHeight + 6, posZ3 - 2, boundsIn, changedBlocks);
 
                     }
                 }

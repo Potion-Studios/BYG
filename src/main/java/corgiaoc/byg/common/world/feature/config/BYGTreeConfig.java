@@ -7,6 +7,8 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.IFeatureConfig;
@@ -113,10 +115,28 @@ public class BYGTreeConfig implements IFeatureConfig {
         return forcedPlacement;
     }
 
+    private Rotation rotation = Rotation.NONE;
+    private Mirror mirror = Mirror.NONE;
+
+    public void setRotationAndMirror(Rotation rotation, Mirror mirror) {
+        this.rotation = rotation;
+        this.mirror = mirror;
+    }
+
+    public Rotation getRotation() {
+        return rotation;
+    }
+
+    public Mirror getMirror() {
+        return mirror;
+    }
+
+
     public static class Builder {
         private BlockStateProvider trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
         private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
-        @Deprecated private BlockStateProvider groundReplacementProvider = new SimpleBlockStateProvider(Blocks.DIRT.defaultBlockState());
+        @Deprecated
+        private BlockStateProvider groundReplacementProvider = new SimpleBlockStateProvider(Blocks.DIRT.defaultBlockState());
         private BlockStateProvider diskProvider = new SimpleBlockStateProvider(Blocks.PODZOL.defaultBlockState());
         private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
         private int minHeight = 15;

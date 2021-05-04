@@ -1418,7 +1418,7 @@ public class BYGConfiguredFeatures {
             MEADOW_TREE1.weighted(0.2F),
             MEADOW_TREE2.weighted(0.1F)),
             MEADOW_TREE3)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(3, 0.5F, 4))));
+            new AtSurfaceWithExtraConfig(3, 0.4F, 4))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_GROVE_TREE = createConfiguredFeature("grove_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             BIRCH_YELLOW_BOREAL_TREE1.weighted(0.5F)),

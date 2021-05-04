@@ -16,6 +16,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -70,30 +72,49 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         });
     }
 
-    public void placeTrunk(BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeTrunk(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        pos = getTransformedPos(config, startPos, pos);
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
         }
     }
 
-    public void placeBranch(BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeBranch(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        pos = getTransformedPos(config, startPos, pos);
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
         }
     }
 
-    public void placeLeaves(BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    public void placeLeaves(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        pos = getTransformedPos(config, startPos, pos);
         if (isAir(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getLeavesProvider().getState(random, pos), boundingBox);
         }
     }
 
     //TODO: Make all our trees use the method above.
-    public void placeLeaves(BYGTreeConfig config, Random random, ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
-        BlockPos pos = new BlockPos(x, y, z);
+    public void placeLeaves(BlockPos startPos, BYGTreeConfig config, Random random, ISeedReader reader, int x, int y, int z, MutableBoundingBox boundingBox, Set<BlockPos> blockPos) {
+        BlockPos pos = getTransformedPos(config, startPos, new BlockPos(x, y, z));
+
+
         if (isAir(reader, pos)) {
             this.setFinalBlockState(blockPos, reader, pos, config.getLeavesProvider().getState(random, pos), boundingBox);
         }
+    }
+
+
+    private BlockPos getTransformedPos(BYGTreeConfig config, BlockPos startPos, BlockPos pos) {
+        Rotation rotation = config.getRotation();
+        Mirror mirror = config.getMirror();
+        BlockPos blockPos = FeatureUtil.extractOffset(startPos, pos);
+        if (blockPos instanceof BlockPos.Mutable) {
+            FeatureUtil.transformMutable((BlockPos.Mutable) blockPos, mirror, rotation);
+            ((BlockPos.Mutable) blockPos).move(startPos.getX(), 0, startPos.getZ());
+            return blockPos;
+        }
+
+        return FeatureUtil.transform(blockPos, mirror, rotation).offset(startPos.getX(), 0, startPos.getZ());
     }
 
 
@@ -530,9 +551,15 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     @Override
     public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
+
         if (worldIn.getLevel().dimension() == World.OVERWORLD && BYG.ENABLE_OVERWORLD_TREES) {
             return false;
         }
+
+        Rotation rotation = Rotation.values()[rand.nextInt(Rotation.values().length)];
+        Mirror mirror = Mirror.values()[rand.nextInt(Mirror.values().length)];
+        config.setRotationAndMirror(rotation, mirror);
+
         return placeTree(worldIn, rand, pos, config);
     }
 
