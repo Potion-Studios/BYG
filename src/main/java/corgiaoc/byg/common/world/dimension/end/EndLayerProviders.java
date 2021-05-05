@@ -21,7 +21,7 @@ public class EndLayerProviders {
     public static DatapackLayer stackLayers(Registry<Biome> biomeRegistry, long seed) {
         LongFunction<IExtendedNoiseRandom<LazyArea>> randomProvider = salt -> new LazyAreaLayerContext(1, seed, salt);
 
-        IAreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, BYGEndBiomeProvider.END_BIOMES).run(randomProvider.apply(1003958L));
+        IAreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, BYGEndBiomeSource.END_BIOMES).run(randomProvider.apply(1003958L));
 
         for (int endBiomeSize = 0; endBiomeSize <= BYGWorldConfig.BIOME_SIZE_END.get(); endBiomeSize++) {
             endLayer = ZoomLayer.NORMAL.run(randomProvider.apply(49596L + endBiomeSize), endLayer);
@@ -39,7 +39,7 @@ public class EndLayerProviders {
     public static DatapackLayer stackVoidLayers(Registry<Biome> biomeRegistry, long seed) {
         LongFunction<IExtendedNoiseRandom<LazyArea>> randomProvider = salt -> new LazyAreaLayerContext(1, seed, salt);
 
-        IAreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, BYGEndBiomeProvider.VOID_BIOMES).run(randomProvider.apply(1003958L));
+        IAreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, BYGEndBiomeSource.VOID_BIOMES).run(randomProvider.apply(1003958L));
 
         for (int endBiomeSize = 0; endBiomeSize <= BYGWorldConfig.VOID_BIOME_SIZE.get(); endBiomeSize++) {
             endLayer = ZoomLayer.NORMAL.run(randomProvider.apply(49596L + endBiomeSize), endLayer);
