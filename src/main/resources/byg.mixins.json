@@ -22,6 +22,7 @@
     "server.MixinMinecraftServer"
   ],
   "client": [
+    "client.MixinDebugOverlayGui"
   ],
   "injectors": {
     "defaultRequire": 1
