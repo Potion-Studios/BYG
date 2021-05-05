@@ -1,7 +1,7 @@
 package corgiaoc.byg.config.json.endbiomedata;
 
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
-import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
+import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
@@ -84,8 +84,11 @@ public class EndBiomeDataListHolder {
         end_biomes.entries.removeIf(Objects::isNull);
         void_biomes.entries.removeIf(Objects::isNull);
 
-        BYGEndBiomeProvider.END_BIOMES = end_biomes;
-        BYGEndBiomeProvider.VOID_BIOMES = void_biomes;
+        end_biomes.entries.sort(Comparator.comparing(WeightedList.Entry::getData));
+        void_biomes.entries.sort(Comparator.comparing(WeightedList.Entry::getData));
+
+        BYGEndBiomeSource.END_BIOMES = end_biomes;
+        BYGEndBiomeSource.VOID_BIOMES = void_biomes;
         BYGEndBiome.BIOME_TO_HILLS = biome_to_hills;
         BYGEndBiome.BIOME_TO_EDGE = biome_to_edge;
     }

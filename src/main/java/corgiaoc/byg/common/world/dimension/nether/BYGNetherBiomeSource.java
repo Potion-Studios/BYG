@@ -14,8 +14,8 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class BYGNetherBiomeProvider extends BiomeProvider {
-    public static final Codec<BYGNetherBiomeProvider> BYGNETHERCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.create(Registry.BIOME_REGISTRY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGNetherBiomeProvider::new)));
+public class BYGNetherBiomeSource extends BiomeProvider {
+    public static final Codec<BYGNetherBiomeSource> BYGNETHERCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.create(Registry.BIOME_REGISTRY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGNetherBiomeSource::new)));
 
     private static final List<String> NETHER_BIOME_IDS = Arrays.asList(BYGWorldConfig.BLACKLIST_NETHER.get().trim().replace(" ", "").split(","));
 
@@ -24,7 +24,7 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
     private final Registry<Biome> biomeRegistry;
     public static List<ResourceLocation> NETHER_BIOMES = new ArrayList<>();
 
-    public BYGNetherBiomeProvider(Registry<Biome> registry, long seed) {
+    public BYGNetherBiomeSource(Registry<Biome> registry, long seed) {
         super(createNetherBiomeList(registry).stream().map(registry::get).collect(Collectors.toList()));
         this.seed = seed;
         biomeRegistry = registry;
@@ -45,8 +45,7 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
                     if (!NETHER_BIOMES.contains(locationKey) && !NETHER_BIOME_IDS.contains(locationKey.toString())) {
                         NETHER_BIOMES.add(locationKey);
                     }
-                }
-                else {
+                } else {
                     for (String id : NETHER_BIOME_IDS) {
                         if (id.equals(locationKey.toString())) {
                             NETHER_BIOMES.add(locationKey);
@@ -56,6 +55,7 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
             }
         }
         NETHER_BIOMES.removeIf(Objects::isNull);
+        NETHER_BIOMES.sort(Comparator.comparing(ResourceLocation::toString));
         return NETHER_BIOMES;
     }
 
@@ -66,7 +66,7 @@ public class BYGNetherBiomeProvider extends BiomeProvider {
 
     @Override
     public BiomeProvider withSeed(long seed) {
-        return new BYGNetherBiomeProvider(biomeRegistry, seed);
+        return new BYGNetherBiomeSource(biomeRegistry, seed);
     }
 
     @Override

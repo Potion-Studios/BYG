@@ -16,12 +16,12 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.EndBiomeProvider;
 import net.minecraft.world.gen.SimplexNoiseGenerator;
 
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class BYGEndBiomeProvider extends BiomeProvider {
-    public static final Codec<BYGEndBiomeProvider> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.create(Registry.BIOME_REGISTRY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeProvider::new)));
+public class BYGEndBiomeSource extends BiomeProvider {
+    public static final Codec<BYGEndBiomeSource> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.create(Registry.BIOME_REGISTRY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeSource::new)));
 
     private final long seed;
     private final DatapackLayer mainIslandLayer;
@@ -32,7 +32,7 @@ public class BYGEndBiomeProvider extends BiomeProvider {
     public static WeightedList<ResourceLocation> END_BIOMES = new WeightedList<>();
     public static WeightedList<ResourceLocation> VOID_BIOMES = new WeightedList<>();
 
-    public BYGEndBiomeProvider(Registry<Biome> registry, long seed) {
+    public BYGEndBiomeSource(Registry<Biome> registry, long seed) {
         super(handleJsonAndFillBiomeList(registry));
         this.seed = seed;
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
@@ -44,7 +44,6 @@ public class BYGEndBiomeProvider extends BiomeProvider {
     }
 
     private static List<Biome> handleJsonAndFillBiomeList(Registry<Biome> registry) {
-        BYG.EARLY_BIOME_REGISTRY_ACCESS = registry;
         BYGJsonConfigHandler.handleEndBiomeJsonConfigs(BYG.CONFIG_PATH, registry);
         return Stream.concat(END_BIOMES.entries.stream(), VOID_BIOMES.entries.stream()).map(WeightedList.Entry::getData).map(registry::get).collect(Collectors.toList());
     }
@@ -56,7 +55,7 @@ public class BYGEndBiomeProvider extends BiomeProvider {
 
     @Override
     public BiomeProvider withSeed(long seed) {
-        return new BYGEndBiomeProvider(biomeRegistry, seed);
+        return new BYGEndBiomeSource(biomeRegistry, seed);
     }
 
     @Override

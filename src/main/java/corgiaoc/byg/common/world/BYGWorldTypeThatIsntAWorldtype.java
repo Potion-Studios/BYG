@@ -1,8 +1,8 @@
 package corgiaoc.byg.common.world;
 
 import com.mojang.serialization.Lifecycle;
-import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
-import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
+import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
+import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeSource;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.SimpleRegistry;
@@ -28,11 +28,11 @@ public class BYGWorldTypeThatIsntAWorldtype extends ForgeWorldType {
 
     public static SimpleRegistry<Dimension> getDefaultSimpleRegistry(Registry<DimensionType> lookUpRegistryDimensionType, Registry<Biome> registry, Registry<DimensionSettings> dimensionSettings, long seed) {
         SimpleRegistry<Dimension> simpleregistry = new SimpleRegistry<>(Registry.LEVEL_STEM_REGISTRY, Lifecycle.stable());
-        simpleregistry.register(Dimension.OVERWORLD, new Dimension(() -> lookUpRegistryDimensionType.getOrThrow(DimensionType.OVERWORLD_LOCATION), new NoiseChunkGenerator(new BYGNetherBiomeProvider(registry, seed), seed, () -> dimensionSettings.getOrThrow(DimensionSettings.OVERWORLD))), Lifecycle.stable());
+        simpleregistry.register(Dimension.OVERWORLD, new Dimension(() -> lookUpRegistryDimensionType.getOrThrow(DimensionType.OVERWORLD_LOCATION), new NoiseChunkGenerator(new BYGNetherBiomeSource(registry, seed), seed, () -> dimensionSettings.getOrThrow(DimensionSettings.OVERWORLD))), Lifecycle.stable());
 
-        simpleregistry.register(Dimension.NETHER, new Dimension(() -> lookUpRegistryDimensionType.getOrThrow(DimensionType.NETHER_LOCATION), new NoiseChunkGenerator(new BYGNetherBiomeProvider(registry, seed), seed, () -> dimensionSettings.getOrThrow(DimensionSettings.NETHER))), Lifecycle.stable());
+        simpleregistry.register(Dimension.NETHER, new Dimension(() -> lookUpRegistryDimensionType.getOrThrow(DimensionType.NETHER_LOCATION), new NoiseChunkGenerator(new BYGNetherBiomeSource(registry, seed), seed, () -> dimensionSettings.getOrThrow(DimensionSettings.NETHER))), Lifecycle.stable());
 
-        simpleregistry.register(Dimension.END, new Dimension(() -> lookUpRegistryDimensionType.getOrThrow(DimensionType.END_LOCATION), new NoiseChunkGenerator(new BYGEndBiomeProvider(registry, seed), seed, () -> dimensionSettings.getOrThrow(DimensionSettings.END))), Lifecycle.stable());
+        simpleregistry.register(Dimension.END, new Dimension(() -> lookUpRegistryDimensionType.getOrThrow(DimensionType.END_LOCATION), new NoiseChunkGenerator(new BYGEndBiomeSource(registry, seed), seed, () -> dimensionSettings.getOrThrow(DimensionSettings.END))), Lifecycle.stable());
 
         return simpleregistry;
     }

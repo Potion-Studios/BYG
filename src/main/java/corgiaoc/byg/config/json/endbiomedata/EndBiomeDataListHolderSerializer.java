@@ -4,6 +4,8 @@ import com.google.gson.*;
 import corgiaoc.byg.BYG;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 
 import java.lang.reflect.Type;
@@ -12,6 +14,13 @@ import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
 public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiomeDataListHolder>, JsonDeserializer<EndBiomeDataListHolder> {
+
+
+    private final Registry<Biome> biomeRegistry;
+
+    public EndBiomeDataListHolderSerializer(Registry<Biome> biomeRegistry) {
+        this.biomeRegistry = biomeRegistry;
+    }
 
     @Override
     public JsonElement serialize(EndBiomeDataListHolder Src, Type typeOfSrc, JsonSerializationContext context) {
@@ -124,7 +133,7 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
                     ResourceLocation hillResourceLocation = new ResourceLocation(hillBiomeName);
 
                     if (hillResourceLocation != null) {
-                        if (BYG.EARLY_BIOME_REGISTRY_ACCESS.keySet().contains(hillResourceLocation))
+                        if (biomeRegistry.keySet().contains(hillResourceLocation))
                             weightedList.add(hillResourceLocation, hillWeight);
                         else
                             BYG.LOGGER.error("Could not find: \"" + hillResourceLocation.toString() + "\" in the biome registry!\nEntry will not be added. Skipping entry...");
@@ -132,7 +141,7 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
                 }
             }
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
-            if (BYG.EARLY_BIOME_REGISTRY_ACCESS.keySet().contains(biomeKey)) {
+            if (biomeRegistry.keySet().contains(biomeKey)) {
                 endBiomeData.add(new EndBiomeData(biomeKey, weight, typesArray, weightedList, new ResourceLocation(edge)));
             } else
                 BYG.LOGGER.error("The biome key: \"" + biomeName + "\" was not found in the registry, skipping entry...");

@@ -45,7 +45,7 @@ public class BYGJsonConfigHandler {
         }
 
         try {
-            handleBYGEndSubBiomesJSONConfig(path.resolve(BYG.MOD_ID + "-end-sub-biomes.json"));
+            handleBYGEndSubBiomesJSONConfig(path.resolve(BYG.MOD_ID + "-end-sub-biomes.json"), biomeRegistry);
         } catch (IllegalStateException e) {
             throw new IllegalStateException("byg-end-sub-biomes.json failed to load. To quickly fix this error, delete this file and let it reset.");
         }
@@ -78,9 +78,9 @@ public class BYGJsonConfigHandler {
     }
 
 
-    public static void handleBYGEndSubBiomesJSONConfig(Path path) {
+    public static void handleBYGEndSubBiomesJSONConfig(Path path, Registry<Biome> biomeRegistry) {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(EndSubBiomeDataListHolder.class, new EndSubBiomeDataListHolderSerializer());
+        gsonBuilder.registerTypeAdapter(EndSubBiomeDataListHolder.class, new EndSubBiomeDataListHolderSerializer(biomeRegistry));
         gsonBuilder.setPrettyPrinting();
         gsonBuilder.disableHtmlEscaping();
         Gson gson = gsonBuilder.create();
@@ -89,7 +89,7 @@ public class BYGJsonConfigHandler {
 
         if (!CONFIG_FILE.exists()) {
             EndSubBiomeDataListHolder.createDefaults();
-            createBYGEndSubBiomesJson(path);
+            createBYGEndSubBiomesJson(path, biomeRegistry);
         }
         try (Reader reader = new FileReader(path.toString())) {
             EndSubBiomeDataListHolder biomeDataListHolder = gson.fromJson(reader, EndSubBiomeDataListHolder.class);
@@ -104,9 +104,9 @@ public class BYGJsonConfigHandler {
         }
     }
 
-    public static void createBYGEndSubBiomesJson(Path path) {
+    public static void createBYGEndSubBiomesJson(Path path, Registry<Biome> biomeRegistry) {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(EndSubBiomeDataListHolder.class, new EndSubBiomeDataListHolderSerializer());
+        gsonBuilder.registerTypeAdapter(EndSubBiomeDataListHolder.class, new EndSubBiomeDataListHolderSerializer(biomeRegistry));
         gsonBuilder.setPrettyPrinting();
         gsonBuilder.disableHtmlEscaping();
         Gson gson = gsonBuilder.create();
@@ -123,7 +123,7 @@ public class BYGJsonConfigHandler {
 
     public static void handleBYGEndBiomesJSONConfig(Path path, Registry<Biome> biomeRegistry) {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(EndBiomeDataListHolder.class, new EndBiomeDataListHolderSerializer());
+        gsonBuilder.registerTypeAdapter(EndBiomeDataListHolder.class, new EndBiomeDataListHolderSerializer(biomeRegistry));
         gsonBuilder.setPrettyPrinting();
         gsonBuilder.disableHtmlEscaping();
         Gson gson = gsonBuilder.create();
@@ -132,7 +132,7 @@ public class BYGJsonConfigHandler {
 
         if (!CONFIG_FILE.exists()) {
             EndBiomeDataListHolder.createDefaults(biomeRegistry);
-            createBYGEndBiomesJson(path);
+            createBYGEndBiomesJson(path, biomeRegistry);
         }
         try (Reader reader = new FileReader(path.toString())) {
             EndBiomeDataListHolder biomeDataListHolder = gson.fromJson(reader, EndBiomeDataListHolder.class);
@@ -147,9 +147,9 @@ public class BYGJsonConfigHandler {
         }
     }
 
-    public static void createBYGEndBiomesJson(Path path) {
+    public static void createBYGEndBiomesJson(Path path, Registry<Biome> biomeRegistry) {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(EndBiomeDataListHolder.class, new EndBiomeDataListHolderSerializer());
+        gsonBuilder.registerTypeAdapter(EndBiomeDataListHolder.class, new EndBiomeDataListHolderSerializer(biomeRegistry));
         gsonBuilder.setPrettyPrinting();
         gsonBuilder.disableHtmlEscaping();
         Gson gson = gsonBuilder.create();

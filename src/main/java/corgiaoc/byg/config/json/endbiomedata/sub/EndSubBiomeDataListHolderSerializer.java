@@ -4,6 +4,8 @@ import com.google.gson.*;
 import corgiaoc.byg.BYG;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 
 import java.lang.reflect.Type;
@@ -12,6 +14,12 @@ import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
 public class EndSubBiomeDataListHolderSerializer implements JsonSerializer<EndSubBiomeDataListHolder>, JsonDeserializer<EndSubBiomeDataListHolder> {
+
+    private final Registry<Biome> biomeRegistry;
+
+    public EndSubBiomeDataListHolderSerializer(Registry<Biome> biomeRegistry) {
+        this.biomeRegistry = biomeRegistry;
+    }
 
     @Override
     public JsonElement serialize(EndSubBiomeDataListHolder Src, Type typeOfSrc, JsonSerializationContext context) {
@@ -95,7 +103,7 @@ public class EndSubBiomeDataListHolderSerializer implements JsonSerializer<EndSu
             }
 
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
-            if (BYG.EARLY_BIOME_REGISTRY_ACCESS.keySet().contains(biomeKey)) {
+            if (biomeRegistry.keySet().contains(biomeKey)) {
                     endSubBiomeData.add(new EndSubBiomeData(biomeKey, typesArray, new ResourceLocation(edge)));
             }
             else

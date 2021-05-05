@@ -7,8 +7,8 @@ import corgiaoc.byg.common.entity.villager.BYGVillagerType;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
 import corgiaoc.byg.common.properties.vanilla.*;
 import corgiaoc.byg.common.world.BYGWorldTypeThatIsntAWorldtype;
-import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeProvider;
-import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeProvider;
+import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
+import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeSource;
 import corgiaoc.byg.common.world.feature.blockplacer.BYGBlockPlacerTypes;
 import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.json.BYGJsonConfigHandler;
@@ -35,7 +35,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.world.ForgeWorldType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -61,7 +60,6 @@ public class BYG {
 
     public static final Path CONFIG_PATH = new File(String.valueOf(FMLPaths.CONFIGDIR.get().resolve(MOD_ID))).toPath();
 
-    public static Registry<Biome> EARLY_BIOME_REGISTRY_ACCESS = null;
 
     public static boolean ENABLE_OVERWORLD_TREES = false;
     public static boolean ENABLE_CACTI = false;
@@ -85,8 +83,8 @@ public class BYG {
         BYGCreativeTab.init();
         BYGJsonConfigHandler.handleOverWorldConfig(CONFIG_PATH);
         event.enqueueWork(() -> {
-            Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeProvider.BYGNETHERCODEC);
-            Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeProvider.BYGENDCODEC);
+            Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeSource.BYGNETHERCODEC);
+            Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeSource.BYGENDCODEC);
             BYGVillagerType.setVillagerForBYGBiomes();
             BYGBiomes.addBiomeEntries();
             BYGBiomes.fillBiomeDictionary();
