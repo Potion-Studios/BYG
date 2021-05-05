@@ -29,11 +29,11 @@ public class MahoganyTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
-            } else if(isCliff(worldIn, 3, mainmutable.set(pos).move(-6, 0, 1).immutable(), mainmutable.set(pos).move(-5, 0, 0).immutable(), mainmutable.set(pos).move(-5, 0, 1).immutable(), mainmutable.set(pos).move(-5, 0, 2).immutable(), mainmutable.set(pos).move(-4, 0, 1).immutable(), mainmutable.set(pos).move(-4, 0, 2).immutable(), mainmutable.set(pos).move(-2, 0, -5).immutable(), mainmutable.set(pos).move(-2, 0, -4).immutable(), mainmutable.set(pos).move(-1, 0, -5).immutable(), mainmutable.set(pos).move(-1, 0, -4).immutable(), mainmutable.set(pos).move(0, 0, -4).immutable(), mainmutable.set(pos).move(1, 0, 4).immutable(), mainmutable.set(pos).move(1, 0, 5).immutable(), mainmutable.set(pos).move(2, 0, 4).immutable(), mainmutable.set(pos).move(2, 0, 5).immutable(), mainmutable.set(pos).move(4, 0, -1).immutable(), mainmutable.set(pos).move(4, 0, 0).immutable(), mainmutable.set(pos).move(4, 0, 1).immutable(), mainmutable.set(pos).move(5, 0, -1).immutable(), mainmutable.set(pos).move(5, 0, 0).immutable(), mainmutable.set(pos).move(5, 0, 1))) {
+            } else if (isCliff(worldIn, 3, mainmutable.set(pos).move(-6, 0, 1).immutable(), mainmutable.set(pos).move(-5, 0, 0).immutable(), mainmutable.set(pos).move(-5, 0, 1).immutable(), mainmutable.set(pos).move(-5, 0, 2).immutable(), mainmutable.set(pos).move(-4, 0, 1).immutable(), mainmutable.set(pos).move(-4, 0, 2).immutable(), mainmutable.set(pos).move(-2, 0, -5).immutable(), mainmutable.set(pos).move(-2, 0, -4).immutable(), mainmutable.set(pos).move(-1, 0, -5).immutable(), mainmutable.set(pos).move(-1, 0, -4).immutable(), mainmutable.set(pos).move(0, 0, -4).immutable(), mainmutable.set(pos).move(1, 0, 4).immutable(), mainmutable.set(pos).move(1, 0, 5).immutable(), mainmutable.set(pos).move(2, 0, 4).immutable(), mainmutable.set(pos).move(2, 0, 5).immutable(), mainmutable.set(pos).move(4, 0, -1).immutable(), mainmutable.set(pos).move(4, 0, 0).immutable(), mainmutable.set(pos).move(4, 0, 1).immutable(), mainmutable.set(pos).move(5, 0, -1).immutable(), mainmutable.set(pos).move(5, 0, 0).immutable(), mainmutable.set(pos).move(5, 0, 1))) {
                 return false;
-            } else  {
+            } else {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).move(-6, 0, 1).immutable(), mainmutable.set(pos).move(-5, 0, 0).immutable(), mainmutable.set(pos).move(-5, 0, 1).immutable(), mainmutable.set(pos).move(-5, 0, 2).immutable(), mainmutable.set(pos).move(-4, 0, 1).immutable(), mainmutable.set(pos).move(-4, 0, 2).immutable(), mainmutable.set(pos).move(-2, 0, -5).immutable(), mainmutable.set(pos).move(-2, 0, -4).immutable(), mainmutable.set(pos).move(-1, 0, -5).immutable(), mainmutable.set(pos).move(-1, 0, -4).immutable(), mainmutable.set(pos).move(0, 0, -4).immutable(), mainmutable.set(pos).move(1, 0, 4).immutable(), mainmutable.set(pos).move(1, 0, 5).immutable(), mainmutable.set(pos).move(2, 0, 4).immutable(), mainmutable.set(pos).move(2, 0, 5).immutable(), mainmutable.set(pos).move(4, 0, -1).immutable(), mainmutable.set(pos).move(4, 0, 0).immutable(), mainmutable.set(pos).move(4, 0, 1).immutable(), mainmutable.set(pos).move(5, 0, -1).immutable(), mainmutable.set(pos).move(5, 0, 0).immutable(), mainmutable.set(pos).move(5, 0, 1));
-                
+
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 3, 0), boundsIn);
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 8, 0), boundsIn);
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 9, 0), boundsIn);
@@ -440,17 +440,17 @@ public class MahoganyTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 28, 1), boundsIn);
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 28, -1), boundsIn);
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 28, 1), boundsIn);
-                this.honeycomb(changedBlocks, worldIn, mainmutable.set(pos).move(-1, 4, 0), boundsIn);
-                this.honeycomb(changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 0), boundsIn);
-                this.honeycomb(changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 1), boundsIn);
-                this.honeycomb(changedBlocks, worldIn, mainmutable.set(pos).move(1, 4, 0), boundsIn);
-                this.honeycomb(changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, -1), boundsIn);
-                this.honeycomb(changedBlocks, worldIn, mainmutable.set(pos).move(1, 5, 0), boundsIn);
-                this.honeycomb(changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, 0), boundsIn);
-                this.honey(changedBlocks, worldIn, mainmutable.set(pos).move(1, 8, 0), boundsIn);
-                this.honey(changedBlocks, worldIn, mainmutable.set(pos).move(-1, 9, 0), boundsIn);
-                this.honey(changedBlocks, worldIn, mainmutable.set(pos).move(0, 9, 1), boundsIn);
-                this.honey(changedBlocks, worldIn, mainmutable.set(pos).move(1, 9, 0), boundsIn);
+                this.honeycomb(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 4, 0), boundsIn);
+                this.honeycomb(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 0), boundsIn);
+                this.honeycomb(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 1), boundsIn);
+                this.honeycomb(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, 4, 0), boundsIn);
+                this.honeycomb(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, -1), boundsIn);
+                this.honeycomb(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, 5, 0), boundsIn);
+                this.honeycomb(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, 0), boundsIn);
+                this.honey(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, 8, 0), boundsIn);
+                this.honey(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 9, 0), boundsIn);
+                this.honey(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, 9, 1), boundsIn);
+                this.honey(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, 9, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, 10, -7), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, 10, -6), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 10, -8), boundsIn);
@@ -487,7 +487,7 @@ public class MahoganyTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 10, -2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 10, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 10, -3), boundsIn);
-                this.honey(changedBlocks, worldIn, mainmutable.set(pos).move(0, 10, 1), boundsIn);
+                this.honey(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, 10, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-6, 11, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-6, 11, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-5, 11, 1), boundsIn);
@@ -1247,16 +1247,16 @@ public class MahoganyTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
     }
 
     //Honey Placement
-    private void honey(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void honey(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, Blocks.HONEY_BLOCK.defaultBlockState(), boundingBox);
+            this.setFinalBlockState(startPos, config, blockPos, reader, pos, Blocks.HONEY_BLOCK.defaultBlockState(), boundingBox);
         }
     }
 
     //Honeycomb Placement
-    private void honeycomb(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void honeycomb(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, Blocks.HONEYCOMB_BLOCK.defaultBlockState(), boundingBox);
+            this.setFinalBlockState(startPos, config, blockPos, reader, pos, Blocks.HONEYCOMB_BLOCK.defaultBlockState(), boundingBox);
         }
     }
 }

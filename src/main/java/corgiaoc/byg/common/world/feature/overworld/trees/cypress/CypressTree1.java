@@ -32,8 +32,9 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
                 return false;
-            }
-            if (!this.doesTreeFit(worldIn, pos, randTreeHeight)) {
+            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+                return false;
+            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
                 buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.immutable(), mainmutable2.immutable(), mainmutable3.immutable(), mainmutable4.immutable(), mainmutable5.immutable());
@@ -842,33 +843,6 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, randTreeHeight + 1, 4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, randTreeHeight + 1, 4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 1, 5), boundsIn);
-            }
-        }
-        return true;
-    }
-
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHereWater(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.CYPRESS_LOG.defaultBlockState(), boundingBox);
-        }
-    }
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 0;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHereWater(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
             }
         }
         return true;

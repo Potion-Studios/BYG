@@ -455,10 +455,4 @@ public class CypressTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         }
         return true;
     }
-
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHereWater(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.CYPRESS_LOG.defaultBlockState(), boundingBox);
-        }
-    }
 }

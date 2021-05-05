@@ -30,37 +30,37 @@ public class LamentWeepingTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                placeNetherTrunk(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 2, 0), boundsIn);
-                placeNetherTrunk(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 3, 0), boundsIn);
-                placeNetherTrunk(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 0), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 0, -1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 0, 1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 0, -1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 0, 1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 1, -1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 1, 1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 1, -1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 1, 1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 2, -1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 2, 1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 2, -1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 2, 1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 4, 0), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, -1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 1), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 4, 0), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 5, 0), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, -2), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, 2), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 5, 0), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 6, 0), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 6, 0), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, -3), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, -2), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, 2), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, 3), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 6, 0), boundsIn);
-                placeNetherBranch(config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 6, 0), boundsIn);
+                placeNetherTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 2, 0), boundsIn);
+                placeNetherTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 3, 0), boundsIn);
+                placeNetherTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 0), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 0, -1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 0, 1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 0, -1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 0, 1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 1, -1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 1, 1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 1, -1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 1, 1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 2, -1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 2, 1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 2, -1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 2, 1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 4, 0), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, -1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 1), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 4, 0), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 5, 0), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, -2), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, 2), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 5, 0), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 6, 0), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 6, 0), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, -3), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, -2), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, 2), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, 3), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 6, 0), boundsIn);
+                placeNetherBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 6, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 3, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 3, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 3, -3), boundsIn);
@@ -87,12 +87,12 @@ public class LamentWeepingTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 5, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 5, -3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 5, -1), boundsIn);
-                this.placeShroomLights(changedBlocks, worldIn, mainmutable.set(pos).move(-1, 5, 0), boundsIn);
+                this.placeShroomLights(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 5, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 5, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, 4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 5, -3), boundsIn);
-                this.placeShroomLights(changedBlocks, worldIn, mainmutable.set(pos).move(1, 5, 0), boundsIn);
+                this.placeShroomLights(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, 5, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 5, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 5, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 5, 4), boundsIn);
@@ -122,13 +122,13 @@ public class LamentWeepingTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 6, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 6, 4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, -4), boundsIn);
-                this.placeShroomLights(changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, -1), boundsIn);
-                this.placeShroomLights(changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, 1), boundsIn);
+                this.placeShroomLights(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, -1), boundsIn);
+                this.placeShroomLights(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 6, 4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, -3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, -2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, -1), boundsIn);
-                this.placeShroomLights(changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, 1), boundsIn);
+                this.placeShroomLights(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, 4), boundsIn);
@@ -169,9 +169,9 @@ public class LamentWeepingTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
     }
 
     //Honey Placement
-    private void placeShroomLights(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void placeShroomLights(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, Blocks.SHROOMLIGHT.defaultBlockState(), boundingBox);
+            this.setFinalBlockState(startPos, config, blockPos, reader, pos, Blocks.SHROOMLIGHT.defaultBlockState(), boundingBox);
         }
     }
 }

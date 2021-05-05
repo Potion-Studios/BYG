@@ -119,40 +119,40 @@ public class EtherTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 17, 5), boundsIn);
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 17, 6), boundsIn);
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 17, 5), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 5, 2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(6, 5, -3), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 6, -2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 6, 4), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 6, -4), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 5, 2), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(6, 5, -3), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 6, -2), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 6, 4), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 6, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 6, 2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 6, 0), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(6, 6, -6), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 6, 0), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(6, 6, -6), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(6, 6, -3), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(8, 6, -2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, 7, -2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 7, -4), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(8, 6, -2), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, 7, -2), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 7, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 7, -2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 7, -3), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 7, -3), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 7, -3), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 7, -3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 7, 4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 7, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 7, 2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 7, -6), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 7, -6), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 7, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 7, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(6, 7, -6), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(6, 7, -3), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(8, 7, -5), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(8, 7, -5), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(8, 7, -2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, 8, -2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, 8, 3), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, 8, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 8, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 8, -2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 8, 4), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 8, 4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 8, -3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 8, -2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 8, 0), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 8, 2), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 8, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 8, -3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 8, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 8, 2), boundsIn);
@@ -175,7 +175,7 @@ public class EtherTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(8, 8, -5), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(8, 8, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(8, 8, -2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-5, 9, -3), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-5, 9, -3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, 9, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, 9, -2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, 9, -1), boundsIn);
@@ -183,8 +183,8 @@ public class EtherTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 9, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 9, -3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 9, -2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 9, 1), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 9, 5), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 9, 1), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 9, 5), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 9, -5), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 9, -3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 9, -2), boundsIn);
@@ -195,7 +195,7 @@ public class EtherTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 9, -3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 9, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 9, -1), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 9, 4), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 9, 4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 9, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 9, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 9, 2), boundsIn);
@@ -257,8 +257,8 @@ public class EtherTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 10, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 10, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 10, 4), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 10, 6), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 10, -4), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 10, 6), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 10, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 10, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 10, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 10, -1), boundsIn);
@@ -270,7 +270,7 @@ public class EtherTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 10, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 10, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 10, 2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 10, 5), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 10, 5), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 10, -6), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 10, -5), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 10, -3), boundsIn);
@@ -362,14 +362,14 @@ public class EtherTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 12, -2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 12, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 12, 5), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 12, 7), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 12, 7), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 12, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 12, -3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 12, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 12, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 12, 5), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 12, 6), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 12, -5), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 12, -5), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 12, -4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 12, -2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 12, -1), boundsIn);
@@ -680,10 +680,5 @@ public class EtherTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             }
         }
         return true;
-    }
-    public void etherBulbs(Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-         {
-            this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.ETHER_BULB.defaultBlockState().setValue(EtherBulbsBlock.AGE, random.nextInt(4)), boundingBox);
-        }
     }
 }

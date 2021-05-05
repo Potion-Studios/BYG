@@ -1078,10 +1078,4 @@ public class LargeRainbowEucalyptus extends BYGAbstractTreeFeature<BYGTreeConfig
         }
         return true;
     }
-
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.RAINBOW_EUCALYPTUS_LOG.defaultBlockState(), boundingBox);
-        }
-    }
 }

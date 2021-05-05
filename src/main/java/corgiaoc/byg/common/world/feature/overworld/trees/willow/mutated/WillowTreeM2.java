@@ -418,7 +418,7 @@ public class WillowTreeM2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-5, randTreeHeight + 1, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 1, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 1, 3), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 1, 3), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 1, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, randTreeHeight + 1, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, randTreeHeight + 1, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, randTreeHeight + 1, 3), boundsIn);
@@ -468,15 +468,15 @@ public class WillowTreeM2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, randTreeHeight + 1, 9), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, randTreeHeight + 1, 9), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, randTreeHeight + 1, 9), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 2, 1), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 2, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-7, randTreeHeight + 2, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-6, randTreeHeight + 2, 2), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 2, 2), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 2, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-8, randTreeHeight + 2, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-7, randTreeHeight + 2, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-6, randTreeHeight + 2, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-5, randTreeHeight + 2, 3), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 2, 3), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 2, 3), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-7, randTreeHeight + 2, 4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-6, randTreeHeight + 2, 4), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-5, randTreeHeight + 2, 4), boundsIn);
@@ -486,122 +486,77 @@ public class WillowTreeM2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, randTreeHeight + 2, 6), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, randTreeHeight + 2, 7), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, randTreeHeight + 2, 7), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 3, 1), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 3, 2), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 3, 3), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 4, 2), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 5, 2), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 6, 2), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 6, 2), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 7, 2), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 8, 2), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 9, -1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 9, -1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 9, -1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 9, -1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 9, 0), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 9, 0), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 9, 0), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(2, randTreeHeight + 9, 0), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 9, 1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(2, randTreeHeight + 9, 1), boundsIn);
-                this.stem(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 9, 2), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 9, 3), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(2, randTreeHeight + 9, 3), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 9, 4), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 9, 4), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 9, 4), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(2, randTreeHeight + 9, 4), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 9, 5), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 9, 5), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 9, 5), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 9, 5), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, -1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 10, 0), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 0), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 10, 0), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 10, 1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 10, 1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 10, 1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 10, 1), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 10, 2), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 10, 2), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 10, 2), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 2), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 10, 2), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 10, 2), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 10, 3), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 10, 3), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 3), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 10, 3), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 10, 3), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 10, 4), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 4), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 10, 4), boundsIn);
-                this.glowshroom(changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 5), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 3, 1), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 3, 2), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 3, 3), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 4, 2), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 5, 2), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 6, 2), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 6, 2), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 7, 2), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 8, 2), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 9, -1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 9, -1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 9, -1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 9, -1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 9, 0), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 9, 0), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 9, 0), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(2, randTreeHeight + 9, 0), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 9, 1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(2, randTreeHeight + 9, 1), boundsIn);
+                this.stem(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 9, 2), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 9, 3), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(2, randTreeHeight + 9, 3), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 9, 4), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 9, 4), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 9, 4), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(2, randTreeHeight + 9, 4), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 9, 5), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 9, 5), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 9, 5), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 9, 5), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, -1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 10, 0), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 0), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 10, 0), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 10, 1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 10, 1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 10, 1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 10, 1), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-4, randTreeHeight + 10, 2), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 10, 2), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 10, 2), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 2), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 10, 2), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 10, 2), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-3, randTreeHeight + 10, 3), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 10, 3), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 3), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 10, 3), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, randTreeHeight + 10, 3), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, randTreeHeight + 10, 4), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 4), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(0, randTreeHeight + 10, 4), boundsIn);
+                this.glowshroom(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, randTreeHeight + 10, 5), boundsIn);
             }
         }
         return true;
     }
 
-
-    private void treeLog(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHereWater(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.WILLOW_LOG.defaultBlockState(), boundingBox);
-        }
-    }
-
-
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHereWater(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.WILLOW_LOG.defaultBlockState(), boundingBox);
-        }
-    }
-
-
-    private void leafs(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
-        if (isAirOrWater(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.WILLOW_LEAVES.defaultBlockState(), boundingBox);
-        }
-    }
-
-
-    private void stem(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void stem(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.YELLOW_GLOWSHROOM_STEM.defaultBlockState(), boundingBox);
+            this.setFinalBlockState(startPos, config, blockPos, reader, blockpos, BYGBlocks.YELLOW_GLOWSHROOM_STEM.defaultBlockState(), boundingBox);
         }
     }
 
 
-    private void glowshroom(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void glowshroom(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
         if (isAir(reader, blockpos)) {
-            this.setFinalBlockState(blockPos, reader, blockpos, BYGBlocks.BLUE_GLOWSHROOM_BLOCK.defaultBlockState(), boundingBox);
+            this.setFinalBlockState(startPos, config, blockPos, reader, blockpos, BYGBlocks.BLUE_GLOWSHROOM_BLOCK.defaultBlockState(), boundingBox);
         }
-    }
-
-
-    private boolean doesTreeFit(IWorldGenerationBaseReader reader, BlockPos blockPos, int height) {
-        int x = blockPos.getX();
-        int y = blockPos.getY();
-        int z = blockPos.getZ();
-        BlockPos.Mutable pos = new BlockPos.Mutable();
-
-        for (int yOffset = 0; yOffset <= height + 1; ++yOffset) {
-            //Distance/Density of trees. Positive Values ONLY
-            int distance = 2;
-
-            for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHereWater(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
     }
 }

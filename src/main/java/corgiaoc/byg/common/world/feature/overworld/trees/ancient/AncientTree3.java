@@ -171,7 +171,7 @@ public class AncientTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 14, 4), boundsIn);
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 14, 4), boundsIn);
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 14, 5), boundsIn);
-                this.leafs2(changedBlocks, worldIn, mainmutable.set(pos).move(-2, 13, 2), boundsIn);
+                this.leafs2(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 13, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 14, -7), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 14, -7), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 14, -7), boundsIn);
@@ -287,12 +287,12 @@ public class AncientTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 14, 7), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 14, 7), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 14, 7), boundsIn);
-                this.leafs2(changedBlocks, worldIn, mainmutable.set(pos).move(-1, 14, -2), boundsIn);
-                this.leafs2(changedBlocks, worldIn, mainmutable.set(pos).move(2, 14, 0), boundsIn);
-                this.leafs2(changedBlocks, worldIn, mainmutable.set(pos).move(1, 14, 1), boundsIn);
-                this.leafs2(changedBlocks, worldIn, mainmutable.set(pos).move(2, 14, 1), boundsIn);
-                this.leafs2(changedBlocks, worldIn, mainmutable.set(pos).move(-3, 14, 2), boundsIn);
-                this.leafs2(changedBlocks, worldIn, mainmutable.set(pos).move(-2, 14, 2), boundsIn);
+                this.leafs2(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 14, -2), boundsIn);
+                this.leafs2(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(2, 14, 0), boundsIn);
+                this.leafs2(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(1, 14, 1), boundsIn);
+                this.leafs2(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(2, 14, 1), boundsIn);
+                this.leafs2(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 14, 2), boundsIn);
+                this.leafs2(pos, config, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 14, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 15, -6), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 15, -5), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 15, -5), boundsIn);
@@ -396,9 +396,9 @@ public class AncientTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         return true;
     }
 
-    private void leafs2(Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+    private void leafs2(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(blockPos, reader, pos, BYGBlocks.POLLEN_BLOCK.defaultBlockState(), boundingBox);
+            this.setFinalBlockState(startPos, config, blockPos, reader, pos, BYGBlocks.POLLEN_BLOCK.defaultBlockState(), boundingBox);
         }
     }
 }

@@ -538,21 +538,4 @@ public class DeadHazel1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         }
         return true;
     }
-
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, BYGBlocks.WITCH_HAZEL_LOG.defaultBlockState(), boundingBox);
-        }
-    }
-
-    public BlockState randomLeaves() {
-        Random random = new Random();
-        int randomizer = random.nextInt(25);
-        if (randomizer == 1)
-            return BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState();
-        else if (randomizer == 0)
-            return BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState();
-        else
-            return BYGBlocks.WITCH_HAZEL_LEAVES.defaultBlockState();
-    }
 }

@@ -810,26 +810,20 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 24, -1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 24, -2), boundsIn);
                 if(!config.isPlacementForced()) {
-                    this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-5, 19, 4), boundsIn);
-                    this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 19, -9), boundsIn);
-                    this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 19, 6), boundsIn);
-                    this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-10, 20, 1), boundsIn);
-                    this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 20, 8), boundsIn);
-                    this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 20, -1), boundsIn);
-                    this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(8, 20, 2), boundsIn);
-                    this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-6, 21, -4), boundsIn);
-                    this.baobabFruit(rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 22, -4), boundsIn);
+                    this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-5, 19, 4), boundsIn);
+                    this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 19, -9), boundsIn);
+                    this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 19, 6), boundsIn);
+                    this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-10, 20, 1), boundsIn);
+                    this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 20, 8), boundsIn);
+                    this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 20, -1), boundsIn);
+                    this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(8, 20, 2), boundsIn);
+                    this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-6, 21, -4), boundsIn);
+                    this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 22, -4), boundsIn);
                 }
 
                 return true;
             }
         }
         return false;
-    }
-
-    public void baobabFruit(Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (isAir(reader, pos) && reader.getBlockState(pos.above()).getBlock() == BYGBlocks.BAOBAB_LEAVES) {
-            this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(BaobabFruitBlock.AGE, random.nextInt(4)), boundingBox);
-        }
     }
 }

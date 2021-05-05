@@ -314,10 +314,4 @@ public class MeadowTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         }
         return true;
     }
-
-    private void treeBranch(Set<BlockPos> setlogblock, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(setlogblock, reader, pos, Blocks.DARK_OAK_LOG.defaultBlockState(), boundingBox);
-        }
-    }
 }

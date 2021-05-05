@@ -2,7 +2,6 @@ package corgiaoc.byg.common.world.feature.end.trees.ether;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;
-import corgiaoc.byg.common.properties.blocks.BaobabFruitBlock;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
@@ -47,13 +46,13 @@ public class EtherTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 7, 3), boundsIn);
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 7, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 1), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 5, 4), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 5, 0), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 5, 4), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 5, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 5, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 5, 2), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 5, 0), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 6, 0), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 5, 0), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 6, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 6, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 6, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 6, 4), boundsIn);
@@ -66,8 +65,8 @@ public class EtherTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 6, 3), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 6, -1), boundsIn);
-                this.etherBulbs(rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 6, 1), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 6, -1), boundsIn);
+                this.etherBulbs(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 6, 1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 6, 2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 6, 0), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-3, 7, 0), boundsIn);
@@ -103,10 +102,5 @@ public class EtherTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             }
         }
         return true;
-    }
-    public void etherBulbs(Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-         {
-            this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.ETHER_BULB.defaultBlockState().setValue(EtherBulbsBlock.AGE, random.nextInt(4)), boundingBox);
-        }
     }
 }
