@@ -1131,13 +1131,13 @@ public class BYGBlocks {
     }
 
     static Block createFence(String id) {
-        Block createBlock = new FenceBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f));
+        Block createBlock = new FenceBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createFenceGate(String id) {
-        Block createBlock = new FenceGateBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f));
+        Block createBlock = new FenceGateBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1149,7 +1149,7 @@ public class BYGBlocks {
     }
 
     static Block createWoodSlab(String id) {
-        Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f));
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.PICKAXE));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1167,79 +1167,79 @@ public class BYGBlocks {
     }
 
     static Block createWoodPressurePlate(String id) {
-        Block createBlock = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F));
+        Block createBlock = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWoodStairs(String id) {
-        Block createBlock = new StairsBlock(Registry.BLOCK.get(new ResourceLocation(BYG.MOD_ID, id.replace("_stairs", "planks"))).defaultBlockState(), AbstractBlock.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f));
+        Block createBlock = new StairsBlock(Registry.BLOCK.get(new ResourceLocation(BYG.MOD_ID, id.replace("_stairs", "planks"))).defaultBlockState(), AbstractBlock.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createTrapDoor(String id) {
-        Block createBlock = new TrapDoorBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion());
+        Block createBlock = new TrapDoorBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion().harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createCraftingTable(String id) {
-        Block createBlock = new BYGCraftingTableBlock(AbstractBlock.Properties.copy(Blocks.CRAFTING_TABLE));
+        Block createBlock = new BYGCraftingTableBlock(AbstractBlock.Properties.copy(Blocks.CRAFTING_TABLE).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWoodButton(String id) {
-        Block createBlock = new WoodButtonBlock(AbstractBlock.Properties.of(Material.DECORATION).sound(SoundType.WOOD).noCollission().strength(0.5F));
+        Block createBlock = new WoodButtonBlock(AbstractBlock.Properties.of(Material.DECORATION).sound(SoundType.WOOD).noCollission().strength(0.5F).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createBookshelf(String id) {
-        Block createBlock = new BookshelfBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f));
+        Block createBlock = new BookshelfBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createDoor(String id) {
-        Block createBlock = new DoorBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion());
+        Block createBlock = new DoorBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion().harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createPlanks(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f));
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWood(String id) {
-        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f));
+        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createStrippedLog(String id) {
-        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.WOOD).sound(SoundType.WOOD).strength(2.0f));
+        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.WOOD).sound(SoundType.WOOD).strength(2.0f).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createLog(String id) {
-        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f));
+        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f).harvestTool(ToolType.AXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createSoapstone(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BLACK).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BLACK).sound(SoundType.STONE).strength(1.5f, 6.0f).harvestTool(ToolType.PICKAXE));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createScoria(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(1.5f, 6.0f).harvestTool(ToolType.PICKAXE));
         createBlock(createBlock, id);
         return createBlock;
     }
