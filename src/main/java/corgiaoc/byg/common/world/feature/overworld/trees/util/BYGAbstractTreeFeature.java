@@ -567,14 +567,6 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         if (mutableboundingbox.x0 > mutableboundingbox.x1) {
             return false;
         } else {
-            Set<BlockPos> treeSet = Sets.newHashSet();
-
-            for (BlockPos blockPos : set) {
-                treeSet.add(getTransformedPos(config, pos, blockPos));
-            }
-
-            set = treeSet;
-
             List<Set<BlockPos>> list = Lists.newArrayList();
 
             for (int j = 0; j < 6; ++j) {
