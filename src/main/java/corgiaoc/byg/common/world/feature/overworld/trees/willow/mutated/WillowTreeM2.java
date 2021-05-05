@@ -547,6 +547,8 @@ public class WillowTreeM2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
     private void stem(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
+        blockpos = (BlockPos.Mutable) getTransformedPos(config, startPos, blockpos);
+
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(startPos, config, blockPos, reader, blockpos, BYGBlocks.YELLOW_GLOWSHROOM_STEM.defaultBlockState(), boundingBox);
         }
@@ -555,6 +557,7 @@ public class WillowTreeM2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
     private void glowshroom(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
+        blockpos = (BlockPos.Mutable) getTransformedPos(config, startPos, blockpos);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(startPos, config, blockPos, reader, blockpos, BYGBlocks.BLUE_GLOWSHROOM_BLOCK.defaultBlockState(), boundingBox);
         }

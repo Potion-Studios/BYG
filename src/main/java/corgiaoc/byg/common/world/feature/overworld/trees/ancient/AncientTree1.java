@@ -603,15 +603,10 @@ public class AncientTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
 
     private void leafs2(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
+        pos = getTransformedPos(config, startPos, pos);
+
         if (isAir(reader, pos)) {
             this.setFinalBlockState(startPos, config, blockPos, reader, pos, BYGBlocks.POLLEN_BLOCK.defaultBlockState(), boundingBox);
-        }
-    }
-
-
-    private void roots(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockPos, reader, pos, BYGBlocks.WEEPING_ROOTS.defaultBlockState(), boundingBox);
         }
     }
 }
