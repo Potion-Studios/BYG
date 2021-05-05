@@ -78,7 +78,7 @@ public class GlowshroomBayou extends BYGBiome {
         DefaultBiomeFeatures.addSwampExtraVegetation(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultSprings(GENERATION_SETTINGS);
         GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_NORMAL);
-        GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.GLOWSHROOM_CAVES);
+//        GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.RAW_GENERATION, BYGConfiguredFeatures.GLOWSHROOM_CAVES);
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGrass(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addGlowcane(GENERATION_SETTINGS);
