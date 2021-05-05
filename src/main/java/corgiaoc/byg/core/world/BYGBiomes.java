@@ -386,7 +386,7 @@ public class BYGBiomes {
 
 //                addStructureToBiome(biome, BYGConfiguredStructures.VOLCANO_STRUCTURE);
 
-            addFeatureToBiomeFirst(biome, BYGConfiguredFeatures.CANYON_RIVER);
+//            addFeatureToBiomeFirst(biome, BYGConfiguredFeatures.CANYON_RIVER);
 
         }
     }
