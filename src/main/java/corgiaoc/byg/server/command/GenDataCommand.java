@@ -155,19 +155,19 @@ public class GenDataCommand {
         try {
             createPackMCMeta(dataPackPath, modId);
         } catch (IOException e) {
-            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.mcmeta.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
+            commandSource.getSource().sendFailure(new TranslationTextComponent("commands.gendata.mcmeta.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))));
         }
 
         ITextComponent filePathText = (new StringTextComponent(dataPackPath.toString())).withStyle(TextFormatting.UNDERLINE).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.GREEN)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
         ITextComponent filePathText2 = (new StringTextComponent("https://github.com/CorgiTaco/BYG/issues/194")).withStyle(TextFormatting.UNDERLINE).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.DARK_RED)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/CorgiTaco/BYG/issues/194")).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext.link"))));
         if (failedHits > 0) {
-            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed.parse.recommend.new.world", filePathText2).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED)).withBold(true)), false);
+            commandSource.getSource().sendFailure(new TranslationTextComponent("commands.gendata.failed.parse.recommend.new.world", filePathText2).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED)).withBold(true)));
         }
 
         if (hits > 0) {
             commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), filePathText), false);
         } else {
-            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.listisempty", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
+            commandSource.getSource().sendFailure(new TranslationTextComponent("commands.gendata.listisempty", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))));
         }
     }
 
