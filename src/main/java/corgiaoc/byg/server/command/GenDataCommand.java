@@ -7,6 +7,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.tree.LiteralCommandNode;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
 import net.minecraft.command.CommandSource;
@@ -16,7 +17,6 @@ import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.util.text.*;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
@@ -65,55 +65,30 @@ public class GenDataCommand {
         Path dataPackPath = dataPackPath(commandSource.getSource().getLevel().getServer().getWorldPath(FolderName.DATAPACK_DIR), modId);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         DynamicRegistries manager = commandSource.getSource().getServer().registryAccess();
-        Registry<Biome> biomeRegistry = WorldGenRegistries.BIOME;
+        Registry<Biome> biomeRegistry = manager.registryOrThrow(Registry.BIOME_REGISTRY);
         Registry<ConfiguredFeature<?, ?>> featuresRegistry = manager.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY);
         Registry<StructureFeature<?, ?>> structuresRegistry = manager.registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
         Registry<ConfiguredCarver<?>> carverRegistry = manager.registryOrThrow(Registry.CONFIGURED_CARVER_REGISTRY);
         Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = manager.registryOrThrow(Registry.CONFIGURED_SURFACE_BUILDER_REGISTRY);
         Registry<StructureProcessorList> structureProcessorRegistry = manager.registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY);
 
-
         Function<DimensionGeneratorSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(DimensionGeneratorSettings.CODEC);
-
         DataResult<JsonElement> jsonResult = dimensionGeneratorSettingsCodec.apply(((ServerWorldInfo) commandSource.getSource().getLevel().getLevelData()).worldGenSettings());
 
         try {
-            Path sbPath = worldImportJsonPath(dataPackPath, "yes");
-            Files.createDirectories(sbPath.getParent());
-            Files.write(sbPath, gson.toJson(jsonResult.get().left().get()).getBytes());
+            Path worldImportPath = worldImportJsonPath(dataPackPath.getParent(), "world_settings");
+            Files.createDirectories(worldImportPath.getParent());
+            Files.write(worldImportPath, gson.toJson(jsonResult.get().left().get()).getBytes());
         } catch (IOException e) {
 
         }
 
-        createConfiguredSurfaceBuilderJson(modId, dataPackPath, gson, surfaceBuilderRegistry);
-        createConfiguredFeatureJson(modId, dataPackPath, gson, featuresRegistry);
-        createConfiguredCarverJson(modId, dataPackPath, gson, carverRegistry);
-        createConfiguredStructureJson(modId, dataPackPath, gson, structuresRegistry);
-        createProcessorListJson(modId, dataPackPath, gson, structureProcessorRegistry);
+        createJson(modId, dataPackPath, gson, surfaceBuilderRegistry, ConfiguredSurfaceBuilder.CODEC);
+        createJson(modId, dataPackPath, gson, featuresRegistry, ConfiguredFeature.CODEC);
+        createJson(modId, dataPackPath, gson, carverRegistry, ConfiguredCarver.CODEC);
+        createJson(modId, dataPackPath, gson, structuresRegistry, StructureFeature.CODEC);
+        createJson(modId, dataPackPath, gson, structureProcessorRegistry, IStructureProcessorType.LIST_CODEC);
         createBiomeJsonAndPackMcMeta(modId, commandSource, biomeList, stopSpamFlag, dataPackPath, gson, biomeRegistry, featuresRegistry, structuresRegistry, carverRegistry, surfaceBuilderRegistry);
-    }
-
-    private static void createWorldImportJson(String modId, Path dataPackPath, Gson gson, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuildersRegistry) {
-        for (Map.Entry<RegistryKey<ConfiguredSurfaceBuilder<?>>, ConfiguredSurfaceBuilder<?>> surfaceBuilder : surfaceBuildersRegistry.entrySet()) {
-            Function<Supplier<ConfiguredSurfaceBuilder<?>>, DataResult<JsonElement>> surfaceBuilderCodec = JsonOps.INSTANCE.withEncoder(ConfiguredSurfaceBuilder.CODEC);
-
-            ConfiguredSurfaceBuilder<?> configuredSurfaceBuilder = surfaceBuilder.getValue();
-            if (surfaceBuilder.getKey().location().toString().contains(modId)) {
-                if (configuredSurfaceBuilder != null) {
-                    if (Objects.requireNonNull(surfaceBuildersRegistry.getKey(configuredSurfaceBuilder)).toString().contains(modId)) {
-                        Optional<JsonElement> optional = (surfaceBuilderCodec.apply(() -> configuredSurfaceBuilder).result());
-                        if (optional.isPresent()) {
-                            try {
-                                Path sbPath = configuredSurfaceBuilderJsonPath(dataPackPath, Objects.requireNonNull(surfaceBuildersRegistry.getKey(configuredSurfaceBuilder)), modId);
-                                Files.createDirectories(sbPath.getParent());
-                                Files.write(sbPath, gson.toJson(optional.get()).getBytes());
-                            } catch (IOException e) {
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 
     private static void createBiomeJsonAndPackMcMeta(String modId, CommandContext<CommandSource> commandSource, List<Biome> biomeList, boolean stopSpamFlag, Path dataPackPath, Gson gson, Registry<Biome> biomeRegistry, Registry<ConfiguredFeature<?, ?>> featuresRegistry, Registry<StructureFeature<?, ?>> structuresRegistry, Registry<ConfiguredCarver<?>> carverRegistry, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry) {
@@ -131,7 +106,6 @@ public class GenDataCommand {
                     Path biomeJsonPath = biomeJsonPath(dataPackPath, key, modId);
                     Function<Supplier<Biome>, DataResult<JsonElement>> biomeCodec = JsonOps.INSTANCE.withEncoder(Biome.CODEC);
                     try {
-//                        if (!Files.exists(biomeJsonPath)) {
                         Files.createDirectories(biomeJsonPath.getParent());
                         Optional<JsonElement> optional = (biomeCodec.apply(() -> biome).result());
                         if (optional.isPresent()) {
@@ -166,7 +140,6 @@ public class GenDataCommand {
                             root.getAsJsonObject().add("starts", starts);
                             Files.write(biomeJsonPath, gson.toJson(root).getBytes());
                         }
-//                        }
                     } catch (IOException e) {
                         if (!stopSpamFlag) {
                             commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
@@ -189,18 +162,18 @@ public class GenDataCommand {
         }
     }
 
-    private static void createConfiguredFeatureJson(String modId, Path dataPackPath, Gson gson, Registry<ConfiguredFeature<?, ?>> featuresRegistry) {
-        for (Map.Entry<RegistryKey<ConfiguredFeature<?, ?>>, ConfiguredFeature<?, ?>> feature : featuresRegistry.entrySet()) {
-            Function<Supplier<ConfiguredFeature<?, ?>>, DataResult<JsonElement>> featureCodec = JsonOps.INSTANCE.withEncoder(ConfiguredFeature.CODEC);
+    private static <T> void createJson(String modId, Path dataPackPath, Gson gson, Registry<T> registry, Codec<Supplier<T>> encoder) {
+        for (Map.Entry<RegistryKey<T>, T> entry : registry.entrySet()) {
+            Function<Supplier<T>, DataResult<JsonElement>> featureCodec = JsonOps.INSTANCE.withEncoder(encoder);
 
-            ConfiguredFeature<?, ?> configuredFeature = feature.getValue();
-            if (feature.getKey().location().toString().contains(modId)) {
-                if (configuredFeature != null) {
-                    if (Objects.requireNonNull(featuresRegistry.getKey(configuredFeature)).toString().contains(modId)) {
-                        Optional<JsonElement> optional = (featureCodec.apply(() -> configuredFeature).result());
+            T object = entry.getValue();
+            if (entry.getKey().location().toString().contains(modId)) {
+                if (object != null) {
+                    if (Objects.requireNonNull(registry.getKey(object)).toString().contains(modId)) {
+                        Optional<JsonElement> optional = (featureCodec.apply(() -> object).result());
                         if (optional.isPresent()) {
                             try {
-                                Path cfPath = configuredFeatureJsonPath(dataPackPath, Objects.requireNonNull(featuresRegistry.getKey(configuredFeature)), modId);
+                                Path cfPath = createPath(dataPackPath, Objects.requireNonNull(registry.getKey(object)), modId, registry.key());
                                 Files.createDirectories(cfPath.getParent());
 
                                 Files.write(cfPath, gson.toJson(optional.get()).getBytes());
@@ -213,120 +186,13 @@ public class GenDataCommand {
         }
     }
 
-    private static void createConfiguredSurfaceBuilderJson(String modId, Path dataPackPath, Gson gson, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuildersRegistry) {
-        for (Map.Entry<RegistryKey<ConfiguredSurfaceBuilder<?>>, ConfiguredSurfaceBuilder<?>> surfaceBuilder : surfaceBuildersRegistry.entrySet()) {
-            Function<Supplier<ConfiguredSurfaceBuilder<?>>, DataResult<JsonElement>> surfaceBuilderCodec = JsonOps.INSTANCE.withEncoder(ConfiguredSurfaceBuilder.CODEC);
-
-            ConfiguredSurfaceBuilder<?> configuredSurfaceBuilder = surfaceBuilder.getValue();
-            if (surfaceBuilder.getKey().location().toString().contains(modId)) {
-                if (configuredSurfaceBuilder != null) {
-                    if (Objects.requireNonNull(surfaceBuildersRegistry.getKey(configuredSurfaceBuilder)).toString().contains(modId)) {
-                        Optional<JsonElement> optional = (surfaceBuilderCodec.apply(() -> configuredSurfaceBuilder).result());
-                        if (optional.isPresent()) {
-                            try {
-                                Path sbPath = configuredSurfaceBuilderJsonPath(dataPackPath, Objects.requireNonNull(surfaceBuildersRegistry.getKey(configuredSurfaceBuilder)), modId);
-                                Files.createDirectories(sbPath.getParent());
-                                Files.write(sbPath, gson.toJson(optional.get()).getBytes());
-                            } catch (IOException e) {
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private static void createConfiguredCarverJson(String modId, Path dataPackPath, Gson gson, Registry<ConfiguredCarver<?>> carverRegistry) {
-        for (Map.Entry<RegistryKey<ConfiguredCarver<?>>, ConfiguredCarver<?>> carver : carverRegistry.entrySet()) {
-            Function<Supplier<ConfiguredCarver<?>>, DataResult<JsonElement>> carverCodec = JsonOps.INSTANCE.withEncoder(ConfiguredCarver.CODEC);
-
-            ConfiguredCarver<?> configuredCarver = carver.getValue();
-            if (carver.getKey().location().toString().contains(modId)) {
-                if (configuredCarver != null) {
-                    if (Objects.requireNonNull(carverRegistry.getKey(configuredCarver)).toString().contains(modId)) {
-                        Optional<JsonElement> optional = (carverCodec.apply(() -> configuredCarver).result());
-                        if (optional.isPresent()) {
-                            try {
-                                Path carverPath = configuredCarverJsonPath(dataPackPath, Objects.requireNonNull(carverRegistry.getKey(configuredCarver)), modId);
-                                Files.createDirectories(carverPath.getParent());
-                                Files.write(carverPath, gson.toJson(optional.get()).getBytes());
-                            } catch (IOException e) {
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private static void createConfiguredStructureJson(String modId, Path dataPackPath, Gson gson, Registry<StructureFeature<?, ?>> structureRegistry) {
-        for (Map.Entry<RegistryKey<StructureFeature<?, ?>>, StructureFeature<?, ?>> structure : structureRegistry.entrySet()) {
-            Function<Supplier<StructureFeature<?, ?>>, DataResult<JsonElement>> structureCodec = JsonOps.INSTANCE.withEncoder(StructureFeature.CODEC);
-
-            StructureFeature<?, ?> configuredStructure = structure.getValue();
-            if (structure.getKey().location().toString().contains(modId)) {
-                if (configuredStructure != null) {
-                    if (Objects.requireNonNull(structureRegistry.getKey(configuredStructure)).toString().contains(modId)) {
-                        Optional<JsonElement> optional = (structureCodec.apply(() -> configuredStructure).result());
-                        if (optional.isPresent()) {
-                            try {
-                                Path structurePath = configuredStructureFeatureJsonPath(dataPackPath, Objects.requireNonNull(structureRegistry.getKey(configuredStructure)), modId);
-                                Files.createDirectories(structurePath.getParent());
-                                Files.write(structurePath, gson.toJson(optional.get()).getBytes());
-                            } catch (IOException e) {
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private static void createProcessorListJson(String modId, Path dataPackPath, Gson gson, Registry<StructureProcessorList> structureProcessorRegistry) {
-        for (Map.Entry<RegistryKey<StructureProcessorList>, StructureProcessorList> processor : structureProcessorRegistry.entrySet()) {
-            Function<Supplier<StructureProcessorList>, DataResult<JsonElement>> processorCodec = JsonOps.INSTANCE.withEncoder(IStructureProcessorType.LIST_CODEC);
-
-            StructureProcessorList processorList = processor.getValue();
-            if (processor.getKey().location().toString().contains(modId)) {
-                if (processorList != null) {
-                    if (Objects.requireNonNull(structureProcessorRegistry.getKey(processorList)).toString().contains(modId)) {
-                        Optional<JsonElement> optional = (processorCodec.apply(() -> processorList).result());
-                        if (optional.isPresent()) {
-                            try {
-                                Path processorListPath = configuredProceesorListPath(dataPackPath, Objects.requireNonNull(structureProcessorRegistry.getKey(processorList)), modId);
-                                Files.createDirectories(processorListPath.getParent());
-                                Files.write(processorListPath, gson.toJson(optional.get()).getBytes());
-                            } catch (IOException e) {
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     private static Path worldImportJsonPath(Path path, String jsonName) {
         return path.resolve("import/" + jsonName + ".json");
     }
 
-    private static Path configuredFeatureJsonPath(Path path, ResourceLocation identifier, String modId) {
-        return path.resolve("data/" + modId + "/worldgen/configured_feature/" + identifier.getPath() + ".json");
-    }
-
-    private static Path configuredSurfaceBuilderJsonPath(Path path, ResourceLocation identifier, String modId) {
-        return path.resolve("data/" + modId + "/worldgen/configured_surface_builder/" + identifier.getPath() + ".json");
-    }
-
-    private static Path configuredCarverJsonPath(Path path, ResourceLocation identifier, String modId) {
-        return path.resolve("data/" + modId + "/worldgen/configured_carver/" + identifier.getPath() + ".json");
-    }
-
-    private static Path configuredStructureFeatureJsonPath(Path path, ResourceLocation identifier, String modId) {
-        return path.resolve("data/" + modId + "/worldgen/configured_structure_feature/" + identifier.getPath() + ".json");
-    }
-
-    private static Path configuredProceesorListPath(Path path, ResourceLocation identifier, String modId) {
-        return path.resolve("data/" + modId + "/worldgen/processor_list/" + identifier.getPath() + ".json");
+    private static <T> Path createPath(Path path, ResourceLocation identifier, String modId, RegistryKey<? extends Registry<T>> registry) {
+        return path.resolve("data/" + modId + "/" + registry.location().toString().replace("minecraft:", "") + "/" + identifier.getPath() + ".json");
     }
 
     private static Path biomeJsonPath(Path path, ResourceLocation identifier, String modId) {
