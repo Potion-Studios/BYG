@@ -89,10 +89,10 @@ public class GenDataCommand {
         createJson(modId, dataPackPath, gson, carverRegistry, ConfiguredCarver.CODEC);
         createJson(modId, dataPackPath, gson, structuresRegistry, StructureFeature.CODEC);
         createJson(modId, dataPackPath, gson, structureProcessorRegistry, IStructureProcessorType.LIST_CODEC);
-        createBiomeJsonAndPackMcMeta(modId, commandSource, biomeList, stopSpamFlag, dataPackPath, gson, biomeRegistry, featuresRegistry, structuresRegistry, carverRegistry, surfaceBuilderRegistry);
+        createBiomeJsonAndPackMcMeta(modId, commandSource, dataPackPath, gson, biomeRegistry, featuresRegistry, structuresRegistry, carverRegistry, surfaceBuilderRegistry);
     }
 
-    private static void createBiomeJsonAndPackMcMeta(String modId, CommandContext<CommandSource> commandSource, List<Biome> biomeList, boolean stopSpamFlag, Path dataPackPath, Gson gson, Registry<Biome> biomeRegistry, Registry<ConfiguredFeature<?, ?>> featuresRegistry, Registry<StructureFeature<?, ?>> structuresRegistry, Registry<ConfiguredCarver<?>> carverRegistry, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry) {
+    private static void createBiomeJsonAndPackMcMeta(String modId, CommandContext<CommandSource> commandSource, Path dataPackPath, Gson gson, Registry<Biome> biomeRegistry, Registry<ConfiguredFeature<?, ?>> featuresRegistry, Registry<StructureFeature<?, ?>> structuresRegistry, Registry<ConfiguredCarver<?>> carverRegistry, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry) {
         int hits = 0;
         int failedHits = 0;
         for (Map.Entry<RegistryKey<Biome>, Biome> entry : biomeRegistry.entrySet()) {
@@ -146,6 +146,8 @@ public class GenDataCommand {
                     commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed.parse", key).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
                 }
             } catch (IOException e) {
+                failedHits++;
+                e.printStackTrace();
                 commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed.ioexception", key, e.getMessage()).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED)).withBold(true)), false);
             }
         }
@@ -157,9 +159,12 @@ public class GenDataCommand {
         }
 
         ITextComponent filePathText = (new StringTextComponent(dataPackPath.toString())).withStyle(TextFormatting.UNDERLINE).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.GREEN)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
+        ITextComponent filePathText2 = (new StringTextComponent("https://github.com/CorgiTaco/BYG/issues/194")).withStyle(TextFormatting.UNDERLINE).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.DARK_RED)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/CorgiTaco/BYG/issues/194")).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext.link"))));
         if (failedHits > 0) {
-            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed.parse.recommend.new.world").withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED)).withBold(true)), false);
-        } else if (hits > 0) {
+            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed.parse.recommend.new.world", filePathText2).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED)).withBold(true)), false);
+        }
+
+        if (hits > 0) {
             commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), filePathText), false);
         } else {
             commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.listisempty", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
