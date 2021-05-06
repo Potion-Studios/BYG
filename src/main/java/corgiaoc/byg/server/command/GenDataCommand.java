@@ -10,6 +10,7 @@ import com.mojang.brigadier.tree.LiteralCommandNode;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
+import corgiaoc.byg.BYG;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.command.ISuggestionProvider;
@@ -93,7 +94,7 @@ public class GenDataCommand {
 
     private static void createBiomeJsonAndPackMcMeta(String modId, CommandContext<CommandSource> commandSource, List<Biome> biomeList, boolean stopSpamFlag, Path dataPackPath, Gson gson, Registry<Biome> biomeRegistry, Registry<ConfiguredFeature<?, ?>> featuresRegistry, Registry<StructureFeature<?, ?>> structuresRegistry, Registry<ConfiguredCarver<?>> carverRegistry, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry) {
         int hits = 0;
-        int optionalHits = 0;
+        int failedHits = 0;
         for (Map.Entry<RegistryKey<Biome>, Biome> entry : biomeRegistry.entrySet()) {
             ResourceLocation key = entry.getKey().location();
             Biome biome = entry.getValue();
@@ -109,7 +110,6 @@ public class GenDataCommand {
                 Files.createDirectories(biomeJsonPath.getParent());
                 Optional<JsonElement> optional = (biomeCodec.apply(() -> biome).result());
                 if (optional.isPresent()) {
-                    optionalHits++;
                     JsonElement root = optional.get();
                     JsonArray features = new JsonArray();
                     for (List<Supplier<ConfiguredFeature<?, ?>>> list : biome.getGenerationSettings().features()) {
@@ -140,12 +140,13 @@ public class GenDataCommand {
                     }
                     root.getAsJsonObject().add("starts", starts);
                     Files.write(biomeJsonPath, gson.toJson(root).getBytes());
+                } else {
+                    failedHits++;
+                    BYG.LOGGER.warn("No parsable element found for: " + key);
+                    commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed.parse", key).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
                 }
             } catch (IOException e) {
-//                if (!stopSpamFlag) {
-                    commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
-//                    stopSpamFlag = true;
-//                }
+                commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed.ioexception", key, e.getMessage()).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED)).withBold(true)), false);
             }
         }
 
@@ -156,7 +157,9 @@ public class GenDataCommand {
         }
 
         ITextComponent filePathText = (new StringTextComponent(dataPackPath.toString())).withStyle(TextFormatting.UNDERLINE).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.GREEN)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
-        if (hits > 0) {
+        if (failedHits > 0) {
+            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed.parse.recommend.new.world").withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED)).withBold(true)), false);
+        } else if (hits > 0) {
             commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), filePathText), false);
         } else {
             commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.listisempty", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
