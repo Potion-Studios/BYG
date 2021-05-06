@@ -64,7 +64,7 @@ public class GenDataCommand {
         boolean stopSpamFlag = false;
         Path dataPackPath = dataPackPath(commandSource.getSource().getLevel().getServer().getWorldPath(FolderName.DATAPACK_DIR), modId);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        DynamicRegistries manager = commandSource.getSource().getServer().registryAccess();
+        DynamicRegistries manager = commandSource.getSource().getLevel().registryAccess();
         Registry<Biome> biomeRegistry = manager.registryOrThrow(Registry.BIOME_REGISTRY);
         Registry<ConfiguredFeature<?, ?>> featuresRegistry = manager.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY);
         Registry<StructureFeature<?, ?>> structuresRegistry = manager.registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
@@ -92,70 +92,69 @@ public class GenDataCommand {
     }
 
     private static void createBiomeJsonAndPackMcMeta(String modId, CommandContext<CommandSource> commandSource, List<Biome> biomeList, boolean stopSpamFlag, Path dataPackPath, Gson gson, Registry<Biome> biomeRegistry, Registry<ConfiguredFeature<?, ?>> featuresRegistry, Registry<StructureFeature<?, ?>> structuresRegistry, Registry<ConfiguredCarver<?>> carverRegistry, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry) {
-        for (Map.Entry<RegistryKey<Biome>, Biome> biome : biomeRegistry.entrySet()) {
-            String biomeKey = Objects.requireNonNull(biomeRegistry.getResourceKey(biome.getValue())).get().location().toString();
-            if (biomeKey.contains(modId)) {
-                biomeList.add(biome.getValue());
+        int hits = 0;
+        for (Map.Entry<RegistryKey<Biome>, Biome> entry : biomeRegistry.entrySet()) {
+            ResourceLocation key = entry.getKey().location();
+            Biome biome = entry.getValue();
+
+            if (!key.toString().contains(modId)) {
+                continue;
+            }
+
+            hits++;
+            Path biomeJsonPath = biomeJsonPath(dataPackPath, key, modId);
+            Function<Supplier<Biome>, DataResult<JsonElement>> biomeCodec = JsonOps.INSTANCE.withEncoder(Biome.CODEC);
+            try {
+                Files.createDirectories(biomeJsonPath.getParent());
+                Optional<JsonElement> optional = (biomeCodec.apply(() -> biome).result());
+                if (optional.isPresent()) {
+                    JsonElement root = optional.get();
+                    JsonArray features = new JsonArray();
+                    for (List<Supplier<ConfiguredFeature<?, ?>>> list : biome.getGenerationSettings().features()) {
+                        JsonArray stage = new JsonArray();
+                        for (Supplier<ConfiguredFeature<?, ?>> feature : list) {
+                            featuresRegistry.getResourceKey(feature.get()).ifPresent(featureKey -> stage.add(featureKey.location().toString()));
+                        }
+                        features.add(stage);
+                    }
+                    root.getAsJsonObject().add("features", features);
+                    String surfaceBuilder = surfaceBuilderRegistry.getResourceKey(biome.getGenerationSettings().getSurfaceBuilder().get()).get().location().toString();
+                    root.getAsJsonObject().addProperty("surface_builder", surfaceBuilder);
+
+                    JsonObject carvers = new JsonObject();
+                    for (GenerationStage.Carving step : GenerationStage.Carving.values()) {
+                        JsonArray stage = new JsonArray();
+                        for (Supplier<ConfiguredCarver<?>> carver : biome.getGenerationSettings().getCarvers(step)) {
+                            carverRegistry.getResourceKey(carver.get()).ifPresent(carverKey -> stage.add(carverKey.location().toString()));
+                        }
+                        if (stage.size() > 0) {
+                            carvers.add(step.getName(), stage);
+                        }
+                    }
+                    root.getAsJsonObject().add("carvers", carvers);
+                    JsonArray starts = new JsonArray();
+                    for (Supplier<StructureFeature<?, ?>> start : biome.getGenerationSettings().structures()) {
+                        structuresRegistry.getResourceKey(start.get()).ifPresent(structureKey -> starts.add(structureKey.location().toString()));
+                    }
+                    root.getAsJsonObject().add("starts", starts);
+                    Files.write(biomeJsonPath, gson.toJson(root).getBytes());
+                }
+            } catch (IOException e) {
+//                if (!stopSpamFlag) {
+                    commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
+//                    stopSpamFlag = true;
+//                }
             }
         }
 
-        if (biomeList.size() > 0) {
-            for (Biome biome : biomeList) {
-                ResourceLocation key = biomeRegistry.getKey(biome);
-                if (key != null) {
-                    Path biomeJsonPath = biomeJsonPath(dataPackPath, key, modId);
-                    Function<Supplier<Biome>, DataResult<JsonElement>> biomeCodec = JsonOps.INSTANCE.withEncoder(Biome.CODEC);
-                    try {
-                        Files.createDirectories(biomeJsonPath.getParent());
-                        Optional<JsonElement> optional = (biomeCodec.apply(() -> biome).result());
-                        if (optional.isPresent()) {
-                            JsonElement root = optional.get();
-                            JsonArray features = new JsonArray();
-                            for (List<Supplier<ConfiguredFeature<?, ?>>> list : biome.getGenerationSettings().features()) {
-                                JsonArray stage = new JsonArray();
-                                for (Supplier<ConfiguredFeature<?, ?>> feature : list) {
-                                    featuresRegistry.getResourceKey(feature.get()).ifPresent(featureKey -> stage.add(featureKey.location().toString()));
-                                }
-                                features.add(stage);
-                            }
-                            root.getAsJsonObject().add("features", features);
-                            String surfaceBuilder = surfaceBuilderRegistry.getResourceKey(biome.getGenerationSettings().getSurfaceBuilder().get()).get().location().toString();
-                            root.getAsJsonObject().addProperty("surface_builder", surfaceBuilder);
+        try {
+            createPackMCMeta(dataPackPath, modId);
+        } catch (IOException e) {
+            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.mcmeta.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
+        }
 
-                            JsonObject carvers = new JsonObject();
-                            for (GenerationStage.Carving step : GenerationStage.Carving.values()) {
-                                JsonArray stage = new JsonArray();
-                                for (Supplier<ConfiguredCarver<?>> carver : biome.getGenerationSettings().getCarvers(step)) {
-                                    carverRegistry.getResourceKey(carver.get()).ifPresent(carverKey -> stage.add(carverKey.location().toString()));
-                                }
-                                if (stage.size() > 0) {
-                                    carvers.add(step.getName(), stage);
-                                }
-                            }
-                            root.getAsJsonObject().add("carvers", carvers);
-                            JsonArray starts = new JsonArray();
-                            for (Supplier<StructureFeature<?, ?>> start : biome.getGenerationSettings().structures()) {
-                                structuresRegistry.getResourceKey(start.get()).ifPresent(structureKey -> starts.add(structureKey.location().toString()));
-                            }
-                            root.getAsJsonObject().add("starts", starts);
-                            Files.write(biomeJsonPath, gson.toJson(root).getBytes());
-                        }
-                    } catch (IOException e) {
-                        if (!stopSpamFlag) {
-                            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
-                            stopSpamFlag = true;
-                        }
-                    }
-                }
-            }
-
-            try {
-                createPackMCMeta(dataPackPath, modId);
-            } catch (IOException e) {
-                commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.mcmeta.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
-            }
-
-            ITextComponent filePathText = (new StringTextComponent(dataPackPath.toString())).withStyle(TextFormatting.UNDERLINE).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.GREEN)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
+        ITextComponent filePathText = (new StringTextComponent(dataPackPath.toString())).withStyle(TextFormatting.UNDERLINE).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.GREEN)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
+        if (hits > 0) {
             commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), filePathText), false);
         } else {
             commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.listisempty", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
