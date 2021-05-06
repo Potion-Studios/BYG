@@ -93,6 +93,7 @@ public class GenDataCommand {
 
     private static void createBiomeJsonAndPackMcMeta(String modId, CommandContext<CommandSource> commandSource, List<Biome> biomeList, boolean stopSpamFlag, Path dataPackPath, Gson gson, Registry<Biome> biomeRegistry, Registry<ConfiguredFeature<?, ?>> featuresRegistry, Registry<StructureFeature<?, ?>> structuresRegistry, Registry<ConfiguredCarver<?>> carverRegistry, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry) {
         int hits = 0;
+        int optionalHits = 0;
         for (Map.Entry<RegistryKey<Biome>, Biome> entry : biomeRegistry.entrySet()) {
             ResourceLocation key = entry.getKey().location();
             Biome biome = entry.getValue();
@@ -100,14 +101,15 @@ public class GenDataCommand {
             if (!key.toString().contains(modId)) {
                 continue;
             }
-
             hits++;
+
             Path biomeJsonPath = biomeJsonPath(dataPackPath, key, modId);
             Function<Supplier<Biome>, DataResult<JsonElement>> biomeCodec = JsonOps.INSTANCE.withEncoder(Biome.CODEC);
             try {
                 Files.createDirectories(biomeJsonPath.getParent());
                 Optional<JsonElement> optional = (biomeCodec.apply(() -> biome).result());
                 if (optional.isPresent()) {
+                    optionalHits++;
                     JsonElement root = optional.get();
                     JsonArray features = new JsonArray();
                     for (List<Supplier<ConfiguredFeature<?, ?>>> list : biome.getGenerationSettings().features()) {
