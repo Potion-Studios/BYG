@@ -1690,6 +1690,7 @@ public class BYGBlocks {
 
     static Block createDesertPlant(String id, ITag.INamedTag<Block> groundTag) {
         Block createBlock = new DesertPlant(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
+        createPottedBlock(createBlock, id);
         createBlock(createBlock, id);
         return createBlock;
     }

@@ -94,6 +94,7 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.RAINBOW_EUCALYPTUS_SAPLING);
         compostibleBlocks(0.3f, BYGItems.REDWOOD_SAPLING);
         compostibleBlocks(0.3f, BYGItems.RED_MAPLE_SAPLING);
+        compostibleBlocks(0.3f, BYGItems.RED_OAK_SAPLING);
         compostibleBlocks(0.3f, BYGItems.SILVER_MAPLE_SAPLING);
         compostibleBlocks(0.3f, BYGItems.SKYRIS_SAPLING);
         compostibleBlocks(0.3f, BYGItems.WHITE_CHERRY_SAPLING);
