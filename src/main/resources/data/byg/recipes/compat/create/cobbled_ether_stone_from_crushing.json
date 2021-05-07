@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "byg:ether_stone"
+    }
+  ],
+  "results": [
+    {
+      "item": "byg:cobbled_ether_stone",
+      "count": 1
+    }
+  ],
+  "processingTime": 150
+}
