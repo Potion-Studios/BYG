@@ -1,0 +1,44 @@
+{
+  "block.byg.chiseled_therium": "Chiselled Therium",
+  "block.byg.chiseled_therium_stairs": "Chiselled Therium Stairs",
+  "block.byg.chiseled_therium_slab": "Chiselled Therium Slab",
+  "block.byg.chiseled_therium_wall": "Chiselled Therium Wall",
+  "block.byg.shiny_chiseled_therium": "Shiny Chiselled Therium",
+  "block.byg.shiny_chiseled_therium_stairs": "Shiny Chiselled Therium Stairs",
+  "block.byg.shiny_chiseled_therium_slab": "Shiny Chiselled Therium Slab",
+  "block.byg.shiny_chiseled_therium_wall": "Shiny Chiselled Therium Wall",
+  
+  "item.byg.chiseled_therium": "Chiselled Therium",
+  "item.byg.chiseled_therium_stairs": "Chiselled Therium Stairs",
+  "item.byg.chiseled_therium_slab": "Chiselled Therium Slab",
+  "item.byg.chiseled_therium_wall": "Chiselled Therium Wall",
+  "item.byg.shiny_chiseled_therium": "Shiny Chiselled Therium",
+  "item.byg.shiny_chiseled_therium_stairs": "Shiny Chiselled Therium Stairs",
+  "item.byg.shiny_chiseled_therium_slab": "Shiny Chiselled Therium Slab",
+  "item.byg.shiny_chiseled_therium_wall": "Shiny Chiselled Therium Wall",
+  
+  "block.byg.black_chiseled_sandstone": "Black Chiselled Sandstone",
+  "block.byg.white_chiseled_sandstone": "White Chiselled Sandstone",
+  "block.byg.blue_chiseled_sandstone": "Blue Chiselled Sandstone",
+  "block.byg.purple_chiseled_sandstone": "Purple Chiselled Sandstone",
+  "block.byg.pink_chiseled_sandstone": "Pink Chiselled Sandstone",
+  
+  "item.byg.black_chiseled_sandstone": "Black Chiselled Sandstone",
+  "item.byg.white_chiseled_sandstone": "White Chiselled Sandstone",
+  "item.byg.blue_chiseled_sandstone": "Blue Chiselled Sandstone",
+  "item.byg.purple_chiseled_sandstone": "Purple Chiselled Sandstone",
+  "item.byg.pink_chiseled_sandstone": "Pink Chiselled Sandstone",
+  
+  "block.byg.chiseled_red_rock_bricks": "Chiselled Red Rock Bricks",
+  "block.byg.chiseled_red_rock_brick_slab": "Chiselled Red Rock Brick Slab",
+  "block.byg.chiseled_red_rock_brick_stairs": "Chiselled Red Rock Brick Stairs",
+  "block.byg.chiseled_red_rock_brick_wall": "Chiselled Red Rock Brick Wall",
+  
+  "item.byg.chiseled_red_rock_bricks": "Chiselled Red Rock Bricks",
+  "item.byg.chiseled_red_rock_brick_stairs": "Chiselled Red Rock Brick Stairs",
+  "item.byg.chiseled_red_rock_brick_slab": "Chiselled Red Rock Brick Slab",
+  "item.byg.chiseled_red_rock_brick_wall": "Chiselled Red Rock Brick Wall",
+  
+  "item.byg.ametrine_horse_armor": "Ametrine Horse Armour",
+  "item.byg.pendorite_horse_armor": "Pendorite Horse Armour"
+}
