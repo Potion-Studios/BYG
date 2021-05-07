@@ -5,6 +5,7 @@ import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
 import corgiaoc.byg.common.entity.villager.BYGVillagerType;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
+import corgiaoc.byg.common.properties.blocks.vanilla.ITreeSpawner;
 import corgiaoc.byg.common.properties.vanilla.*;
 import corgiaoc.byg.common.world.BYGWorldTypeThatIsntAWorldtype;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
@@ -89,6 +90,13 @@ public class BYG {
             BYGBiomes.addBiomeEntries();
             BYGBiomes.fillBiomeDictionary();
         });
+        for (Block block : Registry.BLOCK) {
+            if (block instanceof ITreeSpawner) {
+                if (ITreeSpawner.VANILLA_SAPLING_BYG_TREE_SPAWNERS.containsKey(block)) {
+                    ((ITreeSpawner) block).setTreeSpawner(ITreeSpawner.VANILLA_SAPLING_BYG_TREE_SPAWNERS.get(block));
+                }
+            }
+        }
 
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }

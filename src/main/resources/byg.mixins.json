@@ -11,6 +11,7 @@
     "common.block.MixinBlocks",
     "common.block.MixinCactusBlock",
     "common.block.MixinNetherrackBlock",
+    "common.block.MixinSaplingBlock",
     "common.block.MixinSugarCaneBlock",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinEatGrassGoal",
