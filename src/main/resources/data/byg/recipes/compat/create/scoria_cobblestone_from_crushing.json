@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "byg:scoria_stone"
+    }
+  ],
+  "results": [
+    {
+      "item": "byg:scoria_cobblestone",
+      "count": 1
+    }
+  ],
+  "processingTime": 150
+}
