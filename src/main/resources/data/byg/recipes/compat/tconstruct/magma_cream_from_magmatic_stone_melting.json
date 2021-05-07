@@ -1,0 +1,18 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tconstruct"
+    }
+  ],
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "byg:magmatic_stone"
+  },
+  "result": {
+    "fluid": "tconstruct:magma_cream",
+    "amount": 1000
+  },
+  "temperature": 300,
+  "time": 127
+}
