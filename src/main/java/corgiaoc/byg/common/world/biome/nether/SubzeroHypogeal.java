@@ -19,7 +19,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class SubzeroHypogeal extends BYGNetherBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("subzero_hypogeal", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.SUBZERO_HYPOGEAL, BYGSurfaceBuilders.Configs.FROST_MAGMA));
-    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.NETHER;
     static final float DEPTH = 0.125F;
     static final float SCALE = 0.05F;

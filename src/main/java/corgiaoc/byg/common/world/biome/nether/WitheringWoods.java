@@ -19,7 +19,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 
 public class WitheringWoods extends BYGNetherBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("withering_woods", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.WITHERING_WOODS, BYGSurfaceBuilders.Configs.MAGMATIC_STONE));
-    static final Biome.RainType PRECIPATATION = Biome.RainType.RAIN;
+    static final Biome.RainType PRECIPATATION = Biome.RainType.NONE;
     static final Biome.Category CATEGORY = Biome.Category.NETHER;
     static final float DEPTH = 0.125F;
     static final float SCALE = 0.05F;
