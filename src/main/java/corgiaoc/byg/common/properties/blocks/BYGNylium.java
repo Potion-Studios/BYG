@@ -18,6 +18,7 @@ import java.util.Random;
 public class BYGNylium extends NyliumBlock {
 
     public static final List<Block> BYG_NETHER_SURFACE_BLOCKS = new ArrayList<>();
+    public static final List<Block> BYG_END_SURFACE_BLOCKS = new ArrayList<>();
 
     private final BlockClusterFeatureConfig featureConfig;
     private final RegistryKey<World> worldRegistryKey;
@@ -32,12 +33,24 @@ public class BYGNylium extends NyliumBlock {
         if (worldRegistryKey == World.NETHER) {
             BYG_NETHER_SURFACE_BLOCKS.add(this);
         }
+
+        if (worldRegistryKey == World.END) {
+            BYG_END_SURFACE_BLOCKS.add(this);
+        }
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random p_225542_4_) {
-        if (!NyliumBlockAccess.invokeCanBeNylium(state, world, pos)) {
-            world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (this.worldRegistryKey == World.NETHER) {
+            if (!NyliumBlockAccess.invokeCanBeNylium(state, world, pos)) {
+                world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
+            }
+        }
+
+        if (this.worldRegistryKey == World.END) {
+            if (world.getBlockState(pos.above()).canOcclude()) {
+                world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
+            }
         }
     }
 

@@ -8,6 +8,7 @@
     "access.NyliumBlockAccess",
     "access.SpreadableSnowyDirtBlockAccess",
     "common.block.MixinAbstractFireBlock",
+    "common.block.MixinBlocks",
     "common.block.MixinCactusBlock",
     "common.block.MixinNetherrackBlock",
     "common.block.MixinSugarCaneBlock",
