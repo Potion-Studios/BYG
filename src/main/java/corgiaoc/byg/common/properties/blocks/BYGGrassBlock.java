@@ -47,7 +47,7 @@ public class BYGGrassBlock extends GrassBlock implements IGrowable {
     @Override
     public void performBonemeal(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         if (featureConfig != null) {
-            place(world, random, pos.above(), this, this.featureConfig);
+            place(world, random, pos.above(), this.featureConfig);
         } else {
             List<ConfiguredFeature<?, ?>> flowerFeatures = world.getBiome(pos).getGenerationSettings().getFlowerFeatures();
             ConfiguredFeature<?, ?> flowerFeature = flowerFeatures.get(random.nextInt(flowerFeatures.size()));
@@ -56,7 +56,7 @@ public class BYGGrassBlock extends GrassBlock implements IGrowable {
         }
     }
 
-    public static boolean place(ISeedReader world, Random random, BlockPos pos, Block block, BlockClusterFeatureConfig config) {
+    public static boolean place(ISeedReader world, Random random, BlockPos pos, BlockClusterFeatureConfig config) {
         int i = 0;
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 

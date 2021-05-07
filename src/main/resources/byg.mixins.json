@@ -5,9 +5,11 @@
   "refmap": "byg.refmap.json",
   "mixins": [
     "access.BiomeContainerAccess",
+    "access.NyliumBlockAccess",
     "access.SpreadableSnowyDirtBlockAccess",
     "common.block.MixinAbstractFireBlock",
     "common.block.MixinCactusBlock",
+    "common.block.MixinNetherrackBlock",
     "common.block.MixinSugarCaneBlock",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinEatGrassGoal",
