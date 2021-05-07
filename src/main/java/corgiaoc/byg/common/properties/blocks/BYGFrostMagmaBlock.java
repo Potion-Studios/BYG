@@ -33,8 +33,10 @@ public class BYGFrostMagmaBlock extends Block {
             world.setBlock(pos.above(), Blocks.ICE.defaultBlockState(), 2);
         }
 
-        if (blockAbove.getBlock() == Blocks.ICE) {
-            world.setBlock(pos.above(), Blocks.PACKED_ICE.defaultBlockState(), 2);
+        if (rand.nextInt(5) == 0) {
+            if (blockAbove.getBlock() == Blocks.ICE) {
+                world.setBlock(pos.above(), Blocks.PACKED_ICE.defaultBlockState(), 2);
+            }
         }
     }
 
