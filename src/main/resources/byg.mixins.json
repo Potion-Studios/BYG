@@ -15,6 +15,7 @@
     "common.block.MixinSugarCaneBlock",
     "common.entity.MixinAnimalEntity",
     "common.entity.MixinEatGrassGoal",
+    "common.entity.MixinPiglinTasks",
     "common.entity.MixinSlimeEntity",
     "common.lightengine.WorldLightManagerMixin",
     "common.world.ChunkStatusMixin",
