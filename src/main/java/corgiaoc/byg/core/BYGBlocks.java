@@ -1303,7 +1303,7 @@ public class BYGBlocks {
     }
 
     static Block createSapling(int taskRange, TreeSpawner tree, String id) {
-        Block createBlock = new BYGSapling(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).strength(0.0f).noCollision().ticksRandomly(), tree, taskRange);
+        Block createBlock = new BYGSapling(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).strength(0.0f).noCollision().ticksRandomly(), tree);
         Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, id), createBlock);
 
         createPottedBlock(createBlock, id);
