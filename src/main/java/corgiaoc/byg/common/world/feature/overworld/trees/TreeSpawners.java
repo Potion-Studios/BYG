@@ -104,6 +104,12 @@ public class TreeSpawners {
         }
     };
 
+    public static final TreeSpawner OAK = new TreeSpawner() {
+        @Nullable
+        public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGConfiguredFeatures.OAK_TREE1 : BYGConfiguredFeatures.OAK_TREE2;
+        }
+    };
 
     public static final TreeSpawner ORANGE_OAK = new TreeSpawner() {
         @Nullable
@@ -133,6 +139,13 @@ public class TreeSpawners {
         @Nullable
         public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {
             return BYGConfiguredFeatures.BIRCH_BROWN_TREE1;
+        }
+    };
+
+    public static final TreeSpawner BIRCH = new TreeSpawner() {
+        @Nullable
+        public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGConfiguredFeatures.BIRCH_TREE1 : BYGConfiguredFeatures.BIRCH_TREE2;
         }
     };
 

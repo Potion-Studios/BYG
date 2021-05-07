@@ -11,6 +11,8 @@ public interface ITreeSpawner {
 
     Reference2ReferenceOpenHashMap<Block, TreeSpawner> VANILLA_SAPLING_BYG_TREE_SPAWNERS = Util.make(new Reference2ReferenceOpenHashMap<>(), (map) -> {
         map.put(Blocks.SPRUCE_SAPLING, TreeSpawners.SPRUCE);
+        map.put(Blocks.BIRCH_SAPLING, TreeSpawners.BIRCH);
+        map.put(Blocks.OAK_SAPLING, TreeSpawners.OAK);
     });
 
 
