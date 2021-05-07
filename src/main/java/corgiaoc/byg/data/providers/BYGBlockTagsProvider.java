@@ -19,9 +19,10 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         for (ITag.INamedTag<Block> plantTag : BYGBlockTags.PLANT_TAGS) {
             this.tag(plantTag).addTag(Tags.Blocks.DIRT);
         }
-        for (ITag.INamedTag<Block> desertPlantTag : BYGBlockTags.DESERT_PLANT_TAGS) {
-            this.tag(desertPlantTag).addTag(Tags.Blocks.DIRT);
+        for (ITag.INamedTag<Block> desertPlantTag : BYGBlockTags.SAND_PLANT_TAGS) {
+            this.tag(desertPlantTag).addTag(Tags.Blocks.SAND);
         }
+        this.tag(BYGBlockTags.GROUND_PALM_SAPLING).addTag(Tags.Blocks.SAND).addTag(Tags.Blocks.DIRT);
     }
 
     @Override

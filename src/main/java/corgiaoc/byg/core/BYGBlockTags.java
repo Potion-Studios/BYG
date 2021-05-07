@@ -12,7 +12,7 @@ import java.util.List;
 public class BYGBlockTags {
     private static final List<String> LOCATIONS = new ArrayList<>();
     public static final List<ITag.INamedTag<Block>> PLANT_TAGS = new ArrayList<>();
-    public static final List<ITag.INamedTag<Block>> DESERT_PLANT_TAGS = new ArrayList<>();
+    public static final List<ITag.INamedTag<Block>> SAND_PLANT_TAGS = new ArrayList<>();
 
     public static final ITag.INamedTag<Block> GROUND_PRICKLY_PEAR_CACTUS = createDesertPlantTag("ground_prickly_pear_cactus");
     public static final ITag.INamedTag<Block> GROUND_MINI_CACTUS = createDesertPlantTag("ground_mini_cactus");
@@ -66,6 +66,54 @@ public class BYGBlockTags {
     public static final ITag.INamedTag<Block> GROUND_YELLOW_DAFFODIL = createPlantTag("ground_yellow_daffodil");
     public static final ITag.INamedTag<Block> GROUND_YELLOW_TULIP = createPlantTag("ground_yellow_tulip");
 
+    public static final ITag.INamedTag<Block> GROUND_ARAUCARIA_SAPLING = createPlantTag("ground_araucaria_sapling");
+    public static final ITag.INamedTag<Block> GROUND_ASPEN_SAPLING = createPlantTag("ground_aspen_sapling");
+    public static final ITag.INamedTag<Block> GROUND_BAOBAB_SAPLING = createPlantTag("ground_baobab_sapling");
+    public static final ITag.INamedTag<Block> GROUND_BLUE_ENCHANTED_SAPLING = createPlantTag("ground_blue_enchanted_sapling");
+    public static final ITag.INamedTag<Block> GROUND_BLUE_SPRUCE_SAPLING = createPlantTag("ground_blue_spruce_sapling");
+    public static final ITag.INamedTag<Block> GROUND_BROWN_BIRCH_SAPLING = createPlantTag("ground_brown_birch_sapling");
+    public static final ITag.INamedTag<Block> GROUND_BROWN_OAK_SAPLING = createPlantTag("ground_brown_oak_sapling");
+    public static final ITag.INamedTag<Block> GROUND_BROWN_ZELKOVA_SAPLING = createPlantTag("ground_brown_zelkova_sapling");
+    public static final ITag.INamedTag<Block> GROUND_CIKA_SAPLING = createPlantTag("ground_cika_sapling");
+    public static final ITag.INamedTag<Block> GROUND_CYPRESS_SAPLING = createPlantTag("ground_cypress_sapling");
+    public static final ITag.INamedTag<Block> GROUND_EBONY_SAPLING = createPlantTag("ground_ebony_sapling");
+    public static final ITag.INamedTag<Block> GROUND_FIR_SAPLING = createPlantTag("ground_fir_sapling");
+    public static final ITag.INamedTag<Block> GROUND_GREEN_ENCHANTED_SAPLING = createPlantTag("ground_green_enchanted_sapling");
+    public static final ITag.INamedTag<Block> GROUND_HOLLY_SAPLING = createPlantTag("ground_holly_sapling");
+    public static final ITag.INamedTag<Block> GROUND_FLOWERING_JACARANDA_BUSH = createPlantTag("ground_flowering_jacaranda_bush");
+    public static final ITag.INamedTag<Block> GROUND_FLOWERING_INDIGO_JACARANDA_BUSH = createPlantTag("ground_flowering_indigo_jacaranda_bush");
+    public static final ITag.INamedTag<Block> GROUND_JACARANDA_SAPLING = createPlantTag("ground_jacaranda_sapling");
+    public static final ITag.INamedTag<Block> GROUND_INDIGO_JACARANDA_SAPLING = createPlantTag("ground_indigo_jacaranda_sapling");
+    public static final ITag.INamedTag<Block> GROUND_JOSHUA_SAPLING = createPlantTag("ground_joshua_sapling");
+    public static final ITag.INamedTag<Block> GROUND_MAHOGANY_SAPLING = createPlantTag("ground_mahogany_sapling");
+    public static final ITag.INamedTag<Block> GROUND_MANGROVE_SAPLING = createPlantTag("ground_mangrove_sapling");
+    public static final ITag.INamedTag<Block> GROUND_MAPLE_SAPLING = createPlantTag("ground_maple_sapling");
+    public static final ITag.INamedTag<Block> GROUND_ORANGE_BIRCH_SAPLING = createPlantTag("ground_orange_birch_sapling");
+    public static final ITag.INamedTag<Block> GROUND_ORANGE_OAK_SAPLING = createPlantTag("ground_orange_oak_sapling");
+    public static final ITag.INamedTag<Block> GROUND_ORANGE_SPRUCE_SAPLING = createPlantTag("ground_orange_spruce_sapling");
+    public static final ITag.INamedTag<Block> GROUND_ORCHARD_SAPLING = createPlantTag("ground_orchard_sapling");
+    public static final ITag.INamedTag<Block> GROUND_PALO_VERDE_SAPLING = createPlantTag("ground_palo_verde_sapling");
+    public static final ITag.INamedTag<Block> GROUND_PINE_SAPLING = createPlantTag("ground_pine_sapling");
+    public static final ITag.INamedTag<Block> GROUND_PINK_CHERRY_SAPLING = createPlantTag("ground_pink_cherry_sapling");
+    public static final ITag.INamedTag<Block> GROUND_RAINBOW_EUCALYPTUS_SAPLING = createPlantTag("ground_rainbow_eucalyptus_sapling");
+    public static final ITag.INamedTag<Block> GROUND_RED_BIRCH_SAPLING = createPlantTag("ground_red_birch_sapling");
+    public static final ITag.INamedTag<Block> GROUND_RED_MAPLE_SAPLING = createPlantTag("ground_red_maple_sapling");
+    public static final ITag.INamedTag<Block> GROUND_RED_OAK_SAPLING = createPlantTag("ground_red_oak_sapling");
+    public static final ITag.INamedTag<Block> GROUND_RED_SPRUCE_SAPLING = createPlantTag("ground_red_spruce_sapling");
+    public static final ITag.INamedTag<Block> GROUND_REDWOOD_SAPLING = createPlantTag("ground_redwood_sapling");
+    public static final ITag.INamedTag<Block> GROUND_SILVER_MAPLE_SAPLING = createPlantTag("ground_silver_maple_sapling");
+    public static final ITag.INamedTag<Block> GROUND_SKYRIS_SAPLING = createPlantTag("ground_skyris_sapling");
+    public static final ITag.INamedTag<Block> GROUND_WHITE_CHERRY_SAPLING = createPlantTag("ground_white_cherry_sapling");
+    public static final ITag.INamedTag<Block> GROUND_WILLOW_SAPLING = createPlantTag("ground_willow_sapling");
+    public static final ITag.INamedTag<Block> GROUND_WITCH_HAZEL_SAPLING = createPlantTag("ground_witch_hazel_sapling");
+    public static final ITag.INamedTag<Block> GROUND_YELLOW_BIRCH_SAPLING = createPlantTag("ground_yellow_birch_sapling");
+    public static final ITag.INamedTag<Block> GROUND_YELLOW_SPRUCE_SAPLING = createPlantTag("ground_yellow_spruce_sapling");
+    public static final ITag.INamedTag<Block> GROUND_ZELKOVA_SAPLING = createPlantTag("ground_zelkova_sapling");
+    public static final ITag.INamedTag<Block> GROUND_PALM_SAPLING = createTag("ground_palm_sapling");
+    public static final ITag.INamedTag<Block> GROUND_LAMENT_SAPLING = createPlantTag("ground_lament_sapling");
+    public static final ITag.INamedTag<Block> GROUND_WITHERING_OAK_SAPLING = createPlantTag("ground_withering_oak_sapling");
+    public static final ITag.INamedTag<Block> GROUND_ETHER_SAPLING = createPlantTag("ground_ether_sapling");
+    public static final ITag.INamedTag<Block> GROUND_NIGHTSHADE_SAPLING = createPlantTag("ground_nightshade_sapling");
 
 
     private static ITag.INamedTag<Block> createPlantTag(String location) {
@@ -76,7 +124,7 @@ public class BYGBlockTags {
 
     private static ITag.INamedTag<Block> createDesertPlantTag(String location) {
         ITag.INamedTag<Block> blockTag = createTag(location);
-        PLANT_TAGS.add(blockTag);
+        SAND_PLANT_TAGS.add(blockTag);
         return blockTag;
     }
 
