@@ -26,7 +26,7 @@ public class SubzeroHypogeal extends BYGNetherBiome {
     static final Biome.Category CATEGORY = Biome.Category.NETHER;
     static final float DEPTH = 0.125F;
     static final float SCALE = 0.05F;
-    static final float TEMPERATURE = 0.8F;
+    static final float TEMPERATURE = 0.0F;
     static final float DOWNFALL = 0.4F;
     static final int WATER_COLOR = 4159204;
     static final int WATER_FOG_COLOR = 329011;
