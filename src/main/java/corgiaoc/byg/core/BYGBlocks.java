@@ -33,9 +33,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
+import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraftforge.common.ToolType;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -1045,10 +1047,10 @@ public class BYGBlocks {
     public static final Block YELLOW_DAFFODIL = createFlower("yellow_daffodil", BYGBlockTags.GROUND_YELLOW_DAFFODIL);
     public static final Block YELLOW_TULIP = createFlower("yellow_tulip", BYGBlockTags.GROUND_YELLOW_TULIP);
 
-    public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, "podzol_dacite");
-    public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, "overgrown_dacite");
-    public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, "overgrown_stone");
-    public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, BYGConfiguredFeatures.SpreadableBlockConfigs.OVERGROWN_BLACKSTONE_CONFIG, "overgrown_crimson_blackstone");
+    public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, null, "podzol_dacite");
+    public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, null, "overgrown_dacite");
+    public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, null, "overgrown_stone");
+    public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, null, "overgrown_crimson_blackstone");
     public static final Block MYCELIUM_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.MYCELIUM_NETHERRACK_CONFIG, "mycelium_netherrack");
     public static final Block OVERGROWN_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.OVERGROWN_NETHERRACK_CONFIG, "overgrown_netherrack");
     public static final Block IVIS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG, "ivis_phylium");
@@ -1652,38 +1654,38 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createDirtSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.DIRT).sound(SoundType.GRASS).strength(0.4f).randomTicks().harvestTool(ToolType.SHOVEL), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, config);
+    static Block createDirtSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGGrassBlock(AbstractBlock.Properties.of(Material.DIRT).sound(SoundType.GRASS).strength(0.4f).randomTicks().harvestTool(ToolType.SHOVEL), featureConfig, blockToSpreadToo);
         createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createStoneSpreadable(Block blockToSpreadToo, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 6.0f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
+    static Block createStoneSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGGrassBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 6.0f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), featureConfig, blockToSpreadToo);
         createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createEndStoneSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
+    static Block createEndStoneSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGGrassBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), featureConfig, blockToSpreadToo);
         createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createEndDirtSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.SHOVEL).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
+    static Block createEndDirtSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGGrassBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.SHOVEL).requiresCorrectToolForDrops(), featureConfig, blockToSpreadToo);
         createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createNetherSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4F).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+    static Block createNetherSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGGrassBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4F).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), featureConfig, blockToSpreadToo);
         createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createNetherStoneSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
+    static Block createNetherStoneSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGGrassBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), featureConfig, blockToSpreadToo);
         createBlock(createBlock, id);
         return createBlock;
     }

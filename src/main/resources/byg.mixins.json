@@ -5,6 +5,7 @@
   "refmap": "byg.refmap.json",
   "mixins": [
     "access.BiomeContainerAccess",
+    "access.SpreadableSnowyDirtBlockAccess",
     "common.block.MixinAbstractFireBlock",
     "common.block.MixinCactusBlock",
     "common.block.MixinSugarCaneBlock",

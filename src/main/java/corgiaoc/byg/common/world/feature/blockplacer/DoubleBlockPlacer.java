@@ -23,7 +23,11 @@ public class DoubleBlockPlacer extends BlockPlacer {
     }
 
     public void placeAt(IWorld worldIn, BlockPos pos, BlockState state, int flags) {
-        worldIn.setBlock(pos, state.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER), flags);
-        worldIn.setBlock(pos.above(), state.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), flags);
+        if (state.hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
+            worldIn.setBlock(pos, state.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER), flags);
+            worldIn.setBlock(pos.above(), state.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), flags);
+        } else {
+            worldIn.setBlock(pos, state, flags);
+        }
     }
 }
