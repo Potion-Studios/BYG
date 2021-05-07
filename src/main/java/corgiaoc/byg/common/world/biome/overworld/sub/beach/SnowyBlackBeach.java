@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.BiomeDictionary;
@@ -47,6 +48,7 @@ public class SnowyBlackBeach extends BYGSubBiome {
     }
 
     static {
+        GENERATION_SETTINGS.addStructureStart(StructureFeatures.BURIED_TREASURE);
         DefaultBiomeFeatures.addDefaultCarvers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultMonsterRoom(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultUndergroundVariety(GENERATION_SETTINGS);

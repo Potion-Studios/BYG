@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
 import net.minecraft.world.gen.feature.template.ProcessorLists;
 
 public class AdobeVillagePools {
-   public static final JigsawPattern AdobeVillageJigsaw = JigsawPatternRegistry.register(new JigsawPattern(new ResourceLocation("byg:village/adobe/town_centers"),
+   public static final JigsawPattern ADOBE_VILLAGE_JIGSAW = JigsawPatternRegistry.register(new JigsawPattern(new ResourceLocation("byg:village/adobe/town_centers"),
            new ResourceLocation("empty"),
            ImmutableList.of(Pair.of(JigsawPiece.legacy("byg:village/adobe/town_centers/adobe_meeting_point_1", ProcessorLists.MOSSIFY_10_PERCENT), 30),
                    Pair.of(JigsawPiece.legacy("byg:village/adobe/town_centers/adobe_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 35),

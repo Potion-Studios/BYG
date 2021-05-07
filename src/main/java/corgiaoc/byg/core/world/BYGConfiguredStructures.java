@@ -21,7 +21,7 @@ public class BYGConfiguredStructures {
     }, 6)));
 
     public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_ADOBE = register("village_adobe", Structure.VILLAGE.configured(new VillageConfig(() -> {
-        return AdobeVillagePools.AdobeVillageJigsaw;
+        return AdobeVillagePools.ADOBE_VILLAGE_JIGSAW;
     }, 6)));
 
     public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_TROPICAL = register("village_tropical", Structure.VILLAGE.configured(new VillageConfig(() -> {
