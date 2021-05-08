@@ -547,9 +547,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
             for (BlockPos blockPos : set) {
                 if (blockPos.getY() == pos.getY()) {
-                    boolean cliff = isCliff(worldIn, blockPos);
+                    boolean cliff = isCliff(worldIn, 9, blockPos);
                     if (!cliff) {
-                        this.buildTrunk(worldIn, config, rand, blockPos, 6);
+                        this.buildTrunk(worldIn, config, rand, blockPos, 10);
                     }
                 }
             }
