@@ -1511,7 +1511,7 @@ public class BYGConfiguredFeatures {
             PALM_TREE3.weighted(0.35F),
             PALM_TREE2.weighted(0.35F)),
             PALM_TREE1)).decorated(Features.Placements.HEIGHTMAP_SQUARE).decorated(Placement.COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(0, 0.25F, 2))));
+            new AtSurfaceWithExtraConfig(0, 0.8F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DENSE_PALM_TREE = createConfiguredFeature("palm_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             PALM_TREE4.weighted(0.05F),

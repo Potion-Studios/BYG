@@ -365,7 +365,7 @@ public class BYGBiomes {
                 addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
             }
 
-            if (biome.getBiomeCategory() == Biome.Category.BEACH) {
+            if (biome.getBiomeCategory() == Biome.Category.BEACH && biome.getBaseTemperature() > 0.15F) {
                 addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
             }
 
