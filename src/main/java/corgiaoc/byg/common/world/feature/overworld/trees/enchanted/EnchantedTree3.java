@@ -31,7 +31,7 @@ public class EnchantedTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 20, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mutable.set(pos).immutable());
+                mutable.set(pos).immutable();
                 mutable.set(pos);
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {

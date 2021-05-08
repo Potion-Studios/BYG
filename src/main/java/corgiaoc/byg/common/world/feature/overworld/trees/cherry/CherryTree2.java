@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.cherry;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -32,7 +31,6 @@ public class CherryTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 8, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable);
 
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable, boundsIn);
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {

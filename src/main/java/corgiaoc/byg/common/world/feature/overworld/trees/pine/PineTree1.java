@@ -10,7 +10,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 
 import java.util.Random;
 import java.util.Set;
@@ -44,7 +43,6 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos);
 
                 //Places dirt under logs where/when necessary.
                 Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);

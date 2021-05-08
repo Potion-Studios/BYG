@@ -3,13 +3,10 @@ package corgiaoc.byg.common.world.feature.overworld.trees.holly;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 
 import java.util.Random;
 import java.util.Set;
@@ -34,7 +31,7 @@ public class HollyTree4 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).immutable());
+                mainmutable.set(pos).immutable();
                 mainmutable.set(pos);
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {

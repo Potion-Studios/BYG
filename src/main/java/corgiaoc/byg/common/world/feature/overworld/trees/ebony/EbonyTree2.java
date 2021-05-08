@@ -33,7 +33,19 @@ public class EbonyTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             }  else if (this.isCliff(worldIn, mutable.set(pos).move(-1, 0, -1).immutable(), mutable.set(pos).move(0, 0, -1).immutable(), mutable.set(pos).move(1, 0, -1).immutable(), mutable.set(pos).move(-2, 0, 0).immutable(), mutable.set(pos).move(-1, 0, 0).immutable(), mutable.set(pos).move(1, 0, 0).immutable(), mutable.set(pos).move(-2, 0, 1).immutable(), mutable.set(pos).move(-1, 0, 1).immutable(), mutable.set(pos).move(0, 0, 1).immutable(), mutable.set(pos).move(1, 0, 1).immutable(), mutable.set(pos).move(-1, 0, 2).immutable(), mutable.set(pos).move(0, 0, 2).immutable())) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mutable.set(pos).immutable(), mutable.set(pos).move(-1, 0, -1).immutable(), mutable.set(pos).move(0, 0, -1).immutable(), mutable.set(pos).move(1, 0, -1).immutable(), mutable.set(pos).move(-2, 0, 0).immutable(), mutable.set(pos).move(-1, 0, 0).immutable(), mutable.set(pos).move(1, 0, 0).immutable(), mutable.set(pos).move(-2, 0, 1).immutable(), mutable.set(pos).move(-1, 0, 1).immutable(), mutable.set(pos).move(0, 0, 1).immutable(), mutable.set(pos).move(1, 0, 1).immutable(), mutable.set(pos).move(-1, 0, 2).immutable(), mutable.set(pos).move(0, 0, 2));
+                mutable.set(pos).immutable();
+                mutable.set(pos).move(-1, 0, -1).immutable();
+                mutable.set(pos).move(0, 0, -1).immutable();
+                mutable.set(pos).move(1, 0, -1).immutable();
+                mutable.set(pos).move(-2, 0, 0).immutable();
+                mutable.set(pos).move(-1, 0, 0).immutable();
+                mutable.set(pos).move(1, 0, 0).immutable();
+                mutable.set(pos).move(-2, 0, 1).immutable();
+                mutable.set(pos).move(-1, 0, 1).immutable();
+                mutable.set(pos).move(0, 0, 1).immutable();
+                mutable.set(pos).move(1, 0, 1).immutable();
+                mutable.set(pos).move(-1, 0, 2).immutable();
+                mutable.set(pos).move(0, 0, 2);
                 mutable.set(pos);
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {

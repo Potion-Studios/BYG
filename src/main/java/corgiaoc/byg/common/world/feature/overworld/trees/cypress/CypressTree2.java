@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.cypress;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -33,7 +32,22 @@ public class CypressTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mutable.set(pos).move(0, 0, -5).immutable(), mutable.set(pos).move(-1, 0, -4).immutable(), mutable.set(pos).move(1, 0, -4).immutable(), mutable.set(pos).move(-4, 0, -1).immutable(), mutable.set(pos).move(0, 0, -1).immutable(), mutable.set(pos).move(4, 0, -1).immutable(), mutable.set(pos).move(-5, 0, 0).immutable(), mutable.set(pos).move(-1, 0, 0).immutable(), mutable.set(pos).move(1, 0, 0).immutable(), mutable.set(pos).move(5, 0, 0).immutable(), mutable.set(pos).move(-4, 0, 1).immutable(), mutable.set(pos).move(0, 0, 1).immutable(), mutable.set(pos).move(4, 0, 1).immutable(), mutable.set(pos).move(-1, 0, 4).immutable(), mutable.set(pos).move(1, 0, 4).immutable(), mutable.set(pos).move(0, 0, 5));
+                mutable.set(pos).move(0, 0, -5).immutable();
+                mutable.set(pos).move(-1, 0, -4).immutable();
+                mutable.set(pos).move(1, 0, -4).immutable();
+                mutable.set(pos).move(-4, 0, -1).immutable();
+                mutable.set(pos).move(0, 0, -1).immutable();
+                mutable.set(pos).move(4, 0, -1).immutable();
+                mutable.set(pos).move(-5, 0, 0).immutable();
+                mutable.set(pos).move(-1, 0, 0).immutable();
+                mutable.set(pos).move(1, 0, 0).immutable();
+                mutable.set(pos).move(5, 0, 0).immutable();
+                mutable.set(pos).move(-4, 0, 1).immutable();
+                mutable.set(pos).move(0, 0, 1).immutable();
+                mutable.set(pos).move(4, 0, 1).immutable();
+                mutable.set(pos).move(-1, 0, 4).immutable();
+                mutable.set(pos).move(1, 0, 4).immutable();
+                mutable.set(pos).move(0, 0, 5);
                 mutable.set(pos);
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {

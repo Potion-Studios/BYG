@@ -31,7 +31,10 @@ public class MahoganyTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (isCliff(worldIn, mainmutable.set(pos).move(-1, 0, 0).immutable(), mainmutable.set(pos).move(0, 0, -1).immutable(), mainmutable.set(pos).move(0, 0, 1).immutable(), mainmutable.set(pos).move(1, 0, 0))) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).move(-1, 0, 0).immutable(), mainmutable.set(pos).move(0, 0, -1).immutable(), mainmutable.set(pos).move(0, 0, 1).immutable(), mainmutable.set(pos).move(1, 0, 0));
+                mainmutable.set(pos).move(-1, 0, 0).immutable();
+                mainmutable.set(pos).move(0, 0, -1).immutable();
+                mainmutable.set(pos).move(0, 0, 1).immutable();
+                mainmutable.set(pos).move(1, 0, 0);
 
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, 0), boundsIn);
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 1, 0), boundsIn);

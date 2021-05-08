@@ -32,7 +32,27 @@ public class MahoganyTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (isCliff(worldIn, 3, mainmutable.set(pos).move(-6, 0, 1).immutable(), mainmutable.set(pos).move(-5, 0, 0).immutable(), mainmutable.set(pos).move(-5, 0, 1).immutable(), mainmutable.set(pos).move(-5, 0, 2).immutable(), mainmutable.set(pos).move(-4, 0, 1).immutable(), mainmutable.set(pos).move(-4, 0, 2).immutable(), mainmutable.set(pos).move(-2, 0, -5).immutable(), mainmutable.set(pos).move(-2, 0, -4).immutable(), mainmutable.set(pos).move(-1, 0, -5).immutable(), mainmutable.set(pos).move(-1, 0, -4).immutable(), mainmutable.set(pos).move(0, 0, -4).immutable(), mainmutable.set(pos).move(1, 0, 4).immutable(), mainmutable.set(pos).move(1, 0, 5).immutable(), mainmutable.set(pos).move(2, 0, 4).immutable(), mainmutable.set(pos).move(2, 0, 5).immutable(), mainmutable.set(pos).move(4, 0, -1).immutable(), mainmutable.set(pos).move(4, 0, 0).immutable(), mainmutable.set(pos).move(4, 0, 1).immutable(), mainmutable.set(pos).move(5, 0, -1).immutable(), mainmutable.set(pos).move(5, 0, 0).immutable(), mainmutable.set(pos).move(5, 0, 1))) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).move(-6, 0, 1).immutable(), mainmutable.set(pos).move(-5, 0, 0).immutable(), mainmutable.set(pos).move(-5, 0, 1).immutable(), mainmutable.set(pos).move(-5, 0, 2).immutable(), mainmutable.set(pos).move(-4, 0, 1).immutable(), mainmutable.set(pos).move(-4, 0, 2).immutable(), mainmutable.set(pos).move(-2, 0, -5).immutable(), mainmutable.set(pos).move(-2, 0, -4).immutable(), mainmutable.set(pos).move(-1, 0, -5).immutable(), mainmutable.set(pos).move(-1, 0, -4).immutable(), mainmutable.set(pos).move(0, 0, -4).immutable(), mainmutable.set(pos).move(1, 0, 4).immutable(), mainmutable.set(pos).move(1, 0, 5).immutable(), mainmutable.set(pos).move(2, 0, 4).immutable(), mainmutable.set(pos).move(2, 0, 5).immutable(), mainmutable.set(pos).move(4, 0, -1).immutable(), mainmutable.set(pos).move(4, 0, 0).immutable(), mainmutable.set(pos).move(4, 0, 1).immutable(), mainmutable.set(pos).move(5, 0, -1).immutable(), mainmutable.set(pos).move(5, 0, 0).immutable(), mainmutable.set(pos).move(5, 0, 1));
+                mainmutable.set(pos).move(-6, 0, 1).immutable();
+                mainmutable.set(pos).move(-5, 0, 0).immutable();
+                mainmutable.set(pos).move(-5, 0, 1).immutable();
+                mainmutable.set(pos).move(-5, 0, 2).immutable();
+                mainmutable.set(pos).move(-4, 0, 1).immutable();
+                mainmutable.set(pos).move(-4, 0, 2).immutable();
+                mainmutable.set(pos).move(-2, 0, -5).immutable();
+                mainmutable.set(pos).move(-2, 0, -4).immutable();
+                mainmutable.set(pos).move(-1, 0, -5).immutable();
+                mainmutable.set(pos).move(-1, 0, -4).immutable();
+                mainmutable.set(pos).move(0, 0, -4).immutable();
+                mainmutable.set(pos).move(1, 0, 4).immutable();
+                mainmutable.set(pos).move(1, 0, 5).immutable();
+                mainmutable.set(pos).move(2, 0, 4).immutable();
+                mainmutable.set(pos).move(2, 0, 5).immutable();
+                mainmutable.set(pos).move(4, 0, -1).immutable();
+                mainmutable.set(pos).move(4, 0, 0).immutable();
+                mainmutable.set(pos).move(4, 0, 1).immutable();
+                mainmutable.set(pos).move(5, 0, -1).immutable();
+                mainmutable.set(pos).move(5, 0, 0).immutable();
+                mainmutable.set(pos).move(5, 0, 1);
 
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 3, 0), boundsIn);
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 8, 0), boundsIn);

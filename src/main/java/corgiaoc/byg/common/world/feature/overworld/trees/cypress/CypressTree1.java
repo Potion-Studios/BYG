@@ -3,12 +3,10 @@ package corgiaoc.byg.common.world.feature.overworld.trees.cypress;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 
 import java.util.Random;
 import java.util.Set;
@@ -37,7 +35,11 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.immutable(), mainmutable2.immutable(), mainmutable3.immutable(), mainmutable4.immutable(), mainmutable5.immutable());
+                mainmutable.immutable();
+                mainmutable2.immutable();
+                mainmutable3.immutable();
+                mainmutable4.immutable();
+                mainmutable5.immutable();
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable, boundsIn);

@@ -30,7 +30,7 @@ public class BirchTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).move(0, 0, 0).immutable());
+                mainmutable.set(pos).move(0, 0, 0).immutable();
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable, boundsIn);

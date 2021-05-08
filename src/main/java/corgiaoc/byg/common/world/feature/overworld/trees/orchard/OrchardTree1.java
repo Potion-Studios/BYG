@@ -3,9 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.orchard;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -38,7 +35,10 @@ public class OrchardTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                     mainmutable.move(Direction.UP);
                 }
                 mainmutable.set(pos);
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).move(0, 0, -1).immutable(), mainmutable.set(pos).move(-1, 0, 0).immutable(), mainmutable.set(pos).move(1, 0, 0).immutable(), mainmutable.set(pos).move(0, 0, 1).immutable());
+                mainmutable.set(pos).move(0, 0, -1).immutable();
+                mainmutable.set(pos).move(-1, 0, 0).immutable();
+                mainmutable.set(pos).move(1, 0, 0).immutable();
+                mainmutable.set(pos).move(0, 0, 1).immutable();
 
                 //Stump
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, -1), boundsIn);

@@ -31,7 +31,7 @@ public class ConiferTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).immutable());
+                mainmutable.set(pos).immutable();
 
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable, boundsIn);

@@ -3,12 +3,9 @@ package corgiaoc.byg.common.world.feature.overworld.trees.spruce.medium;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
 
 import java.util.Random;
 import java.util.Set;
@@ -32,7 +29,10 @@ public class SpruceTreeMedium4 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, pos, mainmutable.set(pos).move(-1, 0, 0).immutable(), mainmutable.set(pos).move(0, 0, -1).immutable(), mainmutable.set(pos).move(0, 0, 1).immutable(), mainmutable.set(pos).move(1, 0, 0).immutable());
+                mainmutable.set(pos).move(-1, 0, 0).immutable();
+                mainmutable.set(pos).move(0, 0, -1).immutable();
+                mainmutable.set(pos).move(0, 0, 1).immutable();
+                mainmutable.set(pos).move(1, 0, 0).immutable();
 
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, 0), boundsIn);
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 1, 0), boundsIn);

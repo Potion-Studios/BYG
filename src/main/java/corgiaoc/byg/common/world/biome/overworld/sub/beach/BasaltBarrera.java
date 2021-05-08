@@ -52,7 +52,6 @@ public class BasaltBarrera extends BYGSubBiome {
         DefaultBiomeFeatures.addDefaultGrass(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultSprings(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBasaltFeatures(GENERATION_SETTINGS);
-        BYGDefaultBiomeFeatures.addPalmTree(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.addSpawn(EntityClassification.AMBIENT, new MobSpawnInfo.Spawners(EntityType.BAT, 10, 8, 8));
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SPIDER, 100, 4, 4));

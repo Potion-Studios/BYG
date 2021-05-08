@@ -31,7 +31,22 @@ public class SpruceTreeLarge1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).move(-1, 0, 0).immutable(), mainmutable.set(pos).move(0, 0, 0).immutable(), mainmutable.set(pos).move(0, 0, 1).immutable(), mainmutable.set(pos).move(-1, 0, 1).immutable(), mainmutable.set(pos).move(-1, 0, -1).immutable(), mainmutable.set(pos).move(0, 0, -3).immutable(), mainmutable.set(pos).move(0, 0, -2).immutable(), mainmutable.set(pos).move(0, 0, -1).immutable(), mainmutable.set(pos).move(1, 0, -2).immutable(), mainmutable.set(pos).move(1, 0, -1).immutable(), mainmutable.set(pos).move(1, 0, 0).immutable(), mainmutable.set(pos).move(1, 0, 1).immutable(), mainmutable.set(pos).move(2, 0, -1).immutable(), mainmutable.set(pos).move(2, 0, 0).immutable(), mainmutable.set(pos).move(3, 0, -1).immutable(), mainmutable.set(pos).move(3, 0, 0).immutable());
+                mainmutable.set(pos).move(-1, 0, 0).immutable();
+                mainmutable.set(pos).move(0, 0, 0).immutable();
+                mainmutable.set(pos).move(0, 0, 1).immutable();
+                mainmutable.set(pos).move(-1, 0, 1).immutable();
+                mainmutable.set(pos).move(-1, 0, -1).immutable();
+                mainmutable.set(pos).move(0, 0, -3).immutable();
+                mainmutable.set(pos).move(0, 0, -2).immutable();
+                mainmutable.set(pos).move(0, 0, -1).immutable();
+                mainmutable.set(pos).move(1, 0, -2).immutable();
+                mainmutable.set(pos).move(1, 0, -1).immutable();
+                mainmutable.set(pos).move(1, 0, 0).immutable();
+                mainmutable.set(pos).move(1, 0, 1).immutable();
+                mainmutable.set(pos).move(2, 0, -1).immutable();
+                mainmutable.set(pos).move(2, 0, 0).immutable();
+                mainmutable.set(pos).move(3, 0, -1).immutable();
+                mainmutable.set(pos).move(3, 0, 0).immutable();
 
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 0, 0), boundsIn);
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, 0), boundsIn);

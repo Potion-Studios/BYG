@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.ebony;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
@@ -33,7 +32,16 @@ public class EbonyBush1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else if (this.isCliff(worldIn, mainmutable.set(pos).move(0, 0, 0).immutable(), mainmutable.set(pos).move(0, 0, -2).immutable(), mainmutable.set(pos).move(-1, 0, -1).immutable(), mainmutable.set(pos).move(0, 0, -1).immutable(), mainmutable.set(pos).move(1, 0, -1).immutable(), mainmutable.set(pos).move(-2, 0, 0).immutable(), mainmutable.set(pos).move(-1, 0, 0).immutable(), mainmutable.set(pos).move(1, 0, 0).immutable(), mainmutable.set(pos).move(-1, 0, 1).immutable(), mainmutable.set(pos).move(0, 0, 1).immutable())) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.set(pos).immutable(), mainmutable.set(pos).move(0, 0, -2).immutable(), mainmutable.set(pos).move(-1, 0, -1).immutable(), mainmutable.set(pos).move(0, 0, -1).immutable(), mainmutable.set(pos).move(1, 0, -1).immutable(), mainmutable.set(pos).move(-2, 0, 0).immutable(), mainmutable.set(pos).move(-1, 0, 0).immutable(), mainmutable.set(pos).move(1, 0, 0).immutable(), mainmutable.set(pos).move(-1, 0, 1).immutable(), mainmutable.set(pos).move(0, 0, 1).immutable());
+                mainmutable.set(pos).immutable();
+                mainmutable.set(pos).move(0, 0, -2).immutable();
+                mainmutable.set(pos).move(-1, 0, -1).immutable();
+                mainmutable.set(pos).move(0, 0, -1).immutable();
+                mainmutable.set(pos).move(1, 0, -1).immutable();
+                mainmutable.set(pos).move(-2, 0, 0).immutable();
+                mainmutable.set(pos).move(-1, 0, 0).immutable();
+                mainmutable.set(pos).move(1, 0, 0).immutable();
+                mainmutable.set(pos).move(-1, 0, 1).immutable();
+                mainmutable.set(pos).move(0, 0, 1).immutable();
 
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, 0), boundsIn);
                 placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 1, 0), boundsIn);

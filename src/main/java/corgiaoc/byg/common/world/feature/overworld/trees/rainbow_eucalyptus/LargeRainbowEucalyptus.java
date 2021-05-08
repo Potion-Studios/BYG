@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.overworld.trees.rainbow_eucalyptus;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -37,7 +36,10 @@ public class LargeRainbowEucalyptus extends BYGAbstractTreeFeature<BYGTreeConfig
             } else if(isCliff(worldIn, mainmutable.immutable(), mainmutable2.immutable(), mainmutable3.immutable(), mainmutable4.immutable())) {
                 return false;
             } else {
-                buildTrunkBase(pos, changedBlocks, worldIn, config, rand, boundsIn, mainmutable.immutable(), mainmutable2.immutable(), mainmutable3.immutable(), mainmutable4.immutable());
+                mainmutable.immutable();
+                mainmutable2.immutable();
+                mainmutable3.immutable();
+                mainmutable4.immutable();
                 for (int buildTrunk = 0; buildTrunk <= randTreeHeight; buildTrunk++) {
                     if (buildTrunk < randTreeHeight - 2) {
                         placeTrunk(pos, config, rand, changedBlocks, worldIn, mainmutable, boundsIn);

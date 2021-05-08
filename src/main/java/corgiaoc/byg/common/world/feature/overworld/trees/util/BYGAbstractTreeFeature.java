@@ -227,9 +227,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.is(Tags.Blocks.SAND) || block == block1;
+                return block.is(Tags.Blocks.SAND) || block.is(BlockTags.SAND) || block == block1;
             }
-            return block.is(Tags.Blocks.SAND);
+            return block.is(Tags.Blocks.SAND) || block.is(BlockTags.SAND);
         });
     }
 
@@ -447,46 +447,18 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return false;
     }
 
-    /**
-     * Use this to set the soil under large trunked trees. I.E: Baobab or Redwood.
-     *
-     * @param treeBlocksSet  Gives us access to the tree block set where we add our trees blocks.
-     * @param reader         Gives us access to world
-     * @param config         Typically this is the log of the tree we're trying to fill the base of.
-     * @param rand           The block used under logs. Typically a block found in the dirt tag
-     * @param boundingBox    Bounding Box of our tree.
-     * @param trunkPositions List of trunk positions where the base is built under the given position.
-     */
+    public void buildTrunk(ISeedReader reader, BYGTreeConfig config, Random random, BlockPos operatingPos, int downRange) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(operatingPos);
 
-    public void buildTrunkBase(BlockPos centerPos, Set<BlockPos> treeBlocksSet, ISeedReader reader, BYGTreeConfig config, Random rand, MutableBoundingBox boundingBox, BlockPos... trunkPositions) {
-        if (config.isPlacementForced())
-            return;
-        BlockState ground = reader.getBlockState(centerPos.relative(Direction.DOWN));
-
-        if (SPREADABLE_TO_NON_SPREADABLE.containsKey(ground.getBlock()))
-            ground = SPREADABLE_TO_NON_SPREADABLE.get(ground.getBlock()).defaultBlockState();
-
-
-        if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
-            for (BlockPos trunkPos : trunkPositions) {
-                mutableTrunk.set(trunkPos);
-                for (int fill = 1; fill <= 25; fill++) {
-                    if (canLogPlaceHere(reader, mutableTrunk)) {
-                        mutableTrunk = (BlockPos.Mutable) getTransformedPos(config, centerPos, mutableTrunk);
-
-                        if (fill <= 15)
-                            setFinalBlockState(centerPos, config, treeBlocksSet, reader, mutableTrunk, config.getTrunkProvider().getState(rand, mutableTrunk), boundingBox);
-                        else
-                            setFinalBlockState(centerPos, config, treeBlocksSet, reader, mutableTrunk, ground, boundingBox);
-                    } else {
-                        if (!isDesiredGround(reader, mutableTrunk, config.getTrunkProvider().getState(rand, mutableTrunk).getBlock()))
-                            setFinalBlockState(centerPos, config, treeBlocksSet, reader, mutableTrunk, ground, boundingBox);
-                        fill = 25;
-                    }
-                    mutableTrunk.move(Direction.DOWN);
-                }
+        for (int moveDown = 0; moveDown < downRange; moveDown++) {
+            BlockState movingState = reader.getBlockState(mutable);
+            if (SPREADABLE_TO_NON_SPREADABLE.containsKey(movingState.getBlock())) {
+                reader.setBlock(mutable, SPREADABLE_TO_NON_SPREADABLE.get(movingState.getBlock()).defaultBlockState(), 2);
+                break;
+            } else {
+                reader.setBlock(mutable, config.getTrunkProvider().getState(random, mutable), 2);
             }
+            mutable.move(Direction.DOWN);
         }
     }
 
@@ -571,6 +543,15 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
             for (int j = 0; j < 6; ++j) {
                 list.add(Sets.newHashSet());
+            }
+
+            for (BlockPos blockPos : set) {
+                if (blockPos.getY() == pos.getY()) {
+                    boolean cliff = isCliff(worldIn, blockPos);
+                    if (!cliff) {
+                        this.buildTrunk(worldIn, config, rand, blockPos, 6);
+                    }
+                }
             }
 
             VoxelShapePart voxelshapepart = new BitSetVoxelShapePart(mutableboundingbox.getXSpan(), mutableboundingbox.getYSpan(), mutableboundingbox.getZSpan());
