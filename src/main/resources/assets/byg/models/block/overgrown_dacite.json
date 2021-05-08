@@ -3,7 +3,7 @@
   "textures": {
     "particle": "byg:block/overgrown_dacite_bottom",
     "bottom": "byg:block/overgrown_dacite_bottom",
-    "top": "byg:block/overgrown_dacite_top",
+    "top": "block/grass_block_top",
     "side": "byg:block/overgrown_dacite_side",
     "overlay": "byg:block/overgrown_dacite_side_overlay"
   },
