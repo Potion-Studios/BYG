@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "byg:pendorite_horse_armor"
+    }
+  ],
+  "results": [
+    {
+      "item": "byg:pendorite_scraps",
+      "count": 2
+    },
+    {
+      "item": "byg:pendorite_scraps",
+      "count": 2,
+      "chance": 0.5
+    }
+  ],
+  "processingTime": 200
+}

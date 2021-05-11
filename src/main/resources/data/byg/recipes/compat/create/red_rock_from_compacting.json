@@ -5,16 +5,16 @@
       "modid": "create"
     }
   ],
-  "type": "create:mixing",
+  "type": "create:compacting",
   "ingredients": [
     {
-      "item": "minecraft:flint"
+      "item": "minecraft:clay_ball"
     },
     {
-      "item": "minecraft:flint"
+      "item": "minecraft:clay_ball"
     },
     {
-      "tag": "forge:sand/colorless"
+      "tag": "forge:sand/red"
     },
     {
       "fluid": "minecraft:lava",
@@ -24,7 +24,7 @@
   ],
   "results": [
     {
-      "item": "byg:quartzite_sand"
+      "item": "byg:red_rock"
     }
   ]
 }

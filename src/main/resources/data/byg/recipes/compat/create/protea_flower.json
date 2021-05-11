@@ -22,7 +22,7 @@
     },
     {
       "item": "minecraft:purple_dye",
-      "count": 0.05
+      "chance": 0.05
     }
   ],
   "processingTime": 50
