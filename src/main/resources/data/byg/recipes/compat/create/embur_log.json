@@ -1,0 +1,21 @@
+{
+  "conditions": [
+      {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "byg:embur_pedu"
+    }
+  ], 
+  "results": [
+    {
+      "item": "byg:stripped_embur_pedu",
+      "count": 1
+    }
+  ],
+  "processingTime": 100
+}
