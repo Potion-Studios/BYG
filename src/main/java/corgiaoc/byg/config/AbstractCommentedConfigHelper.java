@@ -1,8 +1,10 @@
 package corgiaoc.byg.config;
 
 import com.electronwill.nightconfig.core.CommentedConfig;
+import com.electronwill.nightconfig.core.Config;
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
+import com.electronwill.nightconfig.toml.TomlFormat;
 import com.electronwill.nightconfig.toml.TomlWriter;
 import net.minecraft.util.IStringSerializable;
 
@@ -10,8 +12,11 @@ import javax.annotation.Nullable;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class AbstractCommentedConfigHelper {
 
@@ -60,7 +65,7 @@ public class AbstractCommentedConfigHelper {
 
     public AbstractCommentedConfigHelper addSubConfig(String comment, String key, AbstractCommentedConfigHelper defaultValue) {
         if (config.get(key) == null) {
-            config.set(key, defaultValue.config);
+            config.set(key, organizeConfig(defaultValue.config));
         }
 
         CommentedConfig subConfig = config.get(key);
@@ -152,6 +157,18 @@ public class AbstractCommentedConfigHelper {
             throw new UnsupportedOperationException("This file cannot be parsed w/ a null file path.");
         }
         TomlWriter writer = new TomlWriter();
-        writer.write(config, filePath.toFile(), WritingMode.REPLACE);
+        writer.write(organizeConfig(config), filePath.toFile(), WritingMode.REPLACE);
+    }
+
+    public static CommentedConfig organizeConfig(CommentedConfig config) {
+        CommentedConfig newConfig = CommentedConfig.of(Config.getDefaultMapCreator(false, true), TomlFormat.instance());
+
+        List<Map.Entry<String, Object>> organizedCollection = config.valueMap().entrySet().stream().sorted(Comparator.comparing(Objects::toString)).collect(Collectors.toList());
+        organizedCollection.forEach((stringObjectEntry -> {
+            newConfig.add(stringObjectEntry.getKey(), stringObjectEntry.getValue());
+        }));
+
+        newConfig.commentMap().putAll(config.commentMap());
+        return newConfig;
     }
 }
