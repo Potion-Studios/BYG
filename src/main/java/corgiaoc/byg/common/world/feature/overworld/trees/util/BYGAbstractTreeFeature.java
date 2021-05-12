@@ -456,7 +456,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                 reader.setBlock(mutable, SPREADABLE_TO_NON_SPREADABLE.get(movingState.getBlock()).defaultBlockState(), 2);
                 break;
             } else {
-                reader.setBlock(mutable, config.getTrunkProvider().getState(random, mutable), 2);
+                if (movingState.getMaterial() == Material.AIR) {
+                    reader.setBlock(mutable, config.getTrunkProvider().getState(random, mutable), 2);
+                }
             }
             mutable.move(Direction.DOWN);
         }

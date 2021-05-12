@@ -18,7 +18,6 @@ public class BYGWorldConfig {
 
     public static final ForgeConfigSpec.IntValue BIOME_SIZE_NETHER;
     public static final ForgeConfigSpec.IntValue BIOME_SIZE_END;
-    public static final ForgeConfigSpec.IntValue MAIN_ISLAND_BIOME_SIZE;
     public static final ForgeConfigSpec.IntValue VOID_BIOME_SIZE;
 
     public static final ForgeConfigSpec.ConfigValue<String> BLACKLIST_NETHER;
@@ -106,7 +105,6 @@ public class BYGWorldConfig {
         COMMON_BUILDER.pop();
 
         BIOME_SIZE_END = COMMON_BUILDER.comment("\nEnd Biome Size\nDefault: 3").defineInRange("EndBiomeSize", 3, 0, 10);
-        MAIN_ISLAND_BIOME_SIZE = COMMON_BUILDER.comment("\nEnd Biome Size.\nDefault: 3").defineInRange("IslandBiomeSize", 3, 0, 10);
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.push("The_Nether");
