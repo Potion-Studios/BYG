@@ -13,22 +13,13 @@
   ],
   "results": [
     {
-      "item": "byg:ametrine_gems"
-    },
-    {
-      "item": "minecraft:leather",
-      "count": 2,
-      "chance": 0.5
+      "item": "byg:ametrine_gems",
+      "count": 2
     },
     {
       "item": "byg:ametrine_gems",
-      "count": 3,
-      "chance": 0.1
-    },
-    {
-      "item": "minecraft:string",
       "count": 2,
-      "chance": 0.25
+      "chance": 0.5
     }
   ],
   "processingTime": 200

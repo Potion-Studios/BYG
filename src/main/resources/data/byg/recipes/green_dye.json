@@ -1,4 +1,13 @@
 {
+  "conditions": [
+    {
+      "value": {
+        "tag": "byg:green_dye",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
   "type": "minecraft:crafting_shapeless",
   "group": "green_dye",
   "ingredients": [

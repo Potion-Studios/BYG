@@ -1,4 +1,13 @@
 {
+  "conditions": [
+    {
+      "value": {
+        "tag": "byg:light_blue_dye",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
   "type": "minecraft:crafting_shapeless",
   "group": "light_blue_dye",
   "ingredients": [
