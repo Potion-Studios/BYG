@@ -24,29 +24,23 @@ public class AbstractCommentedConfigHelper {
     @Nullable
     private final Path filePath;
 
-    public AbstractCommentedConfigHelper(@Nullable Path filePath) {
+    public AbstractCommentedConfigHelper(Path filePath) {
         this.filePath = filePath;
-        if (filePath != null) {
-            if (!filePath.getParent().toFile().exists()) {
-                try {
-                    Files.createDirectories(filePath.getParent());
-                } catch (IOException e) {
+        if (!filePath.getParent().toFile().exists()) {
+            try {
+                Files.createDirectories(filePath.getParent());
+            } catch (IOException e) {
 
-                }
             }
         }
 
-        CommentedConfig config;
-        if (filePath != null) {
-            config = CommentedFileConfig.builder(filePath).sync().autosave().writingMode(WritingMode.REPLACE).build();
-        } else {
-            config = CommentedConfig.inMemory();
-        }
+        CommentedFileConfig builtConfig = CommentedFileConfig.builder(filePath).sync().autosave().writingMode(WritingMode.REPLACE).build();
+        builtConfig.load();
 
-        this.config = config;
+        this.config = builtConfig;
     }
 
-    private AbstractCommentedConfigHelper(CommentedConfig config) {
+    public AbstractCommentedConfigHelper(CommentedConfig config) {
         this.config = config;
         this.filePath = null;
     }
@@ -150,6 +144,10 @@ public class AbstractCommentedConfigHelper {
     public <T> void updateValue(String key, T newValue) {
         this.config.set(key, newValue);
         build();
+    }
+
+    public <T> T getValue(String key) {
+        return this.config.get(key);
     }
 
     public void build() {

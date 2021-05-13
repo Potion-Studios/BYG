@@ -456,7 +456,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                 reader.setBlock(mutable, SPREADABLE_TO_NON_SPREADABLE.get(movingState.getBlock()).defaultBlockState(), 2);
                 break;
             } else {
-                if (movingState.getMaterial() == Material.AIR) {
+                if (!FeatureUtil.isTerrainOrRock(reader, mutable)) {
                     reader.setBlock(mutable, config.getTrunkProvider().getState(random, mutable), 2);
                 }
             }
