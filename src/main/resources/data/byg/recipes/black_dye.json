@@ -1,13 +1,4 @@
 {
-  "conditions": [
-    {
-      "value": {
-        "tag": "byg:black_dye",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    }
-  ],
   "type": "minecraft:crafting_shapeless",
   "group": "black_dye",
   "ingredients": [

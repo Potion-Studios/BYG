@@ -1,13 +1,4 @@
 {
-  "conditions": [
-    {
-      "value": {
-        "tag": "byg:purple_dye",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    }
-  ],
   "type": "minecraft:crafting_shapeless",
   "group": "purple_dye",
   "ingredients": [

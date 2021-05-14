@@ -1,13 +1,4 @@
 {
-  "conditions": [
-    {
-      "value": {
-        "tag": "byg:cyan_dye",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    }
-  ],
   "type": "minecraft:crafting_shapeless",
   "group": "cyan_dye",
   "ingredients": [
