@@ -8,6 +8,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 
+import javax.annotation.Nullable;
 import java.lang.reflect.Type;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -91,110 +92,120 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
         List<EndBiomeData> endBiomeData = new ArrayList<>();
         List<EndBiomeData> voidBiomeData = new ArrayList<>();
 
-        extractElements(endBiomeData, jsonObject.get("biomes").getAsJsonObject().entrySet());
-        extractElements(voidBiomeData, jsonObject.get("void-biomes").getAsJsonObject().entrySet());
+        extractElements(endBiomeData, getOrDefault(jsonObject, "biomes", new JsonObject()).entrySet(), biomeRegistry);
+        extractElements(voidBiomeData, getOrDefault(jsonObject, "void-biomes", new JsonObject()).entrySet(), biomeRegistry);
         return new EndBiomeDataListHolder(endBiomeData, voidBiomeData);
     }
 
-    private void extractElements(List<EndBiomeData> endBiomeData, Set<Map.Entry<String, JsonElement>> entrySet) {
+    private static void extractElements(List<EndBiomeData> endBiomeData, Set<Map.Entry<String, JsonElement>> entrySet, Registry<Biome> biomeRegistry) {
         for (Map.Entry<String, JsonElement> elementEntry : entrySet) {
-            WeightedList<ResourceLocation> weightedList = new WeightedList<>();
 
-            String biomeName = elementEntry.getKey();
-            JsonElement element = elementEntry.getValue();
+            JsonObject elementObject = elementEntry.getValue().getAsJsonObject();
 
-            JsonObject elementObject = element.getAsJsonObject();
+            ResourceLocation biomeKey = new ResourceLocation(elementEntry.getKey());
+            if (biomeRegistry.keySet().contains(biomeKey)) {
+                endBiomeData.add(new EndBiomeData(biomeKey, getOrDefault(elementObject, "weight", 0), processBiomeDictionary(elementObject),
+                        processHills(elementObject, biomeRegistry), new ResourceLocation(getOrDefault(elementObject, "edge", ""))));
+            } else
+                BYG.LOGGER.error("The biome key: \"" + elementEntry.getKey() + "\" was not found in the registry, skipping entry...");
+        }
+    }
 
-            String edge = elementObject.get("edge").getAsString();
+    private static WeightedList<ResourceLocation> processHills(JsonObject elementObject, Registry<Biome> biomeRegistry) {
+        WeightedList<ResourceLocation> hills = new WeightedList<>();
+        for (JsonElement hillElement : getOrDefault(elementObject, "hills", new JsonArray())) {
+            processHillData(hills, hillElement, biomeRegistry);
+        }
+        return hills;
+    }
 
-            int weight = elementObject.get("weight").getAsInt();
+    private static void processHillData(WeightedList<ResourceLocation> weightedList, JsonElement hillElement, Registry<Biome> biomeRegistry) {
+        JsonObject hillObject = hillElement.getAsJsonObject();
 
-            JsonArray hillLayerList = elementObject.get("hills").getAsJsonArray();
+        String hillBiomeName = getOrDefault(hillObject, "name", "");
 
-            String dictionary = elementObject.get("dictionary").getAsString();
+        @Nullable
+        ResourceLocation hillResourceLocation = hillBiomeName.isEmpty() ? null : new ResourceLocation(hillBiomeName);
 
-            List<BiomeDictionary.Type> types = Arrays.stream(dictionary.trim().replace(" ", "").toUpperCase().split(",")).map(this::warnIfTagIsNotDefault).map(BiomeDictionary.Type::getType).collect(Collectors.toList());
+        if (hillResourceLocation != null) {
+            if (biomeRegistry.keySet().contains(hillResourceLocation))
+                weightedList.add(hillResourceLocation, getOrDefault(hillObject, "weight", 0));
+            else
+                BYG.LOGGER.error("Could not find: \"" + hillResourceLocation.toString() + "\" in the biome registry!\nEntry will not be added. Skipping entry...");
+        }
+    }
 
-            BiomeDictionary.Type[] typesArray = new BiomeDictionary.Type[types.size()];
-            typesArray = types.toArray(typesArray);
+    private static BiomeDictionary.Type[] processBiomeDictionary(JsonObject elementObject) {
+        List<BiomeDictionary.Type> types = Arrays.stream(getOrDefault(elementObject, "dictionary", "").trim().replace(" ", "").toUpperCase().split(",")).map(BiomeDictionary.Type::getType).collect(Collectors.toList());
+        BiomeDictionary.Type[] typesArray = new BiomeDictionary.Type[types.size()];
+        typesArray = types.toArray(typesArray);
 
-            if (types.size() == 0) {
-                types.add(BiomeDictionary.Type.END);
-                BYG.LOGGER.warn("No dictionary entries were read...defaulting to: \"END\"");
-            }
+        if (types.size() == 0) {
+            types.add(BiomeDictionary.Type.END);
+            BYG.LOGGER.warn("No dictionary entries were read...defaulting to: \"END\"");
+        }
+        return typesArray;
+    }
 
-            for (JsonElement hillElement : hillLayerList) {
-                JsonObject hillObject = hillElement.getAsJsonObject();
-
-                String hillBiomeName = hillObject.get("name").getAsString();
-                Integer hillWeight = hillObject.get("weight").getAsInt();
-
-                if (hillBiomeName != null && hillWeight != null) {
-                    ResourceLocation hillResourceLocation = new ResourceLocation(hillBiomeName);
-
-                    if (hillResourceLocation != null) {
-                        if (biomeRegistry.keySet().contains(hillResourceLocation))
-                            weightedList.add(hillResourceLocation, hillWeight);
-                        else
-                            BYG.LOGGER.error("Could not find: \"" + hillResourceLocation.toString() + "\" in the biome registry!\nEntry will not be added. Skipping entry...");
-                    }
+    public static <T> T getOrDefault(JsonObject json, String key, T defaultValue) {
+        if (json.has(key)) {
+            if (defaultValue instanceof String) {
+                try {
+                    return (T) json.get(key).getAsString();
+                } catch (Exception e) {
+                    return defaultValue;
+                }
+            } else if (defaultValue instanceof JsonArray) {
+                try {
+                    return (T) json.get(key).getAsJsonArray();
+                } catch (Exception e) {
+                    return defaultValue;
+                }
+            } else if (defaultValue instanceof JsonObject) {
+                try {
+                    return (T) json.get(key).getAsJsonObject();
+                } catch (Exception e) {
+                    return defaultValue;
                 }
             }
-            ResourceLocation biomeKey = new ResourceLocation(biomeName);
-            if (biomeRegistry.keySet().contains(biomeKey)) {
-                endBiomeData.add(new EndBiomeData(biomeKey, weight, typesArray, weightedList, new ResourceLocation(edge)));
-            } else
-                BYG.LOGGER.error("The biome key: \"" + biomeName + "\" was not found in the registry, skipping entry...");
         }
+        BYG.LOGGER.error("Could not find element for key: \"" + key + "\"");
+        return defaultValue;
     }
 
-    public static List<BiomeDictionary.Type> defaultTypesList = new ArrayList<>();
-
-    static {
-        defaultTypesList.add(BiomeDictionary.Type.HOT);
-        defaultTypesList.add(BiomeDictionary.Type.COLD);
-        defaultTypesList.add(BiomeDictionary.Type.SPARSE);
-        defaultTypesList.add(BiomeDictionary.Type.DENSE);
-        defaultTypesList.add(BiomeDictionary.Type.WET);
-        defaultTypesList.add(BiomeDictionary.Type.DRY);
-        defaultTypesList.add(BiomeDictionary.Type.SAVANNA);
-        defaultTypesList.add(BiomeDictionary.Type.CONIFEROUS);
-        defaultTypesList.add(BiomeDictionary.Type.JUNGLE);
-        defaultTypesList.add(BiomeDictionary.Type.SPOOKY);
-        defaultTypesList.add(BiomeDictionary.Type.DEAD);
-        defaultTypesList.add(BiomeDictionary.Type.LUSH);
-        defaultTypesList.add(BiomeDictionary.Type.MUSHROOM);
-        defaultTypesList.add(BiomeDictionary.Type.MAGICAL);
-        defaultTypesList.add(BiomeDictionary.Type.RARE);
-        defaultTypesList.add(BiomeDictionary.Type.PLATEAU);
-        defaultTypesList.add(BiomeDictionary.Type.MODIFIED);
-        defaultTypesList.add(BiomeDictionary.Type.OCEAN);
-        defaultTypesList.add(BiomeDictionary.Type.RIVER);
-        defaultTypesList.add(BiomeDictionary.Type.WATER);
-        defaultTypesList.add(BiomeDictionary.Type.MESA);
-        defaultTypesList.add(BiomeDictionary.Type.FOREST);
-        defaultTypesList.add(BiomeDictionary.Type.PLAINS);
-        defaultTypesList.add(BiomeDictionary.Type.MOUNTAIN);
-        defaultTypesList.add(BiomeDictionary.Type.HILLS);
-        defaultTypesList.add(BiomeDictionary.Type.SWAMP);
-        defaultTypesList.add(BiomeDictionary.Type.SANDY);
-        defaultTypesList.add(BiomeDictionary.Type.SNOWY);
-        defaultTypesList.add(BiomeDictionary.Type.WASTELAND);
-        defaultTypesList.add(BiomeDictionary.Type.VOID);
-        defaultTypesList.add(BiomeDictionary.Type.OVERWORLD);
-        defaultTypesList.add(BiomeDictionary.Type.BEACH);
-        defaultTypesList.add(BiomeDictionary.Type.NETHER);
-        defaultTypesList.add(BiomeDictionary.Type.END);
+    public static int getOrDefault(JsonObject json, String key, int defaultValue) {
+        if (json.has(key)) {
+            try {
+                return json.get(key).getAsInt();
+            } catch (Exception e) {
+                return defaultValue;
+            }
+        }
+        BYG.LOGGER.error("Could not find element for key: \"" + key + "\"");
+        return defaultValue;
     }
 
-    public static List<BiomeDictionary.Type> stopSpamLoggerSpam = new ArrayList<>();
-
-    public String warnIfTagIsNotDefault(String string) {
-        BiomeDictionary.Type type = BiomeDictionary.Type.getType(string);
-        if (!defaultTypesList.contains(type) && !stopSpamLoggerSpam.contains(type)) {
-            BYG.LOGGER.warn(type.toString() + " is not a default dictionary value.\nIgnore this msg if using modded biome dictionary values.");
-            stopSpamLoggerSpam.add(type);
+    public static double getOrDefault(JsonObject json, String key, double defaultValue) {
+        if (json.has(key)) {
+            try {
+                return json.get(key).getAsDouble();
+            } catch (Exception e) {
+                return defaultValue;
+            }
         }
-        return string;
+        BYG.LOGGER.error("Could not find element for key: \"" + key + "\"");
+        return defaultValue;
+    }
+
+    public static float getOrDefault(JsonObject json, String key, float defaultValue) {
+        if (json.has(key)) {
+            try {
+                return json.get(key).getAsFloat();
+            } catch (Exception e) {
+                return defaultValue;
+            }
+        }
+        BYG.LOGGER.error("Could not find element for key: \"" + key + "\"");
+        return defaultValue;
     }
 }

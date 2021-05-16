@@ -11,7 +11,7 @@ import corgiaoc.byg.common.world.BYGWorldTypeThatIsntAWorldtype;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeSource;
 import corgiaoc.byg.common.world.feature.blockplacer.BYGBlockPlacerTypes;
-import corgiaoc.byg.config.BYGWorldConfig;
+import corgiaoc.byg.config.NetherConfig;
 import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.BYGJsonConfigHandler;
 import corgiaoc.byg.core.BYGBlocks;
@@ -66,7 +66,7 @@ public class BYG {
 
     public static WorldConfig worldConfig(boolean refreshConfig) {
         if (worldConfig == null || refreshConfig) {
-            worldConfig = new WorldConfig(CONFIG_PATH.resolve("byg-world2.toml"));
+            worldConfig = new WorldConfig(CONFIG_PATH.resolve("byg-world.toml"));
         }
         return worldConfig;
     }
@@ -85,7 +85,7 @@ public class BYG {
         if (!dir.exists())
             dir.mkdir();
         worldConfig();
-        BYGWorldConfig.loadConfig(BYGWorldConfig.COMMON_CONFIG, CONFIG_PATH.resolve(MOD_ID + "-world.toml"));
+        NetherConfig.loadConfig(NetherConfig.COMMON_CONFIG, CONFIG_PATH.resolve(MOD_ID + "-nether.toml"));
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);

@@ -8,7 +8,6 @@ import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBloc
 import corgiaoc.byg.common.world.decorator.config.AtOrBelowSeaLevelCountExtraConfig;
 import corgiaoc.byg.common.world.feature.blockplacer.DoubleBlockPlacer;
 import corgiaoc.byg.common.world.feature.config.*;
-import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.AbstractTopPlantBlock;
 import net.minecraft.block.Blocks;
@@ -1884,11 +1883,10 @@ public class BYGConfiguredFeatures {
 
     //Initialize these later to ensure config values were read.
     public static class OreConfigs {
-        public static final ConfiguredFeature<?, ?> ORE_AMETRINE = createConfiguredFeature("ore_ametrine", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlocks.AMETRINE_ORE.defaultBlockState(), BYGWorldConfig.AMETRINE_GEN_SIZE.get())).range(BYGWorldConfig.AMETRINE_GEN_Y.get()).squared().count(BYGWorldConfig.AMETRINE_GEN_PER_CHUNK.get()));
-        public static final ConfiguredFeature<?, ?> ORE_PENDORITE = createConfiguredFeature("ore_pendorite", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlocks.PENDORITE_ORE.defaultBlockState(), BYGWorldConfig.PENDORITE_GEN_SIZE.get())).range(BYGWorldConfig.PENDORITE_GEN_Y.get()).squared().count(BYGWorldConfig.PENDORITE_GEN_PER_CHUNK.get()));
+        public static final ConfiguredFeature<?, ?> ORE_PENDORITE = createConfiguredFeature("ore_pendorite", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlocks.PENDORITE_ORE.defaultBlockState(), 4)).range(56).squared().count(18));
 
-        public static final ConfiguredFeature<?, ?> ORE_ROCKY_STONE = createConfiguredFeature("ore_rocky_stone", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlocks.ROCKY_STONE.defaultBlockState(), BYGWorldConfig.ROCKY_STONE_GEN_SIZE.get())).range(BYGWorldConfig.ROCKY_STONE_GEN_Y.get()).squared().count(BYGWorldConfig.ROCKY_STONE_GEN_PER_CHUNK.get()));
-        public static final ConfiguredFeature<?, ?> ORE_SCORIA_STONE = createConfiguredFeature("ore_scoria_stone", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlocks.SCORIA_STONE.defaultBlockState(), BYGWorldConfig.SCORIA_STONE_GEN_SIZE.get())).range(BYGWorldConfig.SCORIA_STONE_GEN_Y.get()).squared().count(BYGWorldConfig.SCORIA_STONE_GEN_PER_CHUNK.get()));
-        public static final ConfiguredFeature<?, ?> ORE_SOAP_STONE = createConfiguredFeature("ore_soap_stone", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlocks.SOAPSTONE.defaultBlockState(), BYGWorldConfig.SOAP_STONE_GEN_SIZE.get())).range(BYGWorldConfig.SOAP_STONE_GEN_Y.get()).squared().count(BYGWorldConfig.SOAP_STONE_GEN_PER_CHUNK.get()));
+        public static final ConfiguredFeature<?, ?> ORE_ROCKY_STONE = createConfiguredFeature("ore_rocky_stone", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlocks.ROCKY_STONE.defaultBlockState(), 20)).range(60).squared().count(10));
+        public static final ConfiguredFeature<?, ?> ORE_SCORIA_STONE = createConfiguredFeature("ore_scoria_stone", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlocks.SCORIA_STONE.defaultBlockState(), 20)).range(60).squared().count(10));
+        public static final ConfiguredFeature<?, ?> ORE_SOAP_STONE = createConfiguredFeature("ore_soap_stone", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlocks.SOAPSTONE.defaultBlockState(), 20)).range(60).squared().count(10));
     }
 }

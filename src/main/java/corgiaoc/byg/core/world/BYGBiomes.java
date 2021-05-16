@@ -16,7 +16,6 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FreshWaterLake;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FrozenLake;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
-import corgiaoc.byg.config.BYGWorldConfig;
 import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
 import corgiaoc.byg.config.json.endbiomedata.EndBiomeData;
@@ -35,7 +34,6 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
