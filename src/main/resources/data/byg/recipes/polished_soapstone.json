@@ -1,8 +1,16 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:soapstone"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:soapstone"
+    }
   },
-  "result": "byg:polished_soapstone",
-  "count": 1
+  "result": {
+    "item": "byg:polished_soapstone",
+    "count": 4
+  }
 }

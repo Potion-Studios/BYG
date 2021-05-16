@@ -1,8 +1,17 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:rocky_stone"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:rocky_stone"
+    }
   },
-  "result": "byg:rocky_stone_stairs",
-  "count": 1
+  "result": {
+    "item": "byg:rocky_stone_stairs",
+    "count": 4
+  }
 }

@@ -1,8 +1,15 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:soapstone_bricks"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:soapstone_bricks"
+    }
   },
-  "result": "byg:soapstone_brick_slab",
-  "count": 2
+  "result": {
+    "item": "byg:soapstone_brick_slab",
+    "count": 6
+  }
 }

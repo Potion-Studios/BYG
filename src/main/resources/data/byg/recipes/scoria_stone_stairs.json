@@ -1,8 +1,17 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:scoria_stone"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:scoria_stone"
+    }
   },
-  "result": "byg:scoria_stone_stairs",
-  "count": 1
+  "result": {
+    "item": "byg:scoria_stone_stairs",
+    "count": 4
+  }
 }
