@@ -2,6 +2,7 @@ package corgiaoc.byg.core.world;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.*;
 import corgiaoc.byg.common.world.biome.end.*;
 import corgiaoc.byg.common.world.biome.end.sub.*;
@@ -15,7 +16,7 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FreshWaterLake;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.FrozenLake;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
-import corgiaoc.byg.config.BYGWorldConfig;
+import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
 import corgiaoc.byg.config.json.endbiomedata.EndBiomeData;
 import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeData;
@@ -279,9 +280,9 @@ public class BYGBiomes {
             ResourceLocation key = WorldGenRegistries.BIOME.getKey(biomeData.getBiome());
 
 //            if (!dictionaryList.contains(OCEAN)) {
-                if (biomeData.getBiomeWeight() > 0) {
-                    BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, key), biomeData.getBiomeWeight()));
-                }
+            if (biomeData.getBiomeWeight() > 0) {
+                BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, key), biomeData.getBiomeWeight()));
+            }
 //            } else {
 //                TRACKED_OCEANS.computeIfAbsent(biomeData.getBiomeType(), (biomeType) -> new WeightedList<>()).add(key, biomeData.getBiomeWeight());
 //            }
@@ -348,19 +349,10 @@ public class BYGBiomes {
     }
 
     //used in MixinMinecraftServer
-    public static void addBYGFeaturesToBiomes(Biome biome, ResourceLocation locationKey) {
+    public static void addBYGFeaturesToBiomes(Biome biome, RegistryKey<Biome> biomeKey) {
+        ResourceLocation locationKey = biomeKey.location();
+
         if (biome.getBiomeCategory() != Biome.Category.NETHER && biome.getBiomeCategory() != Biome.Category.THEEND && biome.getBiomeCategory() != Biome.Category.NONE) {
-            if (BYGWorldConfig.ROCKY_STONE_GEN.get()) {
-                addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
-            }
-            if (BYGWorldConfig.SCORIA_STONE_GEN.get()) {
-                addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
-            }
-
-            if (BYGWorldConfig.SOAP_STONE_GEN.get()) {
-                addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
-            }
-
             if (locationKey.equals(Biomes.SOUL_SAND_VALLEY.location())) {
                 addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
             }
@@ -373,21 +365,26 @@ public class BYGBiomes {
                 addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.REEDS);
                 addFeatureToBiome(biome, GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CATTAILS);
             }
+        }
+        if (WorldConfig.conditionPasses(BYG.worldConfig().pendoriteSpawns, biomeKey, biome)) {
+            addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
+        }
 
-//            if (BYGWorldConfig.AMETRINE_GEN.get()) {
-//                if (locationKey.equals(WorldGenRegistries.BIOME.getKey(POINTY_STONE_FOREST)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(STONE_FOREST)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(GUIANA_SHIELD)) || locationKey.equals(WorldGenRegistries.BIOME.getKey(GUIANA_CLEARING)))
-//                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
-//            }
+        if (WorldConfig.conditionPasses(BYG.worldConfig().rockyStoneSpawns, biomeKey, biome)) {
+            addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
+        }
+        if (WorldConfig.conditionPasses(BYG.worldConfig().ametrineSpawns, biomeKey, biome)) {
+            addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
+        }
+        if (WorldConfig.conditionPasses(BYG.worldConfig().buddingAmetrineSpawns, biomeKey, biome)) {
+            addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE_BUDDING);
+        }
+        if (WorldConfig.conditionPasses(BYG.worldConfig().scoriaSpawns, biomeKey, biome)) {
+            addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
+        }
 
-            if (BYGWorldConfig.PENDORITE_GEN.get()) {
-                if (locationKey.equals(WorldGenRegistries.BIOME.getKey(FOREST_FAULT)))
-                    addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
-            }
-
-//                addStructureToBiome(biome, BYGConfiguredStructures.VOLCANO_STRUCTURE);
-
-//            addFeatureToBiomeFirst(biome, BYGConfiguredFeatures.CANYON_RIVER);
-
+        if (WorldConfig.conditionPasses(BYG.worldConfig().soapStoneSpawns, biomeKey, biome)) {
+            addFeatureToBiome(biome, GenerationStage.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
         }
     }
 
@@ -424,6 +421,7 @@ public class BYGBiomes {
         convertImmutableStructures(biome);
         List<Supplier<StructureFeature<?, ?>>> biomeFeatures = biome.getGenerationSettings().structureStarts;
         biomeFeatures.add(() -> configuredStructure);
+
     }
 
     private static void convertImmutableStructures(Biome biome) {

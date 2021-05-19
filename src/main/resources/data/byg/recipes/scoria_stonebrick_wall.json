@@ -1,8 +1,16 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:scoria_stonebricks"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:scoria_stonebricks"
+    }
   },
-  "result": "byg:scoria_stonebrick_wall",
-  "count": 1
+  "result": {
+    "item": "byg:scoria_stonebrick_wall",
+    "count": 6
+  }
 }

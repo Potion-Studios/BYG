@@ -8,10 +8,18 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "tag": "forge:sand/colorless"
+      "item": "minecraft:flint"
     },
     {
       "item": "minecraft:flint"
+    },
+    {
+      "tag": "forge:sand/colorless"
+    },
+    {
+      "fluid": "minecraft:lava",
+      "nbt": {},
+      "amount": 100
     }
   ],
   "results": [

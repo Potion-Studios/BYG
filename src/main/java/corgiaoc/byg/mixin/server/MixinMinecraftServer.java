@@ -41,7 +41,7 @@ public class MixinMinecraftServer {
         Optional<MutableRegistry<Biome>> biomeMutableRegistry = this.registryHolder.registry(Registry.BIOME_REGISTRY);
         if (biomeMutableRegistry.isPresent()) {
             for (Map.Entry<RegistryKey<Biome>, Biome> biomeEntry : biomeMutableRegistry.get().entrySet()) {
-                BYGBiomes.addBYGFeaturesToBiomes(biomeEntry.getValue(), biomeEntry.getKey().location());
+                BYGBiomes.addBYGFeaturesToBiomes(biomeEntry.getValue(), biomeEntry.getKey());
             }
 
             BYGBiomes.fillBiomeDictionary(biomeMutableRegistry.get());

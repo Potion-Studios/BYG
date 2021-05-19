@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "gray_dye",
   "ingredients": [
     {
-      "tag": "byg:gray_dye"
+      "item": "byg:mud_block"
     }
   ],
   "result": {
-    "item": "minecraft:gray_dye"
+    "item": "byg:mud_ball",
+    "count": 4
   }
 }

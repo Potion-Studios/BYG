@@ -1,9 +1,8 @@
 package corgiaoc.byg.common.world.dimension.nether;
 
 
-import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
-import corgiaoc.byg.config.BYGWorldConfig;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
@@ -20,7 +19,7 @@ public class BYGNetherLayerProvider {
 
         IAreaFactory<LazyArea> netherLayer = new BYGNetherMasterLayer(biomeRegistry).run(randomProvider.apply(485868686L));
 
-        for (int netherBiomeSize = 0; netherBiomeSize <= BYGWorldConfig.BIOME_SIZE_NETHER.get(); netherBiomeSize++) {
+        for (int netherBiomeSize = 0; netherBiomeSize <= BYG.worldConfig().netherBiomeSize; netherBiomeSize++) {
             netherLayer = ZoomLayer.NORMAL.run(randomProvider.apply(28585L + netherBiomeSize), netherLayer);
         }
         netherLayer = ZoomLayer.FUZZY.run(randomProvider.apply(958687L), netherLayer);

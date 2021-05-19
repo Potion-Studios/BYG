@@ -1,12 +1,12 @@
 package corgiaoc.byg.common.world.dimension.end;
 
 
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import corgiaoc.byg.common.world.dimension.layers.BYGEdgeLayer;
 import corgiaoc.byg.common.world.dimension.layers.BYGHillsLayer;
 import corgiaoc.byg.common.world.dimension.layers.WeightedMasterLayer;
-import corgiaoc.byg.config.BYGWorldConfig;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IExtendedNoiseRandom;
@@ -23,7 +23,7 @@ public class EndLayerProviders {
 
         IAreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, BYGEndBiomeSource.END_BIOMES).run(randomProvider.apply(1003958L));
 
-        for (int endBiomeSize = 0; endBiomeSize <= BYGWorldConfig.BIOME_SIZE_END.get(); endBiomeSize++) {
+        for (int endBiomeSize = 0; endBiomeSize <= BYG.worldConfig().endBiomeSize; endBiomeSize++) {
             endLayer = ZoomLayer.NORMAL.run(randomProvider.apply(49596L + endBiomeSize), endLayer);
         }
 
@@ -41,7 +41,7 @@ public class EndLayerProviders {
 
         IAreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, BYGEndBiomeSource.VOID_BIOMES).run(randomProvider.apply(1003958L));
 
-        for (int endBiomeSize = 0; endBiomeSize <= BYGWorldConfig.VOID_BIOME_SIZE.get(); endBiomeSize++) {
+        for (int endBiomeSize = 0; endBiomeSize <= BYG.worldConfig().voidBiomeSize; endBiomeSize++) {
             endLayer = ZoomLayer.NORMAL.run(randomProvider.apply(49596L + endBiomeSize), endLayer);
         }
 

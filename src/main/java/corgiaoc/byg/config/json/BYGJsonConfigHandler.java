@@ -8,7 +8,6 @@ import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.common.world.biome.BYGEndSubBiome;
 import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.config.json.biomedata.BiomeDataListHolder;
-import corgiaoc.byg.config.json.biomedata.BiomeDataListHolderSerializer;
 import corgiaoc.byg.config.json.endbiomedata.EndBiomeDataListHolder;
 import corgiaoc.byg.config.json.endbiomedata.EndBiomeDataListHolderSerializer;
 import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeDataListHolder;
@@ -165,7 +164,7 @@ public class BYGJsonConfigHandler {
 
     public static void handleBYGBiomesJSONConfig(Path path) {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(BiomeDataListHolder.class, new BiomeDataListHolderSerializer());
+        gsonBuilder.registerTypeAdapter(BiomeDataListHolder.class, new corgiaoc.byg.config.json.biomedata.BiomeDataListHolderSerializer());
         gsonBuilder.setPrettyPrinting();
         gsonBuilder.disableHtmlEscaping();
         Gson gson = gsonBuilder.create();
@@ -190,7 +189,7 @@ public class BYGJsonConfigHandler {
 
     public static void createBYGBiomesJson(Path path) {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(BiomeDataListHolder.class, new BiomeDataListHolderSerializer());
+        gsonBuilder.registerTypeAdapter(BiomeDataListHolder.class, new corgiaoc.byg.config.json.biomedata.BiomeDataListHolderSerializer());
         gsonBuilder.setPrettyPrinting();
         gsonBuilder.disableHtmlEscaping();
         Gson gson = gsonBuilder.create();

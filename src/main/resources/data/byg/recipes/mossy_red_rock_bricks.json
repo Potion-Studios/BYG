@@ -1,8 +1,14 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:red_rock_bricks"
-  },
-  "result": "byg:mossy_red_rock_bricks",
-  "count": 1
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "byg:red_rock_bricks"
+    },
+    {
+      "item": "minecraft:vine"
+    }
+  ],
+  "result": {
+    "item": "byg:mossy_red_rock_bricks"
+  }
 }

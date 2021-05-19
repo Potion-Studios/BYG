@@ -3,7 +3,7 @@ package corgiaoc.byg.common.world.dimension.nether;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
-import corgiaoc.byg.config.BYGWorldConfig;
+import corgiaoc.byg.config.NetherConfig;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class BYGNetherBiomeSource extends BiomeProvider {
     public static final Codec<BYGNetherBiomeSource> BYGNETHERCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.create(Registry.BIOME_REGISTRY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGNetherBiomeSource::new)));
 
-    private static final List<String> NETHER_BIOME_IDS = Arrays.asList(BYGWorldConfig.BLACKLIST_NETHER.get().trim().replace(" ", "").split(","));
+    private static final List<String> NETHER_BIOME_IDS = Arrays.asList(NetherConfig.BLACKLIST_NETHER.get().trim().replace(" ", "").split(","));
 
     private final DatapackLayer biomeLayer;
     private final long seed;
@@ -40,7 +40,7 @@ public class BYGNetherBiomeSource extends BiomeProvider {
             if (biomeEntry.getValue().getBiomeCategory() == Biome.Category.NETHER) {
                 ResourceLocation locationKey = biomeEntry.getKey().location();
 
-                if (BYGWorldConfig.IS_BLACKLIST_NETHER.get()) {
+                if (NetherConfig.IS_BLACKLIST_NETHER.get()) {
                     //Avoid duping entries
                     if (!NETHER_BIOMES.contains(locationKey) && !NETHER_BIOME_IDS.contains(locationKey.toString())) {
                         NETHER_BIOMES.add(locationKey);

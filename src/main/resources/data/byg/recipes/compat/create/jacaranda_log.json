@@ -1,0 +1,21 @@
+{
+  "conditions": [
+      {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "byg:jacaranda_log"
+    }
+  ], 
+  "results": [
+    {
+      "item": "byg:stripped_jacaranda_log",
+      "count": 1
+    }
+  ],
+  "processingTime": 100
+}

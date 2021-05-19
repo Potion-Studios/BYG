@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:dacite_cobblestone"
+  },
+  "result": "byg:dacite_cobblestone_slab",
+  "count": 2
+}

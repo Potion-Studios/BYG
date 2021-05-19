@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:mossy_stone"
+  },
+  "result": "byg:mossy_stone_wall",
+  "count": 1
+}
