@@ -1051,17 +1051,17 @@ public class BYGBlocks {
     public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, null, "overgrown_crimson_blackstone");
     public static final Block MYCELIUM_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.MYCELIUM_NETHERRACK_CONFIG, "mycelium_netherrack");
     public static final Block OVERGROWN_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.OVERGROWN_NETHERRACK_CONFIG, "overgrown_netherrack");
-    public static final Block IVIS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG, "ivis_phylium");
+    public static final Block IVIS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_PURPLE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG, "ivis_phylium");
     public static final Block EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS, "embur_nylium");
     public static final Block SYTHIAN_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "sythian_nylium");
     public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, BYGConfiguredFeatures.SpreadableBlockConfigs.MEADOW_CONFIG, "meadow_grass_block");
-    public static final Block NIGHTSHADE_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG, "nightshade_phylium");
+    public static final Block NIGHTSHADE_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_BLUE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG, "nightshade_phylium");
     public static final Block ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
-    public static final Block VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
-    public static final Block SHULKREN_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
+    public static final Block VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, MaterialColor.COLOR_RED, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
+    public static final Block SHULKREN_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_LIGHT_GREEN, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
     public static final Block MEADOW_GRASS_PATH = createBlock(new GrassPathBlock(AbstractBlock.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "meadow_grass_path");
-    public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
-    public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
+    public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
+    public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
 
     static Block createTheriumBlock(String id) {
@@ -1664,8 +1664,8 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createEndStoneSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
-        Block createBlock = new BYGNylium(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), featureConfig, World.END, blockToSpreadToo);
+    static Block createEndStoneSpreadable(Block blockToSpreadToo, MaterialColor color, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGNylium(AbstractBlock.Properties.of(Material.STONE, color).sound(SoundType.STONE).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), featureConfig, World.END, blockToSpreadToo);
         createBlock(createBlock, id);
         return createBlock;
     }
