@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "byg:quartzite_sand"
+    }
+  ],
+  "results": [
+    {
+      "item": "byg:white_sand",
+      "count": 1
+    }
+  ],
+  "processingTime": 100
+}

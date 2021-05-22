@@ -27,8 +27,8 @@ public class EnderLilyBlock extends LilyPadBlock {
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader reader, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, IBlockReader reader, BlockPos pos) {
         FluidState fluidState = reader.getFluidState(pos);
-        return fluidState.getFluid() == Fluids.WATER;
+        return fluidState.getType() == Fluids.WATER;
     }
 }

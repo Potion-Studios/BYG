@@ -27,13 +27,13 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             JsonObject object = new JsonObject();
 
             if (biomeData.getBiomeWeightedList() != null) {
-                for (WeightedList.Entry<Biome> biomeEntry : biomeData.getBiomeWeightedList().field_220658_a) {
+                for (WeightedList.Entry<Biome> biomeEntry : biomeData.getBiomeWeightedList().entries) {
                     JsonObject object2 = new JsonObject();
-                    ResourceLocation biomeEntryKey = WorldGenRegistries.BIOME.getKey(biomeEntry.func_220647_b());
+                    ResourceLocation biomeEntryKey = WorldGenRegistries.BIOME.getKey(biomeEntry.getData());
 
                     if (biomeEntryKey != null) {
                         object2.addProperty("name", biomeEntryKey.toString());
-                        object2.addProperty("weight", biomeEntry.field_220652_c);
+                        object2.addProperty("weight", biomeEntry.weight);
                         weightedListArray.add(object2);
                     } else {
                         BYG.LOGGER.error("One or more \"hills\" \"name\" value was null/incorrect.");
@@ -118,12 +118,17 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
             BiomeManager.BiomeType biomeType;
 
-            if (!defaultClimates.contains(climate)) {
+            if (!defaultClimates.contains(climate) && !climate.isEmpty()) {
                 BYG.LOGGER.error(elementEntry.getKey() + "'s \"climate\" value is incorrect you put: \"" + climate + "\". Defaulting climate to warm...");
                 biomeType = BiomeManager.BiomeType.WARM;
             }
-            else
-                biomeType = BiomeManager.BiomeType.valueOf(climate);
+            else {
+                if (!climate.isEmpty()) {
+                    biomeType = BiomeManager.BiomeType.valueOf(climate);
+                } else {
+                    biomeType = null;
+                }
+            }
 
             JsonArray hillLayerList = elementObject.get("hills").getAsJsonArray();
 
@@ -150,7 +155,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
                     if (hillResourceLocation != null) {
                         if (WorldGenRegistries.BIOME.keySet().contains(hillResourceLocation))
-                            weightedList.func_226313_a_(Objects.requireNonNull(WorldGenRegistries.BIOME.getOrDefault(hillResourceLocation)), hillWeight);
+                            weightedList.add(Objects.requireNonNull(WorldGenRegistries.BIOME.get(hillResourceLocation)), hillWeight);
                         else
                             BYG.LOGGER.error("Could not find: \"" + hillResourceLocation.toString() + "\" in the biome registry!\nEntry will not be added. Skipping entry...");
                     }
@@ -159,7 +164,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             ResourceLocation biomeKey = new ResourceLocation(biomeName);
             if (WorldGenRegistries.BIOME.keySet().contains(biomeKey)) {
                 if (biomeKey.getNamespace().equals(BYG.MOD_ID))
-                    biomeData.add(new BiomeData(WorldGenRegistries.BIOME.getOrDefault(biomeKey), weight, biomeType, typesArray, weightedList, WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(edge)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(beach)), WorldGenRegistries.BIOME.getOrDefault(new ResourceLocation(river))));
+                    biomeData.add(new BiomeData(WorldGenRegistries.BIOME.get(biomeKey), weight, biomeType, typesArray, weightedList, WorldGenRegistries.BIOME.get(new ResourceLocation(edge)), WorldGenRegistries.BIOME.get(new ResourceLocation(beach)), WorldGenRegistries.BIOME.get(new ResourceLocation(river))));
                 else
                     BYG.LOGGER.error("Biome key: \"" + biomeName + "\" is illegal. The mod id for the biome key MUST be \"byg\". Skipping entry...");
             }

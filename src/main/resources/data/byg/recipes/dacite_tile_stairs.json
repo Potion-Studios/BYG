@@ -1,8 +1,17 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:dacite_tile"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:dacite_tile"
+    }
   },
-  "result": "byg:dacite_tile_stairs",
-  "count": 1
+  "result": {
+    "item": "byg:dacite_tile_stairs",
+    "count": 4
+  }
 }

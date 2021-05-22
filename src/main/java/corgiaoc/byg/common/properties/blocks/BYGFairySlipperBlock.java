@@ -17,35 +17,26 @@ import net.minecraft.block.AbstractBlock.OffsetType;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class BYGFairySlipperBlock extends BushBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
-    private final Effect stewEffect;
-    private final int stewEffectDuration;
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
-    public BYGFairySlipperBlock(Effect effect, int duration, Properties properties) {
+    public BYGFairySlipperBlock(Properties properties) {
         super(properties);
-        this.stewEffect = effect;
-        if (effect.isInstant()) {
-            this.stewEffectDuration = duration;
-        } else {
-            this.stewEffectDuration = duration * 20;
-        }
-
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
         Vector3d Vector3d = state.getOffset(reader, pos);
-        return SHAPE.withOffset(Vector3d.x, Vector3d.y, Vector3d.z);
+        return SHAPE.move(Vector3d.x, Vector3d.y, Vector3d.z);
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.getBlock().isIn(BlockTags.LOGS) || state.getBlock().isIn(Tags.Blocks.DIRT);
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.getBlock().is(BlockTags.LOGS) || state.getBlock().is(Tags.Blocks.DIRT);
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockPos posDown = pos.down();
-        return this.isValidGround(worldIn.getBlockState(posDown), worldIn, posDown);
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos posDown = pos.below();
+        return this.mayPlaceOn(worldIn.getBlockState(posDown), worldIn, posDown);
     }
 
     public OffsetType getOffsetType() {

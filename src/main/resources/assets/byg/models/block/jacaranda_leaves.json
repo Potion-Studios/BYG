@@ -1,7 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/leaves",
   "textures": {
-    "all": "byg:block/purple_jacaranda_leaves",
-    "particle": "byg:block/purple_jacaranda_leaves"
+    "all": "byg:block/jacaranda_leaves"
   }
 }

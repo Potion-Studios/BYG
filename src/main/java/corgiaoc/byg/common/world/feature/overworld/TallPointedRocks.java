@@ -30,9 +30,9 @@ public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> 
 
         float sampleNoise = config.getNoiseGen().GetNoise(fnVector3f.x, fnVector3f.z);
 
-        int groundLevel = chunkIn.getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
+        int groundLevel = chunkIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
 
-        if (!chunkIn.getBlockState(mutable.up(groundLevel)).isAir()) {
+        if (!chunkIn.getBlockState(mutable.above(groundLevel)).isAir()) {
             if (sampleNoise < 0.43) {
                 int valueToReverse = (int) (Math.abs((int) (sampleNoise * 645D) * 1.8));
                 int topHeight = (int) ((valueToReverse - Math.abs(((-sampleNoise * 645D) * 1.8 - valueToReverse))) + (63) * 9.5D);
@@ -43,8 +43,8 @@ public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> 
                 if (topHeight > groundLevel) {
                     mutable.move(Direction.UP, topHeight);
                     for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
-                        if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getHeight()) {
-                            chunkIn.setBlockState(mutable, config.getBlockProvider().getBlockState(random, mutable), false);
+                        if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getMaxBuildHeight()) {
+                            chunkIn.setBlockState(mutable, config.getBlockProvider().getState(random, mutable), false);
                         }
                         mutable.move(Direction.DOWN);
                     }

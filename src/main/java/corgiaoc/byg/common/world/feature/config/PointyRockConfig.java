@@ -67,12 +67,12 @@ public class PointyRockConfig implements IFeatureConfig {
     }
 
     public static class Builder {
-        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
         private int seed = 65;
         private double heightMultiplier = 1.0;
 
         public Builder setBlock(Block block) {
-            this.blockProvider = new SimpleBlockStateProvider(block.getDefaultState());
+            this.blockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             return this;
         }
 

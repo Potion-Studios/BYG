@@ -11,7 +11,7 @@ import net.minecraft.block.AbstractBlock;
 public class BYGWarpedCoralWallFanBlock extends DeadCoralWallFanBlock {
     protected BYGWarpedCoralWallFanBlock(AbstractBlock.Properties block) {
         super(block);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
     }
 
     protected boolean isValidGround(BlockState state) {

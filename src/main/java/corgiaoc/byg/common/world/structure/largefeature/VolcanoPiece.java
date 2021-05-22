@@ -52,20 +52,20 @@ public class VolcanoPiece extends StructurePiece {
     }
 
     @Override
-    protected void readAdditional(CompoundNBT tagCompound) {
+    protected void addAdditionalSaveData(CompoundNBT tagCompound) {
         //Leave this empty
     }
 
 
 
     @Override
-    public boolean func_230383_a_(ISeedReader world, StructureManager manager, ChunkGenerator generator, Random rand, MutableBoundingBox structureBoundingBox, ChunkPos chunkPos, BlockPos aPos) {
+    public boolean postProcess(ISeedReader world, StructureManager manager, ChunkGenerator generator, Random rand, MutableBoundingBox structureBoundingBox, ChunkPos chunkPos, BlockPos aPos) {
 
 //        if (world.getBlockState(pos.down()).getMaterial() == Material.AIR || world.getBlockState(pos.down()).getMaterial() == Material.WATER || world.getBlockState(pos.down()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)
 //            return false;
-        int yHeight = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, this.boundingBox.minX, this.boundingBox.minZ);
+        int yHeight = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, this.boundingBox.x0, this.boundingBox.z0);
 
-        BlockPos pos = new BlockPos(this.boundingBox.minX, yHeight, this.boundingBox.minZ);
+        BlockPos pos = new BlockPos(this.boundingBox.x0, yHeight, this.boundingBox.z0);
 
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
@@ -80,19 +80,19 @@ public class VolcanoPiece extends StructurePiece {
         for (double x = -volcanoSizeXMin; x <= volcanoSizeXMax; x++) {
             for (double y = -volcanoConeSize; y <= -15; y++) {
                 for (double z = -volcanoSizeXMin; z <= volcanoSizeZMax; z++) {
-                    mutable.setPos(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
+                    mutable.set(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
                     float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), mutable.getZ()));
 
                     double scaledNoise = (noise3 / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
                     if (scaledNoise - lavaLeakage >= threshold) {
                         if (mutable.getY() <= pos.getY() + (volcanoStartHeight - 19)) {
-                            world.setBlockState(mutable, Blocks.LAVA.getDefaultState(), 2);
-                            world.getPendingFluidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
-                            boundingBoxExpander.func_236989_a_(mutable);
+                            world.setBlock(mutable, Blocks.LAVA.defaultBlockState(), 2);
+                            world.getLiquidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
+                            boundingBoxExpander.move(mutable);
                         }
                     }
                     else if (scaledNoise >= threshold) {
-                        world.setBlockState(mutable, BYGBlocks.WARPED_CORAL_BLOCK.getDefaultState(), 2);
+                        world.setBlock(mutable, BYGBlocks.WARPED_CORAL_BLOCK.defaultBlockState(), 2);
                     }
                 }
             }

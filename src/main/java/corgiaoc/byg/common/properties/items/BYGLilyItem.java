@@ -27,33 +27,33 @@ public class BYGLilyItem extends BlockItem {
         super(blockIn, builder);
     }
 
-    public ActionResultType onItemUse(ItemUseContext context) {
+    public ActionResultType useOn(ItemUseContext context) {
         return ActionResultType.PASS;
     }
 
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        ItemStack itemstack = playerIn.getHeldItem(handIn);
-        RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, RayTraceContext.FluidMode.SOURCE_ONLY);
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        ItemStack itemstack = playerIn.getItemInHand(handIn);
+        RayTraceResult raytraceresult = getPlayerPOVHitResult(worldIn, playerIn, RayTraceContext.FluidMode.SOURCE_ONLY);
         if (raytraceresult.getType() == RayTraceResult.Type.MISS) {
             return new ActionResult<>(ActionResultType.PASS, itemstack);
         } else {
             if (raytraceresult.getType() == RayTraceResult.Type.BLOCK) {
                 BlockRayTraceResult blockraytraceresult = (BlockRayTraceResult) raytraceresult;
-                BlockPos blockpos = blockraytraceresult.getPos();
-                Direction direction = blockraytraceresult.getFace();
-                if (!worldIn.isBlockModifiable(playerIn, blockpos) || !playerIn.canPlayerEdit(blockpos.offset(direction), direction, itemstack)) {
+                BlockPos blockpos = blockraytraceresult.getBlockPos();
+                Direction direction = blockraytraceresult.getDirection();
+                if (!worldIn.mayInteract(playerIn, blockpos) || !playerIn.mayUseItemAt(blockpos.relative(direction), direction, itemstack)) {
                     return new ActionResult<>(ActionResultType.FAIL, itemstack);
                 }
 
-                BlockPos blockpos1 = blockpos.up();
+                BlockPos blockpos1 = blockpos.above();
                 BlockState blockstate = worldIn.getBlockState(blockpos);
                 Material material = blockstate.getMaterial();
                 FluidState FluidState = worldIn.getFluidState(blockpos);
-                if ((FluidState.getFluid() == Fluids.WATER || material == Material.ICE) && worldIn.isAirBlock(blockpos1)) {
+                if ((FluidState.getType() == Fluids.WATER || material == Material.ICE) && worldIn.isEmptyBlock(blockpos1)) {
 
                     // special case for handling block placement with water lilies
-                    net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.create(worldIn.getDimensionKey(), worldIn, blockpos1);
-                    worldIn.setBlockState(blockpos1, BYGBlocks.TINY_LILYPADS.getDefaultState(), 11);
+                    net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.create(worldIn.dimension(), worldIn, blockpos1);
+                    worldIn.setBlock(blockpos1, BYGBlocks.TINY_LILYPADS.defaultBlockState(), 11);
                     if (net.minecraftforge.event.ForgeEventFactory.onBlockPlace(playerIn, blocksnapshot, net.minecraft.util.Direction.UP)) {
                         blocksnapshot.restore(true, false);
                         return new ActionResult<ItemStack>(ActionResultType.FAIL, itemstack);
@@ -63,12 +63,12 @@ public class BYGLilyItem extends BlockItem {
                         CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayerEntity) playerIn, blockpos1, itemstack);
                     }
 
-                    if (!playerIn.abilities.isCreativeMode) {
+                    if (!playerIn.abilities.instabuild) {
                         itemstack.shrink(1);
                     }
 
-                    playerIn.addStat(Stats.ITEM_USED.get(this));
-                    worldIn.playSound(playerIn, blockpos, SoundEvents.BLOCK_LILY_PAD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    playerIn.awardStat(Stats.ITEM_USED.get(this));
+                    worldIn.playSound(playerIn, blockpos, SoundEvents.LILY_PAD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
                 }
             }

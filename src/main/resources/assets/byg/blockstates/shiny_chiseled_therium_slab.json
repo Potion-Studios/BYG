@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/shiny_chiseled_therium_slab"
+    },
+    "type=double": {
+      "model": "byg:block/shiny_chiseled_therium"
+    },
+    "type=top": {
+      "model": "byg:block/shiny_chiseled_therium_slab_top"
+    }
+  }
+}

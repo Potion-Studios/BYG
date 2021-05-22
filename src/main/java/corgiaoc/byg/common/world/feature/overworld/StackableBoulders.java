@@ -28,19 +28,19 @@ public class StackableBoulders extends Feature<BoulderConfig> {
     public static int stopSpamInt = 0;
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, BoulderConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, BoulderConfig config) {
         setSeed(world.getSeed());
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(position.down(2 + random.nextInt(10)));
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable().setPos(mutable);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position.below(2 + random.nextInt(10)));
+        BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(mutable);
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
 
-        BlockState blockStateDown = world.getBlockState(position.down());
+        BlockState blockStateDown = world.getBlockState(position.below());
         BlockState blockStateAtPosition = world.getBlockState(position);
 
 
-        if (blockStateDown.isIn(BlockTags.LEAVES) || blockStateDown.isIn(BlockTags.LOGS) || blockStateAtPosition.isIn(BlockTags.LEAVES) || blockStateAtPosition.isIn(BlockTags.LOGS) || blockStateAtPosition.getMaterial() == Material.AIR)
+        if (blockStateDown.is(BlockTags.LEAVES) || blockStateDown.is(BlockTags.LOGS) || blockStateAtPosition.is(BlockTags.LEAVES) || blockStateAtPosition.is(BlockTags.LOGS) || blockStateAtPosition.getMaterial() == Material.AIR)
             return false;
 
         for (int boulderIDX = 0; boulderIDX < stackHeight; boulderIDX++) {
@@ -67,7 +67,7 @@ public class StackableBoulders extends Feature<BoulderConfig> {
                         int squaredDistance = x * x + y * y + z * z;
                         if (squaredDistance <= radius * radius) {
 
-                            mutable2.setPos(mutable).move(x, y, z);
+                            mutable2.set(mutable).move(x, y, z);
 
                             // Rough the surface of the boulders a bit
                             double boulderRoughnessNoise = fastNoise.GetNoise(mutable2.getX() * 0.04F, mutable2.getY() * 0.01F, mutable2.getZ() * 0.04F);
@@ -78,13 +78,13 @@ public class StackableBoulders extends Feature<BoulderConfig> {
 
                             BlockState blockState = world.getBlockState(mutable2);
                             if (this.canBlockPlaceHere(blockState))
-                                world.setBlockState(mutable2, config.getBlockProvider().getBlockState(random, mutable2), 3);
+                                world.setBlock(mutable2, config.getBlockProvider().getState(random, mutable2), 3);
                         }
                     }
                 }
             }
 
-            while (mutable.getY() < world.getHeight() && !world.getBlockState(mutable).isAir()) {
+            while (mutable.getY() < world.getMaxBuildHeight() && !world.getBlockState(mutable).isAir()) {
                 mutable.move(Direction.UP);
             }
 
@@ -114,9 +114,9 @@ public class StackableBoulders extends Feature<BoulderConfig> {
     }
 
     private boolean canBlockPlaceHere(BlockState state) {
-        return state.isAir() || state.getMaterial() == Material.EARTH || state.getMaterial() == Material.PLANTS ||
-                state.getMaterial() == Material.TALL_PLANTS || state.getMaterial() == Material.LEAVES ||
+        return state.isAir() || state.getMaterial() == Material.DIRT || state.getMaterial() == Material.PLANT ||
+                state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.LEAVES ||
                 state.getMaterial() == Material.SAND || state.getMaterial() == Material.BAMBOO || state.getMaterial() == Material.CACTUS
-                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || state.isIn(Tags.Blocks.DIRT);
+                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || state.is(Tags.Blocks.DIRT);
     }
 }

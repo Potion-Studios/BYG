@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "byg:block/shulkren_phylium"
-    }
+    "": [
+      { "model": "byg:block/shulkren_phylium" },
+      { "model": "byg:block/shulkren_phylium", "y": 90 },
+      { "model": "byg:block/shulkren_phylium", "y": 180 },
+      { "model": "byg:block/shulkren_phylium", "y": 270 }
+    ]
   }
 }

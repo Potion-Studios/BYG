@@ -23,8 +23,8 @@ public class BasaltBarreraSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         super(codec);
     }
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-        setSeed(seed);
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+        initNoise(seed);
         int xPos = x & 15;
         int zPos = z & 15;
         int topHeight;
@@ -33,7 +33,7 @@ public class BasaltBarreraSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         float sampleNoise = noiseGen.GetNoise(x, z);
         float simplexNoise = simplexGen.GetNoise(x, z);
 
-        int groundLevel = chunkIn.getTopBlockY(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
+        int groundLevel = chunkIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
 
         if (simplexNoise > 0) {
             topHeight = Math.abs((int) (sampleNoise * 2) * 2) + groundLevel;
@@ -45,13 +45,13 @@ public class BasaltBarreraSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         mutable.move(Direction.UP, topHeight);
 
         for (int y = Math.abs(topHeight); y >= groundLevel - 2; y--) {
-            chunkIn.setBlockState(mutable, Blocks.BASALT.getDefaultState(), false);
+            chunkIn.setBlockState(mutable, Blocks.BASALT.defaultBlockState(), false);
             mutable.move(Direction.DOWN);
         }
     }
 
     @Override
-    public void setSeed(long seed) {
+    public void initNoise(long seed) {
         if (noiseGen == null) {
             noiseGen = new FastNoise((int) seed);
             noiseGen.SetNoiseType(FastNoise.NoiseType.WhiteNoise);

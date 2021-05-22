@@ -18,10 +18,10 @@ public abstract class ChunkCoordinatesFeature<FC extends IFeatureConfig> extends
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FC config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FC config) {
         ChunkPos chunk = world.getChunk(pos).getPos();
-        int xStart = chunk.getXStart();
-        int zStart = chunk.getZStart();
+        int xStart = chunk.getMinBlockX();
+        int zStart = chunk.getMinBlockZ();
         for(int xMove = 0; xMove < 16; ++xMove) {
             for (int zMove = 0; zMove < 16; ++zMove) {
                 int x = xStart + xMove;

@@ -20,7 +20,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class BYGLeafPileBlock extends BushBlock {
-    protected static final VoxelShape LEAF_PILE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 1.5D, 15.0D);
+    protected static final VoxelShape LEAF_PILE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 1.5D, 15.0D);
 
     protected BYGLeafPileBlock(Properties builder) {
         super(builder);
@@ -31,13 +31,13 @@ public class BYGLeafPileBlock extends BushBlock {
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(Tags.Blocks.DIRT) || state.isIn(Tags.Blocks.END_STONES) || state.isIn(BlockTags.NYLIUM) || state.isIn(Tags.Blocks.NETHERRACK) || super.isValidGround(state, worldIn, pos);
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.is(Tags.Blocks.DIRT) || state.is(Tags.Blocks.END_STONES) || state.is(BlockTags.NYLIUM) || state.is(Tags.Blocks.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockPos blockpos = pos.down();
-        return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos blockpos = pos.below();
+        return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }
 }

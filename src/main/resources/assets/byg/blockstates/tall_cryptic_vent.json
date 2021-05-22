@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "half=lower": [
+      {
+        "model": "byg:block/cryptic_vent_tall_bottom"
+      }
+    ],
+    "half=upper": [
+      {
+        "model": "byg:block/cryptic_vent_tall_top"
+      }
+    ]
+  }
+}

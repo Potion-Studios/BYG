@@ -1,10 +1,7 @@
 package corgiaoc.byg.core.world;
 
 import corgiaoc.byg.common.world.structure.largefeature.VolcanoPiece;
-import corgiaoc.byg.common.world.structure.largefeature.VolcanoStructure;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
 import net.minecraft.world.gen.feature.structure.Structure;
 
@@ -19,7 +16,8 @@ public class BYGStructures {
 
     /*************************Structures*************************/
 
-    public static final Structure<NoFeatureConfig> VOLCANO_STRUCTURE = WorldGenRegistrationHelper.createStructure("volcano", new VolcanoStructure(NoFeatureConfig.field_236558_a_), 10, 0, 0,  GenerationStage.Decoration.RAW_GENERATION);
+//    public static final Structure<NoFeatureConfig> VOLCANO_STRUCTURE = WorldGenRegistrationHelper.createStructure("volcano", new VolcanoStructure(NoFeatureConfig.CODEC), 10, 0, 0,  GenerationStage.Decoration.RAW_GENERATION);
+//    public static final Structure<VillageConfig> BYG_VILLAGE = WorldGenRegistrationHelper.createStructure("byg_village", new VillageStructure(VillageConfig.CODEC), 3, 0, 0,  GenerationStage.Decoration.SURFACE_STRUCTURES);
 
 
     public static void init() {

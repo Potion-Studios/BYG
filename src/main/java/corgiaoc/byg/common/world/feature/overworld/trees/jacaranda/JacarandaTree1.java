@@ -26,18 +26,17 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getHeight()) {
+        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
 
-            if (!isDesiredGroundwDirtTag(worldIn, pos.down(), config)) {
+            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
                 return false;
             } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
                 return false;
             } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
                 return false;
             } else {
-                buildTrunkBase(changedBlocks, worldIn, config, rand, boundsIn, pos);
 
-                Direction direction = Direction.Plane.HORIZONTAL.random(rand);
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
                 int randTreeHeight2 = randTreeHeight - rand.nextInt(1);
                 int posY1 = 2 - rand.nextInt(1);
                 int posX1 = posX;
@@ -47,8 +46,8 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                 for (int buildTrunk = 0; buildTrunk < randTreeHeight; ++buildTrunk) {
                     if (buildTrunk >= randTreeHeight2 && posY1 < 0) {
-                        posX1 += direction.getXOffset();
-                        posZ1 += direction.getZOffset();
+                        posX1 += direction.getStepX();
+                        posZ1 += direction.getStepZ();
                         ++posY1;
                     }
                     int logplacer = posY + buildTrunk;
@@ -65,54 +64,54 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
                     int logPreset = rand.nextInt(14) + 1;
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos1, boundsIn);
                     if (rand.nextInt(3) == 0) {
-                        placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south(), boundsIn);
-                        placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north(), boundsIn);
+                        placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.south(), boundsIn);
+                        placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.north(), boundsIn);
                         if (logPreset == 0) {
-                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.south().up(), boundsIn);
+                            placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.south().above(), boundsIn);
                         } else if (logPreset == 2) {
-                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.north().up(), boundsIn);
+                            placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.north().above(), boundsIn);
                         } else if (logPreset == 10) {
-                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west().up(), boundsIn);
+                            placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.west().above(), boundsIn);
                         }
 
                         if (rand.nextInt(3) == 1) {
-                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.east(), boundsIn);
+                            placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.east(), boundsIn);
                         } else if (rand.nextInt(4) == 1) {
-                            placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west(), boundsIn);
+                            placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.west(), boundsIn);
                         }
                     }
                     if (rand.nextInt(3) == 2) {
-                        placeTrunk(config, rand, changedBlocks, worldIn, blockpos2.west(), boundsIn);
+                        placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos2.west(), boundsIn);
                     }
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos3.west(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos3.south(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos3.east(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos3.north(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos3.west(2), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos3.south(2), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos3.east(2), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos3.north(2), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos3.west(), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos3.south(), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos3.east(), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos3.north(), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos3.west(2), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos3.south(2), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos3.east(2), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos3.north(2), boundsIn);
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos4.west(2), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos4.south(2), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos4.east(2), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos4.north(2), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos4.west(2), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos4.south(2), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos4.east(2), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos4.north(2), boundsIn);
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.west(3), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.south(3), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.east(3), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.north(3), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.west(4), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.south(4), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.east(4), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.north(4), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.west(3), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.south(3), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.east(3), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.north(3), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.west(4), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.south(4), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.east(4), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.north(4), boundsIn);
 
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.north(5).down().west(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.east(5).down().north(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.south(5).down().east(), boundsIn);
-                    placeTrunk(config, rand, changedBlocks, worldIn, blockpos5.west(5).down().south(), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.north(5).below().west(), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.east(5).below().north(), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.south(5).below().east(), boundsIn);
+                    placeTrunk(pos, config, rand, changedBlocks, worldIn, blockpos5.west(5).below().south(), boundsIn);
 
                 }
                 int leavePreset = rand.nextInt(1) + 1;
@@ -122,171 +121,171 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                         for (int posXLeafWidth = -leavessquarespos; posXLeafWidth <= leavessquarespos; ++posXLeafWidth) {//has to do with leaves
                             for (int posZLeafWidthL0 = -leavessquarespos; posZLeafWidthL0 <= leavessquarespos; ++posZLeafWidthL0) {
                                 for (int posYLeafHeight = 0; posYLeafHeight <= 3; ++posYLeafHeight) {
-                                    placeLeaves(config, rand, worldIn, posX1 + posXLeafWidth, topTrunkHeight + 1, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight + 1, posZ1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight + 1, posZ1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 1, posZ1 + 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + 1, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + posXLeafWidth, topTrunkHeight + 1, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight + 1, posZ1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight + 1, posZ1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + 1, posZ1 + 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + 1, posZ1 - 2, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 + posXLeafWidth, topTrunkHeight + posYLeafHeight - 3, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 6, posZ1 - 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 3, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 2, posZ1 - 3, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 3, posZ1 - 4, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 5, posZ1 - 4, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + posXLeafWidth, topTrunkHeight + posYLeafHeight - 3, posZ1 + posZLeafWidthL0, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 6, posZ1 - 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 3, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 2, posZ1 - 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 3, posZ1 - 4, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 5, posZ1 - 4, boundsIn, changedBlocks);
 
                                     if (posYLeafHeight <= 2) {
-                                        placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 3, posZ1 - 5, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 3, posZ1 - 5, boundsIn, changedBlocks);
                                     }
                                     if (posYLeafHeight <= 1) {
-                                        placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 2, posZ1 - 4, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 1, posZ1 - 3, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 2, posZ1 - 4, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 1, posZ1 - 3, boundsIn, changedBlocks);
                                     }
                                     if (posYLeafHeight <= 2) {
-                                        placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 5, posZ1 - 4, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 3, posZ1 - 3, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 2, posZ1 - 1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 5, posZ1 - 4, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 3, posZ1 - 3, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 2, posZ1 - 1, boundsIn, changedBlocks);
 
-                                        placeLeaves(config, rand, worldIn, posX1 + 3, topTrunkHeight + posYLeafHeight - 2, posZ1, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 4, topTrunkHeight + posYLeafHeight - 2, posZ1, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 5, topTrunkHeight + posYLeafHeight - 3, posZ1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 3, topTrunkHeight + posYLeafHeight - 2, posZ1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 4, topTrunkHeight + posYLeafHeight - 2, posZ1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 5, topTrunkHeight + posYLeafHeight - 3, posZ1, boundsIn, changedBlocks);
 
-                                        placeLeaves(config, rand, worldIn, posX1 + 6, topTrunkHeight + posYLeafHeight - 4, posZ1 - 1, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 5, topTrunkHeight + posYLeafHeight - 5, posZ1 - 1, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 2, posZ1 + 3, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 3, posZ1 + 4, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 6, topTrunkHeight + posYLeafHeight - 4, posZ1 - 1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 5, topTrunkHeight + posYLeafHeight - 5, posZ1 - 1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 2, posZ1 + 3, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 3, posZ1 + 4, boundsIn, changedBlocks);
 
-                                        placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 4, posZ1 + 6, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 4, posZ1 + 6, boundsIn, changedBlocks);
 
-                                        placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 2, posZ1 + 2, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 2, posZ1 + 2, boundsIn, changedBlocks);
 
-                                        placeLeaves(config, rand, worldIn, posX1 - 4, topTrunkHeight + posYLeafHeight - 2, posZ1 + 1, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 - 4, topTrunkHeight + posYLeafHeight - 2, posZ1, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight + posYLeafHeight - 2, posZ + 1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 4, topTrunkHeight + posYLeafHeight - 2, posZ1 + 1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 4, topTrunkHeight + posYLeafHeight - 2, posZ1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight + posYLeafHeight - 2, posZ + 1, boundsIn, changedBlocks);
 
-                                        placeLeaves(config, rand, worldIn, posX1 - 5, topTrunkHeight + posYLeafHeight - 4, posZ1 + 2, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight - posYLeafHeight, posZ1 - 1, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight - posYLeafHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 5, topTrunkHeight + posYLeafHeight - 4, posZ1 + 2, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight - posYLeafHeight, posZ1 - 1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight - posYLeafHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
 
-                                        placeLeaves(config, rand, worldIn, posX1 + 4, topTrunkHeight - posYLeafHeight - 2, posZ1 - 3, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 4, topTrunkHeight - posYLeafHeight - 2, posZ1 - 3, boundsIn, changedBlocks);
 
 
                                     }
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 3, posZ1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 5, topTrunkHeight + posYLeafHeight - 4, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 5, topTrunkHeight + posYLeafHeight - 6, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 4, topTrunkHeight + posYLeafHeight - 3, posZ1 - 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 4, topTrunkHeight + posYLeafHeight - 4, posZ1 - 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 3, posZ1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 5, topTrunkHeight + posYLeafHeight - 4, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 5, topTrunkHeight + posYLeafHeight - 6, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 4, topTrunkHeight + posYLeafHeight - 3, posZ1 - 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 4, topTrunkHeight + posYLeafHeight - 4, posZ1 - 1, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 4, posZ1 + 5, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 6, posZ1 + 5, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 4, posZ1 + 5, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 6, posZ1 + 5, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 3, posZ1 + 3, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 3, posZ1 + 4, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 3, posZ1 + 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 3, posZ1 + 4, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 4, posZ1 + 3, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 5, posZ1 + 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 4, posZ1 + 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 5, posZ1 + 3, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight + posYLeafHeight - 3, posZ1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight + posYLeafHeight - 3, posZ1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 5, posZ1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight + posYLeafHeight - 3, posZ1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight + posYLeafHeight - 3, posZ1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 5, posZ1, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 6, topTrunkHeight + posYLeafHeight - 6, posZ1 + 2, boundsIn, changedBlocks);
-
-
-                                    placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight - 2, posZ1 - 5, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight - 1, posZ1 - 4, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight - 3, posZ1 - 4, boundsIn, changedBlocks);
-
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight - 2, posZ1 - 3, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight, posZ1 - 3, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight - 1, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 5, topTrunkHeight - 3, posZ1 - 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 5, topTrunkHeight - 1, posZ1 - 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 3, topTrunkHeight - 1, posZ1 - 1, boundsIn, changedBlocks);
-
-                                    placeLeaves(config, rand, worldIn, posX1 + 6, topTrunkHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 4, topTrunkHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 3, topTrunkHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 6, topTrunkHeight + posYLeafHeight - 6, posZ1 + 2, boundsIn, changedBlocks);
 
 
-                                    placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 3, topTrunkHeight - 1, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight - 2, posZ1 - 5, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight - 1, posZ1 - 4, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight - 3, posZ1 - 4, boundsIn, changedBlocks);
+
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight - 2, posZ1 - 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight, posZ1 - 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight - 1, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 5, topTrunkHeight - 3, posZ1 - 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 5, topTrunkHeight - 1, posZ1 - 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 3, topTrunkHeight - 1, posZ1 - 1, boundsIn, changedBlocks);
+
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 6, topTrunkHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 4, topTrunkHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 3, topTrunkHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
 
 
-                                    placeLeaves(config, rand, worldIn, posX1 + 5, topTrunkHeight, posZ1 + 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight - 2, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 3, topTrunkHeight - 1, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight, posZ1 - 2, boundsIn, changedBlocks);
 
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight + posYLeafHeight - 5, posZ1 - 5, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 4, posZ1 - 5, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 5, topTrunkHeight, posZ1 + 1, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 3, posZ1 + 2, boundsIn, changedBlocks);
+
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight + posYLeafHeight - 5, posZ1 - 5, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 4, posZ1 - 5, boundsIn, changedBlocks);
+
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 1, topTrunkHeight + posYLeafHeight - 3, posZ1 + 2, boundsIn, changedBlocks);
 
 
                                     if (posYLeafHeight <= 1) {
-                                        placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 3, posZ1 - 6, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 3, topTrunkHeight + posYLeafHeight - 2, posZ1 + 1, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 3, topTrunkHeight + posYLeafHeight - 2, posZ1 + 2, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 3, posZ1 + 5, boundsIn, changedBlocks);
-                                        placeLeaves(config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 2, posZ1 + 5, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight + posYLeafHeight - 3, posZ1 - 6, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 3, topTrunkHeight + posYLeafHeight - 2, posZ1 + 1, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 3, topTrunkHeight + posYLeafHeight - 2, posZ1 + 2, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight + posYLeafHeight - 3, posZ1 + 5, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight + posYLeafHeight - 2, posZ1 + 5, boundsIn, changedBlocks);
 
-                                        placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight + posYLeafHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
+                                        placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight + posYLeafHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
 
 
                                     }
-                                    placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight - 2, posZ1 - 6, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight - 2, posZ1 - 6, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 + 4, topTrunkHeight - 1, posZ1 + 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 4, topTrunkHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 3, topTrunkHeight, posZ1 + 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight, posZ1 + 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight, posZ1 + 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 4, topTrunkHeight - 1, posZ1 + 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 4, topTrunkHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 3, topTrunkHeight, posZ1 + 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight, posZ1 + 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight, posZ1 + 3, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight - 1, posZ1 + 4, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight - 1, posZ1 + 4, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight - 2, posZ1 + 3, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 + 2, topTrunkHeight - 2, posZ1 + 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight - 2, posZ1 + 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 + 2, topTrunkHeight - 2, posZ1 + 1, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight - 1, posZ1 + 4, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 1, topTrunkHeight - 3, posZ1 + 4, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight - 1, posZ1 + 4, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 1, topTrunkHeight - 3, posZ1 + 4, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1, topTrunkHeight - 3, posZ1 + 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1, topTrunkHeight - 3, posZ1 + 2, boundsIn, changedBlocks);
                                     //placePetal(LEAVES, worldIn, posX1 -1, topTrunkHeight + 3, posZ1 + 2, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight + 1, posZ1 + 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight + 1, posZ1 + 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight - 1, posZ1 + 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight, posZ1 + 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight + 1, posZ1 + 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight + 1, posZ1 + 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight - 1, posZ1 + 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight, posZ1 + 1, boundsIn, changedBlocks);
 
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight - 2, posZ1 + 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight - 1, posZ1 + 3, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight, posZ1 + 3, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight - 2, posZ1 + 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight - 1, posZ1 + 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight - 2, posZ1 + 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight - 1, posZ1 + 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight, posZ1 + 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight - 2, posZ1 + 3, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 5, topTrunkHeight - 1, posZ1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 5, topTrunkHeight - 2, posZ1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 5, topTrunkHeight - 1, posZ1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 5, topTrunkHeight - 2, posZ1, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 4, topTrunkHeight - 1, posZ1 - 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight - 1, posZ1 - 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight - 2, posZ1 - 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 4, topTrunkHeight - 1, posZ1 - 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight - 1, posZ1 - 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight - 2, posZ1 - 1, boundsIn, changedBlocks);
 
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 5, topTrunkHeight - 1, posZ1 + 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 6, topTrunkHeight - 2, posZ1 + 1, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 5, topTrunkHeight - 3, posZ1 + 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 5, topTrunkHeight - 1, posZ1 + 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 6, topTrunkHeight - 2, posZ1 + 1, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 5, topTrunkHeight - 3, posZ1 + 1, boundsIn, changedBlocks);
 
-                                    placeLeaves(config, rand, worldIn, posX1 - 3, topTrunkHeight, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight - 1, posZ1 - 2, boundsIn, changedBlocks);
-                                    placeLeaves(config, rand, worldIn, posX1 - 2, topTrunkHeight - 1, posZ1 - 3, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 3, topTrunkHeight, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight - 1, posZ1 - 2, boundsIn, changedBlocks);
+                                    placeLeaves(pos, config, rand, worldIn, posX1 - 2, topTrunkHeight - 1, posZ1 - 3, boundsIn, changedBlocks);
 
                                     //placePetal(LEAVES, worldIn, posX1 - 3, topTrunkHeight + 5, posZ1 + 3, boundsIn, changedBlocks);
 
@@ -338,7 +337,7 @@ public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
             for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
                 for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                    if (!canLogPlaceHere(reader, pos.setPos(x + xOffset, y + yOffset, z + zOffset))) {
+                    if (!canLogPlaceHere(reader, pos.set(x + xOffset, y + yOffset, z + zOffset))) {
                         return false;
                     }
                 }

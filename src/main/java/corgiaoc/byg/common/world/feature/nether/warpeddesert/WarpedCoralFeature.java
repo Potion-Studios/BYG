@@ -22,20 +22,20 @@ public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderCo
         super(config);
     }
 
-    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, WhitelistedSimpleBlockProviderConfig config) {
+    public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, WhitelistedSimpleBlockProviderConfig config) {
         int randCoralHeight = rand.nextInt(7) + 16 / 2;
 
         if (!checkArea(worldIn, pos, rand, config)) {
             return false;
-        } else if (config.getWhitelist().contains(worldIn.getBlockState(pos.down()).getBlock())) {
+        } else if (config.getWhitelist().contains(worldIn.getBlockState(pos.below()).getBlock())) {
             for (int i = 0; i <= randCoralHeight; i++) {
-                BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
+                BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
 
                 placeCoral(worldIn, mutable, rand, config);
                 placeCoral(worldIn, mutable.move(UP, i), rand, config);
 
                 for (Direction direction : Plane.HORIZONTAL) {
-                    placeCoral(worldIn, mutable.offset(direction, i / 2), rand, config);
+                    placeCoral(worldIn, mutable.relative(direction, i / 2), rand, config);
 
                 }
             }
@@ -44,8 +44,8 @@ public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderCo
     }
 
     private void placeCoral(ISeedReader world, BlockPos pos, Random rand, WhitelistedSimpleBlockProviderConfig config) {
-        if (world.isAirBlock(pos))
-            world.setBlockState(pos, config.getBlockProvider().getBlockState(rand, pos), 2);
+        if (world.isEmptyBlock(pos))
+            world.setBlock(pos, config.getBlockProvider().getState(rand, pos), 2);
     }
 
 
@@ -57,11 +57,11 @@ public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderCo
 
         for (int checkX = -2; checkX <= 2; checkX++) {
             for (int checkZ = -2; checkZ <= 2; checkZ++) {
-                mutable.setPos(posX + checkX, posY, posZ + checkZ);
+                mutable.set(posX + checkX, posY, posZ + checkZ);
 
-                if (!world.isAirBlock(mutable))
+                if (!world.isEmptyBlock(mutable))
                     return false;
-                if (world.getBlockState(mutable) == config.getBlockProvider().getBlockState(rand, mutable))
+                if (world.getBlockState(mutable) == config.getBlockProvider().getState(rand, mutable))
                     return false;
 
             }

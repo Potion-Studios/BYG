@@ -1,8 +1,16 @@
 package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
+import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
+import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.properties.blocks.*;
+import corgiaoc.byg.common.properties.blocks.end.*;
+import corgiaoc.byg.common.properties.blocks.end.bulbisgardens.TallBulbisBlock;
+import corgiaoc.byg.common.properties.blocks.end.impariusgrove.FungalImpariusFilamentBlock;
+import corgiaoc.byg.common.properties.blocks.end.impariusgrove.ImpariusMushroomBranchBlock;
+import corgiaoc.byg.common.properties.blocks.end.impariusgrove.ImpariusVineBlock;
+import corgiaoc.byg.common.properties.blocks.end.impariusgrove.ImpariusVinePlantBlock;
 import corgiaoc.byg.common.properties.blocks.end.nightshade.NightshadeBerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.end.shattereddesert.OddityCactusBlock;
 import corgiaoc.byg.common.properties.blocks.end.shulkrenforest.ShulkrenVineBlock;
@@ -19,24 +27,27 @@ import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
-import net.minecraft.potion.Effects;
+import net.minecraft.entity.EntityType;
+import net.minecraft.tags.ITag;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraftforge.common.ToolType;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @SuppressWarnings("deprecation")
 public class BYGBlocks {
     public static List<Block> blocksList = new ArrayList<>();
 
-    
+
     public static List<Block> flowerPotBlocks = new ArrayList<>();
-    public static List<String> flowerIDs = new ArrayList<>();
+    public static List<ResourceLocation> flowerIDs = new ArrayList<>();
 
     public static final Block ASPEN_PLANKS = createPlanks("aspen_planks");
     public static final Block BAOBAB_PLANKS = createPlanks("baobab_planks");
@@ -66,6 +77,7 @@ public class BYGBlocks {
     public static final Block BULBIS_PLANKS = createPlanks("bulbis_planks");
     public static final Block NIGHTSHADE_PLANKS = createPlanks("nightshade_planks");
     public static final Block ETHER_PLANKS = createPlanks("ether_planks");
+    public static final Block IMPARIUS_PLANKS = createPlanks("imparius_planks");
 
     public static final Block ASPEN_BOOKSHELF = createBookshelf("aspen_bookshelf");
     public static final Block BAOBAB_BOOKSHELF = createBookshelf("baobab_bookshelf");
@@ -95,6 +107,7 @@ public class BYGBlocks {
     public static final Block BULBIS_BOOKSHELF = createBookshelf("bulbis_bookshelf");
     public static final Block NIGHTSHADE_BOOKSHELF = createBookshelf("nightshade_bookshelf");
     public static final Block ETHER_BOOKSHELF = createBookshelf("ether_bookshelf");
+    public static final Block IMPARIUS_BOOKSHELF = createBookshelf("imparius_bookshelf");
 
     public static final Block ASPEN_DOOR = createDoor("aspen_door");
     public static final Block BAOBAB_DOOR = createDoor("baobab_door");
@@ -124,6 +137,7 @@ public class BYGBlocks {
     public static final Block BULBIS_DOOR = createDoor("bulbis_door");
     public static final Block NIGHTSHADE_DOOR = createDoor("nightshade_door");
     public static final Block ETHER_DOOR = createDoor("ether_door");
+    public static final Block IMPARIUS_DOOR = createDoor("imparius_door");
 
     public static final Block ASPEN_PRESSURE_PLATE = createWoodPressurePlate("aspen_pressure_plate");
     public static final Block BAOBAB_PRESSURE_PLATE = createWoodPressurePlate("baobab_pressure_plate");
@@ -153,6 +167,7 @@ public class BYGBlocks {
     public static final Block BULBIS_PRESSURE_PLATE = createWoodPressurePlate("bulbis_pressure_plate");
     public static final Block NIGHTSHADE_PRESSURE_PLATE = createWoodPressurePlate("nightshade_pressure_plate");
     public static final Block ETHER_PRESSURE_PLATE = createWoodPressurePlate("ether_pressure_plate");
+    public static final Block IMPARIUS_PRESSURE_PLATE = createWoodPressurePlate("imparius_pressure_plate");
 
     public static final Block ASPEN_BUTTON = createWoodButton("aspen_button");
     public static final Block BAOBAB_BUTTON = createWoodButton("baobab_button");
@@ -182,6 +197,7 @@ public class BYGBlocks {
     public static final Block BULBIS_BUTTON = createWoodButton("bulbis_button");
     public static final Block NIGHTSHADE_BUTTON = createWoodButton("nightshade_button");
     public static final Block ETHER_BUTTON = createWoodButton("ether_button");
+    public static final Block IMPARIUS_BUTTON = createWoodButton("imparius_button");
 
     public static final Block ASPEN_TRAPDOOR = createTrapDoor("aspen_trapdoor");
     public static final Block BAOBAB_TRAPDOOR = createTrapDoor("baobab_trapdoor");
@@ -211,6 +227,7 @@ public class BYGBlocks {
     public static final Block BULBIS_TRAPDOOR = createTrapDoor("bulbis_trapdoor");
     public static final Block NIGHTSHADE_TRAPDOOR = createTrapDoor("nightshade_trapdoor");
     public static final Block ETHER_TRAPDOOR = createTrapDoor("ether_trapdoor");
+    public static final Block IMPARIUS_TRAPDOOR = createTrapDoor("imparius_trapdoor");
 
     public static final Block ASPEN_CRAFTING_TABLE = createCraftingTable("aspen_crafting_table");
     public static final Block BAOBAB_CRAFTING_TABLE = createCraftingTable("baobab_crafting_table");
@@ -240,6 +257,7 @@ public class BYGBlocks {
     public static final Block BULBIS_CRAFTING_TABLE = createCraftingTable("bulbis_crafting_table");
     public static final Block NIGHTSHADE_CRAFTING_TABLE = createCraftingTable("nightshade_crafting_table");
     public static final Block ETHER_CRAFTING_TABLE = createCraftingTable("ether_crafting_table");
+    public static final Block IMPARIUS_CRAFTING_TABLE = createCraftingTable("imparius_crafting_table");
 
     public static final Block ASPEN_FENCE_GATE = createFenceGate("aspen_fence_gate");
     public static final Block BAOBAB_FENCE_GATE = createFenceGate("baobab_fence_gate");
@@ -269,6 +287,7 @@ public class BYGBlocks {
     public static final Block BULBIS_FENCE_GATE = createFenceGate("bulbis_fence_gate");
     public static final Block NIGHTSHADE_FENCE_GATE = createFenceGate("nightshade_fence_gate");
     public static final Block ETHER_FENCE_GATE = createFenceGate("ether_fence_gate");
+    public static final Block IMPARIUS_FENCE_GATE = createFenceGate("imparius_fence_gate");
 
     public static final Block ASPEN_SLAB = createWoodSlab("aspen_slab");
     public static final Block BAOBAB_SLAB = createWoodSlab("baobab_slab");
@@ -298,6 +317,7 @@ public class BYGBlocks {
     public static final Block BULBIS_SLAB = createWoodSlab("bulbis_slab");
     public static final Block NIGHTSHADE_SLAB = createWoodSlab("nightshade_slab");
     public static final Block ETHER_SLAB = createWoodSlab("ether_slab");
+    public static final Block IMPARIUS_SLAB = createWoodSlab("imparius_slab");
 
     public static final Block ASPEN_STAIRS = createWoodStairs("aspen_stairs");
     public static final Block BAOBAB_STAIRS = createWoodStairs("baobab_stairs");
@@ -327,6 +347,7 @@ public class BYGBlocks {
     public static final Block BULBIS_STAIRS = createWoodStairs("bulbis_stairs");
     public static final Block NIGHTSHADE_STAIRS = createWoodStairs("nightshade_stairs");
     public static final Block ETHER_STAIRS = createWoodStairs("ether_stairs");
+    public static final Block IMPARIUS_STAIRS = createWoodStairs("imparius_stairs");
 
     public static final Block ASPEN_FENCE = createFence("aspen_fence");
     public static final Block BAOBAB_FENCE = createFence("baobab_fence");
@@ -356,6 +377,7 @@ public class BYGBlocks {
     public static final Block BULBIS_FENCE = createFence("bulbis_fence");
     public static final Block NIGHTSHADE_FENCE = createFence("nightshade_fence");
     public static final Block ETHER_FENCE = createFence("ether_fence");
+    public static final Block IMPARIUS_FENCE = createFence("imparius_fence");
 
     public static final Block PEAT = createDirt("peat");
     public static final Block GLOWCELIUM = new BYGBlockProperties.BYGGlowcelium("glowcelium_block");
@@ -364,52 +386,58 @@ public class BYGBlocks {
     public static final Block MUD_BLOCK = new BYGBlockProperties.BYGMud("mud_block");
     public static final Block MUD_BRICKS = createDirt("mud_bricks");
 
-    public static final Block ARAUCARIA_SAPLING = createSapling(15, new TreeSpawners.Araucaria(), "araucaria_sapling");
-    public static final Block ASPEN_SAPLING = createSapling(10, new TreeSpawners.Aspen(), "aspen_sapling");
-    public static final Block BAOBAB_SAPLING = createSapling(5, new TreeSpawners.Baobab(), "baobab_sapling");
-    public static final Block BLUE_ENCHANTED_SAPLING = createSapling(2, new TreeSpawners.BlueEnchanted(), "blue_enchanted_sapling");
-    public static final Block BLUE_SPRUCE_SAPLING = createSapling(1, new TreeSpawners.BlueSpruce(), "blue_spruce_sapling");
-    public static final Block BROWN_BIRCH_SAPLING = createSapling(1, new TreeSpawners.BrownBirch(), "brown_birch_sapling");
-    public static final Block BROWN_OAK_SAPLING = createSapling(1, new TreeSpawners.BrownOak(), "brown_oak_sapling");
-    public static final Block BROWN_ZELKOVA_SAPLING = createSapling(1, new TreeSpawners.BrownZelkova(), "brown_zelkova_sapling");
-    public static final Block CIKA_SAPLING = createSapling(1, new TreeSpawners.Cika(), "cika_sapling");
-    public static final Block CYPRESS_SAPLING = createSapling(1, new TreeSpawners.Cypress(), "cypress_sapling");
-    public static final Block EBONY_SAPLING = createSapling(1, new TreeSpawners.Ebony(), "ebony_sapling");
-    public static final Block FIR_SAPLING = createSapling(1, new TreeSpawners.Fir(), "fir_sapling");
-    public static final Block GREEN_ENCHANTED_SAPLING = createSapling(1, new TreeSpawners.GreenEnchanted(), "green_enchanted_sapling");
-    public static final Block HOLLY_SAPLING = createSapling(1, new TreeSpawners.Holly(), "holly_sapling");
-    public static final Block JACARANDA_SAPLING = createSapling(1, new TreeSpawners.Jacaranda(), "jacaranda_sapling");
-    public static final Block INDIGO_JACARANDA_SAPLING = createSapling(1, new TreeSpawners.IndigoJacaranda(), "indigo_jacaranda_sapling");
-    public static final Block JOSHUA_SAPLING = createSapling(1, new TreeSpawners.Joshua(), "joshua_sapling");
-    public static final Block MAHOGANY_SAPLING = createSapling(1, new TreeSpawners.Mahogony(), "mahogany_sapling");
-    public static final Block MANGROVE_SAPLING = createSapling(1, new TreeSpawners.Mangrove(), "mangrove_sapling");
-    public static final Block MAPLE_SAPLING = createSapling(1, new TreeSpawners.Maple(), "maple_sapling");
-    public static final Block ORANGE_BIRCH_SAPLING = createSapling(1, new TreeSpawners.OrangeBirch(), "orange_birch_sapling");
-    public static final Block ORANGE_OAK_SAPLING = createSapling(1, new TreeSpawners.OrangeOak(), "orange_oak_sapling");
-    public static final Block ORANGE_SPRUCE_SAPLING = createSapling(1, new TreeSpawners.OrangeSpruce(), "orange_spruce_sapling");
-    public static final Block ORCHARD_SAPLING = createSapling(1, new TreeSpawners.Orchard(), "orchard_sapling");
-    public static final Block PALO_VERDE_SAPLING = createSapling(1, new TreeSpawners.PaloVerde(), "palo_verde_sapling");
-    public static final Block PINE_SAPLING = createSapling(1, new TreeSpawners.Pine(), "pine_sapling");
-    public static final Block PINK_CHERRY_SAPLING = createSapling(1, new TreeSpawners.PinkCherry(), "pink_cherry_sapling");
-    public static final Block RAINBOW_EUCALYPTUS_SAPLING = createSapling(1, new TreeSpawners.RainbowEucalyptus(), "rainbow_eucalyptus_sapling");
-    public static final Block RED_BIRCH_SAPLING = createSapling(1, new TreeSpawners.RedBirch(), "red_birch_sapling");
-    public static final Block RED_MAPLE_SAPLING = createSapling(1, new TreeSpawners.RedMaple(), "red_maple_sapling");
-    public static final Block RED_OAK_SAPLING = createSapling(1, new TreeSpawners.RedOak(), "red_oak_sapling");
-    public static final Block RED_SPRUCE_SAPLING = createSapling(1, new TreeSpawners.RedSpruce(), "red_spruce_sapling");
-    public static final Block REDWOOD_SAPLING = createSapling(1, new TreeSpawners.Redwood(), "redwood_sapling");
-    public static final Block SILVER_MAPLE_SAPLING = createSapling(1, new TreeSpawners.SilverMaple(), "silver_maple_sapling");
-    public static final Block SKYRIS_SAPLING = createSapling(1, new TreeSpawners.Skyris(), "skyris_sapling");
-    public static final Block WHITE_CHERRY_SAPLING = createSapling(1, new TreeSpawners.WhiteCherry(), "white_cherry_sapling");
-    public static final Block WILLOW_SAPLING = createSapling(1, new TreeSpawners.Willow(), "willow_sapling");
-    public static final Block WITCH_HAZEL_SAPLING = createSapling(1, new TreeSpawners.WitchHazel(), "witch_hazel_sapling");
-    public static final Block YELLOW_BIRCH_SAPLING = createSapling(1, new TreeSpawners.YellowBirch(), "yellow_birch_sapling");
-    public static final Block YELLOW_SPRUCE_SAPLING = createSapling(1, new TreeSpawners.YellowSpruce(), "yellow_spruce_sapling");
-    public static final Block ZELKOVA_SAPLING = createSapling(1, new TreeSpawners.Zelkova(), "zelkova_sapling");
-    public static final Block PALM_SAPLING = createSapling(1, new TreeSpawners.Palm(), "palm_sapling");
-    public static final Block LAMENT_SAPLING = createSapling(1, new TreeSpawners.Lament(), "lament_sapling");
-    public static final Block WITHERING_OAK_SAPLING = createSapling(1, new TreeSpawners.WitheringOak(), "withering_oak_sapling");
-    public static final Block ETHER_SAPLING = createSapling(1, new TreeSpawners.Ether(), "ether_sapling");
-    public static final Block NIGHTSHADE_SAPLING = createSapling(1, new TreeSpawners.Nightshade(), "nightshade_sapling");
+    public static final Block ARAUCARIA_SAPLING = createSapling(BYGBlockTags.GROUND_ARAUCARIA_SAPLING, TreeSpawners.ARAUCARIA, "araucaria_sapling");
+    public static final Block ASPEN_SAPLING = createSapling(BYGBlockTags.GROUND_ASPEN_SAPLING, TreeSpawners.ASPEN, "aspen_sapling");
+    public static final Block BAOBAB_SAPLING = createSapling(BYGBlockTags.GROUND_BAOBAB_SAPLING, TreeSpawners.BAOBAB, "baobab_sapling");
+    public static final Block BLUE_ENCHANTED_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, TreeSpawners.BLUE_ENCHANTED, "blue_enchanted_sapling");
+    public static final Block BLUE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_SPRUCE_SAPLING, TreeSpawners.BLUE_SPRUCE, "blue_spruce_sapling");
+    public static final Block BROWN_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, TreeSpawners.BROWN_BIRCH, "brown_birch_sapling");
+    public static final Block BROWN_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_OAK_SAPLING, TreeSpawners.BROWN_OAK, "brown_oak_sapling");
+    public static final Block BROWN_ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_ZELKOVA_SAPLING, TreeSpawners.BROWN_ZELKOVA, "brown_zelkova_sapling");
+    public static final Block CIKA_SAPLING = createSapling(BYGBlockTags.GROUND_CIKA_SAPLING, TreeSpawners.CIKA, "cika_sapling");
+    public static final Block CYPRESS_SAPLING = createSapling(BYGBlockTags.GROUND_CYPRESS_SAPLING, TreeSpawners.CYPRESS, "cypress_sapling");
+    public static final Block EBONY_SAPLING = createSapling(BYGBlockTags.GROUND_EBONY_SAPLING, TreeSpawners.EBONY, "ebony_sapling");
+    public static final Block FIR_SAPLING = createSapling(BYGBlockTags.GROUND_FIR_SAPLING, TreeSpawners.FIR, "fir_sapling");
+    public static final Block GREEN_ENCHANTED_SAPLING = createSapling(BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, TreeSpawners.GREEN_ENCHANTED, "green_enchanted_sapling");
+    public static final Block HOLLY_SAPLING = createSapling(BYGBlockTags.GROUND_HOLLY_SAPLING, TreeSpawners.HOLLY, "holly_sapling");
+    public static final Block FLOWERING_JACARANDA_BUSH = createFloweringJacarandaBush(1, TreeSpawners.JACARANDA, "flowering_jacaranda_bush");
+    public static final Block FLOWERING_INDIGO_JACARANDA_BUSH = createFloweringIndigoJacarandaBush(1, TreeSpawners.INDIGO_JACARANDA, "flowering_indigo_jacaranda_bush");
+    public static final Block JACARANDA_SAPLING = createSapling(BYGBlockTags.GROUND_JACARANDA_SAPLING, TreeSpawners.JACARANDA, "jacaranda_sapling");
+    public static final Block INDIGO_JACARANDA_SAPLING = createSapling(BYGBlockTags.GROUND_INDIGO_JACARANDA_SAPLING, TreeSpawners.INDIGO_JACARANDA, "indigo_jacaranda_sapling");
+    public static final Block JOSHUA_SAPLING = createSapling(BYGBlockTags.GROUND_JOSHUA_SAPLING, TreeSpawners.JOSHUA, "joshua_sapling");
+    public static final Block MAHOGANY_SAPLING = createSapling(BYGBlockTags.GROUND_MAHOGANY_SAPLING, TreeSpawners.MAHOGONY, "mahogany_sapling");
+    public static final Block MANGROVE_SAPLING = createSapling(BYGBlockTags.GROUND_MANGROVE_SAPLING, TreeSpawners.MANGROVE, "mangrove_sapling");
+    public static final Block MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_MAPLE_SAPLING, TreeSpawners.MAPLE, "maple_sapling");
+    public static final Block ORANGE_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_BIRCH_SAPLING, TreeSpawners.ORANGE_BIRCH, "orange_birch_sapling");
+    public static final Block ORANGE_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, TreeSpawners.ORANGE_OAK, "orange_oak_sapling");
+    public static final Block ORANGE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_SPRUCE_SAPLING, TreeSpawners.ORANGE_SPRUCE, "orange_spruce_sapling");
+    public static final Block ORCHARD_SAPLING = createSapling(BYGBlockTags.GROUND_ORCHARD_SAPLING, TreeSpawners.ORCHARD, "orchard_sapling");
+    public static final Block PALO_VERDE_SAPLING = createSapling(BYGBlockTags.GROUND_PALO_VERDE_SAPLING, TreeSpawners.PALO_VERDE, "palo_verde_sapling");
+    public static final Block PINE_SAPLING = createSapling(BYGBlockTags.GROUND_PINE_SAPLING, TreeSpawners.PINE, "pine_sapling");
+    public static final Block PINK_CHERRY_SAPLING = createSapling(BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, TreeSpawners.PINK_CHERRY, "pink_cherry_sapling");
+    public static final Block RAINBOW_EUCALYPTUS_SAPLING = createSapling(BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, TreeSpawners.RAINBOW_EUCALYPTUS, "rainbow_eucalyptus_sapling");
+    public static final Block RED_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_RED_BIRCH_SAPLING, TreeSpawners.RED_BIRCH, "red_birch_sapling");
+    public static final Block RED_MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_RED_MAPLE_SAPLING, TreeSpawners.RED_MAPLE, "red_maple_sapling");
+    public static final Block RED_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_RED_OAK_SAPLING, TreeSpawners.RED_OAK, "red_oak_sapling");
+    public static final Block RED_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_RED_SPRUCE_SAPLING, TreeSpawners.RED_SPRUCE, "red_spruce_sapling");
+    public static final Block REDWOOD_SAPLING = createSapling(BYGBlockTags.GROUND_REDWOOD_SAPLING, TreeSpawners.REDWOOD, "redwood_sapling");
+    public static final Block SILVER_MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_SILVER_MAPLE_SAPLING, TreeSpawners.SILVER_MAPLE, "silver_maple_sapling");
+    public static final Block SKYRIS_SAPLING = createSapling(BYGBlockTags.GROUND_SKYRIS_SAPLING, TreeSpawners.SKYRIS, "skyris_sapling");
+    public static final Block WHITE_CHERRY_SAPLING = createSapling(BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, TreeSpawners.WHITE_CHERRY, "white_cherry_sapling");
+    public static final Block WILLOW_SAPLING = createSapling(BYGBlockTags.GROUND_WILLOW_SAPLING, TreeSpawners.WILLOW, "willow_sapling");
+    public static final Block WITCH_HAZEL_SAPLING = createSapling(BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING, TreeSpawners.WITCH_HAZEL, "witch_hazel_sapling");
+    public static final Block YELLOW_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_YELLOW_BIRCH_SAPLING, TreeSpawners.YELLOW_BIRCH, "yellow_birch_sapling");
+    public static final Block YELLOW_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_YELLOW_SPRUCE_SAPLING, TreeSpawners.YELLOW_SPRUCE, "yellow_spruce_sapling");
+    public static final Block ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_ZELKOVA_SAPLING, TreeSpawners.ZELKOVA, "zelkova_sapling");
+    public static final Block PALM_SAPLING = createSapling(BYGBlockTags.GROUND_PALM_SAPLING, TreeSpawners.PALM, "palm_sapling");
+    public static final Block LAMENT_SAPLING = createSapling(BYGBlockTags.GROUND_LAMENT_SAPLING, TreeSpawners.LAMENT, "lament_sapling");
+    public static final Block WITHERING_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_WITHERING_OAK_SAPLING, TreeSpawners.WITHERING_OAK, "withering_oak_sapling");
+    public static final Block ETHER_SAPLING = createSapling(BYGBlockTags.GROUND_ETHER_SAPLING, TreeSpawners.ETHER, "ether_sapling");
+    public static final Block NIGHTSHADE_SAPLING = createSapling(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, TreeSpawners.NIGHTSHADE, "nightshade_sapling");
+
+    public static final Block JACARANDA_BUSH = createJacarandaBush("jacaranda_bush");
+    public static final Block INDIGO_JACARANDA_BUSH = createIndigoJacarandaBush("indigo_jacaranda_bush");
+
 
     public static final Block ARAUCARIA_LEAVES = createLeaves("araucaria_leaves");
     public static final Block ASPEN_LEAVES = createLeaves("aspen_leaves");
@@ -431,6 +459,8 @@ public class BYGBlocks {
     public static final Block HOLLY_LEAVES = createLeaves("holly_leaves");
     public static final Block JACARANDA_LEAVES = createLeaves("jacaranda_leaves");
     public static final Block INDIGO_JACARANDA_LEAVES = createLeaves("indigo_jacaranda_leaves");
+    public static final Block FLOWERING_JACARANDA_LEAVES = createLeaves("flowering_jacaranda_leaves");
+    public static final Block FLOWERING_INDIGO_JACARANDA_LEAVES = createLeaves("flowering_indigo_jacaranda_leaves");
     public static final Block JOSHUA_LEAVES = createLeaves("joshua_leaves");
     public static final Block RIPE_JOSHUA_LEAVES = createLeaves("ripe_joshua_leaves");
     public static final Block MAHOGANY_LEAVES = createLeaves("mahogany_leaves");
@@ -479,8 +509,8 @@ public class BYGBlocks {
     public static final Block SOUL_SHROOM_STEM = new BYGBlockProperties.BlockHugeNetherMushroomStem("soul_shroom_stem");
     public static final Block SOUL_SHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("soul_shroom_block");
     public static final Block DEATH_CAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("death_cap_mushroom_block");
-    public static final Block BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("bulbis_shell");
-    public static final Block PURPLE_BULBIS_SHELL = new BYGBlockProperties.BlockHugeGlowshroom("purple_bulbis_shell");
+    public static final Block BULBIS_SHELL = new BYGBlockProperties.BulbisShell("bulbis_shell");
+    public static final Block PURPLE_BULBIS_SHELL = new BYGBlockProperties.BulbisShell("purple_bulbis_shell");
 
     public static final Block CATTAIL = new BYGBlockProperties.BlockCattail("cattail");
     public static final Block REEDS = new BYGBlockProperties.BlockCattail("reeds");
@@ -488,12 +518,12 @@ public class BYGBlocks {
     public static final Block REED_THATCH_CARPET = new BYGBlockProperties.ThatchCarpet("reed_thatch_carpet");
     public static final Block REED_THATCH_STAIRS = new BYGBlockProperties.ThatchStairs("reed_thatch_stairs");
     public static final Block REED_THATCH_SLAB = new BYGBlockProperties.ThatchSlab("reed_thatch_slab");
-    public static final Block HORSEWEED = createFlower("horseweed");
-    public static final Block MINI_CACTUS = new BYGBlockProperties.BYGDesertPlant("mini_cactus");
-    public static final Block PRICKLY_PEAR_CACTUS = new BYGBlockProperties.BYGDesertPlant("prickly_pear_cactus");
-    public static final Block WINTER_SUCCULENT = createFlower("winter_succulent");
+    public static final Block HORSEWEED = createFlower("horseweed", BYGBlockTags.GROUND_HORSEWEED);
+    public static final Block MINI_CACTUS = createDesertPlant("mini_cactus", BYGBlockTags.GROUND_MINI_CACTUS);
+    public static final Block PRICKLY_PEAR_CACTUS = createDesertPlant("prickly_pear_cactus", BYGBlockTags.GROUND_PRICKLY_PEAR_CACTUS);
+    public static final Block WINTER_SUCCULENT = createFlower("winter_succulent", BYGBlockTags.GROUND_WINTER_SUCCULENT);
     public static final Block SHORT_GRASS = new BYGBlockProperties.BYGTallGrass("short_grass");
-    public static final Block TALL_PRAIRIE_GRASS = createTallFlower("tall_prairie_grass");
+    public static final Block TALL_PRAIRIE_GRASS = createTallFlower("tall_prairie_grass", BYGBlockTags.GROUND_TALL_PRAIRIE_GRASS);
     public static final Block BLUE_GLOWCANE = new BYGBlockProperties.BYGBLUEGlowCane("blue_glowcane");
     public static final Block RED_GLOWCANE = new BYGBlockProperties.BYGREDGlowCane("red_glowcane");
     public static final Block PURPLE_GLOWCANE = new BYGBlockProperties.BYGPURPLEGlowCane("purple_glowcane");
@@ -514,6 +544,7 @@ public class BYGBlocks {
     public static final Block CLOVER_PATCH = new BYGBlockProperties.BYGLeafPile("clover_patch");
     public static final Block FLOWER_PATCH = new BYGBlockProperties.BYGLeafPile("flower_patch");
     public static final Block BAOBAB_FRUIT_BLOCK = createBaobabFruitBlock("baobab_fruit_block");
+    public static final Block ETHER_BULB = createEtherBulbBlock("ether_bulbs_block");
 
     public static final Block ANTHRACITE_BLOCK = new BYGBlockProperties.AnthraciteOre("anthracite_block");
     public static final Block ANTHRACITE_ORE = new BYGBlockProperties.AnthraciteOre("anthracite_ore");
@@ -561,44 +592,70 @@ public class BYGBlocks {
     public static final Block EMBUR_LILY = new BYGBlockProperties.BYGEmburLily("embur_lily");
     public static final Block EMBUR_GEL_BLOCK = new BYGBlockProperties.BYGEmburGelBlock("embur_gel_block");
     public static final Block EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines");
-    public static final Block EMBUR_SPROUTS = new BYGBlockProperties.BYGEmburPlant("embur_sprouts");
+    public static final Block EMBUR_SPROUTS = createBlock(new NetherSproutsBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT, MaterialColor.COLOR_CYAN).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS)), "embur_sprouts");
     public static final Block EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots");
-    public static final Block EMBUR_WART = createMushroomPlant(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
+    public static final Block EMBUR_WART = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
     public static final Block TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_embur_roots");
 
     public static final Block BLUE_NETHERRACK = new BYGBlockProperties.BYGBlueNetherrack("blue_netherrack");
-    public static final Block BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGNetherrack("blue_nether_bricks");
+    public static final Block BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGBlueNetherrackBricks("blue_nether_bricks");
 
-    public static final Block IVIS_ROOTS = new BYGBlockProperties.EndPlant("ivis_roots");
-    public static final Block IVIS_SPROUT = new BYGBlockProperties.EndPlant("ivis_sprout");
+    public static final Block BULBIS_SPROUTS = createIvisBulbisPlant("bulbis_sprouts");
+    public static final Block IVIS_ROOTS = createIvisBulbisPlant("ivis_roots");
+    public static final Block IVIS_SPROUT = createIvisBulbisPlant("ivis_sprout");
     public static final Block ENDER_LILY = new BYGBlockProperties.BYGEnderLily("ender_lily");
 
-    public static final Block ETHER_GRASS = new BYGBlockProperties.EndPlant("ether_grass");
-    public static final Block ETHER_BUSH = new BYGBlockProperties.EndPlant("ether_bush");
-    public static final Block THEREAL_BELLFLOWER = new BYGBlockProperties.EndPlant("thereal_bellflower");
-    public static final Block NIGHTSHADE_SPROUTS = new BYGBlockProperties.EndPlant("nightshade_sprouts");
-    public static final Block NIGHTSHADE_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("nightshade_roots");
+    public static final Block ETHER_FOLIAGE = new BYGBlockProperties.BYGLeafFoilage("ether_foliage");
+    public static final Block TALL_ETHER_GRASS = createTallEtherPlant("tall_ether_grass");
+    public static final Block ETHER_GRASS = createEtherPlant("ether_grass");
+    public static final Block ETHER_BUSH = createEtherPlant("ether_bush");
+    public static final Block THEREAL_BELLFLOWER = createEtherPlant("thereal_bellflower");
+    public static final Block NIGHTSHADE_SPROUTS = createNightshadePlant("nightshade_sprouts");
+    public static final Block NIGHTSHADE_ROOTS = createTallNightshadePlant("nightshade_roots");
     public static final Block NIGHTSHADE_BERRY_BUSH = createNightshadeBerryBush("nightshade_berry_bush");
 
     public static final Block PURPUR_STONE = new BYGBlockProperties.BYGStone("purpur_stone");
     public static final Block PURPUR_STONE_SLAB = createStoneSlab("purpur_stone_slab");
     public static final Block PURPUR_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("purpur_stone_stairs");
     public static final Block PURPUR_STONE_WALL = createStoneWall("purpur_stone_wall");
-    public static final Block ETHER_STONE = new BYGBlockProperties.BYGStone("ether_stone");
+    public static final Block ETHER_STONE = createEtherStone("ether_stone");
     public static final Block ETHER_STONE_SLAB = createStoneSlab("ether_stone_slab");
     public static final Block ETHER_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("ether_stone_stairs");
     public static final Block ETHER_STONE_WALL = createStoneWall("ether_stone_wall");
+
+    public static final Block COBBLED_ETHER_STONE = createEtherStone("cobbled_ether_stone");
+    public static final Block COBBLED_ETHER_STONE_SLAB = createStoneSlab("cobbled_ether_stone_slab");
+    public static final Block COBBLED_ETHER_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("cobbled_ether_stone_stairs");
+    public static final Block COBBLED_ETHER_STONE_WALL = createStoneWall("cobbled_ether_stone_wall");
+
+    public static final Block CARVED_ETHER_STONE = createEtherStone("carved_ether_stone");
+    public static final Block CARVED_ETHER_STONE_SLAB = createStoneSlab("carved_ether_stone_slab");
+    public static final Block CARVED_ETHER_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("carved_ether_stone_stairs");
+    public static final Block CARVED_ETHER_STONE_WALL = createStoneWall("carved_ether_stone_wall");
 
     public static final Block LIGNITE_BLOCK = new BYGBlockProperties.AnthraciteOre("lignite_block");
     public static final Block LIGNITE_ORE = new BYGBlockProperties.AnthraciteOre("lignite_ore");
 
     public static final Block ODDITY_CACTUS = createOddityCactus("oddity_cactus");
-    public static final Block ODDITY_BUSH = new BYGBlockProperties.EndPlant("oddity_bush");
+    public static final Block ODDITY_BUSH = createOddityDesertPlant("oddity_bush");
+    public static final Block END_SAND = createSand(16053687, "end_sand");
 
+    public static final Block VERMILION_SCULK_TENDRILS = createSculkPlant("vermilion_sculk_tendrils");
     public static final Block VERMILION_SCULK_GROWTH = createSculkGrowth("vermilion_sculk_growth");
-    public static final Block THERIUM_CRYSTAL = createCrystal("therium_crystal");
+    public static final Block THERIUM_CRYSTAL = createTheriumCrystal("therium_crystal");
+    public static final Block THERIUM_BLOCK = createTheriumBlock("therium_block");
     public static final Block THERIUM_LANTERN = new BYGBlockProperties.BYGLantern("therium_lantern");
     public static final Block THERIUM_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("therium_lamp");
+    public static final Block CHISELED_THERIUM = createChiseledTherium("chiseled_therium");
+    public static final Block CHISELED_THERIUM_STAIRS = createChiseledTheriumStairs("chiseled_therium_stairs");
+    public static final Block CHISELED_THERIUM_SLAB = createChiseledTheriumSlab("chiseled_therium_slab");
+    public static final Block CHISELED_THERIUM_WALL = createChiseledTheriumWall("chiseled_therium_wall");
+    public static final Block SHINY_CHISELED_THERIUM = createShinyChiseledTherium("shiny_chiseled_therium");
+    public static final Block SHINY_CHISELED_THERIUM_STAIRS = createShinyChiseledTheriumStairs("shiny_chiseled_therium_stairs");
+    public static final Block SHINY_CHISELED_THERIUM_SLAB = createShinyChiseledTheriumSlab("shiny_chiseled_therium_slab");
+    public static final Block SHINY_CHISELED_THERIUM_WALL = createShinyChiseledTheriumWall("shiny_chiseled_therium_wall");
+    public static final Block THERIUM_GLASS = createTheriumGlass("therium_glass");
+    public static final Block THERIUM_GLASS_PANE = createTheriumGlassPane("therium_glass_pane");
 
     public static final Block CRYPTIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("cryptic_campfire");
     public static final Block CRYPTIC_FIRE = new BYGBlockProperties.CrypticFire("cryptic_fire");
@@ -607,7 +664,20 @@ public class BYGBlocks {
     public static final Block CRYPTIC_STONE_SLAB = createStoneSlab("cryptic_stone_slab");
     public static final Block CRYPTIC_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("cryptic_stone_stairs");
     public static final Block CRYPTIC_STONE_WALL = createStoneWall("cryptic_stone_wall");
-    
+    public static final Block CRYPTIC_VENT = createVent("cryptic_vent");
+    public static final Block TALL_CRYPTIC_VENT = createTallVent("tall_cryptic_vent");
+    public static final Block CRYPTIC_REDSTONE_ORE = createBlock(new RedstoneBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NETHER_GOLD_ORE).strength(0.4F, 0.4F).harvestLevel(2).lightLevel((state) -> 13).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops()), "cryptic_redstone_ore");
+    public static final Block CRYPTIC_BRAMBLE = createStoneEndPlant("cryptic_bramble");
+
+    public static final Block IMPARIUS_MUSHROOM_BLOCK = createImpariusMushroom("imparius_mushroom_block");
+    public static final Block IMPARIUS_MUSHROOM_BRANCH = createImpariusMushroomBranch("imparius_mushroom_branch");
+    public static final Block FUNGAL_IMPARIUS_BLOCK = createFungalImparius("fungal_imparius_block");
+    public static final Block FUNGAL_IMPARIUS_FILAMENT_BLOCK = createFungalImpariusFilamentBlock("fungal_imparius_filament_block");
+    public static final Block FUNGAL_IMPARIUS_FILAMENT = createFungalImpariusFilament("fungal_imparius_filament");
+    public static final Block IMPARIUS_VINE = createImpariusVine("imparius_vine");
+    public static final Block IMPARIUS_VINE_PLANT = createImpariusVinePlant("imparius_vine_plant");
+    public static final Block IMPARIUS_BUSH = createImpariusPlant("imparius_bush");
+
     public static final Block SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
     public static final Block SHULKREN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("shulkren_wart_block");
     public static final Block SHULKREN_VINE = createShulkrenVine("shulkren_vine");
@@ -703,7 +773,10 @@ public class BYGBlocks {
     public static final Block WITHERING_OAK_LOG = createLog("withering_oak_log");
     public static final Block BULBIS_STEM = new BYGBlockProperties.BYGNetherLog("bulbis_stem");
     public static final Block NIGHTSHADE_LOG = createLog("nightshade_log");
+    public static final Block IMBUED_NIGHTSHADE_LOG = createLog("imbued_nightshade_log");
     public static final Block ETHER_LOG = createLog("ether_log");
+    public static final Block IMPARIUS_STEM = new BYGBlockProperties.BYGNetherLog("imparius_stem");
+    public static final Block FUNGAL_IMPARIUS_STEM = new BYGBlockProperties.BYGNetherLog("fungal_imparius_stem");
 
 
     public static final Block ASPEN_WOOD = createWood("aspen_wood");
@@ -736,6 +809,8 @@ public class BYGBlocks {
     public static final Block BULBIS_WOOD = new BYGBlockProperties.BYGNetherWood("bulbis_wood");
     public static final Block NIGHTSHADE_WOOD = createWood("nightshade_wood");
     public static final Block ETHER_WOOD = createWood("ether_wood");
+    public static final Block IMPARIUS_HYPHAE = new BYGBlockProperties.BYGNetherWood("imparius_hyphae");
+    public static final Block FUNGAL_IMPARIUS_HYPHAE = new BYGBlockProperties.BYGNetherWood("fungal_imparius_hyphae");
 
     public static final Block BLACK_PUFF = createMushroomPlant(new BYGMushroomToHugeMushroom.BlackPuff(), "black_puff");
     public static final Block WEEPING_MILKCAP = createMushroomPlant(new BYGMushroomToHugeMushroom.WeepingMilkCap(), "weeping_milkcap");
@@ -744,22 +819,29 @@ public class BYGBlocks {
     public static final Block BLUE_GLOWSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.BlueGlowshroom(), "blue_glowshroom");
     public static final Block PURPLE_GLOWSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleGlowshroom(), "purple_glowshroom");
 
-    public static final Block SYTHIAN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
-    public static final Block SOUL_SHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
-    public static final Block DEATH_CAP = createMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
+    public static final Block SYTHIAN_FUNGUS = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
+    public static final Block SOUL_SHROOM = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
+    public static final Block DEATH_CAP = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
+
     public static final Block BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "bulbis_oddity");
     public static final Block PURPLE_BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleBulbis(), "purple_bulbis_oddity");
     public static final Block SHULKREN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.ShulkrenFungus(), "shulkren_fungus");
+    public static final Block IMPARIUS_MUSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.ImpariusMushroom(), "imparius_mushroom");
+    public static final Block FUNGAL_IMPARIUS = createMushroomPlant(new BYGMushroomToHugeMushroom.FungalImparius(), "fungal_imparius");
+
+    public static final Block BULBIS_ANOMALY = createTallBulbis("bulbis_anomaly");
+    public static final Block PURPLE_BULBIS_ANOMALY = createTallBulbis("purple_bulbis_anomaly");
 
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");
 
-    public static final Block PENDORITE_ORE = new BYGBlockProperties.BYGOrePendorite("pendorite_ore");
-    public static final Block AMETRINE_ORE = new BYGBlockProperties.BYGOreAmetrine("ametrine_ore");
-    public static final Block PENDORITE_BLOCK = new BYGBlockProperties.BYGOrePendorite("pendorite_block");
-    public static final Block AMETRINE_BLOCK = new BYGBlockProperties.BYGOreAmetrine("ametrine_block");
-
-    public static final Block DACITE = new BYGBlockProperties.BYGStone("dacite");
+    public static final Block PENDORITE_ORE = createPendoriteOre("pendorite_ore");
+    public static final Block AMETRINE_ORE = createAmetrineOre("ametrine_ore");
+    public static final Block PENDORITE_BLOCK = createPendoriteBlock("pendorite_block");
+    public static final Block AMETRINE_BLOCK = createAmetrineBlock("ametrine_block");
+    public static final Block BUDDING_AMETRINE_ORE = createBuddingAmetrineOre("budding_ametrine_ore");
+    public static final Block AMETRINE_CLUSTER = createAmetrineCluster("ametrine_cluster");
+    public static final Block DACITE = createDacite("dacite");
     public static final Block DACITE_SLAB = createStoneSlab("dacite_slab");
     public static final Block DACITE_STAIRS = new BYGBlockProperties.BYGStoneStairs("dacite_stairs");
     public static final Block DACITE_WALL = createStoneWall("dacite_wall");
@@ -777,7 +859,7 @@ public class BYGBlocks {
     public static final Block DACITE_TILE_STAIRS = new BYGBlockProperties.BYGStoneStairs("dacite_tile_stairs");
     public static final Block DACITE_TILE_WALL = createStoneWall("dacite_tile_wall");
 
-    public static final Block RED_ROCK = new BYGBlockProperties.BYGStone("red_rock");
+    public static final Block RED_ROCK = createRedRock("red_rock");
     public static final Block RED_ROCK_SLAB = createStoneSlab("red_rock_slab");
     public static final Block RED_ROCK_STAIRS = new BYGBlockProperties.BYGStoneStairs("red_rock_stairs");
     public static final Block RED_ROCK_WALL = createStoneWall("red_rock_wall");
@@ -798,17 +880,17 @@ public class BYGBlocks {
     public static final Block MOSSY_RED_ROCK_BRICK_STAIRS = new BYGBlockProperties.BYGStoneStairs("mossy_red_rock_brick_stairs");
     public static final Block MOSSY_RED_ROCK_BRICK_WALL = createStoneWall("mossy_red_rock_brick_wall");
 
-    public static final Block MOSSY_STONE = new BYGBlockProperties.BYGStone("mossy_stone");
+    public static final Block MOSSY_STONE = createMossyStone("mossy_stone");
     public static final Block MOSSY_STONE_SLAB = createStoneSlab("mossy_stone_slab");
     public static final Block MOSSY_STONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("mossy_stone_stairs");
     public static final Block MOSSY_STONE_WALL = createStoneWall("mossy_stone_wall");
 
-    public static final Block ROCKY_STONE = new BYGBlockProperties.BYGStone("rocky_stone");
+    public static final Block ROCKY_STONE = createRockyStone("rocky_stone");
     public static final Block ROCKY_SLAB = createStoneSlab("rocky_stone_slab");
     public static final Block ROCKY_STAIRS = new BYGBlockProperties.BYGStoneStairs("rocky_stone_stairs");
     public static final Block ROCKY_WALL = createStoneWall("rocky_stone_wall");
 
-    public static final Block SCORIA_STONE = new BYGBlockProperties.BYGStone("scoria_stone");
+    public static final Block SCORIA_STONE = createScoria("scoria_stone");
     public static final Block SCORIA_SLAB = createStoneSlab("scoria_stone_slab");
     public static final Block SCORIA_STAIRS = new BYGBlockProperties.BYGStoneStairs("scoria_stone_stairs");
     public static final Block SCORIA_WALL = createStoneWall("scoria_stone_wall");
@@ -822,7 +904,7 @@ public class BYGBlocks {
     public static final Block SCORIA_STONEBRICK_STAIRS = new BYGBlockProperties.BYGStoneStairs("scoria_stonebrick_stairs");
     public static final Block SCORIA_STONEBRICK_WALL = createStoneWall("scoria_stonebrick_wall");
 
-    public static final Block SOAPSTONE = new BYGBlockProperties.BYGStone("soapstone");
+    public static final Block SOAPSTONE = createSoapstone("soapstone");
     public static final Block SOAPSTONE_SLAB = createStoneSlab("soapstone_slab");
     public static final Block SOAPSTONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("soapstone_stairs");
     public static final Block SOAPSTONE_WALL = createStoneWall("soapstone_wall");
@@ -900,307 +982,512 @@ public class BYGBlocks {
     public static final Block STRIPPED_NIGHTSHADE_WOOD = createWood("stripped_nightshade_wood");
     public static final Block STRIPPED_ETHER_WOOD = createWood("stripped_ether_wood");
 
-    public static final Block TALL_ALLIUM = createTallFlower("tall_allium");
-    public static final Block TALL_PINK_ALLIUM = createTallFlower("tall_pink_allium");
+    public static final Block TALL_ALLIUM = createTallFlower("tall_allium", BYGBlockTags.GROUND_TALL_ALLIUM);
+    public static final Block TALL_PINK_ALLIUM = createTallFlower("tall_pink_allium", BYGBlockTags.GROUND_TALL_PINK_ALLIUM);
     public static final Block ALLIUM_FLOWER_BUSH = new BYGBlockProperties.BYGAllium("allium_flower_bush");
-    public static final Block ALPINE_BELLFLOWER = createFlower("alpine_bellflower");
     public static final Block AMARANTH = new BYGBlockProperties.BYGAmaranth("amaranth");
-    public static final Block ANGELICA = createFlower("angelica");
-    public static final Block AZALEA = createTallFlower("azalea");
-    public static final Block BEGONIA = createFlower("begonia");
-    public static final Block BISTORT = createFlower("bistort");
-    public static final Block BLUE_SAGE = createFlower("blue_sage");
-    public static final Block CALIFORNIA_POPPY = createFlower("california_poppy");
-    public static final Block CROCUS = createFlower("crocus");
-    public static final Block BLACK_ROSE = createFlower("black_rose");
+    public static final Block ALPINE_BELLFLOWER = createFlower("alpine_bellflower", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
+    public static final Block ANGELICA = createFlower("angelica", BYGBlockTags.GROUND_ANGELICA);
+    public static final Block AZALEA = createTallFlower("azalea", BYGBlockTags.GROUND_AZALEA);
+    public static final Block BEGONIA = createFlower("begonia", BYGBlockTags.GROUND_BEGONIA);
+    public static final Block BISTORT = createFlower("bistort", BYGBlockTags.GROUND_BISTORT);
+    public static final Block BLUE_SAGE = createFlower("blue_sage", BYGBlockTags.GROUND_BLUE_SAGE);
+    public static final Block CALIFORNIA_POPPY = createFlower("california_poppy", BYGBlockTags.GROUND_CALIFORNIA_POPPY);
+    public static final Block CROCUS = createFlower("crocus", BYGBlockTags.GROUND_CROCUS);
+    public static final Block BLACK_ROSE = createFlower("black_rose", BYGBlockTags.GROUND_BLACK_ROSE);
     public static final Block CYAN_AMARANTH = new BYGBlockProperties.BYGAmaranth("cyan_amaranth");
-    public static final Block CYAN_ROSE = createFlower("cyan_rose");
-    public static final Block CYAN_TULIP = createFlower("cyan_tulip");
-    public static final Block DAFFODIL = createFlower("daffodil");
-    public static final Block DELPHINIUM = createTallFlower("delphinium");
+    public static final Block CYAN_ROSE = createFlower("cyan_rose", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
+    public static final Block CYAN_TULIP = createFlower("cyan_tulip", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
+    public static final Block DAFFODIL = createFlower("daffodil", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
+    public static final Block DELPHINIUM = createTallFlower("delphinium", BYGBlockTags.GROUND_DELPHINIUM);
     public static final Block FAIRY_SLIPPER = new BYGBlockProperties.BYGFairySlipperFlower("fairy_slipper");
-    public static final Block FIRECRACKER_FLOWER_BUSH = createFlower("firecracker_flower_bush");
-    public static final Block FOXGLOVE = createTallFlower("foxglove");
-    public static final Block GOLDEN_SPINED_CACTUS = new BYGBlockProperties.BYGDesertPlant("golden_spined_cactus");
-    public static final Block GREEN_TULIP = createFlower("green_tulip");
-    public static final Block GUZMANIA = createFlower("guzmania");
-    public static final Block INCAN_LILY = createFlower("incan_lily");
-    public static final Block IRIS = createFlower("iris");
-    public static final Block JAPANESE_ORCHID = createTallFlower("japanese_orchid");
-    public static final Block KOVAN_FLOWER = createFlower("kovan_flower");
-    public static final Block LAZARUS_BELLFLOWER = createFlower("lazarus_bellflower");
-    public static final Block LOLIPOP_FLOWER = createFlower("lolipop_flower");
+    public static final Block FIRECRACKER_FLOWER_BUSH = createFlower("firecracker_flower_bush", BYGBlockTags.GROUND_FIRECRACKER_FLOWER_BUSH);
+    public static final Block FOXGLOVE = createTallFlower("foxglove", BYGBlockTags.GROUND_FOXGLOVE);
+    public static final Block GOLDEN_SPINED_CACTUS = createDesertPlant("golden_spined_cactus", BYGBlockTags.GROUND_GOLDEN_SPINED_CACTUS);
+    public static final Block GREEN_TULIP = createFlower("green_tulip", BYGBlockTags.GROUND_GREEN_TULIP);
+    public static final Block GUZMANIA = createFlower("guzmania", BYGBlockTags.GROUND_GUZMANIA);
+    public static final Block INCAN_LILY = createFlower("incan_lily", BYGBlockTags.GROUND_INCAN_LILY);
+    public static final Block IRIS = createFlower("iris", BYGBlockTags.GROUND_IRIS);
+    public static final Block JAPANESE_ORCHID = createTallFlower("japanese_orchid", BYGBlockTags.GROUND_JAPANESE_ORCHID);
+    public static final Block KOVAN_FLOWER = createFlower("kovan_flower", BYGBlockTags.GROUND_KOVAN_FLOWER);
+    public static final Block LAZARUS_BELLFLOWER = createFlower("lazarus_bellflower", BYGBlockTags.GROUND_LAZARUS_BELLFLOWER);
+    public static final Block LOLIPOP_FLOWER = createFlower("lolipop_flower", BYGBlockTags.GROUND_LOLIPOP_FLOWER);
     public static final Block MAGENTA_AMARANTH = new BYGBlockProperties.BYGAmaranth("magenta_amaranth");
-    public static final Block MAGENTA_TULIP = createFlower("magenta_tulip");
+    public static final Block MAGENTA_TULIP = createFlower("magenta_tulip", BYGBlockTags.GROUND_MAGENTA_TULIP);
     public static final Block ORANGE_AMARANTH = new BYGBlockProperties.BYGAmaranth("orange_amaranth");
-    public static final Block ORANGE_DAISY = createFlower("orange_daisy");
-    public static final Block ORSIRIA_ROSE = createFlower("osiria_rose");
-    public static final Block PEACH_LEATHER_FLOWER = createFlower("peach_leather_flower");
-    public static final Block PINK_ALLIUM = createFlower("pink_allium");
+    public static final Block ORANGE_DAISY = createFlower("orange_daisy", BYGBlockTags.GROUND_ORANGE_DAISY);
+    public static final Block ORSIRIA_ROSE = createFlower("osiria_rose", BYGBlockTags.GROUND_ORSIRIA_ROSE);
+    public static final Block PEACH_LEATHER_FLOWER = createFlower("peach_leather_flower", BYGBlockTags.GROUND_PEACH_LEATHER_FLOWER);
+    public static final Block PINK_ALLIUM = createFlower("pink_allium", BYGBlockTags.GROUND_PINK_ALLIUM);
     public static final Block PINK_ALLIUM_FLOWER_BUSH = new BYGBlockProperties.BYGPinkAllium("pink_allium_flower_bush");
-    public static final Block PINK_ANEMONE = createFlower("pink_anemone");
-    public static final Block PINK_DAFFODIL = createFlower("pink_daffodil");
-    public static final Block PINK_ORCHID = createFlower("pink_orchid");
+    public static final Block PINK_ANEMONE = createFlower("pink_anemone", BYGBlockTags.GROUND_PINK_ANEMONE);
+    public static final Block PINK_DAFFODIL = createFlower("pink_daffodil", BYGBlockTags.GROUND_PINK_DAFFODIL);
+    public static final Block PINK_ORCHID = createFlower("pink_orchid", BYGBlockTags.GROUND_PINK_ORCHID);
     public static final Block PRAIRIE_GRASS = new BYGBlockProperties.BYGPrairieGrass("prairie_grass");
-    public static final Block PROTEA_FLOWER = createFlower("protea_flower");
+    public static final Block PROTEA_FLOWER = createFlower("protea_flower", BYGBlockTags.GROUND_PROTEA_FLOWER);
     public static final Block PURPLE_AMARANTH = new BYGBlockProperties.BYGAmaranth("purple_amaranth");
-    public static final Block PURPLE_ORCHID = createFlower("purple_orchid");
-    public static final Block PURPLE_SAGE = createFlower("purple_sage");
-    public static final Block PURPLE_TULIP = createFlower("purple_tulip");
-    public static final Block RED_CORNFLOWER = createFlower("red_cornflower");
-    public static final Block RED_ORCHID = createFlower("red_orchid");
-    public static final Block RICHEA = createFlower("richea");
-    public static final Block ROSE = createFlower("rose");
+    public static final Block PURPLE_ORCHID = createFlower("purple_orchid", BYGBlockTags.GROUND_PURPLE_ORCHID);
+    public static final Block PURPLE_SAGE = createFlower("purple_sage", BYGBlockTags.GROUND_PURPLE_SAGE);
+    public static final Block PURPLE_TULIP = createFlower("purple_tulip", BYGBlockTags.GROUND_PURPLE_TULIP);
+    public static final Block RED_CORNFLOWER = createFlower("red_cornflower", BYGBlockTags.GROUND_RED_CORNFLOWER);
+    public static final Block RED_ORCHID = createFlower("red_orchid", BYGBlockTags.GROUND_RED_ORCHID);
+    public static final Block RICHEA = createFlower("richea", BYGBlockTags.GROUND_RICHEA);
+    public static final Block ROSE = createFlower("rose", BYGBlockTags.GROUND_ROSE);
     public static final Block SNOWDROPS = new BYGBlockProperties.BYGSnowyPlant("snowdrops");
-    public static final Block SILVER_VASE_FLOWER = createFlower("silver_vase_flower");
-    public static final Block TORCH_GINGER = createFlower("torch_ginger");
-    public static final Block VIOLET_LEATHER_FLOWER = createFlower("violet_leather_flower");
-    public static final Block WHITE_ANEMONE = createFlower("white_anemone");
-    public static final Block WHITE_SAGE = createFlower("white_sage");
+    public static final Block SILVER_VASE_FLOWER = createFlower("silver_vase_flower", BYGBlockTags.GROUND_SILVER_VASE_FLOWER);
+    public static final Block TORCH_GINGER = createFlower("torch_ginger", BYGBlockTags.GROUND_TORCH_GINGER);
+    public static final Block VIOLET_LEATHER_FLOWER = createFlower("violet_leather_flower", BYGBlockTags.GROUND_VIOLET_LEATHER_FLOWER);
+    public static final Block WHITE_ANEMONE = createFlower("white_anemone", BYGBlockTags.GROUND_WHITE_ANEMONE);
+    public static final Block WHITE_SAGE = createFlower("white_sage", BYGBlockTags.GROUND_WHITE_SAGE);
     public static final Block WINTER_CYCLAMEN = new BYGBlockProperties.BYGSnowyPlant("winter_cyclamen");
     public static final Block WINTER_ROSE = new BYGBlockProperties.BYGSnowyPlant("winter_rose");
     public static final Block WINTER_SCILLA = new BYGBlockProperties.BYGSnowyPlant("winter_scilla");
-    public static final Block YELLOW_DAFFODIL = createFlower("yellow_daffodil");
-    public static final Block YELLOW_TULIP = createFlower("yellow_tulip");
+    public static final Block YELLOW_DAFFODIL = createFlower("yellow_daffodil", BYGBlockTags.GROUND_YELLOW_DAFFODIL);
+    public static final Block YELLOW_TULIP = createFlower("yellow_tulip", BYGBlockTags.GROUND_YELLOW_TULIP);
 
-    public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, "podzol_dacite");
-    public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, "overgrown_dacite");
-    public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, "overgrown_stone");
-    public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, BYGConfiguredFeatures.SpreadableBlockConfigs.OVERGROWN_BLACKSTONE_CONFIG, "overgrown_crimson_blackstone");
+    public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, null, "podzol_dacite");
+    public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, null, "overgrown_dacite");
+    public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, null, "overgrown_stone");
+    public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, null, "overgrown_crimson_blackstone");
     public static final Block MYCELIUM_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.MYCELIUM_NETHERRACK_CONFIG, "mycelium_netherrack");
     public static final Block OVERGROWN_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.OVERGROWN_NETHERRACK_CONFIG, "overgrown_netherrack");
-    public static final Block IVIS_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG, "ivis_phylium");
+    public static final Block IVIS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_PURPLE, BYGConfiguredFeatures.SpreadableBlockConfigs.IVIS_CONFIG, "ivis_phylium");
     public static final Block EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS, "embur_nylium");
     public static final Block SYTHIAN_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "sythian_nylium");
-    public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, "meadow_grass_block");
-    public static final Block NIGHTSHADE_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG, "nightshade_phylium");
-    public static final Block ETHER_PHYLIUM = createEndSpreadable(BYGBlocks.ETHER_SOIL, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
-    public static final Block VERMILION_SCULK = createEndSpreadable(BYGBlocks.ETHER_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
-    public static final Block SHULKREN_PHYLIUM = createEndSpreadable(Blocks.END_STONE, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
+    public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, BYGConfiguredFeatures.SpreadableBlockConfigs.MEADOW_CONFIG, "meadow_grass_block");
+    public static final Block NIGHTSHADE_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_BLUE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG, "nightshade_phylium");
+    public static final Block ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
+    public static final Block VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, MaterialColor.COLOR_RED, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
+    public static final Block SHULKREN_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_LIGHT_GREEN, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
+    public static final Block MEADOW_GRASS_PATH = createBlock(new GrassPathBlock(AbstractBlock.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "meadow_grass_path");
+    public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
+    public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
+
+
+    static Block createTheriumBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).sound(SoundType.GLASS).noDrops().lightLevel((state) -> 12).strength(-1.0f, 3.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createTheriumGlass(String id) {
+        Block createBlock = new GlassBlock(AbstractBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN).sound(SoundType.GLASS).lightLevel((state) -> 12).noOcclusion().isValidSpawn(BYGBlocks::neverAllowSpawn).isRedstoneConductor(BYGBlocks::isntSolid).isSuffocating(BYGBlocks::isntSolid).isViewBlocking(BYGBlocks::isntSolid).strength(0.4f, 8.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createTheriumGlassPane(String id) {
+        Block createBlock = new PaneBlock(AbstractBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN).sound(SoundType.GLASS).lightLevel((state) -> 12).noOcclusion().strength(0.4f, 8.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createChiseledTherium(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.GLASS).strength(1.5f, 9.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createChiseledTheriumStairs(String id) {
+        Block createBlock = new StairsBlock(Blocks.PRISMARINE.defaultBlockState(), AbstractBlock.Properties.copy(Blocks.PRISMARINE).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.GLASS).strength(1.5f, 9.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createChiseledTheriumSlab(String id) {
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.GLASS).strength(1.5f, 9.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createChiseledTheriumWall(String id) {
+        Block createBlock = new WallBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.GLASS).strength(1.5f, 9.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createShinyChiseledTherium(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.GLASS).lightLevel((state) -> 12).strength(1.5f, 9.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createShinyChiseledTheriumStairs(String id) {
+        Block createBlock = new StairsBlock(Blocks.PRISMARINE.defaultBlockState(), AbstractBlock.Properties.copy(Blocks.PRISMARINE).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.GLASS).lightLevel((state) -> 12).strength(1.5f, 9.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createShinyChiseledTheriumSlab(String id) {
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.GLASS).lightLevel((state) -> 12).strength(1.5f, 9.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createShinyChiseledTheriumWall(String id) {
+        Block createBlock = new WallBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().sound(SoundType.GLASS).lightLevel((state) -> 12).strength(1.5f, 9.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
 
     static Block createFence(String id) {
-        Block createBlock = new FenceBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new FenceBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createFenceGate(String id) {
-        Block createBlock = new FenceGateBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new FenceGateBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createSand(int dustColor, String id) {
-        Block createBlock = new SandBlock(dustColor, AbstractBlock.Properties.create(Material.SAND).sound(SoundType.SAND).hardnessAndResistance(0.2f).harvestTool(ToolType.SHOVEL));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new SandBlock(dustColor, AbstractBlock.Properties.of(Material.SAND).sound(SoundType.SAND).strength(0.2f).harvestTool(ToolType.SHOVEL));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWoodSlab(String id) {
-        Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.PICKAXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createStoneSlab(String id) {
-        Block createBlock = new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createStoneWall(String id) {
-        Block createBlock = new WallBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).setRequiresTool());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new WallBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWoodPressurePlate(String id) {
-        Block createBlock = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWoodStairs(String id) {
-        Block createBlock = new StairsBlock(Registry.BLOCK.getOrDefault(new ResourceLocation(BYG.MOD_ID, id.replace("_stairs", "planks"))).getDefaultState(), AbstractBlock.Properties.from(Blocks.OAK_PLANKS).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new StairsBlock(Registry.BLOCK.get(new ResourceLocation(BYG.MOD_ID, id.replace("_stairs", "planks"))).defaultBlockState(), AbstractBlock.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createTrapDoor(String id) {
-        Block createBlock = new TrapDoorBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f).notSolid());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new TrapDoorBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion().harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createCraftingTable(String id) {
-        Block createBlock = new BYGCraftingTableBlock(AbstractBlock.Properties.from(Blocks.CRAFTING_TABLE));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new BYGCraftingTableBlock(AbstractBlock.Properties.copy(Blocks.CRAFTING_TABLE).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWoodButton(String id) {
-        Block createBlock = new WoodButtonBlock(AbstractBlock.Properties.create(Material.MISCELLANEOUS).sound(SoundType.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new WoodButtonBlock(AbstractBlock.Properties.of(Material.DECORATION).sound(SoundType.WOOD).noCollission().strength(0.5F).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createBookshelf(String id) {
-        Block createBlock = new BookshelfBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new BookshelfBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createDoor(String id) {
-        Block createBlock = new DoorBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f).notSolid());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new DoorBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion().harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createPlanks(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.BROWN).sound(SoundType.WOOD).hardnessAndResistance(2.0f, 3.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWood(String id) {
-        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createStrippedLog(String id) {
-        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.WOOD).sound(SoundType.WOOD).strength(2.0f).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createLog(String id) {
-        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f).harvestTool(ToolType.AXE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createSoapstone(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BLACK).sound(SoundType.STONE).strength(1.5f, 6.0f).harvestTool(ToolType.PICKAXE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createScoria(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(1.5f, 6.0f).harvestTool(ToolType.PICKAXE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createDacite(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createEtherStone(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_CYAN).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createRockyStone(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createMossyStone(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_GREEN).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createRedRock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_ORANGE).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createAmetrineOre(String id) {
+        Block createBlock = new BYGOreBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createBuddingAmetrineOre(String id) {
+        Block createBlock = new BuddingAmetrineBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).randomTicks().harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createAmetrineBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).isSuffocating(BYGBlocks::isntSolid).isViewBlocking(BYGBlocks::isntSolid).noOcclusion().harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.GLASS).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createPendoriteOre(String id) {
+        Block createBlock = new BYGOreBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PURPLE).harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createPendoriteBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.HEAVY_METAL, MaterialColor.TERRACOTTA_PURPLE).harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createMushroomPlant(BYGHugeMushroom mushroom, String id) {
-        Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), mushroom);
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, false);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         createPottedBlock(createBlock, id);
         blocksList.add(createBlock);
         return createBlock;
     }
 
-    static Block createFlower(String id) {
-        Block createBlock = new FlowerBlock(Effects.SATURATION, 7, AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+    static Block createNetherMushroomPlant(BYGHugeMushroom mushroom, String id) {
+        Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, true);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         createPottedBlock(createBlock, id);
         blocksList.add(createBlock);
         return createBlock;
     }
 
-    static Block createTallFlower(String id) {
-        Block createBlock = new TallFlowerBlock(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().notSolid());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+    static Block createFlower(String id, ITag.INamedTag<Block> groundTag) {
+        Block createBlock = new BYGFlowerBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
         blocksList.add(createBlock);
+        flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id));
+        return createBlock;
+    }
+
+    static Block createTallFlower(String id, ITag.INamedTag<Block> groundTag) {
+        Block createBlock = new BYGTallFlowerBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
+        createBlock(createBlock, id);
+        flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id));
+        return createBlock;
+    }
+
+    static Block createStoneEndPlant(String id) {
+        Block createBlock = new StoneEndPlantBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks().noOcclusion());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createTallBulbis(String id) {
+        Block createBlock = new TallBulbisBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.SHROOMLIGHT).strength(0.0f).noCollission().noOcclusion());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createVent(String id) {
+        Block createBlock = new VentBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createTallVent(String id) {
+        Block createBlock = new TallVentBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createTheriumCrystal(String id) {
+        Block createBlock = new TheriumCrystalBlock(AbstractBlock.Properties.of(Material.GLASS).sound(SoundType.GLASS).strength(0.1f).noOcclusion().requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noCollission().lightLevel((state) -> 6));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createCrystal(String id) {
-        Block createBlock = new CrystalBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(0.1f).notSolid().setRequiresTool().harvestTool(ToolType.PICKAXE).doesNotBlockMovement().setLightLevel((state) -> 6));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new CrystalBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.GLASS).strength(0.1f).noOcclusion().requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noCollission().lightLevel((state) -> 6));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createAmetrineCluster(String id) {
+        Block createBlock = new AmetrineClusterBlock(7, 3, AbstractBlock.Properties.of(BYGMaterials.AMETRINE).sound(SoundType.GLASS).strength(1.5f).randomTicks().harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noCollission().lightLevel((state) -> 6));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createDullCrystal(String id) {
-        Block createBlock = new CrystalBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(0.1f).notSolid().doesNotBlockMovement().harvestTool(ToolType.PICKAXE).setRequiresTool());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new CrystalBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(0.1f).noOcclusion().noCollission().harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createSculkGrowth(String id) {
-        Block createBlock = new SculkGrowthBlock(AbstractBlock.Properties.create(Material.NETHER_PLANTS).sound(SoundType.NETHER_VINE_LOWER_PITCH).zeroHardnessAndResistance().tickRandomly().notSolid().doesNotBlockMovement());
+        Block createBlock = new SculkGrowthBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().randomTicks().noOcclusion().noCollission());
 //        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createIvisBulbisPlant(String id) {
+        Block createBlock = new IvisPlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createEtherPlant(String id) {
+        Block createBlock = new EtherPlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.GRASS).instabreak().noOcclusion().noCollission());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createTallEtherPlant(String id) {
+        Block createBlock = new TallEtherPlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).instabreak().noOcclusion().noCollission());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createNightshadePlant(String id) {
+        Block createBlock = new NightshadePlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createTallNightshadePlant(String id) {
+        Block createBlock = new TallNightshadePlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.ROOTS).instabreak().noOcclusion().noCollission());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createSculkPlant(String id) {
+        Block createBlock = new SculkPlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createShulkrenPlant(String id) {
+        Block createBlock = new ShulkrenPlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createImpariusPlant(String id) {
+        Block createBlock = new ImpariusPlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createOddityDesertPlant(String id) {
+        Block createBlock = new DesertOddityPlantBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
+//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWarpedCactus(String id) {
-        Block createBlock = new WarpedCactusBlock(AbstractBlock.Properties.create(Material.CACTUS).sound(SoundType.CLOTH).hardnessAndResistance(0.2f).tickRandomly().notSolid().setLightLevel((state) -> 8));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new WarpedCactusBlock(AbstractBlock.Properties.of(Material.CACTUS).sound(SoundType.WOOL).strength(0.2f).randomTicks().noOcclusion().lightLevel((state) -> 8));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createOddityCactus(String id) {
-        Block createBlock = new OddityCactusBlock(AbstractBlock.Properties.create(Material.CACTUS).sound(SoundType.CLOTH).hardnessAndResistance(0.2f).tickRandomly().notSolid().setLightLevel((state) -> 8));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new OddityCactusBlock(AbstractBlock.Properties.of(Material.CACTUS).sound(SoundType.WOOL).strength(0.2f).randomTicks().noOcclusion().lightLevel((state) -> 8));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createCrimsonBerryBush(String id) {
-        Block createBlock = new CrimsonBerryBushBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new CrimsonBerryBushBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).randomTicks().instabreak().noCollission());
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createBlueBerryBush(String id) {
-        Block createBlock = new BlueBerryBush(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new BlueBerryBush(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).randomTicks().instabreak().noCollission());
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createBaobabFruitBlock(String id) {
-        Block createBlock = new BaobabFruitBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).tickRandomly().harvestTool(ToolType.HOE).zeroHardnessAndResistance().doesNotBlockMovement());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new BaobabFruitBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).randomTicks().harvestTool(ToolType.HOE).instabreak().noCollission());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createEtherBulbBlock(String id) {
+        Block createBlock = new EtherBulbsBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).randomTicks().harvestTool(ToolType.HOE).instabreak().lightLevel((state) -> 13).noCollission());
+
+        createBlock(createBlock, id);
         return createBlock;
     }
 
@@ -1209,16 +1496,45 @@ public class BYGBlocks {
     }
 
     static Block createNightshadeBerryBush(int lightLevel, String id) {
-        Block createBlock = new NightshadeBerryBushBlock(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.SWEET_BERRY_BUSH).setLightLevel((state) -> lightLevel).tickRandomly().zeroHardnessAndResistance().doesNotBlockMovement());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        Block createBlock = new NightshadeBerryBushBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).lightLevel((state) -> lightLevel).randomTicks().instabreak().noCollission());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createSapling(ITag<Block> groundTag, TreeSpawner tree, String id) {
+        Block createBlock = new BYGSapling(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag, tree);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
         blocksList.add(createBlock);
         return createBlock;
     }
 
-    static Block createSapling(int taskRange, TreeSpawner tree, String id) {
-        Block createBlock = new BYGSapling(AbstractBlock.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.0f).doesNotBlockMovement().tickRandomly(), tree, taskRange);
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+    static Block createJacarandaBush(String id) {
+        Block createBlock = new JacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion());
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createFloweringJacarandaBush(int taskRange, TreeSpawner tree, String id) {
+        Block createBlock = new FloweringJacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createIndigoJacarandaBush(String id) {
+        Block createBlock = new IndigoJacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion());
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createPottedBlock(createBlock, id);
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createFloweringIndigoJacarandaBush(int taskRange, TreeSpawner tree, String id) {
+        Block createBlock = new FloweringJacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         createPottedBlock(createBlock, id);
         blocksList.add(createBlock);
@@ -1226,15 +1542,70 @@ public class BYGBlocks {
     }
 
     public static void createPottedBlock(Block blockForPot, String id) {
-        Block createBlock = new FlowerPotBlock(blockForPot, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid());
+        Block createBlock = new FlowerPotBlock(blockForPot, AbstractBlock.Properties.of(Material.DECORATION).instabreak().noOcclusion());
 //        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, "potted_" + id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, "potted_" + id)); //Forge
         flowerPotBlocks.add(createBlock);
-        flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id).toString());
+//        blocksList.add(createBlock);
     }
 
     static Block createShroomlight(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.ORGANIC, MaterialColor.PURPLE).hardnessAndResistance(1.0F).sound(SoundType.SHROOMLIGHT).harvestTool(ToolType.HOE).setLightLevel((state) -> 14));
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.COLOR_PURPLE).strength(1.0F).sound(SoundType.SHROOMLIGHT).harvestTool(ToolType.HOE).lightLevel((state) -> 14));
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createImpariusVine(String id) {
+        Block createBlock = new ImpariusVineBlock(AbstractBlock.Properties.of(Material.LEAVES).instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission().harvestTool(ToolType.HOE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createImpariusVinePlant(String id) {
+        Block createBlock = new ImpariusVinePlantBlock(AbstractBlock.Properties.of(Material.LEAVES).instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission().harvestTool(ToolType.HOE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createImpariusMushroom(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.COLOR_CYAN).strength(0.2F).sound(SoundType.TWISTING_VINES).speedFactor(0.5F).jumpFactor(0.5F).harvestTool(ToolType.HOE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createImpariusMushroomBranch(String id) {
+        Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_CYAN).instabreak().sound(SoundType.TWISTING_VINES).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createFungalImpariusFilamentBlock(String id) {
+        Block createBlock = new SlimeBlock(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.COLOR_LIGHT_BLUE).strength(0.2F).sound(SoundType.HONEY_BLOCK).speedFactor(0.5F).jumpFactor(2.5F).harvestTool(ToolType.HOE).lightLevel((state) -> 15));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createFungalImpariusFilament(String id) {
+        Block createBlock = new FungalImpariusFilamentBlock(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.COLOR_LIGHT_BLUE).instabreak().sound(SoundType.HONEY_BLOCK).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createFungalImparius(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).strength(0.2F).sound(SoundType.HONEY_BLOCK).harvestTool(ToolType.HOE));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
         blocksList.add(createBlock);
@@ -1242,26 +1613,20 @@ public class BYGBlocks {
     }
 
     static Block createShulkrenVine(String id) {
-        Block createBlock = new ShulkrenVineBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.NETHER_VINE).doesNotBlockMovement().harvestTool(ToolType.HOE));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new ShulkrenVineBlock(AbstractBlock.Properties.of(Material.LEAVES).instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission().harvestTool(ToolType.HOE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createShulkrenVinePlant(String id) {
-        Block createBlock = new ShulkrenVinePlantBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.NETHER_VINE).doesNotBlockMovement().harvestTool(ToolType.HOE));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new ShulkrenVinePlantBlock(AbstractBlock.Properties.of(Material.LEAVES).instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission().harvestTool(ToolType.HOE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createLeaves(String id) {
-        Block createBlock = new LeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setBlocksVision((state, world, pos) -> false).setSuffocates((state, world, pos) -> false).harvestTool(ToolType.HOE));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new LeavesBlock(AbstractBlock.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).harvestTool(ToolType.HOE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
@@ -1270,69 +1635,88 @@ public class BYGBlocks {
     }
 
     static Block createGlowingLeaves(int lightLevel, String id) {
-        Block createBlock = new LeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setBlocksVision((state, world, pos) -> false).setSuffocates((state, world, pos) -> false).setLightLevel((state) -> lightLevel).harvestTool(ToolType.HOE));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new LeavesBlock(AbstractBlock.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).lightLevel((state) -> lightLevel).harvestTool(ToolType.HOE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createPetal(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2f).notSolid().harvestTool(ToolType.HOE));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).noOcclusion().harvestTool(ToolType.HOE));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createDirt(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.2f).tickRandomly().harvestTool(ToolType.SHOVEL));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).strength(0.2f).randomTicks().harvestTool(ToolType.SHOVEL));
+        createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createDirtSpreadable(Block blockToSpreadToo, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(0.4f).tickRandomly().harvestTool(ToolType.SHOVEL), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+    static Block createDirtSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGGrassBlock(AbstractBlock.Properties.of(Material.DIRT).sound(SoundType.GRASS).strength(0.4f).randomTicks().harvestTool(ToolType.SHOVEL), featureConfig, blockToSpreadToo);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createStoneSpreadable(Block blockToSpreadToo, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5f, 6.0f).tickRandomly().harvestTool(ToolType.PICKAXE).setRequiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.OVERWORLD, null);
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+    static Block createStoneSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGGrassBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.5f, 6.0f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), featureConfig, blockToSpreadToo);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createEndSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE).setRequiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.END, config);
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+    static Block createEndStoneSpreadable(Block blockToSpreadToo, MaterialColor color, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGNylium(AbstractBlock.Properties.of(Material.STONE, color).sound(SoundType.STONE).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), featureConfig, World.END, blockToSpreadToo);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createNetherSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4F).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE).setRequiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+    static Block createEndDirtSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGNylium(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.SHOVEL).requiresCorrectToolForDrops(), featureConfig, World.END, blockToSpreadToo);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createNetherStoneSpreadable(Block blockToSpreadToo, BlockStateProvidingFeatureConfig config, String id) {
-        Block createBlock = new SpreadableBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.NYLIUM).hardnessAndResistance(0.4f).tickRandomly().harvestLevel(2).harvestTool(ToolType.PICKAXE).setRequiresTool(), blockToSpreadToo, SpreadableBlock.ForDimension.NETHER, config);
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+    static Block createNetherSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGNylium(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4F).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), featureConfig, World.NETHER, blockToSpreadToo);
+        createBlock(createBlock, id);
         return createBlock;
+    }
+
+    static Block createNetherStoneSpreadable(Block blockToSpreadToo, @Nullable BlockClusterFeatureConfig featureConfig, String id) {
+        Block createBlock = new BYGNylium(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().harvestLevel(0).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops(), featureConfig, World.NETHER, blockToSpreadToo);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createDesertPlant(String id, ITag.INamedTag<Block> groundTag) {
+        Block createBlock = new DesertPlant(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
+        createPottedBlock(createBlock, id);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createBlock(Block block, String id) {
+        block.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
+        blocksList.add(block);
+        return block;
+    }
+
+    static Block createBlock(Block block, ResourceLocation id) {
+        //Registry.register(Registry.BLOCK, id, createBlock);
+        block.setRegistryName(id);
+        blocksList.add(block);
+        return block;
     }
 
     public static void init() {
+
+    }
+
+    private static Boolean neverAllowSpawn(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entity) {
+        return false;
+    }
+
+    private static boolean isntSolid(BlockState state, IBlockReader reader, BlockPos pos) {
+        return false;
     }
 }

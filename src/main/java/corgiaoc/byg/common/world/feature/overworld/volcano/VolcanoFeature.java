@@ -23,11 +23,11 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
 
 
-        if (world.getBlockState(pos.down()).getMaterial() == Material.AIR || world.getBlockState(pos.down()).getMaterial() == Material.WATER || world.getBlockState(pos.down()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)
+        if (world.getBlockState(pos.below()).getMaterial() == Material.AIR || world.getBlockState(pos.below()).getMaterial() == Material.WATER || world.getBlockState(pos.below()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)
             return false;
 
 
@@ -42,18 +42,18 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
         for (double x = -volcanoConeSize; x <= volcanoConeSize; x++) {
             for (double y = -volcanoConeSize; y <= -15; y++) {
                 for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
-                    mutable.setPos(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
+                    mutable.set(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
                     float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), mutable.getZ()));
 
                     double scaledNoise = (noise3 / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
                     if (scaledNoise - lavaLeakage >= threshold) {
                         if (mutable.getY() <= pos.getY() + (volcanoStartHeight - 19)) {
-                            world.setBlockState(mutable, Blocks.LAVA.getDefaultState(), 2);
-                            world.getPendingFluidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
+                            world.setBlock(mutable, Blocks.LAVA.defaultBlockState(), 2);
+                            world.getLiquidTicks().scheduleTick(mutable, Fluids.LAVA, 0);
                         }
                     }
                     else if (scaledNoise >= threshold) {
-                        world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                        world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
                     }
                 }
             }

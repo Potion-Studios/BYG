@@ -10,13 +10,13 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class SoulShroomSporeBlock extends AbstractBodyPlantBlock {
-    public static final VoxelShape SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
+    public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     protected SoulShroomSporeBlock(Properties properties) {
         super(properties, Direction.DOWN, SHAPE, false);
     }
 
-    protected AbstractTopPlantBlock getTopPlantBlock() {
+    protected AbstractTopPlantBlock getHeadBlock() {
         return (AbstractTopPlantBlock) BYGBlocks.SOUL_SHROOM_SPORE_END;
     }
 }

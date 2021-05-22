@@ -24,11 +24,11 @@ public class BYGHorseArmor extends HorseArmorItem {
 
 
     @OnlyIn(Dist.CLIENT)
-    public ResourceLocation getArmorTexture() {
+    public ResourceLocation getTexture() {
         return texture;
     }
 
-    public int getArmorValue() {
+    public int getProtection() {
         return this.bonus;
     }
 }

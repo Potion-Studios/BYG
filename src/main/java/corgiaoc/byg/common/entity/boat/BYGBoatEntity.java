@@ -30,16 +30,16 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 @SuppressWarnings("EntityConstructor")
 public class BYGBoatEntity extends BoatEntity {
-    private static final DataParameter<Integer> BYG_BOAT_TYPE = EntityDataManager.createKey(BYGBoatEntity.class, DataSerializers.VARINT);
+    private static final DataParameter<Integer> BYG_BOAT_TYPE = EntityDataManager.defineId(BYGBoatEntity.class, DataSerializers.INT);
 
 
     public BYGBoatEntity(World worldIn, double x, double y, double z) {
         this(BYGEntities.BOAT, worldIn);
-        this.setPosition(x, y, z);
-        this.setMotion(Vector3d.ZERO);
-        this.prevPosX = x;
-        this.prevPosY = y;
-        this.prevPosZ = z;
+        this.setPos(x, y, z);
+        this.setDeltaMovement(Vector3d.ZERO);
+        this.xo = x;
+        this.yo = y;
+        this.zo = z;
     }
 
     public BYGBoatEntity(EntityType<? extends BoatEntity> boatEntityType, World worldType) {
@@ -52,7 +52,7 @@ public class BYGBoatEntity extends BoatEntity {
 
 
     @Override
-    public Item getItemBoat() {
+    public Item getDropItem() {
         switch (this.getBYGBoatType()) {
             default:
                 return BYGItems.ASPEN_BOAT;
@@ -151,27 +151,27 @@ public class BYGBoatEntity extends BoatEntity {
     }
 
     public BYGType getBYGBoatType() {
-        return BYGType.byId(this.dataManager.get(BYG_BOAT_TYPE));
+        return BYGType.byId(this.entityData.get(BYG_BOAT_TYPE));
     }
 
     public void setBYGBoatType(BYGType boatBYGType) {
-        this.dataManager.set(BYG_BOAT_TYPE, boatBYGType.ordinal());
+        this.entityData.set(BYG_BOAT_TYPE, boatBYGType.ordinal());
     }
 
     @Override
-    protected void registerData() {
-        super.registerData();
-        this.dataManager.register(BYG_BOAT_TYPE, BYGType.ASPEN.ordinal());
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(BYG_BOAT_TYPE, BYGType.ASPEN.ordinal());
     }
 
 
     @Override
-    protected void writeAdditional(CompoundNBT compound) {
+    protected void addAdditionalSaveData(CompoundNBT compound) {
         compound.putString("BYGType", this.getBYGBoatType().getName());
     }
 
     @Override
-    protected void readAdditional(CompoundNBT compound) {
+    protected void readAdditionalSaveData(CompoundNBT compound) {
         if (compound.contains("BYGType", 8)) {
             this.setBYGBoatType(BYGType.getTypeFromString(compound.getString("BYGType")));
         }
@@ -179,16 +179,16 @@ public class BYGBoatEntity extends BoatEntity {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void performHurtAnimation() {
-        this.setForwardDirection(-this.getForwardDirection());
-        this.setTimeSinceHit(10);
-        this.setDamageTaken(this.getDamageTaken() * 11.0F);
+    public void animateHurt() {
+        this.setHurtDir(-this.getHurtDir());
+        this.setHurtTime(10);
+        this.setDamage(this.getDamage() * 11.0F);
     }
 
 
     @Override
-    protected void updateFallState(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
-        this.lastYd = this.getMotion().y;
+    protected void checkFallDamage(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
+        this.lastYd = this.getDeltaMovement().y;
         if (!this.isPassenger()) {
             if (onGroundIn) {
                 if (this.fallDistance > 3.0F) {
@@ -197,25 +197,25 @@ public class BYGBoatEntity extends BoatEntity {
                         return;
                     }
 
-                    this.onLivingFall(this.fallDistance, 1.0F);
-                    if (!this.world.isRemote && !this.removed) {
+                    this.causeFallDamage(this.fallDistance, 1.0F);
+                    if (!this.level.isClientSide && !this.removed) {
                         this.remove();
-                        if (this.world.getGameRules().getBoolean(GameRules.DO_ENTITY_DROPS)) {
+                        if (this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                             for (int i = 0; i < 3; ++i) {
-                                this.entityDropItem(this.getPlanks());
+                                this.spawnAtLocation(this.getPlanks());
                             }
 
                             for (int j = 0; j < 2; ++j) {
-                                this.entityDropItem(Items.STICK);
+                                this.spawnAtLocation(Items.STICK);
                             }
 
-                            this.entityDropItem(Blocks.AIR);
+                            this.spawnAtLocation(Blocks.AIR);
                         }
                     }
                 }
 
                 this.fallDistance = 0.0F;
-            } else if (!this.world.getFluidState((new BlockPos(this.getPosX(), this.getPosY(), this.getPosZ()).down())).isTagged(FluidTags.WATER) && y < 0.0D) {
+            } else if (!this.level.getFluidState((new BlockPos(this.getX(), this.getY(), this.getZ()).below())).is(FluidTags.WATER) && y < 0.0D) {
                 this.fallDistance = (float) ((double) this.fallDistance - y);
             }
 
@@ -223,21 +223,21 @@ public class BYGBoatEntity extends BoatEntity {
     }
 
     @Override
-    public boolean attackEntityFrom(DamageSource source, float amount) {
+    public boolean hurt(DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) {
             return false;
-        } else if (!this.world.isRemote && !this.removed) {
-            if (source instanceof IndirectEntityDamageSource && source.getTrueSource() != null && this.isPassenger(source.getTrueSource())) {
+        } else if (!this.level.isClientSide && !this.removed) {
+            if (source instanceof IndirectEntityDamageSource && source.getEntity() != null && this.hasPassenger(source.getEntity())) {
                 return false;
             } else {
-                this.setForwardDirection(-this.getForwardDirection());
-                this.setTimeSinceHit(10);
-                this.setDamageTaken(this.getDamageTaken() + amount * 10.0F);
-                this.markVelocityChanged();
-                boolean flag = source.getTrueSource() instanceof PlayerEntity && ((PlayerEntity) source.getTrueSource()).abilities.isCreativeMode;
-                if (flag || this.getDamageTaken() > 40.0F) {
-                    if (!flag && this.world.getGameRules().getBoolean(GameRules.DO_ENTITY_DROPS)) {
-                        this.entityDropItem(this.getItemBoat());
+                this.setHurtDir(-this.getHurtDir());
+                this.setHurtTime(10);
+                this.setDamage(this.getDamage() + amount * 10.0F);
+                this.markHurt();
+                boolean flag = source.getEntity() instanceof PlayerEntity && ((PlayerEntity) source.getEntity()).abilities.instabuild;
+                if (flag || this.getDamage() > 40.0F) {
+                    if (!flag && this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+                        this.spawnAtLocation(this.getDropItem());
                     }
 
                     this.remove();
@@ -251,7 +251,7 @@ public class BYGBoatEntity extends BoatEntity {
     }
 
     @Override
-    public IPacket<?> createSpawnPacket() {
+    public IPacket<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 

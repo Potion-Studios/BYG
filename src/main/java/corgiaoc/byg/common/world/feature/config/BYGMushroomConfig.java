@@ -99,19 +99,19 @@ public class BYGMushroomConfig implements IFeatureConfig {
 
 
     public static class Builder {
-        private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
-        private BlockStateProvider mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+        private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
+        private BlockStateProvider mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
         private BlockStateProvider mushroom2Provider = this.mushroomProvider;
         private BlockStateProvider mushroom3Provider = this.mushroomProvider;
-        private BlockStateProvider pollenProvider = new SimpleBlockStateProvider(BYGBlocks.POLLEN_BLOCK.getDefaultState());
+        private BlockStateProvider pollenProvider = new SimpleBlockStateProvider(BYGBlocks.POLLEN_BLOCK.defaultBlockState());
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
 
         public Builder setStemBlock(Block block) {
             if (block != null)
-                stemProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                stemProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+                stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
@@ -120,16 +120,16 @@ public class BYGMushroomConfig implements IFeatureConfig {
             if (state != null)
                 stemProvider = new SimpleBlockStateProvider(state);
             else
-                stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState());
+                stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
 
         public Builder setMushroomBlock(Block block) {
             if (block != null)
-                mushroomProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                mushroomProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -138,7 +138,7 @@ public class BYGMushroomConfig implements IFeatureConfig {
             if (state != null)
                 mushroomProvider = new SimpleBlockStateProvider(state);
             else
-                mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -147,14 +147,14 @@ public class BYGMushroomConfig implements IFeatureConfig {
             if (statesList != null)
                 mushroomProvider = statesList;
             else
-                mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState());
+                mushroomProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
 
         public Builder setMushroom2Block(Block block) {
             if (block != null)
-                mushroom2Provider = new SimpleBlockStateProvider(block.getDefaultState());
+                mushroom2Provider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
                 mushroom2Provider = this.mushroomProvider;
 
@@ -172,7 +172,7 @@ public class BYGMushroomConfig implements IFeatureConfig {
 
         public Builder setMushroom3Block(Block block) {
             if (block != null)
-                mushroom3Provider = new SimpleBlockStateProvider(block.getDefaultState());
+                mushroom3Provider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
                 mushroom3Provider = this.mushroomProvider;
 
@@ -190,7 +190,7 @@ public class BYGMushroomConfig implements IFeatureConfig {
 
         public Builder setPollenBlock(Block block) {
             if (block != null)
-                mushroom3Provider = new SimpleBlockStateProvider(block.getDefaultState());
+                mushroom3Provider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
                 mushroom3Provider = this.mushroomProvider;
             return this;

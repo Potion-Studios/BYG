@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "byg:short_grass",
+    "byg:prairie_grass",
+    "byg:ether_grass",
+    "byg:tall_ether_grass",
+    "byg:scorched_grass",
+    "byg:beach_grass",
+    "byg:short_beach_grass",
+    "byg:wilted_grass",
+    "byg:weed_grass",
+    "byg:winter_grass",
+    "byg:tall_prairie_grass",
+    "byg:short_grass"
+  ]
+}

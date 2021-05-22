@@ -22,17 +22,17 @@ public class DatapackLayer {
     static int stopLoggerSpamVoid = 0;
 
     public Biome sampleNether(Registry<Biome> registry, int x, int z) {
-        int biomeID = this.lazyArea.getValue(x, z);
-        Biome biome = registry.getByValue(biomeID);
+        int biomeID = this.lazyArea.get(x, z);
+        Biome biome = registry.byId(biomeID);
         if (biome == null) {
-            if (SharedConstants.developmentMode) {
-                throw Util.pauseDevMode(new IllegalStateException("Unknown biome id: " + biomeID));
+            if (SharedConstants.IS_RUNNING_IN_IDE) {
+                throw Util.pauseInIde(new IllegalStateException("Unknown biome id: " + biomeID));
             } else {
                 if (stopLoggerSpamNether <= 50) {
                     BYG.LOGGER.warn("BYG's Nether Layer: Unknown biome id: " + biomeID);
                     stopLoggerSpamNether++;
                 }
-                return registry.getValueForKey(BiomeRegistry.getKeyFromID(8));
+                return registry.get(BiomeRegistry.byId(8));
             }
         } else {
             return biome;
@@ -42,17 +42,17 @@ public class DatapackLayer {
 
 
     public Biome sampleEnd(Registry<Biome> registry, int x, int z) {
-        int biomeID = this.lazyArea.getValue(x, z);
-        Biome biome = registry.getByValue(biomeID);
+        int biomeID = this.lazyArea.get(x, z);
+        Biome biome = registry.byId(biomeID);
         if (biome == null) {
-            if (SharedConstants.developmentMode) {
-                throw Util.pauseDevMode(new IllegalStateException("Unknown biome id: " + biomeID));
+            if (SharedConstants.IS_RUNNING_IN_IDE) {
+                throw Util.pauseInIde(new IllegalStateException("Unknown biome id: " + biomeID));
             } else {
                 if (stopLoggerSpamEnd <= 50) {
                     BYG.LOGGER.warn("BYG's End Layer: Unknown biome id: " + biomeID);
                     stopLoggerSpamEnd++;
                 }
-                return registry.getValueForKey(BiomeRegistry.getKeyFromID(43));
+                return registry.get(BiomeRegistry.byId(43));
             }
         } else {
             return biome;
@@ -60,17 +60,17 @@ public class DatapackLayer {
     }
 
     public Biome sampleEndVoid(Registry<Biome> registry, int x, int z) {
-        int biomeID = this.lazyArea.getValue(x, z);
-        Biome biome = registry.getByValue(biomeID);
+        int biomeID = this.lazyArea.get(x, z);
+        Biome biome = registry.byId(biomeID);
         if (biome == null) {
-            if (SharedConstants.developmentMode) {
-                throw Util.pauseDevMode(new IllegalStateException("Unknown biome id: " + biomeID));
+            if (SharedConstants.IS_RUNNING_IN_IDE) {
+                throw Util.pauseInIde(new IllegalStateException("Unknown biome id: " + biomeID));
             } else {
                 if (stopLoggerSpamVoid <= 50) {
                     BYG.LOGGER.warn("BYG's End Void Layer: Unknown biome id: " + biomeID);
                     stopLoggerSpamVoid++;
                 }
-                return registry.getValueForKey(BiomeRegistry.getKeyFromID(40));
+                return registry.get(BiomeRegistry.byId(40));
             }
         } else {
             return biome;

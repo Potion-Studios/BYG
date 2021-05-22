@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:soapstone_bricks"
+  },
+  "result": "byg:soapstone_brick_slab",
+  "count": 2
+}

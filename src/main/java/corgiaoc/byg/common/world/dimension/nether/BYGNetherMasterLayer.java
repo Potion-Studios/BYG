@@ -13,11 +13,11 @@ public class BYGNetherMasterLayer implements IAreaTransformer0 {
     }
 
     @Override
-    public int apply(INoiseRandom rand, int x, int y) {
+    public int applyPixel(INoiseRandom rand, int x, int y) {
         return getRandomNetherBiomes(this.biomeRegistry, rand);
     }
 
     public static int getRandomNetherBiomes(Registry<Biome> biomeRegistry, INoiseRandom rand) {
-        return biomeRegistry.getId(biomeRegistry.getOptional(BYGNetherBiomeProvider.NETHER_BIOMES.get(rand.random(BYGNetherBiomeProvider.NETHER_BIOMES.size()))).orElseThrow(RuntimeException::new));
+        return biomeRegistry.getId(biomeRegistry.getOptional(BYGNetherBiomeSource.NETHER_BIOMES.get(rand.nextRandom(BYGNetherBiomeSource.NETHER_BIOMES.size()))).orElseThrow(RuntimeException::new));
     }
 }

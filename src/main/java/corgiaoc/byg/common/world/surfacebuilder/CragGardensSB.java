@@ -23,7 +23,7 @@ public class CragGardensSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     protected PerlinNoiseGenerator noiseGen;
 
     @Override
-    public void setSeed(long seed) {
+    public void initNoise(long seed) {
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         if (this.noiseSeed != seed || this.noiseGen == null) {
             this.noiseGen = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
@@ -34,8 +34,8 @@ public class CragGardensSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
 
     @Override
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-        this.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, config.getTop(), config.getUnder(), config.getUnderWaterMaterial(), seaLevel);
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+        this.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, config.getTopMaterial(), config.getUnderMaterial(), config.getUnderwaterMaterial(), seaLevel);
     }
 
 
@@ -44,22 +44,34 @@ public class CragGardensSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         int z = zStart & 15;
         BlockPos.Mutable blockpos$Mutable = new BlockPos.Mutable();
         double baseRangeHeightMultiplier = 5.0D;
-        double samplePerlin1 = (this.noiseGen.noiseAt((double) xStart * 0.01D, (double) zStart * 0.01D, true) + 1) * baseRangeHeightMultiplier;
-        double samplePerlin2 = (this.noiseGen.noiseAt((double) xStart * 0.007D, (double) zStart * 0.007D, true) + 1) * baseRangeHeightMultiplier;
+        double samplePerlin1 = (this.noiseGen.getValue((double) xStart * 0.01D, (double) zStart * 0.01D, true) + 1) * baseRangeHeightMultiplier;
+        double samplePerlin2 = (this.noiseGen.getValue((double) xStart * 0.007D, (double) zStart * 0.007D, true) + 1) * baseRangeHeightMultiplier;
 
         int noise1 = ((int) (samplePerlin1)) * 5;
         int noise2 = ((int) (samplePerlin2)) * 3;
+        int noise3 = ((int) Math.abs(noise));
         int startHeight = noise1 + noise2 + 40;
 
-        for (int y = landHeight - 20; y <= startHeight; ++y) {
-            blockpos$Mutable.setPos(x, y, z);
+        int biomeFloor = (int) (biomeIn.getDepth() * biomeIn.getScale());
+        int surfaceFloorDiff = landHeight - biomeFloor;
+        int maxNoise = surfaceFloorDiff - 18;
 
-            if (y <= landHeight - 3 - random.nextInt(3)) {
-                chunkIn.setBlockState(blockpos$Mutable, bottomBlock, false);
-            } else if (y == startHeight && random.nextInt(3) == 0) {
-                chunkIn.setBlockState(blockpos$Mutable, topBlock, false);
-            } else {
-                chunkIn.setBlockState(blockpos$Mutable, middleBlock, false);
+        if (noise > 4) noise3 = maxNoise;
+
+        int heightSnapshot = landHeight - 18 - noise3;
+
+        if (landHeight > 0) {
+            if (heightSnapshot < 0) heightSnapshot = 0;
+            for (int y = heightSnapshot; y <= startHeight; ++y) {
+                blockpos$Mutable.set(x, y, z);
+
+                if (y <= landHeight - 3 - random.nextInt(6)) {
+                    chunkIn.setBlockState(blockpos$Mutable, bottomBlock, false);
+                } else if (y == startHeight && random.nextInt(3) == 0) {
+                    chunkIn.setBlockState(blockpos$Mutable, topBlock, false);
+                } else {
+                    chunkIn.setBlockState(blockpos$Mutable, middleBlock, false);
+                }
             }
         }
     }

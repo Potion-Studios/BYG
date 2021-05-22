@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/imparius_vine_plant" },
+      { "model": "byg:block/imparius_vine_plant2" }
+    ]
+  }
+}

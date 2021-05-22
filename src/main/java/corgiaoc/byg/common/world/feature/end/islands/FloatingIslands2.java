@@ -21,7 +21,7 @@ public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
         double radius = 15; /*rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius() - 5*/
@@ -35,15 +35,15 @@ public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
         for (double x = -halfRadius - 8; x <= halfRadius + 8; x++) {
             for (double y = -radius - 2; y <= radius; y++) {
                 for (double z = -halfRadius - 8; z <= halfRadius + 8; z++) {
-                    mutable.setPos(pos).move((int) x, (int) y, (int) z);
+                    mutable.set(pos).move((int) x, (int) y, (int) z);
                     double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double distanceSqt1 = x * x + y * y + z * z + noise * noise;
                     if (distanceSqt1 <= halfRadius * radius) {
                         if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
                             if (y == radius)
-                                world.setBlockState(mutable, config.getTopBlockProvider().getBlockState(rand, mutable), 2);
+                                world.setBlock(mutable, config.getTopBlockProvider().getState(rand, mutable), 2);
                             else
-                                world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                                world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
 
                         }
                     }
@@ -55,14 +55,14 @@ public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
         for (double x = -radius - 8; x <= radius + 8; x++) {
             for (double y = 1; y <= radius + 11; y++) {
                 for (double z = -radius - 8; z <= radius + 8; z++) {
-                    mutable.setPos(pos).move((int) x, (int) y - 22, (int) z);
+                    mutable.set(pos).move((int) x, (int) y - 22, (int) z);
                     double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double scaledNoise = (noise) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (y == 26)
-                            world.setBlockState(mutable, config.getTopBlockProvider().getBlockState(rand, mutable), 2);
+                            world.setBlock(mutable, config.getTopBlockProvider().getState(rand, mutable), 2);
                         else
-                            world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                            world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
                     }
                 }
             }

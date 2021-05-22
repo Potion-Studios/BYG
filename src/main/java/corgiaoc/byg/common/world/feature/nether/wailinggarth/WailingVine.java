@@ -23,25 +23,25 @@ public class WailingVine extends Feature<NoFeatureConfig> {
     }
 
     //place
-    public boolean generate(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         int randLength = rand.nextInt(17) + 3;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
-        BlockPos.Mutable block = new BlockPos.Mutable().setPos(blockPos);
-        BlockPos.Mutable mainMutable = new BlockPos.Mutable().setPos(block);
-        BlockState storedState = BYGBlocks.WAILING_VINES.getDefaultState();
+        BlockPos.Mutable block = new BlockPos.Mutable().set(blockPos);
+        BlockPos.Mutable mainMutable = new BlockPos.Mutable().set(block);
+        BlockState storedState = BYGBlocks.WAILING_VINES.defaultBlockState();
 
         for (int i = 0; i < 128; ++i)
-            if (!worldIn.isAirBlock(pos)) {
+            if (!worldIn.isEmptyBlock(pos)) {
             return false;
-        } else if (!worldIn.getBlockState(pos.up()).isIn(Tags.Blocks.NETHERRACK) && !(worldIn.getDimensionType() == DimensionType.NETHER_TYPE)) {
+        } else if (!worldIn.getBlockState(pos.above()).is(Tags.Blocks.NETHERRACK) && !(worldIn.dimensionType() == DimensionType.DEFAULT_NETHER)) {
             return false;
         } else {
             for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {
                 BlockPos.Mutable mutable = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
-                if (worldIn.isAirBlock(mutable)) {
+                if (worldIn.isEmptyBlock(mutable)) {
                     for (Direction direction : Direction.values()) {
-                        if (direction != Direction.DOWN && VineBlock.canAttachTo(worldIn, mutable, direction)) {
-                            worldIn.setBlockState(mutable, storedState.with(VineBlock.getPropertyFor(direction), Boolean.valueOf(true)), 2);
+                        if (direction != Direction.DOWN && VineBlock.isAcceptableNeighbour(worldIn, mutable, direction)) {
+                            worldIn.setBlock(mutable, storedState.setValue(VineBlock.getPropertyForFace(direction), Boolean.valueOf(true)), 2);
                             break;
                             }
                         }

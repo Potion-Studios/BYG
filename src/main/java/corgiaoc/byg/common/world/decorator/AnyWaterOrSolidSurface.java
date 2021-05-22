@@ -19,13 +19,13 @@ public class AnyWaterOrSolidSurface extends Placement<FeatureSpreadConfig> {
 
     @Override
     public Stream<BlockPos> getPositions(WorldDecoratingHelper ctx, Random random, FeatureSpreadConfig config, BlockPos pos) {
-        return IntStream.range(0, config.func_242799_a().func_242259_a(random)).mapToObj((obj) -> {
+        return IntStream.range(0, config.count().sample(random)).mapToObj((obj) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();
-            BlockPos.Mutable mutable = new BlockPos.Mutable(x, ctx.field_242889_a.getHeight(), z);
-            while (mutable.getY() > 0 && !ctx.func_242894_a(mutable).isOpaqueCube(ctx.field_242889_a, mutable) && ctx.func_242894_a(mutable).getFluidState().isEmpty())
+            BlockPos.Mutable mutable = new BlockPos.Mutable(x, ctx.level.getMaxBuildHeight(), z);
+            while (mutable.getY() > 0 && !ctx.getBlockState(mutable).isSolidRender(ctx.level, mutable) && ctx.getBlockState(mutable).getFluidState().isEmpty())
                 mutable.move(Direction.DOWN);
-            return mutable.toImmutable();
+            return mutable.immutable();
         });
     }
 }

@@ -12,7 +12,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.block.AbstractBlock;
 
 public class AmaranthBlock extends BushBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
+    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
     public AmaranthBlock(AbstractBlock.Properties properties) {
         super(properties);
@@ -20,7 +20,7 @@ public class AmaranthBlock extends BushBlock {
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         Vector3d Vector3d = state.getOffset(worldIn, pos);
-        return SHAPE.withOffset(Vector3d.x, Vector3d.y, Vector3d.z);
+        return SHAPE.move(Vector3d.x, Vector3d.y, Vector3d.z);
     }
 
     /**

@@ -16,7 +16,7 @@ import java.util.Random;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class BlueNetherrackBlock extends Block implements IGrowable {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     protected BlueNetherrackBlock(Properties builder) {
         super(builder);
@@ -26,10 +26,10 @@ public class BlueNetherrackBlock extends Block implements IGrowable {
     /**
      * Whether this IGrowable can grow
      */
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        if (worldIn.getBlockState(pos.up()).propagatesSkylightDown(worldIn, pos)) {
-            for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-1, -1, -1), pos.add(1, 1, 1))) {
-                if (worldIn.getBlockState(blockpos).isIn(BlockTags.NYLIUM)) {
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+        if (worldIn.getBlockState(pos.above()).propagatesSkylightDown(worldIn, pos)) {
+            for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))) {
+                if (worldIn.getBlockState(blockpos).is(BlockTags.NYLIUM)) {
                     return true;
                 }
             }
@@ -38,17 +38,17 @@ public class BlueNetherrackBlock extends Block implements IGrowable {
         return false;
     }
 
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
         return true;
     }
 
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
         boolean flag = false;
         boolean flag1 = false;
 
-        for (BlockPos blockpos : BlockPos.getAllInBoxMutable(pos.add(-1, -1, -1), pos.add(1, 1, 1))) {
+        for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))) {
             BlockState blockstate = worldIn.getBlockState(blockpos);
-            if (blockstate.isIn(BYGBlocks.EMBUR_NYLIUM)) {
+            if (blockstate.is(BYGBlocks.EMBUR_NYLIUM)) {
                 flag1 = true;
             }
 
@@ -58,11 +58,11 @@ public class BlueNetherrackBlock extends Block implements IGrowable {
         }
 
         if (flag1 && flag) {
-            worldIn.setBlockState(pos, rand.nextBoolean() ? BYGBlocks.EMBUR_NYLIUM.getDefaultState() : BYGBlocks.EMBUR_NYLIUM.getDefaultState(), 3);
+            worldIn.setBlock(pos, rand.nextBoolean() ? BYGBlocks.EMBUR_NYLIUM.defaultBlockState() : BYGBlocks.EMBUR_NYLIUM.defaultBlockState(), 3);
         } else if (flag1) {
-            worldIn.setBlockState(pos, BYGBlocks.EMBUR_NYLIUM.getDefaultState(), 3);
+            worldIn.setBlock(pos, BYGBlocks.EMBUR_NYLIUM.defaultBlockState(), 3);
         } else if (flag) {
-            worldIn.setBlockState(pos, BYGBlocks.EMBUR_NYLIUM.getDefaultState(), 3);
+            worldIn.setBlock(pos, BYGBlocks.EMBUR_NYLIUM.defaultBlockState(), 3);
         }
 
     }

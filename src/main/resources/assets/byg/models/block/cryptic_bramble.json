@@ -1,0 +1,68 @@
+{
+  "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+  "textures": {
+    "ether_grass": "byg:block/cryptic_bramble",
+    "particle": "byg:block/cryptic_bramble"
+  },
+  "elements": [
+    {
+      "name": "NW",
+      "shade": false,
+      "from": [ 0, 0, 5 ],
+      "to": [ 16, 16, 5 ],
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0 },
+      "faces": {
+        "north": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 16 ] },
+        "east": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] },
+        "south": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 16 ] },
+        "west": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] },
+        "down": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 0 ] }
+      }
+    },
+    {
+      "name": "SE",
+      "shade": false,
+      "from": [ 0, 0, 11 ],
+      "to": [ 16, 16, 11 ],
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0 },
+      "faces": {
+        "north": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 16 ] },
+        "east": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] },
+        "south": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 16 ] },
+        "west": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] },
+        "up": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 0 ] },
+        "down": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 0 ] }
+      }
+    },
+    {
+      "name": "SW",
+      "shade": false,
+      "from": [ 5, 0, 0 ],
+      "to": [ 5, 16, 16 ],
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0 },
+      "faces": {
+        "north": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] },
+        "east": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 16 ] },
+        "south": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] },
+        "west": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 16 ] },
+        "up": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] },
+        "down": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] }
+      }
+    },
+    {
+      "name": "NE",
+      "shade": false,
+      "from": [ 11, 0, 0 ],
+      "to": [ 11, 16, 16 ],
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0 },
+      "faces": {
+        "north": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] },
+        "east": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 16 ] },
+        "south": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] },
+        "west": { "texture": "#ether_grass", "uv": [ 0, 0, 16, 16 ] },
+        "up": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] },
+        "down": { "texture": "#ether_grass", "uv": [ 0, 0, 0, 16 ] }
+      }
+    }
+  ]
+}

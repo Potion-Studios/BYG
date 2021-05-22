@@ -61,16 +61,16 @@ public class FloatingIslandConfig implements IFeatureConfig {
     }
 
     public static class Builder {
-        private BlockStateProvider topBlockProvider = new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.getDefaultState());
-        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+        private BlockStateProvider topBlockProvider = new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.defaultBlockState());
+        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
         private int minRadius = 1;
         private int maxRadius = 3;
 
         public Builder setTopBlock(Block block) {
             if (block != null)
-                topBlockProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                topBlockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -78,7 +78,7 @@ public class FloatingIslandConfig implements IFeatureConfig {
             if (state != null)
                 topBlockProvider = new SimpleBlockStateProvider(state);
             else
-                topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -86,15 +86,15 @@ public class FloatingIslandConfig implements IFeatureConfig {
             if (provider != null)
                 topBlockProvider = provider;
             else
-                topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
         public Builder setBlock(Block block) {
             if (block != null)
-                blockProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -102,7 +102,7 @@ public class FloatingIslandConfig implements IFeatureConfig {
             if (state != null)
                 blockProvider = new SimpleBlockStateProvider(state);
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -110,7 +110,7 @@ public class FloatingIslandConfig implements IFeatureConfig {
             if (provider != null)
                 blockProvider = provider;
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 

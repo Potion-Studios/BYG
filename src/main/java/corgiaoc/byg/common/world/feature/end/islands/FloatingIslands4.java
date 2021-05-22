@@ -22,14 +22,14 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
 
         if (world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
             return false;
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable().setPos(pos);
+        BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
 
         double radius = 11;
         double size = radius / 3;
@@ -39,14 +39,14 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
         for (double x = -radius - 5; x <= radius + 5; x++) {
             for (double y = 1; y <= radius + 5; y++) {
                 for (double z = -radius - 5; z <= radius + 5; z++) {
-                    mutable.setPos(pos).move((int) x, (int) y, (int) z);
+                    mutable.set(pos).move((int) x, (int) y, (int) z);
                     double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double distanceSqt1 = x * x + y * y + z * z + noise * noise;
                     if (distanceSqt1 <= radius * radius) {
                         if (y == 1)
-                            world.setBlockState(mutable, config.getTopBlockProvider().getBlockState(rand, mutable), 2);
+                            world.setBlock(mutable, config.getTopBlockProvider().getState(rand, mutable), 2);
                         else
-                            world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                            world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
 
                     }
                 }
@@ -57,11 +57,11 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
         for (double x = -radiusHalved; x <= radiusHalved; x++) {
             for (double y = 2; y <= size; y++) {
                 for (double z = -radiusHalved; z <= radiusHalved; z++) {
-                    mutable.setPos(pos).move((int) x, (int) y, (int) z);
+                    mutable.set(pos).move((int) x, (int) y, (int) z);
                     double distanceSqt1 = x * x + y * y + z * z;
                     if (distanceSqt1 <= radiusHalved * radiusHalved) {
-                        world.setBlockState(mutable, Blocks.WATER.getDefaultState(), 2);
-                        world.getPendingFluidTicks().scheduleTick(mutable, Fluids.WATER, 0);
+                        world.setBlock(mutable, Blocks.WATER.defaultBlockState(), 2);
+                        world.getLiquidTicks().scheduleTick(mutable, Fluids.WATER, 0);
                     }
                 }
             }

@@ -1,0 +1,135 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+    "textures": {
+        "oddity_flower": "byg:block/oddity_flower",
+        "oddity_flower_base": "byg:block/oddity_flower_base"
+    },
+    "elements": [
+        {
+            "name": "SideN",
+            "from": [ 0, 2, 3 ], 
+            "to": [ 16, 18, 3 ], 
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": -22.5, "rescale": true },
+            "faces": {
+                "north": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "east": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "south": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "up": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 0 ] },
+                "down": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 0 ], "cullface": "down" }
+            }
+        },
+        {
+            "name": "SideS",
+            "from": [ 0, 2, 13 ], 
+            "to": [ 16, 18, 13 ], 
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": 22.5, "rescale": true },
+            "faces": {
+                "north": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "east": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "south": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "up": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 0 ] },
+                "down": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 0 ] }
+            }
+        },
+        {
+            "name": "SideW",
+            "from": [ 3, 2, 0 ], 
+            "to": [ 3, 18, 16 ], 
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": 22.5, "rescale": true },
+            "faces": {
+                "north": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "east": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "west": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "down": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] }
+            }
+        },
+        {
+            "name": "SideE",
+            "from": [ 13, 2, 0 ], 
+            "to": [ 13, 18, 16 ], 
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": -22.5, "rescale": true },
+            "faces": {
+                "north": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "east": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "west": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "down": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] }
+            }
+        },
+        {
+            "name": "SideN",
+            "from": [ 0, 4, 1 ], 
+            "to": [ 16, 20, 1 ], 
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": -45.0, "rescale": true },
+            "faces": {
+                "north": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "east": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "south": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "up": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 0 ] },
+                "down": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 0 ], "cullface": "down" }
+            }
+        },
+        {
+            "name": "SideS",
+            "from": [ 0, 4, 15 ], 
+            "to": [ 16, 20, 15 ], 
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": 45.0, "rescale": true },
+            "faces": {
+                "north": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "east": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "south": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "up": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 0 ] },
+                "down": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 0 ] }
+            }
+        },
+        {
+            "name": "SideW",
+            "from": [ 1, 4, 0 ], 
+            "to": [ 1, 20, 16 ], 
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": 45.0, "rescale": true },
+            "faces": {
+                "north": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "east": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "west": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "down": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] }
+            }
+        },
+        {
+            "name": "SideE",
+            "from": [ 15, 4, 0 ], 
+            "to": [ 15, 20, 16 ], 
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": -45.0, "rescale": true },
+            "faces": {
+                "north": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "east": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "west": { "texture": "#oddity_flower", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] },
+                "down": { "texture": "#oddity_flower", "uv": [ 0, 0, 0, 16 ] }
+            }
+        },
+        {
+            "name": "Base",
+            "from": [ 0, 0.1, 0 ], 
+            "to": [ 16, 0.1, 17 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#oddity_flower_base", "uv": [ 0, 0, 16, 0 ] },
+                "east": { "texture": "#oddity_flower_base", "uv": [ 0, 0, 16, 0 ] },
+                "south": { "texture": "#oddity_flower_base", "uv": [ 0, 0, 16, 0 ] },
+                "west": { "texture": "#oddity_flower_base", "uv": [ 0, 0, 16, 0 ] },
+                "up": { "texture": "#oddity_flower_base", "uv": [ 0, 0, 16, 16 ] },
+                "down": { "texture": "#oddity_flower_base", "uv": [ 0, 0, 16, 16 ] }
+            }
+        }
+    ]
+}

@@ -31,7 +31,7 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world,  ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockConfig config) {
+    public boolean place(ISeedReader world,  ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockConfig config) {
         long randomLong = rand.nextLong();
         setSeed(world.getSeed() + 215465128 + randomLong);
         double noise;
@@ -44,7 +44,7 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
 
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
-                mutable.setPos(position.getX() + x, 0, position.getZ() + z);
+                mutable.set(position.getX() + x, 0, position.getZ() + z);
 
                 noise2 = (noiseGen.noise3_Classic(mutable.getX() * 0.04D, mutable.getY() * 0.04D, mutable.getZ() * 0.04D) + 1D) * 5D;
                 noise = Math.pow(Math.abs(noiseGen.sample2D(mutable.getX() * 0.013D, mutable.getZ() * 0.013D)) + noise2 * 0.005D, 7);
@@ -55,7 +55,7 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
 
                 mutable.move(Direction.UP, maximumHeight);
                 for (int y = maximumHeight; y >= terrainHeight; y--) {
-                    world.setBlockState(mutable, config.getBlockProvider().getBlockState(rand, mutable), 2);
+                    world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
                     mutable.move(Direction.DOWN);
                 }
             }

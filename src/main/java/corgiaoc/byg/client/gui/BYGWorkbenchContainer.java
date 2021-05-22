@@ -17,14 +17,14 @@ public class BYGWorkbenchContainer extends WorkbenchContainer {
     }
 
     protected static boolean isWithinUsableDistance(IWorldPosCallable worldPos, PlayerEntity playerIn, Block targetBlock) {
-        return worldPos.applyOrElse((world, pos) ->
+        return worldPos.evaluate((world, pos) ->
         {
-            return world.getBlockState(pos).getBlock() == targetBlock && playerIn.getDistanceSq((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D) <= 64.0D;
+            return world.getBlockState(pos).getBlock() == targetBlock && playerIn.distanceToSqr((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D) <= 64.0D;
         }, true);
     }
 
     @Override
-    public boolean canInteractWith(PlayerEntity playerIn) {
+    public boolean stillValid(PlayerEntity playerIn) {
         return isWithinUsableDistance(this.worldPos, playerIn, this.workbench);
     }
 }

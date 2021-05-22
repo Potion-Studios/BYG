@@ -2,14 +2,16 @@ package corgiaoc.byg.common.properties.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 
-import net.minecraft.block.AbstractBlock.Properties;
+import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class BYGFrostMagmaBlock extends Block {
@@ -17,43 +19,33 @@ public class BYGFrostMagmaBlock extends Block {
         super(properties);
     }
 
-    public void onEntityWalk(World block, BlockPos pos, Entity entity) {
-        if (!entity.isImmuneToFire() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
-            entity.attackEntityFrom(DamageSource.HOT_FLOOR, 1.0F);
+    public void stepOn(World block, BlockPos pos, Entity entity) {
+        if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+            entity.hurt(DamageSource.HOT_FLOOR, 1.0F);
         }
-
-//        if (entity instanceof LivingEntity) {
-//            LivingEntity livingentity = (LivingEntity) entity;
-//            if (!entity.isImmuneToFire() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
-//                livingentity.addPotionEffect(new EffectInstance(Effects.LEVITATION, 20, 30));
-//            }
-//        }
-
-
-        super.onEntityWalk(block, pos, entity);
+        super.stepOn(block, pos, entity);
     }
 
-//    @OnlyIn(Dist.CLIENT)
-//    public void animateTick(BlockState blockstate, World world, BlockPos pos, Random rand) {
-//        VoxelShape shape = this.getShape(blockstate, world, pos, ISelectionContext.dummy());
-//        Vector3d Vector3d = shape.getBoundingBox().getCenter();
-//        double getX = (double) pos.getX() + Vector3d.x;
-//        double getZ = (double) pos.getZ() + Vector3d.z;
-//
-//        for (int idx = 0; idx < 3; ++idx) {
-//            if (rand.nextBoolean()) {
-//                world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, getX + (double) (rand.nextFloat() / 5.0F), (double) pos.getY() + (0.5D - (double) rand.nextFloat()), getZ + (double) (rand.nextFloat() / 5.0F), 0.0D, 0.04D, 0.0D);
-//            }
-//        }
-//
-//    }
+    @Override
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
+        BlockState blockAbove = world.getBlockState(pos.above());
+        if (blockAbove.getBlock() == Blocks.WATER) {
+            world.setBlock(pos.above(), Blocks.ICE.defaultBlockState(), 2);
+        }
+
+        if (rand.nextInt(5) == 0) {
+            if (blockAbove.getBlock() == Blocks.ICE) {
+                world.setBlock(pos.above(), Blocks.PACKED_ICE.defaultBlockState(), 2);
+            }
+        }
+    }
 
     public int tickRate() {
         return 20;
     }
 
-    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState state2, boolean isMoving) {
-        world.getPendingBlockTicks().scheduleTick(pos, this, this.tickRate());
+    public void onPlace(BlockState state, World world, BlockPos pos, BlockState state2, boolean isMoving) {
+        world.getBlockTicks().scheduleTick(pos, this, this.tickRate());
     }
 
 }

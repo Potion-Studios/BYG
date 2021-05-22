@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:chiseled_therium"
+    },
+    "X": {
+      "item": "minecraft:honeycomb"
+    }
+  },
+  "result": {
+    "item": "byg:shiny_chiseled_therium",
+    "count": 8
+  }
+}

@@ -26,24 +26,24 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
     }
 
     @Override
-    public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
-        return useContext.getItem().getItem() == this.asItem();
+    public boolean canBeReplaced(BlockState state, BlockItemUseContext useContext) {
+        return useContext.getItemInHand().getItem() == this.asItem();
     }
 
     public static int calculateDISTANCE(IBlockReader blockReader, BlockPos pos) {
-        BlockPos.Mutable blockpos$mutable = (new BlockPos.Mutable().setPos(pos)).move(Direction.DOWN);
+        BlockPos.Mutable blockpos$mutable = (new BlockPos.Mutable().set(pos)).move(Direction.DOWN);
         BlockState blockstate = blockReader.getBlockState(blockpos$mutable);
         int i = 7;
         if (blockstate.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING) {
-            i = blockstate.get(DISTANCE);
-        } else if (blockstate.isSolidSide(blockReader, blockpos$mutable, Direction.UP)) {
+            i = blockstate.getValue(DISTANCE);
+        } else if (blockstate.isFaceSturdy(blockReader, blockpos$mutable, Direction.UP)) {
             return 0;
         }
 
         for (Direction direction : Direction.Plane.HORIZONTAL) {
-            BlockState blockstate1 = blockReader.getBlockState(blockpos$mutable.setPos(pos).move(direction));
+            BlockState blockstate1 = blockReader.getBlockState(blockpos$mutable.set(pos).move(direction));
             if (blockstate1.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING) {
-                i = Math.min(i, blockstate1.get(DISTANCE) + 1);
+                i = Math.min(i, blockstate1.getValue(DISTANCE) + 1);
                 if (i == 1) {
                     break;
                 }
@@ -55,41 +55,41 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        BlockPos blockpos = context.getPos();
-        World world = context.getWorld();
+        BlockPos blockpos = context.getClickedPos();
+        World world = context.getLevel();
         int i = calculateDISTANCE(world, blockpos);
-        return this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(world.getFluidState(blockpos).getFluid() == Fluids.WATER)).with(DISTANCE, Integer.valueOf(i)).with(BOTTOM, Boolean.valueOf(this.shouldBeBOTTOM(world, blockpos, i)));
+        return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(world.getFluidState(blockpos).getType() == Fluids.WATER)).setValue(DISTANCE, Integer.valueOf(i)).setValue(BOTTOM, Boolean.valueOf(this.shouldBeBOTTOM(world, blockpos, i)));
     }
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         int i = calculateDISTANCE(worldIn, pos);
-        BlockState blockstate = state.with(DISTANCE, Integer.valueOf(i)).with(BOTTOM, Boolean.valueOf(this.shouldBeBOTTOM(worldIn, pos, i)));
-        if (blockstate.get(DISTANCE) == 7) {
-            if (state.get(DISTANCE) == 7) {
-                worldIn.addEntity(new FallingBlockEntity(worldIn, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, blockstate.with(WATERLOGGED, false)));
+        BlockState blockstate = state.setValue(DISTANCE, Integer.valueOf(i)).setValue(BOTTOM, Boolean.valueOf(this.shouldBeBOTTOM(worldIn, pos, i)));
+        if (blockstate.getValue(DISTANCE) == 7) {
+            if (state.getValue(DISTANCE) == 7) {
+                worldIn.addFreshEntity(new FallingBlockEntity(worldIn, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, blockstate.setValue(WATERLOGGED, false)));
             } else {
                 worldIn.destroyBlock(pos, true);
             }
         } else if (state != blockstate) {
-            worldIn.setBlockState(pos, blockstate, 3);
+            worldIn.setBlock(pos, blockstate, 3);
         }
 
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
         return calculateDISTANCE(worldIn, pos) < 7;
     }
 
     private boolean shouldBeBOTTOM(IBlockReader blockReader, BlockPos pos, int DISTANCE) {
-        return DISTANCE > 0 && blockReader.getBlockState(pos.down()).getBlock() != this;
+        return DISTANCE > 0 && blockReader.getBlockState(pos.below()).getBlock() != this;
     }
 
     @Override
-    public void onBlockAdded(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
-        if (!worldIn.isRemote) {
-            worldIn.getPendingBlockTicks().scheduleTick(pos, this, 1);
+    public void onPlace(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
+        if (!worldIn.isClientSide) {
+            worldIn.getBlockTicks().scheduleTick(pos, this, 1);
         }
 
     }

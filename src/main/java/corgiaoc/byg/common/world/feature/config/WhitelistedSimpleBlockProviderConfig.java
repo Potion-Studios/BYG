@@ -18,7 +18,7 @@ public class WhitelistedSimpleBlockProviderConfig implements IFeatureConfig {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
             return config.blockProvider;
         }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
-            return config.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList());
+            return config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList());
         })).apply(codecRecorder, WhitelistedSimpleBlockProviderConfig::new);
     });
 

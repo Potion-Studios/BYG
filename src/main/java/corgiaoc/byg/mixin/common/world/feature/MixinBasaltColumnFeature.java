@@ -14,12 +14,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BasaltColumnFeature.class)
 public abstract class MixinBasaltColumnFeature {
 
-    @Inject(at = @At("HEAD"), method = "func_236247_a_(Lnet/minecraft/world/IWorld;ILnet/minecraft/util/math/BlockPos;)Z", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "isAirOrLavaOcean(Lnet/minecraft/world/IWorld;ILnet/minecraft/util/math/BlockPos;)Z", cancellable = true)
     private static void injectWater(IWorld world, int topY, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        if (world.getDimensionType() == DimensionType.OVERWORLD_TYPE) {
+        if (world.dimensionType() == DimensionType.DEFAULT_OVERWORLD) {
             cir.cancel();
             BlockState blockstate = world.getBlockState(pos);
-            cir.setReturnValue(blockstate.isAir() || blockstate.isIn(Blocks.WATER) || blockstate.isIn(Blocks.LAVA) && pos.getY() <= topY);
+            cir.setReturnValue(blockstate.isAir() || blockstate.is(Blocks.WATER) || blockstate.is(Blocks.LAVA) && pos.getY() <= topY);
         }
     }
 }

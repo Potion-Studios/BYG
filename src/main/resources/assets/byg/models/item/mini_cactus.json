@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:block/plant_cactus_mini"
+    "layer0": "byg:block/mini_cactus"
   }
 }

@@ -6,6 +6,7 @@
     "byg:mud_bricks",
     "byg:mud_block",
     "byg:meadow_grass_block",
-    "byg:peat"
+    "byg:peat",
+    "#forge:sand"
   ]
 }

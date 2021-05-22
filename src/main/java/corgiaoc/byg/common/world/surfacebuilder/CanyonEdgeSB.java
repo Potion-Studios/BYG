@@ -17,23 +17,23 @@ public class CanyonEdgeSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         super(config);
     }
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         int xPos = x & 15;
         int zPos = z & 15;
         for (int yPos = startHeight + 100; yPos >= seaLevel - 3; --yPos) {
-            mutable.setPos(xPos, yPos, zPos);
+            mutable.set(xPos, yPos, zPos);
             if (yPos >= seaLevel - 1)
-                chunkIn.setBlockState(mutable, Blocks.AIR.getDefaultState(), false);
+                chunkIn.setBlockState(mutable, Blocks.AIR.defaultBlockState(), false);
         }
 
         for (int y = seaLevel - 1; y >= seaLevel - 20; y--) {
-            mutable.setPos(xPos, y, zPos);
+            mutable.set(xPos, y, zPos);
             if (chunkIn.getBlockState(mutable).isAir()) {
-                chunkIn.setBlockState(mutable, Blocks.WATER.getDefaultState(), false);
-                chunkIn.getFluidsToBeTicked().scheduleTick(mutable, Fluids.WATER, 0);
+                chunkIn.setBlockState(mutable, Blocks.WATER.defaultBlockState(), false);
+                chunkIn.getLiquidTicks().scheduleTick(mutable, Fluids.WATER, 0);
             }
         }
-        SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.STONE.getDefaultState()));
+        SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState()));
     }
 }

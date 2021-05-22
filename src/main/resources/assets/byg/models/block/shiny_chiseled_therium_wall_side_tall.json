@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side_tall",
+  "textures": {
+    "wall": "byg:block/shiny_chiseled_therium",
+    "particle": "byg:block/shiny_chiseled_therium"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:block/prickly_pear"
+    "layer0": "byg:block/prickly_pear_cactus"
   }
 }

@@ -19,13 +19,13 @@ import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
-    private static final BlockState PACKED_ICE = BYGBlocks.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE = BYGBlocks.BLACK_ICE.getDefaultState();
-    private static final BlockState PACKED_ICE2 = BYGBlocks.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE2 = BYGBlocks.BLACK_ICE.getDefaultState();
-    private static final BlockState PACKED_ICE3 = BYGBlocks.PACKED_BLACK_ICE.getDefaultState();
-    private static final BlockState BLUE_ICE3 = BYGBlocks.BLACK_ICE.getDefaultState();
-    private static final BlockState PACKED_ICE4 = BYGBlocks.PACKED_BLACK_ICE.getDefaultState();
+    private static final BlockState PACKED_ICE = BYGBlocks.PACKED_BLACK_ICE.defaultBlockState();
+    private static final BlockState BLUE_ICE = BYGBlocks.BLACK_ICE.defaultBlockState();
+    private static final BlockState PACKED_ICE2 = BYGBlocks.PACKED_BLACK_ICE.defaultBlockState();
+    private static final BlockState BLUE_ICE2 = BYGBlocks.BLACK_ICE.defaultBlockState();
+    private static final BlockState PACKED_ICE3 = BYGBlocks.PACKED_BLACK_ICE.defaultBlockState();
+    private static final BlockState BLUE_ICE3 = BYGBlocks.BLACK_ICE.defaultBlockState();
+    private static final BlockState PACKED_ICE4 = BYGBlocks.PACKED_BLACK_ICE.defaultBlockState();
     protected BlockState[] blockState;
     protected long seed;
     protected PerlinNoiseGenerator perlin1;
@@ -36,11 +36,11 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         super(config);
     }
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         int chunkX = x & 15;
         int chunkZ = z & 15;
         BlockState blockstate = PACKED_ICE;
-        BlockState blockstate1 = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnder();
+        BlockState blockstate1 = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
         int k = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int l = -1;
@@ -50,7 +50,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         for (int chunkY = startHeight; chunkY >= 0; --chunkY) {
             if (i1 < 15) {
-                blockpos$mutable.setPos(chunkX, chunkY, chunkZ);
+                blockpos$mutable.set(chunkX, chunkY, chunkZ);
                 BlockState blockstate2 = chunkIn.getBlockState(blockpos$mutable);
                 if (blockstate2.isAir()) {
                     l = -1;
@@ -58,11 +58,11 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                     if (l == -1) {
                         flag1 = false;
                         if (k <= 0) {
-                            blockstate = Blocks.AIR.getDefaultState();
+                            blockstate = Blocks.AIR.defaultBlockState();
                             blockstate1 = defaultBlock;
                         } else if (chunkY >= seaLevel - 4 && chunkY <= seaLevel + 1) {
                             blockstate = PACKED_ICE;
-                            blockstate1 = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnder();
+                            blockstate1 = biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getUnderMaterial();
                         }
 
                         if (chunkY < seaLevel && (blockstate == null || blockstate.isAir())) {
@@ -85,7 +85,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
                                 chunkIn.setBlockState(blockpos$mutable, blockstate3, false);
                             } else {
-                                chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getTop(), false);
+                                chunkIn.setBlockState(blockpos$mutable, biomeIn.getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial(), false);
                                 flag1 = true;
                             }
                         } else {
@@ -111,7 +111,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
     }
 
-    public void setSeed(long seed) {
+    public void initNoise(long seed) {
         if (this.seed != seed || this.blockState == null) {
             this.fillBlockStateArray(seed);
         }
@@ -193,7 +193,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     }
 
     protected BlockState noiseBlockState(int x, int y, int z) {
-        int i = (int) Math.round(this.perlin3.noiseAt((double) x / 512.0D, (double) z / 512.0D, false) * 2.0D);
+        int i = (int) Math.round(this.perlin3.getValue((double) x / 512.0D, (double) z / 512.0D, false) * 2.0D);
         return this.blockState[(y + i + 64) % 64];
     }
 }

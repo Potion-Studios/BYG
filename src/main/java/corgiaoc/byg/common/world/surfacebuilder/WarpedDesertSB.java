@@ -15,51 +15,51 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import java.util.Random;
 
 public class WarpedDesertSB extends SurfaceBuilder<SurfaceBuilderConfig> {
-    public static final BlockState SAND = Blocks.SAND.getDefaultState();
+    public static final BlockState SAND = Blocks.SAND.defaultBlockState();
 
     public WarpedDesertSB(Codec<SurfaceBuilderConfig> config) {
         super(config);
     }
 
-    public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         BlockPos.Mutable block = new BlockPos.Mutable();
         int xPos = x & 15;
         int zPos = z & 15;
 
         if (noise > 1.5) {
             for (int yPos = 256; yPos >= seaLevel; --yPos) {
-                block.setPos(xPos, yPos, zPos);
+                block.set(xPos, yPos, zPos);
                 BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-                BlockState airCheck = chunkIn.getBlockState(block.down());
+                BlockState airCheck = chunkIn.getBlockState(block.below());
 
-                if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck == Blocks.AIR.getDefaultState())
-                    chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), false);
+                if (currentBlockToReplace == Blocks.NETHERRACK.defaultBlockState() && airCheck == Blocks.AIR.defaultBlockState())
+                    chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), false);
                 for (Direction direction : Direction.Plane.HORIZONTAL) {
-                    BlockState airCheck2 = chunkIn.getBlockState(block.offset(direction));
+                    BlockState airCheck2 = chunkIn.getBlockState(block.relative(direction));
 
 
-                    if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck2 == Blocks.AIR.getDefaultState())
-                        chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), false);
+                    if (currentBlockToReplace == Blocks.NETHERRACK.defaultBlockState() && airCheck2 == Blocks.AIR.defaultBlockState())
+                        chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WARPEDDESERT);
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WARPEDDESERT);
         } else {
             for (int yPos = 256; yPos >= seaLevel; --yPos) {
-                block.setPos(xPos, yPos, zPos);
+                block.set(xPos, yPos, zPos);
                 BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-                BlockState airCheck = chunkIn.getBlockState(block.down());
+                BlockState airCheck = chunkIn.getBlockState(block.below());
 
-                if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck == Blocks.AIR.getDefaultState())
-                    chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), false);
+                if (currentBlockToReplace == Blocks.NETHERRACK.defaultBlockState() && airCheck == Blocks.AIR.defaultBlockState())
+                    chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState(), false);
                 for (Direction direction : Direction.Plane.HORIZONTAL) {
-                    BlockState airCheck2 = chunkIn.getBlockState(block.offset(direction));
+                    BlockState airCheck2 = chunkIn.getBlockState(block.relative(direction));
 
 
-                    if (currentBlockToReplace == Blocks.NETHERRACK.getDefaultState() && airCheck2 == Blocks.AIR.getDefaultState())
-                        chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), false);
+                    if (currentBlockToReplace == Blocks.NETHERRACK.defaultBlockState() && airCheck2 == Blocks.AIR.defaultBlockState())
+                        chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WARPEDDESERT_SOIL);
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WARPEDDESERT_SOIL);
         }
 
     }

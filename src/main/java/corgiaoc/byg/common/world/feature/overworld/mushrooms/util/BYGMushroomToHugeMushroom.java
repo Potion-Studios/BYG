@@ -4,7 +4,7 @@ import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-import javax.annotation.Nullable;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Random;
 
 public class BYGMushroomToHugeMushroom {
@@ -82,6 +82,20 @@ public class BYGMushroomToHugeMushroom {
         @Nullable
         public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
             return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.SHULKREN_TREE1 : BYGConfiguredFeatures.SHULKREN_TREE2;
+        }
+    }
+
+    public static class FungalImparius extends BYGHugeMushroom {
+        @Nullable
+        public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.FUNGAL_IMPARIUS5 : BYGConfiguredFeatures.FUNGAL_IMPARIUS3;
+        }
+    }
+
+    public static class ImpariusMushroom extends BYGHugeMushroom {
+        @Nullable
+        public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.IMPARIUS_MUSHROOM6 : BYGConfiguredFeatures.IMPARIUS_MUSHROOM4;
         }
     }
 

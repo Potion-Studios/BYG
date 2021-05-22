@@ -21,7 +21,7 @@ public class ShatteredFloatingIslands1 extends Feature<FloatingIslandConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
         double radius = rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
@@ -39,10 +39,10 @@ public class ShatteredFloatingIslands1 extends Feature<FloatingIslandConfig> {
                     double scaledNoise = (noise / 11) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (y >= 1) {
-                            world.setBlockState(pos.add(x, y - modifiedRadiusOnY, z), config.getBlockProvider().getBlockState(rand, pos), 2);
+                            world.setBlock(pos.offset(x, y - modifiedRadiusOnY, z), config.getBlockProvider().getState(rand, pos), 2);
                             if (y == modifiedRadiusOnY) {
                                 //Top block
-                                world.setBlockState(pos.add(x, y - modifiedRadiusOnY, z), config.getTopBlockProvider().getBlockState(rand, pos), 2);
+                                world.setBlock(pos.offset(x, y - modifiedRadiusOnY, z), config.getTopBlockProvider().getState(rand, pos), 2);
                             }
                         }
                     }

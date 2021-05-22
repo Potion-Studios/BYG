@@ -12,6 +12,16 @@
     "byg:glowcelium_block",
     "byg:ether_soil",
     "byg:ether_phylium",
-    "byg:vermilion_sculk"
+    "byg:vermilion_sculk",
+    "byg:ivis_phylium",
+    "byg:nightshade_phylium",
+    "byg:shulkren_phylium",
+    "byg:bulbis_phycelium",
+    "byg:imparius_phylium",
+    "minecraft:dirt",
+    "minecraft:grass_block",
+    "minecraft:coarse_dirt",
+    "minecraft:podzol",
+    "minecraft:mycelium"
   ]
 }

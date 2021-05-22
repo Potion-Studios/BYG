@@ -15,16 +15,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(MixRiverLayer.class)
 public abstract class MixinRiverLayer {
 
-    @Inject(at = @At("HEAD"), method = "apply(Lnet/minecraft/world/gen/INoiseRandom;Lnet/minecraft/world/gen/area/IArea;Lnet/minecraft/world/gen/area/IArea;II)I", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "applyPixel", cancellable = true)
     private void injectBYGRivers(INoiseRandom rand, IArea area1, IArea area2, int x, int z, CallbackInfoReturnable<Integer> cir) {
-        int area1Value = area1.getValue(((MixRiverLayer) (Object) this).getOffsetX(x), ((MixRiverLayer) (Object) this).getOffsetZ(z));
-        int area2Value = area2.getValue(((MixRiverLayer) (Object) this).getOffsetX(x), ((MixRiverLayer) (Object) this).getOffsetZ(z));
+        int area1Value = area1.get(((MixRiverLayer) (Object) this).getParentX(x), ((MixRiverLayer) (Object) this).getParentY(z));
+        int area2Value = area2.get(((MixRiverLayer) (Object) this).getParentX(x), ((MixRiverLayer) (Object) this).getParentY(z));
 
         if (area2Value == WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER))) {
-            if (BYGBiome.BIOME_TO_RIVER_LIST.get(area1Value) != null)
+            if (BYGBiome.BIOME_TO_RIVER_LIST.containsKey(area1Value))
                 cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_RIVER_LIST.get(area1Value)));
-            else //Remove from list if null.
-                BYGBiome.BIOME_TO_RIVER_LIST.remove(area1Value);
         }
     }
 }

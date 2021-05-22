@@ -1,12 +1,15 @@
 package corgiaoc.byg.config.json.biomedata;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
 public class BiomeDataListHolder {
@@ -35,8 +38,10 @@ public class BiomeDataListHolder {
 
     public static void fillBiomeLists() {
         for (BiomeData biomeData : BYGBiome.biomeData) {
-            if (biomeData.getBiomeWeightedList() != null) {
-                BYGBiome.BIOME_TO_HILLS_LIST.put(WorldGenRegistries.BIOME.getId(biomeData.getBiome()), biomeData.getBiomeWeightedList());
+            WeightedList<Biome> biomeWeightedList = biomeData.getBiomeWeightedList();
+            if (biomeWeightedList != null) {
+                biomeWeightedList.entries.removeIf(biomeEntry -> biomeEntry.weight <= 0);
+                BYGBiome.BIOME_TO_HILLS_LIST.put(WorldGenRegistries.BIOME.getId(biomeData.getBiome()), biomeWeightedList);
             }
             if (biomeData.getBeachBiome() != null)
                 BYGBiome.BIOME_TO_BEACH_LIST.put(WorldGenRegistries.BIOME.getId(biomeData.getBiome()), biomeData.getBeachBiome());

@@ -1,0 +1,7 @@
+{
+  "parent": "block/coral_fan",
+  "textures": {
+    "fan": "byg:block/imparius_mushroom_branch",
+    "particle": "byg:block/imparius_mushroom_branch"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/fungal_imparius_block" },
+      { "model": "byg:block/fungal_imparius_block2" },
+      { "model": "byg:block/fungal_imparius_block3" }
+    ]
+  }
+}

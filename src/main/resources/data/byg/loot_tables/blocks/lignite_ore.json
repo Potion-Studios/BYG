@@ -35,6 +35,14 @@
                   "formula": "minecraft:ore_drops"
                 },
                 {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 4.0,
+                    "max": 7.0,
+                    "type": "minecraft:uniform"
+                  }
+                },
+                {
                   "function": "minecraft:explosion_decay"
                 }
               ],

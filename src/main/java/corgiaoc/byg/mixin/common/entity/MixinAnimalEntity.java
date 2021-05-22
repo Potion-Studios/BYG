@@ -17,11 +17,11 @@ import java.util.Random;
 @Mixin(AnimalEntity.class)
 public class MixinAnimalEntity {
 
-    @Inject(at = @At("HEAD"), method = "canAnimalSpawn(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/IWorld;Lnet/minecraft/entity/SpawnReason;Lnet/minecraft/util/math/BlockPos;Ljava/util/Random;)Z", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "checkAnimalSpawnRules", cancellable = true)
     private static void addModdedGrass(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random, CallbackInfoReturnable<Boolean> cir) {
-        BlockState state = worldIn.getBlockState(pos.down());
+        BlockState state = worldIn.getBlockState(pos.below());
         if (state.getBlock() == BYGBlocks.OVERGROWN_STONE || state.getBlock() == BYGBlocks.OVERGROWN_DACITE || state.getBlock() == BYGBlocks.MEADOW_GRASSBLOCK) {
-            cir.setReturnValue(worldIn.getLightSubtracted(pos, 0) > 8);
+            cir.setReturnValue(worldIn.getRawBrightness(pos, 0) > 8);
         }
     }
 }

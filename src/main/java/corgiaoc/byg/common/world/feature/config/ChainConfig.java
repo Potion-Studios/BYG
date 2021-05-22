@@ -27,7 +27,7 @@ public class ChainConfig implements IFeatureConfig {
         }), Codec.INT.fieldOf("max_length").forGetter((config) -> {
             return config.maxLength;
         }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
-            return config.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList());
+            return config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList());
         })).apply(codecRecorder, ChainConfig::new);
     });
 
@@ -75,17 +75,17 @@ public class ChainConfig implements IFeatureConfig {
     }
 
     public static class Builder {
-        private BlockStateProvider xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState());
-        private BlockStateProvider zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.COBBLESTONE.getDefaultState());
+        private BlockStateProvider xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.COBBLESTONE.defaultBlockState());
+        private BlockStateProvider zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.COBBLESTONE.defaultBlockState());
         private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
         private int minLength = 1;
         private int maxLength = 9;
 
         public ChainConfig.Builder setXAxisBlock(Block block) {
             if (block != null)
-                xAxisBlockProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                xAxisBlockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -93,7 +93,7 @@ public class ChainConfig implements IFeatureConfig {
             if (state != null)
                 xAxisBlockProvider = new SimpleBlockStateProvider(state);
             else
-                xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -101,15 +101,15 @@ public class ChainConfig implements IFeatureConfig {
             if (provider != null)
                 xAxisBlockProvider = provider;
             else
-                xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
         public ChainConfig.Builder setZAxisBlock(Block block) {
             if (block != null)
-                zAxisBlockProvider = new SimpleBlockStateProvider(block.getDefaultState());
+                zAxisBlockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
             else
-                zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -117,7 +117,7 @@ public class ChainConfig implements IFeatureConfig {
             if (state != null)
                 zAxisBlockProvider = new SimpleBlockStateProvider(state);
             else
-                zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -125,7 +125,7 @@ public class ChainConfig implements IFeatureConfig {
             if (provider != null)
                 zAxisBlockProvider = provider;
             else
-                zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.getDefaultState());
+                zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -157,7 +157,7 @@ public class ChainConfig implements IFeatureConfig {
         }
 
         public ChainConfig build() {
-            return new ChainConfig(xAxisBlockProvider, zAxisBlockProvider, minLength, maxLength, this.whitelist.stream().map(Block::getDefaultState).collect(Collectors.toList()));
+            return new ChainConfig(xAxisBlockProvider, zAxisBlockProvider, minLength, maxLength, this.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList()));
         }
     }
 }

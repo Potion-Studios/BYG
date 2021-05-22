@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:red_rock"
+  },
+  "result": "byg:red_rock_stairs",
+  "count": 1
+}

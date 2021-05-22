@@ -1,0 +1,145 @@
+{
+  "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+  "textures": {
+    "imparius_mushroom_branch": "byg:block/oddity_bush",
+    "particle": "byg:block/oddity_bush"
+  },
+  "elements": [
+    {
+      "from": [ 8, 0, 0 ],
+      "to": [ 8, 16, 16 ],
+      "shade": false,
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0 },
+      "faces": {
+        "north": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "east": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "south": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "west": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "up": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "down": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] }
+      }
+    },
+    {
+      "from": [ 8, 0, 0 ],
+      "to": [ 8, 16, 16 ],
+      "shade": false,
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": -45.0 },
+      "faces": {
+        "north": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "east": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "south": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "west": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "up": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "down": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] }
+      }
+    },
+    {
+      "from": [ 2, 2.5, 0 ],
+      "to": [ 2, 18.5, 16 ],
+      "shade": false,
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": 45.0 },
+      "faces": {
+        "north": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "east": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "south": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "west": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "up": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "down": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] }
+      }
+    },
+    {
+      "from": [ 14, 2.5, 0 ],
+      "to": [ 14, 18.5, 16 ],
+      "shade": false,
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": -45.0 },
+      "faces": {
+        "north": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "east": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "south": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "west": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "up": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "down": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] }
+      }
+    },
+    {
+      "from": [ 0, 2.5, 2 ],
+      "to": [ 16, 18.5, 2 ],
+      "shade": false,
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": -45.0 },
+      "faces": {
+        "north": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "east": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "south": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "west": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "up": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 0 ] },
+        "down": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 0 ] }
+      }
+    },
+    {
+      "from": [ 0, 2.5, 14 ],
+      "to": [ 16, 18.5, 14 ],
+      "shade": false,
+      "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": 45.0 },
+      "faces": {
+        "north": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "east": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "south": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "west": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "up": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 0 ] },
+        "down": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 0 ] }
+      }
+    },
+    {
+      "from": [ 0, 0, 14 ],
+      "to": [ 16, 16, 14 ],
+      "shade": false,
+      "faces": {
+        "north": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "east": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "south": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "west": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "up": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 0 ] },
+        "down": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 0 ] }
+      }
+    },
+    {
+      "from": [ 0, 0, 2 ],
+      "to": [ 16, 16, 2 ],
+      "shade": false,
+      "faces": {
+        "north": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "east": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "south": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "west": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "up": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 0 ] },
+        "down": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 0 ] }
+      }
+    },
+    {
+      "from": [ 14, 0, 0 ],
+      "to": [ 14, 16, 16 ],
+      "shade": false,
+      "faces": {
+        "north": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "east": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "south": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "west": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "up": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "down": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] }
+      }
+    },
+    {
+      "from": [ 2, 0, 0 ],
+      "to": [ 2, 16, 16 ],
+      "shade": false,
+      "faces": {
+        "north": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "east": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "south": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "west": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 16, 16 ] },
+        "up": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] },
+        "down": { "texture": "#imparius_mushroom_branch", "uv": [ 0, 0, 0, 16 ] }
+      }
+    }
+  ]
+}

@@ -26,7 +26,7 @@ public class MotionBlockingNoLeavesCountExtra extends Placement<AtSurfaceWithExt
         return IntStream.range(0, i).mapToObj((streamedInt) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();
-            int y = decoratorContext.func_242893_a(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, x, z);
+            int y = decoratorContext.getHeight(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, x, z);
             return new BlockPos(x, y, z);
         });
     }

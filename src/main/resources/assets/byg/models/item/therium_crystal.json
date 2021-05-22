@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:block/therium_crystal"
+    "layer0": "byg:item/therium_crystal"
   }
 }

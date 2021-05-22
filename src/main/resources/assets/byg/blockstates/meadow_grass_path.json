@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "byg:block/meadow_grass_path"
+      },
+      {
+        "model": "byg:block/meadow_grass_path",
+        "y": 90
+      },
+      {
+        "model": "byg:block/meadow_grass_path",
+        "y": 180
+      },
+      {
+        "model": "byg:block/meadow_grass_path",
+        "y": 270
+      }
+    ]
+  }
+}

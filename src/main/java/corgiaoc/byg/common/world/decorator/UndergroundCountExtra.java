@@ -33,11 +33,11 @@ public class UndergroundCountExtra extends Placement<AtSurfaceWithExtraConfig> {
         for (int i = 0; i < c; i++) {
             int x = random.nextInt(16);
             int z = random.nextInt(16);
-            BlockPos newPos = new BlockPos(pos.add(x, 0, z));
-            int height = decoratorContext.func_242893_a(Heightmap.Type.MOTION_BLOCKING, newPos.getX(), newPos.getZ()) - 5;
+            BlockPos newPos = new BlockPos(pos.offset(x, 0, z));
+            int height = decoratorContext.getHeight(Heightmap.Type.MOTION_BLOCKING, newPos.getX(), newPos.getZ()) - 5;
 
             while (height > 15) {
-                airBlock = decoratorContext.func_242894_a(pos.add(x, height, z)).isAir();
+                airBlock = decoratorContext.getBlockState(pos.offset(x, height, z)).isAir();
 
                 //if height is is an air block and previous block was a solid block, store the fact that we are in an air block now
                 if (!airFlag && airBlock) {
@@ -47,7 +47,7 @@ public class UndergroundCountExtra extends Placement<AtSurfaceWithExtraConfig> {
                 //if height is an solid block and last block was air block, we are now on the surface of a piece of land. Generate feature now
                 else if (airFlag && !airBlock) {
 
-                    blockPosList.add(pos.add(x, height + 1, z));
+                    blockPosList.add(pos.offset(x, height + 1, z));
                     airFlag = false;
                 }
 

@@ -13,15 +13,15 @@ import net.minecraftforge.common.Tags;
 public class FeatureUtil {
 
     public static boolean isPlant(IWorldGenerationBaseReader world, BlockPos pos) {
-        return world.hasBlockState(pos, (state) -> state.isIn(BlockTags.LEAVES) || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.PLANTS || state.getMaterial() == Material.TALL_PLANTS || state.getMaterial() == Material.OCEAN_PLANT || state.getMaterial() == Material.NETHER_PLANTS);
+        return world.isStateAtPosition(pos, (state) -> state.is(BlockTags.LEAVES) || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.REPLACEABLE_FIREPROOF_PLANT);
     }
 
     public static boolean isTerrainOrRock(IWorldGenerationBaseReader world, BlockPos pos) {
-        return world.hasBlockState(pos, (state) -> state.isIn(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.ROCK || state.isIn(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.EARTH || state.isIn(BlockTags.SAND) || state.isIn(Tags.Blocks.SAND) || state.isIn(Tags.Blocks.SAND_COLORLESS) || state.isIn(Tags.Blocks.SAND_RED) || state.isIn(Tags.Blocks.SANDSTONE) || state.getMaterial() == Material.SAND || state.getBlock() == Blocks.GRASS_BLOCK);
+        return world.isStateAtPosition(pos, (state) -> state.is(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.STONE || state.is(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.DIRT || state.is(BlockTags.SAND) || state.is(Tags.Blocks.SAND) || state.is(Tags.Blocks.SAND_COLORLESS) || state.is(Tags.Blocks.SAND_RED) || state.is(Tags.Blocks.SANDSTONE) || state.getMaterial() == Material.SAND || state.getBlock() == Blocks.GRASS_BLOCK);
     }
 
     public static boolean isAir(IWorldGenerationBaseReader reader, BlockPos pos) {
-        return reader.hasBlockState(pos, BlockState::isAir);
+        return reader.isStateAtPosition(pos, BlockState::isAir);
     }
 
     public static boolean isAirInRange(IWorldGenerationBaseReader world, BlockPos pos, int xRange, int yRange, int zRange) {
@@ -33,7 +33,7 @@ public class FeatureUtil {
         for (int x = -xNegRange; x <= xPosRange; x++) {
             for (int y = -yNegRange; y <= yPosRange; y++) {
                 for (int z = -zNegRange; z <= zPosRange; z++) {
-                    mutable.setPos(pos.add(x, y, z));
+                    mutable.set(pos.offset(x, y, z));
                     if (!isAir(world, mutable))
                         return false;
                 }
@@ -43,12 +43,8 @@ public class FeatureUtil {
     }
 
 
-
-
-    public static void transformMutable(BlockPos.Mutable pos, Mirror mirrorIn, Rotation rotationIn)
-    {
-        switch (mirrorIn)
-        {
+    public static void transformMutable(BlockPos.Mutable pos, Mirror mirrorIn, Rotation rotationIn) {
+        switch (mirrorIn) {
             case LEFT_RIGHT:
                 pos.setZ(-pos.getZ());
                 break;
@@ -56,27 +52,24 @@ public class FeatureUtil {
                 pos.setX(-pos.getX());
                 break;
         }
-        switch (rotationIn)
-        {
+        switch (rotationIn) {
             case COUNTERCLOCKWISE_90:
-                pos.setPos(pos.getZ(), pos.getY(), -pos.getX());
+                pos.set(pos.getZ(), pos.getY(), -pos.getX());
                 break;
             case CLOCKWISE_90:
-                pos.setPos(-pos.getZ(), pos.getY(), pos.getX());
+                pos.set(-pos.getZ(), pos.getY(), pos.getX());
                 break;
             case CLOCKWISE_180:
-                pos.setPos(-pos.getX(), pos.getY(), -pos.getZ());
+                pos.set(-pos.getX(), pos.getY(), -pos.getZ());
                 break;
         }
     }
 
-    public static BlockPos transform(BlockPos pos, Mirror mirrorIn, Rotation rotationIn)
-    {
+    public static BlockPos transform(BlockPos pos, Mirror mirrorIn, Rotation rotationIn) {
         int posX = pos.getX();
         int posZ = pos.getZ();
         boolean mirror = true;
-        switch (mirrorIn)
-        {
+        switch (mirrorIn) {
             case LEFT_RIGHT:
                 posZ = -posZ;
                 break;
@@ -86,8 +79,7 @@ public class FeatureUtil {
             default:
                 mirror = false;
         }
-        switch (rotationIn)
-        {
+        switch (rotationIn) {
             case COUNTERCLOCKWISE_90:
                 return new BlockPos(posZ, pos.getY(), -posX);
             case CLOCKWISE_90:
@@ -97,5 +89,10 @@ public class FeatureUtil {
             default:
                 return mirror ? new BlockPos(posX, pos.getY(), posZ) : pos;
         }
+    }
+
+    public static BlockPos extractOffset(BlockPos startPos, BlockPos blockPos) {
+        return blockPos instanceof BlockPos.Mutable ? new BlockPos.Mutable(startPos.getX() - blockPos.getX(), blockPos.getY(), startPos.getZ() - blockPos.getZ()) :
+                new BlockPos(startPos.getX() - blockPos.getX(), blockPos.getY(), startPos.getZ() - blockPos.getZ());
     }
 }

@@ -15,7 +15,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
+import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggable {
 
@@ -23,34 +23,34 @@ public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggab
 
     public BYGRiverPlantBlock(AbstractBlock.Properties properties) {
         super(properties);
-        this.setDefaultState(
-                this.stateContainer.getBaseState().with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, false));
+        this.registerDefaultState(
+                this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
     }
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
-        if (state.get(HALF) == DoubleBlockHalf.UPPER && state.get(WATERLOGGED)) {
+    public boolean canSurvive(BlockState state, IWorldReader world, BlockPos pos) {
+        if (state.getValue(HALF) == DoubleBlockHalf.UPPER && state.getValue(WATERLOGGED)) {
             return false;
         }
-        if (state.get(HALF) != DoubleBlockHalf.UPPER) {
-            BlockPos groundPos = pos.down();
+        if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
+            BlockPos groundPos = pos.below();
             Block ground = world.getBlockState(groundPos).getBlock();
 
-            if (world.getFluidState(pos).getFluid() == Fluids.WATER)
+            if (world.getFluidState(pos).getType() == Fluids.WATER)
                 return canGrow(ground);
 
             for (Direction direction : Direction.Plane.HORIZONTAL) {
-                if (world.getFluidState(groundPos.offset(direction)).getFluid() == Fluids.WATER) {
+                if (world.getFluidState(groundPos.relative(direction)).getType() == Fluids.WATER) {
                     return canGrow(ground);
                 }
             }
 
             return false;
         } else {
-            BlockState blockstate = world.getBlockState(pos.down());
+            BlockState blockstate = world.getBlockState(pos.below());
             if (state.getBlock() != this)
                 return false;
-            return blockstate.getBlock() == this && blockstate.get(HALF) == DoubleBlockHalf.LOWER;
+            return blockstate.getBlock() == this && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER;
         }
     }
 
@@ -61,58 +61,58 @@ public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggab
 
     @Override
     public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
-        if (!isValidPosition(state, world, pos)) {
-            if (state.get(WATERLOGGED)) {
-                world.setBlockState(pos, Blocks.WATER.getDefaultState());
+        if (!canSurvive(state, world, pos)) {
+            if (state.getValue(WATERLOGGED)) {
+                world.setBlockAndUpdate(pos, Blocks.WATER.defaultBlockState());
             } else {
                 world.destroyBlock(pos, false);
             }
         }
-        if (state.get(HALF) == DoubleBlockHalf.LOWER) {
-            BlockState stateUpper = world.getBlockState(pos.up());
+        if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
+            BlockState stateUpper = world.getBlockState(pos.above());
             if (stateUpper.getBlock() instanceof BYGRiverPlantBlock) {
-                if (!isValidPosition(stateUpper, world, pos.up())) {
-                    world.destroyBlock(pos.up(), false);
+                if (!canSurvive(stateUpper, world, pos.above())) {
+                    world.destroyBlock(pos.above(), false);
                 }
             }
         }
     }
 
     @Override
-    public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld world,
+    public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, IWorld world,
                                           BlockPos currentPos, BlockPos facingPos) {
-        if (state.get(WATERLOGGED)) {
-            world.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        if (state.getValue(WATERLOGGED)) {
+            world.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
         }
 
-        return super.updatePostPlacement(state, facing, facingState, world, currentPos, facingPos);
+        return super.updateShape(state, facing, facingState, world, currentPos, facingPos);
     }
 
     @Override
     @Nullable
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        FluidState FluidState = context.getWorld().getFluidState(context.getPos());
+        FluidState FluidState = context.getLevel().getFluidState(context.getClickedPos());
 
         BlockState state = super.getStateForPlacement(context);
         if (state != null) {
-            return state.with(WATERLOGGED, Boolean.valueOf(FluidState.getFluid() == Fluids.WATER));
+            return state.setValue(WATERLOGGED, Boolean.valueOf(FluidState.getType() == Fluids.WATER));
         } else {
             return null;
         }
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(HALF, WATERLOGGED);
     }
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     @Override
-    public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
+    public boolean canBeReplaced(BlockState state, BlockItemUseContext useContext) {
         return false;
     }
 }

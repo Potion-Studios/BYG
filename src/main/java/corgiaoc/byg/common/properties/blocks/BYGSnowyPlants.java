@@ -15,7 +15,7 @@ import net.minecraft.block.AbstractBlock.OffsetType;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class BYGSnowyPlants extends BushBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     protected BYGSnowyPlants(Properties builder) {
         super(builder);
@@ -27,13 +27,13 @@ public class BYGSnowyPlants extends BushBlock {
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        Vector3d lvt_5_1_ = state.getOffset(worldIn, pos);
-        return SHAPE.withOffset(lvt_5_1_.x, lvt_5_1_.y, lvt_5_1_.z);
+        Vector3d vector3d = state.getOffset(worldIn, pos);
+        return SHAPE.move(vector3d.x, vector3d.y, vector3d.z);
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.SNOW_BLOCK || isIn(Tags.Blocks.DIRT);
+        return block == Blocks.SNOW_BLOCK || is(Tags.Blocks.DIRT);
     }
 }

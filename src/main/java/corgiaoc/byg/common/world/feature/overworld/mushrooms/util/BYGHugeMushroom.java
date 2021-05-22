@@ -10,7 +10,7 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-import javax.annotation.Nullable;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Random;
 
 public abstract class BYGHugeMushroom {
@@ -22,12 +22,12 @@ public abstract class BYGHugeMushroom {
         if (abstractMushroomFeature == null) {
             return false;
         } else {
-            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
+            worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
             abstractMushroomFeature.config.forcePlacement();
-            if (abstractMushroomFeature.generate(worldIn, chunkGenerator, random, pos)) {
+            if (abstractMushroomFeature.place(worldIn, chunkGenerator, random, pos)) {
                 return true;
             } else {
-                worldIn.setBlockState(pos, blockUnder, 4);
+                worldIn.setBlock(pos, blockUnder, 4);
                 return false;
             }
         }
@@ -37,7 +37,7 @@ public abstract class BYGHugeMushroom {
     public static abstract class Massive extends BYGHugeMushroom {
         public static boolean canMassiveMushroomSpawnAt(BlockState blockUnder, IBlockReader worldIn, BlockPos pos, int xOffset, int zOffset) {
             Block block = blockUnder.getBlock();
-            return block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset, 0, zOffset + 1)).getBlock() && block == worldIn.getBlockState(pos.add(xOffset + 1, 0, zOffset + 1)).getBlock();
+            return block == worldIn.getBlockState(pos.offset(xOffset, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.offset(xOffset + 1, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.offset(xOffset, 0, zOffset + 1)).getBlock() && block == worldIn.getBlockState(pos.offset(xOffset + 1, 0, zOffset + 1)).getBlock();
         }
 
         public boolean withSpawner(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
@@ -60,19 +60,19 @@ public abstract class BYGHugeMushroom {
             if (abstractMushroomFeature == null) {
                 return false;
             } else {
-                BlockState blockstate = Blocks.AIR.getDefaultState();
-                worldIn.setBlockState(pos.add(xOffset, 0, zOffset), blockstate, 4);
-                worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset), blockstate, 4);
-                worldIn.setBlockState(pos.add(xOffset, 0, zOffset + 1), blockstate, 4);
-                worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset + 1), blockstate, 4);
+                BlockState blockstate = Blocks.AIR.defaultBlockState();
+                worldIn.setBlock(pos.offset(xOffset, 0, zOffset), blockstate, 4);
+                worldIn.setBlock(pos.offset(xOffset + 1, 0, zOffset), blockstate, 4);
+                worldIn.setBlock(pos.offset(xOffset, 0, zOffset + 1), blockstate, 4);
+                worldIn.setBlock(pos.offset(xOffset + 1, 0, zOffset + 1), blockstate, 4);
                 abstractMushroomFeature.config.forcePlacement();
-                if (abstractMushroomFeature.generate(worldIn, chunkGenerator, random, pos.add(xOffset, 0, zOffset))) {
+                if (abstractMushroomFeature.place(worldIn, chunkGenerator, random, pos.offset(xOffset, 0, zOffset))) {
                     return true;
                 } else {
-                    worldIn.setBlockState(pos.add(xOffset, 0, zOffset), blockUnder, 4);
-                    worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset), blockUnder, 4);
-                    worldIn.setBlockState(pos.add(xOffset, 0, zOffset + 1), blockUnder, 4);
-                    worldIn.setBlockState(pos.add(xOffset + 1, 0, zOffset + 1), blockUnder, 4);
+                    worldIn.setBlock(pos.offset(xOffset, 0, zOffset), blockUnder, 4);
+                    worldIn.setBlock(pos.offset(xOffset + 1, 0, zOffset), blockUnder, 4);
+                    worldIn.setBlock(pos.offset(xOffset, 0, zOffset + 1), blockUnder, 4);
+                    worldIn.setBlock(pos.offset(xOffset + 1, 0, zOffset + 1), blockUnder, 4);
                     return false;
                 }
             }

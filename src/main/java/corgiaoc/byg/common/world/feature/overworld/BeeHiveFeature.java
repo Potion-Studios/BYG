@@ -24,32 +24,32 @@ public class BeeHiveFeature extends Feature<NoFeatureConfig> {
     }
 
     @Override
-    public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        if (world.isAirBlock(pos) && world.isAirBlock(pos.down())){
-            if (world.getBlockState(pos.up()).isIn(BlockTags.LEAVES) || world.getBlockState(pos.up()).isIn(BlockTags.LOGS)) {
+    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+        if (world.isEmptyBlock(pos) && world.isEmptyBlock(pos.below())){
+            if (world.getBlockState(pos.above()).is(BlockTags.LEAVES) || world.getBlockState(pos.above()).is(BlockTags.LOGS)) {
                 Direction direction;
 
-                if (world.isAirBlock(pos.north()))
+                if (world.isEmptyBlock(pos.north()))
                     direction = Direction.NORTH;
-                else if (world.isAirBlock(pos.south()))
+                else if (world.isEmptyBlock(pos.south()))
                     direction = Direction.SOUTH;
-                else if (world.isAirBlock(pos.west()))
+                else if (world.isEmptyBlock(pos.west()))
                     direction = Direction.WEST;
                 else
                     direction = Direction.EAST;
 
-                BlockState beeHiveState = Blocks.BEE_NEST.getDefaultState().with(BeehiveBlock.FACING, direction);
+                BlockState beeHiveState = Blocks.BEE_NEST.defaultBlockState().setValue(BeehiveBlock.FACING, direction);
 
-                world.setBlockState(pos, beeHiveState, 2);
-                TileEntity tileEntity = world.getTileEntity(pos);
+                world.setBlock(pos, beeHiveState, 2);
+                TileEntity tileEntity = world.getBlockEntity(pos);
 
                 if (tileEntity instanceof BeehiveTileEntity) {
                     BeehiveTileEntity beehiveTileEntity = (BeehiveTileEntity) tileEntity;
                     int beeCount = rand.nextInt(4);
 
                     for (int bee = 0; bee <= beeCount; bee++) {
-                        BeeEntity beeEntity = new BeeEntity(EntityType.BEE, world.getWorld());
-                        beehiveTileEntity.tryEnterHive(beeEntity, false, rand.nextInt(599));
+                        BeeEntity beeEntity = new BeeEntity(EntityType.BEE, world.getLevel());
+                        beehiveTileEntity.addOccupantWithPresetTicks(beeEntity, false, rand.nextInt(599));
                     }
                 }
                 return true;

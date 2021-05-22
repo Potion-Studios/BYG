@@ -23,7 +23,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.AbstractBlock.Properties;
 
 public class CrystalBlock extends Block {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
+    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
     public CrystalBlock(Properties builder) {
         super(builder);
@@ -36,30 +36,27 @@ public class CrystalBlock extends Block {
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         Vector3d Vector3d = state.getOffset(worldIn, pos);
-        return SHAPE.withOffset(Vector3d.x, Vector3d.y, Vector3d.z);
+        return SHAPE.move(Vector3d.x, Vector3d.y, Vector3d.z);
     }
 
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.GHAST && entityIn.getType() != EntityType.HOGLIN && entityIn.getType() != EntityType.ENDERMAN) {
-            double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
-            double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);
+            double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
+            double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
-                entityIn.attackEntityFrom(DamageSource.CACTUS, 3.0F);
+                entityIn.hurt(DamageSource.CACTUS, 3.0F);
             }
         }
 
     }
 
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        return !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        return !stateIn.canSurvive(worldIn, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockPos blockpos = pos.down();
-        return this.isValidGround(worldIn.getBlockState(blockpos));
-    }
-
-    protected boolean isValidGround(BlockState state) {
-        return state.isIn(Tags.Blocks.STONE) || state.isIn(Tags.Blocks.END_STONES) || state.isIn(Tags.Blocks.DIRT) || state.isIn(Tags.Blocks.SAND) || state.isIn(BYGBlocks.QUARTZITE_SAND) || state.isIn(BYGBlocks.RAW_QUARTZ_BLOCK);
+    @Override
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos blockpos = pos.below();
+        return canSupportRigidBlock(worldIn, blockpos) || canSupportCenter(worldIn, blockpos, Direction.UP);
     }
 }
