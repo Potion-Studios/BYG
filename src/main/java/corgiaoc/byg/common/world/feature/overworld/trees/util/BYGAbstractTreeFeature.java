@@ -459,6 +459,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                 if (!FeatureUtil.isTerrainOrRock(reader, mutable)) {
                     reader.setBlock(mutable, config.getTrunkProvider().getState(random, mutable), 2);
                 }
+                else break;
             }
             mutable.move(Direction.DOWN);
         }
