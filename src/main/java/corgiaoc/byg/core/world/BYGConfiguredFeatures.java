@@ -2,6 +2,7 @@ package corgiaoc.byg.core.world;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.blocks.BlueBerryBush;
 import corgiaoc.byg.common.properties.blocks.end.TheriumCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
@@ -520,7 +521,7 @@ public class BYGConfiguredFeatures {
             WARPED_BUSH.weighted(0.25F),
             WARPED_CORAL.weighted(0.25F),
             WARPED_CORAL_FAN.weighted(0.25F)),
-            WARPED_CACTI)).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(16))));
+            BYG.ENABLE_CACTI ? WARPED_CACTI : Feature.NO_OP.configured(NoFeatureConfig.INSTANCE))).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(16))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SCORCHED_PLANT = createConfiguredFeature("scorched_plant", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SCORCHED_GRASS.weighted(0.6F)),
@@ -586,7 +587,7 @@ public class BYGConfiguredFeatures {
             NIGHTSHADE_SPROUTS)).decorated(Features.Placements.FIRE).count(5));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ODDITY_PLANT = createConfiguredFeature("oddity_plants", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ODDITY_CACTUS.weighted(0.5F)),
+            (BYG.ENABLE_CACTI ? ODDITY_CACTUS : Feature.NO_OP.configured(NoFeatureConfig.INSTANCE)).weighted(0.5F)),
             ODDITY_BUSH)).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(16))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CRYPTIC_VENT = createConfiguredFeature("rs_cryptic_vent", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
