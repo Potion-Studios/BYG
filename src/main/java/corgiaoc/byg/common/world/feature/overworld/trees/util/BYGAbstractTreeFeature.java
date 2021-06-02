@@ -524,7 +524,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     @Override
     public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
 
-        if (worldIn.getLevel().dimension() == World.OVERWORLD && BYG.ENABLE_OVERWORLD_TREES) {
+        if (worldIn.getLevel().dimension() == World.OVERWORLD && !BYG.ENABLE_OVERWORLD_TREES) {
             return false;
         }
 
