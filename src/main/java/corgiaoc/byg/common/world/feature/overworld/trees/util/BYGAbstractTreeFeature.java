@@ -459,6 +459,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                 if (!FeatureUtil.isTerrainOrRock(reader, mutable)) {
                     reader.setBlock(mutable, config.getTrunkProvider().getState(random, mutable), 2);
                 }
+                else break;
             }
             mutable.move(Direction.DOWN);
         }
@@ -550,7 +551,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
             for (BlockPos blockPos : set) {
                 if (blockPos.getY() == pos.getY()) {
                     boolean cliff = isCliff(worldIn, 9, blockPos);
-                    if (!cliff) {
+                    if (!cliff && FeatureUtil.isAir(worldIn, blockPos.below())) {
                         this.buildTrunk(worldIn, config, rand, blockPos, 10);
                     }
                 }
