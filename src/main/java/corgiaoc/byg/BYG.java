@@ -75,10 +75,10 @@ public class BYG {
         return worldConfig(false);
     }
 
-    public static boolean ENABLE_OVERWORLD_TREES = false;
-    public static boolean ENABLE_CACTI = false;
-    public static boolean ENABLE_NYLIUM_FUNGI = false;
-    public static boolean ENABLE_NETHER_MUSHROOMS = false;
+    public static boolean ENABLE_OVERWORLD_TREES = true;
+    public static boolean ENABLE_CACTI = true;
+    public static boolean ENABLE_NYLIUM_FUNGI = true;
+    public static boolean ENABLE_NETHER_MUSHROOMS = true;
 
     public BYG() {
         File dir = new File(CONFIG_PATH.toString());
