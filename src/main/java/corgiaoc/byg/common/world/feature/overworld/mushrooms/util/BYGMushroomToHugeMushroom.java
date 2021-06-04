@@ -67,7 +67,7 @@ public class BYGMushroomToHugeMushroom {
     public static class EmburWart extends BYGHugeMushroom {
         @Nullable
         public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
-            return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.EMBUR_MUSHROOM : BYGConfiguredFeatures.EMBUR_MUSHROOM2;
+            return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.EMBUR_MUSHROOM2 : BYGConfiguredFeatures.EMBUR_MUSHROOM3;
         }
     }
 

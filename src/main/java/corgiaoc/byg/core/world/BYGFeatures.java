@@ -28,6 +28,10 @@ import corgiaoc.byg.common.world.feature.nether.HangingColumnWithBase;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.RawQuartzColumnFeature;
 import corgiaoc.byg.common.world.feature.nether.spike.SpikeFeature;
 import corgiaoc.byg.common.world.feature.nether.sythiantorrids.SythianStalk;
+import corgiaoc.byg.common.world.feature.nether.trees.embur.EmburMushroom;
+import corgiaoc.byg.common.world.feature.nether.trees.embur.EmburMushroom2;
+import corgiaoc.byg.common.world.feature.nether.trees.embur.EmburMushroom3;
+import corgiaoc.byg.common.world.feature.nether.trees.embur.EmburMushroom4;
 import corgiaoc.byg.common.world.feature.nether.trees.lament.*;
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree1;
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree2;
@@ -331,6 +335,11 @@ public class BYGFeatures {
     //Embur
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> EMBUR_MUSHROOM = createFeature("embur_mushroom1", new EmburMushroom(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> EMBUR_MUSHROOM2 = createFeature("embur_mushroom2", new EmburMushroom2(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> EMBUR_MUSHROOM3 = createFeature("embur_mushroom3", new EmburMushroom3(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> EMBUR_MUSHROOM4 = createFeature("embur_mushroom4", new EmburMushroom4(BYGMushroomConfig.CODEC.stable()));
+
+
+
     public static final Feature<HangingColumnConfig> HANGING_COLUMN = createFeature("hanging_column", new HangingColumn(HangingColumnConfig.CODEC.stable()));
 
     //QuartzDesert
