@@ -458,8 +458,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
             } else {
                 if (!FeatureUtil.isTerrainOrRock(reader, mutable)) {
                     reader.setBlock(mutable, config.getTrunkProvider().getState(random, mutable), 2);
+                } else {
+                    break;
                 }
-                else break;
             }
             mutable.move(Direction.DOWN);
         }
@@ -488,8 +489,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                         continue;
 
                     if (FeatureUtil.isTerrainOrRock(world, mutable)) {
-                        if (world.getBlockState(mutable.above()).isAir() || FeatureUtil.isPlant(world, mutable.above()))
+                        if (world.getBlockState(mutable.above()).isAir() || FeatureUtil.isPlant(world, mutable.above())) {
                             world.setBlock(mutable, config.getDiskProvider().getState(random, mutable), 2);
+                        }
                     }
                 }
             }
@@ -551,7 +553,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
             for (BlockPos blockPos : set) {
                 if (blockPos.getY() == pos.getY()) {
                     boolean cliff = isCliff(worldIn, 9, blockPos);
-                    if (!cliff && FeatureUtil.isAir(worldIn, blockPos.below())) {
+                    if (!cliff && !FeatureUtil.isTerrainOrRock(worldIn, blockPos.below())) {
                         this.buildTrunk(worldIn, config, rand, blockPos, 10);
                     }
                 }
