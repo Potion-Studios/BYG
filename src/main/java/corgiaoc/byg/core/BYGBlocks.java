@@ -1070,7 +1070,7 @@ public class BYGBlocks {
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
     static Block createEmburGelBlock(String id) {
-        Block createBlock = new HoneyBlock(AbstractBlock.Properties.of(Material.CLAY, MaterialColor.TERRACOTTA_YELLOW).randomTicks().sound(SoundType.HONEY_BLOCK).noOcclusion().speedFactor(1.3f));
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.CLAY, MaterialColor.TERRACOTTA_YELLOW).randomTicks().sound(SoundType.HONEY_BLOCK).noOcclusion().speedFactor(1.3f));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         blocksList.add(createBlock);

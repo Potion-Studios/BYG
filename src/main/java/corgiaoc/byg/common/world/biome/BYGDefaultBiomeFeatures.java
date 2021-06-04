@@ -106,11 +106,6 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_BOG_PLANT);
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_LILY);
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_SPROUTS);
-
-    }
-
-    public static void addEmburBogVines(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_GEL_VINES);
     }
 
     public static void addAzalea(BiomeGenerationSettings.Builder gen) {

@@ -209,7 +209,6 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> EMBUR_ROOTS = createConfiguredFeature("embur_roots", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.EMBUR_ROOTS.defaultBlockState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), BYGBlocks.EMBUR_NYLIUM.defaultBlockState()))));
     public static final ConfiguredFeature<?, ?> EMBUR_ROOTS_TALL = createConfiguredFeature("tall_embur_roots", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_EMBUR_ROOTS.defaultBlockState()), new DoublePlantBlockPlacer())).tries(1).whitelist(ImmutableSet.of(BYGBlocks.EMBUR_NYLIUM)).noProjection().build()));
-    public static final ConfiguredFeature<?, ?> EMBUR_GEL_VINE = createConfiguredFeature("embur_gel_vine", BYGFeatures.HANGING_COLUMN.configured(new HangingColumnConfig.Builder().setBlock(BYGBlocks.EMBUR_GEL_VINES).setMinLength(3).setMaxLength(3).setWhitelist(ImmutableList.of(BYGBlocks.EMBUR_GEL_BLOCK)).build()));
     public static final ConfiguredFeature<?, ?> EMBUR_WART = createConfiguredFeature("embur_wart", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.EMBUR_WART.defaultBlockState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), BYGBlocks.EMBUR_NYLIUM.defaultBlockState()))));
     public static final ConfiguredFeature<?, ?> EMBUR_SPROUT = createConfiguredFeature("embur_sprout", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.EMBUR_SPROUTS.defaultBlockState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), BYGBlocks.EMBUR_NYLIUM.defaultBlockState()))));
 
@@ -332,7 +331,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> MAGMA_FIRE = createConfiguredFeature("magma_fire", MAGMA_FIRE_PATCH.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1))));
     public static final ConfiguredFeature<?, ?> BORIC_FIRE = createConfiguredFeature("boric_fire", BORIC_FIRE_PATCH.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1))));
     public static final ConfiguredFeature<?, ?> QUARTZ_CRYSTALS = createConfiguredFeature("quartz_crystals", QUARTZ_CRYSTAL.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(50))));
-    public static final ConfiguredFeature<?, ?> EMBUR_GEL_VINES = createConfiguredFeature("embur_gel_vines", EMBUR_GEL_VINE.range(128).squared().count(100));
     public static final ConfiguredFeature<?, ?> CRYPTIC_BRAMBLES = createConfiguredFeature("cryptic_brambles", CRYPTIC_BRAMBLE.decorated(Features.Placements.FIRE).count(1));
 
 

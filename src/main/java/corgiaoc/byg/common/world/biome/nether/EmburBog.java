@@ -60,7 +60,6 @@ public class EmburBog extends BYGNetherBiome {
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.NETHER_BRIDGE); //Fortress
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.BASTION_REMNANT); //BastionRemnant
         GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_MUSHROOM);
-        BYGDefaultBiomeFeatures.addEmburBogVines(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addEmburBogVegetation(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.BLAZE, 20, 2, 4));
@@ -68,6 +67,5 @@ public class EmburBog extends BYGNetherBiome {
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.MAGMA_CUBE, 100, 2, 5));
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.PIGLIN, 15, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.STRIDER, 60, 1, 2));
-
     }
 }
