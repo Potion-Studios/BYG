@@ -46,8 +46,11 @@ public class BYGItems {
     public static final Item AMETRINE_BOOTS = createItem(new BYGArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.FEET, (new Item.Properties()).tab(BYGCreativeTab.creativeTab)), "ametrine_boots");
     public static final Item AMETRINE_HORSE_ARMOR = createItem(new BYGHorseArmor(15, "ametrine", (new Item.Properties()).stacksTo(1).tab(BYGCreativeTab.creativeTab)), "ametrine_horse_armor");
 
+    public static final Item RAW_PENDORITE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "raw_pendorite");
+    public static final Item PENDORITE_INGOT = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "pendorite_ingot");
     public static final Item PENDORITE_SCRAPS = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "pendorite_scraps");
     public static final Item PENDORITE_ORE = createItem(new BlockItem(BYGBlocks.PENDORITE_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PENDORITE_ORE));
+    public static final Item RAW_PENDORITE_BLOCK = createItem(new BlockItem(BYGBlocks.RAW_PENDORITE_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.RAW_PENDORITE_BLOCK));
     public static final Item PENDORITE_BLOCK = createItem(new BlockItem(BYGBlocks.PENDORITE_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PENDORITE_BLOCK));
     public static final Item PENDORITE_AXE = createItem(new AxeItem(BYGItemTiers.PENDORITE, 6.0F, -3.0F, (new Item.Properties()).tab(BYGCreativeTab.creativeTab)), "pendorite_axe");
     public static final Item PENDORITE_PICK = createItem(new PickaxeItem(BYGItemTiers.PENDORITE, 2, -2.8F, (new Item.Properties()).tab(BYGCreativeTab.creativeTab)), "pendorite_pickaxe");
@@ -793,6 +796,7 @@ public class BYGItems {
     //Embur Woodtype
     public static final Item EMBUR_GEL_BALL = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "embur_gel_ball");
     public static final Item EMBUR_GEL_BLOCK = createItem(new BlockItem(BYGBlocks.EMBUR_GEL_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMBUR_GEL_BLOCK));
+    public static final Item EMBUR_GEL_BRANCH = createItem(new BlockItem(BYGBlocks.EMBUR_GEL_BRANCH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMBUR_GEL_BRANCH));
     public static final Item EMBUR_GEL_VINES = createItem(new BlockItem(BYGBlocks.EMBUR_GEL_VINES, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMBUR_GEL_VINES));
     public static final Item EMBUR_WART = createItem(new BlockItem(BYGBlocks.EMBUR_WART, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMBUR_WART));
     public static final Item EMBUR_PEDU = createItem(new BlockItem(BYGBlocks.EMBUR_PEDU, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMBUR_PEDU));

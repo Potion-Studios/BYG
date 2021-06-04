@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/embur_gel_vines_plant",
+    "particle": "byg:block/embur_gel_vines_plant"
+  }
+}

@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "byg:pendorite_ingot"
+      "item": "byg:raw_pendorite"
     }
   },
   "result": {
-    "item": "byg:pendorite_block"
+    "item": "byg:raw_pendorite_block"
   }
 }

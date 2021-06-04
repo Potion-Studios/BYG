@@ -18,6 +18,8 @@ import corgiaoc.byg.common.properties.blocks.end.shulkrenforest.ShulkrenVinePlan
 import corgiaoc.byg.common.properties.blocks.end.viscalisle.SculkGrowthBlock;
 import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
+import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVineBlock;
+import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinePlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.warped.WarpedCactusBlock;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
@@ -590,8 +592,11 @@ public class BYGBlocks {
     public static final Block HANGING_SYTHIAN_ROOTS_PLANT = new BYGBlockProperties.BYGSythianHangingRootsPlant("hanging_sythian_roots_plant");
 
     public static final Block EMBUR_LILY = new BYGBlockProperties.BYGEmburLily("embur_lily");
-    public static final Block EMBUR_GEL_BLOCK = new BYGBlockProperties.BYGEmburGelBlock("embur_gel_block");
-    public static final Block EMBUR_GEL_VINES = new BYGBlockProperties.BYGEmburGelVine("embur_gel_vines");
+    public static final Block EMBUR_GEL_BLOCK = createEmburGelBlock("embur_gel_block");
+    public static final Block EMBUR_GEL_VINES = createEmburGelVine("embur_gel_vines");
+    public static final Block EMBUR_GEL_VINES_PLANT = createEmburGelVinePlant("embur_gel_vines_plant");
+    public static final Block EMBUR_GEL_BRANCH = createEmburGelBranch("embur_gel_branch");
+
     public static final Block EMBUR_SPROUTS = createBlock(new NetherSproutsBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT, MaterialColor.COLOR_CYAN).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS)), "embur_sprouts");
     public static final Block EMBUR_ROOTS = new BYGBlockProperties.BYGEmburPlant("embur_roots");
     public static final Block EMBUR_WART = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
@@ -835,6 +840,7 @@ public class BYGBlocks {
     public static final Block SOUL_SHROOM_SPORE = new BYGBlockProperties.BYGSoulShroomSpore("soul_shroom_spore");
     public static final Block SOUL_SHROOM_SPORE_END = new BYGBlockProperties.BYGSoulShroomSporeEnd("soul_shroom_spore_end");
 
+    public static final Block RAW_PENDORITE_BLOCK = createRawPendoriteBlock("raw_pendorite_block");
     public static final Block PENDORITE_ORE = createPendoriteOre("pendorite_ore");
     public static final Block AMETRINE_ORE = createAmetrineOre("ametrine_ore");
     public static final Block PENDORITE_BLOCK = createPendoriteBlock("pendorite_block");
@@ -1063,6 +1069,37 @@ public class BYGBlocks {
     public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
+    static Block createEmburGelBlock(String id) {
+        Block createBlock = new HoneyBlock(AbstractBlock.Properties.of(Material.CLAY, MaterialColor.TERRACOTTA_YELLOW).randomTicks().sound(SoundType.HONEY_BLOCK).noOcclusion().speedFactor(1.3f));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createEmburGelVine(String id) {
+        Block createBlock = new EmburVineBlock(AbstractBlock.Properties.of(Material.LEAVES, MaterialColor.TERRACOTTA_YELLOW).instabreak().randomTicks().sound(SoundType.HONEY_BLOCK).noCollission().harvestTool(ToolType.HOE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createEmburGelVinePlant(String id) {
+        Block createBlock = new EmburVinePlantBlock(AbstractBlock.Properties.of(Material.LEAVES, MaterialColor.TERRACOTTA_YELLOW).instabreak().randomTicks().sound(SoundType.HONEY_BLOCK).noCollission().harvestTool(ToolType.HOE));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createEmburGelBranch(String id) {
+        Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_YELLOW).instabreak().sound(SoundType.HONEY_BLOCK).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
+        blocksList.add(createBlock);
+        return createBlock;
+    }
 
     static Block createTheriumBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).sound(SoundType.GLASS).noDrops().lightLevel((state) -> 12).strength(-1.0f, 3.0f));
@@ -1300,6 +1337,12 @@ public class BYGBlocks {
 
     static Block createPendoriteBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.HEAVY_METAL, MaterialColor.TERRACOTTA_PURPLE).harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createRawPendoriteBlock(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.HEAVY_METAL, MaterialColor.TERRACOTTA_PURPLE).harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.ANCIENT_DEBRIS).strength(1.5f, 6.0f));
         createBlock(createBlock, id);
         return createBlock;
     }

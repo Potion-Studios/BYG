@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "byg:item/ametrine_sword"
+    "layer0": "byg:item/raw_pendorite"
   }
 }

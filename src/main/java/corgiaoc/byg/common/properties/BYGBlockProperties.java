@@ -11,7 +11,7 @@ import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
-import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;
+import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinePlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.HangingVinesBlock;
 import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.HangingVinesPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.SoulShroomSporeBlock;
@@ -666,33 +666,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGEmburGelBlock extends HoneyBlock {
-        public BYGEmburGelBlock(String registryName) {
-            super(AbstractBlock.Properties.of(Material.CLAY)
-                    .sound(SoundType.HONEY_BLOCK)
-                    .noOcclusion()
-                    .speedFactor(1.1F)
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
-    public static class BYGEmburGelVine extends EmburVinesPlantBlock {
-        public BYGEmburGelVine(String registryName) {
-            super(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT)
-                    .sound(SoundType.HONEY_BLOCK)
-                    .strength(0.0F)
-                    .randomTicks()
-                    .noCollission()
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
     public static class BYGEmburPlant extends EmburPlantBlock {
         public BYGEmburPlant(String registryName) {
             super(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT)
@@ -727,21 +700,6 @@ public class BYGBlockProperties {
     public static class SythianPlant extends BYGSythianPlantBlock {
         public SythianPlant(String registryName) {
             super(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT)
-                    .sound(SoundType.ROOTS)
-                    .strength(0.0f)
-                    .noCollission()
-                    .noOcclusion()
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-
-        }
-    }
-
-    public static class IvisPlant extends IvisPlantBlock {
-        public IvisPlant(String registryName) {
-            super(AbstractBlock.Properties.of(Material.PLANT)
                     .sound(SoundType.ROOTS)
                     .strength(0.0f)
                     .noCollission()

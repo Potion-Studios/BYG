@@ -1,42 +1,7 @@
 {
-  "multipart": [
-    {
-      "when": {
-        "age": "0"
-      },
-      "apply": [
-        {
-          "model": "byg:block/embur_gel_vines1_age0"
-        },
-        {
-          "model": "byg:block/embur_gel_vines2_age0"
-        },
-        {
-          "model": "byg:block/embur_gel_vines3_age0"
-        },
-        {
-          "model": "byg:block/embur_gel_vines4_age0"
-        }
-      ]
-    },
-    {
-      "when": {
-        "age": "1"
-      },
-      "apply": [
-        {
-          "model": "byg:block/embur_gel_vines1_age1"
-        },
-        {
-          "model": "byg:block/embur_gel_vines2_age1"
-        },
-        {
-          "model": "byg:block/embur_gel_vines3_age1"
-        },
-        {
-          "model": "byg:block/embur_gel_vines4_age1"
-        }
-      ]
+  "variants": {
+    "": {
+      "model": "byg:block/embur_gel_vines"
     }
-  ]
+  }
 }

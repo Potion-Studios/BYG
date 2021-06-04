@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "byg:block/embur_gel_branch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "byg:block/embur_gel_branch"
+    },
+    "facing=south": {
+      "model": "byg:block/embur_gel_branch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "byg:block/embur_gel_branch",
+      "y": 270
+    }
+  }
+}
