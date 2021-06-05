@@ -1236,7 +1236,6 @@ public class BYGBlockProperties {
             super(AbstractBlock.Properties.of(Material.DECORATION, MaterialColor.SAND)
                     .sound(SoundType.SCAFFOLDING)
                     .strength(0.0f, 0.0f)
-                    .noCollission()
                     .dynamicShape()
                     .lightLevel((state) -> 12)
             );

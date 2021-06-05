@@ -566,8 +566,8 @@ public class BYGBlocks {
     public static final Block QUARTZITE_SAND = new BYGBlockProperties.BYGQuartziteSand("quartzite_sand");
     public static final Block RAW_QUARTZ_BLOCK = new BYGBlockProperties.BYGStone("raw_quartz_block");
 
-    public static final Block WAILING_VINES = new BYGBlockProperties.WailingVines("whaling_vine");
-    public static final Block WAILING_GRASS = new BYGBlockProperties.WhalingGrass("whaling_grass");
+    public static final Block WAILING_VINES = new BYGBlockProperties.WailingVines("wailing_vine");
+    public static final Block WAILING_GRASS = new BYGBlockProperties.WhalingGrass("wailing_grass");
     public static final Block MAGMATIC_STONE = new BYGBlockProperties.BYGNetherrack("magmatic_stone");
     public static final Block SCORCHED_BUSH = new BYGBlockProperties.ScorchedPlant("scorched_bush");
     public static final Block SCORCHED_GRASS = new BYGBlockProperties.ScorchedPlant("scorched_grass");
@@ -1388,7 +1388,7 @@ public class BYGBlocks {
     }
 
     static Block createNetherMushroomPlant(BYGHugeMushroom mushroom, String id) {
-        Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, true);
+        Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.FUNGUS).strength(0.0f).noCollission().randomTicks(), mushroom, true);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
         createPottedBlock(createBlock, id);
         blocksList.add(createBlock);
