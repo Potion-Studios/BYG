@@ -454,6 +454,7 @@ public class BYGBlockProperties {
             super(AbstractBlock.Properties.of(Material.SAND)
                     .sound(SoundType.SAND)
                     .strength(0.2f)
+                    .harvestTool(ToolType.SHOVEL)
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
