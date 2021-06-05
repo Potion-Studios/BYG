@@ -48,13 +48,13 @@
                   "enchantment": "minecraft:fortune",
                   "chances": [
                     0.05,
-                    0.0625,
-                    0.083333336,
-                    0.1
+                    0.05,
+                    0.05,
+                    0.05
                   ]
                 }
               ],
-              "name": "byg:witch_hazel_sapling"
+              "name": "byg:blooming_witch_hazel_sapling"
             }
           ]
         }
@@ -92,60 +92,6 @@
             }
           ],
           "name": "minecraft:stick"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:inverted",
-          "term": {
-            "condition": "minecraft:alternative",
-            "terms": [
-              {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "item": "minecraft:shears"
-                }
-              },
-              {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:silk_touch",
-                      "levels": {
-                        "min": 1
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:survives_explosion"
-            },
-            {
-              "condition": "minecraft:table_bonus",
-              "enchantment": "minecraft:fortune",
-              "chances": [
-                0.005,
-                0.0055555557,
-                0.00625,
-                0.008333334,
-                0.025
-              ]
-            }
-          ],
-          "name": "minecraft:apple"
         }
       ],
       "conditions": [
