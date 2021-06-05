@@ -116,11 +116,13 @@ public class BYGItems {
     public static final Item CRACKED_RED_ROCK_BRICK_SLAB = createItem(new BlockItem(BYGBlocks.CRACKED_RED_ROCK_BRICK_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRACKED_RED_ROCK_BRICK_SLAB));
     public static final Item CRACKED_RED_ROCK_BRICK_WALL = createItem(new BlockItem(BYGBlocks.CRACKED_RED_ROCK_BRICK_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRACKED_RED_ROCK_BRICK_WALL));
 
-
     public static final Item ROCKY_STONE = createItem(new BlockItem(BYGBlocks.ROCKY_STONE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ROCKY_STONE));
     public static final Item ROCKY_STAIRS = createItem(new BlockItem(BYGBlocks.ROCKY_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ROCKY_STAIRS));
     public static final Item ROCKY_SLAB = createItem(new BlockItem(BYGBlocks.ROCKY_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ROCKY_SLAB));
     public static final Item ROCKY_WALL = createItem(new BlockItem(BYGBlocks.ROCKY_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ROCKY_WALL));
+
+    public static final Item EMERALDITE_ORE = createItem(new BlockItem(BYGBlocks.EMERALDITE_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMERALDITE_ORE));
+    public static final Item EMERALDITE_SHARDS = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "emeraldite_shards");
 
     public static final Item SCORIA_STONE = createItem(new BlockItem(BYGBlocks.SCORIA_STONE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORIA_STONE));
     public static final Item SCORIA_STAIRS = createItem(new BlockItem(BYGBlocks.SCORIA_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORIA_STAIRS));
@@ -137,6 +139,7 @@ public class BYGItems {
     public static final Item SCORIA_STONEBRICK_STAIRS = createItem(new BlockItem(BYGBlocks.SCORIA_STONEBRICK_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORIA_STONEBRICK_STAIRS));
     public static final Item SCORIA_STONEBRICK_SLAB = createItem(new BlockItem(BYGBlocks.SCORIA_STONEBRICK_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORIA_STONEBRICK_SLAB));
     public static final Item SCORIA_STONEBRICK_WALL = createItem(new BlockItem(BYGBlocks.SCORIA_STONEBRICK_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORIA_STONEBRICK_WALL));
+    public static final Item CRACKED_SCORIA_STONE_BRICKS = createItem(new BlockItem(BYGBlocks.CRACKED_SCORIA_STONE_BRICKS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRACKED_SCORIA_STONE_BRICKS));
 
     public static final Item SOAPSTONE = createItem(new BlockItem(BYGBlocks.SOAPSTONE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SOAPSTONE));
     public static final Item SOAPSTONE_STAIRS = createItem(new BlockItem(BYGBlocks.SOAPSTONE_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SOAPSTONE_STAIRS));

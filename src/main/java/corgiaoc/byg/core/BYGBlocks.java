@@ -897,18 +897,20 @@ public class BYGBlocks {
     public static final Block ROCKY_WALL = createStoneWall("rocky_stone_wall");
 
     public static final Block SCORIA_STONE = createScoria("scoria_stone");
-    public static final Block SCORIA_SLAB = createStoneSlab("scoria_stone_slab");
-    public static final Block SCORIA_STAIRS = new BYGBlockProperties.BYGStoneStairs("scoria_stone_stairs");
-    public static final Block SCORIA_WALL = createStoneWall("scoria_stone_wall");
-    public static final Block SCORIA_COBBLESTONE = new BYGBlockProperties.BYGStone("scoria_cobblestone");
-    public static final Block SCORIA_COBBLESTONE_SLAB = createStoneSlab("scoria_cobblestone_slab");
-    public static final Block SCORIA_COBBLESTONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("scoria_cobblestone_stairs");
-    public static final Block SCORIA_COBBLESTONE_WALL = createStoneWall("scoria_cobblestone_wall");
-    public static final Block SCORIA_PILLAR = new BYGBlockProperties.BYGPillar("scoria_pillar");
-    public static final Block SCORIA_STONEBRICKS = new BYGBlockProperties.BYGStone("scoria_stonebricks");
-    public static final Block SCORIA_STONEBRICK_SLAB = createStoneSlab("scoria_stonebrick_slab");
-    public static final Block SCORIA_STONEBRICK_STAIRS = new BYGBlockProperties.BYGStoneStairs("scoria_stonebrick_stairs");
-    public static final Block SCORIA_STONEBRICK_WALL = createStoneWall("scoria_stonebrick_wall");
+    public static final Block SCORIA_SLAB = createScoriaStoneSlab("scoria_stone_slab");
+    public static final Block SCORIA_STAIRS = createScoriaStoneStairs("scoria_stone_stairs");
+    public static final Block SCORIA_WALL = createScoriaStoneWall("scoria_stone_wall");
+    public static final Block SCORIA_COBBLESTONE = createScoria("scoria_cobblestone");
+    public static final Block SCORIA_COBBLESTONE_SLAB = createScoriaStoneSlab("scoria_cobblestone_slab");
+    public static final Block SCORIA_COBBLESTONE_STAIRS = createScoriaStoneStairs("scoria_cobblestone_stairs");
+    public static final Block SCORIA_COBBLESTONE_WALL = createScoriaStoneWall("scoria_cobblestone_wall");
+    public static final Block SCORIA_PILLAR = createScoriaStonePillar("scoria_pillar");
+    public static final Block SCORIA_STONEBRICKS = createScoria("scoria_stonebricks");
+    public static final Block SCORIA_STONEBRICK_SLAB = createScoriaStoneSlab("scoria_stonebrick_slab");
+    public static final Block SCORIA_STONEBRICK_STAIRS = createScoriaStoneStairs("scoria_stonebrick_stairs");
+    public static final Block SCORIA_STONEBRICK_WALL = createScoriaStoneWall("scoria_stonebrick_wall");
+    public static final Block CRACKED_SCORIA_STONE_BRICKS = createScoria("cracked_scoria_stone_bricks");
+    public static final Block EMERALDITE_ORE = createEmeralditeOre("emeraldite_ore");
 
     public static final Block SOAPSTONE = createSoapstone("soapstone");
     public static final Block SOAPSTONE_SLAB = createStoneSlab("soapstone_slab");
@@ -1068,6 +1070,30 @@ public class BYGBlocks {
     public static final Block MEADOW_GRASS_PATH = createBlock(new GrassPathBlock(AbstractBlock.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "meadow_grass_path");
     public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
+
+    static Block createScoriaStoneSlab(String id) {
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createScoriaStoneStairs(String id) {
+        Block createBlock = new StairsBlock(Blocks.COBBLESTONE.defaultBlockState(),AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createScoriaStoneWall(String id) {
+        Block createBlock = new WallBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createScoriaStonePillar(String id) {
+        Block createBlock = new RotatedPillarBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(1.5f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
 
     static Block createEmburGelBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.CLAY, MaterialColor.TERRACOTTA_YELLOW).randomTicks().sound(SoundType.HONEY_BLOCK).noOcclusion().speedFactor(1.3f));
@@ -1343,6 +1369,12 @@ public class BYGBlocks {
 
     static Block createRawPendoriteBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.HEAVY_METAL, MaterialColor.TERRACOTTA_PURPLE).harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.ANCIENT_DEBRIS).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createEmeralditeOre(String id) {
+        Block createBlock = new BYGOreBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_GREEN).harvestLevel(3).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
         createBlock(createBlock, id);
         return createBlock;
     }

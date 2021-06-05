@@ -537,6 +537,13 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_THERIUM_LANTERNS);
     }
 
+    public static void addHangingChains(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_CHAINS);
+    }
+    public static void addHangingLanterns(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_LANTERNS);
+    }
+
     public static void addGiantFlowerFeatures(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_GIANT_FLOWER);
     }

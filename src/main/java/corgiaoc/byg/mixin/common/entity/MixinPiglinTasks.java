@@ -21,6 +21,8 @@ public class MixinPiglinTasks {
     //Weight to item stack
     private static final Reference2ReferenceOpenHashMap<Double, ItemStack> BYG_BARTER_ITEMS = Util.make(new Reference2ReferenceOpenHashMap<>(), (map) -> {
         map.put(0.2, new ItemStack(BYGItems.ANTHRACITE, 8));
+        map.put(0.05, new ItemStack(BYGItems.EMERALDITE_SHARDS, 1));
+        map.put(0.045, new ItemStack(BYGItems.RAW_PENDORITE, 1));
     });
 
     @Inject(method = "getBarterResponseItems", at = @At("RETURN"), cancellable = true)

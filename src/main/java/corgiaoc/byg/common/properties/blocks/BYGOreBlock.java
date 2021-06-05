@@ -30,7 +30,7 @@ public class BYGOreBlock extends OreBlock implements IForgeBlock {
         } else if (this == BYGBlocks.BUDDING_AMETRINE_ORE) {
             return MathHelper.nextInt(rand, 3, 9);
         } else {
-            return this == Blocks.NETHER_QUARTZ_ORE ? MathHelper.nextInt(rand, 2, 5) : 0;
+            return this == BYGBlocks.EMERALDITE_ORE ? MathHelper.nextInt(rand, 4, 7) : 0;
         }
     }
 
