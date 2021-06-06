@@ -728,7 +728,7 @@ public class BYGBlockProperties {
 
     public static class BYGPollen extends BYGPollenBlock {
         public BYGPollen(String registryName) {
-            super(AbstractBlock.Properties.of(Material.LEAVES)
+            super(AbstractBlock.Properties.of(Material.WOOL)
                     .sound(SoundType.CORAL_BLOCK)
                     .strength(0.2f)
                     .randomTicks()

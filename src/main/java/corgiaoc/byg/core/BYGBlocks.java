@@ -1716,7 +1716,7 @@ public class BYGBlocks {
     }
 
     static Block createPetal(String id) {
-        Block createBlock = new Block(AbstractBlock.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).noOcclusion().harvestTool(ToolType.HOE));
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.GRASS).sound(SoundType.GRASS).strength(0.2f).noOcclusion().harvestTool(ToolType.HOE));
         createBlock(createBlock, id);
         return createBlock;
     }
