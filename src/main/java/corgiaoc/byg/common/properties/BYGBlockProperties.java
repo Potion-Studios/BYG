@@ -1213,7 +1213,7 @@ public class BYGBlockProperties {
 
     public static class BulbisShell extends HugeMushroomBlock {
         public BulbisShell(String registryName) {
-            super(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_CYAN)
+            super(AbstractBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN)
                     .sound(SoundType.SHROOMLIGHT)
                     .strength(0.2F)
                     .noOcclusion()
