@@ -176,7 +176,7 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.SHULKREN_VINE);
         compostibleBlocks(0.65f, BYGItems.LAMENT_VINE);
         compostibleBlocks(0.65f, BYGItems.SKYRIS_VINE);
-        compostibleBlocks(0.65f, BYGItems.WHALING_VINES);
+        compostibleBlocks(0.65f, BYGItems.WAILING_VINES);
         compostibleBlocks(0.65f, BYGItems.EMBUR_GEL_VINES);
 
         //Mushroom Blocks

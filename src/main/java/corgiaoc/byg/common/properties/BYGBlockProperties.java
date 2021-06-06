@@ -454,6 +454,7 @@ public class BYGBlockProperties {
             super(AbstractBlock.Properties.of(Material.SAND)
                     .sound(SoundType.SAND)
                     .strength(0.2f)
+                    .harvestTool(ToolType.SHOVEL)
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
@@ -1235,7 +1236,6 @@ public class BYGBlockProperties {
             super(AbstractBlock.Properties.of(Material.DECORATION, MaterialColor.SAND)
                     .sound(SoundType.SCAFFOLDING)
                     .strength(0.0f, 0.0f)
-                    .noCollission()
                     .dynamicShape()
                     .lightLevel((state) -> 12)
             );
