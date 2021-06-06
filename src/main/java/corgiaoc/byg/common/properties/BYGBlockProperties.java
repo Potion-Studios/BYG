@@ -728,7 +728,7 @@ public class BYGBlockProperties {
 
     public static class BYGPollen extends BYGPollenBlock {
         public BYGPollen(String registryName) {
-            super(AbstractBlock.Properties.of(Material.LEAVES)
+            super(AbstractBlock.Properties.of(Material.WOOL)
                     .sound(SoundType.CORAL_BLOCK)
                     .strength(0.2f)
                     .randomTicks()
@@ -1174,7 +1174,7 @@ public class BYGBlockProperties {
 
     public static class BlockHugeGlowshroom extends HugeMushroomBlock {
         public BlockHugeGlowshroom(String registryName) {
-            super(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.DIRT)
+            super(AbstractBlock.Properties.of(Material.GLASS, MaterialColor.DIRT)
                     .sound(SoundType.STEM)
                     .strength(0.2F)
                     .noOcclusion()
@@ -1213,7 +1213,7 @@ public class BYGBlockProperties {
 
     public static class BulbisShell extends HugeMushroomBlock {
         public BulbisShell(String registryName) {
-            super(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_CYAN)
+            super(AbstractBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN)
                     .sound(SoundType.SHROOMLIGHT)
                     .strength(0.2F)
                     .noOcclusion()
@@ -1261,7 +1261,7 @@ public class BYGBlockProperties {
 
     public static class BYGGlowCaneBlock extends Block {
         public BYGGlowCaneBlock(String registryName) {
-            super(AbstractBlock.Properties.of(Material.GLASS)
+            super(AbstractBlock.Properties.of(Material.GRASS)
                     .sound(SoundType.SHROOMLIGHT)
                     .strength(0.3F)
                     .lightLevel((state) -> 15)
