@@ -1174,7 +1174,7 @@ public class BYGBlockProperties {
 
     public static class BlockHugeGlowshroom extends HugeMushroomBlock {
         public BlockHugeGlowshroom(String registryName) {
-            super(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.DIRT)
+            super(AbstractBlock.Properties.of(Material.GLASS, MaterialColor.DIRT)
                     .sound(SoundType.STEM)
                     .strength(0.2F)
                     .noOcclusion()
