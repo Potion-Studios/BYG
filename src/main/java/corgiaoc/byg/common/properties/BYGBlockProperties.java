@@ -1261,7 +1261,7 @@ public class BYGBlockProperties {
 
     public static class BYGGlowCaneBlock extends Block {
         public BYGGlowCaneBlock(String registryName) {
-            super(AbstractBlock.Properties.of(Material.GLASS)
+            super(AbstractBlock.Properties.of(Material.GRASS)
                     .sound(SoundType.SHROOMLIGHT)
                     .strength(0.3F)
                     .lightLevel((state) -> 15)
