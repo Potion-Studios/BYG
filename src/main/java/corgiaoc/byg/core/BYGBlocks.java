@@ -558,7 +558,7 @@ public class BYGBlocks {
     public static final Block TALL_CRIMSON_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_crimson_roots");
     public static final Block BRIMSTONE = new BYGBlockProperties.BYGNetherrack("brimstone");
     public static final Block YELLOW_NETHER_BRICKS = new BYGBlockProperties.BYGNetherrack("yellow_nether_bricks");
-    public static final Block BORIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("boric_campfire");
+    public static final Block BORIC_CAMPFIRE = createCampfireBlock(3, "boric_campfire");
     public static final Block BORIC_FIRE = new BYGBlockProperties.BoricFire("boric_fire");
 
     public static final Block HANGING_BONE = new BYGBlockProperties.HangingBones("hanging_bones");
@@ -662,7 +662,7 @@ public class BYGBlocks {
     public static final Block THERIUM_GLASS = createTheriumGlass("therium_glass");
     public static final Block THERIUM_GLASS_PANE = createTheriumGlassPane("therium_glass_pane");
 
-    public static final Block CRYPTIC_CAMPFIRE = new BYGBlockProperties.BoricCampfire("cryptic_campfire");
+    public static final Block CRYPTIC_CAMPFIRE = createCampfireBlock(4, "cryptic_campfire");
     public static final Block CRYPTIC_FIRE = new BYGBlockProperties.CrypticFire("cryptic_fire");
     public static final Block CRYPTIC_MAGMA_BLOCK = new BYGBlockProperties.BYGMagma("cryptic_magma_block");
     public static final Block CRYPTIC_STONE = new BYGBlockProperties.BYGStone("cryptic_stone");
@@ -1354,6 +1354,13 @@ public class BYGBlocks {
         createBlock(createBlock, id);
         return createBlock;
     }
+
+    static Block createCampfireBlock(int type, String id) {
+        Block createBlock = new BYGCampfireBlock(true, type, AbstractBlock.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD).noOcclusion().lightLevel((state) -> 14));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
 
     static Block createPendoriteOre(String id) {
         Block createBlock = new BYGOreBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PURPLE).harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));

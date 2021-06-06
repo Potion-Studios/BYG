@@ -972,7 +972,6 @@ public class BYGBlockProperties {
             super(true, 5, AbstractBlock.Properties.of(Material.WOOD, MaterialColor.PODZOL)
                     .strength(2.0F)
                     .sound(SoundType.WOOD)
-                    .randomTicks()
                     .noOcclusion()
                     .lightLevel((state) -> 14)
             );
