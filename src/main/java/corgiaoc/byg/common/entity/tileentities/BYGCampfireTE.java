@@ -50,7 +50,6 @@ public class BYGCampfireTE extends TileEntity implements IClearable, ITickableTi
                     }
                 }
             }
-
         }
     }
 
@@ -59,7 +58,6 @@ public class BYGCampfireTE extends TileEntity implements IClearable, ITickableTi
         CompoundNBT tag = pkt.getTag();
         load(this.getBlockState(), tag);
     }
-
 
 
     private void cook() {
@@ -79,7 +77,6 @@ public class BYGCampfireTE extends TileEntity implements IClearable, ITickableTi
                 }
             }
         }
-
     }
 
     private void makeParticles() {
@@ -108,7 +105,6 @@ public class BYGCampfireTE extends TileEntity implements IClearable, ITickableTi
                     }
                 }
             }
-
         }
     }
 
@@ -169,7 +165,6 @@ public class BYGCampfireTE extends TileEntity implements IClearable, ITickableTi
                 return true;
             }
         }
-
         return false;
     }
 
@@ -187,9 +182,7 @@ public class BYGCampfireTE extends TileEntity implements IClearable, ITickableTi
             if (!this.level.isClientSide) {
                 InventoryHelper.dropContents(this.level, this.getBlockPos(), this.getItems());
             }
-
             this.markUpdated();
         }
-
     }
 }
