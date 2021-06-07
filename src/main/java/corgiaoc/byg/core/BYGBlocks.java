@@ -30,6 +30,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.EntityType;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.ITag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -42,6 +43,7 @@ import net.minecraftforge.common.ToolType;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.ToIntFunction;
 
 @SuppressWarnings("deprecation")
 public class BYGBlocks {
@@ -1356,7 +1358,7 @@ public class BYGBlocks {
     }
 
     static Block createCampfireBlock(int type, String id) {
-        Block createBlock = new BYGCampfireBlock(true, type, AbstractBlock.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD).noOcclusion().lightLevel((state) -> 14));
+        Block createBlock = new BYGCampfireBlock(true, type, AbstractBlock.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD).noOcclusion().lightLevel(litBlockEmission(14)));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1800,5 +1802,11 @@ public class BYGBlocks {
 
     private static boolean isntSolid(BlockState state, IBlockReader reader, BlockPos pos) {
         return false;
+    }
+
+    private static ToIntFunction<BlockState> litBlockEmission(int light) {
+        return (state) -> {
+            return state.getValue(BlockStateProperties.LIT) ? light : 0;
+        };
     }
 }
