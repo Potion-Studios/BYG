@@ -49,7 +49,6 @@ public class WailingGarth extends BYGNetherBiome {
     }
 
     static {
-        GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.DELTA);
         GENERATION_SETTINGS.addCarver(GenerationStage.Carving.AIR, ConfiguredCarvers.NETHER_CAVE);
         GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.SPRING_CLOSED);
         GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.SPRING_LAVA);

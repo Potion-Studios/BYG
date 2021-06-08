@@ -28,8 +28,18 @@ public class WailingGarthSB extends SurfaceBuilder<SurfaceBuilderConfig> {
             BlockState checkAirForSB = chunkIn.getBlockState(block.above());
             if (currentBlockToReplace == Blocks.NETHERRACK.defaultBlockState() && !(checkAirForSB.getBlock() == Blocks.AIR))
                 chunkIn.setBlockState(block, BYGBlocks.SCORIA_STONE.defaultBlockState(), false);
-            if (currentBlockToReplace.getBlock() == Blocks.NETHERRACK && checkAirForSB.getBlock() == Blocks.AIR)
-                chunkIn.setBlockState(block, BYGBlocks.SCORIA_STONE.defaultBlockState(), false);
         }
+
+        int randomizer = random.nextInt(5);
+
+        if (randomizer <= 1)
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.SOUL_SOIL);
+        if (randomizer <= 2)
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.SOUL_SOIL);
+        if (randomizer == 3)
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WAILING_NYLIUM);
+        if (randomizer == 4)
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.SOULSAND);
+
     }
 }

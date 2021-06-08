@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "byg:block/wailing_nylium",
+    "bottom": "minecraft:block/soul_soil",
+    "side": "byg:block/wailing_nylium_side"
+  }
+}

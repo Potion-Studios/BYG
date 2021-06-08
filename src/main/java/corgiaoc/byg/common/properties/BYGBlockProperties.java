@@ -4,14 +4,12 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.CrypticFireBlock;
-import corgiaoc.byg.common.properties.blocks.end.IvisPlantBlock;
 import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
 import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
-import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinePlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.HangingVinesBlock;
 import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.HangingVinesPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.SoulShroomSporeBlock;
@@ -20,7 +18,7 @@ import corgiaoc.byg.common.properties.blocks.nether.scorched.ScorchedPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.subzerohypogeal.SubzeroAshBlock;
 import corgiaoc.byg.common.properties.blocks.nether.sythian.*;
 import corgiaoc.byg.common.properties.blocks.nether.wailing.HangingBonesBlock;
-import corgiaoc.byg.common.properties.blocks.nether.wailing.WhalingGrassBlock;
+import corgiaoc.byg.common.properties.blocks.nether.wailing.WailingPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.warped.*;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVineBlock;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVinePlantBlock;
@@ -468,34 +466,6 @@ public class BYGBlockProperties {
                     .sound(SoundType.BONE_BLOCK)
                     .strength(0.0F)
                     .noCollission()
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
-    public static class WailingVines extends VineBlock {
-        public WailingVines(String registryName) {
-            super(AbstractBlock.Properties.of(Material.PLANT)
-                    .sound(SoundType.TWISTING_VINES)
-                    .strength(0.0F)
-                    .randomTicks()
-                    .noCollission()
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
-    public static class WhalingGrass extends WhalingGrassBlock {
-        public WhalingGrass(String registryName) {
-            super(AbstractBlock.Properties.of(Material.PLANT)
-                    .sound(SoundType.ROOTS)
-                    .strength(0.0F)
-                    .noCollission()
-                    .noOcclusion()
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
