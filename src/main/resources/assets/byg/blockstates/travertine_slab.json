@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/travertine_slab"
+    },
+    "type=double": {
+      "model": "byg:block/travertine"
+    },
+    "type=top": {
+      "model": "byg:block/travertine_slab_top"
+    }
+  }
+}

@@ -25,6 +25,9 @@
     "byg:chiseled_therium_wall",
     "byg:shiny_chiseled_therium_wall",
     "byg:cobbled_ether_stone_wall",
-    "byg:carved_ether_stone_wall"
+    "byg:carved_ether_stone_wall",
+    "byg:travertine_wall",
+    "byg:polished_travertine_wall",
+    "byg:chiseled_travertine_wall"
   ]
 }
