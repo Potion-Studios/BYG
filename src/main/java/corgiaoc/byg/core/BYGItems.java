@@ -121,6 +121,19 @@ public class BYGItems {
     public static final Item ROCKY_SLAB = createItem(new BlockItem(BYGBlocks.ROCKY_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ROCKY_SLAB));
     public static final Item ROCKY_WALL = createItem(new BlockItem(BYGBlocks.ROCKY_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ROCKY_WALL));
 
+    public static final Item TRAVERTINE = createItem(new BlockItem(BYGBlocks.TRAVERTINE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.TRAVERTINE));
+    public static final Item TRAVERTINE_STAIRS = createItem(new BlockItem(BYGBlocks.TRAVERTINE_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.TRAVERTINE_STAIRS));
+    public static final Item TRAVERTINE_SLAB = createItem(new BlockItem(BYGBlocks.TRAVERTINE_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.TRAVERTINE_SLAB));
+    public static final Item TRAVERTINE_WALL = createItem(new BlockItem(BYGBlocks.TRAVERTINE_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.TRAVERTINE_WALL));
+    public static final Item POLISHED_TRAVERTINE = createItem(new BlockItem(BYGBlocks.POLISHED_TRAVERTINE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.POLISHED_TRAVERTINE));
+    public static final Item POLISHED_TRAVERTINE_STAIRS = createItem(new BlockItem(BYGBlocks.POLISHED_TRAVERTINE_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.POLISHED_TRAVERTINE_STAIRS));
+    public static final Item POLISHED_TRAVERTINE_SLAB = createItem(new BlockItem(BYGBlocks.POLISHED_TRAVERTINE_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.POLISHED_TRAVERTINE_SLAB));
+    public static final Item POLISHED_TRAVERTINE_WALL = createItem(new BlockItem(BYGBlocks.POLISHED_TRAVERTINE_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.POLISHED_TRAVERTINE_WALL));
+    public static final Item CHISELED_TRAVERTINE = createItem(new BlockItem(BYGBlocks.CHISELED_TRAVERTINE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_TRAVERTINE));
+    public static final Item CHISELED_TRAVERTINE_STAIRS = createItem(new BlockItem(BYGBlocks.CHISELED_TRAVERTINE_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_TRAVERTINE_STAIRS));
+    public static final Item CHISELED_TRAVERTINE_SLAB = createItem(new BlockItem(BYGBlocks.CHISELED_TRAVERTINE_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_TRAVERTINE_SLAB));
+    public static final Item CHISELED_TRAVERTINE_WALL = createItem(new BlockItem(BYGBlocks.CHISELED_TRAVERTINE_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_TRAVERTINE_WALL));
+
     public static final Item EMERALDITE_ORE = createItem(new BlockItem(BYGBlocks.EMERALDITE_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMERALDITE_ORE));
     public static final Item EMERALDITE_SHARDS = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "emeraldite_shards");
 

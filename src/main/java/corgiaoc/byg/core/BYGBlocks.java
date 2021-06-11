@@ -901,6 +901,19 @@ public class BYGBlocks {
     public static final Block ROCKY_STAIRS = new BYGBlockProperties.BYGStoneStairs("rocky_stone_stairs");
     public static final Block ROCKY_WALL = createStoneWall("rocky_stone_wall");
 
+    public static final Block TRAVERTINE = createTravertine("travertine");
+    public static final Block TRAVERTINE_SLAB = createTravertineSlab("travertine_slab");
+    public static final Block TRAVERTINE_STAIRS = createTravertineStairs("travertine_stairs");
+    public static final Block TRAVERTINE_WALL = createTravertineWall("travertine_wall");
+    public static final Block POLISHED_TRAVERTINE = createTravertine("polished_travertine");
+    public static final Block POLISHED_TRAVERTINE_SLAB = createTravertineSlab("polished_travertine_slab");
+    public static final Block POLISHED_TRAVERTINE_STAIRS = createTravertineStairs("polished_travertine_stairs");
+    public static final Block POLISHED_TRAVERTINE_WALL = createTravertineWall("polished_travertine_wall");
+    public static final Block CHISELED_TRAVERTINE = createTravertine("chiseled_travertine");
+    public static final Block CHISELED_TRAVERTINE_SLAB = createTravertineSlab("chiseled_travertine_slab");
+    public static final Block CHISELED_TRAVERTINE_STAIRS = createTravertineStairs("chiseled_travertine_stairs");
+    public static final Block CHISELED_TRAVERTINE_WALL = createTravertineWall("chiseled_travertine_wall");
+
     public static final Block SCORIA_STONE = createScoria("scoria_stone");
     public static final Block SCORIA_SLAB = createScoriaStoneSlab("scoria_stone_slab");
     public static final Block SCORIA_STAIRS = createScoriaStoneStairs("scoria_stone_stairs");
@@ -1077,6 +1090,25 @@ public class BYGBlocks {
     public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
+
+    static Block createTravertineSlab(String id) {
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.SNOW).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createTravertineStairs(String id) {
+        Block createBlock = new StairsBlock(Blocks.COBBLESTONE.defaultBlockState(),AbstractBlock.Properties.of(Material.STONE, MaterialColor.SNOW).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createTravertineWall(String id) {
+        Block createBlock = new WallBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.SNOW).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+    
     static Block createScoriaStoneSlab(String id) {
         Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
         createBlock(createBlock, id);
@@ -1327,6 +1359,12 @@ public class BYGBlocks {
 
     static Block createSoapstone(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BLACK).sound(SoundType.STONE).strength(1.5f, 6.0f).harvestTool(ToolType.PICKAXE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createTravertine(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.SNOW).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
         createBlock(createBlock, id);
         return createBlock;
     }
