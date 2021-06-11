@@ -930,6 +930,7 @@ public class BYGItems {
     public static final Item FROST_MAGMA = createItem(new BlockItem(BYGBlocks.FROST_MAGMA, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.FROST_MAGMA));
     public static final Item SUBZERO_ASH = createItem(new BlockItem(BYGBlocks.SUBZERO_ASH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SUBZERO_ASH));
     public static final Item SUBZERO_ASH_BLOCK = createItem(new BlockItem(BYGBlocks.SUBZERO_ASH_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SUBZERO_ASH_BLOCK));
+    public static final Item SUBZERO_CRYSTAL_BLOCK = createItem(new BlockItem(BYGBlocks.SUBZERO_CRYSTAL_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SUBZERO_CRYSTAL_BLOCK));
 
     public static final Item ANTHRACITE = createItem(new AnthraciteItem(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "anthracite");
     public static final Item ANTHRACITE_BLOCK = createItem(new AnthraciteBlockItem(BYGBlocks.ANTHRACITE_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ANTHRACITE_BLOCK));

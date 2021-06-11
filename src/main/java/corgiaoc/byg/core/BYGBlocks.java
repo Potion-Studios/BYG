@@ -707,6 +707,7 @@ public class BYGBlocks {
     public static final Block FROST_MAGMA = new BYGBlockProperties.BYGFrostMagma("frost_magma");
     public static final Block SUBZERO_ASH = new BYGBlockProperties.BYGSubzeroAsh("subzero_ash");
     public static final Block SUBZERO_ASH_BLOCK = new BYGBlockProperties.BYGSubzeroAshBlock("subzero_ash_block");
+    public static final Block SUBZERO_CRYSTAL_BLOCK = createSubzeroCrystalBlock("subzero_crystal_block");
     public static final Block LAMENT_SPROUTS = new BYGBlockProperties.BYGLamentPlant("lament_sprouts");
     public static final Block LAMENT_VINE = new BYGBlockProperties.BYGLamentVine("lament_vine");
     public static final Block LAMENT_VINE_PLANT = new BYGBlockProperties.BYGLamentVinePlant("lament_vine_plant");
@@ -1090,6 +1091,13 @@ public class BYGBlocks {
     public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
+
+
+    static Block createSubzeroCrystalBlock(String id){
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).noDrops().lightLevel((state) -> 12).strength(-1.0f, 3.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
 
     static Block createTravertineSlab(String id) {
         Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.SNOW).sound(SoundType.STONE).strength(2.0f, 6.0f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops());
