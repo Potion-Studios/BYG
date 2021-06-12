@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/chiseled_fungal_imparius_slab"
+    },
+    "type=top": {
+      "model": "byg:block/chiseled_fungal_imparius_slab_top"
+    },
+    "type=double": {
+      "model": "byg:block/chiseled_fungal_imparius"
+    }
+  }
+}

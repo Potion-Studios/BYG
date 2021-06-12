@@ -931,6 +931,12 @@ public class BYGItems {
     public static final Item SUBZERO_ASH = createItem(new BlockItem(BYGBlocks.SUBZERO_ASH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SUBZERO_ASH));
     public static final Item SUBZERO_ASH_BLOCK = createItem(new BlockItem(BYGBlocks.SUBZERO_ASH_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SUBZERO_ASH_BLOCK));
     public static final Item SUBZERO_CRYSTAL_BLOCK = createItem(new BlockItem(BYGBlocks.SUBZERO_CRYSTAL_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SUBZERO_CRYSTAL_BLOCK));
+    public static final Item BUDDING_SUBZERO_CRYSTAL = createItem(new BlockItem(BYGBlocks.BUDDING_SUBZERO_CRYSTAL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BUDDING_SUBZERO_CRYSTAL));
+    public static final Item SMALL_SUBZERO_CRYSTAL_BUD = createItem(new BlockItem(BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD));
+    public static final Item MEDIUM_SUBZERO_CRYSTAL_BUD = createItem(new BlockItem(BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD));
+    public static final Item LARGE_SUBZERO_CRYSTAL_BUD = createItem(new BlockItem(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD));
+    public static final Item SUBZERO_CRYSTAL_CLUSTER = createItem(new BlockItem(BYGBlocks.SUBZERO_CRYSTAL_CLUSTER, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SUBZERO_CRYSTAL_CLUSTER));
+    public static final Item SUBZERO_CRYSTAL_SHARD = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "subzero_crystal_shard");
 
     public static final Item ANTHRACITE = createItem(new AnthraciteItem(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "anthracite");
     public static final Item ANTHRACITE_BLOCK = createItem(new AnthraciteBlockItem(BYGBlocks.ANTHRACITE_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ANTHRACITE_BLOCK));
@@ -951,6 +957,7 @@ public class BYGItems {
     public static final Item WAILING_VINES = createItem(new BlockItem(BYGBlocks.WAILING_VINES, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_VINES));
     public static final Item WAILING_NYLIUM = createItem(new BlockItem(BYGBlocks.WAILING_NYLIUM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_NYLIUM));
     public static final Item WAILING_GRASS = createItem(new BlockItem(BYGBlocks.WAILING_GRASS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_GRASS));
+    public static final Item DUSTED_POLISHED_BLACKSTONE_BRICKS = createItem(new BlockItem(BYGBlocks.DUSTED_POLISHED_BLACKSTONE_BRICKS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.DUSTED_POLISHED_BLACKSTONE_BRICKS));
     public static final Item SCORCHED_BUSH = createItem(new BlockItem(BYGBlocks.SCORCHED_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORCHED_BUSH));
     public static final Item SCORCHED_GRASS = createItem(new BlockItem(BYGBlocks.SCORCHED_GRASS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORCHED_GRASS));
 
@@ -997,6 +1004,10 @@ public class BYGItems {
 
     public static final Item IMPARIUS_BUSH = createItem(new BlockItem(BYGBlocks.IMPARIUS_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_BUSH));
     public static final Item IMPARIUS_PHYLIUM = createItem(new BlockItem(BYGBlocks.IMPARIUS_PHYLIUM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.IMPARIUS_PHYLIUM));
+    public static final Item CHISELED_FUNGAL_IMPARIUS = createItem(new BlockItem(BYGBlocks.CHISELED_FUNGAL_IMPARIUS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_FUNGAL_IMPARIUS));
+    public static final Item CHISELED_FUNGAL_IMPARIUS_SLAB = createItem(new BlockItem(BYGBlocks.CHISELED_FUNGAL_IMPARIUS_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_FUNGAL_IMPARIUS_SLAB));
+    public static final Item CHISELED_FUNGAL_IMPARIUS_STAIRS = createItem(new BlockItem(BYGBlocks.CHISELED_FUNGAL_IMPARIUS_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_FUNGAL_IMPARIUS_STAIRS));
+    public static final Item CHISELED_FUNGAL_IMPARIUS_WALL = createItem(new BlockItem(BYGBlocks.CHISELED_FUNGAL_IMPARIUS_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_FUNGAL_IMPARIUS_WALL));
 
     public static final Item ETHER_PHYLIUM = createItem(new BlockItem(BYGBlocks.ETHER_PHYLIUM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_PHYLIUM));
     public static final Item ETHER_SOIL = createItem(new BlockItem(BYGBlocks.ETHER_SOIL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ETHER_SOIL));

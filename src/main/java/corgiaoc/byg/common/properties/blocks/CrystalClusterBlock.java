@@ -21,7 +21,7 @@ import net.minecraft.world.IWorld;
 
 import javax.annotation.Nullable;
 
-public class AmetrineClusterBlock extends Block implements IWaterLoggable {
+public class CrystalClusterBlock extends Block implements IWaterLoggable {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
@@ -31,15 +31,15 @@ public class AmetrineClusterBlock extends Block implements IWaterLoggable {
     protected final VoxelShape westAabb;
     protected final VoxelShape upAabb;
     protected final VoxelShape downAabb;
-    public AmetrineClusterBlock(int i, int j, AbstractBlock.Properties properties) {
+    public CrystalClusterBlock(int i, int j, AbstractBlock.Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(LIT, true).setValue(WATERLOGGED, false).setValue(FACING, Direction.UP));
-        this.upAabb = Block.box((double) j, 0.0D, (double) j, (double) (16 - j), (double) i, (double) (16 - j));
-        this.downAabb = Block.box((double) j, (double) (16 - i), (double) j, (double) (16 - j), 16.0D, (double) (16 - j));
-        this.northAabb = Block.box((double) j, (double) j, (double) (16 - i), (double) (16 - j), (double) (16 - j), 16.0D);
-        this.southAabb = Block.box((double) j, (double) j, 0.0D, (double) (16 - j), (double) (16 - j), (double) i);
-        this.eastAabb = Block.box(0.0D, (double) j, (double) j, (double) i, (double) (16 - j), (double) (16 - j));
-        this.westAabb = Block.box((double) (16 - i), (double) j, (double) j, 16.0D, (double) (16 - j), (double) (16 - j));
+        this.upAabb = Block.box(j, 0.0D,  j, 16 - j,  i,  (16 - j));
+        this.downAabb = Block.box( j,  (16 - i),  j,  (16 - j), 16.0D,  (16 - j));
+        this.northAabb = Block.box( j,  j,  (16 - i),  (16 - j),  (16 - j), 16.0D);
+        this.southAabb = Block.box( j,  j, 0.0D,  (16 - j),  (16 - j),  i);
+        this.eastAabb = Block.box(0.0D,  j,  j,  i,  (16 - j),  (16 - j));
+        this.westAabb = Block.box( (16 - i),  j,  j, 16.0D,  (16 - j),  (16 - j));
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {

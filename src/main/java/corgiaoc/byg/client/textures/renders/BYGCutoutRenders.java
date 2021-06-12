@@ -52,6 +52,11 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.LAMENT_VINE_PLANT, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.LAMENT_SPROUTS, RenderType.cutoutMipped());
 
+        RenderTypeLookup.setRenderLayer(BYGBlocks.SUBZERO_CRYSTAL_CLUSTER, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD, RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD, RenderType.cutoutMipped());
+
         RenderTypeLookup.setRenderLayer(BYGBlocks.TALL_CRIMSON_ROOTS, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.CRIMSON_BERRY_BUSH, RenderType.cutoutMipped());
 
