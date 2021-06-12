@@ -1091,10 +1091,8 @@ public class BYGBlocks {
     public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
-
-
     static Block createSubzeroCrystalBlock(String id){
-        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).noDrops().lightLevel((state) -> 12).strength(-1.0f, 3.0f));
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).noDrops().lightLevel((state) -> 12).strength(1.5f, 1.5f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().harvestLevel(2));
         createBlock(createBlock, id);
         return createBlock;
     }
