@@ -38,6 +38,7 @@ import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree3;
 import corgiaoc.byg.common.world.feature.nether.trees.withering.WitheringOakTree4;
 import corgiaoc.byg.common.world.feature.nether.wailinggarth.WailingVine;
+import corgiaoc.byg.common.world.feature.nether.wailinggarth.pillars.WailingPillar1;
 import corgiaoc.byg.common.world.feature.nether.warpeddesert.WarpedCoralFeature;
 import corgiaoc.byg.common.world.feature.overworld.*;
 import corgiaoc.byg.common.world.feature.overworld.giantflowers.AngelicaGiant;
@@ -331,6 +332,7 @@ public class BYGFeatures {
 
     //Wailing
     public static final Feature<NoFeatureConfig> WAILING_VINES = createFeature("wailing_vine", new WailingVine(NoFeatureConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> WAILING_PILLAR1 = createFeature("wailing_pillar1", new WailingPillar1(BYGTreeConfig.CODEC.stable()));
 
     //Embur
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> EMBUR_MUSHROOM = createFeature("embur_mushroom1", new EmburMushroom(BYGMushroomConfig.CODEC.stable()));
