@@ -57,6 +57,8 @@ public class BYGCutoutRenders {
         RenderTypeLookup.setRenderLayer(BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD, RenderType.cutoutMipped());
 
+        RenderTypeLookup.setRenderLayer(BYGBlocks.ARISIAN_BLOOM_BRANCH, RenderType.cutoutMipped());
+
         RenderTypeLookup.setRenderLayer(BYGBlocks.TALL_CRIMSON_ROOTS, RenderType.cutoutMipped());
         RenderTypeLookup.setRenderLayer(BYGBlocks.CRIMSON_BERRY_BUSH, RenderType.cutoutMipped());
 

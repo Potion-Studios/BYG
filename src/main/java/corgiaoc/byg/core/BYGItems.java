@@ -960,6 +960,7 @@ public class BYGItems {
     public static final Item DUSTED_POLISHED_BLACKSTONE_BRICKS = createItem(new BlockItem(BYGBlocks.DUSTED_POLISHED_BLACKSTONE_BRICKS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.DUSTED_POLISHED_BLACKSTONE_BRICKS));
     public static final Item SCORCHED_BUSH = createItem(new BlockItem(BYGBlocks.SCORCHED_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORCHED_BUSH));
     public static final Item SCORCHED_GRASS = createItem(new BlockItem(BYGBlocks.SCORCHED_GRASS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORCHED_GRASS));
+    public static final Item ARISIAN_BLOOM_BRANCH = createItem(new BlockItem(BYGBlocks.ARISIAN_BLOOM_BRANCH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ARISIAN_BLOOM_BRANCH));
 
     public static final Item SOUL_SHROOM = createItem(new BlockItem(BYGBlocks.SOUL_SHROOM, new Item.Properties().tab(BYGCreativeTab.creativeTab).food(new Food.Builder().nutrition(2).saturationMod(0.6f).effect(new EffectInstance(Effects.WEAKNESS, 200, 0), 1.0F).build())), Registry.BLOCK.getKey(BYGBlocks.SOUL_SHROOM));
     public static final Item SOUL_SHROOM_SPORE_END = createItem(new BlockItem(BYGBlocks.SOUL_SHROOM_SPORE_END, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SOUL_SHROOM_SPORE_END));

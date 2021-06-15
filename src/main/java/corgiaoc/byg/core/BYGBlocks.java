@@ -942,6 +942,7 @@ public class BYGBlocks {
     public static final Block EMERALDITE_ORE = createEmeralditeOre("emeraldite_ore");
 
     public static final Block DUSTED_POLISHED_BLACKSTONE_BRICKS = createDustedPolishedBlackstoneBricks("dusted_polished_blackstone_bricks");
+    public static final Block ARISIAN_BLOOM_BRANCH = createArisianBloomBranch("arisian_bloom_branch");
 
     public static final Block SOAPSTONE = createSoapstone("soapstone");
     public static final Block SOAPSTONE_SLAB = createStoneSlab("soapstone_slab");
@@ -1232,6 +1233,14 @@ public class BYGBlocks {
 
     static Block createEmburGelBranch(String id) {
         Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_YELLOW).instabreak().sound(SoundType.HONEY_BLOCK).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createArisianBloomBranch(String id) {
+        Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_PURPLE).instabreak().sound(SoundType.GRASS).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
         blocksList.add(createBlock);
