@@ -122,6 +122,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> LAMENT_SPROUTS = createConfiguredFeature("lament_sprouts", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.LAMENT_SPROUTS.defaultBlockState(), ImmutableList.of(BYGBlocks.OVERGROWN_NETHERRACK.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState()))));
 
+
     public static final ConfiguredFeature<?, ?> BLUE_BERRY_BUSH = createConfiguredFeature("blue_berry_bush", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BLUEBERRY_BUSH.defaultBlockState().setValue(BlueBerryBush.AGE, 3)), new SimpleBlockPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> ROSE = createConfiguredFeature("rose", Feature.FLOWER.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ROSE.defaultBlockState()), new SimpleBlockPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> ANGELICA = createConfiguredFeature("angelica", Feature.FLOWER.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ANGELICA.defaultBlockState()), new SimpleBlockPlacer())).tries(64).noProjection().build()));
@@ -421,7 +422,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> FROST_MAGMA_PILLARS = createConfiguredFeature("frost_magma_pillars", BYGFeatures.PILLARS.configured((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.FROST_MAGMA.defaultBlockState())))).range(128).squared().count(50));
     public static final ConfiguredFeature<?, ?> MAGMA_PILLARS = createConfiguredFeature("magma_pillars", BYGFeatures.PILLARS.configured((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.MAGMATIC_STONE.defaultBlockState())))).range(128).squared().count(65));
     public static final ConfiguredFeature<?, ?> BRIMSTONE_PILLARS = createConfiguredFeature("brimstone_pillars", BYGFeatures.PILLARS.configured((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.BRIMSTONE.defaultBlockState())))).range(128).squared().count(80));
+    public static final ConfiguredFeature<?, ?> BRIMSTONE_VENTS = createConfiguredFeature("brimstone_vent", BYGFeatures.BRIMSTONE_VENT_FEATURE.configured(new BrimstoneVentsConfig.Builder().setLavaBlock(Blocks.LAVA).setBlock(BYGBlocks.BRIMSTONE).build()).range(64).squared().count(30));
+
     public static final ConfiguredFeature<?, ?> QUARTZ_COLUMNS = createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS.configured(new ColumnConfig(FeatureSpread.fixed(1), FeatureSpread.of(1, 3))).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
+    public static final ConfiguredFeature<?, ?> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES.configured(new NoFeatureConfig()).range(128).squared().count(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_PLANT = createConfiguredFeature("sythian_plants", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SYTHIAN_SPROUT.weighted(0.5F),

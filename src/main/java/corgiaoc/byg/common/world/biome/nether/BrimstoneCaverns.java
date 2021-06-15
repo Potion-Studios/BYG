@@ -4,6 +4,7 @@ import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BYGNetherBiome;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
+import corgiaoc.byg.core.world.BYGFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import net.minecraft.client.audio.BackgroundMusicTracks;
@@ -61,6 +62,8 @@ public class BrimstoneCaverns extends BYGNetherBiome {
         GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_ANTHRACITE);
         BYGDefaultBiomeFeatures.addBoricFire(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBrimstonePillars(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBrimstoneVents(GENERATION_SETTINGS);
+
 
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.MAGMA_CUBE, 100, 2, 5));

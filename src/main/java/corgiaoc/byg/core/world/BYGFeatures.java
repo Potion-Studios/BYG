@@ -25,6 +25,8 @@ import corgiaoc.byg.common.world.feature.nether.Chain;
 import corgiaoc.byg.common.world.feature.nether.ConfigurablePillar;
 import corgiaoc.byg.common.world.feature.nether.HangingColumn;
 import corgiaoc.byg.common.world.feature.nether.HangingColumnWithBase;
+import corgiaoc.byg.common.world.feature.nether.brimstone.BrimstoneVentFeature;
+import corgiaoc.byg.common.world.feature.nether.quartzdesert.QuartzSpikeFeature;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.RawQuartzColumnFeature;
 import corgiaoc.byg.common.world.feature.nether.spike.SpikeFeature;
 import corgiaoc.byg.common.world.feature.nether.sythiantorrids.SythianStalk;
@@ -338,13 +340,13 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> EMBUR_MUSHROOM3 = createFeature("embur_mushroom3", new EmburMushroom3(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> EMBUR_MUSHROOM4 = createFeature("embur_mushroom4", new EmburMushroom4(BYGMushroomConfig.CODEC.stable()));
 
-
+    public static final Feature<BrimstoneVentsConfig> BRIMSTONE_VENT_FEATURE = createFeature("brimstone_vent", new BrimstoneVentFeature(BrimstoneVentsConfig.CODEC.stable()));
 
     public static final Feature<HangingColumnConfig> HANGING_COLUMN = createFeature("hanging_column", new HangingColumn(HangingColumnConfig.CODEC.stable()));
 
     //QuartzDesert
     public static final Feature<ColumnConfig> QUARTZ_COLUMNS = createFeature("quartz_columns", new RawQuartzColumnFeature(ColumnConfig.CODEC.stable()));
-
+    public static final Feature<NoFeatureConfig> QUARTZ_SPIKES = createFeature("quartz_spikes", new QuartzSpikeFeature(NoFeatureConfig.CODEC.stable()));
 
     /********************************************************************Structures***********************************************************************/
 
