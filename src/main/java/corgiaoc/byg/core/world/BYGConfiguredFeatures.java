@@ -425,7 +425,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> BRIMSTONE_VENTS = createConfiguredFeature("brimstone_vent", BYGFeatures.BRIMSTONE_VENT_FEATURE.configured(new BrimstoneVentsConfig.Builder().setLavaBlock(Blocks.LAVA).setBlock(BYGBlocks.BRIMSTONE).build()).range(64).squared().count(30));
 
     public static final ConfiguredFeature<?, ?> QUARTZ_COLUMNS = createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS.configured(new ColumnConfig(FeatureSpread.fixed(1), FeatureSpread.of(1, 3))).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
-    public static final ConfiguredFeature<?, ?> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES.configured(new NoFeatureConfig()).range(128).squared().count(60));
+    public static final ConfiguredFeature<?, ?> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES.configured(new QuartzSpikeConfig.Builder().setBlock(BYGBlocks.QUARTZITE_SAND).build()).range(128).squared().count(20));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_PLANT = createConfiguredFeature("sythian_plants", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SYTHIAN_SPROUT.weighted(0.5F),

@@ -346,7 +346,7 @@ public class BYGFeatures {
 
     //QuartzDesert
     public static final Feature<ColumnConfig> QUARTZ_COLUMNS = createFeature("quartz_columns", new RawQuartzColumnFeature(ColumnConfig.CODEC.stable()));
-    public static final Feature<NoFeatureConfig> QUARTZ_SPIKES = createFeature("quartz_spikes", new QuartzSpikeFeature(NoFeatureConfig.CODEC.stable()));
+    public static final Feature<QuartzSpikeConfig> QUARTZ_SPIKES = createFeature("quartz_spikes", new QuartzSpikeFeature(QuartzSpikeConfig.CODEC.stable()));
 
     /********************************************************************Structures***********************************************************************/
 
