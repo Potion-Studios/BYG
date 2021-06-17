@@ -61,10 +61,10 @@ public class WitheringWoods extends BYGNetherBiome {
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_NETHER); //NetherPortal
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.NETHER_BRIDGE); //Fortress
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.BASTION_REMNANT); //BastionRemnant
-
         BYGDefaultBiomeFeatures.addWitheringOakTrees(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addMagmaFire(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addScorchedPlants(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addBlackRose(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));

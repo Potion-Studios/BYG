@@ -20,6 +20,7 @@ import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVineBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinePlantBlock;
+import corgiaoc.byg.common.properties.blocks.nether.subzerohypogeal.BuddingSubzeroCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.wailing.WailingBulbBlossomBlock;
 import corgiaoc.byg.common.properties.blocks.nether.wailing.WailingPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.warped.WarpedCactusBlock;
@@ -682,6 +683,10 @@ public class BYGBlocks {
     public static final Block IMPARIUS_MUSHROOM_BLOCK = createImpariusMushroom("imparius_mushroom_block");
     public static final Block IMPARIUS_MUSHROOM_BRANCH = createImpariusMushroomBranch("imparius_mushroom_branch");
     public static final Block FUNGAL_IMPARIUS_BLOCK = createFungalImparius("fungal_imparius_block");
+    public static final Block CHISELED_FUNGAL_IMPARIUS = createFungalImparius("chiseled_fungal_imparius");
+    public static final Block CHISELED_FUNGAL_IMPARIUS_SLAB = createChiseledFungalImpariusSlab("chiseled_fungal_imparius_slab");
+    public static final Block CHISELED_FUNGAL_IMPARIUS_STAIRS = createChiseledFungalImpariusStairs("chiseled_fungal_imparius_stairs");
+    public static final Block CHISELED_FUNGAL_IMPARIUS_WALL = createChiseledFungalImpariusWall("chiseled_fungal_imparius_wall");
     public static final Block FUNGAL_IMPARIUS_FILAMENT_BLOCK = createFungalImpariusFilamentBlock("fungal_imparius_filament_block");
     public static final Block FUNGAL_IMPARIUS_FILAMENT = createFungalImpariusFilament("fungal_imparius_filament");
     public static final Block IMPARIUS_VINE = createImpariusVine("imparius_vine");
@@ -708,6 +713,11 @@ public class BYGBlocks {
     public static final Block SUBZERO_ASH = new BYGBlockProperties.BYGSubzeroAsh("subzero_ash");
     public static final Block SUBZERO_ASH_BLOCK = new BYGBlockProperties.BYGSubzeroAshBlock("subzero_ash_block");
     public static final Block SUBZERO_CRYSTAL_BLOCK = createSubzeroCrystalBlock("subzero_crystal_block");
+    public static final Block BUDDING_SUBZERO_CRYSTAL = createBuddingSubzeroCrystal("budding_subzero_crystal");
+    public static final Block SUBZERO_CRYSTAL_CLUSTER = createSubzeroCrystalCluster(5,7,3,"subzero_crystal_cluster");
+    public static final Block LARGE_SUBZERO_CRYSTAL_BUD = createSubzeroCrystalCluster(4,5,3,"large_subzero_crystal_bud");
+    public static final Block MEDIUM_SUBZERO_CRYSTAL_BUD = createSubzeroCrystalCluster(2,4,3,"medium_subzero_crystal_bud");
+    public static final Block SMALL_SUBZERO_CRYSTAL_BUD = createSubzeroCrystalCluster(1,3,4,"small_subzero_crystal_bud");
     public static final Block LAMENT_SPROUTS = new BYGBlockProperties.BYGLamentPlant("lament_sprouts");
     public static final Block LAMENT_VINE = new BYGBlockProperties.BYGLamentVine("lament_vine");
     public static final Block LAMENT_VINE_PLANT = new BYGBlockProperties.BYGLamentVinePlant("lament_vine_plant");
@@ -931,6 +941,9 @@ public class BYGBlocks {
     public static final Block CRACKED_SCORIA_STONE_BRICKS = createScoria("cracked_scoria_stone_bricks");
     public static final Block EMERALDITE_ORE = createEmeralditeOre("emeraldite_ore");
 
+    public static final Block DUSTED_POLISHED_BLACKSTONE_BRICKS = createDustedPolishedBlackstoneBricks("dusted_polished_blackstone_bricks");
+    public static final Block ARISIAN_BLOOM_BRANCH = createArisianBloomBranch("arisian_bloom_branch");
+
     public static final Block SOAPSTONE = createSoapstone("soapstone");
     public static final Block SOAPSTONE_SLAB = createStoneSlab("soapstone_slab");
     public static final Block SOAPSTONE_STAIRS = new BYGBlockProperties.BYGStoneStairs("soapstone_stairs");
@@ -1091,10 +1104,39 @@ public class BYGBlocks {
     public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
+    static Block createChiseledFungalImpariusSlab(String id) {
+        Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).sound(SoundType.HONEY_BLOCK).strength(2.0f).harvestTool(ToolType.HOE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createChiseledFungalImpariusStairs(String id) {
+        Block createBlock = new StairsBlock(Blocks.COBBLESTONE.defaultBlockState(),AbstractBlock.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).sound(SoundType.HONEY_BLOCK).strength(2.0f).harvestTool(ToolType.HOE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createChiseledFungalImpariusWall(String id) {
+        Block createBlock = new WallBlock(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).sound(SoundType.HONEY_BLOCK).strength(2.0f).harvestTool(ToolType.HOE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createSubzeroCrystalCluster(int light, int i, int j, String id) {
+        Block createBlock = new CrystalClusterBlock(i, j, AbstractBlock.Properties.of(BYGMaterials.SUBZERO_CRYSTAL).sound(SoundType.GLASS).strength(1.5f).harvestLevel(2).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noOcclusion().lightLevel((state) -> light));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
 
 
+    static Block createBuddingSubzeroCrystal(String id) {
+        Block createBlock = new BuddingSubzeroCrystalBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).lightLevel((state) -> 8).noDrops().randomTicks().harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 1.5f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+    
     static Block createSubzeroCrystalBlock(String id){
-        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).noDrops().lightLevel((state) -> 12).strength(-1.0f, 3.0f));
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).lightLevel((state) -> 8).strength(1.5f, 1.5f).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().harvestLevel(2));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1191,6 +1233,14 @@ public class BYGBlocks {
 
     static Block createEmburGelBranch(String id) {
         Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_YELLOW).instabreak().sound(SoundType.HONEY_BLOCK).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
+        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
+        blocksList.add(createBlock);
+        return createBlock;
+    }
+
+    static Block createArisianBloomBranch(String id) {
+        Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_PURPLE).instabreak().sound(SoundType.GRASS).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
         blocksList.add(createBlock);
@@ -1377,6 +1427,12 @@ public class BYGBlocks {
         return createBlock;
     }
 
+    static Block createDustedPolishedBlackstoneBricks(String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.copy(Blocks.POLISHED_BLACKSTONE_BRICKS).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
     static Block createScoria(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(1.5f, 6.0f).harvestTool(ToolType.PICKAXE));
         createBlock(createBlock, id);
@@ -1531,7 +1587,7 @@ public class BYGBlocks {
     }
 
     static Block createAmetrineCluster(String id) {
-        Block createBlock = new AmetrineClusterBlock(7, 3, AbstractBlock.Properties.of(BYGMaterials.AMETRINE).sound(SoundType.GLASS).strength(1.5f).randomTicks().harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noCollission().lightLevel((state) -> 6));
+        Block createBlock = new CrystalClusterBlock(7, 3, AbstractBlock.Properties.of(BYGMaterials.AMETRINE).sound(SoundType.GLASS).strength(1.5f).randomTicks().harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noCollission().lightLevel((state) -> 6));
         createBlock(createBlock, id);
         return createBlock;
     }

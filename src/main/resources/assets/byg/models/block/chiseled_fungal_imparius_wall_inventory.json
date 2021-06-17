@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "byg:block/chiseled_fungal_imparius",
+    "particle": "byg:block/chiseled_fungal_imparius"
+  }
+}

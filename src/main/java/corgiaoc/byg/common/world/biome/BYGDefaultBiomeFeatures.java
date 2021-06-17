@@ -934,6 +934,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WEEPING_LAMENT_TREE);
     }
 
+    public static void addWailingPillars(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WAILING_PILLAR);
+    }
+
     public static void addWitheringOakTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WITHERING_OAK_TREE);
     }

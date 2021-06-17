@@ -972,6 +972,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> WITHERING_OAK_TREE2 = createConfiguredFeature("withering_oak_tree2", BYGFeatures.WITHERING_OAK_TREE2.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> WITHERING_OAK_TREE3 = createConfiguredFeature("withering_oak_tree3", BYGFeatures.WITHERING_OAK_TREE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> WITHERING_OAK_TREE4 = createConfiguredFeature("withering_oak_tree4", BYGFeatures.WITHERING_OAK_TREE4.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> WITHERING_OAK_TREE5 = createConfiguredFeature("withering_oak_tree5", BYGFeatures.WITHERING_OAK_TREE5.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+
+    //Nether Features
+    public static final ConfiguredFeature<BYGTreeConfig, ?> WAILING_PILLAR1 = createConfiguredFeature("wailing_pillar1", BYGFeatures.WAILING_PILLAR1.configured(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider().add(Blocks.BASALT.defaultBlockState(), 8).add(Blocks.POLISHED_BASALT.defaultBlockState(), 2)).setLeavesBlock(new WeightedBlockStateProvider().add(Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), 4).add(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), 3).add(Blocks.BLACKSTONE.defaultBlockState(), 2).add(BYGBlocks.DUSTED_POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), 3)).setMaxHeight(30).setMinHeight(22).build()));
 
     //End Mushrooms
     public static final ConfiguredFeature<BYGMushroomConfig, ?> BULBIS_BUSH1 = createConfiguredFeature("bulbis_bush1", BYGFeatures.BULBIS_BUSH1.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_WOOD).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
@@ -1726,14 +1730,15 @@ public class BYGConfiguredFeatures {
             new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WITHERING_OAK_TREE = createConfiguredFeature("withering_oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
-            WITHERING_OAK_TREE4.weighted(0.25F),
+            WITHERING_OAK_TREE5.weighted(0.25F),
+            WITHERING_OAK_TREE4.weighted(0.2F),
             WITHERING_OAK_TREE3.weighted(0.25F),
-            WITHERING_OAK_TREE2.weighted(0.25F)),
+            WITHERING_OAK_TREE2.weighted(0.2F)),
             WITHERING_OAK_TREE1)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
+            new AtSurfaceWithExtraConfig(5, 0.25F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_WITHERING_OAK_TREE = createConfiguredFeature("sparse_withering_oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
-            WITHERING_OAK_TREE3.weighted(0.25F)),
+            WITHERING_OAK_TREE4.weighted(0.25F)),
             WITHERING_OAK_TREE1)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
             new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
 
@@ -1748,6 +1753,11 @@ public class BYGConfiguredFeatures {
             LAMENT_WEEPING_TREE2.weighted(0.35F)),
             LAMENT_WEEPING_TREE1)).decorated(BYGDecorators.AT_OR_BELOW_SEA_LEVEL.configured(
             new AtOrBelowSeaLevelCountExtraConfig(8, 0.5F, 2, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WAILING_PILLAR = createConfiguredFeature("wailing_pillars", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
+            WAILING_PILLAR1.weighted(0.5F)),
+            WAILING_PILLAR1)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
+            new AtSurfaceWithExtraConfig(0, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BULBIS_TREE = createConfiguredFeature("bulbis_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             BULBIS_BUSH1.weighted(0.1F),

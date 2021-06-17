@@ -68,6 +68,7 @@ public class WailingGarth extends BYGNetherBiome {
         BYGDefaultBiomeFeatures.addWailingVegetation(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addHangingChains(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addHangingLanterns(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addWailingPillars(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));
