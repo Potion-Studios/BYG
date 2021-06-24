@@ -4,7 +4,7 @@
     "item": "minecraft:netherite_sword"
   },
   "addition": {
-    "item": "byg:pendorite_scraps"
+    "item": "byg:pendorite_ingot"
   },
   "result": {
     "item": "byg:pendorite_sword"

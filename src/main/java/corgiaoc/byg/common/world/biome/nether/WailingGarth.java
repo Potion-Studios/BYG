@@ -64,9 +64,10 @@ public class WailingGarth extends BYGNetherBiome {
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.NETHER_BRIDGE); //Fortress
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.BASTION_REMNANT); //BastionRemnant
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.NETHER_FOSSIL); //Nether Fossils
-
         BYGDefaultBiomeFeatures.addMiniNetherMushrooms(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addWailingVegetation(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addHangingChains(GENERATION_SETTINGS);
+        BYGDefaultBiomeFeatures.addHangingLanterns(GENERATION_SETTINGS);
 
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.GHAST, 50, 4, 4));
         SPAWN_SETTINGS.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));

@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -26,7 +27,7 @@ public class BeeHiveFeature extends Feature<NoFeatureConfig> {
     @Override
     public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
         if (world.isEmptyBlock(pos) && world.isEmptyBlock(pos.below())){
-            if (world.getBlockState(pos.above()).is(BlockTags.LEAVES) || world.getBlockState(pos.above()).is(BlockTags.LOGS)) {
+            if (world.getBlockState(pos.above()).is(BlockTags.LEAVES) || world.getBlockState(pos.above()).is(BlockTags.LOGS) || world.getBlockState(pos.above()).is(BYGBlocks.EMBUR_GEL_BLOCK)) {
                 Direction direction;
 
                 if (world.isEmptyBlock(pos.north()))

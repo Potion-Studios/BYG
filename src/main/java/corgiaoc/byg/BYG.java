@@ -1,6 +1,7 @@
 package corgiaoc.byg;
 
 
+import corgiaoc.byg.client.textures.renders.BYGCampfireRenderer;
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
 import corgiaoc.byg.common.entity.villager.BYGVillagerType;
@@ -17,6 +18,7 @@ import corgiaoc.byg.config.json.BYGJsonConfigHandler;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.BYGItems;
+import corgiaoc.byg.core.BYGTileEntities;
 import corgiaoc.byg.core.world.*;
 import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
@@ -36,7 +38,9 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.world.ForgeWorldType;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -75,12 +79,13 @@ public class BYG {
         return worldConfig(false);
     }
 
-    public static boolean ENABLE_OVERWORLD_TREES = false;
-    public static boolean ENABLE_CACTI = false;
-    public static boolean ENABLE_NYLIUM_FUNGI = false;
-    public static boolean ENABLE_NETHER_MUSHROOMS = false;
+    public static boolean ENABLE_OVERWORLD_TREES = true;
+    public static boolean ENABLE_CACTI = true;
+    public static boolean ENABLE_NYLIUM_FUNGI = true;
+    public static boolean ENABLE_NETHER_MUSHROOMS = true;
 
     public BYG() {
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         File dir = new File(CONFIG_PATH.toString());
         if (!dir.exists())
             dir.mkdir();
@@ -89,6 +94,7 @@ public class BYG {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
+        BYGTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(new ForgeEvents());
     }
 
@@ -119,6 +125,7 @@ public class BYG {
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
         BYGCutoutRenders.renderCutOuts();
         RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BOAT, BYGBoatRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(BYGTileEntities.BYGCAMPFIRE.get(), BYGCampfireRenderer::new);
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
 

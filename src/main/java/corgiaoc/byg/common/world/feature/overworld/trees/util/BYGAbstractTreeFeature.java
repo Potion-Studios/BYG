@@ -458,6 +458,8 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
             } else {
                 if (!FeatureUtil.isTerrainOrRock(reader, mutable)) {
                     reader.setBlock(mutable, config.getTrunkProvider().getState(random, mutable), 2);
+                } else {
+                    break;
                 }
             }
             mutable.move(Direction.DOWN);
@@ -487,8 +489,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                         continue;
 
                     if (FeatureUtil.isTerrainOrRock(world, mutable)) {
-                        if (world.getBlockState(mutable.above()).isAir() || FeatureUtil.isPlant(world, mutable.above()))
+                        if (world.getBlockState(mutable.above()).isAir() || FeatureUtil.isPlant(world, mutable.above())) {
                             world.setBlock(mutable, config.getDiskProvider().getState(random, mutable), 2);
+                        }
                     }
                 }
             }
@@ -523,7 +526,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     @Override
     public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
 
-        if (worldIn.getLevel().dimension() == World.OVERWORLD && BYG.ENABLE_OVERWORLD_TREES) {
+        if (worldIn.getLevel().dimension() == World.OVERWORLD && !BYG.ENABLE_OVERWORLD_TREES) {
             return false;
         }
 
@@ -550,7 +553,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
             for (BlockPos blockPos : set) {
                 if (blockPos.getY() == pos.getY()) {
                     boolean cliff = isCliff(worldIn, 9, blockPos);
-                    if (!cliff) {
+                    if (!cliff && !FeatureUtil.isTerrainOrRock(worldIn, blockPos.below())) {
                         this.buildTrunk(worldIn, config, rand, blockPos, 10);
                     }
                 }

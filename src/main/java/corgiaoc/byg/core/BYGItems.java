@@ -46,8 +46,11 @@ public class BYGItems {
     public static final Item AMETRINE_BOOTS = createItem(new BYGArmorItem(BYGArmorTiers.AMETRINE, EquipmentSlotType.FEET, (new Item.Properties()).tab(BYGCreativeTab.creativeTab)), "ametrine_boots");
     public static final Item AMETRINE_HORSE_ARMOR = createItem(new BYGHorseArmor(15, "ametrine", (new Item.Properties()).stacksTo(1).tab(BYGCreativeTab.creativeTab)), "ametrine_horse_armor");
 
+    public static final Item RAW_PENDORITE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "raw_pendorite");
+    public static final Item PENDORITE_INGOT = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "pendorite_ingot");
     public static final Item PENDORITE_SCRAPS = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "pendorite_scraps");
     public static final Item PENDORITE_ORE = createItem(new BlockItem(BYGBlocks.PENDORITE_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PENDORITE_ORE));
+    public static final Item RAW_PENDORITE_BLOCK = createItem(new BlockItem(BYGBlocks.RAW_PENDORITE_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.RAW_PENDORITE_BLOCK));
     public static final Item PENDORITE_BLOCK = createItem(new BlockItem(BYGBlocks.PENDORITE_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PENDORITE_BLOCK));
     public static final Item PENDORITE_AXE = createItem(new AxeItem(BYGItemTiers.PENDORITE, 6.0F, -3.0F, (new Item.Properties()).tab(BYGCreativeTab.creativeTab)), "pendorite_axe");
     public static final Item PENDORITE_PICK = createItem(new PickaxeItem(BYGItemTiers.PENDORITE, 2, -2.8F, (new Item.Properties()).tab(BYGCreativeTab.creativeTab)), "pendorite_pickaxe");
@@ -113,11 +116,13 @@ public class BYGItems {
     public static final Item CRACKED_RED_ROCK_BRICK_SLAB = createItem(new BlockItem(BYGBlocks.CRACKED_RED_ROCK_BRICK_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRACKED_RED_ROCK_BRICK_SLAB));
     public static final Item CRACKED_RED_ROCK_BRICK_WALL = createItem(new BlockItem(BYGBlocks.CRACKED_RED_ROCK_BRICK_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRACKED_RED_ROCK_BRICK_WALL));
 
-
     public static final Item ROCKY_STONE = createItem(new BlockItem(BYGBlocks.ROCKY_STONE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ROCKY_STONE));
     public static final Item ROCKY_STAIRS = createItem(new BlockItem(BYGBlocks.ROCKY_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ROCKY_STAIRS));
     public static final Item ROCKY_SLAB = createItem(new BlockItem(BYGBlocks.ROCKY_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ROCKY_SLAB));
     public static final Item ROCKY_WALL = createItem(new BlockItem(BYGBlocks.ROCKY_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ROCKY_WALL));
+
+    public static final Item EMERALDITE_ORE = createItem(new BlockItem(BYGBlocks.EMERALDITE_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMERALDITE_ORE));
+    public static final Item EMERALDITE_SHARDS = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "emeraldite_shards");
 
     public static final Item SCORIA_STONE = createItem(new BlockItem(BYGBlocks.SCORIA_STONE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORIA_STONE));
     public static final Item SCORIA_STAIRS = createItem(new BlockItem(BYGBlocks.SCORIA_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORIA_STAIRS));
@@ -134,6 +139,7 @@ public class BYGItems {
     public static final Item SCORIA_STONEBRICK_STAIRS = createItem(new BlockItem(BYGBlocks.SCORIA_STONEBRICK_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORIA_STONEBRICK_STAIRS));
     public static final Item SCORIA_STONEBRICK_SLAB = createItem(new BlockItem(BYGBlocks.SCORIA_STONEBRICK_SLAB, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORIA_STONEBRICK_SLAB));
     public static final Item SCORIA_STONEBRICK_WALL = createItem(new BlockItem(BYGBlocks.SCORIA_STONEBRICK_WALL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORIA_STONEBRICK_WALL));
+    public static final Item CRACKED_SCORIA_STONE_BRICKS = createItem(new BlockItem(BYGBlocks.CRACKED_SCORIA_STONE_BRICKS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.CRACKED_SCORIA_STONE_BRICKS));
 
     public static final Item SOAPSTONE = createItem(new BlockItem(BYGBlocks.SOAPSTONE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SOAPSTONE));
     public static final Item SOAPSTONE_STAIRS = createItem(new BlockItem(BYGBlocks.SOAPSTONE_STAIRS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SOAPSTONE_STAIRS));
@@ -793,6 +799,7 @@ public class BYGItems {
     //Embur Woodtype
     public static final Item EMBUR_GEL_BALL = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "embur_gel_ball");
     public static final Item EMBUR_GEL_BLOCK = createItem(new BlockItem(BYGBlocks.EMBUR_GEL_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMBUR_GEL_BLOCK));
+    public static final Item EMBUR_GEL_BRANCH = createItem(new BlockItem(BYGBlocks.EMBUR_GEL_BRANCH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMBUR_GEL_BRANCH));
     public static final Item EMBUR_GEL_VINES = createItem(new BlockItem(BYGBlocks.EMBUR_GEL_VINES, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMBUR_GEL_VINES));
     public static final Item EMBUR_WART = createItem(new BlockItem(BYGBlocks.EMBUR_WART, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMBUR_WART));
     public static final Item EMBUR_PEDU = createItem(new BlockItem(BYGBlocks.EMBUR_PEDU, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.EMBUR_PEDU));
@@ -926,8 +933,10 @@ public class BYGItems {
     public static final Item QUARTZITE_SAND = createItem(new BlockItem(BYGBlocks.QUARTZITE_SAND, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.QUARTZITE_SAND));
     public static final Item RAW_QUARTZ_BLOCK = createItem(new BlockItem(BYGBlocks.RAW_QUARTZ_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.RAW_QUARTZ_BLOCK));
 
-    public static final Item WHALING_VINES = createItem(new BlockItem(BYGBlocks.WAILING_VINES, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_VINES));
-    public static final Item WHALING_GRASS = createItem(new BlockItem(BYGBlocks.WAILING_GRASS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_GRASS));
+    public static final Item WAILING_BELL_BLOSSOM = createItem(new BlockItem(BYGBlocks.WAILING_BELL_BLOSSOM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_BELL_BLOSSOM));
+    public static final Item WAILING_VINES = createItem(new BlockItem(BYGBlocks.WAILING_VINES, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_VINES));
+    public static final Item WAILING_NYLIUM = createItem(new BlockItem(BYGBlocks.WAILING_NYLIUM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_NYLIUM));
+    public static final Item WAILING_GRASS = createItem(new BlockItem(BYGBlocks.WAILING_GRASS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_GRASS));
     public static final Item SCORCHED_BUSH = createItem(new BlockItem(BYGBlocks.SCORCHED_BUSH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORCHED_BUSH));
     public static final Item SCORCHED_GRASS = createItem(new BlockItem(BYGBlocks.SCORCHED_GRASS, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SCORCHED_GRASS));
 

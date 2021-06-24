@@ -106,11 +106,6 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_BOG_PLANT);
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_LILY);
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_SPROUTS);
-
-    }
-
-    public static void addEmburBogVines(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_GEL_VINES);
     }
 
     public static void addAzalea(BiomeGenerationSettings.Builder gen) {
@@ -540,6 +535,13 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addHangingTheriumLanterns(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_THERIUM_LANTERNS);
+    }
+
+    public static void addHangingChains(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_CHAINS);
+    }
+    public static void addHangingLanterns(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_LANTERNS);
     }
 
     public static void addGiantFlowerFeatures(BiomeGenerationSettings.Builder gen) {

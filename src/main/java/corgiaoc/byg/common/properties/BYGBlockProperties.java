@@ -4,14 +4,12 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.blocks.*;
 import corgiaoc.byg.common.properties.blocks.end.CrypticFireBlock;
-import corgiaoc.byg.common.properties.blocks.end.IvisPlantBlock;
 import corgiaoc.byg.common.properties.blocks.grassblocks.BYGGlowCeliumBlock;
 import corgiaoc.byg.common.properties.blocks.nether.BoricFireBlock;
 import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.DoubleNetherPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.BlueNetherrackBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburPlantBlock;
-import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinesPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.HangingVinesBlock;
 import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.HangingVinesPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.glowstonegardens.SoulShroomSporeBlock;
@@ -20,7 +18,7 @@ import corgiaoc.byg.common.properties.blocks.nether.scorched.ScorchedPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.subzerohypogeal.SubzeroAshBlock;
 import corgiaoc.byg.common.properties.blocks.nether.sythian.*;
 import corgiaoc.byg.common.properties.blocks.nether.wailing.HangingBonesBlock;
-import corgiaoc.byg.common.properties.blocks.nether.wailing.WhalingGrassBlock;
+import corgiaoc.byg.common.properties.blocks.nether.wailing.WailingPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.warped.*;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVineBlock;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVinePlantBlock;
@@ -454,6 +452,7 @@ public class BYGBlockProperties {
             super(AbstractBlock.Properties.of(Material.SAND)
                     .sound(SoundType.SAND)
                     .strength(0.2f)
+                    .harvestTool(ToolType.SHOVEL)
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
@@ -467,34 +466,6 @@ public class BYGBlockProperties {
                     .sound(SoundType.BONE_BLOCK)
                     .strength(0.0F)
                     .noCollission()
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
-    public static class WailingVines extends VineBlock {
-        public WailingVines(String registryName) {
-            super(AbstractBlock.Properties.of(Material.PLANT)
-                    .sound(SoundType.TWISTING_VINES)
-                    .strength(0.0F)
-                    .randomTicks()
-                    .noCollission()
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
-    public static class WhalingGrass extends WhalingGrassBlock {
-        public WhalingGrass(String registryName) {
-            super(AbstractBlock.Properties.of(Material.PLANT)
-                    .sound(SoundType.ROOTS)
-                    .strength(0.0F)
-                    .noCollission()
-                    .noOcclusion()
             );
             //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
             setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
@@ -666,33 +637,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGEmburGelBlock extends HoneyBlock {
-        public BYGEmburGelBlock(String registryName) {
-            super(AbstractBlock.Properties.of(Material.CLAY)
-                    .sound(SoundType.HONEY_BLOCK)
-                    .noOcclusion()
-                    .speedFactor(1.1F)
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
-    public static class BYGEmburGelVine extends EmburVinesPlantBlock {
-        public BYGEmburGelVine(String registryName) {
-            super(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT)
-                    .sound(SoundType.HONEY_BLOCK)
-                    .strength(0.0F)
-                    .randomTicks()
-                    .noCollission()
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
     public static class BYGEmburPlant extends EmburPlantBlock {
         public BYGEmburPlant(String registryName) {
             super(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT)
@@ -739,21 +683,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class IvisPlant extends IvisPlantBlock {
-        public IvisPlant(String registryName) {
-            super(AbstractBlock.Properties.of(Material.PLANT)
-                    .sound(SoundType.ROOTS)
-                    .strength(0.0f)
-                    .noCollission()
-                    .noOcclusion()
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-
-        }
-    }
-
     public static class BYGWarpedCoralBlock extends Block {
         public BYGWarpedCoralBlock(String registryName) {
             super(AbstractBlock.Properties.of(Material.STONE)
@@ -769,7 +698,7 @@ public class BYGBlockProperties {
 
     public static class BYGPollen extends BYGPollenBlock {
         public BYGPollen(String registryName) {
-            super(AbstractBlock.Properties.of(Material.LEAVES)
+            super(AbstractBlock.Properties.of(Material.WOOL)
                     .sound(SoundType.CORAL_BLOCK)
                     .strength(0.2f)
                     .randomTicks()
@@ -1013,7 +942,6 @@ public class BYGBlockProperties {
             super(true, 5, AbstractBlock.Properties.of(Material.WOOD, MaterialColor.PODZOL)
                     .strength(2.0F)
                     .sound(SoundType.WOOD)
-                    .randomTicks()
                     .noOcclusion()
                     .lightLevel((state) -> 14)
             );
@@ -1215,7 +1143,7 @@ public class BYGBlockProperties {
 
     public static class BlockHugeGlowshroom extends HugeMushroomBlock {
         public BlockHugeGlowshroom(String registryName) {
-            super(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.DIRT)
+            super(AbstractBlock.Properties.of(Material.GLASS, MaterialColor.DIRT)
                     .sound(SoundType.STEM)
                     .strength(0.2F)
                     .noOcclusion()
@@ -1254,7 +1182,7 @@ public class BYGBlockProperties {
 
     public static class BulbisShell extends HugeMushroomBlock {
         public BulbisShell(String registryName) {
-            super(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_CYAN)
+            super(AbstractBlock.Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN)
                     .sound(SoundType.SHROOMLIGHT)
                     .strength(0.2F)
                     .noOcclusion()
@@ -1277,7 +1205,6 @@ public class BYGBlockProperties {
             super(AbstractBlock.Properties.of(Material.DECORATION, MaterialColor.SAND)
                     .sound(SoundType.SCAFFOLDING)
                     .strength(0.0f, 0.0f)
-                    .noCollission()
                     .dynamicShape()
                     .lightLevel((state) -> 12)
             );
@@ -1303,7 +1230,7 @@ public class BYGBlockProperties {
 
     public static class BYGGlowCaneBlock extends Block {
         public BYGGlowCaneBlock(String registryName) {
-            super(AbstractBlock.Properties.of(Material.GLASS)
+            super(AbstractBlock.Properties.of(Material.GRASS)
                     .sound(SoundType.SHROOMLIGHT)
                     .strength(0.3F)
                     .lightLevel((state) -> 15)

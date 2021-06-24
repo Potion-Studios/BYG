@@ -1,0 +1,145 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+    "textures": {
+        "wailing_bulb_blossom_side": "byg:block/wailing_bulb_blossom_side",
+        "wailing_bulb_blossom_top": "byg:block/wailing_bulb_blossom_top",
+        "wailing_bulb_blossom_petal": "byg:block/wailing_bulb_blossom_petal",
+        "particle": "byg:block/wailing_bulb_blossom_side"
+    },
+    "elements": [
+        {
+            "name": "Bulb Blossom",
+            "from": [ 1, 0, 1 ], 
+            "to": [ 15, 16, 15 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#wailing_bulb_blossom_side", "uv": [ 0, 0, 16, 16 ] },
+                "east": { "texture": "#wailing_bulb_blossom_side", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#wailing_bulb_blossom_side", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#wailing_bulb_blossom_side", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#wailing_bulb_blossom_top", "uv": [ 0, 0, 16, 16 ] },
+                "down": { "texture": "#wailing_bulb_blossom_top", "uv": [ 0, 0, 16, 16 ] }
+            }
+        },
+        {
+            "name": "Bulb Blossom PetalTop N",
+            "from": [ 0, 15.5, -11 ], 
+            "to": [ 16, 15.5, 5 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": 22.5 },
+            "faces": {
+                "north": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "east": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "south": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "west": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "up": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ] },
+                "down": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 180 }
+            }
+        },
+        {
+            "name": "Bulb Blossom PetalTop S",
+            "from": [ 0, 15.5, 11 ], 
+            "to": [ 16, 15.5, 27 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": -22.5 },
+            "faces": {
+                "north": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "east": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "south": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "west": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "up": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 180 },
+                "down": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ] }
+            }
+        },
+        {
+            "name": "Bulb Blossom PetalTop E",
+            "from": [ 11, 15.5, 0 ], 
+            "to": [ 27, 15.5, 16 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": 22.5 },
+            "faces": {
+                "north": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "east": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "south": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "west": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "up": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 90 },
+                "down": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 90 }
+            }
+        },
+        {
+            "name": "Bulb Blossom PetalTop W",
+            "from": [ -11, 15.5, 0 ], 
+            "to": [ 5, 15.5, 16 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": -22.5 },
+            "faces": {
+                "north": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "east": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "south": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "west": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "up": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 270 },
+                "down": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 270 }
+            }
+        },
+        {
+            "name": "Bulb Blossom PetalBottom N",
+            "from": [ 0, 0.5, -11 ], 
+            "to": [ 16, 0.5, 5 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": -22.5 },
+            "faces": {
+                "north": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "east": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "south": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "west": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "up": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ] },
+                "down": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 180 }
+            }
+        },
+        {
+            "name": "Bulb Blossom PetalBottom S",
+            "from": [ 0, 0.5, 11 ], 
+            "to": [ 16, 0.5, 27 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": 22.5 },
+            "faces": {
+                "north": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "east": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "south": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "west": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "up": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 180 },
+                "down": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ] }
+            }
+        },
+        {
+            "name": "Bulb Blossom PetalBottom E",
+            "from": [ 11, 0.5, 0 ], 
+            "to": [ 27, 0.5, 16 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": -22.5 },
+            "faces": {
+                "north": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "east": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "south": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "west": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "up": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 90 },
+                "down": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 90 }
+            }
+        },
+        {
+            "name": "Bulb Blossom PetalBottom W",
+            "from": [ -11, 0.5, 0 ], 
+            "to": [ 5, 0.5, 16 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": 22.5 },
+            "faces": {
+                "north": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "east": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "south": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "west": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 0 ] },
+                "up": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 270 },
+                "down": { "texture": "#wailing_bulb_blossom_petal", "uv": [ 0, 0, 16, 16 ], "rotation": 270 }
+            }
+        }
+    ]
+}

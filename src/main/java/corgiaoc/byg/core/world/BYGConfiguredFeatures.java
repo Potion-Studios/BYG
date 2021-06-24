@@ -2,6 +2,7 @@ package corgiaoc.byg.core.world;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.blocks.BlueBerryBush;
 import corgiaoc.byg.common.properties.blocks.end.TheriumCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
@@ -112,7 +113,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> WARPED_CORAL = createConfiguredFeature("warped_coral", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.WARPED_CORAL.defaultBlockState(), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState()))));
     public static final ConfiguredFeature<?, ?> WARPED_CORAL_FAN = createConfiguredFeature("warped_coral_fan", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.WARPED_CORAL_FAN.defaultBlockState(), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState()))));
 
-    public static final ConfiguredFeature<?, ?> CHAINS = createConfiguredFeature("chains", BYGFeatures.CHAIN.configured(new ChainConfig.Builder().setMinLength(6).setMaxLength(10).setXAxisBlock(BYGBlocks.SOAPSTONE).setZAxisBlock(BYGBlocks.SOAPSTONE).setWhitelist(ImmutableList.of(Blocks.NETHERRACK)).build()).range(128).squared().count(4));
+    public static final ConfiguredFeature<?, ?> CHAINS = createConfiguredFeature("chains", BYGFeatures.CHAIN.configured(new ChainConfig.Builder().setMinLength(6).setMaxLength(10).setXAxisBlock(Blocks.POLISHED_BLACKSTONE_BRICKS).setZAxisBlock(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS).setWhitelist(ImmutableList.of(BYGBlocks.SCORIA_STONE)).build()).range(128).squared().count(4));
 
     public static final ConfiguredFeature<?, ?> SCORCHED_BUSH = createConfiguredFeature("scorched_bush", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.SCORCHED_BUSH.defaultBlockState(), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.CRYPTIC_STONE.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState(), BYGBlocks.OVERGROWN_NETHERRACK.defaultBlockState(), BYGBlocks.MAGMATIC_STONE.defaultBlockState(), Blocks.MAGMA_BLOCK.defaultBlockState(), Blocks.SOUL_SAND.defaultBlockState(), Blocks.SOUL_SOIL.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState(), BYGBlocks.OVERGROWN_NETHERRACK.defaultBlockState(), BYGBlocks.MAGMATIC_STONE.defaultBlockState(), Blocks.MAGMA_BLOCK.defaultBlockState(), BYGBlocks.CRYPTIC_STONE.defaultBlockState(), Blocks.SOUL_SAND.defaultBlockState(), Blocks.SOUL_SOIL.defaultBlockState()))));
     public static final ConfiguredFeature<?, ?> SCORCHED_GRASS = createConfiguredFeature("scorched_grass", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.SCORCHED_GRASS.defaultBlockState(), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.CRYPTIC_STONE.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState(), BYGBlocks.OVERGROWN_NETHERRACK.defaultBlockState(), BYGBlocks.MAGMATIC_STONE.defaultBlockState(), Blocks.MAGMA_BLOCK.defaultBlockState(), Blocks.SOUL_SAND.defaultBlockState(), Blocks.SOUL_SOIL.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState(), BYGBlocks.OVERGROWN_NETHERRACK.defaultBlockState(), BYGBlocks.MAGMATIC_STONE.defaultBlockState(), Blocks.MAGMA_BLOCK.defaultBlockState(), BYGBlocks.CRYPTIC_STONE.defaultBlockState(), Blocks.SOUL_SAND.defaultBlockState(), Blocks.SOUL_SOIL.defaultBlockState()))));
@@ -208,7 +209,6 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> EMBUR_ROOTS = createConfiguredFeature("embur_roots", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.EMBUR_ROOTS.defaultBlockState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), BYGBlocks.EMBUR_NYLIUM.defaultBlockState()))));
     public static final ConfiguredFeature<?, ?> EMBUR_ROOTS_TALL = createConfiguredFeature("tall_embur_roots", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TALL_EMBUR_ROOTS.defaultBlockState()), new DoublePlantBlockPlacer())).tries(1).whitelist(ImmutableSet.of(BYGBlocks.EMBUR_NYLIUM)).noProjection().build()));
-    public static final ConfiguredFeature<?, ?> EMBUR_GEL_VINE = createConfiguredFeature("embur_gel_vine", BYGFeatures.HANGING_COLUMN.configured(new HangingColumnConfig.Builder().setBlock(BYGBlocks.EMBUR_GEL_VINES).setMinLength(3).setMaxLength(3).setWhitelist(ImmutableList.of(BYGBlocks.EMBUR_GEL_BLOCK)).build()));
     public static final ConfiguredFeature<?, ?> EMBUR_WART = createConfiguredFeature("embur_wart", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.EMBUR_WART.defaultBlockState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), BYGBlocks.EMBUR_NYLIUM.defaultBlockState()))));
     public static final ConfiguredFeature<?, ?> EMBUR_SPROUT = createConfiguredFeature("embur_sprout", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.EMBUR_SPROUTS.defaultBlockState(), ImmutableList.of(BYGBlocks.EMBUR_NYLIUM.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), BYGBlocks.EMBUR_NYLIUM.defaultBlockState()))));
 
@@ -331,7 +331,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> MAGMA_FIRE = createConfiguredFeature("magma_fire", MAGMA_FIRE_PATCH.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1))));
     public static final ConfiguredFeature<?, ?> BORIC_FIRE = createConfiguredFeature("boric_fire", BORIC_FIRE_PATCH.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(1))));
     public static final ConfiguredFeature<?, ?> QUARTZ_CRYSTALS = createConfiguredFeature("quartz_crystals", QUARTZ_CRYSTAL.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(50))));
-    public static final ConfiguredFeature<?, ?> EMBUR_GEL_VINES = createConfiguredFeature("embur_gel_vines", EMBUR_GEL_VINE.range(128).squared().count(100));
     public static final ConfiguredFeature<?, ?> CRYPTIC_BRAMBLES = createConfiguredFeature("cryptic_brambles", CRYPTIC_BRAMBLE.decorated(Features.Placements.FIRE).count(1));
 
 
@@ -436,6 +435,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> HANGING_BONE_FEATURE = createConfiguredFeature("hanging_bone", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.BONE_BLOCK).setBlock(BYGBlocks.HANGING_BONE).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.QUARTZITE_SAND, Blocks.BONE_BLOCK)).build()).range(128).squared().count(70));
     public static final ConfiguredFeature<?, ?> LAMENT_VINE_FEATURE = createConfiguredFeature("lament_vine", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.NETHERRACK).setBlock(BYGBlocks.LAMENT_VINE_PLANT).setEndBlock(BYGBlocks.LAMENT_VINE.defaultBlockState().setValue(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK)).build()).range(128).squared().count(70));
 
+    public static final ConfiguredFeature<?, ?> HANGING_CHAINS= createConfiguredFeature("hanging_chains", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SCORIA_STONE).setBlock(Blocks.CHAIN.defaultBlockState()).setEndBlock(Blocks.CHAIN.defaultBlockState()).setMinLength(8).setMaxLength(16).setWhitelist(ImmutableList.of(BYGBlocks.SCORIA_STONE)).build()).range(256).squared().count(80));
+    public static final ConfiguredFeature<?, ?> HANGING_LANTERNS = createConfiguredFeature("hanging_lanterns", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SCORIA_STONE).setBlock(Blocks.CAVE_AIR.defaultBlockState()).setEndBlock(BYGBlocks.WAILING_BELL_BLOSSOM.defaultBlockState()).setMinLength(1).setMaxLength(4).setWhitelist(ImmutableList.of(BYGBlocks.SCORIA_STONE)).build()).range(256).squared().count(80));
 
     public static final ConfiguredFeature<?, ?> HANGING_THERIUM_LANTERNS = createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.ETHER_STONE).setBlock(Blocks.CHAIN.defaultBlockState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.ETHER_STONE)).build()).range(256).squared().count(80));
     public static final ConfiguredFeature<?, ?> HANGING_SHULKREN_VINE = createConfiguredFeature("hanging_shulkren_vine", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.END_STONE).setBlock(BYGBlocks.SHULKREN_VINE_PLANT.defaultBlockState()).setEndBlock(BYGBlocks.SHULKREN_VINE.defaultBlockState().setValue(AbstractTopPlantBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.END_STONE, BYGBlocks.SHULKREN_PHYLIUM)).build()).range(256).squared().count(80));
@@ -520,7 +521,7 @@ public class BYGConfiguredFeatures {
             WARPED_BUSH.weighted(0.25F),
             WARPED_CORAL.weighted(0.25F),
             WARPED_CORAL_FAN.weighted(0.25F)),
-            WARPED_CACTI)).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(16))));
+            BYG.ENABLE_CACTI ? WARPED_CACTI : Feature.NO_OP.configured(NoFeatureConfig.INSTANCE))).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(16))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SCORCHED_PLANT = createConfiguredFeature("scorched_plant", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SCORCHED_GRASS.weighted(0.6F)),
@@ -586,7 +587,7 @@ public class BYGConfiguredFeatures {
             NIGHTSHADE_SPROUTS)).decorated(Features.Placements.FIRE).count(5));
 
     public static final ConfiguredFeature<?, ?> RANDOM_ODDITY_PLANT = createConfiguredFeature("oddity_plants", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
-            ODDITY_CACTUS.weighted(0.5F)),
+            (BYG.ENABLE_CACTI ? ODDITY_CACTUS : Feature.NO_OP.configured(NoFeatureConfig.INSTANCE)).weighted(0.5F)),
             ODDITY_BUSH)).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(16))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CRYPTIC_VENT = createConfiguredFeature("rs_cryptic_vent", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -933,6 +934,8 @@ public class BYGConfiguredFeatures {
     //Nether Mushrooms
     public static final ConfiguredFeature<BYGMushroomConfig, ?> EMBUR_MUSHROOM = createConfiguredFeature("embur_mushroom1", BYGFeatures.EMBUR_MUSHROOM.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.EMBUR_PEDU).setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> EMBUR_MUSHROOM2 = createConfiguredFeature("embur_mushroom2", BYGFeatures.EMBUR_MUSHROOM2.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.EMBUR_PEDU).setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> EMBUR_MUSHROOM3 = createConfiguredFeature("embur_mushroom3", BYGFeatures.EMBUR_MUSHROOM3.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.EMBUR_PEDU).setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> EMBUR_MUSHROOM4 = createConfiguredFeature("embur_mushroom4", BYGFeatures.EMBUR_MUSHROOM4.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.EMBUR_PEDU).setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
 
     public static final ConfiguredFeature<BYGMushroomConfig, ?> CRIMSON_FUNGUS1 = createConfiguredFeature("crimson_fungus1", BYGFeatures.CRIMSON_FUNGUS_TREE1.configured(new BYGMushroomConfig.Builder().setStemBlock(Blocks.CRIMSON_STEM).setMushroomBlock(Blocks.NETHER_WART_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> CRIMSON_FUNGUS2 = createConfiguredFeature("crimson_fungus2", BYGFeatures.CRIMSON_FUNGUS_TREE2.configured(new BYGMushroomConfig.Builder().setStemBlock(Blocks.CRIMSON_STEM).setMushroomBlock(Blocks.NETHER_WART_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
@@ -1698,9 +1701,11 @@ public class BYGConfiguredFeatures {
             BLACK_PUFF_HUGE)).decorated(Placement.DARK_OAK_TREE.configured(IPlacementConfig.NONE)));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_MUSHROOM = createConfiguredFeature("embur_mushrooms", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
-            EMBUR_MUSHROOM.weighted(0.5F)),
-            EMBUR_MUSHROOM2)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(2, 0.5F, 1))));
+            EMBUR_MUSHROOM4.weighted(0.25F),
+            EMBUR_MUSHROOM3.weighted(0.25F),
+            EMBUR_MUSHROOM2.weighted(0.25F)),
+            EMBUR_MUSHROOM)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
+            new AtSurfaceWithExtraConfig(1, 0.5F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_FUNGUS = createConfiguredFeature("fungi", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             WARPED_FUNGUS1.weighted(0.15F),
@@ -1873,6 +1878,7 @@ public class BYGConfiguredFeatures {
         public static final BlockClusterFeatureConfig EMBUR_ROOTS = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.EMBUR_ROOTS.defaultBlockState(), 50).add(BYGBlocks.EMBUR_SPROUTS.defaultBlockState(), 35).add(BYGBlocks.EMBUR_WART.defaultBlockState(), 11), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig MEADOW_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.CLOVER_PATCH.defaultBlockState(), 15).add(Blocks.GRASS.defaultBlockState(), 55).add(Blocks.PINK_TULIP.defaultBlockState(), 15).add(BYGBlocks.MAGENTA_TULIP.defaultBlockState(), 15).add(BYGBlocks.CYAN_TULIP.defaultBlockState(), 15).add(BYGBlocks.WHITE_ANEMONE.defaultBlockState(), 15).add(BYGBlocks.ROSE.defaultBlockState(), 10), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig SYTHIAN_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.SYTHIAN_ROOTS.defaultBlockState(), 50).add(BYGBlocks.SYTHIAN_SPROUT.defaultBlockState(), 50).add(BYGBlocks.SYTHIAN_FUNGUS.defaultBlockState(), 11), new DoubleBlockPlacer()).build();
+        public static final BlockClusterFeatureConfig WAILING_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.WAILING_GRASS.defaultBlockState(), 50).add(BYGBlocks.WAILING_GRASS.defaultBlockState(), 50).add(BYGBlocks.WAILING_GRASS.defaultBlockState(), 11), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig IVIS_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.IVIS_ROOTS.defaultBlockState(), 50).add(BYGBlocks.IVIS_SPROUT.defaultBlockState(), 50), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig OVERGROWN_BLACKSTONE_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(Blocks.CRIMSON_ROOTS.defaultBlockState(), 80).add(Blocks.CRIMSON_FUNGUS.defaultBlockState(), 15).add(BYGBlocks.CRIMSON_BERRY_BUSH.defaultBlockState(), 5), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig OVERGROWN_NETHERRACK_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(Blocks.NETHER_SPROUTS.defaultBlockState(), 90).add(BYGBlocks.SOUL_SHROOM.defaultBlockState(), 5).add(BYGBlocks.DEATH_CAP.defaultBlockState(), 5), new DoubleBlockPlacer()).build();
@@ -1881,13 +1887,15 @@ public class BYGConfiguredFeatures {
         public static final BlockClusterFeatureConfig NIGHTSHADE_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.NIGHTSHADE_SPROUTS.defaultBlockState(), 50).add(BYGBlocks.NIGHTSHADE_SPROUTS.defaultBlockState(), 50), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig VERMILION_SCULK_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.VERMILION_SCULK_GROWTH.defaultBlockState(), 50).add(BYGBlocks.VERMILION_SCULK_GROWTH.defaultBlockState(), 45).add(BYGBlocks.VERMILION_SCULK_GROWTH.defaultBlockState(), 5), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig BULBIS_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.BULBIS_SPROUTS.defaultBlockState(), 50).add(BYGBlocks.BULBIS_SPROUTS.defaultBlockState(), 45).add(BYGBlocks.BULBIS_SPROUTS.defaultBlockState(), 5), new DoubleBlockPlacer()).build();
+        public static final BlockClusterFeatureConfig SHULKREN_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.SHULKREN_MOSS_BLANKET.defaultBlockState(), 50).add(BYGBlocks.SHULKREN_MOSS_BLANKET.defaultBlockState(), 45).add(BYGBlocks.SHULKREN_FUNGUS.defaultBlockState(), 5), new DoubleBlockPlacer()).build();
     }
 
     //Initialize these later to ensure config values were read.
     public static class OreConfigs {
         public static RuleTest ETHER_STONE = new BlockMatchRuleTest(BYGBlocks.ETHER_STONE);
 
-        public static final ConfiguredFeature<?, ?> ORE_PENDORITE = createConfiguredFeature("ore_pendorite", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BYGBlocks.PENDORITE_ORE.defaultBlockState(), 4)).range(56).squared().count(18));
+        public static final ConfiguredFeature<?, ?> ORE_EMERALDITE = createConfiguredFeature("ore_emeraldite", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, BYGBlocks.EMERALDITE_ORE.defaultBlockState(), 4)).range(120).squared().count(22));
+        public static final ConfiguredFeature<?, ?> ORE_PENDORITE = createConfiguredFeature("ore_pendorite", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, BYGBlocks.PENDORITE_ORE.defaultBlockState(), 4)).range(120).squared().count(20));
         public static final ConfiguredFeature<?, ?> ORE_AMETRINE = createConfiguredFeature("ore_ametrine", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.AMETRINE_ORE.defaultBlockState(), ImmutableList.of(BYGBlocks.ETHER_STONE.defaultBlockState()), ImmutableList.of(BYGBlocks.ETHER_STONE.defaultBlockState(), BYGBlocks.VERMILION_SCULK.defaultBlockState()), ImmutableList.of(BYGBlocks.ETHER_STONE.defaultBlockState(), BYGBlocks.VERMILION_SCULK.defaultBlockState(), Blocks.AIR.defaultBlockState()))).range(256).squared().count(128));
         public static final ConfiguredFeature<?, ?> ORE_AMETRINE_BUDDING = createConfiguredFeature("ore_ametrine_budding", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.AMETRINE_ORE.defaultBlockState(), ImmutableList.of(BYGBlocks.ETHER_STONE.defaultBlockState()), ImmutableList.of(BYGBlocks.ETHER_STONE.defaultBlockState(), BYGBlocks.VERMILION_SCULK.defaultBlockState()), ImmutableList.of(BYGBlocks.ETHER_STONE.defaultBlockState(), BYGBlocks.VERMILION_SCULK.defaultBlockState(), Blocks.AIR.defaultBlockState()))).range(256).squared().count(128));
 
