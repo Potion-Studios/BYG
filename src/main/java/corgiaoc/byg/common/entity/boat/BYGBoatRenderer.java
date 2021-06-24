@@ -9,8 +9,6 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.model.BoatEntityModel;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
@@ -30,11 +28,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
         this.shadowRadius = 0.8F;
         this.texturesAndModels = Stream.of(BYGBoatEntity.BYGType.values())
                 .collect(ImmutableMap.toImmutableMap((type) -> type, (type) -> Pair.of(new Identifier("byg:textures/entity/boat/" + type
-                        .getName() + ".png"), new BoatEntityModel(context.getPart(createBoat(type))))));
-    }
-
-    public static EntityModelLayer createBoat(BYGBoatEntity.BYGType type) {
-        return EntityModelLayers.create("boat/" + type.getName(), "main");
+                        .getName() + ".png"), new BoatEntityModel(BoatEntityModel.getTexturedModelData().createModel()))));
     }
 
     public void render(BYGBoatEntity boatEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
