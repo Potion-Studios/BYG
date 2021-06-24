@@ -20,7 +20,7 @@ import corgiaoc.byg.common.properties.blocks.nether.scorched.ScorchedPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.subzerohypogeal.SubzeroAshBlock;
 import corgiaoc.byg.common.properties.blocks.nether.sythian.*;
 import corgiaoc.byg.common.properties.blocks.nether.wailing.HangingBonesBlock;
-import corgiaoc.byg.common.properties.blocks.nether.wailing.WhalingGrassBlock;
+import corgiaoc.byg.common.properties.blocks.nether.wailing.WailingGrassBlock;
 import corgiaoc.byg.common.properties.blocks.nether.warped.*;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVineBlock;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVinePlantBlock;
@@ -473,8 +473,8 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class WhalingGrass extends WhalingGrassBlock {
-        public WhalingGrass(String registryName) {
+    public static class WailingGrass extends WailingGrassBlock {
+        public WailingGrass(String registryName) {
             super(FabricBlockSettings.of(Material.PLANT)
                     .sounds(BlockSoundGroup.ROOTS)
                     .strength(0.0F)

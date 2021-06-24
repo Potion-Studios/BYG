@@ -539,8 +539,8 @@ public class BYGBlocks {
     public static final Block QUARTZITE_SAND = new BYGBlockProperties.BYGQuartziteSand("quartzite_sand");
     public static final Block RAW_QUARTZ_BLOCK = new BYGBlockProperties.BYGStone("raw_quartz_block");
 
-    public static final Block WAILING_VINES = new BYGBlockProperties.WailingVines("whaling_vine");
-    public static final Block WAILING_GRASS = new BYGBlockProperties.WhalingGrass("whaling_grass");
+    public static final Block WAILING_VINES = new BYGBlockProperties.WailingVines("wailing_vine");
+    public static final Block WAILING_GRASS = new BYGBlockProperties.WailingGrass("wailing_grass");
     public static final Block MAGMATIC_STONE = new BYGBlockProperties.BYGNetherrack("magmatic_stone");
     public static final Block SCORCHED_BUSH = new BYGBlockProperties.ScorchedPlant("scorched_bush");
     public static final Block SCORCHED_GRASS = new BYGBlockProperties.ScorchedPlant("scorched_grass");
@@ -996,7 +996,7 @@ public class BYGBlocks {
     public static final Block ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
     public static final Block VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
     public static final Block SHULKREN_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "shulkren_phylium");
-    public static final Block MEADOW_GRASS_PATH = createBlock(new GrassPathBlockAccess(AbstractBlock.Settings.of(Material.SOIL).strength(0.65F).sounds(BlockSoundGroup.GRASS).blockVision((state, reader, pos) -> true).suffocates((state, reader, pos) -> true)), "meadow_grass_path");
+    public static final Block MEADOW_DIRT_PATH = createBlock(new GrassPathBlockAccess(AbstractBlock.Settings.of(Material.SOIL).strength(0.65F).sounds(BlockSoundGroup.GRASS).blockVision((state, reader, pos) -> true).suffocates((state, reader, pos) -> true)), "meadow_dirt_path");
     public static final Block BULBIS_PHYCELIUM = createEndDirtSpreadable(Blocks.END_STONE, SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
 
     static Block createTheriumBlock(String id) {

@@ -26,7 +26,7 @@ public class BYGItems {
     public static final Item BYG_LOGO = createItem(new Item((new Item.Settings())), "byg_logo");
     public static final Item PEAT = createItem(new BlockItem(BYGBlocks.PEAT, new Item.Settings().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getId(BYGBlocks.PEAT));
     public static final Item MEADOW_GRASSBLOCK = createItem(new BlockItem(BYGBlocks.MEADOW_GRASSBLOCK, new Item.Settings().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getId(BYGBlocks.MEADOW_GRASSBLOCK));
-    public static final Item MEADOW_GRASS_PATH = createItem(new BlockItem(BYGBlocks.MEADOW_GRASS_PATH, new Item.Settings().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getId(BYGBlocks.MEADOW_GRASS_PATH));
+    public static final Item MEADOW_DIRT_PATH = createItem(new BlockItem(BYGBlocks.MEADOW_DIRT_PATH, new Item.Settings().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getId(BYGBlocks.MEADOW_DIRT_PATH));
     public static final Item MEADOW_DIRT = createItem(new BlockItem(BYGBlocks.MEADOW_DIRT, new Item.Settings().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getId(BYGBlocks.MEADOW_DIRT));
     public static final Item GLOWCELIUM = createItem(new BlockItem(BYGBlocks.GLOWCELIUM, new Item.Settings().group(BYGCreativeTab.creativeTab)), Registry.BLOCK.getId(BYGBlocks.GLOWCELIUM));
     public static final Item MUD_BALL = createItem(new Item(new Item.Settings().group(BYGCreativeTab.creativeTab)), "mud_ball");

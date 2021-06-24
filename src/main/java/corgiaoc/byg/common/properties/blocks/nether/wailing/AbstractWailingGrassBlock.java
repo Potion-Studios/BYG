@@ -18,11 +18,11 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-public class AbstractWhalingGrassBlock extends Block implements Waterloggable {
+public class AbstractWailingGrassBlock extends Block implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     private static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
 
-    protected AbstractWhalingGrassBlock(Settings properties) {
+    protected AbstractWailingGrassBlock(Settings properties) {
         super(properties);
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, true));
     }
