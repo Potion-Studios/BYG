@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BasaltColumnsFeature.class)
 public abstract class MixinBasaltColumnFeature {
 
-    @Inject(at = @At("HEAD"), method = "method_27095(Lnet/minecraft/world/WorldAccess;ILnet/minecraft/util/math/BlockPos;)Z", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "isAirOrLavaOcean(Lnet/minecraft/world/WorldAccess;ILnet/minecraft/util/math/BlockPos;)Z", cancellable = true)
     private static void injectWater(WorldAccess world, int topY, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         if (world.getDimension() == DimensionType.OVERWORLD) {
             cir.cancel();

@@ -26,7 +26,7 @@ import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 
 public class PointedStoneForest extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("pointed_stone_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.POINTED, new PointedSBConfig(BYGBlocks.OVERGROWN_STONE
-            .getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.GRAVEL.getDefaultState(), new WeightedBlockStateProvider(method_35926()
+            .getDefaultState(), Blocks.STONE.getDefaultState(), Blocks.GRAVEL.getDefaultState(), new WeightedBlockStateProvider(dataPoolBuilder()
             .add(Blocks.STONE.getDefaultState(), 3)
             .add(Blocks.STONE.getDefaultState(), 2)),
             new SimpleBlockStateProvider(BYGBlocks.OVERGROWN_STONE.getDefaultState()), 170)));
@@ -44,6 +44,10 @@ public class PointedStoneForest extends BYGSubBiome {
     static final SpawnSettings.Builder SPAWN_SETTINGS = new SpawnSettings.Builder().playerSpawnFriendly();
     static final GenerationSettings.Builder GENERATION_SETTINGS = (new GenerationSettings.Builder())
             .surfaceBuilder(SURFACE_BUILDER);
+
+    private static DataPool.Builder<BlockState> dataPoolBuilder() {
+        return DataPool.builder();
+    }
 
     static {
         DefaultBiomeFeatures.addDefaultUndergroundStructures(GENERATION_SETTINGS);
@@ -90,10 +94,6 @@ public class PointedStoneForest extends BYGSubBiome {
                 .skyColor(BiomeUtil.calcSkyColor(0.8F))
                 .moodSound(BiomeMoodSound.CAVE)
                 .build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
-    }
-
-    private static DataPool.Builder<BlockState> method_35926() {
-        return DataPool.builder();
     }
 
     @Override

@@ -881,18 +881,18 @@ public class BYGConfiguredFeatures {
                     .cannotProject()
                     .build()));
     public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spike", BYGFeatures.POINTY_ROCK
-            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.ROCKY_STONE.getDefaultState(), 5)
                     .add(Blocks.STONE.getDefaultState(), 3)
                     .add(Blocks.ANDESITE.getDefaultState(), 2))).setSeed(65).build()));
     public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKE_TALL = createConfiguredFeature("dead_sea_tall_spike", BYGFeatures.POINTY_ROCK
-            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.ROCKY_STONE
                             .getDefaultState(), 5)
                     .add(Blocks.STONE.getDefaultState(), 3)
                     .add(Blocks.ANDESITE.getDefaultState(), 2))).setSeed(85).build()));
     public static final ConfiguredFeature<?, ?> IVIS_SPIKES = createConfiguredFeature("ivis_spikes1", BYGFeatures.TALL_POINTED_ROCK
-            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(Blocks.OBSIDIAN
                             .getDefaultState(), 24)
                     .add(Blocks.CRYING_OBSIDIAN.getDefaultState(), 1)))
@@ -900,7 +900,7 @@ public class BYGConfiguredFeatures {
                     .setHeightMultiplier(0.4)
                     .build()));
     public static final ConfiguredFeature<?, ?> IVIS_SPIKES2 = createConfiguredFeature("ivis_spikes2", BYGFeatures.TALL_POINTED_ROCK
-            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(Blocks.OBSIDIAN
                             .getDefaultState(), 24)
                     .add(Blocks.CRYING_OBSIDIAN.getDefaultState(), 1)))
@@ -908,7 +908,7 @@ public class BYGConfiguredFeatures {
                     .setHeightMultiplier(0.8)
                     .build()));
     public static final ConfiguredFeature<?, ?> BLACK_SANDSTONE_SPIKE = createConfiguredFeature("black_sandstone_spike", BYGFeatures.TALL_POINTED_ROCK
-            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.BLACK_SANDSTONE
                             .getDefaultState(), 24)
                     .add(BYGBlocks.BLACK_SMOOTH_SANDSTONE.getDefaultState(), 1)))
@@ -916,7 +916,7 @@ public class BYGConfiguredFeatures {
                     .setHeightMultiplier(0.3)
                     .build()));
     public static final ConfiguredFeature<?, ?> BLACK_SANDSTONE_SPIKE2 = createConfiguredFeature("black_sandstone_spike2", BYGFeatures.TALL_POINTED_ROCK
-            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.BLACK_SANDSTONE
                             .getDefaultState(), 24)
                     .add(BYGBlocks.BLACK_SMOOTH_SANDSTONE.getDefaultState(), 1)))
@@ -924,7 +924,7 @@ public class BYGConfiguredFeatures {
                     .setHeightMultiplier(0.4)
                     .build()));
     public static final ConfiguredFeature<?, ?> WHITE_SANDSTONE_BOULDER2 = createConfiguredFeature("white_sandstone_boulder2", BYGFeatures.STACKABLE_BOULDERS
-            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.WHITE_SANDSTONE
                             .getDefaultState(), 3)
                     .add(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 2)))
@@ -935,7 +935,7 @@ public class BYGConfiguredFeatures {
                     .build())
             .decorate(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.1F, 1))));
     public static final ConfiguredFeature<?, ?> PURPUR_SPIKES = createConfiguredFeature("purpur_spikes1", BYGFeatures.TALL_POINTED_ROCK
-            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.PURPUR_STONE
                             .getDefaultState(), 24)
                     .add(BYGBlocks.PURPUR_STONE.getDefaultState(), 1)))
@@ -943,7 +943,7 @@ public class BYGConfiguredFeatures {
                     .setHeightMultiplier(0.5)
                     .build()));
     public static final ConfiguredFeature<?, ?> PURPUR_SPIKES2 = createConfiguredFeature("purpur_spikes2", BYGFeatures.TALL_POINTED_ROCK
-            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.PURPUR_STONE
                             .getDefaultState(), 24)
                     .add(BYGBlocks.PURPUR_STONE.getDefaultState(), 1)))
@@ -951,7 +951,7 @@ public class BYGConfiguredFeatures {
                     .setHeightMultiplier(0.4)
                     .build()));
     public static final ConfiguredFeature<?, ?> VALLE_DE_LUNA_POINTY_ROCK = createConfiguredFeature("valle_de_luna_pointy_rock", BYGFeatures.POINTY_ROCK
-            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.WHITE_SAND
                             .getDefaultState(), 5)
                     .add(BYGBlocks.WHITE_CUT_SANDSTONE.getDefaultState(), 5)))
@@ -959,7 +959,7 @@ public class BYGConfiguredFeatures {
                     .build())
             .decorate(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new CountExtraDecoratorConfig(28, 0.1F, 1))));
     public static final ConfiguredFeature<?, ?> VALLE_DE_LUNA_POINTY_ROCK_LARGE = createConfiguredFeature("valle_de_luna_pointy_rock_large", BYGFeatures.POINTY_ROCK
-            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new PointyRockConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.WHITE_SAND
                             .getDefaultState(), 5)
                     .add(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 5)))
@@ -996,7 +996,7 @@ public class BYGConfiguredFeatures {
             .configure(new SingleStateFeatureConfig(Blocks.ORANGE_TERRACOTTA.getDefaultState())));
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND1 = createConfiguredFeature("shattered_floating_island1", BYGFeatures.SHATTERED_FLOATING_ISLAND1
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(11)
@@ -1004,7 +1004,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND2 = createConfiguredFeature("shattered_floating_island2", BYGFeatures.SHATTERED_FLOATING_ISLAND2
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(11)
@@ -1012,7 +1012,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND3 = createConfiguredFeature("shattered_floating_island3", BYGFeatures.SHATTERED_FLOATING_ISLAND3
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(11)
@@ -1020,7 +1020,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND4 = createConfiguredFeature("shattered_floating_island4", BYGFeatures.SHATTERED_FLOATING_ISLAND4
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(13)
@@ -1028,7 +1028,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND1 = createConfiguredFeature("floating_island1", BYGFeatures.FLOATING_ISLAND1
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(11)
@@ -1036,7 +1036,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND2 = createConfiguredFeature("floating_island2", BYGFeatures.FLOATING_ISLAND2
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(11)
@@ -1044,7 +1044,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND3 = createConfiguredFeature("floating_island3", BYGFeatures.FLOATING_ISLAND3
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(11)
@@ -1052,7 +1052,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND4 = createConfiguredFeature("floating_island4", BYGFeatures.FLOATING_ISLAND4
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(13)
@@ -1060,7 +1060,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND5 = createConfiguredFeature("floating_island5", BYGFeatures.FLOATING_ISLAND5
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(13)
@@ -1068,7 +1068,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ETHER_ISLAND1 = createConfiguredFeature("floating_ether_island1", BYGFeatures.FLOATING_ISLAND1
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.ETHER_PHYLIUM)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(11)
@@ -1076,7 +1076,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ETHER_ISLAND2 = createConfiguredFeature("floating_ether_island2", BYGFeatures.FLOATING_ISLAND2
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.ETHER_PHYLIUM)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(11)
@@ -1084,7 +1084,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<?, ?> FLOATING_ETHER_ISLAND3 = createConfiguredFeature("floating_ether_island3", BYGFeatures.FLOATING_ISLAND3
             .configure(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.ETHER_PHYLIUM)
-                    .setBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ETHER_STONE
+                    .setBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                             .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
                     .setMinRadius(11)
@@ -1123,7 +1123,7 @@ public class BYGConfiguredFeatures {
             .configure(new SimpleBlockProviderConfig(new SimpleBlockStateProvider(Blocks.WATER.getDefaultState())))
             .decorate(BYGDecorators.ANY_WATER_OR_SOLID_SURFACE.configure(new CountConfig(1))));
     public static final ConfiguredFeature<?, ?> STACKED_BOULDERS = createConfiguredFeature("stacked_boulders", BYGFeatures.STACKABLE_BOULDERS
-            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(Blocks.STONE
                             .getDefaultState(), 3)
                     .add(Blocks.DIORITE.getDefaultState(), 2)))
@@ -1134,7 +1134,7 @@ public class BYGConfiguredFeatures {
                     .build())
             .decorate(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.15F, 1))));
     public static final ConfiguredFeature<?, ?> GRASSLAND_BOULDER = createConfiguredFeature("grassland_boulder", BYGFeatures.STACKABLE_BOULDERS
-            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.ROCKY_STONE
                             .getDefaultState(), 3)
                     .add(BYGBlocks.MOSSY_STONE.getDefaultState(), 2)))
@@ -1145,7 +1145,7 @@ public class BYGConfiguredFeatures {
                     .build())
             .decorate(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.1F, 1))));
     public static final ConfiguredFeature<?, ?> GRANITE_BOULDER = createConfiguredFeature("granite_boulder", BYGFeatures.STACKABLE_BOULDERS
-            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(Blocks.GRANITE
                             .getDefaultState(), 3)
                     .add(Blocks.POLISHED_GRANITE.getDefaultState(), 2)))
@@ -1176,7 +1176,7 @@ public class BYGConfiguredFeatures {
             .spreadHorizontally()
             .repeat(2));
     public static final ConfiguredFeature<?, ?> ETHER_STONE_BOULDER = createConfiguredFeature("ether_stone_boulder", BYGFeatures.STACKABLE_BOULDERS
-            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.ETHER_STONE
                             .getDefaultState(), 20)
                     .add(BYGBlocks.LIGNITE_ORE.getDefaultState(), 2)))
@@ -1193,7 +1193,7 @@ public class BYGConfiguredFeatures {
                     .of(Blocks.WATER.getDefaultState())))
             .decorate(BYGDecorators.ANY_WATER_OR_SOLID_SURFACE.configure(new CountConfig(4))));
     public static final ConfiguredFeature<?, ?> CRYPTIC_SPIKE = createConfiguredFeature("cryptic_spike", BYGFeatures.SPIKE
-            .configure(new SimpleBlockProviderConfig(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.CRYPTIC_STONE
+            .configure(new SimpleBlockProviderConfig(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.CRYPTIC_STONE
                     .getDefaultState(), 5)
                     .add(BYGBlocks.CRYPTIC_MAGMA_BLOCK.getDefaultState(), 5))))
             .decorate(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.18F, 1))));
@@ -1214,7 +1214,7 @@ public class BYGConfiguredFeatures {
             .spreadHorizontally()
             .repeat(2));
     public static final ConfiguredFeature<?, ?> THERIUM_CRYSTAL_DEPOSIT = createConfiguredFeature("therium_crystal_deposit", BYGFeatures.STACKABLE_BOULDERS
-            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.THERIUM_BLOCK
                             .getDefaultState(), 20)
                     .add(BYGBlocks.ETHER_STONE.getDefaultState(), 2)))
@@ -1225,7 +1225,7 @@ public class BYGConfiguredFeatures {
                     .build())
             .decorate(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.002F, 1))));
     public static final ConfiguredFeature<?, ?> RED_ROCK_BOULDER = createConfiguredFeature("red_rock_boulder", BYGFeatures.STACKABLE_BOULDERS
-            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.RED_ROCK
                             .getDefaultState(), 3)
                     .add(BYGBlocks.RED_ROCK.getDefaultState(), 9)
@@ -1236,7 +1236,7 @@ public class BYGConfiguredFeatures {
                     .setMaxRadius(12)
                     .build()));
     public static final ConfiguredFeature<?, ?> WHITE_SANDSTONE_BOULDER = createConfiguredFeature("white_sandstone_boulder", BYGFeatures.STACKABLE_BOULDERS
-            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.WHITE_SANDSTONE
                             .getDefaultState(), 3)
                     .add(BYGBlocks.WHITE_SMOOTH_SANDSTONE.getDefaultState(), 2)
@@ -1251,7 +1251,7 @@ public class BYGConfiguredFeatures {
                     .build())
             .decorate(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.04F, 1))));
     public static final ConfiguredFeature<?, ?> TERRACOTTA_BOULDER = createConfiguredFeature("terracotta_boulder", BYGFeatures.STACKABLE_BOULDERS
-            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BoulderConfig.Builder().setBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(Blocks.TERRACOTTA
                             .getDefaultState(), 3)
                     .add(Blocks.TERRACOTTA.getDefaultState(), 3)
@@ -1265,14 +1265,14 @@ public class BYGConfiguredFeatures {
             .configure(DecoratedFeatureConfig.DEFAULT)
             .decorate(Decorator.NOPE.configure(new NopeDecoratorConfig())));
     public static final ConfiguredFeature<?, ?> VOLCANO = createConfiguredFeature("volcano", BYGFeatures.VOLCANO
-            .configure(new SimpleBlockProviderConfig(new WeightedBlockStateProvider(method_35926().add(Blocks.BLACKSTONE
+            .configure(new SimpleBlockProviderConfig(new WeightedBlockStateProvider(dataPoolBuilder().add(Blocks.BLACKSTONE
                     .getDefaultState(), 4)
                     .add(Blocks.BLACK_CONCRETE.getDefaultState(), 3)
                     .add(Blocks.STONE.getDefaultState(), 2)
                     .add(BYGBlocks.MAGMATIC_STONE.getDefaultState(), 1))))
             .decorate(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.025F, 1))));
     public static final ConfiguredFeature<?, ?> PURPUR_PEAK = createConfiguredFeature("purpur_peak", BYGFeatures.PURPUR_PEAK
-            .configure(new SimpleBlockProviderConfig(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.PURPUR_STONE
+            .configure(new SimpleBlockProviderConfig(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.PURPUR_STONE
                     .getDefaultState(), 10))))
             .decorate(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.25F, 1))));
     public static final ConfiguredFeature<?, ?> BASALT_DELTA = createConfiguredFeature("delta", Feature.DELTA_FEATURE
@@ -1544,7 +1544,7 @@ public class BYGConfiguredFeatures {
             .spreadHorizontally()
             .repeat(50));
     public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_PILLARS = createConfiguredFeature("sythian_fungus_pillars", BYGFeatures.PILLARS
-            .configure(new SimpleBlockProviderConfig(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.SYTHIAN_HYPHAE
+            .configure(new SimpleBlockProviderConfig(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.SYTHIAN_HYPHAE
                     .getDefaultState(), 9).add(BYGBlocks.SYTHIAN_HYPHAE.getDefaultState(), 1))))
             .spreadHorizontally()
             .repeat(50));
@@ -2210,7 +2210,7 @@ public class BYGConfiguredFeatures {
                     .setMaxHeight(15)
                     .setMinHeight(6)
                     .setTrunkBlock(BYGBlocks.WITCH_HAZEL_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926()
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                             .add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES
                                     .getDefaultState(), 1)
                             .add(BYGBlocks.WITCH_HAZEL_LEAVES.getDefaultState(), 4)
@@ -2218,7 +2218,7 @@ public class BYGConfiguredFeatures {
                     )).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> DEAD_HAZEL_TREE2 = createConfiguredFeature("dead_hazel_tree2", BYGFeatures.DEAD_HAZEL_TREE2
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITCH_HAZEL_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES
                             .getDefaultState(), 1)
                             .add(BYGBlocks.WITCH_HAZEL_LEAVES.getDefaultState(), 4)))
                     .setMaxHeight(12)
@@ -2226,7 +2226,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> DEAD_HAZEL_TREE3 = createConfiguredFeature("dead_hazel_tree3", BYGFeatures.DEAD_HAZEL_TREE3
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITCH_HAZEL_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES
                             .getDefaultState(), 1)
                             .add(BYGBlocks.WITCH_HAZEL_LEAVES.getDefaultState(), 4)))
                     .setMaxHeight(16)
@@ -2234,7 +2234,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> DEAD_HAZEL_TREE4 = createConfiguredFeature("dead_hazel_tree4", BYGFeatures.DEAD_HAZEL_TREE4
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITCH_HAZEL_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES
                             .getDefaultState(), 1)
                             .add(BYGBlocks.WITCH_HAZEL_LEAVES.getDefaultState(), 4)))
                     .setMaxHeight(7)
@@ -2381,7 +2381,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> HOLLY_TREE1 = createConfiguredFeature("holly_tree1", BYGFeatures.HOLLY_TREE1
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.HOLLY_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.HOLLY_BERRY_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.HOLLY_BERRY_LEAVES
                             .getDefaultState(), 1)
                             .add(BYGBlocks.HOLLY_LEAVES.getDefaultState(), 10)))
                     .setMaxHeight(23)
@@ -2389,7 +2389,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> HOLLY_TREE2 = createConfiguredFeature("holly_tree2", BYGFeatures.HOLLY_TREE2
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.HOLLY_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.HOLLY_BERRY_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.HOLLY_BERRY_LEAVES
                             .getDefaultState(), 1)
                             .add(BYGBlocks.HOLLY_LEAVES.getDefaultState(), 10)))
                     .setMaxHeight(15)
@@ -2397,7 +2397,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> HOLLY_TREE3 = createConfiguredFeature("holly_tree3", BYGFeatures.HOLLY_TREE3
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.HOLLY_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.HOLLY_BERRY_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.HOLLY_BERRY_LEAVES
                             .getDefaultState(), 1)
                             .add(BYGBlocks.HOLLY_LEAVES.getDefaultState(), 10)))
                     .setMaxHeight(25)
@@ -2405,7 +2405,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> HOLLY_TREE4 = createConfiguredFeature("holly_tree4", BYGFeatures.HOLLY_TREE4
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.HOLLY_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.HOLLY_BERRY_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.HOLLY_BERRY_LEAVES
                             .getDefaultState(), 1)
                             .add(BYGBlocks.HOLLY_LEAVES.getDefaultState(), 10)))
                     .setMaxHeight(14)
@@ -2433,7 +2433,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> JOSHUA_TREE1 = createConfiguredFeature("joshua_tree1", BYGFeatures.JOSHUA_TREE1
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.RIPE_JOSHUA_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.RIPE_JOSHUA_LEAVES
                             .getDefaultState(), 1)
                             .add(BYGBlocks.JOSHUA_LEAVES.getDefaultState(), 10)))
                     .setMaxHeight(6)
@@ -2441,7 +2441,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> JOSHUA_TREE2 = createConfiguredFeature("joshua_tree2", BYGFeatures.JOSHUA_TREE2
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.RIPE_JOSHUA_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.RIPE_JOSHUA_LEAVES
                             .getDefaultState(), 1)
                             .add(BYGBlocks.JOSHUA_LEAVES.getDefaultState(), 10)))
                     .setMaxHeight(6)
@@ -2685,7 +2685,7 @@ public class BYGConfiguredFeatures {
     //Orchard
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORCHARD_TREE1 = createConfiguredFeature("orchard_tree1", BYGFeatures.ORCHARD_TREE1
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ORCHARD_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ORCHARD_LEAVES
                             .getDefaultState(), 10)
                             .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.getDefaultState(), 1)
                             .add(BYGBlocks.RIPE_ORCHARD_LEAVES.getDefaultState(), 1)))
@@ -2694,7 +2694,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORCHARD_TREE2 = createConfiguredFeature("orchard_tree2", BYGFeatures.ORCHARD_TREE2
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ORCHARD_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ORCHARD_LEAVES
                             .getDefaultState(), 10)
                             .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.getDefaultState(), 1)
                             .add(BYGBlocks.RIPE_ORCHARD_LEAVES.getDefaultState(), 1)))
@@ -2703,7 +2703,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORCHARD_TREE3 = createConfiguredFeature("orchard_tree3", BYGFeatures.ORCHARD_TREE3
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.ORCHARD_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.ORCHARD_LEAVES
                             .getDefaultState(), 10)
                             .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.getDefaultState(), 1)
                             .add(BYGBlocks.RIPE_ORCHARD_LEAVES.getDefaultState(), 1)))
@@ -2760,7 +2760,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> PALO_VERDE_TREE1 = createConfiguredFeature("palo_verde_tree1", BYGFeatures.PALO_VERDE_TREE1
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.PALO_VERDE_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.PALO_VERDE_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.PALO_VERDE_LEAVES
                             .getDefaultState(), 6)
                             .add(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES.getDefaultState(), 1)))
                     .setMaxHeight(1)
@@ -2768,7 +2768,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> PALO_VERDE_TREE2 = createConfiguredFeature("palo_verde_tree2", BYGFeatures.PALO_VERDE_TREE2
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.PALO_VERDE_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.PALO_VERDE_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.PALO_VERDE_LEAVES
                             .getDefaultState(), 6)
                             .add(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES.getDefaultState(), 1)))
                     .setMaxHeight(2)
@@ -2832,7 +2832,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> SKYRIS_TREE1 = createConfiguredFeature("skyris_tree1", BYGFeatures.SKYRIS_TREE1
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.SKYRIS_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE
                             .getDefaultState(), 1)
                             .add(BYGBlocks.SKYRIS_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(9)
@@ -2840,7 +2840,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> SKYRIS_TREE2 = createConfiguredFeature("skyris_tree2", BYGFeatures.SKYRIS_TREE2
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.SKYRIS_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE
                             .getDefaultState(), 1)
                             .add(BYGBlocks.SKYRIS_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(6)
@@ -2848,7 +2848,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> SKYRIS_TREE3 = createConfiguredFeature("skyris_tree3", BYGFeatures.SKYRIS_TREE3
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.SKYRIS_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE
                             .getDefaultState(), 1)
                             .add(BYGBlocks.SKYRIS_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(8)
@@ -2856,7 +2856,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> SKYRIS_TREE4 = createConfiguredFeature("skyris_tree4", BYGFeatures.SKYRIS_TREE4
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.SKYRIS_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE
                             .getDefaultState(), 1)
                             .add(BYGBlocks.SKYRIS_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(8)
@@ -2864,7 +2864,7 @@ public class BYGConfiguredFeatures {
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> SKYRIS_TREE5 = createConfiguredFeature("skyris_tree5", BYGFeatures.SKYRIS_TREE5
             .configure(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.SKYRIS_LOG)
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE
                             .getDefaultState(), 1)
                             .add(BYGBlocks.SKYRIS_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(8)
@@ -3585,66 +3585,66 @@ public class BYGConfiguredFeatures {
                     .setMinHeight(22)
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_BUSH1 = createConfiguredFeature("nightshade_bush1", BYGFeatures.NIGHTSHADE_BUSH1
-            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.NIGHTSHADE_LOG
                             .getDefaultState(), 9)
                     .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.getDefaultState(), 1)))
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
                             .getDefaultState(), 3)
                             .add(BYGBlocks.NIGHTSHADE_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(30)
                     .setMinHeight(22)
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_BUSH2 = createConfiguredFeature("nightshade_bush2", BYGFeatures.NIGHTSHADE_BUSH2
-            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.NIGHTSHADE_LOG
                             .getDefaultState(), 9)
                     .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.getDefaultState(), 1)))
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
                             .getDefaultState(), 3)
                             .add(BYGBlocks.NIGHTSHADE_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(30)
                     .setMinHeight(22)
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_TREE1 = createConfiguredFeature("nightshade_tree1", BYGFeatures.NIGHTSHADE_TREE1
-            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.NIGHTSHADE_LOG
                             .getDefaultState(), 9)
                     .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.getDefaultState(), 1)))
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
                             .getDefaultState(), 3)
                             .add(BYGBlocks.NIGHTSHADE_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(30)
                     .setMinHeight(22)
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_TREE2 = createConfiguredFeature("nightshade_tree2", BYGFeatures.NIGHTSHADE_TREE2
-            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.NIGHTSHADE_LOG
                             .getDefaultState(), 9)
                     .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.getDefaultState(), 1)))
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
                             .getDefaultState(), 3)
                             .add(BYGBlocks.NIGHTSHADE_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(30)
                     .setMinHeight(22)
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_TREE3 = createConfiguredFeature("nightshade_tree3", BYGFeatures.NIGHTSHADE_TREE3
-            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.NIGHTSHADE_LOG
                             .getDefaultState(), 9)
                     .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.getDefaultState(), 1)))
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
                             .getDefaultState(), 3)
                             .add(BYGBlocks.NIGHTSHADE_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(30)
                     .setMinHeight(33)
                     .build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_TREE4 = createConfiguredFeature("nightshade_tree4", BYGFeatures.NIGHTSHADE_TREE4
-            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(method_35926()
+            .configure(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider(dataPoolBuilder()
                     .add(BYGBlocks.NIGHTSHADE_LOG
                             .getDefaultState(), 9)
                     .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.getDefaultState(), 1)))
-                    .setLeavesBlock(new WeightedBlockStateProvider(method_35926().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
+                    .setLeavesBlock(new WeightedBlockStateProvider(dataPoolBuilder().add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES
                             .getDefaultState(), 3)
                             .add(BYGBlocks.NIGHTSHADE_LEAVES.getDefaultState(), 8)))
                     .setMaxHeight(30)
@@ -4657,59 +4657,6 @@ public class BYGConfiguredFeatures {
             .decorate(BYGDecorators.ISLAND.configure(
                     new CountExtraDecoratorConfig(0, 0.13F, 1))));
 
-    private static DataPool.Builder<BlockState> method_35926() {
-        return DataPool.builder();
-    }
-
-    //Initialize these later so our blocks don't throw NPEs initializing other configured features in this class.
-    public static class SpreadableBlockConfigs {
-        public static final BlockPileFeatureConfig EMBUR_ROOTS = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(BYGBlocks.EMBUR_ROOTS.getDefaultState(), 50)
-                .add(BYGBlocks.EMBUR_SPROUTS.getDefaultState(), 35)
-                .add(BYGBlocks.EMBUR_WART.getDefaultState(), 11)));
-        public static final BlockPileFeatureConfig MEADOW_CONFIG = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(BYGBlocks.CLOVER_PATCH.getDefaultState(), 15)
-                .add(Blocks.GRASS.getDefaultState(), 30)
-                .add(Blocks.PINK_TULIP.getDefaultState(), 15)
-                .add(BYGBlocks.MAGENTA_TULIP.getDefaultState(), 15)
-                .add(BYGBlocks.CYAN_TULIP.getDefaultState(), 15)
-                .add(BYGBlocks.WHITE_ANEMONE.getDefaultState(), 15)
-                .add(BYGBlocks.ROSE.getDefaultState(), 10)));
-        public static final BlockPileFeatureConfig SYTHIAN_CONFIG = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(BYGBlocks.SYTHIAN_ROOTS.getDefaultState(), 50)
-                .add(BYGBlocks.SYTHIAN_SPROUT.getDefaultState(), 50)
-                .add(BYGBlocks.SYTHIAN_FUNGUS.getDefaultState(), 11)));
-        public static final BlockPileFeatureConfig IVIS_CONFIG = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(BYGBlocks.IVIS_ROOTS.getDefaultState(), 50)
-                .add(BYGBlocks.IVIS_SPROUT.getDefaultState(), 50)));
-        public static final BlockPileFeatureConfig OVERGROWN_BLACKSTONE_CONFIG = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(Blocks.CRIMSON_ROOTS.getDefaultState(), 80)
-                .add(Blocks.CRIMSON_FUNGUS.getDefaultState(), 15)
-                .add(BYGBlocks.CRIMSON_BERRY_BUSH.getDefaultState(), 5)));
-        public static final BlockPileFeatureConfig OVERGROWN_NETHERRACK_CONFIG = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(Blocks.NETHER_SPROUTS.getDefaultState(), 90)
-                .add(BYGBlocks.SOUL_SHROOM.getDefaultState(), 5)
-                .add(BYGBlocks.DEATH_CAP.getDefaultState(), 5)));
-        public static final BlockPileFeatureConfig MYCELIUM_NETHERRACK_CONFIG = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(BYGBlocks.SOUL_SHROOM.getDefaultState(), 50)
-                .add(BYGBlocks.DEATH_CAP.getDefaultState(), 50)));
-        public static final BlockPileFeatureConfig ETHER_CONFIG = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(BYGBlocks.ETHER_GRASS.getDefaultState(), 50)
-                .add(BYGBlocks.ETHER_BUSH.getDefaultState(), 45)
-                .add(BYGBlocks.THEREAL_BELLFLOWER.getDefaultState(), 5)));
-        public static final BlockPileFeatureConfig NIGHTSHADE_CONFIG = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState(), 50)
-                .add(BYGBlocks.NIGHTSHADE_SPROUTS.getDefaultState(), 50)));
-        public static final BlockPileFeatureConfig VERMILION_SCULK_CONFIG = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), 50)
-                .add(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), 45)
-                .add(BYGBlocks.VERMILION_SCULK_GROWTH.getDefaultState(), 5)));
-        public static final BlockPileFeatureConfig BULBIS_CONFIG = new BlockPileFeatureConfig(new WeightedBlockStateProvider(method_35926()
-                .add(BYGBlocks.BULBIS_SPROUTS.getDefaultState(), 50)
-                .add(BYGBlocks.BULBIS_SPROUTS.getDefaultState(), 45)
-                .add(BYGBlocks.BULBIS_SPROUTS.getDefaultState(), 5)));
-    }
-
     //Initialize these later to ensure config values were read.
     public static class OreConfigs {
         public static final ConfiguredFeature<?, ?> ORE_AMETRINE = createConfiguredFeature("ore_ametrine", Feature.ORE
@@ -4743,5 +4690,9 @@ public class BYGConfiguredFeatures {
                 .uniformRange(YOffset.getBottom(), YOffset.fixed(BYG.DIMENSIONS_CONFIG.OverworldDimension.Stones.SoapStone.YLevel))
                 .spreadHorizontally()
                 .repeat(BYG.DIMENSIONS_CONFIG.OverworldDimension.Stones.SoapStone.PerChunk));
+    }
+
+    private static DataPool.Builder<BlockState> dataPoolBuilder() {
+        return DataPool.builder();
     }
 }
