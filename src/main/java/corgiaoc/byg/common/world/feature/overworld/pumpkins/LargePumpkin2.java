@@ -8,8 +8,8 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -20,7 +20,12 @@ public class LargePumpkin2 extends Feature<PumpkinConfig> {
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, PumpkinConfig config) {
+    public boolean generate(FeatureContext<PumpkinConfig> context) {
+        StructureWorldAccess world = context.getWorld();
+        BlockPos pos = context.getOrigin();
+        Random rand = context.getRandom();
+        PumpkinConfig config = context.getConfig();
+
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();

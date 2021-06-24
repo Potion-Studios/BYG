@@ -12,8 +12,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.ModifiableWorld;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -33,8 +33,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
 
     public boolean isAnotherFlowerHere(TestableWorld worldReader, BlockPos blockPos) {
         return worldReader.testBlockState(blockPos, (state) -> {
-            Block block = state.getBlock();
-            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES);
+            return state.isIn(BlockTags.LOGS) || state.isIn(BlockTags.LEAVES);
         });
     }
 
@@ -92,8 +91,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      */
     public boolean canGiantFlowerGrowHere(TestableWorld reader, BlockPos pos) {
         return reader.testBlockState(pos, (state) -> {
-            Block block = state.getBlock();
-            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.SOIL;
+            return state.isIn(BlockTags.LOGS) || state.isIn(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.SOIL;
         });
     }
 
@@ -119,11 +117,10 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      */
     public static boolean isDesiredGroundwDirtTag(TestableWorld reader, BlockPos pos, Block... desiredGroundBlock) {
         return reader.testBlockState(pos, (state) -> {
-            Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return block.isIn(FabricTags.DIRT) || block == block1;
+                return state.isIn(FabricTags.DIRT) || state == block1.getDefaultState();
             }
-            return block.isIn(FabricTags.DIRT);
+            return state.isIn(FabricTags.DIRT);
         });
     }
 
@@ -411,7 +408,12 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
     }
 
     @Override
-    public boolean generate(StructureWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public boolean generate(FeatureContext<T> context) {
+        StructureWorldAccess worldIn = context.getWorld();
+        BlockPos pos = context.getOrigin();
+        Random rand = context.getRandom();
+        T config = context.getConfig();
+
         return placeFlower(worldIn, rand, pos, config.isPlacementForced(), config);
     }
 

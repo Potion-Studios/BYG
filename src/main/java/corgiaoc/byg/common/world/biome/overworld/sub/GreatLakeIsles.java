@@ -46,7 +46,7 @@ public class GreatLakeIsles extends BYGSubBiome {
         DefaultBiomeFeatures.addDungeons(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addMineables(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultOres(GENERATION_SETTINGS);
-        DefaultBiomeFeatures.addClay(GENERATION_SETTINGS);
+        DefaultBiomeFeatures.addClayDisk(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addWaterBiomeOakTrees(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultFlowers(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addDefaultGrass(GENERATION_SETTINGS);

@@ -35,7 +35,7 @@ public class EmburPlantBlock extends PlantBlock implements Fertilizable {
     public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
         TallPlantBlock doubleplantblock = (TallPlantBlock) (this == BYGBlocks.EMBUR_ROOTS ? BYGBlocks.TALL_EMBUR_ROOTS : BYGBlocks.TALL_EMBUR_ROOTS);
         if (doubleplantblock.getDefaultState().canPlaceAt(worldIn, pos) && worldIn.isAir(pos.up())) {
-            doubleplantblock.placeAt(worldIn, pos, 2);
+            doubleplantblock.placeAt(worldIn, doubleplantblock.getDefaultState(), pos, 2);
         }
 
     }

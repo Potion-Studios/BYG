@@ -20,7 +20,8 @@ public class ErodedLunaSB extends LunaSB {
         super(p_i51314_1_);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    @Override
+    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i2, long seed, TernarySurfaceConfig config) {
         double d0 = 0.0D;
         double d1 = Math.min(Math.abs(noise), this.field_215435_c.sample((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
         if (d1 > 0.0D) {

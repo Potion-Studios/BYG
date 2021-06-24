@@ -6,10 +6,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -19,7 +18,13 @@ public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
     }
 
     //A copy paste of Minecraft's Basalt Pillar Feature where the blocks can be chosen in a config rather than hardcoded.
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    @Override
+    public boolean generate(FeatureContext<SimpleBlockProviderConfig> context) {
+        StructureWorldAccess world = context.getWorld();
+        BlockPos pos = context.getOrigin();
+        Random rand = context.getRandom();
+        SimpleBlockProviderConfig config = context.getConfig();
+
         if (world.isAir(pos) && !world.isAir(pos.up())) {
             BlockPos.Mutable mutable = pos.mutableCopy();
             BlockPos.Mutable mutable2 = pos.mutableCopy();
@@ -29,7 +34,7 @@ public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
             boolean flag3 = true;
 
             while (world.isAir(mutable)) {
-                if (World.isOutOfBuildLimitVertically(mutable)) {
+                if (world.toServerWorld().isOutOfHeightLimit(mutable)) {
                     return true;
                 }
 

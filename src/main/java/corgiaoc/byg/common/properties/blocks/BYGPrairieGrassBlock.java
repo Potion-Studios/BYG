@@ -19,9 +19,7 @@ public class BYGPrairieGrassBlock extends FernBlock implements Fertilizable {
     public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
         TallPlantBlock doubleplantblock = (TallPlantBlock) (this == BYGBlocks.PRAIRIE_GRASS ? BYGBlocks.TALL_PRAIRIE_GRASS : BYGBlocks.TALL_PRAIRIE_GRASS);
         if (doubleplantblock.getDefaultState().canPlaceAt(world, pos) && world.isAir(pos.up())) {
-            doubleplantblock.placeAt(world, pos, 2);
+            doubleplantblock.placeAt(world, doubleplantblock.getDefaultState(), pos, 2);
         }
-
     }
-
 }

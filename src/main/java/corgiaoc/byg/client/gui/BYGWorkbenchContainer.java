@@ -17,7 +17,7 @@ public class BYGWorkbenchContainer extends CraftingScreenHandler {
     }
 
     protected static boolean canUse(ScreenHandlerContext worldPos, PlayerEntity playerIn, Block targetBlock) {
-        return worldPos.run((world, pos) ->
+        return worldPos.get((world, pos) ->
         {
             return world.getBlockState(pos).getBlock() == targetBlock && playerIn.squaredDistanceTo((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D) <= 64.0D;
         }, true);

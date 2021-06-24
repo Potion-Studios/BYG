@@ -3,7 +3,10 @@ package corgiaoc.byg.common.properties.blocks;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.TreeSpawner;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.FabricTags;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.SaplingBlock;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -22,7 +25,7 @@ public class BYGSapling extends SaplingBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState state, BlockView worldIn, BlockPos pos) {
-        return this == BYGBlocks.PALM_SAPLING ? state.getBlock().isIn(FabricTags.SAND) : state.getBlock().isIn(FabricTags.DIRT);
+        return this == BYGBlocks.PALM_SAPLING ? state.isIn(FabricTags.SAND) : state.isIn(FabricTags.DIRT);
     }
 
     @Override

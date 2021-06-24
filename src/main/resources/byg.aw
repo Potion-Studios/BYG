@@ -53,3 +53,5 @@ accessible method net/minecraft/world/gen/placer/BlockPlacerType <init> (Lcom/mo
 accessible field net/minecraft/world/gen/chunk/StructuresConfig DEFAULT_STRUCTURES Lcom/google/common/collect/ImmutableMap;
 mutable field net/minecraft/world/gen/chunk/StructuresConfig DEFAULT_STRUCTURES Lcom/google/common/collect/ImmutableMap;
 accessible field net/minecraft/world/gen/feature/StructureFeature STRUCTURE_TO_GENERATION_STEP Ljava/util/Map;
+accessible class net/minecraft/world/gen/feature/ConfiguredFeatures$Decorators
+accessible method net/minecraft/client/render/entity/model/EntityModelLayers create (Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/client/render/entity/model/EntityModelLayer;

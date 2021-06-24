@@ -15,7 +15,8 @@ public class MarshlandSB extends SurfaceBuilder<TernarySurfaceConfig> {
         super(p_i51304_1_);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    @Override
+    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i1, long seed, TernarySurfaceConfig config) {
         double d0 = Biome.FOLIAGE_NOISE.sample((double) x * 0.25D, (double) z * 0.25D, false);
         if (d0 > 0.0D) {
             int i = x & 15;
@@ -33,6 +34,6 @@ public class MarshlandSB extends SurfaceBuilder<TernarySurfaceConfig> {
             }
         }
 
-        SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+        SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, i1, seed, config);
     }
 }

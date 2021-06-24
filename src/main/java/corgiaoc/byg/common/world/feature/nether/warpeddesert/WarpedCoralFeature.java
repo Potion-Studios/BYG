@@ -7,8 +7,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Direction.Type;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -20,7 +20,13 @@ public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderCo
         super(config);
     }
 
-    public boolean generate(StructureWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, WhitelistedSimpleBlockProviderConfig config) {
+    @Override
+    public boolean generate(FeatureContext<WhitelistedSimpleBlockProviderConfig> context) {
+        StructureWorldAccess worldIn = context.getWorld();
+        BlockPos pos = context.getOrigin();
+        Random rand = context.getRandom();
+        WhitelistedSimpleBlockProviderConfig config = context.getConfig();
+
         int randCoralHeight = rand.nextInt(7) + 16 / 2;
 
         if (!checkArea(worldIn, pos, rand, config)) {

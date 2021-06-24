@@ -21,7 +21,7 @@ public class MixinSugarCaneBlock {
     @Inject(method = "canPlaceAt", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 0), cancellable = true)
     private void addBYGBlocks(BlockState state, WorldView worldIn, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         BlockState blockStateDown = worldIn.getBlockState(pos.down());
-        if (blockStateDown.getBlock().isIn(BlockTags.SAND)) {
+        if (blockStateDown.isIn(BlockTags.SAND)) {
             BlockPos blockpos = pos.down();
 
             for (Direction direction : Direction.Type.HORIZONTAL) {

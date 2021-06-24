@@ -4,9 +4,10 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.util.noise.fastnoise.lite.FastNoiseLite;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.structure.StructureStart;
-import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.registry.DynamicRegistryManager;
+import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -27,17 +28,17 @@ public class VolcanoStructure extends StructureFeature<DefaultFeatureConfig> {
         private static FastNoiseLite fnlPerlin = null;
         private final long seed;
 
-        public Start(StructureFeature<DefaultFeatureConfig> structure, int chunkX, int chunkZ, BlockBox boundingBox, int reference, long seed) {
-            super(structure, chunkX, chunkZ, boundingBox, reference, seed);
+        public Start(StructureFeature<DefaultFeatureConfig> defaultFeatureConfigStructureFeature, ChunkPos chunkPos, int i, long seed) {
+            super(defaultFeatureConfigStructureFeature, chunkPos, i, seed);
             this.seed = seed;
         }
 
         @Override
-        public void init(DynamicRegistryManager dynamicRegistry, ChunkGenerator generator, StructureManager templateManager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig config) {
+        public void init(DynamicRegistryManager dynamicRegistry, ChunkGenerator generator, StructureManager templateManager, ChunkPos pos, Biome biome, DefaultFeatureConfig config, HeightLimitView world) {
             setSeed(this.seed);
 
-            int x = chunkX * 16;
-            int z = chunkZ * 16;
+            int x = pos.x * 16;
+            int z = pos.z * 16;
             BlockPos blockpos = new BlockPos(x + 9, 90, z + 9);
 
 
@@ -47,14 +48,12 @@ public class VolcanoStructure extends StructureFeature<DefaultFeatureConfig> {
             int volcanoStartHeight = volcanoConeSize - 5;
             double threshold = 0.5;
 
-
             this.children.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, 0, volcanoConeSize, 0, volcanoConeSize));
             this.children.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, volcanoConeSize, 0, 0, volcanoConeSize));
             this.children.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, volcanoConeSize, 0, volcanoConeSize, 0));
             this.children.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, 0, volcanoConeSize, volcanoConeSize, 0));
             this.setBoundingBoxFromChildren();
         }
-
 
         public void setSeed(long seed) {
             if (fnlPerlin == null) {

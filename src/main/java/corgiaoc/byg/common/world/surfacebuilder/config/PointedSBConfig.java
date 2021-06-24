@@ -8,6 +8,9 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.surfacebuilder.SurfaceConfig;
 
+/**
+ * 
+ */
 public class PointedSBConfig implements SurfaceConfig {
 
     public static final Codec<PointedSBConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
@@ -15,6 +18,8 @@ public class PointedSBConfig implements SurfaceConfig {
             return config.topMaterial;
         }), BlockState.CODEC.fieldOf("under_material").forGetter((config) -> {
             return config.underMaterial;
+        }), BlockState.CODEC.fieldOf("underwater_material").forGetter((config) -> {
+            return config.underwaterMaterial;
         }), BlockStateProvider.TYPE_CODEC.fieldOf("spike_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())).forGetter((config) -> {
             return config.spikeProvider;
         }), BlockStateProvider.TYPE_CODEC.fieldOf("spike_top_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.getDefaultState())).forGetter((config) -> {
@@ -26,13 +31,15 @@ public class PointedSBConfig implements SurfaceConfig {
 
     private final BlockState topMaterial;
     private final BlockState underMaterial;
+    private final BlockState underwaterMaterial;
     private final BlockStateProvider spikeProvider;
     private final BlockStateProvider spikeTopBlockProvider;
     private final int spikeHeight;
 
-    public PointedSBConfig(BlockState topMaterial, BlockState underMaterial, BlockStateProvider spikeProvider, BlockStateProvider spikeTopBlockProvider, int spikeHeight) {
+    public PointedSBConfig(BlockState topMaterial, BlockState underMaterial, BlockState underwaterMaterial, BlockStateProvider spikeProvider, BlockStateProvider spikeTopBlockProvider, int spikeHeight) {
         this.topMaterial = topMaterial;
         this.underMaterial = underMaterial;
+        this.underwaterMaterial = underwaterMaterial;
         this.spikeProvider = spikeProvider;
         this.spikeTopBlockProvider = spikeTopBlockProvider;
         this.spikeHeight = spikeHeight;
@@ -44,6 +51,11 @@ public class PointedSBConfig implements SurfaceConfig {
 
     public BlockState getUnderMaterial() {
         return this.underMaterial;
+    }
+
+    @Override
+    public BlockState getUnderwaterMaterial() {
+        return Blocks.AIR.getDefaultState();
     }
 
     public BlockStateProvider getSpikeProvider() {

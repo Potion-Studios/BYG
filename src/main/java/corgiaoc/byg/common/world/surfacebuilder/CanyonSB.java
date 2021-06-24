@@ -29,7 +29,8 @@ public class CanyonSB extends SurfaceBuilder<TernarySurfaceConfig> {
 
     public BlockState layerBlock = Blocks.TERRACOTTA.getDefaultState();
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int groundHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    @Override
+    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int groundHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i, long seed, TernarySurfaceConfig config) {
         initSeed(seed);
         BlockPos.Mutable block = new BlockPos.Mutable();
         int xPos = x & 15;
@@ -104,7 +105,7 @@ public class CanyonSB extends SurfaceBuilder<TernarySurfaceConfig> {
             }
         }
 
-        SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, config);
+        SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, groundHeight, noise, defaultBlock, defaultFluid, seaLevel, i, seed, config);
 
 
         for (int y = seaLevel - 1; y >= seaLevel - 20; y--) {

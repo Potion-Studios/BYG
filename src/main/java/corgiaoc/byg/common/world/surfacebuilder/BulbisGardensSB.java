@@ -16,13 +16,14 @@ public class BulbisGardensSB extends SurfaceBuilder<TernarySurfaceConfig> {
         super(config);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    @Override
+    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i, long seed, TernarySurfaceConfig config) {
         if (noise > 0.3)
-            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.BULBIS_PHYCELIUM_CF);
+            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, i, seed, BYGSurfaceBuilders.Configs.BULBIS_PHYCELIUM_CF);
         else if (noise < -0.3)
-            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.BULBIS_PHYCELIUM_CF);
+            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, i, seed, BYGSurfaceBuilders.Configs.BULBIS_PHYCELIUM_CF);
         else
-            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new TernarySurfaceConfig(BYGBlocks.BULBIS_WOOD.getDefaultState(), BYGBlocks.BULBIS_WOOD.getDefaultState(), BYGBlocks.BULBIS_WOOD.getDefaultState()));
+            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, i, seed, new TernarySurfaceConfig(BYGBlocks.BULBIS_WOOD.getDefaultState(), BYGBlocks.BULBIS_WOOD.getDefaultState(), BYGBlocks.BULBIS_WOOD.getDefaultState()));
 
     }
 }

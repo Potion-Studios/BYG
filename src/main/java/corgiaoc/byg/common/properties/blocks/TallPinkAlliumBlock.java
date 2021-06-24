@@ -21,7 +21,7 @@ public class TallPinkAlliumBlock extends FernBlock implements Fertilizable {
     public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
         TallPlantBlock doubleplantblock = (TallPlantBlock) (this == BYGBlocks.TALL_PINK_ALLIUM ? BYGBlocks.TALL_PINK_ALLIUM : BYGBlocks.TALL_PINK_ALLIUM);
         if (doubleplantblock.getDefaultState().canPlaceAt(worldIn, pos) && worldIn.isAir(pos.up())) {
-            doubleplantblock.placeAt(worldIn, pos, 2);
+            doubleplantblock.placeAt(worldIn,doubleplantblock.getDefaultState(), pos, 2);
         }
 
     }

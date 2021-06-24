@@ -8,8 +8,8 @@ import corgiaoc.byg.core.BYGEntities;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 
 @Environment(EnvType.CLIENT)
 public class BYGClient implements ClientModInitializer {
@@ -19,7 +19,7 @@ public class BYGClient implements ClientModInitializer {
         BYGCutoutRenders.renderCutOuts();
         BlockColorManager.onBlockColorsInit();
         BlockColorManager.onItemColorsInit();
-        ClientSidePacketRegistry.INSTANCE.register(CustomEntitySpawnS2CPacket.SPAWN_PACKET_ID, CustomEntitySpawnS2CPacket::receiveSpawnPacket);
-        EntityRendererRegistry.INSTANCE.register(BYGEntities.BOAT, (entityRenderDispatcher, context) -> new BYGBoatRenderer(entityRenderDispatcher));
+        ClientPlayNetworking.registerGlobalReceiver(CustomEntitySpawnS2CPacket.SPAWN_PACKET_ID, CustomEntitySpawnS2CPacket::receiveSpawnPacket);
+        EntityRendererRegistry.INSTANCE.register(BYGEntities.BOAT, BYGBoatRenderer::new);
     }
 }

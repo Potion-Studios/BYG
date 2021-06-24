@@ -8,8 +8,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -18,7 +18,13 @@ public class Chain extends Feature<ChainConfig> {
         super(config);
     }
 
-    public boolean generate(StructureWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, ChainConfig config) {
+    @Override
+    public boolean generate(FeatureContext<ChainConfig> context) {
+        StructureWorldAccess worldIn = context.getWorld();
+        BlockPos pos = context.getOrigin();
+        Random rand = context.getRandom();
+        ChainConfig config = context.getConfig();
+
         int randChainLength = config.getMinLength() + rand.nextInt(config.getMaxPossibleLength());
 
         BlockPos.Mutable mainMutable1 = new BlockPos.Mutable().set(pos);

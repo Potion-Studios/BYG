@@ -24,8 +24,8 @@ public class HangingVinesBlock extends AbstractPlantStemBlock {
      * Used to determine how much to grow the plant when using bonemeal. Kelp always returns 1, where as the nether vines
      * return a random value at least 1.
      */
-    protected int method_26376(Random rand) {
-        return VineLogic.method_26381(rand);
+    protected int getGrowthLength(Random rand) {
+        return VineLogic.getGrowthLength(rand);
     }
 
     protected Block getPlant() {

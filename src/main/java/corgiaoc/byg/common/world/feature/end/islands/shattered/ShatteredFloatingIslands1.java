@@ -6,8 +6,8 @@ import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -20,8 +20,11 @@ public class ShatteredFloatingIslands1 extends Feature<FloatingIslandConfig> {
         super(codec);
     }
 
-    @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
+    public boolean generate(FeatureContext<FloatingIslandConfig> context) {
+        StructureWorldAccess world = context.getWorld();
+        BlockPos pos = context.getOrigin();
+        Random rand = context.getRandom();
+        FloatingIslandConfig config = context.getConfig();
         setSeed(world.getSeed());
 
         double radius = rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();

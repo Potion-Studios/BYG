@@ -19,7 +19,7 @@ public class AnyWaterOrSolidSurface extends Decorator<CountConfig> {
 
     @Override
     public Stream<BlockPos> getPositions(DecoratorContext ctx, Random random, CountConfig config, BlockPos pos) {
-        return IntStream.range(0, config.getCount().getValue(random)).mapToObj((obj) -> {
+        return IntStream.range(0, config.getCount().get(random)).mapToObj((obj) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();
             BlockPos.Mutable mutable = new BlockPos.Mutable(x, ctx.world.getHeight(), z);

@@ -8,8 +8,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -20,7 +20,13 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
         super(codec);
     }
 
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+    @Override
+    public boolean generate(FeatureContext<HangingColumnWithBaseConfig> context) {
+        StructureWorldAccess world = context.getWorld();
+        BlockPos pos = context.getOrigin();
+        Random rand = context.getRandom();
+        HangingColumnWithBaseConfig config = context.getConfig();
+
         if (!world.isAir(pos)) {
             return false;
         } else {

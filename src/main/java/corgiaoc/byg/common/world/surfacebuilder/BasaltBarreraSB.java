@@ -23,7 +23,9 @@ public class BasaltBarreraSB extends SurfaceBuilder<TernarySurfaceConfig> {
         super(codec);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    @Override
+    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i, long seed, TernarySurfaceConfig config) {
+
         initSeed(seed);
         int xPos = x & 15;
         int zPos = z & 15;

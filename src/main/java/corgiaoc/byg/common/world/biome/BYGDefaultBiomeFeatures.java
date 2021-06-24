@@ -652,12 +652,12 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addRainForestTrees(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_RAINFOREST_TREE);
-        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.VINES);
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PROTOTYPE_VINES);
     }
 
     public static void addStoneForestTrees(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_STONE_FOREST_TREE);
-        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.VINES);
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PROTOTYPE_VINES);
     }
 
     public static void addFungalRainForestTrees(GenerationSettings.Builder gen) {
@@ -666,7 +666,7 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addSparseRainforestTrees(GenerationSettings.Builder gen) {
         gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_RAINFOREST_SPARSE_TREE);
-        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.VINES);
+        gen.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PROTOTYPE_VINES);
     }
 
     public static void addRainbowTrees(GenerationSettings.Builder gen) {

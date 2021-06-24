@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.feature.nether.quartzdesert;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -13,8 +14,8 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.BasaltColumnsFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Random;
 
 public class RawQuartzColumnFeature extends Feature<BasaltColumnsFeatureConfig> {
@@ -25,12 +26,19 @@ public class RawQuartzColumnFeature extends Feature<BasaltColumnsFeatureConfig> 
         super(codec);
     }
 
-    public boolean generate(StructureWorldAccess reader, ChunkGenerator generator, Random rand, BlockPos pos, BasaltColumnsFeatureConfig config) {
+    @Override
+    public boolean generate(FeatureContext<BasaltColumnsFeatureConfig> context) {
+        StructureWorldAccess reader = context.getWorld();
+        BlockPos pos = context.getOrigin();
+        Random rand = context.getRandom();
+        BasaltColumnsFeatureConfig config = context.getConfig();
+        ChunkGenerator generator = context.getGenerator();
+
         int i = generator.getSeaLevel();
         if (!func_242762_a(reader, i, pos.mutableCopy())) {
             return false;
         } else {
-            int j = config.getHeight().getValue(rand);
+            int j = config.getHeight().get(rand);
             boolean flag = rand.nextFloat() < 0.9F;
             int k = Math.min(j, flag ? 5 : 8);
             int l = flag ? 50 : 15;
@@ -39,7 +47,7 @@ public class RawQuartzColumnFeature extends Feature<BasaltColumnsFeatureConfig> 
             for (BlockPos blockpos : BlockPos.iterateRandomly(rand, l, pos.getX() - k, pos.getY(), pos.getZ() - k, pos.getX() + k, pos.getY(), pos.getZ() + k)) {
                 int i1 = j - blockpos.getManhattanDistance(pos);
                 if (i1 >= 0) {
-                    flag1 |= this.func_236248_a_(reader, i, blockpos, i1, config.getReach().getValue(rand));
+                    flag1 |= this.func_236248_a_(reader, i, blockpos, i1, config.getReach().get(rand));
                 }
             }
 

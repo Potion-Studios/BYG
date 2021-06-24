@@ -382,7 +382,7 @@ public class BYGBlockProperties {
 
     public static class BYGLeafFoilage extends LeafFoliageBlock {
         public BYGLeafFoilage(String registryName) {
-            super(DyeColor.GREEN, FabricBlockSettings.of(Material.LEAVES, MaterialColor.GRASS)
+            super(DyeColor.GREEN, FabricBlockSettings.of(Material.LEAVES, MapColor.PALE_GREEN)
                     .strength(0.0F)
                     .ticksRandomly()
                     .sounds(BlockSoundGroup.GRASS)
@@ -761,7 +761,7 @@ public class BYGBlockProperties {
 
     public static class ThatchCarpet extends CarpetBlock {
         public ThatchCarpet(String registryName) {
-            super(DyeColor.BROWN, FabricBlockSettings.of(Material.SOLID_ORGANIC)
+            super(FabricBlockSettings.of(Material.SOLID_ORGANIC)
                     .sounds(BlockSoundGroup.GRASS)
                     .strength(0.5f)
             );
@@ -919,7 +919,7 @@ public class BYGBlockProperties {
 
     public static class BoricCampfire extends CampfireBlock {
         public BoricCampfire(String registryName) {
-            super(true, 5, FabricBlockSettings.of(Material.WOOD, MaterialColor.SPRUCE)
+            super(true, 5, FabricBlockSettings.of(Material.WOOD, MapColor.SPRUCE_BROWN)
                     .strength(2.0F)
                     .sounds(BlockSoundGroup.WOOD)
                     .ticksRandomly()
@@ -933,7 +933,7 @@ public class BYGBlockProperties {
 
     public static class BoricFire extends BoricFireBlock {
         public BoricFire(String registryName) {
-            super(FabricBlockSettings.of(Material.FIRE, MaterialColor.GREEN)
+            super(FabricBlockSettings.of(Material.FIRE, MapColor.GREEN)
                     .sounds(BlockSoundGroup.WOOL)
                     .noCollision()
                     .breakInstantly()
@@ -946,7 +946,7 @@ public class BYGBlockProperties {
 
     public static class CrypticFire extends CrypticFireBlock {
         public CrypticFire(String registryName) {
-            super(FabricBlockSettings.of(Material.FIRE, MaterialColor.GREEN)
+            super(FabricBlockSettings.of(Material.FIRE, MapColor.GREEN)
                     .sounds(BlockSoundGroup.WOOL)
                     .noCollision()
                     .breakInstantly()
@@ -959,7 +959,7 @@ public class BYGBlockProperties {
 
     public static class CrypticCampfire extends CampfireBlock {
         public CrypticCampfire(String registryName) {
-            super(true, 5, FabricBlockSettings.of(Material.WOOD, MaterialColor.SPRUCE)
+            super(true, 5, FabricBlockSettings.of(Material.WOOD, MapColor.SPRUCE_BROWN)
                     .strength(2.0F)
                     .sounds(BlockSoundGroup.WOOD)
                     .ticksRandomly()
@@ -1130,7 +1130,7 @@ public class BYGBlockProperties {
 
     public static class BlockHugeMushroom extends MushroomBlock {
         public BlockHugeMushroom(String registryName) {
-            super(FabricBlockSettings.of(Material.WOOD, MaterialColor.DIRT)
+            super(FabricBlockSettings.of(Material.WOOD, MapColor.DIRT_BROWN)
                     .sounds(BlockSoundGroup.NETHER_STEM)
                     .strength(0.2F)
             );
@@ -1142,7 +1142,7 @@ public class BYGBlockProperties {
 
     public static class BlockHugeNetherMushroom extends MushroomBlock {
         public BlockHugeNetherMushroom(String registryName) {
-            super(FabricBlockSettings.of(Material.NETHER_WOOD, MaterialColor.DIRT)
+            super(FabricBlockSettings.of(Material.NETHER_WOOD, MapColor.DIRT_BROWN)
                     .sounds(BlockSoundGroup.NETHER_STEM)
                     .strength(0.2F)
                     .luminance((state) -> 12)
@@ -1160,7 +1160,7 @@ public class BYGBlockProperties {
 
     public static class BlockHugeNetherMushroomStem extends MushroomBlock {
         public BlockHugeNetherMushroomStem(String registryName) {
-            super(FabricBlockSettings.of(Material.NETHER_WOOD, MaterialColor.DIRT)
+            super(FabricBlockSettings.of(Material.NETHER_WOOD, MapColor.DIRT_BROWN)
                     .sounds(BlockSoundGroup.NETHER_STEM)
                     .strength(0.2F)
             );
@@ -1177,7 +1177,7 @@ public class BYGBlockProperties {
 
     public static class BlockHugeGlowshroom extends MushroomBlock {
         public BlockHugeGlowshroom(String registryName) {
-            super(FabricBlockSettings.of(Material.WOOD, MaterialColor.DIRT)
+            super(FabricBlockSettings.of(Material.WOOD, MapColor.DIRT_BROWN)
                     .sounds(BlockSoundGroup.NETHER_STEM)
                     .strength(0.2F)
                     .nonOpaque()
@@ -1196,7 +1196,7 @@ public class BYGBlockProperties {
 
     public static class BlockHugeGlowshroomStem extends MushroomBlock {
         public BlockHugeGlowshroomStem(String registryName) {
-            super(FabricBlockSettings.of(Material.WOOD, MaterialColor.DIRT)
+            super(FabricBlockSettings.of(Material.WOOD, MapColor.DIRT_BROWN)
                     .sounds(BlockSoundGroup.NETHER_STEM)
                     .strength(0.2F)
                     .luminance((state) -> 12)
@@ -1214,7 +1214,7 @@ public class BYGBlockProperties {
 
     public static class BulbisShell extends MushroomBlock {
         public BulbisShell(String registryName) {
-            super(FabricBlockSettings.of(Material.WOOD, MaterialColor.CYAN)
+            super(FabricBlockSettings.of(Material.WOOD, MapColor.CYAN)
                     .sounds(BlockSoundGroup.SHROOMLIGHT)
                     .strength(0.2F)
                     .nonOpaque()
@@ -1233,7 +1233,7 @@ public class BYGBlockProperties {
 
     public static class BYGScaffolding extends BYGScaffoldingBlock {
         public BYGScaffolding(String registryName) {
-            super(FabricBlockSettings.of(Material.SUPPORTED, MaterialColor.SAND)
+            super(FabricBlockSettings.of(Material.DECORATION, MapColor.PALE_YELLOW)
                     .sounds(BlockSoundGroup.SCAFFOLDING)
                     .strength(0.0f, 0.0f)
                     .noCollision()
@@ -1286,7 +1286,7 @@ public class BYGBlockProperties {
 
     public static class BYGNetherrack extends Block {
         public BYGNetherrack(String registryName) {
-            super(FabricBlockSettings.of(Material.STONE, MaterialColor.BLUE_TERRACOTTA)
+            super(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_BLUE)
                     .sounds(BlockSoundGroup.NETHERRACK)
                     .strength(0.4F, 0.4F)
                     .breakByTool(FabricToolTags.PICKAXES)
@@ -1300,7 +1300,7 @@ public class BYGBlockProperties {
 
     public static class BYGBlueNetherrack extends BlueNetherrackBlock {
         public BYGBlueNetherrack(String registryName) {
-            super(FabricBlockSettings.of(Material.STONE, MaterialColor.BLUE_TERRACOTTA)
+            super(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_BLUE)
                     .sounds(BlockSoundGroup.NETHERRACK)
                     .strength(0.4F, 0.4F)
                     .breakByTool(FabricToolTags.PICKAXES)
@@ -1314,7 +1314,7 @@ public class BYGBlockProperties {
 
     public static class BYGBlueNetherrackBricks extends BlueNetherrackBlock {
         public BYGBlueNetherrackBricks(String registryName) {
-            super(FabricBlockSettings.of(Material.STONE, MaterialColor.BLUE_TERRACOTTA)
+            super(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_BLUE)
                     .sounds(BlockSoundGroup.NETHER_BRICKS)
                     .strength(0.4F, 0.4F)
                     .breakByTool(FabricToolTags.PICKAXES)

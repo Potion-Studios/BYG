@@ -51,13 +51,13 @@ public class BYGBoatItem extends Item {
             if (raytraceresult.getType() == HitResult.Type.BLOCK) {
                 BYGBoatEntity bygBoatEntity = new BYGBoatEntity(worldIn, raytraceresult.getPos().x, raytraceresult.getPos().y, raytraceresult.getPos().z);
                 bygBoatEntity.setBYGBoatType(this.type);
-                bygBoatEntity.yaw = playerIn.yaw;
+                bygBoatEntity.setYaw(playerIn.getYaw());
                 if (!worldIn.isSpaceEmpty(bygBoatEntity, bygBoatEntity.getBoundingBox().expand(-0.1D))) {
                     return TypedActionResult.fail(itemstack);
                 } else {
                     if (!worldIn.isClient) {
                         worldIn.spawnEntity(bygBoatEntity);
-                        if (!playerIn.abilities.creativeMode) {
+                        if (!playerIn.getAbilities().creativeMode) {
                             itemstack.decrement(1);
                         }
                     }

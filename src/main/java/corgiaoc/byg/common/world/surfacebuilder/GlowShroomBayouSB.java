@@ -16,7 +16,8 @@ public class GlowShroomBayouSB extends SurfaceBuilder<TernarySurfaceConfig> {
         super(p_i51312_1_);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    @Override
+    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i1, long seed, TernarySurfaceConfig config) {
         double d0 = Biome.FOLIAGE_NOISE.sample((double) x * 0.25D, (double) z * 0.25D, false);
         if (d0 > 0.0D) {
             int i = x & 15;
@@ -35,11 +36,11 @@ public class GlowShroomBayouSB extends SurfaceBuilder<TernarySurfaceConfig> {
         }
 
         if (noise > 1.75D) {
-            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.GLOWCELIUM_CF);
+            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, i1, seed, BYGSurfaceBuilders.Configs.GLOWCELIUM_CF);
         } else if (noise > -0.95D) {
-            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, SurfaceBuilder.GRASS_CONFIG);
+            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, i1, seed, SurfaceBuilder.GRASS_CONFIG);
         } else {
-            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.GLOWCELIUM_CF);
+            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, i1, seed, BYGSurfaceBuilders.Configs.GLOWCELIUM_CF);
         }
 
     }

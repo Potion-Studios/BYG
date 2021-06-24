@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.subzerohypogeal;
 
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.item.ItemPlacementContext;
@@ -13,8 +14,6 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class SubzeroAshBlock extends Block {
     public static final IntProperty LAYERS = Properties.LAYERS;
@@ -50,7 +49,7 @@ public class SubzeroAshBlock extends Block {
         return SHAPES[state.get(LAYERS)];
     }
 
-    public VoxelShape getVisualShape(BlockState state, BlockView reader, BlockPos pos, ShapeContext context) {
+    public VoxelShape getCameraCollisionShape(BlockState state, BlockView reader, BlockPos pos, ShapeContext context) {
         return SHAPES[state.get(LAYERS)];
     }
 

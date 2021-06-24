@@ -10,8 +10,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ModifiableWorld;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -31,7 +31,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
 
     public boolean isAnotherMushroomHere(TestableWorld worldReader, BlockPos blockPos) {
         return worldReader.testBlockState(blockPos, (state) -> {
-            Block block = state.getBlock();
+            BlockState block = state;
             return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES);
         });
     }
@@ -90,8 +90,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
      */
     public boolean canGiantMushroomGrowHere(TestableWorld reader, BlockPos pos) {
         return reader.testBlockState(pos, (state) -> {
-            Block block = state.getBlock();
-            return block.isIn(BlockTags.LOGS) || block.isIn(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.SOIL;
+            return state.isIn(BlockTags.LOGS) || state.isIn(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.UNDERWATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.SOIL;
         });
     }
 
@@ -120,11 +119,10 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
             return true;
 
         return reader.testBlockState(pos, (state) -> {
-            Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return block.isIn(FabricTags.DIRT) || block == block1;
+                return state.isIn(FabricTags.DIRT) || state == block1.getDefaultState();
             }
-            return block.isIn(FabricTags.DIRT);
+            return state.isIn(FabricTags.DIRT);
         });
     }
 
@@ -133,11 +131,10 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
             return true;
 
         return reader.testBlockState(pos, (state) -> {
-            Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return block.isIn(FabricTags.END_STONES) || block == block1;
+                return state.isIn(FabricTags.END_STONES) || state == block1.getDefaultState();
             }
-            return block.isIn(FabricTags.END_STONES);
+            return state.isIn(FabricTags.END_STONES);
         });
     }
 
@@ -296,8 +293,13 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
     }
 
     @Override
-    public boolean generate(StructureWorldAccess worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
-        return placeMushroom(worldIn, rand, pos, config.isPlacementForced(), config);
+    public boolean generate(FeatureContext<T> context) {
+        StructureWorldAccess world = context.getWorld();
+        BlockPos pos = context.getOrigin();
+        Random rand = context.getRandom();
+        T config = context.getConfig();
+
+        return placeMushroom(world, rand, pos, config.isPlacementForced(), config);
     }
 
     protected abstract boolean placeMushroom(StructureWorldAccess worldIn, Random rand, BlockPos pos, boolean isMushroom, T config);

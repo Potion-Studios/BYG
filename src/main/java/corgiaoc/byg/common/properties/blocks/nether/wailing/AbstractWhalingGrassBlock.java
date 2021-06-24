@@ -2,6 +2,7 @@ package corgiaoc.byg.common.properties.blocks.nether.wailing;
 
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.FabricTags;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -16,8 +17,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class AbstractWhalingGrassBlock extends Block implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -53,7 +52,7 @@ public class AbstractWhalingGrassBlock extends Block implements Waterloggable {
     }
 
     protected boolean isValidGround(BlockState state) {
-        return state.getBlock() == Blocks.SOUL_SAND || isIn(FabricTags.NETHERRACK) || state.getBlock() == BYGBlocks.MAGMATIC_STONE || state.getBlock() == BYGBlocks.OVERGROWN_NETHERRACK;
+        return state.getBlock() == Blocks.SOUL_SAND || state.isIn(FabricTags.NETHERRACK) || state.getBlock() == BYGBlocks.MAGMATIC_STONE || state.getBlock() == BYGBlocks.OVERGROWN_NETHERRACK;
     }
 
     @Override

@@ -10,8 +10,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.ProbabilityConfig;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -25,7 +25,13 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
         super(config);
     }
 
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
+    @Override
+    public boolean generate(FeatureContext<ProbabilityConfig> context) {
+        StructureWorldAccess world = context.getWorld();
+        BlockPos pos = context.getOrigin();
+        Random rand = context.getRandom();
+        ProbabilityConfig config = context.getConfig();
+
         int aNumber = 0;
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
         BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(pos);
@@ -42,7 +48,7 @@ public class SythianStalk extends Feature<ProbabilityConfig> {
                             int zBuild = z - pos.getZ();
                             if (xBuild * xBuild + zBuild * zBuild <= randNextInt * randNextInt) {
                                 mutable2.set(x, world.getTopY(Heightmap.Type.WORLD_SURFACE, x, z) - 1, z);
-                                if (isSoil(world.getBlockState(mutable2).getBlock())) {
+                                if (isSoil(world.getBlockState(mutable2))) {
                                     world.setBlockState(mutable2, BYGBlocks.SYTHIAN_NYLIUM.getDefaultState(), 2);
                                 }
                             }

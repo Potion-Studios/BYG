@@ -12,7 +12,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.Item;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -23,7 +23,7 @@ public class BYGBoatEntity extends BoatEntity {
 
     public BYGBoatEntity(World world, double x, double y, double z) {
         this(BYGEntities.BOAT, world);
-        this.updatePosition(x, y, z);
+        this.setPosition(x, y, z);
         this.setVelocity(Vec3d.ZERO);
         this.prevX = x;
         this.prevY = y;
@@ -149,12 +149,12 @@ public class BYGBoatEntity extends BoatEntity {
 
 
     @Override
-    protected void writeCustomDataToTag(CompoundTag compound) {
+    protected void writeCustomDataToNbt(NbtCompound compound) {
         compound.putString("BYGType", this.getBYGBoatType().getName());
     }
 
     @Override
-    protected void readCustomDataFromTag(CompoundTag compound) {
+    protected void readCustomDataFromNbt(NbtCompound compound) {
         if (compound.contains("BYGType", NbtType.STRING)) {
             this.setBYGBoatType(BYGType.getTypeFromString(compound.getString("BYGType")));
         }

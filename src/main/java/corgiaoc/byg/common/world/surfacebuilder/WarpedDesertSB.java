@@ -21,7 +21,8 @@ public class WarpedDesertSB extends SurfaceBuilder<TernarySurfaceConfig> {
         super(config);
     }
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    @Override
+    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i, long seed, TernarySurfaceConfig config) {
         BlockPos.Mutable block = new BlockPos.Mutable();
         int xPos = x & 15;
         int zPos = z & 15;
@@ -42,7 +43,7 @@ public class WarpedDesertSB extends SurfaceBuilder<TernarySurfaceConfig> {
                         chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SAND.getDefaultState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WARPEDDESERT);
+            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, i, seed, BYGSurfaceBuilders.Configs.WARPEDDESERT);
         } else {
             for (int yPos = 256; yPos >= seaLevel; --yPos) {
                 block.set(xPos, yPos, zPos);
@@ -59,7 +60,7 @@ public class WarpedDesertSB extends SurfaceBuilder<TernarySurfaceConfig> {
                         chunkIn.setBlockState(block, BYGBlocks.NYLIUM_SOUL_SOIL.getDefaultState(), false);
                 }
             }
-            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.WARPEDDESERT_SOIL);
+            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, i, seed, BYGSurfaceBuilders.Configs.WARPEDDESERT_SOIL);
         }
 
     }

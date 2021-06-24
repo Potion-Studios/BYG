@@ -57,6 +57,11 @@ public class FillSurfaceBuilderConfig implements SurfaceConfig {
         return Blocks.AIR.getDefaultState();
     }
 
+    @Override
+    public BlockState getUnderwaterMaterial() {
+        return Blocks.GRAVEL.getDefaultState();
+    }
+
     public BlockStateProvider getFillMaterial() {
         return this.fillMaterial;
     }

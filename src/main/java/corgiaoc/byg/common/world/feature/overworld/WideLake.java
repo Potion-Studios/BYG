@@ -16,8 +16,8 @@ import net.minecraft.util.math.noise.OctaveSimplexNoiseSampler;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 import java.util.Set;
@@ -46,7 +46,12 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
 
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator chunkSettings, Random random, BlockPos position, SimpleBlockProviderConfig config) {
+    public boolean generate(FeatureContext<SimpleBlockProviderConfig> context) {
+        StructureWorldAccess world = context.getWorld();
+        BlockPos position = context.getOrigin();
+        Random random = context.getRandom();
+        SimpleBlockProviderConfig config = context.getConfig();
+
         setSeed(world.getSeed());
         BlockPos.Mutable mutable = new BlockPos.Mutable().set(position.down(2));
 

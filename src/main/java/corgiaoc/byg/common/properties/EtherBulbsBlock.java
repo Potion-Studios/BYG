@@ -52,7 +52,7 @@ public class EtherBulbsBlock extends Block implements Fertilizable {
         } else if (i > 2) {
             int j = 1;
             dropStack(worldIn, pos, new ItemStack(BYGItems.ETHER_BULBS, j));
-            worldIn.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
+            worldIn.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(0)), 2);
             return ActionResult.SUCCESS;
         } else {

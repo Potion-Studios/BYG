@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.end;
 
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -27,7 +28,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Random;
 
 public class TallVentBlock extends Block {
@@ -56,12 +56,13 @@ public class TallVentBlock extends Block {
         builder.add(HALF);
     }
 
-    public void onSteppedOn(World worldIn, BlockPos pos, Entity entityIn) {
+    @Override
+    public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entityIn) {
         if (!entityIn.isFireImmune() && entityIn instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entityIn)) {
             entityIn.damage(DamageSource.HOT_FLOOR, 1.0F);
         }
 
-        super.onSteppedOn(worldIn, pos, entityIn);
+        super.onSteppedOn(world, pos, state, entityIn);
     }
 
     public BlockState getStateForNeighborUpdate(BlockState stateIn, Direction facing, BlockState facingState, WorldAccess worldIn, BlockPos currentPos, BlockPos facingPos) {

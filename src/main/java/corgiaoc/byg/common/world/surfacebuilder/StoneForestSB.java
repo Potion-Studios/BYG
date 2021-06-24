@@ -23,7 +23,8 @@ public class StoneForestSB extends SurfaceBuilder<TernarySurfaceConfig> {
     public static FastNoise noiseGen = null;
     public static FastNoise noiseGen3D = null;
 
-    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig config) {
+    @Override
+    public void generate(Random random, Chunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i, long seed, TernarySurfaceConfig config) {
         initSeed(random.nextLong());
         int xPos = x & 15;
         int zPos = z & 15;
@@ -62,7 +63,7 @@ public class StoneForestSB extends SurfaceBuilder<TernarySurfaceConfig> {
                 mutable.move(Direction.DOWN);
             }
         } else
-            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new TernarySurfaceConfig(config.getTopMaterial(), config.getUnderMaterial(), config.getUnderwaterMaterial()));
+            SurfaceBuilder.DEFAULT.generate(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, i, seed, new TernarySurfaceConfig(config.getTopMaterial(), config.getUnderMaterial(), config.getUnderwaterMaterial()));
     }
 
     @Override

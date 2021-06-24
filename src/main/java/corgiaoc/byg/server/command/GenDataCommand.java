@@ -62,11 +62,11 @@ public class GenDataCommand {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         DynamicRegistryManager manager = commandSource.getSource().getMinecraftServer().getRegistryManager();
         Registry<Biome> biomeRegistry = manager.get(Registry.BIOME_KEY);
-        Registry<ConfiguredFeature<?, ?>> featuresRegistry = manager.get(Registry.CONFIGURED_FEATURE_WORLDGEN);
-        Registry<ConfiguredStructureFeature<?, ?>> structuresRegistry = manager.get(Registry.CONFIGURED_STRUCTURE_FEATURE_WORLDGEN);
-        Registry<ConfiguredCarver<?>> carverRegistry = manager.get(Registry.CONFIGURED_CARVER_WORLDGEN);
-        Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = manager.get(Registry.CONFIGURED_SURFACE_BUILDER_WORLDGEN);
-        Registry<StructureProcessorList> structureProcessorRegistry = manager.get(Registry.PROCESSOR_LIST_WORLDGEN);
+        Registry<ConfiguredFeature<?, ?>> featuresRegistry = manager.get(Registry.CONFIGURED_FEATURE_KEY);
+        Registry<ConfiguredStructureFeature<?, ?>> structuresRegistry = manager.get(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY);
+        Registry<ConfiguredCarver<?>> carverRegistry = manager.get(Registry.CONFIGURED_CARVER_KEY);
+        Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = manager.get(Registry.CONFIGURED_SURFACE_BUILDER_KEY);
+        Registry<StructureProcessorList> structureProcessorRegistry = manager.get(Registry.STRUCTURE_PROCESSOR_LIST_KEY);
 
         createConfiguredSurfaceBuilderJson(modId, dataPackPath, gson, surfaceBuilderRegistry);
         createConfiguredFeatureJson(modId, dataPackPath, gson, featuresRegistry);
