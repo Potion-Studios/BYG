@@ -579,6 +579,7 @@ public class BYGBlockProperties {
                     .strength(0.2f)
                     .nonOpaque()
                     .ticksRandomly()
+                    .dynamicBounds()
                     .luminance((state) -> 8)
             );
             Registry.register(Registry.BLOCK, new Identifier(BYG.MOD_ID, registryName), this);

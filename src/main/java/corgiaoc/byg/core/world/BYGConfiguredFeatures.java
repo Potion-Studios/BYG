@@ -16,6 +16,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.LanternBlock;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.BiasedToBottomIntProvider;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.ProbabilityConfig;
@@ -1280,12 +1281,10 @@ public class BYGConfiguredFeatures {
                     .create(3, 4), UniformIntProvider.create(0, 2)))
             .decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(2))));
     public static final ConfiguredFeature<?, ?> SMALL_BASALT_COLUMN = createConfiguredFeature("small_basalt_columns", Feature.BASALT_COLUMNS
-            .configure(new BasaltColumnsFeatureConfig(UniformIntProvider.create(1, 1), UniformIntProvider
-                    .create(1, 1)))
+            .configure(new BasaltColumnsFeatureConfig(ConstantIntProvider.create(1), ConstantIntProvider.create(1)))
             .decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(1))));
     public static final ConfiguredFeature<?, ?> LARGE_BASALT_COLUMN = createConfiguredFeature("large_basalt_columns", Feature.BASALT_COLUMNS
-            .configure(new BasaltColumnsFeatureConfig(UniformIntProvider.create(2, 1), UniformIntProvider
-                    .create(1, 1)))
+            .configure(new BasaltColumnsFeatureConfig(UniformIntProvider.create(1, 2), ConstantIntProvider.create(1)))
             .decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(1))));
     /***********************************************************Configured Placement***********************************************************/
 
@@ -1504,7 +1503,7 @@ public class BYGConfiguredFeatures {
             .spreadHorizontally()
             .repeat(80));
     public static final ConfiguredFeature<?, ?> QUARTZ_COLUMNS = createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS
-            .configure(new BasaltColumnsFeatureConfig(UniformIntProvider.create(1, 1), UniformIntProvider
+            .configure(new BasaltColumnsFeatureConfig(ConstantIntProvider.create(1), UniformIntProvider
                     .create(1, 3)))
             .decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(4))));
     public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_PLANT = createConfiguredFeature("sythian_plants", Feature.RANDOM_SELECTOR
