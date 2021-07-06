@@ -29,6 +29,7 @@ import corgiaoc.byg.common.world.feature.nether.brimstone.BrimstoneVentFeature;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.QuartzSpikeFeature;
 import corgiaoc.byg.common.world.feature.nether.quartzdesert.RawQuartzColumnFeature;
 import corgiaoc.byg.common.world.feature.nether.spike.SpikeFeature;
+import corgiaoc.byg.common.world.feature.nether.subzero.SubzeroCrystalFeature;
 import corgiaoc.byg.common.world.feature.nether.sythiantorrids.SythianStalk;
 import corgiaoc.byg.common.world.feature.nether.trees.embur.EmburMushroom;
 import corgiaoc.byg.common.world.feature.nether.trees.embur.EmburMushroom2;
@@ -347,6 +348,9 @@ public class BYGFeatures {
     //QuartzDesert
     public static final Feature<ColumnConfig> QUARTZ_COLUMNS = createFeature("quartz_columns", new RawQuartzColumnFeature(ColumnConfig.CODEC.stable()));
     public static final Feature<QuartzSpikeConfig> QUARTZ_SPIKES = createFeature("quartz_spikes", new QuartzSpikeFeature(QuartzSpikeConfig.CODEC.stable()));
+
+    //Subzero
+    public static final Feature<NoFeatureConfig> SUBZERO_CRYSTAL = createFeature("subzero_crystal", new SubzeroCrystalFeature(NoFeatureConfig.CODEC.stable()));
 
     /********************************************************************Structures***********************************************************************/
 

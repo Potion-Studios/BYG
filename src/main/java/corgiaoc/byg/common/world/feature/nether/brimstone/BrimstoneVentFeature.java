@@ -1,22 +1,16 @@
 package corgiaoc.byg.common.world.feature.nether.brimstone;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.BrimstoneVentsConfig;
-import corgiaoc.byg.common.world.feature.config.PumpkinConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.pattern.BlockStateMatcher;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 public class BrimstoneVentFeature extends Feature<BrimstoneVentsConfig> {
