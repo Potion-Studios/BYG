@@ -112,10 +112,11 @@ public class BYGCompostables {
 
         //Flowers
         compostibleBlocks(0.65f, BYGItems.ALLIUM_FLOWER_BUSH);
+        compostibleBlocks(0.85f, BYGItems.TALL_ALLIUM);
         compostibleBlocks(0.65f, BYGItems.ALPINE_BELLFLOWER);
         compostibleBlocks(0.65f, BYGItems.AMARANTH);
         compostibleBlocks(0.65f, BYGItems.ANGELICA);
-        compostibleBlocks(0.65f, BYGItems.AZALEA);
+        compostibleBlocks(0.85f, BYGItems.AZALEA);
         compostibleBlocks(0.65f, BYGItems.BEGONIA);
         compostibleBlocks(0.65f, BYGItems.BISTORT);
         compostibleBlocks(0.65f, BYGItems.BLACK_ROSE);
@@ -129,13 +130,13 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.DELPHINIUM);
         compostibleBlocks(0.65f, BYGItems.FAIRY_SLIPPER);
         compostibleBlocks(0.65f, BYGItems.FIRECRACKER_FLOWER_BUSH);
-        compostibleBlocks(0.65f, BYGItems.FOXGLOVE);
+        compostibleBlocks(0.85f, BYGItems.FOXGLOVE);
         compostibleBlocks(0.65f, BYGItems.GOLDEN_SPINED_CACTUS);
         compostibleBlocks(0.65f, BYGItems.GREEN_TULIP);
         compostibleBlocks(0.65f, BYGItems.GUZMANIA);
         compostibleBlocks(0.65f, BYGItems.INCAN_LILY);
         compostibleBlocks(0.65f, BYGItems.IRIS);
-        compostibleBlocks(0.65f, BYGItems.JAPANESE_ORCHID);
+        compostibleBlocks(0.85f, BYGItems.JAPANESE_ORCHID);
         compostibleBlocks(0.65f, BYGItems.KOVAN_FLOWER);
         compostibleBlocks(0.65f, BYGItems.LAZARUS_BELLFLOWER);
         compostibleBlocks(0.65f, BYGItems.LOLIPOP_FLOWER);
@@ -145,6 +146,7 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.ORSIRIA_ROSE);
         compostibleBlocks(0.65f, BYGItems.PEACH_LEATHER_FLOWER);
         compostibleBlocks(0.65f, BYGItems.PINK_ALLIUM);
+        compostibleBlocks(0.85f, BYGItems.TALL_PINK_ALLIUM);
         compostibleBlocks(0.65f, BYGItems.PINK_ALLIUM_FLOWER_BUSH);
         compostibleBlocks(0.65f, BYGItems.PINK_ANEMONE);
         compostibleBlocks(0.65f, BYGItems.PINK_DAFFODIL);

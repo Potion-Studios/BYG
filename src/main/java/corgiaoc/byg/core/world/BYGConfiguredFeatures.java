@@ -1735,7 +1735,7 @@ public class BYGConfiguredFeatures {
             WITHERING_OAK_TREE3.weighted(0.25F),
             WITHERING_OAK_TREE2.weighted(0.2F)),
             WITHERING_OAK_TREE1)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(5, 0.25F, 2))));
+            new AtSurfaceWithExtraConfig(7, 0.35F, 5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_WITHERING_OAK_TREE = createConfiguredFeature("sparse_withering_oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             WITHERING_OAK_TREE4.weighted(0.25F)),
