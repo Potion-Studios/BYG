@@ -445,7 +445,7 @@ public class BYGDefaultBiomeFeatures {
     public static void addQuartzDesertVegetations(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.QUARTZ_CRYSTALS);
         gen.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, BYGConfiguredFeatures.QUARTZ_COLUMNS);
-        gen.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, BYGConfiguredFeatures.QUARTZ_SPIKE);
+        gen.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.QUARTZ_SPIKE);
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_BONE_FEATURE);
     }
 

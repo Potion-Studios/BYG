@@ -31,7 +31,7 @@ public class QuartzSpikeConfig implements IFeatureConfig {
 
 
     public static class Builder {
-        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(BYGBlocks.QUARTZITE_SAND.defaultBlockState());
+        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.SMOOTH_QUARTZ.defaultBlockState());
 
         public QuartzSpikeConfig.Builder setBlock(Block block) {
             this.blockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
