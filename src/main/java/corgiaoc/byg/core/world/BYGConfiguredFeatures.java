@@ -602,7 +602,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spikes", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_SEA_SPIKE.weighted(0.75F)),
-            DEAD_SEA_SPIKE_TALL)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(28, 0.1F, 1))));
+            DEAD_SEA_SPIKE_TALL)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(2, 0.5F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN_PATCH = createConfiguredFeature("large_pumpkin", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             PUMPKIN.weighted(0.45F),
