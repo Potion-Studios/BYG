@@ -55,11 +55,10 @@ public class BrimstoneCaverns extends BYGNetherBiome {
         GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.BROWN_MUSHROOM_NETHER);
         GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.RED_MUSHROOM_NETHER);
         GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, Features.ORE_MAGMA);
-        DefaultBiomeFeatures.addNetherDefaultOres(GENERATION_SETTINGS); //Ores
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_NETHER); //NetherPortal
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.NETHER_BRIDGE); //Fortress
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.BASTION_REMNANT); //BastionRemnant
-        GENERATION_SETTINGS.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_ANTHRACITE);
+        BYGDefaultBiomeFeatures.addBrimstoneOres(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBoricFire(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBrimstonePillars(GENERATION_SETTINGS);
         BYGDefaultBiomeFeatures.addBrimstoneVents(GENERATION_SETTINGS);

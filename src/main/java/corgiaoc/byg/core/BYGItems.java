@@ -24,7 +24,7 @@ public class BYGItems {
     public static List<Item> itemsList = new ArrayList<>();
 
     public static final Item BYG_LOGO = createItem(new Item((new Item.Properties())), "byg_logo");
-    public static final Item PEAT = createItem(new BlockItem(BYGBlocks.PEAT, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PEAT));
+    public static final Item PEAT = createItem(new PeatBlockItem(BYGBlocks.PEAT, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.PEAT));
     public static final Item MEADOW_GRASSBLOCK = createItem(new BlockItem(BYGBlocks.MEADOW_GRASSBLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.MEADOW_GRASSBLOCK));
     public static final Item MEADOW_GRASS_PATH = createItem(new BlockItem(BYGBlocks.MEADOW_GRASS_PATH, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.MEADOW_GRASS_PATH));
     public static final Item MEADOW_DIRT = createItem(new BlockItem(BYGBlocks.MEADOW_DIRT, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.MEADOW_DIRT));
@@ -952,6 +952,10 @@ public class BYGItems {
     public static final Item QUARTZ_CRYSTAL = createItem(new BlockItem(BYGBlocks.QUARTZ_CRYSTAL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.QUARTZ_CRYSTAL));
     public static final Item QUARTZITE_SAND = createItem(new BlockItem(BYGBlocks.QUARTZITE_SAND, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.QUARTZITE_SAND));
     public static final Item RAW_QUARTZ_BLOCK = createItem(new BlockItem(BYGBlocks.RAW_QUARTZ_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.RAW_QUARTZ_BLOCK));
+    public static final Item BLUE_NETHER_GOLD_ORE = createItem(new BlockItem(BYGBlocks.BLUE_NETHER_GOLD_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BLUE_NETHER_GOLD_ORE));
+    public static final Item BLUE_NETHER_QUARTZ_ORE = createItem(new BlockItem(BYGBlocks.BLUE_NETHER_QUARTZ_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BLUE_NETHER_QUARTZ_ORE));
+    public static final Item BRIMSTONE_NETHER_GOLD_ORE = createItem(new BlockItem(BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE));
+    public static final Item BRIMSTONE_NETHER_QUARTZ_ORE = createItem(new BlockItem(BYGBlocks.BRIMSTONE_NETHER_QUARTZ_ORE, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.BRIMSTONE_NETHER_QUARTZ_ORE));
 
     public static final Item WAILING_BELL_BLOSSOM = createItem(new BlockItem(BYGBlocks.WAILING_BELL_BLOSSOM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_BELL_BLOSSOM));
     public static final Item WAILING_VINES = createItem(new BlockItem(BYGBlocks.WAILING_VINES, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WAILING_VINES));

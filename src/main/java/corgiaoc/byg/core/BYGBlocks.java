@@ -561,7 +561,7 @@ public class BYGBlocks {
 
     public static final Block CRIMSON_BERRY_BUSH = createCrimsonBerryBush("crimson_berry_bush");
     public static final Block TALL_CRIMSON_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_crimson_roots");
-    public static final Block BRIMSTONE = new BYGBlockProperties.BYGNetherrack("brimstone");
+    public static final Block BRIMSTONE = createNetherStone(MaterialColor.TERRACOTTA_YELLOW, "brimstone");
     public static final Block YELLOW_NETHER_BRICKS = new BYGBlockProperties.BYGNetherrack("yellow_nether_bricks");
     public static final Block BORIC_CAMPFIRE = createCampfireBlock(3, "boric_campfire");
     public static final Block BORIC_FIRE = new BYGBlockProperties.BoricFire("boric_fire");
@@ -570,6 +570,10 @@ public class BYGBlocks {
     public static final Block QUARTZ_CRYSTAL = createDullCrystal("quartz_crystal");
     public static final Block QUARTZITE_SAND = new BYGBlockProperties.BYGQuartziteSand("quartzite_sand");
     public static final Block RAW_QUARTZ_BLOCK = new BYGBlockProperties.BYGStone("raw_quartz_block");
+    public static final Block BLUE_NETHER_QUARTZ_ORE = createNetherOre(SoundType.NETHER_ORE, MaterialColor.TERRACOTTA_BLUE,"blue_nether_quartz_ore");
+    public static final Block BLUE_NETHER_GOLD_ORE = createNetherOre(SoundType.NETHER_GOLD_ORE, MaterialColor.TERRACOTTA_BLUE,"blue_nether_gold_ore");
+    public static final Block BRIMSTONE_NETHER_QUARTZ_ORE = createNetherOre(SoundType.NETHER_ORE, MaterialColor.TERRACOTTA_YELLOW,"brimstone_nether_quartz_ore");
+    public static final Block BRIMSTONE_NETHER_GOLD_ORE = createNetherOre(SoundType.NETHER_GOLD_ORE, MaterialColor.TERRACOTTA_YELLOW,"brimstone_nether_gold_ore");
 
     public static final Block WAILING_BELL_BLOSSOM = createWailingBellBlossom("wailing_bell_blossom");
     public static final Block WAILING_VINES = createWailingVine("whaling_vine");
@@ -608,7 +612,7 @@ public class BYGBlocks {
     public static final Block EMBUR_WART = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
     public static final Block TALL_EMBUR_ROOTS = new BYGBlockProperties.BYGDoubleNetherPlant("tall_embur_roots");
 
-    public static final Block BLUE_NETHERRACK = new BYGBlockProperties.BYGBlueNetherrack("blue_netherrack");
+    public static final Block BLUE_NETHERRACK = createNetherStone(MaterialColor.TERRACOTTA_BLUE, "blue_netherrack");
     public static final Block BLUE_NETHERRACK_BRICKS = new BYGBlockProperties.BYGBlueNetherrackBricks("blue_nether_bricks");
 
     public static final Block BULBIS_SPROUTS = createIvisBulbisPlant("bulbis_sprouts");
@@ -1427,6 +1431,12 @@ public class BYGBlocks {
         return createBlock;
     }
 
+    static Block createNetherStone(MaterialColor color, String id) {
+        Block createBlock = new Block(AbstractBlock.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.NETHERRACK).strength(0.4f, 0.4f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
     static Block createDustedPolishedBlackstoneBricks(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.copy(Blocks.POLISHED_BLACKSTONE_BRICKS).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).strength(1.5f, 6.0f));
         createBlock(createBlock, id);
@@ -1514,6 +1524,12 @@ public class BYGBlocks {
 
     static Block createEmeralditeOre(String id) {
         Block createBlock = new BYGOreBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_GREEN).harvestLevel(3).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 6.0f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createNetherOre(SoundType sound, MaterialColor color, String id) {
+        Block createBlock = new BYGOreBlock(AbstractBlock.Properties.of(Material.STONE, color).harvestLevel(1).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(sound).strength(3.0f, 3.0f));
         createBlock(createBlock, id);
         return createBlock;
     }

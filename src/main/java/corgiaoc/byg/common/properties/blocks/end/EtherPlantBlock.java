@@ -4,6 +4,7 @@ import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BushBlock;
+import net.minecraft.block.DoublePlantBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -13,6 +14,9 @@ import net.minecraft.world.IWorldReader;
 
 import net.minecraft.block.AbstractBlock.OffsetType;
 import net.minecraft.block.AbstractBlock.Properties;
+import net.minecraft.world.server.ServerWorld;
+
+import java.util.Random;
 
 public class EtherPlantBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -40,6 +44,14 @@ public class EtherPlantBlock extends BushBlock {
     public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
         BlockPos blockpos = pos.below();
         return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
+    }
+
+    public void performBonemeal(ServerWorld world, BlockPos pos) {
+        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.ETHER_GRASS ? BYGBlocks.TALL_ETHER_GRASS : BYGBlocks.TALL_ETHER_GRASS);
+        if (doubleplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
+            doubleplantblock.placeAt(world, pos, 2);
+        }
+
     }
 }
 
