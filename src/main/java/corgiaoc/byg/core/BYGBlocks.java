@@ -17,6 +17,7 @@ import corgiaoc.byg.common.properties.blocks.end.shulkrenforest.ShulkrenVineBloc
 import corgiaoc.byg.common.properties.blocks.end.shulkrenforest.ShulkrenVinePlantBlock;
 import corgiaoc.byg.common.properties.blocks.end.viscalisle.SculkGrowthBlock;
 import corgiaoc.byg.common.properties.blocks.nether.CrystalBlock;
+import corgiaoc.byg.common.properties.blocks.nether.HypogealImperiumBlock;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVineBlock;
 import corgiaoc.byg.common.properties.blocks.nether.embur.EmburVinePlantBlock;
@@ -1108,6 +1109,8 @@ public class BYGBlocks {
     public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
+    public static final Block HYPOGEAL_IMPERIUM = createHypogealBlock("hypogeal_imperium");
+
     static Block createChiseledFungalImpariusSlab(String id) {
         Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).sound(SoundType.HONEY_BLOCK).strength(2.0f).harvestTool(ToolType.HOE));
         createBlock(createBlock, id);
@@ -1132,6 +1135,11 @@ public class BYGBlocks {
         return createBlock;
     }
 
+    static Block createHypogealBlock(String id) {
+        Block createBlock = new HypogealImperiumBlock(AbstractBlock.Properties.of(BYGMaterials.SUBZERO_CRYSTAL).sound(SoundType.GLASS).strength(1.5f).harvestLevel(2).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noOcclusion().lightLevel((state) -> 10));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
 
     static Block createBuddingSubzeroCrystal(String id) {
         Block createBlock = new BuddingSubzeroCrystalBlock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).lightLevel((state) -> 8).noDrops().randomTicks().harvestLevel(4).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).strength(1.5f, 1.5f));

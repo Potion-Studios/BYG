@@ -1,6 +1,7 @@
 package corgiaoc.byg;
 
 
+import corgiaoc.byg.client.gui.screens.HypogealImperiumScreen;
 import corgiaoc.byg.client.textures.renders.BYGCampfireRenderer;
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
@@ -22,6 +23,7 @@ import corgiaoc.byg.core.BYGTileEntities;
 import corgiaoc.byg.core.world.*;
 import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
@@ -95,6 +97,7 @@ public class BYG {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
         BYGTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
+        BYGContainerTypes.CONTAINER_TYPES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(new ForgeEvents());
     }
 
@@ -126,6 +129,7 @@ public class BYG {
         BYGCutoutRenders.renderCutOuts();
         RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BOAT, BYGBoatRenderer::new);
         ClientRegistry.bindTileEntityRenderer(BYGTileEntities.BYGCAMPFIRE.get(), BYGCampfireRenderer::new);
+        ScreenManager.register(BYGContainerTypes.HYPOGEAL_CONTAINER.get(), HypogealImperiumScreen::new);
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
 

@@ -1219,6 +1219,8 @@ public class BYGItems {
     public static final Item YELLOW_DAFFODIL = createItem(new BlockItem(BYGBlocks.YELLOW_DAFFODIL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.YELLOW_DAFFODIL));
     public static final Item YELLOW_TULIP = createItem(new BlockItem(BYGBlocks.YELLOW_TULIP, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.YELLOW_TULIP));
 
+    public static final Item HYPOGEAL_IMPERIUM = createItem(new BlockItem(BYGBlocks.HYPOGEAL_IMPERIUM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.HYPOGEAL_IMPERIUM));
+
      public static Item createItem(Item item, ResourceLocation id) {
         if (id != null && !id.equals(new ResourceLocation("minecraft:air"))) {
 //            Registry.register(Registry.ITEM, id, item);
