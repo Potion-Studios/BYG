@@ -35,7 +35,7 @@ import java.util.List;
 
 public class HypogealImperiumTE extends LockableLootTileEntity implements ITickableTileEntity {
 
-    private NonNullList<ItemStack> chestContents = NonNullList.withSize(10, ItemStack.EMPTY);
+    private NonNullList<ItemStack> chestContents = NonNullList.withSize(20, ItemStack.EMPTY);
     protected int numPlayersUsing;
     private final IItemHandlerModifiable items = createHandler();
     private LazyOptional<IItemHandlerModifiable> itemHandler = LazyOptional.of(() -> items);
@@ -59,7 +59,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
 
     @Override
     public int getContainerSize() {
-        return 10;
+        return 20;
     }
 
     @Override
