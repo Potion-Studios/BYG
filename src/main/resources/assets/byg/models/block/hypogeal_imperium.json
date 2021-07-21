@@ -1,0 +1,9 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "byg:block/hypogeal_imperium_top",
+    "bottom": "byg:block/chiseled_polished_scoria_stone",
+    "top": "byg:block/hypogeal_imperium_top",
+    "side": "byg:block/hypogeal_imperium_side"
+  }
+}
