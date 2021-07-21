@@ -222,10 +222,10 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
                             itemCatalystItem.shrink(1);
                             this.crystal++;
                             this.loadtime = 600;
-                            if (resultItem.getItem() != BYGItems.BUDDING_SUBZERO_CRYSTAL){
-                                this.setItem(2, BYGItems.BUDDING_SUBZERO_CRYSTAL.getDefaultInstance());
+                            if (resultItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER){
+                                this.setItem(2, BYGItems.SUBZERO_CRYSTAL_CLUSTER.getDefaultInstance());
                         }
-                            if (resultItem.getItem() == BYGItems.BUDDING_SUBZERO_CRYSTAL){
+                            if (resultItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER){
                                 resultItem.setCount(resultItem.getCount() + 1);
                             }
                         }
