@@ -18,6 +18,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.tileentity.*;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -39,6 +40,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     protected int crystal;
     public static int loadtime;
     public int fuel;
+    public int damageTime;
 
     public HypogealImperiumTE() {
         super(BYGTileEntities.HYPOGEAL.get());
@@ -201,6 +203,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     @Override
     public void tick() {
         this.addEffectsToMobs();
+        --damageTime;
         ItemStack itemFuelItem = this.getItem(0);
         ItemStack itemCatalystItem = this.getItem(1);
         ItemStack resultItem = this.getItem(2);
@@ -219,7 +222,12 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
                             itemCatalystItem.shrink(1);
                             this.crystal++;
                             this.loadtime = 600;
-                            resultItem.grow(1);
+                            if (resultItem.getItem() != BYGItems.BUDDING_SUBZERO_CRYSTAL){
+                                this.setItem(2, BYGItems.BUDDING_SUBZERO_CRYSTAL.getDefaultInstance());
+                        }
+                            if (resultItem.getItem() == BYGItems.BUDDING_SUBZERO_CRYSTAL){
+                                resultItem.setCount(resultItem.getCount() + 1);
+                            }
                         }
                     }
                 }
@@ -228,9 +236,6 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
                 }
             }
         }
-        System.out.println(getFuel());
-        System.out.println(loadtime);
-        System.out.println(crystal);
     }
 
     public void addEffectsToMobs(){
@@ -239,6 +244,10 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
                 List<MonsterEntity> list = this.level.getEntitiesOfClass(MonsterEntity.class, axisalignedbb);
                 for (MonsterEntity mob : list) {
                     mob.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 20, 3, false, true));
+                    if (damageTime == 0){
+                        mob.hurt(DamageSource.MAGIC, 2);
+                        damageTime = 300;
+                    }
                 }
             }
         }

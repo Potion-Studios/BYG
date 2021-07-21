@@ -49,9 +49,6 @@ public class HypogealImperiumScreen extends ContainerScreen<HypogealImperiumCont
         int i1 = HypogealImperiumTE.getLoadTime();
         if (i1 > 0) {
             int j1 = (int)(28.0F * (1.0F - (float)i1 / 400.0F));
-            if (j1 > 0) {
-                this.blit(p_230450_1_, i + 97, j + 16, 176, 0, 9, j1);
-            }
 
             j1 = BUBBLELENGTHS[i1 / 2 % 7];
             if (j1 > 0) {
