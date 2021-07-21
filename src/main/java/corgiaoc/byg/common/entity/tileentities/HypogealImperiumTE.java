@@ -36,9 +36,9 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     protected int numPlayersUsing;
     private final IItemHandlerModifiable items = createHandler();
     private LazyOptional<IItemHandlerModifiable> itemHandler = LazyOptional.of(() -> items);
-    protected static int crystal;
+    protected int crystal;
     public static int loadtime;
-    public static int fuel;
+    public int fuel;
 
     public HypogealImperiumTE() {
         super(BYGTileEntities.HYPOGEAL.get());
@@ -47,11 +47,9 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     public int get(int p_221476_1_) {
         switch(p_221476_1_) {
             case 0:
-                return HypogealImperiumTE.this.loadtime;
+                return HypogealImperiumTE.this.crystal;
             case 1:
                 return HypogealImperiumTE.this.fuel;
-            case 2:
-                return HypogealImperiumTE.this.crystal;
             default:
                 return 0;
         }
@@ -60,15 +58,11 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     public void set(int p_221477_1_, int p_221477_2_) {
         switch(p_221477_1_) {
             case 0:
-                HypogealImperiumTE.this.loadtime = p_221477_2_;
+                HypogealImperiumTE.this.crystal = p_221477_2_;
                 break;
             case 1:
                 HypogealImperiumTE.this.fuel = p_221477_2_;
-                break;
-            case 2:
-                HypogealImperiumTE.this.crystal = p_221477_2_;
         }
-
     }
 
     @Override
@@ -179,7 +173,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         return fuel;
     }
 
-    public static void setFuel(int amount){
+    public void setFuel(int amount){
         fuel = amount;
     }
 
