@@ -1,9 +1,12 @@
 {
-  "parent": "block/block",
+  "parent": "block/cube",
   "textures": {
     "particle": "byg:block/hypogeal_imperium_top",
-    "bottom": "byg:block/chiseled_polished_scoria_stone",
-    "top": "byg:block/hypogeal_imperium_top",
-    "side": "byg:block/hypogeal_imperium_side"
+    "down": "byg:block/chiseled_polished_scoria_stone",
+    "up": "byg:block/hypogeal_imperium_top",
+    "north": "byg:block/hypogeal_imperium_side",
+    "east": "byg:block/hypogeal_imperium_side",
+    "south": "byg:block/hypogeal_imperium_side",
+    "west": "byg:block/hypogeal_imperium_side"
   }
 }

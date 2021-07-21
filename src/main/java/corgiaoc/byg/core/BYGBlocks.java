@@ -1136,7 +1136,7 @@ public class BYGBlocks {
     }
 
     static Block createHypogealBlock(String id) {
-        Block createBlock = new HypogealImperiumBlock(AbstractBlock.Properties.of(BYGMaterials.SUBZERO_CRYSTAL).sound(SoundType.GLASS).strength(1.5f).harvestLevel(2).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).noOcclusion().lightLevel((state) -> 10));
+        Block createBlock = new HypogealImperiumBlock(AbstractBlock.Properties.of(Material.STONE).sound(SoundType.GLASS).strength(1.5f).harvestLevel(2).requiresCorrectToolForDrops().harvestTool(ToolType.PICKAXE).lightLevel((state) -> 10));
         createBlock(createBlock, id);
         return createBlock;
     }
