@@ -35,14 +35,13 @@ import java.util.List;
 
 public class HypogealImperiumTE extends LockableLootTileEntity implements ITickableTileEntity {
 
-    private NonNullList<ItemStack> chestContents = NonNullList.withSize(1, ItemStack.EMPTY);
+    private NonNullList<ItemStack> chestContents = NonNullList.withSize(10, ItemStack.EMPTY);
     protected int numPlayersUsing;
     private final IItemHandlerModifiable items = createHandler();
     private LazyOptional<IItemHandlerModifiable> itemHandler = LazyOptional.of(() -> items);
     protected static int crystal;
     public static int loadtime;
     public static int fuel;
-
 
     public HypogealImperiumTE() {
         super(BYGTileEntities.HYPOGEAL.get());
@@ -58,11 +57,9 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         return new HypogealImperiumContainer(id, player, this);
     }
 
-
-
     @Override
     public int getContainerSize() {
-        return 1;
+        return 10;
     }
 
     @Override
@@ -181,25 +178,25 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     public void tick() {
         this.addEffectsToMobs();
         ItemStack itemInSlot = this.getItem(0);
-        if (crystal < 12){
-        if (itemInSlot.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD) {
-            if (getFuel() == 0) {
-                setFuel(9);
-                itemInSlot.shrink(1);
-            }
-        }
-        if (getFuel() > 0){
-            --this.loadtime;
-            if (this.loadtime <= 0) {
-                this.setFuel(this.getFuel() - 1);
-                crystal++;
-                this.loadtime = 600;
+        if (!this.level.isClientSide) {
+            if (crystal < 12) {
+                if (itemInSlot.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD && getFuel() == 0) {
+                        setFuel(9);
+                        itemInSlot.shrink(1);
+                    }
+                if (getFuel() > 0) {
+                    --this.loadtime;
+                    if (this.loadtime <= 0) {
+                        this.setFuel(this.getFuel() - 1);
+                        crystal++;
+                        this.loadtime = 600;
+                    }
                 }
             }
         }
-        if (itemInSlot == ItemStack.EMPTY) {
-            this.loadtime = 600;
-        }
+        System.out.println(getFuel());
+        System.out.println(loadtime);
+        System.out.println(crystal);
     }
 
     public void addEffectsToMobs(){
