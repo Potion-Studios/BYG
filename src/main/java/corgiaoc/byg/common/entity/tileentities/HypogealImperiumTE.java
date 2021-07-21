@@ -17,10 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.tileentity.ITickableTileEntity;
-import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.tileentity.LockableTileEntity;
-import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.tileentity.*;
 import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -47,6 +44,33 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         super(BYGTileEntities.HYPOGEAL.get());
     }
 
+    public int get(int p_221476_1_) {
+        switch(p_221476_1_) {
+            case 0:
+                return HypogealImperiumTE.this.loadtime;
+            case 1:
+                return HypogealImperiumTE.this.fuel;
+            case 2:
+                return HypogealImperiumTE.this.crystal;
+            default:
+                return 0;
+        }
+    }
+
+    public void set(int p_221477_1_, int p_221477_2_) {
+        switch(p_221477_1_) {
+            case 0:
+                HypogealImperiumTE.this.loadtime = p_221477_2_;
+                break;
+            case 1:
+                HypogealImperiumTE.this.fuel = p_221477_2_;
+                break;
+            case 2:
+                HypogealImperiumTE.this.crystal = p_221477_2_;
+        }
+
+    }
+
     @Override
     protected ITextComponent getDefaultName() {
         return new TranslationTextComponent("container.hypogeal_imperium_container");
@@ -64,7 +88,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
 
     @Override
     public int getMaxStackSize() {
-        return 1;
+        return 18;
     }
 
     @Override
@@ -81,6 +105,9 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     public void load(BlockState state, CompoundNBT nbt) {
         super.load(state, nbt);
         this.chestContents = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
+        this.loadtime = nbt.getShort("LoadTime");
+        this.fuel = nbt.getShort("Fuel");
+        this.crystal = nbt.getShort("Crystal");
         if (!this.tryLoadLootTable(nbt)) {
             ItemStackHelper.loadAllItems(nbt, this.chestContents);
         }
@@ -93,6 +120,9 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     @Override
     public CompoundNBT save(CompoundNBT compound) {
         super.save(compound);
+        compound.putShort("LoadTime", (short)this.loadtime);
+        compound.putShort("Fuel", (short)this.fuel);
+        compound.putShort("Crystal", (short)this.crystal);
         if (!this.trySaveLootTable(compound)) {
             ItemStackHelper.saveAllItems(compound, this.chestContents);
         }
@@ -177,20 +207,30 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     @Override
     public void tick() {
         this.addEffectsToMobs();
-        ItemStack itemInSlot = this.getItem(0);
+        ItemStack itemFuelItem = this.getItem(0);
+        ItemStack itemCatalystItem = this.getItem(1);
+        ItemStack resultItem = this.getItem(2);
+
         if (!this.level.isClientSide) {
-            if (crystal < 12) {
-                if (itemInSlot.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD && getFuel() == 0) {
-                        setFuel(9);
-                        itemInSlot.shrink(1);
+            if (this.crystal < 12) {
+                if (itemFuelItem.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD && this.getFuel() == 0) {
+                        this.setFuel(9);
+                        itemFuelItem.shrink(1);
                     }
-                if (getFuel() > 0) {
-                    --this.loadtime;
-                    if (this.loadtime <= 0) {
-                        this.setFuel(this.getFuel() - 1);
-                        crystal++;
-                        this.loadtime = 600;
+                if (itemCatalystItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
+                    if (this.getFuel() > 0) {
+                        --this.loadtime;
+                        if (this.loadtime <= 0) {
+                            this.setFuel(this.getFuel() - 1);
+                            itemCatalystItem.shrink(1);
+                            this.crystal++;
+                            this.loadtime = 600;
+                            resultItem.grow(1);
+                        }
                     }
+                }
+                if (itemCatalystItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
+                    this.loadtime = 600;
                 }
             }
         }

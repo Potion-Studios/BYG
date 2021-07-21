@@ -29,8 +29,9 @@ public class HypogealImperiumContainer extends Container {
         this.tileEntity = tileEntityIn;
         this.canInteractWithCallable = IWorldPosCallable.create(tileEntityIn.getLevel(), tileEntityIn.getBlockPos());
 
-        this.addSlot(new Slot(tileEntityIn, 0, 17, 17));
+        this.addSlot(new CrystalSlot(tileEntityIn, 0, 17, 17));
         this.addSlot(new Slot(tileEntityIn, 1, 79, 58));
+        this.addSlot(new NumberSlot(tileEntityIn, 2, 79, 17));
 
 
         // Main Inventory
@@ -101,18 +102,37 @@ public class HypogealImperiumContainer extends Container {
         return stillValid(canInteractWithCallable, playerIn, BYGBlocks.HYPOGEAL_IMPERIUM);
     }
 
-//    static class CrystalSlot extends Slot {
-//        public CrystalSlot(IInventory p_i47069_1_, int p_i47069_2_, int p_i47069_3_, int p_i47069_4_) {
-//            super(p_i47069_1_, p_i47069_2_, p_i47069_3_, p_i47069_4_);
-//        }
-//
-//        public boolean mayPlace(ItemStack stack) {
-//            return stack == BYGItems.SUBZERO_CRYSTAL_SHARD.getDefaultInstance();
-//        }
-//
-//        public int getMaxStackSize() {
-//            return 1;
-//        }
-//    }
+    static class CrystalSlot extends Slot {
+        public CrystalSlot(IInventory p_i47069_1_, int p_i47069_2_, int p_i47069_3_, int p_i47069_4_) {
+            super(p_i47069_1_, p_i47069_2_, p_i47069_3_, p_i47069_4_);
+        }
+
+        public boolean mayPlace(ItemStack stack) {
+            return true;
+        }
+
+        public int getMaxStackSize() {
+            return 1;
+       }
+    }
+
+    static class NumberSlot extends Slot {
+        public NumberSlot(IInventory p_i47069_1_, int p_i47069_2_, int p_i47069_3_, int p_i47069_4_) {
+            super(p_i47069_1_, p_i47069_2_, p_i47069_3_, p_i47069_4_);
+        }
+
+        public boolean mayPlace(ItemStack stack) {
+            return false;
+        }
+
+        public int getMaxStackSize() {
+            return 18;
+        }
+
+        @Override
+        public boolean mayPickup(PlayerEntity p_82869_1_) {
+            return false;
+        }
+    }
 
 }
