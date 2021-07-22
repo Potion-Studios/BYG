@@ -22,7 +22,6 @@ public class HypogealImperiumContainer extends Container {
     public final HypogealImperiumTE tileEntity;
     private final IWorldPosCallable canInteractWithCallable;
 
-
     public HypogealImperiumContainer(final int windowId, final PlayerInventory playerInv,
                           final HypogealImperiumTE tileEntityIn) {
         super(BYGContainerTypes.HYPOGEAL_CONTAINER.get(), windowId);
@@ -32,7 +31,6 @@ public class HypogealImperiumContainer extends Container {
         this.addSlot(new CrystalSlot(tileEntityIn, 0, 17, 17));
         this.addSlot(new Slot(tileEntityIn, 1, 79, 58));
         this.addSlot(new NumberSlot(tileEntityIn, 2, 79, 17));
-
 
         // Main Inventory
         int startX = 8;
@@ -65,9 +63,6 @@ public class HypogealImperiumContainer extends Container {
         throw new IllegalStateException("TileEntity is not correct " + tileAtPos);
     }
 
-
-
-
     @Override
     public ItemStack quickMoveStack(PlayerEntity playerIn, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
@@ -82,14 +77,12 @@ public class HypogealImperiumContainer extends Container {
             } else if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                 return ItemStack.EMPTY;
             }
-
             if (itemstack1.isEmpty()) {
                 slot.set(ItemStack.EMPTY);
             } else {
                 slot.setChanged();
             }
         }
-
         return itemstack;
     }
 
@@ -112,7 +105,7 @@ public class HypogealImperiumContainer extends Container {
         }
 
         public int getMaxStackSize() {
-            return 1;
+            return 64;
        }
     }
 
@@ -134,5 +127,4 @@ public class HypogealImperiumContainer extends Container {
             return false;
         }
     }
-
 }

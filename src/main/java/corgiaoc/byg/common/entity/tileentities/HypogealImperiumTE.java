@@ -15,6 +15,7 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.tileentity.*;
@@ -24,12 +25,14 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Random;
 
 public class HypogealImperiumTE extends LockableLootTileEntity implements ITickableTileEntity {
 
@@ -84,7 +87,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
 
     @Override
     public int getMaxStackSize() {
-        return 18;
+        return 64;
     }
 
     @Override
@@ -203,10 +206,10 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     @Override
     public void tick() {
         this.addEffectsToMobs();
-        --damageTime;
         ItemStack itemFuelItem = this.getItem(0);
         ItemStack itemCatalystItem = this.getItem(1);
         ItemStack resultItem = this.getItem(2);
+        World world = this.level;
 
         if (!this.level.isClientSide) {
             if (this.crystal < 12) {
@@ -236,17 +239,29 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
                 }
             }
         }
+        if (this.level.isClientSide) {
+            world.addParticle(ParticleTypes.WHITE_ASH, (double) this.getBlockPos().getX() + 6 + crystal, (double) 5, (double) this.getBlockPos().getZ() + 6 + crystal, (double) this.getBlockPos().getX() - 6 - crystal, (double) 0, (double) this.getBlockPos().getZ() - 6 -crystal);
+        }
     }
 
     public void addEffectsToMobs(){
         if (!this.level.isClientSide) {
+            Random random = new Random();
+            int useFuel;
                 AxisAlignedBB axisalignedbb = (new AxisAlignedBB(this.worldPosition)).inflate(6 + crystal).expandTowards(0.0D, this.level.getHeight(), 0.0D);
                 List<MonsterEntity> list = this.level.getEntitiesOfClass(MonsterEntity.class, axisalignedbb);
                 for (MonsterEntity mob : list) {
-                    mob.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 20, 3, false, true));
-                    if (damageTime == 0){
-                        mob.hurt(DamageSource.MAGIC, 2);
-                        damageTime = 300;
+                    if (getFuel() > 0) {
+                        mob.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 20, 3, false, true));
+                        --this.damageTime;
+                        if (this.damageTime <= 0) {
+                            mob.hurt(DamageSource.MAGIC, 2);
+                            useFuel = random.nextInt(6);
+                            if (useFuel >= 5) {
+                                this.setFuel(this.getFuel() - 1);
+                            }
+                            this.damageTime = 100;
+                        }
                     }
                 }
             }
