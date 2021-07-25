@@ -90,6 +90,7 @@ public class HypogealImperiumContainer extends Container {
         super.removed(playerIn);
     }
 
+
     @Override
     public boolean stillValid(PlayerEntity playerIn) {
         return stillValid(canInteractWithCallable, playerIn, BYGBlocks.HYPOGEAL_IMPERIUM);

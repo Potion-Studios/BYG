@@ -26,6 +26,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.wrapper.InvWrapper;
@@ -59,6 +61,8 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
                 return 0;
         }
     }
+
+
 
     public void set(int p_221477_1_, int p_221477_2_) {
         switch(p_221477_1_) {
@@ -178,6 +182,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         return fuel;
     }
 
+
     public void setFuel(int amount){
         fuel = amount;
     }
@@ -214,9 +219,9 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         if (!this.level.isClientSide) {
             if (this.crystal < 12) {
                 if (itemFuelItem.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD && this.getFuel() == 0) {
-                        this.setFuel(9);
-                        itemFuelItem.shrink(1);
-                    }
+                    this.setFuel(9);
+                    itemFuelItem.shrink(1);
+                }
                 if (itemCatalystItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
                     if (this.getFuel() > 0) {
                         --this.loadtime;
@@ -225,10 +230,10 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
                             itemCatalystItem.shrink(1);
                             this.crystal++;
                             this.loadtime = 600;
-                            if (resultItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER){
+                            if (resultItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
                                 this.setItem(2, BYGItems.SUBZERO_CRYSTAL_CLUSTER.getDefaultInstance());
-                        }
-                            if (resultItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER){
+                            }
+                            if (resultItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
                                 resultItem.setCount(resultItem.getCount() + 1);
                             }
                         }
@@ -240,8 +245,15 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
             }
         }
         if (this.level.isClientSide) {
-            world.addParticle(ParticleTypes.WHITE_ASH, (double) this.getBlockPos().getX() + 6 + crystal, (double) 5, (double) this.getBlockPos().getZ() + 6 + crystal, (double) this.getBlockPos().getX() - 6 - crystal, (double) 0, (double) this.getBlockPos().getZ() - 6 -crystal);
+            for (int x1 = this.getBlockPos().getX() - crystal; x1 <= this.getBlockPos().getX() + crystal; ++x1) {
+                for (int y1 = this.getBlockPos().getY(); y1 <= this.getBlockPos().getY() + 5; ++y1) {
+                    for (int z1 = this.getBlockPos().getZ() - crystal; z1 <= this.getBlockPos().getZ() + crystal; ++z1) {
+                        world.addParticle(ParticleTypes.WHITE_ASH, (double)x1, (double)y1, (double)z1, 0D, 5.0E-4D, 0D);
+                    }
+                }
+            }
         }
+        System.out.println(loadtime);
     }
 
     public void addEffectsToMobs(){
