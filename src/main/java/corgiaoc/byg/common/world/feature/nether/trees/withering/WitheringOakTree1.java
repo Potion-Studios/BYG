@@ -1,8 +1,12 @@
 package corgiaoc.byg.common.world.feature.nether.trees.withering;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
+import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
+import corgiaoc.byg.core.BYGBlocks;
+import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
@@ -10,59 +14,63 @@ import net.minecraft.world.ISeedReader;
 import java.util.Random;
 import java.util.Set;
 
-public class WitheringOakTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
+public class WitheringOakTree1 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
 
-    public WitheringOakTree1(Codec<BYGTreeConfig> configIn) {
+    public WitheringOakTree1(Codec<BYGMushroomConfig> configIn) {
         super(configIn);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
-
-        int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
+    protected boolean placeMushroom(ISeedReader worldIn, Random rand, BlockPos pos, boolean isMushroom, BYGMushroomConfig config) {
+        BlockState STEM = config.getStemProvider().getState(rand, pos);
+        BlockState MUSHROOM = config.getMushroomProvider().getState(rand, pos);
+        BlockState MUSHROOM2 = config.getMushroom2Provider().getState(rand, pos);
+        BlockState MUSHROOM3 = config.getMushroom3Provider().getState(rand, pos);
+        BlockState POLLEN = config.getPollenProvider().getState(rand, pos);
+        int randTreeHeight = 14 + rand.nextInt(5);
         BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
 
-        if (pos.getY() + randTreeHeight + 1 < /*worldIn.getHeight() TODO: Use world height in 1.17*/ 128) {
-            if (!isDesiredGroundwNetherTags(worldIn, pos.below(), config)) {
+        if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
+            if (!isDesiredGroundwDirtTag(config, worldIn, pos.below(), BYGBlocks.OVERGROWN_NETHERRACK)) {
                 return false;
-            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
+            } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {
                 return false;
-            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 7, 5, 5, isSapling)) {
+            } else if (!this.doesMushroomHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isMushroom)) {
                 return false;
             } else {
-                placeNetherTrunk(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 0, 0), boundsIn);
-                placeNetherTrunk(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 1, 0), boundsIn);
-                placeNetherTrunk(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 2, 0), boundsIn);
-                placeNetherTrunk(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 3, 0), boundsIn);
-                placeNetherTrunk(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 0), boundsIn);
-                placeNetherBranch(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 1, -1), boundsIn);
-                placeNetherBranch(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 2, 1), boundsIn);
-                placeNetherBranch(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 3, 1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-2, 1, -1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 1, -2), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 1, 0), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 1, -1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 1, 1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 2, -1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 2, 1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 2, 0), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 2, 2), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 2, 0), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 2, 1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 2, 2), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 3, 0), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 3, 1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 3, 0), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 3, 2), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 3, 1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(3, 3, 2), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 4, -1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-1, 4, 0), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, -1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 4, 1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 4, 0), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 4, 1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, -1), boundsIn);
-                placeLeaves(pos,config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 5, 0), boundsIn);
+                placeStem(STEM, worldIn, mainmutable.set(pos).move(0, 0, 0));
+                placeStem(STEM, worldIn, mainmutable.set(pos).move(0, 1, 0));
+                placeStem(STEM, worldIn, mainmutable.set(pos).move(0, 2, 0));
+                placeStem(STEM, worldIn, mainmutable.set(pos).move(0, 3, 0));
+                placeStem(STEM, worldIn, mainmutable.set(pos).move(0, 4, 0));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(-1, 1, -1));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(1, 2, 1));
+                placeStemBranch(STEM, worldIn, mainmutable.set(pos).move(2, 3, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-2, 1, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 1, -2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 1, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 1, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 1, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 2, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 2, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 2, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 2, 2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 2, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 2, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(3, 2, 2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 3, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 3, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 3, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 3, 2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(3, 3, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(3, 3, 2));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 4, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(-1, 4, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 4, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 4, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(1, 4, 0));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(2, 4, 1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 5, -1));
+                placeMushroom(MUSHROOM, worldIn, mainmutable.set(pos).move(0, 5, 0));
             }
         }
         return true;

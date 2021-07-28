@@ -302,11 +302,11 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeConfig> LAMENT_TWISTY_TREE3 = createFeature("lament_twisty_tree3", new LamentTwistyTree3(BYGTreeConfig.CODEC.stable()));
 
     //Withering Oak
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> WITHERING_OAK_TREE1 = createFeature("withering_oak_tree1", new WitheringOakTree1(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> WITHERING_OAK_TREE2 = createFeature("withering_oak_tree2", new WitheringOakTree2(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> WITHERING_OAK_TREE3 = createFeature("withering_oak_tree3", new WitheringOakTree3(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> WITHERING_OAK_TREE4 = createFeature("withering_oak_tree4", new WitheringOakTree4(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> WITHERING_OAK_TREE5 = createFeature("withering_oak_tree5", new WitheringOakTree5(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WITHERING_OAK_TREE1 = createFeature("withering_oak_tree1", new WitheringOakTree1(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WITHERING_OAK_TREE2 = createFeature("withering_oak_tree2", new WitheringOakTree2(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WITHERING_OAK_TREE3 = createFeature("withering_oak_tree3", new WitheringOakTree3(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WITHERING_OAK_TREE4 = createFeature("withering_oak_tree4", new WitheringOakTree4(BYGMushroomConfig.CODEC.stable()));
+    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WITHERING_OAK_TREE5 = createFeature("withering_oak_tree5", new WitheringOakTree5(BYGMushroomConfig.CODEC.stable()));
 
     //QuartzDesert
     public static final Feature<HangingColumnWithBaseConfig> HANGING_FEATURE = createFeature("hanging_feature", new HangingColumnWithBase(HangingColumnWithBaseConfig.CODEC.stable()));

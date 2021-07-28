@@ -106,6 +106,13 @@ public class BYGMushroomToHugeMushroom {
         }
     }
 
+    public static class WitheringOak extends BYGHugeMushroom {
+        @Nullable
+        public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.WITHERING_OAK_TREE3 : BYGConfiguredFeatures.WITHERING_OAK_TREE4;
+        }
+    }
+
     public static class DeathCap extends BYGHugeMushroom {
         @Nullable
         public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {

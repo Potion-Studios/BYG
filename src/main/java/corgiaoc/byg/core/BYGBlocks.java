@@ -439,7 +439,7 @@ public class BYGBlocks {
     public static final Block ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_ZELKOVA_SAPLING, TreeSpawners.ZELKOVA, "zelkova_sapling");
     public static final Block PALM_SAPLING = createSapling(BYGBlockTags.GROUND_PALM_SAPLING, TreeSpawners.PALM, "palm_sapling");
     public static final Block LAMENT_SAPLING = createSapling(BYGBlockTags.GROUND_LAMENT_SAPLING, TreeSpawners.LAMENT, "lament_sapling");
-    public static final Block WITHERING_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_WITHERING_OAK_SAPLING, TreeSpawners.WITHERING_OAK, "withering_oak_sapling");
+    public static final Block WITHERING_OAK_SAPLING = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.WitheringOak(), "withering_oak_sapling");
     public static final Block ETHER_SAPLING = createSapling(BYGBlockTags.GROUND_ETHER_SAPLING, TreeSpawners.ETHER, "ether_sapling");
     public static final Block NIGHTSHADE_SAPLING = createSapling(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, TreeSpawners.NIGHTSHADE, "nightshade_sapling");
 

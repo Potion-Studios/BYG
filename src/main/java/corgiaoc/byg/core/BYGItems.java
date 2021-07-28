@@ -937,6 +937,7 @@ public class BYGItems {
     public static final Item LARGE_SUBZERO_CRYSTAL_BUD = createItem(new BlockItem(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD));
     public static final Item SUBZERO_CRYSTAL_CLUSTER = createItem(new BlockItem(BYGBlocks.SUBZERO_CRYSTAL_CLUSTER, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.SUBZERO_CRYSTAL_CLUSTER));
     public static final Item SUBZERO_CRYSTAL_SHARD = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "subzero_crystal_shard");
+    public static final Item HYPOGEAL_IMPERIUM = createItem(new BlockItem(BYGBlocks.HYPOGEAL_IMPERIUM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.HYPOGEAL_IMPERIUM));
 
     public static final Item ANTHRACITE = createItem(new AnthraciteItem(new Item.Properties().tab(BYGCreativeTab.creativeTab)), "anthracite");
     public static final Item ANTHRACITE_BLOCK = createItem(new AnthraciteBlockItem(BYGBlocks.ANTHRACITE_BLOCK, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.ANTHRACITE_BLOCK));
@@ -1218,8 +1219,6 @@ public class BYGItems {
     public static final Item WINTER_SCILLA = createItem(new BlockItem(BYGBlocks.WINTER_SCILLA, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.WINTER_SCILLA));
     public static final Item YELLOW_DAFFODIL = createItem(new BlockItem(BYGBlocks.YELLOW_DAFFODIL, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.YELLOW_DAFFODIL));
     public static final Item YELLOW_TULIP = createItem(new BlockItem(BYGBlocks.YELLOW_TULIP, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.YELLOW_TULIP));
-
-    public static final Item HYPOGEAL_IMPERIUM = createItem(new BlockItem(BYGBlocks.HYPOGEAL_IMPERIUM, new Item.Properties().tab(BYGCreativeTab.creativeTab)), Registry.BLOCK.getKey(BYGBlocks.HYPOGEAL_IMPERIUM));
 
      public static Item createItem(Item item, ResourceLocation id) {
         if (id != null && !id.equals(new ResourceLocation("minecraft:air"))) {
