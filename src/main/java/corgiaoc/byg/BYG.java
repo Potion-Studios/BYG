@@ -110,13 +110,12 @@ public class BYG {
         BYGCreativeTab.init();
         BYGJsonConfigHandler.handleOverWorldConfig(CONFIG_PATH);
         event.enqueueWork(() -> {
-            BlockDataGenerator.makeBYGLangFile("D:\\Coding\\BYG1\\src\\main\\resources\\assets\\byg\\lang\\en_us.json");
+//            BlockDataGenerator.makeBYGLangFile("D:\\Coding\\BYG1\\src\\main\\resources\\assets\\byg\\lang\\en_us.json");
             Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeSource.BYGNETHERCODEC);
             Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeSource.BYGENDCODEC);
             BYGVillagerType.setVillagerForBYGBiomes();
             BYGBiomes.addBiomeEntries();
             BYGBiomes.fillBiomeDictionary();
-
         });
         for (Block block : Registry.BLOCK) {
             if (block instanceof ITreeSpawner) {
