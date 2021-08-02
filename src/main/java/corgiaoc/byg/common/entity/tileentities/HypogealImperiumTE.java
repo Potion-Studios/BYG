@@ -218,7 +218,6 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         this.handleUpdateTag(this.getBlockState(), tag);
     }
 
-
     @Override
     public void tick() {
         this.addEffectsToMobs();
