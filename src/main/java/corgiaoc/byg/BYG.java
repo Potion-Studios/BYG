@@ -2,6 +2,7 @@ package corgiaoc.byg;
 
 
 import corgiaoc.byg.client.gui.screens.HypogealImperiumScreen;
+import corgiaoc.byg.client.particle.BoricFlameParticle;
 import corgiaoc.byg.client.textures.renders.BYGCampfireRenderer;
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
@@ -16,16 +17,15 @@ import corgiaoc.byg.common.world.feature.blockplacer.BYGBlockPlacerTypes;
 import corgiaoc.byg.config.NetherConfig;
 import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.BYGJsonConfigHandler;
-import corgiaoc.byg.core.BYGBlocks;
-import corgiaoc.byg.core.BYGEntities;
-import corgiaoc.byg.core.BYGItems;
-import corgiaoc.byg.core.BYGTileEntities;
+import corgiaoc.byg.core.*;
 import corgiaoc.byg.core.world.*;
 import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.particles.BasicParticleType;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -54,6 +54,7 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.awt.*;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.Comparator;
@@ -99,6 +100,8 @@ public class BYG {
         BYGTileEntities.TILE_ENTITY_TYPES.register(modEventBus);
         BYGContainerTypes.CONTAINER_TYPES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(new ForgeEvents());
+//        Minecraft.getInstance().particleEngine.register(BYGParticles.BORIC_FLAME.get(), BoricFlameParticle.Factory::new);
+
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -111,6 +114,7 @@ public class BYG {
             BYGVillagerType.setVillagerForBYGBiomes();
             BYGBiomes.addBiomeEntries();
             BYGBiomes.fillBiomeDictionary();
+
         });
         for (Block block : Registry.BLOCK) {
             if (block instanceof ITreeSpawner) {

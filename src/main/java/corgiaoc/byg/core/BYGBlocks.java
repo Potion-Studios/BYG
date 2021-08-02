@@ -1,6 +1,7 @@
 package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
+import corgiaoc.byg.client.particle.BoricFlameParticle;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;
@@ -1110,6 +1111,7 @@ public class BYGBlocks {
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
     public static final Block HYPOGEAL_IMPERIUM = createHypogealBlock("hypogeal_imperium");
+    public static final Block BORIC_TORCH = createBlock(new BoricTorchBlock(AbstractBlock.Properties.of(Material.WOOD).instabreak().lightLevel((state) -> 14), BoricFlameParticle.BoricParticleData.BORIC), "boric_torch");
 
     static Block createChiseledFungalImpariusSlab(String id) {
         Block createBlock = new SlabBlock(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).sound(SoundType.HONEY_BLOCK).strength(2.0f).harvestTool(ToolType.HOE));

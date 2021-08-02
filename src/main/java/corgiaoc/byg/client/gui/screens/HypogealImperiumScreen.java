@@ -15,6 +15,7 @@ public class HypogealImperiumScreen extends ContainerScreen<HypogealImperiumCont
 
     private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(BYG.MOD_ID, "textures/gui/container/hypogeal_imperium.png");
     private static final int[] BUBBLELENGTHS = new int[]{29, 24, 20, 16, 11, 6, 0};
+    public int k;
 
 
     public HypogealImperiumScreen(HypogealImperiumContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
@@ -40,20 +41,14 @@ public class HypogealImperiumScreen extends ContainerScreen<HypogealImperiumCont
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
         this.blit(p_230450_1_, i, j, 0, 0, this.imageWidth, this.imageHeight);
-        int k = 20;
+        if (this.menu.tileEntity.getFuel() > 0){
+            k = 20;
+        } else {
+            k = 0;
+        }
         int l = MathHelper.clamp((18 * k + 20 - 1) / 20, 0, 18);
         if (l > 0) {
             this.blit(p_230450_1_, i + 60, j + 44, 176, 29, l, 4);
-        }
-
-        int i1 = HypogealImperiumTE.getLoadTime();
-        if (i1 > 0) {
-            int j1 = (int)(28.0F * (1.0F - (float)i1 / 400.0F));
-
-            j1 = BUBBLELENGTHS[i1 / 2 % 7];
-            if (j1 > 0) {
-                this.blit(p_230450_1_, i + 63, j + 14 + 29 - j1, 185, 29 - j1, 12, j1);
-            }
         }
     }
 }

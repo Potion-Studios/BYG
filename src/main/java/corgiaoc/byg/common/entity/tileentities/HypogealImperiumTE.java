@@ -6,6 +6,7 @@ import corgiaoc.byg.core.BYGItems;
 import corgiaoc.byg.core.BYGTileEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,6 +16,8 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -23,6 +26,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -35,6 +39,8 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class HypogealImperiumTE extends LockableLootTileEntity implements ITickableTileEntity {
 
@@ -42,8 +48,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     protected int numPlayersUsing;
     private final IItemHandlerModifiable items = createHandler();
     private LazyOptional<IItemHandlerModifiable> itemHandler = LazyOptional.of(() -> items);
-    protected int crystal;
-    public static int loadtime;
+    protected int crystal = 0;
     public int fuel;
     public int damageTime;
 
@@ -51,28 +56,6 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         super(BYGTileEntities.HYPOGEAL.get());
     }
 
-    public int get(int p_221476_1_) {
-        switch(p_221476_1_) {
-            case 0:
-                return HypogealImperiumTE.this.crystal;
-            case 1:
-                return HypogealImperiumTE.this.fuel;
-            default:
-                return 0;
-        }
-    }
-
-
-
-    public void set(int p_221477_1_, int p_221477_2_) {
-        switch(p_221477_1_) {
-            case 0:
-                HypogealImperiumTE.this.crystal = p_221477_2_;
-                break;
-            case 1:
-                HypogealImperiumTE.this.fuel = p_221477_2_;
-        }
-    }
 
     @Override
     protected ITextComponent getDefaultName() {
@@ -108,24 +91,19 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     public void load(BlockState state, CompoundNBT nbt) {
         super.load(state, nbt);
         this.chestContents = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        this.loadtime = nbt.getShort("LoadTime");
         this.fuel = nbt.getShort("Fuel");
-        this.crystal = nbt.getShort("Crystal");
+        this.setCrystal(nbt.getInt("Crystal"));
         if (!this.tryLoadLootTable(nbt)) {
             ItemStackHelper.loadAllItems(nbt, this.chestContents);
         }
     }
 
-    public static int getLoadTime(){
-        return loadtime;
-    }
 
     @Override
     public CompoundNBT save(CompoundNBT compound) {
         super.save(compound);
-        compound.putShort("LoadTime", (short)this.loadtime);
-        compound.putShort("Fuel", (short)this.fuel);
-        compound.putShort("Crystal", (short)this.crystal);
+        compound.putShort("Fuel", (short) this.fuel);
+        compound.putInt("Crystal", this.getCrystal());
         if (!this.trySaveLootTable(compound)) {
             ItemStackHelper.saveAllItems(compound, this.chestContents);
         }
@@ -178,13 +156,20 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         }
     }
 
-    public int getFuel(){
+    public int getFuel() {
         return fuel;
     }
 
-
-    public void setFuel(int amount){
+    public void setFuel(int amount) {
         fuel = amount;
+    }
+
+    public int getCrystal() {
+        return crystal;
+    }
+
+    public void setCrystal(int amount) {
+        crystal = amount;
     }
 
     @Override
@@ -209,73 +194,132 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     }
 
     @Override
+    public CompoundNBT getUpdateTag() {
+        CompoundNBT nbtTag = super.getUpdateTag();
+        nbtTag.putInt("Crystal", this.getCrystal());
+        return nbtTag;
+    }
+
+    @Override
+    public void handleUpdateTag(BlockState state, CompoundNBT tag) {
+        this.setCrystal(tag.getInt("Crystal"));
+    }
+
+
+    @Override
+    public SUpdateTileEntityPacket getUpdatePacket() {
+        return new SUpdateTileEntityPacket(getBlockPos(), -1, getUpdateTag());
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+        CompoundNBT tag = pkt.getTag();
+        this.handleUpdateTag(this.getBlockState(), tag);
+    }
+
+
+    @Override
     public void tick() {
         this.addEffectsToMobs();
+        this.changeBlocksInRadius();
+        this.doCrystalLoad();
+        this.addParticles();
+
+    }
+
+    public void doCrystalLoad() {
         ItemStack itemFuelItem = this.getItem(0);
         ItemStack itemCatalystItem = this.getItem(1);
         ItemStack resultItem = this.getItem(2);
         World world = this.level;
 
-        if (!this.level.isClientSide) {
-            if (this.crystal < 12) {
-                if (itemFuelItem.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD && this.getFuel() == 0) {
-                    this.setFuel(9);
-                    itemFuelItem.shrink(1);
+        if (this.getCrystal() < 12) {
+            if (itemFuelItem.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD && this.getFuel() == 0) {
+                this.setFuel(9);
+                itemFuelItem.shrink(1);
+            }
+            if (itemCatalystItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
+                if (this.getFuel() > 0) {
+                        this.setFuel(this.getFuel() - 1);
+                        itemCatalystItem.shrink(1);
+                        this.setCrystal(this.getCrystal() + 1);
+                        this.getLevel().sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 13);
+                        if (resultItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
+                            this.setItem(2, BYGItems.SUBZERO_CRYSTAL_CLUSTER.getDefaultInstance());
+                        }
+                        if (resultItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
+                            resultItem.setCount(resultItem.getCount() + 1);
+                        }
+                    }
                 }
-                if (itemCatalystItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
-                    if (this.getFuel() > 0) {
-                        --this.loadtime;
-                        if (this.loadtime <= 0) {
-                            this.setFuel(this.getFuel() - 1);
-                            itemCatalystItem.shrink(1);
-                            this.crystal++;
-                            this.loadtime = 600;
-                            if (resultItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
-                                this.setItem(2, BYGItems.SUBZERO_CRYSTAL_CLUSTER.getDefaultInstance());
-                            }
-                            if (resultItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
-                                resultItem.setCount(resultItem.getCount() + 1);
+            }
+        }
+
+    public void addParticles() {
+        World world = this.level;
+        int h = 6 + this.getCrystal();
+        for (int x1 = this.getBlockPos().getX() - h; x1 <= this.getBlockPos().getX() + h; ++x1) {
+            for (int y1 = this.getBlockPos().getY(); y1 <= this.getBlockPos().getY() + 6; ++y1) {
+                for (int z1 = this.getBlockPos().getZ() - h; z1 <= this.getBlockPos().getZ() + h; ++z1) {
+                    if (this.level.isClientSide) {
+                        if (getFuel() > 0) {
+                            Random rand = new Random();
+                            int i = rand.nextInt(7);
+                            if (i >= 4) {
+                                world.addParticle(ParticleTypes.WHITE_ASH, (double) x1, (double) y1, (double) z1, 0D, 5.0E-4D, 0D);
                             }
                         }
                     }
                 }
-                if (itemCatalystItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
-                    this.loadtime = 600;
-                }
             }
         }
-        if (this.level.isClientSide) {
-            for (int x1 = this.getBlockPos().getX() - crystal; x1 <= this.getBlockPos().getX() + crystal; ++x1) {
-                for (int y1 = this.getBlockPos().getY(); y1 <= this.getBlockPos().getY() + 5; ++y1) {
-                    for (int z1 = this.getBlockPos().getZ() - crystal; z1 <= this.getBlockPos().getZ() + crystal; ++z1) {
-                        world.addParticle(ParticleTypes.WHITE_ASH, (double)x1, (double)y1, (double)z1, 0D, 5.0E-4D, 0D);
-                    }
-                }
-            }
-        }
-        System.out.println(loadtime);
     }
 
-    public void addEffectsToMobs(){
+    public void addEffectsToMobs() {
         if (!this.level.isClientSide) {
             Random random = new Random();
             int useFuel;
-                AxisAlignedBB axisalignedbb = (new AxisAlignedBB(this.worldPosition)).inflate(6 + crystal).expandTowards(0.0D, this.level.getHeight(), 0.0D);
-                List<MonsterEntity> list = this.level.getEntitiesOfClass(MonsterEntity.class, axisalignedbb);
-                for (MonsterEntity mob : list) {
-                    if (getFuel() > 0) {
-                        mob.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 20, 3, false, true));
-                        --this.damageTime;
-                        if (this.damageTime <= 0) {
-                            mob.hurt(DamageSource.MAGIC, 2);
-                            useFuel = random.nextInt(6);
-                            if (useFuel >= 5) {
+            AxisAlignedBB axisalignedbb = (new AxisAlignedBB(this.worldPosition)).inflate(6 + getCrystal()).expandTowards(0.0D, this.level.getHeight(), 0.0D);
+            List<MonsterEntity> list = this.level.getEntitiesOfClass(MonsterEntity.class, axisalignedbb);
+            for (MonsterEntity mob : list) {
+                if (getFuel() > 0) {
+                    mob.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 20, 3, false, true));
+                    --this.damageTime;
+                    if (this.damageTime <= 0) {
+                        mob.hurt(DamageSource.MAGIC, 2);
+                        useFuel = random.nextInt(11);
+                        if (useFuel > 9) {
+                            this.setFuel(this.getFuel() - 1);
+                        }
+                        this.damageTime = 100;
+                    }
+                }
+            }
+        }
+    }
+
+    public void changeBlocksInRadius() {
+        World world = this.level;
+        int useFuel;
+        Random random = new Random();
+        if (getFuel() > 0) {
+        int h = 6 + this.getCrystal();
+        for (int x1 = this.getBlockPos().getX() - h; x1 <= this.getBlockPos().getX() + h; ++x1) {
+            for (int y1 = this.getBlockPos().getY() - 2; y1 <= this.getBlockPos().getY() + 5; ++y1) {
+                for (int z1 = this.getBlockPos().getZ() - h; z1 <= this.getBlockPos().getZ() + h; ++z1) {
+                        if (world.getBlockState(new BlockPos(x1, y1, z1)) == Blocks.WATER.defaultBlockState()) {
+                            world.setBlockAndUpdate(new BlockPos(x1, y1, z1), Blocks.ICE.defaultBlockState());
+                        }
+                        if (world.getBlockState(new BlockPos(x1, y1, z1)) == Blocks.LAVA.defaultBlockState()) {
+                            world.setBlockAndUpdate(new BlockPos(x1, y1, z1), Blocks.OBSIDIAN.defaultBlockState());
+                            useFuel = random.nextInt(11);
+                            if (useFuel > 9) {
                                 this.setFuel(this.getFuel() - 1);
                             }
-                            this.damageTime = 100;
                         }
                     }
                 }
             }
         }
     }
+}
