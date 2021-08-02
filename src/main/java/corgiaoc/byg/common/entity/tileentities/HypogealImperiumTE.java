@@ -4,6 +4,7 @@ import corgiaoc.byg.client.gui.HypogealImperiumContainer;
 import corgiaoc.byg.common.properties.blocks.nether.HypogealImperiumBlock;
 import corgiaoc.byg.core.BYGItems;
 import corgiaoc.byg.core.BYGTileEntities;
+import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -224,7 +225,25 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         this.changeBlocksInRadius();
         this.doCrystalLoad();
         this.addParticles();
+        this.setLit();
 
+    }
+
+    public void setLit(){
+        boolean flag = this.isLit();
+        boolean flag1 = false;
+        if (flag != this.isLit()) {
+            flag1 = true;
+            this.level.setBlock(this.worldPosition, this.level.getBlockState(this.worldPosition).setValue(HypogealImperiumBlock.LIT, this.isLit()), 3);
+        }
+
+        if (flag1) {
+            this.setChanged();
+        }
+    }
+
+    private boolean isLit() {
+        return this.getFuel() > 0;
     }
 
     public void doCrystalLoad() {

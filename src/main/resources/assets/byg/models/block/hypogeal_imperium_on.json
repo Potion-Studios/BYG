@@ -1,9 +1,9 @@
 {   "parent": "block/block",
   "textures": {
-    "particle": "byg:block/hypogeal_imperium_side",
+    "particle": "byg:block/hypogeal_imperium_side_lit",
     "bottom": "minecraft:block/lodestone_top",
-    "top": "byg:block/hypogeal_imperium_top",
-    "side": "byg:block/hypogeal_imperium_side"
+    "top": "byg:block/hypogeal_imperium_top_lit",
+    "side": "byg:block/hypogeal_imperium_side_lit"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],
