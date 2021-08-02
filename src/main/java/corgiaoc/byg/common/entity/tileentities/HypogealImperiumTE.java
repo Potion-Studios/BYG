@@ -225,7 +225,6 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         this.doCrystalLoad();
         this.addParticles();
         this.setLit();
-        System.out.println(damageTime);
 
     }
 
