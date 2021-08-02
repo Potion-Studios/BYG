@@ -19,6 +19,7 @@ import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.BYGJsonConfigHandler;
 import corgiaoc.byg.core.*;
 import corgiaoc.byg.core.world.*;
+import corgiaoc.byg.data.BlockDataGenerator;
 import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -109,6 +110,7 @@ public class BYG {
         BYGCreativeTab.init();
         BYGJsonConfigHandler.handleOverWorldConfig(CONFIG_PATH);
         event.enqueueWork(() -> {
+            BlockDataGenerator.makeBYGLangFile("D:\\Coding\\src\\main\\resources\\assets\\byg\\lang\\en_us.json");
             Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeSource.BYGNETHERCODEC);
             Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeSource.BYGENDCODEC);
             BYGVillagerType.setVillagerForBYGBiomes();

@@ -312,6 +312,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
                         }
                         if (world.getBlockState(new BlockPos(x1, y1, z1)) == Blocks.LAVA.defaultBlockState()) {
                             world.setBlockAndUpdate(new BlockPos(x1, y1, z1), Blocks.OBSIDIAN.defaultBlockState());
+                        }
                             useFuel = random.nextInt(11);
                             if (useFuel > 9) {
                                 this.setFuel(this.getFuel() - 1);
@@ -322,4 +323,3 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
             }
         }
     }
-}
