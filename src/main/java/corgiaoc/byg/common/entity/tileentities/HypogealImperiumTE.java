@@ -228,18 +228,13 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
 
     }
 
-    public void setLit(){
-        boolean flag = this.isLit();
-        boolean flag1 = false;
-        if (flag != this.isLit()) {
-            flag1 = true;
+    public void setLit() {
+        if (this.isLit()) {
             this.level.setBlock(this.worldPosition, this.level.getBlockState(this.worldPosition).setValue(HypogealImperiumBlock.LIT, this.isLit()), 3);
-        }
-
-        if (flag1) {
             this.setChanged();
         }
     }
+
 
     private boolean isLit() {
         return this.getFuel() > 0;
