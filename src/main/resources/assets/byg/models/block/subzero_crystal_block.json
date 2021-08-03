@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:block/subzero_crystal_block",
+    "particle": "byg:block/subzero_crystal_block"
+  }
+}

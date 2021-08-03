@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "byg:blue_netherrack",
+    "byg:brimstone",
+    "byg:magmatic_stone",
+    "byg:cryptic_stone",
+    "byg:scoria_stone",
+    "byg:travertine"
+  ]
+}

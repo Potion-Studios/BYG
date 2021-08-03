@@ -27,6 +27,14 @@ public class BYGOreBlock extends OreBlock implements IForgeBlock {
             return MathHelper.nextInt(rand, 2, 5);
         } else if (this == BYGBlocks.CRYPTIC_REDSTONE_ORE) {
             return MathHelper.nextInt(rand, 3, 7);
+        } else if (this == BYGBlocks.BLUE_NETHER_GOLD_ORE) {
+            return MathHelper.nextInt(rand, 0, 1);
+        } else if (this == BYGBlocks.BLUE_NETHER_QUARTZ_ORE) {
+            return MathHelper.nextInt(rand, 2, 5);
+        } else if (this == BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE) {
+            return MathHelper.nextInt(rand, 0, 1);
+        } else if (this == BYGBlocks.BRIMSTONE_NETHER_QUARTZ_ORE) {
+            return MathHelper.nextInt(rand, 2, 5);
         } else if (this == BYGBlocks.BUDDING_AMETRINE_ORE) {
             return MathHelper.nextInt(rand, 3, 9);
         } else {

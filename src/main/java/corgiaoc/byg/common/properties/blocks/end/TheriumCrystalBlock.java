@@ -79,7 +79,7 @@ public class TheriumCrystalBlock extends Block implements IGrowable {
             int j = 1;
             popResource(worldIn, pos, new ItemStack(BYGItems.THERIUM_CRYSTAL, j));
             worldIn.playSound(null, pos, SoundEvents.GLASS_BREAK, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
-            worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(0)), 2);
+            worldIn.setBlock(pos, state.setValue(AGE, 0), 2);
             return ActionResultType.SUCCESS;
         } else {
             return super.use(state, worldIn, pos, player, handIn, hit);

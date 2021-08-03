@@ -1,17 +1,17 @@
 modLoader = "javafml"
 loaderVersion = "[33,)"
 license = "Code: LGPLv3 \nAssets: All Rights Reserved"
-issueTrackerURL = "https://github.com/CorgiTaco/BYG/issues"
+issueTrackerURL = "https://github.com/AOCAWOL/BYG-1/issues"
 [[mods]]
 modId = "byg"
-version = "1.2.8"
+version = "1.3.0"
 displayName = "Oh The Biomes You'll Go"
 displayURL = "https://oh-the-biomes-youll-go.fandom.com/wiki/Oh_The_Biomes_You%27ll_Go_Wiki"
 logoFile = "logo_text.png"
-credits = "On curse"
-authors = "AOCAWOL & Corgi Taco"
+credits = "Former Author: Corgi Taco; Some Artwork: CupOfJoe, SaltySeaDoggo, Spare, Paul; Some Code: TelepathicGrunt, Paul, HauntedPasta"
+authors = "AOCAWOL, YaBoiChips"
 description = '''
-An Adventure and Exploration mod with over 60 new biomes!
+An Adventure and Exploration mod with over 80 new biomes!
 
 Notice: The linked wiki is not owned by BYG, the wiki is open for anyone to edit and any inaccuracies that may appear are not BYG's responsibility.
 '''

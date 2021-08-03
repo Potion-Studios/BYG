@@ -1271,21 +1271,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGBlueNetherrack extends BlueNetherrackBlock {
-        public BYGBlueNetherrack(String registryName) {
-            super(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BLUE)
-                    .sound(SoundType.NETHERRACK)
-                    .strength(0.4F, 0.4F)
-                    .harvestTool(ToolType.PICKAXE)
-                    .requiresCorrectToolForDrops()
-
-            );
-            //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryName), this);
-            setRegistryName(new ResourceLocation(BYG.MOD_ID, registryName)); //Forge
-            BYGBlocks.blocksList.add(this);
-        }
-    }
-
     public static class BYGBlueNetherrackBricks extends BlueNetherrackBlock {
         public BYGBlueNetherrackBricks(String registryName) {
             super(AbstractBlock.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BLUE)

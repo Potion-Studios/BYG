@@ -10,7 +10,7 @@
     "item": "byg:magmatic_stone"
   },
   "result": {
-    "fluid": "tconstruct:magma_cream",
+    "fluid": "tconstruct:magma",
     "amount": 1000
   },
   "temperature": 300,

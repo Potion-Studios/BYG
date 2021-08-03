@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MC",
+    "CM"
+  ],
+  "key": {
+    "M": {
+      "item": "byg:mud_block"
+    },
+    "C": {
+      "item": "minecraft:charcoal"
+    }
+  },
+  "result": {
+    "item": "byg:scoria_stone",
+    "count": 4
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:chiseled_fungal_imparius"
+    }
+  },
+  "result": {
+    "item": "byg:chiseled_fungal_imparius_slab",
+    "count": 6
+  }
+}

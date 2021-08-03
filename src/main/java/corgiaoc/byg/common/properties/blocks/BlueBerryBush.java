@@ -44,7 +44,7 @@ public class BlueBerryBush extends SweetBerryBushBlock implements IGrowable {
             int j = 1 + worldIn.random.nextInt(2);
             popResource(worldIn, pos, new ItemStack(BYGItems.BLUE_BERRY, j + (flag ? 1 : 0)));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
-            worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);
+            worldIn.setBlock(pos, state.setValue(AGE, 1), 2);
             return ActionResultType.SUCCESS;
         } else {
             return super.use(state, worldIn, pos, player, handIn, hit);

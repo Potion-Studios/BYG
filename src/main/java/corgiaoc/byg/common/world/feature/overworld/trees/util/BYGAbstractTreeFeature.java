@@ -6,6 +6,7 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.properties.blocks.BaobabFruitBlock;
+import corgiaoc.byg.common.properties.blocks.end.impariusgrove.ImpariusMushroomBranchBlock;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.core.BYGBlocks;
@@ -122,6 +123,11 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     public void etherBulbs(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         this.setFinalBlockState(startPos, config, blockSet, reader, pos, BYGBlocks.ETHER_BULB.defaultBlockState().setValue(EtherBulbsBlock.AGE, random.nextInt(4)), boundingBox);
+    }
+
+    public void ArisianBloomBranch(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox, Direction direction) {
+        pos = getTransformedPos(config, startPos, pos);
+        this.setFinalBlockState(startPos, config, blockSet, reader, pos, BYGBlocks.ARISIAN_BLOOM_BRANCH.defaultBlockState().setValue(ImpariusMushroomBranchBlock.FACING, direction), boundingBox);
     }
 
     public void baobabFruit(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {

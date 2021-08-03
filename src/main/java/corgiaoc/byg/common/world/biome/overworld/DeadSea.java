@@ -24,8 +24,8 @@ public class DeadSea extends BYGBiome {
     static final float SCALE = 0.1F;
     static final float TEMPERATURE = 2.0F;
     static final float DOWNFALL = 0.0F;
-    static final int WATER_COLOR = 12632256;
-    static final int WATER_FOG_COLOR = 12632256;
+    static final int WATER_COLOR = 9230578;
+    static final int WATER_FOG_COLOR = 2835532;
     
     static final Biome.Climate WEATHER = new Biome.Climate(PRECIPATATION, TEMPERATURE, Biome.TemperatureModifier.NONE, DOWNFALL);
     static final MobSpawnInfo.Builder SPAWN_SETTINGS = new MobSpawnInfo.Builder().setPlayerCanSpawn();

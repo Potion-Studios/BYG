@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "byg:block/hypogeal_imperium"
+    },
+    "lit=true": {
+      "model": "byg:block/hypogeal_imperium_on"
+    }
+  }
+}

@@ -273,13 +273,6 @@ public class TreeSpawners {
         }
     };
 
-    public static final TreeSpawner WITHERING_OAK = new TreeSpawner() {
-        @Nullable
-        public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {
-            return random.nextInt(2) == 0 ? BYGConfiguredFeatures.WITHERING_OAK_TREE1 : BYGConfiguredFeatures.WITHERING_OAK_TREE4;
-        }
-    };
-
     public static final TreeSpawner NIGHTSHADE = new TreeSpawner() {
         @Nullable
         public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {

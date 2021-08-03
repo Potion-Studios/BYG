@@ -122,6 +122,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> LAMENT_SPROUTS = createConfiguredFeature("lament_sprouts", Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(BYGBlocks.LAMENT_SPROUTS.defaultBlockState(), ImmutableList.of(BYGBlocks.OVERGROWN_NETHERRACK.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState()))));
 
+
     public static final ConfiguredFeature<?, ?> BLUE_BERRY_BUSH = createConfiguredFeature("blue_berry_bush", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BLUEBERRY_BUSH.defaultBlockState().setValue(BlueBerryBush.AGE, 3)), new SimpleBlockPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> ROSE = createConfiguredFeature("rose", Feature.FLOWER.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ROSE.defaultBlockState()), new SimpleBlockPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> ANGELICA = createConfiguredFeature("angelica", Feature.FLOWER.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.ANGELICA.defaultBlockState()), new SimpleBlockPlacer())).tries(64).noProjection().build()));
@@ -242,6 +243,13 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ORE_ANTHRACITE = createConfiguredFeature("ore_anthracite", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, BYGBlocks.ANTHRACITE_ORE.defaultBlockState(), 14)).decorated(Features.Placements.RANGE_10_20_ROOFED).squared().count(12));
     public static final ConfiguredFeature<?, ?> ORE_LIGNITE = createConfiguredFeature("ore_lignite", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, BYGBlocks.LIGNITE_ORE.defaultBlockState(), 14)).decorated(Features.Placements.RANGE_10_20_ROOFED).squared().count(16));
     public static final ConfiguredFeature<?, ?> ORE_CRYPTIC_REDSTONE = createConfiguredFeature("ore_cryptic_redstone", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, BYGBlocks.CRYPTIC_REDSTONE_ORE.defaultBlockState(), 14)).decorated(Features.Placements.RANGE_10_20_ROOFED).squared().count(12));
+
+    public static final ConfiguredFeature<?, ?> ORE_BLUE_NETHER_GOLD = createConfiguredFeature("ore_blue_nether_gold", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, BYGBlocks.BLUE_NETHER_GOLD_ORE.defaultBlockState(), 10)).decorated(Features.Placements.RANGE_10_20_ROOFED).squared().count(10));
+    public static final ConfiguredFeature<?, ?> ORE_BLUE_NETHER_QUARTZ = createConfiguredFeature("ore_blue_nether_quartz", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, BYGBlocks.BLUE_NETHER_QUARTZ_ORE.defaultBlockState(), 14)).decorated(Features.Placements.RANGE_10_20_ROOFED).squared().count(16));
+
+    public static final ConfiguredFeature<?, ?> ORE_BRIMSTONE_NETHER_GOLD = createConfiguredFeature("ore_brimstone_nether_gold", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE.defaultBlockState(), 10)).decorated(Features.Placements.RANGE_10_20_ROOFED).squared().count(10));
+    public static final ConfiguredFeature<?, ?> ORE_BRIMSTONE_NETHER_QUARTZ = createConfiguredFeature("ore_brimstone_nether_quartz", Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, BYGBlocks.BRIMSTONE_NETHER_QUARTZ_ORE.defaultBlockState(), 14)).decorated(Features.Placements.RANGE_10_20_ROOFED).squared().count(16));
+
 
     public static final ConfiguredFeature<?, ?> MOSSY_STONE_BOULDER = createConfiguredFeature("mossy_stone_boulder", Feature.FOREST_ROCK.configured(new BlockStateFeatureConfig(BYGBlocks.MOSSY_STONE.defaultBlockState())));
     public static final ConfiguredFeature<?, ?> ROCKY_STONE_BOULDER = createConfiguredFeature("rocky_stone_boulder", Feature.FOREST_ROCK.configured(new BlockStateFeatureConfig(BYGBlocks.ROCKY_STONE.defaultBlockState())));
@@ -421,7 +429,12 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> FROST_MAGMA_PILLARS = createConfiguredFeature("frost_magma_pillars", BYGFeatures.PILLARS.configured((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.FROST_MAGMA.defaultBlockState())))).range(128).squared().count(50));
     public static final ConfiguredFeature<?, ?> MAGMA_PILLARS = createConfiguredFeature("magma_pillars", BYGFeatures.PILLARS.configured((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.MAGMATIC_STONE.defaultBlockState())))).range(128).squared().count(65));
     public static final ConfiguredFeature<?, ?> BRIMSTONE_PILLARS = createConfiguredFeature("brimstone_pillars", BYGFeatures.PILLARS.configured((new SimpleBlockProviderConfig(new SimpleBlockStateProvider(BYGBlocks.BRIMSTONE.defaultBlockState())))).range(128).squared().count(80));
+    public static final ConfiguredFeature<?, ?> BRIMSTONE_VENTS = createConfiguredFeature("brimstone_vent", BYGFeatures.BRIMSTONE_VENT_FEATURE.configured(new BrimstoneVentsConfig.Builder().setLavaBlock(Blocks.LAVA).setBlock(BYGBlocks.BRIMSTONE).build()).range(64).squared().count(30));
+
     public static final ConfiguredFeature<?, ?> QUARTZ_COLUMNS = createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS.configured(new ColumnConfig(FeatureSpread.fixed(1), FeatureSpread.of(1, 3))).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
+    public static final ConfiguredFeature<?, ?> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES.configured(new QuartzSpikeConfig.Builder().setBlock(BYGBlocks.QUARTZITE_SAND).build()).range(128).squared().count(40));
+
+    public static final ConfiguredFeature<?, ?> SUBZERO_CRYSTAL = createConfiguredFeature("subzero_crystal", BYGFeatures.SUBZERO_CRYSTAL.configured(new NoFeatureConfig()).range(128).squared().count(60));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_PLANT = createConfiguredFeature("sythian_plants", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             SYTHIAN_SPROUT.weighted(0.5F),
@@ -596,7 +609,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spikes", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             DEAD_SEA_SPIKE.weighted(0.75F)),
-            DEAD_SEA_SPIKE_TALL)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(28, 0.1F, 1))));
+            DEAD_SEA_SPIKE_TALL)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(2, 0.5F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_PUMPKIN_PATCH = createConfiguredFeature("large_pumpkin", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             PUMPKIN.weighted(0.45F),
@@ -964,10 +977,14 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> LAMENT_WEEPING_TREE2 = createConfiguredFeature("lament_weeping_tree2", BYGFeatures.LAMENT_WEEPING_TREE2.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.LAMENT_LOG).setLeavesBlock(BYGBlocks.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).setWhitelist(ImmutableList.of(Blocks.LAVA)).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> LAMENT_WEEPING_TREE3 = createConfiguredFeature("lament_weeping_tree3", BYGFeatures.LAMENT_WEEPING_TREE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.LAMENT_LOG).setLeavesBlock(BYGBlocks.LAMENT_LEAVES).setMaxHeight(30).setMinHeight(22).setWhitelist(ImmutableList.of(Blocks.LAVA)).build()));
 
-    public static final ConfiguredFeature<BYGTreeConfig, ?> WITHERING_OAK_TREE1 = createConfiguredFeature("withering_oak_tree1", BYGFeatures.WITHERING_OAK_TREE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> WITHERING_OAK_TREE2 = createConfiguredFeature("withering_oak_tree2", BYGFeatures.WITHERING_OAK_TREE2.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> WITHERING_OAK_TREE3 = createConfiguredFeature("withering_oak_tree3", BYGFeatures.WITHERING_OAK_TREE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> WITHERING_OAK_TREE4 = createConfiguredFeature("withering_oak_tree4", BYGFeatures.WITHERING_OAK_TREE4.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITHERING_OAK_LOG).setLeavesBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> WITHERING_OAK_TREE1 = createConfiguredFeature("withering_oak_tree1", BYGFeatures.WITHERING_OAK_TREE1.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.WITHERING_OAK_LOG).setMushroomBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> WITHERING_OAK_TREE2 = createConfiguredFeature("withering_oak_tree2", BYGFeatures.WITHERING_OAK_TREE2.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.WITHERING_OAK_LOG).setMushroomBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> WITHERING_OAK_TREE3 = createConfiguredFeature("withering_oak_tree3", BYGFeatures.WITHERING_OAK_TREE3.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.WITHERING_OAK_LOG).setMushroomBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> WITHERING_OAK_TREE4 = createConfiguredFeature("withering_oak_tree4", BYGFeatures.WITHERING_OAK_TREE4.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.WITHERING_OAK_LOG).setMushroomBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+    public static final ConfiguredFeature<BYGMushroomConfig, ?> WITHERING_OAK_TREE5 = createConfiguredFeature("withering_oak_tree5", BYGFeatures.WITHERING_OAK_TREE5.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.WITHERING_OAK_LOG).setMushroomBlock(BYGBlocks.WITHERING_OAK_LEAVES).setMaxHeight(30).setMinHeight(22).build()));
+
+    //Nether Features
+    public static final ConfiguredFeature<BYGTreeConfig, ?> WAILING_PILLAR1 = createConfiguredFeature("wailing_pillar1", BYGFeatures.WAILING_PILLAR1.configured(new BYGTreeConfig.Builder().setTrunkBlock(new WeightedBlockStateProvider().add(Blocks.BASALT.defaultBlockState(), 8).add(Blocks.POLISHED_BASALT.defaultBlockState(), 2)).setLeavesBlock(new WeightedBlockStateProvider().add(Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), 4).add(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), 3).add(Blocks.BLACKSTONE.defaultBlockState(), 2).add(BYGBlocks.DUSTED_POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), 3)).setMaxHeight(30).setMinHeight(22).build()));
 
     //End Mushrooms
     public static final ConfiguredFeature<BYGMushroomConfig, ?> BULBIS_BUSH1 = createConfiguredFeature("bulbis_bush1", BYGFeatures.BULBIS_BUSH1.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BULBIS_WOOD).setMushroomBlock(BYGBlocks.BULBIS_SHELL).setMinHeight(6).setMaxHeight(12).build()));
@@ -1692,7 +1709,7 @@ public class BYGConfiguredFeatures {
             WOOD_BLEWIT_MINI.weighted(0.16F),
             WEEPING_MILKCAP_MINI.weighted(0.16F)),
             BLACK_PUFF_MINI)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(7, 0.5F, 4))));
+            new AtSurfaceWithExtraConfig(1, 0.3F, 3))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_HUGE_MUSHROOM = createConfiguredFeature("huge_mushrooms", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             GREEN_MUSHROOM_HUGE.weighted(0.4F),
@@ -1722,14 +1739,15 @@ public class BYGConfiguredFeatures {
             new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_WITHERING_OAK_TREE = createConfiguredFeature("withering_oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
-            WITHERING_OAK_TREE4.weighted(0.25F),
+            WITHERING_OAK_TREE5.weighted(0.25F),
+            WITHERING_OAK_TREE4.weighted(0.2F),
             WITHERING_OAK_TREE3.weighted(0.25F),
-            WITHERING_OAK_TREE2.weighted(0.25F)),
+            WITHERING_OAK_TREE2.weighted(0.2F)),
             WITHERING_OAK_TREE1)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
-            new AtSurfaceWithExtraConfig(12, 0.5F, 2))));
+            new AtSurfaceWithExtraConfig(7, 0.35F, 5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_WITHERING_OAK_TREE = createConfiguredFeature("sparse_withering_oak_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
-            WITHERING_OAK_TREE3.weighted(0.25F)),
+            WITHERING_OAK_TREE4.weighted(0.25F)),
             WITHERING_OAK_TREE1)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
             new AtSurfaceWithExtraConfig(0, 0.1F, 1))));
 
@@ -1744,6 +1762,11 @@ public class BYGConfiguredFeatures {
             LAMENT_WEEPING_TREE2.weighted(0.35F)),
             LAMENT_WEEPING_TREE1)).decorated(BYGDecorators.AT_OR_BELOW_SEA_LEVEL.configured(
             new AtOrBelowSeaLevelCountExtraConfig(8, 0.5F, 2, 2))));
+
+    public static final ConfiguredFeature<?, ?> RANDOM_WAILING_PILLAR = createConfiguredFeature("wailing_pillars", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
+            WAILING_PILLAR1.weighted(0.5F)),
+            WAILING_PILLAR1)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
+            new AtSurfaceWithExtraConfig(0, 0.4F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BULBIS_TREE = createConfiguredFeature("bulbis_trees", Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
             BULBIS_BUSH1.weighted(0.1F),
@@ -1885,7 +1908,7 @@ public class BYGConfiguredFeatures {
         public static final BlockClusterFeatureConfig MYCELIUM_NETHERRACK_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.SOUL_SHROOM.defaultBlockState(), 50).add(BYGBlocks.DEATH_CAP.defaultBlockState(), 50), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig ETHER_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.ETHER_GRASS.defaultBlockState(), 50).add(BYGBlocks.ETHER_BUSH.defaultBlockState(), 45).add(BYGBlocks.THEREAL_BELLFLOWER.defaultBlockState(), 5), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig NIGHTSHADE_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.NIGHTSHADE_SPROUTS.defaultBlockState(), 50).add(BYGBlocks.NIGHTSHADE_SPROUTS.defaultBlockState(), 50), new DoubleBlockPlacer()).build();
-        public static final BlockClusterFeatureConfig VERMILION_SCULK_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.VERMILION_SCULK_GROWTH.defaultBlockState(), 50).add(BYGBlocks.VERMILION_SCULK_GROWTH.defaultBlockState(), 45).add(BYGBlocks.VERMILION_SCULK_GROWTH.defaultBlockState(), 5), new DoubleBlockPlacer()).build();
+        public static final BlockClusterFeatureConfig VERMILION_SCULK_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.VERMILION_SCULK_TENDRILS.defaultBlockState(), 50).add(BYGBlocks.VERMILION_SCULK_TENDRILS.defaultBlockState(), 40).add(BYGBlocks.VERMILION_SCULK_GROWTH.defaultBlockState(), 10), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig BULBIS_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.BULBIS_SPROUTS.defaultBlockState(), 50).add(BYGBlocks.BULBIS_SPROUTS.defaultBlockState(), 45).add(BYGBlocks.BULBIS_SPROUTS.defaultBlockState(), 5), new DoubleBlockPlacer()).build();
         public static final BlockClusterFeatureConfig SHULKREN_CONFIG = new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(BYGBlocks.SHULKREN_MOSS_BLANKET.defaultBlockState(), 50).add(BYGBlocks.SHULKREN_MOSS_BLANKET.defaultBlockState(), 45).add(BYGBlocks.SHULKREN_FUNGUS.defaultBlockState(), 5), new DoubleBlockPlacer()).build();
     }
