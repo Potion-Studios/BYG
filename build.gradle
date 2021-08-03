@@ -1,175 +1,144 @@
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
-buildscript {
-    repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
-        mavenCentral()
-        maven {url='https://repo.spongepowered.org/repository/maven-public/'}
-
-
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-    }
+plugins {
+    id 'fabric-loom' version '0.7-SNAPSHOT'
+    id 'maven-publish'
 }
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
 
-version = "${mod_version}"
-group = "corgiaoc.${modid}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "${modid}"
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+archivesBaseName = project.archives_base_name
+version = project.mod_version
+group = project.maven_group
 
-minecraft {
-    mappings channel: "official", version: "${mc_version}"
-
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-
-    runs {
-        client {
-            workingDirectory project.file('run')
-            arg "-mixin.config="+archivesBaseName+".mixins.json"
-
-
-            // Recommended logging level for the console
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                examplemod {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-            arg "-mixin.config="+archivesBaseName+".mixins.json"
-
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                examplemod {
-                    source sourceSets.main
-                }
-            }
-        }
-        data {
-            workingDirectory project.file('run')
-
-            // Recommended logging data for a userdev environment
-            // The markers can be changed as needed.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'byg', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                examplemod {
-                    source sourceSets.main
-                }
-            }
-        }
+repositories {
+    maven {
+        name = 'HalfOf2'
+        url = 'https://storage.googleapis.com/devan-maven/'
     }
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-    annotationProcessor 'org.spongepowered:mixin:0.8.2:processor' //Re-enable when building jar
+    //to change the versions see the gradle.properties file
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // Fabric API. This is technically optional, but you probably want it anyway.
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
     compileOnly 'com.github.spotbugs:spotbugs-annotations:4.2.2'
 }
 
-////////////////
-// IntelliJ Project Import
-// The Mixin annotation process does not have an obfuscation source when running through the IntelliJ compiler,
-// thus we have to prevent it from being activated as part of importing this Gradle project into IntelliJ.
-if (System.getProperty("idea.sync.active") == "true") {
-    afterEvaluate {
-        tasks.withType(JavaCompile).all {
-            it.options.annotationProcessorPath = files()
-        }
+minecraft {
+    accessWidener = file("src/main/resources/byg.aw")
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include "fabric.mod.json"
+        expand "version": project.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "fabric.mod.json"
     }
 }
 
+/********Dependencies********/
+repositories {
+    maven { url "https://maven.shedaniel.me/" }
+    maven { url "https://maven.terraformersmc.com/" }
+}
+
+dependencies {
+    include modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+
+    modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+
+    mappings minecraft.officialMojangMappings()
+}
+
+// ensure that the encoding is set to UTF-8, no matter what the system default is
+// this fixes some edge cases with special characters not displaying correctly
+// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    def targetVersion = 8
+    if (JavaVersion.current().isJava9Compatible()) {
+        it.options.release = targetVersion
+    }
+}
+
+java {
+    withSourcesJar()
+}
 
 jar {
-    manifest {
-        attributes([
-                "Specification-Title": "${modid}",
-                "Specification-Vendor": "BYG",
-                "Specification-Version": "1.1", // We are version 1 of ourselves
-                "Implementation-Title": project.name,
-                "Implementation-Version": "${version}",
-                "Implementation-Vendor" :"${modid}",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                "MixinConfigs": "${modid}.mixins.json",
-        ])
-    }
+    from "LICENSE"
 }
 
-// Example configuration to allow publishing using the maven-publish task
-// This is the preferred method to reobfuscate your jar file
-jar.finalizedBy('reobfJar')
-
-task srcJar(type: Jar) {
-    from(sourceSets.main.output)
-    classifier = 'srcs'
-}
-
+// configure the maven publication
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifact jar
+            // add all the jars that should be included when publishing to maven
+            artifact(remapJar) {
+                builtBy remapJar
+            }
+            artifact(sourcesJar) {
+                builtBy remapSourcesJar
+            }
         }
     }
+
+    // select the repositories you want to publish to
     repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
+        // uncomment to publish to the local maven
+        // mavenLocal()
     }
 }
 
-apply plugin: 'org.spongepowered.mixin'
-
-mixin {
-    add sourceSets.main, "${modid}.refmap.json"
+dependencies {
+    implementation "tk.valoeghese:ZoesteriaConfig:1.3.6"
+    include "tk.valoeghese:ZoesteriaConfig:1.3.6"
 }
 
-tasks.withType(JavaCompile) {
-    options.incremental = true
+processResources {
+
+    // Minifies all .json files when building the mod.
+    // Source files are not minified, only the jar copies.
+    doLast {
+
+        def jsonMinifyStart = System.currentTimeMillis()
+        def jsonMinified = 0
+        def jsonBytesSaved = 0
+
+        fileTree(dir: outputs.files.asPath, include: '**/*.json').each {
+
+            File file = it
+            jsonMinified++
+            def oldLength = file.length()
+            file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
+            jsonBytesSaved += oldLength - file.length()
+        }
+
+        println('Minified ' + jsonMinified + ' json files. Saved ' + jsonBytesSaved + ' bytes. Took ' + (System.currentTimeMillis() - jsonMinifyStart) + 'ms.')
+    }
 }
 
-//processResources {
-//
-//    // Minifies all .json files when building the mod.
-//    // Source files are not minified, only the jar copies.
-//    doLast {
-//
-//        def jsonMinifyStart = System.currentTimeMillis()
-//        def jsonMinified = 0
-//        def jsonBytesSaved = 0
-//
-//        fileTree(dir: outputs.files.asPath, include: '**/*.json').each {
-//
-//            File file = it
-//            jsonMinified++
-//            def oldLength = file.length()
-//            file.text = JsonOutput.toJson(new JsonSlurper().parse(file))
-//            jsonBytesSaved += oldLength - file.length()
-//        }
-//
-//        println('Minified ' + jsonMinified + ' json files. Saved ' + jsonBytesSaved + ' bytes. Took ' + (System.currentTimeMillis() - jsonMinifyStart) + 'ms.')
-//    }
-//}
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xmaxerrs" << "1000"
+        }
+    }
+}
