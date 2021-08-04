@@ -5,6 +5,7 @@
   "refmap": "byg.refmap.json",
   "mixins": [
     "access.BiomeContainerAccess",
+    "access.BlockEntityTypeBuilderAccess",
     "access.NyliumBlockAccess",
     "access.SpreadableSnowyDirtBlockAccess",
     "common.block.MixinAbstractFireBlock",
@@ -29,8 +30,8 @@
   ],
   "client": [
     "client.MixinDebugOverlayGui",
-    "client.MixinMinecraft"
-
+    "client.MixinScreenManager",
+    "client.MixinTileEntityRenderDispatcher"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -25,6 +25,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.tileentity.*;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
+import net.minecraft.util.IIntArray;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -53,8 +54,25 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     public int fuel;
     public int damageTime;
 
+    private final IIntArray dataAccess = new IIntArray() {
+        public int get(int index) {
+            if (index == 0) {
+                return HypogealImperiumTE.this.fuel;
+            }
+            return 0;
+        }
+
+        public void set(int index, int value) {
+            HypogealImperiumTE.this.fuel = value;
+        }
+
+        public int getCount() {
+            return 1;
+        }
+    };
+
     public HypogealImperiumTE() {
-        super(BYGTileEntities.HYPOGEAL.get());
+        super(BYGTileEntities.HYPOGEAL);
     }
 
 
@@ -65,7 +83,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
 
     @Override
     protected Container createMenu(int id, PlayerInventory player) {
-        return new HypogealImperiumContainer(id, player, this);
+        return new HypogealImperiumContainer(id, player, this, dataAccess);
     }
 
     @Override

@@ -29,7 +29,7 @@ public class BYGCampfireTE extends TileEntity implements IClearable, ITickableTi
     private final int[] cookingTime = new int[4];
 
     public BYGCampfireTE() {
-        super(BYGTileEntities.BYGCAMPFIRE.get());
+        super(BYGTileEntities.CAMPFIRE);
     }
 
     public void tick() {

@@ -47,7 +47,7 @@ public class HypogealImperiumBlock extends Block {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-           return BYGTileEntities.HYPOGEAL.get().create();
+           return BYGTileEntities.HYPOGEAL.create();
         }
 
 
