@@ -344,8 +344,17 @@ public class BYGBiomes {
             BiomeDictionary.addTypes(RegistryKey.create(Registry.BIOME_REGISTRY, WorldGenRegistries.BIOME.getKey(bygSubBiome.getBiome())), bygSubBiome.getDictionaryTypes());
         }
 
-        for (BYGNetherBiome bygNetherBiome : BYGNetherBiome.BYG_NETHER_BIOMES)
+        for (BYGNetherBiome bygNetherBiome : BYGNetherBiome.BYG_NETHER_BIOMES) {
             BiomeDictionary.addTypes(bygNetherBiome.getKey(), bygNetherBiome.getBiomeDictionary());
+        }
+
+        for (BYGEndBiome bygEndBiome : BYGEndBiome.BYG_END_BIOMES) {
+            BiomeDictionary.addTypes(bygEndBiome.getKey(), bygEndBiome.getBiomeDictionary());
+        }
+
+        for (BYGEndSubBiome bygEndSubBiome : BYGEndSubBiome.BYG_END_SUB_BIOMES) {
+            BiomeDictionary.addTypes(bygEndSubBiome.getKey(), bygEndSubBiome.getBiomeDictionary());
+        }
     }
 
     //used in MixinMinecraftServer
