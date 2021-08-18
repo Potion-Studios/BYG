@@ -20,6 +20,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.BLUE_ENCHANTED_LOG, 5, 5);
         flammableBlock(BYGBlocks.CHERRY_LOG, 5, 5);
         flammableBlock(BYGBlocks.CIKA_LOG, 5, 5);
+        flammableBlock(BYGBlocks.CYPRESS_LOG, 5, 5);
         flammableBlock(BYGBlocks.EBONY_LOG, 5, 5);
         flammableBlock(BYGBlocks.FIR_LOG, 5, 5);
         flammableBlock(BYGBlocks.GREEN_ENCHANTED_LOG, 5, 5);
@@ -32,6 +33,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PINE_LOG, 5, 5);
         flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_LOG, 5, 5);
         flammableBlock(BYGBlocks.REDWOOD_LOG, 5, 5);
+        flammableBlock(BYGBlocks.SKYRIS_LOG, 5, 5);
         flammableBlock(BYGBlocks.WILLOW_LOG, 5, 5);
         flammableBlock(BYGBlocks.WITCH_HAZEL_LOG, 5, 5);
         flammableBlock(BYGBlocks.ZELKOVA_LOG, 5, 5);
@@ -53,7 +55,9 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.STRIPPED_MANGROVE_LOG, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_MAPLE_LOG, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_PALO_VERDE_LOG, 5, 5);
+        flammableBlock(BYGBlocks.STRIPPED_PINE_LOG, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_RAINBOW_EUCALYPTUS_LOG, 5, 5);
+        flammableBlock(BYGBlocks.STRIPPED_REDWOOD_LOG, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_SKYRIS_LOG, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_WILLOW_LOG, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_WITCH_HAZEL_LOG, 5, 5);
@@ -66,6 +70,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.BLUE_ENCHANTED_WOOD, 5, 5);
         flammableBlock(BYGBlocks.CHERRY_WOOD, 5, 5);
         flammableBlock(BYGBlocks.CIKA_WOOD, 5, 5);
+        flammableBlock(BYGBlocks.CYPRESS_WOOD, 5, 5);
         flammableBlock(BYGBlocks.EBONY_WOOD, 5, 5);
         flammableBlock(BYGBlocks.FIR_WOOD, 5, 5);
         flammableBlock(BYGBlocks.GREEN_ENCHANTED_WOOD, 5, 5);
@@ -78,6 +83,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PINE_WOOD, 5, 5);
         flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_WOOD, 5, 5);
         flammableBlock(BYGBlocks.REDWOOD_WOOD, 5, 5);
+        flammableBlock(BYGBlocks.SKYRIS_WOOD, 5, 5);
         flammableBlock(BYGBlocks.WILLOW_WOOD, 5, 5);
         flammableBlock(BYGBlocks.WITCH_HAZEL_WOOD, 5, 5);
         flammableBlock(BYGBlocks.ZELKOVA_WOOD, 5, 5);
@@ -99,7 +105,9 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.STRIPPED_MANGROVE_WOOD, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_MAPLE_WOOD, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_PALO_VERDE_WOOD, 5, 5);
+        flammableBlock(BYGBlocks.STRIPPED_PINE_WOOD, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_RAINBOW_EUCALYPTUS_WOOD, 5, 5);
+        flammableBlock(BYGBlocks.STRIPPED_REDWOOD_WOOD, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_SKYRIS_WOOD, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_WILLOW_WOOD, 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_WITCH_HAZEL_WOOD, 5, 5);
@@ -227,6 +235,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.ZELKOVA_FENCE, 5, 20);
 
         //Leaves
+        flammableBlock(BYGBlocks.ARAUCARIA_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.ASPEN_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.BAOBAB_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES, 30, 60);
@@ -234,6 +243,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.BLUE_SPRUCE_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.BROWN_BIRCH_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.BROWN_OAK_LEAVES, 30, 60);
+        flammableBlock(BYGBlocks.BROWN_ZELKOVA_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.CIKA_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.CYPRESS_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.EBONY_LEAVES, 30, 60);
@@ -243,7 +253,9 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.GREEN_ENCHANTED_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.HOLLY_BERRY_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.HOLLY_LEAVES, 30, 60);
+        flammableBlock(BYGBlocks.INDIGO_JACARANDA_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.JACARANDA_LEAVES, 30, 60);
+        flammableBlock(BYGBlocks.JOSHUA_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.MAHOGANY_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.MANGROVE_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.ORANGE_BIRCH_LEAVES, 30, 60);
@@ -255,7 +267,10 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PINK_CHERRY_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.REDWOOD_LEAVES, 30, 60);
+        flammableBlock(BYGBlocks.RED_BIRCH_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.RED_OAK_LEAVES, 30, 60);
+        flammableBlock(BYGBlocks.RED_SPRUCE_LEAVES, 30, 60);
+        flammableBlock(BYGBlocks.RIPE_JOSHUA_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.RIPE_ORCHARD_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.SILVER_MAPLE_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.MAPLE_LEAVES, 30, 60);
@@ -268,6 +283,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.YELLOW_BIRCH_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.PALM_LEAVES, 30, 60);
+        flammableBlock(BYGBlocks.ZELKOVA_LEAVES, 30, 60);
 
         //Flowers
         flammableBlock(BYGBlocks.ALLIUM_FLOWER_BUSH, 60, 100);
