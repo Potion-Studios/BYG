@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.properties.blocks.nether.crimson;
 
 import corgiaoc.byg.core.BYGItems;
+import corgiaoc.byg.util.MLBlockTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SweetBerryBushBlock;
@@ -20,7 +21,6 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraftforge.common.Tags;
 
 public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
@@ -54,7 +54,7 @@ public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements IGrowa
 
     @Override
     protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.is(BlockTags.NYLIUM) || state.is(Tags.Blocks.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BlockTags.NYLIUM) || state.is(MLBlockTags.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

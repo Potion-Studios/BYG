@@ -2,7 +2,6 @@ package corgiaoc.byg;
 
 
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
-import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
 import corgiaoc.byg.common.entity.villager.BYGVillagerType;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
 import corgiaoc.byg.common.properties.blocks.vanilla.ITreeSpawner;
@@ -12,13 +11,11 @@ import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeSource;
 import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.BYGJsonConfigHandler;
 import corgiaoc.byg.core.BYGBlocks;
-import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.entrypoint.EntryPoint;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -87,7 +84,6 @@ public class BYG {
         isClient = true;
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
         BYGCutoutRenders.renderCutOuts();
-        RenderingRegistry.registerEntityRenderingHandler(BYGEntities.BOAT, BYGBoatRenderer::new);
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
 

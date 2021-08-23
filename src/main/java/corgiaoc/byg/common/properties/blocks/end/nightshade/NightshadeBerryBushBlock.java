@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.properties.blocks.end.nightshade;
 
 import corgiaoc.byg.core.BYGItems;
+import corgiaoc.byg.util.MLBlockTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SweetBerryBushBlock;
@@ -26,7 +27,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
@@ -46,7 +46,7 @@ public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements IGr
     @Override
     public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
         int i = state.getValue(AGE);
-        if (i < 3 && worldIn.getRawBrightness(pos.above(), 0) <= 10 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state,random.nextInt(5) == 0)) {
+        if (i < 3 && worldIn.getRawBrightness(pos.above(), 0) <= 10 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt(5) == 0)) {
             worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(i + 1)), 2);
             net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
         }
@@ -72,7 +72,7 @@ public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements IGr
 
     @Override
     protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.is(BlockTags.NYLIUM) || state.is(Tags.Blocks.END_STONES) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BlockTags.NYLIUM) || state.is(MLBlockTags.END_STONES) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

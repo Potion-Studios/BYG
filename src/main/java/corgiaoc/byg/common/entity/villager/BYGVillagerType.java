@@ -2,6 +2,7 @@ package corgiaoc.byg.common.entity.villager;
 
 import com.google.common.collect.Maps;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.mixin.access.VillagerTypeAccess;
 import net.minecraft.entity.villager.VillagerType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.Util;
@@ -31,7 +32,7 @@ public class BYGVillagerType {
     });
 
     public static void setVillagerForBYGBiomes() {
-        VillagerType.BY_BIOME.putAll(BY_BYG_BIOME);
+        VillagerTypeAccess.getVillagerByBiome().putAll(BY_BYG_BIOME);
     }
 
     public static RegistryKey<Biome> getBiomeKey(Biome biome) {

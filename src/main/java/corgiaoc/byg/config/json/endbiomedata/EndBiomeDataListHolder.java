@@ -2,6 +2,8 @@ package corgiaoc.byg.config.json.endbiomedata;
 
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
+import corgiaoc.byg.mixin.access.WeightedListAccess;
+import corgiaoc.byg.mixin.access.WeightedListEntryAccess;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
@@ -57,7 +59,7 @@ public class EndBiomeDataListHolder {
         for (EndBiomeData endBiomeData : BYGEndBiome.endBiomeData) {
             WeightedList<ResourceLocation> biomeWeightedList = endBiomeData.getBiomeWeightedList();
             if (biomeWeightedList != null) {
-                biomeWeightedList.entries.removeIf(biomeEntry -> biomeEntry.weight <= 0);
+                ((WeightedListAccess<ResourceLocation>) biomeWeightedList).getEntries().removeIf(biomeEntry -> ((WeightedListEntryAccess) biomeEntry).getWeight() <= 0);
                 biome_to_hills.put(endBiomeData.getBiome(), biomeWeightedList);
             }
             if (endBiomeData.getEdgeBiome() != null)
@@ -69,7 +71,7 @@ public class EndBiomeDataListHolder {
         for (EndBiomeData endBiomeData : BYGEndBiome.voidBiomeData) {
             WeightedList<ResourceLocation> biomeWeightedList = endBiomeData.getBiomeWeightedList();
             if (biomeWeightedList != null) {
-                biomeWeightedList.entries.removeIf(biomeEntry -> biomeEntry.weight <= 0);
+                ((WeightedListAccess<ResourceLocation>) biomeWeightedList).getEntries().removeIf(biomeEntry -> ((WeightedListEntryAccess) biomeEntry).getWeight() <= 0);
                 biome_to_hills.put(endBiomeData.getBiome(), biomeWeightedList);
             }
             if (endBiomeData.getEdgeBiome() != null)
@@ -80,11 +82,11 @@ public class EndBiomeDataListHolder {
 
         biome_to_hills.entrySet().removeIf(Objects::isNull);
         biome_to_edge.entrySet().removeIf(Objects::isNull);
-        end_biomes.entries.removeIf(Objects::isNull);
-        void_biomes.entries.removeIf(Objects::isNull);
+        ((WeightedListAccess<ResourceLocation>) end_biomes).getEntries().removeIf(Objects::isNull);
+        ((WeightedListAccess<ResourceLocation>) void_biomes).getEntries().removeIf(Objects::isNull);
 
-        end_biomes.entries.sort(Comparator.comparing(WeightedList.Entry::getData));
-        void_biomes.entries.sort(Comparator.comparing(WeightedList.Entry::getData));
+        ((WeightedListAccess<ResourceLocation>) end_biomes).getEntries().sort(Comparator.comparing(WeightedList.Entry::getData));
+        ((WeightedListAccess<ResourceLocation>) void_biomes).getEntries().sort(Comparator.comparing(WeightedList.Entry::getData));
 
         BYGEndBiomeSource.END_BIOMES = end_biomes;
         BYGEndBiomeSource.VOID_BIOMES = void_biomes;

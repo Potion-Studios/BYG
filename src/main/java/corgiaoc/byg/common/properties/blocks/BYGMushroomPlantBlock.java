@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
+import corgiaoc.byg.util.MLBlockTags;
 import net.minecraft.block.*;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
@@ -11,7 +12,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
@@ -29,7 +29,7 @@ public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return (isNetherFungi) ? state.is(BlockTags.NYLIUM) || state.is(Blocks.MYCELIUM) || state.is(Blocks.SOUL_SOIL) || state.is(BlockTags.BASE_STONE_NETHER) || state.is(Tags.Blocks.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos) : state.isSolidRender(worldIn, pos);
+        return (isNetherFungi) ? state.is(BlockTags.NYLIUM) || state.is(Blocks.MYCELIUM) || state.is(Blocks.SOUL_SOIL) || state.is(BlockTags.BASE_STONE_NETHER) || state.is(MLBlockTags.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos) : state.isSolidRender(worldIn, pos);
     }
 
     @Override

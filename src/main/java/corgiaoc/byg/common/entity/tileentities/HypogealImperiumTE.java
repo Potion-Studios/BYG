@@ -38,8 +38,6 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
 
     private NonNullList<ItemStack> contents = NonNullList.withSize(20, ItemStack.EMPTY);
     protected int numPlayersUsing;
-    private final IItemHandlerModifiable items = createHandler();
-    private LazyOptional<IItemHandlerModifiable> itemHandler = LazyOptional.of(() -> items);
     protected int crystal = 0;
     public int fuel;
     public int damageTime;
@@ -283,22 +281,6 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     }
 
     @Override
-    public void clearCache() {
-        super.clearCache();
-        if (this.itemHandler != null) {
-            this.itemHandler.invalidate();
-            this.itemHandler = null;
-        }
-    }
-
-    @Override
-    protected void invalidateCaps() {
-        super.invalidateCaps();
-        if (itemHandler != null)
-            itemHandler.invalidate();
-    }
-
-    @Override
     public int getContainerSize() {
         return 20;
     }
@@ -334,11 +316,27 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         crystal = amount;
     }
 
-    private IItemHandlerModifiable createHandler() {
-        return new InvWrapper(this);
-    }
-
     private boolean isLit() {
         return this.getFuel() > 0;
+    }
+
+    //Forge
+    private final IItemHandlerModifiable items = new InvWrapper(this);
+    private LazyOptional<IItemHandlerModifiable> itemHandler = LazyOptional.of(() -> items);
+
+    @Override
+    public void clearCache() {
+        super.clearCache();
+        if (this.itemHandler != null) {
+            this.itemHandler.invalidate();
+            this.itemHandler = null;
+        }
+    }
+
+    @Override
+    protected void invalidateCaps() {
+        super.invalidateCaps();
+        if (itemHandler != null)
+            itemHandler.invalidate();
     }
 }

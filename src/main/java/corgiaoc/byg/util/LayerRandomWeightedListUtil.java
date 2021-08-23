@@ -1,5 +1,7 @@
 package corgiaoc.byg.util;
 
+import corgiaoc.byg.mixin.access.WeightedListAccess;
+import corgiaoc.byg.mixin.access.WeightedListEntryAccess;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.Biome;
@@ -14,18 +16,18 @@ public class LayerRandomWeightedListUtil {
     public static Biome pickBiome(WeightedList<Biome> biomeWeightedList, INoiseRandom rand) {
         double total = 0;
 
-        for (WeightedList.Entry<Biome> biomeEntry : biomeWeightedList.entries)
-            total = total + biomeEntry.weight;
+        for (WeightedList.Entry<Biome> biomeEntry : ((WeightedListAccess<Biome>) biomeWeightedList).getEntries())
+            total = total + ((WeightedListEntryAccess) biomeEntry).getWeight();
 
         double randVal = target(rand, total);
         int i = -1;
 
         while (randVal >= 0) {
             ++i;
-            randVal -= biomeWeightedList.entries.get(i).weight;
+            randVal -= ((WeightedListEntryAccess) ((WeightedListAccess<Biome>) biomeWeightedList).getEntries().get(i)).getWeight();
         }
 
-        return biomeWeightedList.entries.get(i).getData();
+        return ((WeightedListAccess<Biome>) biomeWeightedList).getEntries().get(i).getData();
     }
 
     private static double target(INoiseRandom random, double weightTotal) {
@@ -39,17 +41,17 @@ public class LayerRandomWeightedListUtil {
     public static ResourceLocation pickBiomeFromID(WeightedList<ResourceLocation> biomeWeightedList, INoiseRandom rand) {
         double total = 0;
 
-        for (WeightedList.Entry biomeEntry : biomeWeightedList.entries)
-            total = total + biomeEntry.weight;
+        for (WeightedList.Entry biomeEntry : ((WeightedListAccess<ResourceLocation>) biomeWeightedList).getEntries())
+            total = total + ((WeightedListEntryAccess) biomeEntry).getWeight();
 
         double randVal = target(rand, total);
         int i = -1;
 
         while (randVal >= 0) {
             ++i;
-            randVal -= biomeWeightedList.entries.get(i).weight;
+            randVal -= ((WeightedListEntryAccess) ((WeightedListAccess<ResourceLocation>) biomeWeightedList).getEntries().get(i)).getWeight();
         }
 
-        return biomeWeightedList.entries.get(i).getData();
+        return ((WeightedListAccess<ResourceLocation>) biomeWeightedList).getEntries().get(i).getData();
     }
 }

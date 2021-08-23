@@ -22,6 +22,7 @@ import corgiaoc.byg.config.json.endbiomedata.EndBiomeData;
 import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeData;
 import corgiaoc.byg.config.json.subbiomedata.SubBiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
+import corgiaoc.byg.mixin.access.BiomeGenerationSettingsAccess;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
@@ -406,8 +407,8 @@ public class BYGBiomes {
     }
 
     public static void addFeatureToBiomeFirst(Biome biome, ConfiguredFeature<?, ?> configuredFeature) {
-        ConvertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.getGenerationSettings().features;
+        convertImmutableFeatures(biome);
+        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
 
         List<Supplier<ConfiguredFeature<?, ?>>> suppliers = biomeFeatures.get(GenerationStage.Decoration.RAW_GENERATION.ordinal());
 
@@ -419,30 +420,30 @@ public class BYGBiomes {
 
     //Use these to add our features to vanilla's biomes.
     public static void addFeatureToBiome(Biome biome, GenerationStage.Decoration feature, ConfiguredFeature<?, ?> configuredFeature) {
-        ConvertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.getGenerationSettings().features;
+        convertImmutableFeatures(biome);
+        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
         while (biomeFeatures.size() <= feature.ordinal()) {
             biomeFeatures.add(Lists.newArrayList());
         }
         biomeFeatures.get(feature.ordinal()).add(() -> configuredFeature);
     }
 
-    private static void ConvertImmutableFeatures(Biome biome) {
-        if (biome.getGenerationSettings().features instanceof ImmutableList) {
-            biome.getGenerationSettings().features = biome.getGenerationSettings().features.stream().map(Lists::newArrayList).collect(Collectors.toList());
+    private static void convertImmutableFeatures(Biome biome) {
+        List<List<Supplier<ConfiguredFeature<?, ?>>>> features = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
+        if (features instanceof ImmutableList) {
+            ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).setFeatures(features.stream().map(Lists::newArrayList).collect(Collectors.toList()));
         }
     }
 
     //Use these to add our features to vanilla's biomes.
     public static void addStructureToBiome(Biome biome, StructureFeature<?, ?> configuredStructure) {
         convertImmutableStructures(biome);
-        List<Supplier<StructureFeature<?, ?>>> biomeFeatures = biome.getGenerationSettings().structureStarts;
+        List<Supplier<StructureFeature<?, ?>>> biomeFeatures = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getStructureStarts();
         biomeFeatures.add(() -> configuredStructure);
-
     }
 
     private static void convertImmutableStructures(Biome biome) {
-        biome.getGenerationSettings().structureStarts = new ArrayList<>(biome.getGenerationSettings().structureStarts);
+        ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).setStructureStarts(new ArrayList<>(((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getStructureStarts()));
     }
 
     public static class PreserveBiomeOrder {

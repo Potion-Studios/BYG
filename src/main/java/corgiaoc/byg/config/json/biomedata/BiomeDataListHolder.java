@@ -1,6 +1,8 @@
 package corgiaoc.byg.config.json.biomedata;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.mixin.access.WeightedListAccess;
+import corgiaoc.byg.mixin.access.WeightedListEntryAccess;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -38,7 +40,7 @@ public class BiomeDataListHolder {
         for (BiomeData biomeData : BYGBiome.biomeData) {
             WeightedList<Biome> biomeWeightedList = biomeData.getBiomeWeightedList();
             if (biomeWeightedList != null) {
-                biomeWeightedList.entries.removeIf(biomeEntry -> biomeEntry.weight <= 0);
+                ((WeightedListAccess<Biome>) biomeWeightedList).getEntries().removeIf(biomeEntry -> ((WeightedListEntryAccess) biomeEntry).getWeight() <= 0);
                 BYGBiome.BIOME_TO_HILLS_LIST.put(WorldGenRegistries.BIOME.getId(biomeData.getBiome()), biomeWeightedList);
             }
             if (biomeData.getBeachBiome() != null)

@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.biome;
 
 import corgiaoc.byg.config.json.biomedata.BiomeData;
+import corgiaoc.byg.mixin.access.BiomeAccess;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -28,7 +29,7 @@ public class BYGBiome {
     public static final Int2ObjectMap<Biome> BIOME_TO_RIVER_LIST = new Int2ObjectArrayMap<>();
 
     public BYGBiome(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
-        biome = new Biome(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
+        biome = BiomeAccess.create(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
         BYG_BIOMES.add(this);
     }
 

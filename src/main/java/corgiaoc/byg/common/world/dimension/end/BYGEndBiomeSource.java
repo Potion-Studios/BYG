@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import corgiaoc.byg.config.json.BYGJsonConfigHandler;
+import corgiaoc.byg.mixin.access.WeightedListAccess;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.WeightedList;
@@ -45,7 +46,7 @@ public class BYGEndBiomeSource extends BiomeProvider {
 
     private static List<Biome> handleJsonAndFillBiomeList(Registry<Biome> registry) {
         BYGJsonConfigHandler.handleEndBiomeJsonConfigs(BYG.CONFIG_PATH, registry);
-        return Stream.concat(END_BIOMES.entries.stream(), VOID_BIOMES.entries.stream()).map(WeightedList.Entry::getData).map(registry::get).collect(Collectors.toList());
+        return Stream.concat(((WeightedListAccess<ResourceLocation>) END_BIOMES).getEntries().stream(), ((WeightedListAccess<ResourceLocation>) VOID_BIOMES).getEntries().stream()).map(WeightedList.Entry::getData).map(registry::get).collect(Collectors.toList());
     }
 
     @Override

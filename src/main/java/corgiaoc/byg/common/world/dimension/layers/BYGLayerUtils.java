@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.world.dimension.layers;
 
+import corgiaoc.byg.mixin.access.WeightedListAccess;
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.util.ResourceLocation;
@@ -12,7 +13,7 @@ public class BYGLayerUtils {
 
     @Nullable
     public static Biome getBiomeFromWeightedList(WeightedList<ResourceLocation> oceanBiomeList, INoiseRandom layerRandom, Registry<Biome> biomeRegistry) {
-        if (oceanBiomeList.entries.size() > 0) {
+        if (((WeightedListAccess<ResourceLocation>) oceanBiomeList).getEntries().size() > 0) {
             return biomeRegistry.get(LayerRandomWeightedListUtil.getBiomeFromID(oceanBiomeList, layerRandom));
         } else {
             return null;

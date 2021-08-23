@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.world.dimension.layers;
 
+import corgiaoc.byg.mixin.access.WeightedListAccess;
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.util.ResourceLocation;
@@ -47,7 +48,7 @@ public class BYGHillsLayer implements IAreaTransformer2, IDimOffset1Transformer 
 
     @Nullable
     private Biome getHillBiomeValue(WeightedList<ResourceLocation> biomeHolder, INoiseRandom layerRandom) {
-        if (biomeHolder.entries.size() > 0) {
+        if (((WeightedListAccess<ResourceLocation>) biomeHolder).getEntries().size() > 0) {
             return biomeRegistry.get(LayerRandomWeightedListUtil.getBiomeFromID(biomeHolder, layerRandom));
         }
         else {

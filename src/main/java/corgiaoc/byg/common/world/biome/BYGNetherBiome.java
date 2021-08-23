@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.world.biome;
 
+import corgiaoc.byg.mixin.access.BiomeAccess;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -26,7 +27,7 @@ public class BYGNetherBiome {
 
 
     public BYGNetherBiome(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
-        biome = new Biome(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
+        biome = BiomeAccess.create(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
         BYG_NETHER_BIOMES.add(this);
     }
 

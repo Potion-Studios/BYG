@@ -18,7 +18,6 @@ public class MixinTileEntityType {
 
     @Inject(method = "register", at = @At("HEAD"))
     private static <T extends TileEntity> void addCampFireBlocks(String id, TileEntityType.Builder<T> builder, CallbackInfoReturnable<TileEntityType<T>> cir) {
-
         if (id.equals("campfire")) {
             TileEntityTypeBuilderAccess builderAccess = (TileEntityTypeBuilderAccess) (Object) builder;
             Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.getValidBlocks());

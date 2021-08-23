@@ -2,16 +2,15 @@ package corgiaoc.byg.common.world.feature.nether.wailinggarth;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.util.MLBlockTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.DimensionType;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
@@ -31,7 +30,7 @@ public class WailingVine extends Feature<NoFeatureConfig> {
         for (int i = 0; i < 128; ++i)
             if (!worldIn.isEmptyBlock(pos)) {
             return false;
-        } else if (!worldIn.getBlockState(pos.above()).is(Tags.Blocks.NETHERRACK) && !(worldIn.dimensionType() == DimensionType.DEFAULT_NETHER)) {
+        } else if (!worldIn.getBlockState(pos.above()).is(MLBlockTags.NETHERRACK)) {
             return false;
         } else {
             for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {

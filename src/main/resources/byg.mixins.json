@@ -5,11 +5,25 @@
   "refmap": "byg.refmap.json",
   "mixins": [
     "MixinTileEntityType",
+    "access.AxeItemAccess",
+    "access.BiomeAccess",
     "access.BiomeContainerAccess",
+    "access.BiomeGenerationSettingsAccess",
     "access.BlockEntityTypeBuilderAccess",
+    "access.BoatEntityAccess",
+    "access.DimensionStructuresSettingsAccess",
+    "access.FillerBlockTypeAccess",
+    "access.FireBlockAccess",
+    "access.HoeItemAccess",
     "access.NyliumBlockAccess",
     "access.SpreadableSnowyDirtBlockAccess",
+    "access.StructureAccess",
     "access.TileEntityTypeBuilderAccess",
+    "access.VillagerTypeAccess",
+    "access.WeightedListAccess",
+    "access.WeightedListEntryAccess",
+    "access.WorldCarverAccess",
+    "access.WorldDecoratingHelperAccess",
     "common.block.MixinAbstractFireBlock",
     "common.block.MixinBlocks",
     "common.block.MixinCactusBlock",
@@ -31,8 +45,11 @@
     "server.MixinMinecraftServer"
   ],
   "client": [
+    "client.MixinBlockColors",
     "client.MixinClientPlayNetHandler",
     "client.MixinDebugOverlayGui",
+    "client.MixinEntityRendererManager",
+    "client.MixinItemColors",
     "client.MixinScreenManager"
   ],
   "injectors": {

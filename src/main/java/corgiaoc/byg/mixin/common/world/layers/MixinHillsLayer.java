@@ -2,6 +2,7 @@ package corgiaoc.byg.mixin.common.world.layers;
 
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.mixin.access.WeightedListAccess;
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.util.WeightedList;
@@ -58,7 +59,7 @@ public abstract class MixinHillsLayer {
 
     @Nullable
     private static Biome getHillBiomeValue(WeightedList<Biome> biomeHolder, INoiseRandom layerRandom) {
-        if (biomeHolder.entries.size() > 0) {
+        if (((WeightedListAccess<Biome>) biomeHolder).getEntries().size() > 0) {
             return LayerRandomWeightedListUtil.getBiome(biomeHolder, layerRandom);
         }
         else {

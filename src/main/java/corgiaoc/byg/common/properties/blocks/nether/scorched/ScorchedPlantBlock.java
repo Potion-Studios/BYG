@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.scorched;
 
+import corgiaoc.byg.util.MLBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -11,7 +12,6 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
-import net.minecraftforge.common.Tags;
 
 public class ScorchedPlantBlock extends BushBlock implements net.minecraftforge.common.IForgeShearable {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -32,7 +32,7 @@ public class ScorchedPlantBlock extends BushBlock implements net.minecraftforge.
 
     @Override
     protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.is(BlockTags.NYLIUM) || state.is(Blocks.MYCELIUM) || state.is(Blocks.SOUL_SOIL) || state.is(BlockTags.BASE_STONE_NETHER) || state.is(Tags.Blocks.END_STONES)|| super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BlockTags.NYLIUM) || state.is(Blocks.MYCELIUM) || state.is(Blocks.SOUL_SOIL) || state.is(BlockTags.BASE_STONE_NETHER) || state.is(MLBlockTags.END_STONES)|| super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

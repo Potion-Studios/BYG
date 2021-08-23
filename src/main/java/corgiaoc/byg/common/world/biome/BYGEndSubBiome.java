@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.biome;
 
 import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeData;
+import corgiaoc.byg.mixin.access.BiomeAccess;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
@@ -23,7 +24,7 @@ public class BYGEndSubBiome {
     public static List<EndSubBiomeData> voidSubBiomeData = new ArrayList<>();
 
     public BYGEndSubBiome(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
-        biome = new Biome(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
+        biome = BiomeAccess.create(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
         BYG_END_SUB_BIOMES.add(this);
     }
 

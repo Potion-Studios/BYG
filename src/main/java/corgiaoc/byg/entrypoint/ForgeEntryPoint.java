@@ -8,23 +8,25 @@ import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.BYGItems;
 import corgiaoc.byg.core.BYGTileEntities;
 import corgiaoc.byg.core.world.*;
+import corgiaoc.byg.data.providers.BYGBlockTagsProvider;
+import corgiaoc.byg.mixin.access.FillerBlockTypeAccess;
 import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
+import net.minecraft.network.IPacket;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.blockplacer.BlockPlacerType;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.TagMatchRuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.world.ForgeWorldType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,15 +34,18 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.fml.network.NetworkHooks;
 
 import java.nio.file.Path;
 import java.util.Comparator;
 
 
 @Mod("byg")
+@Mod.EventBusSubscriber(modid = BYG.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ForgeEntryPoint implements EntryPoint {
 
     public ForgeEntryPoint() {
@@ -48,7 +53,6 @@ public class ForgeEntryPoint implements EntryPoint {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
-        MinecraftForge.EVENT_BUS.register(new ForgeEvents());
         BYG.entryPoint = this;
         BYG.CONFIG_PATH = configDirectory();
     }
@@ -70,6 +74,11 @@ public class ForgeEntryPoint implements EntryPoint {
     @Override
     public Path configDirectory() {
         return FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID);
+    }
+
+    @Override
+    public IPacket<?> getEntitySpawnPacket(Entity entity) {
+        return NetworkHooks.getEntitySpawningPacket(entity);
     }
 
     @Mod.EventBusSubscriber(modid = BYG.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -112,75 +121,75 @@ public class ForgeEntryPoint implements EntryPoint {
         }
     }
 
-    @Mod.EventBusSubscriber(modid = BYG.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class BYGWorldGenRegistries {
-
-        @SubscribeEvent
-        public static void registerBiomes(RegistryEvent.Register<Biome> event) {
-            BYG.LOGGER.debug("BYG: Registering biomes...");
-            BYGBiomes.init();
-            BYGBiomes.biomeList.sort(Comparator.comparingInt(BYGBiomes.PreserveBiomeOrder::getOrderPosition));
-            BYGBiomes.biomeList.forEach(preserveBiomeOrder -> event.getRegistry().register(preserveBiomeOrder.getBiome()));
-            BYGBiomes.CANYON_KEY = BYGBiomes.CANYON.getKey();
-            BYG.LOGGER.info("BYG: Biomes registered!");
-        }
-
-        @SubscribeEvent
-        public static void registerDecorators(RegistryEvent.Register<Placement<?>> event) {
-            BYG.LOGGER.debug("BYG: Registering decorators...");
-            BYGDecorators.init();
-            BYGDecorators.decorators.forEach(decorator -> event.getRegistry().register(decorator));
-            BYG.LOGGER.info("BYG: Decorators registered!");
-        }
-
-        @SubscribeEvent
-        public static void registerStructures(RegistryEvent.Register<Structure<?>> event) {
-            BYG.LOGGER.debug("BYG: Registering structures...");
-            BYGStructures.init();
-//            BYGStructures.structures.forEach(structure -> event.getRegistry().register(structure));
-//            Structure.STRUCTURE_DECORATION_STAGE_MAP.forEach(((structure, decoration) -> System.out.println(Registry.STRUCTURE_FEATURE.getKey(structure).toString())));
-            BYG.LOGGER.info("BYG: Structures registered!");
-        }
-
-        @SubscribeEvent
-        public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
-            BYG.LOGGER.debug("BYG: Registering features...");
-            OreFeatureConfig.FillerBlockType.NETHERRACK = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
-            BYGFeatures.init();
-            BYGFeatures.features.forEach(feature -> event.getRegistry().register(feature));
-            BYG.LOGGER.info("BYG: Features registered!");
-        }
-
-        @SubscribeEvent
-        public static void registerSurfaceBuilders(RegistryEvent.Register<SurfaceBuilder<?>> event) {
-            BYG.LOGGER.debug("BYG: Registering surface builders...");
-            BYGSurfaceBuilders.init();
-            BYGSurfaceBuilders.surfaceBuilders.forEach(surfaceBuilder -> event.getRegistry().register(surfaceBuilder));
-            BYG.LOGGER.info("BYG: Surface builders Registered!");
-        }
-
-
-        @SubscribeEvent
-        public static void registerBlockPlacerType(RegistryEvent.Register<BlockPlacerType<?>> event) {
-            BYG.LOGGER.debug("BYG: Registering block placer types...");
-            BYGBlockPlacerTypes.init();
-            BYGBlockPlacerTypes.types.forEach(type -> event.getRegistry().register(type));
-            BYG.LOGGER.info("BYG: Registering block placer types!");
-        }
-
-        //Only for terraforged usage and not player's.
-        @SubscribeEvent
-        public static void registerWorldtype(RegistryEvent.Register<ForgeWorldType> event) {
-            event.getRegistry().register(new BYGWorldTypeThatIsntAWorldtype().setRegistryName(new ResourceLocation(BYG.MOD_ID, "world")));
-        }
+    @SubscribeEvent
+    public static void registerBiomes(RegistryEvent.Register<Biome> event) {
+        BYG.LOGGER.debug("BYG: Registering biomes...");
+        BYGBiomes.init();
+        BYGBiomes.biomeList.sort(Comparator.comparingInt(BYGBiomes.PreserveBiomeOrder::getOrderPosition));
+        BYGBiomes.biomeList.forEach(preserveBiomeOrder -> event.getRegistry().register(preserveBiomeOrder.getBiome()));
+        BYGBiomes.CANYON_KEY = BYGBiomes.CANYON.getKey();
+        BYG.LOGGER.info("BYG: Biomes registered!");
     }
 
-    public static class ForgeEvents {
-        @SubscribeEvent
-        public void commandRegisterEvent(FMLServerStartingEvent event) {
-            BYG.LOGGER.debug("BYG: \"Server Starting\" Event Starting...");
-            GenDataCommand.dataGenCommand(event.getServer().getCommands().getDispatcher());
-            BYG.LOGGER.info("BYG: \"Server Starting\" Event Complete!");
-        }
+    @SubscribeEvent
+    public static void registerDecorators(RegistryEvent.Register<Placement<?>> event) {
+        BYG.LOGGER.debug("BYG: Registering decorators...");
+        BYGDecorators.init();
+        BYGDecorators.decorators.forEach(decorator -> event.getRegistry().register(decorator));
+        BYG.LOGGER.info("BYG: Decorators registered!");
+    }
+
+    @SubscribeEvent
+    public static void registerStructures(RegistryEvent.Register<Structure<?>> event) {
+        BYG.LOGGER.debug("BYG: Registering structures...");
+        BYGStructures.init();
+//            BYGStructures.structures.forEach(structure -> event.getRegistry().register(structure));
+//            Structure.STRUCTURE_DECORATION_STAGE_MAP.forEach(((structure, decoration) -> System.out.println(Registry.STRUCTURE_FEATURE.getKey(structure).toString())));
+        BYG.LOGGER.info("BYG: Structures registered!");
+    }
+
+    @SubscribeEvent
+    public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
+        BYG.LOGGER.debug("BYG: Registering features...");
+        FillerBlockTypeAccess.setNetherFillerType(new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER));
+        BYGFeatures.init();
+        BYGFeatures.features.forEach(feature -> event.getRegistry().register(feature));
+        BYG.LOGGER.info("BYG: Features registered!");
+    }
+
+    @SubscribeEvent
+    public static void registerSurfaceBuilders(RegistryEvent.Register<SurfaceBuilder<?>> event) {
+        BYG.LOGGER.debug("BYG: Registering surface builders...");
+        BYGSurfaceBuilders.init();
+        BYGSurfaceBuilders.surfaceBuilders.forEach(surfaceBuilder -> event.getRegistry().register(surfaceBuilder));
+        BYG.LOGGER.info("BYG: Surface builders Registered!");
+    }
+
+
+    @SubscribeEvent
+    public static void registerBlockPlacerType(RegistryEvent.Register<BlockPlacerType<?>> event) {
+        BYG.LOGGER.debug("BYG: Registering block placer types...");
+        BYGBlockPlacerTypes.init();
+        BYGBlockPlacerTypes.types.forEach(type -> event.getRegistry().register(type));
+        BYG.LOGGER.info("BYG: Registering block placer types!");
+    }
+
+    //Only for terraforged usage and not player's.
+    @SubscribeEvent
+    public static void registerWorldtype(RegistryEvent.Register<ForgeWorldType> event) {
+        event.getRegistry().register(new BYGWorldTypeThatIsntAWorldtype().setRegistryName(new ResourceLocation(BYG.MOD_ID, "world")));
+    }
+
+    @SubscribeEvent
+    public void commandRegisterEvent(FMLServerStartingEvent event) {
+        BYG.LOGGER.debug("BYG: \"Server Starting\" Event Starting...");
+        GenDataCommand.dataGenCommand(event.getServer().getCommands().getDispatcher());
+        BYG.LOGGER.info("BYG: \"Server Starting\" Event Complete!");
+    }
+
+
+    @SubscribeEvent
+    public static void data(GatherDataEvent event) {
+        event.getGenerator().addProvider(new BYGBlockTagsProvider(event.getGenerator(), event.getExistingFileHelper()));
     }
 }

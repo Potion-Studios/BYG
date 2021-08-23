@@ -2,6 +2,8 @@ package corgiaoc.byg.config.json.biomedata;
 
 import com.google.gson.*;
 import corgiaoc.byg.BYG;
+import corgiaoc.byg.mixin.access.WeightedListAccess;
+import corgiaoc.byg.mixin.access.WeightedListEntryAccess;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -26,13 +28,13 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             JsonObject object = new JsonObject();
 
             if (biomeData.getBiomeWeightedList() != null) {
-                for (WeightedList.Entry<Biome> biomeEntry : biomeData.getBiomeWeightedList().entries) {
+                for (WeightedList.Entry<Biome> biomeEntry : ((WeightedListAccess<Biome>) biomeData.getBiomeWeightedList()).getEntries()) {
                     JsonObject object2 = new JsonObject();
                     ResourceLocation biomeEntryKey = WorldGenRegistries.BIOME.getKey(biomeEntry.getData());
 
                     if (biomeEntryKey != null) {
                         object2.addProperty("name", biomeEntryKey.toString());
-                        object2.addProperty("weight", biomeEntry.weight);
+                        object2.addProperty("weight", ((WeightedListEntryAccess) biomeEntry).getWeight());
                         weightedListArray.add(object2);
                     } else {
                         BYG.LOGGER.error("One or more \"hills\" \"name\" value was null/incorrect.");
