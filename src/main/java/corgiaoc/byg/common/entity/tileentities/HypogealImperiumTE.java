@@ -21,9 +21,7 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.IIntArray;
-import net.minecraft.util.NonNullList;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
@@ -67,136 +65,7 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         super(BYGTileEntities.HYPOGEAL);
     }
 
-
-    @Override
-    protected ITextComponent getDefaultName() {
-        return new TranslationTextComponent("container.hypogeal_imperium_container");
-    }
-
-    @Override
-    protected Container createMenu(int id, PlayerInventory player) {
-        return new HypogealImperiumContainer(id, player, this, dataAccess);
-    }
-
-    @Override
-    public int getContainerSize() {
-        return 20;
-    }
-
-    @Override
-    public int getMaxStackSize() {
-        return 64;
-    }
-
-    @Override
-    public NonNullList<ItemStack> getItems() {
-        return this.contents;
-    }
-
-    @Override
-    protected void setItems(NonNullList<ItemStack> itemsIn) {
-        this.contents = itemsIn;
-    }
-
-    @Override
-    public void load(BlockState state, CompoundNBT nbt) {
-        super.load(state, nbt);
-        readData(nbt);
-    }
-
-    private void readData(CompoundNBT nbt) {
-        this.contents = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        this.fuel = nbt.getShort("Fuel");
-        this.setCrystal(nbt.getInt("Crystal"));
-        if (!this.tryLoadLootTable(nbt)) {
-            ItemStackHelper.loadAllItems(nbt, this.contents);
-        }
-    }
-
-
-    @Override
-    public CompoundNBT save(CompoundNBT compound) {
-        super.save(compound);
-        compound.putShort("Fuel", (short) this.fuel);
-        compound.putInt("Crystal", this.getCrystal());
-        if (!this.trySaveLootTable(compound)) {
-            ItemStackHelper.saveAllItems(compound, this.contents);
-        }
-        return compound;
-    }
-
-    @Override
-    public boolean triggerEvent(int id, int type) {
-        if (id == 1) {
-            this.numPlayersUsing = type;
-            return true;
-        } else {
-            return super.triggerEvent(id, type);
-        }
-    }
-
-    @Override
-    public void startOpen(PlayerEntity player) {
-        if (!player.isSpectator()) {
-            if (this.numPlayersUsing < 0) {
-                this.numPlayersUsing = 0;
-            }
-            ++this.numPlayersUsing;
-            this.onOpenOrClose();
-        }
-    }
-
-    @Override
-    public void stopOpen(PlayerEntity player) {
-        if (!player.isSpectator()) {
-            --this.numPlayersUsing;
-            this.onOpenOrClose();
-        }
-    }
-
-    protected void onOpenOrClose() {
-        Block block = this.getBlockState().getBlock();
-        if (block instanceof HypogealImperiumBlock) {
-            this.level.blockEvent(this.worldPosition, block, 1, this.numPlayersUsing);
-            this.level.updateNeighborsAt(this.worldPosition, block);
-        }
-    }
-
-    @Override
-    public void clearCache() {
-        super.clearCache();
-        if (this.itemHandler != null) {
-            this.itemHandler.invalidate();
-            this.itemHandler = null;
-        }
-    }
-
-    public int getFuel() {
-        return fuel;
-    }
-
-    public void setFuel(int amount) {
-        fuel = amount;
-    }
-
-    public int getCrystal() {
-        return crystal;
-    }
-
-    public void setCrystal(int amount) {
-        crystal = amount;
-    }
-
-    private IItemHandlerModifiable createHandler() {
-        return new InvWrapper(this);
-    }
-
-    @Override
-    protected void invalidateCaps() {
-        super.invalidateCaps();
-        if (itemHandler != null)
-            itemHandler.invalidate();
-    }
+    /*********************** Packets Start ***********************/
 
     @Override
     public CompoundNBT getUpdateTag() {
@@ -211,16 +80,54 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         return new SUpdateTileEntityPacket(getBlockPos(), -1, getUpdateTag());
     }
 
+    @Override
+    public void handleClientPacketNoTypeCheck(SUpdateTileEntityPacket packet) {
+        readData(packet.getTag());
+    }
 
+    /*********************** Packets End ***********************/
+    /*********************** Disk Start ***********************/
+
+    @Override
+    public void load(BlockState state, CompoundNBT nbt) {
+        super.load(state, nbt);
+        readData(nbt);
+    }
+
+    @Override
+    public CompoundNBT save(CompoundNBT compound) {
+        super.save(compound);
+        compound.putShort("Fuel", (short) this.fuel);
+        compound.putInt("Crystal", this.getCrystal());
+        if (!this.trySaveLootTable(compound)) {
+            ItemStackHelper.saveAllItems(compound, this.contents);
+        }
+        return compound;
+    }
+
+    /*********************** Disk End ***********************/
+
+
+    private void readData(CompoundNBT nbt) {
+        this.contents = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
+        this.fuel = nbt.getShort("Fuel");
+        this.setCrystal(nbt.getInt("Crystal"));
+        if (!this.tryLoadLootTable(nbt)) {
+            ItemStackHelper.loadAllItems(nbt, this.contents);
+        }
+    }
 
     @Override
     public void tick() {
+
+        if (this.level.getGameTime() % 80 == 0) {
+            this.level.playLocalSound(this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(), SoundEvents.BEACON_AMBIENT, SoundCategory.BLOCKS, 1, 1, false);
+        }
         this.addEffectsToMobs();
         this.changeBlocksInRadius();
         this.doCrystalLoad();
         this.addParticles();
         this.setLit();
-
     }
 
     public void setLit() {
@@ -230,16 +137,10 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
         }
     }
 
-
-    private boolean isLit() {
-        return this.getFuel() > 0;
-    }
-
     public void doCrystalLoad() {
         ItemStack itemFuelItem = this.getItem(0);
         ItemStack itemCatalystItem = this.getItem(1);
         ItemStack resultItem = this.getItem(2);
-        World world = this.level;
 
         if (this.getCrystal() < 12) {
             if (itemFuelItem.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD && this.getFuel() <= 0) {
@@ -335,7 +236,109 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     }
 
     @Override
-    public void handleClientPacketNoTypeCheck(SUpdateTileEntityPacket packet) {
-        readData(packet.getTag());
+    protected ITextComponent getDefaultName() {
+        return new TranslationTextComponent("container.hypogeal_imperium_container");
+    }
+
+    @Override
+    protected Container createMenu(int id, PlayerInventory player) {
+        return new HypogealImperiumContainer(id, player, this, dataAccess);
+    }
+
+    @Override
+    public boolean triggerEvent(int id, int type) {
+        if (id == 1) {
+            this.numPlayersUsing = type;
+            return true;
+        } else {
+            return super.triggerEvent(id, type);
+        }
+    }
+
+    @Override
+    public void startOpen(PlayerEntity player) {
+        if (!player.isSpectator()) {
+            if (this.numPlayersUsing < 0) {
+                this.numPlayersUsing = 0;
+            }
+            ++this.numPlayersUsing;
+            this.onOpenOrClose();
+        }
+    }
+
+    @Override
+    public void stopOpen(PlayerEntity player) {
+        if (!player.isSpectator()) {
+            --this.numPlayersUsing;
+            this.onOpenOrClose();
+        }
+    }
+
+    protected void onOpenOrClose() {
+        Block block = this.getBlockState().getBlock();
+        if (block instanceof HypogealImperiumBlock) {
+            this.level.blockEvent(this.worldPosition, block, 1, this.numPlayersUsing);
+            this.level.updateNeighborsAt(this.worldPosition, block);
+        }
+    }
+
+    @Override
+    public void clearCache() {
+        super.clearCache();
+        if (this.itemHandler != null) {
+            this.itemHandler.invalidate();
+            this.itemHandler = null;
+        }
+    }
+
+    @Override
+    protected void invalidateCaps() {
+        super.invalidateCaps();
+        if (itemHandler != null)
+            itemHandler.invalidate();
+    }
+
+    @Override
+    public int getContainerSize() {
+        return 20;
+    }
+
+    @Override
+    public int getMaxStackSize() {
+        return 64;
+    }
+
+    @Override
+    public NonNullList<ItemStack> getItems() {
+        return this.contents;
+    }
+
+    @Override
+    protected void setItems(NonNullList<ItemStack> itemsIn) {
+        this.contents = itemsIn;
+    }
+
+    public int getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(int amount) {
+        fuel = amount;
+    }
+
+    public int getCrystal() {
+        return crystal;
+    }
+
+    public void setCrystal(int amount) {
+        crystal = amount;
+    }
+
+    private IItemHandlerModifiable createHandler() {
+        return new InvWrapper(this);
+    }
+
+    private boolean isLit() {
+        return this.getFuel() > 0;
     }
 }
