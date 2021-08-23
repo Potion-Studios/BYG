@@ -184,7 +184,5 @@ public class ForgeEntryPoint implements EntryPoint {
             GenDataCommand.dataGenCommand(event.getServer().getCommands().getDispatcher());
             BYG.LOGGER.info("BYG: \"Server Starting\" Event Complete!");
         }
-
-
     }
 }

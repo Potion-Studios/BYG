@@ -29,6 +29,7 @@
     "server.MixinMinecraftServer"
   ],
   "client": [
+    "client.MixinClientPlayNetHandler",
     "client.MixinDebugOverlayGui",
     "client.MixinScreenManager",
     "client.MixinTileEntityRenderDispatcher"

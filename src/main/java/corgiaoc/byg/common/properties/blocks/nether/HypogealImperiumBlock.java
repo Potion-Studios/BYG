@@ -81,16 +81,16 @@ public class HypogealImperiumBlock extends Block {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState p_180655_1_, World p_180655_2_, BlockPos p_180655_3_, Random p_180655_4_) {
-        if (p_180655_1_.getValue(LIT)) {
+    public void animateTick(BlockState state, World world, BlockPos pos, Random rand) {
+        if (state.getValue(LIT)) {
             for(int i = -2; i <= 2; ++i) {
                 for(int j = -2; j <= 2; ++j) {
                     if (i > -2 && i < 2 && j == -1) {
                         j = 2;
                     }
-                    if (p_180655_4_.nextInt(16) == 0) {
+                    if (rand.nextInt(16) == 0) {
                         for(int k = 0; k <= 1; ++k) {
-                            p_180655_2_.addParticle(ParticleTypes.END_ROD, (double)p_180655_3_.getX() + 0.5D, (double)p_180655_3_.getY() + 2.0D, (double)p_180655_3_.getZ() + 0.5D, (double)((float)i + p_180655_4_.nextFloat()) - 0.5D, (float)k - p_180655_4_.nextFloat() - 1.0F, (double)((float)j + p_180655_4_.nextFloat()) - 0.5D);
+                            world.addParticle(ParticleTypes.END_ROD, (double)pos.getX() + 0.5D, (double)pos.getY() + 2.0D, (double)pos.getZ() + 0.5D, (double)((float)i + rand.nextFloat()) - 0.5D, (float)k - rand.nextFloat() - 1.0F, (double)((float)j + rand.nextFloat()) - 0.5D);
                         }
                     }
                 }
