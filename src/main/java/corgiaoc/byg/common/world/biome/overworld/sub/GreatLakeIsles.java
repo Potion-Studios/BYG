@@ -10,7 +10,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class GreatLakeIsles extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("great_lake_isles", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GREAT_LAKE_ISLES, SurfaceBuilder.CONFIG_GRASS));
@@ -33,8 +32,8 @@ public class GreatLakeIsles extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.CONIFEROUS};
+    public String[] getBiomeDictionary() {
+        return new String[]{"OVERWORLD", "CONIFEROUS"};
     }
 
     static {

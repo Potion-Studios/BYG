@@ -6,7 +6,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
 
 import javax.annotation.Nullable;
 import java.lang.reflect.Type;
@@ -50,7 +49,7 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
             }
             StringBuilder dictionaryString = new StringBuilder();
 
-            for (BiomeDictionary.Type type : endBiomeData.getDictionaryTypes()) {
+            for (String type : endBiomeData.getDictionaryTypes()) {
                 if (!dictionaryString.toString().isEmpty())
                     dictionaryString.append(",");
                 dictionaryString.append(type.toString());
@@ -135,13 +134,13 @@ public class EndBiomeDataListHolderSerializer implements JsonSerializer<EndBiome
         }
     }
 
-    private static BiomeDictionary.Type[] processBiomeDictionary(JsonObject elementObject) {
-        List<BiomeDictionary.Type> types = Arrays.stream(getOrDefault(elementObject, "dictionary", "").trim().replace(" ", "").toUpperCase().split(",")).map(BiomeDictionary.Type::getType).collect(Collectors.toList());
-        BiomeDictionary.Type[] typesArray = new BiomeDictionary.Type[types.size()];
+    private static String[] processBiomeDictionary(JsonObject elementObject) {
+        List<String> types = Arrays.stream(getOrDefault(elementObject, "dictionary", "").trim().replace(" ", "").toUpperCase().split(",")).collect(Collectors.toList());
+        String[] typesArray = new String[types.size()];
         typesArray = types.toArray(typesArray);
 
         if (types.size() == 0) {
-            types.add(BiomeDictionary.Type.END);
+            types.add("END");
             BYG.LOGGER.warn("No dictionary entries were read...defaulting to: \"END\"");
         }
         return typesArray;

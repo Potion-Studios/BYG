@@ -11,7 +11,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +54,8 @@ public class BYGNetherBiome {
         return null;
     }
 
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.NETHER};
+    public String[] getBiomeDictionary() {
+        return new String[]{"NETHER"};
     }
 
     public RegistryKey<Biome> getKey() {

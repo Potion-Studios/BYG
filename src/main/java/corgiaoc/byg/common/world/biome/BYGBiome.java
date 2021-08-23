@@ -9,7 +9,6 @@ import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
 import java.util.ArrayList;
@@ -67,8 +66,8 @@ public class BYGBiome {
     }
 
 
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"OVERWORLD"};
     }
 
     public BiomeManager.BiomeType getBiomeType() {

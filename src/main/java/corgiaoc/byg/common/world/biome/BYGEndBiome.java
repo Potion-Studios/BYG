@@ -11,7 +11,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeAmbience;
 import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.*;
 
@@ -59,8 +58,8 @@ public class BYGEndBiome {
         return 5;
     }
 
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.END};
+    public String[] getBiomeDictionary() {
+        return new String[]{"END"};
     }
 
     public RegistryKey<Biome> getKey() {

@@ -10,7 +10,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class RainbowBeach extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("rainbow_beach", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.RAINBOW_BEACH, BYGSurfaceBuilders.Configs.PURPLE_SAND));
@@ -37,8 +36,8 @@ public class RainbowBeach extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.BEACH};
+    public String[] getBiomeDictionary() {
+        return new String[]{"OVERWORLD", "BEACH"};
     }
 
     static {

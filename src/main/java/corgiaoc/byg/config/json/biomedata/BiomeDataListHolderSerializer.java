@@ -6,7 +6,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
 import java.lang.reflect.Type;
@@ -42,7 +41,7 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
             }
             StringBuilder dictionaryString = new StringBuilder();
 
-            for (BiomeDictionary.Type type : biomeData.getDictionaryTypes()) {
+            for (String type : biomeData.getDictionaryTypes()) {
                 if (!dictionaryString.toString().isEmpty())
                     dictionaryString.append(",");
                 dictionaryString.append(type.toString());
@@ -134,13 +133,13 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
 
             String dictionary = elementObject.get("dictionary").getAsString();
 
-            List<BiomeDictionary.Type> types = Arrays.stream(dictionary.trim().replace(" ", "").toUpperCase().split(",")).map(this::warnIfTagIsNotDefault).map(BiomeDictionary.Type::getType).collect(Collectors.toList());
+            List<String> types = Arrays.stream(dictionary.trim().replace(" ", "").toUpperCase().split(",")).map(this::warnIfTagIsNotDefault).collect(Collectors.toList());
 
-            BiomeDictionary.Type[] typesArray = new BiomeDictionary.Type[types.size()];
+            String[] typesArray = new String[types.size()];
             typesArray = types.toArray(typesArray);
 
             if (types.size() == 0) {
-                types.add(BiomeDictionary.Type.OVERWORLD);
+                types.add("OVERWORLD");
                 BYG.LOGGER.warn("No dictionary entries were read...defaulting to: \"OVERWORLD\"");
             }
 
@@ -174,53 +173,52 @@ public class BiomeDataListHolderSerializer implements JsonSerializer<BiomeDataLi
         return new BiomeDataListHolder(biomeData);
     }
 
-    public static List<BiomeDictionary.Type> defaultTypesList = new ArrayList<>();
+    public static List<String> defaultTypesList = new ArrayList<>();
 
     static {
-        defaultTypesList.add(BiomeDictionary.Type.HOT);
-        defaultTypesList.add(BiomeDictionary.Type.COLD);
-        defaultTypesList.add(BiomeDictionary.Type.SPARSE);
-        defaultTypesList.add(BiomeDictionary.Type.DENSE);
-        defaultTypesList.add(BiomeDictionary.Type.WET);
-        defaultTypesList.add(BiomeDictionary.Type.DRY);
-        defaultTypesList.add(BiomeDictionary.Type.SAVANNA);
-        defaultTypesList.add(BiomeDictionary.Type.CONIFEROUS);
-        defaultTypesList.add(BiomeDictionary.Type.JUNGLE);
-        defaultTypesList.add(BiomeDictionary.Type.SPOOKY);
-        defaultTypesList.add(BiomeDictionary.Type.DEAD);
-        defaultTypesList.add(BiomeDictionary.Type.LUSH);
-        defaultTypesList.add(BiomeDictionary.Type.MUSHROOM);
-        defaultTypesList.add(BiomeDictionary.Type.MAGICAL);
-        defaultTypesList.add(BiomeDictionary.Type.RARE);
-        defaultTypesList.add(BiomeDictionary.Type.PLATEAU);
-        defaultTypesList.add(BiomeDictionary.Type.MODIFIED);
-        defaultTypesList.add(BiomeDictionary.Type.OCEAN);
-        defaultTypesList.add(BiomeDictionary.Type.RIVER);
-        defaultTypesList.add(BiomeDictionary.Type.WATER);
-        defaultTypesList.add(BiomeDictionary.Type.MESA);
-        defaultTypesList.add(BiomeDictionary.Type.FOREST);
-        defaultTypesList.add(BiomeDictionary.Type.PLAINS);
-        defaultTypesList.add(BiomeDictionary.Type.MOUNTAIN);
-        defaultTypesList.add(BiomeDictionary.Type.HILLS);
-        defaultTypesList.add(BiomeDictionary.Type.SWAMP);
-        defaultTypesList.add(BiomeDictionary.Type.SANDY);
-        defaultTypesList.add(BiomeDictionary.Type.SNOWY);
-        defaultTypesList.add(BiomeDictionary.Type.WASTELAND);
-        defaultTypesList.add(BiomeDictionary.Type.VOID);
-        defaultTypesList.add(BiomeDictionary.Type.OVERWORLD);
-        defaultTypesList.add(BiomeDictionary.Type.BEACH);
-        defaultTypesList.add(BiomeDictionary.Type.NETHER);
-        defaultTypesList.add(BiomeDictionary.Type.END);
+        defaultTypesList.add("HOT");
+        defaultTypesList.add("COLD");
+        defaultTypesList.add("SPARSE");
+        defaultTypesList.add("DENSE");
+        defaultTypesList.add("WET");
+        defaultTypesList.add("DRY");
+        defaultTypesList.add("SAVANNA");
+        defaultTypesList.add("CONIFEROUS");
+        defaultTypesList.add("JUNGLE");
+        defaultTypesList.add("SPOOKY");
+        defaultTypesList.add("DEAD");
+        defaultTypesList.add("LUSH");
+        defaultTypesList.add("MUSHROOM");
+        defaultTypesList.add("MAGICAL");
+        defaultTypesList.add("RARE");
+        defaultTypesList.add("PLATEAU");
+        defaultTypesList.add("MODIFIED");
+        defaultTypesList.add("OCEAN");
+        defaultTypesList.add("RIVER");
+        defaultTypesList.add("WATER");
+        defaultTypesList.add("MESA");
+        defaultTypesList.add("FOREST");
+        defaultTypesList.add("PLAINS");
+        defaultTypesList.add("MOUNTAIN");
+        defaultTypesList.add("HILLS");
+        defaultTypesList.add("SWAMP");
+        defaultTypesList.add("SANDY");
+        defaultTypesList.add("SNOWY");
+        defaultTypesList.add("WASTELAND");
+        defaultTypesList.add("VOID");
+        defaultTypesList.add("OVERWORLD");
+        defaultTypesList.add("BEACH");
+        defaultTypesList.add("NETHER");
+        defaultTypesList.add("END");
     }
 
-    public static List<BiomeDictionary.Type> stopSpamLoggerSpam = new ArrayList<>();
+    public static List<String> stopSpamLoggerSpam = new ArrayList<>();
 
-    public String warnIfTagIsNotDefault(String string) {
-        BiomeDictionary.Type type = BiomeDictionary.Type.getType(string);
+    public String warnIfTagIsNotDefault(String type) {
         if (!defaultTypesList.contains(type) && !stopSpamLoggerSpam.contains(type)) {
             BYG.LOGGER.warn(type.toString() + " is not a default dictionary value.\nIgnore this msg if using modded biome dictionary values.");
             stopSpamLoggerSpam.add(type);
         }
-        return string;
+        return type;
     }
 }

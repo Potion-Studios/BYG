@@ -1,16 +1,15 @@
 package corgiaoc.byg.config.json.endbiomedata.sub;
 
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class EndSubBiomeData {
 
     private final ResourceLocation biome;
     private final ResourceLocation edgeBiome;
-    private final BiomeDictionary.Type[] dictionaryType;
+    private final String[] dictionaryType;
 
 
-    public EndSubBiomeData(ResourceLocation biome, BiomeDictionary.Type[] dictionary, ResourceLocation edgeBiome) {
+    public EndSubBiomeData(ResourceLocation biome, String[] dictionary, ResourceLocation edgeBiome) {
         this.biome = biome;
         this.dictionaryType = dictionary;
         this.edgeBiome = edgeBiome;
@@ -24,7 +23,7 @@ public class EndSubBiomeData {
         return edgeBiome;
     }
 
-    public BiomeDictionary.Type[] getDictionaryTypes() {
+    public String[] getDictionaryTypes() {
         return dictionaryType;
     }
 }

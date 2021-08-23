@@ -11,7 +11,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class CanyonEdge extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("canyon_edge", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CANYON_EDGE, new SurfaceBuilderConfig(Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState())));
@@ -38,8 +37,8 @@ public class CanyonEdge extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.WET, BiomeDictionary.Type.WATER};
+    public String[] getBiomeDictionary() {
+        return new String[]{"OVERWORLD", "WET", "WATER"};
     }
 
     static {

@@ -3,7 +3,6 @@ package corgiaoc.byg.config.json.endbiomedata.sub;
 import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.common.world.biome.BYGEndSubBiome;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -31,9 +30,9 @@ public class EndSubBiomeDataListHolder {
 
     public static void createDefaults() {
         for (BYGEndSubBiome bygBiome : BYGEndSubBiome.BYG_END_SUB_BIOMES) {
-            List<BiomeDictionary.Type> typeList = Arrays.asList(bygBiome.getBiomeDictionary());
+            List<String> typeList = Arrays.asList(bygBiome.getBiomeDictionary());
             typeList.sort(Comparator.comparing(Object::toString));
-            BYGEndSubBiome.endSubBiomeData.add(new EndSubBiomeData(WorldGenRegistries.BIOME.getKey(bygBiome.getBiome()), typeList.toArray(new BiomeDictionary.Type[0]), null));
+            BYGEndSubBiome.endSubBiomeData.add(new EndSubBiomeData(WorldGenRegistries.BIOME.getKey(bygBiome.getBiome()), typeList.toArray(new String[0]), null));
         }
     }
 

@@ -4,7 +4,6 @@ import corgiaoc.byg.common.world.biome.BYGBiome;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -26,9 +25,9 @@ public class BiomeDataListHolder {
 
     public static void createDefaults() {
         for (BYGBiome bygBiome : BYGBiome.BYG_BIOMES) {
-            List<BiomeDictionary.Type> typeList = Arrays.asList(bygBiome.getBiomeDictionary());
+            List<String> typeList = Arrays.asList(bygBiome.getBiomeDictionary());
             typeList.sort(Comparator.comparing(Object::toString));
-            BYGBiome.biomeData.add(new BiomeData(bygBiome.getBiome(), bygBiome.getWeight(), bygBiome.getBiomeType(), typeList.toArray(new BiomeDictionary.Type[0]), bygBiome.getHills(), bygBiome.getEdge(), bygBiome.getBeach(), bygBiome.getRiver()));
+            BYGBiome.biomeData.add(new BiomeData(bygBiome.getBiome(), bygBiome.getWeight(), bygBiome.getBiomeType(), typeList.toArray(new String[0]), bygBiome.getHills(), bygBiome.getEdge(), bygBiome.getBeach(), bygBiome.getRiver()));
         }
 
         //Sort entries alphabetically

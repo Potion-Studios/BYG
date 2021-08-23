@@ -14,7 +14,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
 public class Canyons extends BYGBiome {
@@ -59,8 +58,8 @@ public class Canyons extends BYGBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.PLATEAU};
+    public String[] getBiomeDictionary() {
+        return new String[]{"OVERWORLD", "MOUNTAIN", "PLATEAU"};
     }
 
     @Override

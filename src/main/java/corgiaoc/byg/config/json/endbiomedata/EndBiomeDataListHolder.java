@@ -7,7 +7,6 @@ import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -33,14 +32,14 @@ public class EndBiomeDataListHolder {
 
     public static void createDefaults(Registry<Biome> biomeRegistry) {
         for (BYGEndBiome bygBiome : BYGEndBiome.BYG_END_BIOMES) {
-            List<BiomeDictionary.Type> typeList = Arrays.asList(bygBiome.getBiomeDictionary());
+            List<String> typeList = Arrays.asList(bygBiome.getBiomeDictionary());
             typeList.sort(Comparator.comparing(Object::toString));
-            BYGEndBiome.endBiomeData.add(new EndBiomeData(WorldGenRegistries.BIOME.getKey(bygBiome.getBiome()), bygBiome.getWeight(), typeList.toArray(new BiomeDictionary.Type[0]), bygBiome.getHills(), WorldGenRegistries.BIOME.getKey(bygBiome.getEdge())));
+            BYGEndBiome.endBiomeData.add(new EndBiomeData(WorldGenRegistries.BIOME.getKey(bygBiome.getBiome()), bygBiome.getWeight(), typeList.toArray(new String[0]), bygBiome.getHills(), WorldGenRegistries.BIOME.getKey(bygBiome.getEdge())));
         }
 
         for (ResourceLocation location : biomeRegistry.keySet().stream().filter(location -> !location.toString().contains("byg") && !location.toString().equals("minecraft:the_end") && !location.toString().equals("minecraft:small_end_islands") && !location.toString().equals("minecraft:end_barrens")).collect(Collectors.toSet())) {
             if (biomeRegistry.getOptional(location).get().getBiomeCategory() == Biome.Category.THEEND)
-                BYGEndBiome.endBiomeData.add(new EndBiomeData(location, 5, new BiomeDictionary.Type[]{BiomeDictionary.Type.END}, new WeightedList<>(), null));
+                BYGEndBiome.endBiomeData.add(new EndBiomeData(location, 5, new String[]{"END"}, new WeightedList<>(), null));
 
             BYGEndBiome.endBiomeData.removeIf(endBiomeData1 -> endBiomeData1.getBiome() == null);
             //Sort entries alphabetically

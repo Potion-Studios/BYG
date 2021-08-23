@@ -2,7 +2,6 @@ package corgiaoc.byg.config.json.endbiomedata;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class EndBiomeData {
 
@@ -10,10 +9,10 @@ public class EndBiomeData {
     private final WeightedList<ResourceLocation> biomeWeightedList;
     private final ResourceLocation edgeBiome;
     private final int biomeWeight;
-    private final BiomeDictionary.Type[] dictionaryType;
+    private final String[] dictionaryType;
 
 
-    public EndBiomeData(ResourceLocation biome, int biomeWeight, BiomeDictionary.Type[] dictionary, WeightedList<ResourceLocation> biomeWeightedList, ResourceLocation edgeBiome) {
+    public EndBiomeData(ResourceLocation biome, int biomeWeight, String[] dictionary, WeightedList<ResourceLocation> biomeWeightedList, ResourceLocation edgeBiome) {
         this.biome = biome;
         this.biomeWeight = biomeWeight;
         this.dictionaryType = dictionary;
@@ -37,7 +36,7 @@ public class EndBiomeData {
         return biomeWeight;
     }
 
-    public BiomeDictionary.Type[] getDictionaryTypes() {
+    public String[] getDictionaryTypes() {
         return dictionaryType;
     }
 }

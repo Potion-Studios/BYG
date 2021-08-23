@@ -1,7 +1,6 @@
 package corgiaoc.byg.config.json.subbiomedata;
 
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class SubBiomeData {
 
@@ -9,9 +8,9 @@ public class SubBiomeData {
     private final Biome edgeBiome;
     private final Biome beachBiome;
     private final Biome riverBiome;
-    private final BiomeDictionary.Type[] dictionaryType;
+    private final String[] dictionaryType;
 
-    public SubBiomeData(Biome biome, BiomeDictionary.Type[] dictionary, Biome edgeBiome, Biome beachBiome, Biome river) {
+    public SubBiomeData(Biome biome, String[] dictionary, Biome edgeBiome, Biome beachBiome, Biome river) {
         this.biome = biome;
         this.dictionaryType = dictionary;
         this.edgeBiome = edgeBiome;
@@ -35,7 +34,7 @@ public class SubBiomeData {
         return riverBiome;
     }
 
-    public BiomeDictionary.Type[] getDictionaryTypes() {
+    public String[] getDictionaryTypes() {
         return dictionaryType;
     }
 }

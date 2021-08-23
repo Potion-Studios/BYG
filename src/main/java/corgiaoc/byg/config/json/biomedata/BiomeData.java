@@ -3,7 +3,6 @@ package corgiaoc.byg.config.json.biomedata;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
 import java.util.Arrays;
@@ -19,9 +18,9 @@ public class BiomeData {
     private final int biomeWeight;
     @Nullable
     private final BiomeManager.BiomeType biomeType;
-    private final BiomeDictionary.Type[] dictionaryType;
+    private final String[] dictionaryType;
 
-    public BiomeData(Biome biome, int biomeWeight, @Nullable BiomeManager.BiomeType biomeType, BiomeDictionary.Type[] dictionary, WeightedList<Biome> biomeWeightedList, Biome edgeBiome, Biome beachBiome, Biome river) {
+    public BiomeData(Biome biome, int biomeWeight, @Nullable BiomeManager.BiomeType biomeType, String[] dictionary, WeightedList<Biome> biomeWeightedList, Biome edgeBiome, Biome beachBiome, Biome river) {
         this.biome = biome;
         this.biomeWeight = biomeWeight;
         this.biomeType = biomeType;
@@ -64,13 +63,13 @@ public class BiomeData {
      */
     @Nullable
     public BiomeManager.BiomeType getBiomeType() {
-        if (!Arrays.stream(this.dictionaryType).collect(Collectors.toList()).contains(BiomeDictionary.Type.OCEAN) && biomeType == null) {
+        if (!Arrays.stream(this.dictionaryType).collect(Collectors.toList()).contains("OCEAN") && biomeType == null) {
             throw new UnsupportedOperationException("The biome climate was null in a non ocean biome, this should NEVER happen!");
         }
         return biomeType;
     }
 
-    public BiomeDictionary.Type[] getDictionaryTypes() {
+    public String[] getDictionaryTypes() {
         return dictionaryType;
     }
 }

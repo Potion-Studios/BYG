@@ -6,7 +6,6 @@ import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
-import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +51,8 @@ public class BYGSubBiome {
         return WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER);
     }
 
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"OVERWORLD"};
     }
 
     public RegistryKey<Biome> getKey() {

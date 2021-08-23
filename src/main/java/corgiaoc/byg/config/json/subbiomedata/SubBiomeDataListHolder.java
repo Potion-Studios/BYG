@@ -3,7 +3,6 @@ package corgiaoc.byg.config.json.subbiomedata;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraftforge.common.BiomeDictionary;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -25,9 +24,9 @@ public class SubBiomeDataListHolder {
 
     public static void createDefaults() {
         for (BYGSubBiome bygSubBiome : BYGSubBiome.BYG_SUB_BIOMES) {
-            List<BiomeDictionary.Type> typeList = Arrays.asList(bygSubBiome.getBiomeDictionary());
+            List<String> typeList = Arrays.asList(bygSubBiome.getBiomeDictionary());
             typeList.sort(Comparator.comparing(Object::toString));
-            BYGSubBiome.subBiomeData.add(new SubBiomeData(bygSubBiome.getBiome(), typeList.toArray(new BiomeDictionary.Type[0]), bygSubBiome.getEdge(), bygSubBiome.getBeach(), bygSubBiome.getRiver()));
+            BYGSubBiome.subBiomeData.add(new SubBiomeData(bygSubBiome.getBiome(), typeList.toArray(new String[0]), bygSubBiome.getEdge(), bygSubBiome.getBeach(), bygSubBiome.getRiver()));
         }
 
 

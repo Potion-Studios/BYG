@@ -9,7 +9,6 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class RedDesertDunes extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("red_desert_dunes", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.RED_DUNES, BYGSurfaceBuilders.Configs.REDSAND_CF));
@@ -37,8 +36,8 @@ public class RedDesertDunes extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.SANDY, BiomeDictionary.Type.WASTELAND, BiomeDictionary.Type.HOT, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.HILLS};
+    public String[] getBiomeDictionary() {
+        return new String[]{"SANDY", "WASTELAND", "HOT", "OVERWORLD", "HILLS"};
     }
 
     static {

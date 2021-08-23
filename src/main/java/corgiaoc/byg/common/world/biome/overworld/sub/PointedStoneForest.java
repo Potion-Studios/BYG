@@ -16,7 +16,6 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class PointedStoneForest extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("pointed_stone_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.POINTED, new PointedSBConfig(BYGBlocks.OVERGROWN_STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), new WeightedBlockStateProvider().add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.STONE.defaultBlockState(), 2), new SimpleBlockStateProvider(BYGBlocks.OVERGROWN_STONE.defaultBlockState()), 170)));
@@ -40,8 +39,8 @@ public class PointedStoneForest extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.PLATEAU, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"PLATEAU", "MOUNTAIN", "FOREST", "OVERWORLD"};
     }
 
     @Nullable
