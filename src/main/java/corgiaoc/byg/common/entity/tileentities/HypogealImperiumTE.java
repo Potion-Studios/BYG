@@ -117,15 +117,20 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
 
     @Override
     public void tick() {
-
-        if (this.level.getGameTime() % 80 == 0) {
-            this.level.playLocalSound(this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(), SoundEvents.BEACON_AMBIENT, SoundCategory.BLOCKS, 1, 1, false);
-        }
+        this.playSound();
         this.addEffectsToMobs();
         this.changeBlocksInRadius();
         this.doCrystalLoad();
         this.addParticles();
         this.setLit();
+    }
+
+    public void playSound(){
+        if (this.isLit()) {
+            if (this.level.getGameTime() % 80 == 0) {
+                this.level.playLocalSound(this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(), SoundEvents.BEACON_AMBIENT, SoundCategory.BLOCKS, 1, 1, false);
+            }
+        }
     }
 
     public void setLit() {
@@ -321,22 +326,22 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     }
 
     //Forge
-    private final IItemHandlerModifiable items = new InvWrapper(this);
-    private LazyOptional<IItemHandlerModifiable> itemHandler = LazyOptional.of(() -> items);
+//    private final IItemHandlerModifiable items = new InvWrapper(this);
+//    private LazyOptional<IItemHandlerModifiable> itemHandler = LazyOptional.of(() -> items);
 
-    @Override
-    public void clearCache() {
-        super.clearCache();
-        if (this.itemHandler != null) {
-            this.itemHandler.invalidate();
-            this.itemHandler = null;
-        }
-    }
-
-    @Override
-    protected void invalidateCaps() {
-        super.invalidateCaps();
-        if (itemHandler != null)
-            itemHandler.invalidate();
-    }
+//    @Override
+//    public void clearCache() {
+//        super.clearCache();
+//        if (this.itemHandler != null) {
+//            this.itemHandler.invalidate();
+//            this.itemHandler = null;
+//        }
+//    }
+//
+//    @Override
+//    protected void invalidateCaps() {
+//        super.invalidateCaps();
+//        if (itemHandler != null)
+//            itemHandler.invalidate();
+//    }
 }
