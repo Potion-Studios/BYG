@@ -2,7 +2,6 @@ package corgiaoc.byg.core;
 
 import com.mojang.datafixers.types.Type;
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.entity.tileentities.BYGCampfireTE;
 import corgiaoc.byg.common.entity.tileentities.HypogealImperiumTE;
 import corgiaoc.byg.mixin.access.BlockEntityTypeBuilderAccess;
 import net.minecraft.tileentity.TileEntity;
@@ -18,7 +17,6 @@ public class BYGTileEntities {
 
     public static final List<TileEntityType<?>> BLOCK_ENTITIES = new ArrayList<>();
 
-    public static final TileEntityType<BYGCampfireTE> CAMPFIRE = register("bygcampfire", TileEntityType.Builder.of(BYGCampfireTE::new, BYGBlocks.CRYPTIC_CAMPFIRE));
     public static final TileEntityType<HypogealImperiumTE> HYPOGEAL  = register("hypogeal", TileEntityType.Builder.of(HypogealImperiumTE::new, BYGBlocks.HYPOGEAL_IMPERIUM));
 
 

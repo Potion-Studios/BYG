@@ -4,10 +4,12 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
+    "MixinTileEntityType",
     "access.BiomeContainerAccess",
     "access.BlockEntityTypeBuilderAccess",
     "access.NyliumBlockAccess",
     "access.SpreadableSnowyDirtBlockAccess",
+    "access.TileEntityTypeBuilderAccess",
     "common.block.MixinAbstractFireBlock",
     "common.block.MixinBlocks",
     "common.block.MixinCactusBlock",
@@ -31,8 +33,7 @@
   "client": [
     "client.MixinClientPlayNetHandler",
     "client.MixinDebugOverlayGui",
-    "client.MixinScreenManager",
-    "client.MixinTileEntityRenderDispatcher"
+    "client.MixinScreenManager"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1507,7 +1507,7 @@ public class BYGBlocks {
     }
 
     static Block createCampfireBlock(int type, String id) {
-        Block createBlock = new BYGCampfireBlock(true, type, AbstractBlock.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD).noOcclusion().lightLevel(litBlockEmission(14)));
+        Block createBlock = new CampfireBlock(true, type, AbstractBlock.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD).noOcclusion().lightLevel(litBlockEmission(14)));
         createBlock(createBlock, id);
         return createBlock;
     }
