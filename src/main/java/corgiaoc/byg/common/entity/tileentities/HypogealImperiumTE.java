@@ -27,9 +27,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.wrapper.InvWrapper;
 
 import java.util.List;
 import java.util.Random;
@@ -324,24 +321,4 @@ public class HypogealImperiumTE extends LockableLootTileEntity implements ITicka
     private boolean isLit() {
         return this.getFuel() > 0;
     }
-
-    //Forge
-//    private final IItemHandlerModifiable items = new InvWrapper(this);
-//    private LazyOptional<IItemHandlerModifiable> itemHandler = LazyOptional.of(() -> items);
-
-//    @Override
-//    public void clearCache() {
-//        super.clearCache();
-//        if (this.itemHandler != null) {
-//            this.itemHandler.invalidate();
-//            this.itemHandler = null;
-//        }
-//    }
-//
-//    @Override
-//    protected void invalidateCaps() {
-//        super.invalidateCaps();
-//        if (itemHandler != null)
-//            itemHandler.invalidate();
-//    }
 }
