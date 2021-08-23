@@ -1,11 +1,11 @@
 package corgiaoc.byg.config.json.biomedata;
 
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 

@@ -4,7 +4,6 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.gui.HypogealImperiumContainer;
-import corgiaoc.byg.common.entity.tileentities.HypogealImperiumTE;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;

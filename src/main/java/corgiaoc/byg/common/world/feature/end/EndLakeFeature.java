@@ -5,21 +5,16 @@ import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.BlockHelper;
 import corgiaoc.byg.util.FeatureHelper;
 import corgiaoc.byg.util.ModMathHelper;
-import corgiaoc.byg.util.noise.simplex.biome.OpenSimplexNoise;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.Tags;
-import org.spongepowered.asm.mixin.Mutable;
 
 import java.util.Random;
 //Credits to BetterEnd & Pauelevs

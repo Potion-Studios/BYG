@@ -30,8 +30,6 @@ import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
 

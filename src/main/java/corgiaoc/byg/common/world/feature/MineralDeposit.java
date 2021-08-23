@@ -5,7 +5,6 @@ import corgiaoc.byg.common.world.feature.config.NoisySphereConfig;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
-import net.minecraft.world.chunk.IChunk;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 

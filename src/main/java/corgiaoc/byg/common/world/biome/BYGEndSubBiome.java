@@ -1,9 +1,8 @@
 package corgiaoc.byg.common.world.biome;
 
 import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeData;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -12,8 +11,9 @@ import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraftforge.common.BiomeDictionary;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @SuppressWarnings("deprecation")
 public class BYGEndSubBiome {

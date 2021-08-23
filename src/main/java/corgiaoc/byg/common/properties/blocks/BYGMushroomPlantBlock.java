@@ -15,8 +15,6 @@ import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 public class BYGMushroomPlantBlock extends BushBlock implements IGrowable {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
     private final BYGHugeMushroom mushroom;

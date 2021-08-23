@@ -1,9 +1,7 @@
 package corgiaoc.byg.common.world.biome;
 
-import corgiaoc.byg.config.json.biomedata.BiomeData;
 import corgiaoc.byg.config.json.endbiomedata.EndBiomeData;
-import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
@@ -15,7 +13,6 @@ import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraftforge.common.BiomeDictionary;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.*;
 
 @SuppressWarnings("deprecation")

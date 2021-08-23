@@ -1,7 +1,6 @@
 package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.client.particle.BoricFlameParticle;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;

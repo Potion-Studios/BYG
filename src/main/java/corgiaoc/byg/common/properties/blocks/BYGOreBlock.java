@@ -1,17 +1,14 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Block;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.OreBlock;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.common.extensions.IForgeBlock;
 
 import java.util.Random;
-
-import net.minecraft.block.AbstractBlock;
 
 public class BYGOreBlock extends OreBlock implements IForgeBlock {
 

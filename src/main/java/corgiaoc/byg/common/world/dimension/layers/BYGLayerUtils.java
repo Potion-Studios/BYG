@@ -1,15 +1,12 @@
 package corgiaoc.byg.common.world.dimension.layers;
 
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.ImprovedNoiseGenerator;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class BYGLayerUtils {
 

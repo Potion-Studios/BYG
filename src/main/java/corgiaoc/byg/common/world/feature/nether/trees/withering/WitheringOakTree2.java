@@ -3,18 +3,14 @@ package corgiaoc.byg.common.world.feature.nether.trees.withering;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.properties.blocks.end.impariusgrove.ImpariusMushroomBranchBlock;
 import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
-import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
-import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 
 import java.util.Random;
-import java.util.Set;
 
 public class WitheringOakTree2 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
 

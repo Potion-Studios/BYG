@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks.nether.subzerohypogeal;
 
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,8 +18,6 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class SubzeroAshBlock extends Block {
     public static final IntegerProperty LAYERS = BlockStateProperties.LAYERS;

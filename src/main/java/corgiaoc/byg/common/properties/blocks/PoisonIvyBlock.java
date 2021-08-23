@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.VineBlock;
 import net.minecraft.entity.Entity;
@@ -11,8 +11,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
-
-import net.minecraft.block.AbstractBlock;
 
 public class PoisonIvyBlock extends VineBlock {
     public PoisonIvyBlock(AbstractBlock.Properties properties) {

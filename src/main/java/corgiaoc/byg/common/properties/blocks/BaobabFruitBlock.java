@@ -25,8 +25,6 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 public class BaobabFruitBlock extends Block implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
     protected static final VoxelShape SHAPE = Block.box(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);

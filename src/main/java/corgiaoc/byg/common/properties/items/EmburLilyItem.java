@@ -12,8 +12,6 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.world.World;
 
-import net.minecraft.item.Item.Properties;
-
 public class EmburLilyItem extends BlockItem {
     public EmburLilyItem(Block blockIn, Properties builder) {
         super(blockIn, builder);

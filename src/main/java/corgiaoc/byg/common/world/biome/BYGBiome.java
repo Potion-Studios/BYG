@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.biome;
 
 import corgiaoc.byg.config.json.biomedata.BiomeData;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.util.RegistryKey;
@@ -11,7 +12,6 @@ import net.minecraft.world.biome.*;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

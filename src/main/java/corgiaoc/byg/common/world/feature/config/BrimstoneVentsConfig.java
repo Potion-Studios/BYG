@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.config;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.core.BYGBlocks;
-import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

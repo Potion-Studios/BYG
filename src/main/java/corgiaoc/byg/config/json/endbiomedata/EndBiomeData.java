@@ -2,9 +2,7 @@ package corgiaoc.byg.config.json.endbiomedata;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
-import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
 
 public class EndBiomeData {
 

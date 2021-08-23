@@ -29,8 +29,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 public class EtherBulbsBlock extends Block implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
     protected static final VoxelShape SHAPE = Block.box(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);

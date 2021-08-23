@@ -17,8 +17,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGrowable {
     public BYGGlowCeliumBlock(Properties properties) {
         super(properties);

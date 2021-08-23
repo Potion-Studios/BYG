@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.*;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
@@ -14,8 +14,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class BYGRiverPlantBlock extends DoublePlantBlock implements IWaterLoggable {
 

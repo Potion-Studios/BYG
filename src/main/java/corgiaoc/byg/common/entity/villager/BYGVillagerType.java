@@ -11,7 +11,8 @@ import net.minecraft.world.biome.Biome;
 
 import java.util.Map;
 
-import static net.minecraft.entity.villager.VillagerType.*;
+import static net.minecraft.entity.villager.VillagerType.DESERT;
+import static net.minecraft.entity.villager.VillagerType.JUNGLE;
 
 @SuppressWarnings("deprecation")
 public class BYGVillagerType {

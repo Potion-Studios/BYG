@@ -3,7 +3,6 @@ package corgiaoc.byg.common.world.feature.nether.subzero;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.pattern.BlockStateMatcher;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;

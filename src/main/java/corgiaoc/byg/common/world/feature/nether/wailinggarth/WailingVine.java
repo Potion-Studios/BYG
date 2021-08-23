@@ -3,8 +3,6 @@ package corgiaoc.byg.common.world.feature.nether.wailinggarth;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SixWayBlock;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;

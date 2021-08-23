@@ -18,7 +18,6 @@ import corgiaoc.byg.common.properties.blocks.nether.scorched.ScorchedPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.subzerohypogeal.SubzeroAshBlock;
 import corgiaoc.byg.common.properties.blocks.nether.sythian.*;
 import corgiaoc.byg.common.properties.blocks.nether.wailing.HangingBonesBlock;
-import corgiaoc.byg.common.properties.blocks.nether.wailing.WailingPlantBlock;
 import corgiaoc.byg.common.properties.blocks.nether.warped.*;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVineBlock;
 import corgiaoc.byg.common.properties.blocks.nether.weepingmire.LamentVinePlantBlock;

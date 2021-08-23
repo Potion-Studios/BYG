@@ -1,18 +1,18 @@
 package corgiaoc.byg.common.properties.blocks.nether.crimson;
 
 import corgiaoc.byg.core.BYGItems;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.IGrowable;
+import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -21,8 +21,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.Tags;
-
-import net.minecraft.block.AbstractBlock.Properties;
 
 public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
