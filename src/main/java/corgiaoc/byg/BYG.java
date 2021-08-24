@@ -13,10 +13,7 @@ import corgiaoc.byg.common.entity.villager.BYGVillagerType;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
 import corgiaoc.byg.common.properties.blocks.vanilla.ITreeSpawner;
 import corgiaoc.byg.common.properties.vanilla.*;
-import corgiaoc.byg.common.world.biome.BYGBiome;
-import corgiaoc.byg.common.world.biome.BYGEndBiome;
-import corgiaoc.byg.common.world.biome.BYGEndSubBiome;
-import corgiaoc.byg.common.world.biome.BYGSubBiome;
+import corgiaoc.byg.common.world.biome.*;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeSource;
 import corgiaoc.byg.config.WorldConfig;
@@ -133,6 +130,31 @@ public class BYG {
         BYGBiomes.fillBiomeDictionary(endBiomeDataHolder.getVoidBiomeData());
         return endBiomeDataHolder;
     }
+
+    public static BiomeDataHolders.WeightedBiomeDataHolder getNetherData(Gson gson, Path biomesConfigPath) {
+        BiomeDataHolders.WeightedBiomeDataHolder endWeightedBiomeDataHolder = BYGNetherBiome.extractDefaultHolder(WorldGenRegistries.BIOME);
+
+        File biomesConfigFile = biomesConfigPath.toFile();
+        try {
+            if (!biomesConfigFile.exists()) {
+                DataResult<JsonElement> jsonElementDataResult = BiomeDataHolders.WeightedBiomeDataHolder.CODEC.encodeStart(JsonOps.INSTANCE, endWeightedBiomeDataHolder);
+                Files.createDirectories(biomesConfigPath.getParent());
+                Files.write(biomesConfigPath, gson.toJson(jsonElementDataResult.result().get()).getBytes());
+            }
+            Optional<Pair<BiomeDataHolders.WeightedBiomeDataHolder, JsonElement>> result = BiomeDataHolders.WeightedBiomeDataHolder.CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(biomesConfigFile))).result();
+            if (result.isPresent()) {
+                endWeightedBiomeDataHolder = result.get().getFirst();
+            }
+
+        } catch (IOException e) {
+            LOGGER.error("Could not read \"" + biomesConfigPath.toString() + "\"... using internal defaults...");
+            e.printStackTrace();
+        }
+
+        BYGBiomes.fillBiomeDictionary(endWeightedBiomeDataHolder.getBiomeData());
+        return endWeightedBiomeDataHolder;
+    }
+
 
     public static BiomeDataHolders.EndSubBiomeDataHolder getEndSubBiomeData(Gson gson, Path biomesConfigPath) {
         BiomeDataHolders.EndSubBiomeDataHolder endBiomeDataHolder = BYGEndSubBiome.extractDefaultHolder(WorldGenRegistries.BIOME);

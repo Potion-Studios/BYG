@@ -34,28 +34,40 @@ public class BiomeDataHolders {
         }
     }
 
-    public static class EndBiomeDataHolder extends BiomeDataListHolder<EndBiomeData> {
+    public static class EndBiomeDataHolder extends BiomeDataListHolder<WeightedBiomeData> {
         public static final Codec<EndBiomeDataHolder> CODEC = RecordCodecBuilder.create((builder) -> {
-            return builder.group(Codec.unboundedMap(ResourceLocation.CODEC, EndBiomeData.CODEC).fieldOf("biomes").forGetter((endSubBiomeDataHolder) -> {
+            return builder.group(Codec.unboundedMap(ResourceLocation.CODEC, WeightedBiomeData.CODEC).fieldOf("biomes").forGetter((endSubBiomeDataHolder) -> {
                 return endSubBiomeDataHolder.getEndBiomeData();
-            }), Codec.unboundedMap(ResourceLocation.CODEC, EndBiomeData.CODEC).fieldOf("void-biomes").forGetter((endSubBiomeDataHolder) -> {
+            }), Codec.unboundedMap(ResourceLocation.CODEC, WeightedBiomeData.CODEC).fieldOf("void-biomes").forGetter((endSubBiomeDataHolder) -> {
                 return endSubBiomeDataHolder.voidSubBiomeData;
             })).apply(builder, EndBiomeDataHolder::new);
         });
 
-        private final Map<ResourceLocation, EndBiomeData> voidSubBiomeData;
+        private final Map<ResourceLocation, WeightedBiomeData> voidSubBiomeData;
 
-        public EndBiomeDataHolder(Map<ResourceLocation, EndBiomeData> endBiomeData, Map<ResourceLocation, EndBiomeData> voidBiomeData) {
+        public EndBiomeDataHolder(Map<ResourceLocation, WeightedBiomeData> endBiomeData, Map<ResourceLocation, WeightedBiomeData> voidBiomeData) {
             super(endBiomeData);
             this.voidSubBiomeData = voidBiomeData;
         }
 
-        public Map<ResourceLocation, EndBiomeData> getEndBiomeData() {
+        public Map<ResourceLocation, WeightedBiomeData> getEndBiomeData() {
             return getBiomeData();
         }
 
-        public Map<ResourceLocation, EndBiomeData> getVoidBiomeData() {
+        public Map<ResourceLocation, WeightedBiomeData> getVoidBiomeData() {
             return voidSubBiomeData;
+        }
+    }
+
+    public static class WeightedBiomeDataHolder extends BiomeDataListHolder<WeightedBiomeData> {
+        public static final Codec<WeightedBiomeDataHolder> CODEC = RecordCodecBuilder.create((builder) -> {
+            return builder.group(Codec.unboundedMap(ResourceLocation.CODEC, WeightedBiomeData.CODEC).fieldOf("biomes").forGetter((endSubWeightedBiomeDataHolder) -> {
+                return endSubWeightedBiomeDataHolder.getBiomeData();
+            })).apply(builder, WeightedBiomeDataHolder::new);
+        });
+
+        public WeightedBiomeDataHolder(Map<ResourceLocation, WeightedBiomeData> endBiomeData) {
+            super(endBiomeData);
         }
     }
 

@@ -82,8 +82,8 @@ public class BYGEndBiomeSource extends BiomeProvider {
         voidHillsMap.remove(BYG.EMPTY);
         voidBiomeToEdge.remove(BYG.EMPTY);
         this.possibleBiomes.addAll(allBiomes.stream().map(registry::get).collect(Collectors.toList()));
-        this.mainIslandLayer = EndLayerProviders.stackLayers(this.biomeRegistry, seed, endBiomes, endHills, biomeToEdge);
-        this.smallIslandLayer = EndLayerProviders.stackVoidLayers(this.biomeRegistry, seed, voidBiomes, voidHillsMap, voidBiomeToEdge);
+        this.mainIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().endBiomeSize, endBiomes, endHills, biomeToEdge);
+        this.smallIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().voidBiomeSize, voidBiomes, voidHillsMap, voidBiomeToEdge);
         this.generator = new SimplexNoiseGenerator(sharedseedrandom);
     }
 

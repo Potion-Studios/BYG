@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class EndBiomeData extends BiomeData {
+public class WeightedBiomeData extends BiomeData {
 
-    public static final Codec<EndBiomeData> CODEC = RecordCodecBuilder.create((builder) -> {
+    public static final Codec<WeightedBiomeData> CODEC = RecordCodecBuilder.create((builder) -> {
         return builder.group(Codec.INT.optionalFieldOf("weight", 0).forGetter((subBiomeData) -> {
             return subBiomeData.getWeight();
         }), Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
@@ -20,13 +20,13 @@ public class EndBiomeData extends BiomeData {
             return subBiomeData.getEdgeBiome();
         }), WeightedList.codec(ResourceLocation.CODEC).optionalFieldOf("hills", new WeightedList<>()).forGetter((subBiomeData) -> {
             return subBiomeData.getSubBiomes();
-        })).apply(builder, EndBiomeData::new);
+        })).apply(builder, WeightedBiomeData::new);
     });
 
     private final int weight;
     private final WeightedList<ResourceLocation> subBiomes;
 
-    public EndBiomeData(int weight, List<String> dictionary, ResourceLocation edgeBiome, WeightedList<ResourceLocation> subBiomes) {
+    public WeightedBiomeData(int weight, List<String> dictionary, ResourceLocation edgeBiome, WeightedList<ResourceLocation> subBiomes) {
         super(dictionary, edgeBiome);
         this.weight = weight;
         this.subBiomes = subBiomes;

@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.world.biome;
 
 import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
-import corgiaoc.byg.config.json.biomedata.EndBiomeData;
+import corgiaoc.byg.config.json.biomedata.WeightedBiomeData;
 import corgiaoc.byg.mixin.access.BiomeAccess;
 import corgiaoc.byg.mixin.access.WeightedListAccess;
 import corgiaoc.byg.mixin.access.WeightedListEntryAccess;
@@ -64,8 +64,8 @@ public class BYGEndBiome {
     }
 
     public static BiomeDataHolders.EndBiomeDataHolder extractDefaultHolder(Registry<Biome> biomeRegistry) {
-        Map<ResourceLocation, EndBiomeData> biomeData = new HashMap<>();
-        Map<ResourceLocation, EndBiomeData> voidBiomeData = new HashMap<>();
+        Map<ResourceLocation, WeightedBiomeData> biomeData = new HashMap<>();
+        Map<ResourceLocation, WeightedBiomeData> voidBiomeData = new HashMap<>();
         for (BYGEndBiome bygBiome : BYG_END_BIOMES) {
             List<String> dictionary = Arrays.asList(bygBiome.getBiomeDictionary());
             WeightedList<ResourceLocation> weightedListByLocation = new WeightedList<>();
@@ -73,14 +73,28 @@ public class BYGEndBiome {
                 weightedListByLocation.add(entry.getData(), ((WeightedListEntryAccess) entry).getWeight());
             }
             boolean isVoid = new HashSet<>(dictionary).contains("VOID");
-            EndBiomeData endBiomeData = new EndBiomeData(bygBiome.getWeight(), dictionary, bygBiome.getEdge() != null ? biomeRegistry.getKey(bygBiome.getEdge()) : new ResourceLocation(""), weightedListByLocation);
+            WeightedBiomeData weightedBiomeData = new WeightedBiomeData(bygBiome.getWeight(), dictionary, bygBiome.getEdge() != null ? biomeRegistry.getKey(bygBiome.getEdge()) : new ResourceLocation(""), weightedListByLocation);
 
             ResourceLocation key = biomeRegistry.getKey(bygBiome.getBiome());
             if (key != null) {
                 if (!isVoid) {
-                    biomeData.put(key, endBiomeData);
+                    biomeData.put(key, weightedBiomeData);
                 } else {
-                    voidBiomeData.put(key, endBiomeData);
+                    voidBiomeData.put(key, weightedBiomeData);
+                }
+            }
+
+            for (Biome biome : biomeRegistry) {
+                ResourceLocation biomeKey = biomeRegistry.getKey(biome);
+                if (biome.getBiomeCategory() == Biome.Category.THEEND) {
+                    if (!biomeData.containsKey(biomeKey)) {
+                        assert biomeKey != null;
+                        if (!biomeKey.equals(new ResourceLocation("small_end_islands"))) {
+                           biomeData.put(biomeKey, new WeightedBiomeData(5, Collections.singletonList("END"), new ResourceLocation(""), new WeightedList<>()));
+                        } else {
+                            voidBiomeData.put(biomeKey, new WeightedBiomeData(5, Collections.singletonList("VOID"), new ResourceLocation(""), new WeightedList<>()));
+                        }
+                    }
                 }
             }
         }

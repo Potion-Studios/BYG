@@ -74,4 +74,9 @@ public class SubzeroHypogeal extends BYGNetherBiome {
         SPAWN_SETTINGS.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.STRIDER, 60, 1, 2));
 
     }
+
+    @Override
+    public int getWeight() {
+        return 1;
+    }
 }
