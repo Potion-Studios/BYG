@@ -1,6 +1,8 @@
 package corgiaoc.byg.config.json.biomedata;
 
+import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.EitherCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.ResourceLocation;
 
@@ -11,9 +13,9 @@ import java.util.List;
 public class BiomeData {
 
     public static final Codec<BiomeData> CODEC = RecordCodecBuilder.create((builder) -> {
-        return builder.group(Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
+        return builder.group(new EitherCodec<>(Codec.STRING,  Codec.STRING.listOf()).xmap(e -> e.map((string) -> Arrays.asList(string.split(",")), list -> list), Either::right).optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
-        }), ResourceLocation.CODEC.optionalFieldOf("edgeBiome", new ResourceLocation("")).forGetter((subBiomeData) -> {
+        }), ResourceLocation.CODEC.optionalFieldOf("edge", new ResourceLocation("")).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
         })).apply(builder, BiomeData::new);
     });

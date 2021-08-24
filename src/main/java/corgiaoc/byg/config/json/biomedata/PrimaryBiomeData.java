@@ -16,7 +16,7 @@ public class PrimaryBiomeData extends BiomeData {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
         }), WeightedList.codec(ResourceLocation.CODEC).optionalFieldOf("hills", new WeightedList<>()).forGetter((subBiomeData) -> {
             return subBiomeData.getSubBiomes();
-        }), ResourceLocation.CODEC.optionalFieldOf("edgeBiome", new ResourceLocation("")).forGetter((subBiomeData) -> {
+        }), ResourceLocation.CODEC.optionalFieldOf("edge", new ResourceLocation("")).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
         })).apply(builder, PrimaryBiomeData::new);
     });
