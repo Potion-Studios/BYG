@@ -42,6 +42,7 @@
     "common.world.layers.MixinRiverLayer",
     "common.world.layers.MixinShoreLayer",
     "common.world.layers.ocean.MixinMixOceansLayer",
+    "server.MixinCommands",
     "server.MixinMinecraftServer"
   ],
   "client": [

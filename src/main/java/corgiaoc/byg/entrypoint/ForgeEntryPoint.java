@@ -178,14 +178,6 @@ public class ForgeEntryPoint implements EntryPoint {
     }
 
     @SubscribeEvent
-    public void commandRegisterEvent(FMLServerStartingEvent event) {
-        BYG.LOGGER.debug("BYG: \"Server Starting\" Event Starting...");
-        GenDataCommand.dataGenCommand(event.getServer().getCommands().getDispatcher());
-        BYG.LOGGER.info("BYG: \"Server Starting\" Event Complete!");
-    }
-
-
-    @SubscribeEvent
     public static void data(GatherDataEvent event) {
         event.getGenerator().addProvider(new BYGBlockTagsProvider(event.getGenerator(), event.getExistingFileHelper()));
     }
