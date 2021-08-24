@@ -26,7 +26,11 @@ import corgiaoc.byg.config.json.biomedata.OverworldSubBiomeData;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.entrypoint.EntryPoint;
+import corgiaoc.byg.mixin.access.BlockEntityTypeAccess;
+import corgiaoc.byg.mixin.access.TileEntityTypeBuilderAccess;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -39,6 +43,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
+import java.util.Set;
 
 public class BYG {
     public static final String MOD_ID = "byg";
@@ -96,6 +101,12 @@ public class BYG {
         Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
         handleOverWorldConfig(gson);
         handleOverWorldSubConfig(gson);
+
+        BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess)  TileEntityType.CAMPFIRE;
+        Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.getValidBlocks());
+        validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE);
+        validBlocks.add(BYGBlocks.BORIC_CAMPFIRE);
+        builderAccess.setValidBlocks(validBlocks);
     }
 
     public static BiomeDataHolders.EndBiomeDataHolder getEndData(Gson gson, Path biomesConfigPath, Registry<Biome> biomeRegistry) {

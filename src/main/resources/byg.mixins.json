@@ -4,11 +4,11 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
-    "MixinTileEntityType",
     "access.AxeItemAccess",
     "access.BiomeAccess",
     "access.BiomeContainerAccess",
     "access.BiomeGenerationSettingsAccess",
+    "access.BlockEntityTypeAccess",
     "access.BlockEntityTypeBuilderAccess",
     "access.BoatEntityAccess",
     "access.DimensionStructuresSettingsAccess",
