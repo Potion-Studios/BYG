@@ -67,7 +67,7 @@ public class Alps extends BYGBiome {
 
     @Override
     public MLClimate getClimate() {
-        return MLClimate.ICY;
+        return MLClimate.COLD;
     }
 
     static {

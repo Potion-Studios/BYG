@@ -63,7 +63,7 @@ public class ShrubLands extends BYGBiome {
 
     @Override
     public MLClimate getClimate() {
-        return MLClimate.DESERT;
+        return MLClimate.HOT;
     }
 
     @Override

@@ -53,7 +53,7 @@ public class SierraValley extends BYGBiome {
 
     @Override
     public MLClimate getClimate() {
-        return MLClimate.DESERT;
+        return MLClimate.HOT;
     }
 
     @Nullable

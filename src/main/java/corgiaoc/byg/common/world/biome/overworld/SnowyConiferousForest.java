@@ -66,7 +66,7 @@ public class SnowyConiferousForest extends BYGBiome {
 
     @Override
     public MLClimate getClimate() {
-        return MLClimate.ICY;
+        return MLClimate.COLD;
     }
 
     @Override
