@@ -2,7 +2,6 @@ package corgiaoc.byg.common.world.dimension.end;
 
 
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.world.biome.BYGEndBiome;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import corgiaoc.byg.common.world.dimension.layers.BYGEdgeLayer;
 import corgiaoc.byg.common.world.dimension.layers.BYGHillsLayer;

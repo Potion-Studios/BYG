@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.ResourceLocation;
 
-import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("deprecation")

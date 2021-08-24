@@ -4,7 +4,6 @@ import corgiaoc.byg.mixin.access.WeightedListAccess;
 import corgiaoc.byg.mixin.access.WeightedListEntryAccess;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.INoiseRandom;
 
 public class LayerRandomWeightedListUtil {

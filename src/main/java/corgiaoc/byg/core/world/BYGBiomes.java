@@ -19,8 +19,6 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
 import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
 import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
-import corgiaoc.byg.config.json.biomedata.BiomeDataListHolder;
-import corgiaoc.byg.config.json.biomedata.OverworldPrimaryBiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.mixin.access.BiomeGenerationSettingsAccess;
 import net.minecraft.util.RegistryKey;

@@ -2,8 +2,6 @@ package corgiaoc.byg.common.world.biome;
 
 import corgiaoc.byg.mixin.access.BiomeAccess;
 import edu.umd.cs.findbugs.annotations.Nullable;
-import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
