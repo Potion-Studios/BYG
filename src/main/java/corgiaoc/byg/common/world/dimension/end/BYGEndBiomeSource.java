@@ -1,10 +1,14 @@
 package corgiaoc.byg.common.world.dimension.end;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
-import corgiaoc.byg.config.json.BYGJsonConfigHandler;
+import corgiaoc.byg.config.json.biomedata.BiomeData;
+import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
+import corgiaoc.byg.config.json.biomedata.EndBiomeData;
 import corgiaoc.byg.mixin.access.WeightedListAccess;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
@@ -17,7 +21,8 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.biome.provider.EndBiomeProvider;
 import net.minecraft.world.gen.SimplexNoiseGenerator;
 
-import java.util.List;
+import java.nio.file.Path;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,23 +35,57 @@ public class BYGEndBiomeSource extends BiomeProvider {
     private final Registry<Biome> biomeRegistry;
     private final SimplexNoiseGenerator generator;
 
-    public static WeightedList<ResourceLocation> END_BIOMES = new WeightedList<>();
-    public static WeightedList<ResourceLocation> VOID_BIOMES = new WeightedList<>();
-
+    @SuppressWarnings("unchecked")
     public BYGEndBiomeSource(Registry<Biome> registry, long seed) {
-        super(handleJsonAndFillBiomeList(registry));
+        super(new ArrayList<>());
         this.seed = seed;
         SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
         sharedseedrandom.consumeCount(17292);
-        biomeRegistry = registry;
-        this.mainIslandLayer = EndLayerProviders.stackLayers(this.biomeRegistry, seed);
-        this.smallIslandLayer = EndLayerProviders.stackVoidLayers(this.biomeRegistry, seed);
-        this.generator = new SimplexNoiseGenerator(sharedseedrandom);
-    }
+        this.biomeRegistry = registry;
+        Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
-    private static List<Biome> handleJsonAndFillBiomeList(Registry<Biome> registry) {
-        BYGJsonConfigHandler.handleEndBiomeJsonConfigs(BYG.CONFIG_PATH, registry);
-        return Stream.concat(((WeightedListAccess<ResourceLocation>) END_BIOMES).getEntries().stream(), ((WeightedListAccess<ResourceLocation>) VOID_BIOMES).getEntries().stream()).map(WeightedList.Entry::getData).map(registry::get).collect(Collectors.toList());
+        WeightedList<ResourceLocation> endBiomes = new WeightedList<>();
+        Map<ResourceLocation, WeightedList<ResourceLocation>> endHills = new HashMap<>();
+        Map<ResourceLocation, ResourceLocation> biomeToEdge = new HashMap<>();
+        Set<ResourceLocation> allBiomes = new HashSet<>();
+        BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = BYG.getEndData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-biomes.json"), registry);
+        endBiomeDataHolder.getEndBiomeData().forEach(((biome, endBiomeData) -> {
+            endBiomes.add(biome, endBiomeData.getWeight());
+            endHills.put(biome, endBiomeData.getSubBiomes());
+            biomeToEdge.put(biome, endBiomeData.getEdgeBiome());
+            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.Entry::getData).collect(Collectors.toList()));
+    }));
+
+        WeightedList<ResourceLocation> voidBiomes = new WeightedList<>();
+        Map<ResourceLocation, WeightedList<ResourceLocation>> voidHillsMap = new HashMap<>();
+        Map<ResourceLocation, ResourceLocation> voidBiomeToEdge = new HashMap<>();
+
+        endBiomeDataHolder.getVoidBiomeData().forEach(((biome, endBiomeData) -> {
+            voidBiomes.add(biome, endBiomeData.getWeight());
+            voidHillsMap.put(biome, endBiomeData.getSubBiomes());
+            voidBiomeToEdge.put(biome, endBiomeData.getEdgeBiome());
+            allBiomes.add(biome);
+            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData).getEntries().stream().map(WeightedList.Entry::getData).collect(Collectors.toList()));
+        }));
+
+        BiomeDataHolders.EndSubBiomeDataHolder endSubBiomeDataHolder = BYG.getEndSubBiomeData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-sub-biomes.json"), registry);
+
+        endSubBiomeDataHolder.getEndSubBiomeData().forEach(((biome, endBiomeData) -> {
+            biomeToEdge.put(biome, endBiomeData.getEdgeBiome());
+            allBiomes.add(biome);
+            allBiomes.add(endBiomeData.getEdgeBiome());
+        }));
+
+        endSubBiomeDataHolder.getVoidSubBiomeData().forEach(((biome, endBiomeData) -> {
+            biomeToEdge.put(biome, endBiomeData.getEdgeBiome());
+            allBiomes.add(biome);
+            allBiomes.add(endBiomeData.getEdgeBiome());
+        }));
+
+        this.possibleBiomes.addAll(allBiomes.stream().map(registry::get).collect(Collectors.toList()));
+        this.mainIslandLayer = EndLayerProviders.stackLayers(this.biomeRegistry, seed, endBiomes, endHills, biomeToEdge);
+        this.smallIslandLayer = EndLayerProviders.stackVoidLayers(this.biomeRegistry, seed, voidBiomes, voidHillsMap, voidBiomeToEdge);
+        this.generator = new SimplexNoiseGenerator(sharedseedrandom);
     }
 
     @Override

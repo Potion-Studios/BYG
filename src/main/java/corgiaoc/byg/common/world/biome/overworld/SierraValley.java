@@ -14,7 +14,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.common.BiomeManager;
+import corgiaoc.byg.util.MLClimate;
 
 public class SierraValley extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("sierra_valley", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.SIERRA_VALLEY, SurfaceBuilder.CONFIG_GRASS));
@@ -52,8 +52,8 @@ public class SierraValley extends BYGBiome {
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.DESERT;
+    public MLClimate getClimate() {
+        return MLClimate.DESERT;
     }
 
     @Nullable

@@ -14,7 +14,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.BiomeManager;
+import corgiaoc.byg.util.MLClimate;
 
 public class Canyons extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("canyons", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CANYONS, new SurfaceBuilderConfig(BYGBlocks.OVERGROWN_STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState())));
@@ -63,8 +63,8 @@ public class Canyons extends BYGBiome {
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.WARM;
+    public MLClimate getClimate() {
+        return MLClimate.WARM;
     }
 
     static {

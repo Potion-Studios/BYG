@@ -14,7 +14,7 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraftforge.common.BiomeManager;
+import corgiaoc.byg.util.MLClimate;
 
 public class CragGardens extends BYGBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("crag_gardens", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CRAG_GARDENS, BYGSurfaceBuilders.Configs.GREEN_CONCRETE_POWDER_CF));
@@ -52,8 +52,8 @@ public class CragGardens extends BYGBiome {
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.WARM;
+    public MLClimate getClimate() {
+        return MLClimate.WARM;
     }
 
     @Override

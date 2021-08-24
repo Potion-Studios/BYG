@@ -15,7 +15,7 @@ import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.common.BiomeManager;
+import corgiaoc.byg.util.MLClimate;
 
 public class WeepingWitchForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("weeping_witch_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.EBONY, SurfaceBuilder.CONFIG_GRASS));
@@ -57,8 +57,8 @@ public class WeepingWitchForest extends BYGBiome {
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.COOL;
+    public MLClimate getClimate() {
+        return MLClimate.COOL;
     }
 
     @Override

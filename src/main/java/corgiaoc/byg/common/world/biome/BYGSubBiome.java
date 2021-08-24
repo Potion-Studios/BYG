@@ -1,24 +1,21 @@
 package corgiaoc.byg.common.world.biome;
 
-import corgiaoc.byg.config.json.subbiomedata.SubBiomeData;
+import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
+import corgiaoc.byg.config.json.biomedata.OverworldSubBiomeData;
 import corgiaoc.byg.mixin.access.BiomeAccess;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @SuppressWarnings("deprecation")
 public class BYGSubBiome {
     public static final List<BYGSubBiome> BYG_SUB_BIOMES = new ArrayList<>();
     private final Biome biome;
-
-    public static List<SubBiomeData> subBiomeData = new ArrayList<>();
-
 
     public BYGSubBiome(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
         biome = BiomeAccess.create(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
@@ -35,6 +32,7 @@ public class BYGSubBiome {
         BYG_SUB_BIOMES.add(this);
     }
 
+    @Nullable
     public Biome getBeach() {
         return WorldGenRegistries.BIOME.getOrThrow(Biomes.BEACH);
     }
@@ -58,5 +56,13 @@ public class BYGSubBiome {
 
     public RegistryKey<Biome> getKey() {
         return RegistryKey.create(Registry.BIOME_REGISTRY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
+    }
+
+    public static BiomeDataHolders.OverworldSubBiomeDataHolder extractDefaultHolder() {
+        Map<ResourceLocation, OverworldSubBiomeData> biomeData = new HashMap<>();
+        for (BYGSubBiome bygBiome : BYG_SUB_BIOMES) {
+            biomeData.put(WorldGenRegistries.BIOME.getKey(bygBiome.getBiome()), new OverworldSubBiomeData(Arrays.asList(bygBiome.getBiomeDictionary()), bygBiome.getEdge() != null ? WorldGenRegistries.BIOME.getKey(bygBiome.getEdge()) : new ResourceLocation(""), bygBiome.getBeach() != null ? WorldGenRegistries.BIOME.getKey(bygBiome.getBeach()) : new ResourceLocation(""), WorldGenRegistries.BIOME.getKey(bygBiome.getRiver())));
+        }
+        return new BiomeDataHolders.OverworldSubBiomeDataHolder(biomeData);
     }
 }

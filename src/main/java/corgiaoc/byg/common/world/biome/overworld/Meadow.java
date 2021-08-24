@@ -15,7 +15,7 @@ import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.BiomeManager;
+import corgiaoc.byg.util.MLClimate;
 
 public class Meadow extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("meadow", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BYGBlocks.MEADOW_GRASSBLOCK.defaultBlockState(), BYGBlocks.MEADOW_DIRT.defaultBlockState(), BYGBlocks.MEADOW_DIRT.defaultBlockState())));
@@ -54,8 +54,8 @@ public class Meadow extends BYGBiome {
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.WARM;
+    public MLClimate getClimate() {
+        return MLClimate.WARM;
     }
 
     @Override

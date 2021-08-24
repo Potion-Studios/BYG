@@ -36,8 +36,8 @@ public class MixinMixOceansLayer {
 //                break;
 //            }
 //            case 47: { // Deep Warm Ocean
-//                if (BYGBiomes.TRACKED_OCEANS.containsKey(BiomeManager.BiomeType.DESERT)) {
-//                    Biome ocean = getBiomeFromWeightedList(BYGBiomes.TRACKED_OCEANS.get(BiomeManager.BiomeType.DESERT), rand, biomeRegistry);
+//                if (BYGBiomes.TRACKED_OCEANS.containsKey(MLClimate.DESERT)) {
+//                    Biome ocean = getBiomeFromWeightedList(BYGBiomes.TRACKED_OCEANS.get(MLClimate.DESERT), rand, biomeRegistry);
 //                    if (ocean != null) {
 //                        cir.setReturnValue(biomeRegistry.getId(ocean));
 //                    }
@@ -45,9 +45,9 @@ public class MixinMixOceansLayer {
 //                break;
 //            }
 //            case 48: { // Deep Lukewarm Ocean
-//                if (BYGBiomes.TRACKED_OCEANS.containsKey(BiomeManager.BiomeType.WARM)) {
+//                if (BYGBiomes.TRACKED_OCEANS.containsKey(MLClimate.WARM)) {
 //
-//                    Biome ocean = getBiomeFromWeightedList(BYGBiomes.TRACKED_OCEANS.get(BiomeManager.BiomeType.WARM), rand, biomeRegistry);
+//                    Biome ocean = getBiomeFromWeightedList(BYGBiomes.TRACKED_OCEANS.get(MLClimate.WARM), rand, biomeRegistry);
 //                    if (ocean != null) {
 //                        cir.setReturnValue(biomeRegistry.getId(ocean));
 //                    }
@@ -55,8 +55,8 @@ public class MixinMixOceansLayer {
 //                break;
 //            }
 //            case 49: { // Deep Cold Ocean
-//                if (BYGBiomes.TRACKED_OCEANS.containsKey(BiomeManager.BiomeType.COOL)) {
-//                    Biome ocean = getBiomeFromWeightedList(BYGBiomes.TRACKED_OCEANS.get(BiomeManager.BiomeType.COOL), rand, biomeRegistry);
+//                if (BYGBiomes.TRACKED_OCEANS.containsKey(MLClimate.COOL)) {
+//                    Biome ocean = getBiomeFromWeightedList(BYGBiomes.TRACKED_OCEANS.get(MLClimate.COOL), rand, biomeRegistry);
 //                    if (ocean != null) {
 //                        cir.setReturnValue(biomeRegistry.getId(ocean));
 //                    }
@@ -64,8 +64,8 @@ public class MixinMixOceansLayer {
 //                break;
 //            }
 //            case 50: { // Deep Frozen Ocean
-//                if (BYGBiomes.TRACKED_OCEANS.containsKey(BiomeManager.BiomeType.ICY)) {
-//                    Biome ocean = getBiomeFromWeightedList(BYGBiomes.TRACKED_OCEANS.get(BiomeManager.BiomeType.ICY), rand, biomeRegistry);
+//                if (BYGBiomes.TRACKED_OCEANS.containsKey(MLClimate.ICY)) {
+//                    Biome ocean = getBiomeFromWeightedList(BYGBiomes.TRACKED_OCEANS.get(MLClimate.ICY), rand, biomeRegistry);
 //                    if (ocean != null) {
 //                        cir.setReturnValue(biomeRegistry.getId(ocean));
 //                    }

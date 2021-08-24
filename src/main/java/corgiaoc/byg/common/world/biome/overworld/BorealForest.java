@@ -14,7 +14,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.common.BiomeManager;
+import corgiaoc.byg.util.MLClimate;
 
 public class BorealForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("boreal_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BOREAL, SurfaceBuilder.CONFIG_GRASS));
@@ -58,8 +58,8 @@ public class BorealForest extends BYGBiome {
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.COOL;
+    public MLClimate getClimate() {
+        return MLClimate.COOL;
     }
 
     static {

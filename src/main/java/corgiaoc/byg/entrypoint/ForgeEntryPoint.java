@@ -81,44 +81,41 @@ public class ForgeEntryPoint implements EntryPoint {
         return NetworkHooks.getEntitySpawningPacket(entity);
     }
 
-    @Mod.EventBusSubscriber(modid = BYG.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class BYGRegistries {
-        @SubscribeEvent
-        public static void registerBlocks(RegistryEvent.Register<Block> event) {
-            BYG.LOGGER.debug("BYG: Registering blocks...");
-            BYGBlocks.blocksList.forEach(block -> event.getRegistry().register(block));
-            BYGBlocks.flowerPotBlocks.forEach(block -> event.getRegistry().register(block));
-            BYG.LOGGER.info("BYG: Blocks registered!");
-        }
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        BYG.LOGGER.debug("BYG: Registering blocks...");
+        BYGBlocks.blocksList.forEach(block -> event.getRegistry().register(block));
+        BYGBlocks.flowerPotBlocks.forEach(block -> event.getRegistry().register(block));
+        BYG.LOGGER.info("BYG: Blocks registered!");
+    }
 
-        @SubscribeEvent
-        public static void registerItems(RegistryEvent.Register<Item> event) {
-            BYG.LOGGER.debug("BYG: Registering items...");
-            BYGItems.itemsList.forEach(item -> event.getRegistry().register(item));
-            BYG.LOGGER.info("BYG: Items registered!");
-        }
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        BYG.LOGGER.debug("BYG: Registering items...");
+        BYGItems.itemsList.forEach(item -> event.getRegistry().register(item));
+        BYG.LOGGER.info("BYG: Items registered!");
+    }
 
-        @SubscribeEvent
-        public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
-            BYG.LOGGER.debug("BYG: Registering entities...");
-            BYGEntities.entities.forEach(entityType -> event.getRegistry().register(entityType));
-            BYG.LOGGER.info("BYG: Entities registered!");
-        }
+    @SubscribeEvent
+    public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
+        BYG.LOGGER.debug("BYG: Registering entities...");
+        BYGEntities.entities.forEach(entityType -> event.getRegistry().register(entityType));
+        BYG.LOGGER.info("BYG: Entities registered!");
+    }
 
-        @SubscribeEvent
-        public static void registerTileEntities(RegistryEvent.Register<TileEntityType<?>> event) {
-            BYG.LOGGER.debug("BYG: Registering block entities...");
-            BYGTileEntities.BLOCK_ENTITIES.forEach(entityType -> event.getRegistry().register(entityType));
-            BYG.LOGGER.info("BYG: Block Entities registered!");
-        }
+    @SubscribeEvent
+    public static void registerTileEntities(RegistryEvent.Register<TileEntityType<?>> event) {
+        BYG.LOGGER.debug("BYG: Registering block entities...");
+        BYGTileEntities.BLOCK_ENTITIES.forEach(entityType -> event.getRegistry().register(entityType));
+        BYG.LOGGER.info("BYG: Block Entities registered!");
+    }
 
-        @SubscribeEvent
-        public static void registerContainers(RegistryEvent.Register<ContainerType<?>> event) {
-            BYG.LOGGER.debug("BYG: Registering block entities...");
-            BYGEntities.init();
-            BYGContainerTypes.CONTAINER_TYPES.forEach(containerType -> event.getRegistry().register(containerType));
-            BYG.LOGGER.info("BYG: Block Entities registered!");
-        }
+    @SubscribeEvent
+    public static void registerContainers(RegistryEvent.Register<ContainerType<?>> event) {
+        BYG.LOGGER.debug("BYG: Registering block entities...");
+        BYGEntities.init();
+        BYGContainerTypes.CONTAINER_TYPES.forEach(containerType -> event.getRegistry().register(containerType));
+        BYG.LOGGER.info("BYG: Block Entities registered!");
     }
 
     @SubscribeEvent

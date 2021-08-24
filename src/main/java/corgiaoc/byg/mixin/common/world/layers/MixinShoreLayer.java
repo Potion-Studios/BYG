@@ -1,6 +1,8 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
@@ -10,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "ConstantConditions"})
 @Mixin(ShoreLayer.class)
 public abstract class MixinShoreLayer {
 
@@ -28,23 +30,27 @@ public abstract class MixinShoreLayer {
 
 
     @Inject(at = @At("HEAD"), method = "apply(Lnet/minecraft/world/gen/INoiseRandom;IIIII)I", cancellable = true)
-    private void injectBYGEdges(INoiseRandom rand, int n, int w, int s, int e, int centre, CallbackInfoReturnable<Integer> cir) {
+    private void injectBYGEdges(INoiseRandom rand, int n, int w, int s, int e, int c, CallbackInfoReturnable<Integer> cir) {
         final int[] ArrayNESW = {n, w, s, e};
+
+        ResourceLocation centre = BYG.biomeRegistryAccess.getKey(BYG.biomeRegistryAccess.byId(c));
 
         for (int idx : ArrayNESW) {
             if (BYGBiome.BIOME_TO_EDGE_LIST.containsKey(centre))
                 if (!isEdgeCompatible(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_EDGE_LIST.get(centre)));
+                    cir.setReturnValue(BYG.biomeRegistryAccess.getId(BYG.biomeRegistryAccess.get(BYGBiome.BIOME_TO_EDGE_LIST.get(centre))));
 
             if (BYGBiome.BIOME_TO_BEACH_LIST.containsKey(centre)) {
                 if (isOcean(idx))
-                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_BEACH_LIST.get(centre)));
+                    cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYG.biomeRegistryAccess.get(BYGBiome.BIOME_TO_BEACH_LIST.get(centre))));
             }
         }
     }
 
     private static boolean isEdgeCompatible(int idx) {
-        return BYGBiome.BIOME_TO_EDGE_LIST.containsKey(idx) || isOcean(idx);
+        ResourceLocation idxLocation = BYG.biomeRegistryAccess.getKey(BYG.biomeRegistryAccess.byId(idx));
+
+        return BYGBiome.BIOME_TO_EDGE_LIST.containsKey(idxLocation) || isOcean(idx);
     }
 
     private static boolean isOcean(int biome) {

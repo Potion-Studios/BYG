@@ -16,7 +16,7 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.BiomeManager;
+import corgiaoc.byg.util.MLClimate;
 
 public class ShatteredGlacier extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("shattered_glacier", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.SHATTERED_GLACIER, new SurfaceBuilderConfig(Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.SNOW_BLOCK.defaultBlockState())));
@@ -54,8 +54,8 @@ public class ShatteredGlacier extends BYGBiome {
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.ICY;
+    public MLClimate getClimate() {
+        return MLClimate.ICY;
     }
 
     @Override

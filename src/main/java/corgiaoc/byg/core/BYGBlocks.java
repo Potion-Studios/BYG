@@ -1940,13 +1940,6 @@ public class BYGBlocks {
         return block;
     }
 
-    static Block createBlock(Block block, ResourceLocation id) {
-        //Registry.register(Registry.BLOCK, id, createBlock);
-        block.setRegistryName(id);
-        blocksList.add(block);
-        return block;
-    }
-
     public static void init() {
 
     }

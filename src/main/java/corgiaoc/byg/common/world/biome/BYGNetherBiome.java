@@ -21,11 +21,7 @@ import java.util.Objects;
 public class BYGNetherBiome {
     public static final List<BYGNetherBiome> BYG_NETHER_BIOMES = new ArrayList<>();
     private final Biome biome;
-
-    public static final Int2ObjectMap<WeightedList<Biome>> BIOME_TO_HILLS = new Int2ObjectArrayMap<>();
-    public static final Int2ObjectMap<Biome> BIOME_TO_EDGE = new Int2ObjectArrayMap<>();
-
-
+    
     public BYGNetherBiome(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
         biome = BiomeAccess.create(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
         BYG_NETHER_BIOMES.add(this);

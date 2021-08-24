@@ -16,7 +16,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.BiomeManager;
+import corgiaoc.byg.util.MLClimate;
 
 public class StoneForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("stone_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.STONE_FOREST, new SurfaceBuilderConfig(BYGBlocks.OVERGROWN_STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState())));
@@ -61,8 +61,8 @@ public class StoneForest extends BYGBiome {
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.WARM;
+    public MLClimate getClimate() {
+        return MLClimate.WARM;
     }
 
     @Override

@@ -1,39 +1,57 @@
 package corgiaoc.byg;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.JsonOps;
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import corgiaoc.byg.common.entity.villager.BYGVillagerType;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
 import corgiaoc.byg.common.properties.blocks.vanilla.ITreeSpawner;
 import corgiaoc.byg.common.properties.vanilla.*;
+import corgiaoc.byg.common.world.biome.BYGBiome;
+import corgiaoc.byg.common.world.biome.BYGEndBiome;
+import corgiaoc.byg.common.world.biome.BYGEndSubBiome;
+import corgiaoc.byg.common.world.biome.BYGSubBiome;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeSource;
 import corgiaoc.byg.config.WorldConfig;
-import corgiaoc.byg.config.json.BYGJsonConfigHandler;
+import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
+import corgiaoc.byg.config.json.biomedata.OverworldPrimaryBiomeData;
+import corgiaoc.byg.config.json.biomedata.OverworldSubBiomeData;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.entrypoint.EntryPoint;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
 
 public class BYG {
     public static final String MOD_ID = "byg";
+    public static final Logger LOGGER = LogManager.getLogger();
+
     public static boolean isClient = false;
-    public static Logger LOGGER = LogManager.getLogger();
     public static boolean isUsingMixin;
     public static String FILE_PATH = "yeet";
-
     public static Path CONFIG_PATH = null;
-
     public static EntryPoint entryPoint = null;
-
     public static WorldConfig worldConfig = null;
+
+    public static Registry<Biome> biomeRegistryAccess = null;
 
     public static WorldConfig worldConfig(boolean refreshConfig) {
         if (worldConfig == null || refreshConfig) {
@@ -60,7 +78,6 @@ public class BYG {
     public static void commonLoad() {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
         BYGCreativeTab.init();
-        BYGJsonConfigHandler.handleOverWorldConfig(CONFIG_PATH);
 
         for (Block block : Registry.BLOCK) {
             if (block instanceof ITreeSpawner) {
@@ -76,8 +93,120 @@ public class BYG {
         Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygnether"), BYGNetherBiomeSource.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "bygend"), BYGEndBiomeSource.BYGENDCODEC);
         BYGVillagerType.setVillagerForBYGBiomes();
-        BYGBiomes.addBiomeEntries();
-        BYGBiomes.fillBiomeDictionary();
+        Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
+        handleOverWorldConfig(gson);
+        handleOverWorldSubConfig(gson);
+    }
+
+    public static BiomeDataHolders.EndBiomeDataHolder getEndData(Gson gson, Path biomesConfigPath, Registry<Biome> biomeRegistry) {
+        BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = BYGEndBiome.extractDefaultHolder(biomeRegistry);
+
+        File biomesConfigFile = biomesConfigPath.toFile();
+        try {
+            if (!biomesConfigFile.exists()) {
+                DataResult<JsonElement> jsonElementDataResult = BiomeDataHolders.EndBiomeDataHolder.CODEC.encodeStart(JsonOps.INSTANCE, endBiomeDataHolder);
+                Files.createDirectories(biomesConfigPath.getParent());
+                Files.write(biomesConfigPath, gson.toJson(jsonElementDataResult.result().get()).getBytes());
+            }
+            Optional<Pair<BiomeDataHolders.EndBiomeDataHolder, JsonElement>> result = BiomeDataHolders.EndBiomeDataHolder.CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(biomesConfigFile))).result();
+            if (result.isPresent()) {
+                endBiomeDataHolder = result.get().getFirst();
+            }
+
+        } catch (IOException e) {
+            LOGGER.error("Could not read \"" + biomesConfigPath.toString() + "\"... using internal defaults...");
+            e.printStackTrace();
+        }
+
+        BYGBiomes.fillBiomeDictionary(endBiomeDataHolder.getEndBiomeData());
+        BYGBiomes.fillBiomeDictionary(endBiomeDataHolder.getVoidBiomeData());
+        return endBiomeDataHolder;
+    }
+
+    public static BiomeDataHolders.EndSubBiomeDataHolder getEndSubBiomeData(Gson gson, Path biomesConfigPath, Registry<Biome> biomeRegistry) {
+        BiomeDataHolders.EndSubBiomeDataHolder endBiomeDataHolder = BYGEndSubBiome.extractDefaultHolder(biomeRegistry);
+
+        File biomesConfigFile = biomesConfigPath.toFile();
+        try {
+            if (!biomesConfigFile.exists()) {
+                DataResult<JsonElement> jsonElementDataResult = BiomeDataHolders.EndSubBiomeDataHolder.CODEC.encodeStart(JsonOps.INSTANCE, endBiomeDataHolder);
+                Files.createDirectories(biomesConfigPath.getParent());
+                Files.write(biomesConfigPath, gson.toJson(jsonElementDataResult.result().get()).getBytes());
+            }
+            Optional<Pair<BiomeDataHolders.EndSubBiomeDataHolder, JsonElement>> result = BiomeDataHolders.EndSubBiomeDataHolder.CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(biomesConfigFile))).result();
+            if (result.isPresent()) {
+                endBiomeDataHolder = result.get().getFirst();
+            }
+
+        } catch (IOException e) {
+            LOGGER.error("Could not read \"" + biomesConfigPath.toString() + "\"... using internal defaults...");
+            e.printStackTrace();
+        }
+
+        BYGBiomes.fillBiomeDictionary(endBiomeDataHolder.getEndSubBiomeData());
+        BYGBiomes.fillBiomeDictionary(endBiomeDataHolder.getVoidSubBiomeData());
+        return endBiomeDataHolder;
+    }
+
+    private static void handleOverWorldConfig(Gson gson) {
+        BiomeDataHolders.OverworldPrimaryBiomeDataHolder overworldPrimaryBiomeDataHolder = BYGBiome.extractDefaultHolder();
+        Path biomesConfigPath = CONFIG_PATH.resolve(BYG.MOD_ID + "-biomes.json");
+
+        File biomesConfigFile = biomesConfigPath.toFile();
+        try {
+            if (!biomesConfigFile.exists()) {
+                DataResult<JsonElement> jsonElementDataResult = BiomeDataHolders.OverworldPrimaryBiomeDataHolder.CODEC.encodeStart(JsonOps.INSTANCE, overworldPrimaryBiomeDataHolder);
+                Files.createDirectories(biomesConfigPath.getParent());
+                Files.write(biomesConfigPath, gson.toJson(jsonElementDataResult.result().get()).getBytes());
+            }
+            Optional<Pair<BiomeDataHolders.OverworldPrimaryBiomeDataHolder, JsonElement>> result = BiomeDataHolders.OverworldPrimaryBiomeDataHolder.CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(biomesConfigFile))).result();
+            if (result.isPresent()) {
+              overworldPrimaryBiomeDataHolder = result.get().getFirst();
+            }
+
+        } catch (IOException e) {
+            LOGGER.error("Could not read \"" + biomesConfigPath.toString() + "\"... using internal defaults...");
+            e.printStackTrace();
+        }
+        overworldPrimaryBiomeDataHolder.getBiomeData().forEach(((location, primaryBiomeData) -> {
+            BYGBiome.BIOME_TO_RIVER_LIST.put(location, primaryBiomeData.getRiver());
+            BYGBiome.BIOME_TO_BEACH_LIST.put(location, primaryBiomeData.getBeach());
+            BYGBiome.BIOME_TO_EDGE_LIST.put(location, primaryBiomeData.getEdgeBiome());
+            BYGBiome.BIOME_TO_HILLS_LIST.put(location, primaryBiomeData.getSubBiomes());
+        }));
+        
+
+        BYGBiomes.handleOverworldEntries(overworldPrimaryBiomeDataHolder);
+    }
+
+    private static void handleOverWorldSubConfig(Gson gson) {
+        BiomeDataHolders.OverworldSubBiomeDataHolder overworldSubBiomeDataHolder = BYGSubBiome.extractDefaultHolder();
+        Path biomesConfigPath = CONFIG_PATH.resolve(BYG.MOD_ID + "-sub-biomes.json");
+
+        File biomesConfigFile = biomesConfigPath.toFile();
+        try {
+            if (!biomesConfigFile.exists()) {
+                DataResult<JsonElement> jsonElementDataResult = BiomeDataHolders.OverworldSubBiomeDataHolder.CODEC.encodeStart(JsonOps.INSTANCE, overworldSubBiomeDataHolder);
+                Files.createDirectories(biomesConfigPath.getParent());
+                Files.write(biomesConfigPath, gson.toJson(jsonElementDataResult.result().get()).getBytes());
+            }
+            Optional<Pair<BiomeDataHolders.OverworldSubBiomeDataHolder, JsonElement>> result = BiomeDataHolders.OverworldSubBiomeDataHolder.CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(biomesConfigFile))).result();
+            if (result.isPresent()) {
+                overworldSubBiomeDataHolder = result.get().getFirst();
+            }
+
+        } catch (IOException e) {
+            LOGGER.error("Could not read \"" + biomesConfigPath.toString() + "\"... using internal defaults...");
+            e.printStackTrace();
+        }
+
+        overworldSubBiomeDataHolder.getBiomeData().forEach(((location, subBiomeData) -> {
+            BYGBiome.BIOME_TO_RIVER_LIST.put(location, subBiomeData.getRiver());
+            BYGBiome.BIOME_TO_BEACH_LIST.put(location, subBiomeData.getBeach());
+            BYGBiome.BIOME_TO_EDGE_LIST.put(location, subBiomeData.getEdgeBiome());
+        }));
+
+        BYGBiomes.fillBiomeDictionary(overworldSubBiomeDataHolder.getBiomeData());
     }
 
     public static void clientLoad() {

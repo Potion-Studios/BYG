@@ -3,7 +3,7 @@ package corgiaoc.byg.core.world;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.world.biome.*;
+import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.end.*;
 import corgiaoc.byg.common.world.biome.end.sub.*;
 import corgiaoc.byg.common.world.biome.nether.*;
@@ -18,16 +18,14 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
 import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
-import corgiaoc.byg.config.json.endbiomedata.EndBiomeData;
-import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeData;
-import corgiaoc.byg.config.json.subbiomedata.SubBiomeData;
+import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
+import corgiaoc.byg.config.json.biomedata.BiomeDataListHolder;
+import corgiaoc.byg.config.json.biomedata.OverworldPrimaryBiomeData;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.mixin.access.BiomeGenerationSettingsAccess;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -37,9 +35,8 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -270,96 +267,27 @@ public class BYGBiomes {
 
 
     public static void init() {
-    }
 
-    public static final IdentityHashMap<BiomeManager.BiomeType, WeightedList<ResourceLocation>> TRACKED_OCEANS = new IdentityHashMap<>();
+    }
 
     @SuppressWarnings("ConstantConditions")
-    public static void addBiomeEntries() {
-        for (BiomeData biomeData : BYGBiome.biomeData) {
-            List<BiomeDictionary.Type> dictionaryList = Arrays.stream(biomeData.getDictionaryTypes()).map(BiomeDictionary.Type::getType).collect(Collectors.toList());
-            ResourceLocation key = WorldGenRegistries.BIOME.getKey(biomeData.getBiome());
-
-//            if (!dictionaryList.contains(OCEAN)) {
-            if (biomeData.getBiomeWeight() > 0) {
-                BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, key), biomeData.getBiomeWeight()));
+    public static void handleOverworldEntries(BiomeDataHolders.OverworldPrimaryBiomeDataHolder overworldPrimaryBiomeDataHolder) {
+        overworldPrimaryBiomeDataHolder.getBiomeData().forEach(((biome, biomeData) -> {
+            if (biomeData.getWeight() > 0) {
+                BiomeManager.addBiome(biomeData.getClimate().getClimate(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, biome), biomeData.getWeight()));
             }
-//            } else {
-//                TRACKED_OCEANS.computeIfAbsent(biomeData.getBiomeType(), (biomeType) -> new WeightedList<>()).add(key, biomeData.getBiomeWeight());
-//            }
-        }
+        }));
 
-        addDefaultOceans();
+        fillBiomeDictionary(overworldPrimaryBiomeDataHolder.getBiomeData());
     }
 
-    private static void addDefaultOceans() {
-        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.ICY, (biometype) -> new WeightedList<>()).add(Biomes.FROZEN_OCEAN.getRegistryName(), 5);
-        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.COOL, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_COLD_OCEAN.getRegistryName(), 5);
-        TRACKED_OCEANS.computeIfAbsent(null, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_OCEAN.getRegistryName(), 5);
-        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.WARM, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_LUKEWARM_OCEAN.getRegistryName(), 5);
-        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.DESERT, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_WARM_OCEAN.getRegistryName(), 5);
-    }
-
-    public static void fillBiomeDictionary(Registry<Biome> biomeRegistry) {
-        for (EndBiomeData endBiomeData : BYGEndBiome.endBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
-            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
-                BiomeDictionary.Type type = BiomeDictionary.Type.getType(endBiomeData.getDictionaryTypes()[idx]);
-                if (!(BiomeDictionary.hasType(key, type)))
-                    BiomeDictionary.addTypes(key, type);
+    public static void fillBiomeDictionary(Map<ResourceLocation, ? extends BiomeData> biomeDataList) {
+        biomeDataList.forEach(((biome, biomeData) -> {
+            RegistryKey<Biome> biomeRegistryKey = RegistryKey.create(Registry.BIOME_REGISTRY, biome);
+            for (String dictionaryType : biomeData.getDictionaryTypes()) {
+                BiomeDictionary.addTypes(biomeRegistryKey, BiomeDictionary.Type.getType(dictionaryType));
             }
-        }
-        for (EndBiomeData endBiomeData : BYGEndBiome.voidBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
-            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
-                BiomeDictionary.Type type = BiomeDictionary.Type.getType(endBiomeData.getDictionaryTypes()[idx]);
-                if (!(BiomeDictionary.hasType(key, type)))
-                    BiomeDictionary.addTypes(key, type);
-            }
-        }
-
-        for (EndSubBiomeData endBiomeData : BYGEndSubBiome.endSubBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
-            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
-                BiomeDictionary.Type type = BiomeDictionary.Type.getType(endBiomeData.getDictionaryTypes()[idx]);
-                if (!(BiomeDictionary.hasType(key, type)))
-                    BiomeDictionary.addTypes(key, type);
-            }
-        }
-
-        for (EndSubBiomeData endBiomeData : BYGEndSubBiome.voidSubBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
-            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
-                BiomeDictionary.Type type = BiomeDictionary.Type.getType(endBiomeData.getDictionaryTypes()[idx]);
-                if (!(BiomeDictionary.hasType(key, type)))
-                    BiomeDictionary.addTypes(key, type);
-            }
-        }
-    }
-
-    public static void fillBiomeDictionary() {
-        for (BiomeData bygBiome : BYGBiome.biomeData) {
-            String[] dictionaryTypes = bygBiome.getDictionaryTypes();
-            for (String dictionaryType : dictionaryTypes) {
-                BiomeDictionary.Type type = BiomeDictionary.Type.getType(dictionaryType);
-                BiomeDictionary.addTypes(RegistryKey.create(Registry.BIOME_REGISTRY, WorldGenRegistries.BIOME.getKey(bygBiome.getBiome())), type);
-            }
-        }
-        for (SubBiomeData bygSubBiome : BYGSubBiome.subBiomeData) {
-            String[] dictionaryTypes = bygSubBiome.getDictionaryTypes();
-            for (String dictionaryType : dictionaryTypes) {
-                BiomeDictionary.Type type = BiomeDictionary.Type.getType(dictionaryType);
-                BiomeDictionary.addTypes(RegistryKey.create(Registry.BIOME_REGISTRY, WorldGenRegistries.BIOME.getKey(bygSubBiome.getBiome())), type);
-            }
-        }
-
-        for (BYGNetherBiome bygNetherBiome : BYGNetherBiome.BYG_NETHER_BIOMES) {
-            String[] dictionaryTypes = bygNetherBiome.getBiomeDictionary();
-            for (String dictionaryType : dictionaryTypes) {
-                BiomeDictionary.Type type = BiomeDictionary.Type.getType(dictionaryType);
-                BiomeDictionary.addTypes(bygNetherBiome.getKey(), type);
-            }
-        }
+        }));
     }
 
     //used in MixinMinecraftServer
